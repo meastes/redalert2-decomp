@@ -4,6 +4,14 @@
 // counterpart is port/src/os_apple.cpp). Objective-C++ with ARC; no SDL and no
 // Win32 port headers here (both define BOOL).
 #include "host_os.hpp"
+// Both games in one executable (lane Y8, ra2yr-one; native/yr/README.md "iOS in one executable"):
+// each engine has its own copy of this file, and Objective-C class names are global in the
+// runtime whatever the symbol visibility, so Yuri's Revenge's engine names its classes apart.
+#if defined(RA2_NATIVE_ENGINE) && defined(RA2_NATIVE_YR)
+#define RA2ImportPicker YRImportPicker
+#define RA2PassView YRPassView
+#define RA2Toolbar YRToolbar
+#endif
 
 #import <Foundation/Foundation.h>
 #include <TargetConditionals.h>

@@ -3379,6 +3379,13 @@
    "old": "            Add_CRC(&id, path[i]);\n        }\n    }\n    return id;\n}",
    "new": "            Add_CRC(&id, path[i]);\n        }\n    }\n    Add_CRC(&id, ra2port_install_id());   /* NATIVE: this installation's random id (lane C20) */\n    return id;\n}",
    "why": "Native (lane C20, owner ruling 2026-11-16): SessionClass::Compute_Unique_ID hashes timeGetTime, the free disk space and PATH through Add_CRC, which shifts the time almost entirely out; the port caps the free space at 2 GB, so two games with the same PATH (two iPhones, two Macs started from Finder) shared a UniqueID about one time in two and each ignored the other's LAN chat announcements (Get_Join_Responses drops a NET_CHAT_ANNOUNCE carrying its own ID). The installation's random id (port/src/port_core.cpp ra2port_install_id; the app keeps it in its settings file) is added last, whole, so different installations differ. The original's inputs stay."
+  },
+  {
+   "source": "src/recovered/init.cpp",
+   "old": "void __fastcall Title_Screen_Restore(bool force)\n{\n    if (SurfacesRestored || force) {\n",
+   "new": "void Native_Widescreen_Check();    // NATIVE (lane Y8): link/native_widescreen.cpp\nvoid __fastcall Title_Screen_Restore(bool force)\n{\n    Native_Widescreen_Check();\n    if (SurfacesRestored || force) {\n",
+   "why": "Native addition (lane Y8, user report 2026-11-16: widescreen on the Mac as on iOS; not original behaviour): the shell's idle step (Title_Screen_Restore 0x00517370, every menu loop's) first asks whether the window's aspect wants another game mode (link/native_widescreen.cpp; host.cpp ra2_host_widescreen_target) and changes it as the Options dialog does (Set_Display_Mode). Off unless the host turns widescreen on (the Mac app; RA2_NATIVE_WIDESCREEN=1 in tests); a 4:3 window keeps the mode.",
+   "verified": false
   }
  ]
 }

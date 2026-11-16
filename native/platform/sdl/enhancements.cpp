@@ -75,7 +75,7 @@ const std::vector<Row> &rows()
         // resolution (link/native_hd_vehicles.cpp); the game's own drawing is unchanged.
         // Lane C16 (user, 2026-11-14): the map zoom follows the wheel and a trackpad pinch (Mac,
         // Windows) or a two-finger pinch (touch) in play; Map zoom above is the zoom a game starts at.
-        {"zoomgestures", "Zoom gestures", "Wheel or pinch zooms the map in play (Map zoom is where it starts).",
+        {"zoomgestures", "Trackpad and wheel zoom", "A trackpad pinch or the mouse wheel over the map zooms it in play (Map zoom is where it starts).",
          {"off", "on"}, {"Off", "On"}, true},
         // Lane C17 (user, 2026-11-15): 3x as well, aircraft and voxel building parts with them; at 3x
         // a game whose 3x work runs over the frame budget drops to 2x (the Enhanced preset keeps 2x).
@@ -173,6 +173,46 @@ void load()
 
 bool automatic(const Row &r) { return std::string(r.key) == "fullscreen" && ra2_host_touch(); }
 
+// The rows that name an input name the input of the platform the page runs on (user report,
+// 2026-11-16: the page spoke of gestures on the Mac and Windows): a touch screen's taps and
+// pinches (iOS; RA2_NATIVE_TOUCH_UI on the Mac), the Mac's trackpad and mouse, Windows' mouse.
+// The table above holds the Mac's words.
+enum class Input { touch, mac, windows };
+Input platform_input()
+{
+    if (ra2_host_touch()) return Input::touch;
+#if defined(_WIN32)
+    return Input::windows;
+#else
+    return Input::mac;
+#endif
+}
+const char *platform_label(const Row &r)
+{
+    if (std::string(r.key) == "zoomgestures") {
+        switch (platform_input()) {
+        case Input::touch: return "Pinch zoom";
+        case Input::windows: return "Wheel zoom";
+        case Input::mac: return "Trackpad and wheel zoom";
+        }
+    }
+    return r.label;
+}
+const char *platform_help(const Row &r)
+{
+    std::string key = r.key;
+    Input in = platform_input();
+    if (key == "zoomgestures")
+        return in == Input::touch ? "Two fingers pinching over the map zoom it in play (Map zoom is where it starts)."
+             : in == Input::windows ? "The mouse wheel over the map zooms it in play (Map zoom is where it starts)."
+             : "A trackpad pinch or the mouse wheel over the map zooms it in play (Map zoom is where it starts).";
+    if (in == Input::touch && key == "controls")
+        return "Modern: a tap selects, a two-finger tap or a held tap orders, a swipe scrolls.";
+    if (in == Input::touch && key == "queuefive")
+        return "With the toolbar's Add on, a tap on a build icon queues five, a held tap removes five.";
+    return r.help;
+}
+
 std::string value_of(const std::map<std::string, std::string> &s, const Row &r)
 {
     if (std::string(r.key) == "fullscreen") {
@@ -235,7 +275,7 @@ static bool is_mod_row(int i) { return mod_row() && i == (int)rows().size(); }
 const char *ra2_enh_label(int i)
 {
     if (is_mod_row(i)) return "Mod";
-    return i >= 0 && i < (int)rows().size() ? rows()[i].label : "";
+    return i >= 0 && i < (int)rows().size() ? platform_label(rows()[i]) : "";
 }
 const char *ra2_enh_help(int i)
 {
@@ -252,7 +292,7 @@ const char *ra2_enh_help(int i)
     if (i < 0 || i >= ra2_enh_rows())
         return "Native additions, not in the original. Each is off in the Original preset.";
     if (automatic(rows()[i])) return "Fullscreen follows the display here.";
-    return rows()[i].help;
+    return platform_help(rows()[i]);
 }
 int ra2_enh_automatic(int i) { return i >= 0 && i < (int)rows().size() && automatic(rows()[i]); }
 const char *ra2_enh_preset(void)

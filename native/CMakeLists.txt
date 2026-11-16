@@ -575,6 +575,14 @@ if(RA2_NATIVE_SDL)
                  ${ra2_wine_args_frames})
         # Room for the Wine host retries (tests/wine.py host_failure), one launch hung at most.
         set_tests_properties(native-enhancements-frames PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+        # Widescreen on the Mac (lane Y8): the game mode follows the window's aspect in the menus
+        # (link/native_widescreen.cpp); a 4:3 window and test runs without it keep the mode.
+        if(NOT WIN32)
+          add_test(NAME native-widescreen COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/widescreen.py"
+                   --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/widescreen")
+          set_tests_properties(native-widescreen PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+        endif()
         # A Game interface size accepted on the page applies to the next new game in the
         # same process (C7, codex4 R700): the app through the real menus.
         add_test(NAME native-enhancements-newgame COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/enhancements_newgame.py"

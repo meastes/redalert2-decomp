@@ -266,7 +266,23 @@ bool is_fullscreen() { return window && (SDL_GetWindowFlags(window) & SDL_WINDOW
 // does not fit the display's usable area.
 int render_scale = 1;                       // the game's screen to the window's (lane C16; update_layout_scaled)
 extern "C" int ra2_enh_render_scale(void);
+extern "C" int ra2_enh_sidebar_height(int screen_height);   // enhancements.cpp: the sidebar surface's rows (widescreen)
 extern "C" int ra2_enh_dialog_screen(void);   // platform/sdl/enhancements.cpp: in-play dialogs at the window's size (C16)
+// Widescreen (lane Y8; link/native_widescreen.cpp): the Mac app's game mode follows its window, so
+// after the window's first size the game's mode changes never resize the window.
+bool widescreen = false;            // the Mac app (not a touch host); RA2_NATIVE_WIDESCREEN=1 in tests
+bool window_sized = false;          // fit_window has given the window its first size
+bool widescreen_own_change = false; // the next new picture size is widescreen's own (not the player's lines)
+int widescreen_lines = 0;           // the lines the player chose (the mode's height before widescreen widened it)
+Uint64 window_resized_ms = 0;       // the window's last resize (a change waits until it has settled)
+bool widescreen_on()
+{
+    // RA2_NATIVE_WIDESCREEN=1 turns it on for a test run, =0 off for an app-mode test of the
+    // window's own layout (native-enhancements-newgame: the window widened for the sidebar column).
+    static const char *env = getenv("RA2_NATIVE_WIDESCREEN");
+    if (env && *env == '0') return false;
+    return widescreen || (env && *env == '1');
+}
 void fit_window(int width, int height)
 {
     // Whether the split layout applies to this picture is noted first, also in fullscreen (lane
@@ -276,6 +292,8 @@ void fit_window(int width, int height)
     double ratio = 1.0;
     split_fitted = ra2_enh_sidebar_split(height, &ratio);
     if (!window || is_fullscreen()) return;
+    if (widescreen_on() && window_sized) return;     // the window is the player's: the mode follows it
+    window_sized = true;
     int w = width, h = height;
     // The split layout's window: the map at one point per pixel, the sidebar column larger.
     if (split_fitted) w = (int)(width - kSidebarWidth + kSidebarWidth * ratio + 0.5);
@@ -695,6 +713,15 @@ void *create_window(const char *title, int width, int height)
         if (window) {
             SDL_SetWindowMinimumSize(window, 320, 240);
             fit_window(width, height);
+            // RA2_NATIVE_WINDOW_SIZE=<w>x<h> (tests): the window at that size in points afterwards,
+            // as a player's resize would leave it (widescreen's ctest).
+            if (const char *v = getenv("RA2_NATIVE_WINDOW_SIZE")) {
+                int ww = 0, wh = 0;
+                if (sscanf(v, "%dx%d", &ww, &wh) == 2 && ww > 0 && wh > 0) {
+                    SDL_SetWindowSize(window, ww, wh);
+                    window_resized_ms = SDL_GetTicks();
+                }
+            }
             if (want_fullscreen) set_fullscreen(true);
             // Ask for the focus at once: a Windows program's first window is
             // active (user32 sends the game WM_ACTIVATEAPP when it is shown),
@@ -1446,6 +1473,7 @@ void pump_events()
         case SDL_EVENT_DISPLAY_ORIENTATION:
             if (e.type == SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED) apply_mouse_grab();
             layout_dirty = true;
+            window_resized_ms = SDL_GetTicks();
             break;
         case SDL_EVENT_PINCH_UPDATE: {
             // A trackpad pinch zooms the map about the pointer (Zoom gestures, lane C16).
@@ -1773,6 +1801,9 @@ void present_now(const void *pixels, int width, int height, int pitch)
         // mouse maps onto those pixels.
         pic_w = width;
         pic_h = height;
+        // A mode the player chose (start-up, Options): its height is the lines widescreen keeps.
+        if (!widescreen_own_change) widescreen_lines = height;
+        widescreen_own_change = false;
         fit_window(width, height);
         update_layout();
         texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGB565, SDL_TEXTUREACCESS_STREAMING, width, height);
@@ -2537,6 +2568,11 @@ void ra2_install_sdl_host()
 void ra2_sdl_host_options(bool app, bool fullscreen, void (*on_quit)())
 {
     app_mode = app;
+    // Widescreen (lane Y8): the Mac app's game mode follows its window (iOS picks it from the
+    // screen at start: app_mode.hpp game_resolution).
+#if defined(__APPLE__)
+    widescreen = app && !SDL_HasScreenKeyboardSupport();     // the Mac app (Windows keeps its modes)
+#endif
     want_fullscreen = fullscreen;
     before_exit = on_quit;
     pause_on_focus_loss = app;
@@ -2573,3 +2609,40 @@ bool ra2_sdl_host_fullscreen() { return is_fullscreen(); }
 
 // Lane C18: the left button's last press was a touch's (link/native_modern_controls.cpp).
 extern "C" int ra2_host_touch_click(void) { return left_press_touch ? 1 : 0; }
+
+// Widescreen (lane Y8, user report 2026-11-16; link/native_widescreen.cpp asks at the shell's idle
+// step): the game mode for the window's aspect, when it differs from the current one (cur_w x
+// cur_h) and the window has settled (no resize for 300 ms). The lines are the player's (the
+// height of the mode the player last chose: start-up, Options); the width that many lines times
+// the window's aspect, a multiple of 8, with the sidebar column's extra width given back when the
+// Game interface size shows it larger (as the iOS app's start does); a window squarer than 4:3
+// keeps 800 wide and grows taller (app_mode.hpp game_resolution's rule). Off unless the Mac app
+// (or RA2_NATIVE_WIDESCREEN=1, tests); never in play.
+extern "C" int ra2_host_widescreen_target(int cur_w, int cur_h, int *w, int *h)
+{
+    if (!widescreen_on() || !window || ra2_enh_game_in_play() || ra2port::movie_playing()) return 0;
+    if (SDL_GetTicks() - window_resized_ms < 300 || cur_w <= 0 || cur_h <= 0) return 0;
+    int ww = 0, wh = 0;
+    SDL_GetWindowSize(window, &ww, &wh);
+    if (ww <= 0 || wh <= 0) return 0;
+    int lines = widescreen_lines > 0 ? widescreen_lines : cur_h;
+    double aspect = (double)ww / wh;
+    int tw, th = lines;
+    int sidebar = ra2_enh_sidebar_height(th);
+    double ratio = sidebar > 0 && sidebar < th ? (double)th / sidebar : 1.0;
+    // (w - 168) + 168 * ratio == lines * aspect: the map at one scale, the sidebar column at ratio.
+    tw = ((int)((th * aspect - kSidebarWidth * (ratio - 1)) / 8 + 0.5)) * 8;
+    if (tw < 800) {
+        tw = 800;
+        th = ((int)((800 + kSidebarWidth * (ratio - 1)) / aspect + 0.5)) & ~1;
+        if (th < lines) th = lines;
+    }
+    if (tw == cur_w && th == cur_h) return 0;
+    // A 4:3 window (within a pixel) keeps the player's mode: the original's frames.
+    if (fabs(aspect - (double)cur_w / cur_h) * cur_h < 1.0 && cur_h == lines) return 0;
+    *w = tw;
+    *h = th;
+    widescreen_own_change = true;
+    fprintf(stderr, "host: widescreen: window %dx%d points, %d lines: %dx%d\n", ww, wh, lines, tw, th);
+    return 1;
+}

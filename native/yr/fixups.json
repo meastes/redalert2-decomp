@@ -536,11 +536,6 @@
    "why": "The tile set's record offsets resolved through the native slot (lane Y3)."
   },
   {
-   "file": "src/overtype.cpp",
-   "append": "shapeset_native.inc",
-   "why": "ShapeSet::Get_Color is unmatched in the YR tree; TibSun's inline text (lane Y3)."
-  },
-  {
    "file": "src/power.cpp",
    "old": "extern int DAT_00886F90;",
    "new": "extern Rect SidebarRect;\n#define DAT_00886F90 (SidebarRect.X)",
@@ -935,6 +930,137 @@
    "old": "extern ObjectClass const * DAT_00880978;\nextern int DAT_0088097C;\nextern int DAT_00880980;",
    "new": "#define DAT_00880978 Map.CurrentBuildingCopy\n#define DAT_0088097C (*(ObjectTypeClass const **)&Map.CurrentBuildingTypeCopy)\n#define DAT_00880980 (*(int *)&Map.CurrentBuildingOwnerArrayIndexCopy)",
    "why": "lane Y7: Map's own members at these addresses (Map 0x0087F7E8: +0x11B8 IsTargettingMode = 0x008809A0; +0x1190 CurrentBuildingCopy, +0x1194 CurrentBuildingTypeCopy, +0x1198 CurrentBuildingOwnerArrayIndexCopy = 0x00880978..0x00880980; display.h), which the tree declares as separate globals; natively those are other storage than Map's, so the super weapon targeting mode and the placement copy were never the ones the interface reads. Each name now stands for the member."
+  },
+  {
+   "file": "src/scroll.cpp",
+   "old": "\t\t\t\tMap.Mouse_Left_Release(coord, cell, object, What_Action(cell, object, false));\n",
+   "new": "\t\t\t\tActionType Yr_Modern_Left_Up(ObjectClass *&object, ActionType action, bool band);\n\t\t\t\tvoid Yr_Modern_Left_Done();\n\t\t\t\tMap.Mouse_Left_Release(coord, cell, object, Yr_Modern_Left_Up(object, What_Action(cell, object, false), IsRubberBand));\n\t\t\t\tYr_Modern_Left_Done();\n",
+   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: ScrollClass::Message_Handler 0x006930A0, WM_LBUTTONUP: the action Mouse_Left_Release performs (Modern: select, deselect on open ground, Shift toggles, a double click selects the type)."
+  },
+  {
+   "file": "src/scroll.cpp",
+   "old": "\t\t\tif (IsMouseDown) {\n\t\t\t\tMap.Mouse_Right_Release(point);\n\t\t\t\tBASECLASS::Abort_Drag_Select();\n",
+   "new": "\t\t\tif (IsMouseDown) {\n\t\t\t\tbool Yr_Modern_Right_Order(bool scrolled);\n\t\t\t\tActionType Yr_Modern_Right_Action(ActionType action);\n\t\t\t\tif (Yr_Modern_Right_Order(IsDragOperation)) {\n\t\t\t\t\tResolve_Point(pos, cell, coord, object, fog, shadow);\n\t\t\t\t\tActionType action = Yr_Modern_Right_Action(What_Action(cell, object, false));\n\t\t\t\t\tif (action != ACTION_NONE) Map.Mouse_Left_Release(coord, cell, object, action);\n\t\t\t\t} else {\n\t\t\t\t\tMap.Mouse_Right_Release(point);\n\t\t\t\t}\n\t\t\t\tBASECLASS::Abort_Drag_Select();\n",
+   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: ScrollClass::Message_Handler 0x006930A0, WM_RBUTTONUP: Modern takes a right click (no scroll ran, no mode on) as the order the original's left click would give there, never a selection; Classic, a scroll or a mode: Mouse_Right_Release as before."
+  },
+  {
+   "file": "src/display.cpp",
+   "old": "\t\tTacticalMap->Select_Rubber_Band(Bandbox_Selection_Callback);\n",
+   "new": "\t\tvoid (*Yr_Modern_Band_Walk(void (*select)(ObjectClass *)))(ObjectClass *);\n\t\tTacticalMap->Select_Rubber_Band(Yr_Modern_Band_Walk(Bandbox_Selection_Callback));\n",
+   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: DisplayClass::Mouse_Left_Release 0x004AB9B0, the band's walk: Modern with Shift over objects all selected already unselects them (otherwise Bandbox_Selection_Callback, the original's)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "int RadarClass::RTacticalClass::Action(unsigned flags, KeyNumType & key, int modifier)\n{\n",
+   "new": "unsigned Yr_Modern_Radar_Flags(unsigned flags);\nint RadarClass::RTacticalClass::Action(unsigned flags, KeyNumType & key, int modifier)\n{\n\tflags = Yr_Modern_Radar_Flags(flags);\n",
+   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: RadarClass::RTacticalClass::Action 0x006539D0: Modern swaps the radar's buttons (left centres the view, right orders)."
+  },
+  {
+   "file": "src/mainopt.cpp",
+   "append": "mainopt_native.inc",
+   "why": "The shell Options dialog's procedure FUN_0055FDB0 (0x0055FDB0) is unmatched in the YR tree (a trap: the main menu's Options crashed); a native draft from gamemd.exe's code with the RA2 twin's behaviour row as the text, and the native Enhancements page behind the port's ENHANCEMENTS button (lane Y8)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\tif (type == 0xd5) {\n\t\treturn id == 0x5ce ||\n\t\t\tid == 0x5cd;\n\t}\n",
+   "new": "\tif (type == 0xd5) {\n\t\treturn id == 0x5ce ||\n\t\t\tid == 0x5cd ||\n\t\t\tid == 0x7f80 ||\t// NATIVE (lane Y8): the Enhancements button\n\t\t\tid == 0x7f02 || id == 0x7f00 || id == 0x7f01;\t// NATIVE: the Enhancements page's Ok, Original, Enhanced\n\t}\n",
+   "why": "lane Y8, the Enhancements button and page in YR (native additions, not original behaviour; RA2's port/fixups.json row for 0x005E6860): this test lists, per dialog kind, the buttons of the right-hand column; for 0xD5 Keyboard 0x5CE and Network 0x5CD. The port appends the button 0x7F80 to 0xD5 and the page (created under 0xD5) has Ok, Original, Enhanced 0x7F02/0x7F00/0x7F01. No original id is affected."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\t\ttype == 0x10e) {\n\t\treturn id == 0x686;\n",
+   "new": "\t\ttype == 0x10e) {\n\t\treturn id == 0x686 || (type == 0xd5 && id == 0x7f03);\t// NATIVE (lane Y8): the Enhancements page's Cancel\n",
+   "why": "lane Y8 (native addition): the bottom slot of the right-hand column per dialog kind (RA2's 0x005E72C0 row); the Enhancements page, created under 0xD5, has its Cancel 0x7F03 there beside the Options dialog's Main Menu 0x686. No original dialog has a control 0x7F03."
+  },
+  {
+   "file": "hdr/auddsnd.h",
+   "old": "struct AudioSample\n{\n\tunsigned gap0[5];\n\tAudioFormat * Format;\n};\n\nstruct AudioChannel;\nstruct AudioDevice;\n\nstruct AudioServiceInfo\n{\n\tunsigned data[26];\n};\n\nstruct AudioSearch\n{\n\tunsigned data[2];\n};\n\nstruct AudioLock\n{\n\tvolatile int count;\n};\n\nstruct AudioDevice\n{\n\tunsigned gap0[17];\n\tAudioFormat DefaultFormat;\n\tunsigned gap1[36];\n\tint maxChannels;\n\tunsigned gap2[3];\n\tAudioLock channelAccess;\n\tunsigned gap3[26];\n\tAudioServiceInfo mixerUpdate;\n\tint frames;\n\tint over_sample;\n\tint frame_lag;\n};\n\ntypedef void(__fastcall AudioChannelCB)(AudioChannel * chan);\n\nstruct AudioChannel\n{\n\tunsigned gap0[41];\n\tvolatile unsigned Status;\n\tunsigned gap1;\n\tAudioDevice * Device;\n\tunsigned gap2[10];\n\tAudioAttribs attribs;\n\tunsigned gap3[2];\n\tstruct AudioDriverChannel * drvData;\n\tAudioChannelCB * drvCBNextFrame;\n\tAudioChannelCB * drvCBNextSample;\n\tAudioChannelCB * drvCBSampleDone;\n\tAudioSample * sample;\n\tunsigned gap4;\n\tvoid * frameData;\n\tint bytesInFrame;\n\tunsigned gap5;\n\tAudioFormat current_format;\n\tunsigned gap6;\n\tint drv_format_changed;\n\tunsigned gap7;\n\tTimeStamp time_min_frame;\n\tTimeStamp time_buffer;\n};\n\nstruct AudioSystem\n{\n\tunsigned gap0[6];\n\tint numUnits;\n};\n\n",
+   "new": "// NATIVE (lane Y8): the driver's views of auddev.h's AudioDevice and AudioSystem, audchan.h's\n// AudioChannel and audsrc.h's AudioSample, AudioServiceInfo (audsvc.h) and AudioSearch spelled\n// their other members as 32-bit gaps; natively the gaps are the real members at their native\n// widths (pointers, ListNode, TimeStamp), so every field the driver uses sits where the rest of\n// wpaudio has it. The driver's names are kept.\n#include \"audlist.h\"\n\nstruct AudioSample\n{\n\tchar * Data;\n\tint Bytes;\n\tListHead Frames;\n\tAudioFormat * Format;\n\tAudioAttribs * Attribs;\n\tint Reserved;\n};\n\nstruct AudioChannel;\nstruct AudioDevice;\nstruct AudioSystem;\nstruct AudioChannelDriver;\n\nstruct AudioServiceInfo\n{\n\tvolatile TimeStamp Interval;\n\tvolatile TimeStamp MustServiceInterval;\n\tvolatile TimeStamp Delay;\n\tvolatile TimeStamp MaxDelay;\n\tvolatile TimeStamp ResetInterval;\n\tvolatile TimeStamp LastTime;\n\tvolatile TimeStamp PeakDelay;\n\tvolatile TimeStamp PeakTime;\n\tvolatile TimeStamp PeakWindow;\n\tvolatile int Count;\n\tvolatile int Missed;\n\tvolatile int LastCount;\n\tint Anim;\n};\n\nstruct AudioSearch\n{\n\tvoid * item;\n\tunsigned stamp;\n};\n\nstruct AudioLock\n{\n\tvolatile int count;\n};\n\nstruct AudioDevice\n{\n\tListNode nd;\n\tunsigned flags;\n\tAudioLock lock;\n\tunsigned Reserved1;\n\tAudioSystem * system;\n\tint systemUnit;\n\tunsigned Reserved2;\n\tAudioFormat Format;\n\tAudioFormat DefaultFormat;\n\tunsigned Reserved3;\n\tAudioAttribs Attribs;\n\tunsigned Reserved4[2];\n\tAudioAttribs * GroupAttribs;\n\tint Unit;\n\tint channels;\n\tint maxChannels;\n\tListHead channelList;\n\tAudioLock channelAccess;\n\tunsigned Reserved8;\n\tvoid * deviceHandler;\n\tAudioServiceInfo attribsUpdate;\n\tunsigned Reserved5[2];\n\tAudioServiceInfo mixerUpdate;\n\tunsigned Reserved9[2];\n\tAudioChannelDriver * driver;\n\tunsigned Reserved6;\n\tint frames;\n\tint over_sample;\n\tint frame_lag;\n\tunsigned Reserved7;\n};\n\ntypedef void(__fastcall AudioChannelCB)(AudioChannel * chan);\n\nstruct AudioChannel\n{\n\tListNode nd;\n\tint Type;\n\tAudioAttribs ChannelAttribs;\n\tchar pad88[8];\n\tAudioAttribs * SfxAttribs;\n\tAudioAttribs * GroupAttribs;\n\tAudioAttribs * CompAttribs;\n\tAudioAttribs * FadeAttribs;\n\tint ControlPriority;\t\t\t// audchan.h's AudioControl Control\n\tvolatile unsigned Status;\n\tvolatile int ControlLoopCount;\n\tAudioDevice * Device;\n\tvoid * CB_NextFrame;\n\tvoid * CB_NextSample;\n\tvoid * CB_SampleDone;\n\tvoid * CB_Stop;\n\tvoid * Data;\n\tchar padC4[0x10];\n\tAudioChannelDriver * driver;\n\tAudioAttribs attribs;\n\tunsigned pad150[2];\n\tstruct AudioDriverChannel * drvData;\n\tAudioChannelCB * drvCBNextFrame;\n\tAudioChannelCB * drvCBNextSample;\n\tAudioChannelCB * drvCBSampleDone;\n\tAudioSample * sample;\n\tvoid * frame;\n\tvoid * frameData;\n\tint bytesInFrame;\n\tint bytesRemaining;\n\tAudioFormat current_format;\n\tint format_changed;\n\tint drv_format_changed;\n\tunsigned pad1A4;\n\tTimeStamp time_min_frame;\n\tTimeStamp time_buffer;\n\tchar pad1B8[8];\n};\n\nstruct AudioSystem\n{\n\tListNode nd;\n\tvoid * master;\n\tAudioLock lock;\n\tunsigned Reserved;\n\tint numUnits;\n};\n\n",
+   "why": "lane Y8: drv_dsnd.cpp's views of wpaudio's structures as their real members at native widths (see native/yr/README.md lane Y8)."
+  },
+  {
+   "file": "hdr/audchan.h",
+   "old": "\tchar pad150[0xc];\n",
+   "new": "\tunsigned pad150[2];\n\tstruct AudioDriverChannel * drvData;\t// NATIVE (lane Y8): drv_dsnd.cpp's member inside the padding\n",
+   "why": "lane Y8: the members drv_dsnd.cpp keeps inside AudioChannel's padding, named so that natively they have their own widths."
+  },
+  {
+   "file": "hdr/audchan.h",
+   "old": "\tchar pad1A4[0x1c];\n",
+   "new": "\tunsigned pad1A4;\n\tTimeStamp time_min_frame;\t// NATIVE (lane Y8): drv_dsnd.cpp's members inside the padding\n\tTimeStamp time_buffer;\n\tchar pad1B8[8];\n",
+   "why": "lane Y8: the members drv_dsnd.cpp keeps inside AudioChannel's padding, named so that natively they have their own widths."
+  },
+  {
+   "file": "src/wpaudio/audplay.cpp",
+   "old": "struct AudioChannel\n{\n\tListNode nd;\n\tint Type;\n\tAudioAttribs ChannelAttribs;\n\tchar pad88[8];\n\tAudioAttribs * SfxAttribs;\n\tAudioAttribs * GroupAttribs;\n\tAudioAttribs * CompAttribs;\n\tAudioAttribs * FadeAttribs;\n\tchar padA0[0x10];\n\tint (__fastcall * CB_NextFrame)(AudioChannel * chan);\n\tchar padB4[4];\n\tint (__fastcall * CB_SampleDone)(AudioChannel * chan);\n\tint (__fastcall * CB_Stop)(AudioChannel * chan);\n\tvoid * Data;\n\tchar padC4[0xac];\n\tchar * frameData;\n\tint bytesInFrame;\n\tint bytesRemaining;\n\tchar pad17C[0x2c];\n\tTimeStamp frameTime;\n\tTimeStamp bufferTime;\n};\n\n",
+   "new": "struct AudioChannel\t\t// NATIVE (lane Y8): audchan.h's AudioChannel at native widths, this unit's names\n{\n\tListNode nd;\n\tint Type;\n\tAudioAttribs ChannelAttribs;\n\tchar pad88[8];\n\tAudioAttribs * SfxAttribs;\n\tAudioAttribs * GroupAttribs;\n\tAudioAttribs * CompAttribs;\n\tAudioAttribs * FadeAttribs;\n\tint ControlPriority;\n\tvolatile unsigned ControlStatus;\n\tvolatile int ControlLoopCount;\n\tvoid * Device;\n\tint (__fastcall * CB_NextFrame)(AudioChannel * chan);\n\tvoid * CB_NextSample;\n\tint (__fastcall * CB_SampleDone)(AudioChannel * chan);\n\tint (__fastcall * CB_Stop)(AudioChannel * chan);\n\tvoid * Data;\n\tchar padC4[0x10];\n\tvoid * driver;\n\tAudioAttribs attribs;\n\tunsigned pad150[2];\n\tvoid * drvData;\n\tvoid * drvCBNextFrame;\n\tvoid * drvCBNextSample;\n\tvoid * drvCBSampleDone;\n\tvoid * sample;\n\tvoid * frame;\n\tchar * frameData;\n\tint bytesInFrame;\n\tint bytesRemaining;\n\tAudioFormat current_format;\n\tint format_changed;\n\tint drv_format_changed;\n\tunsigned pad1A4;\n\tTimeStamp frameTime;\n\tTimeStamp bufferTime;\n\tchar pad1B8[8];\n};\n\n",
+   "why": "lane Y8: audplay.cpp's own view of AudioChannel spelled the members it does not use as 32-bit byte pads, so natively its CB_Stop, Data and the frame fields sat at other offsets than audchan.h's (AudioChannelStop called a heap address once the device opened). Spelled as audchan.h's members at native widths with this unit's names."
+  },
+  {
+   "file": "src/theme.cpp",
+   "old": "extern void __fastcall FUN_00407B40(AudioStream * stream, int value);",
+   "new": "extern void __fastcall FUN_00407B40(AudioStream * stream, intptr_t value);",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/theme.cpp",
+   "old": "extern void __fastcall FUN_00407B50(AudioStream * stream, int value);",
+   "new": "extern void __fastcall FUN_00407B50(AudioStream * stream, intptr_t value);",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/theme.cpp",
+   "old": "extern int AudioScoreAttribs;",
+   "new": "extern intptr_t AudioScoreAttribs;",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/theme.cpp",
+   "old": "extern int AudioFadeAttribs;",
+   "new": "extern intptr_t AudioFadeAttribs;",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "extern void __fastcall FUN_00407B40(AudioStream * stream, int value);",
+   "new": "extern void __fastcall FUN_00407B40(AudioStream * stream, intptr_t value);",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "extern void __fastcall FUN_00407B50(AudioStream * stream, int value);",
+   "new": "extern void __fastcall FUN_00407B50(AudioStream * stream, intptr_t value);",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "extern int AudioVoiceAttribs;",
+   "new": "extern intptr_t AudioVoiceAttribs;",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "extern int AudioGroupAttribs2;",
+   "new": "extern intptr_t AudioGroupAttribs2;",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "hdr/shapeset.h",
+   "old": "inline void * ShapeSet::Get_Data(int shape) const\n{\n\tShapeRecord const * record = Fetch_Record_Pointer(shape);\n\tif (record != NULL && record->Data != 0) return(((char *)this) + record->Data);\n\treturn(NULL);\n}\n\ninline Rect ShapeSet::Get_Rect(int shape) const\n{\n\tShapeRecord const * record = Fetch_Record_Pointer(shape);\n\tif (record != NULL) {\n\t\treturn(Rect(record->X, record->Y, record->Width, record->Height));\n\t}\n\treturn(RECT_NONE);\n}\n\ninline bool ShapeSet::Is_Transparent(int shape) const\n{\n\tShapeRecord const * record = Fetch_Record_Pointer(shape);\n\tif (record != NULL) {\n\t\treturn(record->Is_Transparent());\n\t}\n\treturn(false);\n}\n\ninline bool ShapeSet::Is_RLE_Compressed(int shape) const\n{\n\tShapeRecord const * record = Fetch_Record_Pointer(shape);\n\tif (record != NULL) {\n\t\treturn(record->Is_RLE_Compressed());\n\t}\n\treturn(false);\n}\n",
+   "new": "// NATIVE (lane Y8): Get_Data, Get_Rect, Is_Transparent and Is_RLE_Compressed are SHPStruct's\n// GetPixels, GetFrameBounds, HasTransparency and HasCompression (gamemd.exe 0x0069E740, 0x0069E7E0,\n// 0x0069E8D0, 0x0069E900: yr/data/name_aliases.tsv), which resolve an SHPReference (what\n// FileSystem::LoadFile returns for a .SHP name) to the file behind it; the record reads that were\n// here read the reference object's own bytes as frame records.\n",
+   "why": "lane Y8: YR's shape calls are SHPStruct's methods (gamemd.exe calls 0x0069E740/0x0069E7E0/0x0069E860/0x0069E8D0/0x0069E900 where TibSun's text has ShapeSet's inline record reads); natively the inlines read an SHPReference's own fields and the heap past it as frame records (the shroud SIGBUS, wrong overlay radar colours, out-of-bounds reads found by guard malloc in BuildingTypeClass::Get_Draw_Rect). The inline bodies go; name_aliases.tsv binds the four methods to SHPStruct's."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "\tVoxNode * node = (VoxNode *)operator new(0x20);\n",
+   "new": "\tVoxNode * node = (VoxNode *)operator new(sizeof(VoxNode));\t// NATIVE (lane Y8): 0x20 is the 32-bit size\n",
+   "why": "lane Y8: the speech queue's node (VoxNode: a SoundLink, the VoxClass pointer and four ints) was allocated with its 32-bit size 0x20; natively it is larger and FUN_00752590's stores ran past the block (guard malloc, once the EVA stream existed: wpaudio's device opens since this lane)."
+  },
+  {
+   "file": "src/coopcamp.cpp",
+   "old": "\tItems = (void **)operator new(entry->MapCount << 2);\n",
+   "new": "\tItems = (void **)operator new(entry->MapCount * sizeof(void *));\t// NATIVE (lane Y8): << 2 is the 32-bit pointer size\n",
+   "why": "lane Y8: the co-op campaign's map-name table holds one pointer per map; allocated with MapCount << 2 (32-bit pointers) its stores ran past the block natively. Found while auditing fixed 32-bit allocation sizes (the speech queue's VoxNode); not on the skirmish path."
   }
  ]
 }

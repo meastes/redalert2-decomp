@@ -48,9 +48,16 @@ s3+19600 key D
 LOAD_SECONDS = 40      # menus and the skirmish load before play starts
 
 
+# The skirmish map list's index (sorted by player count): 0 is The Alamo, a two-player map, on which
+# the setup closes every slot past the first opponent (lane Y8: the Y6 runs had one opponent); 30 is
+# a four-player map (the setup shows three opponents).
+FOUR_PLAYER_SCEN = 30
+
+
 def settings(opponents, difficulty):
     slots = ''.join('Slot%02d=%d,-2,-2\n' % (i, SLOT_TYPE[difficulty] if i <= opponents else 1) for i in range(1, 8))
-    return ('[Intro]\nPlay=no\n\n[Skirmish]\nGameMode=1\nScenIndex=0\nGameSpeed=1\nCredits=10000\nUnitCount=10\n'
+    scen = FOUR_PLAYER_SCEN if opponents > 1 else 0
+    return ('[Intro]\nPlay=no\n\n[Skirmish]\nGameMode=1\nScenIndex=%d\nGameSpeed=1\nCredits=10000\nUnitCount=10\n' % scen +
             'ShortGame=yes\nSuperWeaponsAllowed=yes\nBuildOffAlly=yes\nMCVRepacks=yes\nCratesAppear=yes\n' + slots)
 
 

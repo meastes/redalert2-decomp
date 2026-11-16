@@ -302,6 +302,7 @@ namespace {
 struct StaticExtra {
     MovieHandle *movie;     // +0x58
     HWND notify;            // +0xA4
+    char name[64];          // NATIVE (lane Y8): the movie's name, to start it again on a new surface
 };
 // A small table by window (the dialogs hold a few dozen statics at most).
 struct StaticExtraSlot {
@@ -320,6 +321,7 @@ StaticExtra &Static_Extra(HWND window)
     free_slot->window = window;
     free_slot->extra.movie = 0;
     free_slot->extra.notify = 0;
+    free_slot->extra.name[0] = 0;
     return free_slot->extra;
 }
 void Static_Extra_Release(HWND window)
@@ -351,6 +353,9 @@ void Static_Stop_Movie(HWND window, StaticExtra &extra)
 void Static_Start_Movie(HWND window, StaticExtra &extra, char const *name)
 {
     Static_Stop_Movie(window, extra);
+    if (name != extra.name) {
+        snprintf(extra.name, sizeof extra.name, "%s", name ? name : "");
+    }
     RECT area = {0, 0, 0, 0};
     Window_Rect_In_Main_Client(window, &area);
     extra.movie = Create_Movie_Handle(name, AlternateSurface, 0);
@@ -1601,3 +1606,26 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
 }
 
 } // namespace OwnerDraw
+
+// Widescreen (lane Y8; link/native_widescreen.cpp): a mode change (Set_Display_Mode) makes the
+// background surfaces again, and the statics' movies draw on AlternateSurface as it was when they
+// started (the main menu's: a fault in BinkClass::Redraw_Frame after the change). Their movies stop
+// before the change and start again, by name, on the new surface at the controls' new places.
+void Native_Static_Movies_Stop()
+{
+    for (OwnerDraw::StaticExtraSlot &slot : OwnerDraw::static_extras) {
+        if (slot.window && slot.extra.movie) {
+            delete slot.extra.movie;
+            slot.extra.movie = 0;
+            KillTimer(slot.window, 0x65);
+        } else if (slot.window) {
+            slot.extra.name[0] = 0;     // no movie running: none to start again
+        }
+    }
+}
+void Native_Static_Movies_Restart()
+{
+    for (OwnerDraw::StaticExtraSlot &slot : OwnerDraw::static_extras) {
+        if (slot.window && !slot.extra.movie && slot.extra.name[0]) OwnerDraw::Static_Start_Movie(slot.window, slot.extra, slot.extra.name);
+    }
+}

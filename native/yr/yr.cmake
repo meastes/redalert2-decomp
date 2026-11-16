@@ -118,6 +118,7 @@ add_custom_command(TARGET yr-native PRE_LINK
 # Mac build; on iOS the Simulator runs (yr/tests/ios_sim_skirmish.py) are the check.
 if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
   ra2_ios_app(yr-native YR "io.github.ra2native.YR" "Yuri's Revenge" --yr)
+  include("${CMAKE_CURRENT_SOURCE_DIR}/yr/combined.cmake")   # lane Y8: ra2yr-one (--one)
   return()
 endif()
 
@@ -146,6 +147,13 @@ add_test(NAME yr-native-skirmish-long COMMAND "${Python3_EXECUTABLE}" -B "${CMAK
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-long" --seconds 600 --opponents 3 --difficulty hard)
 set_tests_properties(yr-native-skirmish-long PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+
+# ctest yr-native-controls (lane Y8): Controls Classic / Modern and Queue five with Shift in a
+# skirmish (glue/yr_enhancements.cpp), one run with each setting
+add_test(NAME yr-native-controls COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_controls.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-controls")
+set_tests_properties(yr-native-controls PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
 
 # One game (lane Y5, -DRA2_NATIVE_COMBINED=ON): native/yr/combined.cmake.
 include("${CMAKE_CURRENT_SOURCE_DIR}/yr/combined.cmake")

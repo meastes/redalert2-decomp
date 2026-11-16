@@ -417,9 +417,17 @@ bool import_wanted(std::string const &lower)
         return true;
     };
     if (lower == ra2build::exe_name(kHostGame) || lower == "binkw32.dll") return true;
+#ifdef RA2_NATIVE_ENGINE
+    // Both games in one app (lane Y8, ra2yr-one): each game's import takes both games' files, so
+    // the other game finds its own in the same GameData (an import replaces the whole folder).
+    if (lower == ra2build::exe_name(ra2build::Game::ra2) || lower == ra2build::exe_name(ra2build::Game::yr)) return true;
+    constexpr bool yr_files = true;
+#else
+    constexpr bool yr_files = kHostGame == ra2build::Game::yr;
+#endif
     for (const char *name : {"ra2.mix", "language.mix", "multi.mix", "theme.mix", "wdt.mix"}) if (lower == name) return true;
     for (const char *stem : {"maps", "movies", "expand", "ecache", "elocal"}) if (numbered(stem, ".mix")) return true;
-    if (kHostGame == ra2build::Game::yr) {
+    if (yr_files) {
         for (const char *name : {"ra2md.mix", "langmd.mix", "multimd.mix", "thememd.mix"}) if (lower == name) return true;
         for (const char *stem : {"expandmd", "mapsmd", "movmd", "ecachemd", "elocalmd"}) if (numbered(stem, ".mix")) return true;
     }

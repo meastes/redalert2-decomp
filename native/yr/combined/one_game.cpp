@@ -13,9 +13,17 @@
 // ended engine's exit handlers run when it ends (its static destructors, Prog_End, the
 // settings save); its image stays mapped (its threads may still be parked in it), never called.
 //
+// ra2yr-one (RA2_NATIVE_ONE_EXECUTABLE, lane Y8): the same host with both engines linked in (the
+// design for iOS, where no bundle can be loaded): a start resets the game's own __data/__bss to
+// the bytes they held before its first start and runs its initialisers again; an end runs the exit
+// handlers registered by its code (its __text, bounded by the engine markers).
+//
 //   ra2yr-native [--game=ra2|yr] [--engine-dir=<dir>] [--engine-scripts=<s0>,<s1>,...] <the game's options...>
 #include <SDL3/SDL.h>
+#include <SDL3/SDL_main.h>      // iOS: SDL's UIKit start-up calls this file's main (ra2yr-one)
+#if !RA2_NATIVE_ONE_EXECUTABLE
 #include <copyfile.h>
+#endif
 #include <dlfcn.h>
 #include <errno.h>
 #include <mach-o/dyld.h>
@@ -31,6 +39,10 @@
 #include <vector>
 
 #include "../../platform/sdl/engine_api.h"
+#if RA2_NATIVE_ONE_EXECUTABLE
+#include <mach-o/getsect.h>
+#include <mach-o/ldsyms.h>
+#endif
 
 extern "C" {
 // libSystem: the exit handlers registered by code in the given ranges (what dlclose runs).
@@ -121,6 +133,7 @@ struct Engine {
     const void *base = nullptr;     // its Mach-O header
 };
 
+#if !RA2_NATIVE_ONE_EXECUTABLE
 // A fresh image of the bundle: dyld maps a file once per process, so each start copies it.
 bool load_engine(std::string const &dir, int game, int serial, Engine &out)
 {
@@ -173,7 +186,62 @@ void finalize_engine(Engine const &e)
     }
     __cxa_finalize_ranges(ranges.data(), (unsigned)ranges.size());
 }
+#endif
 
+
+#if RA2_NATIVE_ONE_EXECUTABLE
+// The engines linked in (yr/combined.cmake): their entries and their section markers.
+extern "C" {
+int ra2_engine_main_ra2(int, char **, struct ra2_engine_host *);
+int ra2_engine_main_yr(int, char **, struct ra2_engine_host *);
+extern int ra2_data_begin, ra2_data_end, ra2_bss_begin, ra2_bss_end, ra2_common_begin, ra2_common_end;
+extern int yr_data_begin, yr_data_end, yr_bss_begin, yr_bss_end, yr_common_begin, yr_common_end;
+void ra2_text_begin(void); void ra2_text_end(void);
+void yr_text_begin(void); void yr_text_end(void);
+}
+struct Span { uint8_t *begin; uint8_t *end; std::vector<uint8_t> pristine; };
+struct Linked {
+    ra2_engine_main_fn main;
+    const char *init_section;
+    Span data, bss, common;
+    const void *text_begin, *text_end;
+    bool started = false;
+};
+Linked linked[2] = {
+    {ra2_engine_main_ra2, "__ra2e_init", {(uint8_t *)&ra2_data_begin, (uint8_t *)(&ra2_data_end + 1), {}},
+     {(uint8_t *)&ra2_bss_begin, (uint8_t *)(&ra2_bss_end + 1), {}},
+     {(uint8_t *)&ra2_common_begin, (uint8_t *)(&ra2_common_end + 1), {}}, (const void *)ra2_text_begin, (const void *)ra2_text_end},
+    {ra2_engine_main_yr, "__yre_init", {(uint8_t *)&yr_data_begin, (uint8_t *)(&yr_data_end + 1), {}},
+     {(uint8_t *)&yr_bss_begin, (uint8_t *)(&yr_bss_end + 1), {}},
+     {(uint8_t *)&yr_common_begin, (uint8_t *)(&yr_common_end + 1), {}}, (const void *)yr_text_begin, (const void *)yr_text_end},
+};
+// Before the game's first start its spans are as the image has them (dyld has bound them, no
+// initialiser of the game has run): kept; each later start copies them back. Then its initialisers.
+void start_linked(int game)
+{
+    Linked &l = linked[game];
+    for (Span *s : {&l.data, &l.bss, &l.common}) {
+        if (s->end <= s->begin) { fprintf(stderr, "one-game: %s: bad engine span\n", game_key(game)); abort(); }
+        if (!l.started) s->pristine.assign(s->begin, s->end);
+        else memcpy(s->begin, s->pristine.data(), s->pristine.size());
+    }
+    unsigned long size = 0;
+    uint8_t *start = getsectiondata(&_mh_execute_header, "__DATA", l.init_section, &size);
+    typedef void (*Initialiser)(void);
+    for (unsigned long i = 0; i < size / sizeof(Initialiser); ++i) ((Initialiser *)start)[i]();
+    fprintf(stderr, "one-game: %s engine %s: data %zu + bss %zu + common %zu bytes, %lu initialisers\n", game_key(game),
+            l.started ? "reset" : "first start", l.data.pristine.size(), l.bss.pristine.size(), l.common.pristine.size(),
+            size / sizeof(Initialiser));
+    l.started = true;
+}
+void finalize_linked(int game)
+{
+    Linked const &l = linked[game];
+    uintptr_t a = (uintptr_t)l.text_begin, b = (uintptr_t)l.text_end;
+    __cxa_range_t range = {(const void *)(a < b ? a : b), (size_t)(a < b ? b - a : a - b) + 16};
+    __cxa_finalize_ranges(&range, 1);
+}
+#endif
 }  // namespace
 
 int main(int argc, char **argv)
@@ -228,7 +296,12 @@ int main(int argc, char **argv)
     Uint64 started_ms = SDL_GetTicks();
     for (int serial = 0;; ++serial) {
         Engine e;
+#if RA2_NATIVE_ONE_EXECUTABLE
+        (void)engine_dir;
+        e.main = linked[game].main;     // (its reset and initialisers: below, once its environment is set)
+#else
         if (!load_engine(engine_dir, game, serial, e)) return 71;
+#endif
         ra2_engine_host host = {};
         host.version = RA2_ENGINE_API_VERSION;
         host.game = game;
@@ -254,6 +327,11 @@ int main(int argc, char **argv)
             for (char *&a : engine_args)
                 if (a && !strncmp(a, "--run-seconds=", 14)) a = seconds_arg;
         }
+#if RA2_NATIVE_ONE_EXECUTABLE
+        // The game's data reset and initialisers run now, after this start's environment (input
+        // script, window dump prefix) is set: initialisers read it, as at a process start.
+        start_linked(game);
+#endif
         int code = e.main((int)engine_args.size() - 1, engine_args.data(), &host);
         if (!host.swap) {
             fprintf(stderr, "one-game: %s ended (%d)\n", game_name(game), code);
@@ -261,7 +339,11 @@ int main(int argc, char **argv)
             return code;
         }
         window = host.window;
+#if RA2_NATIVE_ONE_EXECUTABLE
+        finalize_linked(game);
+#else
         finalize_engine(e);
+#endif
         game = game == RA2_ENGINE_YR ? RA2_ENGINE_RA2 : RA2_ENGINE_YR;
         if (persist) write_setting("game", game_key(game));
         fprintf(stderr, "one-game: swap: %s next\n", game_name(game));

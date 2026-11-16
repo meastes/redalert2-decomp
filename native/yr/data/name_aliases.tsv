@@ -55,3 +55,15 @@ _DAT_00816514	_AudioSystemDSD
 # TechnoClass::ScanForTiberium (vtable slot 0x338) is the tree's TechnoClass::FUN_0070F8F0 (lane Y7: gamemd.exe's
 # BuildingClass vtable holds 0x0070F8F0 there; a deployed slave miner's manager scans with it; the second parameter is unused).
 __ZN11TechnoClass15ScanForTiberiumEib	__ZN11TechnoClass12FUN_0070F8F0Eij
+# Is_Speaking (vox.h; Select_Game waits on it at Exit Game with sound on) is the tree's FUN_007529E0 (lane Y8: gamemd.exe 0x007529E0
+# services the speech queue and answers whether the EVA stream plays or a speech waits, as the RA2 twin 0x00715E20).
+__Z11Is_Speakingv	__Z12FUN_007529E0v
+# ShapeSet::Get_Color is SHPStruct::GetColor (lane Y8: gamemd.exe calls 0x0069E860 for it, which resolves an SHPReference
+# to the file behind it; lane Y3's TibSun-text draft read the reference object's own bytes as frame records: wrong radar colours
+# of overlays and reads past the reference, found by guard malloc).
+__ZNK8ShapeSet9Get_ColorEi	__ZNK9SHPStruct8GetColorEi
+# ShapeSet's other frame methods are SHPStruct's too (lane Y8; hdr/shapeset.h fixup: gamemd.exe calls these where the tree has inlines).
+__ZNK8ShapeSet8Get_DataEi	__ZNK9SHPStruct9GetPixelsEi
+__ZNK8ShapeSet8Get_RectEi	__ZNK9SHPStruct14GetFrameBoundsEi
+__ZNK8ShapeSet14Is_TransparentEi	__ZNK9SHPStruct15HasTransparencyEi
+__ZNK8ShapeSet17Is_RLE_CompressedEi	__ZNK9SHPStruct14HasCompressionEi

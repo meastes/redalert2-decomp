@@ -8,6 +8,7 @@
 //
 //   native-enhancements-settings change <settings file>   each row's next value in its dropdown, Ok
 //   native-enhancements-settings reload <settings file>   read back; ORIGINAL; ACCEPT
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -54,7 +55,8 @@ void ra2_host_set_vsync(bool on) { vsync = on; }
 void ra2_host_set_menu_fill(int mode) { menu_fill = mode; }
 void ra2_host_set_fullscreen(bool on) { fullscreen = on; }
 bool ra2_host_is_fullscreen() { return fullscreen; }
-bool ra2_host_touch() { return false; }
+static bool touch_host = false;         // the input-naming check below asks as a touch host too
+bool ra2_host_touch() { return touch_host; }
 
 // The app's settings file (main.cpp's app::Settings: key=value lines).
 static std::map<std::string, std::string> settings;
@@ -101,6 +103,12 @@ static void expect(bool ok, const char *what, const std::string &got = std::stri
 
 // The rows the page must have, in its order, and each one's value after choosing the next
 // entry of its dropdown.
+// The zoom row names this platform's input (user report 2026-11-16: no gestures on a desktop).
+#if defined(_WIN32)
+#define kZoomLabel "Wheel zoom"
+#else
+#define kZoomLabel "Trackpad and wheel zoom"
+#endif
 struct Want { const char *label, *original, *changed, *key, *saved_original, *saved_changed; };
 static const Want rows[] = {
     {"Fullscreen", "Off", "On", nullptr, nullptr, nullptr},
@@ -111,7 +119,7 @@ static const Want rows[] = {
     {"Menu fill", "Off", "Blurred backdrop", "enh_menufill", "off", "backdrop"},
     {"Queue five with Shift", "Off", "On", "enh_queuefive", "off", "on"},
     {"Controls", "Classic", "Modern", "enh_controls", "classic", "modern"},
-    {"Zoom gestures", "Off", "On", "enh_zoomgestures", "off", "on"},
+    {kZoomLabel, "Off", "On", "enh_zoomgestures", "off", "on"},
     {"HD vehicles", "Off", "2x", "enh_hdvehicles", "off", "2"},
 };
 static const int kRows = sizeof rows / sizeof rows[0];
@@ -183,6 +191,36 @@ int main(int argc, char **argv)
     if (row_of("Fullscreen") >= 0)
         expect(strstr(ra2_enh_help(row_of("Fullscreen")), keys) != nullptr, "Fullscreen help names the shortcut",
                ra2_enh_help(row_of("Fullscreen")));
+
+    // Each row names the input of the platform it runs on (user report 2026-11-16): no gestures
+    // or pinches on a desktop (the Mac's trackpad pinch is named as the trackpad's), the Mac's
+    // trackpad and wheel, Windows' wheel; a touch host's pinch and taps.
+    for (int i = 0; i < ra2_enh_rows(); ++i) {
+        std::string text = std::string(ra2_enh_label(i)) + " " + ra2_enh_help(i);
+        for (char &c : text) c = (char)tolower((unsigned char)c);
+        expect(text.find("gesture") == std::string::npos, "no gestures named on a desktop", text);
+        expect(text.find("tap") == std::string::npos && text.find("swipe") == std::string::npos, "no taps named on a desktop", text);
+#if defined(_WIN32)
+        expect(text.find("pinch") == std::string::npos && text.find("trackpad") == std::string::npos, "no trackpad on Windows", text);
+#endif
+    }
+    {
+        int z = row_of(kZoomLabel);
+        expect(z >= 0 && strstr(ra2_enh_help(z), "mouse wheel") != nullptr, "zoom help names the mouse wheel",
+               z >= 0 ? ra2_enh_help(z) : "");
+#if !defined(_WIN32)
+        expect(z >= 0 && strstr(ra2_enh_help(z), "trackpad pinch") != nullptr, "zoom help names the trackpad (Mac)",
+               z >= 0 ? ra2_enh_help(z) : "");
+#endif
+        touch_host = true;
+        int t = row_of("Pinch zoom");
+        expect(t >= 0 && strstr(ra2_enh_help(t), "pinching") != nullptr, "a touch host's zoom row names the pinch",
+               t >= 0 ? ra2_enh_help(t) : "");
+        int c = row_of("Controls");
+        expect(c >= 0 && strstr(ra2_enh_help(c), "tap") != nullptr, "a touch host's Controls help names taps",
+               c >= 0 ? ra2_enh_help(c) : "");
+        touch_host = false;
+    }
 
     if (change) {
         // A first start: the original look, applied.

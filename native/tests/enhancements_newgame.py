@@ -91,7 +91,10 @@ def main():
     # A fresh settings folder (macOS: under HOME; Windows: the fresh prefix's AppData).
     env.update({'HOME': os.path.join(work, 'home'), 'RA2_GAME_EXE': a.game_exe, 'RA2_NATIVE_LOG_STDERR': '1',
                 'RA2_NATIVE_MOVIE_SKIP': '1', 'RA2_NATIVE_IGNORE_FOCUS': '1',
-                'RA2_NATIVE_WINDOW_DUMP': os.path.join(work, 'w'), 'RA2_NATIVE_WINDOW_DUMP_MS': '2000'})
+                'RA2_NATIVE_WINDOW_DUMP': os.path.join(work, 'w'), 'RA2_NATIVE_WINDOW_DUMP_MS': '2000',
+                # The window widened for the larger sidebar column is what this test checks; the Mac
+                # app's widescreen (lane Y8) keeps the window and narrows the game's mode instead.
+                'RA2_NATIVE_WIDESCREEN': '0'})
     cmd = [a.binary, '--app', '--data-dir', a.data_dir, '--input-script=' + script, '--game-args=-noaudio']
     if prefix:
         cmd, env = prefix.command(cmd), prefix.env(env)

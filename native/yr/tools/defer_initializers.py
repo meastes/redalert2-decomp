@@ -23,7 +23,7 @@ LC_SEGMENT_64 = 0x19
 S_MOD_INIT_FUNC_POINTERS = 0x9
 
 
-def defer(path):
+def defer(path, section=b'__yr_init_func'):
     data = bytearray(path.read_bytes())
     if struct.unpack_from('<I', data, 0)[0] != MH_MAGIC_64:
         return 0
@@ -38,7 +38,7 @@ def defer(path):
                 name = bytes(data[s:s + 16]).rstrip(b'\0')
                 flags = struct.unpack_from('<I', data, s + 64)[0]
                 if name == b'__mod_init_func' and (flags & 0xFF) == S_MOD_INIT_FUNC_POINTERS:
-                    data[s:s + 16] = b'__yr_init_func'.ljust(16, b'\0')
+                    data[s:s + 16] = section.ljust(16, b'\0')
                     struct.pack_into('<I', data, s + 64, flags & ~0xFF)   # S_REGULAR
                     changed += 1
                 s += 80
@@ -50,11 +50,16 @@ def defer(path):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--inputs', type=Path, required=True)
+    ap.add_argument('--inputs', type=Path)
+    ap.add_argument('--object', type=Path, help='one object (an engine\'s ld -r output, lane Y8) instead of --inputs')
+    ap.add_argument('--section', default='__yr_init_func', help='the section the pointers move to')
     ap.add_argument('--only', default='/gen-yr/units/', help='objects whose path contains this')
     a = ap.parse_args()
-    paths = [Path(l.strip()) for l in a.inputs.read_text().splitlines() if l.strip() and a.only in l]
-    n = sum(defer(p) for p in paths)
+    if a.object:
+        paths = [a.object]
+    else:
+        paths = [Path(l.strip()) for l in a.inputs.read_text().splitlines() if l.strip() and a.only in l]
+    n = sum(defer(p, a.section.encode()) for p in paths)
     print('defer_initializers: %d initialiser sections deferred in %d objects' % (n, len(paths)))
 
 

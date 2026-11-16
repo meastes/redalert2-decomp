@@ -687,6 +687,9 @@ bool SidebarClass::StripClass::Recalc(void)
 // (a link-closure trap: the first tap on a sidebar icon ended the game). Behaviour code for the
 // native build; the names it uses that the pinned tree spells differently are noted where changed.
 // ---------------------------------------------------------------------------------------------
+bool Yr_Queue_Five_Add(EventClass const &event);	// NATIVE (lane Y8): Queue five with Shift, glue/yr_enhancements.cpp
+// (the two PRODUCE adds below go through it; with the setting off it is OutList.Add)
+
 // FUNCTION: GAMEMD 0x006AAD00
 // SidebarClass::StripClass::SelectClass::Action
 int SidebarClass::StripClass::SelectClass::Action(
@@ -860,7 +863,7 @@ int SidebarClass::StripClass::SelectClass::Action(
 						Strip->Buildables[index].BuildableID);
 					bool naval = type && type->Naval;
 					PlayerPtr->FUN_005005B0(kind, choice->Naval, arg);
-					OutList.Add(EventClass(
+					Yr_Queue_Five_Add(EventClass(
 						PlayerPtr->HeapID, EventClass::PRODUCE,
 						Strip->Buildables[index].BuildableType,
 						Strip->Buildables[index].BuildableID, naval));
@@ -916,7 +919,7 @@ int SidebarClass::StripClass::SelectClass::Action(
 							PlayerPtr->FUN_005005B0(kind, choice->Naval, arg);
 							started = true;
 						}
-						OutList.Add(EventClass(
+						Yr_Queue_Five_Add(EventClass(
 							PlayerPtr->HeapID, EventClass::PRODUCE,
 							Strip->Buildables[index].BuildableType,
 							Strip->Buildables[index].BuildableID, naval));

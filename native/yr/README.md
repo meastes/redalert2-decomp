@@ -256,7 +256,8 @@ What it took:
   game loop (conquer.cpp, fixups.json) calls `yr_native_main_loop`, which marks play
   (`ra2_enh_in_play`: the toolbar shows in play only) and runs the host's frame (`ra2port_frame`:
   held buttons, pans, frame-numbered script lines, the stats line). Classic/Modern controls are
-  the Enhancements page's (RA2's native/link): not wired into YR yet (YR plays Classic).
+  the Enhancements page's (RA2's native/link): not wired into YR yet (YR plays Classic; lane Y8
+  wired them).
 * **Player input traps.** A tap on a sidebar icon reached `SelectClass::Action` (a trap: the Mac
   runs never built anything by hand): adopted from a newer ra2-decomp commit where it matches
   exactly (`glue/sidebar_native.inc`, with `SuperClass::Impatient_Click`). An aircraft flying to a
@@ -285,8 +286,88 @@ Results (2026-11-16, Duo Simulator, 872x600, sound on, about 62 frames a second,
 import, the menus, the skirmish, the score route back to the main menu; 300-360 s of play without a
 trap after the fixes above, with the MCV deployed and power plants built and placed by taps. Open:
 one SIGBUS in CellClass::Draw_Shroud_Or_Fog_Shape (glue/cell_native.inc, the shape copy) at a
-game's start in one run of ten, not seen again; computer players reach more unrecovered functions
+game's start in one run of ten, not seen again (found and fixed by lane Y8); computer players reach more unrecovered functions
 the longer a game runs (each a trap, as on the Mac).
+
+## yr-native on iOS, second stage (lane Y8, 2026-11-16)
+
+* **The SIGBUS at a game's start** (1 run in 10 on the Simulator, CellClass::Draw_Shroud_Or_Fog_Shape):
+  `FileSystem::LoadFile` returns an `SHPReference` for a `.SHP` name (gamemd.exe 0x005B40B0), not the
+  file; lane Y3's draft (TibSun's text) read that object as a ShapeSet, so its frame rectangles came
+  from the reference's own pointers and the heap past it, and its pixel pointer was the object plus a
+  garbage offset. Rewritten from gamemd.exe 0x0047EFE0 (`glue/cell_native.inc`, NON-EXACT):
+  `SHPStruct::GetFrameBounds` and `GetPixels`, which load the file behind the reference, and the two
+  loops as gamemd.exe has them. The shroud's soft edges are now drawn (they never were).
+* **Controls: Classic / Modern and Queue five with Shift** (`glue/yr_enhancements.cpp`, native
+  additions): RA2's rules (native/link/native_modern_controls.cpp, native_queue_five.cpp) on the YR
+  tree's classes, hooked by fixups in ScrollClass::Message_Handler 0x006930A0 (left and right
+  release), DisplayClass::Mouse_Left_Release 0x004AB9B0 (the band's walk), RadarClass::RTacticalClass::
+  Action 0x006539D0 (the radar's buttons) and the sidebar's two PRODUCE adds (`glue/sidebar_native.inc`).
+  Yuri's Revenge's own Shift right click on a build icon already abandons every queued copy
+  (ABANDON_ALL), so Queue five changes only the left click. The touch layer needs nothing new: a tap
+  is a left click, a two-finger tap or a held release a right click, and the toolbar's Fire, Move,
+  Add and A-Move hold the keys the game reads. RA2's tap across player-controlled houses (lane C18,
+  a campaign case) is not carried over.
+* **The Options dialog and the Enhancements page.** The main menu's Options was a link-closure trap
+  (FUN_0055FDB0, the dialog procedure of template 0xD5): drafted from gamemd.exe with the RA2 twin's
+  behaviour row as the text (`glue/mainopt_native.inc`, NON-EXACT; YR sets the chosen resolution
+  without RA2's test dialog). The port already appends the ENHANCEMENTS button to 0xD5 (gamemd.exe's
+  template is read the same way); two fixups in ownrdraw.cpp put it and the page's Ok, Original,
+  Enhanced and Cancel in the right-hand column. The page (`Yr_Run_Enhancements`) runs RA2's page
+  logic on the YR dialog code and lists the rows Yuri's Revenge uses: Fullscreen, Vertical sync,
+  Picture scaling, Menu fill (all the host's), Queue five with Shift and Controls. The settings are
+  the app's own file, so on iOS YR.app keeps its own choices.
+* **Not shared, and why.** Game interface size, Map zoom, Zoom gestures and HD vehicles are RA2's
+  native/link code on RA2's classes and addresses, reached by 20-40 native fixups each in RA2's
+  units (the sidebar surface's allocations and layout, Set_View_Dimensions and every site that takes
+  the view's width as the sidebar's x, the in-game dialog loop's screen size, the voxel renderer's
+  passes, Bit_Blit and the voxel caches). Yuri's Revenge has its own versions of those functions
+  (several still drafts in glue/, gamemd.exe's voxel renderer differs from RA2's), so each needs its
+  own set of YR fixups and a YR copy of the module; none is wired, and the YR page leaves the rows
+  off. The host's half of each (the split layout, the zoom region, the HD overlay) is shared and
+  would apply unchanged once the game side answers.
+* **Long games had one opponent.** The skirmish setup's map 0 (The Alamo) is a two-player map, and
+  the setup closes every slot past the first opponent: lane Y6's ten-minute Mac runs and lane Y7's
+  Simulator runs played one computer player. `yr_skirmish_long.py` and `ios_sim_skirmish.py
+  --opponents N` now pick map 30 (a four-player map) for more than one opponent; `--trap-continue`
+  lists every trap of a research run, `--enhancements` sets the settings for one run.
+
+* **wpaudio's device, EVA and music (sound on).** Every Mac test passes `-noaudio`; with sound on,
+  Exit Game crashed in AudioCloseDown (and so did the one-game app's swap away from Yuri's
+  Revenge). drv_dsnd.cpp's header (auddsnd.h) spelled the members of AudioSystem, AudioDevice,
+  AudioChannel, AudioSample, AudioServiceInfo and AudioSearch it does not use as 32-bit gaps, so
+  natively its load wrote numUnits = 1 over the low half of AudioSystem::master and the real
+  numUnits stayed 0: wpaudio's device never opened natively, so the EVA voice (VoxClass's stream)
+  and the music (ThemeClass's stream) were silent, and AudioUnloadAllSystems called through
+  0x1_00000001. Fixed (fixups.json, yr/data/name_aliases.tsv), each found by running with sound
+  on (lldb, guard malloc):
+  * auddsnd.h's views and audplay.cpp's own AudioChannel view (byte pads) spelled as the real
+    members at native widths, and audchan.h naming the three members the driver keeps in its
+    padding (a probe compiled both views: equal offsets);
+  * theme.cpp and vox.cpp declared the streamers' attribute setters and the attribute globals as
+    int (the pointers were cut to 32 bits: AudioAttribsApply faulted);
+  * Is_Speaking (Select_Game waits on it at Exit Game) is the tree's FUN_007529E0 (bound);
+  * the speech queue's VoxNode was allocated with its 32-bit size 0x20 (vox.cpp);
+  * ShapeSet's Get_Data, Get_Rect, Get_Color, Is_Transparent and Is_RLE_Compressed are SHPStruct's
+    GetPixels, GetFrameBounds, GetColor, HasTransparency and HasCompression (gamemd.exe calls those;
+    the tree's inlines and lane Y3's Get_Color draft read an SHPReference's own bytes as frame
+    records: BuildingTypeClass::Get_Draw_Rect and the overlays' radar colours read past it). The
+    same cause as the shroud's SIGBUS above.
+  With sound on and guard malloc, the smoke route (a skirmish, Abort Mission, back to the setup)
+  runs clean, and Exit Game returns from WinMain. Simulator (RA2YR.app, `--game=yr`, sound on):
+  600 s against three hard computer players, no trap, 62 frames a second, 122 MB; the toggle
+  from YR's main menu to Red Alert 2 and a skirmish there, with sound.
+
+ctest `yr-native-controls` (yr/tests/yr_controls.py): a skirmish with Modern and Queue five (a double
+click on a tank selects the tanks on the screen, a right click on open ground gives a move, Shift
+with a click on the build icon queues five), the same with the defaults (none of those), and the
+Options dialog -> Enhancements -> Enhanced -> Ok -> Main Menu.
+
+Simulator ("RA2 Duo Validation", 872x600, sound on): 600 s against three hard computer players on
+map 30 without a trap or a fault (`--trap-continue`: none reached), about 62 frames a second,
+107-113 MB; 300 s with Modern and Queue five (the two-finger tap's move logged); two earlier 600 s
+runs (one opponent, map 0) also clean. Mac: `yr-native-skirmish-long` with three real opponents,
+600 s, no trap.
 
 ## One game (lane Y5, 2026-11-16): Red Alert 2 and Yuri's Revenge in one app
 
@@ -361,17 +442,8 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
 ### Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both
-  games must be linked into the one executable. That needs the symbol separation done at the
-  object level instead of the bundle level: link each game's objects into one relocatable object
-  (`ld -r`) with only its entry exported (`-exported_symbol`, which `ld -r` honours by making
-  the rest private), then link the two objects and the thin host into the app. A fresh start of
-  a game then cannot remap its image: its data segment would be reset from a saved copy of the
-  pristine `__DATA`/`__bss` (taken before its initialisers run) and its initialisers run again,
-  or the swap restarts the app process at the other game's menu (iOS allows `exit` only as a
-  crash; not acceptable). Data reset is the plan; the threads of the ended game must be stopped
-  first (the mouse timer, audio; the network thread is parked). The window: the iOS host's
-  `app_window` already hands the game a window; the touch toolbar and the import flow are per
-  app and move to the thin host.
+  games must be linked into the one executable. The design and its size: "iOS in one executable"
+  below (lane Y8).
 * **Windows.** Two DLLs (`ra2-engine.dll`, `yr-engine.dll`) built from the same objects with
   only `ra2_engine_main` exported (PE exports are explicit: nothing else is visible), loaded with
   `LoadLibrary` from a fresh copy per start, `RA2Native.exe` as the thin host. The engines' C
@@ -379,6 +451,83 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   `atexit` list; the DLL's own list runs at `FreeLibrary`, which is not called for the reason
   above: the thin host calls the engine's exported finaliser instead). The window and SDL3.dll
   are shared as on the Mac.
+
+### iOS in one executable: design (lane Y8; stage 1 built)
+
+The Mac's engines are bundles mapped afresh per start; iOS allows neither `dlopen` of app code nor
+writable-executable pages, so both games are linked into `RA2YR` (one app, bundle id to choose:
+keep `io.github.ra2native.RA2` so RA2.app's saves and settings carry over) and a game's fresh start
+becomes a reset of its own data in place.
+
+1. **Symbols, at the object level.** Each game's objects (`ra2_recovered_objs` + `ra2_data` + its
+   link_closure.c + its copy of `ra2_port` and of the SDL host compiled with `RA2_NATIVE_ENGINE`)
+   are linked into one relocatable object, `ld -r -d -exported_symbol _ra2_engine_main_<game>`
+   (`-d` defines commons; ld64 turns the symbols not exported into static ones in a `-r` output
+   unless `-keep_private_externs` is given), with `-alias_list` applied there. The two objects and
+   the thin host link into the app; nothing else of either game is visible to the other, as with
+   the bundles. Each `-r` input list starts and ends with a marker object (`engine_begin_<game>.c`,
+   `engine_end_<game>.c`: one symbol in each of `__text`, `__data`, `__bss`, `__common`,
+   `__const`), so the game's share of every section is contiguous and bounded by known symbols.
+2. **What stays single.** SDL (static on iOS, with its Objective-C classes) and the Apple host
+   (`host_apple.mm`: `RA2ImportPicker`, `RA2PassView`, `RA2Toolbar`, the glass buttons) are left out
+   of the engine objects and linked once: Objective-C class names are global in the runtime whatever
+   the symbol visibility, so two copies would collide. The engines' references to `SDL_*` and
+   `hostos::*` stay undefined in their `-r` objects and bind to the one copy. hostos keeps no game
+   state across a swap except the toolbar, which the thin host owns (as the window already is).
+   The import flow (RA2 files plus YR's 28 files, one folder picker) and the settings' `game=` line
+   move to the thin host (`combined/one_game.cpp` gains the iOS app start that `main.cpp`'s app mode
+   has now).
+3. **Initialisers.** Both games' static initialisers must run at that game's start, not at launch:
+   the YR units already have theirs moved to `__DATA,__yr_init_func` (defer_initializers.py); the
+   same pass runs over the RA2 game's objects and the per-engine port and host objects into
+   `__ra2_init_func` / `__yr_init_func`. On iOS 17 the linker emits `__TEXT,__init_offsets`
+   (32-bit offsets) for the app's own initialisers; the moved sections keep plain pointers, rebased
+   by the chained fixups like YR's today.
+4. **A fresh start.** The first start of an engine copies its data range (the markers' `__data`,
+   `__bss`, `__common` spans, about 5 MB for YR) to a pristine buffer before its initialisers run
+   (pointers are already rebased: the copy is taken after dyld). Each later start copies the
+   pristine bytes back, runs the engine's initialisers again and loads the original's data again
+   (yr_data / native data, as now), so it starts exactly as a process start would. `__DATA_CONST`
+   (`__got`, read-only after launch) is never touched.
+5. **An end.** The game's own shutdown runs as on the Mac (Exit Game, `WinMain` returns). Its exit
+   handlers run through `__cxa_finalize_ranges` over its `__text` span (the markers), as the Mac
+   host does over a bundle's image range. Unlike the Mac, the code stays live for the next start of
+   the same game, so its threads must have ended first: the port gains `ra2port_stop_threads()`
+   (the multimedia timers' `std::thread`s, `CreateThread`'s pthreads: the mouse thread, the
+   network's async thread, run_progress's watchdog) called before the reset, each joined or
+   signalled and waited for. Memory the game did not free stays allocated (as on the Mac).
+6. **Toggle, movies, saves.** Unchanged from the Mac (`ra2port::set_game_toggle`, `skip_intro`,
+   `Documents/Game` and `Documents/Game/YR`).
+
+**Built so far (lane Y8).** Stage 1, `-DRA2_NATIVE_ONE_EXECUTABLE=ON` (with COMBINED): `ra2yr-one`
+on the Mac and `native/build-ios.command simulator --one` (`RA2YR.app`, bundle id
+`io.github.ra2native.RA2YR` for now). Items 1, 3, 4 and 5 as above, except that the thread stop is
+not done (a swap back to a game whose threads still run has not failed yet) and that item 2 is
+an interim: SDL is linked once (the engines leave it undefined), but each engine still has its
+own `host_apple.mm`, with Yuri's Revenge's three Objective-C classes renamed (`YRImportPicker`,
+`YRPassView`, `YRToolbar`) so the runtime has no duplicate. The markers: `__data`, `__bss` and
+`__common` (ld -r puts zero-fill there too: the closure's placeholders are built `-fno-common` so
+none stays a tentative definition the final link would merge between the games). ctest
+`one-exe-toggle` runs lane Y5's route on `ra2yr-one` (Red Alert 2 -> Yuri's Revenge -> Red Alert 2,
+the third start a reset of its data, then a skirmish): passes. Simulator: `ios_sim_skirmish.py
+--app build/ios-one-simulator/RA2YR.app --bundle io.github.ra2native.RA2YR --launch-arg=--game=yr
+[--toggle]`: a 180 s Yuri's Revenge skirmish against three computer players passes; `--toggle`
+(the YR main menu's toggle, then the play in Red Alert 2) found YR's exit crashing with sound on
+(lane Y8 section: wpaudio's device, fixed). The import is one flow: each engine of the one-game app takes both games' files
+(app_mode.hpp `import_wanted` under RA2_NATIVE_ENGINE; an import replaces the whole GameData, so
+before this the second game's import threw the first game's files away): a fresh RA2YR.app started
+in Red Alert 2 imported 29 files (1.89 GB) once, and Yuri's Revenge after the toggle found its own
+(`--game=ra2 --toggle`: the swap with sound, Yuri's Revenge's menus and a skirmish at 62 frames a
+second, 140 MB). Not done: the thread stop, one host_apple copy, a device build of RA2YR.app.
+
+Size (lane time, one lane): the two `-r` objects with markers and the app link in CMake (iOS and
+the Mac, so the Mac can test it without bundles) 1 day; RA2's initialisers deferred, the pristine
+copy and reset, finalisers by range 1.5 days; the port's thread stop 0.5 day; SDL and hostos once,
+the thin host's iOS start (window, toolbar, import of both games, settings) 1 day; the Simulator
+route (toggle both ways, a skirmish in each, a swap during the menus) and a device build with the
+bundle audit 1 day. About 5 days (35-45 hours), the main risks being state that survives a reset
+outside the data range (the port's heap-held singletons are inside it; SDL's and hostos's are not
+and must be released per swap) and the executable's size (YR.app's is 14 MB, 7 MB of it code; two games about twice that).
 
 ## Next
 
@@ -391,3 +540,8 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
    variables, union views with pointer members read at the same offsets.
 3. Init_Game's CD search when no search path is set (not drafted: the host always passes -CD.).
 4. Variant* and the other Win32 imports the port does not yet supply (the run lists them).
+5. (lane Y8) The one-game app on iOS: the engines' thread stop before a reset, one host_apple copy
+   in the thin host (the YR engine's classes are renamed for now), a device build of RA2YR.app and
+   its bundle id (keep RA2.app's, so its saves and settings carry over: the owner's call).
+6. (lane Y8) Map zoom, Zoom gestures, Game interface size and HD vehicles for Yuri's Revenge: a YR
+   copy of each native/link module and its fixups in the YR units (lane Y8 section: why).

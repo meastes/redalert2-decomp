@@ -98,26 +98,36 @@ Coord CellClass::Closest_Free_Spot(Coord const & xcoord, bool any, bool bridge, 
 	return(COORD_NONE);
 }
 
+// NON-EXACT NATIVE DRAFT (lane Y8): rewritten from gamemd.exe 0x0047EFE0. FileSystem::LoadFile
+// returns an SHPReference for a .SHP name (gamemd 0x005B40B0), not the shape file itself, so the
+// frame's rectangle and pixels come through SHPStruct::GetFrameBounds (0x0069E7E0) and GetPixels
+// (0x0069E740), which load the file behind the reference. The lane Y3 draft (TibSun's text) read
+// the reference object as a ShapeSet: its rectangles came from the reference's own pointers and
+// heap bytes past it, and its pixel pointer was that object plus a garbage offset (the SIGBUS at a
+// game's start, 1 run in 10 on the iOS Simulator; the shroud's edge shapes were never drawn).
+// Order of calls and the two loops as gamemd.exe: the ring-wrapping path tests before each row
+// and pixel, the path that fits before the ring's end draws in do-while loops.
 void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const & drawpoint, Rect const & cliprect, int shapenum)
 {
 	static bool shapes_loaded = false;
-	static ShapeSet const * shadow_shapes = NULL;
-	static ShapeSet const * fog_shapes = NULL;
+	static SHPStruct * shadow_shapes = NULL;
+	static SHPStruct * fog_shapes = NULL;
 
 	if (!shapes_loaded) {
 		shapes_loaded = true;
-		shadow_shapes = (ShapeSet const *)FileSystem::LoadFile("SHROUD.SHP", false);	// NATIVE: YR loads through FileSystem::LoadFile (gamemd 0x0047EFE0)
-		fog_shapes = (ShapeSet const *)FileSystem::LoadFile("FOG.SHP", false);
+		shadow_shapes = (SHPStruct *)FileSystem::LoadFile("SHROUD.SHP", false);
+		fog_shapes = (SHPStruct *)FileSystem::LoadFile("FOG.SHP", false);
 	}
 
-	ShapeSet const * shapes;
+	SHPStruct * shapes;
 	if (Scen->Special.IsFogOfWar) {
 		shapes = fog_shapes;
 	} else {
 		shapes = shadow_shapes;
 	}
+	if (shapes == NULL) return;	// NATIVE: gamemd.exe reads through a missing file's NULL
 
-	Rect shaperect = shapes->Get_Rect(shapenum);
+	Rect shaperect = shapes->GetFrameBounds(shapenum);
 
 	if (drawpoint.Y + shaperect.Y + shaperect.Height < cliprect.Y + 1) return;
 	if (drawpoint.Y >= cliprect.Height + cliprect.Y) return;
@@ -135,11 +145,14 @@ void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const & drawpoint, Rect const &
 	int shape_skip = drawpoint.X - inter_right + shaperect.X + shaperect.Width + src_x;
 	int alpha_skip = inter_left - inter_right + AlphaBuffer->Get_Buffer_Width();
 
-	unsigned char * shapedata = (unsigned char *)shapes->Get_Data(shapenum);
+	unsigned char * shapedata = shapes->GetPixels(shapenum);
+	if (shapedata == NULL) return;	// NATIVE: gamemd.exe would read from address 0 (a frame without pixels)
 	unsigned short * alphaptr = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(inter_left, inter_top - TacticalRect.Y));
 
-	unsigned char * shapeptr = (unsigned char *)&shapedata[src_x + src_y * shaperect.Width];
-	if (&alphaptr[inter_right - inter_left + (inter_bottom - inter_top) * AlphaBuffer->Get_Buffer_Width() + 2] >= (unsigned short *)AlphaBuffer->Get_Buffer_End()) {
+	unsigned char * shapeptr = &shapedata[src_x + src_y * shaperect.Width];
+	int rows = inter_bottom - inter_top;
+	int cols = inter_right - inter_left;
+	if ((uintptr_t)&alphaptr[cols + rows * AlphaBuffer->Get_Buffer_Width() + 2] >= AlphaBuffer->Get_Buffer_End()) {
 		for (int i = inter_top; i < inter_bottom; i++) {
 			for (int j = inter_left; j < inter_right; j++) {
 				unsigned char pixel = *shapeptr++;
@@ -154,17 +167,18 @@ void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const & drawpoint, Rect const &
 			alphaptr = (unsigned short *)AlphaBuffer->Wrap_Overflow((uintptr_t)alphaptr);
 		}
 	} else {
-		for (int i = inter_top; i < inter_bottom; i++) {
-			for (int j = inter_left; j < inter_right; j++) {
+		do {
+			int c = cols;
+			do {
 				unsigned char pixel = *shapeptr++;
 				if (pixel != 0xFE) {
 					*alphaptr = pixel;
 				}
 				++alphaptr;
-			}
+			} while (--c > 0);
 			shapeptr += shape_skip;
 			alphaptr += alpha_skip;
-		}
+		} while (--rows > 0);
 	}
 }
 

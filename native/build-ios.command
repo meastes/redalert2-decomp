@@ -36,7 +36,7 @@ if [[ $# -gt 0 ]]; then shift; fi
 case "$platform" in
   simulator) sdk=iphonesimulator ;;
   device) sdk=iphoneos ;;
-  *) echo 'usage: native/build-ios.command [simulator|device] [--yr] [CMake options]' >&2; exit 2 ;;
+  *) echo 'usage: native/build-ios.command [simulator|device] [--yr|--one] [CMake options]' >&2; exit 2 ;;
 esac
 game_options=()
 target=ra2-native
@@ -52,6 +52,14 @@ if [[ "${1:-}" == --yr ]]; then
   bundle_id=io.github.ra2native.YR
   build_default="build/ios-yr-$platform"
   audit_exe="${RA2_GAMEMD_EXE:-}"
+elif [[ "${1:-}" == --one ]]; then
+  # Lane Y8: both games in one executable (native/yr/README.md "iOS in one executable"), RA2YR.app.
+  shift
+  game_options=(-DRA2_NATIVE_YR=ON -DRA2_NATIVE_COMBINED=ON -DRA2_NATIVE_ONE_EXECUTABLE=ON)
+  target=ra2yr-one
+  exe=RA2YR
+  bundle_id=io.github.ra2native.RA2YR
+  build_default="build/ios-one-$platform"
 fi
 build="${RA2_IOS_BUILD_DIR:-$build_default}"
 

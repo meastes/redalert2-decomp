@@ -18,7 +18,10 @@ Only the "RA2 Duo Validation" Simulator is used (its UDID by default; another na
 It is booted when shut down and shut down again afterwards; the app stays installed.
 
   ios_sim_skirmish.py --app build/ios-yr-simulator/YR.app --data-dir <RA2 + YR folder> --work <dir>
-                      [--play-seconds 180] [--score]
+                      [--play-seconds 180] [--score] [--opponents N --difficulty hard|normal|easy]
+
+--opponents (lane Y8) writes the skirmish setup into the app's RA2MD.INI (Documents/Game/YR) before
+the play run, as yr_skirmish_long.py does on the Mac: the opponents in slots 1..N, the rest closed.
 """
 import argparse
 import json
@@ -86,6 +89,16 @@ def play_script(play_w, play_ms):
     for k in range(1, 9):
         lines += ['%s tmove %d %d' % (at(g, t + 500 + 60 * k), 20 + (play_w - 220) * k // 8, 20 + 540 * k // 8)]
     lines += ['%s tup %d 560' % (at(g, t + 1200), play_w - 200)]
+    # A two-finger tap on open ground (a right click: Classic clears the selection, Modern orders a
+    # move there and logs it), then the box again.
+    t = 26600
+    lines += ['%s tdown %d %d 1' % (at(g, t), cx - 150, cy - 120), '%s tdown %d %d 2' % (at(g, t + 30), cx - 110, cy - 120),
+              '%s tup %d %d 1' % (at(g, t + 120), cx - 150, cy - 120), '%s tup %d %d 2' % (at(g, t + 140), cx - 110, cy - 120)]
+    t = 27000
+    lines += ['%s tdown 20 20' % at(g, t), '%s tmove 22 22' % at(g, t + 500)]
+    for k in range(1, 9):
+        lines += ['%s tmove %d %d' % (at(g, t + 500 + 40 * k), 20 + (play_w - 220) * k // 8, 20 + 540 * k // 8)]
+    lines += ['%s tup %d 560' % (at(g, t + 900), play_w - 200)]
     # The toolbar's Deploy (the MCV deploys), Guard, A-Move on and off.
     lines += ['%s toolbar 4' % at(g, 28000)]
     lines += ['%s toolbar 5' % at(g, 36000)]
@@ -128,6 +141,43 @@ def score_script(play_w):
     return lines
 
 
+# The skirmish setup's slot types (skirmish.cpp Skirmish_Slot_Type): 4 hard, 5 normal, 6 easy, 1 closed.
+SLOT_TYPE = {'hard': 4, 'normal': 5, 'easy': 6}
+
+
+def set_skirmish_slots(udid, opponents, difficulty, bundle=BUNDLE):
+    """The app's RA2MD.INI (its write folder, Documents/Game/YR) gets [Skirmish] SlotNN lines; the
+    rest of the file (the app's [Video] lines, the game's own settings) is kept."""
+    data = simctl('get_app_container', udid, bundle, 'data').stdout.strip()
+    folder = os.path.join(data, 'Documents', 'Game', 'YR')
+    os.makedirs(folder, exist_ok=True)
+    path = os.path.join(folder, 'RA2MD.INI')
+    lines = open(path, errors='replace').read().splitlines() if os.path.exists(path) else []
+    slots = ['Slot%02d=%d,-2,-2' % (i, SLOT_TYPE[difficulty] if i <= opponents else 1) for i in range(1, 8)]
+    # A four-player map for more than one opponent (yr_skirmish_long.py FOUR_PLAYER_SCEN: on map 0, a
+    # two-player map, the setup closes the slots past the first opponent).
+    slots.append('ScenIndex=%d' % (30 if opponents > 1 else 0))
+    out, section, done = [], None, False
+    for l in lines:
+        m = re.match(r'\s*\[([^\]]*)\]', l)
+        if m:
+            if section == 'skirmish' and not done:
+                out += slots
+                done = True
+            section = m.group(1).strip().lower()
+        elif section == 'skirmish' and re.match(r'\s*(slot\d\d|scenindex)\s*=', l, re.I):
+            continue
+        out.append(l)
+    if section == 'skirmish' and not done:
+        out += slots
+        done = True
+    if not done:
+        out += ['', '[Skirmish]'] + slots
+    with open(path, 'w') as f:
+        f.write('\r\n'.join(out) + '\r\n')
+    print('setup: %d %s opponent(s) in %s' % (opponents, difficulty, path))
+
+
 def dialogs(text):
     titles = []
     for l in text.splitlines():
@@ -165,7 +215,7 @@ def run(a, name, script_lines, seconds, extra_env):
     # The app as a player starts it (app mode: the import, the screen's resolution, the touch
     # controls); the input script plays through the host. The run ends after `seconds` from the
     # game's start (the "app: game folder" line, after the first run's import of about 2 GB).
-    cmd = ['xcrun', 'simctl', 'launch', '--console', '--terminate-running-process', a.udid, BUNDLE]
+    cmd = ['xcrun', 'simctl', 'launch', '--console', '--terminate-running-process', a.udid, a.bundle] + a.launch_arg
     stop = threading.Event()
     shooter = threading.Thread(target=shots, args=(a.udid, work, stop, a.shot_seconds), daemon=True)
     shooter.start()
@@ -180,15 +230,16 @@ def run(a, name, script_lines, seconds, extra_env):
                 if started is None and 'app: game folder' in text:
                     started = time.monotonic()
                     deadline = started + seconds
-                if 'unrecovered ' in text or 'crash: signal' in text:
+                if ('unrecovered ' in text and not a.trap_continue) or 'crash: signal' in text:
                     break
                 time.sleep(1)
             text = open(log_path, errors='replace').read()
-            alive = g.poll() is None and started is not None and 'unrecovered ' not in text and 'crash: signal' not in text
+            alive = (g.poll() is None and started is not None and ('unrecovered ' not in text or a.trap_continue)
+                     and 'crash: signal' not in text)
     finally:
         stop.set()
         shooter.join()
-        simctl('terminate', a.udid, BUNDLE, check=False)
+        simctl('terminate', a.udid, a.bundle, check=False)
     with open(log_path, 'a') as log:
         log.write('harness: stopped: %s\n' % ('time limit' if alive else 'the app ended or failed first'))
     return open(os.path.join(work, 'run.log'), errors='replace').read(), work
@@ -205,6 +256,15 @@ def main():
     ap.add_argument('--play-w', type=int, default=872, help='the play width the first run assumes (the Duo Simulator: 872)')
     ap.add_argument('--score', action='store_true')
     ap.add_argument('--keep-booted', action='store_true')
+    ap.add_argument('--trap-continue', action='store_true',
+                    help='research runs: RA2_NATIVE_TRAP_CONTINUE=1, every trap reached is listed (the run fails)')
+    ap.add_argument('--bundle', default=BUNDLE, help='the app (lane Y8: io.github.ra2native.RA2YR, ra2yr-one)')
+    ap.add_argument('--launch-arg', action='append', default=[], help='arguments to the app (ra2yr-one: --game=yr)')
+    ap.add_argument('--toggle', action='store_true',
+                    help='ra2yr-one: the first game\'s main menu toggle, then the play in the other game')
+    ap.add_argument('--enhancements', default='', help='RA2_NATIVE_ENHANCEMENTS for the play run ("controls=modern,...")')
+    ap.add_argument('--opponents', type=int, default=0, choices=range(0, 8), help='0: the setup as it is')
+    ap.add_argument('--difficulty', default='hard', choices=sorted(SLOT_TYPE))
     a = ap.parse_args()
     a.data_dir = os.path.abspath(a.data_dir)
     a.work = os.path.abspath(a.work)
@@ -223,10 +283,40 @@ def main():
     failures = []
     try:
         simctl('install', a.udid, a.app)
+        if a.opponents:
+            set_skirmish_slots(a.udid, a.opponents, a.difficulty, a.bundle)
         play_ms = a.play_seconds * 1000
         # The play width the app picks from the screen (main.cpp, app::game_resolution) is in the
         # log; the first run's menu taps assume it from the Duo Simulator's points (872).
-        text, work = run(a, 'play', play_script(a.play_w, play_ms), a.play_seconds, {})
+        extra = {}
+        if a.trap_continue:
+            extra['RA2_NATIVE_TRAP_CONTINUE'] = '1'
+        if a.enhancements:
+            extra['RA2_NATIVE_ENHANCEMENTS'] = a.enhancements
+        lines = play_script(a.play_w, play_ms)
+        if a.toggle:
+            # ra2yr-one (lane Y8): one input script per engine start (one_game.cpp --engine-scripts):
+            # the first game's main menu toggle (its bottom bar's left end, the menus centred on the
+            # wider surface), then the play script in the other game.
+            os.makedirs(a.work, exist_ok=True)
+            toggle = os.path.join(a.work, 'toggle.script')
+            play = os.path.join(a.work, 'play-engine1.script')
+            with open(toggle, 'w') as f:
+                f.write('s1+2500 tdown %d 588\ns1+2580 tup %d 588\n' % ((a.play_w - 800) // 2 + 85, (a.play_w - 800) // 2 + 85))
+            with open(play, 'w') as f:
+                f.write('\n'.join(lines) + '\n')
+            a.launch_arg = a.launch_arg + ['--engine-scripts=%s,%s' % (toggle, play)]
+            lines = []
+        text, work = run(a, 'play', lines, a.play_seconds, extra)
+        if a.opponents:
+            data = simctl('get_app_container', a.udid, a.bundle, 'data', check=False).stdout.strip()
+            ini = os.path.join(data, 'Documents', 'Game', 'YR', 'RA2MD.INI')
+            if data and os.path.exists(ini):
+                slots = [l.strip() for l in open(ini, errors='replace') if re.match(r'\s*slot0[1-7]\s*=', l, re.I)]
+                print('setup after the run: %s' % ' '.join(slots))
+        traps = sorted(set(re.findall(r'unrecovered (.*) reached', text)))
+        for t in traps:
+            failures.append('play: trap %s' % t)
         m = re.search(r'play (\d+)x(\d+)', text)
         width = int(m.group(1)) if m else a.play_w
         stop = [l for l in text.splitlines() if 'stopped:' in l]
@@ -236,11 +326,24 @@ def main():
                                                                        stop[-1] if stop else 'no stop line'))
         if not stop or 'time limit' not in stop[-1]:
             failures.append('play: the run stopped early: %s' % (stop[-1] if stop else 'no stop line'))
-        if order[:3] != ['MainMenu', 'SinglePlayerMenu', 'SkirmishGame']:
+        expected = ['MainMenu', 'MainMenu', 'SinglePlayerMenu', 'SkirmishGame'] if a.toggle else ['MainMenu', 'SinglePlayerMenu', 'SkirmishGame']
+        if order[:len(expected)] != expected:
             failures.append('play: menus %s' % ' -> '.join(order))
-        if dumps < a.play_seconds // 5 // 2:
+        if a.toggle and 'one-game: swap:' not in text:
+            failures.append('play: no swap through the toggle')
+        if a.toggle:
+            # After a swap the second engine's window dumps come back empty on the Simulator (its
+            # renderer's read-back); its frames are the host's 30 s stats lines after the swap.
+            after = text[text.find('one-game: swap:'):] if 'one-game: swap:' in text else ''
+            rates = [float(r) for r in re.findall(r'host: stats: ([0-9.]+) frames/s', after)]
+            if not rates or max(rates) < 20:
+                failures.append('play: no game frames after the swap (%s)' % rates)
+        elif dumps < a.play_seconds // 5 // 2:
             failures.append('play: too few window presents (%d)' % dumps)
-        for needle, what in (('touch: pan from', 'the swipe pan'), ('touch: left down', 'a tap')):
+        checks = [('touch: pan from', 'the swipe pan'), ('touch: left down', 'a tap')]
+        if 'controls=modern' in a.enhancements:
+            checks.append(('modern-controls: right click: action', "Modern's order from the two-finger tap"))
+        for needle, what in checks:
             if needle not in text:
                 failures.append('play: no %s in the log' % what)
         if a.score:
