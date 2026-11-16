@@ -327,8 +327,8 @@ WWCRCEngine __fastcall Game_CRC()
     for (index = 0; index < SuperWeaponTypes.Count(); index++) {
         SuperWeaponTypes[index]->Compute_CRC(crc);
     }
-    for (index = 0; index < Supers.Count(); index++) {
-        Supers[index]->Compute_CRC(crc);
+    for (index = 0; index < SuperWeapons.Count(); index++) {
+        SuperWeapons[index]->Compute_CRC(crc);
     }
     for (index = 0; index < TerrainTypes.Count(); index++) {
         TerrainTypes[index]->Compute_CRC(crc);
@@ -621,7 +621,7 @@ bool __fastcall Put_All(IStream *stream, int save_net)
         DebugString("\t***** FAILED!\n");
         return false;
     }
-    if (FAILED(Save_Vector(stream, Supers))) {
+    if (FAILED(Save_Vector(stream, SuperWeapons))) {
         DebugString("\t***** FAILED!\n");
         return false;
     }

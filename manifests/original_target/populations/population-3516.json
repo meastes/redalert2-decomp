@@ -4,8 +4,8 @@
     "id": "population-3516",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "09941cd15b9881881b8f6aa689c296700640d66e8a832ef708b5148f40c338f6",
-    "historical_acceptance_sha256": "e6cf1c80e500fdf741202202c3092fd4b551fa6e977e9eb71cd665c4384b9d9d"
+    "historical_population_sha256": "c11d33a772a4ab92196c34593e94cbdd71956694098fe800fbb913397a3f74a4",
+    "historical_acceptance_sha256": "8f837f45c28f67df1f48acd7947a7f74cfe0299ec76cf0c0a642664330127e46"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -2625,7 +2625,22 @@
     "?Clear@BooleanVectorClass@@QAEXXZ": 7402176,
     "?Clear@UnknownVeinHeap@@QAEXXZ": 7416336,
     "?Clear@?$VectorClass@PAVPlanningMemberClass@@@@UAEXXZ": 6401008,
-    "?Clear@?$VectorClass@V?$TRect@H@@@@UAEXXZ": 5826192
+    "?Clear@?$VectorClass@V?$TRect@H@@@@UAEXXZ": 5826192,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "?Layer@DriveLocomotionClass@@UAGHXZ": 4868064,
+    "?Layer@DropPodLocomotionClass@@UAGHXZ": 4875344,
+    "?Layer@MechLocomotionClass@@UAGHXZ": 5845392,
+    "?Layer@RocketLocomotionClass@@UAGHXZ": 6548464,
+    "?Layer@ShipLocomotionClass@@UAGHXZ": 6793008,
+    "?Layer@TeleportLocomotionClass@@UAGHXZ": 7215344,
+    "?Layer@WalkLocomotionClass@@UAGHXZ": 7469728,
+    "?Layer@FlyLocomotionClass@@UAGHXZ": 4977776,
+    "?Layer@HoverLocomotionClass@@UAGHXZ": 5238032,
+    "?Layer@DisplayClass@@2PAVLayerClass@@A": 8725880,
+    "?Layer@TunnelLocomotionClass@@UAGHXZ": 7279424,
+    "?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ": 4228160,
+    "?Layer@JumpjetLocomotionClass@@UAGHXZ": 5438480
   },
   "regions": [
     {
@@ -2835,12 +2850,12 @@
         }
       ],
       "source_sha256": "534b769f86ec021204807aa89689c0e57c3a720bdf2153d4e2845787a0c4bd2f",
-      "source": "src/recovered/header_statics/00716d80/HeaderStatics_static_rect_init_00716d80.cpp",
+      "source": "src/recovered/header_statics/00716d80/HeaderStatics_static_rect_init.cpp",
       "population": "population-3516",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "HeaderStatics_static_rect_init_00716d80",
+      "semantic_name": "HeaderStatics_static_rect_init",
       "source_order": 154802
     },
     {
@@ -2861,12 +2876,12 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
       "source_sha256": "a35507bc5f3ee3730d054c587beca6afbbeacdfd5779ab5cc4cd75095f7d32be",
-      "source": "src/recovered/globals/Vector3_global_ae0a70_init_00716ea0.cpp",
+      "source": "src/recovered/globals/MinVoxelBounds_init.cpp",
       "population": "population-3516",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Vector3_global_ae0a70_init_00716ea0",
+      "semantic_name": "MinVoxelBounds_init",
       "source_order": 154807
     },
     {
@@ -2887,12 +2902,12 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
       "source_sha256": "e5abdbf57932752b07f71674d2be130ff58b817e87dc57892a27b8a99810855a",
-      "source": "src/recovered/globals/Vector3_global_ae0dd8_init_00716eb0.cpp",
+      "source": "src/recovered/globals/MaxVoxelBounds_init.cpp",
       "population": "population-3516",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Vector3_global_ae0dd8_init_00716eb0",
+      "semantic_name": "MaxVoxelBounds_init",
       "source_order": 154808
     },
     {
@@ -2946,12 +2961,12 @@
         }
       ],
       "source_sha256": "ac1879483344faddc68bcbf9c67832674767f2854da54a37265ad0fc2897b0f7",
-      "source": "src/recovered/globals/Rect_global_ae2ff0_init_00716ec0.cpp",
+      "source": "src/recovered/globals/LastRenderRect_init.cpp",
       "population": "population-3516",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Rect_global_ae2ff0_init_00716ec0",
+      "semantic_name": "LastRenderRect_init",
       "source_order": 154809
     },
     {
@@ -3422,12 +3437,12 @@
         }
       ],
       "source_sha256": "cd1881dcc6d1a53ab48bb386dfa31356095dcdc86ee03064627a45f19e58b4ae",
-      "source": "src/recovered/classes/BSurface/BSurface_global_ae0db8_init_00716da0.cpp",
+      "source": "src/recovered/classes/BSurface/VoxelSurface_init.cpp",
       "population": "population-3516",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BSurface_global_ae0db8_init_00716da0",
+      "semantic_name": "VoxelSurface_init",
       "source_order": 154803
     },
     {
@@ -3481,12 +3496,12 @@
         }
       ],
       "source_sha256": "1780a23ea2a454442e1d70514b62f5cda2e777762f51f1e684dd49bbf418768b",
-      "source": "src/recovered/classes/BSurface/BSurface_global_ae0db8_destroy_00716e00.cpp",
+      "source": "src/recovered/classes/BSurface/VoxelSurface_destroy.cpp",
       "population": "population-3516",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BSurface_global_ae0db8_destroy_00716e00",
+      "semantic_name": "VoxelSurface_destroy",
       "source_order": 154804
     },
     {
@@ -3612,12 +3627,12 @@
         }
       ],
       "source_sha256": "7bdaf3819ebef865064edea3bcee5c50c9c5bfc066833423b08815fe0e0ea39e",
-      "source": "src/recovered/classes/BSurface/BSurface_global_ae0c80_init_00716e20.cpp",
+      "source": "src/recovered/classes/BSurface/unknown_surface_init.cpp",
       "population": "population-3516",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BSurface_global_ae0c80_init_00716e20",
+      "semantic_name": "unknown_surface_init",
       "source_order": 154805
     },
     {
@@ -3671,12 +3686,12 @@
         }
       ],
       "source_sha256": "45fcd36501a18513eede8b1a0af3847bd8bad3c62729cdf5e76b4a88aa011bdc",
-      "source": "src/recovered/classes/BSurface/BSurface_global_ae0c80_destroy_00716e80.cpp",
+      "source": "src/recovered/classes/BSurface/unknown_surface_destroy.cpp",
       "population": "population-3516",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "BSurface_global_ae0c80_destroy_00716e80",
+      "semantic_name": "unknown_surface_destroy",
       "source_order": 154806
     },
     {
@@ -3722,12 +3737,12 @@
         }
       ],
       "source_sha256": "877ec50577eb4d80414358262c92c80208620b55f795ed8f84e540f375286087",
-      "source": "src/recovered/globals/Voxel_records_ae0de8_init_00716ee0.cpp",
+      "source": "src/recovered/globals/VoxelRenderData_init.cpp",
       "population": "population-3516",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Voxel_records_ae0de8_init_00716ee0",
+      "semantic_name": "VoxelRenderData_init",
       "source_order": 154810
     },
     {
@@ -3773,12 +3788,12 @@
         }
       ],
       "source_sha256": "75006d47e20e1cd73be9e6794c39dbefbfd13c9f1f45e2e9743c2b9f333591ab",
-      "source": "src/recovered/globals/Voxel_records_af3408_init_00716f10.cpp",
+      "source": "src/recovered/globals/VoxelShadowRenderData_init.cpp",
       "population": "population-3516",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Voxel_records_af3408_init_00716f10",
+      "semantic_name": "VoxelShadowRenderData_init",
       "source_order": 154811
     }
   ]

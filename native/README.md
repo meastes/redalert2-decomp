@@ -474,7 +474,7 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   mission (BuildingClass Do_MISSION_MISSILE 0x00448400) is a behaviour row from
   the 99.77 parked draft (`link/behaviour_m26_building.cpp`).
 - **Super weapons.** `RA2_NATIVE_ORDERS="<frame> super <index> <x> <y>"` grants
-  the human house's Supers[index] once (no silo needed), charges it and queues
+  the human house's SuperWeapons[index] once (no silo needed), charges it and queues
   the SPECIAL_PLACE event (0x12) a map click queues (`grant <index>` only arms
   it). Indices follow rules.ini: 0 nuke (MultiSpecial), 1 iron curtain,
   2 lightning storm, 3 chronosphere, 4 chrono warp, 5 and 6 paradrops. All

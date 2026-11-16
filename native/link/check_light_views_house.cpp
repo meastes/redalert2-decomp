@@ -11,7 +11,7 @@ static_assert(offsetof(HouseClass, ActLike) == 0x188, "house_screen.hpp unknown_
 static_assert(offsetof(HouseClass, IsDefeated) == 0x195, "house_screen.hpp unknown_13d");
 static_assert(offsetof(HouseClass, FirestormActive) == 0x19A, "house_screen.hpp FirestormActive");
 static_assert(offsetof(HouseClass, WaypointPaths) == 0x1B0, "house_screen.hpp WaypointPaths");
-static_assert(offsetof(HouseClass, Supers) == 0x228, "house_screen.hpp Supers");
+static_assert(offsetof(HouseClass, SuperWeapons) == 0x228, "house_screen.hpp SuperWeapons");
 static_assert(offsetof(HouseClass, WarFactoryInfiltrated) == 0x29B, "house_screen.hpp unknown_207");
 static_assert(offsetof(HouseClass, unknown_230) == 0x2C4, "house_screen.hpp unknown_230");
 static_assert(offsetof(HouseClass, PowerOutput) == 0x5364, "house_screen.hpp PowerOutput");

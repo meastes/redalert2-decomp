@@ -10079,6 +10079,10 @@
    "address": "00774100"
   },
   {
+   "symbol": "?DropPodVoxel@@3VUnknownObjectPair@@A",
+   "address": "00a40c80"
+  },
+  {
    "symbol": "?Enable@ToolTipManager@@QAEX_N@Z",
    "address": "006eb480"
   },
@@ -11443,10 +11447,6 @@
    "address": "008323c8"
   },
   {
-   "symbol": "?unknown_drop_pod_voxel_a40c80@@3VUnknownObjectPair@@A",
-   "address": "00a40c80"
-  },
-  {
    "symbol": "?unknown_expansion_mixes_837450@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
    "address": "00837450"
   },
@@ -12154,7 +12154,7 @@
    "entry": "0051e7f0",
    "bytes": 15,
    "population": "population-3701",
-   "source": "src/recovered/interpal/Int_statics_init_0051e7f0.cpp",
+   "source": "src/recovered/interpal/Int_statics_init.cpp",
    "cause": "frozen in another population's inventory pass (population-3701)"
   }
  ],

@@ -77,7 +77,7 @@ public:
     class WaypointPathClass *WaypointPaths[12];   // +0x158 (overlay)
     bool IsVisionary;                   // +0x188 (cleared by MapClass 0x00559F10 / 0x00559FD0)
     char unknown_189[0x19C - 0x189];
-    DynamicVectorClass<SuperClass *> Supers;    // +0x19C (Vector +0x1A0, ActiveCount +0x1AC)
+    DynamicVectorClass<SuperClass *> SuperWeapons;    // +0x19C (Vector +0x1A0, ActiveCount +0x1AC)
     char unknown_1b4[0x206 - 0x1B4];
     bool unknown_206;                   // +0x206 (Get_Cameo_Data: infantry alt cameo)
     bool WarFactoryInfiltrated;                   // +0x207 (Get_Cameo_Data: unit alt cameo)

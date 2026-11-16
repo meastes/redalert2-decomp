@@ -4,8 +4,8 @@
     "id": "population-4068",
     "inventory_sha256": "7368b91fd5c73ccb446044416eb8758460f22898d158a2985aaee800e8276e9a",
     "gaps_sha256": "6bd1112e27321f498ac64226c5804b5721026f3a3ec93d2f9444af2c90db6ec1",
-    "historical_population_sha256": "cb331f5ae847952e28f4502b794bc81d94ee9df71099ae559cc3fd14fb0c281c",
-    "historical_acceptance_sha256": "5bc7e401423d3e1e7336fb589847138ea95ab2222714accdb86972f80bab94ec"
+    "historical_population_sha256": "509101c8363d4c84daaee8677cc884ca04fbf30e1feacea35a6b09dfd743860e",
+    "historical_acceptance_sha256": "157d85352576920a04160d620ed48c86f06b76415d6c09b20ae25f24aa920341"
   },
   "references": {
     "?CDControl@@3VCDControlClass@@A": 8718384,
@@ -3836,7 +3836,16 @@
     "__ramp_corners": 8339828,
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "??_GCellClass@@UAEPAXI@Z": 4706208,
+    "?Clear@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEXXZ": 4936880,
+    "??_GFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_GFootClass@@UAEPAXI@Z": 5037584,
+    "?Clear@?$DynamicVectorClass@PAVCCINIClass@@@@UAEXXZ": 5365920,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_EFootClass@@UAEPAXI@Z": 5037584
   },
   "regions": [
     {
@@ -3883,12 +3892,12 @@
         }
       ],
       "source_sha256": "d72c42cf9e87870926999c88c7178da4c240f7ab0c86b73d1029286b70216de7",
-      "source": "src/recovered/classes/CDControlClass/CDControlClass_globals_init_0046ea40.cpp",
+      "source": "src/recovered/classes/CDControlClass/CDControlClass_globals_init.cpp",
       "population": "population-4068",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CDControlClass_globals_init_0046ea40",
+      "semantic_name": "CDControlClass_globals_init",
       "source_order": 199381
     },
     {
@@ -3910,12 +3919,12 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "relocations": [],
       "source_sha256": "9f1239e8783a6164ce6eff66354de89c1771a7bc6757537c11ae1b94e1e16b8e",
-      "source": "src/recovered/classes/CDControlClass/CDControlClass_atexit_destructor_0046ea60.cpp",
+      "source": "src/recovered/classes/CDControlClass/CDControlClass_atexit_destructor.cpp",
       "population": "population-4068",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "CDControlClass_atexit_destructor_0046ea60",
+      "semantic_name": "CDControlClass_atexit_destructor",
       "source_order": 199382
     },
     {

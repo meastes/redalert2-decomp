@@ -4,8 +4,8 @@
     "id": "population-2187",
     "inventory_sha256": "5216fb99804e375d0070b29208687a2378263fdbf466a4c95f37044fc1114f03",
     "gaps_sha256": "f7bf53817f02e69b45ae9a258416028f0ba47d2a5e2a2a9b1f048f9f37106f71",
-    "historical_population_sha256": "388b9988c0abd2609f819af7d98d08ee0c0e84b370f9485f9d1d4f7935c96538",
-    "historical_acceptance_sha256": "339c6931803821e2609515082e817ea4976c0a07e7df64e4987c3673a0ce23e9",
+    "historical_population_sha256": "19693cb18a6946a75a4495624a04733d9da864e358dda4f96600a9ca8a12fde4",
+    "historical_acceptance_sha256": "1275b7c8e3e0c4c326be6219dd231d042959d9f0e1f862a45eb813fda28d53cd",
     "separate_units": true
   },
   "references": {
@@ -2848,7 +2848,36 @@
     "??_EGameOption@WorldDominationTour@@UAEPAXI@Z": 7503344,
     "??_EConflict@WorldDominationTour@@UAEPAXI@Z": 7502640,
     "??_Erc_ptr_base@@UAEPAXI@Z": 6526336,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Clear@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEXXZ": 4936880,
+    "??_GINIClass@@UAEPAXI@Z": 5107440,
+    "?Clear@?$DynamicVectorClass@PAVCCINIClass@@@@UAEXXZ": 5365920,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "??_EINIClass@@UAEPAXI@Z": 5107440,
+    "??_GCellClass@@UAEPAXI@Z": 4706208,
+    "??_GFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "?Draw_It@FootClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5020608,
+    "?Draw_It@IsometricTileClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5407312,
+    "?Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5853472,
+    "?Draw_It@OverlayClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6144752,
+    "?Draw_It@SmudgeClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6847216,
+    "?Action@seed_006816b0@@YGIHH@Z": 6821552,
+    "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7480624,
+    "?Draw_It@ParticleSystemClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6336656,
+    "?Draw_It@TerrainClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7223696,
+    "?Draw_It@InfantryClass@@UAEXABUPoint2D@@ABVRect@@@Z": 5244240,
+    "?Draw_It@AircraftClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4276672,
+    "?Draw_It@ParticleClass@@UAEXABUPoint2D@@ABVRect@@@Z": 6331664,
+    "?Draw_It@AnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4329040,
+    "?Draw_It@VoxelAnimClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7393216,
+    "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
+    "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
+    "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056
   },
   "regions": [
     {
@@ -3109,12 +3138,12 @@
         }
       ],
       "source_sha256": "82d4a6b56a37ba6ca4cc494b097a295adc09a0210d150f50d4a137a8ea92495b",
-      "source": "src/recovered/classes/VectorClass_Wstring/VectorClass_Wstring_ID_object_00673e80.cpp",
+      "source": "src/recovered/classes/VectorClass_Wstring/ID_object.cpp",
       "population": "population-2187",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_Wstring_ID_object_00673e80",
+      "semantic_name": "ID_object",
       "source_order": 79206
     },
     {
@@ -3227,12 +3256,12 @@
         }
       ],
       "source_sha256": "4e9424ce711c5bbe9df002be683954c688a307173c1b3e02b0cf58ce745c4ad0",
-      "source": "src/recovered/classes/DynamicVectorClass_Wstring/DynamicVectorClass_Wstring_ID_object_00674030.cpp",
+      "source": "src/recovered/classes/DynamicVectorClass_Wstring/ID_object.cpp",
       "population": "population-2187",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_Wstring_ID_object_00674030",
+      "semantic_name": "ID_object",
       "source_order": 79208
     },
     {
@@ -3434,12 +3463,12 @@
       "full_extent_sha256": "8cd7b044710f51b406bd968d752054823a7597c95c90f87fd83e9a9c912e0e1b",
       "relocations": [],
       "source_sha256": "363cbdf7f6fcdfff9403962f6e0ecacfcf4877bd42cafd0f13808c00f6361076",
-      "source": "src/recovered/classes/VectorClass_SwizzlePointerClass/VectorClass_SwizzlePointerClass_ID_object_0069ffa0.cpp",
+      "source": "src/recovered/classes/VectorClass_SwizzlePointerClass/ID_object.cpp",
       "population": "population-2187",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_SwizzlePointerClass_ID_object_0069ffa0",
+      "semantic_name": "ID_object",
       "source_order": 79226
     },
     {
@@ -3503,12 +3532,12 @@
       "full_extent_sha256": "3327ae0bdaf11fd0b9a7bb6f713a36b745f9ad95d00da4615cd1b47e6372f5e1",
       "relocations": [],
       "source_sha256": "80f1de437d356ba55bd66942c58b9c7774dbb6f5fd1bde1e7cd4e846744895ef",
-      "source": "src/recovered/classes/DynamicVectorClass_SwizzlePointerClass/DynamicVectorClass_SwizzlePointerClass_ID_object_006a0100.cpp",
+      "source": "src/recovered/classes/DynamicVectorClass_SwizzlePointerClass/ID_object.cpp",
       "population": "population-2187",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_SwizzlePointerClass_ID_object_006a0100",
+      "semantic_name": "ID_object",
       "source_order": 79228
     },
     {
@@ -3658,12 +3687,12 @@
       "full_extent_sha256": "693b7ee0f427b8243f52abfca083bc3c73e11ebb9cc1d983e174286ca8b4fdd8",
       "relocations": [],
       "source_sha256": "1a281e04ecbaf375c84dfc026d0a8212f7205105896fe231c4cce243171f5e2f",
-      "source": "src/recovered/classes/VectorClass_rc_ptr_WorldDominationTour__Territory/VectorClass_rc_ptr_WorldDominationTour__Territory_ID_object_0072b2b0.cpp",
+      "source": "src/recovered/classes/VectorClass_rc_ptr_WorldDominationTour__Territory/ID_object.cpp",
       "population": "population-2187",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_rc_ptr_WorldDominationTour__Territory_ID_object_0072b2b0",
+      "semantic_name": "ID_object",
       "source_order": 79255
     },
     {
@@ -3751,12 +3780,12 @@
       "full_extent_sha256": "c84547dff1b025a60d5660761515556d1870fae7871674926429b30bbb308ef2",
       "relocations": [],
       "source_sha256": "49ab157a1722e2cb8b0acd74dcbe62bf30e1817755ced560a94b56281db0c133",
-      "source": "src/recovered/classes/DynamicVectorClass_rc_ptr_WorldDominationTour__Territory/DynamicVectorClass_rc_ptr_WorldDominationTour__Territory_ID_object_0072b430.cpp",
+      "source": "src/recovered/classes/DynamicVectorClass_rc_ptr_WorldDominationTour__Territory/ID_object.cpp",
       "population": "population-2187",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_rc_ptr_WorldDominationTour__Territory_ID_object_0072b430",
+      "semantic_name": "ID_object",
       "source_order": 79257
     },
     {
@@ -3981,12 +4010,12 @@
       "full_extent_sha256": "693b7ee0f427b8243f52abfca083bc3c73e11ebb9cc1d983e174286ca8b4fdd8",
       "relocations": [],
       "source_sha256": "b4d03486e42fdbca4098fa152481709709ebd404a72a7703826685b37b6e3a61",
-      "source": "src/recovered/classes/VectorClass_rc_ptr_WDTTerritory/VectorClass_rc_ptr_WDTTerritory_ID_object_0072cd20.cpp",
+      "source": "src/recovered/classes/VectorClass_rc_ptr_WDTTerritory/ID_object.cpp",
       "population": "population-2187",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_rc_ptr_WDTTerritory_ID_object_0072cd20",
+      "semantic_name": "ID_object",
       "source_order": 79263
     },
     {
@@ -4074,12 +4103,12 @@
       "full_extent_sha256": "c84547dff1b025a60d5660761515556d1870fae7871674926429b30bbb308ef2",
       "relocations": [],
       "source_sha256": "54d428c92d0f5e401f257027fbf99550fe7e4607668d756b8a93f622d47e7f4e",
-      "source": "src/recovered/classes/DynamicVectorClass_rc_ptr_WDTTerritory/DynamicVectorClass_rc_ptr_WDTTerritory_ID_object_0072cea0.cpp",
+      "source": "src/recovered/classes/DynamicVectorClass_rc_ptr_WDTTerritory/ID_object.cpp",
       "population": "population-2187",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_rc_ptr_WDTTerritory_ID_object_0072cea0",
+      "semantic_name": "ID_object",
       "source_order": 79265
     },
     {

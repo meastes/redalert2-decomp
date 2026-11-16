@@ -2740,10 +2740,10 @@ void TeamClass::TMission_unknown_6be010(ScriptMissionClass const &mission, bool 
     if(!leader) { Complete_Step_006be010(this); return; }
     HouseClass *house=leader->House;
     SuperClass *weapon=0;
-    int count=house->Supers.Count();
+    int count=house->SuperWeapons.Count();
     for(int index=0;index<count;++index) {
-        if(house->Supers[index]->Type->Type==1) {
-            weapon=house->Supers[index];
+        if(house->SuperWeapons[index]->Type->Type==1) {
+            weapon=house->SuperWeapons[index];
             break;
         }
     }
@@ -2778,12 +2778,12 @@ void TeamClass::TMission_unknown_6be1c0(ScriptMissionClass const &mission, bool 
     HouseClass *house = leader->House;
     SuperClass *sphere = 0;
     SuperClass *warp = 0;
-    for (int index = 0; index < house->Supers.Count(); index++) {
-        if (house->Supers[index]->Type->Type == 3) {
-            sphere = house->Supers[index];
+    for (int index = 0; index < house->SuperWeapons.Count(); index++) {
+        if (house->SuperWeapons[index]->Type->Type == 3) {
+            sphere = house->SuperWeapons[index];
         }
-        if (house->Supers[index]->Type->Type == 4) {
-            warp = house->Supers[index];
+        if (house->SuperWeapons[index]->Type->Type == 4) {
+            warp = house->SuperWeapons[index];
         }
     }
     if (sphere != 0 && warp != 0) {
@@ -2834,12 +2834,12 @@ void TeamClass::TMission_unknown_6be440(ScriptMissionClass const &mission, bool 
     HouseClass *house = leader->House;
     SuperClass *sphere = 0;
     SuperClass *warp = 0;
-    for (int index = 0; index < house->Supers.Count(); index++) {
-        if (house->Supers[index]->Type->Type == 3) {
-            sphere = house->Supers[index];
+    for (int index = 0; index < house->SuperWeapons.Count(); index++) {
+        if (house->SuperWeapons[index]->Type->Type == 3) {
+            sphere = house->SuperWeapons[index];
         }
-        if (house->Supers[index]->Type->Type == 4) {
-            warp = house->Supers[index];
+        if (house->SuperWeapons[index]->Type->Type == 4) {
+            warp = house->SuperWeapons[index];
         }
     }
     if (sphere != 0 && warp != 0) {

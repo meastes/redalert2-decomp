@@ -26,55 +26,55 @@
 
 
 // Dynamic initializer (0x0040D970, _$E) of diagonal from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040D9A0, _$E) of b from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040D9C0, _$E) of c from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040D9E0, _$E) of angle45 from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040DA00, _$E) of angle60 from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040DA20, _$E) of angle90 from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040DA40, _$E) of g from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040DA80, _$E) of h from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040DAB0, _$E) of i from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040DAE0, _$E) of j from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040DB10, _$E) of k from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040DB20, _$E) of l from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x0040DB40, _$E) of static_rect from the header(s) included
-// by HeaderStatics_empty_rect_init_0040d950.cpp; no source of its own.
+// by header_statics/0040d950/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 /// <summary>

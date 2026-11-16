@@ -4,8 +4,8 @@
     "id": "population-1932",
     "inventory_sha256": "be54464b3c12413d9cf6486a4dca357b4c89a4316576bd8f622f8e810c38a531",
     "gaps_sha256": "845f9d5ca6da4fc78a9262f556e34006c889ec806cbc84241052ff381dc1364b",
-    "historical_population_sha256": "72fe1f1aecc0d61f7e084e8dc02b51c9ba8add6b0f8b9b74c3fe1987a4380c23",
-    "historical_acceptance_sha256": "533a9210568c27de381db9c720d983770edfa669fe025e5a54b5207af8ff2c08"
+    "historical_population_sha256": "d0bfb8bee69e58a3626e08c6adcbc2aa384ddc85d58455a8ecc05758e95b2586",
+    "historical_acceptance_sha256": "06d3fc4dc6794e5c1e52621d7d89eb39e852cbfb390359bb5b9ff186b0ba7e26"
   },
   "references": {
     "_unknown_empty_rect": 8739104,
@@ -5260,12 +5260,12 @@
         }
       ],
       "source_sha256": "7204ea600e2fda7e5f50e83db6e05c4c502cd320171fe029be25e6d2aac500af",
-      "source": "src/recovered/header_statics/004b35a0/EgoClass_list_atexit_destructor_004b35e0.cpp",
+      "source": "src/recovered/header_statics/004b35a0/EgoClass_list_atexit_destructor.cpp",
       "population": "population-1932",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "EgoClass_list_atexit_destructor_004b35e0",
+      "semantic_name": "EgoClass_list_atexit_destructor",
       "source_order": 65165
     },
     {

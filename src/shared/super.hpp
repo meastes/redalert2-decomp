@@ -16,7 +16,7 @@
 //   +0x54  bool, +0x55..+0x58 bools       +0x54: Anim was detached; +0x57 cleared on recharge
 //   +0x5C  int (-1), +0x60 int (-1)
 //   size 0x68 (Size_Of); Kind_Of and What_Am_I answer 0x39.
-// Constructed supers join Supers (0x00A35D28); the typed constructor also
+// Constructed supers join SuperWeapons (0x00A35D28); the typed constructor also
 // joins two other object lists (0x00AC0CB0, 0x00AC0D08). Field names other
 // than Type, House, RechargeTimer and Anim are not recovered.
 #ifndef SHARED_SUPER_HPP
@@ -116,7 +116,7 @@ public:
     int unknown_0x64;                           // +0x64 (size 0x68) not written here
 };
 
-extern DynamicVectorClass<SuperClass *> Supers;                 // 0x00A35D28
+extern DynamicVectorClass<SuperClass *> SuperWeapons;                 // 0x00A35D28
 // Another list the destructor removes the super from (meaning not recovered).
 extern DynamicVectorClass<SuperClass *> TimedSuperWeapons;  // 0x00A35DB8
 

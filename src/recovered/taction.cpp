@@ -1264,7 +1264,7 @@ bool TActionClass::unknown_play_voice(HouseClass *house, ObjectClass *object, Tr
 
 bool TActionClass::TAction_1_SPECIAL(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    house->Supers[Data.Value]->Grant(true, false, false);
+    house->SuperWeapons[Data.Value]->Grant(true, false, false);
     if (PlayerPtr == house) {
         Map.Unknown_0067C530(31, Data.Value);
         Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(31, Data.Value, 0));
@@ -1278,8 +1278,8 @@ bool TActionClass::TAction_1_SPECIAL(HouseClass *house, ObjectClass *object, Tri
 
 bool TActionClass::TAction_FULL_SPECIAL(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    house->Supers[Data.Value]->Grant(false, false, false);
-    house->Supers[Data.Value]->unknown_0x48 = false;
+    house->SuperWeapons[Data.Value]->Grant(false, false, false);
+    house->SuperWeapons[Data.Value]->unknown_0x48 = false;
     if (PlayerPtr == house) {
         Map.Unknown_0067C530(31, Data.Value);
         Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(31, Data.Value, 0));

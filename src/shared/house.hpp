@@ -488,7 +488,7 @@ public:
     bool unknown_192;                                     // +0x00192 (true)
     int IQ;                                      // +0x00194
     int unknown_198;                                      // +0x00198
-    DynamicVectorClass<SuperClass *> Supers;              // +0x0019C (vtable 0x007A2A24)
+    DynamicVectorClass<SuperClass *> SuperWeapons;              // +0x0019C (vtable 0x007A2A24)
     int unknown_1b4;                                      // +0x001B4 (-1)
     int unknown_1b8;                                      // +0x001B8 (-1)
     int unknown_1bc;                                      // +0x001BC (-1)

@@ -2563,7 +2563,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                     int stamp = DoList.Timings[(DoList.Head + j) & 0x3FFF];
                     DebugTime = timeGetTime() - stamp;
                     if (DoList[j].Type == 4) {
-                        unknown_event_queue_a35f30.Add(DoList[j]);
+                        MegaMissionQueue.Add(DoList[j]);
                     } else {
                         DoList[j].Execute();
                     }
@@ -2578,10 +2578,10 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
         target.Kind = 0;
         destination.Kind = 0;
         int start = 0;
-        for (k = 0; k < unknown_event_queue_a35f30.Count; k++) {
+        for (k = 0; k < MegaMissionQueue.Count; k++) {
             bool differ = false;
             if (mission != -1) {
-                EventClass &event = unknown_event_queue_a35f30[k];
+                EventClass &event = MegaMissionQueue[k];
                 if ((char)event.ByteAt(0x0C) != (char)mission) {
                     differ = true;
                 }
@@ -2590,21 +2590,21 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                     differ = true;
                 }
             }
-            mission = (char)unknown_event_queue_a35f30[k].ByteAt(0x0C);
-            target = unknown_event_queue_a35f30[k].TargetAt(0x0E);
-            destination = unknown_event_queue_a35f30[k].TargetAt(0x13);
+            mission = (char)MegaMissionQueue[k].ByteAt(0x0C);
+            target = MegaMissionQueue[k].TargetAt(0x0E);
+            destination = MegaMissionQueue[k].TargetAt(0x13);
             if (differ) {
                 if (k - start > 1) {
                     Unknown_00629290(start, k - start);
                 }
                 start = k;
-            } else if (k == unknown_event_queue_a35f30.Count - 1 && k - start + 1 > 1) {
+            } else if (k == MegaMissionQueue.Count - 1 && k - start + 1 > 1) {
                 Unknown_00629290(start, k - start + 1);
             }
         }
-        while (unknown_event_queue_a35f30.Count) {
-            unknown_event_queue_a35f30.First().Execute();
-            unknown_event_queue_a35f30.Next();
+        while (MegaMissionQueue.Count) {
+            MegaMissionQueue.First().Execute();
+            MegaMissionQueue.Next();
         }
     }
     return 1;
@@ -2627,8 +2627,8 @@ inline bool Same_Target(TargetClass const &a, TargetClass const &b)
 void __fastcall Unknown_00629220(int start, int count, TargetClass whom, TargetClass const &target)
 {
     for (int i = start; i <= start + count; i++) {
-        if (Same_Target(whom, unknown_event_queue_a35f30[i].TargetAt(0x07))) {
-            unknown_event_queue_a35f30[i].TargetAt(0x13) = target;
+        if (Same_Target(whom, MegaMissionQueue[i].TargetAt(0x07))) {
+            MegaMissionQueue[i].TargetAt(0x13) = target;
             return;
         }
     }
@@ -2720,10 +2720,10 @@ enum {
 
 void __fastcall Unknown_00629290(int start, int count)
 {
-    if (unknown_event_queue_a35f30[start].TargetAt(0x13).Kind == 0 || unknown_event_queue_a35f30[start].TargetAt(0x13).Kind != KIND_CELL) {
+    if (MegaMissionQueue[start].TargetAt(0x13).Kind == 0 || MegaMissionQueue[start].TargetAt(0x13).Kind != KIND_CELL) {
         return;
     }
-    CellClass *cptr = unknown_event_queue_a35f30[start].TargetAt(0x13).As_Cell();
+    CellClass *cptr = MegaMissionQueue[start].TargetAt(0x13).As_Cell();
     if (cptr == 0 || cptr == &BlubCell) {
         return;
     }
@@ -2734,7 +2734,7 @@ void __fastcall Unknown_00629290(int start, int count)
     DynamicVectorClass<ObjectClass *> list;
     int i;
     for (i = start; i < start + count; i++) {
-        TechnoClass *techno = unknown_event_queue_a35f30[i].TargetAt(0x07).As_Techno();
+        TechnoClass *techno = MegaMissionQueue[i].TargetAt(0x07).As_Techno();
         bool foot = false;
         if (techno != 0) {
             foot = techno->AbstractFlags.IsFoot;

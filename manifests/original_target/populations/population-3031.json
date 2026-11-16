@@ -4,8 +4,8 @@
     "id": "population-3031",
     "inventory_sha256": "e956d812ceb3cdf35f79fa11cda4a84df56379e9251739d7a6bd4fa51b5030d9",
     "gaps_sha256": "686653e518253c59b56db4543c2e58ec55e335c652a7858cec3580315a021dfa",
-    "historical_population_sha256": "a1a9487273719877fbd7901ffdaaf64ef0466100fd0597bbbcdbef882c122eb7",
-    "historical_acceptance_sha256": "e9b6d46afd043ba55ab906a61bcc3b857f140126696a9699eb2a765eb81491b4"
+    "historical_population_sha256": "185d6bbd9b9bc3a655b72b5b7400f7859e29b4fec5d2de013b7dcc45ae8e412f",
+    "historical_acceptance_sha256": "7295b38e7544d145138dcdd7a1ec61bb5e50f64e060a99bc4eeb9ee691249541"
   },
   "references": {
     "??0AlphaLightingRemapInitClass@@QAE@XZ": 4318144,
@@ -486,12 +486,12 @@
         }
       ],
       "source_sha256": "f085dd79a3e7726cd90f4534d5a16f70089cfda6029b0975a6937e1edd6d0715",
-      "source": "src/recovered/classes/AlphaLightingRemapInitClass/AlphaTableCache_init_0040ac80.cpp",
+      "source": "src/recovered/classes/AlphaLightingRemapInitClass/AlphaTableCache_init.cpp",
       "population": "population-3031",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "AlphaTableCache_init_0040ac80",
+      "semantic_name": "AlphaTableCache_init",
       "source_order": 118707
     },
     {
@@ -528,13 +528,13 @@
           "resolved": 79654
         }
       ],
-      "source_sha256": "bb886984c3239957667eadcda0e68e853664b5dfc06cfd48311077e8d77e21a6",
-      "source": "src/recovered/classes/AlphaLightingRemapInitClass/AlphaTableCache_atexit_destructor_0040aca0.cpp",
+      "source_sha256": "7293f81485fb8d92160d30642c4065a30e9bd18ad58a2225ee56e1eec35a2684",
+      "source": "src/recovered/classes/AlphaLightingRemapInitClass/AlphaTableCache_atexit_destructor.cpp",
       "population": "population-3031",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "AlphaTableCache_atexit_destructor_0040aca0",
+      "semantic_name": "AlphaTableCache_atexit_destructor",
       "source_order": 118708
     }
   ]

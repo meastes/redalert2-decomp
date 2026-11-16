@@ -2801,14 +2801,14 @@ crate_money:
                 SuperWeaponTypeClass *super = SuperWeaponTypeClass::From_Action(0x14);
                 int sindex = -1;
                 {
-                for (int i = 0; i < object->House->Supers.Count(); i++) {
-                    if (object->House->Supers[i]->Type->Type == 0) {
+                for (int i = 0; i < object->House->SuperWeapons.Count(); i++) {
+                    if (object->House->SuperWeapons[i]->Type->Type == 0) {
                         sindex = i;
                         break;
                     }
                 }
                 }
-                if (sindex != -1 && object->House->Supers[super->ArrayIndex]->Grant(true, false, false) && object->unknown_372) {
+                if (sindex != -1 && object->House->SuperWeapons[super->ArrayIndex]->Grant(true, false, false) && object->unknown_372) {
                     Map.Unknown_0067C530(0x1F, super->ArrayIndex);
                 }
                 break;

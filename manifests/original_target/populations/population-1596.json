@@ -4,8 +4,8 @@
     "id": "population-1596",
     "inventory_sha256": "03b5246555c88461463fdc026db8161432e9821ed66e5e0836d945bdb7f079d3",
     "gaps_sha256": "f594ce3abdea0aa6375255bc43cc8781266694ad7f0d1ad4d9d9a6744369c1b6",
-    "historical_population_sha256": "2292267654e477317b55a56e340a604f66c7495c35893916e2b5800f8de41483",
-    "historical_acceptance_sha256": "666a99d8b43044906a62b4c481947f837d99175ab030dbded0e3a215220b2f26",
+    "historical_population_sha256": "59d4e8483e4169aea03ef2d8723252189b57f4c24a8ef841ee8ab5ec43a7e77b",
+    "historical_acceptance_sha256": "27fd8301bb576ed36a80e513f00ebd0fe4fb250f03c653197085803cc3cddef0",
     "separate_units": true
   },
   "references": {
@@ -3520,7 +3520,9 @@
     "?get@Leaf_78f3f5@@QAEHXZ": 7926773,
     "?get@Leaf_793976@@QAEHXZ": 7944566,
     "__ramp_corners": 8339828,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384
   },
   "regions": [
     {
@@ -9413,12 +9415,12 @@
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
       "source_sha256": "2bc0876b0180230ea5f5ea94902608d4e92033deb8a8347f6cc048cdf9345b4a",
-      "source": "src/recovered/classes/DynamicVectorClass_HouseClass__BuildChoiceClass_ptr/DynamicVectorClass_HouseClass__BuildChoiceClass_ptr_ID_pointer_004f6d70.cpp",
+      "source": "src/recovered/classes/DynamicVectorClass_HouseClass__BuildChoiceClass_ptr/ID_pointer.cpp",
       "population": "population-1596",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_HouseClass__BuildChoiceClass_ptr_ID_pointer_004f6d70",
+      "semantic_name": "ID_pointer",
       "source_order": 54044
     },
     {
@@ -9500,12 +9502,12 @@
       "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
       "relocations": [],
       "source_sha256": "cb905193a365bc190ad1694e97e1abc42fa8f6f8c88842c18b51c177ad9aca09",
-      "source": "src/recovered/classes/DynamicVectorClass_TeamTypeClass_ptr/DynamicVectorClass_TeamTypeClass_ptr_ID_pointer_004f6dd0.cpp",
+      "source": "src/recovered/classes/DynamicVectorClass_TeamTypeClass_ptr/ID_pointer.cpp",
       "population": "population-1596",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_TeamTypeClass_ptr_ID_pointer_004f6dd0",
+      "semantic_name": "ID_pointer",
       "source_order": 54047
     },
     {

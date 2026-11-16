@@ -427,7 +427,7 @@
    "entry": "00716d80",
    "bytes": 23,
    "population": "population-3516",
-   "source": "src/recovered/header_statics/00716d80/HeaderStatics_static_rect_init_00716d80.cpp",
+   "source": "src/recovered/header_statics/00716d80/HeaderStatics_static_rect_init.cpp",
    "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/unknown_static_rect.hpp\""
   },
   {
@@ -435,7 +435,7 @@
    "entry": "00716da0",
    "bytes": 87,
    "population": "population-3516",
-   "source": "src/recovered/classes/BSurface/BSurface_global_ae0db8_init_00716da0.cpp",
+   "source": "src/recovered/classes/BSurface/VoxelSurface_init.cpp",
    "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/surface.hpp\""
   },
   {
@@ -443,7 +443,7 @@
    "entry": "00716e00",
    "bytes": 21,
    "population": "population-3516",
-   "source": "src/recovered/classes/BSurface/BSurface_global_ae0db8_destroy_00716e00.cpp",
+   "source": "src/recovered/classes/BSurface/VoxelSurface_destroy.cpp",
    "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/surface.hpp\""
   },
   {
@@ -451,7 +451,7 @@
    "entry": "00716e20",
    "bytes": 87,
    "population": "population-3516",
-   "source": "src/recovered/classes/BSurface/BSurface_global_ae0c80_init_00716e20.cpp",
+   "source": "src/recovered/classes/BSurface/unknown_surface_init.cpp",
    "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/surface.hpp\""
   },
   {
@@ -459,7 +459,7 @@
    "entry": "00716e80",
    "bytes": 21,
    "population": "population-3516",
-   "source": "src/recovered/classes/BSurface/BSurface_global_ae0c80_destroy_00716e80.cpp",
+   "source": "src/recovered/classes/BSurface/unknown_surface_destroy.cpp",
    "cause": "held by population-3516; needs header state the unit does not have: #include \"shared/surface.hpp\""
   },
   {
@@ -467,7 +467,7 @@
    "entry": "00716ea0",
    "bytes": 1,
    "population": "population-3516",
-   "source": "src/recovered/globals/Vector3_global_ae0a70_init_00716ea0.cpp",
+   "source": "src/recovered/globals/MinVoxelBounds_init.cpp",
    "cause": "not exact in the unit's text in any form (one include block, blocks held, lines in place, canonical text): Function symbol ambiguous/missing: _$E15"
   },
   {
@@ -475,7 +475,7 @@
    "entry": "00716eb0",
    "bytes": 1,
    "population": "population-3516",
-   "source": "src/recovered/globals/Vector3_global_ae0dd8_init_00716eb0.cpp",
+   "source": "src/recovered/globals/MaxVoxelBounds_init.cpp",
    "cause": "not exact in the unit's text in any form (one include block, blocks held, lines in place, canonical text): Function symbol ambiguous/missing: _$E18"
   },
   {
@@ -483,7 +483,7 @@
    "entry": "00716ec0",
    "bytes": 28,
    "population": "population-3516",
-   "source": "src/recovered/globals/Rect_global_ae2ff0_init_00716ec0.cpp",
+   "source": "src/recovered/globals/LastRenderRect_init.cpp",
    "cause": "tried alone, the unit does not compile or verify with it: Unsupported allocatable data section .CRT$XCU #2 in accepted.obj (['.CRT$XCU', '_$S25', '_$S22', '_$S19']) [row 00717CD0 00717cd0, source src/recovered/classes/Vector3/Vector3_default_constructor_0071"
   },
   {
@@ -491,7 +491,7 @@
    "entry": "00716ee0",
    "bytes": 39,
    "population": "population-3516",
-   "source": "src/recovered/globals/Voxel_records_ae0de8_init_00716ee0.cpp",
+   "source": "src/recovered/globals/VoxelRenderData_init.cpp",
    "cause": "tried alone, the unit does not compile or verify with it: Unsupported allocatable data section .CRT$XCU #2 in accepted.obj (['.CRT$XCU', '_$S25', '_$S22', '_$S19']) [row 00717CD0 00717cd0, source src/recovered/classes/Vector3/Vector3_default_constructor_0071"
   },
   {
@@ -499,7 +499,7 @@
    "entry": "00716f10",
    "bytes": 36,
    "population": "population-3516",
-   "source": "src/recovered/globals/Voxel_records_af3408_init_00716f10.cpp",
+   "source": "src/recovered/globals/VoxelShadowRenderData_init.cpp",
    "cause": "not exact in the unit's text in any form (one include block, blocks held, lines in place, canonical text): Function symbol ambiguous/missing: _$E27"
   },
   {

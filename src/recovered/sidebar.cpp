@@ -1507,7 +1507,7 @@ bool SidebarClass::StripClass::AI(int &input, Point2D const &xy)
     if (unknown_34 == 0 || unknown_34 == 1) {
         for (int index = 0; index < BuildableCount; index++) {
             if (Buildables[index].unknown_04 == 31) {
-                SuperClass *super = PlayerPtr->Supers[Buildables[index].unknown_00];
+                SuperClass *super = PlayerPtr->SuperWeapons[Buildables[index].unknown_00];
                 if (super && super->Unknown_0069D820()) {
                     goto flash;
                 }
@@ -1778,9 +1778,9 @@ void SidebarClass::StripClass::Unknown_0067F800(bool complete)
                         name = SuperWeaponTypes[id]->UIName;
                         shape = Unknown_0067E740(id);
                         production = true;
-                        completed = !PlayerPtr->Supers[id]->Is_Charging();
-                        state = PlayerPtr->Supers[id]->State_String();
-                        stage = PlayerPtr->Supers[id]->Anim_Stage();
+                        completed = !PlayerPtr->SuperWeapons[id]->Is_Charging();
+                        state = PlayerPtr->SuperWeapons[id]->State_String();
+                        stage = PlayerPtr->SuperWeapons[id]->Anim_Stage();
                         darken = false;
                         draw = true;
                     }
@@ -1915,8 +1915,8 @@ bool SidebarClass::StripClass::Unknown_006802D0()
             TechnoClass *who = (TechnoClass *)tech->Who_Can_Build_Me(true, false, false, PlayerPtr);
             ok = who && who->House->Can_Build(tech, false, true);   // NATIVE: the overlay's UnknownSidebarHouse::Unknown_004E3660 is HouseClass::Can_Build 0x004E3660
         } else {
-            if ((unsigned)Buildables[index].unknown_00 < (unsigned)PlayerPtr->Supers.Count()) {
-                ok = PlayerPtr->Supers[Buildables[index].unknown_00]->Is_Present();
+            if ((unsigned)Buildables[index].unknown_00 < (unsigned)PlayerPtr->SuperWeapons.Count()) {
+                ok = PlayerPtr->SuperWeapons[Buildables[index].unknown_00]->Is_Present();
             } else {
                 ok = false;
             }
@@ -2054,16 +2054,16 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
             Map.IsTargettingMode = -1;
         }
         if (flags & 1) {
-            if ((unsigned)spc < (unsigned)PlayerPtr->Supers.Count()) {
+            if ((unsigned)spc < (unsigned)PlayerPtr->SuperWeapons.Count()) {
                 Unknown_Play_Sound(Rules->GUIBuildSound);
-                SuperClass *super = PlayerPtr->Supers[spc];
+                SuperClass *super = PlayerPtr->SuperWeapons[spc];
                 if (super->Unknown_0069D820()) {
-                    if (PlayerPtr->Supers[spc]->Type->Action == 0) {
+                    if (PlayerPtr->SuperWeapons[spc]->Type->Action == 0) {
                         Cell cell;
                         cell.X = 0;
                         cell.Y = 0;
                         OutList.Add(EventClass(PlayerPtr->ArrayIndex, (unsigned char)0x12,
-                            PlayerPtr->Supers[spc]->Type->ArrayIndex, cell));
+                            PlayerPtr->SuperWeapons[spc]->Type->ArrayIndex, cell));
                     } else {
                         Map.PendingObjectPtr = 0;
                         Map.PendingObject = 0;

@@ -2451,7 +2451,7 @@ void __fastcall Draw_Loading_Screen()
 #include "shared/aircraft_type.hpp"
 
 
-extern UnknownObjectPair unknown_drop_pod_voxel_a40c80;    // 0x00A40C80 the drop pod voxel and motion (TS's DropPodVoxel)
+extern UnknownObjectPair DropPodVoxel;    // 0x00A40C80 the drop pod voxel and motion (TS's DropPodVoxel)
 void Call_Back();                  // 0x00481FB0 once per frame
 void Unknown_00458370();                // 0x00458370 empty (a type class One_Time in TS's order)
 void Unknown_004E2E30();                // 0x004E2E30 empty (TS: HouseClass::One_Time)
@@ -2480,14 +2480,14 @@ static bool Init_One_Time_Systems()
     Unknown_00521A90();
 
     CCFileClass dropvxl("DPOD.VXL");
-    unknown_drop_pod_voxel_a40c80.unknown_00 = new VoxelLibrary(&dropvxl, 0);
-    if (unknown_drop_pod_voxel_a40c80.unknown_00 == 0) {
+    DropPodVoxel.unknown_00 = new VoxelLibrary(&dropvxl, 0);
+    if (DropPodVoxel.unknown_00 == 0) {
         Debug_Printf("Failed to create VoxLib!\n");
         return false;
     }
     CCFileClass dropmot("DPOD.HVA");
-    unknown_drop_pod_voxel_a40c80.unknown_04 = new UnknownPairSecond(&dropmot);
-    if (unknown_drop_pod_voxel_a40c80.unknown_04 == 0) {
+    DropPodVoxel.unknown_04 = new UnknownPairSecond(&dropmot);
+    if (DropPodVoxel.unknown_04 == 0) {
         Debug_Printf("Failed to create MotLib!\n");
         return false;
     }

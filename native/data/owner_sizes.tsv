@@ -180,7 +180,7 @@ _SmudgeTypes	32	SmudgeTypes	DynamicVectorClass<SmudgeTypeClass*>
 _Smudges	32	Smudges	DynamicVectorClass<SmudgeClass*>
 _StormCoords	4	StormCoords	Cell
 _SuperWeaponTypes	32	SuperWeaponTypes	DynamicVectorClass<SuperWeaponTypeClass*>
-_Supers	32	Supers	DynamicVectorClass<SuperClass*>
+_SuperWeapons	32	SuperWeapons	DynamicVectorClass<SuperClass*>
 _Swizzler	72	Swizzler	SwizzleManagerClass
 _TagTypes	32	TagTypes	DynamicVectorClass<TagTypeClass*>
 _Tags	32	Tags	DynamicVectorClass<TagClass*>
@@ -249,7 +249,7 @@ _unknown_RadSiteClass_list_00ab6620	32	unknown_RadSiteClass_list_00ab6620	Dynami
 _unknown_ScriptClass_list_00839900	32	unknown_ScriptClass_list_00839900	DynamicVectorClass<ScriptClass*>
 _unknown_SpawnManagerClass_list_00abd028	32	unknown_SpawnManagerClass_list_00abd028	DynamicVectorClass<SpawnManagerClass*>
 _SpotLights	32	SpotLights	DynamicVectorClass<SpotLightClass*>
-_unknown_SuperClass_list_00a35db8	32	unknown_SuperClass_list_00a35db8	DynamicVectorClass<SuperClass*>
+_TimedSuperWeapons	32	TimedSuperWeapons	DynamicVectorClass<SuperClass*>
 _Actions	32	Actions	DynamicVectorClass<TActionClass*>
 _Events	32	Events	DynamicVectorClass<TEventClass*>
 _unknown_TemporalClass_list_00ac02e0	32	unknown_TemporalClass_list_00ac02e0	DynamicVectorClass<TemporalClass*>
@@ -314,11 +314,11 @@ _AllCommands	32	AllCommands	DynamicVectorClass<CommandClass*>
 _unknown_coord_a40f48	12	unknown_coord_a40f48	CoordStruct
 _unknown_coord_none_ac0188	12	unknown_coord_none_ac0188	CoordStruct
 _unknown_dest_net_a3f608	12	unknown_dest_net_a3f608	IPXAddressClass
-_unknown_drop_pod_voxel_a40c80	16	unknown_drop_pod_voxel_a40c80	UnknownObjectPair
+_DropPodVoxel	16	DropPodVoxel	UnknownObjectPair
 _BlubCell	400	BlubCell	CellClass
 _unknown_event_cells_ab6788	32	unknown_event_cells_ab6788	Cell[8]
 _unknown_event_empty_cell_ab67a8	4	unknown_event_empty_cell_ab67a8	Cell
-_unknown_event_queue_a35f30	29452	unknown_event_queue_a35f30	QueueClass<EventClass,256>
+_MegaMissionQueue	29452	MegaMissionQueue	QueueClass<EventClass,256>
 _unknown_expansion_mixes_837450	32	unknown_expansion_mixes_837450	DynamicVectorClass<MixFileClass*>
 _FirewallHelper	16	FirewallHelper	FirewallSettings
 _unknown_fmtid_7afd60	16	unknown_fmtid_7afd60	GUID
@@ -380,7 +380,6 @@ _NullModem	152	NullModem	NullModemClass
 _BeaconManager	240	BeaconManager	BeaconManagerClass
 _unknown_object_a3dc70	1	unknown_object_a3dc70	UnknownObjectA3DC70
 _TargetTracker	32	TargetTracker	IndexClass<long,AbstractClass*>
-_unknown_object_pair_a40c80	16	unknown_object_pair_a40c80	UnknownObjectPair
 _unknown_objects_a40368	32	unknown_objects_a40368	DynamicVectorClass<ObjectClass*>
 _CurrentObject	32	CurrentObject	DynamicVectorClass<ObjectClass*>
 _unknown_objects_a731e0	592	unknown_objects_a731e0	UnknownSpotLightObject_a731e0*[74]
@@ -413,7 +412,6 @@ _ScreenSlopeQuaternions	336	ScreenSlopeQuaternions	Quaternion[21]
 _RadarEventClass_RadarEvents	32	RadarEventClass_RadarEvents	DynamicVectorClass<RadarEventClass*>
 _unknown_radar_rect_833978	16	unknown_radar_rect_833978	Rect
 _NonCriticalRandomNumber	1012	NonCriticalRandomNumber	Random2Class
-_unknown_random_straw_a40778	288	unknown_random_straw_a40778	RandomStraw
 _unknown_record_file_a3f59c	128	unknown_record_file_a3f59c	CCFileClass
 _VoxelRenderData	9216	VoxelRenderData	VoxelRenderStruct[64]
 _VoxelShadowRenderData	5120	VoxelShadowRenderData	VoxelShadowRenderStruct[64]
@@ -445,7 +443,6 @@ _unknown_shore_offsets_a6f91c	168	unknown_shore_offsets_a6f91c	Cell[42]
 _unknown_side_sound_a411e8	32	unknown_side_sound_a411e8	AudioEventHandle
 _unknown_sorted_scores_a715f0	64	unknown_sorted_scores_a715f0	MPlayerScoreType*[8]
 _unknown_special_a40920	4	unknown_special_a40920	SpecialClass
-_TimedSuperWeapons	32	TimedSuperWeapons	DynamicVectorClass<SuperClass*>
 _VoxelSurface	40	VoxelSurface	BSurface
 _unknown_sync_states_a780d8	220160	unknown_sync_states_a780d8	UnknownSyncState[256]
 _unknown_tab_a35e78	16	unknown_tab_a35e78	CreditClass

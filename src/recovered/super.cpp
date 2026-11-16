@@ -105,7 +105,7 @@ Cell const unknown_cells_abd7a0[9] = {
 
 
 // SuperClass::SuperClass() (0x0069C660)
-// An unowned, untyped super; joins Supers.
+// An unowned, untyped super; joins SuperWeapons.
 
 SuperClass::SuperClass() :
     Type(0),
@@ -121,7 +121,7 @@ SuperClass::SuperClass() :
     unknown_0x60(-1)
 {
     unknown_0x38 = unknown_empty_wide_839d4c;
-    Supers.Add(this);
+    SuperWeapons.Add(this);
 }
 
 
@@ -142,7 +142,7 @@ SuperClass::SuperClass(SuperWeaponTypeClass *type, HouseClass *house) :
     unknown_0x60(-1)
 {
     Create_ID();
-    Supers.Add(this);
+    SuperWeapons.Add(this);
     AbstractTypePtrTracker.Add(this);
     HousePtrTracker.Add(this);
 }
@@ -157,7 +157,7 @@ SuperClass::~SuperClass()
 {
     Detach_Animation();
     TimedSuperWeapons.Delete(this);
-    Supers.Delete(this);
+    SuperWeapons.Delete(this);
     AbstractTypePtrTracker.Delete(this);
     HousePtrTracker.Delete(this);
 }

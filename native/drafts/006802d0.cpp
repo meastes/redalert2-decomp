@@ -50,8 +50,8 @@ bool SidebarClass::StripClass::Unknown_006802D0()
             TechnoClass *who = (TechnoClass *)tech->Who_Can_Build_Me(true, false, false, PlayerPtr);
             ok = who && who->House->Can_Build(tech, false, true);   // NATIVE: the overlay's UnknownSidebarHouse::Unknown_004E3660 is HouseClass::Can_Build 0x004E3660
         } else {
-            if ((unsigned)Buildables[index].unknown_00 < (unsigned)PlayerPtr->Supers.Count()) {
-                ok = PlayerPtr->Supers[Buildables[index].unknown_00]->Is_Present();
+            if ((unsigned)Buildables[index].unknown_00 < (unsigned)PlayerPtr->SuperWeapons.Count()) {
+                ok = PlayerPtr->SuperWeapons[Buildables[index].unknown_00]->Is_Present();
             } else {
                 ok = false;
             }

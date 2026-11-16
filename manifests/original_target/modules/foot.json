@@ -1487,8 +1487,7 @@
    "address": "007b85c8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 97,
-   "known_difference": "hierarchy ambiguous bit"
+   "section": 97
   },
   {
    "symbol": "??_R4FootClass@@6BIPersistStream@@@",
@@ -2114,8 +2113,7 @@
    "symbol": "??_R3FootClass@@8",
    "address": "007b85c8",
    "bytes": 16,
-   "kind": "rtti",
-   "known_difference": "hierarchy ambiguous bit"
+   "kind": "rtti"
   },
   {
    "symbol": "??_R4FootClass@@6BIPersistStream@@@",
@@ -5709,7 +5707,7 @@
    "entry": "004ce6a0",
    "bytes": 70,
    "population": "population-4442",
-   "source": "src/recovered/classes/VectorClass_CellDistribution/VectorClass_CellDistribution_ID_object_004ce6a0.cpp",
+   "source": "src/recovered/classes/VectorClass_CellDistribution/ID_object.cpp",
    "cause": "frozen in another population's inventory pass (population-4442)"
   },
   {
@@ -5717,7 +5715,7 @@
    "entry": "004ce6f0",
    "bytes": 27,
    "population": "population-1683",
-   "source": "src/recovered/classes/VectorClass_CellDistribution/VectorClass_CellDistribution_ID_pointer_004ce6f0.cpp",
+   "source": "src/recovered/classes/VectorClass_CellDistribution/ID_pointer.cpp",
    "cause": "frozen in another population's inventory pass (population-1683)"
   },
   {
@@ -5741,7 +5739,7 @@
    "entry": "004ce800",
    "bytes": 27,
    "population": "population-1683",
-   "source": "src/recovered/classes/DynamicVectorClass_CellDistribution/DynamicVectorClass_CellDistribution_ID_pointer_004ce800.cpp",
+   "source": "src/recovered/classes/DynamicVectorClass_CellDistribution/ID_pointer.cpp",
    "cause": "frozen in another population's inventory pass (population-1683)"
   },
   {
@@ -5757,7 +5755,7 @@
    "entry": "004ce9b0",
    "bytes": 54,
    "population": "population-4442",
-   "source": "src/recovered/classes/DynamicVectorClass_CellDistribution/DynamicVectorClass_CellDistribution_ID_object_004ce9b0.cpp",
+   "source": "src/recovered/classes/DynamicVectorClass_CellDistribution/ID_object.cpp",
    "cause": "frozen in another population's inventory pass (population-4442)"
   }
  ],

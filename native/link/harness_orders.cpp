@@ -15,7 +15,7 @@
 // tanks hunt the enemy; the start units wait and join the attack).
 // RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
 // <frame> hunt; <frame> health; <frame> shoot <ID> (C22); <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
-// <frame> amove <ID|*> <x> <y> (attack-move, C3); <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> super <index> home [<dx> <dy>] (C17); <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's Supers[index];
+// <frame> amove <ID|*> <x> <y> (attack-move, C3); <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> super <index> home [<dx> <dy>] (C17); <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's SuperWeapons[index];
 // attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
 // object of that type; Tanya only when named); train: the barracks' cameo click;
 // units -1 when the cell holds none) (Scout1153,
@@ -276,15 +276,15 @@ int Scripted_Order(char const *command)
         return Scripted_Order(text);
     }
     if (Same(word[1], "super", 6) && words >= 5) {
-        // A super weapon (Scout1170, M21): the human house's Supers[index] is
+        // A super weapon (Scout1170, M21): the human house's SuperWeapons[index] is
         // granted once and charged as a campaign trigger's one-time grant does (Grant
         // 0x0069CCF0, Forced_Charge 0x0069D690), then fired at cell x,y with the
         // event the map click queues once the cameo is armed (SPECIAL_PLACE 0x12,
         // executed as HouseClass 0x004E68D0). An index past the list: -1.
         HouseClass *player = PlayerPtr;
         int index = atoi(word[2]);
-        if (player == 0 || index < 0 || index >= player->Supers.Count()) return -1;
-        SuperClass *super = player->Supers[index];
+        if (player == 0 || index < 0 || index >= player->SuperWeapons.Count()) return -1;
+        SuperClass *super = player->SuperWeapons[index];
         super->Grant(true, false, false);   // one time (a nuke then needs no silo), charged
         super->Forced_Charge(true);
         Cell at;
@@ -352,9 +352,9 @@ int Scripted_Order(char const *command)
         // Grant and charge only (the cameo is then armed from the sidebar by a click).
         HouseClass *player = PlayerPtr;
         int index = atoi(word[2]);
-        if (player == 0 || index < 0 || index >= player->Supers.Count()) return -1;
-        player->Supers[index]->Grant(false, false, false);
-        player->Supers[index]->Forced_Charge(true);
+        if (player == 0 || index < 0 || index >= player->SuperWeapons.Count()) return -1;
+        player->SuperWeapons[index]->Grant(false, false, false);
+        player->SuperWeapons[index]->Forced_Charge(true);
         return 1;
     }
     ObjectClass *target = 0;

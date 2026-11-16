@@ -4,8 +4,8 @@
     "id": "population-1683",
     "inventory_sha256": "fef9b6fc21f4e735d72bafb5d1ff82923eb4a39178498008357848e934735bbf",
     "gaps_sha256": "4270cf624f3b730af85ac7b63cbd95d111dccec42beab0ec831e3f908f8aca93",
-    "historical_population_sha256": "e35cac54cff7fc266ae11235786e6a4acb88f8a68c21443ebfcf43927b43dbfb",
-    "historical_acceptance_sha256": "25fb28a8322893c97450e224c48eeb27d8eb0d6f2c47e7e5baa0b64e87583f38",
+    "historical_population_sha256": "95bc8671a4db4d360ad9d977d9a64b84c1c40e03ae08a16b810e97874f855623",
+    "historical_acceptance_sha256": "2209316f70bab431ea681020d513595ddd9d98cc582ca711a36a11928b01816a",
     "separate_units": true
   },
   "references": {
@@ -2086,7 +2086,15 @@
     "??_EWDTState@@": 7522816,
     "??_GWDTState@@": 7522816,
     "??_EInfantryTypeClass@@UAEPAXI@Z": 5287824,
-    "?Reset@BitFontClass@@QAEXXZ": 4399536
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "??_GCellClass@@UAEPAXI@Z": 4706208,
+    "?Clear@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEXXZ": 4936880,
+    "??_GFootClass@@UAEPAXI@Z": 5037584,
+    "?Clear@?$DynamicVectorClass@PAVCCINIClass@@@@UAEXXZ": 5365920,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFootClass@@UAEPAXI@Z": 5037584
   },
   "regions": [
     {
@@ -2107,12 +2115,12 @@
       "full_extent_sha256": "f63073e6c4fb1f4514402df2f62b2b1af0426c2fe22eebf79b47303169753168",
       "relocations": [],
       "source_sha256": "6110de3ec0b690bd4783a705e4aa178d7570cb60aa7ae0d1f7afd2cd33d29281",
-      "source": "src/recovered/classes/VectorClass_CellDistribution/VectorClass_CellDistribution_ID_pointer_004ce6f0.cpp",
+      "source": "src/recovered/classes/VectorClass_CellDistribution/ID_pointer.cpp",
       "population": "population-1683",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "VectorClass_CellDistribution_ID_pointer_004ce6f0",
+      "semantic_name": "ID_pointer",
       "source_order": 56328
     },
     {
@@ -2133,12 +2141,12 @@
       "full_extent_sha256": "f63073e6c4fb1f4514402df2f62b2b1af0426c2fe22eebf79b47303169753168",
       "relocations": [],
       "source_sha256": "0cbe5949ad0b7c483e5c3788bd125d47fe6ae2c766158e65f9a25d790998d1a4",
-      "source": "src/recovered/classes/DynamicVectorClass_CellDistribution/DynamicVectorClass_CellDistribution_ID_pointer_004ce800.cpp",
+      "source": "src/recovered/classes/DynamicVectorClass_CellDistribution/ID_pointer.cpp",
       "population": "population-1683",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "DynamicVectorClass_CellDistribution_ID_pointer_004ce800",
+      "semantic_name": "ID_pointer",
       "source_order": 56330
     },
     {

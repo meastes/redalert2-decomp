@@ -186,6 +186,6 @@ bool __stdcall Unknown_0062E670(EventClass event);
 // 0x3FFF; the array starts at 0x0086627C).
 extern QueueClass<EventClass, 0x4000> DoList;
 // A third event queue of 256 entries (0x00A35F30; the array starts at 0x00A35F3C; use not recovered).
-extern QueueClass<EventClass, 256> unknown_event_queue_a35f30;
+extern QueueClass<EventClass, 256> MegaMissionQueue;
 
 #endif

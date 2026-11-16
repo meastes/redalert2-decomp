@@ -394,7 +394,7 @@ HouseClass::HouseClass(HouseTypeClass *type)
     Houses.Add(this);
     memset(unknown_56d0, 0, sizeof(unknown_56d0));
     for (int index = 0; index < SuperWeaponTypes.Count(); index++) {
-        Supers.Add(new SuperClass(SuperWeaponTypes[index], this));
+        SuperWeapons.Add(new SuperClass(SuperWeaponTypes[index], this));
     }
     memset(unknown_5310, 0, sizeof(unknown_5310));
     memset(unknown_5364, 0, sizeof(unknown_5364));
@@ -727,10 +727,10 @@ HouseClass::~HouseClass()
         delete WaypointPaths[index];
         WaypointPaths[index] = 0;
     }
-    for (index = 0; index < Supers.Count(); index++) {
-        delete Supers[index];
+    for (index = 0; index < SuperWeapons.Count(); index++) {
+        delete SuperWeapons[index];
     }
-    Supers.Clear();
+    SuperWeapons.Clear();
     if (unknown_56cc != 0 && GameActive) {
         unknown_56cc->Release();
         unknown_56cc = 0;
@@ -821,7 +821,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
         }
         if (AllowDisableableSupers == 0 && type->Kind_Of() == 7) {
             BuildingTypeClass const *btype = (BuildingTypeClass const *)type;
-            if (btype->SuperWeapon != -1 && Supers[btype->SuperWeapon]->Type->DisableableFromShell) {
+            if (btype->SuperWeapon != -1 && SuperWeapons[btype->SuperWeapon]->Type->DisableableFromShell) {
                 return 0;
             }
         }
@@ -1163,8 +1163,8 @@ void HouseClass::AI()
         unknown_5690=CDTimerClass<FrameTimerClass>(90);
         unknown_18d=false;
     }
-    for (int super_index=0;super_index<Supers.Count();++super_index) {
-        SuperClass *super=Supers[super_index];
+    for (int super_index=0;super_index<SuperWeapons.Count();++super_index) {
+        SuperClass *super=SuperWeapons[super_index];
         if (super->Is_Present() && super->unknown_69d390(this==PlayerPtr) && this==PlayerPtr) {
             int type_index=super->Type->Fetch_Heap_ID();
             Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(0x39,type_index,0));
@@ -1265,8 +1265,8 @@ update_super_weapons:;
 
 void HouseClass::unknown_func_4e4ef0()
 {
-    for (int index = 0; index < Supers.Count(); index++) {
-        UnknownSuperView *super = (UnknownSuperView *)Supers[index];
+    for (int index = 0; index < SuperWeapons.Count(); index++) {
+        UnknownSuperView *super = (UnknownSuperView *)SuperWeapons[index];
         if (super->unknown_55 && super->unknown_func_69d390(this == PlayerPtr) &&
             this == PlayerPtr) {
             int id = super->Type->Fetch_Heap_ID();
@@ -1774,10 +1774,10 @@ void HouseClass::unknown_func_4e67a0(int index)
 #pragma auto_inline(off)
 bool HouseClass::unknown_func_4e68d0(int index, Cell const &cell)
 {
-    UnknownSuperView *super = (UnknownSuperView *)Supers[index];
+    UnknownSuperView *super = (UnknownSuperView *)SuperWeapons[index];
     UnknownSuperView *linked = 0;
     if (super->Type->unknown_e1) {
-        linked = (UnknownSuperView *)Supers[super->Type->unknown_e4];
+        linked = (UnknownSuperView *)SuperWeapons[super->Type->unknown_e4];
         if (linked != 0) {
             super->unknown_4a = linked->unknown_4a;
         }
@@ -4687,9 +4687,9 @@ HRESULT __stdcall HouseClass::Load(IStream *stream)
         ConnectionPoints[point] = 0;
     }
     ConnectionPoints.Clear();
-    while (Supers.Count()) {
-        delete Supers[0];
-        Supers.Delete(0);
+    while (SuperWeapons.Count()) {
+        delete SuperWeapons[0];
+        SuperWeapons.Delete(0);
     }
 
     HRESULT result = AbstractClass::Load(stream);
@@ -4729,7 +4729,7 @@ HRESULT __stdcall HouseClass::Load(IStream *stream)
             unknown_5560[index].unknown_func_4a6b10();
         }
 
-        LOAD_LIST(stream, Supers, SuperClass *);
+        LOAD_LIST(stream, SuperWeapons, SuperClass *);
         LOAD_LIST(stream, unknown_38, TagClass *);
         {
             count = 0;
@@ -4773,8 +4773,8 @@ HRESULT __stdcall HouseClass::Load(IStream *stream)
         LOAD_LIST(stream, CloningVats, BuildingClass *);
         LOAD_LIST(stream, PsychicDetectionBuildings, BuildingClass *);
 
-        for (index = 0; index < Supers.Count(); index++) {
-            Swizzler.Swizzle((void **)&Supers[index]);
+        for (index = 0; index < SuperWeapons.Count(); index++) {
+            Swizzler.Swizzle((void **)&SuperWeapons[index]);
         }
         for (index = 0; index < unknown_38.Count(); index++) {
             Swizzler.Swizzle((void **)&unknown_38[index]);
@@ -4859,7 +4859,7 @@ HRESULT __stdcall HouseClass::Save(IStream *stream, BOOL clear_dirty)
     unknown_54c0.Save(stream);
     unknown_54d0.Save(stream);
 
-    SAVE_LIST(stream, Supers, SuperClass *);
+    SAVE_LIST(stream, SuperWeapons, SuperClass *);
     SAVE_LIST(stream, unknown_38, TagClass *);
     SAVE_LIST(stream, AngerNodes, AngerStruct);
     SAVE_LIST(stream, ScoutNodes, ScoutStruct);
@@ -5167,7 +5167,7 @@ BuildingTypeClass *HouseClass::unknown_func_4ef600(DynamicVectorClass<BuildingTy
             && (building->RequiredHouses == -1 || (building->RequiredHouses & (1 << Type->House)) != 0)
             && (building->ForbiddenHouses == -1 || (building->ForbiddenHouses & (1 << Type->House)) == 0)
             && (building->AIBasePlanningSide == -1 || building->AIBasePlanningSide == Type->Side)) {
-            if (AllowDisableableSupers || building->SuperWeapon == -1 || !Supers[building->SuperWeapon]->Type->DisableableFromShell) {
+            if (AllowDisableableSupers || building->SuperWeapon == -1 || !SuperWeapons[building->SuperWeapon]->Type->DisableableFromShell) {
                 return building;
             }
         }
@@ -5262,7 +5262,7 @@ void HouseClass::unknown_func_4ef890()
             && type->AIBuildThis && type->TechLevel<=unknown_11c
             && (type->RequiredHouses==-1 || (type->RequiredHouses & (1 << Type->House)))
             && (type->ForbiddenHouses==-1 || !(type->ForbiddenHouses & (1 << Type->House)))
-            && (AllowDisableableSupers || type->SuperWeapon==-1 || !Supers[type->SuperWeapon]->Type->DisableableFromShell)) {
+            && (AllowDisableableSupers || type->SuperWeapon==-1 || !SuperWeapons[type->SuperWeapon]->Type->DisableableFromShell)) {
             eligible.Add(type);
             included.Add(false);
         }
@@ -6396,8 +6396,8 @@ void HouseClass::AI_Supers_004f3910()
     Cell target_0;
     Cell target_2;
     if (!Is_Human_Control()) {
-        for (int index = 0; index < Supers.Count(); ++index) {
-            SuperClass *super = Supers[index];
+        for (int index = 0; index < SuperWeapons.Count(); ++index) {
+            SuperClass *super = SuperWeapons[index];
             if (super && super->unknown_0x57) {
                 switch (super->Type->Type) {
                 case 0: {
@@ -6407,7 +6407,7 @@ void HouseClass::AI_Supers_004f3910()
                         if (unknown_541c == 1) target_0 = unknown_func_4f65a0();
                         else target_0 = unknown_func_4f6a80(unknown_541c);
                         if (target_0 != unknown_cell_a40f10)
-                            unknown_func_4e68d0(Supers.ID(pending), target_0);
+                            unknown_func_4e68d0(SuperWeapons.ID(pending), target_0);
                     }
                     break;
                 }
@@ -6418,7 +6418,7 @@ void HouseClass::AI_Supers_004f3910()
                         if (unknown_541c == 1) target_2 = unknown_func_4f65a0();
                         else target_2 = unknown_func_4f6a80(unknown_541c);
                         if (target_2 != unknown_cell_a40f10)
-                            unknown_func_4e68d0(Supers.ID(pending), target_2);
+                            unknown_func_4e68d0(SuperWeapons.ID(pending), target_2);
                     }
                     break;
                 }
@@ -6445,7 +6445,7 @@ void HouseClass::unknown_func_4f3ae0(SuperClass *super)
             cell = unknown_func_4f6a80(unknown_541c);
         }
         if (cell != unknown_cell_a40f10) {
-            unknown_func_4e68d0(Supers.ID(super), cell);
+            unknown_func_4e68d0(SuperWeapons.ID(super), cell);
         }
     }
 }
@@ -6458,7 +6458,7 @@ void HouseClass::unknown_func_4f3ae0(SuperClass *super)
 void HouseClass::unknown_func_4f3b70(SuperClass *super)
 {
     if (unknown_54f0 != -1) {
-        unknown_func_4e68d0(Supers.ID(super), unknown_cell_a40f10);
+        unknown_func_4e68d0(SuperWeapons.ID(super), unknown_cell_a40f10);
     }
 }
 
@@ -6477,7 +6477,7 @@ void HouseClass::unknown_func_4f3bb0(SuperClass *super)
             cell = unknown_func_4f6a80(unknown_541c);
         }
         if (cell != unknown_cell_a40f10) {
-            unknown_func_4e68d0(Supers.ID(super), cell);
+            unknown_func_4e68d0(SuperWeapons.ID(super), cell);
         }
     }
 }
@@ -6510,7 +6510,7 @@ void HouseClass::unknown_func_4f3c50(SuperClass *super)
         cell.Y += 2;
     }
     if (cell != unknown_cell_a40f10) {
-        unknown_func_4e68d0(Supers.ID(super), cell);
+        unknown_func_4e68d0(SuperWeapons.ID(super), cell);
     }
 }
 
@@ -6528,7 +6528,7 @@ void HouseClass::unknown_func_4f3d70(SuperClass *super)
             cell = unknown_func_4f6a80(unknown_541c);
         }
         if (cell != unknown_cell_a40f10) {
-            unknown_func_4e68d0(Supers.ID(super), cell);
+            unknown_func_4e68d0(SuperWeapons.ID(super), cell);
         }
     }
 }
@@ -6559,7 +6559,7 @@ void HouseClass::unknown_func_4f3e00(SuperClass *super)
             }
         }
         if (best != 0) {
-            unknown_func_4e68d0(Supers.ID(super), Coord_Cell(best->Center_Coord()));
+            unknown_func_4e68d0(SuperWeapons.ID(super), Coord_Cell(best->Center_Coord()));
         }
     }
 }
@@ -6762,8 +6762,8 @@ void HouseClass::Update_Present_Super_Weapons()
 {
     if (!GameActive) return;
     bool is_player = PlayerPtr == this;
-    for (int s = 0; s < Supers.Count(); ++s) {
-        if (Supers[s]->Is_Present() && ((Supers[s]->unknown_0x48 && !Supers[s]->Is_One_Time()) || IsDefeated)) {
+    for (int s = 0; s < SuperWeapons.Count(); ++s) {
+        if (SuperWeapons[s]->Is_Present() && ((SuperWeapons[s]->unknown_0x48 && !SuperWeapons[s]->Is_One_Time()) || IsDefeated)) {
             bool present = false;
             bool enabled = false;
             bool alive = !IsDefeated;
@@ -6794,12 +6794,12 @@ void HouseClass::Update_Present_Super_Weapons()
                     enabled = false;
                 }
             }
-            int type_id = Supers[s]->Type->Fetch_Heap_ID();
+            int type_id = SuperWeapons[s]->Type->Fetch_Heap_ID();
             int type_index = SidebarClass_GetObjectTabIdx(57, type_id, 0);
             if (present && !IsDefeated) {
                 bool const &on = enabled;
                 bool off = !on;
-                if ((off && Supers[s]->Is_Powered() && Supers[s]->Suspend(true)) || (enabled && Supers[s]->Suspend(false))) {
+                if ((off && SuperWeapons[s]->Is_Powered() && SuperWeapons[s]->Suspend(true)) || (enabled && SuperWeapons[s]->Suspend(false))) {
                     if (is_player) {
                         if (CurrentSuperWeaponType == s) CurrentSuperWeaponType = -1;
                         Map.Flag_Tab_To_Redraw(type_index);
@@ -6807,7 +6807,7 @@ void HouseClass::Update_Present_Super_Weapons()
                     IsRecalcNeeded = true;
                 }
             } else {
-                if (Supers[s]->Remove() && PlayerPtr != 0) {
+                if (SuperWeapons[s]->Remove() && PlayerPtr != 0) {
                     if (is_player) {
                         if (CurrentSuperWeaponType == s) CurrentSuperWeaponType = -1;
                         Map.Flag_Tab_To_Redraw(type_index);
@@ -6824,8 +6824,8 @@ void HouseClass::Update_Present_Super_Weapons()
 void HouseClass::Enable_Available_Super_Weapons_004f4db0()
 {
     if (IsDefeated) return;
-    for (int super_index=0;super_index<Supers.Count();++super_index) {
-        if (!Supers[super_index]->Is_Present() || Supers[super_index]->Is_One_Time()) {
+    for (int super_index=0;super_index<SuperWeapons.Count();++super_index) {
+        if (!SuperWeapons[super_index]->Is_Present() || SuperWeapons[super_index]->Is_One_Time()) {
             bool from_upgrade=false;
             int building_index=Buildings.Count()-1;
             if (building_index>=0) while (true) {
@@ -6839,10 +6839,10 @@ void HouseClass::Enable_Available_Super_Weapons_004f4db0()
                         }
                     }
                     if (building->Fetch_Super_Weapon()==super_index || building->Fetch_Super_Weapon2()==super_index || from_upgrade) {
-                        Supers[super_index]->Grant(false,this==PlayerPtr,Power_Fraction()<1.0);
+                        SuperWeapons[super_index]->Grant(false,this==PlayerPtr,Power_Fraction()<1.0);
                         if (this==PlayerPtr) {
                             Map.Unknown_0067C530(31,super_index);
-                            int type_index=Supers[super_index]->Type->Fetch_Heap_ID();
+                            int type_index=SuperWeapons[super_index]->Type->Fetch_Heap_ID();
                             Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(57,type_index,0));
                         }
                         break;

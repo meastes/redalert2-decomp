@@ -4,8 +4,8 @@
     "id": "population-4436",
     "inventory_sha256": "8c502343a335377c2daa19399479a385be44d4e954a6b63315bee285f02863f7",
     "gaps_sha256": "5a744dc07a3fd64b9dce03e6087db5fa019a5dbdfdc65fa6fcc94d1019bbebaa",
-    "historical_population_sha256": "97e4c5adb8c14475be6c28d938f124f980da967c207c419759bc69e484359b30",
-    "historical_acceptance_sha256": "32df04937153b2f62090a64f49d689ca26cc2bfce42a4423a5c8a9d4be5a7e51"
+    "historical_population_sha256": "3104f698ea078655ed31ce5fadacb9a3e51baeaaa0958a254adfcc35933a1135",
+    "historical_acceptance_sha256": "275784ba8232640106da1fa12cac3c1ce21eeec8da734f4ba5b6b8c4a23f24a4"
   },
   "references": {
     "?FUN_006f8a20@": 7309856,
@@ -972,7 +972,7 @@
     "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A": 10748752,
     "?IsoTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A": 10751184,
     "?SuperWeaponTypes@@3V?$DynamicVectorClass@PAVSuperWeaponTypeClass@@@@A": 10748728,
-    "?Supers@@3V?$DynamicVectorClass@PAVSuperClass@@@@A": 10706216,
+    "?SuperWeapons@@3V?$DynamicVectorClass@PAVSuperClass@@@@A": 10706216,
     "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": 10751008,
     "?TechnoTypes@@3V?$DynamicVectorClass@PAVTechnoTypeClass@@@@A": 10750648,
     "?unknown_objects_a40368@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": 10748776,
@@ -13869,7 +13869,7 @@
     "??_E?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z": 6313536,
     "??_E?$DynamicVectorClass@VHSVClass@@@@UAEPAXI@Z": 6313824,
     "?Reset_Grapple_Counters_006066a0@ParasiteClass@@QAEXXZ": 6317728,
-    "?unknown_event_queue_a35f30@@3V?$QueueClass@VEventClass@@$0BAA@@@A": 10706736,
+    "?MegaMissionQueue@@3V?$QueueClass@VEventClass@@$0BAA@@@A": 10706736,
     "?Add_Node@SchemeTable@@QAEXPBD@Z": 6310000,
     "?Is_In_Loop@PlanningNodeClass@@QAE_NXZ": 6362096,
     "?Copy_Nodes_To@PlanningTokenClass@@QAEXPAVTechnoClass@@H@Z": 6371104,

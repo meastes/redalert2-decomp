@@ -3007,8 +3007,8 @@ void BuildingClass::unknown_slot282(bool captured)
             Map.Unknown_0067C310(3);
         }
         if (Type->SuperWeapon != -1) {
-            for (int i = 0; i < House->Supers.Count(); ++i) {
-                SuperClass *super = House->Supers[i];
+            for (int i = 0; i < House->SuperWeapons.Count(); ++i) {
+                SuperClass *super = House->SuperWeapons[i];
                 if (super->Type->Type == Type->SuperWeapon) {
                     if ((super->RechargeTimer.Value() / 15) * 60 <= 4) {
                         PlayNthAnim(15, Health_Ratio() <= Rules->ConditionYellow, unknown_554.Count() > 0, 0);
@@ -3056,8 +3056,8 @@ void BuildingClass::unknown_slot282(bool captured)
         Unknown_0063B5B0(12, Cell(Position_Coord_004f3f40()));
     }
     if (!House->Is_Player_Control() && MuteSWLaunches == 0 && unknown_game_mode_a3d298 != 0 &&
-        (Type->SuperWeapon == -1 || !Supers[Type->SuperWeapon]->Type->AuxBuilding ||
-         House->unknown_5460.unknown_func_491d10(Supers[Type->SuperWeapon]->Type->AuxBuilding->ArrayIndex) != 0)) {
+        (Type->SuperWeapon == -1 || !SuperWeapons[Type->SuperWeapon]->Type->AuxBuilding ||
+         House->unknown_5460.unknown_func_491d10(SuperWeapons[Type->SuperWeapon]->Type->AuxBuilding->ArrayIndex) != 0)) {
         switch (Type->SuperWeapon) {
         case 0: Speech_Play_Name("EVA_NuclearSiloDetected", -1, -1); break;
         case 1: Speech_Play_Name("EVA_IronCurtainDetected", -1, -1); break;
@@ -3797,7 +3797,7 @@ int BuildingClass::Do_MISSION_GUARD()
         if (!Type->EMPulseCannon) {
             int super = Type->SuperWeapon;
             if (super != -1) {
-                BuildingTypeClass *aux = Supers[super]->Type->AuxBuilding;
+                BuildingTypeClass *aux = SuperWeapons[super]->Type->AuxBuilding;
                 if (aux != 0 && House->unknown_5460.unknown_func_491d10(aux->ArrayIndex) == 0) {
                     goto check_occupants;
                 }
@@ -5566,8 +5566,8 @@ void BuildingClass::Update_Animations_0044BD40()
         }
     }
     if(Type->SuperWeapon!=-1 && Get_Mission()!=18 && Get_Mission()!=19 && !(Type->ChargedAnimTime>unknown_charge_limit_0079d14c)) {
-        for(int index=0;index<House->Supers.Count();++index) {
-            SuperClass *super=House->Supers[index];
+        for(int index=0;index<House->SuperWeapons.Count();++index) {
+            SuperClass *super=House->SuperWeapons[index];
             int super_type=super->Type->Type;
             if(super_type==Type->SuperWeapon) {
                 if(!(Type->ChargedAnimTime<super->RechargeTimer.Value()*unknown_charge_scale_0079d148)) {
@@ -8000,7 +8000,7 @@ void BuildingClass::Unknown_00452390(HouseClass *house)
             Speech_Play_Name(unknown_eva_007cfb0c,-1,-1);
         }
     } else if(type->SuperWeapon != -1) {
-        House->Supers[type->SuperWeapon]->unknown_69ebb0();
+        House->SuperWeapons[type->SuperWeapon]->unknown_69ebb0();
         if(House->Is_Player_Control() || (house->Is_Player_Control() && visible))
             Speech_Play_Name(unknown_eva_007cfb28,-1,-1);
     } else {
@@ -8090,7 +8090,7 @@ bool BuildingClass::Considered_Vehicle()
 int BuildingClass::Fetch_Super_Weapon()
 {
     if (Type->SuperWeapon != -1) {
-        BuildingTypeClass *aux = Supers[Type->SuperWeapon]->Type->AuxBuilding;
+        BuildingTypeClass *aux = SuperWeapons[Type->SuperWeapon]->Type->AuxBuilding;
         if (aux != 0 && !House->unknown_5460.unknown_func_491d10(aux->ArrayIndex)) {
             return -1;
         }
@@ -8106,7 +8106,7 @@ int BuildingClass::Fetch_Super_Weapon()
 int BuildingClass::Fetch_Super_Weapon2()
 {
     if (Type->SuperWeapon2 != -1) {
-        BuildingTypeClass *aux = Supers[Type->SuperWeapon2]->Type->AuxBuilding;
+        BuildingTypeClass *aux = SuperWeapons[Type->SuperWeapon2]->Type->AuxBuilding;
         if (aux != 0 && !House->unknown_5460.unknown_func_491d10(aux->ArrayIndex)) {
             return -1;
         }

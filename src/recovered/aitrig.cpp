@@ -489,9 +489,9 @@ bool AITriggerTypeClass::Enemy_Power_Below_0(HouseClass *house, HouseClass *enem
 bool AITriggerTypeClass::Iron_Curtain_Ready(HouseClass *house, HouseClass *enemy) const
 {
     if (house != 0) {
-        for (int index = 0; index < house->Supers.Count(); index++) {
-            if (house->Supers[index]->Type->Type == 1) {
-                SuperClass *super = house->Supers[index];
+        for (int index = 0; index < house->SuperWeapons.Count(); index++) {
+            if (house->SuperWeapons[index]->Type->Type == 1) {
+                SuperClass *super = house->SuperWeapons[index];
                 if (super != 0 && super->unknown_0x55) {
                     double remaining = super->RechargeTimer.Value();
                     double total = super->Type->RechargeTime;
@@ -516,9 +516,9 @@ bool AITriggerTypeClass::Iron_Curtain_Ready(HouseClass *house, HouseClass *enemy
 bool AITriggerTypeClass::Chronosphere_Ready(HouseClass *house, HouseClass *enemy) const
 {
     if (house != 0) {
-        for (int index = 0; index < house->Supers.Count(); index++) {
-            if (house->Supers[index]->Type->Type == 3) {
-                SuperClass *super = house->Supers[index];
+        for (int index = 0; index < house->SuperWeapons.Count(); index++) {
+            if (house->SuperWeapons[index]->Type->Type == 3) {
+                SuperClass *super = house->SuperWeapons[index];
                 if (super != 0 && super->unknown_0x55) {
                     double remaining = super->RechargeTimer.Value();
                     double total = super->Type->RechargeTime;

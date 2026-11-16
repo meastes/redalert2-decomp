@@ -4,8 +4,8 @@
     "id": "population-42",
     "inventory_sha256": "a6e83d732959f1475aeb0c48bcfb990e9e75a3c13374eabebd19ad7f943521f1",
     "gaps_sha256": "d61d0da403b90e2409ab0cfa93e9dac80f1c06f0588399193bd138173c322f82",
-    "historical_population_sha256": "2ca0fee68d35a2600b920f226ee6d2ad546bb126dfe981c32280d25db1559a55",
-    "historical_acceptance_sha256": "70de4dac821b2cf1ff96908e541501487458d76fac9714577bd71cdeed8fe4f0"
+    "historical_population_sha256": "f8d2de1806d0cab106e91ec5327d7e7b97097988e91ede3add152ceab2710bd6",
+    "historical_acceptance_sha256": "61ac4f89a5bbde2c9db1cc25d7a0f7cf9bae181689713da44c7aa98c81bd113f"
   },
   "references": {
     "?unknown_type_flag_aab_0041b3f0@": 4305904,
@@ -4071,7 +4071,7 @@
       "full_extent_sha256": "2b6f55d577fb277b260aae971292d5192154eabde7608a2325b2aff5a1345db2",
       "relocations": [],
       "source_sha256": "02fb20059f524ff151e89ae006c05693ecbafc4cb65416d2bf512ae04b4ac8d9",
-      "source": "src/recovered/0041b3f0.cpp",
+      "source": "src/recovered/aircraft/unknown_type_flag_aab.cpp",
       "source_order": 6879,
       "population": "population-42",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -4130,7 +4130,7 @@
         }
       ],
       "source_sha256": "4e8b53de3064fea43eacd167e4c659c453e4d19522f5ac931fd3a556f2dc1cc9",
-      "source": "src/recovered/004e12a0.cpp",
+      "source": "src/recovered/gscreen/unknown_endless_loop_check.cpp",
       "source_order": 6945,
       "population": "population-42",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -4180,7 +4180,7 @@
       "full_extent_sha256": "34dfe0b0eaab153ac0c52aa124e3eb09251e848844f3d01a68e3bf195dc7d987",
       "relocations": [],
       "source_sha256": "66f4013e123297d1bf3599e9c026087800fc1e2e821384ed7bee8e8bff1f7ddd",
-      "source": "src/recovered/004ff1e0.cpp",
+      "source": "src/recovered/hsv/unknown_endless_loop.cpp",
       "source_order": 6956,
       "population": "population-42",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -4205,7 +4205,7 @@
       "full_extent_sha256": "4d4e93f119283d00fc69ae3d1c061ae577e0bcba294c24065781e3061549183b",
       "relocations": [],
       "source_sha256": "fe991a974fafe6fc8fe8f120b88a98f47ea1529eb3a51c3e08e1973f8ab72927",
-      "source": "src/recovered/0055aa50.cpp",
+      "source": "src/recovered/map/MapClass_Reset_Local_Iterator.cpp",
       "source_order": 6977,
       "population": "population-42",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
