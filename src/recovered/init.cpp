@@ -1147,7 +1147,7 @@ top:
         unknown_flag_00866250 = false;
         unknown_flag_a35db0 = 0;
         unknown_session_a3d298.MultiplayerObserver = 0;
-        Map.Unknown_00498F10(0);
+        Map.Set_Cursor_Shape(0);
         unknown_833680 = 0;
         unknown_833684 = 0;
         unknown_833688 = -1;

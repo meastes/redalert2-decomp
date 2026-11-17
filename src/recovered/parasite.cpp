@@ -103,7 +103,6 @@ ParasiteClass::ParasiteClass(NoInitClass const &noinit) : AbstractClass(noinit)
 // Releases the victim, leaves the update list and the unit list.
 
 
-
 ParasiteClass::~ParasiteClass()
 {
     Unknown_006064C0();
@@ -722,11 +721,9 @@ int ParasiteClass::Kind_Of() const
 // DynamicVectorClass<ParasiteClass *>::ID_object (0x00608180; DynamicVectorClass<ParasiteClass *> vtable 0x007a7c2c slot 4).
 
 
-extern "C" unsigned char vtable_6081b0[]; extern "C" void __cdecl release_buffer_6081b0(void*); extern "C" void __cdecl release_object_6081b0(void*);
-class Leaf_6081b0 { public: void* get(unsigned int flags); };
-void* Leaf_6081b0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6081b0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6081b0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6081b0(this); return this; }
+// VectorClass<ParasiteClass *>::`scalar deleting destructor' (0x006081B0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_608200[]; extern "C" void __cdecl release_buffer_608200(void*); extern "C" void __cdecl release_object_608200(void*);
-class Leaf_608200 { public: void* get(unsigned int flags); };
-void* Leaf_608200::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_608200; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_608200((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_608200(this); return this; }
+// DynamicVectorClass<ParasiteClass *>::`scalar deleting destructor' (0x00608200)
+// Compiler-emitted in this unit; no source of its own.

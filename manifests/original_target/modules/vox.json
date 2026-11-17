@@ -385,13 +385,13 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?get@Leaf_716ce0@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVVoxClass@@@@UAEPAXI@Z",
    "entry": "00716ce0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_716d30@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVVoxClass@@@@UAEPAXI@Z",
    "entry": "00716d30",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -2019,14 +2019,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVVoxClass@@@@UAEPAXI@Z",
-   "address": "00716d30"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVVoxClass@@@@UAEPAXI@Z",
-   "address": "00716ce0"
-  },
-  {
    "symbol": "?AudioDeviceAvailable@@YAHXZ",
    "address": "00406f30"
   },
@@ -2259,22 +2251,6 @@
    "address": "0078298a"
   },
   {
-   "symbol": "_release_buffer_716ce0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_716d30",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_716ce0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_716d30",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_s__none__007cdecc",
    "address": "007cdecc"
   },
@@ -2285,14 +2261,6 @@
   {
    "symbol": "_strncpy",
    "address": "007823d0"
-  },
-  {
-   "symbol": "_vtable_716ce0",
-   "address": "007aea04"
-  },
-  {
-   "symbol": "_vtable_716d30",
-   "address": "007aea04"
   }
  ],
  "route": "A",

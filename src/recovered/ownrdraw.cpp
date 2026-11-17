@@ -141,14 +141,12 @@ unsigned int __fastcall unknown_hash_key_005de970(unsigned int *key)
 }
 
 
-
 //  (0x005DE980)
 
 int __fastcall unknown_product_005de980(int *pair)
 {
     return pair[1] * *pair;
 }
-
 
 
 // The ownrdraw window table at 0x00A73688 as wlib's chained dictionary (shared/wol_dictionary.hpp:
@@ -5239,8 +5237,6 @@ void *__cdecl operator new(unsigned int,void *);
 extern "C" double __cdecl floor(double);
 
 
-
-
 LRESULT __fastcall IME_Get_Default_Result_007380b0();
 // shared/win_stub.hpp's IME entry points (the unit includes that header further down).
 void IME_Reset();                                                                    // 0x00737D90
@@ -8284,43 +8280,14 @@ void __fastcall DialogControl_dtor_00601040(unsigned int *self)
 }
 
 
-
 class Call_601410_0 {public: unsigned int target();};
 class Call_601410_1 {public: unsigned int target();};
 class Leaf_601410 { public: unsigned int get(); };
 unsigned int Leaf_601410::get() { unsigned int r0 = ((Call_601410_0*)(((unsigned int)this) + 8))->target(); unsigned int r1 = ((Call_601410_1*)(((unsigned int)this) + 4))->target(); return r1; }
 
 
-// 0x00601430: function not yet identified
-//
-// Body: 30 bytes (frozen inventory bound).
-// Referenced from 4 sites (unconditional call).
-// Ghidra prototype: undefined4 __thiscall scalar_deleting_destructor_00601430(undefined4 param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00601430 {
-
-extern void __fastcall WideString_dtor_0076fa50(void);
-extern void  operator_delete_00781d3b(unsigned int);
-
-struct Owner_00601430 { unsigned int scalar_deleting_destructor_00601430(unsigned char flags); };
-
-unsigned int Owner_00601430::scalar_deleting_destructor_00601430(unsigned char flags)
-{
-    unsigned int self = (unsigned int)this;
-    WideString_dtor_0076fa50();
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_00601430
+// WideString::`scalar deleting destructor' (0x00601430)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // void WolArrayList<UnknownListEntry_6017c0>::Clear_Vector() (0x00601490): wlib clear() out of line for the

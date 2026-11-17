@@ -3649,7 +3649,7 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     if(House->ToCapture==this) { House->ToCapture=0; }
     if(oldowner->Is_Player_Control() && Type->ConstructionYard) {
         Map.PendingObjectPtr=0;Map.PendingObject=0;Map.PendingHouse=-1;
-        Map.Unknown_00498F10(0);
+        Map.Set_Cursor_Shape(0);
     }
     House->unknown_func_4eac70(this);
     IsRepairing=false;

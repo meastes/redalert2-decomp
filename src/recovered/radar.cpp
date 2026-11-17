@@ -546,7 +546,6 @@ void __stdcall RadarClass_Noop(int unused_0, int unused_1)
 }
 
 
-
 /***********************************************************************************************
  * RadarClass::Click_Cell_Calc -- Determines what cell the pixel coordinate is over.           *
  *                                                                                             *
@@ -2186,7 +2185,6 @@ bool __fastcall RadarClass_Is_Radar_Active(int radar_address)
 }
 
 
-
 /***********************************************************************************************
  * RadarClass::Radar_Activate -- Controls radar activation.                                    *
  *                                                                                             *
@@ -2263,7 +2261,6 @@ unsigned int __fastcall RadarClass_Is_Radar_Tactical(int radar_address)
 }
 
 
-
 /***********************************************************************************************
  * RadarClass::Is_Radar_Existing -- Queries to see if radar map is available.                  *
  *                                                                                             *
@@ -2333,7 +2330,6 @@ unsigned int __fastcall RadarClass_Is_Playing_Movie(int radar_address)
     }
     return result;
 }
-
 
 
 /// <summary>
@@ -2936,9 +2932,8 @@ wchar_t const *RadarClass::Help_Text(int id)
 // emitted with the vtable RadarClass's constructor references.
 
 
-extern "C" unsigned char vtable_635040[]; extern "C" void __cdecl release_buffer_635040(void*); extern "C" void __cdecl release_object_635040(void*);
-class Leaf_635040 { public: void* get(unsigned int flags); };
-void* Leaf_635040::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_635040; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_635040((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_635040(this); return this; }
+// VectorClass<HashObject<RadarTrackingStruct, TechnoClass *>>::`scalar deleting destructor' (0x00635040)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // DynamicVectorClass<HashObject<RadarTrackingStruct, TechnoClass *> >::DynamicVectorClass(unsigned size, HashObject const *array) (0x00635110)

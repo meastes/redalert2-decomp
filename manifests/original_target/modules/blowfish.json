@@ -53,7 +53,7 @@
  "references_in": [
   {
    "site": "00595c40",
-   "symbol": "?cleanup@Leaf_595c40@@QAEXXZ",
+   "symbol": "??1BlowfishEngine@@QAE@XZ",
    "target": "004355f0",
    "function_entry": true
   },
@@ -214,15 +214,8 @@
  ],
  "unit_functions": 8,
  "data_unproven": [],
- "stand_in_references": [
-  {
-   "site": "00595c40",
-   "target": "004355f0",
-   "symbol": "?cleanup@Leaf_595c40@@QAEXXZ",
-   "module_symbol": "??1BlowfishEngine@@QAE@XZ"
-  }
- ],
- "stand_in_reference_count": 1,
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
  "residual_split": {
   "rows": 3,
   "bytes": 72

@@ -432,13 +432,13 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?get@Leaf_6739f0@@QAEPAXI@Z",
+   "symbol": "??_G?$TypeList@W4DiskID@@@@UAEPAXI@Z",
    "entry": "006739f0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_674790@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@W4DiskID@@@@UAEPAXI@Z",
    "entry": "00674790",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -456,13 +456,13 @@
    "padding_bytes": 1
   },
   {
-   "symbol": "?get@Leaf_6748c0@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVMultiMission@@@@UAEPAXI@Z",
    "entry": "006748c0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_674910@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVMultiMission@@@@UAEPAXI@Z",
    "entry": "00674910",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -480,13 +480,13 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_674a00@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVPhoneEntryClass@@@@UAEPAXI@Z",
    "entry": "00674a00",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_674a50@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVPhoneEntryClass@@@@UAEPAXI@Z",
    "entry": "00674a50",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -687,6 +687,13 @@
    "bytes": 28,
    "kind": "vtable",
    "section": 62
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMultiMission@@@@6B@",
+   "address": "007a95c4",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 65
   },
   {
    "symbol": "??_7?$VectorClass@PAUUnknownGlobalPacket@@@@6B@",
@@ -1889,6 +1896,12 @@
   {
    "symbol": "??_7?$DynamicVectorClass@PAVMultiMission@@@@6B@",
    "address": "007a95a4",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVMultiMission@@@@6B@",
+   "address": "007a95c4",
    "bytes": 28,
    "kind": "vtable"
   },
@@ -4541,7 +4554,7 @@
   },
   {
    "symbol": "??_G?$DynamicVectorClass@PAUNodeNameType@@@@UAEPAXI@Z",
-   "address": null
+   "address": "005a6c90"
   },
   {
    "symbol": "??_G?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@UAEPAXI@Z",
@@ -4552,24 +4565,12 @@
    "address": null
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVMultiMission@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$DynamicVectorClass@PAVPhoneEntryClass@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
    "symbol": "??_G?$DynamicVectorClass@PBG@@UAEPAXI@Z",
    "address": null
   },
   {
    "symbol": "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z",
    "address": "0040e300"
-  },
-  {
-   "symbol": "??_G?$TypeList@W4DiskID@@@@UAEPAXI@Z",
-   "address": null
   },
   {
    "symbol": "??_G?$VectorClass@PAD@@UAEPAXI@Z",
@@ -4588,20 +4589,8 @@
    "address": null
   },
   {
-   "symbol": "??_G?$VectorClass@PAVMultiMission@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVPhoneEntryClass@@@@UAEPAXI@Z",
-   "address": "00674a00"
-  },
-  {
    "symbol": "??_G?$VectorClass@PBG@@UAEPAXI@Z",
    "address": null
-  },
-  {
-   "symbol": "??_G?$VectorClass@W4DiskID@@@@UAEPAXI@Z",
-   "address": "00674790"
   },
   {
    "symbol": "??_GBufferStraw@@UAEPAXI@Z",
@@ -5568,22 +5557,6 @@
    "address": "00781d3b"
   },
   {
-   "symbol": "_release_buffer_6739f0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_674790",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_6748c0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_674910",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_release_buffer_674960",
    "address": "00781d3b"
   },
@@ -5592,43 +5565,11 @@
    "address": "00781d3b"
   },
   {
-   "symbol": "_release_buffer_674a00",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_674a50",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_6739f0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_674790",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_6748c0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_674910",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_release_object_674960",
    "address": "00781d3b"
   },
   {
    "symbol": "_release_object_6749b0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_674a00",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_674a50",
    "address": "00781d3b"
   },
   {
@@ -5736,36 +5677,12 @@
    "address": "007a2444"
   },
   {
-   "symbol": "_vtable_6739f0",
-   "address": "007a9624"
-  },
-  {
-   "symbol": "_vtable_674790",
-   "address": "007a9624"
-  },
-  {
-   "symbol": "_vtable_6748c0",
-   "address": "007a95c4"
-  },
-  {
-   "symbol": "_vtable_674910",
-   "address": "007a95c4"
-  },
-  {
    "symbol": "_vtable_674960",
    "address": "007a95e4"
   },
   {
    "symbol": "_vtable_6749b0",
    "address": "007a95e4"
-  },
-  {
-   "symbol": "_vtable_674a00",
-   "address": "007a9604"
-  },
-  {
-   "symbol": "_vtable_674a50",
-   "address": "007a9604"
   },
   {
    "symbol": "_wcscpy",
@@ -6363,10 +6280,6 @@
   {
    "symbol": "_$S3",
    "reason": "no original address bound"
-  },
-  {
-   "symbol": "??_7?$VectorClass@PAVMultiMission@@@@6B@",
-   "reason": "relocation target unbound: ??_E?$VectorClass@PAVMultiMission@@@@UAEPAXI@Z"
   },
   {
    "symbol": "??_7CDFileClass@@6B@",

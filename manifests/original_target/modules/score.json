@@ -241,7 +241,7 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?unknown_scalar_deleting_destructor_00668390@Owner_00668390@seed_00668390@@QAEPAIE@Z",
+   "symbol": "??_GScoreTimeClass@@UAEPAXI@Z",
    "entry": "00668390",
    "body_bytes": 32,
    "padding_bytes": 0
@@ -351,6 +351,13 @@
    "bytes": 20,
    "kind": "vtable",
    "section": 82
+  },
+  {
+   "symbol": "??_7ScoreTimeClass@@6B@",
+   "address": "007a9274",
+   "bytes": 20,
+   "kind": "vtable",
+   "section": 85
   },
   {
    "symbol": "??_7ScoreAnimClass@@6B@",
@@ -954,6 +961,12 @@
    "kind": "vtable"
   },
   {
+   "symbol": "??_7ScoreTimeClass@@6B@",
+   "address": "007a9274",
+   "bytes": 20,
+   "kind": "vtable"
+  },
+  {
    "symbol": "??_7ScoreAnimClass@@6B@",
    "address": "007a9288",
    "bytes": 20,
@@ -1454,10 +1467,6 @@
    "address": "00401950"
   },
   {
-   "symbol": "??_GScoreTimeClass@@UAEPAXI@Z",
-   "address": null
-  },
-  {
    "symbol": "?AlternateSurface@@3PAVSurface@@A",
    "address": "00839958"
   },
@@ -1750,10 +1759,6 @@
    "address": "00469030"
   },
   {
-   "symbol": "?operator_delete_00781d3b@seed_00668390@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "?serial_local_player_00a3fb38@@3HA",
    "address": "00a3fb38"
   },
@@ -1776,10 +1781,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "_ScoreAnimClass_VTable_007a928c",
-   "address": "007a928c"
   },
   {
    "symbol": "__CIpow",
@@ -2002,10 +2003,6 @@
   {
    "symbol": "_$S3",
    "reason": "no original address bound"
-  },
-  {
-   "symbol": "??_7ScoreTimeClass@@6B@",
-   "reason": "relocation target unbound: ??_EScoreTimeClass@@UAEPAXI@Z"
   }
  ],
  "stand_in_references": [],

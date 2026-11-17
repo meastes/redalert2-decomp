@@ -84,7 +84,6 @@ void  SessionClass_Init(void)
 }
 
 
-
 // Session unit profile: the constructor 0x0066E380 sees the ctor-only fields; Cell compares as the YR twin's
 // member operators (Read_MultiPlayer_Settings 0x0066F3A0 with the TargetClass TrapTarget).
 // Header-static dynamic initializers of the unit at 0x0066E0A0: the shape_file.hpp empty rect and the
@@ -1755,7 +1754,6 @@ bool __fastcall MultiMission_Is_Random_Map(int session_address)
 }
 
 
-
 // SessionClass_Is_Random_Map (0x00672140): name from mischa85 names.csv
 
 namespace seed_00672140 {
@@ -1792,7 +1790,6 @@ void __fastcall GameOptionsType_Reset_AI(int object_address)
     } while (remaining != 0);
     return;
 }
-
 
 
 // Resolves the random countries and colours (see the declaration); 0x00672940 and 0x00672980 are expanded on the
@@ -2119,14 +2116,12 @@ class Cleanup_673990 { unsigned char pad0[4]; unsigned int* items; int count; un
 void Cleanup_673990::get() { unsigned int* pointer=items; capacity=0; if(pointer && owns) { release_673990(pointer); items=0; } owns=0; count=0; }
 
 
-extern "C" unsigned char vtable_6739f0[]; extern "C" void __cdecl release_buffer_6739f0(void*); extern "C" void __cdecl release_object_6739f0(void*);
-class Leaf_6739f0 { public: void* get(unsigned int flags); };
-void* Leaf_6739f0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6739f0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6739f0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6739f0(this); return this; }
+// TypeList<DiskID>::`scalar deleting destructor' (0x006739F0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_674790[]; extern "C" void __cdecl release_buffer_674790(void*); extern "C" void __cdecl release_object_674790(void*);
-class Leaf_674790 { public: void* get(unsigned int flags); };
-void* Leaf_674790::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_674790; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_674790((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_674790(this); return this; }
+// VectorClass<DiskID>::`scalar deleting destructor' (0x00674790)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // VectorClass<Wstring> scalar deleting destructor (0x006747E0)
@@ -2139,14 +2134,12 @@ void* Leaf_674790::get(unsigned int flags) { unsigned int pointer = *(unsigned i
 // Emitted in this unit by MultiMission's constructor (GameModes).
 
 
-extern "C" unsigned char vtable_6748c0[]; extern "C" void __cdecl release_buffer_6748c0(void*); extern "C" void __cdecl release_object_6748c0(void*);
-class Leaf_6748c0 { public: void* get(unsigned int flags); };
-void* Leaf_6748c0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6748c0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6748c0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6748c0(this); return this; }
+// VectorClass<MultiMission *>::`scalar deleting destructor' (0x006748C0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_674910[]; extern "C" void __cdecl release_buffer_674910(void*); extern "C" void __cdecl release_object_674910(void*);
-class Leaf_674910 { public: void* get(unsigned int flags); };
-void* Leaf_674910::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_674910; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_674910((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_674910(this); return this; }
+// DynamicVectorClass<MultiMission *>::`scalar deleting destructor' (0x00674910)
+// Compiler-emitted in this unit; no source of its own.
 
 
 extern "C" unsigned char vtable_674960[]; extern "C" void __cdecl release_buffer_674960(void*); extern "C" void __cdecl release_object_674960(void*);
@@ -2159,14 +2152,12 @@ class Leaf_6749b0 { public: void* get(unsigned int flags); };
 void* Leaf_6749b0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6749b0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6749b0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6749b0(this); return this; }
 
 
-extern "C" unsigned char vtable_674a00[]; extern "C" void __cdecl release_buffer_674a00(void*); extern "C" void __cdecl release_object_674a00(void*);
-class Leaf_674a00 { public: void* get(unsigned int flags); };
-void* Leaf_674a00::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_674a00; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_674a00((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_674a00(this); return this; }
+// VectorClass<PhoneEntryClass *>::`scalar deleting destructor' (0x00674A00)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_674a50[]; extern "C" void __cdecl release_buffer_674a50(void*); extern "C" void __cdecl release_object_674a50(void*);
-class Leaf_674a50 { public: void* get(unsigned int flags); };
-void* Leaf_674a50::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_674a50; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_674a50((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_674a50(this); return this; }
+// DynamicVectorClass<PhoneEntryClass *>::`scalar deleting destructor' (0x00674A50)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // VectorClass<Wstring>::VectorClass(unsigned size, Wstring const *array) (0x00674AF0): the out-of-line copy MultiMission's

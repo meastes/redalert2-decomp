@@ -217,7 +217,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?unknown_scalar_deleting_destructor_00738420@Owner_00738420@seed_00738420@@QAEPAIE@Z",
+   "symbol": "??_GCCToolTip@@UAEPAXI@Z",
    "entry": "00738420",
    "body_bytes": 36,
    "padding_bytes": 12
@@ -294,6 +294,13 @@
    "bytes": 16,
    "kind": "table",
    "section": 3
+  },
+  {
+   "symbol": "??_7CCToolTip@@6B@",
+   "address": "007af518",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 59
   },
   {
    "symbol": "??_R1A@?0A@A@CCFileClass@@8",
@@ -695,6 +702,12 @@
    "address": "007af508",
    "bytes": 16,
    "kind": "table"
+  },
+  {
+   "symbol": "??_7CCToolTip@@6B@",
+   "address": "007af518",
+   "bytes": 28,
+   "kind": "vtable"
   },
   {
    "symbol": "??_R1A@?0A@A@CCFileClass@@8",
@@ -1146,10 +1159,6 @@
    "address": "004019a0"
   },
   {
-   "symbol": "??_GCCToolTip@@UAEPAXI@Z",
-   "address": null
-  },
-  {
    "symbol": "??_GCDFileClass@@UAEPAXI@Z",
    "address": "00401950"
   },
@@ -1562,10 +1571,6 @@
    "address": "00839944"
   },
   {
-   "symbol": "?ToolTipManager_Destructor_006eb390@seed_00738420@@YIXXZ",
-   "address": "006eb390"
-  },
-  {
    "symbol": "?ToolTips@@3PAVCCToolTip@@A",
    "address": "008399b0"
   },
@@ -1622,10 +1627,6 @@
    "address": "007fd18c"
   },
   {
-   "symbol": "?operator_delete_00781d3b@seed_00738420@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "?sidebar_down_007dd0f8@@3QBDB",
    "address": "007dd0f8"
   },
@@ -1668,10 +1669,6 @@
   {
    "symbol": "?window_scroll_coasting_8373fc@@3_NA",
    "address": "008373fc"
-  },
-  {
-   "symbol": "_CCToolTip_VTable_007af51c",
-   "address": "007af51c"
   },
   {
    "symbol": "_ImmGetCandidateListA@16",
@@ -1923,10 +1920,6 @@
   {
    "symbol": "_$S3",
    "reason": "no original address bound"
-  },
-  {
-   "symbol": "??_7CCToolTip@@6B@",
-   "reason": "relocation target unbound: ??_ECCToolTip@@UAEPAXI@Z"
   },
   {
    "symbol": "??_7CDFileClass@@6B@",

@@ -246,7 +246,7 @@ void __fastcall Detach_This_From_All(AbstractClass *target, bool all)
 
     if (Map.PendingObject == target) {
         Map.PendingObject = 0;
-        Map.Unknown_00498F10(0);
+        Map.Set_Cursor_Shape(0);
     }
 
     if (rtti == 0x18 && target == GasSystem) {

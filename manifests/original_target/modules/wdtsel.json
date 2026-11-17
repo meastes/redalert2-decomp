@@ -277,7 +277,7 @@
    "padding_bytes": 5
   },
   {
-   "symbol": "?get@Leaf_730290@@QAEPAXI@Z",
+   "symbol": "??_GSelection@WorldDominationTour@@UAEPAXI@Z",
    "entry": "00730290",
    "body_bytes": 30,
    "padding_bytes": 2
@@ -295,7 +295,7 @@
    "padding_bytes": 12
   },
   {
-   "symbol": "?get@Leaf_7302e0@@QAEII@Z",
+   "symbol": "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@ABV0@@Z",
    "entry": "007302e0",
    "body_bytes": 35,
    "padding_bytes": 13
@@ -355,13 +355,13 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?scalar_deleting_destructor_007303d0@Owner_007303d0@seed_007303d0@@QAEPAIE@Z",
+   "symbol": "??_G?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@UAEPAXI@Z",
    "entry": "007303d0",
    "body_bytes": 32,
    "padding_bytes": 0
   },
   {
-   "symbol": "?scalar_deleting_destructor_007303f0@Owner_007303f0@seed_007303f0@@QAEPAIE@Z",
+   "symbol": "??_G?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEPAXI@Z",
    "entry": "007303f0",
    "body_bytes": 32,
    "padding_bytes": 0
@@ -2908,16 +2908,8 @@
    "address": "005b2b20"
   },
   {
-   "symbol": "??_G?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UAEPAXI@Z",
-   "address": "007303f0"
-  },
-  {
    "symbol": "??_G?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UAEPAXI@Z",
    "address": "00726b20"
-  },
-  {
-   "symbol": "??_G?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@UAEPAXI@Z",
-   "address": "007303d0"
   },
   {
    "symbol": "??_G?$rc_ptr@VCampaign@WorldDominationTour@@@@UAEPAXI@Z",
@@ -2950,10 +2942,6 @@
   {
    "symbol": "??_GINIClass@@UAEPAXI@Z",
    "address": "004deef0"
-  },
-  {
-   "symbol": "??_GSelection@WorldDominationTour@@UAEPAXI@Z",
-   "address": "00730290"
   },
   {
    "symbol": "?Add_Anim@MSEngine@@QAEHPAVMSAnim@@@Z",
@@ -3360,28 +3348,8 @@
    "address": "00469030"
   },
   {
-   "symbol": "?cleanup@Leaf_730290@@QAEXXZ",
-   "address": "0072d990"
-  },
-  {
-   "symbol": "?operator_delete_00781d3b@seed_007303d0@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "?operator_delete_00781d3b@seed_007303f0@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "?rc_ptr_base_dtor_00639510@seed_00730310@@YIXXZ",
    "address": "00639510"
-  },
-  {
-   "symbol": "?target@Call_7302e0_0@@QAEIXZ",
-   "address": "006394e0"
-  },
-  {
-   "symbol": "?target@Call_7302e0_1@@QAEII@Z",
-   "address": "00639530"
   },
   {
    "symbol": "?unknown_14@CampaignProperties@WorldDominationTour@@QBEHXZ",
@@ -3424,14 +3392,6 @@
    "address": "004ba410"
   },
   {
-   "symbol": "_VectorCursor_vtable_007af390",
-   "address": "007af390"
-  },
-  {
-   "symbol": "_VectorCursor_vtable_007af3a4",
-   "address": "007af3a4"
-  },
-  {
    "symbol": "__CIpow",
    "address": "007821b0"
   },
@@ -3444,16 +3404,8 @@
    "address": "0077f110"
   },
   {
-   "symbol": "_data_7302e0_7af27c",
-   "address": "007af27c"
-  },
-  {
    "symbol": "_rc_ptr_vtable_007af27c",
    "address": "007af27c"
-  },
-  {
-   "symbol": "_release_730290",
-   "address": "00781d3b"
   },
   {
    "symbol": "_storage_730470",

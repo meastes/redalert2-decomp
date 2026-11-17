@@ -216,13 +216,13 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?get@Leaf_6ec1d0@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVToolTip@@@@UAEPAXI@Z",
    "entry": "006ec1d0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_scalar_deleting_destructor_006ec220@Owner_006ec220@seed_006ec220@@QAEPAIE@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVToolTip@@@@UAEPAXI@Z",
    "entry": "006ec220",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -374,7 +374,7 @@
  "references_in": [
   {
    "site": "00738420",
-   "symbol": "?ToolTipManager_Destructor_006eb390@seed_00738420@@YIXXZ",
+   "symbol": "??1ToolTipManager@@UAE@XZ",
    "target": "006eb390",
    "function_entry": true
   },
@@ -809,14 +809,6 @@
    "address": "00781d3b"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVToolTip@@@@UAEPAXI@Z",
-   "address": "006ec220"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVToolTip@@@@UAEPAXI@Z",
-   "address": "006ec1d0"
-  },
-  {
    "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
    "address": null
   },
@@ -833,16 +825,8 @@
    "address": "006f9ec0"
   },
   {
-   "symbol": "?operator_delete_00781d3b@seed_006ec220@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "?x@?1???AToolTipIndex@@QBEABQAVToolTip@@ABI@Z@4PAV2@A",
    "address": "00b2b620"
-  },
-  {
-   "symbol": "_VectorClass_ToolTipPtr_VTable_007ad970",
-   "address": "007ad970"
   },
   {
    "symbol": "__imp__GetCursorPos@4",
@@ -863,18 +847,6 @@
   {
    "symbol": "_qsort",
    "address": "00781d46"
-  },
-  {
-   "symbol": "_release_buffer_6ec1d0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_6ec1d0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_vtable_6ec1d0",
-   "address": "007ad970"
   },
   {
    "symbol": "_wcslen",
@@ -995,15 +967,8 @@
    "reason": "relocation target unbound: ??_E?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z"
   }
  ],
- "stand_in_references": [
-  {
-   "site": "00738420",
-   "target": "006eb390",
-   "symbol": "?ToolTipManager_Destructor_006eb390@seed_00738420@@YIXXZ",
-   "module_symbol": "??1ToolTipManager@@UAE@XZ"
-  }
- ],
- "stand_in_reference_count": 1,
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
  "residual_split": {
   "rows": 1,
   "bytes": 23

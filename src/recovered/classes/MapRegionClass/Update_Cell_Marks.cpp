@@ -19,7 +19,7 @@ extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
 bool MapGeneratorClass::Expand_All_High_Ground()
 {
     bool success=true;
-    Map.Unknown_00498F10(0);
+    Map.Set_Cursor_Shape(0);
     Map.Reset_Iterator();
     CellClass *cell=Map.Iterate();
     while (cell!=0) {
@@ -52,6 +52,6 @@ void MapRegionClass::Update_Cell_Marks_005707a0()
 // @ref ?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z=0040b1d0
 // @ref ?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z=0040b210
 // @ref ?Fetch@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z=0040b050
-// @ref ?Unknown_00498F10@DisplayClass@@=00498f10
+// @ref ?Set_Cursor_Shape@DisplayClass@@=00498f10
 // @ref ?Reset_Iterator@MapClass@@=0055a550
 // @ref ?Iterate@MapClass@@=0055a490

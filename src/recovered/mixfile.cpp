@@ -495,15 +495,13 @@ void __fastcall GenericNode_Unlink(int node_address)
 }
 
 
-
 // BlowStraw scalar deleting destructor (0x00595BF0)
 // Compiler generated from BlowStraw's inline virtual destructor (vtable 0x007A6460 slot 0), emitted
 // by the PKStraw local of MixFileClass's constructor (0x005952F0) above; no source of its own.
 
 
-extern "C" void __cdecl release_595c40(void*);
-class Leaf_595c40 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_595c40::get(unsigned int flags) { cleanup(); if (flags & 1) release_595c40(this); return this; }
+// BlowfishEngine::`scalar deleting destructor' (0x00595C40)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // MixFileClass scalar deleting destructor (0x00595C60)

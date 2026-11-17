@@ -282,7 +282,7 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?get@Leaf_6ea9f0@@QAEPAXI@Z",
+   "symbol": "??_GTiberiumClass@@UAEPAXI@Z",
    "entry": "006ea9f0",
    "body_bytes": 30,
    "padding_bytes": 2
@@ -348,13 +348,13 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?get@Leaf_6eacd0@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVTiberiumClass@@@@UAEPAXI@Z",
    "entry": "006eacd0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_6ead20@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVTiberiumClass@@@@UAEPAXI@Z",
    "entry": "006ead20",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -451,7 +451,7 @@
    "address": "007a3b7c",
    "bytes": 28,
    "kind": "vtable",
-   "section": 192
+   "section": 186
   },
   {
    "symbol": "_unknown_geometry_sixty",
@@ -937,24 +937,12 @@
    "address": "0050b260"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVTiberiumClass@@@@UAEPAXI@Z",
-   "address": "006ead20"
-  },
-  {
    "symbol": "??_G?$TypeList@PAVAnimTypeClass@@@@UAEPAXI@Z",
    "address": "0050b200"
   },
   {
    "symbol": "??_G?$VectorClass@PAVAnimTypeClass@@@@UAEPAXI@Z",
    "address": "0050b2b0"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVTiberiumClass@@@@UAEPAXI@Z",
-   "address": "006eacd0"
-  },
-  {
-   "symbol": "??_GTiberiumClass@@UAEPAXI@Z",
-   "address": "006ea9f0"
   },
   {
    "symbol": "?AI@AbstractClass@@UAEXXZ",
@@ -1177,10 +1165,6 @@
    "address": "00410910"
   },
   {
-   "symbol": "?cleanup@Leaf_6ea9f0@@QAEXXZ",
-   "address": "006e8b60"
-  },
-  {
    "symbol": "?operator_delete_00781d3b@seed_006e9670@@YAXI@Z",
    "address": "00781d3b"
   },
@@ -1249,36 +1233,8 @@
    "address": "00782dfd"
   },
   {
-   "symbol": "_release_6ea9f0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_6eacd0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_6ead20",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_6eacd0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_6ead20",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_strtok",
    "address": "00782ec2"
-  },
-  {
-   "symbol": "_vtable_6eacd0",
-   "address": "007ad864"
-  },
-  {
-   "symbol": "_vtable_6ead20",
-   "address": "007ad864"
   }
  ],
  "route": "A",

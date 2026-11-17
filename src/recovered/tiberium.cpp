@@ -990,9 +990,8 @@ class Leaf_6ea9e0 { public: unsigned int get(); };
 unsigned int Leaf_6ea9e0::get() { return *(unsigned int*)((char*)this + 0x98); }
 
 
-extern "C" void __cdecl release_6ea9f0(void*);
-class Leaf_6ea9f0 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_6ea9f0::get(unsigned int flags) { cleanup(); if (flags & 1) release_6ea9f0(this); return this; }
+// TiberiumClass::`scalar deleting destructor' (0x006EA9F0)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
@@ -1008,11 +1007,9 @@ void* Leaf_6ea9f0::get(unsigned int flags) { cleanup(); if (flags & 1) release_6
 // DynamicVectorClass<TiberiumClass *>::ID_object (0x006EACA0; DynamicVectorClass<TiberiumClass *> vtable 0x007ad844 slot 4).
 
 
-extern "C" unsigned char vtable_6eacd0[]; extern "C" void __cdecl release_buffer_6eacd0(void*); extern "C" void __cdecl release_object_6eacd0(void*);
-class Leaf_6eacd0 { public: void* get(unsigned int flags); };
-void* Leaf_6eacd0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6eacd0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6eacd0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6eacd0(this); return this; }
+// VectorClass<TiberiumClass *>::`scalar deleting destructor' (0x006EACD0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_6ead20[]; extern "C" void __cdecl release_buffer_6ead20(void*); extern "C" void __cdecl release_object_6ead20(void*);
-class Leaf_6ead20 { public: void* get(unsigned int flags); };
-void* Leaf_6ead20::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6ead20; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6ead20((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6ead20(this); return this; }
+// DynamicVectorClass<TiberiumClass *>::`scalar deleting destructor' (0x006EAD20)
+// Compiler-emitted in this unit; no source of its own.

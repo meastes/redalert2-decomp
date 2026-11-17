@@ -1018,7 +1018,6 @@ void __fastcall Clear_005b9000(int vector_address)
 }
 
 
-
 // DynamicVectorClass<MultiplayerGameMode *>::ID(MultiplayerGameMode * const *) (0x005B9030)
 // Template member instantiated from shared/vector_class.hpp.
 // No source of its own: emitted by this unit (population-2401).
@@ -1108,24 +1107,20 @@ WordStorage_005b95c0* WordStorage_005b95c0::initialize(
 }
 
 
-extern "C" unsigned char vtable_5b9700[]; extern "C" void __cdecl release_buffer_5b9700(void*); extern "C" void __cdecl release_object_5b9700(void*);
-class Leaf_5b9700 { public: void* get(unsigned int flags); };
-void* Leaf_5b9700::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_5b9700; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_5b9700((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_5b9700(this); return this; }
+// VectorClass<MultiplayerTeam *>::`scalar deleting destructor' (0x005B9700)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_5b9750[]; extern "C" void __cdecl release_buffer_5b9750(void*); extern "C" void __cdecl release_object_5b9750(void*);
-class Leaf_5b9750 { public: void* get(unsigned int flags); };
-void* Leaf_5b9750::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_5b9750; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_5b9750((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_5b9750(this); return this; }
+// DynamicVectorClass<MultiplayerTeam *>::`scalar deleting destructor' (0x005B9750)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_5b97a0[]; extern "C" void __cdecl release_buffer_5b97a0(void*); extern "C" void __cdecl release_object_5b97a0(void*);
-class Leaf_5b97a0 { public: void* get(unsigned int flags); };
-void* Leaf_5b97a0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_5b97a0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_5b97a0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_5b97a0(this); return this; }
+// VectorClass<MultiplayerGameMode *>::`scalar deleting destructor' (0x005B97A0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_5b97f0[]; extern "C" void __cdecl release_buffer_5b97f0(void*); extern "C" void __cdecl release_object_5b97f0(void*);
-class Leaf_5b97f0 { public: void* get(unsigned int flags); };
-void* Leaf_5b97f0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_5b97f0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_5b97f0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_5b97f0(this); return this; }
+// DynamicVectorClass<MultiplayerGameMode *>::`scalar deleting destructor' (0x005B97F0)
+// Compiler-emitted in this unit; no source of its own.
 
 
 extern "C" unsigned char table_5b9840[]; extern "C" void* __cdecl storage_5b9840(unsigned int);

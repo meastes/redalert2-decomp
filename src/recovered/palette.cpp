@@ -465,14 +465,12 @@ HashString *HashTableClass<HashString, SchemeNode *>::Next(UnknownSchemeListIter
 // (vector_class.hpp, hash_table.hpp, hash_object.hpp).
 
 
-extern "C" unsigned char vtable_6055a0[]; extern "C" void __cdecl release_buffer_6055a0(void*); extern "C" void __cdecl release_object_6055a0(void*);
-class Leaf_6055a0 { public: void* get(unsigned int flags); };
-void* Leaf_6055a0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6055a0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6055a0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6055a0(this); return this; }
+// VectorClass<ColorScheme *>::`scalar deleting destructor' (0x006055A0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_6055f0[]; extern "C" void __cdecl release_buffer_6055f0(void*); extern "C" void __cdecl release_object_6055f0(void*);
-class Leaf_6055f0 { public: void* get(unsigned int flags); };
-void* Leaf_6055f0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6055f0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6055f0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6055f0(this); return this; }
+// DynamicVectorClass<ColorScheme *>::`scalar deleting destructor' (0x006055F0)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // ??_E?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z (0x605640): template instance emitted by the colour-scheme table unit from its shared headers

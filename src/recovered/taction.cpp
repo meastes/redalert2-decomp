@@ -36,7 +36,6 @@
 DynamicVectorClass<TActionClass *> Actions;
 
 
-
 // Independently proved native copies used by this translation unit.
 
 
@@ -2555,11 +2554,9 @@ char * Owner_006b3200::Copy_Text_006b3200(char *source_text)
 // DynamicVectorClass<TActionClass *>::ID_object (0x006B3530; DynamicVectorClass<TActionClass *> vtable 0x007ac5f0 slot 4).
 
 
-extern "C" unsigned char vtable_6b3560[]; extern "C" void __cdecl release_buffer_6b3560(void*); extern "C" void __cdecl release_object_6b3560(void*);
-class Leaf_6b3560 { public: void* get(unsigned int flags); };
-void* Leaf_6b3560::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6b3560; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6b3560((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6b3560(this); return this; }
+// VectorClass<TActionClass *>::`scalar deleting destructor' (0x006B3560)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_6b35b0[]; extern "C" void __cdecl release_buffer_6b35b0(void*); extern "C" void __cdecl release_object_6b35b0(void*);
-class Leaf_6b35b0 { public: void* get(unsigned int flags); };
-void* Leaf_6b35b0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6b35b0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6b35b0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6b35b0(this); return this; }
+// DynamicVectorClass<TActionClass *>::`scalar deleting destructor' (0x006B35B0)
+// Compiler-emitted in this unit; no source of its own.

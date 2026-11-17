@@ -239,8 +239,8 @@ public:
     // Slot 38 (0x0049A0F0, virtual in shared/display.hpp), declared non-virtual so the light vtable keeps its layout;
     // Map calls it directly (MapClass 0x00549C50).
     bool unknown_slot38(Cell const &cell, HouseClass *house);
-    void Set_Cursor_Shape(Cell const *list);
-    void Unknown_00498F10(Cell const *list);                                    // 0x00498F10 (the placement cursor's cell list)
+    void Set_Copy_Cursor_Shape(Cell const *list);
+    void Set_Cursor_Shape(Cell const *list);                                    // 0x00498F10 (the placement cursor's cell list)
     // The pending placement (as shared/display.hpp; HouseClass::Manual_Place sets them).
 #ifdef RA2_SHARED_MAP_HPP
     Cell ZoneCell;

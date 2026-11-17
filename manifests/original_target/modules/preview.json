@@ -1241,7 +1241,7 @@
  "references_in": [
   {
    "site": "0059cb80",
-   "symbol": "?cleanup@Leaf_59cb80@@QAEXXZ",
+   "symbol": "??1MapPreviewClass@@QAE@XZ",
    "target": "0061d440",
    "function_entry": true
   },
@@ -2254,12 +2254,6 @@
  ],
  "stand_in_references": [
   {
-   "site": "0059cb80",
-   "target": "0061d440",
-   "symbol": "?cleanup@Leaf_59cb80@@QAEXXZ",
-   "module_symbol": "??1MapPreviewClass@@QAE@XZ"
-  },
-  {
    "site": "006adae0",
    "target": "0061ea80",
    "symbol": "??0CoordStruct@@QAE@ABVCell@@H@Z",
@@ -2272,7 +2266,7 @@
    "module_symbol": "??0UnknownCoord434820@@QAE@ABVCell@@H@Z"
   }
  ],
- "stand_in_reference_count": 3,
+ "stand_in_reference_count": 2,
  "residual_split": {
   "rows": 0,
   "bytes": 0

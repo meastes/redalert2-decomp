@@ -862,9 +862,8 @@ int WinsockInterfaceClass::Get_Packet_Loss_Percent()
 // Compiler-generated with the vtable (the destructor inlined). No source of its own.
 
 
-extern "C" void __cdecl release_76bb00(void*);
-class Cleanup_76bb00 { unsigned char pad0[4]; unsigned int* items; int count; unsigned char pad12[1]; unsigned char owns; unsigned char pad14[2]; int capacity; public: void get(); };
-void Cleanup_76bb00::get() { unsigned int* pointer=items; capacity=0; if(pointer && owns) { release_76bb00(pointer); items=0; } owns=0; count=0; }
+// DynamicVectorClass<WinsockInterfaceClass::WinsockBufferType *>::Clear (0x0076BB00)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):
@@ -881,11 +880,9 @@ void Cleanup_76bb00::get() { unsigned int* pointer=items; capacity=0; if(pointer
 // No source of its own: emitted by this unit (population-1744).
 
 
-extern "C" unsigned char vtable_76bdc0[]; extern "C" void __cdecl release_buffer_76bdc0(void*); extern "C" void __cdecl release_object_76bdc0(void*);
-class Leaf_76bdc0 { public: void* get(unsigned int flags); };
-void* Leaf_76bdc0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_76bdc0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_76bdc0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_76bdc0(this); return this; }
+// VectorClass<WinsockInterfaceClass::WinsockBufferType *>::`scalar deleting destructor' (0x0076BDC0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_76be10[]; extern "C" void __cdecl release_buffer_76be10(void*); extern "C" void __cdecl release_object_76be10(void*);
-class Leaf_76be10 { public: void* get(unsigned int flags); };
-void* Leaf_76be10::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_76be10; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_76be10((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_76be10(this); return this; }
+// DynamicVectorClass<WinsockInterfaceClass::WinsockBufferType *>::`scalar deleting destructor' (0x0076BE10)
+// Compiler-emitted in this unit; no source of its own.

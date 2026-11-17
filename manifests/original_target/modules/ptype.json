@@ -193,7 +193,7 @@
    "padding_bytes": 8
   },
   {
-   "symbol": "?get@Leaf_622040@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@VRGBClass@@@@UAEPAXI@Z",
    "entry": "00622040",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -304,7 +304,7 @@
    "address": "007a8600",
    "bytes": 32,
    "kind": "vtable",
-   "section": 188
+   "section": 186
   },
   {
    "symbol": "??_R1M@?0A@A@INoticeSource@@8",
@@ -494,21 +494,21 @@
    "address": "007c0250",
    "bytes": 9,
    "kind": "rtti",
-   "section": 185
+   "section": 183
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@VRGBClass@@@@8",
    "address": "007c0260",
    "bytes": 16,
    "kind": "rtti",
-   "section": 186
+   "section": 184
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@VRGBClass@@@@6B@",
    "address": "007c0270",
    "bytes": 20,
    "kind": "rtti",
-   "section": 187
+   "section": 185
   },
   {
    "symbol": "??_R0?AVINoticeSink@@@8",
@@ -1439,10 +1439,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@VRGBClass@@@@UAEPAXI@Z",
-   "address": "00622040"
-  },
-  {
    "symbol": "??_G?$TypeList@VRGBClass@@@@UAEPAXI@Z",
    "address": "0046cf00"
   },
@@ -1693,18 +1689,6 @@
   {
    "symbol": "__stricmp",
    "address": "00781f20"
-  },
-  {
-   "symbol": "_release_buffer_622040",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_622040",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_vtable_622040",
-   "address": "0079da54"
   }
  ],
  "route": "A",

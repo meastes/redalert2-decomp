@@ -3030,7 +3030,7 @@ void Tactical::Detach(AbstractClass *target, bool all)
         }
     }
     if (target == Map.CopyPendingObjectPtr) {
-        Map.Set_Cursor_Shape(0);
+        Map.Set_Copy_Cursor_Shape(0);
         Map.CopyPendingObjectPtr = 0;
         Map.CopyPendingObject = 0;
         Map.CopyPendingHouse = -1;
@@ -3642,48 +3642,8 @@ int Tactical::Size_Of() const
 }
 
 
-// 0x006ac800: function not yet identified
-//
-// Owner: Tactical, virtual slot 8 (vtable +0x20) (from RTTI/vtables).
-// Body: 67 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_006ac800(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   AbstractClass_dtor_0040ff90 -> src/recovered/classes/AbstractClass/0040ff90.cpp
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_006ac800 {
-
-extern void __fastcall AbstractClass_dtor_0040ff90(void);
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" unsigned int TacticalMap_0083996c;
-extern "C" void* Tactical_INoticeSource_vtable_007ac544;
-extern "C" void* Tactical_INoticeSink_vtable_007ac54c;
-extern "C" void* Tactical_IRTTITypeInfo_vtable_007ac554;
-extern "C" void* Tactical_vtable_007ac570;
-
-struct Owner_006ac800 { unsigned int * scalar_deleting_destructor_006ac800(unsigned char flags); };
-
-unsigned int * Owner_006ac800::scalar_deleting_destructor_006ac800(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&Tactical_vtable_007ac570);
-    self[1] = (unsigned int)(&Tactical_IRTTITypeInfo_vtable_007ac554);
-    self[2] = (unsigned int)(&Tactical_INoticeSink_vtable_007ac54c);
-    self[3] = (unsigned int)(&Tactical_INoticeSource_vtable_007ac544);
-    TacticalMap_0083996c = 0;
-    AbstractClass_dtor_0040ff90();
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_006ac800
+// Tactical::`scalar deleting destructor' (0x006AC800)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // Point2D &Point2D::operator-=(Point2D const &point) (0x006AC850): the out-of-line copy of the inline in
@@ -3721,21 +3681,17 @@ unsigned int * Owner_006ac800::scalar_deleting_destructor_006ac800(unsigned char
 // DynamicVectorClass<ShadowControlClass *>::ID_object (0x006ACF90; DynamicVectorClass<ShadowControlClass *> vtable 0x007ac504 slot 4).
 
 
-extern "C" unsigned char vtable_6acfc0[]; extern "C" void __cdecl release_buffer_6acfc0(void*); extern "C" void __cdecl release_object_6acfc0(void*);
-class Leaf_6acfc0 { public: void* get(unsigned int flags); };
-void* Leaf_6acfc0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6acfc0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6acfc0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6acfc0(this); return this; }
+// VectorClass<DirtyAreaStruct>::`scalar deleting destructor' (0x006ACFC0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_6ad010[]; extern "C" void __cdecl release_buffer_6ad010(void*); extern "C" void __cdecl release_object_6ad010(void*);
-class Leaf_6ad010 { public: void* get(unsigned int flags); };
-void* Leaf_6ad010::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6ad010; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6ad010((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6ad010(this); return this; }
+// DynamicVectorClass<DirtyAreaStruct>::`scalar deleting destructor' (0x006AD010)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_6ad060[]; extern "C" void __cdecl release_buffer_6ad060(void*); extern "C" void __cdecl release_object_6ad060(void*);
-class Leaf_6ad060 { public: void* get(unsigned int flags); };
-void* Leaf_6ad060::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6ad060; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6ad060((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6ad060(this); return this; }
+// VectorClass<ShadowControlClass *>::`scalar deleting destructor' (0x006AD060)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_6ad0b0[]; extern "C" void __cdecl release_buffer_6ad0b0(void*); extern "C" void __cdecl release_object_6ad0b0(void*);
-class Leaf_6ad0b0 { public: void* get(unsigned int flags); };
-void* Leaf_6ad0b0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6ad0b0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6ad0b0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6ad0b0(this); return this; }
+// DynamicVectorClass<ShadowControlClass *>::`scalar deleting destructor' (0x006AD0B0)
+// Compiler-emitted in this unit; no source of its own.

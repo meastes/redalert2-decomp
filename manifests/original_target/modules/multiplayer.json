@@ -450,25 +450,25 @@
    "padding_bytes": 3
   },
   {
-   "symbol": "?get@Leaf_5b9700@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
    "entry": "005b9700",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_5b9750@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
    "entry": "005b9750",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_5b97a0@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
    "entry": "005b97a0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_5b97f0@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
    "entry": "005b97f0",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -597,7 +597,7 @@
    "address": "0079b608",
    "bytes": 8,
    "kind": "table",
-   "section": 356
+   "section": 348
   },
   {
    "symbol": "??_7?$VectorClass@VCell@@@@6B@",
@@ -611,14 +611,14 @@
    "address": "0079d9d4",
    "bytes": 28,
    "kind": "vtable",
-   "section": 300
+   "section": 292
   },
   {
    "symbol": "??_7?$DynamicVectorClass@H@@6B@",
    "address": "0079da94",
    "bytes": 28,
    "kind": "vtable",
-   "section": 271
+   "section": 263
   },
   {
    "symbol": "??_7?$DynamicVectorClass@PAVUnitTypeClass@@@@6B@",
@@ -660,35 +660,63 @@
    "address": "007a452c",
    "bytes": 4,
    "kind": "vtable",
-   "section": 690
+   "section": 668
   },
   {
    "symbol": "??_7?$DynamicVectorClass@PAG@@6B@",
    "address": "007a524c",
    "bytes": 28,
    "kind": "vtable",
-   "section": 366
+   "section": 358
   },
   {
    "symbol": "??_7?$VectorClass@PAG@@6B@",
    "address": "007a526c",
    "bytes": 28,
    "kind": "vtable",
-   "section": 360
+   "section": 352
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVCoopCampaignClass@@@@6B@",
+   "address": "007a6844",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 262
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAUNodeNameType@@@@6B@",
+   "address": "007a6864",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 264
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAUNodeNameType@@@@6B@",
+   "address": "007a6884",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 597
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVCoopCampaignClass@@@@6B@",
+   "address": "007a68a4",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 616
   },
   {
    "symbol": "??_7?$VectorClass@PAVMPlayerScoreType@@@@6B@",
    "address": "007a68c4",
    "bytes": 28,
    "kind": "vtable",
-   "section": 380
+   "section": 372
   },
   {
    "symbol": "??_7?$DynamicVectorClass@PAVMPlayerScoreType@@@@6B@",
    "address": "007a68e4",
    "bytes": 28,
    "kind": "vtable",
-   "section": 381
+   "section": 373
   },
   {
    "symbol": "_unknown_geometry_sixty",
@@ -717,6 +745,13 @@
    "bytes": 180,
    "kind": "vtable",
    "section": 51
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVMultiplayerTeam@@@@6B@",
+   "address": "007a7270",
+   "bytes": 28,
+   "kind": "vtable",
+   "section": 52
   },
   {
    "symbol": "??_7?$VectorClass@PAVMultiplayerTeam@@@@6B@",
@@ -800,14 +835,14 @@
    "address": "007ceadc",
    "bytes": 5,
    "kind": "string",
-   "section": 334
+   "section": 326
   },
   {
    "symbol": "??_C@_06BILL@Normal?$AA@",
    "address": "007d1b30",
    "bytes": 7,
    "kind": "string",
-   "section": 335
+   "section": 327
   },
   {
    "symbol": "??_C@_05NAGO@false?$AA@",
@@ -821,70 +856,70 @@
    "address": "007d5024",
    "bytes": 11,
    "kind": "string",
-   "section": 318
+   "section": 310
   },
   {
    "symbol": "??_C@_0BC@DFJB@D?3?2Ra2?2MPCoop?4cpp?$AA@",
    "address": "007e34e4",
    "bytes": 18,
    "kind": "string",
-   "section": 285
+   "section": 277
   },
   {
    "symbol": "??_C@_0BA@FFI@NAME?3COOPDESC?$CFd?$AA@",
    "address": "007e34f8",
    "bytes": 16,
    "kind": "string",
-   "section": 286
+   "section": 278
   },
   {
    "symbol": "??_C@_0BD@HCAC@?$EA?$EA?$EA?5Looking?5for?5?$CFs?$AA@",
    "address": "007e3508",
    "bytes": 19,
    "kind": "string",
-   "section": 287
+   "section": 279
   },
   {
    "symbol": "??_C@_02NBIM@O8?$AA@",
    "address": "007e351c",
    "bytes": 3,
    "kind": "string",
-   "section": 288
+   "section": 280
   },
   {
    "symbol": "??_C@_0BL@OAOD@Sending?5observer?5slot?5of?58?$AA@",
    "address": "007e3520",
    "bytes": 27,
    "kind": "string",
-   "section": 289
+   "section": 281
   },
   {
    "symbol": "??_C@_0L@KAA@GUI?3Random?$AA@",
    "address": "007e353c",
    "bytes": 11,
    "kind": "string",
-   "section": 309
+   "section": 301
   },
   {
    "symbol": "??_C@_0CM@BBG@?$EA?$EA?$EA?$EA?5Sending?5campaign?5game?5AI?5se@",
    "address": "007e3548",
    "bytes": 44,
    "kind": "string",
-   "section": 319
+   "section": 311
   },
   {
    "symbol": "??_C@_06FOAE@?0?$CFd?0?$CFd?$AA@",
    "address": "007e3574",
    "bytes": 7,
    "kind": "string",
-   "section": 320
+   "section": 312
   },
   {
    "symbol": "??_C@_05GNBO@C1?0?$CFd?$AA@",
    "address": "007e357c",
    "bytes": 6,
    "kind": "string",
-   "section": 321
+   "section": 313
   },
   {
    "symbol": "??_C@_0CN@PHGH@Assigning?5Starting?5Points?5for?5ho@",
@@ -898,161 +933,161 @@
    "address": "007e35b4",
    "bytes": 28,
    "kind": "string",
-   "section": 333
+   "section": 325
   },
   {
    "symbol": "??_C@_0BN@HBMM@?$EA?$EA?$EA?$EA?5Setting?5slot?5?$CFd?5for?5AI?6?$AA@",
    "address": "007e35d0",
    "bytes": 29,
    "kind": "string",
-   "section": 336
+   "section": 328
   },
   {
    "symbol": "??_C@_0BL@JPHD@?$EA?$EA?$EA?$EA?5Adding?5?$CFd?5AI?5players?6?$AA@",
    "address": "007e35f0",
    "bytes": 27,
    "kind": "string",
-   "section": 337
+   "section": 329
   },
   {
    "symbol": "??_C@_0DF@ODDM@?$EA?$EA?$EA?$EA?5Making?5Allies?5of?5?$CFs?$CI?$CFd?1?$CFd?1?$CF@",
    "address": "007e360c",
    "bytes": 53,
    "kind": "string",
-   "section": 340
+   "section": 332
   },
   {
    "symbol": "??_C@_0BK@BPGO@?$EA?$EA?$EA?$EA?5?5?5?5?5?5?5?5?5House2?5?$DN?5?$CFs?6?$AA@",
    "address": "007e3644",
    "bytes": 26,
    "kind": "string",
-   "section": 341
+   "section": 333
   },
   {
    "symbol": "??_C@_0BG@DOKC@?$EA?$EA?$EA?$EA?5?5?5?5?5House1?5?$DN?5?$CFs?6?$AA@",
    "address": "007e3660",
    "bytes": 22,
    "kind": "string",
-   "section": 342
+   "section": 334
   },
   {
    "symbol": "??_C@_0BH@BAIP@?$EA?$EA?$EA?$EA?5Making?5Alliances?6?$AA@",
    "address": "007e3678",
    "bytes": 23,
    "kind": "string",
-   "section": 343
+   "section": 335
   },
   {
    "symbol": "??_C@_0CN@CPHF@?$EA?$EA?$EA?$EA?5Choosing?5a?5random?5player?5ho@",
    "address": "007e3690",
    "bytes": 45,
    "kind": "string",
-   "section": 346
+   "section": 338
   },
   {
    "symbol": "??_C@_0CJ@LBI@?$EA?$EA?$EA?$EA?5Choosing?5a?5random?5AI?5house?3@",
    "address": "007e36c0",
    "bytes": 41,
    "kind": "string",
-   "section": 349
+   "section": 341
   },
   {
    "symbol": "??_C@_0BF@KKKM@TXT_COOP_SAVE_FAILED?$AA@",
    "address": "007e36ec",
    "bytes": 21,
    "kind": "string",
-   "section": 354
+   "section": 346
   },
   {
    "symbol": "??_C@_0BG@HJAK@TXT_COOP_SAVE_SUCCESS?$AA@",
    "address": "007e3704",
    "bytes": 22,
    "kind": "string",
-   "section": 355
+   "section": 347
   },
   {
    "symbol": "??_C@_0CJ@IEBL@?$EA?$EA?$EA?$EA?5End?9of?9Game?3?5PlayerWins?3?$CFd?0@",
    "address": "007e371c",
    "bytes": 41,
    "kind": "string",
-   "section": 357
+   "section": 349
   },
   {
    "symbol": "??_C@_0BC@IPCP@TXT_COOP_USE_SAVE?$AA@",
    "address": "007e3748",
    "bytes": 18,
    "kind": "string",
-   "section": 361
+   "section": 353
   },
   {
    "symbol": "??_C@_04OANC@?4MAP?$AA@",
    "address": "007e375c",
    "bytes": 5,
    "kind": "string",
-   "section": 362
+   "section": 354
   },
   {
    "symbol": "??_C@_0BP@DFDM@?$EA?$EA?$EA?$EA?5Could?5not?5find?5?$CFs?5for?5?$CFs?6?$AA@",
    "address": "007e3764",
    "bytes": 31,
    "kind": "string",
-   "section": 363
+   "section": 355
   },
   {
    "symbol": "??_C@_1O@FBCE@?$AA?$CF?$AAd?$AA?4?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
    "address": "007e3784",
    "bytes": 14,
    "kind": "string",
-   "section": 364
+   "section": 356
   },
   {
    "symbol": "??_C@_06HIDC@?$CFs?4MAP?$AA@",
    "address": "007e3794",
    "bytes": 7,
    "kind": "string",
-   "section": 365
+   "section": 357
   },
   {
    "symbol": "??_C@_0BI@MBLD@TXT_SAVE_CAMP_AVAILABLE?$AA@",
    "address": "007e379c",
    "bytes": 24,
    "kind": "string",
-   "section": 375
+   "section": 367
   },
   {
    "symbol": "??_C@_0DI@DFCB@?$EA?$EA?$EA?$EA?5After?5destroying?5connection@",
    "address": "007e382c",
    "bytes": 56,
    "kind": "string",
-   "section": 390
+   "section": 382
   },
   {
    "symbol": "??_C@_0DJ@PLDA@?$EA?$EA?$EA?$EA?5Before?5destroying?5connectio@",
    "address": "007e3864",
    "bytes": 57,
    "kind": "string",
-   "section": 391
+   "section": 383
   },
   {
    "symbol": "??_C@_0BK@HFDA@Ping?5times?5not?5available?6?$AA@",
    "address": "007e38a0",
    "bytes": 26,
    "kind": "string",
-   "section": 392
+   "section": 384
   },
   {
    "symbol": "??_C@_0BD@LFFN@Max?5ping?5is?5?$CFd?5ms?6?$AA@",
    "address": "007e38bc",
    "bytes": 19,
    "kind": "string",
-   "section": 393
+   "section": 385
   },
   {
    "symbol": "??_C@_0BA@FOMN@xxx?4xxx?4xxx?4xxx?$AA@",
    "address": "007e38d0",
    "bytes": 16,
    "kind": "string",
-   "section": 394
+   "section": 386
   },
   {
    "symbol": "??_C@_0BK@IOIK@MultiplayerDialogSettings?$AA@",
@@ -1321,6 +1356,30 @@
    "kind": "vtable"
   },
   {
+   "symbol": "??_7?$DynamicVectorClass@PAVCoopCampaignClass@@@@6B@",
+   "address": "007a6844",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAUNodeNameType@@@@6B@",
+   "address": "007a6864",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAUNodeNameType@@@@6B@",
+   "address": "007a6884",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$VectorClass@PAVCoopCampaignClass@@@@6B@",
+   "address": "007a68a4",
+   "bytes": 28,
+   "kind": "vtable"
+  },
+  {
    "symbol": "??_7?$VectorClass@PAVMPlayerScoreType@@@@6B@",
    "address": "007a68c4",
    "bytes": 28,
@@ -1354,6 +1413,12 @@
    "symbol": "??_7MultiplayerGameMode@@6B@",
    "address": "007a71b8",
    "bytes": 180,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVMultiplayerTeam@@@@6B@",
+   "address": "007a7270",
+   "bytes": 28,
    "kind": "vtable"
   },
   {
@@ -2287,11 +2352,11 @@
   },
   {
    "symbol": "??_G?$DynamicVectorClass@PAUNodeNameType@@@@UAEPAXI@Z",
-   "address": null
+   "address": "005a6c90"
   },
   {
    "symbol": "??_G?$DynamicVectorClass@PAVCoopCampaignClass@@@@UAEPAXI@Z",
-   "address": null
+   "address": "005a6d30"
   },
   {
    "symbol": "??_G?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z",
@@ -2300,14 +2365,6 @@
   {
    "symbol": "??_G?$DynamicVectorClass@PAVMPlayerScoreType@@@@UAEPAXI@Z",
    "address": "005a6360"
-  },
-  {
-   "symbol": "??_G?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
-   "address": null
   },
   {
    "symbol": "??_G?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z",
@@ -2327,11 +2384,11 @@
   },
   {
    "symbol": "??_G?$VectorClass@PAUNodeNameType@@@@UAEPAXI@Z",
-   "address": null
+   "address": "005a6c40"
   },
   {
    "symbol": "??_G?$VectorClass@PAVCoopCampaignClass@@@@UAEPAXI@Z",
-   "address": null
+   "address": "005a6ce0"
   },
   {
    "symbol": "??_G?$VectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z",
@@ -2340,14 +2397,6 @@
   {
    "symbol": "??_G?$VectorClass@PAVMPlayerScoreType@@@@UAEPAXI@Z",
    "address": "005a6bf0"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
-   "address": null
   },
   {
    "symbol": "??_G?$VectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z",
@@ -2391,7 +2440,7 @@
   },
   {
    "symbol": "??_GMPCooperative@@UAEPAXI@Z",
-   "address": null
+   "address": "005a62b0"
   },
   {
    "symbol": "?Add_Message@UnknownMessageList@@QAEXPBGH0HIH_N@Z",
@@ -2814,6 +2863,10 @@
    "address": "0066e2d0"
   },
   {
+   "symbol": "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z",
+   "address": "00498f10"
+  },
+  {
    "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
    "address": "00469400"
   },
@@ -2866,10 +2919,6 @@
    "address": "00a35d48"
   },
   {
-   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
-   "address": "00498f10"
-  },
-  {
    "symbol": "?Unknown_005C2C80@@YAXHPBGZZ",
    "address": "005c2c80"
   },
@@ -2916,10 +2965,6 @@
   {
    "symbol": "?Write@CCFileClass@@UAEJPBXJ@Z",
    "address": "00469030"
-  },
-  {
-   "symbol": "?cleanup@Leaf_5a62b0@@QAEXXZ",
-   "address": "005a2b50"
   },
   {
    "symbol": "?operator_delete_00781d3b@@YAXI@Z",
@@ -3186,90 +3231,6 @@
    "address": "007e60bc"
   },
   {
-   "symbol": "_release_5a62b0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5a6360",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5a6bf0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5a6c40",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5a6c90",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5a6ce0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5a6d30",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5b9700",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5b9750",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5b97a0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_5b97f0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5a6360",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5a6bf0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5a6c40",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5a6c90",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5a6ce0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5a6d30",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5b9700",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5b9750",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5b97a0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5b97f0",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_sprintf",
    "address": "007820f4"
   },
@@ -3315,46 +3276,6 @@
   },
   {
    "symbol": "_table_5b98e0",
-   "address": "007a7198"
-  },
-  {
-   "symbol": "_vtable_5a6360",
-   "address": "007a68c4"
-  },
-  {
-   "symbol": "_vtable_5a6bf0",
-   "address": "007a68c4"
-  },
-  {
-   "symbol": "_vtable_5a6c40",
-   "address": "007a6884"
-  },
-  {
-   "symbol": "_vtable_5a6c90",
-   "address": "007a6884"
-  },
-  {
-   "symbol": "_vtable_5a6ce0",
-   "address": "007a68a4"
-  },
-  {
-   "symbol": "_vtable_5a6d30",
-   "address": "007a68a4"
-  },
-  {
-   "symbol": "_vtable_5b9700",
-   "address": "007a7290"
-  },
-  {
-   "symbol": "_vtable_5b9750",
-   "address": "007a7290"
-  },
-  {
-   "symbol": "_vtable_5b97a0",
-   "address": "007a7198"
-  },
-  {
-   "symbol": "_vtable_5b97f0",
    "address": "007a7198"
   },
   {
@@ -3597,28 +3518,8 @@
    "reason": "no original address bound"
   },
   {
-   "symbol": "??_7?$DynamicVectorClass@PAVMultiplayerTeam@@@@6B@",
-   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z"
-  },
-  {
    "symbol": "??_7MPCooperative@@6B@",
-   "reason": "relocation target unbound: ??_EMPCooperative@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7?$DynamicVectorClass@PAVCoopCampaignClass@@@@6B@",
-   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAVCoopCampaignClass@@@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7?$DynamicVectorClass@PAUNodeNameType@@@@6B@",
-   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAUNodeNameType@@@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7?$VectorClass@PAUNodeNameType@@@@6B@",
-   "reason": "relocation target unbound: ??_E?$VectorClass@PAUNodeNameType@@@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7?$VectorClass@PAVCoopCampaignClass@@@@6B@",
-   "reason": "relocation target unbound: ??_E?$VectorClass@PAVCoopCampaignClass@@@@UAEPAXI@Z"
+   "reason": "relocation target unbound: ?unknown_slot1@MPCooperative@@UAE_NXZ"
   },
   {
    "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",

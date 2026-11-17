@@ -678,7 +678,6 @@ bool __fastcall VocClass_Has_Event(int *value_pointer)
 }
 
 
-
 // char const *UnknownVocRef_00714A70::unknown_name() const -- 0x00714A70
 // Purpose: the name of the referenced sound (0x00405150), "Invalid Voc"
 // when there is none.
@@ -758,11 +757,9 @@ void __fastcall Voc_Handle_Set(AudioEventHandle *handle, int voc)
 // DynamicVectorClass<VocClass *>::ID_object (0x00714FC0; DynamicVectorClass<VocClass *> vtable 0x007ae98c slot 4).
 
 
-extern "C" unsigned char vtable_714ff0[]; extern "C" void __cdecl release_buffer_714ff0(void*); extern "C" void __cdecl release_object_714ff0(void*);
-class Leaf_714ff0 { public: void* get(unsigned int flags); };
-void* Leaf_714ff0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_714ff0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_714ff0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_714ff0(this); return this; }
+// VectorClass<VocClass *>::`scalar deleting destructor' (0x00714FF0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_715040[]; extern "C" void __cdecl release_buffer_715040(void*); extern "C" void __cdecl release_object_715040(void*);
-class Leaf_715040 { public: void* get(unsigned int flags); };
-void* Leaf_715040::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_715040; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_715040((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_715040(this); return this; }
+// DynamicVectorClass<VocClass *>::`scalar deleting destructor' (0x00715040)
+// Compiler-emitted in this unit; no source of its own.

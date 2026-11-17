@@ -360,173 +360,24 @@ bool __fastcall unknown_in_range_00726ab0(int self)
 }  // namespace seed_00726ab0
 
 
-// 0x00726ac0: function not yet identified
-//
-// Body: 36 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726ac0(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00726ac0 {
-
-extern void __fastcall rc_ptr_base_dtor_00639510(void);
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* rc_ptr_vtable_007af024;
-
-struct Owner_00726ac0 { unsigned int * scalar_deleting_destructor_00726ac0(unsigned char flags); };
-
-unsigned int * Owner_00726ac0::scalar_deleting_destructor_00726ac0(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&rc_ptr_vtable_007af024);
-    rc_ptr_base_dtor_00639510();
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_00726ac0
+// rc_ptr<WorldDominationTour::CampaignProperties>::`scalar deleting destructor' (0x00726AC0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-// 0x00726af0: function not yet identified
-//
-// Body: 36 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726af0(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00726af0 {
-
-extern void __fastcall rc_ptr_base_dtor_00639510(void);
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* rc_ptr_vtable_007af02c;
-
-struct Owner_00726af0 { unsigned int * scalar_deleting_destructor_00726af0(unsigned char flags); };
-
-unsigned int * Owner_00726af0::scalar_deleting_destructor_00726af0(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&rc_ptr_vtable_007af02c);
-    rc_ptr_base_dtor_00639510();
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_00726af0
+// rc_ptr<WorldDominationTour::History>::`scalar deleting destructor' (0x00726AF0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-// 0x00726b20: function not yet identified
-//
-// Owner: VectorCursor<rc_ptr<WorldDominationTour::Conflict>, DynamicVectorClass<rc_ptr<WorldDominationTour::Conflict>>>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 32 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726b20(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00726b20 {
-
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* VectorCursor_vtable_007af054;
-
-struct Owner_00726b20 { unsigned int * scalar_deleting_destructor_00726b20(unsigned char flags); };
-
-unsigned int * Owner_00726b20::scalar_deleting_destructor_00726b20(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&VectorCursor_vtable_007af054);
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_00726b20
+// VectorCursor<rc_ptr<WorldDominationTour::Conflict>, DynamicVectorClass<rc_ptr<WorldDominationTour::Conflict>>>::`scalar deleting destructor' (0x00726B20)
+// Compiler-emitted in this unit; no source of its own.
 
 
-// 0x00726b40: function not yet identified
-//
-// Body: 36 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726b40(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00726b40 {
-
-extern void __fastcall rc_ptr_base_dtor_00639510(void);
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* rc_ptr_vtable_007aefdc;
-
-struct Owner_00726b40 { unsigned int * scalar_deleting_destructor_00726b40(unsigned char flags); };
-
-unsigned int * Owner_00726b40::scalar_deleting_destructor_00726b40(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&rc_ptr_vtable_007aefdc);
-    rc_ptr_base_dtor_00639510();
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_00726b40
+// rc_ptr<WorldDominationTour::Campaign>::`scalar deleting destructor' (0x00726B40)
+// Compiler-emitted in this unit; no source of its own.
 
 
-// 0x00726b70: function not yet identified
-//
-// Body: 36 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726b70(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_00726b70 {
-
-extern void __fastcall rc_ptr_base_dtor_00639510(void);
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* rc_ptr_vtable_007aefe4;
-
-struct Owner_00726b70 { unsigned int * scalar_deleting_destructor_00726b70(unsigned char flags); };
-
-unsigned int * Owner_00726b70::scalar_deleting_destructor_00726b70(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&rc_ptr_vtable_007aefe4);
-    rc_ptr_base_dtor_00639510();
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_00726b70
+// rc_ptr<WorldDominationTour::State>::`scalar deleting destructor' (0x00726B70)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // VectorClass<rc_ptr<WorldDominationTour::Conflict>>::operator==

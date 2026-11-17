@@ -1929,7 +1929,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                     Map.PendingObjectPtr = 0;
                     Map.PendingObject = 0;
                     Map.PendingHouse = -1;
-                    Map.Unknown_00498F10(0);
+                    Map.Set_Cursor_Shape(0);
                 }
             }
             if (tech) {
@@ -2068,7 +2068,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                         Map.PendingObjectPtr = 0;
                         Map.PendingObject = 0;
                         Map.PendingHouse = -1;
-                        Map.Unknown_00498F10(0);
+                        Map.Set_Cursor_Shape(0);
                         Map.Unknown_0049CA20(0);
                         Map.Unknown_0049C7C0(0);
                         Map.IsPowerMode = false;
@@ -2094,7 +2094,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, unsigned &key)
                     Map.PendingObjectPtr = 0;
                     Map.PendingObject = 0;
                     Map.PendingHouse = -1;
-                    Map.Unknown_00498F10(0);
+                    Map.Set_Cursor_Shape(0);
                 }
                 if (!factory->Is_Building()) {
                     Unknown_Play_Sound(Rules->GUIBuildSound);

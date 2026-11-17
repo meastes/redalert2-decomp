@@ -433,13 +433,13 @@
    "padding_bytes": 10
   },
   {
-   "symbol": "?get@Leaf_5a2280@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PBD@@UAEPAXI@Z",
    "entry": "005a2280",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_scalar_deleting_destructor_005a22d0@Owner_005a22d0@seed_005a22d0@@QAEPAIE@Z",
+   "symbol": "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z",
    "entry": "005a22d0",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -1370,14 +1370,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z",
-   "address": "005a22d0"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PBD@@UAEPAXI@Z",
-   "address": "005a2280"
-  },
-  {
    "symbol": "??_GCCFileClass@@UAEPAXI@Z",
    "address": "004019a0"
   },
@@ -1670,10 +1662,6 @@
    "address": "00469030"
   },
   {
-   "symbol": "?operator_delete_00781d3b@seed_005a22d0@@YAXI@Z",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "?unknown_math_4ba520@@YANN@Z",
    "address": "004ba520"
   },
@@ -1684,10 +1672,6 @@
   {
    "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
    "address": "004ba410"
-  },
-  {
-   "symbol": "_VectorClass_CharPtr_VTable_007a6604",
-   "address": "007a6604"
   },
   {
    "symbol": "__CIpow",
@@ -1722,20 +1706,8 @@
    "address": "0078298a"
   },
   {
-   "symbol": "_release_buffer_5a2280",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_5a2280",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_strrchr",
    "address": "00781ff0"
-  },
-  {
-   "symbol": "_vtable_5a2280",
-   "address": "007a6604"
   }
  ],
  "route": "A",

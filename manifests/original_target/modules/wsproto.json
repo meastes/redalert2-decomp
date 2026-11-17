@@ -246,7 +246,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?get@Cleanup_76bb00@@QAEXXZ",
+   "symbol": "?Clear@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ",
    "entry": "0076bb00",
    "body_bytes": 42,
    "padding_bytes": 6
@@ -294,13 +294,13 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?get@Leaf_76bdc0@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
    "entry": "0076bdc0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_76be10@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
    "entry": "0076be10",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -924,14 +924,6 @@
    "address": "00781d3b"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
-   "address": "0076be10"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
-   "address": "0076bdc0"
-  },
-  {
    "symbol": "?Add_CRC@@YIXPAKK@Z",
    "address": "0062a340"
   },
@@ -1040,36 +1032,8 @@
    "address": "00781b90"
   },
   {
-   "symbol": "_release_76bb00",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_76bdc0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_76be10",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_76bdc0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_76be10",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_setsockopt@20",
    "address": "00781ba8"
-  },
-  {
-   "symbol": "_vtable_76bdc0",
-   "address": "007afafc"
-  },
-  {
-   "symbol": "_vtable_76be10",
-   "address": "007afafc"
   }
  ],
  "route": "A",

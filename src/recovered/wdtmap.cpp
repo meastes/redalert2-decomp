@@ -97,19 +97,16 @@ rc_ptr<Map> __fastcall Map::Create(int unknown_08, int unknown_0c, int unknown_1
 }
 
 
-extern "C" unsigned char vtable_72ba00[]; extern "C" void __cdecl release_buffer_72ba00(void*); extern "C" void __cdecl release_object_72ba00(void*);
-class Leaf_72ba00 { public: void* get(unsigned int flags); };
-void* Leaf_72ba00::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_72ba00; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_72ba00((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_72ba00(this); return this; }
+// VectorClass<WorldDominationTour::Map::AnimationPalette *>::`scalar deleting destructor' (0x0072BA00)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_72ba50[]; extern "C" void __cdecl release_buffer_72ba50(void*); extern "C" void __cdecl release_object_72ba50(void*);
-class Leaf_72ba50 { public: void* get(unsigned int flags); };
-void* Leaf_72ba50::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_72ba50; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_72ba50((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_72ba50(this); return this; }
+// DynamicVectorClass<WorldDominationTour::Map::AnimationPalette *>::`scalar deleting destructor' (0x0072BA50)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_72baa0[]; extern "C" void __cdecl release_buffer_72baa0(void*); extern "C" void __cdecl release_object_72baa0(void*);
-class Leaf_72baa0 { public: void* get(unsigned int flags); };
-void* Leaf_72baa0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_72baa0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_72baa0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_72baa0(this); return this; }
+// VectorClass<WorldDominationTour::Centroid>::`scalar deleting destructor' (0x0072BAA0)
+// Compiler-emitted in this unit; no source of its own.
 
 
 class Call_72baf0_0 {public: unsigned int target();};
@@ -651,37 +648,8 @@ unsigned int * Owner_0072af00::scalar_deleting_destructor_0072af00(unsigned char
 }  // namespace seed_0072af00
 
 
-// 0x0072af30: function not yet identified
-//
-// Owner: WorldDominationTour::Map, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 30 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 __thiscall scalar_deleting_destructor_0072af30(undefined4 param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0072af30 {
-
-extern void __fastcall Map_dtor_007293f0(void);
-extern void  operator_delete_00781d3b(unsigned int);
-
-struct Owner_0072af30 { unsigned int scalar_deleting_destructor_0072af30(unsigned char flags); };
-
-unsigned int Owner_0072af30::scalar_deleting_destructor_0072af30(unsigned char flags)
-{
-    unsigned int self = (unsigned int)this;
-    Map_dtor_007293f0();
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_0072af30
+// WorldDominationTour::Map::`scalar deleting destructor' (0x0072AF30)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // 0x0072af70: function not yet identified
@@ -725,71 +693,12 @@ bool __fastcall unknown_in_range_0072b0b0(int self)
 }  // namespace seed_0072b0b0
 
 
-// 0x0072b0c0: function not yet identified
-//
-// Body: 36 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_0072b0c0(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0072b0c0 {
-
-extern void __fastcall rc_ptr_base_dtor_00639510(void);
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* rc_ptr_vtable_007af1e4;
-
-struct Owner_0072b0c0 { unsigned int * scalar_deleting_destructor_0072b0c0(unsigned char flags); };
-
-unsigned int * Owner_0072b0c0::scalar_deleting_destructor_0072b0c0(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&rc_ptr_vtable_007af1e4);
-    rc_ptr_base_dtor_00639510();
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_0072b0c0
+// rc_ptr<WorldDominationTour::Map>::`scalar deleting destructor' (0x0072B0C0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-// 0x0072b0f0: function not yet identified
-//
-// Owner: VectorCursor<TRect<int>, VectorClass<TRect<int>>>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 32 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_0072b0f0(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_0072b0f0 {
-
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* VectorCursor_vtable_007af284;
-
-struct Owner_0072b0f0 { unsigned int * scalar_deleting_destructor_0072b0f0(unsigned char flags); };
-
-unsigned int * Owner_0072b0f0::scalar_deleting_destructor_0072b0f0(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&VectorCursor_vtable_007af284);
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_0072b0f0
+// VectorCursor<TRect<int>, VectorClass<TRect<int>>>::`scalar deleting destructor' (0x0072B0F0)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // Container members this unit emits by its own use of its lists (bodies: shared/vector_class.hpp):

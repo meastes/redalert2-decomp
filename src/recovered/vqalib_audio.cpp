@@ -19,7 +19,7 @@ struct VQAAudioOpenParams {
     unsigned short SampleRate;
     unsigned char Channels;
     unsigned char BitsPerSample;
-    int unknown_04;
+    int Flags;
     int (__cdecl *FillCallback)(VQAHandleP *vqap);
     int (__cdecl *DoneCallback)(VQAHandleP *vqap, int buffer);
 };

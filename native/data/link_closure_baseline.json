@@ -1,12 +1,12 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 202,
+ "total": 181,
  "by_class": {
   "c-address": 13,
   "c-data": 1,
   "c-function": 3,
   "cxx-data": 3,
-  "cxx-function": 182
+  "cxx-function": 161
  },
  "symbols": [
   {
@@ -147,41 +147,6 @@
   {
    "symbol": "__ZN11Leaf_58da507cleanupEv",
    "name": "Leaf_58da50::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_595c407cleanupEv",
-   "name": "Leaf_595c40::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_59cb807cleanupEv",
-   "name": "Leaf_59cb80::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_5a62b07cleanupEv",
-   "name": "Leaf_5a62b0::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_6d97507cleanupEv",
-   "name": "Leaf_6d9750::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_6ea9f07cleanupEv",
-   "name": "Leaf_6ea9f0::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_72ca007cleanupEv",
-   "name": "Leaf_72ca00::cleanup()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN11Leaf_7302907cleanupEv",
-   "name": "Leaf_730290::cleanup()",
    "cls": "cxx-function"
   },
   {
@@ -350,28 +315,8 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__ZN13Call_72caa0_06targetEv",
-   "name": "Call_72caa0_0::target()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13Call_72caa0_112Set_00639530Ej",
-   "name": "Call_72caa0_1::Set_00639530(unsigned int)",
-   "cls": "cxx-function"
-  },
-  {
    "symbol": "__ZN13Call_72cf70_06targetEv",
    "name": "Call_72cf70_0::target()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13Call_7302e0_06targetEv",
-   "name": "Call_7302e0_0::target()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13Call_7302e0_16targetEj",
-   "name": "Call_7302e0_1::target(unsigned int)",
    "cls": "cxx-function"
   },
   {
@@ -590,11 +535,6 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__ZN13seed_0060143024WideString_dtor_0076fa50Ev",
-   "name": "seed_00601430::WideString_dtor_0076fa50()",
-   "cls": "cxx-function"
-  },
-  {
    "symbol": "__ZN13seed_0062e5209Debug_LogEi",
    "name": "seed_0062e520::Debug_Log(int)",
    "cls": "cxx-function"
@@ -650,31 +590,6 @@
    "cls": "cxx-function"
   },
   {
-   "symbol": "__ZN13seed_006ac80027AbstractClass_dtor_0040ff90Ev",
-   "name": "seed_006ac800::AbstractClass_dtor_0040ff90()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_00726ac025rc_ptr_base_dtor_00639510Ev",
-   "name": "seed_00726ac0::rc_ptr_base_dtor_00639510()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_00726af025rc_ptr_base_dtor_00639510Ev",
-   "name": "seed_00726af0::rc_ptr_base_dtor_00639510()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_00726b4025rc_ptr_base_dtor_00639510Ev",
-   "name": "seed_00726b40::rc_ptr_base_dtor_00639510()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_00726b7025rc_ptr_base_dtor_00639510Ev",
-   "name": "seed_00726b70::rc_ptr_base_dtor_00639510()",
-   "cls": "cxx-function"
-  },
-  {
    "symbol": "__ZN13seed_00728c3036ReferenceCounted_destructor_00639710Ev",
    "name": "seed_00728c30::ReferenceCounted_destructor_00639710()",
    "cls": "cxx-function"
@@ -687,16 +602,6 @@
   {
    "symbol": "__ZN13seed_0072af0020MSAnim_dtor_005ac690Ev",
    "name": "seed_0072af00::MSAnim_dtor_005ac690()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_0072af3017Map_dtor_007293f0Ev",
-   "name": "seed_0072af30::Map_dtor_007293f0()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_0072b0c025rc_ptr_base_dtor_00639510Ev",
-   "name": "seed_0072b0c0::rc_ptr_base_dtor_00639510()",
    "cls": "cxx-function"
   },
   {
@@ -727,16 +632,6 @@
   {
    "symbol": "__ZN13seed_007354d018Debug_Log_004068f0Ei",
    "name": "seed_007354d0::Debug_Log_004068f0(int)",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_0073842034ToolTipManager_Destructor_006eb390Ev",
-   "name": "seed_00738420::ToolTipManager_Destructor_006eb390()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13seed_0073a0c031rc_ptr_base_Destructor_00639510Ev",
-   "name": "seed_0073a0c0::rc_ptr_base_Destructor_00639510()",
    "cls": "cxx-function"
   },
   {

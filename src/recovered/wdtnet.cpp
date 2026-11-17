@@ -478,16 +478,15 @@ unsigned int * Owner_0072c9d0::WDTTerritory_Scalar_Deleting_Destructor_0072c9d0(
 }  // namespace seed_0072c9d0
 
 
-extern "C" void __cdecl release_72ca00(void*);
-class Leaf_72ca00 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_72ca00::get(unsigned int flags) { cleanup(); if (flags & 1) release_72ca00(this); return this; }
+// WDTState::`scalar deleting destructor' (0x0072CA00)
+// Compiler-emitted in this unit; no source of its own.
 
 
 class Call_72caa0_0 {public: unsigned int target();};
 extern "C" unsigned char data_72caa0_7a452c[];
 class Call_72caa0_1 {public: unsigned int Set_00639530(unsigned int target_object);};
-class Leaf_72caa0 { public: unsigned int get(unsigned int referenced_object_address); };
-unsigned int Leaf_72caa0::get(unsigned int referenced_object_address) { unsigned int unused_base_return = ((Call_72caa0_0*)((unsigned int)this))->target(); *(unsigned int*)(((unsigned int)this)) = (unsigned int)data_72caa0_7a452c; unsigned int unused_set_return = ((Call_72caa0_1*)((unsigned int)this))->Set_00639530((unsigned int)(referenced_object_address)); return (unsigned int)this; }
+// rc_ptr<WDTTerritory>::rc_ptr (0x0072CAA0)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // VectorClass<rc_ptr<WDTTerritory>> scalar deleting destructor (0x0072CED0; vtable 0x007AF2E8 slot 0):

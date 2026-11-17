@@ -937,9 +937,8 @@ VectorCursor<MSSfxEntry *, DynamicVectorClass<MSSfxEntry *> >::VectorCursor(
 }
 
 
-extern "C" void __cdecl release_730290(void*);
-class Leaf_730290 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_730290::get(unsigned int flags) { cleanup(); if (flags & 1) release_730290(this); return this; }
+// WorldDominationTour::Selection::`scalar deleting destructor' (0x00730290)
+// Compiler-emitted in this unit; no source of its own.
 
 
 class Leaf_7302d0 { public: unsigned int get(); };
@@ -949,8 +948,8 @@ unsigned int Leaf_7302d0::get() { unsigned int self = (unsigned int)this; unsign
 class Call_7302e0_0 {public: unsigned int target();};
 extern "C" unsigned char data_7302e0_7af27c[];
 class Call_7302e0_1 {public: unsigned int target(unsigned int p0);};
-class Leaf_7302e0 { public: unsigned int get(unsigned int a1); };
-unsigned int Leaf_7302e0::get(unsigned int a1) { unsigned int r0 = ((Call_7302e0_0*)((unsigned int)this))->target(); *(unsigned int*)(((unsigned int)this)) = (unsigned int)data_7302e0_7af27c; unsigned int r1 = ((Call_7302e0_1*)((unsigned int)this))->target((unsigned int)(*(unsigned int*)((a1) + 4))); return (unsigned int)this; }
+// rc_ptr<WorldDominationTour::Territory>::Territory> (0x007302E0)
+// Compiler-emitted in this unit; no source of its own.
 
 
 class Leaf_730320 { public: unsigned int get(); };
@@ -1092,67 +1091,9 @@ bool __fastcall unknown_in_range_007303a0(int self)
 }  // namespace seed_007303a0
 
 
-// 0x007303d0: function not yet identified
-//
-// Owner: VectorCursor<rc_ptr<WorldDominationTour::Territory>, DynamicVectorClass<rc_ptr<WorldDominationTour::Territory>>>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 32 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_007303d0(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_007303d0 {
-
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* VectorCursor_vtable_007af390;
-
-struct Owner_007303d0 { unsigned int * scalar_deleting_destructor_007303d0(unsigned char flags); };
-
-unsigned int * Owner_007303d0::scalar_deleting_destructor_007303d0(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&VectorCursor_vtable_007af390);
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_007303d0
+// VectorCursor<rc_ptr<WorldDominationTour::Territory>, DynamicVectorClass<rc_ptr<WorldDominationTour::Territory>>>::`scalar deleting destructor' (0x007303D0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-// 0x007303f0: function not yet identified
-//
-// Owner: VectorCursor<MSAnim *, DynamicVectorClass<MSAnim *>>, virtual slot 0 (vtable +0x0) (from RTTI/vtables).
-// Body: 32 bytes (frozen inventory bound).
-// Referenced from 1 site (data).
-// Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_007303f0(undefined4 *param_1,byte param_2)
-// Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
-
-namespace seed_007303f0 {
-
-extern void  operator_delete_00781d3b(unsigned int);
-extern "C" void* VectorCursor_vtable_007af3a4;
-
-struct Owner_007303f0 { unsigned int * scalar_deleting_destructor_007303f0(unsigned char flags); };
-
-unsigned int * Owner_007303f0::scalar_deleting_destructor_007303f0(unsigned char flags)
-{
-    unsigned int * self = (unsigned int *)this;
-    *self = (unsigned int)(&VectorCursor_vtable_007af3a4);
-    if ((flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(self));
-    }
-    return self;
-}
-
-}  // namespace seed_007303f0
+// VectorCursor<MSAnim *, DynamicVectorClass<MSAnim *>>::`scalar deleting destructor' (0x007303F0)
+// Compiler-emitted in this unit; no source of its own.

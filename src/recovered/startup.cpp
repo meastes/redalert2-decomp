@@ -438,7 +438,6 @@ void Shutdown_Network_005bc4d0();
     REGISTER_CLASS(AlphaShapeClass, CLSID_AlphaShapeClass) \
 
 
-
 // TibSun startup.cpp: each registration is its own block (the block's IL keeps INIClass() 0x51AD50
 // out of line inside Init_Keys).
 #define REGISTER_CLASS(_class, _clsid) \
@@ -3924,11 +3923,9 @@ HRESULT __stdcall TClassFactory<AlphaShapeClass>::CreateInstance(IUnknown *outer
 // DynamicVectorClass<unsigned long>::ID_object (0x00698670; DynamicVectorClass<unsigned long> vtable 0x007ab9a0 slot 4).
 
 
-extern "C" unsigned char vtable_6986a0[]; extern "C" void __cdecl release_buffer_6986a0(void*); extern "C" void __cdecl release_object_6986a0(void*);
-class Leaf_6986a0 { public: void* get(unsigned int flags); };
-void* Leaf_6986a0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6986a0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6986a0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6986a0(this); return this; }
+// VectorClass<unsigned long>::`scalar deleting destructor' (0x006986A0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_6986f0[]; extern "C" void __cdecl release_buffer_6986f0(void*); extern "C" void __cdecl release_object_6986f0(void*);
-class Leaf_6986f0 { public: void* get(unsigned int flags); };
-void* Leaf_6986f0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6986f0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6986f0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6986f0(this); return this; }
+// DynamicVectorClass<unsigned long>::`scalar deleting destructor' (0x006986F0)
+// Compiler-emitted in this unit; no source of its own.

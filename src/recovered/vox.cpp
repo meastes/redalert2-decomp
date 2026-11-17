@@ -692,7 +692,6 @@ char * __fastcall Vox_Name(int voice_index)
 }
 
 
-
 // int VoxClass::Index_Of(VoxClass *vox) (0x00716740): the index of a VoxClass
 // in the unit's list, -1 for none.
 
@@ -887,11 +886,9 @@ void unknown_tick_sound()
 // DynamicVectorClass<VoxClass *>::ID_object (0x00716CB0; DynamicVectorClass<VoxClass *> vtable 0x007ae9e4 slot 4).
 
 
-extern "C" unsigned char vtable_716ce0[]; extern "C" void __cdecl release_buffer_716ce0(void*); extern "C" void __cdecl release_object_716ce0(void*);
-class Leaf_716ce0 { public: void* get(unsigned int flags); };
-void* Leaf_716ce0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_716ce0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_716ce0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_716ce0(this); return this; }
+// VectorClass<VoxClass *>::`scalar deleting destructor' (0x00716CE0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_716d30[]; extern "C" void __cdecl release_buffer_716d30(void*); extern "C" void __cdecl release_object_716d30(void*);
-class Leaf_716d30 { public: void* get(unsigned int flags); };
-void* Leaf_716d30::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_716d30; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_716d30((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_716d30(this); return this; }
+// DynamicVectorClass<VoxClass *>::`scalar deleting destructor' (0x00716D30)
+// Compiler-emitted in this unit; no source of its own.

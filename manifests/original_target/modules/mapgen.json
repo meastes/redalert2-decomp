@@ -1080,13 +1080,13 @@
    "padding_bytes": 9
   },
   {
-   "symbol": "?get@Leaf_58ec00@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAVMapRegionClass@@@@UAEPAXI@Z",
    "entry": "0058ec00",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_58ec50@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVMapRegionClass@@@@UAEPAXI@Z",
    "entry": "0058ec50",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -1116,19 +1116,19 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_58ede0@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAVCellClass@@@@UAEPAXI@Z",
    "entry": "0058ede0",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_58ee30@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@N@@UAEPAXI@Z",
    "entry": "0058ee30",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_58ee80@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@N@@UAEPAXI@Z",
    "entry": "0058ee80",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -1246,21 +1246,21 @@
    "address": "0079aaec",
    "bytes": 4,
    "kind": "vtable",
-   "section": 530
+   "section": 520
   },
   {
    "symbol": "??_7GenericList@@6B@",
    "address": "0079aaf4",
    "bytes": 4,
    "kind": "vtable",
-   "section": 531
+   "section": 521
   },
   {
    "symbol": "??_7GenericNode@@6B@",
    "address": "0079aafc",
    "bytes": 4,
    "kind": "vtable",
-   "section": 532
+   "section": 522
   },
   {
    "symbol": "__real@8@00000000000000000000",
@@ -3161,23 +3161,11 @@
    "address": "0046cf50"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@N@@UAEPAXI@Z",
-   "address": "0058ee80"
-  },
-  {
    "symbol": "??_G?$DynamicVectorClass@PAD@@UAEPAXI@Z",
    "address": null
   },
   {
    "symbol": "??_G?$DynamicVectorClass@PAUWIN32_FIND_DATA@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$DynamicVectorClass@PAVCellClass@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$DynamicVectorClass@PAVMapRegionClass@@@@UAEPAXI@Z",
    "address": null
   },
   {
@@ -3197,10 +3185,6 @@
    "address": "0046da70"
   },
   {
-   "symbol": "??_G?$VectorClass@N@@UAEPAXI@Z",
-   "address": "0058ee30"
-  },
-  {
    "symbol": "??_G?$VectorClass@PAD@@UAEPAXI@Z",
    "address": null
   },
@@ -3210,11 +3194,7 @@
   },
   {
    "symbol": "??_G?$VectorClass@PAVCellClass@@@@UAEPAXI@Z",
-   "address": null
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAVMapRegionClass@@@@UAEPAXI@Z",
-   "address": null
+   "address": "0056ae40"
   },
   {
    "symbol": "??_G?$VectorClass@PBVBuildingTypeClass@@@@UAEPAXI@Z",
@@ -3222,7 +3202,7 @@
   },
   {
    "symbol": "??_G?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEPAXI@Z",
-   "address": null
+   "address": "00635040"
   },
   {
    "symbol": "??_G?$VectorClass@VCell@@@@UAEPAXI@Z",
@@ -4265,6 +4245,10 @@
    "address": "004994d0"
   },
   {
+   "symbol": "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z",
+   "address": "00498f10"
+  },
+  {
    "symbol": "?Set_Date_Time@CCFileClass@@UAE_NK@Z",
    "address": "00469400"
   },
@@ -4355,10 +4339,6 @@
   {
    "symbol": "?Units@@3V?$DynamicVectorClass@PAVUnitClass@@@@A",
    "address": "00866198"
-  },
-  {
-   "symbol": "?Unknown_00498F10@DisplayClass@@QAEXPBVCell@@@Z",
-   "address": "00498f10"
   },
   {
    "symbol": "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z",
@@ -4933,14 +4913,6 @@
    "address": "00781d3b"
   },
   {
-   "symbol": "_release_buffer_58ec00",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_58ec50",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_release_buffer_58eca0",
    "address": "00781d3b"
   },
@@ -4957,26 +4929,6 @@
    "address": "00781d3b"
   },
   {
-   "symbol": "_release_buffer_58ede0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_58ee30",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_58ee80",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_58ec00",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_58ec50",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_release_object_58eca0",
    "address": "00781d3b"
   },
@@ -4990,18 +4942,6 @@
   },
   {
    "symbol": "_release_object_58ed90",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_58ede0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_58ee30",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_58ee80",
    "address": "00781d3b"
   },
   {
@@ -5109,14 +5049,6 @@
    "address": "007e1898"
   },
   {
-   "symbol": "_vtable_58ec00",
-   "address": "007a5db0"
-  },
-  {
-   "symbol": "_vtable_58ec50",
-   "address": "007a5db0"
-  },
-  {
    "symbol": "_vtable_58eca0",
    "address": "007a5e6c"
   },
@@ -5131,18 +5063,6 @@
   {
    "symbol": "_vtable_58ed90",
    "address": "007a5eb0"
-  },
-  {
-   "symbol": "_vtable_58ede0",
-   "address": "007a59b8"
-  },
-  {
-   "symbol": "_vtable_58ee30",
-   "address": "007a5f8c"
-  },
-  {
-   "symbol": "_vtable_58ee80",
-   "address": "007a5f8c"
   },
   {
    "symbol": "_wcscpy",

@@ -2364,7 +2364,6 @@ unsigned int  unknown_return_one_0054e8c0(void)
 }
 
 
-
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
@@ -2764,7 +2763,6 @@ unsigned int __fastcall SubzoneHash(unsigned int *packed_value)
 {
     return *packed_value >> 0xc & 0xf | *packed_value & 0xf;
 }
-
 
 
 // bool MapClass::Unknown_0054F7C0(Cell const &from, Cell const &to, int zone, bool arg4,
@@ -6912,7 +6910,7 @@ bool MapClass::Build_All_Cliffs(int unused, int region_id)
         Get_Cell_Data_0056dbc0(i).unknown_45[5] = 1;
     }
 
-    Map.Unknown_00498F10(0);
+    Map.Set_Cursor_Shape(0);
 
     Map.Reset_Iterator();
     CellClass *cellptr = Map.Iterate();
@@ -7213,7 +7211,7 @@ unsigned int MapClass::Get_High_Ground_Mask(CellClass *cellptr)
 
 bool MapClass::Build_All_Shores(int region_id, bool set_region)
 {
-    Map.Unknown_00498F10(0);
+    Map.Set_Cursor_Shape(0);
 
     bool is_temp_data = false;
     if (RMGCellData == 0) {
@@ -10323,9 +10321,6 @@ void MapClass::Register_Subzone_Connection(ZoneConnectionClass *connection)
 #define RA2_MAP_COLLAPSE_CLIFF   // NATIVE: MapClass::Fine_Subzone (shared/map.hpp; Scout664's overlay had it unconditionally)
 
 
-
-
-
 inline int Cell_Passability(MapClass *map, Cell const &cell)
 {
     return map->CellZones[map->Get_Cell_Zone_Index(cell)].unknown_00;
@@ -10500,7 +10495,7 @@ void MapClass::Unknown_00567380()
 
 bool MapClass::Rebuild_Shores_At(Cell const &origin)
 {
-    Map.Unknown_00498F10(0);
+    Map.Set_Cursor_Shape(0);
 
     bool is_temp_data = false;
     if (RMGCellData == 0) {
@@ -10661,7 +10656,7 @@ bool MapClass::Rebuild_Cliffs_At(Cell const &cell)
         }
     }
 
-    Map.Unknown_00498F10(0);
+    Map.Set_Cursor_Shape(0);
 
     Map.Reset_Iterator();
     CellClass *cellptr = Map.Iterate();
@@ -11805,14 +11800,12 @@ class Leaf_56ad30 { public: unsigned int get(unsigned int index); };
 unsigned int Leaf_56ad30::get(unsigned int index) { unsigned int vector_or_index = (unsigned int)this; unsigned int buffer_or_element; unsigned int unused_value; buffer_or_element = *(unsigned int*)(vector_or_index + 4); vector_or_index = index; buffer_or_element = *(unsigned int*)(buffer_or_element + vector_or_index*4); return buffer_or_element; }
 
 
-extern "C" unsigned char vtable_56ae40[]; extern "C" void __cdecl release_buffer_56ae40(void*); extern "C" void __cdecl release_object_56ae40(void*);
-class Leaf_56ae40 { public: void* get(unsigned int flags); };
-void* Leaf_56ae40::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_56ae40; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_56ae40((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_56ae40(this); return this; }
+// VectorClass<CellClass *>::`scalar deleting destructor' (0x0056AE40)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_56ae90[]; extern "C" void __cdecl release_buffer_56ae90(void*); extern "C" void __cdecl release_object_56ae90(void*);
-class Leaf_56ae90 { public: void* get(unsigned int flags); };
-void* Leaf_56ae90::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_56ae90; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_56ae90((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_56ae90(this); return this; }
+// DynamicVectorClass<SubzoneConnectionStruct>::`scalar deleting destructor' (0x0056AE90)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // ZoneConnectionClass::ZoneConnectionClass() (0x0056B460): the inline
@@ -11906,14 +11899,12 @@ template <> bool HashTableClass<unsigned int, SubzoneConnectionStruct>::Add_Obje
 // DynamicVectorClass<HashObject<unsigned int, SubzoneConnectionStruct>>::ID_object (0x0056C180).
 
 
-extern "C" unsigned char vtable_56c1b0[]; extern "C" void __cdecl release_buffer_56c1b0(void*); extern "C" void __cdecl release_object_56c1b0(void*);
-class Leaf_56c1b0 { public: void* get(unsigned int flags); };
-void* Leaf_56c1b0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_56c1b0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_56c1b0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_56c1b0(this); return this; }
+// VectorClass<ZoneConnectionClass>::`scalar deleting destructor' (0x0056C1B0)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_56c200[]; extern "C" void __cdecl release_buffer_56c200(void*); extern "C" void __cdecl release_object_56c200(void*);
-class Leaf_56c200 { public: void* get(unsigned int flags); };
-void* Leaf_56c200::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_56c200; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_56c200((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_56c200(this); return this; }
+// DynamicVectorClass<ZoneConnectionClass>::`scalar deleting destructor' (0x0056C200)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // VectorClass<SubzoneTrackingStruct> scalar deleting destructor (??_G) (0x0056C250)
@@ -11959,14 +11950,12 @@ class Leaf_56c8c0 { public: void* get(unsigned int flags); };
 void* Leaf_56c8c0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_56c8c0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_56c8c0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_56c8c0(this); return this; }
 
 
-extern "C" unsigned char vtable_56c910[]; extern "C" void __cdecl release_buffer_56c910(void*); extern "C" void __cdecl release_object_56c910(void*);
-class Leaf_56c910 { public: void* get(unsigned int flags); };
-void* Leaf_56c910::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_56c910; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_56c910((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_56c910(this); return this; }
+// VectorClass<HashObject<unsigned int, unsigned int>>::`scalar deleting destructor' (0x0056C910)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_56c960[]; extern "C" void __cdecl release_buffer_56c960(void*); extern "C" void __cdecl release_object_56c960(void*);
-class Leaf_56c960 { public: void* get(unsigned int flags); };
-void* Leaf_56c960::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_56c960; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_56c960((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_56c960(this); return this; }
+// VectorClass<HashObject<unsigned int, SubzoneConnectionStruct>>::`scalar deleting destructor' (0x0056C960)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // DynamicVectorClass<SubzoneConnectionStruct>::operator= (0x0056C9B0)

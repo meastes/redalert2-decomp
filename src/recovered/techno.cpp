@@ -93,9 +93,8 @@
 #include "shared/ini_class.hpp"
 
 
-extern "C" void __cdecl release_6d9750(void*);
-class Leaf_6d9750 { public: void cleanup();void* get(unsigned int flags); };
-void* Leaf_6d9750::get(unsigned int flags) { cleanup(); if (flags & 1) release_6d9750(this); return this; }
+// TechnoClass::`scalar deleting destructor' (0x006D9750)
+// Compiler-emitted in this unit; no source of its own.
 
 
 // (Declares TechnoClass::ActionLineTimer / TalkBubbleTimer only in this unit: see shared/techno.hpp.)
@@ -999,8 +998,6 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
                 unknown_slot248(point, window, true);
             }
         }
-
-
 
 
         if (unknown_talk_techno_ac01c4 == this && unknown_talk_value_ac01c8 > 0 && (long)TalkBubbleTimer > 0) {

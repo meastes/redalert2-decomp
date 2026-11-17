@@ -327,7 +327,6 @@ char * __fastcall Build_By_Initials(char *destination)
 }
 
 
-
 extern "C" char *__cdecl strchr(char const *, int);
 extern int unknown_build_number_7d8900;
 extern "C" char s_gsmallwoo_007d8904[];
@@ -585,14 +584,12 @@ void  IME_Stub2(void)
 }
 
 
-
 // IME_Stub3 (0x00738120): name from mischa85 names.csv
 
 void  IME_Stub3(void)
 {
     return;
 }
-
 
 
 // wchar_t Char_To_Wide_00738130(unsigned character, long unused_key_data) (0x00738130)
@@ -658,27 +655,5 @@ void __fastcall Load_Title_Screen_00738190(char const *name, Surface *surface, P
 }
 
 
-// unsigned int *Owner_00738420::unknown_scalar_deleting_destructor_00738420(unsigned char deletion_flags)
-// (0x00738420): stores the CCToolTip vtable (0x007AF51C), runs the ToolTipManager destructor
-// (0x006EB390) and frees the object when bit 0 of the flags is set.
-
-namespace seed_00738420 {
-
-extern void __fastcall ToolTipManager_Destructor_006eb390(void);
-extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* CCToolTip_VTable_007af51c;
-
-struct Owner_00738420 { unsigned int * unknown_scalar_deleting_destructor_00738420(unsigned char deletion_flags); };
-
-unsigned int * Owner_00738420::unknown_scalar_deleting_destructor_00738420(unsigned char deletion_flags)
-{
-    unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&CCToolTip_VTable_007af51c);
-    ToolTipManager_Destructor_006eb390();
-    if ((deletion_flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(object_words));
-    }
-    return object_words;
-}
-
-}  // namespace seed_00738420
+// CCToolTip::`scalar deleting destructor' (0x00738420)
+// Compiler-emitted in this unit; no source of its own.

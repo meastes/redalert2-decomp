@@ -363,13 +363,13 @@
   },
   {
    "site": "0072caa0",
-   "symbol": "?target@Call_72caa0_0@@QAEIXZ",
+   "symbol": "??0rc_ptr_base@@QAE@XZ",
    "target": "006394e0",
    "function_entry": true
   },
   {
    "site": "0072caa0",
-   "symbol": "?Set_00639530@Call_72caa0_1@@QAEII@Z",
+   "symbol": "?Set@rc_ptr_base@@QAEXPAVReferenceCounted@@@Z",
    "target": "00639530",
    "function_entry": true
   },
@@ -387,13 +387,13 @@
   },
   {
    "site": "007302e0",
-   "symbol": "?target@Call_7302e0_0@@QAEIXZ",
+   "symbol": "??0rc_ptr_base@@QAE@XZ",
    "target": "006394e0",
    "function_entry": true
   },
   {
    "site": "007302e0",
-   "symbol": "?target@Call_7302e0_1@@QAEII@Z",
+   "symbol": "?Set@rc_ptr_base@@QAEXPAVReferenceCounted@@@Z",
    "target": "00639530",
    "function_entry": true
   },
@@ -405,25 +405,25 @@
   },
   {
    "site": "00726ac0",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_00726ac0@@YIXXZ",
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
    "target": "00639510",
    "function_entry": true
   },
   {
    "site": "00726af0",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_00726af0@@YIXXZ",
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
    "target": "00639510",
    "function_entry": true
   },
   {
    "site": "00726b40",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_00726b40@@YIXXZ",
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
    "target": "00639510",
    "function_entry": true
   },
   {
    "site": "00726b70",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_00726b70@@YIXXZ",
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
    "target": "00639510",
    "function_entry": true
   },
@@ -453,13 +453,13 @@
   },
   {
    "site": "0072b0c0",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_0072b0c0@@YIXXZ",
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
    "target": "00639510",
    "function_entry": true
   },
   {
    "site": "0073a0c0",
-   "symbol": "?rc_ptr_base_Destructor_00639510@seed_0073a0c0@@YIXXZ",
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
    "target": "00639510",
    "function_entry": true
   },
@@ -2271,70 +2271,10 @@
    "module_symbol": "??0rc_ptr_base@@QAE@XZ"
   },
   {
-   "site": "0072caa0",
-   "target": "006394e0",
-   "symbol": "?target@Call_72caa0_0@@QAEIXZ",
-   "module_symbol": "??0rc_ptr_base@@QAE@XZ"
-  },
-  {
-   "site": "0072caa0",
-   "target": "00639530",
-   "symbol": "?Set_00639530@Call_72caa0_1@@QAEII@Z",
-   "module_symbol": "?Set@rc_ptr_base@@QAEXPAVReferenceCounted@@@Z"
-  },
-  {
    "site": "0072cf70",
    "target": "006394e0",
    "symbol": "?target@Call_72cf70_0@@QAEIXZ",
    "module_symbol": "??0rc_ptr_base@@QAE@XZ"
-  },
-  {
-   "site": "007302e0",
-   "target": "006394e0",
-   "symbol": "?target@Call_7302e0_0@@QAEIXZ",
-   "module_symbol": "??0rc_ptr_base@@QAE@XZ"
-  },
-  {
-   "site": "007302e0",
-   "target": "00639530",
-   "symbol": "?target@Call_7302e0_1@@QAEII@Z",
-   "module_symbol": "?Set@rc_ptr_base@@QAEXPAVReferenceCounted@@@Z"
-  },
-  {
-   "site": "00726ac0",
-   "target": "00639510",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_00726ac0@@YIXXZ",
-   "module_symbol": "??1rc_ptr_base@@UAE@XZ"
-  },
-  {
-   "site": "00726af0",
-   "target": "00639510",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_00726af0@@YIXXZ",
-   "module_symbol": "??1rc_ptr_base@@UAE@XZ"
-  },
-  {
-   "site": "00726b40",
-   "target": "00639510",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_00726b40@@YIXXZ",
-   "module_symbol": "??1rc_ptr_base@@UAE@XZ"
-  },
-  {
-   "site": "00726b70",
-   "target": "00639510",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_00726b70@@YIXXZ",
-   "module_symbol": "??1rc_ptr_base@@UAE@XZ"
-  },
-  {
-   "site": "0072b0c0",
-   "target": "00639510",
-   "symbol": "?rc_ptr_base_dtor_00639510@seed_0072b0c0@@YIXXZ",
-   "module_symbol": "??1rc_ptr_base@@UAE@XZ"
-  },
-  {
-   "site": "0073a0c0",
-   "target": "00639510",
-   "symbol": "?rc_ptr_base_Destructor_00639510@seed_0073a0c0@@YIXXZ",
-   "module_symbol": "??1rc_ptr_base@@UAE@XZ"
   },
   {
    "site": "00730310",
@@ -2343,7 +2283,7 @@
    "module_symbol": "??1rc_ptr_base@@UAE@XZ"
   }
  ],
- "stand_in_reference_count": 14,
+ "stand_in_reference_count": 4,
  "residual_split": {
   "rows": 0,
   "bytes": 0

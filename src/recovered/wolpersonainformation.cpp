@@ -88,7 +88,6 @@ Wstring unknown_wstring_b26418("_Default_");
 // original spends one more inline site here (its GenericList constructor stays out of line).
 
 
-
 rc_ptr<PlayerProfile> __fastcall PlayerProfile::Load_Default()
 {
     Wstring server;
@@ -336,7 +335,6 @@ unsigned int Leaf_7395b0::get() { *(unsigned int*)(((unsigned int)this)) = (unsi
 // Creates wolinfo.ini when it does not exist.
 
 
-
 void PlayerProfile::Save_007395d0(Wstring const &name)
 {
     WolRegistryOptions options;
@@ -412,27 +410,5 @@ void __fastcall Unknown_Persona_Stats_Text_00739a50(HWND window, bool clear)
 // The existing accepted constructor in this population emits the vtable and implicit destructor.
 
 
-// unsigned int *Owner_0073a0c0::unknown_scalar_deleting_destructor_0073a0c0(unsigned char deletion_flags)
-// (0x0073A0C0): a scalar deleting destructor: stores the vtable at 0x007AF54C, runs the
-// rc_ptr_base destructor (0x00639510) and frees the object when bit 0 of the flags is set.
-
-namespace seed_0073a0c0 {
-
-extern void __fastcall rc_ptr_base_Destructor_00639510(void);
-extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* unknown_vtable_007af54c;
-
-struct Owner_0073a0c0 { unsigned int * unknown_scalar_deleting_destructor_0073a0c0(unsigned char deletion_flags); };
-
-unsigned int * Owner_0073a0c0::unknown_scalar_deleting_destructor_0073a0c0(unsigned char deletion_flags)
-{
-    unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&unknown_vtable_007af54c);
-    rc_ptr_base_Destructor_00639510();
-    if ((deletion_flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(object_words));
-    }
-    return object_words;
-}
-
-}  // namespace seed_0073a0c0
+// rc_ptr<PlayerProfile>::`scalar deleting destructor' (0x0073A0C0)
+// Compiler-emitted in this unit; no source of its own.

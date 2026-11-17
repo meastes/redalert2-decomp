@@ -684,11 +684,9 @@ int TEventClass::Fetch_Heap_ID() const
 // DynamicVectorClass<TEventClass *>::ID_object (0x006E7150; DynamicVectorClass<TEventClass *> vtable 0x007ad694 slot 4).
 
 
-extern "C" unsigned char vtable_6e7180[]; extern "C" void __cdecl release_buffer_6e7180(void*); extern "C" void __cdecl release_object_6e7180(void*);
-class Leaf_6e7180 { public: void* get(unsigned int flags); };
-void* Leaf_6e7180::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6e7180; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6e7180((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6e7180(this); return this; }
+// VectorClass<TEventClass *>::`scalar deleting destructor' (0x006E7180)
+// Compiler-emitted in this unit; no source of its own.
 
 
-extern "C" unsigned char vtable_6e71d0[]; extern "C" void __cdecl release_buffer_6e71d0(void*); extern "C" void __cdecl release_object_6e71d0(void*);
-class Leaf_6e71d0 { public: void* get(unsigned int flags); };
-void* Leaf_6e71d0::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_6e71d0; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_6e71d0((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_6e71d0(this); return this; }
+// DynamicVectorClass<TEventClass *>::`scalar deleting destructor' (0x006E71D0)
+// Compiler-emitted in this unit; no source of its own.

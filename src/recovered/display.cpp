@@ -258,13 +258,13 @@ void DisplayClass::unknown_slot42(Rect const &rect)
 }
 
 
-// void DisplayClass::Unknown_00498F10(Cell const *list) (0x00498F10)
+// void DisplayClass::Set_Cursor_Shape(Cell const *list) (0x00498F10)
 // Set_Cursor_Shape's twin for the cursor list at +0x1178 (cell +0x1170 plus offset +0x1174, cell
 // flag 2 through 0x004998C0): unmarks the old list, copies the new 0x7FFF-terminated list into a
 // function static (0x00852634, 120 cells, guard 0x00852838; its empty atexit thunk is 0x00499060)
 // and centres it on the cell.
 
-void DisplayClass::Unknown_00498F10(Cell const *list)
+void DisplayClass::Set_Cursor_Shape(Cell const *list)
 {
     if (CursorSize) {
         Unknown_004998C0(ZoneCell + ZoneOffset, false);
@@ -286,18 +286,18 @@ void DisplayClass::Unknown_00498F10(Cell const *list)
 }
 
 
-// atexit destructor (0x00499060) of DisplayClass::Unknown_00498F10's static cell list, emitted by DisplayClass_Unknown_00498F10_00498f10.cpp; no source of its own.
+// atexit destructor (0x00499060) of DisplayClass::Set_Cursor_Shape's static cell list, emitted by DisplayClass_Unknown_00498F10_00498f10.cpp; no source of its own.
 
 
-// void DisplayClass::Set_Cursor_Shape(Cell const *list) (0x00499070)
-// Red Alert's DisplayClass::Set_Cursor_Shape: unmarks the old placement
+// void DisplayClass::Set_Copy_Cursor_Shape(Cell const *list) (0x00499070)
+// Red Alert's DisplayClass::Set_Copy_Cursor_Shape: unmarks the old placement
 // cursor (+0x1188 list at zone cell +0x117E plus offset +0x1182), copies the
 // new 0x7FFF-terminated list into a function static (0x008524B0, guard
 // 0x008525F0; its empty atexit thunk is 0x004991C0) and centres it on the
 // zone cell.
 // The size less (1, 1) is negated and halved with TPoint2D<short>'s operators.
 
-void DisplayClass::Set_Cursor_Shape(Cell const *list)
+void DisplayClass::Set_Copy_Cursor_Shape(Cell const *list)
 {
     if (CopyCursorSize) {
         Unknown_00499970(CopyZoneCell + CopyZoneOffset, false);
@@ -1253,7 +1253,7 @@ void DisplayClass::Mouse_Right_Release(Point2D const &xy)
         PendingObjectPtr = 0;
         PendingObject = 0;
         PendingHouse = -1;
-        Unknown_00498F10(0);
+        Set_Cursor_Shape(0);
         Set_Default_Mouse(0, unknown_flag_83740c);
         return;
     }
@@ -1333,8 +1333,8 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
                 CopyZoneOffset = ZoneOffset;
                 CopyCursorSize = CursorSize;
                 CopyPendingHouse = PendingHouse;
-                if (PendingObject) Map.Set_Cursor_Shape(PendingObject->Occupy_List(true));
-                Map.Unknown_00498F10(0);
+                if (PendingObject) Map.Set_Copy_Cursor_Shape(PendingObject->Occupy_List(true));
+                Map.Set_Cursor_Shape(0);
                 Map.PendingObjectPtr = 0;
                 Map.PendingObject = 0;
                 Map.PendingHouse = -1;

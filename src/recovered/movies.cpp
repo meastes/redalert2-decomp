@@ -802,36 +802,9 @@ void __fastcall Movie_Handle_Blit()
 // DynamicVectorClass<char const *>::ID_object (0x005A2250; DynamicVectorClass<char const *> vtable 0x007a65e4 slot 4).
 
 
-extern "C" unsigned char vtable_5a2280[]; extern "C" void __cdecl release_buffer_5a2280(void*); extern "C" void __cdecl release_object_5a2280(void*);
-class Leaf_5a2280 { public: void* get(unsigned int flags); };
-void* Leaf_5a2280::get(unsigned int flags) { unsigned int pointer = *(unsigned int*)((char*)this + 4); *(unsigned int*)this=(unsigned int)vtable_5a2280; if(pointer && *(unsigned char*)((char*)this + 13)){ release_buffer_5a2280((void*)pointer); *(unsigned int*)((char*)this + 4)=0; } *(unsigned char*)((char*)this + 13)=0; *(unsigned int*)((char*)this + 8)=0; if(flags & 1) release_object_5a2280(this); return this; }
+// VectorClass<char const *>::`scalar deleting destructor' (0x005A2280)
+// Compiler-emitted in this unit; no source of its own.
 
 
-// unsigned int *Owner_005a22d0::unknown_scalar_deleting_destructor_005a22d0(unsigned char deletion_flags)
-// (0x005A22D0): stores the VectorClass<char const *> vtable (0x007A6604), frees the owned buffer
-// (+0x04 when +0x0D is set), clears the size, and frees the object when bit 0 of the flags is set.
-
-namespace seed_005a22d0 {
-
-extern void  operator_delete_00781d3b(unsigned int allocation_address);
-extern "C" void* VectorClass_CharPtr_VTable_007a6604;
-
-struct Owner_005a22d0 { unsigned int * unknown_scalar_deleting_destructor_005a22d0(unsigned char deletion_flags); };
-
-unsigned int * Owner_005a22d0::unknown_scalar_deleting_destructor_005a22d0(unsigned char deletion_flags)
-{
-    unsigned int * object_words = (unsigned int *)this;
-    *object_words = (unsigned int)(&VectorClass_CharPtr_VTable_007a6604);
-    if ((object_words[1] != 0) && (*(char *)((int)object_words + 0xd) != '\0')) {
-        operator_delete_00781d3b((unsigned int)(object_words[1]));
-        object_words[1] = 0;
-    }
-    *(unsigned char *)((int)object_words + 0xd) = 0;
-    object_words[2] = 0;
-    if ((deletion_flags & 1) != 0) {
-        operator_delete_00781d3b((unsigned int)(object_words));
-    }
-    return object_words;
-}
-
-}  // namespace seed_005a22d0
+// DynamicVectorClass<char const *>::`scalar deleting destructor' (0x005A22D0)
+// Compiler-emitted in this unit; no source of its own.

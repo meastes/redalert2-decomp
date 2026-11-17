@@ -64,7 +64,7 @@ bool SidebarClass::StripClass::Unknown_006802D0()
                     Map.PendingObjectPtr = 0;
                     Map.PendingObject = 0;
                     Map.PendingHouse = -1;
-                    Map.Unknown_00498F10(0);
+                    Map.Set_Cursor_Shape(0);
                 }
             }
             if (tech) {

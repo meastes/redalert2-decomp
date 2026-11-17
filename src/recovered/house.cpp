@@ -1724,7 +1724,7 @@ int HouseClass::Abandon_Production(int kind, int index, bool naval)
             Map.PendingObjectPtr = 0;
             Map.PendingObject = 0;
             Map.PendingHouse = -1;
-            Map.Unknown_00498F10(0);
+            Map.Set_Cursor_Shape(0);
         }
     }
     factory->Abandon_Production_004B97C0();
@@ -1854,11 +1854,11 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                             if (tech->IsActive && !tech->IsDiscoveredByPlayer) tech->Revealed(this);
                             Voc_Play(Rules->BuildingSlam, 1.0f, 0x2000, 0);
                             if (!Debug_Map) {
-                                Map.Set_Cursor_Shape(0);
+                                Map.Set_Copy_Cursor_Shape(0);
                                 Map.CopyPendingObjectPtr = 0;
                                 Map.CopyPendingObject = 0;
                             }
-                            Map.Unknown_00498F10(0);
+                            Map.Set_Cursor_Shape(0);
                             Map.PendingObjectPtr = 0;
                             Map.PendingObject = 0;
                             Map.PendingHouse = -1;
@@ -1874,7 +1874,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                             Map.ZoneOffset = Map.CopyZoneOffset;
                             Map.CursorSize = Map.CopyCursorSize;
                             if (Map.CopyPendingObject) {
-                                Map.Unknown_00498F10(((ObjectTypeClass *)Map.CopyPendingObject)->Occupy_List(1));
+                                Map.Set_Cursor_Shape(((ObjectTypeClass *)Map.CopyPendingObject)->Occupy_List(1));
                                 Point2D xy = WWMouse->Get_Mouse_XY();
                                 TacticalMap->Pixel_To_Coord(xy);
                                 xy -= Point2D(TacticalRect.X, TacticalRect.Y);
@@ -1885,7 +1885,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                                 Map.Resolve_Point(xy, mouse_cell, mouse_coord, object, shadow, small);
                                 Map.Set_Cursor_Pos(mouse_cell);
                             }
-                            Map.Set_Cursor_Shape(0);
+                            Map.Set_Copy_Cursor_Shape(0);
                             Map.CopyPendingObjectPtr = 0;
                             Map.CopyPendingObject = 0;
                         }
@@ -1970,7 +1970,7 @@ bool HouseClass::unknown_func_4e7070(TechnoClass *builder, BuildingClass *buildi
         Map.PendingObject = building->Type;
         Map.PendingObjectPtr = building;
         Map.PendingHouse = ArrayIndex;
-        Map.Unknown_00498F10(building->Occupy_List(1));
+        Map.Set_Cursor_Shape(building->Occupy_List(1));
         Map.Set_Cursor_Pos(builder->Get_Cell());
         builder->Mark(2);
         return true;

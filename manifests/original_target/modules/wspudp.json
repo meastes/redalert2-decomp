@@ -235,7 +235,7 @@
    "padding_bytes": 11
   },
   {
-   "symbol": "?get@Cleanup_76d5b0@@QAEXXZ",
+   "symbol": "?Clear@?$DynamicVectorClass@PAE@@UAEXXZ",
    "entry": "0076d5b0",
    "body_bytes": 42,
    "padding_bytes": 6
@@ -283,13 +283,13 @@
    "padding_bytes": 0
   },
   {
-   "symbol": "?get@Leaf_76d870@@QAEPAXI@Z",
+   "symbol": "??_G?$VectorClass@PAE@@UAEPAXI@Z",
    "entry": "0076d870",
    "body_bytes": 73,
    "padding_bytes": 7
   },
   {
-   "symbol": "?get@Leaf_76d8c0@@QAEPAXI@Z",
+   "symbol": "??_G?$DynamicVectorClass@PAE@@UAEPAXI@Z",
    "entry": "0076d8c0",
    "body_bytes": 73,
    "padding_bytes": 7
@@ -1109,14 +1109,6 @@
    "address": "007b15e4"
   },
   {
-   "symbol": "??_G?$DynamicVectorClass@PAE@@UAEPAXI@Z",
-   "address": "0076d8c0"
-  },
-  {
-   "symbol": "??_G?$VectorClass@PAE@@UAEPAXI@Z",
-   "address": "0076d870"
-  },
-  {
    "symbol": "?AlternateListenPort@@3HA",
    "address": "007f60d8"
   },
@@ -1305,26 +1297,6 @@
    "address": "00781bae"
   },
   {
-   "symbol": "_release_76d5b0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_76d870",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_buffer_76d8c0",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_76d870",
-   "address": "00781d3b"
-  },
-  {
-   "symbol": "_release_object_76d8c0",
-   "address": "00781d3b"
-  },
-  {
    "symbol": "_sendto@24",
    "address": "00781bb4"
   },
@@ -1339,14 +1311,6 @@
   {
    "symbol": "_sscanf",
    "address": "00783730"
-  },
-  {
-   "symbol": "_vtable_76d870",
-   "address": "007afbcc"
-  },
-  {
-   "symbol": "_vtable_76d8c0",
-   "address": "007afbcc"
   }
  ],
  "route": "A",
