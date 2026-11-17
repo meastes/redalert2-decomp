@@ -37,6 +37,10 @@ def write():
         source = R.ROOT / info['source']
         if last is None or last['source_sha256'] != sha(source.read_bytes()):
             refused.append('%s: no check of the current text' % unit); continue
+        # A unit the whole-file build refused for this exact text stays out until its text changes.
+        held = info.get('build_refused')
+        if held and held.get('source_sha256') == last['source_sha256']:
+            refused.append('%s: whole-file build refused: %s' % (unit, held['reason'][:100])); continue
         # A unit with inline assembly needs the evidenced-asm flag and citation per row (main's rule);
         # the rebuild catalog does not carry those yet, so such units stay pending.
         from canonical import inline_asm_blocks
@@ -85,6 +89,21 @@ def write():
         loose += [n['name'] for n in coff.symbols.values() if n['name'].startswith('__real@')
                   and n['section'] > 0 and resolve_u(n['name'])[0] is None and n['name'] not in
                   {b['symbol'] for r in exact for b in results[r['entry']].get('relocations', [])}]
+        # A draft compiled into the object (a row of this unit that is not exact) has no place in the
+        # image: the build refuses its section. Drafts go under RA2_NON_MATCHING (guard.py).
+        own_rows = {int(r['entry'], 16) for r in info['rows']}
+        import guard, re as _re
+        source_text = source.read_text(errors='replace')
+        def defined_here(sym):
+            name = guard.demangle(sym)
+            return bool(name) and bool(_re.search(r'^(?![ \t#/])[^\n;{}]*?(?<![\w:])%s\s*\(' % _re.escape(name), source_text, _re.M))
+        exact_entries = {int(r['entry'], 16) for r in exact}
+        drafts = [s['name'] for s in coff._functions if s['name'] not in exact_names and
+                  not s['name'].startswith(('_$', '??_')) and '?$' not in s['name'] and
+                  resolve_u(s['name'])[0] in own_rows - exact_entries and defined_here(s['name'])]
+        if drafts:
+            refused.append('%s: unguarded drafts: %s' % (unit, ' '.join(drafts)[:100]))
+            continue
         if loose:
             refused.append('%s: emitted functions with no row or binding: %s' % (unit, ' '.join(loose)[:100]))
             continue

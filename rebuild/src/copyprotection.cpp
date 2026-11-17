@@ -5,11 +5,12 @@
 
 #define INCLUDE_COM
 #include "always.h"
-#include "globals.h"
 #include "version.h"
 #include "dbgprint.h"
 
 #include <mmsystem.h>
+
+extern VersionClass VerNum;
 
 namespace CopyProtection {
 

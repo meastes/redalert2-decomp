@@ -16,6 +16,27 @@ _rtti,0040db60,?Name_From_RTTI@@YIPBDW4RTTIType@@@Z,36,a,mischa85,yes,,
 _rtti,0040db90,?RTTI_From_Name@@YI?AW4RTTIType@@PBD@Z,57,a,mischa85,yes,,
 _rtti,0040dbd0,?Dynamic_Cast@@YIPBVTechnoClass@@PBVAbstractClass@@@Z,67,a,mischa85,yes,,
 _rtti,0040dc20,?Dynamic_Cast@@YIPAVTechnoClass@@PAVAbstractClass@@@Z,67,a,mischa85,yes,,
+abstype,004103b0,_$E2,40,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,004103e0,_$E5,19,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,00410400,_$E8,19,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,00410420,_$E11,19,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,00410440,_$E14,19,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,00410460,_$E17,19,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,00410480,_$E20,49,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,004104c0,_$E23,33,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,004104f0,_$E26,44,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,00410520,_$E29,39,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,00410550,_$E32,15,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,00410560,_$E35,18,a,landed geometry.h,edit,0.19,Added existing geometry declarations before abstype.h; no header edits
+abstype,00410580,??0AbstractTypeClass@@QAE@PBD@Z,340,a,mischa85,yes,0.19,
+abstype,004106e0,??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z,86,b,main src/recovered/abstype.cpp load constructor reshaped to landed TStringID,edit,0.19,Preserves UINameLabel using NoInit and refetches UIName; C-string first-byte read matches old FixedString conversion
+abstype,00410740,??1AbstractTypeClass@@UAE@XZ,114,a,mischa85,yes,0.19,
+abstype,004107c0,??8AbstractTypeClass@@QBE_NPBD@Z,25,a,mischa85,yes,0.19,
+abstype,004107e0,?Read_INI@AbstractTypeClass@@UAE_NABVCCINIClass@@@Z,292,a,mischa85,yes,0.19,
+abstype,00410910,?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z,71,a,mischa85,yes,0.19,
+abstype,00410960,?Compute_CRC@AbstractTypeClass@@UBEXAAVCRCEngine@@@Z,52,a,mischa85,yes,0.19,
+abstype,004109a0,?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z,3,a,mischa85,yes,0.19,Mapped the landed Init_Theater(TheaterType) method to frozen original row; enum and int argument are both 32 bits; exact complete body
+abstype,004109b0,??_GAbstractTypeClass@@UAEPAXI@Z,134,a,mischa85,yes,0.19,
 abuffer,00410a40,_$E2,23,a,mischa85,yes,,
 abuffer,00410a60,??0ABuffer@@QAE@V?$TRect@H@@@Z,214,a,mischa85,yes,,
 abuffer,00410b40,?Copy_To@ABuffer@@QAEXPAVSurface@@V?$TRect@H@@@Z,137,a,mischa85,yes,,
@@ -27,6 +48,102 @@ abuffer,00411090,?Fill@ABuffer@@QAE_NGV?$TRect@H@@@Z,27,a,mischa85,yes,,
 abuffer,004110b0,?Update@ABuffer@@QAEXV?$TRect@H@@@Z,377,a,mischa85,yes,,
 abuffer,00411230,?Get_Buffer_Offset@ABuffer@@QAEIVPoint2D@@@Z,52,a,mischa85,yes,,
 ahtoi,00412390,?ahtoi@@YIHPBD@Z,74,a,mischa85,yes,,
+alphashp,0041e970,_$E2,23,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041e990,_$E5,40,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041e9c0,_$E8,19,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041e9e0,_$E11,19,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041ea00,_$E14,19,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041ea20,_$E17,19,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041ea40,_$E20,19,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041ea60,_$E23,49,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041eaa0,_$E26,33,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041ead0,_$E29,44,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041eb00,_$E32,39,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041eb30,_$E35,15,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041eb40,_$E38,18,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041eb60,_$E58,61,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041eba0,_$E56,59,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041ebe0,??0AlphaShapeClass@@QAE@PAVObjectClass@@HH@Z,399,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041ed70,??0AlphaShapeClass@@QAE@XZ,351,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041eed0,??0AlphaShapeClass@@QAE@ABVNoInitClass@@@Z,46,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041ef00,??1AlphaShapeClass@@UAE@XZ,187,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041efc0,?GetClassID@AlphaShapeClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041f000,?Fetch_RTTI@AlphaShapeClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041f010,?Fetch_Object_Size@AlphaShapeClass@@UBEHXZ,6,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041f020,?Compute_CRC@AlphaShapeClass@@UBEXAAVCRCEngine@@@Z,63,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041f060,?Load@AlphaShapeClass@@UAGJPAUIStream@@@Z,94,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041f0c0,?Save@AlphaShapeClass@@UAGJPAUIStream@@H@Z,33,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041f0f0,?Detach@AlphaShapeClass@@UAEXPBVAbstractClass@@_N@Z,18,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041f110,?Update_All@AlphaShapeClass@@SIXXZ,170,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041f950,?Calculate_Brightness_Table@AlphaShapeClass@@SIXXZ,112,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041f9c0,??_GAlphaShapeClass@@UAEPAXI@Z,207,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fa90,?Clear@?$DynamicVectorClass@PAVAlphaShapeClass@@@@UAEXXZ,42,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fac0,?ID@?$DynamicVectorClass@PAVAlphaShapeClass@@@@UAEHPBQAVAlphaShapeClass@@@Z,27,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fae0,?GetItem@?$VectorClass@PAVAlphaShapeClass@@@@UBEPAVAlphaShapeClass@@H@Z,13,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041faf0,??8?$VectorClass@PAVAlphaShapeClass@@@@UBE_NABV0@@Z,62,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fb30,?Resize@?$VectorClass@PAVAlphaShapeClass@@@@UAE_NHPBQAVAlphaShapeClass@@@Z,174,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fbe0,?Clear@?$VectorClass@PAVAlphaShapeClass@@@@UAEXXZ,39,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fc10,?ID@?$VectorClass@PAVAlphaShapeClass@@@@UAEHABQAVAlphaShapeClass@@@Z,51,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fc50,?ID@?$VectorClass@PAVAlphaShapeClass@@@@UAEHPBQAVAlphaShapeClass@@@Z,27,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fc70,?Resize@?$DynamicVectorClass@PAVAlphaShapeClass@@@@UAE_NHPBQAVAlphaShapeClass@@@Z,176,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fd20,?ID@?$DynamicVectorClass@PAVAlphaShapeClass@@@@UAEHABQAVAlphaShapeClass@@@Z,38,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fd50,??_G?$VectorClass@PAVAlphaShapeClass@@@@UAEPAXI@Z,73,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+alphashp,0041fda0,??_G?$DynamicVectorClass@PAVAlphaShapeClass@@@@UAEPAXI@Z,73,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
+audattr,00401000,?AudioAttribsInit@@YIXPAUAudioAttribs@@@Z,117,a,mischa85,yes,1.667,No address-suffixed names; calibration not used; resumed earlier adopted draft
+audattr,00401080,?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z,25,a,mischa85,yes,1.667,No address-suffixed names; calibration not used; resumed earlier adopted draft
+audattr,004010a0,?AudioAttribsChanged@@YIHPAUAudioAttribs@@@Z,27,a,mischa85,yes,1.667,No address-suffixed names; calibration not used; resumed earlier adopted draft
+audattr,004010c0,?AudioAttribsApply@@YIXPAUAudioAttribs@@0@Z,164,a,mischa85,yes,1.667,No address-suffixed names; calibration not used; resumed earlier adopted draft
+audattr,00401170,?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z,28,a,mischa85,yes,1.667,No address-suffixed names; calibration not used; resumed earlier adopted draft
+audattr,00401190,?AudioAttribsCalcPitch@@YIHPAUAudioAttribs@@H@Z,29,a,mischa85,yes,1.667,No address-suffixed names; calibration not used; resumed earlier adopted draft
+audbag,004011b0,?GetEntry@AudioIDXData@@QAIPAUAudioIDXEntry@@H@Z,9,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,004011c0,?Create@AudioIDXData@@SIPAV1@PBD0@Z,953,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,00401580,?Destroy@AudioIDXData@@QAEXXZ,61,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,004015c0,?FindSampleIndex@AudioIDXData@@QAIHPBD@Z,55,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,00401600,?GetSampleName@AudioIDXData@@QAIPBDH@Z,24,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,00401620,?GetSampleSize@AudioIDXData@@QAIHH@Z,22,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,00401640,?GetSampleInformation@AudioIDXData@@QAIPAUAudioFormat@@HPAU2@@Z,97,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,004016b0,?SetSampleInformation@AudioIDXData@@QAIXHPAUAudioFormat@@@Z,60,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,004016f0,?OpenSample@AudioIDXData@@QAIHH@Z,457,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,004018c0,?ReadSample@AudioIDXData@@QAIHPAXH@Z,72,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,00401910,?ClearCurrentSample@AudioIDXData@@QAEXXZ,41,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,00401940,?File_Name@RawFileClass@@UBEPBDXZ,4,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,00401950,??_GCDFileClass@@UAEPAXI@Z,36,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,00401980,?Open@CCFileClass@@UAEHPBDH@Z,31,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audbag,004019a0,??_GCCFileClass@@UAEPAXI@Z,59,a,mischa85,yes,0.200,Address-suffixed names 0; calibration not used
+audcache,004019e0,?AudioCacheCreate@@YIPAUAudioCache@@PAVAudioIDXData@@HHH@Z,275,c,seed,edit,0.5,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00401b00,?AudioCacheDestroy@@YIXPAUAudioCache@@@Z,172,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00401bb0,?AudioCacheGetItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z,33,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00401be0,?AudioCacheInvalidate@@YIXPAUAudioCache@@@Z,22,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00401c00,?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z,738,c,seed,rematch,2.5,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00401ef0,?AudioCacheFreeOldestItem@@YIHPAUAudioCache@@@Z,139,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00401f80,?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z,8,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00401f90,?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z,19,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00401fb0,?AudioCacheItemInUse@@YIHPAUAudioCacheItem@@@Z,4,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00401fc0,?AudioCacheItemFree@@YIXPAUAudioCacheItem@@@Z,95,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00402020,?AudioCacheItemId@@YIHPAUAudioCacheItem@@@Z,4,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audcache,00402030,?AudioCacheItemSample@@YIPAUAudioSample@@PAUAudioCacheItem@@@Z,4,c,seed,yes,0.2,Ghidra seed and landed layouts only; address-suffixed names 0; calibration not used
+audchanl,00402040,?audioChannelCreate@@YIPAUAudioChannel@@PAUAudioDevice@@@Z,302,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402170,?audioChannelDestroy@@YIXPAUAudioChannel@@@Z,23,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402190,?audioChannelMakeStandard@@YIXPAUAudioChannel@@@Z,137,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402220,?audioChannelRecalcAttribs@@YIXPAUAudioChannel@@@Z,155,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,004022c0,?audioChannelNextFrame@@YIHPAUAudioChannel@@@Z,108,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402330,?audioChannelNextSample@@YIHPAUAudioChannel@@@Z,178,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,004023f0,?audioChannelSampleDone@@YIHPAUAudioChannel@@@Z,64,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402430,?AudioChannelTaken@@YIHPAUAudioChannel@@@Z,10,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402440,?AudioChannelReserve@@YIXPAUAudioChannel@@H@Z,87,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,004024a0,?AudioChannelRelease@@YIXPAUAudioChannel@@@Z,165,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402550,?AudioChannelDestroy@@YIXPAUAudioChannel@@@Z,96,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,004025b0,?AudioChannelStop@@YIXPAUAudioChannel@@@Z,69,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402600,?AudioChannelPause@@YIXPAUAudioChannel@@@Z,73,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402650,?AudioChannelResume@@YIXPAUAudioChannel@@@Z,73,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,004026a0,?AudioChannelLock@@YIXPAUAudioChannel@@@Z,9,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,004026b0,?AudioChannelUnlock@@YIXPAUAudioChannel@@@Z,9,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,004026c0,?AudioChannelUse@@YIXPAUAudioChannel@@@Z,39,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,004026f0,?AudioChannelNoUse@@YIXPAUAudioChannel@@@Z,39,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402720,?AudioChannelStart@@YIHPAUAudioChannel@@@Z,110,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402790,?AudioChannelSetSample@@YIXPAUAudioChannel@@PAUAudioSample@@@Z,98,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402800,?AudioChannelSetFormat@@YIHPAUAudioChannel@@PAUAudioFormat@@@Z,72,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audchanl,00402850,?AudioControlInit@@YIXPAUAudioControl@@@Z,9,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
 audlevel,00407030,?AudioLevelInit@@YIXPAUAudioLevel@@H@Z,66,a,mischa85,yes,,
 audlevel,00407080,?AudioLevelSet@@YIXPAUAudioLevel@@H@Z,13,a,mischa85,yes,,
 audlevel,00407090,?AudioLevelForce@@YIXPAUAudioLevel@@@Z,7,a,mischa85,yes,,
@@ -34,11 +151,63 @@ audlevel,004070a0,?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z,43,a,mischa85,yes,,
 audlevel,004070d0,?AudioLevelSetDuration@@YIXPAUAudioLevel@@_KH@Z,31,a,mischa85,yes,,
 audlevel,004070f0,?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z,229,a,mischa85,yes,,
 audlevel,004071e0,?AudioLevelGetVal@@YIHPAUAudioLevel@@@Z,7,a,mischa85,yes,,
+audlists,004071f0,?ListInit@@YIXPAUListNode@@@Z,9,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,00407200,?ListNodeInit@@YIXPAUListNode@@@Z,13,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,00407210,?ListAddNodeSortAscending@@YIHPAUListNode@@0@Z,74,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,00407260,?ListAddNode@@YIXPAUListNode@@0@Z,66,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,004072b0,?ListMerge@@YIXPAUListNode@@0@Z,35,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,004072e0,?ListCountItems@@YIHPAUListNode@@@Z,16,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,004072f0,?ListFirstItem@@YIPAUListNode@@PAU1@@Z,18,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,00407310,?ListNextItem@@YIPAUListNode@@PAU1@@Z,18,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,00407330,?ListGetItem@@YIPAUListNode@@PAU1@H@Z,24,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,00407350,?ListNodeInsert@@YIXPAUListNode@@0@Z,17,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,00407370,?ListNodeAppend@@YIXPAUListNode@@0@Z,15,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,00407380,?ListNodeRemove@@YIXPAUListNode@@@Z,21,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,004073a0,?ListNodeNext@@YIPAUListNode@@PAU1@@Z,14,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,004073b0,?ListNodePrev@@YIPAUListNode@@PAU1@@Z,15,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,004073c0,?ListNodeLoopNext@@YIPAUListNode@@PAU1@@Z,17,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
+audlists,004073e0,?ListNodeLoopPrev@@YIPAUListNode@@PAU1@@Z,19,a,mischa85,yes,0.188,No address-suffixed names; calibration not used
 audmpool,00407400,?MemoryPoolCreate@@YIPAUAudioMemoryPool@@II@Z,61,a,mischa85,yes,,
 audmpool,00407440,?MemoryPoolDestroy@@YIXPAUAudioMemoryPool@@@Z,8,a,mischa85,yes,,
 audmpool,00407450,?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z,15,a,mischa85,yes,,
 audmpool,00407460,?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z,10,a,mischa85,yes,,
 audmpool,00407470,?MemoryPoolCount@@YIHPAUAudioMemoryPool@@@Z,16,a,mischa85,yes,,
+audstrm,00408710,?STM_StreamCreate@@YIPAUSTM_STREAM@@XZ,77,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408760,?STM_StreamDestroy@@YIXPAUSTM_STREAM@@@Z,228,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408850,?STM_access_return_to_start@@YIXPAUSTM_ACCESS@@@Z,56,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408890,?STM_StreamDestroyBuffers@@YIXPAUSTM_STREAM@@@Z,242,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408990,?STM_StreamReset@@YIXPAUSTM_STREAM@@@Z,159,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408a30,?STM_StreamAddSBuffer@@YIXPAUSTM_STREAM@@PAUSTM_SBUFFER@@@Z,44,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408a60,?STM_StreamCreateSBuffers@@YIHPAUSTM_STREAM@@HHH@Z,235,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408b50,?STM_StreamAcquireAccess@@YIPAUSTM_ACCESS@@PAUSTM_STREAM@@H@Z,254,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408c50,?STM_StreamTotalBytesIn@@YIIPAUSTM_STREAM@@@Z,15,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408c60,?STM_StreamTotalBytesTillFull@@YIIPAUSTM_STREAM@@@Z,9,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408c70,?STM_StreamTotalBytes@@YIHPAUSTM_STREAM@@@Z,4,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408c80,?STM_StreamFull@@YIHPAUSTM_STREAM@@@Z,18,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408ca0,?STM_SBufferCreate@@YIPAUSTM_SBUFFER@@HH@Z,115,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408d20,?STM_SBufferDestroy@@YIXPAUSTM_SBUFFER@@@Z,30,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408d40,?STM_SBufferRemove@@YIXPAUSTM_SBUFFER@@@Z,45,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408d70,?STM_SBufferNext@@YIPAUSTM_SBUFFER@@PAU1@@Z,21,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408d90,?STM_AccessRelease@@YIXPAUSTM_ACCESS@@@Z,50,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408dd0,?STM_AccessSetMode@@YIHPAUSTM_ACCESS@@H@Z,6,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408de0,?STM_AccessMode@@YIHPAUSTM_ACCESS@@@Z,4,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408df0,?STM_AccessID@@YIHPAUSTM_ACCESS@@@Z,4,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408e00,?STM_AccessTransfer@@YIHPAUSTM_ACCESS@@PAXH@Z,152,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408ea0,?STM_AccessFileTransfer@@YIHPAUSTM_ACCESS@@PAVFileClass@@HPAH@Z,174,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00408f50,?STM_AccessCRTFileTransfer@@YIHPAUSTM_ACCESS@@PAU_iobuf@@HPAH@Z,187,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00409010,?STM_AccessGetError@@YIHPAUSTM_ACCESS@@@Z,4,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00409020,?STM_AccessUpdate@@YIHPAUSTM_ACCESS@@@Z,188,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,004090e0,?STM_AccessAdvance@@YIHPAUSTM_ACCESS@@H@Z,237,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,004091d0,?STM_AccessReturnToStart@@YIXPAUSTM_ACCESS@@@Z,51,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00409210,?STM_AccessNextBlock@@YIHPAUSTM_ACCESS@@@Z,31,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00409230,?STM_AccessGetBlock@@YIHPAUSTM_ACCESS@@@Z,15,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00409240,?STM_AccessTotalBytes@@YIIPAUSTM_ACCESS@@@Z,9,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00409250,?STM_AccessPosition@@YIIPAUSTM_ACCESS@@@Z,4,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audstrm,00409260,?STM_AccessUpStreamAccessor@@YIPAUSTM_ACCESS@@PAU1@@Z,21,a,mischa85,yes,0.062,Address-suffixed names 0; calibration not used
+audtimer,00409280,?InitAudioTimer@@YIXXZ,79,a,mischa85,yes,0.750,No address-suffixed names; calibration not used
+audtimer,004092d0,?AudioGetTime@@YI_KXZ,16,a,mischa85,yes,0.750,No address-suffixed names; calibration not used
+audtimer,004092e0,?highResGetTime@@YI_KXZ,47,a,mischa85,yes,0.750,No address-suffixed names; calibration not used
+audtimer,00409310,?failsafeGetTime@@YI_KXZ,123,a,mischa85,yes,0.750,No address-suffixed names; calibration not used
 b64pipe,0042b670,?Put@Base64Pipe@@UAEHPBXH@Z,386,a,mischa85,yes,0.6,
 b64pipe,0042b800,?Flush@Base64Pipe@@UAEHXZ,80,a,mischa85,yes,0.6,
 b64straw,0042b850,?Get@Base64Straw@@UAEHPAXH@Z,245,a,mischa85,yes,1.1,
@@ -50,6 +219,13 @@ bar,0042ba10,?Outline@ProgressBarClass@@ABEXXZ,100,a,mischa85,yes,,
 bar,0042ba80,?Redraw@ProgressBarClass@@QBEXXZ,591,a,mischa85,yes,,
 base64,0042d520,?Base64_Encode@@YIHPBXHPAXH@Z,285,a,mischa85,yes,0.6,
 base64,0042d640,?Base64_Decode@@YIHPBXHPAXH@Z,304,a,mischa85,yes,0.6,
+bench,0042f0a0,_$E2,23,a,mischa85,edit,0.571,Address-suffixed names 0; calibration not used
+bench,0042f0c0,??0Benchmark@@QAE@XZ,47,a,mischa85,edit,0.571,Address-suffixed names 0; calibration not used
+bench,0042f0f0,?Reset@Benchmark@@QAEXXZ,12,a,mischa85,edit,0.571,Address-suffixed names 0; calibration not used
+bench,0042f100,?Begin@Benchmark@@QAEX_N@Z,64,a,mischa85,edit,0.571,Address-suffixed names 0; calibration not used
+bench,0042f140,?End@Benchmark@@QAEXXZ,90,a,mischa85,edit,0.571,Address-suffixed names 0; calibration not used
+bench,0042f1a0,?Step@Benchmark@@QAEIXZ,58,a,mischa85,edit,0.571,Address-suffixed names 0; calibration not used
+bench,0042f1e0,?Value@Benchmark@@QBEIXZ,21,a,mischa85,edit,0.571,Address-suffixed names 0; calibration not used
 bfiofile,0042f200,??0BufferIOFileClass@@QAE@PBD@Z,225,a,mischa85,yes,,
 bfiofile,0042f2f0,??0BufferIOFileClass@@QAE@XZ,92,a,mischa85,yes,,
 bfiofile,0042f350,??1BufferIOFileClass@@UAE@XZ,64,a,mischa85,yes,,
@@ -129,6 +305,35 @@ buffer,00438470,??0BufferClass@@QAE@PAXH@Z,51,a,mischa85,yes,0.5,
 buffer,004384b0,??0BufferClass@@QAE@H@Z,31,a,mischa85,yes,0.5,
 buffer,004384d0,??0BufferClass@@QAE@XZ,13,a,mischa85,yes,0.5,
 buffer,004384e0,??1BufferClass@@QAE@XZ,17,a,mischa85,yes,0.5,
+bullettype,004642f0,_$E2,23,a,mischa85,yes,,
+bullettype,00464310,_$E5,40,a,mischa85,yes,,
+bullettype,00464340,_$E8,19,a,mischa85,yes,,
+bullettype,00464360,_$E11,19,a,mischa85,yes,,
+bullettype,00464380,_$E14,19,a,mischa85,yes,,
+bullettype,004643a0,_$E17,19,a,mischa85,yes,,
+bullettype,004643c0,_$E20,19,a,mischa85,yes,,
+bullettype,004643e0,_$E23,49,a,mischa85,yes,,
+bullettype,00464420,_$E26,33,a,mischa85,yes,,
+bullettype,00464450,_$E29,44,a,mischa85,yes,,
+bullettype,00464480,_$E32,39,a,mischa85,yes,,
+bullettype,004644b0,_$E35,15,a,mischa85,yes,,
+bullettype,004644c0,_$E38,18,a,mischa85,yes,,
+bullettype,004644e0,??0BulletTypeClass@@QAE@PBD@Z,542,a,mischa85,yes,,
+bullettype,00464700,??0BulletTypeClass@@QAE@ABVNoInitClass@@@Z,46,a,mischa85,yes,,
+bullettype,00464730,??1BulletTypeClass@@UAE@XZ,194,a,mischa85,yes,,
+bullettype,00464800,?Read_INI@BulletTypeClass@@UAE_NABVCCINIClass@@@Z,1357,a,mischa85,yes,,
+bullettype,00464d50,?From_Name@BulletTypeClass@@SI?AW4BulletType@@PBD@Z,143,a,mischa85,yes,,
+bullettype,00464de0,?Name_From@BulletTypeClass@@SIPBDW4BulletType@@@Z,23,a,mischa85,yes,,
+bullettype,00464e00,?Coord_Fixup@BulletTypeClass@@UBE?BVCoord@@ABV2@@Z,98,a,mischa85,yes,,
+bullettype,00464e70,?Compute_CRC@BulletTypeClass@@UBEXAAVCRCEngine@@@Z,306,a,mischa85,yes,,
+bullettype,00464fb0,?Load@BulletTypeClass@@UAGJPAUIStream@@@Z,134,a,mischa85,yes,,
+bullettype,00465040,?Save@BulletTypeClass@@UAGJPAUIStream@@H@Z,29,a,mischa85,yes,,
+bullettype,00465060,?GetClassID@BulletTypeClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
+bullettype,004650a0,?Find_Or_Make@BulletTypeClass@@SIPAV1@PBD@Z,131,a,mischa85,yes,,
+bullettype,00465130,?Detach@BulletTypeClass@@UAEXPBVAbstractClass@@_N@Z,27,a,mischa85,yes,,
+bullettype,00465150,?SetScaledSpawnDelay@BulletTypeClass@@QAEXH@Z,13,a,mischa85,yes,,
+bullettype,00465160,?Fetch_RTTI@BulletTypeClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,yes,,
+bullettype,00465170,?Fetch_Object_Size@BulletTypeClass@@UBEHXZ,6,a,mischa85,yes,,
 capmgr,00467b40,_$E2,40,a,mischa85,yes,,
 capmgr,00467b70,_$E5,19,a,mischa85,yes,,
 capmgr,00467b90,_$E8,19,a,mischa85,yes,,
@@ -471,6 +676,15 @@ connect,00481560,?Service_Receive_Queue@ConnectionClass@@MAEHXZ,81,a,mischa85,ye
 connect,004815c0,?Time@ConnectionClass@@SIIXZ,39,a,mischa85,yes,,
 connect,004815f0,?Command_Name@ConnectionClass@@SIPBDH@Z,20,a,mischa85,yes,,
 connect,00481610,??_GConnectionClass@@UAEPAXI@Z,56,a,mischa85,yes,,
+control,00483410,_$E2,23,a,mischa85,yes,0.22,
+control,00483430,??0ControlClass@@QAE@IHHHHI_N@Z,66,a,mischa85,yes,0.22,
+control,00483480,??0ControlClass@@QAE@ABV0@@Z,39,a,mischa85,yes,0.22,
+control,004834b0,?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z,83,a,mischa85,yes,0.22,
+control,00483510,?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z,10,a,mischa85,yes,0.22,
+control,00483520,?Get_ID@ControlClass@@MBEIXZ,4,a,mischa85,yes,0.22,
+control,00483530,?Draw_Me@ControlClass@@UAEHH@Z,33,a,mischa85,yes,0.22,
+control,00483560,?Peer_To_Peer@GadgetClass@@UAEXIAAW4KeyNumType@@AAVControlClass@@@Z,3,a,mischa85,yes,0.22,
+control,00483570,??_GControlClass@@UAEPAXI@Z,30,a,mischa85,yes,0.22,
 coopcamp,0048dc70,_$E2,40,a,mischa85,yes,,
 coopcamp,0048dca0,_$E5,19,a,mischa85,yes,,
 coopcamp,0048dcc0,_$E8,19,a,mischa85,yes,,
@@ -533,6 +747,23 @@ coord,00491620,_$E120,172,a,mischa85,yes,,
 coord,004916d0,_$E123,116,a,mischa85,yes,,
 coord,00491750,?Coord_Scatter@@YI?AVCoord@@ABV1@H_N@Z,289,a,mischa85,yes,,
 coord,00491880,?Adjacent_Coord_With_Height@@YI?AVCoord@@ABV1@W4FacingType@@@Z,111,a,mischa85,yes,,
+copyprotection,004918f0,?IsLauncherRunning@CopyProtection@@YI_NXZ,62,a,mischa85,yes,0.5,"Replaced unused globals.h include with the existing VerNum extern declaration; removes unrelated geometry initializer, no header edits"
+copyprotection,00491930,?NotifyLauncher@CopyProtection@@YI_NXZ,117,a,mischa85,yes,0.5,"Replaced unused globals.h include with the existing VerNum extern declaration; removes unrelated geometry initializer, no header edits"
+copyprotection,004919b0,?DispatchLauncherMessage@CopyProtection@@YIXPAUtagMSG@@@Z,88,a,mischa85,yes,0.5,"Replaced unused globals.h include with the existing VerNum extern declaration; removes unrelated geometry initializer, no header edits"
+copyprotection,00491a10,?CheckProtectedData@CopyProtection@@YI_NXZ,233,a,mischa85,yes,0.5,"Replaced unused globals.h include with the existing VerNum extern declaration; removes unrelated geometry initializer, no header edits"
+copyprotection,00491b00,?ShutDown@CopyProtection@@YIXXZ,101,a,mischa85,yes,0.5,"Replaced unused globals.h include with the existing VerNum extern declaration; removes unrelated geometry initializer, no header edits"
+copyprotection,00491b70,?CheckVersion@CopyProtection@@YI_NXZ,135,a,mischa85,yes,0.5,"Replaced unused globals.h include with the existing VerNum extern declaration; removes unrelated geometry initializer, no header edits"
+counter,00491c00,??0CounterClass@@QAE@XZ,24,a,mischa85,yes,0.15,
+counter,00491c20,??1CounterClass@@UAE@XZ,45,a,mischa85,yes,0.15,
+counter,00491c50,?Increment@CounterClass@@QAEHH@Z,93,a,mischa85,yes,0.15,
+counter,00491cb0,?Decrement@CounterClass@@QAEHH@Z,93,a,mischa85,yes,0.15,
+counter,00491d10,?Value@CounterClass@@QBEHH@Z,81,a,mischa85,yes,0.15,
+counter,00491d70,?Clear@CounterClass@@UAEXXZ,29,a,mischa85,yes,0.15,
+counter,00491d90,?Total@CounterClass@@QBEHXZ,25,a,mischa85,yes,0.15,
+counter,00491db0,?Save@CounterClass@@QAEJPAUIStream@@@Z,85,a,mischa85,yes,0.15,
+counter,00491e10,?Load@CounterClass@@QAEJPAUIStream@@@Z,137,a,mischa85,yes,0.15,
+counter,00491ea0,?Reserve@CounterClass@@QAE_NH@Z,81,a,mischa85,yes,0.15,
+counter,00491f00,??_GCounterClass@@UAEPAXI@Z,73,a,mischa85,yes,0.15,
 cpoint,00491f50,_$E2,23,a,mischa85,yes,,
 cpoint,00491f70,_$E5,40,a,mischa85,yes,,
 cpoint,00491fa0,_$E8,19,a,mischa85,yes,,
@@ -833,6 +1064,17 @@ fastmath,004bab30,?init_atan_tab@@YIMXZ,112,a,mischa85,yes,,
 fastmath,004baba0,?atan2f@fastmath@@YIMMM@Z,165,a,mischa85,yes,,
 fastmath,004bac50,?atanf@fastmath@@YIMM@Z,64,a,mischa85,yes,,
 fastmath,004bac90,?Sabotage_Sine@@YIXXZ,189,a,mischa85,yes,,
+field,004bad50,??0FieldClass@@QAE@PBDD@Z,84,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004badb0,??0FieldClass@@QAE@PBDE@Z,84,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004bae10,??0FieldClass@@QAE@PBDF@Z,84,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004bae70,??0FieldClass@@QAE@PBDG@Z,84,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004baed0,??0FieldClass@@QAE@PBDH@Z,84,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004baf30,??0FieldClass@@QAE@PBDI@Z,84,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004baf90,??0FieldClass@@QAE@PBD0@Z,99,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004bb000,??0FieldClass@@QAE@PBDPAXH@Z,90,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004bb060,??1FieldClass@@QAE@XZ,24,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004bb080,?Host_To_Net@FieldClass@@QAEXXZ,108,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
+field,004bb0f0,?Net_To_Host@FieldClass@@QAEXXZ,108,a,mischa85,yes,0.182,Address-suffixed names 0; calibration not used
 findpath,004bb160,_$E2,23,a,mischa85,yes,,
 findpath,004bb180,_$E5,40,a,mischa85,yes,,
 findpath,004bb1b0,_$E8,19,a,mischa85,yes,,
@@ -875,6 +1117,67 @@ firewall,005baee0,?Rank_A@FirewallHelperClass@@QAEHH@Z,57,a,mischa85,yes,,
 firewall,005baf20,?Rank_B@FirewallHelperClass@@QAEHH@Z,42,a,mischa85,yes,,
 firewall,005baf50,?Get_Next_Mangled_Source_Port@FirewallHelperClass@@QAEGG@Z,1014,a,mischa85,yes,,
 flasher,004bbf00,?Process@FlasherClass@@QAE_NXZ,27,a,mischa85,yes,,
+fly,004bbf20,_$E2,40,a,mischa85,yes,,
+fly,004bbf50,_$E5,19,a,mischa85,yes,,
+fly,004bbf70,_$E8,19,a,mischa85,yes,,
+fly,004bbf90,_$E11,19,a,mischa85,yes,,
+fly,004bbfb0,_$E14,19,a,mischa85,yes,,
+fly,004bbfd0,_$E17,19,a,mischa85,yes,,
+fly,004bbff0,_$E20,49,a,mischa85,yes,,
+fly,004bc030,_$E23,33,a,mischa85,yes,,
+fly,004bc060,_$E26,44,a,mischa85,yes,,
+fly,004bc090,_$E29,39,a,mischa85,yes,,
+fly,004bc0c0,_$E32,15,a,mischa85,yes,,
+fly,004bc0d0,_$E35,18,a,mischa85,yes,,
+fly,004bc0f0,_$E38,23,a,mischa85,yes,,
+fly,004bc110,??0FlyLocomotionClass@@QAE@XZ,128,a,mischa85,yes,,
+fly,004bc190,?Link_To_Object@FlyLocomotionClass@@UAGJPAX@Z,80,a,mischa85,yes,,
+fly,004bc1e0,??1FlyLocomotionClass@@UAE@XZ,18,a,mischa85,yes,,
+fly,004bc200,?Is_Moving@FlyLocomotionClass@@UAGEXZ,46,a,mischa85,yes,,
+fly,004bc230,?Is_Moving_Now@FlyLocomotionClass@@UAGEXZ,30,a,mischa85,yes,,
+fly,004bc250,?Destination@FlyLocomotionClass@@UAG?AUCoordStruct@@XZ,81,a,mischa85,yes,,
+fly,004bc2b0,?Process@FlyLocomotionClass@@UAGEXZ,303,a,mischa85,yes,,
+fly,004bc730,?Stop_Moving@FlyLocomotionClass@@UAGXXZ,705,a,mischa85,yes,,
+fly,004bca00,?Landing_Takeoff_AI@FlyLocomotionClass@@QAE_NXZ,604,a,mischa85,yes,,
+fly,004bcc60,?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ,238,a,mischa85,yes,,
+fly,004bdc20,?Physics@FlyLocomotionClass@@QAE?AW4ImpactType@@AAVCoord@@VDirType@@@Z,236,a,mischa85,yes,,
+fly,004bdd10,?Rotation_AI@FlyLocomotionClass@@QAEXXZ,210,a,mischa85,yes,,
+fly,004bddf0,?Process_Take_Off@FlyLocomotionClass@@QAE_NXZ,435,a,mischa85,yes,,
+fly,004bed90,?Draw_Matrix@FlyLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z,530,a,mischa85,yes,,
+fly,004befb0,?Draw_Point@FlyLocomotionClass@@UAG?AUPoint2DStruct@@XZ,262,a,mischa85,yes,,
+fly,004bf0c0,?Shadow_Point@FlyLocomotionClass@@UAG?AUPoint2DStruct@@XZ,16,a,mischa85,yes,,
+fly,004bf0d0,?Take_Off@FlyLocomotionClass@@QAEXXZ,282,a,mischa85,yes,,
+fly,004bf1f0,?Land@FlyLocomotionClass@@QAEXXZ,133,a,mischa85,yes,,
+fly,004bf280,?Shadow_Matrix@FlyLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z,265,a,mischa85,yes,,
+fly,004bf390,?Do_Turn@FlyLocomotionClass@@UAGXUDirStruct@@@Z,34,a,mischa85,yes,,
+fly,004bf3c0,?Is_In_Flight@FlyLocomotionClass@@QAE_NXZ,50,a,mischa85,yes,,
+fly,004bf400,?GetClassID@FlyLocomotionClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
+fly,004bf440,?Load@FlyLocomotionClass@@UAGJPAUIStream@@@Z,41,a,mischa85,yes,,
+fly,004bf470,?In_Which_Layer@FlyLocomotionClass@@UAG?AW4LayerType@@XZ,34,a,mischa85,yes,,
+fly,004bf4a0,?Power_Off@FlyLocomotionClass@@UAGEXZ,100,a,mischa85,yes,,
+fly,004bf510,?Is_Powered@FlyLocomotionClass@@UAGEXZ,13,a,mischa85,yes,,
+fly,004bf520,?Is_Ion_Sensitive@FlyLocomotionClass@@UAGEXZ,33,a,mischa85,yes,,
+fly,004bf550,?Tumble@FlyLocomotionClass@@QAEXXZ,66,a,mischa85,yes,,
+fly,004bf5a0,?Apparent_Speed@FlyLocomotionClass@@UAGHXZ,34,a,mischa85,yes,,
+fly,004bf5d0,?Get_Status@FlyLocomotionClass@@UAGHXZ,47,a,mischa85,yes,,
+fly,004bf600,?Acquire_Hunter_Seeker_Target@FlyLocomotionClass@@UAGXXZ,748,a,mischa85,yes,,
+fly,004bf8f0,?Needs_To_Land@FlyLocomotionClass@@QAE_NXZ,275,a,mischa85,yes,,
+fly,004bfa10,?Is_Locked_To_Straight_Flight@FlyLocomotionClass@@QAE_NXZ,215,a,mischa85,yes,,
+fuse,004cec20,_$E2,40,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cec50,_$E5,19,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cec70,_$E8,19,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cec90,_$E11,19,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cecb0,_$E14,19,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cecd0,_$E17,19,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cecf0,_$E20,49,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004ced30,_$E23,33,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004ced60,_$E26,44,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004ced90,_$E29,39,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cedc0,_$E32,15,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cedd0,_$E35,18,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cedf0,??0FuseClass@@QAE@XZ,40,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004cee20,?Arm_Fuse@FuseClass@@QAEXABVCoord@@0HH@Z,188,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
+fuse,004ceee0,?Fuse_Checkup@FuseClass@@QAE?AW4FuseResultType@@ABVCoord@@@Z,189,a,mischa85,edit,0.400,Address-suffixed names 0; calibration not used
 gamedlg,004cf730,_$E2,23,a,mischa85,yes,,
 gamedlg,004cf750,_$E5,40,a,mischa85,yes,,
 gamedlg,004cf780,_$E8,19,a,mischa85,yes,,
@@ -892,6 +1195,11 @@ gamedlg,004cf920,?Dialog@GameControlsClass@@QAEXXZ,219,a,mischa85,yes,,
 gamedlg,004cfa00,?Set@GameControlsClass@@AAEXXZ,511,a,mischa85,yes,,
 gamedlg,004cfc00,?Game_Controls_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,935,a,mischa85,yes,,
 gamedlg,004cffb0,?Game_Controls_Command@@YIXPAUHWND__@@H0I@Z,115,a,mischa85,yes,,
+gametime,004d0030,_$E2,12,a,mischa85,yes,0.800,Address-suffixed names 0; calibration not used
+gametime,004d0040,??0GameTimeClass@@QAE@XZ,15,a,mischa85,yes,0.800,Address-suffixed names 0; calibration not used
+gametime,004d0050,?Get_Time@GameTimeClass@@QAEIXZ,23,a,mischa85,yes,0.800,Address-suffixed names 0; calibration not used
+gametime,004d0070,?Get_Game_Time@@YIIXZ,23,a,mischa85,yes,0.800,Address-suffixed names 0; calibration not used
+gametime,004d0090,?Get_Game_Time_50@@YIIXZ,53,a,mischa85,yes,0.800,Address-suffixed names 0; calibration not used
 gauge,004d00d0,_$E2,23,a,mischa85,yes,,
 gauge,004d00f0,??0GaugeClass@@QAE@IHHHH@Z,127,a,mischa85,yes,,
 gauge,004d0170,?Set_Maximum@GaugeClass@@UAEHH@Z,32,a,mischa85,yes,,
@@ -907,6 +1215,7 @@ gauge,004d0700,?Set_Yellow_Limit@TriColorGaugeClass@@UAEHH@Z,34,a,mischa85,yes,,
 gauge,004d0730,?Draw_Me@TriColorGaugeClass@@UAEHH@Z,1360,a,mischa85,yes,,
 getcd,004d2940,??0GetCDClass@@QAE@XZ,194,a,mischa85,yes,,
 getcd,004d2a10,??1GetCDClass@@QAE@XZ,1,a,mischa85,yes,,
+getcpu,004d2a20,?Get_CPU_Type@@YIXAAHAA_NPADH@Z,59,a,mischa85,edit,3.000,Address-suffixed names 0; calibration not used
 grphmenu2,004df330,_$E2,23,a,mischa85,yes,,
 grphmenu2,004df350,?GM_Read_Anim_Item@@YIPAVGraphicMenuItem@@ABVWstring@@ABVINIClass@@AAVMSEngine@@AAVPoint2D@@@Z,669,a,mischa85,yes,,
 grphmenu2,004df5f0,??0GraphicMenuAnimItem@@QAE@HAAVMSEngine@@ABVPoint2D@@ABV?$TRect@H@@ABVWstring@@3H_N@Z,333,a,mischa85,yes,,
@@ -1284,6 +1593,47 @@ house,004f8ec0,?Name@HouseClass@@W3AGPAGXZ,10,a,mischa85,yes,,
 house,004f8ed0,?QueryInterface@HouseClass@@WCM@AGJABU_GUID@@PAPAX@Z,10,a,mischa85,yes,,
 house,004f8ee0,?AddRef@HouseClass@@WCM@AGKXZ,10,a,mischa85,yes,,
 house,004f8ef0,?Release@HouseClass@@WCM@AGKXZ,10,a,mischa85,yes,,
+hover,004fb6e0,_$E2,40,a,mischa85,yes,,
+hover,004fb710,_$E5,19,a,mischa85,yes,,
+hover,004fb730,_$E8,19,a,mischa85,yes,,
+hover,004fb750,_$E11,19,a,mischa85,yes,,
+hover,004fb770,_$E14,19,a,mischa85,yes,,
+hover,004fb790,_$E17,19,a,mischa85,yes,,
+hover,004fb7b0,_$E20,49,a,mischa85,yes,,
+hover,004fb7f0,_$E23,33,a,mischa85,yes,,
+hover,004fb820,_$E26,44,a,mischa85,yes,,
+hover,004fb850,_$E29,39,a,mischa85,yes,,
+hover,004fb880,_$E32,15,a,mischa85,yes,,
+hover,004fb890,_$E35,18,a,mischa85,yes,,
+hover,004fb8b0,_$E38,23,a,mischa85,yes,,
+hover,004fb8d0,??0HoverLocomotionClass@@QAE@XZ,131,a,mischa85,yes,,
+hover,004fb960,?Link_To_Object@HoverLocomotionClass@@UAGJPAX@Z,77,a,mischa85,yes,,
+hover,004fb9b0,??1HoverLocomotionClass@@UAE@XZ,18,a,mischa85,yes,,
+hover,004fb9d0,?Gravity_AI@HoverLocomotionClass@@AAEXXZ,529,a,mischa85,yes,,
+hover,004fbbf0,?Draw_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z,851,a,mischa85,yes,,
+hover,004fbf50,?Shadow_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z,103,a,mischa85,yes,,
+hover,004fc880,?Is_Moving@HoverLocomotionClass@@UAGEXZ,75,a,mischa85,yes,,
+hover,004fc8d0,?Is_Moving_Now@HoverLocomotionClass@@UAGEXZ,46,a,mischa85,yes,,
+hover,004fc900,?Destination@HoverLocomotionClass@@UAG?AUCoordStruct@@XZ,92,a,mischa85,yes,,
+hover,004fc960,?Head_To_Coord@HoverLocomotionClass@@UAG?AUCoordStruct@@XZ,113,a,mischa85,yes,,
+hover,004fc9e0,?Move_To@HoverLocomotionClass@@UAGXUCoordStruct@@@Z,474,a,mischa85,yes,,
+hover,004fda50,?Stop@HoverLocomotionClass@@AAEXXZ,48,a,mischa85,yes,,
+hover,004fda80,?Stop_Driver@HoverLocomotionClass@@AAEXXZ,111,a,mischa85,yes,,
+hover,004fdaf0,?Motion_AI@HoverLocomotionClass@@AAEXXZ,1094,a,mischa85,yes,,
+hover,004fdf40,?Stop_Moving@HoverLocomotionClass@@UAGXXZ,77,a,mischa85,yes,,
+hover,004fdf90,?Do_Turn@HoverLocomotionClass@@UAGXUDirStruct@@@Z,34,a,mischa85,yes,,
+hover,004fdfc0,?Is_Moving1@HoverLocomotionClass@@AAE_NXZ,15,a,mischa85,yes,,
+hover,004fdfd0,?Reduce_Path_Length@HoverLocomotionClass@@AAE_NXZ,283,a,mischa85,yes,,
+hover,004fe800,?Power_Off@HoverLocomotionClass@@UAGEXZ,120,a,mischa85,yes,,
+hover,004fe880,?Is_Powered@HoverLocomotionClass@@UAGEXZ,42,a,mischa85,yes,,
+hover,004fe8b0,?Is_Ion_Sensitive@HoverLocomotionClass@@UAGEXZ,360,a,mischa85,yes,,
+hover,004fea20,?Push@HoverLocomotionClass@@UAGEUDirStruct@@@Z,430,a,mischa85,yes,,
+hover,004febd0,?Shove@HoverLocomotionClass@@UAGEUDirStruct@@@Z,93,a,mischa85,yes,,
+hover,004fec30,?Do_Shove@HoverLocomotionClass@@AAEXXZ,66,a,mischa85,yes,,
+hover,004fec80,?GetClassID@HoverLocomotionClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
+hover,004fecc0,?Load@HoverLocomotionClass@@UAGJPAUIStream@@@Z,68,a,mischa85,yes,,
+hover,004fed10,?In_Which_Layer@HoverLocomotionClass@@UAG?AW4LayerType@@XZ,8,a,mischa85,yes,,
+hover,004fed20,?Start@HoverLocomotionClass@@AAEXXZ,169,a,mischa85,yes,,
 intro,0051ecf0,_$E2,40,a,mischa85,yes,,
 intro,0051ed20,_$E5,19,a,mischa85,yes,,
 intro,0051ed40,_$E8,19,a,mischa85,yes,,
@@ -1371,6 +1721,32 @@ ipxgconn,00524d70,?Send_Packet@IPXGlobalConnClass@@UAEHPAXHHH@Z,28,a,mischa85,ye
 ipxgconn,00524d90,?Receive_Packet@IPXGlobalConnClass@@UAEHPAXH@Z,18,a,mischa85,yes,,
 ipxgconn,00524db0,?Get_Packet@IPXGlobalConnClass@@UAEHPAXPAH@Z,18,a,mischa85,yes,,
 ipxgconn,00524dd0,??_GIPXGlobalConnClass@@UAEPAXI@Z,102,a,mischa85,yes,,
+isotile,00527890,_$E2,40,a,mischa85,yes,,
+isotile,005278c0,_$E5,19,a,mischa85,yes,,
+isotile,005278e0,_$E8,19,a,mischa85,yes,,
+isotile,00527900,_$E11,19,a,mischa85,yes,,
+isotile,00527920,_$E14,19,a,mischa85,yes,,
+isotile,00527940,_$E17,19,a,mischa85,yes,,
+isotile,00527960,_$E20,49,a,mischa85,yes,,
+isotile,005279a0,_$E23,33,a,mischa85,yes,,
+isotile,005279d0,_$E26,44,a,mischa85,yes,,
+isotile,00527a00,_$E29,39,a,mischa85,yes,,
+isotile,00527a30,_$E32,15,a,mischa85,yes,,
+isotile,00527a40,_$E35,18,a,mischa85,yes,,
+isotile,00527a60,_$E38,23,a,mischa85,yes,,
+isotile,00527a80,?Mark@IsometricTileClass@@UAE_NW4MarkType@@@Z,1104,a,mischa85,yes,,
+isotile,00527ed0,??0IsometricTileClass@@QAE@W4IsometricTileType@@ABVCell@@@Z,250,a,mischa85,yes,,
+isotile,00527fd0,??1IsometricTileClass@@UAE@XZ,262,a,mischa85,yes,,
+isotile,005280e0,?Load@IsometricTileClass@@UAGJPAUIStream@@@Z,90,a,mischa85,yes,,
+isotile,00528140,?Save@IsometricTileClass@@UAGJPAUIStream@@H@Z,29,a,mischa85,yes,,
+isotile,00528160,?Unlimbo@IsometricTileClass@@UAE_NABVCoord@@W4Dir256@@@Z,38,a,mischa85,yes,,
+isotile,00528190,?Limbo@IsometricTileClass@@UAE_NXZ,67,a,mischa85,yes,,
+isotile,005281e0,?Fetch_Object_Size@IsometricTileClass@@UBEHXZ,6,a,mischa85,yes,,
+isotile,005281f0,?Fetch_RTTI@IsometricTileClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,yes,,
+isotile,00528200,?GetClassID@IsometricTileClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
+isotile,00528240,?Class_Of@IsometricTileClass@@UBEPBVObjectTypeClass@@XZ,7,a,mischa85,yes,,
+isotile,00528250,?Draw_It@IsometricTileClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,3,a,mischa85,yes,,
+isotile,00528260,??_GIsometricTileClass@@UAEPAXI@Z,282,a,mischa85,yes,,
 kamikaze,00531360,_$E2,40,a,mischa85,yes,,
 kamikaze,00531390,_$E5,19,a,mischa85,yes,,
 kamikaze,005313b0,_$E8,19,a,mischa85,yes,,
@@ -1424,6 +1800,15 @@ layer,00534920,?Sort@LayerClass@@QAEXXZ,85,a,mischa85,yes,,
 layer,00534980,?Sorted_Add@LayerClass@@QAEHQBVObjectClass@@@Z,140,a,mischa85,yes,,
 layer,00534a10,?Save@LayerClass@@QAEJPAUIStream@@@Z,98,a,mischa85,yes,,
 layer,00534a80,?Load@LayerClass@@QAEJPAUIStream@@@Z,199,a,mischa85,yes,,
+lcwpipe,00534ee0,??0LCWPipe@@QAE@W4CompControl@0@H@Z,110,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+lcwpipe,00534f50,??1LCWPipe@@UAE@XZ,53,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+lcwpipe,00534f90,?Put@LCWPipe@@UAEHPBXH@Z,551,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+lcwpipe,005351c0,?Flush@LCWPipe@@UAEHXZ,191,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+lcwpipe,00535280,??_GLCWPipe@@UAEPAXI@Z,73,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+lcwstraw,005352d0,??0LCWStraw@@QAE@W4CompControl@0@H@Z,103,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+lcwstraw,00535340,??1LCWStraw@@UAE@XZ,53,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+lcwstraw,00535380,?Get@LCWStraw@@UAEHPAXH@Z,346,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+lcwstraw,005354e0,??_GLCWStraw@@UAEPAXI@Z,73,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
 lcwuncmp,00535530,_LCW_Uncompress,482,a,mischa85,yes,,
 lightcon,00538670,_$E2,23,a,mischa85,yes,,
 lightcon,00538690,_$E5,40,a,mischa85,yes,,
@@ -1553,6 +1938,58 @@ loaddlg,0053c680,?Load_File@LoadOptionsClass@@UAE_NPBD@Z,209,a,mischa85,yes,,
 loaddlg,0053c760,?Save_File@LoadOptionsClass@@UAE_NPBDPBG@Z,105,a,mischa85,yes,,
 loaddlg,0053c7d0,?Delete_File@LoadOptionsClass@@UAE_NPBD@Z,20,a,mischa85,yes,,
 loaddlg,0053c7f0,?Read_File@LoadOptionsClass@@UAE_NPAVFileEntryClass@@PAU_WIN32_FIND_DATAA@@@Z,379,a,mischa85,yes,,
+loco,0053cdd0,_$E2,23,a,mischa85,yes,,
+loco,0053cdf0,_$E5,40,a,mischa85,yes,,
+loco,0053ce20,_$E8,19,a,mischa85,yes,,
+loco,0053ce40,_$E11,19,a,mischa85,yes,,
+loco,0053ce60,_$E14,19,a,mischa85,yes,,
+loco,0053ce80,_$E17,19,a,mischa85,yes,,
+loco,0053cea0,_$E20,19,a,mischa85,yes,,
+loco,0053cec0,_$E23,49,a,mischa85,yes,,
+loco,0053cf00,_$E26,33,a,mischa85,yes,,
+loco,0053cf30,_$E29,44,a,mischa85,yes,,
+loco,0053cf60,_$E32,39,a,mischa85,yes,,
+loco,0053cf90,_$E35,15,a,mischa85,yes,,
+loco,0053cfa0,_$E38,18,a,mischa85,yes,,
+loco,0053cfc0,??0LocomotionClass@@QAE@XZ,35,a,mischa85,yes,,
+loco,0053cff0,??1LocomotionClass@@UAE@XZ,21,a,mischa85,yes,,
+loco,0053d010,?Link_To_Object@LocomotionClass@@UAGJPAX@Z,19,a,mischa85,yes,,
+loco,0053d030,?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z,159,a,mischa85,yes,,
+loco,0053d0d0,?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z,240,a,mischa85,yes,,
+loco,0053d1c0,?Shadow_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ,40,a,mischa85,yes,,
+loco,0053d1f0,?Power_On@LocomotionClass@@UAGEXZ,17,a,mischa85,yes,,
+loco,0053d210,?Power_Off@LocomotionClass@@UAGEXZ,17,a,mischa85,yes,,
+loco,0053d230,?Is_Powered@LocomotionClass@@UAGEXZ,10,a,mischa85,yes,,
+loco,0053d240,?Is_Ion_Sensitive@LocomotionClass@@UAGEXZ,5,a,mischa85,yes,,
+loco,0053d250,?AddRef@LocomotionClass@@UAGKXZ,30,a,mischa85,yes,,
+loco,0053d270,?Release@LocomotionClass@@UAGKXZ,55,a,mischa85,yes,,
+loco,0053d2b0,?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z,164,a,mischa85,yes,,
+loco,0053d360,?Save@LocomotionClass@@UAGJPAUIStream@@H@Z,87,a,mischa85,yes,,
+loco,0053d3c0,?Load@LocomotionClass@@UAGJPAUIStream@@@Z,122,a,mischa85,yes,,
+loco,0053d440,?GetSizeMax@LocomotionClass@@UAGJPAT_ULARGE_INTEGER@@@Z,45,a,mischa85,yes,,
+loco,0053d470,?Push@LocomotionClass@@UAGEUDirStruct@@@Z,5,a,mischa85,yes,,
+loco,0053d480,?Shove@LocomotionClass@@UAGEUDirStruct@@@Z,5,a,mischa85,yes,,
+loco,0053d490,?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ,3,a,mischa85,yes,,
+loco,0053d4a0,?Z_Adjust@LocomotionClass@@UAGHXZ,5,a,mischa85,yes,,
+loco,0053d4b0,?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ,8,a,mischa85,yes,,
+loco,0053d4c0,?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z,5,a,mischa85,yes,,
+loco,0053d4d0,?Draw_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ,16,a,mischa85,yes,,
+loco,0053d4e0,?Is_To_Have_Shadow@LocomotionClass@@UAGEXZ,5,a,mischa85,yes,,
+loco,0053d4f0,?Can_Enter_Cell@LocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z,5,a,mischa85,yes,,
+loco,0053d500,?Force_Immediate_Destination@LocomotionClass@@UAGXUCoordStruct@@@Z,3,a,mischa85,yes,,
+loco,0053d510,?Force_Track@LocomotionClass@@UAGXHUCoordStruct@@@Z,3,a,mischa85,yes,,
+loco,0053d520,?Unlimbo@LocomotionClass@@UAGXXZ,3,a,mischa85,yes,,
+loco,0053d530,?Do_Turn@LocomotionClass@@UAGXUDirStruct@@@Z,3,a,mischa85,yes,,
+loco,0053d540,?Stop_Moving@LocomotionClass@@UAGXXZ,3,a,mischa85,yes,,
+loco,0053d550,?Move_To@LocomotionClass@@UAGXUCoordStruct@@@Z,3,a,mischa85,yes,,
+loco,0053d560,?Process@LocomotionClass@@UAGEXZ,5,a,mischa85,yes,,
+loco,0053d570,?Destination@LocomotionClass@@UAG?AUCoordStruct@@XZ,39,a,mischa85,yes,,
+loco,0053d5a0,?Head_To_Coord@LocomotionClass@@UAG?AUCoordStruct@@XZ,44,a,mischa85,yes,,
+loco,0053d5d0,?Is_Moving@LocomotionClass@@UAGEXZ,5,a,mischa85,yes,,
+loco,0053d5e0,?Force_New_Slope@LocomotionClass@@UAGXH@Z,3,a,mischa85,yes,,
+loco,0053d5f0,?Drawing_Code@LocomotionClass@@UAGHXZ,5,a,mischa85,yes,,
+loco,0053d600,?Can_Fire@LocomotionClass@@UAG?AW4FireErrorType@@XZ,5,a,mischa85,yes,,
+loco,0053d610,?Apparent_Speed@LocomotionClass@@UAGHXZ,18,a,mischa85,yes,,
 lzo1x_c,0053e420,?lzo1x_1_compress@@YIHPBEIPAEPAIPAX@Z,103,a,mischa85,yes,0.6,
 lzo1x_c,0053e490,?do_compress@@YIHPBEIPAEPAIPAX@Z,1237,a,mischa85,yes,0.6,
 lzo1x_d,0053e970,?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z,457,a,mischa85,yes,1.17,
@@ -1607,6 +2044,22 @@ matrix3d,00591180,??D@YI?AVMatrix3D@@ABV0@0@Z,508,a,mischa85,yes,,
 matrix3d,00591380,??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z,120,a,mischa85,yes,,
 matrix3d,00591400,?Matrix3DStruct_To_Matrix3D@Matrix3D@@SIAAV1@AAV1@ABUMatrix3DStruct@@@Z,18,a,mischa85,yes,,
 matrix3d,00591420,?Orthogonal_Inverse@Matrix3D@@SI?AV1@ABV1@@Z,181,a,mischa85,yes,,
+milsectmr,00593340,_$E2,23,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,00593360,_$E5,40,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,00593390,_$E8,19,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,005933b0,_$E11,19,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,005933d0,_$E14,19,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,005933f0,_$E17,19,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,00593410,_$E20,19,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,00593430,_$E23,49,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,00593470,_$E26,33,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,005934a0,_$E29,44,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,005934d0,_$E32,39,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,00593500,_$E35,15,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,00593510,_$E38,18,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,00593530,??0MillisecondTimerClass@@QAE@XZ,144,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,005935c0,??1MillisecondTimerClass@@QAE@XZ,23,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
+milsectmr,005935e0,??BMillisecondTimerClass@@QBENXZ,149,a,mischa85,edit,0.375,Address-suffixed names 0; calibration not used
 modemgst,00595e20,_$E2,23,a,mischa85,yes,,
 modemgst,00595e40,_$E5,40,a,mischa85,yes,,
 modemgst,00595e70,_$E8,19,a,mischa85,yes,,
@@ -1757,6 +2210,11 @@ mpscore,005aabd0,?MP_Score_Tally@@YIXXZ,498,a,mischa85,yes,,
 mpscore,005aadd0,?MP_Score_Sort@@YIXXZ,62,a,mischa85,yes,,
 mpscore,005aae10,?MP_Score_Compare@@YAHPBX0@Z,40,a,mischa85,yes,,
 mpscore,005aae40,?MP_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,1392,a,mischa85,yes,,
+mpu,005abf20,?Get_CPU_Rate@@YIIAAI@Z,49,a,mischa85,edit,3.000,Address-suffixed names 0; calibration not used
+mstimer,005b6a00,??0MillisecondSystemTimerClass@@QAE@XZ,15,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+mstimer,005b6a10,??1MillisecondSystemTimerClass@@QAE@XZ,9,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+mstimer,005b6a20,??RMillisecondSystemTimerClass@@QBEHXZ,6,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+mstimer,005b6a30,??BMillisecondSystemTimerClass@@QBEHXZ,6,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
 multiplayerteam,005b9930,_$E2,23,a,mischa85,yes,,
 multiplayerteam,005b9950,_$E5,40,a,mischa85,yes,,
 multiplayerteam,005b9980,_$E8,19,a,mischa85,yes,,
@@ -1797,6 +2255,19 @@ netdlg,005bb9d0,?Compute_Name_CRC@@YIIPAD@Z,122,a,mischa85,yes,,
 netdlg,005bba50,?Compute_Name_CRC@@YIIPBG@Z,116,a,mischa85,yes,,
 netdlg,005bbad0,?Clear_Listbox@@YIXPAVListClass@@@Z,74,a,mischa85,yes,,
 obscure,005d8390,?Obfuscate@@YIHPBD@Z,578,a,mischa85,yes,,
+packet,00602a60,??1PacketClass@@QAE@XZ,41,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602a90,?Add_Field@PacketClass@@QAEXPAVFieldClass@@@Z,16,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602aa0,??0PacketClass@@QAE@PAD@Z,270,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602bb0,?Create_Comms_Packet@PacketClass@@QAEPADAAH@Z,278,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602cd0,?Find_Field@PacketClass@@QAEPAVFieldClass@@PBD@Z,50,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602d10,?Get_Field@PacketClass@@QAE_NPBDAAD@Z,75,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602d60,?Get_Field@PacketClass@@QAE_NPBDAAE@Z,75,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602db0,?Get_Field@PacketClass@@QAE_NPBDAAF@Z,77,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602e00,?Get_Field@PacketClass@@QAE_NPBDAAG@Z,77,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602e50,?Get_Field@PacketClass@@QAE_NPBDAAH@Z,75,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602ea0,?Get_Field@PacketClass@@QAE_NPBDPAD@Z,98,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602f10,?Get_Field@PacketClass@@QAE_NPBDAAI@Z,75,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
+packet,00602f60,?Get_Field@PacketClass@@QAE_NPBDPAXAAH@Z,111,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
 phoneed,0060d780,_$E2,23,a,mischa85,yes,,
 phoneed,0060d7a0,_$E5,40,a,mischa85,yes,,
 phoneed,0060d7d0,_$E8,19,a,mischa85,yes,,
@@ -1851,8 +2322,51 @@ pk,0060f950,??6?$Int@$0EA@@@QBE?AV0@H@Z,70,a,mischa85,yes,,
 pk,0060f9a0,??O?$Int@$0EA@@@QBE_NABV0@@Z,23,a,mischa85,yes,,
 pk,0060f9c0,??0RemainderTable@?$Int@$0EA@@@QAE@ABV1@@Z,89,a,mischa85,yes,,
 pk,0060fa20,?Increment@RemainderTable@?$Int@$0EA@@@QAEXG@Z,108,a,mischa85,yes,,
+pkpipe,0060fa90,??0PKPipe@@QAE@W4CryptControl@0@AAVRandomStraw@@@Z,83,a,mischa85,yes,0.286,Address-suffixed names 0; calibration not used
+pkpipe,0060faf0,?Put_To@PKPipe@@UAEXPAVPipe@@@Z,79,a,mischa85,yes,0.286,Address-suffixed names 0; calibration not used
+pkpipe,0060fb40,?Key@PKPipe@@QAEXPBVPKey@@@Z,91,a,mischa85,yes,0.286,Address-suffixed names 0; calibration not used
+pkpipe,0060fba0,?Put@PKPipe@@UAEHPBXH@Z,360,a,mischa85,yes,0.286,Address-suffixed names 0; calibration not used
+pkpipe,0060fd10,?Encrypted_Key_Length@PKPipe@@ABEHXZ,40,a,mischa85,yes,0.286,Address-suffixed names 0; calibration not used
+pkpipe,0060fd40,?Plain_Key_Length@PKPipe@@ABEHXZ,39,a,mischa85,yes,0.286,Address-suffixed names 0; calibration not used
+pkpipe,0060fd70,??_GBlowPipe@@UAEPAXI@Z,70,a,mischa85,yes,0.286,Address-suffixed names 0; calibration not used
+pkstraw,0060fe30,??0PKStraw@@QAE@W4CryptControl@0@AAVRandomStraw@@@Z,98,a,mischa85,yes,0.333,Address-suffixed names 0; calibration not used
+pkstraw,0060fea0,?Get_From@PKStraw@@UAEXPAVStraw@@@Z,76,a,mischa85,yes,0.333,Address-suffixed names 0; calibration not used
+pkstraw,0060fef0,?Key@PKStraw@@QAEXPBVPKey@@@Z,32,a,mischa85,yes,0.333,Address-suffixed names 0; calibration not used
+pkstraw,0060ff10,?Get@PKStraw@@UAEHPAXH@Z,455,a,mischa85,yes,0.333,Address-suffixed names 0; calibration not used
+pkstraw,006100e0,?Encrypted_Key_Length@PKStraw@@ABEHXZ,40,a,mischa85,yes,0.333,Address-suffixed names 0; calibration not used
+pkstraw,00610110,?Plain_Key_Length@PKStraw@@ABEHXZ,39,a,mischa85,yes,0.333,Address-suffixed names 0; calibration not used
 polygon,0061be40,?Rasterize_Polygon@@YIXABUPolygonShapeStruct@@AAUPolygonRasterStruct@@@Z,602,a,mischa85,yes,,
 polygon,0061c0a0,?Rasterize_Line_Span@@YIXHHHHHHAAPAVPoint2D@@@Z,439,a,mischa85,yes,,
+power,0061c260,_$E2,23,a,mischa85,yes,,
+power,0061c280,_$E5,40,a,mischa85,yes,,
+power,0061c2b0,_$E8,19,a,mischa85,yes,,
+power,0061c2d0,_$E11,19,a,mischa85,yes,,
+power,0061c2f0,_$E14,19,a,mischa85,yes,,
+power,0061c310,_$E17,19,a,mischa85,yes,,
+power,0061c330,_$E20,19,a,mischa85,yes,,
+power,0061c350,_$E23,49,a,mischa85,yes,,
+power,0061c390,_$E26,33,a,mischa85,yes,,
+power,0061c3c0,_$E29,44,a,mischa85,yes,,
+power,0061c3f0,_$E32,39,a,mischa85,yes,,
+power,0061c420,_$E35,15,a,mischa85,yes,,
+power,0061c430,_$E38,18,a,mischa85,yes,,
+power,0061c450,??0PowerClass@@QAE@XZ,119,a,mischa85,yes,,
+power,0061c4d0,?Init_Clear@PowerClass@@UAEXXZ,123,a,mischa85,yes,,
+power,0061c550,?One_Time@PowerClass@@UAEXXZ,5,a,mischa85,yes,,
+power,0061c560,?Init_For_House@PowerClass@@UAEXXZ,26,a,mischa85,yes,,
+power,0061c580,?DisposeOfArt@PowerClass@@UAEXXZ,36,a,mischa85,yes,,
+power,0061c5b0,?Flash_Power@PowerClass@@QAEXXZ,53,a,mischa85,yes,,
+power,0061c5f0,?Desired_Power_Height@PowerClass@@AAEHXZ,149,a,mischa85,yes,,
+power,0061c690,?Update_Delay@PowerClass@@AAEHXZ,73,a,mischa85,yes,,
+power,0061c6e0,?Max_Power_Height@PowerClass@@AAEHXZ,25,a,mischa85,yes,,
+power,0061c700,?Desired_Levels@PowerClass@@AAEHAAH00@Z,446,a,mischa85,yes,,
+power,0061c8c0,?Draw_It@PowerClass@@UAEX_N@Z,651,a,mischa85,yes,,
+power,0061cb50,?Remove_Pip@PowerClass@@AAEXXZ,106,a,mischa85,yes,,
+power,0061cbc0,?Add_Pip@PowerClass@@AAEXXZ,106,a,mischa85,yes,,
+power,0061cc30,?AI@PowerClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z,1279,a,mischa85,yes,,
+power,0061d130,?Reposition_Sidebar@PowerClass@@UAEXXZ,142,a,mischa85,yes,,
+power,0061d1c0,?Help_Text@PowerClass@@UAEPBDH@Z,83,a,mischa85,yes,,
+power,0061d220,??_GPowerClass@@UAEPAXI@Z,30,a,mischa85,yes,,
 progress,0061eab0,_$E2,23,a,mischa85,yes,,
 progress,0061ead0,_$E5,40,a,mischa85,yes,,
 progress,0061eb00,_$E8,19,a,mischa85,yes,,
@@ -1901,6 +2415,21 @@ progress,006203c0,?Has_Dialog@ProgressScreenClass@@QAE_NXZ,11,a,mischa85,yes,,
 progress,006203d0,?Clear_Dialog@ProgressScreenClass@@QAEXXZ,8,a,mischa85,yes,,
 progress,006203e0,?Unknown_Virtual_0@ProgressScreenClass@@UAEXH@Z,10,a,mischa85,yes,,
 progress,006203f0,?Get_Current_Progress@ProgressScreenClass@@QBENH@Z,28,a,mischa85,yes,,
+quat,00622180,?Set@Quaternion@@QAEXMMMM@Z,30,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,006221a0,?Normalize@Quaternion@@QAEXXZ,89,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622200,?Scale@Quaternion@@QAEXM@Z,41,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622230,??AQuaternion@@QAEAAMH@Z,10,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622240,??AQuaternion@@QBE?BMH@Z,10,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622250,??4Quaternion@@QAE?AV0@ABV0@@Z,59,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622400,??D@YI?AVQuaternion@@ABV0@0@Z,367,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622570,??K@YI?AVQuaternion@@ABV0@0@Z,122,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,006225f0,?Inverse@@YI?AVQuaternion@@ABV1@@Z,69,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622640,?Conjugate@@YI?AVQuaternion@@ABV1@@Z,69,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622690,?Trackball@@YI?AVQuaternion@@MMMMM@Z,785,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,006229b0,?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z,266,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622ac0,?Slerp@@YI?AVQuaternion@@ABV1@0M@Z,409,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622c60,?Build_Quaternion@@YI?AVQuaternion@@ABVMatrix3D@@@Z,581,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
+quat,00622eb0,?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z,245,a,mischa85,edit,0.267,Address-suffixed names 0; calibration not used
 random,006386f0,??0RandomClass@@QAE@I@Z,11,c,"Ghidra seed, landed random.h and verified original instructions",yes,0.56,"No old or reference body consulted; Mix tables remain original data; no Ghidra export, constructor from layout and original instructions"
 random,00638700,??RRandomClass@@QAEHXZ,24,c,"Ghidra seed, landed random.h and verified original instructions",yes,0.56,No old or reference body consulted; Mix tables remain original data
 random,00638720,??RRandomClass@@QAEHHH@Z,106,c,"Ghidra seed, landed random.h and verified original instructions",yes,0.56,No old or reference body consulted; Mix tables remain original data
@@ -1915,6 +2444,8 @@ rc_ptr_base,00639510,??1rc_ptr_base@@UAE@XZ,28,a,mischa85,yes,,
 rc_ptr_base,00639530,?Assign@rc_ptr_base@@QAEXPAX@Z,47,a,mischa85,yes,,
 rc_ptr_base,00639560,??0rc_ptr_base@@QAE@ABV0@@Z,30,a,mischa85,yes,,
 rc_ptr_base,00639580,??_Grc_ptr_base@@UAEPAXI@Z,50,a,mischa85,yes,,
+readline,006395c0,?Read_Line@@YIHAAVFileClass@@PADHAA_N@Z,176,a,mischa85,yes,1.000,Address-suffixed names 0; calibration not used
+readline,00639670,?Read_Line@@YIHAAVStraw@@PADHAA_N@Z,152,a,mischa85,yes,1.000,Address-suffixed names 0; calibration not used
 restate,0063aea0,_$E2,23,a,mischa85,yes,,
 restate,0063aec0,_$E5,40,a,mischa85,yes,,
 restate,0063aef0,_$E8,19,a,mischa85,yes,,
@@ -1930,6 +2461,15 @@ restate,0063b060,_$E35,15,a,mischa85,yes,,
 restate,0063b070,_$E38,18,a,mischa85,yes,,
 restate,0063b090,?Restate_Mission@@YIXPAVScenarioClass@@@Z,476,a,mischa85,yes,,
 restate,0063b270,?Restate_Mission_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,136,a,mischa85,yes,,
+rgb,0063cc80,?Lerp@RGBClass@@QAEAAV1@ABV1@0M@Z,355,a,mischa85,yes,1.0,
+rgb,0063cdf0,?Set@RGBClass@@QAEAAV1@ABV1@M@Z,290,a,mischa85,yes,1.0,
+rgb,0063cf20,?Adjust@RGBClass@@QAEXHABV1@@Z,134,a,mischa85,yes,1.0,
+rgb,0063cfb0,?Difference@RGBClass@@QBEHABV1@@Z,70,a,mischa85,yes,1.0,
+rgb,0063d000,??BRGBClass@@QBE?AVHSVClass@@XZ,321,a,mischa85,yes,1.0,
+rle,0063d150,?Compress@RLEEngine@@QBEHPBXPAXH@Z,95,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+rle,0063d1b0,?Line_Compress@RLEEngine@@QBEHPBXPAXH@Z,62,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+rle,0063d1f0,?Decompress@RLEEngine@@QBEHPBXPAXH@Z,98,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+rle,0063d260,?Line_Decompress@RLEEngine@@QBEHPBXPAX@Z,101,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
 rndstraw,0063d2d0,??0RandomStraw@@QAE@XZ,80,a,mischa85,yes,0.12,
 rndstraw,0063d320,??1RandomStraw@@UAE@XZ,36,a,mischa85,yes,0.12,
 rndstraw,0063d350,?Reset@RandomStraw@@QAEXXZ,23,a,mischa85,yes,0.12,
@@ -1982,14 +2522,36 @@ serialed,0066dcf0,?Set_Init_String@SerialEdit@@AAEXXZ,100,a,mischa85,yes,,
 serialed,0066dd60,?Set_Custom_Port@SerialEdit@@AAEXHHPAD@Z,279,a,mischa85,yes,,
 serialed,0066de80,?Add_Init_String@SerialEdit@@AAEXXZ,348,a,mischa85,yes,,
 serialed,0066dfe0,?Delete_Init_String@SerialEdit@@AAEXXZ,180,a,mischa85,yes,,
-sha,00674bf0,?Process_Partial@SHAEngine@@AAEXAAPBXAAH@Z,147,a,mischa85,yes,0.22,
-sha,00674c90,?Hash@SHAEngine@@QAEXPBXH@Z,121,a,mischa85,yes,0.22,
-sha,00674d10,?Result@SHAEngine@@QBEHPAX@Z,333,a,mischa85,yes,0.22,
-sha,00674e60,?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z,405,a,mischa85,yes,0.22,
+sha,00674bf0,?Process_Partial@SHAEngine@@AAEXAAPBXAAH@Z,147,a,mischa85,edit,0.5,Structure correction: removed unused source-local memrev declaration; all four rows unchanged exact; zero new credit (previously frozen r2052); source-only structure gate passed; owner header reconciliation pending
+sha,00674c90,?Hash@SHAEngine@@QAEXPBXH@Z,121,a,mischa85,edit,0.5,Structure correction: removed unused source-local memrev declaration; all four rows unchanged exact; zero new credit (previously frozen r2052); source-only structure gate passed; owner header reconciliation pending
+sha,00674d10,?Result@SHAEngine@@QBEHPAX@Z,333,a,mischa85,edit,0.5,Structure correction: removed unused source-local memrev declaration; all four rows unchanged exact; zero new credit (previously frozen r2052); source-only structure gate passed; owner header reconciliation pending
+sha,00674e60,?Process_Block@SHAEngine@@ABEXPBXAATSHADigest@1@@Z,405,a,mischa85,edit,0.5,Structure correction: removed unused source-local memrev declaration; all four rows unchanged exact; zero new credit (previously frozen r2052); source-only structure gate passed; owner header reconciliation pending
 shapipe,00675380,?Put@SHAPipe@@UAEHPBXH@Z,38,a,mischa85,yes,0.46,
 shapipe,006753b0,?Result@SHAPipe@@QBEHPAX@Z,16,a,mischa85,yes,0.46,
 shastraw,006753c0,?Get@SHAStraw@@UAEHPAXH@Z,63,a,mischa85,yes,0.47,
 shastraw,00675400,?Result@SHAStraw@@QBEHPAX@Z,16,a,mischa85,yes,0.47,
+side,0067ac40,_$E2,40,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067ac70,_$E5,19,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067ac90,_$E8,19,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067acb0,_$E11,19,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067acd0,_$E14,19,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067acf0,_$E17,19,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067ad10,_$E20,49,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067ad50,_$E23,33,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067ad80,_$E26,44,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067adb0,_$E29,39,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067ade0,_$E32,15,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067adf0,_$E35,18,a,landed geometry.h,edit,0.18,Added existing geometry declarations before side.h; no header edits
+side,0067ae10,??0SideClass@@QAE@PBD@Z,192,a,mischa85,yes,0.18,
+side,0067aed0,??1SideClass@@UAE@XZ,187,a,mischa85,yes,0.18,
+side,0067af90,?From_Name@SideClass@@SI?AW4SideType@@PBD@Z,61,a,mischa85,yes,0.18,
+side,0067afd0,?Compute_CRC@SideClass@@UBEXAAVCRCEngine@@@Z,33,a,mischa85,yes,0.18,
+side,0067b000,?GetClassID@SideClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,0.18,
+side,0067b040,?Load@SideClass@@UAGJPAUIStream@@@Z,273,a,mischa85,yes,0.18,
+side,0067b160,?Save@SideClass@@UAGJPAUIStream@@H@Z,97,a,mischa85,yes,0.18,
+side,0067b1d0,?Fetch_Object_Size@SideClass@@UBEHXZ,6,a,mischa85,yes,0.18,Tiny method identity verified from original SideClass IPersistStream vtable slot; proof in side-tiny-vtable-proof.json
+side,0067b1e0,?Fetch_RTTI@SideClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,yes,0.18,Tiny method identity verified from original SideClass IPersistStream vtable slot; proof in side-tiny-vtable-proof.json
+side,0067b1f0,??_GSideClass@@UAEPAXI@Z,207,a,mischa85,yes,0.18,
 slider,006846c0,_$E2,23,a,mischa85,yes,,
 slider,006846e0,??0SliderClass@@QAE@IHHHHH@Z,467,a,mischa85,yes,,
 slider,006848c0,??1SliderClass@@UAE@XZ,58,a,mischa85,yes,,
@@ -2104,6 +2666,35 @@ subtitle,0069b420,?Process@MovieSubtitles@@QAE_NK@Z,179,a,mischa85,yes,,
 subtitle,0069b4e0,?Reset@MovieSubtitles@@QAEXXZ,9,a,mischa85,yes,,
 subtitle,0069b4f0,?SetCallback@MovieSubtitles@@QAEXP6IXPAX@Z@Z,10,a,mischa85,yes,,
 subtitle,0069b500,?Draw_Sub_Title@MovieSubtitles@@QAEXPAVSubTitle@@@Z,378,a,mischa85,yes,,
+swizzle,0069f950,_$E4,115,a,mischa85,yes,0.1,
+swizzle,0069f9d0,_$E2,133,a,mischa85,yes,0.1,
+swizzle,0069fa60,??0SwizzleManagerClass@@QAE@XZ,79,a,mischa85,yes,0.1,
+swizzle,0069fab0,??1SwizzleManagerClass@@QAE@XZ,94,a,mischa85,yes,0.1,
+swizzle,0069fb10,?Reset@SwizzleManagerClass@@UAGJXZ,14,a,mischa85,yes,0.1,
+swizzle,0069fb20,?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z,118,a,mischa85,yes,0.1,
+swizzle,0069fba0,?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z,89,a,mischa85,yes,0.1,
+swizzle,0069fc00,?ptr_compare_func@@YAHPBX0@Z,34,a,mischa85,yes,0.1,
+swizzle,0069fc30,?Process_Tables@SwizzleManagerClass@@AAEXXZ,177,a,mischa85,yes,0.1,
+swizzle,0069fcf0,?Get_Save_Size@SwizzleManagerClass@@UAGJPAH@Z,27,a,mischa85,yes,0.1,
+swizzle,0069fd10,?QueryInterface@SwizzleManagerClass@@UAGJABU_GUID@@PAPAX@Z,91,a,mischa85,yes,0.1,
+swizzle,0069fd70,?Fetch_Swizzle_ID@SwizzleManagerClass@@UAGJPAXPAJ@Z,31,a,mischa85,yes,0.1,
+swizzle,0069fd90,?AddRef@SwizzleManagerClass@@UAGKXZ,8,a,mischa85,yes,0.1,
+swizzle,0069fda0,?Release@SwizzleManagerClass@@UAGKXZ,8,a,mischa85,yes,0.1,
+swizzle,0069fdb0,?Save_Interface@SwizzleManagerClass@@UAGJPAUIStream@@PAUIUnknown@@@Z,8,a,mischa85,yes,0.1,
+swizzle,0069fdc0,?Load_Interface@SwizzleManagerClass@@UAGJPAUIStream@@PAU_GUID@@PAPAX@Z,8,a,mischa85,yes,0.1,
+swizzle,0069fdd0,?Clear@?$DynamicVectorClass@VSwizzlePointerClass@@@@UAEXXZ,42,a,mischa85,yes,0.1,
+swizzle,0069fe00,?ID@?$DynamicVectorClass@VSwizzlePointerClass@@@@UAEHPBVSwizzlePointerClass@@@Z,27,a,mischa85,yes,0.1,
+swizzle,0069fe20,?GetItem@?$VectorClass@VSwizzlePointerClass@@@@UBE?AVSwizzlePointerClass@@H@Z,28,a,mischa85,yes,0.1,
+swizzle,0069fe40,??8?$VectorClass@VSwizzlePointerClass@@@@UBE_NABV0@@Z,62,a,mischa85,yes,0.1,
+swizzle,0069fe80,?Resize@?$VectorClass@VSwizzlePointerClass@@@@UAE_NHPBVSwizzlePointerClass@@@Z,240,a,mischa85,yes,0.1,
+swizzle,0069ff70,?Clear@?$VectorClass@VSwizzlePointerClass@@@@UAEXXZ,39,a,mischa85,yes,0.1,
+swizzle,0069ffa0,?ID@?$VectorClass@VSwizzlePointerClass@@@@UAEHABVSwizzlePointerClass@@@Z,51,a,mischa85,yes,0.1,
+swizzle,0069ffe0,?ID@?$VectorClass@VSwizzlePointerClass@@@@UAEHPBVSwizzlePointerClass@@@Z,27,a,mischa85,yes,0.1,
+swizzle,006a0000,?Resize@?$DynamicVectorClass@VSwizzlePointerClass@@@@UAE_NHPBVSwizzlePointerClass@@@Z,250,a,mischa85,yes,0.1,
+swizzle,006a0100,?ID@?$DynamicVectorClass@VSwizzlePointerClass@@@@UAEHABVSwizzlePointerClass@@@Z,38,a,mischa85,yes,0.1,
+swizzle,006a0130,??_G?$VectorClass@VSwizzlePointerClass@@@@UAEPAXI@Z,73,a,mischa85,yes,0.1,
+swizzle,006a0180,??_G?$DynamicVectorClass@VSwizzlePointerClass@@@@UAEPAXI@Z,73,a,mischa85,yes,0.1,
+swizzle,006a01d0,??0?$VectorClass@VSwizzlePointerClass@@@@QAE@HPBVSwizzlePointerClass@@@Z,147,a,mischa85,yes,0.1,
 target,006b5250,_$E2,40,a,mischa85,yes,,
 target,006b5280,_$E5,19,a,mischa85,yes,,
 target,006b52a0,_$E8,19,a,mischa85,yes,,
@@ -2143,6 +2734,115 @@ target,006b63a0,?As_Unit@xTargetClass@@QBEPAVUnitClass@@XZ,204,a,mischa85,yes,,
 target,006b6470,?As_Building@xTargetClass@@QBEPAVBuildingClass@@XZ,204,a,mischa85,yes,,
 target,006b6540,?As_Aircraft@xTargetClass@@QBEPAVAircraftClass@@XZ,204,a,mischa85,yes,,
 target,006b6610,?As_Cell@xTargetClass@@QBEPAVCellClass@@XZ,69,a,mischa85,yes,,
+team,006b7240,_$E2,40,a,mischa85,yes,,
+team,006b7270,_$E5,19,a,mischa85,yes,,
+team,006b7290,_$E8,19,a,mischa85,yes,,
+team,006b72b0,_$E11,19,a,mischa85,yes,,
+team,006b72d0,_$E14,19,a,mischa85,yes,,
+team,006b72f0,_$E17,19,a,mischa85,yes,,
+team,006b7310,_$E20,49,a,mischa85,yes,,
+team,006b7350,_$E23,33,a,mischa85,yes,,
+team,006b7380,_$E26,44,a,mischa85,yes,,
+team,006b73b0,_$E29,39,a,mischa85,yes,,
+team,006b73e0,_$E32,15,a,mischa85,yes,,
+team,006b73f0,_$E35,18,a,mischa85,yes,,
+team,006b7410,_$E38,23,a,mischa85,yes,,
+team,006b7430,??0TeamClass@@QAE@PBVTeamTypeClass@@PAVHouseClass@@PAX@Z,829,a,mischa85,yes,,
+team,006b7770,??1TeamClass@@UAE@XZ,616,a,mischa85,yes,,
+team,006b79e0,?Assign_Mission_Target@TeamClass@@QAEXPAVAbstractClass@@@Z,239,a,mischa85,yes,,
+team,006b8860,?Flag_Into_Action@TeamClass@@QAEXXZ,70,a,mischa85,yes,,
+team,006b88b0,?Regroup@TeamClass@@QAEXXZ,760,a,mischa85,yes,,
+team,006b8bb0,?Recalc_Strength@TeamClass@@QAE_NXZ,264,a,mischa85,yes,,
+team,006b8cc0,?Add@TeamClass@@QAE_NPAVFootClass@@@Z,252,a,mischa85,yes,,
+team,006b8dc0,?Can_Add@TeamClass@@QBE_NPAVFootClass@@AAH@Z,496,a,mischa85,yes,,
+team,006b8fb0,?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z,526,a,mischa85,yes,,
+team,006b91c0,?Recruit@TeamClass@@AAEHH@Z,964,a,mischa85,yes,,
+team,006b9590,?Detach@TeamClass@@UAEXPBVAbstractClass@@_N@Z,115,a,mischa85,yes,,
+team,006b9aa0,?Took_Damage@TeamClass@@QAEXPAVFootClass@@W4ResultType@@PAVTechnoClass@@@Z,259,a,mischa85,yes,,
+team,006b9bb0,?Coordinate_Attack@TeamClass@@AAEXXZ,908,a,mischa85,yes,,
+team,006b9f40,?Coordinate_Regroup@TeamClass@@AAE_NXZ,595,a,mischa85,yes,,
+team,006ba1a0,?Coordinate_Move@TeamClass@@AAEXXZ,1113,a,mischa85,yes,,
+team,006ba600,?Lagging_Units@TeamClass@@AAE_NXZ,461,a,mischa85,yes,,
+team,006ba7d0,?Coordinate_Conscript@TeamClass@@AAE_NPAVFootClass@@@Z,222,a,mischa85,yes,,
+team,006ba8b0,?Is_A_Member@TeamClass@@ABE_NPBX@Z,35,a,mischa85,yes,,
+team,006ba8e0,?Suspend_Teams@TeamClass@@SIXHPBVHouseClass@@@Z,174,a,mischa85,yes,,
+team,006ba990,?Is_Leaving_Map@TeamClass@@QBE_NXZ,98,a,mischa85,yes,,
+team,006baa00,?Has_Entered_Map@TeamClass@@QBE_NXZ,33,a,mischa85,yes,,
+team,006baa30,?Scan_Limit@TeamClass@@QAEXXZ,48,a,mischa85,yes,,
+team,006baa60,?Fetch_A_Leader@TeamClass@@ABEPAVFootClass@@XZ,119,a,mischa85,yes,,
+team,006baae0,?Load@TeamClass@@UAGJPAUIStream@@@Z,240,a,mischa85,yes,,
+team,006babd0,?Save@TeamClass@@UAGJPAUIStream@@H@Z,29,a,mischa85,yes,,
+team,006babf0,?GetClassID@TeamClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
+team,006bac30,?Compute_CRC@TeamClass@@UBEXAAVCRCEngine@@@Z,387,a,mischa85,yes,,
+team,006badc0,?TMission_GOTO_SHROUD@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,51,a,mischa85,yes,,
+team,006bae00,?TMission_MOVECELL@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,86,a,mischa85,yes,,
+team,006bae60,?TMission_MOVE@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,448,a,mischa85,yes,,
+team,006bb020,?TMission_ATT_WAYPT@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,199,a,mischa85,yes,,
+team,006bb0f0,?TMission_PATROL@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,363,a,mischa85,yes,,
+team,006bb260,?TMission_SPY@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,175,a,mischa85,yes,,
+team,006bb310,?TMission_SCATTER@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,52,a,mischa85,yes,,
+team,006bb350,?TMission_CHANGE_HOUSE@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,84,a,mischa85,yes,,
+team,006bb3b0,?TMission_TEAMCHANGE@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,111,a,mischa85,yes,,
+team,006bb420,?TMission_SCRIPT@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,85,a,mischa85,yes,,
+team,006bb480,?TMission_ATTACK@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,353,a,mischa85,yes,,
+team,006bb5f0,?TMission_LOAD@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,695,a,mischa85,yes,,
+team,006bb8b0,?TMission_DEPLOY@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,651,a,mischa85,yes,,
+team,006bbb40,?TMission_GUARD@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,98,a,mischa85,yes,,
+team,006bbbb0,?TMission_DO@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,675,a,mischa85,yes,,
+team,006bbe60,?TMission_SET_GLOBAL@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,35,a,mischa85,yes,,
+team,006bbe90,?TMission_CLEAR_GLOBAL@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,35,a,mischa85,yes,,
+team,006bbec0,?TMission_SET_LOCAL@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,35,a,mischa85,yes,,
+team,006bbef0,?TMission_CLEAR_LOCAL@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,35,a,mischa85,yes,,
+team,006bbf20,?TMission_HOUND_DOG@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,280,a,mischa85,yes,,
+team,006bc040,?TMission_UNPANIC@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,43,a,mischa85,yes,,
+team,006bc070,?TMission_FORCE_FACING@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,178,a,mischa85,yes,,
+team,006bc130,?TMission_PANIC@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,43,a,mischa85,yes,,
+team,006bc160,?TMission_BERZERK@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,43,a,mischa85,yes,,
+team,006bc190,?TMission_IDLE_ANIM@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,65,a,mischa85,yes,,
+team,006bc1e0,?TMission_LOOP@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,33,a,mischa85,yes,,
+team,006bc210,?TMission_WIN@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,27,a,mischa85,yes,,
+team,006bc250,?TMission_PLAY_SPEECH@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,10,a,mischa85,yes,,
+team,006bc260,?TMission_PLAY_SOUND@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,38,a,mischa85,yes,,
+team,006bc290,?TMission_PLAY_MOVIE@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,35,a,mischa85,yes,,
+team,006bc2c0,?TMission_PLAY_MUSIC@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,32,a,mischa85,yes,,
+team,006bc2e0,?TMission_REDUCE_TIBERIUM@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,115,a,mischa85,yes,,
+team,006bc360,?TMission_BEGIN_PRODUCTION@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,26,a,mischa85,yes,,
+team,006bc380,?TMission_FIRE_SALE@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,29,a,mischa85,yes,,
+team,006bc3a0,?TMission_SELF_DESTRUCT@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,111,a,mischa85,yes,,
+team,006bc410,?TMission_DESTROY_MEMBERS@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,69,a,mischa85,yes,,
+team,006bc460,?TMission_ION_STORM_START@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,55,a,mischa85,yes,,
+team,006bc4a0,?TMission_ION_STORM_END@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,28,a,mischa85,yes,,
+team,006bc4c0,?TMission_CENTER_VIEWPOINT@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,164,a,mischa85,yes,,
+team,006bc570,?TMission_RESHROUD@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,24,a,mischa85,yes,,
+team,006bc590,?TMission_REVEAL@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,24,a,mischa85,yes,,
+team,006bc5b0,?TMission_FULLY_LOADED@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,59,a,mischa85,yes,,
+team,006bc5f0,?TMission_UNLOAD_TRUCK@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,104,a,mischa85,yes,,
+team,006bc660,?TMission_LOAD_TRUCK@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,104,a,mischa85,yes,,
+team,006bc6d0,?TMission_ATTACK_BUILDING_WITH_PROPERTY@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,209,a,mischa85,yes,,
+team,006bc7b0,?TMission_MOVETO_BUILDING_WITH_PROPERTY@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,452,a,mischa85,yes,,
+team,006bc980,?TMission_MOVETO_FRIENDLY_BUILDING_WITH_PROPERTY@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,558,a,mischa85,yes,,
+team,006bcbb0,?TMission_SCOUT@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,951,a,mischa85,yes,,
+team,006bcf70,?Pick_Building_With_Property@@YIPAVBuildingClass@@PAVBuildingTypeClass@@PAVHouseClass@@PAVFootClass@@W4TargetPropertyType@@_N@Z,708,a,mischa85,yes,,
+team,006bd240,?Pick_Own_Building_With_Property@@YIPAVBuildingClass@@PAVBuildingTypeClass@@PAVHouseClass@@PAVFootClass@@W4TargetPropertyType@@_N@Z,616,a,mischa85,yes,,
+team,006bd4b0,?TMission_UNLOAD@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,820,a,mischa85,yes,,
+team,006bd7f0,?TMission_SUCCESS@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,17,a,mischa85,yes,,
+team,006bd810,?Has_Air_Transport@TeamClass@@QBE_NXZ,92,a,mischa85,yes,,
+team,006bd870,?Team_Members@TeamClass@@QAEXAAV?$DynamicVectorClass@PBVTechnoTypeClass@@@@@Z,229,a,mischa85,yes,,
+team,006bd960,?TMission_FLASH@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,48,a,mischa85,yes,,
+team,006bd990,?Flash@TeamClass@@QAEXH@Z,30,a,mischa85,yes,,
+team,006bd9b0,?TMission_PLAY_ANIM@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,186,a,mischa85,yes,,
+team,006bda70,?TMission_TALK_BUBBLE@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,37,a,mischa85,yes,,
+team,006bdaa0,?TMission_MOVE_TO_ENEMY_APPROACH@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,726,a,mischa85,yes,,
+team,006bdd80,?_Is_It_Breathing@@YI_NPBVFootClass@@@Z,40,a,mischa85,yes,,
+team,006bddb0,?TMission_MOVE_TO_BASE_FRONT@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,594,a,mischa85,yes,,
+team,006be010,?TMission_IRON_CURTAIN@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,431,a,mischa85,yes,,
+team,006be1c0,?TMission_CHRONO_BUILDING@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,632,a,mischa85,yes,,
+team,006be440,?TMission_CHRONO_ATTACK@TeamClass@@AAEXPAVTeamMissionClass@@_N@Z,599,a,mischa85,yes,,
+team,006be6a0,?Stray_Distance@TeamClass@@AAEHXZ,60,a,mischa85,yes,,
+team,006be6e0,?Has_Ammo@TeamClass@@ABE_NXZ,61,a,mischa85,yes,,
+team,006be720,?Fetch_Object_Size@TeamClass@@UBEHXZ,6,a,mischa85,yes,,
+team,006be730,?Fetch_RTTI@TeamClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,yes,,
+team,006be740,??_GTeamClass@@UAEPAXI@Z,30,a,mischa85,yes,,
 temporal,006e1c80,_$E2,40,a,mischa85,yes,,
 temporal,006e1cb0,_$E5,19,a,mischa85,yes,,
 temporal,006e1cd0,_$E8,19,a,mischa85,yes,,
@@ -2314,6 +3014,45 @@ tube,006ef8b0,?Fetch_Object_Size@TubeClass@@UBEHXZ,6,a,mischa85,yes,,
 tube,006ef8c0,?Fetch_RTTI@TubeClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,yes,,
 tube,006ef8d0,?GetClassID@TubeClass@@EAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
 tube,006ef910,??_GTubeClass@@UAEPAXI@Z,214,a,mischa85,yes,,
+unvqtblc,0070b690,?Hicolor_Init_Table@@YI_NH@Z,320,a,mischa85,yes,0.600,Address-suffixed names 0; calibration not used
+unvqtblc,0070b7d0,?Hicolor_Clear_Table@@YIXXZ,29,a,mischa85,yes,0.600,Address-suffixed names 0; calibration not used
+unvqtblc,0070b7f0,?Hicolor_Translate@@YIXPAXH@Z,34,a,mischa85,yes,0.600,Address-suffixed names 0; calibration not used
+unvqtblc,0070b820,?UnVQ2_4x4_Table@@YAXPAE00KKK@Z,916,b,old tree,yes,0.600,Address-suffixed names 0; calibration not used
+unvqtblc,0070bf60,?UnVQ1_4x4_Table@@YAXPAE00KKK@Z,312,b,old tree,yes,0.600,Address-suffixed names 0; calibration not used
+utracker,0070c440,??0UnitTrackerClass@@QAE@XZ,49,a,mischa85,yes,0.8,
+utracker,0070c480,??1UnitTrackerClass@@QAE@XZ,1,a,mischa85,yes,0.8,
+utracker,0070c490,?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z,20,a,mischa85,yes,0.8,
+utracker,0070c4b0,?Decrement_Unit_Total@UnitTrackerClass@@QAEXH@Z,20,a,mischa85,yes,0.8,
+utracker,0070c4d0,?Populate_Unit_Count@UnitTrackerClass@@QAEXH@Z,49,a,mischa85,yes,0.8,
+utracker,0070c510,?Get_Unit_Total@UnitTrackerClass@@QAEHXZ,25,a,mischa85,yes,0.8,
+utracker,0070c530,?Get_All_Totals@UnitTrackerClass@@QAEPAHXZ,3,a,mischa85,yes,0.8,
+utracker,0070c540,?Clear_Unit_Total@UnitTrackerClass@@QAEXXZ,37,a,mischa85,yes,0.8,
+utracker,0070c570,?To_Network_Format@UnitTrackerClass@@QAEXXZ,80,a,mischa85,yes,0.8,
+utracker,0070c5c0,?To_PC_Format@UnitTrackerClass@@QAEXXZ,75,a,mischa85,yes,0.8,
+vanimtype,0070dfb0,_$E2,40,a,mischa85,yes,,
+vanimtype,0070dfe0,_$E5,19,a,mischa85,yes,,
+vanimtype,0070e000,_$E8,19,a,mischa85,yes,,
+vanimtype,0070e020,_$E11,19,a,mischa85,yes,,
+vanimtype,0070e040,_$E14,19,a,mischa85,yes,,
+vanimtype,0070e060,_$E17,19,a,mischa85,yes,,
+vanimtype,0070e080,_$E20,49,a,mischa85,yes,,
+vanimtype,0070e0c0,_$E23,33,a,mischa85,yes,,
+vanimtype,0070e0f0,_$E26,44,a,mischa85,yes,,
+vanimtype,0070e120,_$E29,39,a,mischa85,yes,,
+vanimtype,0070e150,_$E32,15,a,mischa85,yes,,
+vanimtype,0070e160,_$E35,18,a,mischa85,yes,,
+vanimtype,0070e180,_$E38,23,a,mischa85,yes,,
+vanimtype,0070e1a0,??0VoxelAnimTypeClass@@QAE@PBD@Z,483,a,mischa85,yes,,
+vanimtype,0070e390,??1VoxelAnimTypeClass@@UAE@XZ,218,a,mischa85,yes,,
+vanimtype,0070e470,?Read_INI@VoxelAnimTypeClass@@UAE_NABVCCINIClass@@@Z,1476,a,mischa85,yes,,
+vanimtype,0070ea40,?Name_From@VoxelAnimTypeClass@@SIPBDW4VoxelAnimType@@@Z,26,a,mischa85,yes,,
+vanimtype,0070ea60,?From_Name@VoxelAnimTypeClass@@SI?AW4VoxelAnimType@@PBD@Z,65,a,mischa85,yes,,
+vanimtype,0070eab0,?Compute_CRC@VoxelAnimTypeClass@@UBEXAAVCRCEngine@@@Z,313,a,mischa85,yes,,
+vanimtype,0070ebf0,?GetClassID@VoxelAnimTypeClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
+vanimtype,0070ec30,?Load@VoxelAnimTypeClass@@UAGJPAUIStream@@@Z,182,a,mischa85,yes,,
+vanimtype,0070ecf0,?Save@VoxelAnimTypeClass@@UAGJPAUIStream@@H@Z,29,a,mischa85,yes,,
+vanimtype,0070ed10,?Detach@VoxelAnimTypeClass@@UAEXPBVAbstractClass@@_N@Z,99,a,mischa85,yes,,
+vanimtype,0070ed80,?Find_Or_Make@VoxelAnimTypeClass@@SIPAV1@PBD@Z,131,a,mischa85,yes,,
 vector,0070efc0,??0BooleanVectorClass@@QAE@IPAE@Z,68,a,mischa85,yes,,
 vector,0070f010,??0BooleanVectorClass@@QAE@ABV0@@Z,166,a,mischa85,yes,,
 vector,0070f0c0,??4BooleanVectorClass@@QAEAAV0@ABV0@@Z,164,a,mischa85,yes,,
@@ -2433,6 +3172,131 @@ voxpal,0071be80,?Write_File@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z,147,a,misc
 voxpal,0071bf20,?Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z,665,a,mischa85,yes,,
 voxpal,0071c1c0,?Closest_Color@VoxelPaletteLibrary@@ABEEMMM@Z,133,a,mischa85,yes,,
 voxpal,0071c250,?Closest_Color@VoxelPaletteLibrary@@ABEEMMM_N@Z,198,a,mischa85,yes,,
+vqalib_audio,00776380,?VQA_OpenAudio@@YIJPAU_VQAHandleP@@@Z,159,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
+vqalib_audio,00776420,?VQA_CloseAudio@@YIXPAU_VQAHandleP@@@Z,84,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
+vqalib_audio,00776480,?VQA_StartAudio@@YIXPAU_VQAHandleP@@@Z,32,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
+vqalib_audio,007764a0,?VQA_PauseAudio@@YIXPAU_VQAHandleP@@@Z,32,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
+vqalib_audio,007764c0,?VQA_StopAudio@@YIXPAU_VQAHandleP@@@Z,32,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
+vqalib_audio,007764e0,?CopyAudio@@YIJPAU_VQAHandleP@@@Z,406,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
+vqalib_audio,00776680,?VQA_AudioFillCallback@@YAJPAU_VQAHandleP@@@Z,330,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
+vqalib_audio,007767d0,?VQA_AudioDoneCallback@@YAJPAU_VQAHandleP@@K@Z,197,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
+vqalib_drawer,00777870,?VQA_ResetLastFrameNum@@YIJPAU_VQAHandle@@@Z,10,c,seed,yes,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,00777880,?VQA_Configure_Drawer@@YIJPAU_VQAHandleP@@@Z,447,c,seed,rematch,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,00777a40,?VQA_DispatchFrameChunks@@YIXPAU_VQAHandleP@@J@Z,269,c,seed,rematch,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,00777b50,?VQA_UnVQFrame@@YIXPAU_VQAHandleP@@PAU_VQAFrameNode@@@Z,243,c,seed,rematch,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,00777c50,?DrawFrame_MCGA@@YIJPAU_VQAHandle@@@Z,57,c,seed,edit,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,00778030,?VQA_ComputeDesiredFrame@@YIJPAU_VQAHandleP@@PAU_VQAConfig@@PAU_VQADrawer@@PAU_VQAFrameNode@@K@Z,436,c,seed,rematch,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,007781f0,?Prepare_Frame@@YIXPAU_VQAHandleP@@@Z,203,c,seed,edit,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,007782c0,?PageFlip_MCGA@@YIJPAU_VQAHandle@@@Z,138,c,seed,edit,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,00778350,?DrawFrame_MCGABuf@@YIJPAU_VQAHandle@@@Z,67,c,seed,edit,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,007783a0,?PageFlip_MCGABuf@@YIJPAU_VQAHandle@@@Z,129,c,seed,edit,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,00778430,?UnVQ_Nop@@YAXPAE00KKK@Z,1,c,seed,yes,0.417,Address-suffixed names 0; calibration not used
+vqalib_drawer,00778440,?PageFlip_Nop@@YIJPAU_VQAHandle@@@Z,4,c,seed,yes,0.417,Address-suffixed names 0; calibration not used
+vqalib_dstream,00778450,?Disk_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z,344,a,mischa85,yes,1.000,Address-suffixed names 0; calibration not used
+vqalib_dstream,007785b0,?Memory_VQA_Stream_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z,208,a,mischa85,yes,1.000,Address-suffixed names 0; calibration not used
+vqalib_timer,0077cb20,?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z,56,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+vqalib_timer,0077cb60,?VQA_StepTimer@@YIXPAU_VQAHandleP@@J@Z,7,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+vqalib_timer,0077cb70,?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z,36,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+vqalib_timer,0077cba0,?VQA_GetMovieTime@@YIKPAU_VQAHandle@@@Z,40,a,mischa85,yes,0.500,Address-suffixed names 0; calibration not used
+vqalib_unvq,0077cbd0,?UnVQ2_C1_4x4@@YAXPAE00KKK@Z,918,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqalib_unvq,0077cf70,?UnVQ1_C4_4x4@@YAXPAE00KKK@Z,326,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqalib_unvq,0077d0c0,?UnVQ2_C4_4x4@@YAXPAE00KKK@Z,929,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqalib_unvq,0077d470,?UnVQ1_C4_4x2@@YAXPAE00KKK@Z,317,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqalib_unvq,0077d5b0,?UnVQ2_C4_4x2@@YAXPAE00KKK@Z,901,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqalib_unvqtran,0077d940,?UnVQ2_C0_4x4_TRANS@@YAXPAE00KKK@Z,1101,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqalib_unvqtran,0077dd90,?UnVQ2_C0_4x4_KEY@@YAXPAE00KKK@Z,1034,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqalib_unvqtran,0077e1a0,?UnVQ2_C0_4x4_TRANS_HALF@@YAXPAE00KKK@Z,1026,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqalib_unvqtran,0077e5b0,?UnVQ2_C0_4x2_TRANS@@YAXPAE00KKK@Z,1057,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqalib_unvqtran,0077e9e0,?UnVQ2_C0_4x2_KEY@@YAXPAE00KKK@Z,1003,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqoption,0071db20,?Initialize_Options@@YIXXZ,53,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqoption,0071db60,?Set_Option@@YIXH@Z,19,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqoption,0071db80,?Clear_Option@@YIXH@Z,29,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqoption,0071dba0,?Get_Option@@YI_NH@Z,24,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+vqoption,0071dbc0,?Toggle_Option@@YIHH@Z,77,a,mischa85,yes,0.400,Address-suffixed names 0; calibration not used
+walk,0071dc10,_$E2,23,a,mischa85,yes,,
+walk,0071dc30,_$E5,40,a,mischa85,yes,,
+walk,0071dc60,_$E8,19,a,mischa85,yes,,
+walk,0071dc80,_$E11,19,a,mischa85,yes,,
+walk,0071dca0,_$E14,19,a,mischa85,yes,,
+walk,0071dcc0,_$E17,19,a,mischa85,yes,,
+walk,0071dce0,_$E20,19,a,mischa85,yes,,
+walk,0071dd00,_$E23,49,a,mischa85,yes,,
+walk,0071dd40,_$E26,33,a,mischa85,yes,,
+walk,0071dd70,_$E29,44,a,mischa85,yes,,
+walk,0071dda0,_$E32,39,a,mischa85,yes,,
+walk,0071ddd0,_$E35,15,a,mischa85,yes,,
+walk,0071dde0,_$E38,18,a,mischa85,yes,,
+walk,0071de00,??0WalkLocomotionClass@@QAE@XZ,103,a,mischa85,yes,,
+walk,0071de70,??1WalkLocomotionClass@@UAE@XZ,45,a,mischa85,yes,,
+walk,0071dea0,?Is_Moving@WalkLocomotionClass@@UAGEXZ,10,a,mischa85,yes,,
+walk,0071deb0,?Is_Moving_Now@WalkLocomotionClass@@UAGEXZ,86,a,mischa85,yes,,
+walk,0071df10,?Destination@WalkLocomotionClass@@UAG?AUCoordStruct@@XZ,81,a,mischa85,yes,,
+walk,0071df70,?Head_To_Coord@WalkLocomotionClass@@UAG?AUCoordStruct@@XZ,113,a,mischa85,yes,,
+walk,0071dff0,?Process@WalkLocomotionClass@@UAGEXZ,33,a,mischa85,yes,,
+walk,0071e020,?Move_To@WalkLocomotionClass@@UAGXUCoordStruct@@@Z,225,a,mischa85,yes,,
+walk,0071e110,?Stop_Moving@WalkLocomotionClass@@UAGXXZ,95,a,mischa85,yes,,
+walk,0071e170,?Do_Turn@WalkLocomotionClass@@UAGXUDirStruct@@@Z,34,a,mischa85,yes,,
+walk,0071e1a0,?Force_Immediate_Destination@WalkLocomotionClass@@UAGXUCoordStruct@@@Z,114,a,mischa85,yes,,
+walk,0071f590,?Mark_Head_To@WalkLocomotionClass@@QAE_NABVCoord@@@Z,876,a,mischa85,yes,,
+walk,0071f900,?GetClassID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
+walk,0071f940,?Load@WalkLocomotionClass@@UAGJPAUIStream@@@Z,127,a,mischa85,yes,,
+walk,0071f9c0,?Save@WalkLocomotionClass@@UAGJPAUIStream@@H@Z,223,a,mischa85,yes,,
+walk,0071faa0,?In_Which_Layer@WalkLocomotionClass@@UAG?AW4LayerType@@XZ,8,a,mischa85,yes,,
+walk,0071fab0,?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z,93,a,mischa85,yes,,
+walk,0071fb10,?Begin_Piggyback@WalkLocomotionClass@@UAGJPAUILocomotion@@@Z,67,a,mischa85,yes,,
+walk,0071fb60,?End_Piggyback@WalkLocomotionClass@@UAGJPAPAUILocomotion@@@Z,49,a,mischa85,yes,,
+walk,0071fba0,?Is_Ok_To_End@WalkLocomotionClass@@UAGEXZ,45,a,mischa85,yes,,
+walk,0071fbd0,?Piggyback_CLSID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z,267,a,mischa85,yes,,
+walk,0071fce0,?Mark_All_Occupation_Bits@WalkLocomotionClass@@UAGXH@Z,70,a,mischa85,yes,,
+walk,0071fd30,?Is_Moving_Here@WalkLocomotionClass@@UAGEUCoordStruct@@@Z,153,a,mischa85,yes,,
+walk,0071fdd0,?Is_Really_Moving_Now@WalkLocomotionClass@@UAGEXZ,10,a,mischa85,yes,,
+walk,0071fde0,?AddRef@WalkLocomotionClass@@UAGKXZ,13,a,mischa85,yes,,
+walk,0071fdf0,?Release@WalkLocomotionClass@@UAGKXZ,13,a,mischa85,yes,,
+walk,0071fe00,?Is_Piggybacking@WalkLocomotionClass@@UAGEXZ,17,a,mischa85,yes,,
+walk,0071fe20,?Stop_Movement_Animation@WalkLocomotionClass@@UAGXXZ,11,a,mischa85,yes,,
+walk,0071fe30,?Fetch_Object_Size@WalkLocomotionClass@@UBEHXZ,6,a,mischa85,yes,,
+walk,0071fe40,??_GWalkLocomotionClass@@UAEPAXI@Z,65,a,mischa85,yes,,
+wave,007211b0,_$E2,40,a,mischa85,yes,,
+wave,007211e0,_$E5,19,a,mischa85,yes,,
+wave,00721200,_$E8,19,a,mischa85,yes,,
+wave,00721220,_$E11,19,a,mischa85,yes,,
+wave,00721240,_$E14,19,a,mischa85,yes,,
+wave,00721260,_$E17,19,a,mischa85,yes,,
+wave,00721280,_$E20,49,a,mischa85,yes,,
+wave,007212c0,_$E23,33,a,mischa85,yes,,
+wave,007212f0,_$E26,44,a,mischa85,yes,,
+wave,00721320,_$E29,39,a,mischa85,yes,,
+wave,00721350,_$E32,15,a,mischa85,yes,,
+wave,00721360,_$E35,18,a,mischa85,yes,,
+wave,00721380,_$E38,23,a,mischa85,yes,,
+wave,007213a0,??0WaveClass@@QAE@ABVCoord@@0PAVTechnoClass@@W4WaveType@@1@Z,810,a,mischa85,yes,,
+wave,007216d0,??0WaveClass@@QAE@XZ,548,a,mischa85,yes,,
+wave,00721900,??1WaveClass@@UAE@XZ,187,a,mischa85,yes,,
+wave,007219c0,?Set_Sonic_Pixel@WaveClass@@ABEXHHHPAG@Z,310,a,mischa85,yes,,
+wave,00721b00,?Set_Laser_Pixel@WaveClass@@ABEXPAGH@Z,240,a,mischa85,yes,,
+wave,00721bf0,?Init_Statics@WaveClass@@SIXXZ,202,a,mischa85,yes,,
+wave,00721cc0,?Init_Offset_Tables@WaveClass@@AAEXXZ,226,a,mischa85,yes,,
+wave,00721db0,?Facing_Between_Points@@YI?AW4FacingType@@ABVPoint2D@@0@Z,256,a,mischa85,yes,,
+wave,00721eb0,?Sonic_Damage@WaveClass@@AAEXABVCoord@@@Z,392,a,mischa85,yes,,
+wave,00722040,?Sonic_Add_Cell@WaveClass@@AAEXABVCell@@@Z,116,a,mischa85,yes,,
+wave,007220c0,?Lerp@@YI?AVCoord@@ABV1@0M@Z,114,a,mischa85,yes,,
+wave,00722140,?Lerp@@YI?AVPoint2D@@ABV1@0M@Z,76,a,mischa85,yes,,
+wave,00722190,?Detach@WaveClass@@UAEXPBVAbstractClass@@_N@Z,56,a,mischa85,yes,,
+wave,00722330,?Save@WaveClass@@UAGJPAUIStream@@H@Z,101,a,mischa85,yes,,
+wave,007223a0,?GetClassID@WaveClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
+wave,007223e0,?Fetch_Object_Size@WaveClass@@UBEHXZ,6,a,mischa85,yes,,
+wave,007223f0,?In_Which_Layer@WaveClass@@UBE?AW4LayerType@@XZ,6,a,mischa85,yes,,
+wave,00722400,?Class_Of@WaveClass@@UBEPBVObjectTypeClass@@XZ,3,a,mischa85,yes,,
+wave,00722410,?Unlimbo@WaveClass@@UAE_NABVCoord@@W4Dir256@@@Z,182,a,mischa85,yes,,
+wave,007224d0,?Limbo@WaveClass@@UAE_NXZ,89,a,mischa85,yes,,
+wave,00722530,?Draw_It@WaveClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,116,a,mischa85,yes,,
+wave,00723220,?AI@WaveClass@@UAEXXZ,169,a,mischa85,yes,,
+wave,007232d0,?Sonic_AI@WaveClass@@AAEXXZ,106,a,mischa85,yes,,
+wave,00723340,?Laser_AI@WaveClass@@AAEXXZ,31,a,mischa85,yes,,
+wave,00723360,?Wave_Recalc_Affected_Cells@WaveClass@@AAEXXZ,1359,a,mischa85,yes,,
+wave,00724200,?Wave_Shape_AI@WaveClass@@AAEXXZ,1002,a,mischa85,yes,,
+wave,007245f0,?Fetch_RTTI@WaveClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,yes,,
+wave,00724600,??_GWaveClass@@UAEPAXI@Z,208,a,mischa85,yes,,
 waypoint,00724780,_$E2,40,a,mischa85,yes,,
 waypoint,007247b0,_$E5,19,a,mischa85,yes,,
 waypoint,007247d0,_$E8,19,a,mischa85,yes,,
@@ -2572,6 +3436,35 @@ wdtvoice,00732bd0,?Redraw@Anim@Voices@WorldDominationTour@@UAEXPAVSurface@@PBV?$
 wdtvoice,00732be0,?Get_Rect@Anim@Voices@WorldDominationTour@@UBE?AV?$TRect@H@@XZ,42,a,mischa85,yes,,
 wdtvoice,00732c10,?Has_Finished@Anim@Voices@WorldDominationTour@@UBE_NXZ,11,a,mischa85,yes,,
 wdtvoice,00732c20,?Restore@Anim@Voices@WorldDominationTour@@UAEXABV?$TRect@H@@@Z,11,a,mischa85,yes,,
+weapon,00732cb0,_$E2,40,a,mischa85,yes,,
+weapon,00732ce0,_$E5,19,a,mischa85,yes,,
+weapon,00732d00,_$E8,19,a,mischa85,yes,,
+weapon,00732d20,_$E11,19,a,mischa85,yes,,
+weapon,00732d40,_$E14,19,a,mischa85,yes,,
+weapon,00732d60,_$E17,19,a,mischa85,yes,,
+weapon,00732d80,_$E20,49,a,mischa85,yes,,
+weapon,00732dc0,_$E23,33,a,mischa85,yes,,
+weapon,00732df0,_$E26,44,a,mischa85,yes,,
+weapon,00732e20,_$E29,39,a,mischa85,yes,,
+weapon,00732e50,_$E32,15,a,mischa85,yes,,
+weapon,00732e60,_$E35,18,a,mischa85,yes,,
+weapon,00732e80,_$E38,23,a,mischa85,yes,,
+weapon,00732ea0,??0WeaponTypeClass@@QAE@PBD@Z,548,a,mischa85,yes,,
+weapon,007330d0,??0WeaponTypeClass@@QAE@ABVNoInitClass@@@Z,66,a,mischa85,yes,,
+weapon,00733120,??1WeaponTypeClass@@UAE@XZ,247,a,mischa85,yes,,
+weapon,00733220,?Read_INI@WeaponTypeClass@@UAE_NABVCCINIClass@@@Z,1942,a,mischa85,yes,,
+weapon,007339c0,?Init_Max_Speed@WeaponTypeClass@@QAEXXZ,93,a,mischa85,yes,,
+weapon,00733a20,?Armor_From_Name@@YI?AW4ArmorType@@PBD@Z,56,a,mischa85,yes,,
+weapon,00733a60,?Allowed_Threats@WeaponTypeClass@@QBE?AW4ThreatType@@XZ,36,a,mischa85,yes,,
+weapon,00733a90,?Is_Wall_Destroyer@WeaponTypeClass@@QBE_NXZ,26,a,mischa85,yes,,
+weapon,00733ab0,?Compute_CRC@WeaponTypeClass@@UBEXAAVCRCEngine@@@Z,411,a,mischa85,yes,,
+weapon,00733c50,?GetClassID@WeaponTypeClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
+weapon,00733c90,?Load@WeaponTypeClass@@UAGJPAUIStream@@@Z,352,a,mischa85,yes,,
+weapon,00733df0,?Save@WeaponTypeClass@@UAGJPAUIStream@@H@Z,163,a,mischa85,yes,,
+weapon,00733ea0,?Find_Or_Make@WeaponTypeClass@@SIPAV1@PBD@Z,131,a,mischa85,yes,,
+weapon,00733f30,?From_Name@WeaponTypeClass@@SI?AW4WeaponType@@PBD@Z,61,a,mischa85,yes,,
+weapon,00733f70,?Get_Speed@WeaponTypeClass@@QBEHH@Z,92,a,mischa85,yes,,
+weapon,00733fd0,?Fetch_Object_Size@WeaponTypeClass@@UBEHXZ,6,a,mischa85,yes,,
 wolpersonainformation,00738450,_$E7,23,a,mischa85,yes,,
 wolpersonainformation,00738470,_$E10,40,a,mischa85,yes,,
 wolpersonainformation,007384a0,_$E13,19,a,mischa85,yes,,

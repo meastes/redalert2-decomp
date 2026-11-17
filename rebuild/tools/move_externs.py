@@ -30,6 +30,11 @@ def defining_unit(name, skip):
             return p.stem
 
 
+def defines(text, name):
+    pat = re.compile(r'^(?!extern)(?![ \t])[^\n;()=]*\b%s\s*(\[[^\]\n]*\]\s*)*(=|;|\{)' % re.escape(name), re.M)
+    return bool(pat.search(C.code_only(text)))
+
+
 def module_of(name):
     if not hasattr(module_of, 'map'):
         names = {}
@@ -43,6 +48,67 @@ def module_of(name):
     names, mods = module_of.map
     a = names.get(name)
     return next((u for s, e, u in mods if a is not None and s <= a < e), None)
+
+
+BUILTIN = set('const volatile unsigned signed int char short long bool void float double wchar_t __int64 struct class '
+              'enum extern static __fastcall __cdecl __stdcall WINAPI CALLBACK inline C'.split())
+
+
+def type_index(texts):
+    """name -> (kind, header, text) for the class/struct/union, template, enum and typedef definitions."""
+    if hasattr(type_index, 'cache'):
+        return type_index.cache
+    idx = {}
+    for p in sorted(INC.rglob('*')):
+        if p.suffix not in ('.h', '.hh'):
+            continue
+        code = C.code_only(texts.get(p) or p.read_text(errors='replace'))
+        for m in re.finditer(r'(template\s*<[^>]*>\s*)?\b(class|struct|union)\s+([A-Za-z_]\w*)[^;{()]*\{', code):
+            idx.setdefault(m.group(3), ('template' if m.group(1) else m.group(2), p, ' '.join(m.group(1).split()) if m.group(1) else ''))
+        for m in re.finditer(r'\benum\s+([A-Za-z_]\w*)\s*(:[^{]*)?\{', code):
+            idx.setdefault(m.group(1), ('enum', p, ''))
+        for m in re.finditer(r'\btypedef\b[^;{]*?\b([A-Za-z_]\w*)\s*(\[[^\]]*\])?\s*;', code):
+            idx.setdefault(m.group(1), ('typedef', p, ''))
+    type_index.cache = idx
+    return idx
+
+
+def closure(header, texts, seen=None):
+    seen = set() if seen is None else seen
+    if header in seen or not header.exists():
+        return seen
+    seen.add(header)
+    for inc in re.findall(r'#include\s+"([^"]+)"', texts.get(header) or header.read_text(errors='replace')):
+        closure(INC / inc.replace('\\', '/'), texts, seen)
+    return seen
+
+
+def type_home(decl, name, texts):
+    """(header, forward declarations) for a declaration with no home: globals.h with forward declarations
+    for its class and template types; for an enum or typedef globals.h does not see, the header that
+    defines that type (or globals.h with the enum header included, for a .hh enum header)."""
+    idx = type_index(texts)
+    glob = INC / 'globals.h'
+    seen = closure(glob, texts)
+    head = decl.split('(')[0]
+    head = head[:head.rfind(name)] if name in head else head
+    idents = [w for w in re.findall(r'[A-Za-z_]\w*', decl.replace(name, ' ', 1)) if w not in BUILTIN]
+    forwards = []
+    for w in idents:
+        kind, where, tmpl = idx.get(w, (None, None, None))
+        if kind is None and re.fullmatch(r'(H|LP|DW|W|L|U)?[A-Z][A-Z0-9_]+', w):
+            return INC / 'win.h', []        # a Windows SDK type: the header that includes <windows.h>
+        if kind is None or where in seen:
+            continue
+        if kind in ('class', 'struct', 'union'):
+            forwards.append('%s %s;' % (kind, w))
+        elif kind == 'template':
+            forwards.append('%s class %s;' % (tmpl, w))
+        elif where.suffix == '.hh':
+            forwards.append('#include "%s"' % where.relative_to(INC).as_posix())
+        else:
+            return where, []
+    return glob, forwards
 
 
 def ensure_include(text, header):
@@ -71,6 +137,10 @@ def main(units, dry):
             if '=' in decl.split('(')[0] or not hit:      # a definition (extern const with a value) keeps its line
                 left.append(line); out.append(line); continue
             name = hit.group(1)
+            if defines(text, name):
+                # A forward declaration of this file's own global (used before its definition): it
+                # stays, and the census counts it apart.
+                left.append(line + '   [own global]'); out.append(line); continue
             where = declared_in(texts, name)
             if where:
                 home = where[0]
@@ -79,8 +149,16 @@ def main(units, dry):
                 cand = [INC / (owner + '.h')] if owner else []
                 mod = module_of(name)
                 cand += [INC / (mod + '.h')] if mod else []
-                home = next((c for c in cand if c.exists() and c.stem != unit), INC / 'globals.h')
+                home = next((c for c in cand if c.exists() and c.stem != unit), None)
+                forwards = []
+                if home is None:
+                    home, forwards = type_home(decl, name, texts)
                 body = texts[home].rstrip('\n') + '\n'
+                for fwd in forwards:
+                    if fwd not in body:
+                        marker = '// Declarations moved from the units that used them'
+                        at = body.find(marker)
+                        body = (body[:at] + fwd + '\n' + body[at:]) if at >= 0 else body + fwd + '\n'
                 if '// Declarations moved from the units that used them' not in body:
                     body += '\n// Declarations moved from the units that used them (one declaration per name).\n'
                 texts[home] = body + 'extern ' + decl + (' ' + m.group(2) if m.group(2) else '') + '\n'

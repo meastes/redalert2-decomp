@@ -1,0 +1,3390 @@
+{
+  "id": "rebuild-fly",
+  "population": {
+    "id": "rebuild-fly",
+    "inventory_sha256": "8846afd6e81536f62a87eb1fd08d96e34907c9e41725b51187f53f93ac94a7d5",
+    "gaps_sha256": "a5ae73248cbf6ad2c48cea37f365397a261dba8cc7ddee79b3bd82d572300466",
+    "historical_population_sha256": "7fe7af160dcb9bd9c0c3d9d091bca59f48965abb8925312f9d9fa1a3e36802cc",
+    "historical_acceptance_sha256": "a718f58fadf69542311d18700cf5bf9300ef12513ae1296d412882307b912d59"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8805856,
+    "_ISO_TILE_SIZE": 7999448,
+    "_LEPTONS_PER_PIXEL": 8805928,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8805912,
+    "_ONE_RAD": 7999456,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8805904,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8805864,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8805824,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8805936,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8805872,
+    "_CELL_DIAG_SLOPE_ANGLE": 8805896,
+    "_BRIDGE_LEPTON_HEIGHT": 8805920,
+    "_CELL_NONE": 8805848,
+    "_COORD_NONE": 8805880,
+    "_RECT_NONE": 8805832,
+    "??0LocomotionClass@@QAE@XZ": 5492672,
+    "??_7FlyLocomotionClass@@6BIPersistStream@@@": 7999692,
+    "??_7FlyLocomotionClass@@6BILocomotion@@@": 7999492,
+    "?Link_To_Object@LocomotionClass@@UAGJPAX@Z": 5492752,
+    "??1LocomotionClass@@UAE@XZ": 5492720,
+    "__real@4@00000000000000000000": 7972664,
+    "__real@8@00000000000000000000": 7976464,
+    "?Rotation_AI@FlyLocomotionClass@@QAEXXZ": 4971792,
+    "?Movement_AI@FlyLocomotionClass@@QAEXXZ": 4967760,
+    "?Nearing_Target@FlyLocomotionClass@@QAEH_NUCoordStruct@@@Z": 4974368,
+    "?Landing_Takeoff_AI@FlyLocomotionClass@@QAE_NXZ": 4966912,
+    "?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ": 4967520,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z": 5613152,
+    "?Closest_Edge_Cell@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?Good_LZ@AircraftClass@@QBEPAVAbstractClass@@XZ": 4298928,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?New_LZ@AircraftClass@@QBEPAVAbstractClass@@PAV2@@Z": 4294064,
+    "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z": 5571296,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Remove@DisplayClass@@QAEXPBVObjectClass@@@Z": 4823696,
+    "?Process_Landing@FlyLocomotionClass@@QAE_NXZ": 4972464,
+    "?Process_Take_Off@FlyLocomotionClass@@QAE_NXZ": 4972016,
+    "?RevealArea3@MapClass@@QAEXABVCoord@@HHH@Z": 5547344,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
+    "?Radio_Link@RadioClass@@QAEPAVTechnoClass@@H@Z": 6516240,
+    "?Submit@DisplayClass@@QAEXPBVObjectClass@@@Z": 4823616,
+    "?In_Local_Radar@MapClass@@QBE_NABVCoord@@@Z": 5613552,
+    "?Detach_Object@CargoClass@@QAEPAVFootClass@@XZ": 4622832,
+    "?Counts_As_Civ_Evac@@YI_NPBVObjectClass@@@Z": 4274672,
+    "__real@8@bff1c9116cc4faf2b800": 7976480,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "?cos@fastmath@@YANN@Z": 4957392,
+    "?In_Radar@MapClass@@QBE_NABVCell@@@Z": 5548720,
+    "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
+    "?Set@FacingClass@@QAE_NABVDirType@@@Z": 4950800,
+    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
+    "__GUID_820f501c_4f39_11d2_9b70_00104b972fe8": 8224936,
+    "?_Release@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEXXZ": 4979648,
+    "?_com_issue_error@@YGXJ@Z": 7952704,
+    "?Desired@FacingClass@@QBE?AVDirType@@XZ": 4951168,
+    "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
+    "__real@8@bffcc90fdaa22168c000": 7983248,
+    "?Rotate_Z@Matrix3D@@QAEXM@Z": 5835168,
+    "?Rotate_X@Matrix3D@@QAEXM@Z": 5834592,
+    "?Rotate_Y@Matrix3D@@QAEXM@Z": 5834880,
+    "?Is_Rotating_CW@FacingClass@@QBE_NXZ": 4951232,
+    "?Is_Rotating_CCW@FacingClass@@QBE_NXZ": 4951296,
+    "?Frame@@3HA": 10751276,
+    "__real@8@3ffda0d97bb4e7870000": 7999744,
+    "__real@8@3fffc000000000000000": 7984488,
+    "?AircraftTracker@@3VAircraftTrackerClass@@A": 8625824,
+    "?Add@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z": 4272608,
+    "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z": 7421536,
+    "?Next_Planning_Node@TechnoClass@@QAE_NXZ": 7148656,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?ContainsLink@RadioClass@@QBE_NPBVTechnoClass@@@Z": 6516272,
+    "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z": 7441760,
+    "_CLSID_FlyerLocomotion": 8003520,
+    "?Load@LocomotionClass@@UAGJPAUIStream@@@Z": 5493696,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "?Power_Off@LocomotionClass@@UAGEXZ": 5493264,
+    "?Is_Powered@LocomotionClass@@UAGEXZ": 5493296,
+    "??0?$VectorClass@PAVObjectClass@@@@QAE@HPBQAVObjectClass@@@Z": 4979664,
+    "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@": 7986044,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?Is_Human_Player@HouseClass@@QBE_NXZ": 5198576,
+    "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": 10751008,
+    "?Is_Ally@HouseClass@@QBE_NPBV1@@Z": 5133632,
+    "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
+    "??_7?$VectorClass@PAVObjectClass@@@@6B@": 7973148,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 4964128,
+    "_$E5": 4964176,
+    "_$E8": 4964208,
+    "_$E11": 4964240,
+    "_$E14": 4964272,
+    "_$E17": 4964304,
+    "_$E20": 4964336,
+    "_$E23": 4964400,
+    "_$E26": 4964448,
+    "_$E29": 4964496,
+    "_$E32": 4964544,
+    "_$E35": 4964560,
+    "_$E38": 4964592,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??0FlyLocomotionClass@@QAE@XZ": 4964624,
+    "?Can_Fire@LocomotionClass@@UAG?AW4FireErrorType@@XZ": 5494272,
+    "?Drawing_Code@LocomotionClass@@UAGHXZ": 5494256,
+    "?Force_New_Slope@LocomotionClass@@UAGXH@Z": 5494240,
+    "?Force_Immediate_Destination@LocomotionClass@@UAGXUCoordStruct@@@Z": 5494016,
+    "?Force_Track@LocomotionClass@@UAGXHUCoordStruct@@@Z": 5494032,
+    "?Shove@LocomotionClass@@UAGEUDirStruct@@@Z": 5493888,
+    "?Push@LocomotionClass@@UAGEUDirStruct@@@Z": 5493872,
+    "?Power_On@LocomotionClass@@UAGEXZ": 5493232,
+    "?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ": 5493904,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Move_To@FlyLocomotionClass@@UAGXUCoordStruct@@@Z": 4965344,
+    "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
+    "?Z_Adjust@LocomotionClass@@UAGHXZ": 5493920,
+    "?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z": 5493952,
+    "?Is_To_Have_Shadow@LocomotionClass@@UAGEXZ": 5493984,
+    "?Can_Enter_Cell@LocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z": 5494000,
+    "?Head_To_Coord@LocomotionClass@@UAG?AUCoordStruct@@XZ": 5494176,
+    "??_GFlyLocomotionClass@@UAEPAXI@Z": 4979456,
+    "?GetSizeMax@LocomotionClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 5493824,
+    "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z": 5493600,
+    "?Release@LocomotionClass@@UAGKXZ": 5493360,
+    "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
+    "?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 5493424,
+    "??_R0?AUILocomotion@@@8": 8216272,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVLocomotionClass@@@8": 8216304,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVFlyLocomotionClass@@@8": 8224896,
+    "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
+    "?Is_Surfacing@LocomotionClass@@UAGEXZ": 4869184,
+    "?Mark_All_Occupation_Bits@LocomotionClass@@UAGXH@Z": 4875680,
+    "?Is_Moving_Here@LocomotionClass@@UAGEUCoordStruct@@@Z": 4875696,
+    "?Will_Jump_Tracks@LocomotionClass@@UAGEXZ": 4875712,
+    "?Is_Really_Moving_Now@LocomotionClass@@UAGEXZ": 4869136,
+    "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ": 4869200,
+    "?Lock@LocomotionClass@@UAGXXZ": 4875728,
+    "?Unlock@LocomotionClass@@UAGXXZ": 4875744,
+    "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
+    "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
+    "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
+    "?Fetch_Object_Size@FlyLocomotionClass@@UBEHXZ": 4979440,
+    "?Link_To_Object@FlyLocomotionClass@@UAGJPAX@Z": 4964752,
+    "??1FlyLocomotionClass@@UAE@XZ": 4964832,
+    "?Is_Moving@FlyLocomotionClass@@UAGEXZ": 4964864,
+    "?Is_Moving_Now@FlyLocomotionClass@@UAGEXZ": 4964912,
+    "?Destination@FlyLocomotionClass@@UAG?AUCoordStruct@@XZ": 4964944,
+    "?Process@FlyLocomotionClass@@UAGEXZ": 4965040,
+    "?Stop_Moving@FlyLocomotionClass@@UAGXXZ": 4966192,
+    "?Physics@FlyLocomotionClass@@QAE?AW4ImpactType@@AAVCoord@@VDirType@@@Z": 4971552,
+    "?Draw_Matrix@FlyLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 4976016,
+    "?Draw_Point@FlyLocomotionClass@@UAG?AUPoint2DStruct@@XZ": 4976560,
+    "?Shadow_Point@FlyLocomotionClass@@UAG?AUPoint2DStruct@@XZ": 4976832,
+    "?Take_Off@FlyLocomotionClass@@QAEXXZ": 4976848,
+    "?Land@FlyLocomotionClass@@QAEXXZ": 4977136,
+    "?Shadow_Matrix@FlyLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 4977280,
+    "?Do_Turn@FlyLocomotionClass@@UAGXUDirStruct@@@Z": 4977552,
+    "?Is_In_Flight@FlyLocomotionClass@@QAE_NXZ": 4977600,
+    "?GetClassID@FlyLocomotionClass@@UAGJPAU_GUID@@@Z": 4977664,
+    "?Load@FlyLocomotionClass@@UAGJPAUIStream@@@Z": 4977728,
+    "?In_Which_Layer@FlyLocomotionClass@@UAG?AW4LayerType@@XZ": 4977776,
+    "?Power_Off@FlyLocomotionClass@@UAGEXZ": 4977824,
+    "?Is_Powered@FlyLocomotionClass@@UAGEXZ": 4977936,
+    "?Is_Ion_Sensitive@FlyLocomotionClass@@UAGEXZ": 4977952,
+    "?Tumble@FlyLocomotionClass@@QAEXXZ": 4978000,
+    "?Apparent_Speed@FlyLocomotionClass@@UAGHXZ": 4978080,
+    "?Get_Status@FlyLocomotionClass@@UAGHXZ": 4978128,
+    "?Acquire_Hunter_Seeker_Target@FlyLocomotionClass@@UAGXXZ": 4978176,
+    "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z": 4247072,
+    "??_G?$DynamicVectorClass@PAVObjectClass@@@@UAEPAXI@Z": 4706448,
+    "?Needs_To_Land@FlyLocomotionClass@@QAE_NXZ": 4978928,
+    "?Is_Locked_To_Straight_Flight@FlyLocomotionClass@@QAE_NXZ": 4979216,
+    "?Clear@?$DynamicVectorClass@PAVObjectClass@@@@UAEXXZ": 4246368,
+    "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z": 4246416,
+    "?GetItem@?$VectorClass@PAVObjectClass@@@@UBEPAVObjectClass@@H@Z": 4246448,
+    "??8?$VectorClass@PAVObjectClass@@@@UBE_NABV0@@Z": 4246464,
+    "?Resize@?$VectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z": 4246528,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@PAVObjectClass@@@@UAEXXZ": 4246704,
+    "?ID@?$VectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z": 4246752,
+    "?ID@?$VectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z": 4246816,
+    "?Resize@?$DynamicVectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z": 4246848,
+    "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z": 4247024,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4371568,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
+    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
+    "?Release@LocomotionClass@@W3AGKXZ": 4979904
+  },
+  "regions": [
+    {
+      "entry": 4964128,
+      "method": "004bbf20",
+      "body_bytes": 40,
+      "body_sha256": "7c0aec4616ad9806d03661d5f9773a953efb006a4b193fc22952030073cbd6ad",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c3f5b9cb42ec1387d09fdb1acd190f710ac0cae0a0b1ab7cf52aeb03af947515",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2908799
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294960338
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8805856,
+          "addend": 0,
+          "resolved": 8805856
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964176,
+      "method": "004bbf50",
+      "body_bytes": 19,
+      "body_sha256": "c63590c9650517a05aa2ccec3eeffa32b33daca15fa0c25f16d551e9d47b5a3c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "89ffb7fc891e52c92c1e605359af76cfdc34aafcf012ce39efd1693fba3e8723",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8805856,
+          "addend": 0,
+          "resolved": 8805856
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7999448,
+          "addend": 0,
+          "resolved": 7999448
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8805928,
+          "addend": 0,
+          "resolved": 8805928
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964208,
+      "method": "004bbf70",
+      "body_bytes": 19,
+      "body_sha256": "3b634bbca3ebcec2e6ab49057bf24f2619914d47b4b78897397b28db311d27a4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5f4574b71ebe4a001b63e432373c5f43caa5d1058af47253ec17f8da51f781c7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8805928,
+          "addend": 0,
+          "resolved": 8805928
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8805912,
+          "addend": 0,
+          "resolved": 8805912
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964240,
+      "method": "004bbf90",
+      "body_bytes": 19,
+      "body_sha256": "9df5bc793569a895626b00c50705966a6ad169fa1549e025183ba3f8c46ba92e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b214b8fc0235263c61580b3a340f6640f002a877a6c154f9f3c70bb32bbf203d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7999456,
+          "addend": 0,
+          "resolved": 7999456
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8805904,
+          "addend": 0,
+          "resolved": 8805904
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964272,
+      "method": "004bbfb0",
+      "body_bytes": 19,
+      "body_sha256": "df793520550750bdde998e7bd49a84eb5d53ec8874cf6f88b84ad6f5eb688b0b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9d618f75fd24467cef5ada2ab710e3affdb3a44cf1437aa6d8fe82a431cdcbd4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7999456,
+          "addend": 0,
+          "resolved": 7999456
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8805864,
+          "addend": 0,
+          "resolved": 8805864
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964304,
+      "method": "004bbfd0",
+      "body_bytes": 19,
+      "body_sha256": "ba7e47b4ca49ca5e0d02e628a6f1f6981a3f697b03551dfd662d0eb7c201d7ee",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "020fd7aa17ee068b3ea9b0383ebf4061a7c5fb573f13f265b6395fedb18d2d74",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7999456,
+          "addend": 0,
+          "resolved": 7999456
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8805824,
+          "addend": 0,
+          "resolved": 8805824
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964336,
+      "method": "004bbff0",
+      "body_bytes": 49,
+      "body_sha256": "485c7646b0250c52dbd1cca2682b948b086dbca7539243d3d69e6f087c659cc5",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "3fedb7810952d7713ea9d27d2a980732ce3b6c64902e1f18647a87e2752ada6a",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8805824,
+          "addend": 0,
+          "resolved": 8805824
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8805864,
+          "addend": 0,
+          "resolved": 8805864
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294960409
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8805856,
+          "addend": 0,
+          "resolved": 8805856
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2896117
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8805936,
+          "addend": 0,
+          "resolved": 8805936
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964400,
+      "method": "004bc030",
+      "body_bytes": 33,
+      "body_sha256": "537d8534899aac4edfaa367d79d1f6e3fe57f4d5e9af026a5cc3650713969ef5",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f078f9e90235c96a525848e19066bb01af99d4bc43e013a221087465f1b62cc1",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8805936,
+          "addend": 0,
+          "resolved": 8805936
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294960489
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8805872,
+          "addend": 0,
+          "resolved": 8805872
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964448,
+      "method": "004bc060",
+      "body_bytes": 44,
+      "body_sha256": "cb91c0b397d1aa8b953f54baa23f209c1c1bae1cc2bc0fc9529ecbdaaeb8baa8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "24eae78247dbe960006c3ed7008ffbb1762ea70b08d69923acd3723afc8739ed",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8805936,
+          "addend": 0,
+          "resolved": 8805936
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8805856,
+          "addend": 0,
+          "resolved": 8805856
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294960430
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8805896,
+          "addend": 0,
+          "resolved": 8805896
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964496,
+      "method": "004bc090",
+      "body_bytes": 39,
+      "body_sha256": "02bedb118fc0863dae32161e5d83956049aa799c4cb8bb3025d8b67b6dab4152",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7d835ca5577059650105b7b0cfcdb06717361670f441d7f6a22a6c4671960fe5",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8805936,
+          "addend": 0,
+          "resolved": 8805936
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2895968
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8805920,
+          "addend": 0,
+          "resolved": 8805920
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964544,
+      "method": "004bc0c0",
+      "body_bytes": 15,
+      "body_sha256": "aa1a271d202cdd3ea51ea1cdea175b6dd2b75fccd18278c61cf7907ba45617ca",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b5cb6f0a1a771e27c215cca0ef93d66225c5929ffd94c5fc1b5412f1aba52c8d",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805848,
+          "addend": 0,
+          "resolved": 8805848
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805848,
+          "addend": 2,
+          "resolved": 8805850
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964560,
+      "method": "004bc0d0",
+      "body_bytes": 18,
+      "body_sha256": "730637dc463fa2981bad9e66cdc6a790f9250122b235479588e3bfad496ac31c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0b1562a6e0af66699d0029ff326e978b83f45013601e1e2e874bb0adbd1b972a",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 0,
+          "resolved": 8805880
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 4,
+          "resolved": 8805884
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 8,
+          "resolved": 8805888
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964592,
+      "method": "004bc0f0",
+      "body_bytes": 23,
+      "body_sha256": "ee236a9ffb1fdd8657253ead7fb6e396883980770e11ca1a372479a7058c8ffb",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "229395062a69e8018cdb1a81c912d26af3d4454248b9680513bf556c6d7b4123",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805832,
+          "addend": 0,
+          "resolved": 8805832
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805832,
+          "addend": 4,
+          "resolved": 8805836
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805832,
+          "addend": 8,
+          "resolved": 8805840
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805832,
+          "addend": 12,
+          "resolved": 8805844
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964624,
+      "method": "004bc110",
+      "body_bytes": 128,
+      "body_sha256": "2ceabcbb4128924bf4a76fd17b577dc1f57fca5f67dac3e3bd85ce43affca297",
+      "padding_bytes": 0,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "2ceabcbb4128924bf4a76fd17b577dc1f57fca5f67dac3e3bd85ce43affca297",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0FlyLocomotionClass@@QAE@XZ",
+      "symbol_prefix": "??0FlyLocomotionClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0LocomotionClass@@QAE@XZ",
+          "target": 5492672,
+          "addend": 0,
+          "resolved": 528040
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 0,
+          "resolved": 8805880
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 4,
+          "resolved": 8805884
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 8,
+          "resolved": 8805888
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 0,
+          "resolved": 8805880
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 4,
+          "resolved": 8805884
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 8,
+          "resolved": 8805888
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "??_7FlyLocomotionClass@@6BIPersistStream@@@",
+          "target": 7999692,
+          "addend": 0,
+          "resolved": 7999692
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "??_7FlyLocomotionClass@@6BILocomotion@@@",
+          "target": 7999492,
+          "addend": 0,
+          "resolved": 7999492
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964752,
+      "method": "004bc190",
+      "body_bytes": 80,
+      "body_sha256": "20a1646c2cf334911f0d6b614b1e2771f8a05440a45c2f9f5e24544953d8e13a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "20a1646c2cf334911f0d6b614b1e2771f8a05440a45c2f9f5e24544953d8e13a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Link_To_Object@FlyLocomotionClass@@UAGJPAX@Z",
+      "symbol_prefix": "?Link_To_Object@FlyLocomotionClass@@UAGJPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?Link_To_Object@LocomotionClass@@UAGJPAX@Z",
+          "target": 5492752,
+          "addend": 0,
+          "resolved": 527982
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964832,
+      "method": "004bc1e0",
+      "body_bytes": 18,
+      "body_sha256": "b508a49da495e204671032aa4dec7b4b88daac1aaa0fed687e0de29bf668b10e",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4882a1a99fbe18cffc53abf334038feb132772c92fee142faefc7f8ffd2ade61",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1FlyLocomotionClass@@UAE@XZ",
+      "symbol_prefix": "??1FlyLocomotionClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7FlyLocomotionClass@@6BIPersistStream@@@",
+          "target": 7999692,
+          "addend": 0,
+          "resolved": 7999692
+        },
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7FlyLocomotionClass@@6BILocomotion@@@",
+          "target": 7999492,
+          "addend": 0,
+          "resolved": 7999492
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 527870
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964864,
+      "method": "004bc200",
+      "body_bytes": 46,
+      "body_sha256": "7bdcf4a983d32f48baf751dbeab1b07fe092a8839a6944f25fdb9e761771bc77",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3b90a78aa49d7929554bb05451fe6f8bb4f284b10ab9c328f37c530b8de32ab8",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving@FlyLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving@FlyLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964912,
+      "method": "004bc230",
+      "body_bytes": 30,
+      "body_sha256": "45d8ee91b056f6ba35c365ad622247b6f735384296c454bf5846e48a34ea4f23",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2cb0bf341943e9034d0bce3d39bef5d2ad4a15f0ce04443b0cfc1f898bad2a5e",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving_Now@FlyLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving_Now@FlyLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4964944,
+      "method": "004bc250",
+      "body_bytes": 81,
+      "body_sha256": "156f75cdfe072ed2819549cafffcaa7110af378a0e6e5f4abc6bf4b11b94cb96",
+      "padding_bytes": 15,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "926ac6b173933fb2cab40a83959699cddd38c146f956052861e083466a23bee2",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destination@FlyLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Destination@FlyLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 0,
+          "resolved": 8805880
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 4,
+          "resolved": 8805884
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 8,
+          "resolved": 8805888
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4964944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4965040,
+      "method": "004bc2b0",
+      "body_bytes": 303,
+      "body_sha256": "ecce88e9345208386e07a6800264f8aa8ddbabe7793239e12163d6502cf7f1fe",
+      "padding_bytes": 1,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "2ed35a2c586d3893f1258a55344793ed46160df2e419436b87954b05ceb0a4e4",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process@FlyLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Process@FlyLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "?Rotation_AI@FlyLocomotionClass@@QAEXXZ",
+          "target": 4971792,
+          "addend": 0,
+          "resolved": 6627
+        },
+        {
+          "offset": 128,
+          "kind": 20,
+          "symbol": "?Movement_AI@FlyLocomotionClass@@QAEXXZ",
+          "target": 4967760,
+          "addend": 0,
+          "resolved": 2588
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 0,
+          "resolved": 8805880
+        },
+        {
+          "offset": 190,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 4,
+          "resolved": 8805884
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 8,
+          "resolved": 8805888
+        },
+        {
+          "offset": 263,
+          "kind": 20,
+          "symbol": "?Nearing_Target@FlyLocomotionClass@@QAEH_NUCoordStruct@@@Z",
+          "target": 4974368,
+          "addend": 0,
+          "resolved": 9061
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "?Landing_Takeoff_AI@FlyLocomotionClass@@QAE_NXZ",
+          "target": 4966912,
+          "addend": 0,
+          "resolved": 1588
+        },
+        {
+          "offset": 287,
+          "kind": 20,
+          "symbol": "?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ",
+          "target": 4967520,
+          "addend": 0,
+          "resolved": 2189
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4965040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4966192,
+      "method": "004bc730",
+      "body_bytes": 705,
+      "body_sha256": "3cc532dd7a00f88fe9afa0d54c0386a9e3d87b34ad9f3b146eda3a73f2d01703",
+      "padding_bytes": 15,
+      "full_extent_bytes": 720,
+      "full_extent_sha256": "71fa6b865ac73658ccb7c815619c2bb9f26590882ea449b0c3914c2e583cd00e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Moving@FlyLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Stop_Moving@FlyLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 646841
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "?Closest_Edge_Cell@MapClass@@QAE?AVCell@@ABV2@_N@Z",
+          "target": 5671376,
+          "addend": 0,
+          "resolved": 705024
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805848,
+          "addend": 0,
+          "resolved": 8805848
+        },
+        {
+          "offset": 215,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805848,
+          "addend": 2,
+          "resolved": 8805850
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 281,
+          "kind": 20,
+          "symbol": "?Good_LZ@AircraftClass@@QBEPAVAbstractClass@@XZ",
+          "target": 4298928,
+          "addend": 0,
+          "resolved": 4294299747
+        },
+        {
+          "offset": 313,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 571390
+        },
+        {
+          "offset": 326,
+          "kind": 20,
+          "symbol": "?New_LZ@AircraftClass@@QBEPAVAbstractClass@@PAV2@@Z",
+          "target": 4294064,
+          "addend": 0,
+          "resolved": 4294294838
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 412,
+          "kind": 20,
+          "symbol": "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z",
+          "target": 5571296,
+          "addend": 0,
+          "resolved": 604688
+        },
+        {
+          "offset": 421,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805848,
+          "addend": 0,
+          "resolved": 8805848
+        },
+        {
+          "offset": 439,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805848,
+          "addend": 2,
+          "resolved": 8805850
+        },
+        {
+          "offset": 488,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 497,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 645467
+        },
+        {
+          "offset": 502,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 516,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 571192
+        },
+        {
+          "offset": 533,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8805920,
+          "addend": 0,
+          "resolved": 8805920
+        },
+        {
+          "offset": 560,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 565,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 571031
+        },
+        {
+          "offset": 599,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 604,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 570992
+        },
+        {
+          "offset": 641,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 670,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 0,
+          "resolved": 8805880
+        },
+        {
+          "offset": 681,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 4,
+          "resolved": 8805884
+        },
+        {
+          "offset": 690,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805880,
+          "addend": 8,
+          "resolved": 8805888
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4966192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4966912,
+      "method": "004bca00",
+      "body_bytes": 604,
+      "body_sha256": "1e2a6f6d11d0a73f1b6a15ec7fdff27398a1804173b399a2a1ae379bb4e4b0a1",
+      "padding_bytes": 4,
+      "full_extent_bytes": 608,
+      "full_extent_sha256": "27241e09b32460c07346af8d6e7d77e9b2e5788afcaa2fbb398887ceda60995c",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Landing_Takeoff_AI@FlyLocomotionClass@@QAE_NXZ",
+      "symbol_prefix": "?Landing_Takeoff_AI@FlyLocomotionClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "?Remove@DisplayClass@@QAEXPBVObjectClass@@@Z",
+          "target": 4823696,
+          "addend": 0,
+          "resolved": 4294823928
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?Process_Landing@FlyLocomotionClass@@QAE_NXZ",
+          "target": 4972464,
+          "addend": 0,
+          "resolved": 5386
+        },
+        {
+          "offset": 176,
+          "kind": 20,
+          "symbol": "?Process_Take_Off@FlyLocomotionClass@@QAE_NXZ",
+          "target": 4972016,
+          "addend": 0,
+          "resolved": 4924
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 270,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 570606
+        },
+        {
+          "offset": 479,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 497,
+          "kind": 20,
+          "symbol": "?RevealArea3@MapClass@@QAEXABVCoord@@HHH@Z",
+          "target": 5547344,
+          "addend": 0,
+          "resolved": 579931
+        },
+        {
+          "offset": 517,
+          "kind": 20,
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+          "target": 6516496,
+          "addend": 0,
+          "resolved": 1549063
+        },
+        {
+          "offset": 545,
+          "kind": 20,
+          "symbol": "?Radio_Link@RadioClass@@QAEPAVTechnoClass@@H@Z",
+          "target": 6516240,
+          "addend": 0,
+          "resolved": 1548779
+        },
+        {
+          "offset": 574,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 579,
+          "kind": 20,
+          "symbol": "?Submit@DisplayClass@@QAEXPBVObjectClass@@@Z",
+          "target": 4823616,
+          "addend": 0,
+          "resolved": 4294823417
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4966912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4967520,
+      "method": "004bcc60",
+      "body_bytes": 238,
+      "body_sha256": "2fab37e27987917c4458d5b947904c2a133128ed17e2d1c6c8c7d0d96daf12c7",
+      "padding_bytes": 2,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "7be802216b3b234401c3d37eaa4244f4f4739431794dbd850dd78730c408c0a1",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ",
+      "symbol_prefix": "?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCoord@@@Z",
+          "target": 5613552,
+          "addend": 0,
+          "resolved": 645983
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?Detach_Object@CargoClass@@QAEPAVFootClass@@XZ",
+          "target": 4622832,
+          "addend": 0,
+          "resolved": 4294622500
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?Counts_As_Civ_Evac@@YI_NPBVObjectClass@@@Z",
+          "target": 4274672,
+          "addend": 0,
+          "resolved": 4294274331
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4967520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4971552,
+      "method": "004bdc20",
+      "body_bytes": 236,
+      "body_sha256": "7768c28e4a35a955cabc681c546dc0af33ffb9bfe1bc3fa8c36c092e9272efb5",
+      "padding_bytes": 4,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "0c8dce98ecf31603fa35bf68aac254202c057b3104acded421f959277f671c5f",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Physics@FlyLocomotionClass@@QAE?AW4ImpactType@@AAVCoord@@VDirType@@@Z",
+      "symbol_prefix": "?Physics@FlyLocomotionClass@@QAE?AW4ImpactType@@AAVCoord@@VDirType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 93,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4294952959
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2888834
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294953015
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2888809
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 207,
+          "kind": 20,
+          "symbol": "?In_Radar@MapClass@@QBE_NABVCell@@@Z",
+          "target": 5548720,
+          "addend": 0,
+          "resolved": 576957
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4971552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4971792,
+      "method": "004bdd10",
+      "body_bytes": 210,
+      "body_sha256": "235e93115dad9e692ed4ec9ece9f244334a5d76484672f8abfa00ff5acca20c6",
+      "padding_bytes": 14,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "96e41f2a9de6884c5dbd0c017bffd9961daf3442984dfb845d59301451aa1292",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Rotation_AI@FlyLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Rotation_AI@FlyLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294946448
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950800,
+          "addend": 0,
+          "resolved": 4294946198
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 565802
+        },
+        {
+          "offset": 201,
+          "kind": 20,
+          "symbol": "?Trigger_Veins@CellClass@@QAEXXZ",
+          "target": 4700976,
+          "addend": 0,
+          "resolved": 4294696275
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4971792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4972016,
+      "method": "004bddf0",
+      "body_bytes": 435,
+      "body_sha256": "f439692391de8536c8accf3eaa3b7b4592f32de0ac94eb3818caa81f61278068",
+      "padding_bytes": 13,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "56ce8d47c47c04136a35a543ba2347b0220235953bbab8b979f4f2a4217d8949",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Take_Off@FlyLocomotionClass@@QAE_NXZ",
+      "symbol_prefix": "?Process_Take_Off@FlyLocomotionClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 565704
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8805920,
+          "addend": 0,
+          "resolved": 8805920
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "__GUID_820f501c_4f39_11d2_9b70_00104b972fe8",
+          "target": 8224936,
+          "addend": 0,
+          "resolved": 8224936
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4979648,
+          "addend": 0,
+          "resolved": 7495
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4979648,
+          "addend": 0,
+          "resolved": 7480
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2980514
+        },
+        {
+          "offset": 247,
+          "kind": 20,
+          "symbol": "?Desired@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951168,
+          "addend": 0,
+          "resolved": 4294946197
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950576,
+          "addend": 0,
+          "resolved": 4294945590
+        },
+        {
+          "offset": 340,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294952632
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 355,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 360,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2888116
+        },
+        {
+          "offset": 392,
+          "kind": 20,
+          "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950576,
+          "addend": 0,
+          "resolved": 4294945460
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4972016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4976016,
+      "method": "004bed90",
+      "body_bytes": 530,
+      "body_sha256": "3d9835e96f8f10b41b94deac9d83cdb17c1be2860b8f09917aefd3ebad151b8d",
+      "padding_bytes": 14,
+      "full_extent_bytes": 544,
+      "full_extent_sha256": "88e5e071626dfb50a7058c70c6e3145b46219b186b6efb607d0ee226c299226c",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Matrix@FlyLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "symbol_prefix": "?Draw_Matrix@FlyLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 856770
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294942243
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294942204
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "__real@8@bffcc90fdaa22168c000",
+          "target": 7983248,
+          "addend": 0,
+          "resolved": 7983248
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 859027
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "?Rotate_X@Matrix3D@@QAEXM@Z",
+          "target": 5834592,
+          "addend": 0,
+          "resolved": 858403
+        },
+        {
+          "offset": 247,
+          "kind": 20,
+          "symbol": "?Rotate_Y@Matrix3D@@QAEXM@Z",
+          "target": 5834880,
+          "addend": 0,
+          "resolved": 858613
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 364,
+          "kind": 20,
+          "symbol": "?Rotate_Y@Matrix3D@@QAEXM@Z",
+          "target": 5834880,
+          "addend": 0,
+          "resolved": 858496
+        },
+        {
+          "offset": 387,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 408,
+          "kind": 20,
+          "symbol": "?Is_Rotating_CW@FacingClass@@QBE_NXZ",
+          "target": 4951232,
+          "addend": 0,
+          "resolved": 4294942100
+        },
+        {
+          "offset": 455,
+          "kind": 20,
+          "symbol": "?Is_Rotating_CCW@FacingClass@@QBE_NXZ",
+          "target": 4951296,
+          "addend": 0,
+          "resolved": 4294942117
+        },
+        {
+          "offset": 501,
+          "kind": 20,
+          "symbol": "?Rotate_X@Matrix3D@@QAEXM@Z",
+          "target": 5834592,
+          "addend": 0,
+          "resolved": 858071
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4976016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4976560,
+      "method": "004befb0",
+      "body_bytes": 262,
+      "body_sha256": "78aacce0e609b50152e862a6bb7e83a402e269943621af75e9661e19ec42da3f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "2ffdd737abc20f1964e2a18e7d5213c806c2a3d87c2380e4b0ebb1f50f1f5461",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Point@FlyLocomotionClass@@UAG?AUPoint2DStruct@@XZ",
+      "symbol_prefix": "?Draw_Point@FlyLocomotionClass@@UAG?AUPoint2DStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "__GUID_820f501c_4f39_11d2_9b70_00104b972fe8",
+          "target": 8224936,
+          "addend": 0,
+          "resolved": 8224936
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4979648,
+          "addend": 0,
+          "resolved": 3035
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4979648,
+          "addend": 0,
+          "resolved": 3013
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2976044
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "__real@8@3ffda0d97bb4e7870000",
+          "target": 7999744,
+          "addend": 0,
+          "resolved": 7999744
+        },
+        {
+          "offset": 202,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4294947842
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "__real@8@3fffc000000000000000",
+          "target": 7984488,
+          "addend": 0,
+          "resolved": 7984488
+        },
+        {
+          "offset": 217,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 222,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2883710
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4976560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4976832,
+      "method": "004bf0c0",
+      "body_bytes": 16,
+      "body_sha256": "16c8d9b9d3c8b3d7c5e4f6fbe7b680e9cffc4bbd38cb994cae828b734779f917",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "16c8d9b9d3c8b3d7c5e4f6fbe7b680e9cffc4bbd38cb994cae828b734779f917",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Shadow_Point@FlyLocomotionClass@@UAG?AUPoint2DStruct@@XZ",
+      "symbol_prefix": "?Shadow_Point@FlyLocomotionClass@@UAG?AUPoint2DStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4976832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4976848,
+      "method": "004bf0d0",
+      "body_bytes": 282,
+      "body_sha256": "9c77b8cc42315a7eb82d3995113db74f40b814758db689bf6fdbf6bbfb5b0d02",
+      "padding_bytes": 6,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "46edfea6458b292b8e09267ed574adb5a2d8dad39c0d94493645d274ff923721",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Take_Off@FlyLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Take_Off@FlyLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805848,
+          "addend": 0,
+          "resolved": 8805848
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805848,
+          "addend": 2,
+          "resolved": 8805850
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 0,
+          "resolved": 8625824
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "?Add@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z",
+          "target": 4272608,
+          "addend": 0,
+          "resolved": 4294262912
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?Desired@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951168,
+          "addend": 0,
+          "resolved": 4294941414
+        },
+        {
+          "offset": 213,
+          "kind": 20,
+          "symbol": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950800,
+          "addend": 0,
+          "resolved": 4294941031
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 2444411
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4976848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977136,
+      "method": "004bf1f0",
+      "body_bytes": 133,
+      "body_sha256": "9182c0cdd097a8244ae12225a28f86e67be87d9daf483aa09997108f658ccdfe",
+      "padding_bytes": 11,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "4fef70e392d34c7ba5bf70eb60e568782a9546a6d7942d1cadc0eaf9ec21b10c",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Land@FlyLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Land@FlyLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?Next_Planning_Node@TechnoClass@@QAE_NXZ",
+          "target": 7148656,
+          "addend": 0,
+          "resolved": 2171492
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4294649199
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?ContainsLink@RadioClass@@QBE_NPBVTechnoClass@@@Z",
+          "target": 6516272,
+          "addend": 0,
+          "resolved": 1539046
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977280,
+      "method": "004bf280",
+      "body_bytes": 265,
+      "body_sha256": "ffb1d0458c4ca327b5b137d810fe7d5e906ee9d97736cdbbcdfcccd41af86d8c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "3abff58917f072be1de9ada726b134b40aec283cf3c4e199e83e24f78c13e524",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Shadow_Matrix@FlyLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "symbol_prefix": "?Shadow_Matrix@FlyLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 560458
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z",
+          "target": 7441760,
+          "addend": 0,
+          "resolved": 2464382
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294940894
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "__real@8@bffcc90fdaa22168c000",
+          "target": 7983248,
+          "addend": 0,
+          "resolved": 7983248
+        },
+        {
+          "offset": 167,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 857717
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294940806
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977552,
+      "method": "004bf390",
+      "body_bytes": 34,
+      "body_sha256": "62be29d9ecb740f710d9b7383dfe07bb215ac20e5ba9e60a127130b171f9b575",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c35e6987b44b9050a211c0330920b25d20ccf07b0b48391ec82e4ba85a660d5f",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Do_Turn@FlyLocomotionClass@@UAGXUDirStruct@@@Z",
+      "symbol_prefix": "?Do_Turn@FlyLocomotionClass@@UAGXUDirStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950800,
+          "addend": 0,
+          "resolved": 4294940513
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977600,
+      "method": "004bf3c0",
+      "body_bytes": 50,
+      "body_sha256": "aa860e620d5b553e720059b80ff10bad84ee40230b8a50f2c275008af34ec86a",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "85592b3fae9457a64ba1175d545d4280b2864a3cc53164de6065b7f2803b364f",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_In_Flight@FlyLocomotionClass@@QAE_NXZ",
+      "symbol_prefix": "?Is_In_Flight@FlyLocomotionClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977664,
+      "method": "004bf400",
+      "body_bytes": 56,
+      "body_sha256": "e17c2f5f4561c0aa510c54c23c7614ae3fc0b40ce9a448c088745dc9b57b927f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "5e0e2115109e79de81e05d7fbc92c2ab9317cf9c1b14fdd38628fca10f5dda84",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@FlyLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@FlyLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_FlyerLocomotion",
+          "target": 8003520,
+          "addend": 0,
+          "resolved": 8003520
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_FlyerLocomotion",
+          "target": 8003520,
+          "addend": 4,
+          "resolved": 8003524
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_FlyerLocomotion",
+          "target": 8003520,
+          "addend": 8,
+          "resolved": 8003528
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_FlyerLocomotion",
+          "target": 8003520,
+          "addend": 12,
+          "resolved": 8003532
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977728,
+      "method": "004bf440",
+      "body_bytes": 41,
+      "body_sha256": "5339f4fd55db5d9d33d7f1c42f86f2c0d58c301ed621014b26eb3a657729d412",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f598999ebc3d4b599a8b015336f476fa96babff19e4c501417a2aea01fdda655",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@FlyLocomotionClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@FlyLocomotionClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Load@LocomotionClass@@UAGJPAUIStream@@@Z",
+          "target": 5493696,
+          "addend": 0,
+          "resolved": 515952
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7FlyLocomotionClass@@6BIPersistStream@@@",
+          "target": 7999692,
+          "addend": 0,
+          "resolved": 7999692
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7FlyLocomotionClass@@6BILocomotion@@@",
+          "target": 7999492,
+          "addend": 0,
+          "resolved": 7999492
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977776,
+      "method": "004bf470",
+      "body_bytes": 34,
+      "body_sha256": "bf8acd8184aa0ddf8ae3587f31a3ec85a27e01e494922acb4c55604eeb70a850",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "35cdfd1dcb986df7effec0307b8de8d680638b69a08cae759709118490d450d0",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?In_Which_Layer@FlyLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "symbol_prefix": "?In_Which_Layer@FlyLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977824,
+      "method": "004bf4a0",
+      "body_bytes": 100,
+      "body_sha256": "271f9d6135ae2fa3596f5c01ac47a4265034ad0654acce483e0bfe3337b04fea",
+      "padding_bytes": 12,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "f22015f248d859125f7dd4a4cbf0fdf2283029f7deb0b4d9aa6644279173fed5",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Power_Off@FlyLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Power_Off@FlyLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1545176
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1545152
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?Power_Off@LocomotionClass@@UAGEXZ",
+          "target": 5493264,
+          "addend": 0,
+          "resolved": 515344
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977936,
+      "method": "004bf510",
+      "body_bytes": 13,
+      "body_sha256": "cd624900f587782896e1737db6a4ef2ee32d341ad6925ea86897b56ae24eff54",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "753bd4206db83c495a88a7b1e52076ac6e28fad326f6174229486daa2fdd129d",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Powered@FlyLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Powered@FlyLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Is_Powered@LocomotionClass@@UAGEXZ",
+          "target": 5493296,
+          "addend": 0,
+          "resolved": 515350
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4977952,
+      "method": "004bf520",
+      "body_bytes": 33,
+      "body_sha256": "37c8b503890a1d250a573f8d862fcf7e91c5a790f571a1ac8b8e31556de6d77c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e42f8d7da4f4223c95931113a1604347a3dc06d1178c9d951b85a8e0751671ef",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Ion_Sensitive@FlyLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Ion_Sensitive@FlyLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4977952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4978000,
+      "method": "004bf550",
+      "body_bytes": 66,
+      "body_sha256": "ba4b7b41ea1dcb245b3291f328663419c56451535fdf9267e0aa1d024c7d8398",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "6f2f803d4108bb7cf1eaf7b8e5ba5448cd4f1ef98d1b7865465001c414abc7ea",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Tumble@FlyLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Tumble@FlyLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1545013
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1544989
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4978000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4978080,
+      "method": "004bf5a0",
+      "body_bytes": 34,
+      "body_sha256": "f171c422a53a2f82e68cbcf825bae7fa1b8ea3820556ccca152d8b2335acc2c3",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7b25011efe23f6c45101d03e1eea68e7b3cdcb345c10355b5e3378c0c48fab95",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Apparent_Speed@FlyLocomotionClass@@UAGHXZ",
+      "symbol_prefix": "?Apparent_Speed@FlyLocomotionClass@@UAGHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2882386
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4978080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4978128,
+      "method": "004bf5d0",
+      "body_bytes": 47,
+      "body_sha256": "b373eb249aec5a1493fddde85a1478ac21f6dd02b121737309f5d7445b42a09f",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "357d182e689ceaaab98421fbbac6697a314ccee74da376a661de335034d887d9",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Status@FlyLocomotionClass@@UAGHXZ",
+      "symbol_prefix": "?Get_Status@FlyLocomotionClass@@UAGHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4978128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4978176,
+      "method": "004bf600",
+      "body_bytes": 748,
+      "body_sha256": "dfb3e76a7f6a3f923c748630563c0b839b5da96255fd7a98f287d73dc57cdc24",
+      "padding_bytes": 4,
+      "full_extent_bytes": 752,
+      "full_extent_sha256": "9350f076d943ffcef608910286e706f5f5e98214544fec881b363366d013d907",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Acquire_Hunter_Seeker_Target@FlyLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Acquire_Hunter_Seeker_Target@FlyLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAVObjectClass@@@@QAE@HPBQAVObjectClass@@@Z",
+          "target": 4979664,
+          "addend": 0,
+          "resolved": 1449
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+          "target": 7986044,
+          "addend": 0,
+          "resolved": 7986044
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAVObjectClass@@@@QAE@HPBQAVObjectClass@@@Z",
+          "target": 4979664,
+          "addend": 0,
+          "resolved": 1416
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "?Is_Human_Player@HouseClass@@QBE_NXZ",
+          "target": 5198576,
+          "addend": 0,
+          "resolved": 220284
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 16,
+          "resolved": 10751024
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 4,
+          "resolved": 10751012
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 155273
+        },
+        {
+          "offset": 215,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 301,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 344,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 364,
+          "kind": 20,
+          "symbol": "?Is_Human_Player@HouseClass@@QBE_NXZ",
+          "target": 5198576,
+          "addend": 0,
+          "resolved": 220032
+        },
+        {
+          "offset": 591,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 605,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1544255
+        },
+        {
+          "offset": 630,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 644,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1544216
+        },
+        {
+          "offset": 672,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
+          "target": 7973148,
+          "addend": 0,
+          "resolved": 7973148
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2892931
+        },
+        {
+          "offset": 733,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2892890
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4978176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4978928,
+      "method": "004bf8f0",
+      "body_bytes": 275,
+      "body_sha256": "a4d5cf83aa991bed48ad338e7422bf4a1723b8165038701dd606bae0f540b1a5",
+      "padding_bytes": 13,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "ca11c2e0fe3a6924be1739232bf79e6031eeff451ae4f58af759a8d9d21d0317",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Needs_To_Land@FlyLocomotionClass@@QAE_NXZ",
+      "symbol_prefix": "?Needs_To_Land@FlyLocomotionClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "__GUID_820f501c_4f39_11d2_9b70_00104b972fe8",
+          "target": 8224936,
+          "addend": 0,
+          "resolved": 8224936
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4979648,
+          "addend": 0,
+          "resolved": 601
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4979648,
+          "addend": 0,
+          "resolved": 579
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2973610
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2973574
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4978928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4979216,
+      "method": "004bfa10",
+      "body_bytes": 215,
+      "body_sha256": "ab07dcdaeac2e5322779c5626024ff02219732e0ba3ffeae653f7878727f1e8b",
+      "padding_bytes": 9,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "d6d28156a91ceab8f7c2582e90051ceda283b127f1aeeb9026cd0847b275aad7",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Locked_To_Straight_Flight@FlyLocomotionClass@@QAE_NXZ",
+      "symbol_prefix": "?Is_Locked_To_Straight_Flight@FlyLocomotionClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 632924
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "__GUID_820f501c_4f39_11d2_9b70_00104b972fe8",
+          "target": 8224936,
+          "addend": 0,
+          "resolved": 8224936
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4979648,
+          "addend": 0,
+          "resolved": 320
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4979648,
+          "addend": 0,
+          "resolved": 298
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2973329
+        }
+      ],
+      "source_sha256": "14cb33babdd0f7500c192c545836c0cf33960d2028bf085da07a0b67b110a87d",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4979216,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -34,3 +34,6 @@ class FirewallHelperClass
 		int ReadDelta; // RA2: +0x0C
 		int Port; // RA2: +0x10, the port pool (0xA71B28)
 };
+
+// Declarations moved from the units that used them (one declaration per name).
+extern FirewallHelperClass FirewallHelper; // RA2: 0x00A71B18, as session.cpp

@@ -17,3 +17,4 @@ start_utc,end_utc,class,activity
 21:38,21:55,support,codex1 deliveries fetched, merged and re-accepted; initializer names per unit (resolver fix); XCU re-naming over 118 units
 21:56,22:20,support,lane R2: stale per-unit bindings found as the initializer blocker (reset_refs, reinit over 167 held units); duplicate classes 18 to 0 (no row lost); structure gate in the catalog step
 22:20,22:39,support,91 large mischa85 units adopted to a stage, their 7 duplicate classes conformed; 117 stray externs moved to headers (0 rows lost); whole-file exact with 129 units; README, LICENSE, THIRD_PARTY for publishing
+22:41,23:45,a,large mischa85 units: extern mover with type-aware homes, per-unit inline-virtual binding from vtable slots, initializer runs filed under the unit in main, draft guards with refinement; 50 units through the pipeline, 11 land whole (143 units whole-file exact); build-refused units held

@@ -16,6 +16,11 @@ and the tree as a whole must pass the whole-file exact build.
   lie. `manifest/adopted.csv` lists every adopted file with origin and commit; licences are in
   `LICENSE.md` and the repository's `THIRD_PARTY.md`.
 
+**Compiler version.** Everything here is checked with VC6 SP3 (compiler build 8447), the compiler of the
+original. mischa85's project used the RTM code generator by accident and is moving to SP3 8447. Adopted
+text that matched there under RTM is proven again here under 8447. A function mischa85 claims that fails
+here under 8447 is recorded as an RTM-only claim, not as one of our parked functions.
+
 ## Where the bytes come from
 
 Every accepted function has a provenance class in `manifest/provenance.csv`:

@@ -1,0 +1,1125 @@
+{
+  "id": "rebuild-audcache",
+  "population": {
+    "id": "rebuild-audcache",
+    "inventory_sha256": "0600d5ee4cab616d8ea4ec10c69d42dbd5e2f0d693a0e436778f4b72821978ac",
+    "gaps_sha256": "8fd8088775b8a77af707d0e93ad75c825d5770f5ac4466288b9ce992b4a57792",
+    "historical_population_sha256": "964a09a64be69652d27f506ed5636c5580bca47cd22e3a1084df28e0d4bfeee8",
+    "historical_acceptance_sha256": "265f06c5cc644296cabbd9f0549e536c0d0b12208ee1a788a15f663e4a9912cc"
+  },
+  "references": {
+    "??2@YAPAXI@Z": 7872535,
+    "?MemoryPoolCreate@@YIPAUAudioMemoryPool@@II@Z": 4224000,
+    "?ListInit@@YIXPAUListNode@@@Z": 4223472,
+    "?ListNodeNext@@YIPAUListNode@@PAU1@@Z": 4223904,
+    "?ListNodeRemove@@YIXPAUListNode@@@Z": 4223872,
+    "?AudioFrameDeinit@@YIXPAUAudioFrame@@@Z": 4228384,
+    "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z": 4224096,
+    "?AudioSampleDeinit@@YIXPAUAudioSample@@@Z": 4228176,
+    "?MemoryPoolDestroy@@YIXPAUAudioMemoryPool@@@Z": 4224064,
+    "??3@YAXPAX@Z": 7871803,
+    "?OpenSample@AudioIDXData@@QAIHH@Z": 4200176,
+    "?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z": 4224080,
+    "?ListNodePrev@@YIPAUListNode@@PAU1@@Z": 4223920,
+    "?ListNodeAppend@@YIXPAUListNode@@0@Z": 4223856,
+    "?ClearCurrentSample@AudioIDXData@@QAEXXZ": 4200720,
+    "?ListNodeInit@@YIXPAUListNode@@@Z": 4223488,
+    "?AudioSampleInit@@YIXPAUAudioSample@@@Z": 4228096,
+    "?AudioFormatInit@@YIXPAUAudioFormat@@@Z": 4228288,
+    "?AudioFrameInit@@YIXPAUAudioFrame@@PAXH@Z": 4228352,
+    "?AudioSampleAddFrame@@YIXPAUAudioSample@@PAUAudioFrame@@@Z": 4228128,
+    "?ReadSample@AudioIDXData@@QAIHPAXH@Z": 4200640,
+    "?GetSampleInformation@AudioIDXData@@QAIPAUAudioFormat@@HPAU2@@Z": 4200000,
+    "?AudioCacheCreate@@YIPAUAudioCache@@PAVAudioIDXData@@HHH@Z": 4200928,
+    "?AudioCacheDestroy@@YIXPAUAudioCache@@@Z": 4201216,
+    "?AudioCacheGetItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z": 4201392,
+    "?AudioCacheInvalidate@@YIXPAUAudioCache@@@Z": 4201440,
+    "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z": 4201472,
+    "?AudioCacheFreeOldestItem@@YIHPAUAudioCache@@@Z": 4202224,
+    "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z": 4202368,
+    "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z": 4202384,
+    "?AudioCacheItemInUse@@YIHPAUAudioCacheItem@@@Z": 4202416,
+    "?AudioCacheItemFree@@YIXPAUAudioCacheItem@@@Z": 4202432,
+    "?AudioCacheItemId@@YIHPAUAudioCacheItem@@@Z": 4202528,
+    "?AudioCacheItemSample@@YIPAUAudioSample@@PAUAudioCacheItem@@@Z": 4202544
+  },
+  "regions": [
+    {
+      "entry": 4200928,
+      "method": "004019e0",
+      "body_bytes": 275,
+      "body_sha256": "9ef963d1d754aa463cafe1b68f64ce6871da80b1fe2c6fc512b4362097725614",
+      "padding_bytes": 13,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "440a41dd9735fc2cf1f7ce5e163fe0b17e9b97f13885d9c3faa4aec3a8a06ad2",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheCreate@@YIPAUAudioCache@@PAVAudioIDXData@@HHH@Z",
+      "symbol_prefix": "?AudioCacheCreate@@YIPAUAudioCache@@PAVAudioIDXData@@HHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3671589
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?MemoryPoolCreate@@YIPAUAudioMemoryPool@@II@Z",
+          "target": 4224000,
+          "addend": 0,
+          "resolved": 23012
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "?MemoryPoolCreate@@YIPAUAudioMemoryPool@@II@Z",
+          "target": 4224000,
+          "addend": 0,
+          "resolved": 22995
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?ListInit@@YIXPAUListNode@@@Z",
+          "target": 4223472,
+          "addend": 0,
+          "resolved": 22454
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22861
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 22811
+        },
+        {
+          "offset": 139,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22833
+        },
+        {
+          "offset": 152,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 22788
+        },
+        {
+          "offset": 159,
+          "kind": 20,
+          "symbol": "?AudioFrameDeinit@@YIXPAUAudioFrame@@@Z",
+          "target": 4228384,
+          "addend": 0,
+          "resolved": 27293
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 22992
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22793
+        },
+        {
+          "offset": 193,
+          "kind": 20,
+          "symbol": "?AudioSampleDeinit@@YIXPAUAudioSample@@@Z",
+          "target": 4228176,
+          "addend": 0,
+          "resolved": 27051
+        },
+        {
+          "offset": 206,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 22958
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22758
+        },
+        {
+          "offset": 232,
+          "kind": 20,
+          "symbol": "?MemoryPoolDestroy@@YIXPAUAudioMemoryPool@@@Z",
+          "target": 4224064,
+          "addend": 0,
+          "resolved": 22900
+        },
+        {
+          "offset": 244,
+          "kind": 20,
+          "symbol": "?MemoryPoolDestroy@@YIXPAUAudioMemoryPool@@@Z",
+          "target": 4224064,
+          "addend": 0,
+          "resolved": 22888
+        },
+        {
+          "offset": 250,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3670621
+        }
+      ],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4200928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4201216,
+      "method": "00401b00",
+      "body_bytes": 172,
+      "body_sha256": "25933ba62000a62dc86fe3815ba9ea6dedf588d4495fec1e32e6ead52942d2c5",
+      "padding_bytes": 4,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "ffd5673fc76d41d87465c1abec766800355d5da777f344f5d6c2967c088170fe",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheDestroy@@YIXPAUAudioCache@@@Z",
+      "symbol_prefix": "?AudioCacheDestroy@@YIXPAUAudioCache@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22668
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 22617
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22639
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 22594
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "?AudioFrameDeinit@@YIXPAUAudioFrame@@@Z",
+          "target": 4228384,
+          "addend": 0,
+          "resolved": 27099
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 22798
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22599
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?AudioSampleDeinit@@YIXPAUAudioSample@@@Z",
+          "target": 4228176,
+          "addend": 0,
+          "resolved": 26857
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 22764
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22565
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "?MemoryPoolDestroy@@YIXPAUAudioMemoryPool@@@Z",
+          "target": 4224064,
+          "addend": 0,
+          "resolved": 22702
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?MemoryPoolDestroy@@YIXPAUAudioMemoryPool@@@Z",
+          "target": 4224064,
+          "addend": 0,
+          "resolved": 22690
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3670423
+        }
+      ],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4201216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4201392,
+      "method": "00401bb0",
+      "body_bytes": 33,
+      "body_sha256": "3498066a64134690003e7d8525d48c1c435f71d145561b0bb1cc9367b5b44b2d",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "40382ed2cfafdbe7043a74880405c5c7ee289ec43d72da87e3f6274f1f8aff01",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheGetItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+      "symbol_prefix": "?AudioCacheGetItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4201392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4201440,
+      "method": "00401be0",
+      "body_bytes": 22,
+      "body_sha256": "1d8038c0cfd0b4909ae8be5b1bc9548425109b82d302ed10aa000926f9e9e520",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a6312bf4abb84638ca250f1426d4f7ad25e26342a49594c325ab7ef04eac1971",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheInvalidate@@YIXPAUAudioCache@@@Z",
+      "symbol_prefix": "?AudioCacheInvalidate@@YIXPAUAudioCache@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4201440,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4201472,
+      "method": "00401c00",
+      "body_bytes": 738,
+      "body_sha256": "b6fcd4e046433913a85d03252e6866d30ddd987b67c2604e30d60d32c7c4c000",
+      "padding_bytes": 14,
+      "full_extent_bytes": 752,
+      "full_extent_sha256": "c05e9d6e032704d2e5454d8341f493415c83b5d605a823379adc0bfd9bca8a40",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+      "symbol_prefix": "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?OpenSample@AudioIDXData@@QAIHH@Z",
+          "target": 4200176,
+          "addend": 0,
+          "resolved": 4294965948
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z",
+          "target": 4224080,
+          "addend": 0,
+          "resolved": 22540
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?ListNodePrev@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223920,
+          "addend": 0,
+          "resolved": 22363
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "?ListNodePrev@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223920,
+          "addend": 0,
+          "resolved": 22339
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 22272
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "?ListNodeAppend@@YIXPAUListNode@@0@Z",
+          "target": 4223856,
+          "addend": 0,
+          "resolved": 22247
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 22241
+        },
+        {
+          "offset": 165,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22263
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 22218
+        },
+        {
+          "offset": 185,
+          "kind": 20,
+          "symbol": "?AudioFrameDeinit@@YIXPAUAudioFrame@@@Z",
+          "target": 4228384,
+          "addend": 0,
+          "resolved": 26723
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 22422
+        },
+        {
+          "offset": 205,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 22223
+        },
+        {
+          "offset": 219,
+          "kind": 20,
+          "symbol": "?AudioSampleDeinit@@YIXPAUAudioSample@@@Z",
+          "target": 4228176,
+          "addend": 0,
+          "resolved": 26481
+        },
+        {
+          "offset": 232,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 22388
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z",
+          "target": 4224080,
+          "addend": 0,
+          "resolved": 22364
+        },
+        {
+          "offset": 253,
+          "kind": 20,
+          "symbol": "?ClearCurrentSample@AudioIDXData@@QAEXXZ",
+          "target": 4200720,
+          "addend": 0,
+          "resolved": 4294966287
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "?ListNodeInit@@YIXPAUListNode@@@Z",
+          "target": 4223488,
+          "addend": 0,
+          "resolved": 21732
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "?AudioSampleInit@@YIXPAUAudioSample@@@Z",
+          "target": 4228096,
+          "addend": 0,
+          "resolved": 26325
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "?AudioFormatInit@@YIXPAUAudioFormat@@@Z",
+          "target": 4228288,
+          "addend": 0,
+          "resolved": 26507
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z",
+          "target": 4224080,
+          "addend": 0,
+          "resolved": 22247
+        },
+        {
+          "offset": 375,
+          "kind": 20,
+          "symbol": "?ListNodePrev@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223920,
+          "addend": 0,
+          "resolved": 22069
+        },
+        {
+          "offset": 399,
+          "kind": 20,
+          "symbol": "?ListNodePrev@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223920,
+          "addend": 0,
+          "resolved": 22045
+        },
+        {
+          "offset": 423,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 21973
+        },
+        {
+          "offset": 433,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 21995
+        },
+        {
+          "offset": 446,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 21950
+        },
+        {
+          "offset": 453,
+          "kind": 20,
+          "symbol": "?AudioFrameDeinit@@YIXPAUAudioFrame@@@Z",
+          "target": 4228384,
+          "addend": 0,
+          "resolved": 26455
+        },
+        {
+          "offset": 466,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 22154
+        },
+        {
+          "offset": 473,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 21955
+        },
+        {
+          "offset": 487,
+          "kind": 20,
+          "symbol": "?AudioSampleDeinit@@YIXPAUAudioSample@@@Z",
+          "target": 4228176,
+          "addend": 0,
+          "resolved": 26213
+        },
+        {
+          "offset": 500,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 22120
+        },
+        {
+          "offset": 512,
+          "kind": 20,
+          "symbol": "?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z",
+          "target": 4224080,
+          "addend": 0,
+          "resolved": 22092
+        },
+        {
+          "offset": 543,
+          "kind": 20,
+          "symbol": "?AudioFrameInit@@YIXPAUAudioFrame@@PAXH@Z",
+          "target": 4228352,
+          "addend": 0,
+          "resolved": 26333
+        },
+        {
+          "offset": 553,
+          "kind": 20,
+          "symbol": "?AudioSampleAddFrame@@YIXPAUAudioSample@@PAUAudioFrame@@@Z",
+          "target": 4228128,
+          "addend": 0,
+          "resolved": 26099
+        },
+        {
+          "offset": 567,
+          "kind": 20,
+          "symbol": "?ReadSample@AudioIDXData@@QAIHPAXH@Z",
+          "target": 4200640,
+          "addend": 0,
+          "resolved": 4294965893
+        },
+        {
+          "offset": 601,
+          "kind": 20,
+          "symbol": "?GetSampleInformation@AudioIDXData@@QAIPAUAudioFormat@@HPAU2@@Z",
+          "target": 4200000,
+          "addend": 0,
+          "resolved": 4294965219
+        },
+        {
+          "offset": 611,
+          "kind": 20,
+          "symbol": "?ListNodeAppend@@YIXPAUListNode@@0@Z",
+          "target": 4223856,
+          "addend": 0,
+          "resolved": 21769
+        },
+        {
+          "offset": 625,
+          "kind": 20,
+          "symbol": "?ClearCurrentSample@AudioIDXData@@QAEXXZ",
+          "target": 4200720,
+          "addend": 0,
+          "resolved": 4294965915
+        },
+        {
+          "offset": 647,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 21749
+        },
+        {
+          "offset": 657,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 21771
+        },
+        {
+          "offset": 670,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 21726
+        },
+        {
+          "offset": 677,
+          "kind": 20,
+          "symbol": "?AudioFrameDeinit@@YIXPAUAudioFrame@@@Z",
+          "target": 4228384,
+          "addend": 0,
+          "resolved": 26231
+        },
+        {
+          "offset": 690,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 21930
+        },
+        {
+          "offset": 697,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 21731
+        },
+        {
+          "offset": 711,
+          "kind": 20,
+          "symbol": "?AudioSampleDeinit@@YIXPAUAudioSample@@@Z",
+          "target": 4228176,
+          "addend": 0,
+          "resolved": 25989
+        },
+        {
+          "offset": 724,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 21896
+        }
+      ],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4201472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4202224,
+      "method": "00401ef0",
+      "body_bytes": 139,
+      "body_sha256": "983db71dbcfd75cc3c2dfac37564394c5b61e41720cbbf143de3f8c185a50ddb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "bac0ab3bb87ec386c60a949ff332b11115e569834842f18140e3607e7b554fa6",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheFreeOldestItem@@YIHPAUAudioCache@@@Z",
+      "symbol_prefix": "?AudioCacheFreeOldestItem@@YIHPAUAudioCache@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 20,
+          "symbol": "?ListNodePrev@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223920,
+          "addend": 0,
+          "resolved": 21687
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?ListNodePrev@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223920,
+          "addend": 0,
+          "resolved": 21667
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 21597
+        },
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 21617
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 21572
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?AudioFrameDeinit@@YIXPAUAudioFrame@@@Z",
+          "target": 4228384,
+          "addend": 0,
+          "resolved": 26077
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 21776
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 21577
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?AudioSampleDeinit@@YIXPAUAudioSample@@@Z",
+          "target": 4228176,
+          "addend": 0,
+          "resolved": 25835
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 21742
+        }
+      ],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4202224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4202368,
+      "method": "00401f80",
+      "body_bytes": 8,
+      "body_sha256": "b3794724984374fc9ebef671cac4d532d93e14683a6d0838374d91f24d21d309",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "4be3e2d187c44947071dda5f0c3d0ae038ef9c6e1fcd07492853e5f93fd2d04c",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z",
+      "symbol_prefix": "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4202368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4202384,
+      "method": "00401f90",
+      "body_bytes": 19,
+      "body_sha256": "a7a696daabc08dac6728a4fc1541af36d65a21c6091d110efa2369785da2fdab",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "904d1d32d43d2eb330ff0da4c662139ffcbf8d471b6324db4923a2b25ecdbddd",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+      "symbol_prefix": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4202384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4202416,
+      "method": "00401fb0",
+      "body_bytes": 4,
+      "body_sha256": "2e339cdc5de837ec151dbde90057caeabba18ac3ea32e7c2cffc8f95df41a6ff",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "12317eb303316d8831c7ed92c4a91857b88631ec58f701eb5457986c24e0d3ee",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheItemInUse@@YIHPAUAudioCacheItem@@@Z",
+      "symbol_prefix": "?AudioCacheItemInUse@@YIHPAUAudioCacheItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4202416,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4202432,
+      "method": "00401fc0",
+      "body_bytes": 95,
+      "body_sha256": "ad3352368c28ce5725af204f439d187697e85a3395555589a8f6e3155fd640c9",
+      "padding_bytes": 1,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "9dd032799b754c247a6cba8c1d151a1357350193e628db8b9fdcd8f923faaea0",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheItemFree@@YIXPAUAudioCacheItem@@@Z",
+      "symbol_prefix": "?AudioCacheItemFree@@YIXPAUAudioCacheItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 21425
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 21447
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 21402
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?AudioFrameDeinit@@YIXPAUAudioFrame@@@Z",
+          "target": 4228384,
+          "addend": 0,
+          "resolved": 25907
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 21606
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "?ListNodeNext@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223904,
+          "addend": 0,
+          "resolved": 21407
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "?AudioSampleDeinit@@YIXPAUAudioSample@@@Z",
+          "target": 4228176,
+          "addend": 0,
+          "resolved": 25665
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 21569
+        }
+      ],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4202432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4202528,
+      "method": "00402020",
+      "body_bytes": 4,
+      "body_sha256": "01d3abacb68aac3537badfe563d0e21d0244fb61db1d805bcef8f455407fad96",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e3260bde03b483ec8272c5f50ff35530c0995f2acb01be226e3d12246027c69d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheItemId@@YIHPAUAudioCacheItem@@@Z",
+      "symbol_prefix": "?AudioCacheItemId@@YIHPAUAudioCacheItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4202528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4202544,
+      "method": "00402030",
+      "body_bytes": 4,
+      "body_sha256": "39037bd522bd24697e9aa9c37a7994cf406a3a03a890d4ba43d9496dd6c9e8c5",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1d76e619915696068d1f84d34ac11041ea35c7930a672a0b65b8eaca33bd3922",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCacheItemSample@@YIPAUAudioSample@@PAUAudioCacheItem@@@Z",
+      "symbol_prefix": "?AudioCacheItemSample@@YIPAUAudioSample@@PAUAudioCacheItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3824d19c418079d7d6cc36de84452859fedd204c59c6d442405a00368d23402e",
+      "source": "rebuild/src/audcache.cpp",
+      "population": "rebuild-audcache",
+      "source_order": 4202544,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4362"
+    }
+  ]
+}

@@ -16,6 +16,8 @@
 #define mAUDIO_CTRL_ACTIVE 5
 
 AudioDevice * __fastcall AudioGetDevice(void);
+void AudioLoseFocus(void); // RA2: 0x0040A860
+void AudioRegainFocus(void); // RA2: 0x0040A870
 
 extern AudioAttribs * AudioMasterAttribs;
 extern AudioAttribs * AudioVoiceAttribs;

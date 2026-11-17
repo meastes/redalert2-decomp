@@ -95,3 +95,6 @@ bool Request_WDT_Cycle(void);
 void Init_WDT_Sounds(void);
 void Deinit_WDT_Sounds(void);
 void Play_WDT_Sound(ArrayList<Wstring> list);
+
+// Declarations moved from the units that used them (one declaration per name).
+extern bool Is_Current_Channel_Tournament(void); // RA2: 0x0073C370 (wonline.cpp)

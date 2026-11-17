@@ -1,0 +1,52 @@
+{
+  "id": "rebuild-mpu",
+  "population": {
+    "id": "rebuild-mpu",
+    "inventory_sha256": "e259c6efcb1c283123c1b5abe2ddfa1506bf0611001d6dd755f55a546426ab54",
+    "gaps_sha256": "0ef4fe6edb6be0c0080217ab14b752a050e59931bf574329a8ed518c53333ffc",
+    "historical_population_sha256": "9bfb177ce1cca8aebc745af2d89a574f052c9f6e848d722c99430e5c4db90b75",
+    "historical_acceptance_sha256": "e608a724cecb1ae2faeff1b028b646149b24bcde611d382464740344cc04f814"
+  },
+  "references": {
+    "__imp__QueryPerformanceFrequency@4": 7971276,
+    "?Get_CPU_Rate@@YIIAAI@Z": 5947168
+  },
+  "regions": [
+    {
+      "entry": 5947168,
+      "method": "005abf20",
+      "body_bytes": 49,
+      "body_sha256": "d25205deeaec4ca781f57133a15ef30ee7d7e32a08b2abb8cb0df8fc05c587cb",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a64fad4148a40e3a5ad8be17e76fa310ccc29191eae1d7d34a224eba5ab2dc7d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_CPU_Rate@@YIIAAI@Z",
+      "symbol_prefix": "?Get_CPU_Rate@@YIIAAI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "__imp__QueryPerformanceFrequency@4",
+          "target": 7971276,
+          "addend": 0,
+          "resolved": 7971276
+        }
+      ],
+      "source_sha256": "ccc141aa18df90f43e40250855afda9646574a947ac1a66578ab201ac7cd10b2",
+      "source": "rebuild/src/mpu.cpp",
+      "population": "rebuild-mpu",
+      "source_order": 5947168,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

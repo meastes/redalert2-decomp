@@ -48,3 +48,6 @@ extern HINSTANCE	ProgramInstance;
 extern HWND			MainWindow;
 extern HWND			UnusedWindow;
 extern bool			GameInFocus;
+
+// Declarations moved from the units that used them (one declaration per name).
+extern int __fastcall Clear_ComboBox(HWND list); // RA2: 0x006007F0

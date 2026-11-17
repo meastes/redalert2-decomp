@@ -47,3 +47,4 @@ class BombClass : public AbstractClass
 
 // Declarations moved from the units that used them (one declaration per name).
 extern "C" const CLSID CLSID_BombClass; // RA2: the class identifier GetClassID returns
+extern DynamicVectorClass<BombClass *> Bombs; // RA2: 0x0084EB78, defined in bomb.cpp

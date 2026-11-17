@@ -353,6 +353,11 @@ extern "C"{
 
 extern bool CursorCheat; // RA2: toggled by the CursorCheat debug command; tooltips then show without delay
 
+class CCINIClass;
+class ShapeButtonClass;
+class ShapeSet;
+class MixFileClass;
+class MultiplayerTeam;
 // Declarations moved from the units that used them (one declaration per name).
 class RGBClass;
 class SchemeLibrary;
@@ -418,3 +423,35 @@ extern int WideScreenThreshold; // RA2: 0x007ADD70
 extern int Online_Session_Return; // RA2: 0x00A3D2A8, the state the online menu (4) returns to; cleared whenever the session ends
 extern bool g_PlayingNetGame;
 extern int WestwoodOnline_PortNumber;
+extern bool IsCameoRefreshPending; // RA2: 0x8373C2; set when an infiltration changes the buildable cameos, the sidebar then refreshes them
+extern bool BuildingRunAwayOnDamage; // RA2: 0x7CF670; when set, objects in radio contact within two cells of a building that is hit run away from it
+extern bool const ActionLineDash[]; // RA2: 0x7F7130, the dash pattern of an action line
+extern int TargetScanDelay; // RA2: a global no code sets, so the scan delay is 0
+extern bool CrateWater[CRATE_COUNT]; // RA2: which crates may appear on water
+extern int WolOptionsLocked; // RA2: 0x00B2AC40, the Internet game options are not accepted any more
+extern bool LobbyDialogFlag; // RA2: 0x00A72D52, as netdlg2.cpp
+extern void __fastcall Show_Player_Message(wchar_t const * text, int delay); // RA2: 0x006F58E0 (uicmnds); puts a text on the message list in the player's color, -1 for the default delay
+extern int Cursor_Start_Frame_76(void); // RA2: 0x006F6760 (uicmnds)
+extern int Cursor_Start_Frame_77(void); // RA2: 0x006F6750 (uicmnds)
+extern bool AircraftRearmWhenEmpty; // RA2: a global at 0x83C4D4 that no code sets (false)
+extern bool AircraftRearmWhenHalf; // RA2: a global at 0x83C4D5 that no code sets (false)
+extern bool InputLockedBeforeHold; // RA2: 0x00AB6EF4
+extern int SavedSpeechVolume; // RA2: 0x7F1DEC, set to full volume with EVA's level when a scenario is cleared
+extern CCINIClass UIINI; // RA2: 0x00839860, UI.INI (init.cpp declares it the same way)
+extern bool Net2JoinListEnabled; // RA2: 0x007E699C, the join dialog's game list accepts a selection, initially true
+extern int SidebarWidth; // RA2: 0x007ADD80
+extern void * BriefingButtonShape; // RA2: 0x00AB6350
+extern void * OptionsButtonShape; // RA2: 0x00AB6318
+extern bool IsBriefingButtonShapeLoaded; // RA2: 0x00AB6369
+extern bool IsOptionsButtonShapeLoaded; // RA2: 0x00AB6368
+extern char const * BriefingButtonShapeName; // RA2: 0x007EE064
+extern char const * OptionsButtonShapeName; // RA2: 0x007EE068
+extern ShapeButtonClass BriefingButton; // RA2: 0x00AB63E8
+extern ShapeButtonClass OptionsButton; // RA2: 0x00AB6380
+extern ShapeSet const * RadarFrameShape; // RA2: 0x00AC0FF0
+extern ShapeSet const * RadarAnimShape; // RA2: 0x00AC1070
+extern DynamicVectorClass<MixFileClass *> ScenarioMixFiles; // RA2: 0x837480, the .mmx archives opened for the multiplayer maps
+extern bool PortsRead; // RA2: 0xAB9178, set once the port numbers have been read from RA2.INI
+extern int SavedGameSpeed; // RA2: 0x7F3230, the game speed from before the game was left (-1 when none)
+extern int Text_Color; // RA2: 0x00A733E4, the font color of the dialogs
+extern MultiplayerTeam * __fastcall Create_Battle_Team(int number); // RA2: 0x005A2550, a team titled with its number (the MultiplayerTeam constructor at 0x005B9B20 with the number as the text and the index)

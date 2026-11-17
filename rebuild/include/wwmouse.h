@@ -230,3 +230,5 @@ class WWMouseClass : public Mouse {
 
 		virtual bool Is_Hidden(void) const override {return(MouseState < 0);}
 };
+
+void Process_Mouse_Unthreaded(void); // RA2: 0x007717C0, processes the mouse outside its thread (the audio service calls it)

@@ -68,7 +68,8 @@ def structure_measures(tree, read, result):
 def unit_faults(unit, source_text):
     """Per-unit structure faults over the unit's budget: (externs, budget), (suffixed, budget)."""
     budget = json.loads(BUDGET.read_text()) if BUDGET.exists() else {}
-    externs = len(C.extern_names(C.code_only(source_text)))
+    import move_externs
+    externs = len([n for n, l in C.extern_names(C.code_only(source_text)) if not move_externs.defines(source_text, n)])
     suffixed = len(set(C.address_suffixed(source_text)))
     faults = []
     if externs > budget.get('externs_by_unit', {}).get(unit, 0):

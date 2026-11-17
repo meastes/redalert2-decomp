@@ -189,3 +189,6 @@ class WaveClass : public ObjectClass
 Coord Lerp(Coord const & a, Coord const & b, float t);
 Point2D Lerp(Point2D const & a, Point2D const & b, float t);
 FacingType Facing_Between_Points(Point2D const & pt1, Point2D const & pt2);
+
+// Declarations moved from the units that used them (one declaration per name).
+extern short SineTable[];

@@ -1,0 +1,283 @@
+{
+  "id": "rebuild-pkstraw",
+  "population": {
+    "id": "rebuild-pkstraw",
+    "inventory_sha256": "2c53a92c8820edf2defb6f4394ef675312e528a3af2458eec05cfdc20693ec18",
+    "gaps_sha256": "fc29d39739a1bd5e4dde5fbfebc5f50ea956695be4ef39fee6e1e29fa75612b9",
+    "historical_population_sha256": "23edfadd9e2c3edba7437a0003f37affdaa6a4cf9c004b39686066efdf696a65",
+    "historical_acceptance_sha256": "3af347bd1553688440cc7eb0ed0429b2513bb1b14ea7f132dd945e4f4f447d69"
+  },
+  "references": {
+    "??_7BlowStraw@@6B@": 8021088,
+    "??_7PKStraw@@6B@": 8028600,
+    "?Get@Straw@@UAEHPAXH@Z": 6926496,
+    "?Decrypt@PKey@@QBEHPBXHPAX@Z": 6354512,
+    "?Encrypt@PKey@@QBEHPBXHPAX@Z": 6354208,
+    "?Key@BlowStraw@@QAEXPBXH@Z": 4413744,
+    "_memmove": 7877264,
+    "??0PKStraw@@QAE@W4CryptControl@0@AAVRandomStraw@@@Z": 6356528,
+    "?Get@BlowStraw@@UAEHPAXH@Z": 4413504,
+    "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
+    "??_GBlowStraw@@UAEPAXI@Z": 5856240,
+    "??_R0?AVBlowStraw@@@8": 8265128,
+    "??_GPKStraw@@UAEPAXI@Z": 6357328,
+    "??_R0?AVStraw@@@8": 8199872,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVPKStraw@@@8": 8305120,
+    "??1Straw@@UAE@XZ": 6926352,
+    "??3@YAXPAX@Z": 7871803,
+    "??1BlowfishEngine@@QAE@XZ": 4412912,
+    "?Get_From@PKStraw@@UAEXAAVStraw@@@Z": 6357312,
+    "?Get_From@PKStraw@@UAEXPAVStraw@@@Z": 6356640,
+    "?Key@PKStraw@@QAEXPBVPKey@@@Z": 6356720,
+    "?Get@PKStraw@@UAEHPAXH@Z": 6356752,
+    "?Encrypted_Key_Length@PKStraw@@ABEHXZ": 6357216,
+    "?Plain_Key_Length@PKStraw@@ABEHXZ": 6357264
+  },
+  "regions": [
+    {
+      "entry": 6356528,
+      "method": "0060fe30",
+      "body_bytes": 98,
+      "body_sha256": "d7a5ba4a734787ab0c9b340c641e2a72d50b025134bc4cbe16e936dd02b86f8a",
+      "padding_bytes": 14,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "94fb778e496d7257080ddf0a52c3f58344cbf7b1467cb747ff83e8ef4762f14a",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0PKStraw@@QAE@W4CryptControl@0@AAVRandomStraw@@@Z",
+      "symbol_prefix": "??0PKStraw@@QAE@W4CryptControl@0@AAVRandomStraw@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "??_7BlowStraw@@6B@",
+          "target": 8021088,
+          "addend": 0,
+          "resolved": 8021088
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "??_7PKStraw@@6B@",
+          "target": 8028600,
+          "addend": 0,
+          "resolved": 8028600
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_7PKStraw@@6B@",
+          "target": 8028600,
+          "addend": 4,
+          "resolved": 8028604
+        }
+      ],
+      "source_sha256": "295a86a26fcee4afcd5b9b63f98e823432780b2be36b938c9bb5df10a84127ec",
+      "source": "rebuild/src/pkstraw.cpp",
+      "population": "rebuild-pkstraw",
+      "source_order": 6356528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6356640,
+      "method": "0060fea0",
+      "body_bytes": 76,
+      "body_sha256": "a8eabdbca53e1181fbba37a2b891b49af2db61b3a651d190bafd9e2caba350b1",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c665661c47e6076081944901336bb708f0e785fbd4c41cbc8afc46f00d5677ae",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_From@PKStraw@@UAEXPAVStraw@@@Z",
+      "symbol_prefix": "?Get_From@PKStraw@@UAEXPAVStraw@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "295a86a26fcee4afcd5b9b63f98e823432780b2be36b938c9bb5df10a84127ec",
+      "source": "rebuild/src/pkstraw.cpp",
+      "population": "rebuild-pkstraw",
+      "source_order": 6356640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6356720,
+      "method": "0060fef0",
+      "body_bytes": 32,
+      "body_sha256": "f5786d127867492087097cea55d481047eb4bb617168e0186e5f29e838094d0c",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f5786d127867492087097cea55d481047eb4bb617168e0186e5f29e838094d0c",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Key@PKStraw@@QAEXPBVPKey@@@Z",
+      "symbol_prefix": "?Key@PKStraw@@QAEXPBVPKey@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "295a86a26fcee4afcd5b9b63f98e823432780b2be36b938c9bb5df10a84127ec",
+      "source": "rebuild/src/pkstraw.cpp",
+      "population": "rebuild-pkstraw",
+      "source_order": 6356720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6356752,
+      "method": "0060ff10",
+      "body_bytes": 455,
+      "body_sha256": "e04d7315f049fa87de0695804a126cbf5cc2238badf6fe55cf68de30c583e738",
+      "padding_bytes": 9,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "244961d1362536f4d59a1c3fe994da214d60d8f396052116b76407fa94267e53",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get@PKStraw@@UAEHPAXH@Z",
+      "symbol_prefix": "?Get@PKStraw@@UAEHPAXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?Get@Straw@@UAEHPAXH@Z",
+          "target": 6926496,
+          "addend": 0,
+          "resolved": 569621
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "?Decrypt@PKey@@QBEHPBXHPAX@Z",
+          "target": 6354512,
+          "addend": 0,
+          "resolved": 4294964855
+        },
+        {
+          "offset": 286,
+          "kind": 20,
+          "symbol": "?Encrypt@PKey@@QBEHPBXHPAX@Z",
+          "target": 6354208,
+          "addend": 0,
+          "resolved": 4294964462
+        },
+        {
+          "offset": 313,
+          "kind": 20,
+          "symbol": "?Key@BlowStraw@@QAEXPBXH@Z",
+          "target": 4413744,
+          "addend": 0,
+          "resolved": 4293023971
+        },
+        {
+          "offset": 360,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 1520148
+        },
+        {
+          "offset": 410,
+          "kind": 20,
+          "symbol": "?Get@Straw@@UAEHPAXH@Z",
+          "target": 6926496,
+          "addend": 0,
+          "resolved": 569330
+        },
+        {
+          "offset": 438,
+          "kind": 20,
+          "symbol": "?Get@Straw@@UAEHPAXH@Z",
+          "target": 6926496,
+          "addend": 0,
+          "resolved": 569302
+        }
+      ],
+      "source_sha256": "295a86a26fcee4afcd5b9b63f98e823432780b2be36b938c9bb5df10a84127ec",
+      "source": "rebuild/src/pkstraw.cpp",
+      "population": "rebuild-pkstraw",
+      "source_order": 6356752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6357216,
+      "method": "006100e0",
+      "body_bytes": 40,
+      "body_sha256": "12d15176613142916da3f3d58f711247475dce8deb21d2cfda8021284f922fe4",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a022549c6ddec297e776c30cdd8a0bc2db41b60c1b0c2480800d984564e3a576",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Encrypted_Key_Length@PKStraw@@ABEHXZ",
+      "symbol_prefix": "?Encrypted_Key_Length@PKStraw@@ABEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "295a86a26fcee4afcd5b9b63f98e823432780b2be36b938c9bb5df10a84127ec",
+      "source": "rebuild/src/pkstraw.cpp",
+      "population": "rebuild-pkstraw",
+      "source_order": 6357216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6357264,
+      "method": "00610110",
+      "body_bytes": 39,
+      "body_sha256": "06725eae5938423c4b10fbfd4a5dd02a9a296f171b3695add19f23da87067f45",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3122d34c61c97440f5cc4d7961fe7c1222448b956b6adce6359a4f6d82d4925f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Plain_Key_Length@PKStraw@@ABEHXZ",
+      "symbol_prefix": "?Plain_Key_Length@PKStraw@@ABEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "295a86a26fcee4afcd5b9b63f98e823432780b2be36b938c9bb5df10a84127ec",
+      "source": "rebuild/src/pkstraw.cpp",
+      "population": "rebuild-pkstraw",
+      "source_order": 6357264,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

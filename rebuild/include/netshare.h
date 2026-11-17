@@ -70,3 +70,6 @@ extern MapPreviewClass *MultiplayerMapPreview;
 extern bool IsRandomMap;
 
 extern int IsColorChangePending;
+
+// Declarations moved from the units that used them (one declaration per name).
+extern wchar_t const * LobbyEntryTexts[7]; // RA2: 0x00A72D0C, the names of the fixed lobby entries

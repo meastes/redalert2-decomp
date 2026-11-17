@@ -248,7 +248,6 @@ T _rotl(T X, int n)
 //{
 //	return(unsigned long)( (unsigned long)( (unsigned long)( (unsigned long)X ) << (int)n ) | (unsigned long)( ((unsigned long) X ) >> ( (int)((int)(sizeof(long)*(long)8) - (long)n) ) ) );
 //}
-void memrev(char * buffer, size_t length);
 
 
 /***********************************************************************************************

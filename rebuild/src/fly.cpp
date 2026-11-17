@@ -1,0 +1,1736 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+
+/* $Header: /CounterStrike/FLY.CPP 1     3/03/97 10:24a Joe_bostic $ */
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                    File Name : FLY.CPP                                                      *
+ *                                                                                             *
+ *                   Programmer : Joe L. Bostic                                                *
+ *                                                                                             *
+ *                   Start Date : April 24, 1994                                               *
+ *                                                                                             *
+ *                  Last Update : June 5, 1995 [JLB]                                           *
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   FlyClass::Fly_Speed -- Sets the flying object to the speed specified.                     *
+ *   FlyClass::Physics -- Performs vector physics (movement).                                  *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#include "always.h"
+#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "rect.h"
+
+#include "fly.h"
+#include "tracker.h" // RA2: AircraftTracker (Take_Off)
+
+#include "_map.h"
+#include "_rand.h"
+#include "_rtti.h"
+#include "_rules.h"
+#include "aircraft.h"
+#include "airctype.h"
+#include "anim.h"
+#include "animtype.h"
+#include "building.h"
+#include "ccrand.h"
+#include "cell.h"
+#include "combat.h"
+#include "coord.h"
+#include "face.h"
+#include "foot.h"
+#include "globals.h"
+#include "house.h"
+#include "houstype.h"
+#include "iflyctrl.h"
+#include "incdec.h"
+#include "inline.h"
+#include "map.h"
+#include "noinit.h"
+#include "rules.h"
+#include "scenario.h"
+#include "session.h"
+#include "sun.h"
+#include "team.h"
+#include "unit.h"
+#include "unittype.h"
+#include "weapon.h"
+
+#include "layer.hh"
+
+#include <new.h>
+
+static const int const1 = 16;
+static const int const2 = 16;
+static const int const3 = 6;
+static const int const4 = 0;
+//static const float const5 = 0.02;
+static const int const6 = 10;
+
+/// <summary>
+/// Constructs a flying locomotor.
+/// The aircraft starts out grounded, idle, and with nowhere to be. It will not stir until
+/// the owning object hands it a destination.
+/// </summary>
+FlyLocomotionClass::FlyLocomotionClass(void) :
+	BASECLASS(),
+	AirportBound(false), // RA2: AirportBound starts false
+	DestinationCoord(COORD_NONE),
+	HeadToCoord(COORD_NONE),
+	IsMoving(false),
+	FlightLevel(0),
+	TargetSpeed(0.0),
+	CurrentSpeed(0.0),
+	IsTakingOff(false),
+	IsLanding(false),
+	CommencedLanding(false),
+	IsTumbling(false),
+	CurrentROT(0),
+	Riser(0),
+	IsElevating(false)
+{
+}
+
+
+/// <summary>
+/// RA2
+/// </summary>
+HRESULT STDMETHODCALLTYPE FlyLocomotionClass::Link_To_Object(void * object) // RA2: overridden (0x004BC190)
+{
+	HRESULT result = BASECLASS::Link_To_Object(object); // RA2: the base links first
+	if (result == S_OK) { // RA2: and on success
+		if (object != NULL && ((FootClass *)object)->Fetch_RTTI() == RTTI_AIRCRAFT && ((AircraftClass *)object)->Class->IsAirportBound) { // RA2: an aircraft whose type is airport bound
+			AirportBound = true; // RA2: is AirportBound
+		} else {
+			AirportBound = false; // RA2: anything else is not
+		}
+	}
+	return(result); // RA2: the base result
+}
+
+
+/// <summary>
+/// Destroys the flying locomotor.
+/// </summary>
+FlyLocomotionClass::~FlyLocomotionClass(void)
+{
+}
+
+
+/// <summary>
+/// Is the aircraft under way?
+/// This routine reports the aircraft's intent rather than its speed, so it stays true for
+/// an aircraft that has been told to go somewhere but has yet to build up any speed.
+/// </summary>
+/// <returns>bool; Is the aircraft moving or trying to?</returns>
+boolean STDMETHODCALLTYPE FlyLocomotionClass::Is_Moving(void)
+{
+	return(IsMoving || LinkedTo->PitchAngle > 0);
+}
+
+
+/// <summary>
+/// Is the aircraft actually in motion at this moment?
+/// Unlike Is_Moving, this routine pays no attention to intent and merely reports whether
+/// the aircraft has any speed at all.
+/// </summary>
+/// <returns>bool; Is the aircraft moving right now?</returns>
+boolean STDMETHODCALLTYPE FlyLocomotionClass::Is_Moving_Now(void)
+{
+	if (CurrentSpeed == 0) {
+		return(false);
+	}
+	return(true);
+}
+
+
+/// <summary>
+/// Fetches the coordinate that the aircraft is heading for.
+/// </summary>
+/// <returns>Returns with the destination coordinate. If the aircraft is not going
+/// anywhere, COORD_NONE is returned.</returns>
+CoordStruct STDMETHODCALLTYPE FlyLocomotionClass::Destination(void)
+{
+	if (Is_Moving()) {
+		return(DestinationCoord);
+	}
+	return(COORD_NONE);
+}
+
+
+/// <summary>
+/// Performs the per frame processing for the flying object.
+/// This is the main entry point that the owning object calls every game frame. It gives
+/// the aircraft its chance to change mission, rotate, move, land or take off, and to be
+/// disposed of if it has wandered off the edge of the world.
+/// </summary>
+/// <returns>bool; Is the aircraft still under way?</returns>
+boolean STDMETHODCALLTYPE FlyLocomotionClass::Process(void)
+{
+	if (!IsLanding && !IsTakingOff && TargetSpeed >= 1.0 && FlightLevel == 0) {
+		FlightLevel = LinkedTo->TClass->Flight_Level();
+	}
+
+	// RA2: no hunter-seeker retargeting here (Acquire_Hunter_Seeker_Target is not called from Process)
+	/*
+	**	A Mission change can always occur if the aircraft is landed or flying.
+	*/
+	if (LinkedTo->Strength > 0 && !IsLanding && !IsTakingOff && LinkedTo->Ready_To_Commence()) {
+		LinkedTo->Commence();
+	}
+
+	/*
+	**	Handle any body rotation at this time. Body rotation can occur even if the
+	**	flying object is not actually moving.
+	*/
+	Rotation_AI();
+
+	/*
+	**	Handle any aircraft movement at this time.
+	*/
+	Movement_AI();
+
+	if (!Is_Powered()) return(false);
+
+	if (!LinkedTo->IsActive) return(false);
+
+	if (LinkedTo->Strength > 0 &&
+		DestinationCoord != COORD_NONE &&
+		!IsLanding && !IsTakingOff && LinkedTo->HeightAGL > 0) {
+		Nearing_Target(true, DestinationCoord);
+	}
+
+	/*
+	**	Handle landing and taking off logic. Helicopters are prime users of this technique. The
+	**	aircraft will either gain or lose altitude as appropriate. As the aircraft transitions
+	**	between flying level and ground level, it will be moved into the appropriate render
+	**	layer.
+	*/
+	if (LinkedTo->Strength > 0) {
+		Landing_Takeoff_AI();
+	}
+
+	/*
+	**	When aircraft leave the edge of the map, they might get destroyed. This occurs if the
+	**	aircraft is a non-player produced unit and it has completed its mission. A transport
+	**	helicopter that has already delivered reinforcements is a good example of this.
+	*/
+	Edge_Of_World_AI();
+
+	return(Is_Moving());
+}
+
+
+
+
+/// <summary>
+/// Assigns a new destination for the aircraft to fly to.
+/// This routine is how the owning object steers the aircraft. A real destination starts
+/// the aircraft moving, taking off first if it is still on the ground. An empty
+/// destination is a request to stop, which brings a flying aircraft down to land.
+/// </summary>
+/// <param name="to">The coordinate to head for, or COORD_NONE to stop and land.</param>
+#ifdef RA2_NON_MATCHING // not exact: 647 bytes differ (adopted text)
+void STDMETHODCALLTYPE FlyLocomotionClass::Move_To(CoordStruct to)
+{
+	if (((Coord)to).As_Cell() != DestinationCoord.As_Cell() || !IsLanding) {
+
+		if (!LinkedTo->IsUnderEMP() && !LinkedTo->IsParalyzed() && !LinkedTo->IsBeingWarpedOut() && !LinkedTo->IsWarpingIn() && Is_Powered()) {
+
+			if ((Coord)to == COORD_NONE) {
+				int landing_altitude = 0;
+				IFlyControlPtr flyctrl(LinkedTo);
+				if (flyctrl != NULL) {
+					landing_altitude = flyctrl->Landing_Altitude();
+				}
+
+				if ((LinkedTo->HeightAGL > landing_altitude || IsTakingOff) && !IsLanding) {
+					DestinationCoord = LinkedTo->PositionCoord;
+					Land();
+				} else {
+					DestinationCoord = COORD_NONE;
+				}
+				IsElevating = false;
+			} else {
+				DestinationCoord = to;
+
+				if (LinkedTo->TarCom && LinkedTo->Ammo) {
+					DestinationCoord.Z = LinkedTo->TClass->Flight_Level() + Map.Get_Height_GL(to);
+				}
+
+				IFlyControlPtr flyctrl(LinkedTo);
+				int landing_altitude = 0;
+				if (flyctrl != NULL) {
+					landing_altitude = flyctrl->Landing_Altitude();
+				}
+
+				IsMoving = true;
+
+				if (LinkedTo->Strength > 0 && !IsTakingOff && (IsLanding || LinkedTo->HeightAGL <= landing_altitude)) {
+					Take_Off();
+				}
+
+				IsElevating = Is_Locked_To_Straight_Flight();
+				if (LinkedTo->Fetch_RTTI() == RTTI_AIRCRAFT && !((AircraftClass *)LinkedTo)->Class->IsLandable) { // RA2: an aircraft type that cannot land always keeps flying
+					IsElevating = true; // RA2: as above
+				}
+			}
+		}
+	}
+}
+#endif
+
+
+
+/// <summary>
+/// Brings the aircraft's travels to an end.
+/// This routine looks for somewhere legal near the aircraft for it to make for, and
+/// assigns that as the new destination. An aircraft with nowhere at all to go is destroyed
+/// rather than left loitering in an illegal spot.
+/// </summary>
+void STDMETHODCALLTYPE FlyLocomotionClass::Stop_Moving(void)
+{
+	if (Is_Moving()) {
+
+		Cell cell = LinkedTo->PositionCoord.As_Cell();
+		if (!LinkedTo->IsALoaner && !Map.In_Local_Radar(cell, true) && !LinkedTo->Should_Delete_Off_Map()) {
+			cell = Map.Closest_Edge_Cell(cell, true);
+		}
+
+		FootClass * linked = LinkedTo; // RA2: an aircraft is sent to a landing zone instead of a nearby flyer cell
+		if (linked && linked->Fetch_RTTI() == RTTI_AIRCRAFT) { // RA2: as above
+			AircraftClass * aircraft = (AircraftClass *)linked; // RA2: as above
+			if (cell == CELL_NONE) { // RA2: as above
+				LinkedTo->Take_Damage(LinkedTo->Strength, 0, Rule->C4Warhead, NULL, true, true); // RA2: as above
+			} else {
+				AbstractClass * destination; // RA2: as above
+				if (LinkedTo->Get_Mission() == MISSION_ATTACK) { // RA2: as above
+					destination = aircraft->Good_LZ(); // RA2: as above
+				} else {
+					destination = aircraft->New_LZ(&Map[cell]); // RA2: as above
+				}
+				LinkedTo->Assign_Destination(destination, true); // RA2: as above
+				return; // RA2: as above
+			}
+		} else {
+			Cell nearby_cell = Map.Nearby_Location(cell, SPEED_TRACK, -1, MZONE_FLYER, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), false); // RA2: all arguments given
+			if (nearby_cell != CELL_NONE) {
+
+				Coord dest = nearby_cell.As_Coord();
+				dest.Z = Map.Get_Height_GL(dest);
+				if (Map[nearby_cell].IsUnderBridge) {
+					dest.Z += BRIDGE_LEPTON_HEIGHT;
+				}
+
+				LinkedTo->Assign_Destination(&Map[dest], true); // RA2: assigned at once, then again unless landing, with the second argument true
+				if (!IsLanding) {
+					LinkedTo->Assign_Destination(&Map[dest], true); // RA2: as above
+				}
+				return; // RA2: as above
+			}
+			if (LinkedTo->Strength <= 0) { // RA2: a dead aircraft is left alone
+				return; // RA2: as above
+			}
+			LinkedTo->Take_Damage(LinkedTo->Strength, 0, Rule->C4Warhead, NULL, true, true); // RA2: as above
+		}
+		DestinationCoord = COORD_NONE; // RA2: reached by both damage paths
+	}
+}
+
+
+
+/***********************************************************************************************
+ * AircraftClass::Landing_Takeoff_AI -- Handle aircraft take off and landing processing.       *
+ *                                                                                             *
+ *    This routine handles the tricky maneuver of taking off and landing. The process of       *
+ *    landing is not entirely safe and thus the aircraft may be destroyed as a consequence.    *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the aircraft destroyed by this process?                                  *
+ *                                                                                             *
+ * WARNINGS:   Only call this routine once per aircraft per game logic loop. Be sure to        *
+ *             examine the return value and if true, abort all further processing of this      *
+ *             aircraft since it is now dead.                                                  *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/29/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+bool FlyLocomotionClass::Landing_Takeoff_AI(void)
+{
+	FootClass * initial = LinkedTo; // RA2: an aircraft whose type cannot land never leaves level flight
+	if (initial && initial->Fetch_RTTI() == RTTI_AIRCRAFT && !((AircraftClass *)initial)->Class->IsLandable) { // RA2: as above
+		IsElevating = true; // RA2: as above
+		IsLanding = false; // RA2: as above
+		IsTakingOff = false; // RA2: as above
+		FlightLevel = LinkedTo->TClass->Flight_Level(); // RA2: as above
+		return(false); // RA2: as above
+	}
+
+	if (LinkedTo->Strength > 0) {
+
+		/*
+		**	Handle landing and taking off logic. Helicopters are prime users of this technique. The
+		**	aircraft will either gain or lose altitude as appropriate. As the aircraft transitions
+		**	between flying level and ground level, it will be moved into the appropriate render
+		**	layer.
+		*/
+		if (IsLanding || IsTakingOff) {
+			LayerType layer = LinkedTo->In_Which_Layer();
+
+			LinkedTo->Mark(MARK_UP);
+			Map.Remove(LinkedTo);
+
+			if (IsLanding) {
+				Process_Landing();
+			}
+			if (IsTakingOff) {
+				Process_Take_Off();
+			}
+
+			/*
+			**	Make adjustments for altitude by moving from one layer to another as
+			**	necessary.
+			*/
+			if (layer != LinkedTo->In_Which_Layer()) {
+
+				/*
+				**	When the aircraft is about to enter the ground layer, perform on last
+				**	check to see if it is legal to enter that location. If not, then
+				**	start the take off process. Let the normal logic handle this
+				**	change of plans.
+				*/
+				bool ok = true;
+				if (LinkedTo->In_Which_Layer() == LAYER_GROUND && !IsTakingOff) {
+					if (!LinkedTo->Is_LZ_Clear(&Map[(Coord const &)LinkedTo->PositionCoord])) {
+						IsTakingOff = true;
+						LinkedTo->IsOnBridge = false;
+						LinkedTo->Mark(MARK_UP);
+						LinkedTo->HeightAGL += 10;
+						LinkedTo->Mark(MARK_DOWN);
+						ok = false;
+					}
+				}
+
+				if (ok) {
+
+					/*
+					**	When the aircraft is close to the ground, it should exist as a ground object.
+					**	This aspect is controlled by the Place_Down and Pick_Up functions.
+					*/
+					if (LinkedTo->In_Which_Layer() == LAYER_GROUND) {
+						LinkedTo->Assign_Destination(NULL, true);		// Clear the navcom. // RA2: the second argument is given
+						LinkedTo->Transmit_Message(RADIO_TETHER);
+						LinkedTo->RemoveSight(false, false, false, NULL); // RA2: sight is taken back and revealed again, instead of Look()
+						LinkedTo->UpdateSight(false, false, false, NULL); // RA2: as above
+						Map.RevealArea3(LinkedTo->PositionCoord, LinkedTo->LastSightRange - 3, LinkedTo->LastSightRange + 3, 0); // RA2: as above
+					} else  {
+						LinkedTo->Transmit_Message(RADIO_UNTETHER);
+
+						/*
+						**	If the navigation computer is not attached to the object this
+						**	aircraft is in radio contact with, then assume that radio
+						**	contact is now superfluous. Break radio contact.
+						*/
+						if (LinkedTo->HasAnyLink() && LinkedTo->NavCom && LinkedTo->NavCom != LinkedTo->Radio_Link(0)) { // RA2: a radio link of any kind, tested against the first link
+							LinkedTo->Transmit_Message(RADIO_OVER_OUT);
+						}
+					}
+				}
+			}
+
+			Map.Submit(LinkedTo);
+			LinkedTo->Mark(MARK_DOWN);
+		}
+	}
+	return(false);
+}
+
+
+
+
+/***********************************************************************************************
+ * AircraftClass::Edge_Of_World_AI -- Detect if aircraft has exited the map.                   *
+ *                                                                                             *
+ *    Certain aircraft will be eliminated when they leave the edge of the world presumably     *
+ *    after completing their mission. An exception is for aircraft that have been newly        *
+ *    created as reinforcements and have not yet completed their mission.                      *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the aircraft deleted by this routine?                                    *
+ *                                                                                             *
+ * WARNINGS:   Be sure to call this routine only once per aircraft per game logic loop. If     *
+ *             the return value is true, then abort any further processing of this aircraft    *
+ *             since it has been eliminated.                                                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/29/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+bool FlyLocomotionClass::Edge_Of_World_AI(void)
+{
+	if (!Map.In_Local_Radar((Coord const &)LinkedTo->PositionCoord)) {
+		if (LinkedTo->Mission == MISSION_RETREAT) {
+
+			/*
+			**	Check to see if there are any civilians aboard. If so, then flag the house
+			**	that the civilian evacuation trigger event has been fulfilled.
+			*/
+			while (LinkedTo->Cargo.Is_Something_Attached()) {
+				FootClass * obj = LinkedTo->Cargo.Detach_Object();
+
+				/*
+				**	Flag the owning house that civ evacuation has occurred.
+				*/
+				if (Counts_As_Civ_Evac(obj)) {
+					obj->House->IsCivEvacuated = true;
+				}
+
+				if (obj->Team != NULL) obj->Team->IsLeaveMap = true;
+
+				delete obj;
+			}
+			if (LinkedTo->Team != NULL) {
+				LinkedTo->Team->IsLeaveMap = true;
+			}
+			LinkedTo->Stun();
+			LinkedTo->Delete_Me();
+			return(true);
+		}
+	} else {
+		LinkedTo->IsLocked = true;
+	}
+	return(false);
+}
+
+
+/***********************************************************************************************
+ * AircraftClass::Movement_AI -- Handles aircraft physical movement logic.                     *
+ *                                                                                             *
+ *    This routine manages the aircraft movement across the map. If any movement occurred, the *
+ *    aircraft will be flagged to be redrawn.                                                  *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Only call this routine once per aircraft per game logic loop.                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/29/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 1505 bytes differ (adopted text)
+void FlyLocomotionClass::Movement_AI(void)
+{
+	Cell here = LinkedTo->Get_Cell(); // RA2: the aircraft tracker is updated whenever the aircraft enters another cell while moving
+	if (here != LinkedTo->LastFlightMapCoords && Is_Moving_Now()) { // RA2: as above
+		AircraftTracker.Update(LinkedTo, LinkedTo->LastFlightMapCoords, here); // RA2: as above
+	}
+
+	if (LinkedTo->Get_Mission() == MISSION_ENTER && IsElevating) { // RA2: through the accessor
+		IsElevating = false;
+	}
+
+	Coord coord;
+
+	if ((!Is_Powered() || LinkedTo->Strength == 0) && LinkedTo->HeightAGL != 0) {
+		if (LinkedTo->Strength == 0) {
+			Riser += 1;
+		} else {
+			Riser += 3;
+		}
+
+		coord = LinkedTo->Get_Coord();
+		Coord oldcoord = coord; // RA2: the combat animation is looked up at the coordinate before the fall
+		coord.Z -= Riser;
+
+		Map.Get_Height_GL(coord);
+		Map[coord];
+
+		if (Map.In_Radar(coord.As_Cell())) {
+			Map.Remove(LinkedTo);
+			LinkedTo->Mark(MARK_UP);
+			LinkedTo->Set_Coord(coord);
+			LinkedTo->Mark(MARK_DOWN);
+			Map.Submit(LinkedTo);
+		}
+
+		if (LinkedTo->HeightAGL <= 0) {
+			AircraftTracker.Remove(LinkedTo); // RA2: the crashed aircraft leaves the tracker
+			LinkedTo->Set_Height_AGL(0);
+
+			int damage = LinkedTo->Strength;
+			if (damage == 0) {
+				Cell cell = coord.As_Cell();
+				LinkedTo->FireDeathWeapon(0); // RA2: a dead aircraft fires its death weapon and plays an impact sound instead of exploding
+				int sound; // RA2: as above
+				if (Map[cell].Land_Type() != LAND_WATER) { // RA2: as above
+					sound = LinkedTo->TClass->ImpactLandSound; // RA2: as above
+					if (sound == -1) { // RA2: as above
+						sound = Rule->ImpactLandSound; // RA2: as above
+					}
+				} else {
+					sound = LinkedTo->TClass->ImpactWaterSound; // RA2: as above
+					if (sound == -1) { // RA2: as above
+						sound = Rule->ImpactWaterSound; // RA2: as above
+					}
+				}
+				if (sound != -1) { // RA2: as above
+					VocClass::PlayAt(sound, LinkedTo->Get_Coord(), NULL); // RA2: as above
+				}
+				LinkedTo->Delete_Me();
+				return; // RA2: as above
+			}
+
+			LinkedTo->Take_Damage(LinkedTo->Strength, 0, Rule->C4Warhead, NULL, true, true);
+			Cell cell = coord.As_Cell();
+
+			new AnimClass(Combat_Anim(damage, Rule->C4Warhead, Map[cell].Land_Type(), oldcoord), coord, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(coord)); // RA2: animation flags 0x2600, at the lowered coordinate
+			Combat_Lighting(coord, damage, Rule->C4Warhead, 0, 0); // RA2: the light kind flags form
+			Explosion_Damage(coord, damage, NULL, Rule->C4Warhead, true);
+			return;
+		}
+	} else {
+		if (LinkedTo->Strength > 0) {
+
+			/*
+			**	If for some strange reason, there is a valid NavCom, but this aircraft is not
+			**	in a movement order, then give it a movement order.
+			*/
+			if (LinkedTo->NavCom != NULL && LinkedTo->Get_Mission() == MISSION_GUARD && LinkedTo->MissionQueue == MISSION_NONE && !AirportBound) { // RA2: not for an airport-bound aircraft
+				LinkedTo->QueueMission(MISSION_MOVE, false); // RA2: queued instead of assigned
+			}
+		}
+	}
+
+	if (!Is_Moving()) {
+		return;
+	}
+
+	const TechnoTypeClass *ttype = LinkedTo->TClass;
+	bool is_dropship = ttype->IsDropship;
+	bool is_hunter_seeker = ttype->IsHunterSeeker;
+
+	LinkedTo->Mark(MARK_UP);
+
+	coord = LinkedTo->Get_Coord();
+	Physics(coord, LinkedTo->PrimaryFacing.Current());
+
+	if (!Map.In_Radar(coord.As_Cell()) && LinkedTo->Should_Delete_Off_Map()) { // RA2: only an aircraft that is allowed to leave the map is pulled back in
+		Cell edge = Map.Cell_To_LocalRect(coord.As_Cell());
+		if (edge.X < Map.MapRect.Width / 2) {
+			coord.X += CELL_LEPTON_W / 2;
+		} else {
+			coord.X -= CELL_LEPTON_W / 2;
+		}
+
+		if (Map.In_Radar(coord.As_Cell())) { // RA2: as above
+			LinkedTo->Set_Coord(coord); // RA2: as above
+		} else {
+			coord = Coord_Scatter(coord, CELL_LEPTON / 4, false);
+			if (Map.In_Radar(coord.As_Cell())) { // RA2: as above
+				LinkedTo->Set_Coord(coord); // RA2: as above
+			}
+		}
+	} else {
+		LinkedTo->Set_Coord(coord); // RA2: any other aircraft takes its new coordinate as it is
+	}
+
+	int bridge_height = 0;
+	int current_height = LinkedTo->HeightAGL;
+	if (!LinkedTo->IsOnBridge && current_height >= BRIDGE_LEPTON_HEIGHT && Map[LinkedTo->Get_Coord()].IsUnderBridge) {
+		current_height -= BRIDGE_LEPTON_HEIGHT;
+		bridge_height = BRIDGE_LEPTON_HEIGHT;
+	}
+
+	Coord dest = DestinationCoord;
+	Coord cur = LinkedTo->Get_Coord();
+	int dist = Distance(Point2D(dest), Point2D(cur));
+
+	if (current_height < FlightLevel && LinkedTo->Strength > 0) {
+		bool is_loaded = false;
+		IFlyControlPtr flyctrl(LinkedTo);
+		if (flyctrl != NULL) {
+			is_loaded = flyctrl->Is_Loaded() != 0;
+		}
+
+		if (is_dropship) {
+			int climb = FlightLevel - current_height;
+			if (climb > 16) {
+				climb = 16;
+			}
+			LinkedTo->Set_Height_AGL(bridge_height + current_height + climb);
+		} else if (is_hunter_seeker) {
+			if (IsTakingOff) {
+				int climb = FlightLevel - current_height;
+				climb = MIN(Rule->HunterSeekerEmergeSpeed, climb);
+				LinkedTo->Set_Height_AGL(bridge_height + current_height + climb);
+			} else {
+				int climb = FlightLevel - current_height;
+				climb = MIN(Rule->HunterSeekerAscentSpeed, climb);
+				LinkedTo->Set_Height_AGL(bridge_height + current_height + climb);
+			}
+		} else {
+			int climb = FlightLevel - current_height;
+			climb = MIN(is_loaded ? 10 : 20, climb);
+			LinkedTo->Set_Height_AGL(bridge_height + current_height + climb);
+		}
+
+		LinkedTo->IsOnBridge = false;
+	}
+
+	if (current_height > FlightLevel || LinkedTo->Strength == 0) {
+		int descent = current_height - FlightLevel;
+
+		if (is_dropship) {
+			if (IsLanding) {
+				int limit = descent / 20 + 10;
+				descent = MIN(MIN(limit, 48), descent);
+			} else if (FlightLevel == LinkedTo->TClass->Flight_Level()) {
+				if (current_height > 16) {
+					descent = 16;
+				} else {
+					descent = current_height;
+				}
+			} else {
+				if (current_height > 6) {
+					descent = 6;
+				} else {
+					descent = current_height;
+				}
+			}
+		} else if (is_hunter_seeker) {
+			descent = MIN(Rule->HunterSeekerDescentSpeed, current_height);
+		} else {
+			if (descent / 20 < descent) {
+				descent /= 20;
+			}
+			if (descent >= 50) {
+				descent = 50;
+			} else if (descent <= 20) {
+				descent = 20;
+			}
+		}
+
+		current_height -= descent;
+		if (LinkedTo->Strength == 0 && current_height <= 1) {
+			current_height = 1;
+		} else if (current_height < 0) {
+			current_height = 0;
+		}
+
+		if (current_height == 0 && bridge_height > 0) {
+			LinkedTo->IsOnBridge = true;
+			bridge_height = 0;
+		}
+
+		LinkedTo->Set_Height_AGL(bridge_height + current_height);
+
+		if (LinkedTo->Strength > 0 && DestinationCoord != COORD_NONE) {
+			if (LinkedTo->Mission != MISSION_ENTER || LinkedTo->NavCom == NULL ||
+				LinkedTo->NavCom->RTTI != RTTI_BUILDING ||
+				!((BuildingClass *)LinkedTo->NavCom)->Class->IsHelipad) {
+
+				Coord center = Coord(Cell(DestinationCoord), 0);
+				Coord current = LinkedTo->Get_Coord();
+				LinkedTo->Set_Coord(Move_Coord(current, Direction(current, center), 5));
+			}
+		}
+	}
+
+	if (LinkedTo->Strength > 0 && Is_In_Flight() && DestinationCoord != COORD_NONE) {
+		IFlyControlPtr flyctrl(LinkedTo);
+
+		if (!Needs_To_Land()) {
+			TargetSpeed = 1.0;
+		} else {
+			if (LinkedTo->TClass->IsHunterSeeker) {
+				if (!IsTakingOff && LinkedTo->TarCom != NULL) {
+					TargetSpeed = 1.0;
+				} else {
+					TargetSpeed = 0.0;
+				}
+			} else {
+				double speed = (double)dist / (double)ttype->SlowdownDistance;
+				if (1.0 < speed) {
+					speed = 1.0;
+				}
+				TargetSpeed = speed;
+
+				if (TargetSpeed < 0.1) {
+					if (dist > CELL_LEPTON / 3) {
+						TargetSpeed = 0.1;
+					} else {
+						TargetSpeed = 0.0;
+						CurrentSpeed *= 0.5;
+					}
+				}
+
+				if ((double)dist < CurrentSpeed) {
+					CurrentSpeed = (double)dist;
+				}
+
+				if (TargetSpeed == 0.0 && CurrentSpeed == 0.0 && dist > 0) {
+					CurrentSpeed = 0.05;
+				}
+			}
+		}
+	}
+
+	if (is_dropship && LinkedTo->Strength > 0 && CurrentSpeed > 0.0 && !IsTakingOff) {
+		int slowdown = ttype->SlowdownDistance;
+		if (dist < slowdown) {
+			double factor = 1.0 - ((double)dist - ((double)slowdown * 0.6)) / ((double)slowdown * 0.4);
+			FootClass * linked = LinkedTo;
+			if (factor * linked->TClass->PitchAngle > linked->TClass->PitchAngle) {
+				LinkedTo->PitchAngle = LinkedTo->TClass->PitchAngle;
+			} else {
+				LinkedTo->PitchAngle = factor * LinkedTo->TClass->PitchAngle;
+			}
+		}
+	}
+
+	if (!IsElevating && LinkedTo->Strength > 0 && !IsLanding && !IsTakingOff) {
+		if (DestinationCoord.As_Cell() == LinkedTo->Get_Cell() && TargetSpeed == 0.0 && (!LinkedTo->TarCom || !LinkedTo->Ammo)) {
+			Land();
+		}
+	}
+
+	if (LinkedTo->Strength > 0) {
+		if (CurrentSpeed < TargetSpeed) {
+			CurrentSpeed = MIN(CurrentSpeed + 0.1, TargetSpeed);
+		} else if (CurrentSpeed > TargetSpeed) {
+			CurrentSpeed = MAX(CurrentSpeed - 0.1, TargetSpeed);
+		}
+	}
+
+	LinkedTo->Mark(MARK_DOWN);
+}
+#endif
+
+
+
+
+/***********************************************************************************************
+ * FlyClass::Physics -- Performs vector physics (movement).                                    *
+ *                                                                                             *
+ *    This routine performs movement (vector) physics. It takes the                            *
+ *    specified location and moves it according to the facing and speed                        *
+ *    of the vector. It returns the status of the move.                                        *
+ *                                                                                             *
+ * INPUT:   coord -- Reference to the coordinate that the vector will                          *
+ *                   be applied to.                                                            *
+ *                                                                                             *
+ * OUTPUT:  Returns with the status of the vector physics. This could                          *
+ *          range from no effect, to exiting the edge of the world.                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   04/24/1994 JLB : Created.                                                                 *
+ *   06/05/1995 JLB : Simplified to just do movement.                                          *
+ *=============================================================================================*/
+ImpactType FlyLocomotionClass::Physics(Coord & coord, DirType facing)
+{
+	int actual = Apparent_Speed();
+
+	/*
+	**	If movement occurred that is at least one
+	**	pixel, then check update the coordinate and
+	**	check for edge of world collision.
+	*/
+	if (actual > 0) {
+		Coord		newcoord;		// New working coordinate.
+		newcoord = Move_Coord(coord, facing, actual);
+
+		/*
+		**	Remember the new position.
+		*/
+		coord = newcoord;
+
+		/*
+		**	If the new coordinate is off the edge of the world, then report
+		**	this.
+		*/
+		if (!Map.In_Radar(coord.As_Cell())) {
+			return(IMPACT_EDGE);
+		}
+
+		return(IMPACT_NORMAL);
+	}
+	return(IMPACT_NONE);
+}
+
+
+/***********************************************************************************************
+ * AircraftClass::Rotation_AI -- Handle aircraft body and flight rotation.                     *
+ *                                                                                             *
+ *    This will process the aircraft visible body and flight model rotation operations. If     *
+ *    any rotation occurred, the aircraft will be flagged to be redrawn.                       *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Only call this routine once per aircraft per game logic loop.                   *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/29/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+void FlyLocomotionClass::Rotation_AI(void)
+{
+	if (IsTumbling && LinkedTo->Strength > 0) {
+		if (!Is_Powered()) {
+			DirType newdir = DirType(LinkedTo->PrimaryFacing.Current()) + DirType((Dir256)CurrentROT);
+			LinkedTo->PrimaryFacing.Set(newdir);
+			int diff = MIN(abs(CurrentROT), 1);
+			if (CurrentROT < 0) {
+				CurrentROT += diff;
+			} else {
+				CurrentROT -= diff;
+			}
+		} else {
+			IsTumbling = false;
+			Map[(Coord const &)LinkedTo->PositionCoord].Trigger_Veins();
+		}
+	}
+}
+
+
+/***********************************************************************************************
+ * AircraftClass::Process_Take_Off -- State machine support for taking off.                    *
+ *                                                                                             *
+ *    This routine is used by the main game state machine processor. This utility routine      *
+ *    handles a helicopter as it transitions from landed to flying state.                      *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Has the helicopter reached flight level now?                                       *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/12/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+bool FlyLocomotionClass::Process_Take_Off(void)
+{
+	int height = LinkedTo->HeightAGL;
+	if (!LinkedTo->IsOnBridge && Map[(Coord const &)LinkedTo->PositionCoord].IsUnderBridge && height >= BRIDGE_LEPTON_HEIGHT) {
+		height -= BRIDGE_LEPTON_HEIGHT;
+	}
+
+	IFlyControlPtr flyctrl(LinkedTo);
+	int landing_altitude = 0;
+	if (flyctrl) {
+		landing_altitude = flyctrl->Landing_Altitude();
+	}
+
+	IsTakingOff = false; // RA2: the take-off flags are cleared
+	IsLanding = false; // RA2: unconditionally
+
+	int relative_height = height - landing_altitude;
+	int relative_flight_level = FlightLevel - landing_altitude;
+
+	if (relative_height > relative_flight_level - (relative_flight_level / 3)) {
+		LinkedTo->SecondaryFacing.Set_Desired(LinkedTo->PrimaryFacing.Desired());
+	} else if (relative_height > relative_flight_level / 2) {
+		DirType dir = Direction(LinkedTo->Center_Coord(), DestinationCoord);
+		LinkedTo->PrimaryFacing.Set_Desired(dir);
+		TargetSpeed = 1;
+	}
+
+	return(true); // RA2: always reports true
+}
+
+
+/// <summary>
+/// RA2
+/// </summary>
+static inline Cell Adjacent_Cell_By_Value(Cell const & cell, FacingType dir) // RA2: an adjacent cell by value
+{
+	return(AdjacentCell[(int)dir & 0x07] + cell); // RA2: the facing masked to 0-7
+}
+
+
+/***********************************************************************************************
+ * AircraftClass::Process_Landing -- Landing process state machine handler.                    *
+ *                                                                                             *
+ *    This is a support routine that is called by the main state machine routines. This        *
+ *    routine is responsible for handling the helicopter as it transitions from flight to      *
+ *    landing.                                                                                 *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  Has the helicopter completely landed now?                                          *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/12/1995 JLB : Created.                                                                 *
+ *   03/04/1996 JLB : Handles fixed wing aircraft.                                             *
+ *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 568 bytes differ (adopted text)
+bool FlyLocomotionClass::Process_Landing(void)
+{
+	if (!IsLanding) {
+		return(true);
+	}
+
+	bool has_landed = false;
+
+	int height = LinkedTo->HeightAGL;
+	if (Map[(Coord const &)LinkedTo->PositionCoord].IsUnderBridge && height >= BRIDGE_LEPTON_HEIGHT) {
+		height -= BRIDGE_LEPTON_HEIGHT;
+	}
+
+	if (LinkedTo->TClass->IsDropship) {
+		if (height == 0 && LinkedTo->PitchAngle > 0) { // RA2: the dropship's pitch is brought back by a fixed rate, never below zero
+			static const double _dropship_pitch_rate = 0.02; // RA2: as above
+			double pitch = LinkedTo->PitchAngle - _dropship_pitch_rate; // RA2: as above
+			if (0.0 > pitch) { // RA2: as above
+				pitch = 0.0; // RA2: as above
+			}
+			LinkedTo->PitchAngle = (float)pitch; // RA2: as above
+		}
+		TargetSpeed = 0; // RA2: as above
+	} else {
+		TargetSpeed = 0; // RA2: as above
+	}
+
+	int landing_altitude = 0;
+	IFlyControlPtr flyctrl(LinkedTo);
+	if (flyctrl) {
+		landing_altitude = flyctrl->Landing_Altitude();
+	}
+
+	CellClass * destination = &Map[DestinationCoord]; // RA2: an aircraft bound to an airport needs a link to the building in the cell, any other one a cell it can enter
+	if ((AirportBound && !LinkedTo->ContainsLink((TechnoClass *)destination->Cell_Building())) || (!AirportBound && LinkedTo->Can_Enter_Cell(destination, FACING_NONE, -1, NULL, true) != 0)) { // RA2: as above
+		Take_Off();
+		Cell pos = LinkedTo->PositionCoord.As_Cell();
+		Cell nearby = Map.Nearby_Location(pos, SPEED_TRACK, -1, MZONE_FLYER, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), false); // RA2: all arguments given
+		if (nearby != CELL_NONE) {
+			Coord nearby_coord = nearby.As_Coord();
+			nearby_coord.Z = Map.Get_Height_GL(nearby_coord);
+			if (Map[nearby].IsUnderBridge) {
+				nearby_coord.Z += BRIDGE_LEPTON_HEIGHT;
+			}
+			Move_To(nearby_coord);
+		} else {
+			LinkedTo->Take_Damage(LinkedTo->Strength, 0, Rule->C4Warhead, NULL, true, true);
+			DestinationCoord = COORD_NONE;
+			return(false);
+		}
+	}
+
+	if (!CommencedLanding && height < 300) {
+		Coord coord = LinkedTo->PositionCoord;
+		coord.Z = Map.Get_Height_GL(coord);
+		CommencedLanding = true;
+
+		if (LinkedTo->TClass->IsDropship) {
+			new AnimClass(AnimTypes[AnimTypeClass::From_Name("DROPLAND")], coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: all arguments given
+		} else if (LinkedTo->RTTI == RTTI_AIRCRAFT && ((AircraftClass*)LinkedTo)->Class->IsCarryall) {
+			new AnimClass(AnimTypes[AnimTypeClass::From_Name("CARYLAND")], coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+		}
+
+		if (LinkedTo->Strength > 0) {
+			VocClass::PlayAt(LinkedTo->TClass->AuxSound2, coord, NULL); // RA2: positional sound
+		}
+	}
+
+	if (height <= landing_altitude && LinkedTo->PitchAngle <= 0) {
+		Coord coord = LinkedTo->PositionCoord;
+		if (Map[coord].IsUnderBridge && coord.Z >= Map.Get_Height_GL(coord) + BRIDGE_LEPTON_HEIGHT) { // RA2: as above
+			LinkedTo->IsOnBridge = true;
+		}
+
+		LinkedTo->Set_Height_AGL(landing_altitude); // RA2: through the setter
+		IsLanding = false;
+		IsTakingOff = false;
+		has_landed = true;
+		AircraftTracker.Remove(LinkedTo); // RA2: the aircraft leaves the tracker once it has landed
+		LinkedTo->Set_Speed(0);
+		CurrentSpeed = 0;
+		TargetSpeed = 0;
+
+		int face;
+		if (LinkedTo->LastAdjacencyCell != Cell(0, 0)) {
+			for (face = 0; face < 8; face++) {
+				Cell adjacent = Adjacent_Cell_By_Value(LinkedTo->LastAdjacencyCell, (FacingType)face);
+				CellClass * cptr = &Map[adjacent];
+				cptr->AdjacentObjectCount--;
+			}
+			LinkedTo->LastAdjacencyCell = LinkedTo->Get_Cell();
+			for (face = 0; face < 8; face++) {
+				Cell adjacent = Adjacent_Cell_By_Value(LinkedTo->LastAdjacencyCell, (FacingType)face);
+				CellClass * cptr = &Map[adjacent];
+				cptr->AdjacentObjectCount++;
+			}
+		} else {
+			LinkedTo->LastAdjacencyCell = LinkedTo->Get_Cell();
+			for (face = 0; face < 8; face++) {
+				Cell adjacent = Adjacent_Cell_By_Value(LinkedTo->LastAdjacencyCell, (FacingType)face);
+				CellClass * cptr = &Map[adjacent];
+				cptr->AdjacentObjectCount++;
+			}
+		}
+
+		if (Cell(LinkedTo->Center_Coord()) == Cell(DestinationCoord) || Map[Cell(DestinationCoord)].Cell_Building() == LinkedTo->Radio_Link(0)) {
+			IsMoving = false;
+			Move_To(COORD_NONE);
+			LinkedTo->Assign_Destination(NULL, true);
+		}
+	}
+
+	return(has_landed);
+}
+#endif
+
+
+
+/// <summary>
+/// Handles the approach to the destination coordinate.
+/// This routine is called while the aircraft has somewhere to be. It turns the body and
+/// the turret toward the destination, settles on a flight level that clears the ground in
+/// the way, and stages the speed down as the aircraft closes in. A hunter seeker drone
+/// gets its own approach, which ends with the drone detonating on its victim.
+/// </summary>
+/// <param name="stage_approach">Should the approach speed and turret aim be staged for arrival?</param>
+/// <returns>Returns with the distance remaining to the destination.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 1531 bytes differ (adopted text)
+int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
+{
+	LinkedTo->Get_Cell(); // RA2: the cell is fetched and not used
+	IFlyControlPtr flyctrl(LinkedTo);
+
+	/*
+	 * A strafing aircraft that is over an ammo-bearing attack run should ignore the
+	 * "nearing target" speed staging so that it can blast straight over the target.
+	 */
+	if (flyctrl != NULL && LinkedTo->TarCom != NULL && LinkedTo->Ammo && flyctrl->Is_Strafe()) {
+		stage_approach = false;
+	}
+
+	/*
+	 * Determine the distance to the target. If there is a building sitting on the target
+	 * cell (and this isn't a hunter-seeker), measure to the center of that building instead.
+	 */
+	Coord aim = coord;
+	ObjectClass * building = Map[Coord(coord).As_Cell()].Cell_Building(); // RA2: the building is kept as an object
+	if (building != NULL && !LinkedTo->TClass->IsHunterSeeker) {
+		if (!LinkedTo->ContainsLink((TechnoClass *)building)) { // RA2: a building the aircraft is not linked to is no aim point; an aircraft heads for a landing zone near it instead
+			FootClass * self = LinkedTo; // RA2: as above
+			if (self != NULL && self->Fetch_RTTI() == RTTI_AIRCRAFT) { // RA2: as above
+				AbstractClass * dock = ((AircraftClass *)self)->New_LZ(building); // RA2: as above
+				if (dock == NULL) { // RA2: as above
+					aim = COORD_NONE; // RA2: as above
+				} else {
+					aim = dock->Center_Coord(); // RA2: as above
+				}
+			}
+		} else {
+			aim = building->Docking_Coord(LinkedTo); // RA2: the docker is passed
+		}
+	}
+
+	LinkedTo->Get_Height();
+
+	Point2D diff = Point2D(LinkedTo->Center_Coord()) - Point2D(aim);
+	int dist = diff.Length();
+
+	/*
+	 * Turn the body of the aircraft to face the destination coordinate.
+	 */
+	if (flyctrl == NULL || !flyctrl->Is_Locked()) {
+		DirType dir;
+		dir.Direction(LinkedTo->Center_Coord(), coord); // RA2: DirType::Direction, not the free function
+
+		bool turn = true;
+		if (flyctrl != NULL && flyctrl->Is_Strafe()) {
+			if ((Point2D(LinkedTo->Center_Coord()) - Point2D(Coord(coord))).Length() <= CELL_LEPTON * 3) { // RA2: within three cells of the destination
+				if (!dir.Is_Complete_Turn(LinkedTo->PrimaryFacing.Current(), DirType(0x2000))) { // RA2: the turn left is more than 45 degrees
+					turn = false;
+				}
+			}
+		}
+
+		if (turn) {
+			DirType desired;
+			desired.Direction(LinkedTo->Center_Coord(), coord); // RA2: as above
+			LinkedTo->PrimaryFacing.Set_Desired(desired); // RA2: as above
+		}
+	}
+
+	/*
+	 * Aim the turret. If close to the destination and allowed, aim the turret at the
+	 * current target (or the landing direction); otherwise keep it aimed at the destination.
+	 */
+	if (dist < CELL_LEPTON && stage_approach && !LinkedTo->TClass->IsHunterSeeker) {
+
+		if (LinkedTo->TarCom != NULL && LinkedTo->Ammo &&
+			(flyctrl == NULL || !flyctrl->Is_Strafe())) {
+
+			if (flyctrl == NULL || !flyctrl->Is_Locked()) {
+				LinkedTo->SecondaryFacing.Set_Desired(LinkedTo->Direction(LinkedTo->TarCom));
+			}
+
+		} else {
+			DirType land(DIR_N);
+			if (flyctrl != NULL) {
+				land = DirType(FacingType(flyctrl->Landing_Direction()));
+			}
+			if (flyctrl == NULL || !flyctrl->Is_Locked()) {
+				LinkedTo->SecondaryFacing.Set_Desired(land);
+			}
+		}
+
+	} else {
+		if (flyctrl == NULL || !flyctrl->Is_Locked()) {
+			LinkedTo->SecondaryFacing.Set_Desired(Direction(LinkedTo->Center_Coord(), coord));
+		}
+	}
+
+	/*
+	 * Pick the flight level to head for. An elevating aircraft heads for the destination's
+	 * ground level; dropships ease down as they near their slowdown distance.
+	 */
+	if (IsElevating && dist < 3 * CELL_LEPTON) { // RA2: no hunter-seeker flight level scan, so the flight level is always chosen here
+		FlightLevel = DestinationCoord.Z - Map.Get_Height_GL(DestinationCoord);
+	} else if (LinkedTo->TClass->IsDropship) {
+		if (dist >= LinkedTo->TClass->SlowdownDistance) {
+			FlightLevel = LinkedTo->TClass->Flight_Level();
+		} else {
+			float frac = (float)(dist / LinkedTo->TClass->SlowdownDistance);
+			FlightLevel = (int)(LinkedTo->TClass->Flight_Level() * frac + (1.0f - frac) * (LinkedTo->TClass->Flight_Level() / 3)); // RA2: the ratio multiplies the flight level, the remainder the third of it
+		}
+	} else {
+		FlightLevel = LinkedTo->TClass->Flight_Level();
+	}
+
+	/*
+	 * Stage the target speed by distance band so the aircraft slows down as it nears the
+	 * destination. The non-hunter-seeker elevate teardown releases the fly-control interface.
+	 */
+	if (!LinkedTo->TClass->IsHunterSeeker) {
+		if (Needs_To_Land()) {
+			if (dist < CELL_LEPTON / 2) {
+				if (stage_approach) {
+					TargetSpeed = 0.0;
+				}
+				if (!IsElevating && CurrentSpeed < 0.05) {
+					Land();
+				}
+			} else if (dist < CELL_LEPTON * 2) {
+				if (stage_approach) {
+					TargetSpeed = 0.5;
+				}
+			} else if (dist < CELL_LEPTON * 3) {
+				if (stage_approach) {
+					TargetSpeed = 0.75;
+				}
+			}
+		}
+	}
+
+	/*
+	 * If a non-player selected this aircraft, deselect it once it slips into shroud or fog.
+	 */
+	if (LinkedTo->IsSelected && !LinkedTo->House->Is_Player_Control()) {
+		if (Map.Is_Shrouded(LinkedTo->Get_Coord()) ||
+			(Scen->Special.IsFogOfWar && Map.Is_Fogged(LinkedTo->Get_Coord()))) {
+			LinkedTo->Unselect();
+		}
+	}
+
+	return(dist);
+}
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// <summary>
+/// Builds the transformation matrix for drawing the aircraft body.
+/// This routine turns the body to its facing and then leans it into whatever attitude the
+/// flight calls for -- nose down at speed, rolled into a turn, or following the rocking of
+/// an aircraft that has been knocked about.
+/// </summary>
+/// <param name="key">Optional cache key for the resulting orientation. It may be NULL, and
+/// is set to -1 for an attitude that is not worth caching.</param>
+/// <returns>Returns with the matrix to draw the aircraft with.</returns>
+Matrix3DStruct STDMETHODCALLTYPE FlyLocomotionClass::Draw_Matrix(int * key)
+{
+	Matrix3D transform; // RA2: RA2's form
+	transform.Make_Identity(); // RA2: as above
+	if (key != NULL) { // RA2: as above
+		*key |= LinkedTo->SecondaryFacing.Current().As_Dir32() << 3; // RA2: as above
+	}
+	transform.Rotate_Z(LinkedTo->SecondaryFacing.Current().As_Radian32()); // RA2: as above
+	if (LinkedTo->HeightAGL > 0) { // RA2: as above
+		if (LinkedTo->IsRocking) {
+			transform.Rotate_X(LinkedTo->AngleRotatedSideways); // RA2: as above
+			if (CurrentSpeed > LinkedTo->Techno_Type_Class()->PitchSpeed) { // RA2: as above
+				transform.Rotate_Y((float)(LinkedTo->AngleRotatedForwards + LinkedTo->Techno_Type_Class()->PitchAngle)); // RA2: as above
+			} else {
+				transform.Rotate_Y(LinkedTo->AngleRotatedForwards); // RA2: as above
+			}
+			if (key != NULL) { // RA2: as above
+				*key = -1;
+			}
+		} else if (CurrentSpeed > LinkedTo->Techno_Type_Class()->PitchSpeed) { // RA2: as above
+			if (LinkedTo->Techno_Type_Class()->PitchAngle != 0.0) { // RA2: as above
+				if (key != NULL) { // RA2: as above
+					*key |= 4; // RA2: as above
+				}
+				transform.Rotate_Y((float)LinkedTo->Techno_Type_Class()->PitchAngle); // RA2: as above
+			}
+			if (LinkedTo->Techno_Type_Class()->RollAngle != 0.0) { // RA2: as above
+				if (LinkedTo->SecondaryFacing.Is_Rotating_CW()) {
+					if (key != NULL) { // RA2: as above
+						*key |= 1;
+					}
+					transform.Rotate_X((float)LinkedTo->Techno_Type_Class()->RollAngle); // RA2: as above
+				} else if (LinkedTo->SecondaryFacing.Is_Rotating_CCW()) {
+					if (key != NULL) { // RA2: as above
+						*key |= 2;
+					}
+					transform.Rotate_X((float)-LinkedTo->Techno_Type_Class()->RollAngle); // RA2: as above
+				}
+			}
+		}
+	}
+	return((Matrix3DStruct &)transform); // RA2: as above
+}
+
+
+
+
+/// <summary>
+/// Fetches the drawing offset for the aircraft body.
+/// This routine gives an airborne aircraft a gentle bobbing motion so that it does not
+/// look pinned in place while it hovers. Dropships and grounded aircraft do not bob.
+/// </summary>
+/// <returns>Returns with the pixel offset to shift the aircraft by.</returns>
+Point2DStruct STDMETHODCALLTYPE FlyLocomotionClass::Draw_Point(void)
+{
+	int y = 0;
+	IFlyControlPtr flyctrl(LinkedTo);
+
+	int landing_altitude = 0;
+	if (flyctrl) {
+		landing_altitude = flyctrl->Landing_Altitude();
+	}
+
+	if (!LinkedTo->TClass->IsDropship && !IsLanding && !IsTakingOff && LinkedTo->HeightAGL > landing_altitude) {
+		y = (fastmath::sin((Frame % 20) * M_PI / 10)) * 1.5 + 0.5;
+	}
+
+	return(Point2D(0, y));
+}
+
+
+/// <summary>
+/// Fetches the drawing offset for the aircraft's shadow.
+/// The shadow is drawn where the aircraft's position puts it, so no adjustment is needed.
+/// </summary>
+/// <returns>Returns with the pixel offset to shift the shadow by.</returns>
+Point2DStruct STDMETHODCALLTYPE FlyLocomotionClass::Shadow_Point(void)
+{
+	return(Point2D(0, 0));
+}
+
+
+/// <summary>
+/// Tells the aircraft to lift off the ground.
+/// This routine records the intention to climb and starts the engine sound, leaving the
+/// climb itself to the landing and takeoff logic. A stunned aircraft stays put.
+/// </summary>
+void FlyLocomotionClass::Take_Off(void)
+{
+	if (!LinkedTo->IsUnderEMP() && !LinkedTo->IsParalyzed() && !LinkedTo->IsBeingWarpedOut() && !LinkedTo->IsWarpingIn()) { // RA2: four virtual state tests (0x324, 0x328, 0x1BC, 0x1C0) instead of the stun duration
+		IsLanding = false; // RA2: as above
+		IsTakingOff = true; // RA2: as above
+		if (LinkedTo->GetLastFlightMapCoords() == CELL_NONE) { // RA2: files the aircraft in the aircraft tracker if it has no cell there yet
+			AircraftTracker.Add(LinkedTo); // RA2: as above
+		}
+		FlightLevel = LinkedTo->TClass->Flight_Level();
+
+		if (LinkedTo->HeightAGL == 0) {
+			LinkedTo->PrimaryFacing.Set(LinkedTo->SecondaryFacing.Desired());
+		}
+
+		VocClass::PlayAt(LinkedTo->TClass->AuxSound1, LinkedTo->PositionCoord, NULL); // RA2: positional sound (0x713E60)
+	}
+}
+
+
+
+/// <summary>
+/// Tells the aircraft to come down and land.
+/// This routine only records the intention to land. The descent itself is performed over
+/// time by the landing and takeoff logic.
+/// </summary>
+void FlyLocomotionClass::Land(void)
+{
+	if (LinkedTo->Get_Mission() == MISSION_ENTER || !LinkedTo->Next_Planning_Node()) { // RA2: RA2's form
+		if (LinkedTo->Fetch_RTTI() == RTTI_AIRCRAFT) { // RA2: as above
+			AircraftClass *aircraft = (AircraftClass *)LinkedTo; // RA2: as above
+			if (aircraft->Class->IsAirportBound) { // RA2: as above
+				CellClass *cell = (CellClass *)aircraft->Get_Cell_Ptr(); // RA2: as above
+				if (!LinkedTo->ContainsLink((TechnoClass *)cell->Cell_Building())) { // RA2: as above
+					aircraft->Enter_Idle_Mode(false, true); // RA2: as above
+					return; // RA2: as above
+				}
+			}
+		}
+		IsTakingOff = false; // RA2: as above
+		IsLanding = true; // RA2: as above
+		CommencedLanding = false; // RA2: as above
+		FlightLevel = 0; // RA2: as above
+	}
+}
+
+
+
+/// <summary>
+/// Builds the transformation matrix for the aircraft's shadow.
+/// This routine lays the shadow over the slope of the ground beneath the aircraft and
+/// turns it to match the body facing. A dropship always casts a flat shadow.
+/// </summary>
+/// <param name="key">Optional cache key for the shadow orientation. It may be NULL, and a
+/// value of -1 marks the shadow as not worth caching.</param>
+/// <returns>Returns with the matrix to draw the shadow with.</returns>
+Matrix3DStruct STDMETHODCALLTYPE FlyLocomotionClass::Shadow_Matrix(int * key)
+{
+	int ramp = Map[(Coord const &)LinkedTo->PositionCoord].Ramp;
+	if (LinkedTo->TClass->IsDropship) {
+		ramp = 0;
+	}
+
+	Matrix3D matrix = Get_Slope_Matrix(ramp);
+	matrix.Rotate_Z(LinkedTo->SecondaryFacing.Current().As_Radian32());
+
+	if (key != NULL && *key != -1) {
+		*key = 32 * (ramp + (*key << 6));
+		*key |= LinkedTo->SecondaryFacing.Current().As_Dir32();
+	}
+	return((Matrix3DStruct &)matrix);
+}
+
+
+/// <summary>
+/// Turns the aircraft body to the specified facing.
+/// This routine snaps the body around immediately rather than rotating it over time.
+/// </summary>
+/// <param name="coord">The facing to set the aircraft body to.</param>
+void STDMETHODCALLTYPE FlyLocomotionClass::Do_Turn(DirStruct coord)
+{
+	LinkedTo->SecondaryFacing.Set(coord);
+}
+
+
+/// <summary>
+/// Is the aircraft airborne enough to be treated as flying?
+/// This routine tells the difference between an aircraft that is truly flying and one that
+/// is still hugging the ground on its way up or down. An aircraft climbing away is not
+/// counted as in flight until it is well clear of the deck.
+/// </summary>
+/// <returns>bool; Is the aircraft in flight?</returns>
+bool FlyLocomotionClass::Is_In_Flight(void)
+{
+	if (!IsLanding && (!IsTakingOff || LinkedTo->HeightAGL >= FlightLevel / 2)) {
+		return(true);
+	}
+	return(false);
+}
+
+
+/// <summary>
+/// Fetches the class identifier of this locomotor.
+/// This routine is used by the save and load machinery so that it knows which locomotor to
+/// create when the owning object is restored.
+/// </summary>
+/// <param name="retval">Pointer to the identifier to fill in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no destination was supplied.</returns>
+HRESULT STDMETHODCALLTYPE FlyLocomotionClass::GetClassID(CLSID * retval)
+{
+	if (retval == NULL) return(E_POINTER);
+	*retval = CLSID_FlyerLocomotion;
+	return(S_OK);
+}
+
+
+/// <summary>
+/// Loads the locomotor from a save game stream.
+/// This routine reconstructs the object in place once the base class has pulled the raw
+/// data off the stream, so that its virtual table pointer is valid again.
+/// </summary>
+/// <returns>Returns with the result code of the load attempt.</returns>
+HRESULT STDMETHODCALLTYPE FlyLocomotionClass::Load(IStream * stream)
+{
+	HRESULT result = BASECLASS::Load(stream);
+	if (SUCCEEDED(result)) {
+		new (this) FlyLocomotionClass(NoInitClass());
+	}
+	return(result);
+}
+
+
+/// <summary>
+/// Determines which render layer the aircraft belongs in.
+/// </summary>
+/// <returns>Returns with LAYER_GROUND while the aircraft is on the deck, or LAYER_TOP once
+/// it is above it.</returns>
+LayerType STDMETHODCALLTYPE FlyLocomotionClass::In_Which_Layer(void)
+{
+	return(LinkedTo->HeightAGL <= 0 ? LAYER_GROUND : LAYER_TOP);
+}
+
+
+/// <summary>
+/// Cuts the power to the aircraft.
+/// This routine is called when the aircraft is drained of power, such as by an ion storm
+/// or an EMP pulse. An aircraft that was under way is thrown into a tumble and told to
+/// stop, so that it falls out of the sky rather than coasting on to its objective.
+/// </summary>
+/// <returns>bool; Was the power successfully cut?</returns>
+boolean STDMETHODCALLTYPE FlyLocomotionClass::Power_Off(void)
+{
+	if (Is_Moving()) {
+		Tumble();
+		Stop_Moving();
+		Riser = 0;
+	}
+	return(BASECLASS::Power_Off());
+}
+
+
+/// <summary>
+/// Is the aircraft still under power?
+/// </summary>
+/// <returns>bool; Does the aircraft still have power?</returns>
+boolean STDMETHODCALLTYPE FlyLocomotionClass::Is_Powered(void)
+{
+	return(BASECLASS::Is_Powered());
+}
+
+
+/// <summary>
+/// Is this aircraft bothered by an ion storm?
+/// Hunter seeker drones fly through a storm unhindered; every other aircraft is grounded
+/// by one.
+/// </summary>
+/// <returns>bool; Does an ion storm affect this aircraft?</returns>
+boolean STDMETHODCALLTYPE FlyLocomotionClass::Is_Ion_Sensitive(void)
+{
+	return(!LinkedTo->TClass->IsHunterSeeker);
+}
+
+
+/// <summary>
+/// Sends the aircraft into an out of control tumble.
+/// This routine is used when the aircraft is knocked out of the sky. It sets the body
+/// spinning in a randomly chosen direction so that the wreck looks suitably doomed on the
+/// way down.
+/// </summary>
+void FlyLocomotionClass::Tumble(void)
+{
+	IsTumbling = true;
+	CurrentROT = Random_Pick(20, 30);
+	if (Percent_Chance(50)) {
+		CurrentROT = -CurrentROT;
+	}
+}
+
+
+/// <summary>
+/// Fetches the speed the aircraft is currently traveling at.
+/// </summary>
+/// <returns>Returns with the distance the aircraft will cover in one game frame.</returns>
+int STDMETHODCALLTYPE FlyLocomotionClass::Apparent_Speed(void)
+{
+	return(LinkedTo->TClass->MaxSpeed * CurrentSpeed);
+}
+
+
+/// <summary>
+/// Fetches the broad flight status of the aircraft.
+/// This routine is used by outside logic that needs to know what the aircraft is busy
+/// doing without having to examine the locomotor itself.
+/// </summary>
+/// <returns>Returns with the status code for taking off, landing, moving, or sitting
+/// idle.</returns>
+int STDMETHODCALLTYPE FlyLocomotionClass::Get_Status(void)
+{
+	if (IsLanding) {
+		return(1);
+	}
+	if (IsTakingOff) {
+		return(0);
+	}
+	if (Is_Moving()) {
+		return(2);
+	}
+	return(3);
+}
+
+
+/// <summary>
+/// Picks a victim for the hunter seeker drone.
+/// This routine is called while the drone is loose and has nothing to chase. It gathers
+/// every legal enemy object on the map and picks one at random, favoring human owned
+/// targets in a multiplay game so that the drone makes a nuisance of itself where it will
+/// be noticed.
+/// </summary>
+void STDMETHODCALLTYPE FlyLocomotionClass::Acquire_Hunter_Seeker_Target(void)
+{
+	if (LinkedTo->TarCom == NULL) {
+
+		DynamicVectorClass<ObjectClass *> aitargets;
+		DynamicVectorClass<ObjectClass *> humantargets;
+
+		bool atenemy = Session.Type != GAME_NORMAL && LinkedTo->House->Enemy != HOUSE_NONE && !LinkedTo->House->Is_Human_Player();
+
+		for (int i = Technos.Count() - 1; i >= 0; i--) {
+			TechnoClass * techno = Technos[i];
+
+			bool enemy = true;
+			if (!atenemy) {
+				if (LinkedTo->House->Is_Ally(techno->House)) {
+					enemy = false;
+				}
+			} else {
+				if (techno->House != Houses[LinkedTo->House->Enemy]) {
+					enemy = false;
+				}
+			}
+
+			if (enemy && techno->Strength > 0 && !techno->IsInLimbo && techno->IsActive &&
+				!techno->TClass->IsInvisible && techno->TClass->IsLegalTarget &&
+				!(Scen->Special.IsHarvesterImmune && techno->RTTI == RTTI_UNIT && ((UnitClass*)techno)->Class->IsToHarvest)) {
+
+				if (Session.Type != GAME_NORMAL && LinkedTo->House->Is_Human_Player() && !techno->House->Class->IsMultiplayPassive &&
+					(techno->RTTI == RTTI_UNIT || techno->RTTI == RTTI_BUILDING || techno->RTTI == RTTI_INFANTRY || techno->RTTI == RTTI_AIRCRAFT)) {
+					humantargets.Add(techno);
+				} else {
+					aitargets.Add(techno);
+				}
+			}
+		}
+
+		if (humantargets.Count() > 0) {
+			LinkedTo->Assign_Target(humantargets[Scen->RandomNumber(0, humantargets.Count() - 1)]);
+		} else if (aitargets.Count() > 0) {
+			LinkedTo->Assign_Target(aitargets[Scen->RandomNumber(0, aitargets.Count() - 1)]);
+		}
+	}
+}
+
+
+/// <summary>
+/// Does the aircraft need to settle down toward the ground?
+/// This routine is used while nearing a destination to decide whether the approach should
+/// be staged down into a landing. A strafing aircraft with ammunition left is exempt, since
+/// it is making an attack run rather than an approach.
+/// </summary>
+/// <returns>bool; Should the aircraft slow down and land?</returns>
+bool FlyLocomotionClass::Needs_To_Land(void)
+{
+	FootClass *object = LinkedTo; // RA2: the executable tests the linked aircraft first (0x004BF8F0)
+	if (object != NULL && object->Fetch_RTTI() == RTTI_AIRCRAFT && ((IFlyControl *)(AircraftClass *)object)->Is_Locked()) { // RA2: an aircraft locked into straight flight never has to land
+		return(false); // RA2: as above
+	} // RA2: as above
+
+	if (IsLanding) {
+		return(true);
+	}
+
+	if (!IsElevating) {
+		return(true);
+	}
+
+	IFlyControlPtr flyctrl(LinkedTo);
+	if (flyctrl != NULL && !flyctrl->Is_Strafe() && !flyctrl->Is_Fighter()) { // RA2: a fighter does not settle down for an approach
+		return(true);
+	}
+
+	if (LinkedTo->Ammo == 0) {
+		return(true);
+	}
+	return(false);
+}
+
+
+/// <summary>
+/// Is the aircraft locked into level straight flight?
+/// This routine is consulted when a destination is assigned in order to decide whether the
+/// aircraft should hold its altitude instead of easing down toward the ground. A high
+/// destination, a loaded weapon aimed at a target, or a locked fly control will all keep
+/// the aircraft flying straight.
+/// </summary>
+/// <returns>bool; Must the aircraft hold a level straight course?</returns>
+bool FlyLocomotionClass::Is_Locked_To_Straight_Flight(void)
+{
+	if (DestinationCoord.Z > Map.Get_Height_GL(DestinationCoord) + 120) {
+		return(true);
+	}
+	if (LinkedTo->TarCom != NULL && LinkedTo->Ammo) {
+		return(true);
+	}
+
+	IFlyControlPtr flyctrl(LinkedTo);
+	if (flyctrl != NULL) { // RA2: tested against NULL
+		if (flyctrl->Is_Locked()) {
+			return(true);
+		}
+	}
+	return(false);
+}
+
+
+

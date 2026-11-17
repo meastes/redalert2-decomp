@@ -1,0 +1,888 @@
+{
+  "id": "rebuild-audbag",
+  "population": {
+    "id": "rebuild-audbag",
+    "inventory_sha256": "82d76aac864d26e1a63b17341b43281aa316ce10c95f0d35474ebdba4d64c791",
+    "gaps_sha256": "04d36338335bdd7e43e23bfbef070ac0785ff73d83cba2e18e0315fd2eb8d76f",
+    "historical_population_sha256": "8a04918c04ed134ba926e74e137e688bb8cc30daad42d3da63b7bca997f5f0e8",
+    "historical_acceptance_sha256": "d8972ea038aafeb1f008b10c03de6f3b59c36c2f6f005ab0ccabbd0d20f8fc25"
+  },
+  "references": {
+    "??2@YAPAXI@Z": 7872535,
+    "_strrchr": 7872496,
+    "??_C@_04HFFH@?4idx?$AA@": 8178000,
+    "??0CCFileClass@@QAE@PBD@Z": 4624208,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "??_C@_04PHPE@?4bag?$AA@": 8177992,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "_stricmp": 7872288,
+    "_qsort": 7871814,
+    "__imp__FindFirstFileA@8": 7971324,
+    "__imp__FindNextFileA@8": 7971328,
+    "__imp__FindClose@4": 7971576,
+    "??_C@_01PCFE@?2?$AA@": 8177988,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "??3@YAXPAX@Z": 7871803,
+    "_bsearch": 7872549,
+    "??_C@_07HJJI@Invalid?$AA@": 8178008,
+    "??_C@_04MPDF@?4wav?$AA@": 8178016,
+    "??0RawFileClass@@QAE@PBD@Z": 6523712,
+    "?AudioFormatInit@@YIXPAUAudioFormat@@@Z": 4228288,
+    "?AudioFormatReadWaveFile@@YIHPAVFileClass@@PAUAudioFormat@@PAH@Z": 4228400,
+    "?GetEntry@AudioIDXData@@QAIPAUAudioIDXEntry@@H@Z": 4198832,
+    "?Create@AudioIDXData@@SIPAV1@PBD0@Z": 4198848,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVCCFileClass@@@8": 8177840,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "?Destroy@AudioIDXData@@QAEXXZ": 4199808,
+    "?FindSampleIndex@AudioIDXData@@QAIHPBD@Z": 4199872,
+    "?GetSampleName@AudioIDXData@@QAIPBDH@Z": 4199936,
+    "?GetSampleSize@AudioIDXData@@QAIHH@Z": 4199968,
+    "?GetSampleInformation@AudioIDXData@@QAIPAUAudioFormat@@HPAU2@@Z": 4200000,
+    "?SetSampleInformation@AudioIDXData@@QAIXHPAUAudioFormat@@@Z": 4200112,
+    "?OpenSample@AudioIDXData@@QAIHH@Z": 4200176,
+    "?ReadSample@AudioIDXData@@QAIHPAXH@Z": 4200640,
+    "?ClearCurrentSample@AudioIDXData@@QAEXXZ": 4200720
+  },
+  "regions": [
+    {
+      "entry": 4198832,
+      "method": "004011b0",
+      "body_bytes": 9,
+      "body_sha256": "adaa22d79370e92f5bce521c07797b2122fb98541516400a25a54771b7fc4aa0",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "512610b9c61375aab00a537a3faf4620dc0de588533055584bab6e2c8ce508a1",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetEntry@AudioIDXData@@QAIPAUAudioIDXEntry@@H@Z",
+      "symbol_prefix": "?GetEntry@AudioIDXData@@QAIPAUAudioIDXEntry@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4198832,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4198848,
+      "method": "004011c0",
+      "body_bytes": 953,
+      "body_sha256": "5f7c58e41800d20770e7ad95f45b77e01db798f57336329779ab7ba0cf4a1a94",
+      "padding_bytes": 7,
+      "full_extent_bytes": 960,
+      "full_extent_sha256": "6ba5e7d4ff11ec77a7166413de224b7031956157ada99b9c65a2152e6df5f9dc",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create@AudioIDXData@@SIPAV1@PBD0@Z",
+      "symbol_prefix": "?Create@AudioIDXData@@SIPAV1@PBD0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3673661
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "_strrchr",
+          "target": 7872496,
+          "addend": 0,
+          "resolved": 3673558
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "??_C@_04HFFH@?4idx?$AA@",
+          "target": 8178000,
+          "addend": 0,
+          "resolved": 8178000
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 425193
+        },
+        {
+          "offset": 173,
+          "kind": 20,
+          "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+          "target": 4624800,
+          "addend": 0,
+          "resolved": 425775
+        },
+        {
+          "offset": 196,
+          "kind": 20,
+          "symbol": "_strrchr",
+          "target": 7872496,
+          "addend": 0,
+          "resolved": 3673448
+        },
+        {
+          "offset": 211,
+          "kind": 6,
+          "symbol": "??_C@_04PHPE@?4bag?$AA@",
+          "target": 8177992,
+          "addend": 0,
+          "resolved": 8177992
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3673421
+        },
+        {
+          "offset": 284,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 425072
+        },
+        {
+          "offset": 321,
+          "kind": 20,
+          "symbol": "?Open@CCFileClass@@UAEHH@Z",
+          "target": 4624928,
+          "addend": 0,
+          "resolved": 425755
+        },
+        {
+          "offset": 350,
+          "kind": 20,
+          "symbol": "?Read@CCFileClass@@UAEHPAXH@Z",
+          "target": 4624480,
+          "addend": 0,
+          "resolved": 425278
+        },
+        {
+          "offset": 386,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3673297
+        },
+        {
+          "offset": 460,
+          "kind": 20,
+          "symbol": "?Read@CCFileClass@@UAEHPAXH@Z",
+          "target": 4624480,
+          "addend": 0,
+          "resolved": 425168
+        },
+        {
+          "offset": 498,
+          "kind": 6,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 7872288
+        },
+        {
+          "offset": 507,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 3672455
+        },
+        {
+          "offset": 612,
+          "kind": 6,
+          "symbol": "__imp__FindFirstFileA@8",
+          "target": 7971324,
+          "addend": 0,
+          "resolved": 7971324
+        },
+        {
+          "offset": 635,
+          "kind": 6,
+          "symbol": "__imp__FindNextFileA@8",
+          "target": 7971328,
+          "addend": 0,
+          "resolved": 7971328
+        },
+        {
+          "offset": 677,
+          "kind": 6,
+          "symbol": "__imp__FindClose@4",
+          "target": 7971576,
+          "addend": 0,
+          "resolved": 7971576
+        },
+        {
+          "offset": 701,
+          "kind": 6,
+          "symbol": "??_C@_01PCFE@?2?$AA@",
+          "target": 8177988,
+          "addend": 0,
+          "resolved": 8177988
+        },
+        {
+          "offset": 752,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 764,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 225104
+        },
+        {
+          "offset": 776,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 781,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 188031
+        },
+        {
+          "offset": 817,
+          "kind": 20,
+          "symbol": "?Read@CCFileClass@@UAEHPAXH@Z",
+          "target": 4624480,
+          "addend": 0,
+          "resolved": 424811
+        },
+        {
+          "offset": 883,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3672068
+        },
+        {
+          "offset": 892,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3672059
+        },
+        {
+          "offset": 907,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 919,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 224949
+        },
+        {
+          "offset": 931,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 936,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 187876
+        }
+      ],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4198848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4199808,
+      "method": "00401580",
+      "body_bytes": 61,
+      "body_sha256": "e3351ea3893c60c441edf01850615b35df57d12fb1fa52ec9728724cf55002d4",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1214f9990d8d58d221133d6d99b7d146b89cdd07a0252586556c68ab0a7592d6",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destroy@AudioIDXData@@QAEXXZ",
+      "symbol_prefix": "?Destroy@AudioIDXData@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3671948
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3671939
+        }
+      ],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4199808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4199872,
+      "method": "004015c0",
+      "body_bytes": 55,
+      "body_sha256": "6958d4905e273af59fe85036190d5a258e1201009fa1a13df3448892494aa5ba",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f74ef8256a30e9728fc91b236333d42c21cc87f31ccc5fc45aa12c530b016e82",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?FindSampleIndex@AudioIDXData@@QAIHPBD@Z",
+      "symbol_prefix": "?FindSampleIndex@AudioIDXData@@QAIHPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 7872288
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "_bsearch",
+          "target": 7872549,
+          "addend": 0,
+          "resolved": 3672654
+        }
+      ],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4199872,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 4199936,
+      "method": "00401600",
+      "body_bytes": 24,
+      "body_sha256": "56291089f865493a10c685222f76c741b6102b63f248096b8a54612e3f6574fd",
+      "padding_bytes": 8,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2bf6c4fdae7aa053ec8d398398417ba840d869046dc64d4b70923f6d7ef4d31b",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetSampleName@AudioIDXData@@QAIPBDH@Z",
+      "symbol_prefix": "?GetSampleName@AudioIDXData@@QAIPBDH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_C@_07HJJI@Invalid?$AA@",
+          "target": 8178008,
+          "addend": 0,
+          "resolved": 8178008
+        }
+      ],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4199936,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4199968,
+      "method": "00401620",
+      "body_bytes": 22,
+      "body_sha256": "5e9fca462a94965be73178c966c8a7846b974d06393ce851f8e92f741dc299a6",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "501046846d7005da102be967ba89429ea266cc0d9e7c7c4fd90d1f3ebf703612",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetSampleSize@AudioIDXData@@QAIHH@Z",
+      "symbol_prefix": "?GetSampleSize@AudioIDXData@@QAIHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4199968,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4200000,
+      "method": "00401640",
+      "body_bytes": 97,
+      "body_sha256": "6c83408113464bead38ccdfb1a9bee93071f85cb35ad255863ab8b6f9b81c1c3",
+      "padding_bytes": 15,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "3c56971b8244dda1705024aa59161ed0016bca7e931238542b83c3985a698393",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetSampleInformation@AudioIDXData@@QAIPAUAudioFormat@@HPAU2@@Z",
+      "symbol_prefix": "?GetSampleInformation@AudioIDXData@@QAIPAUAudioFormat@@HPAU2@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4200000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4200112,
+      "method": "004016b0",
+      "body_bytes": 60,
+      "body_sha256": "f252e8d56d28d4e6ae71f983bcc7666eb813d8bbc66c4fa99caab89a6bc74009",
+      "padding_bytes": 4,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "494773b1f62a074f03e9e3a479e963eb1ec067ed97f44efa7e18a5eee4f87d07",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetSampleInformation@AudioIDXData@@QAIXHPAUAudioFormat@@@Z",
+      "symbol_prefix": "?SetSampleInformation@AudioIDXData@@QAIXHPAUAudioFormat@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4200112,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4200176,
+      "method": "004016f0",
+      "body_bytes": 457,
+      "body_sha256": "fd6bccd577c25c97b364eac9738c9992a0fd20ea64b5b17ebabe38607ae806ca",
+      "padding_bytes": 7,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "2b8602b76f17bb09ecec81aa48bdda339c4a473446f86c98177a0d56ed3d4369",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?OpenSample@AudioIDXData@@QAIHH@Z",
+      "symbol_prefix": "?OpenSample@AudioIDXData@@QAIHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "??_C@_04MPDF@?4wav?$AA@",
+          "target": 8178016,
+          "addend": 0,
+          "resolved": 8178016
+        },
+        {
+          "offset": 245,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3672110
+        },
+        {
+          "offset": 265,
+          "kind": 20,
+          "symbol": "??0RawFileClass@@QAE@PBD@Z",
+          "target": 6523712,
+          "addend": 0,
+          "resolved": 2323267
+        },
+        {
+          "offset": 312,
+          "kind": 20,
+          "symbol": "?AudioFormatInit@@YIXPAUAudioFormat@@@Z",
+          "target": 4228288,
+          "addend": 0,
+          "resolved": 27796
+        },
+        {
+          "offset": 328,
+          "kind": 20,
+          "symbol": "?AudioFormatReadWaveFile@@YIHPAVFileClass@@PAUAudioFormat@@PAH@Z",
+          "target": 4228400,
+          "addend": 0,
+          "resolved": 27892
+        }
+      ],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4200176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4200640,
+      "method": "004018c0",
+      "body_bytes": 72,
+      "body_sha256": "9d3e05b56d1a3564aadc436c679e7258b3c78ae9572cd95c083b82f4f12e69ee",
+      "padding_bytes": 8,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "63276846a98836a3b4fc1fc3dcc51c08a0299ba55047426a3b376a875995c387",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ReadSample@AudioIDXData@@QAIHPAXH@Z",
+      "symbol_prefix": "?ReadSample@AudioIDXData@@QAIHPAXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4200640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4200720,
+      "method": "00401910",
+      "body_bytes": 41,
+      "body_sha256": "8669c101b000afcb8109823bc58500d46358ee304e71c7c066645e599f12e15b",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "15c7ec3d3db8e5cf6848baf5a21f864373655cf4275a9cfd8f45ba3da1e1353d",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ClearCurrentSample@AudioIDXData@@QAEXXZ",
+      "symbol_prefix": "?ClearCurrentSample@AudioIDXData@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4200720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4200768,
+      "method": "00401940",
+      "body_bytes": 4,
+      "body_sha256": "01d3abacb68aac3537badfe563d0e21d0244fb61db1d805bcef8f455407fad96",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e3260bde03b483ec8272c5f50ff35530c0995f2acb01be226e3d12246027c69d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?File_Name@RawFileClass@@UBEPBDXZ",
+      "symbol_prefix": "?File_Name@RawFileClass@@UBEPBDXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4200768,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 4200784,
+      "method": "00401950",
+      "body_bytes": 36,
+      "body_sha256": "82e10a2b11dccdca326d629724d3f8cc7cdb1ebde0751064bd9e7d313c303edc",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "69584d6a13e71c5e78296cb1daf2b8feb0591e28e1611077eb7bf02747eae4d8",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GCDFileClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GCDFileClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 186866
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3670992
+        }
+      ],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4200784,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4479"
+    },
+    {
+      "entry": 4200832,
+      "method": "00401980",
+      "body_bytes": 31,
+      "body_sha256": "f45305cea33ab353b459c35a817ba63f8969451fcce14d93ae058cd6451ea8c7",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2c3aedddc038cc8cd00bb0a88b07eed1662155b4b18a88614b23503f75585155",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Open@CCFileClass@@UAEHPBDH@Z",
+      "symbol_prefix": "?Open@CCFileClass@@UAEHPBDH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4200832,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4460"
+    },
+    {
+      "entry": 4200864,
+      "method": "004019a0",
+      "body_bytes": 59,
+      "body_sha256": "e7205412e4d41d38ba80a230f0da4b9c831f71ac7580fe09adcc8b34b0f0681a",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "5cff01ed1a9271653d7fcfb17c9c8366da03b93b1840f4c13530aba5185381ef",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GCCFileClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GCCFileClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 223832
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 186763
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3670889
+        }
+      ],
+      "source_sha256": "25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45",
+      "source": "rebuild/src/audbag.cpp",
+      "population": "rebuild-audbag",
+      "source_order": 4200864,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4460"
+    }
+  ]
+}

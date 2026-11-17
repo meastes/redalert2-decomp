@@ -23,17 +23,35 @@ if '--learn' in sys.argv:
     from verify_manifest import Audit
     audit = Audit(R.ROOT, json.loads(R.CONFIG.read_text())['executable'])
     main = {r['entry']: r['symbol'] for r in R.main_catalog()['regions']}
+    units_all = R.load_json(R.UNITS, {})
+    uinfo = units_all[unit]
+    emitted = {f['name'] for f in c._functions}
+    changed = [False]
     rows = list(csv.DictReader(open(R.SYMBOLS))) if R.SYMBOLS.exists() else []
     known = {r['symbol'] for r in rows}
     for i, s in enumerate(c.sections, 1):
         vt = [n for n in c.symbols.values() if n['section'] == i and n['name'].startswith('??_7')]
         names = [n['name'] for n in vt]
-        if not names or names[0] not in refs: continue
-        base = refs[names[0]] - vt[0]['value']     # a /GR vtable starts with its locator pointer
+        if not names: continue
+        vaddr = refs.get(names[0]) or R.resolver(unit, uinfo)(names[0])[0]
+        if vaddr is None: continue
+        base = vaddr - vt[0]['value']     # a /GR vtable starts with its locator pointer
         for o, x, k in sorted(s['relocs']):
             n = c.symbols[x]['name']
-            if n in known: continue
             target = struct.unpack('<I', audit.original(base + o, 4))[0]
+            # A slot pointing into this unit's own rows is this object's copy of the function (an
+            # inline virtual of a header compiled into every object that needs the vtable): bound in
+            # the unit's own table, and the row takes the object's name when its own is not emitted
+            # (lane R2).
+            own = {int(r['entry'], 16): r for r in uinfo['rows']}
+            if target in own and n in emitted:
+                if uinfo.setdefault('references', {}).get(n) != '%08x' % target:
+                    uinfo['references'][n] = '%08x' % target; changed[0] = True
+                    print('  bound in unit %s = %08x' % (n[:70], target))
+                if own[target]['symbol'] not in emitted and own[target]['symbol'] != n:
+                    own[target]['symbol'] = n; changed[0] = True
+                continue
+            if n in known: continue
             if refs.get(n) == target: continue
             if target in main:
                 rows.append(dict(symbol=n, address='0x%08X' % target,
@@ -41,6 +59,8 @@ if '--learn' in sys.argv:
                 known.add(n); print('  bound %s = %08x (main %s)' % (n[:70], target, main[target][:60]))
             else:
                 print('  no main row for %s at %08x' % (n[:70], target))
+    if changed[0]:
+        R.write_json(R.UNITS, units_all)
     with open(R.SYMBOLS, 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=['symbol', 'address', 'evidence'])
         w.writeheader(); w.writerows(sorted(rows, key=lambda r: r['symbol']))

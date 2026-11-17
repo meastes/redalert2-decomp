@@ -135,6 +135,12 @@ def init_unit(unit, source=None, option_index=None, start=None, end=None, auto=F
         while before and before[-1]['symbol'].startswith('_$E') and \
                 before[-1]['entry'] + before[-1]['full_extent_bytes'] >= (start if not before[:-1] else start) - 16:
             start = before.pop()['entry']
+        # Main's own module map may put an initializer run further back (a gap of rows main has not
+        # accepted between it and the unit's first function): the run whose rows main files under
+        # this unit's source is the unit's too (lane R2).
+        while before and before[-1]['symbol'].startswith('_$E') and \
+                before[-1]['source'].rsplit('/', 1)[-1] == unit + '.cpp':
+            start = before.pop()['entry']
         # After it: the run of compiler-emitted copies (template members, deleting destructors,
         # vector iterators) up to the next module or the next row of any other kind.
         following = sorted((int(m['start'], 16) for m in modules.values() if m['category'] != 'unknown' and
