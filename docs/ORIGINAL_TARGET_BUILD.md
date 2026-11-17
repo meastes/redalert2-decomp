@@ -191,8 +191,9 @@ the shared-header build changes.
 No original game launch, full decompilation, native-port or playability claim.
 
 [Migration evidence](history/ORIGINAL_TARGET_MIGRATION_20261020.md) records the fresh
-tracked-source reproduction. Native build entrypoints are preserved separately
-under `historical/native-reconstruction/`; old root native caches are stale after
+tracked-source reproduction. Native build entrypoints were preserved separately
+under `historical/native-reconstruction/` (since removed on 2026-11-17 at the user's request, recoverable from git history at tag `historical-final`;
+the native port is now `native/`); old root native caches were stale after
 the move and were not tested during this migration.
 
 ## Gates, locks and stage timings (lane P1, 2026-11-15)

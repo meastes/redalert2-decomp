@@ -34,8 +34,9 @@ select ──> seed ──> diff/iterate ──> promote exact ──> build ─
 
 Prefer class work for the large connected hierarchies (recover the layout once,
 then sweep members) and seed sweeps for bulk. Consult
-`historical/native-reconstruction/` notes for names and field meanings, checking
-that their addresses refer to this target.
+the earlier native reconstruction's notes for names and field meanings (at tag
+`historical-final`, `historical/native-reconstruction/docs/`), checking that their addresses
+refer to this target.
 
 **Seed and iterate.** `seed_candidate.py ENTRY` writes
 `build/candidates/ENTRY/candidate.cpp`. `diff_candidate.py FILE --entry ENTRY

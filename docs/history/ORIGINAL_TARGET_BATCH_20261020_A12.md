@@ -48,11 +48,11 @@ Eleven actual clear targets are mapped; nine already have accepted sources.
 Allocator782017 remains a bound external dependency; complete class lifetime and
 heap implementation are not claimed.
 
-[Terrain lifecycle1.006](../../historical/native-reconstruction/docs/TERRAIN_LIFECYCLE_1006.md)
+Terrain lifecycle1.006 (`historical-final:historical/native-reconstruction/docs/TERRAIN_LIFECYCLE_1006.md`)
 checks the exact e641target mapping for the earlier disc
-[lifecycle/vector understanding](../../historical/native-reconstruction/docs/LIFECYCLE.md).
-[Alpha lifecycle](../../historical/native-reconstruction/docs/ALPHA_LIFECYCLE_1006.md)
-and [deferred vector types](../../historical/native-reconstruction/src/sim/MissionTag.hpp)
+lifecycle/vector understanding (`historical-final:historical/native-reconstruction/docs/LIFECYCLE.md`).
+Alpha lifecycle (`historical-final:historical/native-reconstruction/docs/ALPHA_LIFECYCLE_1006.md`)
+and deferred vector types (`historical-final:historical/native-reconstruction/src/sim/MissionTag.hpp`)
 provide established capacity/ownership/count vocabulary. Supplied heap/growth,
 native callback APIs and partial proof domains do not establish these concrete
 copy classes or tail-field meanings. Actual copy/A11 table operands were checked
@@ -66,11 +66,11 @@ truth. [Focus004CF630](../../src/recovered/messages/IsFocusedMessageNode_004cf63
 compares this with live global865FF8. Constructor declarations record inspected
 ABI/base projection; their bodies are **not** accepted. No complete class claim.
 
-Historical [message drawing](../../historical/native-reconstruction/docs/MESSAGE_NODE_DRAWING_1006.md)
+Historical message drawing (`historical-final:historical/native-reconstruction/docs/MESSAGE_NODE_DRAWING_1006.md`)
 on the same e641target establishes6F1620→4CF240/4CF630/4FF050. The known4FF050
 HSV-to-RGB algorithm/name and retained6,912-case domain come from
-[shadow/color1.006](../../historical/native-reconstruction/docs/SHADOW_COLOR_1006.md)
-and [PlayerColor](../../historical/native-reconstruction/src/render/PlayerColor.cpp).
+shadow/color1.006 (`historical-final:historical/native-reconstruction/docs/SHADOW_COLOR_1006.md`)
+and PlayerColor (`historical-final:historical/native-reconstruction/src/render/PlayerColor.cpp`).
 Those proofs were consulted rather than rediscovered or rerun; the HSV source
 model and boundary still failed current matching. Exact image connections alone
 do not establish coherent classes/ownership or make later porting mechanical.

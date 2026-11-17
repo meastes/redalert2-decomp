@@ -58,13 +58,13 @@ rebuilds the original connected image, but source classes/ownership/architecture
 still need supported shared types and source-level relationships during recovery;
 per-function types/files are workflow choices. Porting will not be mechanical.
 
-The exact previous architecture and its native acceptance policies are retained
-in [ARCHITECTURE_NATIVE_20261020.md](../historical/native-reconstruction/docs/ARCHITECTURE_NATIVE_20261020.md). Historical
+The exact previous architecture and its native acceptance policies were retained
+in ARCHITECTURE_NATIVE_20261020.md (`historical-final:historical/native-reconstruction/docs/ARCHITECTURE_NATIVE_20261020.md`). Historical
 subsystem notes remain evidence at their stated scope, not current work orders.
 
-The preserved native project is self-contained at
-`historical/native-reconstruction/`, including CMake, source, tools, tests, scripts,
-notices and native documents. The root CMake target invokes the active original
+The earlier native project lived at `historical/native-reconstruction/` (CMake, source,
+tools, tests, scripts, notices and native documents); it was removed on 2026-11-17 at the user's request, recoverable from git history at tag `historical-final`.
+The current native port is `native/`. The root CMake target invokes the active original
 build and does not configure SDL. Historical private inputs/build caches remain
 in place; relocation is not native validation.
 

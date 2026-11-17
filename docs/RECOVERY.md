@@ -3,7 +3,7 @@
 Use [process/completion](ORIGINAL_TARGET_PROCESS.md) and
 [build/provenance](ORIGINAL_TARGET_BUILD.md). This active policy supersedes the
 native-feature-per-batch workflow preserved in
-[RECOVERY_NATIVE_20261020.md](../historical/native-reconstruction/docs/RECOVERY_NATIVE_20261020.md).
+RECOVERY_NATIVE_20261020.md (`historical-final:historical/native-reconstruction/docs/RECOVERY_NATIVE_20261020.md`).
 
 ## Input and hypothesis boundaries
 
@@ -52,7 +52,7 @@ Freeze shared inputs of running proofs, including native-produced inputs if any;
 allow useful checks to finish. Reuse original evidence only when executable,
 inputs, oracle and actual environment dependencies match. Never cache the current
 candidate verdict instead of running changed code. The historical native reuse
-policy remains in [ORIGINAL_RESULT_REUSE.md](../historical/native-reconstruction/docs/ORIGINAL_RESULT_REUSE.md) for later
+policy was kept in ORIGINAL_RESULT_REUSE.md (`historical-final:historical/native-reconstruction/docs/ORIGINAL_RESULT_REUSE.md`) for later
 native work; its native acceptance gates do not apply to this recovery phase.
 
 Each batch records attempted population, exact source regions/body bytes/padding,

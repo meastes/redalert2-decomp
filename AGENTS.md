@@ -61,7 +61,8 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   (at most hourly) and report functions they match that we have not accepted.
   Do not adopt a lifted runtime or OpenRA gameplay.
 - **Native phase:** no native/SDL/arm64/gameplay check per recovery batch.
-  Preserve `historical/native-reconstruction/`. The shipped game will be
+  `historical/` was removed on 2026-11-17 at the user's request (confirmed by the user
+  2026-11-17); tag `historical-final`. The shipped game will be
   native arm64 with no Wine/CrossOver, Rosetta, VM, emulation or original code.
   User decision (2026-11-08): one dedicated native lane runs alongside the exact
   lanes; at five or six lanes, two native lanes, provided they work on separate parts of

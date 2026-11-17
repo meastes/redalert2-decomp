@@ -1712,8 +1712,8 @@ plain __DATA), nothing loads code at run time (no dlopen; LoadLibraryA answers
 only comctl32's version from the port), and the only fork/exec (the Mac crash
 dialog) and /usr/bin/open (Show Log) are macOS-only in host_apple.mm.
 
-`historical/native-reconstruction/` stays preserved as reference (SDL3 choice,
-MIX/SHP readers usable as test oracles); its own simulation is not reused.
+The earlier native reconstruction (`historical/native-reconstruction/`: the SDL3 choice,
+MIX/SHP readers) was removed on 2026-11-17 at the user's request, recoverable from git history at tag `historical-final`; its simulation was never reused.
 
 ## Windows build (W1, first build)
 

@@ -1,6 +1,6 @@
 # Native ports: facts for an update
 
-Plain facts about the native Mac, iPhone and Windows ports as of 2026-11-16, each with how
+Plain facts about the native Mac, iPhone and Windows ports as of 2026-11-17, each with how
 it was checked. "Not verified" marks anything nobody has confirmed. Numbers for the exact
 decompilation are in [STATUS.md](STATUS.md); this file covers only the ports.
 
@@ -9,7 +9,7 @@ decompilation are in [STATUS.md](STATUS.md); this file covers only the ports.
 | Platform | Minimum | How checked |
 |---|---|---|
 | Mac (Apple silicon, arm64) | macOS 26.0 | The app binary's build version (`otool -l`, minos 26.0); played on the owner's Mac |
-| iPhone | iOS 17.0 (build default) | Built and installed on the user's foldable iPhone ("Duo"); played there |
+| iPhone | iOS 17.0 (build default) | Built and installed on the user's foldable iPhone ("Duo"); played there. One app holds both games (see "One app, two games") |
 | iPad | iOS 17.0 | Not verified: the app carries iPad icons but has not been run on an iPad |
 | Windows (x86_64) | Windows 10 or later (needs the UCRT that ships with Windows 10) | Cross-built on the Mac; played by the user on a real Windows PC (LAN game, 2026-11-15/16); test runs under Wine |
 
@@ -47,7 +47,8 @@ the recovered C/C++ compiled natively for each platform.
 | Mac + iPhone | Worked; lobby, hosting and joining both ways after a fix on 2026-11-16. One "Reconnection Error" when the Mac ran an old build; none with the current build | The user, 2026-11-16 |
 | Mac + Windows under Wine | 30,000 frames in step, no desync | ctest-style run (lane C16) |
 | Two Mac instances | 18,000+ frames in step | ctest `native-lan-pair` |
-| Lobby chat | Fixed 2026-11-16 | ctest `native-lan-lobby`; not yet re-checked by the user on real devices |
+| Lobby chat | Fixed (sends on Return) | ctest `native-lan-lobby`; the user's Mac + iPhone retest on 2026-11-16 passed, chat included (HANDOFF) |
+| Tank damage in LAN games | Fixed 2026-11-16 (tank shells did no damage; a renamed table had lost its native rule) | ctest `native-tank-damage` (commit de761bc78); confirmed by the user on the iPhone, 2026-11-16 (commit 9594b9353); guard ctest `native-name-rules` |
 
 ## Enhancements (all off by default; the original's look and behaviour are unchanged when off)
 
@@ -58,33 +59,56 @@ the recovered C/C++ compiled natively for each platform.
 | Menu fill | Menus fill the window instead of a 4:3 box |
 | Queue Five | Queue up to five of a unit with one click |
 | Modern controls | Modern-RTS mouse and touch controls (Classic remains the default) |
-| HD vehicles | Vehicles drawn at 2x or 3x detail; drops to 2x by itself if a frame takes too long. A cap at 2x in network games was decided on 2026-11-16 and is being added |
+| HD vehicles | Vehicles drawn at 2x or 3x detail; drops to 2x by itself if a frame takes too long. In network games 3x plays at 2x (commit adde789a9; ctest `native-lan-background` runs a LAN game with HD vehicles on) |
 | Mods | Load mod folders (iPhone: import a zip) |
 
 Checked: ctest `native-enhancements-frames` confirms frames are identical to the original with
 every enhancement off; each enhancement has its own ctest.
 
+## One app, two games
+
+On iPhone the one-game app replaced the separate Red Alert 2 app: a single app holds both games,
+and the main menu carries a "Play Yuri's Revenge" button (in Yuri's Revenge, "Play Red Alert 2")
+in the slot above Exit Game. It keeps the Red Alert 2 app's identity, so an existing player's
+imported files, saves and settings carry over; switching to Yuri's Revenge the first time asks
+only for its own files. The same build runs on the Mac (ctests `one-game-toggle`,
+`one-game-saves`, `one-game-menu-backdrop`). Checked: native/yr/README.md (lanes Y9 and Y11);
+the Simulator route `ios_sim_one_game.py`; installed on the Duo.
+
 ## Yuri's Revenge
 
 A separate native build made from the ra2-decomp project's source (GPL), sharing the ports'
-platform layer.
+platform layer. It earns no exact-match credit.
 
 - Mac: skirmishes play from the main menu through a full game to the score screen; a
   10-minute game against three hard AI players runs without a fault (ctest
-  `yr-native-skirmish-long`). An optional one-app build switches between Red Alert 2 and Yuri's
-  Revenge from a toggle at the bottom left of the main menu (ctest `one-game-toggle`).
-- iPhone: a standalone Yuri's Revenge app runs on the user's Duo (skirmish, sound, touch,
-  building placement).
+  `yr-native-skirmish-long`).
+- Saves: Yuri's Revenge saves in the original game's format (gamemd.exe's), as Red Alert 2 does
+  (ctest `yr-native-save`: save, load from the menus, play on, save again). Not verified: the
+  installed Yuri's Revenge on Windows loading a save the port wrote, and the reverse.
+- iPhone (in the one-game app): skirmish, sound, touch and building placement. Fixed on
+  2026-11-17 (lane Y11): the menus' backdrops (Options was black, Enhancements showed noise) and
+  a crash when the app went to the background in the menus. Also added: the game's own text
+  fields raise the on-screen keyboard, and the loading screen draws the map preview.
+- Still open on iPhone:
+  - the loading screen lacks its title, the player names and its texts (it is a partial
+    stand-in so far);
+  - the on-screen keyboard in Yuri's Revenge's text fields: not verified on the device;
+  - unit animation glitches and a Skip button on the loading screen were reported by the user and
+    not reproduced (not verified; no record in the repository yet);
+  - in longer games combat reaches TechnoClass::Fire_At, which is not written yet for Yuri's
+    Revenge and stops the game there (first seen about 16 minutes into a 20-minute game against
+    three hard opponents).
 - Not working or not verified yet: campaigns not tried; Modern controls not wired on iPhone
-  (Classic only); one crash at game start seen in 1 of 10 simulator runs; longer games may reach
-  functions not recovered yet (they are written as clearly labelled stand-in code); no Windows
-  build yet; the one-app build is Mac only.
+  (Classic only); one crash at game start seen in 1 of 10 simulator runs (not re-checked since);
+  longer games may reach other functions not recovered yet (written as clearly labelled stand-in
+  code); no Windows build yet.
 
 ## Not done or not supported
 
 - Internet play: held. The Internet button is disabled.
-- Open faults: in a 2026-11-16 LAN game tanks did no damage to each other (being investigated);
-  the Yuri's Revenge iPhone start crash above.
+- Open faults: the Yuri's Revenge items above (Fire_At in longer games, the loading screen, the
+  start crash seen once in the simulator).
 - Unchecked code: 126 rewritten functions are not reached by any test or play so far (lane C21);
   most belong to features the base game does not use.
 - No signed or notarised builds: no TestFlight, no Mac notarisation, no Windows code signing.

@@ -27,8 +27,8 @@ changes or publication. Extracted media contents, byte scaffolding, experimental
 build outputs stay ignored under `private/` or `build/`. Do not run upstream installers/setup
 against the user's source installation.
 
-Pinned historical reference/license observations and previous native evidence are
-preserved exactly in [REFERENCES_NATIVE_20261020.md](../historical/native-reconstruction/docs/REFERENCES_NATIVE_20261020.md).
+Pinned historical reference/license observations and previous native evidence were
+preserved exactly (folder removed on 2026-11-17 at the user's request, recoverable from git history at tag `historical-final`) in REFERENCES_NATIVE_20261020.md (`historical-final:historical/native-reconstruction/docs/REFERENCES_NATIVE_20261020.md`).
 Those observations may be stale: inspect the exact pinned license before reuse;
 their former workflow, platform claims and next-step directives are not active
 recovery instructions. Current architecture/phase authority is

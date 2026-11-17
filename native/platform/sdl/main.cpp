@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// Native host entry (SDL3, as historical/native-reconstruction chose). It owns
+// Native host entry (SDL3, as the earlier native reconstruction chose). It owns
 // the process, the window and the event pump, then will hand control to the
 // recovered WinMain (0x0068E280) once the tree links; the recovered code keeps
 // its own main loop and calls back into the platform through the Win32 /

@@ -1,17 +1,17 @@
 # Source and dependency provenance
 
-Authored project tools and the preserved native reconstruction use the repository
+Authored project tools and the native port use the repository
 GPL-3.0-or-later license; retain LICENSE and all dependency notices. Canonical
 recovered C/C++ in root `src/` is reconstructed from the supplied original target.
 This migration makes no new grant of rights in the original game or compiler,
 and authorizes no publication. Original executables/assets, instruction-byte
 scaffolding, disassembly and proprietary tools remain ignored private inputs.
 
-The historical native provenance record below is preserved byte-for-byte in
-[historical/native-reconstruction/THIRD_PARTY.md](historical/native-reconstruction/THIRD_PARTY.md),
-where its relative paths resolve against the native project. OpenRA format-reader
-adaptations remain in that project, with their notices and LICENSE. They do not
-implement the active original-target build. Capstone and pefile are active local
+The historical native provenance record below describes the earlier native
+reconstruction under `historical/native-reconstruction/` (its own THIRD_PARTY.md, the
+OpenRA format-reader adaptations with their notices and LICENSE). That folder was
+removed on 2026-11-17 at the user's request, recoverable from git history at tag `historical-final`; the record is kept as provenance for that history, and its links name
+files at that tag. No current build uses that code. Capstone and pefile are active local
 inspection tools; VC6 and CrossOver are legitimate user-supplied local build tools.
 
 ## Public references inspected
@@ -71,7 +71,7 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   cover the input game or generated lifted code. License, tool inventory and
   32-bit Win32/SDL runtime sources were inspected. No code was incorporated,
   tooling installed or builds/tests run. Neither reference is a new dependency.
-  See [docs/REFERENCES.md](historical/native-reconstruction/docs/REFERENCES.md) for the use and verification procedure.
+  See docs/REFERENCES.md (`historical-final:historical/native-reconstruction/docs/REFERENCES.md`) for the use and verification procedure.
 
 - **Electronic Arts Westwood source releases** (read-only shape references,
   see [docs/WESTWOOD_SOURCES.md](docs/WESTWOOD_SOURCES.md)):
@@ -217,14 +217,14 @@ Milestone 9 also consulted that pinned redalert2-recomp snapshot's `docs/voxels.
 `docs/testing.md` and `run_lift.py` for indexed staging and cache dispatch leads.
 Its MIT license and generated-game-code exclusion were rechecked. No code was
 incorporated. The readable C++ and differential fixtures were authored here from
-our independently inspected hash-pinned executable; see [STAGING.md](historical/native-reconstruction/docs/STAGING.md).
+our independently inspected hash-pinned executable; see STAGING.md (`historical-final:historical/native-reconstruction/docs/STAGING.md`).
 
 Milestone 10 consulted the same snapshot's `docs/voxels.md`, `src/runtime/hdvox.c`
 header and `docs/testing.md` for the final light-input boundary. No verified map-light
 formula/source creation lead was available there. Ordinary light arithmetic and
 alpha initialization were independently recovered and tested against our base
 binary. The license/generated-code boundary was rechecked; no code was incorporated.
-See [MAP_LIGHTING.md](historical/native-reconstruction/docs/MAP_LIGHTING.md).
+See MAP_LIGHTING.md (`historical-final:historical/native-reconstruction/docs/MAP_LIGHTING.md`).
 Milestone 11 consulted the same redalert2-recomp commit's LICENSE, `docs/voxels.md`
 and `src/runtime/hdvox.c` header. YRpp at the previously pinned
 `b22f1860dd7b100cad57123d4ca5d459b9020d88` supplied naming/layout leads from
@@ -232,44 +232,44 @@ and `src/runtime/hdvox.c` header. YRpp at the previously pinned
 The existing license/no-incorporation boundaries apply: no upstream authored or
 generated code was reused, and no YR behavior was assumed to be base behavior.
 Source operations and terrain decisions were independently recovered against
-our hash-pinned disc executable; see [STATIC_LIGHT.md](historical/native-reconstruction/docs/STATIC_LIGHT.md).
+our hash-pinned disc executable; see STATIC_LIGHT.md (`historical-final:historical/native-reconstruction/docs/STATIC_LIGHT.md`).
 
 Milestones 13/14 consulted the same pinned redalert2-recomp `docs/voxels.md`
 and LICENSE for lit/shadow cache leads. YRpp supplied type/key/interface naming
 from Techno/Foot/ObjectType/Locomotion/Drawing/GeneralDefinitions declarations.
 No upstream authored/generated or unlicensed header code was incorporated; exact
 base-binary oracles established implemented behavior. See
-[VOXEL_CACHE.md](historical/native-reconstruction/docs/VOXEL_CACHE.md) and [SHADOW_KEYS.md](historical/native-reconstruction/docs/SHADOW_KEYS.md).
+VOXEL_CACHE.md (`historical-final:historical/native-reconstruction/docs/VOXEL_CACHE.md`) and SHADOW_KEYS.md (`historical-final:historical/native-reconstruction/docs/SHADOW_KEYS.md`).
 
 Milestone 15 consulted pinned YRpp `TerrainClass.h`, `TerrainTypeClass.h`,
 `ObjectClass.h`, `ObjectTypeClass.h`, `FileFormats/SHP.h` and `Surface.h` for naming,
 layout and signature leads only. No unlicensed header or generated game code was
 incorporated. Drawing operations were independently recovered and verified against
 the exact base binary; the separately attributed OpenRA format adaptation is listed
-above. See [SCENERY.md](historical/native-reconstruction/docs/SCENERY.md).
+above. See SCENERY.md (`historical-final:historical/native-reconstruction/docs/SCENERY.md`).
 
 Milestone 16 revisited those pinned OpenRA ShpTSLoader/COPYING and YRpp
 TerrainTypeClass leads. No additional upstream code was incorporated. Terrain
 strength/image decisions and all supplied ordinary tree draws were independently
-verified against the exact base binary; see [TREE_TYPES.md](historical/native-reconstruction/docs/TREE_TYPES.md).
+verified against the exact base binary; see TREE_TYPES.md (`historical-final:historical/native-reconstruction/docs/TREE_TYPES.md`).
 
 Milestone 17 revisited those pinned OpenRA format/license and YRpp TerrainClass/
 TerrainTypeClass leads. Only the separately attributed GPL SHP format adaptation
 was extended. Original raw/compressed drawing operations and all ordinary prop
 images were independently verified against the exact base binary; see
-[PROPS.md](historical/native-reconstruction/docs/PROPS.md). No unlicensed header, generated output or original game
+PROPS.md (`historical-final:historical/native-reconstruction/docs/PROPS.md`). No unlicensed header, generated output or original game
 code was incorporated.
 
 Milestone 18 consulted the same pinned YRpp Object/ObjectType/TerrainType/Cell
 declarations for occupation, foundation and Mark vocabulary. No header, upstream
 generated output or original code was incorporated. Readable C++ and scoped
-original-routine tests were authored here; [OCCUPATION.md](historical/native-reconstruction/docs/OCCUPATION.md)
+original-routine tests were authored here; OCCUPATION.md (`historical-final:historical/native-reconstruction/docs/OCCUPATION.md`)
 records the exact-base verification and host boundaries. No new dependency added.
 
 Milestone 19 consulted the same pinned YRpp Object/ObjectType/Terrain/Display
 declarations for lifecycle/layer hypotheses. Exact-base routines independently
 establish the readable C++ operations and differential evidence in
-[LIFECYCLE.md](historical/native-reconstruction/docs/LIFECYCLE.md). No header code, generated output or original
+LIFECYCLE.md (`historical-final:historical/native-reconstruction/docs/LIFECYCLE.md`). No header code, generated output or original
 game code was incorporated; no new dependency was added.
 
 October 14 patched-baseline preparation inspects user-supplied RTPatch packages
@@ -278,10 +278,10 @@ proprietary research material; no code was incorporated or redistributed. The
 inspector uses the existing research-only pefile dependency. The successful private
 virtual materialization executes that supplied DLL in research-only Unicorn; no
 proprietary engine code, resources or disassembly are tracked or redistributed.
-[BASELINE_1006.md](historical/native-reconstruction/docs/BASELINE_1006.md) records exact inputs/output and fixture
+BASELINE_1006.md (`historical-final:historical/native-reconstruction/docs/BASELINE_1006.md`) records exact inputs/output and fixture
 boundaries. Authored Facing mapping/test code uses the existing pefile/Capstone/
 Unicorn tooling; no upstream code was copied or runtime dependency added.
-[DRIVE_1006.md](historical/native-reconstruction/docs/DRIVE_1006.md) extends those authored research tools to bounded
+DRIVE_1006.md (`historical-final:historical/native-reconstruction/docs/DRIVE_1006.md`) extends those authored research tools to bounded
 Drive/curves/timing/targeting profiles. Pinned testing/interface references supply
 hypotheses only; no upstream, YRpp header or generated game code was incorporated.
 
@@ -290,5 +290,5 @@ original-game observation copy, not linked or bundled with the native game.
 https://github.com/FunkyFr3sh/cnc-ddraw/releases/tag/v7.1.0.0
 The Windows task downloaded the release archive, preserved its license and tested
 base menu/minimize/restore presentation; output is altered host presentation, not
-an original pixel oracle. [WINDOWS_TESTING.md](historical/native-reconstruction/docs/WINDOWS_TESTING.md) records
+an original pixel oracle. WINDOWS_TESTING.md (`historical-final:historical/native-reconstruction/docs/WINDOWS_TESTING.md`) records
 archive/DLL hashes, configuration and private provenance. No code was incorporated.

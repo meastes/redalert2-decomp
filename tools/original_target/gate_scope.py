@@ -30,8 +30,7 @@ import subprocess
 REPOSITORY = Path(__file__).resolve().parents[2]
 
 # Paths the native tree alone reads; anything else that is not documentation counts as exact.
-NATIVE_PREFIXES = ('native/', 'historical/native-reconstruction/', 'tests/test_native', 'build-ios.command',
-                   'play-native.command')
+NATIVE_PREFIXES = ('native/', 'tests/test_native', 'build-ios.command', 'play-native.command')
 DOC_PREFIXES = ('docs/', 'README', 'THIRD_PARTY.md', 'AGENTS.md', 'CLAUDE.md', '.gitignore')
 
 
