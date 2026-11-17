@@ -72,7 +72,15 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   Revenge; real campaign wins left to the user), every lane may be a native lane, each on a
   separate part of `native/`, one landing at a time, none editing `src/`. Exact-match and
   structure work has no lanes for now; this is not a goal change, main keeps every matched
-  byte, and the work can resume. It builds the native tree from
+  byte, and the work can resume. User decision (2026-11-17, same day): one lane runs a
+  rebuild trial for about three days: a fresh tree from the Tiberian Sun layout, mischa85's
+  matched modules as the unit map, our accepted source as the answer key, text adopted with
+  attribution on the existing terms; its own folder on its own branch, never main's `src/`,
+  landed on main only if the user decides so after the assessment. From the first commit:
+  one source file per original unit, one header and one definition per class, no per-unit
+  views or `RA2_` switches, members as members, address-suffixed names minimal and counted,
+  no tool data inside sources. Acceptance is main's exact standard; no native-compile
+  requirement. If it goes badly the lane goes to the ports. It builds the native tree from
   `src/recovered` and `src/shared`; unmatched functions are carried as their best
   parked draft (flagged non-exact with its score) or a behaviour-written
   implementation, never empty stubs. Native work earns no exact-match credit.
