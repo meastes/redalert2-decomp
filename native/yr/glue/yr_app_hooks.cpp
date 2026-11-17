@@ -91,3 +91,27 @@ void yr_native_play_over(void)
 {
     ra2_enh_in_play(0);
 }
+
+// port/src/user32.cpp's question after a focus change (lane Y11, as native/link/app_hooks.cpp answers
+// it for Red Alert 2): is the game's screen redraw mark still set? Yuri's Revenge's mark is the same
+// SurfacesRestored (msengine.cpp sets it on WM_ACTIVATEAPP, init.cpp's menu redraw clears it).
+// Without this hook the one-game app's Yuri's Revenge engine had a link-closure trap here and
+// aborted whenever the app lost focus in the menus (user report 2026-11-17, the Duo's log).
+extern bool SurfacesRestored;
+extern "C" int ra2port_game_redraw_pending(void)
+{
+    return SurfacesRestored ? 1 : 0;
+}
+
+// The touch app hides the game's own cursor (lane Y11, user report 2026-11-17: a cursor showed on
+// taps in Yuri's Revenge; Red Alert 2's hook is native/link/native_touch_cursor.cpp, Scout1249): one
+// extra Hide_Mouse whenever the cursor is shown keeps its nesting count below zero, so the game's
+// balanced hide/show pairs leave it hidden. Nothing else changes. The host calls it as it pumps events.
+#include "xmouse.h"
+extern Mouse *MouseCursor;      // gamemd.exe 0x00887640, WinMain's WWMouseClass
+extern "C" int ra2_native_hide_game_cursor(void)
+{
+    if (!MouseCursor) return 0;
+    if (!MouseCursor->Is_Hidden()) MouseCursor->Hide_Mouse();
+    return 1;
+}

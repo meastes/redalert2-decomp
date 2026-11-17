@@ -73,6 +73,13 @@ add_test(NAME one-game-saves COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT
          --binary $<TARGET_FILE:ra2yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/one-game-saves")
 set_tests_properties(one-game-saves PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 700)
+# ctest one-game-menu-backdrop (lane Y11): main menu -> Options -> Enhancements -> Options -> main menu
+# in each game, the backdrop region drawn (not black, not noise) on Options and Enhancements
+# (yr/tests/menu_backdrop.py); the same conditions.
+add_test(NAME one-game-menu-backdrop COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/menu_backdrop.py"
+         --binary $<TARGET_FILE:ra2yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/one-game-menu-backdrop")
+set_tests_properties(one-game-menu-backdrop PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
 
 endif()
 

@@ -5,6 +5,7 @@
 // they are logged failures (CreateDialog* return NULL, DialogBox* return -1).
 #include "ra2port/win32_port.hpp"
 
+#include <algorithm>
 #include <atomic>
 #include <chrono>
 #include <deque>
@@ -415,7 +416,10 @@ HWND GetFocus(void) { return focus_hwnd; }
 extern "C" int ra2port_text_input_wanted(void)
 {
     Window *w = win(focus_hwnd);
-    return w && w->visible && !strcasecmp(w->cls.c_str(), "Edit");
+    // Yuri's Revenge's text fields are its own "NewEdit" window class (UI::RegisterComboDropAndNewEdit-
+    // Classes, gamemd.exe 0x0060D450; lane Y11, user report 2026-11-17: no keyboard on the Duo); Red
+    // Alert 2's NewEdit is a list box, answered by native/link/native_text_entry.cpp.
+    return w && w->visible && (!strcasecmp(w->cls.c_str(), "Edit") || !strcasecmp(w->cls.c_str(), "NewEdit"));
 }
 // The game pixel (screen coordinates) lies on the control that has the focus (not the main
 // window): a tap on a text field brings back a keyboard put away with Return or the Keys
@@ -1631,13 +1635,13 @@ WNDPROC predefined_proc(const std::string &cls)
 // game's own owner-drawn button code as those buttons are (kind 3: the 126x25 push button shape,
 // red with yellow text, its lit and pressed frames and the click sound), told so by the id kToggleId
 // (RA2: port/fixups.json, 0x005E7EB0; YR: yr/fixups.json, ClassifyLayoutBand), at that shape's size.
-// The menu's movie (632x570 at the top left) covers everything above the bar on the left, so the
-// movie's timer draws the toggle on each new frame before the frame is shown (link/
-// behaviour_m14_ownerdraw.cpp, yr/glue/ownrdraw_native.inc). Its WM_COMMAND
+// Since lane Y11 (user request 2026-11-17) it is a regular sidebar button in the slot above Exit
+// Game, labelled "Play Red Alert 2" / "Play Yuri's Revenge", drawn and animated as the other
+// sidebar buttons (the game-side hooks give it Exit Game's kind). Its WM_COMMAND
 // never reaches the game's procedure (it has no such control); a click ends the game through Exit
 // Game and the question's OK (0x5AE in the message box with the text 0x5B0, WWMessageBox::Process
 // 0x005B46B0), pressed by the port.
-constexpr LONG kExitGameId = 0x3EE, kBottomBarId = 0x695, kToggleId = 0x7F5E;   // kToggleId: also in the game-side hooks
+constexpr LONG kExitGameId = 0x3EE, kToggleId = 0x7F5E;   // kToggleId: also in the game-side hooks
 std::string toggle_label;
 void (*toggle_clicked)() = nullptr;
 HWND toggle_menu = nullptr;          // the main menu that has the toggle
@@ -1650,21 +1654,40 @@ Window *child_with(Window *dlg, LONG id)
     }
     return nullptr;
 }
-// The toggle's place: once the game has laid the menu out (it moves its controls for the screen
-// size before showing the dialog), the push button shape's size, just above the left end of the
-// bottom bar.
+// The toggle's place (lane Y11, user request 2026-11-17: a regular sidebar button, not the corner
+// push button of C23): once the game has laid the menu out (it moves its controls for the screen
+// size before showing the dialog), the sidebar slot directly above Exit Game, one button pitch up
+// (the smallest step between the sidebar's buttons, those in Exit Game's column), at Exit Game's
+// size. Left where it is, and said, when that slot holds another control.
 void place_toggle(HWND menu)
 {
     Window *dlg = win(menu);
     if (!dlg) return;
-    Window *t = child_with(dlg, kToggleId), *bar = child_with(dlg, kBottomBarId);
-    if (!t || !bar) return;
-    const int w = 126, h = 25;   // the push button shape (0x00AC10C0, YR's CloseButtonShape) at every screen size
-    if (bar->rect.top < h + 6) return;
-    t->rect = {bar->rect.left, bar->rect.top - h - 6, bar->rect.left + w, bar->rect.top - 6};
+    Window *t = child_with(dlg, kToggleId), *exit_button = child_with(dlg, kExitGameId);
+    if (!t || !exit_button) return;
+    std::vector<LONG> tops;
+    for (HWND c : dlg->children) {
+        Window *cw = win(c);
+        if (cw && cw != t && cw->cls == exit_button->cls && cw->rect.left == exit_button->rect.left) tops.push_back(cw->rect.top);
+    }
+    std::sort(tops.begin(), tops.end());
+    LONG pitch = 0;
+    for (size_t i = 1; i < tops.size(); ++i)
+        if (tops[i] > tops[i - 1] && (pitch == 0 || tops[i] - tops[i - 1] < pitch)) pitch = tops[i] - tops[i - 1];
+    if (pitch <= 0) return;
+    RECT slot = {exit_button->rect.left, exit_button->rect.top - pitch, exit_button->rect.right, exit_button->rect.bottom - pitch};
+    for (HWND c : dlg->children) {
+        Window *cw = win(c);
+        if (!cw || cw == t || cw == exit_button || !cw->visible) continue;
+        if (cw->rect.left < slot.right && slot.left < cw->rect.right && cw->rect.top < slot.bottom && slot.top < cw->rect.bottom) {
+            fprintf(stderr, "port: game toggle: the slot above Exit Game holds control 0x%X; left in place\n", (unsigned)cw->id);
+            return;
+        }
+    }
+    t->rect = slot;
     invalidate(menu);
     fprintf(stderr, "port: game toggle \"%s\" at %d,%d %dx%d in the main menu\n", toggle_label.c_str(), (int)t->rect.left,
-            (int)t->rect.top, w, h);
+            (int)t->rect.top, (int)(slot.right - slot.left), (int)(slot.bottom - slot.top));
 }
 LRESULT dialog_manager_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
@@ -1788,9 +1811,9 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
         dlg->children.push_back(hc);
         if (c->proc) c->proc(hc, 0x0001, 0, 0);     // WM_CREATE
     }
-    // The game toggle (lane Y5; a menu button since C23): the main menu's Exit Game button cloned
-    // (the same owner-drawn button class and style) and placed above the left end of the menu's
-    // bottom bar when the dialog is shown (place_toggle).
+    // The game toggle (lane Y5; a sidebar button since Y11): the main menu's Exit Game button cloned
+    // (the same owner-drawn button class and style) and placed in the sidebar slot above Exit Game
+    // when the dialog is shown (place_toggle).
     HWND toggle = nullptr;
     Window *exit_button = child_with(dlg, kExitGameId);
     bool main_menu = exit_button && exit_button->title == "GUI:ExitGame";

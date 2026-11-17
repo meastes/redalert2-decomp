@@ -34,12 +34,13 @@ import game_process  # noqa: E402  (native/tests: the game's process group, lane
 # Both games at 800x600 (RA2: the write folder's RA2.INI; YR: its installed RA2MD.INI, as the
 # yr-native tests run it): Single Player, Skirmish (the single-player menu's third button) and Start
 # Game (the setup's second slot) in the right-hand column. Each menu click waits for its dialog to
-# settle ("s<k>", host.cpp; k counts that engine's dialogs). The toggle (lane C23: a dialog push
-# button, as Keyboard Options' Assign, above the bottom bar's left end, over the menu's movie) is
+# settle ("s<k>", host.cpp; k counts that engine's dialogs). The toggle (lane Y11: a main-menu sidebar
+# button, "Play Red Alert 2" / "Play Yuri's Revenge", in the slot above Exit Game) is
 # clicked by its control id (0x7F5E, "@ctl="), with six window dumps 120 ms apart before the press
 # (no flicker: the movie runs under it) and one while it is held (the screenshot check, toggle_look).
 TOGGLE_ID = 0x7F5E
-MIN_RED = 0.30
+MIN_RED = 0.20          # the sidebar button's red art (C23's push button had 0.30)
+MAX_CHANGES = 16        # its slide-in with the sidebar's other buttons; C23's flicker was every other present
 IDLE_DUMPS = 6
 TOGGLE = (''.join('s1+%d dump\n' % (1500 + 120 * k) for k in range(IDLE_DUMPS))
           + 's1+2300 ldown @ctl=%d\ns1+2500 dump\ns1+2900 lup @ctl=%d\n' % (TOGGLE_ID, TOGGLE_ID))
@@ -91,8 +92,8 @@ def read_bmp(path):
 
 
 def toggle_look(text, work, name, failures):
-    """The screenshot check: in each engine's main menu the toggle is a red push button (its red art
-    over much of its rectangle; the version-line clone of lane Y5 had none), shows in every one of six
+    """The screenshot check: in each engine's main menu the toggle is a red sidebar button (its red art
+    over part of its rectangle; the version-line clone of lane Y5 had none), shows in every one of six
     pictures over the running movie, the same each time (no flicker: lane C23's first version was
     drawn after each movie frame and a picture without it could be shown), and looks different while
     pressed (the pressed frame)."""
@@ -110,12 +111,12 @@ def toggle_look(text, work, name, failures):
         if m and engine is not None:
             shots.setdefault(engine, []).append(int(m.group(1)))
     # Every present of the screen while the toggle waits (the port's watch, RA2_NATIVE_TEST_TOGGLE_WATCH):
-    # a steady toggle changes once, its first picture; lane C23's first version, drawn after each
-    # movie frame, changed on about every other present.
+    # a steady toggle changes with the sidebar's slide-in, then stays; lane C23's first version, drawn
+    # after each movie frame, changed on about every other present.
     watches = [(int(a), int(b)) for a, b in re.findall(r'^port: game toggle watch: (\d+) presents, its picture changed (\d+) times', text, re.M)]
     for k, (presents, changes) in enumerate(watches[:2]):
         print('%s: engine %d: toggle steady over %d presents (%d changes)' % (name, k, presents, changes))
-        if presents < 20 or changes > 2:
+        if presents < 20 or changes > MAX_CHANGES:
             failures.append('%s: engine %d: the toggle flickers: its picture changed %d times in %d presents' % (name, k, changes, presents))
     if len(watches) < 2:
         failures.append('%s: the toggle watch reported %d presses (wanted 2)' % (name, len(watches)))
@@ -149,7 +150,7 @@ def toggle_look(text, work, name, failures):
         print('%s: engine %d: toggle at %d,%d %dx%d: %s%% red in six pictures, %.0f%% the same in all, %.0f%% changed while pressed'
               % (name, e, x, y, w, h, '/'.join('%.0f' % (v * 100) for v in shares), steady * 100, changed * 100))
         if min(shares) < MIN_RED:
-            failures.append('%s: engine %d: the toggle is not a red push button in every picture (%s%% red)'
+            failures.append('%s: engine %d: the toggle is not a red sidebar button in every picture (%s%% red)'
                             % (name, e, '/'.join('%.0f' % (v * 100) for v in shares)))
         if steady < 0.9:
             failures.append('%s: engine %d: the toggle flickers (only %.0f%% of it the same in six pictures)' % (name, e, steady * 100))

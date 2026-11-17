@@ -5,15 +5,17 @@
 // Behaviour-written from gamemd.exe's code for the skirmish/multiplayer screen: a fresh
 // render-size surface (ProgressSurface) filled with the black colour, then the country's loading
 // picture "ls<640|800><country>.shp" (the observer's in IPX/Internet games when the first player
-// has no house) through FUN_0072B500's drawer at LoadScreenSHPRect. NOT YET DRAWN (open in
-// native/yr/README.md): the campaign screen (Session.Type GAME_NORMAL: the scenario's pictures and
-// briefing), the coop-campaign picture, the map preview, the player names, colours and sides, the
-// title text. Behaviour code for the native build; never part of an exact build.
+// has no house) through FUN_0072B500's drawer at LoadScreenSHPRect. Lane Y11 added the map preview.
+// NOT YET DRAWN (open in native/yr/README.md): the campaign screen (Session.Type GAME_NORMAL: the
+// scenario's pictures and briefing), the coop-campaign picture, the player names, colours and sides,
+// the title and the game's texts (gamemd.exe 0x005536A0-0x005540E7). Behaviour code for the native
+// build; never part of an exact build.
 // ---------------------------------------------------------------------------------------------
 ConvertClass * __fastcall FUN_0072B500(void);
 void *YR_LoadWholeFileEx_ld(char const *name, bool &allocated) __asm__("__ZN10FileSystem15LoadWholeFileExEPKcRb");
 #include "bsurface.h"
 #include "draw.h"
+#include "preview.h"
 
 void LoadProgressManager::Draw(void)
 {
@@ -44,4 +46,15 @@ void LoadProgressManager::Draw(void)
 		Point2D point = FUN_0072A9C0(&LoadScreenSHPRect);
 		Draw_Shape(*surface, *drawer, (ShapeSet const *)LoadScreenSHP, 0, point, surface->Get_Rect(), SHAPE_WIN_REL);
 	}
+	// The map's preview (lane Y11, gamemd.exe 0x00553568-0x005536A0; user report 2026-11-17: the
+	// loading screen's box was empty): a random map's preview picture, else the scenario file's
+	// [Preview] pixels, drawn by MapPreviewClass::DrawMap into the screen's preview box.
+	MapPreviewClass *preview = new MapPreviewClass;
+	if (Scen->IsRandom) {
+		preview->Read_PCX_Preview("RandMap.img");
+	} else {
+		preview->Read_INI_Preview(Session.ScenarioFileName);
+	}
+	preview->DrawMap(*surface);
+	delete preview;
 }

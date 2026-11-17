@@ -643,6 +643,43 @@ pass (the save at frame 900, the loaded game at 62 frames a second; the iOS maps
 Not checked yet: the installed gamemd.exe loading a save the port wrote (needs Windows). A loaded game
 redraws its command bar only once the mouse passes over it.
 
+## Lane Y11 (2026-11-17): stability, the shell's backdrop, the toggle as a menu button
+
+* **TechnoClass::Destroy** (ObjectClass vtable slot 0x170) is the tree's TechnoClass::FUN_00710460
+  (gamemd.exe's TechnoClass, FootClass, BuildingClass, InfantryClass and AircraftClass vtables hold
+  0x00710460 there; data/name_aliases.tsv). A unit dying while mind-controlling others reached the
+  trap in `yr-native-skirmish-long` under ctest -j4 (496 s); the test passes under -j4 since.
+* **NON-EXACT drafts** (each labelled in its file): TeamClass::AI (glue/team_native.inc, gamemd.exe
+  0x006E9140: the RA2 twin's text, the script step through the tree's own TMission_* handlers by
+  gamemd.exe's jump table), BulletClass::Unlimbo, AI and Shrapnel and Projectile_Motion
+  (glue/bullet_native.inc: the RA2 twins and TibSun's text with gamemd.exe's YR changes). A 20-minute
+  game against three hard opponents first reached TechnoClass::Fire_At (gamemd.exe 0x006FDD50, 7,167
+  bytes) about 16 minutes in; it is still a trap (the RA2 twin, src/recovered/techno.cpp, is exact and
+  the natural text for the draft).
+* **The shell dialogs' backdrop** (user report 2026-11-17, the Duo: Options black, Enhancements noise,
+  Set Game Resolution blank): FUN_0060CF00 keeps each dialog's backdrop art (a converter and two shapes)
+  as ints at the record's 32-bit offsets 0x74/0xE0/0xE4, read back by FUN_0060C4E0/FUN_0060CE40/
+  FUN_0060CEA0 and passed by OwnerDraw::Paint to FUN_0072E730 through an int declaration. Natively the
+  pointers were cut to 32 bits (and the dialog id was read off the record start, not the Dialog view),
+  so the art was drawn from garbage. fixups.json keeps them by window at pointer width. Every shell
+  dialog now has its own backdrop (the skirmish setup its parachute picture, which had been the red
+  map). ctest `one-game-menu-backdrop` (yr/tests/menu_backdrop.py) walks main menu -> Options ->
+  Enhancements -> Options -> main menu in both games and checks the backdrop region.
+* **Set Game Resolution**: Yuri's Revenge runs its shell at 800x600 and only the game at the host's
+  play size, so the port's mode list (current mode plus the usual ones) lacked the play size; the host
+  now gives it to the port (ra2port_set_play_mode) and the list carries it.
+* **Focus loss in the menus**: the one-game app's YR engine had a link-closure trap for
+  ra2port_game_redraw_pending and aborted when the app went to the background (the Duo's log);
+  glue/yr_app_hooks.cpp answers it from SurfacesRestored as RA2's hook does.
+* **Touch**: YR's own "NewEdit" text fields raise the on-screen keyboard (port: ra2port_text_input_wanted),
+  and the game cursor is hidden on touch (glue/yr_app_hooks.cpp ra2_native_hide_game_cursor) as in RA2.
+* **The game toggle** is a regular main-menu sidebar button in the slot above Exit Game in both games
+  ("Play Red Alert 2" / "Play Yuri's Revenge"; port/src/user32.cpp place_toggle, the game-side hooks give
+  it Exit Game's kind); the corner push button and its movie-frame redraw are gone. one-game-toggle
+  still clicks it by id.
+* Simulator walk: `yr/tests/ios_sim_menus.py` (not a ctest) runs both games' shell, a skirmish's setup,
+  load and first play with the same settings on "RA2 Duo Validation" and checks the backdrops.
+
 ## Next
 
 1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu

@@ -42,6 +42,7 @@ const DWORD DDSCAPS_PRIMARYSURFACE = 0x200, DDSD_PIXELFORMAT = 0x1000, DDSD_PITC
             DDBLT_COLORFILL = 0x400, DDBLT_KEYSRC = 0x8000, DDBLTFAST_SRCCOLORKEY = 1;
 
 int display_width = 800, display_height = 600, display_bits = 16;
+int play_mode_width = 0, play_mode_height = 0;   // the host's in-game size (ra2port_set_play_mode)
 
 struct Clipper {
     virtual HRESULT QueryInterface(const void *, void **o) { *o = this; return DD_OK; }
@@ -290,27 +291,29 @@ struct DirectDraw {
         // host picks the iOS app's mode from the screen, e.g. 824x600 on the iPhone Duo
         // Simulator): Options' Set Game Resolution selects the current mode from this
         // list and showed blank without it (lane I).
+        // Yuri's Revenge runs its shell at 800x600 and only the game at the host's play size
+        // (lane Y11, user report 2026-11-17: Set Game Resolution blank on the Duo): the play size
+        // the host chose (ra2port_set_play_mode) is listed too, so the box selects it there.
         static const int usual[][2] = {{640, 480}, {800, 600}, {1024, 768}, {1280, 1024}};
-        int modes[5][2];
+        int modes[6][2];
         int count = 0;
-        bool listed = false;
-        for (auto &m : usual) {
-            bool before = !listed && (display_width < m[0] || (display_width == m[0] && display_height <= m[1]));
-            if (before && !(display_width == m[0] && display_height == m[1])) {
-                modes[count][0] = display_width;
-                modes[count][1] = display_height;
-                ++count;
+        auto add = [&](int w, int h) {
+            if (w <= 0 || h <= 0) return;
+            for (int i = 0; i < count; ++i)
+                if (modes[i][0] == w && modes[i][1] == h) return;
+            int at = count;
+            while (at > 0 && (modes[at - 1][0] > w || (modes[at - 1][0] == w && modes[at - 1][1] > h))) {
+                modes[at][0] = modes[at - 1][0];
+                modes[at][1] = modes[at - 1][1];
+                --at;
             }
-            if (before) listed = true;
-            modes[count][0] = m[0];
-            modes[count][1] = m[1];
+            modes[at][0] = w;
+            modes[at][1] = h;
             ++count;
-        }
-        if (!listed) {
-            modes[count][0] = display_width;
-            modes[count][1] = display_height;
-            ++count;
-        }
+        };
+        for (auto &m : usual) add(m[0], m[1]);
+        add(display_width, display_height);
+        add(play_mode_width, play_mode_height);
         for (int i = 0; i < count; ++i) {
             auto &m = modes[i];
             DDSURFACEDESC d = {};
@@ -741,6 +744,13 @@ void audio_stream_close(void *stream)
 }  // namespace ra2port
 
 extern "C" {
+// The host's in-game resolution (platform/sdl/main.cpp, the iOS app's play size): listed among the
+// display modes (EnumDisplayModes above) while the shell runs at another size (lane Y11).
+void ra2port_set_play_mode(int width, int height)
+{
+    play_mode_width = width;
+    play_mode_height = height;
+}
 HRESULT DirectDrawCreate(void *guid, DirectDraw **out, void *outer)
 {
     (void)guid; (void)outer;

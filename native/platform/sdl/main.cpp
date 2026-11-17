@@ -50,6 +50,7 @@ extern "C" void *CreateMutexA(void *security, int owned, const char *name);
 extern "C" void *CreateEventA(void *security, int manual, int initial, const char *name);
 // C linkage, as the original's entry and the draft declare it.
 extern "C" int WinMain(HINSTANCE__ *instance, HINSTANCE__ *previous, char *command_line, int show);
+extern "C" void ra2port_set_play_mode(int width, int height);   // port/src/ddraw_dsound.cpp (lane Y11)
 // The data the original stores, read from the installed game.exe at run time
 // (native/data/original_data.cpp, port/src/original_image.cpp).
 struct ra2_original_global;
@@ -568,6 +569,7 @@ int main(int argc, char **argv)
             fprintf(stderr, "app: usable %.0fx%.0f points (window %dx%d): %s screen, play %dx%d\n", r.w, r.h, ww, wh,
                     app::large_screen(r.w, r.h) ? "large" : "phone-sized", gw, gh);
             app::set_ini_resolution(ra2port::write_dir() ? ra2port::write_dir() : app::game_write_dir().c_str(), folder, gw, gh);
+            ra2port_set_play_mode(gw, gh);   // Options lists it while a shell runs at 800x600 (YR; lane Y11)
             ra2_sdl_host_touch_options(180);
             // Resume at start (lane I): the system ended the app in the background after a
             // checkpoint (host.cpp's marker). Offer it once; Resume goes through the menus to

@@ -67,3 +67,7 @@ __ZNK8ShapeSet8Get_DataEi	__ZNK9SHPStruct9GetPixelsEi
 __ZNK8ShapeSet8Get_RectEi	__ZNK9SHPStruct14GetFrameBoundsEi
 __ZNK8ShapeSet14Is_TransparentEi	__ZNK9SHPStruct15HasTransparencyEi
 __ZNK8ShapeSet17Is_RLE_CompressedEi	__ZNK9SHPStruct14HasCompressionEi
+# TechnoClass::Destroy (ObjectClass vtable slot 0x170) is the tree's TechnoClass::FUN_00710460 (lane Y11: gamemd.exe's TechnoClass,
+# FootClass, BuildingClass, InfantryClass and AircraftClass vtables hold 0x00710460 there, UnitClass::Destroy calls it; it frees
+# the mind-controlled units. A unit dying while mind-controlling reached the trap in a long skirmish under ctest -j4).
+__ZN11TechnoClass7DestroyEv	__ZN11TechnoClass12FUN_00710460Ev

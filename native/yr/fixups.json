@@ -442,6 +442,108 @@
   },
   {
    "file": "src/ownrdraw.cpp",
+   "old": "// FUNCTION: GAMEMD 0x0060C4E0\nint __fastcall FUN_0060C4E0(HWND dialog)",
+   "new": "// NATIVE (lane Y11): the backdrop art's three pointers, kept by dialog window at pointer width\n// (a small table: the shell has a few dialogs open at once; a reused window gets its slot back).\nstruct Yr_Dialog_Art { HWND Window; intptr_t Convert; intptr_t Shape800; intptr_t Shape; };\nstatic Yr_Dialog_Art &Yr_Dialog_Art_Of(HWND dialog)\n{\n\tstatic Yr_Dialog_Art art[64];\n\tstatic int next = 0;\n\tfor (int i = 0; i < 64; ++i) {\n\t\tif (art[i].Window == dialog) return art[i];\n\t}\n\tYr_Dialog_Art &slot = art[next];\n\tnext = (next + 1) % 64;\n\tslot.Window = dialog;\n\tslot.Convert = slot.Shape800 = slot.Shape = 0;\n\treturn slot;\n}\n\n// FUNCTION: GAMEMD 0x0060C4E0\nintptr_t __fastcall FUN_0060C4E0(HWND dialog)",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. The three pointers are kept by window at pointer width (a small side table, as the RA2 tree's rewrite keeps the control records' pointers)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "return *(int *)((char *)data + 0x74);",
+   "new": "return Yr_Dialog_Art_Of(dialog).Convert;",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Read back at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "int __fastcall FUN_0060CE40(HWND dialog)\n{",
+   "new": "intptr_t __fastcall FUN_0060CE40(HWND dialog)\n{",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Returned at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "return *(int *)((char *)data + 0xe0);",
+   "new": "return Yr_Dialog_Art_Of(dialog).Shape800;",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Read back at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "int __fastcall FUN_0060CEA0(HWND dialog)\n{",
+   "new": "intptr_t __fastcall FUN_0060CEA0(HWND dialog)\n{",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Returned at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "return *(int *)((char *)data + 0xe4);",
+   "new": "return Yr_Dialog_Art_Of(dialog).Shape;",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Read back at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "int __cdecl (FUN_0072[B-D][0-9A-F]{3})\\(void\\);",
+   "regex": true,
+   "new": "intptr_t __cdecl \\1(void);",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. The palette converters FUN_0060CF00 stores return ConvertClass pointers (txtlabel2.cpp); declared at pointer width here."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\nint (FUN_0072E280|FUN_0072D450)\\(void\\);",
+   "regex": true,
+   "new": "\nintptr_t \\1(void);",
+   "why": "Lane Y11: FUN_0072E280 and FUN_0072D450 return ConvertClass pointers (txtlabel2.cpp); the unit's earlier int declarations truncated them where FUN_0060CF00 stores them as the dialog's backdrop converter."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "extern int (DAT_00B0F9E8|DAT_00B0FA04|DAT_00B0FA18|DAT_00B0FA30|DAT_00B0FA4C|DAT_00B0FA60|DAT_00B0FA64|DAT_00B0FA6C|DAT_00B0FA98|DAT_00B0FA9C|DAT_00B0FAAC|DAT_00B0FAB8|DAT_00B0FB0C|DAT_00B0FB1C|DAT_00B0FB2C|DAT_00B0FB34|DAT_00B0FB50|DAT_00B0FB54);",
+   "regex": true,
+   "new": "extern intptr_t \\1;",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. These are the SHPStruct pointers txtlabel2.cpp loads; read at pointer width here."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\tchar *p = (char *)data;\n\tint type = *(int *)(p + 0x6c);",
+   "new": "\tchar *p = (char *)&data->Dialog - 0x28;\n\tint type = *(int *)(p + 0x6c);\n\tYr_Dialog_Art &art = Yr_Dialog_Art_Of(dialog);",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. The dialog id is read through the Dialog view, as FUN_0060D2C0 stores it."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\\*\\(int \\*\\)\\(p \\+ 0x74\\) = ",
+   "regex": true,
+   "new": "art.Convert = (intptr_t)",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Stored at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\\*\\(int \\*\\)\\(p \\+ 0xe0\\) = ",
+   "regex": true,
+   "new": "art.Shape800 = (intptr_t)",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Stored at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\\*\\(int \\*\\)\\(p \\+ 0xe4\\) = ",
+   "regex": true,
+   "new": "art.Shape = (intptr_t)",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Stored at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "void __fastcall FUN_0072E730(Surface * surface, Rect * rect, int a, int b, int c);",
+   "new": "class ConvertClass;\nstruct SHPStruct;\nvoid __fastcall FUN_0072E730(Surface * surface, Rect const * area, ConvertClass * convert, SHPStruct * shape800, SHPStruct * shape);",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Declared as txtlabel2.cpp defines it, so the pointers pass at full width (the int declaration reached it through an alias with the upper halves undefined)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\t\t\t\tint a = FUN_0060C4E0(window);\n\t\t\t\tint b = FUN_0060CE40(window);\n\t\t\t\tint c = FUN_0060CEA0(window);",
+   "new": "\t\t\t\tConvertClass * a = (ConvertClass *)FUN_0060C4E0(window);\n\t\t\t\tSHPStruct * b = (SHPStruct *)FUN_0060CE40(window);\n\t\t\t\tSHPStruct * c = (SHPStruct *)FUN_0060CEA0(window);",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Passed at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "FUN_0072E730(surf, &rFull, a, b, c);",
+   "new": "if (a != NULL && (Drawing::RenderWidth == 0x280 ? b : c) != NULL) FUN_0072E730(surf, &rFull, a, b, c);",
+   "why": "Lane Y11: a dialog opened before the shell art is loaded (the first main menu) stored null art at WM_INITDIALOG, as gamemd.exe does; there the original's Draw_Shape draws nothing for the null shape, but the native Draw_Shape takes the null converter first. The draw is skipped when the art is null, which draws what the original draws."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
    "old": "(char *)data + 0x",
    "new": "((char *)&data->Dialog - 0x28) + 0x",
    "why": "The unit reaches some WinData fields at their 32-bit offsets ((char *)data + 0x6c, 0xbc, ...), others by name. Natively the record's leading pointers are 8 bytes, so a raw offset from the record start lands elsewhere; taken from the union's pointer-free Dialog view (which starts at 32-bit offset 0x28) the raw and named accesses agree again (lane Y3)."
@@ -772,6 +874,16 @@
    "file": "src/techno.cpp",
    "append": "techno_native.inc",
    "why": "TechnoClass functions unmatched in the YR tree; TibSun's text adjusted to gamemd.exe as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/bullet.cpp",
+   "append": "bullet_native.inc",
+   "why": "BulletClass::Unlimbo (0x00468670), BulletClass::AI (0x004666E0), BulletClass::Shrapnel (0x0046A310) and Projectile_Motion (0x005B20F0) are unmatched in the YR tree; native drafts from the RA2 twins and TibSun's text with gamemd.exe's YR changes (lane Y11)."
+  },
+  {
+   "file": "src/team.cpp",
+   "append": "team_native.inc",
+   "why": "TeamClass::AI (0x006E9140) is unmatched in the YR tree; a native draft from gamemd.exe's code and the RA2 twin, appended to the team unit so it reaches the unit's TMission_* handlers (lane Y11)."
   },
   {
    "file": "src/credits.cpp",
@@ -1220,9 +1332,9 @@
   },
   {
    "file": "src/ownrdraw.cpp",
-   "old": "\t\tif (FUN_00609E20(parent, window)) {\n\t\t\tdata->Dialog.LayoutBand = 3;\n",
-   "new": "\t\tif (FUN_00609E20(parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\t// NATIVE (lane C23): the one-game toggle\n\t\t\tdata->Dialog.LayoutBand = 3;\n",
-   "why": "lane C23 (user requests 2026-11-16: the one-game toggle should look like the dialogs' push buttons, Keyboard Options' Assign and Reset All): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) takes those buttons' kind (WinData +0xB0 = 3: the push button shape's normal, lit and pressed frames), as RA2's twin 0x005E7EB0 gives it (port/fixups.json). FUN_00609E20 knows only the listed dialogs' ids."
+   "old": "\t\tif (FUN_00609BC0(parent, window)) {\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
+   "new": "\t\tif (FUN_00609BC0(parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\t// NATIVE (lane C23, Y11): the one-game toggle\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
+   "why": "Native addition: the one-game app's toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) is drawn and animated as the main menu's sidebar buttons (WinData +0xB0 = 1, as FUN_00609BC0 gives Exit Game), as RA2's twin 0x005E7EB0 gives it (port/fixups.json). FUN_00609BC0 knows only the listed dialogs' ids. Lane Y11 (user request 2026-11-17, adopted by the owner): the toggle is a regular main-menu sidebar button in the slot directly above Exit Game, so it takes the sidebar buttons' kind as Exit Game does (record +0xB0 = 1) instead of the dialogs' push buttons' (3)."
   }
  ]
 }
