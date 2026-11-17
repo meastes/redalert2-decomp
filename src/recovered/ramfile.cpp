@@ -420,7 +420,7 @@ void RadSiteClass::Update_Light()
 // Referenced from 1 site (data).
 // Ghidra prototype: void __fastcall FUN_00637fb0(int param_1)
 // Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
+//   FUN_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

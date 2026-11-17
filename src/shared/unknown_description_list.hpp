@@ -7,7 +7,7 @@
 typedef unsigned short wchar_t;
 #endif
 // Cooperative campaign record, 0x44 bytes. The original class name is unresolved.
-struct UnknownDescriptionRecord_00490E00 {
+struct CoopCampEntry {
  int Index;
  wchar_t *Name; // +04
  signed char MapCount;
@@ -17,13 +17,13 @@ struct UnknownDescriptionRecord_00490E00 {
  DynamicVectorClass<char *> Enemies;
  char *AIName;
 };
-class UnknownDescriptionList_00490E00 {
+class CoopCampListClass {
 public:
- UnknownDescriptionList_00490E00();
- ~UnknownDescriptionList_00490E00();
+ CoopCampListClass();
+ ~CoopCampListClass();
 #ifdef DESCRIPTION_LIST_INLINE_GET_RECORD
  // The actual recovered00490C50 operation, shared by the campaign sender.
- bool Get_Record_00490C50(int index, UnknownDescriptionRecord_00490E00 **record)
+ bool Get_Record(int index, CoopCampEntry **record)
  {
      if(index>=0 && index<Count) {
          *record=&Entries[index];
@@ -33,18 +33,18 @@ public:
      return false;
  }
 #else
- bool Get_Record_00490C50(int index, UnknownDescriptionRecord_00490E00 **record);
+ bool Get_Record(int index, CoopCampEntry **record);
 #endif
- bool Get_Count_00490C90(int *count) const;
+ bool Get_Count(int *count) const;
  bool Copy_Names(DynamicVectorClass<wchar_t *> &names);
  CCINIClass Ini; // +0, composition hypothesis: canonical sizeof(CCINIClass)==0x50
- UnknownDescriptionRecord_00490E00 *Entries; // +50
+ CoopCampEntry *Entries; // +50
  int Count; // +54
  bool Initialized; // +58
 };
 #endif
 
 
-typedef char DescriptionRecord_size_check[(sizeof(UnknownDescriptionRecord_00490E00)==0x44)?1:-1];
+typedef char DescriptionRecord_size_check[(sizeof(CoopCampEntry)==0x44)?1:-1];
 
 typedef char Description_INI_prefix_size_check[(sizeof(CCINIClass)==0x50)?1:-1];

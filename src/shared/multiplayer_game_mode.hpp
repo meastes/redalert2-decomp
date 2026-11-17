@@ -22,7 +22,7 @@
 class CCINIClass;
 class CoopCampaignClass;
 class HouseClass;
-class UnknownDescriptionList_00490E00;
+class CoopCampListClass;
 class MultiMission;
 class MPlayerScoreType;
 class Cell;
@@ -314,7 +314,7 @@ public:
     void Unknown_005A3760(HWND dialog);                           // 0x005A3760
     bool Unknown_005A4F20();                                       // 0x005A4F20 (replaces the campaign with a fresh one, named after two players)
 
-    UnknownDescriptionList_00490E00 *unknown_campaigns_40;         // +0x40 the cooperative campaign records
+    CoopCampListClass *unknown_campaigns_40;         // +0x40 the cooperative campaign records
     CoopCampaignClass *unknown_campaign_44;                        // +0x44 the selected campaign
     int unknown_48;                                                // +0x48 (0 from the constructor)
     bool SavedCampaignChosen;                                               // +0x4C (set when the saved campaign is chosen)

@@ -434,7 +434,7 @@ void TiberiumClass::Init_Spread()
 // Referenced from 3 sites (unconditional call).
 // Ghidra prototype: void Deinit_Tiberium_Spread_System_006e9670(void)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -599,7 +599,7 @@ void TiberiumClass::Rebuild_Spread()
 // Referenced from 0 sites.
 // Ghidra prototype: void __fastcall Clear_Spread_006e9d00(int param_1)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -743,7 +743,7 @@ void TiberiumClass::Init_Growth()
 // Referenced from 3 sites (unconditional call, unconditional jump).
 // Ghidra prototype: void Deinit_Tiberium_Growth_System_006ea130(void)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -903,7 +903,7 @@ void TiberiumClass::Rebuild_Growth()
 // Referenced from 0 sites.
 // Ghidra prototype: void __fastcall Clear_Growth_006ea7f0(int param_1)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

@@ -680,7 +680,7 @@ unsigned int  unknown_get_block_00b2ad60_00769610(void)
 // Referenced from 0 sites.
 // Ghidra prototype: void __fastcall unknown_set_block_00b2ad60_00769620(undefined4 param_1)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -731,7 +731,7 @@ unsigned int  unknown_get_block_00b2ad70_00769640(void)
 // Referenced from 0 sites.
 // Ghidra prototype: void __fastcall unknown_set_block_00b2ad70_00769650(undefined4 param_1)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

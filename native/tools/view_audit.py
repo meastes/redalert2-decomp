@@ -192,7 +192,7 @@ NOT_VIEWS = {
     'UnknownTechno230View': 'the object a techno keeps at +0x230 (0x004E7DF0)',
     'UnknownHouseScenarioView': 'the scenario (RandomNumber at +0x218) as house_views.hpp reads it',
     # Scout1115: named "List"/"Edit" only; their comments name no ListClass/EditClass.
-    'UnknownNodeList_006003d0': 'a list of text nodes at +0x34 (0x006003D0; owner not identified)',
+    'NodeList': 'a list of text nodes at +0x34 (0x006003D0; owner not identified)',
     'UnknownListOwner_00600350': 'an owner of a block, a node list and a string (0x00600350; not identified)',
     'UnknownListOwner_00602510': 'the same with another layout (0x00602510; not identified)',
     'PhoneEdit': 'the phone book dialog (phone_edit.hpp), not an EditClass gadget',

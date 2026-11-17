@@ -54,7 +54,7 @@ MPCooperative::MPCooperative(WideString const &name, WideString const &descripti
     Wstring const &unknown_4, bool unknown_5, int id)
     : MultiplayerGameMode(name, description, ini_name, unknown_4, false, id)
 {
-    unknown_campaigns_40 = new UnknownDescriptionList_00490E00();
+    unknown_campaigns_40 = new CoopCampListClass();
     unknown_campaign_44 = 0;
     unknown_48 = 0;
     CampaignIndex = 0;
@@ -72,7 +72,7 @@ MPCooperative::MPCooperative(WideString const &name, WideString const &descripti
     campaigns.Clear();
     campaigns.Resize(length);
     int count;
-    unknown_campaigns_40->Get_Count_00490C90(&count);
+    unknown_campaigns_40->Get_Count(&count);
     for (i = 0; i < count; i++) {
         CoopCampaignClass *campaign = new CoopCampaignClass();
         campaign->Load_Campaign_0048f590(i);
@@ -88,8 +88,8 @@ bool MPCooperative::unknown_slot7(int country)
     if (unknown_campaigns_40 == 0) {
         return true;
     }
-    UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
+    CoopCampEntry *record;
+    unknown_campaigns_40->Get_Record(CampaignIndex, &record);
     if (record == 0) {
         return true;
     }
@@ -127,7 +127,7 @@ bool MPCooperative::AssignTeams()
     unknown_campaigns_328.Clear();
     unknown_campaigns_328.Resize(capacity, 0);
     int count;
-    unknown_campaigns_40->Get_Count_00490C90(&count);
+    unknown_campaigns_40->Get_Count(&count);
     for (i = 0; i < count; i++) {
         CoopCampaignClass *campaign = new CoopCampaignClass();
         campaign->Load_Campaign_0048f590(i);
@@ -147,8 +147,8 @@ int MPCooperative::Unknown_005A2E50()
     }
     int found = -1;
     for (int i = 0; i < unknown_campaigns_40->Count; i++) {
-        UnknownDescriptionRecord_00490E00 *record;
-        unknown_campaigns_40->Get_Record_00490C50(i, &record);
+        CoopCampEntry *record;
+        unknown_campaigns_40->Get_Record(i, &record);
         for (int m = 0; m < 3; m++) {
             if (unknown_session_a3d298.ScenarioIndex != 0) {
                 char const *scenario = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->unknown_58;
@@ -218,8 +218,8 @@ void MPCooperative::unknown_slot8()
             }
         } else {
             CampaignIndex = index;
-            UnknownDescriptionRecord_00490E00 *record;
-            unknown_campaigns_40->Get_Record_00490C50(index, &record);
+            CoopCampEntry *record;
+            unknown_campaigns_40->Get_Record(index, &record);
             char *name = 0;
             unknown_campaign_44->Get_Map_Name_0048fb40(&name, 0);
             Debug_Printf("@@@ Looking for %s", unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->unknown_58);
@@ -264,9 +264,9 @@ int MPCooperative::FirstValidMapIndex()
     int count = 0;
     char *name = 0;
     if (unknown_campaigns_40 == 0) {
-        unknown_campaigns_40 = new UnknownDescriptionList_00490E00();
+        unknown_campaigns_40 = new CoopCampListClass();
     }
-    unknown_campaigns_40->Get_Count_00490C90(&count);
+    unknown_campaigns_40->Get_Count(&count);
     if (count != 0) {
         if (unknown_campaign_44 == 0) {
             unknown_campaign_44 = new CoopCampaignClass();
@@ -295,7 +295,7 @@ bool MPCooperative::AssignTeamsAtStart()
         return false;
     }
     int count;
-    unknown_campaigns_40->Get_Count_00490C90(&count);
+    unknown_campaigns_40->Get_Count(&count);
     int selected = Selected_Campaign_005c67a0();
     if (selected >= count) {
         if (unknown_players_a3fa7c.Count() == 2) {
@@ -315,8 +315,8 @@ bool MPCooperative::AssignTeamsAtStart()
             unknown_campaign_44->Set_Names(unknown_players_a3fa7c[0]->Name, unknown_players_a3fa7c[1]->Name);
         }
     }
-    UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
+    CoopCampEntry *record;
+    unknown_campaigns_40->Get_Record(CampaignIndex, &record);
     if (record == 0) {
         return false;
     }
@@ -344,8 +344,8 @@ bool MPCooperative::AssignTeamsAtStart()
 
 int MPCooperative::unknown_slot10()
 {
-    UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
+    CoopCampEntry *record;
+    unknown_campaigns_40->Get_Record(CampaignIndex, &record);
     if (record == 0) {
         return -2;
     }
@@ -412,8 +412,8 @@ void MPCooperative::Unknown_005A3650(HWND dialog, int id)
         HWND combo = GetDlgItem(dialog, id);
         ShowWindow(combo, SW_HIDE);
         SendMessageA(combo, 0x14B, 0, 0);
-        UnknownDescriptionRecord_00490E00 *record;
-        unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
+        CoopCampEntry *record;
+        unknown_campaigns_40->Get_Record(CampaignIndex, &record);
         if (record != 0) {
             int players = record->Players.Count();
             if (players != 0) {
@@ -447,8 +447,8 @@ void MPCooperative::Unknown_005A3760(HWND dialog)
 {
     if (dialog != 0) {
         int count = unknown_int_a3db1c;
-        UnknownDescriptionRecord_00490E00 *record;
-        unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
+        CoopCampEntry *record;
+        unknown_campaigns_40->Get_Record(CampaignIndex, &record);
         if (record != 0) {
             int players = record->Players.Count();
             if (players != 0) {
@@ -525,8 +525,8 @@ void MPCooperative::unknown_player_colors_5a3920()
 
 bool MPCooperative::unknown_slot21()
 {
-    UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
+    CoopCampEntry *record;
+    unknown_campaigns_40->Get_Record(CampaignIndex, &record);
     char message[400];
     sprintf(message, "C1,%d", record->MapCount);
     for (int list = 0; list < 8; list++) {
@@ -734,8 +734,8 @@ bool MPCooperative::unknown_slot22()
     }
     int added = 0;
     unknown_session_a3d298.AICount = players;
-    UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
+    CoopCampEntry *record;
+    unknown_campaigns_40->Get_Record(CampaignIndex, &record);
     if (record == 0) {
         return false;
     }
@@ -803,8 +803,8 @@ int MPCooperative::RandomHumanCountryIndex()
     bool found = false;
     int campaign = 0;
     unknown_campaign_44->Get_Campaign_Type_0048e6b0(&campaign);
-    UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(campaign, &record);
+    CoopCampEntry *record;
+    unknown_campaigns_40->Get_Record(campaign, &record);
     int house;
     do {
         house = Scen->Random()(0, count - 1);
@@ -827,8 +827,8 @@ int MPCooperative::RandomAICountryIndex()
     bool found = false;
     int campaign = 0;
     unknown_campaign_44->Get_Campaign_Type_0048e6b0(&campaign);
-    UnknownDescriptionRecord_00490E00 *record;
-    unknown_campaigns_40->Get_Record_00490C50(campaign, &record);
+    CoopCampEntry *record;
+    unknown_campaigns_40->Get_Record(campaign, &record);
     int house;
     do {
         house = Scen->Random()(0, count - 1);
@@ -965,7 +965,7 @@ void MPCooperative::DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission 
     }
     if (unknown_campaigns_328.Count() == 0) {
         int records;
-        unknown_campaigns_40->Get_Count_00490C90(&records);
+        unknown_campaigns_40->Get_Count(&records);
         for (int r = 0; r < records; r++) {
             CoopCampaignClass *campaign = new CoopCampaignClass();
             campaign->Load_Campaign_0048f590(r);
@@ -1200,12 +1200,12 @@ bool MPCooperative::unknown_slot36()
     DynamicVectorClass<MPlayerScoreType *> scores;
     int time;
     unknown_campaign_44->Get_Player_Scores_0048e710(scores, &time);
-    UnknownDescriptionRecord_00490E00 *record = 0;
+    CoopCampEntry *record = 0;
     int type;
     if (!unknown_campaign_44->Get_Campaign_Type_0048e6b0(&type)) {
         type = -1;
     } else {
-        unknown_campaigns_40->Get_Record_00490C50(type, &record);
+        unknown_campaigns_40->Get_Record(type, &record);
     }
     int difficulty = -1;
     if (type == 0 || type == 1) {
@@ -1253,12 +1253,12 @@ void MPCooperative::unknown_slot35(bool unknown)
                 DynamicVectorClass<MPlayerScoreType *> scores;
                 int time;
                 unknown_campaign_44->Get_Player_Scores_0048e710(scores, &time);
-                UnknownDescriptionRecord_00490E00 *record = 0;
+                CoopCampEntry *record = 0;
                 int type;
                 if (!unknown_campaign_44->Get_Campaign_Type_0048e6b0(&type)) {
                     type = -1;
                 } else {
-                    unknown_campaigns_40->Get_Record_00490C50(type, &record);
+                    unknown_campaigns_40->Get_Record(type, &record);
                 }
                 int difficulty = -1;
                 if (type == 0 || type == 1) {
@@ -1349,8 +1349,8 @@ void MPCooperative::unknown_slot37()
     if (computers > 0) {
         unknown_session_a3d298.AICount = computers;
         int used = 0;
-        UnknownDescriptionRecord_00490E00 *record;
-        unknown_campaigns_40->Get_Record_00490C50(CampaignIndex, &record);
+        CoopCampEntry *record;
+        unknown_campaigns_40->Get_Record(CampaignIndex, &record);
         int current;
         unknown_campaign_44->Get_Current_Map_0048e6f0(&current);
         for (int slot = 2; slot < 8; slot++) {

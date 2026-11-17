@@ -366,7 +366,7 @@ bool __fastcall unknown_in_range_00726ab0(int self)
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726ac0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -400,7 +400,7 @@ unsigned int * Owner_00726ac0::scalar_deleting_destructor_00726ac0(unsigned char
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726af0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -435,7 +435,7 @@ unsigned int * Owner_00726af0::scalar_deleting_destructor_00726af0(unsigned char
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726b20(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -467,7 +467,7 @@ unsigned int * Owner_00726b20::scalar_deleting_destructor_00726b20(unsigned char
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726b40(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -501,7 +501,7 @@ unsigned int * Owner_00726b40::scalar_deleting_destructor_00726b40(unsigned char
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00726b70(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

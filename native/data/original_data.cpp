@@ -1573,7 +1573,7 @@ __asm__(".globl _unknown_integer_format_007ce9bc\n.set _unknown_integer_format_0
 // row	_field_delimiter_007ce9c0	0x007CE9C0	8	bytes	field_delimiter_007ce9c0	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_ping_report_separator_7ce9c0	0x007CE9C0	8	bytes	ping_report_separator_7ce9c0	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
 // row	_start_text_007ce9c0	0x007CE9C0	8	bytes	start_text_007ce9c0	src/recovered/header_statics/0073a6f0/HeaderStatics_diagonal_init_0073a6f0.cpp
-// row	_unknown_token_delimiters_007ce9c0	0x007CE9C0	8	bytes	unknown_token_delimiters_007ce9c0	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_token_delimiters_007ce9c0	0x007CE9C0	8	bytes	unknown_token_delimiters_007ce9c0	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0483[16] __asm__("_campaign_options_comma_007ce9c0");
 __asm__(".globl _comma_7ce9c0\n.set _comma_7ce9c0, _campaign_options_comma_007ce9c0\n");
 __asm__(".globl _field_delimiter_007ce9c0\n.set _field_delimiter_007ce9c0, _campaign_options_comma_007ce9c0\n");
@@ -1584,7 +1584,7 @@ __asm__(".globl _unknown_token_delimiters_007ce9c0\n.set _unknown_token_delimite
 alignas(16) unsigned char ra2_orig_0484[16] __asm__("_NONE_STRING");
 // row	_ALL_STRING	0x007CEAD0	12	ptr	ALL_STRING	src/recovered/header_statics/0041c3d0/HeaderStatics_empty_rect_init.cpp
 alignas(16) unsigned char ra2_orig_0485[32] __asm__("_ALL_STRING");
-// row	_unknown_ai_default_007ceaec	0x007CEAEC	48	bytes	unknown_ai_default_007ceaec	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_ai_default_007ceaec	0x007CEAEC	48	bytes	unknown_ai_default_007ceaec	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0486[48] __asm__("_unknown_ai_default_007ceaec");
 // row	_unknown_side_civilian_007ceb30	0x007CEB30	12	bytes	unknown_side_civilian_007ceb30	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0487[16] __asm__("_unknown_side_civilian_007ceb30");
@@ -1839,7 +1839,7 @@ alignas(16) unsigned char ra2_orig_0603[16] __asm__("_campaign_save_filename_007
 // row	_campaign_key_Map_default_007d4f58	0x007D4F58	12	bytes	campaign_key_Map_default_007d4f58	src/recovered/0048e150.cpp
 alignas(16) unsigned char ra2_orig_0604[16] __asm__("_campaign_key_Map_default_007d4f58");
 // row	_campaign_key_Map_format_007d4f64	0x007D4F64	8	bytes	campaign_key_Map_format_007d4f64	src/recovered/0048e150.cpp
-// row	_unknown_map_format_007d4f64	0x007D4F64	8	bytes	unknown_map_format_007d4f64	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_map_format_007d4f64	0x007D4F64	8	bytes	unknown_map_format_007d4f64	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0605[16] __asm__("_campaign_key_Map_format_007d4f64");
 __asm__(".globl _unknown_map_format_007d4f64\n.set _unknown_map_format_007d4f64, _campaign_key_Map_format_007d4f64\n");
 // row	_campaign_key_Time_007d4f6c	0x007D4F6C	8	bytes	campaign_key_Time_007d4f6c	src/recovered/0048e150.cpp
@@ -1884,21 +1884,21 @@ alignas(16) unsigned char ra2_orig_0624[48] __asm__("_campaign_sending_log_007d5
 alignas(16) unsigned char ra2_orig_0625[16] __asm__("_campaign_options_separator_007d5060");
 // row	_campaign_options_format_007d5068	0x007D5068	112	bytes	campaign_options_format_007d5068	src/recovered/0048e150.cpp
 alignas(16) unsigned char ra2_orig_0626[112] __asm__("_campaign_options_format_007d5068");
-// row	_unknown_campaign_enemy_key_007d50d8	0x007D50D8	16	bytes	unknown_campaign_enemy_key_007d50d8	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_campaign_enemy_key_007d50d8	0x007D50D8	16	bytes	unknown_campaign_enemy_key_007d50d8	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0627[16] __asm__("_unknown_campaign_enemy_key_007d50d8");
-// row	_unknown_campaign_player_key_007d50e8	0x007D50E8	16	bytes	unknown_campaign_player_key_007d50e8	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_campaign_player_key_007d50e8	0x007D50E8	16	bytes	unknown_campaign_player_key_007d50e8	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0628[16] __asm__("_unknown_campaign_player_key_007d50e8");
-// row	_unknown_campaign_ai_key_007d50f8	0x007D50F8	12	bytes	unknown_campaign_ai_key_007d50f8	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_campaign_ai_key_007d50f8	0x007D50F8	12	bytes	unknown_campaign_ai_key_007d50f8	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0629[16] __asm__("_unknown_campaign_ai_key_007d50f8");
-// row	_unknown_source_file_007d5104	0x007D5104	20	bytes	unknown_source_file_007d5104	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_source_file_007d5104	0x007D5104	20	bytes	unknown_source_file_007d5104	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0630[32] __asm__("_unknown_source_file_007d5104");
-// row	_unknown_campaign_name_key_007d5118	0x007D5118	16	bytes	unknown_campaign_name_key_007d5118	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_campaign_name_key_007d5118	0x007D5118	16	bytes	unknown_campaign_name_key_007d5118	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0631[16] __asm__("_unknown_campaign_name_key_007d5118");
-// row	_unknown_map_count_key_007d5128	0x007D5128	24	bytes	unknown_map_count_key_007d5128	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_map_count_key_007d5128	0x007D5128	24	bytes	unknown_map_count_key_007d5128	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0632[32] __asm__("_unknown_map_count_key_007d5128");
-// row	_unknown_campaigns_key_007d5140	0x007D5140	12	bytes	unknown_campaigns_key_007d5140	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_campaigns_key_007d5140	0x007D5140	12	bytes	unknown_campaigns_key_007d5140	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0633[16] __asm__("_unknown_campaigns_key_007d5140");
-// row	_unknown_campaign_file_007d514c	0x007D514C	16	bytes	unknown_campaign_file_007d514c	src/recovered/unowned/Copy_Description_Names_00490e00.cpp
+// row	_unknown_campaign_file_007d514c	0x007D514C	16	bytes	unknown_campaign_file_007d514c	src/recovered/unowned/CoopCampListClass_Copy_Names.cpp
 alignas(16) unsigned char ra2_orig_0634[16] __asm__("_unknown_campaign_file_007d514c");
 // row	_launcher_expected_message_007d52b8	0x007D52B8	52	bytes	launcher_expected_message_007d52b8	src/recovered/004919b0.cpp
 alignas(16) unsigned char ra2_orig_0635[64] __asm__("_launcher_expected_message_007d52b8");
@@ -3566,9 +3566,9 @@ alignas(16) unsigned char ra2_orig_1213[16] __asm__("_unknown_name_7f8704");
 alignas(16) unsigned char ra2_orig_1214[16] __asm__("_unknown_name_7f8708");
 // row	_unknown_name_7f870c	0x007F870C	4	ptr	unknown_name_7f870c	src/recovered/txtlabel2/Unknown_Get_Dialog_Drawer.cpp
 alignas(16) unsigned char ra2_orig_1215[16] __asm__("_unknown_name_7f870c");
-// row	_unknown_name_7f8710	0x007F8710	4	ptr	unknown_name_7f8710	src/recovered/unowned/unknown_add_node_006003d0.cpp
+// row	_unknown_name_7f8710	0x007F8710	4	ptr	unknown_name_7f8710	src/recovered/ownrdraw/NodeList_unknown_add_node.cpp
 alignas(16) unsigned char ra2_orig_1216[16] __asm__("_unknown_name_7f8710");
-// row	_unknown_name_7f8714	0x007F8714	4	ptr	unknown_name_7f8714	src/recovered/unowned/unknown_add_node_006003d0.cpp
+// row	_unknown_name_7f8714	0x007F8714	4	ptr	unknown_name_7f8714	src/recovered/ownrdraw/NodeList_unknown_add_node.cpp
 alignas(16) unsigned char ra2_orig_1217[16] __asm__("_unknown_name_7f8714");
 // row	_unknown_name_7f8718	0x007F8718	4	ptr	unknown_name_7f8718	src/recovered/txtlabel2/Unknown_Draw_Clipped_Shape.cpp
 alignas(16) unsigned char ra2_orig_1218[16] __asm__("_unknown_name_7f8718");

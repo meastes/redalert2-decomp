@@ -991,7 +991,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?Copy_List_600460@WinData@OwnerDraw@@QAEXPBUUnknownNode_006003d0@@@Z",
+   "symbol": "?Copy_List_600460@WinData@OwnerDraw@@QAEXPBUTextNode@@@Z",
    "entry": "00600460",
    "body_bytes": 162,
    "padding_bytes": 14
@@ -1344,63 +1344,63 @@
    "address": "007b3278",
    "bytes": 9,
    "kind": "rtti",
-   "section": 555
+   "section": 563
   },
   {
    "symbol": "??_R3XSurface@@8",
    "address": "007b3288",
    "bytes": 16,
    "kind": "rtti",
-   "section": 556
+   "section": 564
   },
   {
    "symbol": "??_R4XSurface@@6B@",
    "address": "007b3298",
    "bytes": 20,
    "kind": "rtti",
-   "section": 557
+   "section": 566
   },
   {
    "symbol": "??_R1A@?0A@A@Surface@@8",
    "address": "007b32b0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 559
+   "section": 561
   },
   {
    "symbol": "??_R1A@?0A@A@XSurface@@8",
    "address": "007b32c8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 561
+   "section": 562
   },
   {
    "symbol": "??_R1A@?0A@A@BSurface@@8",
    "address": "007b32e0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 562
+   "section": 555
   },
   {
    "symbol": "??_R2BSurface@@8",
    "address": "007b32f8",
    "bytes": 13,
    "kind": "rtti",
-   "section": 563
+   "section": 556
   },
   {
    "symbol": "??_R3BSurface@@8",
    "address": "007b3308",
    "bytes": 16,
    "kind": "rtti",
-   "section": 564
+   "section": 557
   },
   {
    "symbol": "??_R4BSurface@@6B@",
    "address": "007b3318",
    "bytes": 20,
    "kind": "rtti",
-   "section": 566
+   "section": 559
   },
   {
    "symbol": "??_R2Surface@@8",
@@ -1456,21 +1456,21 @@
    "address": "007ce2b0",
    "bytes": 22,
    "kind": "rtti",
-   "section": 558
+   "section": 560
   },
   {
    "symbol": "??_R0?AVXSurface@@@8",
    "address": "007ce2c8",
    "bytes": 23,
    "kind": "rtti",
-   "section": 560
+   "section": 565
   },
   {
    "symbol": "??_R0?AVBSurface@@@8",
    "address": "007ce2e0",
    "bytes": 23,
    "kind": "rtti",
-   "section": 565
+   "section": 558
   },
   {
    "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
@@ -10311,7 +10311,7 @@
    "entry": "005edf60",
    "bytes": 49,
    "population": "population-08",
-   "source": "src/recovered/005edf60.cpp",
+   "source": "src/recovered/ownrdraw/unknown_init_globals.cpp",
    "cause": "held by population-08; not joined: another option set (/O1 /Ob2 /G5 /Gy)"
   },
   {
@@ -10351,7 +10351,7 @@
    "entry": "006003d0",
    "bytes": 49,
    "population": "population-2586",
-   "source": "src/recovered/unowned/unknown_add_node_006003d0.cpp",
+   "source": "src/recovered/ownrdraw/NodeList_unknown_add_node.cpp",
    "cause": "frozen in another population's inventory pass (population-2586)"
   },
   {
@@ -10359,7 +10359,7 @@
    "entry": "00600410",
    "bytes": 73,
    "population": "population-2586",
-   "source": "src/recovered/unowned/unknown_remove_node_00600410.cpp",
+   "source": "src/recovered/ownrdraw/NodeList_Remove_Node.cpp",
    "cause": "frozen in another population's inventory pass (population-2586)"
   },
   {
@@ -10431,7 +10431,7 @@
    "entry": "00601050",
    "bytes": 97,
    "population": "population-3809",
-   "source": "src/recovered/classes/OwnerDraw__DialogControl/OwnerDraw_Unknown_00601050.cpp",
+   "source": "src/recovered/classes/OwnerDraw__DialogControl/OwnerDraw_Unknown_Mark_Registered.cpp",
    "cause": "held by population-3809; not joined: does not compile in the unit: accepted.cpp(8955) : error C2228: left of '.Find' must have class/struct/union type"
   },
   {

@@ -1099,7 +1099,7 @@ bool __fastcall unknown_in_range_007303a0(int self)
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_007303d0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -1132,7 +1132,7 @@ unsigned int * Owner_007303d0::scalar_deleting_destructor_007303d0(unsigned char
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_007303f0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

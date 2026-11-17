@@ -4,8 +4,8 @@
     "id": "population-2854",
     "inventory_sha256": "f78333c7cfd86911f0f0d857e2cdfa5caee4ad9fdd949b9d69b7767f25a031a5",
     "gaps_sha256": "34fc2dd60a38a16663859f31a7bfe84a7596fb537c2d0c263970e70605657b4b",
-    "historical_population_sha256": "9bd21cc92ef8c7e8eaf3c283a362c279f07e08ecf3bf3454da5d3f0a80b456b7",
-    "historical_acceptance_sha256": "55f405b6efe3c9a05c8db6c9305fce4fdbd2c4c88c7736066f09581b62d2418a"
+    "historical_population_sha256": "aa5aaa4a4b7a7aab545220e8a82bdc5b162251a91cec0598731cb785de16dd01",
+    "historical_acceptance_sha256": "3a30dc826c859bdd1708419956d2b1efe286e4b86de0bc6c55aaf56d687cb66e"
   },
   "references": {
     "??_V@YAXPAX@Z": 7871803,
@@ -91,12 +91,12 @@
     "__real@8@3ffdccccccccccccd000": 7979624,
     "__real@4@c00a8000000000000000": 7999368,
     "__real@8@4000c000000000000000": 7981704,
-    "??1UnknownDescriptionList_00490E00@@QAE@XZ": 4787360,
+    "??1CoopCampListClass@@QAE@XZ": 4787360,
     "__real@4@3ff38000000000000000": 7999408,
     "__real@8@3ff08001000200040000": 8059176,
     "__real@8@3ffeccccccccccccd000": 8010288,
     "___RTDynamicCast": 7879908,
-    "??0UnknownDescriptionList_00490E00@@QAE@XZ": 4785424,
+    "??0CoopCampListClass@@QAE@XZ": 4785424,
     "??0CoopCampaignClass@@QAE@XZ": 4776000,
     "??0CoopCampaignClass@@QAE@PBG0@Z": 4776080,
     "?Set_Names@CoopCampaignClass@@QAEXPBG0@Z": 4776336,
@@ -106,9 +106,9 @@
     "?Save_Campaign_0048f040@CoopCampaignClass@@QAE_NXZ": 4780096,
     "?Load_Campaign_0048f590@CoopCampaignClass@@QAE_NH@Z": 4781456,
     "?Add_Score_0048f730@CoopCampaignClass@@QAE_NHHVMPlayerScoreType@@0@Z": 4781872,
-    "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVUnknownDescriptionList_00490E00@@HV?$DynamicVectorClass@H@@PBD2@Z": 4782032,
+    "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVCoopCampListClass@@HV?$DynamicVectorClass@H@@PBD2@Z": 4782032,
     "?Has_Saved_Campaign_0048fbf0@CoopCampaignClass@@QAE_NXZ": 4783088,
-    "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVUnknownDescriptionList_00490E00@@@Z": 4784464,
+    "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVCoopCampListClass@@@Z": 4784464,
     "__real@8@3ff9a3d70a3d70a3d800": 8027952,
     "__real@8@4000a000000000000000": 8027960,
     "__real@4@4006ff00000000000000": 7975080,
@@ -321,7 +321,7 @@
     "?FUN_007820f4@": 7872756,
     "?fopen_00783a45@": 7879237,
     "?Fetch@?$VectorClass@PAVCCINIClass@@@@UBEPAVCCINIClass@@H@Z": 5366000,
-    "?Get_Record_00490C50@UnknownDescriptionList_00490E00@@QAE_NHPAPAUUnknownDescriptionRecord_00490E00@@@Z": 4787280,
+    "?Get_Record@CoopCampListClass@@QAE_NHPAPAUCoopCampEntry@@@Z": 4787280,
     "?ID@?$VectorClass@PAVCCINIClass@@@@UAEHABQAVCCINIClass@@@Z": 5366304,
     "?ID@?$VectorClass@PAVCCINIClass@@@@UAEHPBQAVCCINIClass@@@Z": 5366368,
     "?Resize@?$VectorClass@PAVCCINIClass@@@@UAE_NHPBQAVCCINIClass@@@Z": 5366080,
@@ -2810,9 +2810,9 @@
     "??_EAnimTypeClass@@UAEPAXI@Z": 4351936,
     "??_ESideClass@@UAEPAXI@Z": 6795760,
     "??_EParticleClass@@UAEPAXI@Z": 6334432,
-    "?Copy_Names@UnknownDescriptionList_00490E00@@QAE_NAAV?$DynamicVectorClass@PAG@@@Z": 4787712,
-    "?Get_Count_00490C90@UnknownDescriptionList_00490E00@@QBE_NPAH@Z": 4787344,
-    "??_EUnknownDescriptionRecord_00490E00@@QAEPAXI@Z": 4787952,
+    "?Copy_Names@CoopCampListClass@@QAE_NAAV?$DynamicVectorClass@PAG@@@Z": 4787712,
+    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344,
+    "??_ECoopCampEntry@@QAEPAXI@Z": 4787952,
     "??_7?$DynamicVectorClass@PAVIsometricTileClass@@@@6B@": 7973036,
     "??_7?$DynamicVectorClass@PAVScriptClass@@@@6B@": 7973652,
     "??_7?$DynamicVectorClass@PAVVoxelAnimClass@@@@6B@": 7974068,
@@ -5497,8 +5497,8 @@
     "?unknown_difficulty_a40b1c@@3HA": 10750748,
     "?unknown_session_difficulty_a3d2d8@@3HA": 10736344,
     "?unknown_session_fog_a3d33f@@3_NA": 10736447,
-    "?Unknown_00535910@@YAPAUUnknown535910@@XZ": 5462288,
-    "?Unknown_00535BF0@Unknown535910@@QAEXXZ": 5463024,
+    "?Unknown_00535910@@YAPAUUnknownLoadProgress@@XZ": 5462288,
+    "?Unknown_00535BF0@UnknownLoadProgress@@QAEXXZ": 5463024,
     "?Init_Theater_00519e70@@YIXH@Z": 5348976,
     "?unknown_a40770@@3HA": 10749808,
     "?Unknown_0051a330@@YI_NH@Z": 5350192,
@@ -5567,12 +5567,12 @@
     "?Detach@KamikazeTrackerClass@@QAEXPAVAbstractClass@@@Z": 5445760,
     "?Random_Side@SessionClass@@QAEHXZ": 6760768,
     "?unknown_b2a7fc@@3HA": 11708412,
-    "?Unknown_005359E0@Unknown535910@@QAEXXZ": 5462496,
-    "?Unknown_00535B90@Unknown535910@@QAEXXZ": 5462928,
-    "?Unknown_00535AB0@Unknown535910@@QAE?AUPoint2D@@XZ": 5462704,
-    "?Unknown_00535B60@Unknown535910@@QAEHXZ": 5462880,
+    "?Unknown_005359E0@UnknownLoadProgress@@QAEXXZ": 5462496,
+    "?Unknown_00535B90@UnknownLoadProgress@@QAEXXZ": 5462928,
+    "?Unknown_00535AB0@UnknownLoadProgress@@QAE?AUPoint2D@@XZ": 5462704,
+    "?Unknown_00535B60@UnknownLoadProgress@@QAEHXZ": 5462880,
     "?Unknown_00672440@SessionClass@@QAEXXZ": 6759488,
-    "?Unknown_00536E20@Unknown535910@@QAEXXZ": 5467680,
+    "?Unknown_Release_00536E20@UnknownLoadProgress@@QAEXXZ": 5467680,
     "?VisibleRect@@3VRect@@A": 8623680,
     "??1LineTrail@@QAE@XZ": 5477520,
     "?Unknown_0042E150@BeaconManagerClass@@QAEXXZ": 4383056,
@@ -6732,7 +6732,7 @@
     "?Render@ObjectClass@@UAE_NPAVRect@@_N1@Z": 6108384,
     "?Clear@MonoClass@@QAEXXZ": 5890704,
     "?Init@NullModemClass@@QAEHHHPADHDHH@Z": 6095072,
-    "?Unknown_00536E00@Unknown535910@@QAEXPAVSurface@@@Z": 5467648,
+    "?Unknown_Copy_Surface_00536E00@UnknownLoadProgress@@QAEXPAVSurface@@@Z": 5467648,
     "??1IUnknownPtr@@QAE@XZ": 6915040,
     "?Clear@?$WolArrayList@VWstring@@@@QAEXXZ": 7758272,
     "?Draw_Fogged_Objects@Tactical@@QAEXABVRect@@@Z": 6987600,
@@ -7190,10 +7190,10 @@
     "??_7?$VectorClass@PAVPhoneEntryClass@@@@6B@": 8033796,
     "??_7?$VectorClass@PAUUnknownGlobalPacket@@@@6B@": 8033764,
     "??_7?$VectorClass@PAVMultiMission@@@@6B@": 8033732,
-    "?unknown_load_progress_a6e7c4@@3PAUUnknown535910@@A": 10938308,
-    "??_7Unknown535910@@6B@": 8017052,
+    "?unknown_load_progress_a6e7c4@@3PAUUnknownLoadProgress@@A": 10938308,
+    "??_7UnknownLoadProgress@@6B@": 8017052,
     "?Unknown_00535970@@YAXXZ": 5462384,
-    "??0Unknown535910@@QAE@XZ": 5462432,
+    "??0UnknownLoadProgress@@QAE@XZ": 5462432,
     "?ScreenWidths@@3PAHA": 8052072,
     "?Unknown_006f24a0@@YIXH@Z": 7283872,
     "?Unknown_006f25c0@@YIXXZ": 7284160,
@@ -7204,7 +7204,7 @@
     "?Unknown_005feb60@@YIXPAVRect@@PAVSurface@@HH@Z": 6286176,
     "?Unknown_00536d30@@YIXPBGPAVSurface@@ABVRect@@GH@Z": 5467440,
     "?unknown_draw_text_5fe020@OwnerDraw@@YIHPAVSurface@@PBGPAURECT@@PAVBitFontClass@@KHHHHH@Z": 6283296,
-    "?Message_00536ea0@Unknown535910@@UAE_NHPAX@Z": 5467808,
+    "?Message_00536ea0@UnknownLoadProgress@@UAE_NHPAX@Z": 5467808,
     "_?all@?1??Faction_Name@@YIABVWstring@@H@Z@4V2@A": 11709728,
     "_?unknown@?3??Faction_Name@@YIABVWstring@@H@Z@4V2@A": 11709704,
     "_?as@?1??Faction_Code@@YIABVWstring@@H@Z@4V2@A": 11709748,
@@ -7997,7 +7997,11 @@
     "??_E?$VectorClass@PAVLightSourceClass@@@@UAEPAXI@Z": 5472864,
     "??_E?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEPAXI@Z": 5473024,
     "??_E?$VectorClass@PAVFileEntryClass@@@@UAEPAXI@Z": 5492016,
-    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160
+    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952,
+    "?Get_Count@PlanningBranchClass@@QBEHXZ": 6359344,
+    "?Get_Time@GameTimeClass@@QBEHXZ": 5046352,
+    "?Get_Cell@ObjectClass@@UBE?AVCell@@XZ": 4305696
   },
   "regions": [
     {
@@ -8044,7 +8048,7 @@
         }
       ],
       "source": "src/recovered/coopcamp.cpp",
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source_order": 243168,
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -8095,7 +8099,7 @@
         }
       ],
       "source": "src/recovered/coopcamp.cpp",
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source_order": 243169,
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -8138,7 +8142,7 @@
         }
       ],
       "source": "src/recovered/coopcamp.cpp",
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source_order": 243170,
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8180,7 +8184,7 @@
           "resolved": 3095475
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -8206,7 +8210,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "8f80daf1d0cf709be0dd005b8c07e867fc77f664f1c7c92dec671fbb2ad12d62",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8232,7 +8236,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "c442ec128ec7d56719a199df9e217bae407db6f9c4bc1ca82969b46ceb1f932e",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8258,7 +8262,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "57e4653c0e6895308fb526ce5a2c1d378fa1b657f1dd05968ceb8e98edcb8723",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8284,7 +8288,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "7bbae94c1550b7a4a6127d24e8bc2bfca49bb15bc6c8782db0a2e289e02d58b1",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
@@ -8310,7 +8314,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "88cd9461d822856e3267d826f261db78852ef6891e85c88f7dca70278ee3d322",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8336,7 +8340,7 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "5a9774be17d1ad510e0e850a8e8eda732d12621447c35aead857a6550f77c5dd",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -8362,7 +8366,7 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "cc754ad1e591edd09a7f29be43c3ffcb35ff1d94a43f8ab1910878a18181bb2c",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -8388,7 +8392,7 @@
       "full_extent_bytes": 64,
       "full_extent_sha256": "07ab3c6535210f5176015bbbbc3793877f054f6fd32d530dbfdeb79de9a73861",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -8431,7 +8435,7 @@
           "resolved": 8721776
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -8457,7 +8461,7 @@
       "full_extent_bytes": 80,
       "full_extent_sha256": "e2edae307e812e9cc1f0f89c387884ac829fdf13762471b60656f882283f9421",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -8500,7 +8504,7 @@
           "resolved": 2539594
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -8543,7 +8547,7 @@
           "resolved": 2539341
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -8738,7 +8742,7 @@
           "resolved": 4294410852
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -9053,7 +9057,7 @@
           "resolved": 4294576196
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -9554,7 +9558,7 @@
         {
           "offset": 928,
           "kind": 20,
-          "symbol": "??0UnknownDescriptionList_00490E00@@QAE@XZ",
+          "symbol": "??0CoopCampListClass@@QAE@XZ",
           "target": 4785424,
           "addend": 0,
           "resolved": 5692
@@ -9610,7 +9614,7 @@
         {
           "offset": 1101,
           "kind": 20,
-          "symbol": "??1UnknownDescriptionList_00490E00@@QAE@XZ",
+          "symbol": "??1CoopCampListClass@@QAE@XZ",
           "target": 4787360,
           "addend": 0,
           "resolved": 7455
@@ -9666,7 +9670,7 @@
         {
           "offset": 1203,
           "kind": 20,
-          "symbol": "??1UnknownDescriptionList_00490E00@@QAE@XZ",
+          "symbol": "??1CoopCampListClass@@QAE@XZ",
           "target": 4787360,
           "addend": 0,
           "resolved": 7353
@@ -9720,7 +9724,7 @@
           "resolved": 4294574882
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -9757,7 +9761,7 @@
         {
           "offset": 66,
           "kind": 20,
-          "symbol": "??0UnknownDescriptionList_00490E00@@QAE@XZ",
+          "symbol": "??0CoopCampListClass@@QAE@XZ",
           "target": 4785424,
           "addend": 0,
           "resolved": 5258
@@ -9837,7 +9841,7 @@
         {
           "offset": 282,
           "kind": 20,
-          "symbol": "??1UnknownDescriptionList_00490E00@@QAE@XZ",
+          "symbol": "??1CoopCampListClass@@QAE@XZ",
           "target": 4787360,
           "addend": 0,
           "resolved": 6978
@@ -10397,7 +10401,7 @@
         {
           "offset": 1325,
           "kind": 20,
-          "symbol": "??1UnknownDescriptionList_00490E00@@QAE@XZ",
+          "symbol": "??1CoopCampListClass@@QAE@XZ",
           "target": 4787360,
           "addend": 0,
           "resolved": 5935
@@ -10411,7 +10415,7 @@
           "resolved": 3090372
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -10448,7 +10452,7 @@
         {
           "offset": 27,
           "kind": 20,
-          "symbol": "??0UnknownDescriptionList_00490E00@@QAE@XZ",
+          "symbol": "??0CoopCampListClass@@QAE@XZ",
           "target": 4785424,
           "addend": 0,
           "resolved": 3937
@@ -10512,7 +10516,7 @@
         {
           "offset": 353,
           "kind": 20,
-          "symbol": "??1UnknownDescriptionList_00490E00@@QAE@XZ",
+          "symbol": "??1CoopCampListClass@@QAE@XZ",
           "target": 4787360,
           "addend": 0,
           "resolved": 5547
@@ -10528,7 +10532,7 @@
         {
           "offset": 384,
           "kind": 20,
-          "symbol": "??1UnknownDescriptionList_00490E00@@QAE@XZ",
+          "symbol": "??1CoopCampListClass@@QAE@XZ",
           "target": 4787360,
           "addend": 0,
           "resolved": 5516
@@ -10542,7 +10546,7 @@
           "resolved": 3089953
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -10568,7 +10572,7 @@
       "full_extent_bytes": 160,
       "full_extent_sha256": "c20de3612b0abb328ba8e53c533ec86e814018f9c6464ab0a9eeecfe25a1eae7",
       "relocations": [],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
@@ -10579,7 +10583,7 @@
     {
       "entry": 4782032,
       "method": "0048f7d0",
-      "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVUnknownDescriptionList_00490E00@@HV?$DynamicVectorClass@H@@PBD2@Z",
+      "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVCoopCampListClass@@HV?$DynamicVectorClass@H@@PBD2@Z",
       "symbol_prefix": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@",
       "options": [
         "/O2",
@@ -10699,7 +10703,7 @@
           "resolved": 3088910
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11014,7 +11018,7 @@
           "resolved": 4294571245
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11025,7 +11029,7 @@
     {
       "entry": 4784464,
       "method": "00490150",
-      "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVUnknownDescriptionList_00490E00@@@Z",
+      "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVCoopCampListClass@@@Z",
       "symbol_prefix": "?Send_Campaign_Options_00490150@CoopCampaignClass@@",
       "options": [
         "/O2",
@@ -11281,7 +11285,7 @@
           "resolved": 4294403170
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -11636,7 +11640,7 @@
           "resolved": 4294570517
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -11711,7 +11715,7 @@
           "resolved": 2537855
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11810,7 +11814,7 @@
           "resolved": 8720752
         }
       ],
-      "source_sha256": "13f6742672d1bfd17de616de90e0e542fc0fd05a00ddf9d931e7fa027e27f904",
+      "source_sha256": "979e465ccee375ef01a59b41d5035b07a01da8f7d89c7a11f5f783d6d6088d6b",
       "source": "src/recovered/coopcamp.cpp",
       "population": "population-2854",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

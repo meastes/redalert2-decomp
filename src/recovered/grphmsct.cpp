@@ -204,7 +204,7 @@ bool __fastcall VectorCursor_UnsignedInt_Boolean_Conversion_004e0690(int cursor_
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall VectorCursor_UnsignedInt_Scalar_Deleting_Destructor_004e06a0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
+//   FUN_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

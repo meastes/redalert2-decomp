@@ -2158,6 +2158,10 @@
    "address": "00465bf0"
   },
   {
+   "symbol": "??0CoopCampListClass@@QAE@XZ",
+   "address": "00490510"
+  },
+  {
    "symbol": "??0CoopCampaignClass@@QAE@PBG0@Z",
    "address": "0048e090"
   },
@@ -2196,10 +2200,6 @@
   {
    "symbol": "??0UnitClass@@QAE@PAVUnitTypeClass@@PAVHouseClass@@@Z",
    "address": "006fa400"
-  },
-  {
-   "symbol": "??0UnknownDescriptionList_00490E00@@QAE@XZ",
-   "address": "00490510"
   },
   {
    "symbol": "??0WideString@@QAE@ABV0@@Z",
@@ -2438,7 +2438,7 @@
    "address": "005256e0"
   },
   {
-   "symbol": "?Copy_Names@UnknownDescriptionList_00490E00@@QAE_NAAV?$DynamicVectorClass@PAG@@@Z",
+   "symbol": "?Copy_Names@CoopCampListClass@@QAE_NAAV?$DynamicVectorClass@PAG@@@Z",
    "address": "00490e00"
   },
   {
@@ -2518,7 +2518,7 @@
    "address": "0066e2b0"
   },
   {
-   "symbol": "?Get_Count_00490C90@UnknownDescriptionList_00490E00@@QBE_NPAH@Z",
+   "symbol": "?Get_Count@CoopCampListClass@@QBE_NPAH@Z",
    "address": "00490c90"
   },
   {
@@ -2566,7 +2566,7 @@
    "address": "0048e710"
   },
   {
-   "symbol": "?Get_Record_00490C50@UnknownDescriptionList_00490E00@@QAE_NHPAPAUUnknownDescriptionRecord_00490E00@@@Z",
+   "symbol": "?Get_Record@CoopCampListClass@@QAE_NHPAPAUCoopCampEntry@@@Z",
    "address": "00490c50"
   },
   {
@@ -2790,7 +2790,7 @@
    "address": "005c67a0"
   },
   {
-   "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVUnknownDescriptionList_00490E00@@@Z",
+   "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVCoopCampListClass@@@Z",
    "address": "00490150"
   },
   {
@@ -2806,7 +2806,7 @@
    "address": "00523480"
   },
   {
-   "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVUnknownDescriptionList_00490E00@@HV?$DynamicVectorClass@H@@PBD2@Z",
+   "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVCoopCampListClass@@HV?$DynamicVectorClass@H@@PBD2@Z",
    "address": "0048f7d0"
   },
   {

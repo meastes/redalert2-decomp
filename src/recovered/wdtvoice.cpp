@@ -650,7 +650,7 @@ void __fastcall unknown_dynamic_vector_init_00732c30(unsigned int *vector_words)
 // Ghidra prototype: undefined4 * __thiscall WorldDominationTour_Voices_Anim_Scalar_Deleting_Destructor_00732c80(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
 //   MSAnim_Destructor_005ac690 -> src/recovered/classes/MSAnim/005ac690.cpp
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
+//   FUN_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

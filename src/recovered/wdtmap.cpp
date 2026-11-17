@@ -623,7 +623,7 @@ void __fastcall unknown_write_wdtmap_ini_72a880(Wstring const &prefix, Wstring c
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_0072af00(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
 //   MSAnim_dtor_005ac690 -> src/recovered/classes/MSAnim/005ac690.cpp
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -658,7 +658,7 @@ unsigned int * Owner_0072af00::scalar_deleting_destructor_0072af00(unsigned char
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 __thiscall scalar_deleting_destructor_0072af30(undefined4 param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -731,7 +731,7 @@ bool __fastcall unknown_in_range_0072b0b0(int self)
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_0072b0c0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -766,7 +766,7 @@ unsigned int * Owner_0072b0c0::scalar_deleting_destructor_0072b0c0(unsigned char
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_0072b0f0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

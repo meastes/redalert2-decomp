@@ -740,7 +740,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
         Debug_Printf("Scen->IsRandom = false\n");
     }
 
-    Unknown535910 *loader = 0;
+    UnknownLoadProgress *loader = 0;
     if (!Debug_Map) {
         int players = 1;
         if (unknown_game_mode_a3d298 != 0 && unknown_game_mode_a3d298 != 5) {
@@ -852,7 +852,7 @@ bool __fastcall Unknown_0065c7d0(char const *name)
     ProgressScreen.End();
     if (loader != 0) {
         ProgressScreen.Set_Listener(0);
-        loader->Unknown_00536E20();
+        loader->Unknown_Release_00536E20();
     }
     return true;
 }

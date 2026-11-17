@@ -33,7 +33,7 @@ void __fastcall Load_Title_Page(void const *image, bool present);
 
 class Surface;
 class ConvertClass;
-struct Unknown535910;
+struct UnknownLoadProgress;
 typedef struct HWND__ *HWND;
 // A country's flag image (0x004D1120; "usai.pcx" ... "rusi.pcx", -2 "rani.pcx"
 // for a random country, -3 "obsi.pcx" for an observer; null if none).
@@ -44,7 +44,7 @@ public:
     ProgressScreenClass();                                      // 0x0061ED00
     ~ProgressScreenClass();                                     // 0x0061ED50
 
-    virtual void Set_Listener(Unknown535910 *listener);         // 0x006203E0 slot 0
+    virtual void Set_Listener(UnknownLoadProgress *listener);         // 0x006203E0 slot 0
 
     void Init(double total, char count, HWND window);           // 0x0061ED80
     void End();                                    // 0x0061EDF0
@@ -92,7 +92,7 @@ public:
     // Adds to a player's progress (percent of the total) and redraws as Set_Progress does.
     void Add_Progress(int index, double value, Point2D point);  // 0x006202C0
 
-    Unknown535910 *Listener;            // +0x04 told the percent before and after each change
+    UnknownLoadProgress *Listener;            // +0x04 told the percent before and after each change
     double Progress[8];                 // +0x08
     double Total;                       // +0x48
     wchar_t const *Name;                // +0x50 the name shown for a single player

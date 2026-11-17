@@ -149,7 +149,7 @@ unsigned char  unknown_slot_005aa770(void)
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_005aa780(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -189,7 +189,7 @@ unsigned int Leaf_5aa800::get(unsigned int a1) { return ((Target_5aa800*)(this))
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 __thiscall scalar_deleting_destructor_005aa810(undefined4 param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

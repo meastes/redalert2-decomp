@@ -6,7 +6,7 @@
 // Ghidra prototype: undefined4 * __thiscall scalar_deleting_destructor_00728c30(undefined4 *self,byte flags)
 // Callees with accepted source:
 //   ReferenceCounted_destructor_00639710 -> src/recovered/classes/ReferenceCounted/00639710.cpp
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

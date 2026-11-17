@@ -5,7 +5,7 @@
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall MultiplayerManBattle_Scalar_Deleting_Destructor_005a7500(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
+//   FUN_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

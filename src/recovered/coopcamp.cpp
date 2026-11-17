@@ -344,9 +344,9 @@ bool CoopCampaignClass::Load_Saved_Campaign_0048eb30()
     Score[0]=ini.Get_Int(section,campaign_key_Score1_007d4f7c,0);
     Score[1]=ini.Get_Int(section,campaign_key_Score2_007d4f74,0);
     Time=ini.Get_Int(section,campaign_key_Time_007d4f6c,0);
-    UnknownDescriptionList_00490E00 *campaigns=new UnknownDescriptionList_00490E00;
+    CoopCampListClass *campaigns=new CoopCampListClass;
     if(CampaignType>=0 && CampaignType<campaigns->Count) {
-        UnknownDescriptionRecord_00490E00 const &record=campaigns->Entries[CampaignType];
+        CoopCampEntry const &record=campaigns->Entries[CampaignType];
         MapCount=(signed char)record.MapCount;
         MapNames=new char *[(signed char)record.MapCount];
         for(int i=0;i<MapCount;++i) {
@@ -390,9 +390,9 @@ void Prepare_Campaign_Save_File(FileClass &file);
 bool CoopCampaignClass::Save_Campaign_0048f040()
 {
     if(Initialized && FirstName[0] && SecondName[0]) {
-    UnknownDescriptionList_00490E00 *campaigns=new UnknownDescriptionList_00490E00;
-    UnknownDescriptionRecord_00490E00 *record;
-    if(!campaigns->Get_Record_00490C50(CampaignType,&record)) {
+    CoopCampListClass *campaigns=new CoopCampListClass;
+    CoopCampEntry *record;
+    if(!campaigns->Get_Record(CampaignType,&record)) {
         delete campaigns;
         return false;
     }
@@ -448,9 +448,9 @@ bool CoopCampaignClass::Save_Campaign_0048f040()
 extern "C" char *__cdecl strncpy(char *destination, char const *source, unsigned int count);
 bool CoopCampaignClass::Load_Campaign_0048f590(int index)
 {
-    UnknownDescriptionList_00490E00 *campaigns=new UnknownDescriptionList_00490E00;
+    CoopCampListClass *campaigns=new CoopCampListClass;
     if(index>=0 && index<campaigns->Count) {
-        UnknownDescriptionRecord_00490E00 *record=&campaigns->Entries[index];
+        CoopCampEntry *record=&campaigns->Entries[index];
         Initialized=true;
         CurrentMap=-1;
         Kills[0]=0;
@@ -510,10 +510,10 @@ bool CoopCampaignClass::Add_Score_0048f730(int index, int time, MPlayerScoreType
 
 extern "C" char *__cdecl strncpy(char *destination, char const *source, unsigned int count);
 extern char const unknown_set_campaign_log_007d4ff8[];
-bool CoopCampaignClass::Set_Campaign_Info_0048f7d0(UnknownDescriptionList_00490E00 const &campaigns, int index, DynamicVectorClass<int> choices, char const *second_name, char const *first_name)
+bool CoopCampaignClass::Set_Campaign_Info_0048f7d0(CoopCampListClass const &campaigns, int index, DynamicVectorClass<int> choices, char const *second_name, char const *first_name)
 {
     if(index>=0 && index<campaigns.Count) {
-        UnknownDescriptionRecord_00490E00 const *record=&campaigns.Entries[index];
+        CoopCampEntry const *record=&campaigns.Entries[index];
         CurrentMap=-1;
         Kills[0]=0;
         Kills[1]=0;
@@ -662,11 +662,11 @@ extern char const campaign_options_comma_007ce9c0[];
 extern char const campaign_map_choice_format_007cfa6c[];
 extern char const campaign_sending_log_007d5030[];
 extern char const campaign_sent_log_007d5024[];
-bool CoopCampaignClass::Send_Campaign_Options_00490150(UnknownDescriptionList_00490E00 &campaigns)
+bool CoopCampaignClass::Send_Campaign_Options_00490150(CoopCampListClass &campaigns)
 {
     if(!Initialized) return false;
-    UnknownDescriptionRecord_00490E00 *record;
-    if(!campaigns.Get_Record_00490C50(CampaignType,&record)) return false;
+    CoopCampEntry *record;
+    if(!campaigns.Get_Record(CampaignType,&record)) return false;
     char message[400];
     sprintf(message,campaign_options_format_007d5068,CampaignType,CurrentMap,Time,
             Kills[0],Built[0],Lost[0],Score[0],Kills[1],Built[1],Lost[1],Score[1]);

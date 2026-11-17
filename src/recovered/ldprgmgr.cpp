@@ -19,7 +19,7 @@
 #include "shared/win32_api.hpp"
 
 
-// Unknown535910 0x005359E0/0x00535AB0 read the three areas as Rects.
+// UnknownLoadProgress 0x005359E0/0x00535AB0 read the three areas as Rects.
 // Header-static dynamic initializers of the unit at 0x00535720: the shape_file.hpp empty rect and the
 // shared/unknown_geometry.hpp constants (0x00535720-0x00535901); the other
 // drafts of this plan are emitted by these includes.
@@ -73,13 +73,13 @@
 // by HeaderStatics_empty_rect_init_00535720.cpp; no source of its own.
 
 
-// Unknown535910 *Unknown_00535910() -- 0x00535910
+// UnknownLoadProgress *Unknown_00535910() -- 0x00535910
 // Makes the loading progress object once and returns it.
 
-Unknown535910 *Unknown_00535910()
+UnknownLoadProgress *Unknown_00535910()
 {
     if (unknown_load_progress_a6e7c4 == 0) {
-        unknown_load_progress_a6e7c4 = new Unknown535910;
+        unknown_load_progress_a6e7c4 = new UnknownLoadProgress;
     }
     return unknown_load_progress_a6e7c4;
 }
@@ -91,16 +91,16 @@ Unknown535910 *Unknown_00535910()
 void Unknown_00535970()
 {
     if (unknown_load_progress_a6e7c4 != 0) {
-        unknown_load_progress_a6e7c4->Unknown_00536E20();
+        unknown_load_progress_a6e7c4->Unknown_Release_00536E20();
         delete unknown_load_progress_a6e7c4;
     }
     unknown_load_progress_a6e7c4 = 0;
 }
 
 
-// Unknown535910::Unknown535910() -- 0x005359A0
+// UnknownLoadProgress::UnknownLoadProgress() -- 0x005359A0
 
-Unknown535910::Unknown535910()
+UnknownLoadProgress::UnknownLoadProgress()
 {
     LoadMix = 0;
     unknown_38 = 0;
@@ -122,13 +122,13 @@ Unknown535910::Unknown535910()
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// void Unknown535910::Unknown_005359E0() -- 0x005359E0
+// void UnknownLoadProgress::Unknown_005359E0() -- 0x005359E0
 // Places the loading screen's three areas by the screen size: in a campaign
 // the title bar (+0x08), picture (+0x18) and text bar (+0x28) stacked and
 // centred; otherwise only the picture, centred.
 // from ra2-decomp 0x00552B10 (LoadProgressManager::Compute_Rects, src/ldprgmgr.cpp)
 
-void Unknown535910::Unknown_005359E0()
+void UnknownLoadProgress::Unknown_005359E0()
 {
     int render_width = VideoModeWidth;
     bool low_res = render_width == 640;
@@ -159,14 +159,14 @@ void Unknown535910::Unknown_005359E0()
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
-// Point2D Unknown535910::Unknown_00535AB0() -- 0x00535AB0
+// Point2D UnknownLoadProgress::Unknown_00535AB0() -- 0x00535AB0
 // The loading screen's text position: in a campaign inside the text bar,
 // otherwise offset from the picture's corner, both by the screen size.
 // from ra2-decomp 0x00552BE0 (LoadProgressManager::Text_Origin, src/ldprgmgr.cpp)
 
 Point2D __fastcall Unknown_Point_Copy_006F1AE0(Point2D const *source);
 
-Point2D Unknown535910::Unknown_00535AB0()
+Point2D UnknownLoadProgress::Unknown_00535AB0()
 {
     Point2D p;
     if (unknown_game_mode_a3d298 == 0) {
@@ -191,10 +191,10 @@ Point2D Unknown535910::Unknown_00535AB0()
 }
 
 
-// int Unknown535910::Unknown_00535B60() -- 0x00535B60
+// int UnknownLoadProgress::Unknown_00535B60() -- 0x00535B60
 // The name width (-1 in a campaign).
 
-int Unknown535910::Unknown_00535B60()
+int UnknownLoadProgress::Unknown_00535B60()
 {
     int width = -1;
     if (unknown_game_mode_a3d298 != 0) {
@@ -204,10 +204,10 @@ int Unknown535910::Unknown_00535B60()
 }
 
 
-// void Unknown535910::Unknown_00535B90() -- 0x00535B90
+// void UnknownLoadProgress::Unknown_00535B90() -- 0x00535B90
 // Opens LOAD.MIX once and loads the loading-screen art.
 
-void Unknown535910::Unknown_00535B90()
+void UnknownLoadProgress::Unknown_00535B90()
 {
     if (LoadMix == 0) {
         LoadMix = new MixFileClass("LOAD.MIX", &FastKey);
@@ -294,9 +294,9 @@ void __fastcall Unknown_00536d30(wchar_t const *text, Surface *surface, Rect con
     OwnerDraw::unknown_draw_text_5fe020(surface, text, &rect, BitFont, rgb.Red | (rgb.Green << 8) | (rgb.Blue << 16), flags, 12, 0, 0, 0);
 }
 
-// Not exact (RA2_NON_MATCHING): Unknown535910::Unknown_00535BF0 at 0x00535BF0, best score 56.00, 2026-11-13; differs: 1180 instructions in the original, 1195 in the draft (shape 89.09)
+// Not exact (RA2_NON_MATCHING): UnknownLoadProgress::Unknown_00535BF0 at 0x00535BF0, best score 56.00, 2026-11-13; differs: 1180 instructions in the original, 1195 in the draft (shape 89.09)
 #ifdef RA2_NON_MATCHING
-// void Unknown535910::Unknown_00535BF0() -- 0x00535BF0 (draws the loading screen)
+// void UnknownLoadProgress::Unknown_00535BF0() -- 0x00535BF0 (draws the loading screen)
 #include "shared/surface.hpp"
 #include "shared/string_table.hpp"
 #include "shared/progress_screen.hpp"
@@ -508,7 +508,7 @@ inline int Scheme_Pixel(ColorScheme *scheme)
     return Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
 }
 
-void Unknown535910::Unknown_00535BF0()
+void UnknownLoadProgress::Unknown_00535BF0()
 {
     wchar_t text[2048];
     wchar_t unit_name[128];

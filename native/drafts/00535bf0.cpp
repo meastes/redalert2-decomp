@@ -45,7 +45,7 @@
 // @ref ?unknown_name_7df394@@3PBDB=007df394
 // @ref ?unknown_suffix_7df398@@3PBDB=007df398
 // @ref ?unknown_suffix_7df39c@@3PBDB=007df39c
-// void Unknown535910::Unknown_00535BF0() -- 0x00535BF0 (draws the loading screen)
+// void UnknownLoadProgress::Unknown_00535BF0() -- 0x00535BF0 (draws the loading screen)
 #include "shared/unknown_globals.hpp"
 #include "shared/rect.hpp"
 #include "shared/surface.hpp"
@@ -264,7 +264,7 @@ inline int Scheme_Pixel(ColorScheme *scheme)
     return Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
 }
 
-void Unknown535910::Unknown_00535BF0()
+void UnknownLoadProgress::Unknown_00535BF0()
 {
     wchar_t text[2048];
     wchar_t unit_name[128];

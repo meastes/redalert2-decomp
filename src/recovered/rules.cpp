@@ -3196,7 +3196,7 @@ void __fastcall Read_Art_INI()
 // Referenced from 17 sites (unconditional call).
 // Ghidra prototype: void __fastcall VectorClass_Int_Destructor_00652810(undefined4 *param_1)
 // Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
+//   FUN_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -3417,7 +3417,7 @@ void* Leaf_654520::get(unsigned int flags) { unsigned int pointer = *(unsigned i
 // Referenced from 8 sites (computed call, data, unconditional call).
 // Ghidra prototype: void __fastcall Clear_006532b0(int param_1)
 // Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
+//   FUN_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

@@ -47,7 +47,7 @@ struct WinData {
     ~WinData();
 #endif
     // Frees list_34 and replaces it with copies of source's nodes (0x00600460; inline below).
-    void Copy_List_600460(UnknownNode_006003d0 const *source);
+    void Copy_List_600460(TextNode const *source);
     // Copies other except the owned pointers: text_28 and list_34 are deep copies, unknown_3c stays (0x006005C0).
     WinData &operator=(WinData const &other);
 #ifdef RA2_OWNERDRAW_CHECK_FIELDS
@@ -104,7 +104,7 @@ struct WinData {
 #else
     char unknown_2c[0x34 - 0x2c];
 #endif
-    UnknownNode_006003d0 *list_34;  // +0x34 owned node list (shared/unknown_node_list.hpp; 0x00600460 copies one)
+    TextNode *list_34;  // +0x34 owned node list (shared/unknown_node_list.hpp; 0x00600460 copies one)
     int unknown_38;
     WideString *unknown_3c;     // +0x3C created by the constructor 0x006002F0, kept by operator=
     int unknown_40;
@@ -331,12 +331,12 @@ LRESULT __stdcall unknown_hotkey_proc_5fc330(HWND window, UINT message, WPARAM w
 LRESULT __stdcall unknown_progress_proc_5faff0(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 // 0x00600460 when not inlined (0x006005C0 inlines it).
 #ifndef RA2_OWNERDRAW_COPY_LIST_SOURCE
-inline void WinData::Copy_List_600460(UnknownNode_006003d0 const *source)
+inline void WinData::Copy_List_600460(TextNode const *source)
 {
     while (list_34) {
-        UnknownNode_006003d0 *node = list_34;
-        UnknownNode_006003d0 *previous = 0;
-        UnknownNode_006003d0 *current;
+        TextNode *node = list_34;
+        TextNode *previous = 0;
+        TextNode *current;
         for (current = list_34; current; current = current->Next) {
             if (node == current) {
                 break;
@@ -353,7 +353,7 @@ inline void WinData::Copy_List_600460(UnknownNode_006003d0 const *source)
         }
     }
     for (; source; source = source->Next) {
-        UnknownNode_006003d0 *node = (UnknownNode_006003d0 *)operator new(wcslen(source->Data) * 2 + 0x12);
+        TextNode *node = (TextNode *)operator new(wcslen(source->Data) * 2 + 0x12);
         if (node) {
             node->Data = node->Text;
             node->Next = list_34;

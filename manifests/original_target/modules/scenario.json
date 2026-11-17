@@ -4816,7 +4816,7 @@
    "address": "0061efa0"
   },
   {
-   "symbol": "?Set_Listener@ProgressScreenClass@@UAEXPAUUnknown535910@@@Z",
+   "symbol": "?Set_Listener@ProgressScreenClass@@UAEXPAUUnknownLoadProgress@@@Z",
    "address": "006203e0"
   },
   {
@@ -4972,32 +4972,28 @@
    "address": "0051a330"
   },
   {
-   "symbol": "?Unknown_00535910@@YAPAUUnknown535910@@XZ",
+   "symbol": "?Unknown_00535910@@YAPAUUnknownLoadProgress@@XZ",
    "address": "00535910"
   },
   {
-   "symbol": "?Unknown_005359E0@Unknown535910@@QAEXXZ",
+   "symbol": "?Unknown_005359E0@UnknownLoadProgress@@QAEXXZ",
    "address": "005359e0"
   },
   {
-   "symbol": "?Unknown_00535AB0@Unknown535910@@QAE?AUPoint2D@@XZ",
+   "symbol": "?Unknown_00535AB0@UnknownLoadProgress@@QAE?AUPoint2D@@XZ",
    "address": "00535ab0"
   },
   {
-   "symbol": "?Unknown_00535B60@Unknown535910@@QAEHXZ",
+   "symbol": "?Unknown_00535B60@UnknownLoadProgress@@QAEHXZ",
    "address": "00535b60"
   },
   {
-   "symbol": "?Unknown_00535B90@Unknown535910@@QAEXXZ",
+   "symbol": "?Unknown_00535B90@UnknownLoadProgress@@QAEXXZ",
    "address": "00535b90"
   },
   {
-   "symbol": "?Unknown_00535BF0@Unknown535910@@QAEXXZ",
+   "symbol": "?Unknown_00535BF0@UnknownLoadProgress@@QAEXXZ",
    "address": "00535bf0"
-  },
-  {
-   "symbol": "?Unknown_00536E20@Unknown535910@@QAEXXZ",
-   "address": "00536e20"
   },
   {
    "symbol": "?Unknown_005685F0@MapClass@@QAEXXZ",
@@ -5082,6 +5078,10 @@
   {
    "symbol": "?Unknown_Get_Loading_Bar_Drawer_6f2490@@YAPAXXZ",
    "address": "006f2490"
+  },
+  {
+   "symbol": "?Unknown_Release_00536E20@UnknownLoadProgress@@QAEXXZ",
+   "address": "00536e20"
   },
   {
    "symbol": "?UnlockInputFrame@@3HA",

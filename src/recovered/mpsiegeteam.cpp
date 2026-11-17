@@ -105,7 +105,7 @@ void __fastcall MultiplayerSiegeAttackerTeam_Destructor_005abeb0(unsigned int *o
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall MultiplayerSiegeDefenderTeam_Scalar_Deleting_Destructor_005abec0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
+//   FUN_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -140,7 +140,7 @@ unsigned int * Owner_005abec0::MultiplayerSiegeDefenderTeam_Scalar_Deleting_Dest
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall MultiplayerSiegeAttackerTeam_Scalar_Deleting_Destructor_005abef0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/00781d3b.cpp
+//   FUN_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

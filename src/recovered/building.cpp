@@ -5362,7 +5362,7 @@ void BuildingClass::Factory_AI_0044b480()
                             delete static_cast<FactoryClass *>(Factory);
                             Factory = 0;
                         } else {
-                            House->unknown_4ea7f0(static_cast<FactoryClass *>(Factory)->Get_Object());
+                            House->Production_Begun(static_cast<FactoryClass *>(Factory)->Get_Object());
                             static_cast<FactoryClass *>(Factory)->Start_Production_004B9670(false);
                         }
                     }

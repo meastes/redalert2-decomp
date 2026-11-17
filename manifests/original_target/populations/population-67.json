@@ -4,8 +4,8 @@
     "id": "population-67",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "315a5078e02743a2b166ecee04106629de85acda61018e71c93130c7d2a63505",
-    "historical_acceptance_sha256": "b78b3ad4e08c7596cb0b2821832f1f0be2aa2357cee7ed5d59ce05b62feda58d"
+    "historical_population_sha256": "4ba4d52c3e1c43fa7de473fd8642a4a0c67e517b80410aa975b103aff4e1359e",
+    "historical_acceptance_sha256": "ee5f41fae9335c6def87b37b5dffa648b0eb9f5943a90d670037986c9e239b93"
   },
   "references": {
     "?Audio_Event_Channel_End_00405a00@": 4217344,
@@ -1723,7 +1723,7 @@
     "?Get@WolServerArray@@QAE_NAAPAUServer@WOL@@H@Z": 7757408,
     "?Set_Char@WideString@@QAE_NGI@Z": 7801168,
     "?Is_Narrow@WideString@@QBE_NXZ": 7803008,
-    "?unknown_add_node@UnknownNodeList_006003d0@@QAEPAUUnknownNode_006003d0@@H@Z": 6292432,
+    "?unknown_add_node@NodeList@@QAEPAUTextNode@@H@Z": 6292432,
     "?Release@WideString@@QAEXXZ": 7799600,
     "__imp__GetWindowRect@8": 7971736,
     "??0WinModemClass@@QAE@XZ": 7553312,
@@ -2021,7 +2021,7 @@
     "?Narrow_Copy_00771280@@YI?AVWstring@@ABVWideString@@@Z": 7803520,
     "?Draw_It@OverlayTypeClass@@UAEXPBUPoint2D@@PBVRect@@H@Z": 6146272,
     "?Draw_It@SmudgeTypeClass@@UAEXPBUPoint2D@@PBVRect@@HHPBVCell@@@Z": 6848720,
-    "?Remove_Node_00600410@UnknownNodeList_006003d0@@QAEXPAUUnknownNode_006003d0@@@Z": 6292496,
+    "?Remove_Node@NodeList@@QAEXPAUTextNode@@@Z": 6292496,
     "_?list@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@H@Z@4PAUUnknownStaticCell@@A": 10824836,
     "?Get_Savefile_Info@@YI_NPBDAAVSaveVersionInfo@@@Z": 6651808,
     "?Release@LocomotionClass@@W3AGKXZ": 4979904,
@@ -2307,7 +2307,7 @@
     "?unknown_progress_proc_5faff0@OwnerDraw@@YGJPAUHWND__@@IIJ@Z": 6270960,
     "?Add@?$QueueClass@VEventClass@@$0IA@@@QAEHABVEventClass@@@Z": 5104000,
     "?unknown_5eac30@@YIXXZ": 6204464,
-    "?Copy_List_600460@WinData@OwnerDraw@@QAEXPBUUnknownNode_006003d0@@@Z": 6292576,
+    "?Copy_List_600460@WinData@OwnerDraw@@QAEXPBUTextNode@@@Z": 6292576,
     "?Key_Hash@?$WolDictionary@IUWinData@OwnerDraw@@@@QBEIABI@Z": 6299680,
     "?unknown_copy_6006e0@WinData@OwnerDraw@@QAEAAU12@ABU12@@Z": 6293216,
     "??0DialogControl@OwnerDraw@@QAE@XZ": 6295600,
@@ -2523,7 +2523,7 @@
         }
       ],
       "source_sha256": "722ed65d4abf1d1f7069a0fed236c047972baa5a70da467976fd78cf97418692",
-      "source": "src/recovered/005b69b0.cpp",
+      "source": "src/recovered/mssfx/MSSfx_Constructor.cpp",
       "source_order": 8053,
       "population": "population-67",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

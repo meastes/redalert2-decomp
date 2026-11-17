@@ -10,7 +10,7 @@
 // @ref ??_7?$VectorClass@H@@6B@=0079d9d4
 // @ref ??_7?$VectorClass@PAUNodeNameType@@@@6B@=007a6884
 // @ref ??1MultiplayerGameMode@@UAE@XZ=005b6e20
-// @ref ??1UnknownDescriptionList_00490E00@@QAE@XZ=00490ca0
+// @ref ??1CoopCampListClass@@QAE@XZ=00490ca0
 // @ref ??1CoopCampaignClass@@QAE@XZ=0048e150
 #include "shared/multiplayer_game_mode.hpp"
 #include "shared/coop_campaign.hpp"

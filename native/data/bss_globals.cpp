@@ -492,7 +492,7 @@ alignas(16) unsigned char ra2_bss_0399[16] __asm__("_unknown_tileset_a6e0fc");  
 alignas(16) unsigned char ra2_bss_0400[16] __asm__("_IsometricTileTypeClass_CellShadowShapes");  // 0x00A6E38C IsometricTileTypeClass_CellShadowShapes
 __asm__(".globl _unknown_block_a6e38c\n.set _unknown_block_a6e38c, _IsometricTileTypeClass_CellShadowShapes\n");  // same address: unknown_block_a6e38c
 alignas(16) unsigned char ra2_bss_0401[160] __asm__("_TileSetLookupCount");  // 0x00A6E390 TileSetLookupCount (?TileSetLookupCount@@3HA)
-alignas(16) unsigned char ra2_bss_0402[16] __asm__("_unknown_load_progress_a6e7c4");  // 0x00A6E7C4 unknown_load_progress_a6e7c4 (?unknown_load_progress_a6e7c4@@3PAUUnknown535910@@A)
+alignas(16) unsigned char ra2_bss_0402[16] __asm__("_unknown_load_progress_a6e7c4");  // 0x00A6E7C4 unknown_load_progress_a6e7c4 (?unknown_load_progress_a6e7c4@@3PAUUnknownLoadProgress@@A)
 alignas(16) unsigned char ra2_bss_0403[16] __asm__("_COMReferences_00a6eb14");  // 0x00A6EB14 COMReferences_00a6eb14
 __asm__(".globl _COMRefCount\n.set _COMRefCount, _COMReferences_00a6eb14\n");  // same address: COMRefCount
 alignas(16) unsigned char ra2_bss_0404[16] __asm__("_FramesThisSecond");  // 0x00A6EB18 FramesThisSecond (?FramesThisSecond@@3IA)

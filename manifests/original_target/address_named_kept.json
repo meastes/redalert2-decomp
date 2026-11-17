@@ -120,6 +120,402 @@
   {
    "file": "src/recovered/unowned/OwnerDraw_Control_Test_005e6860.cpp",
    "reason": "no caller in the image; byte-identical copies in one unit (owner ruling 4, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/unowned/UnknownListOwner_Release_00600350.cpp",
+   "reason": "the original OwnerDraw::WinData destructor (mischa85 names.csv); the placeholder class UnknownListOwner_00600350 carries an address until the nested OwnerDraw::WinData layout lands"
+  },
+  {
+   "file": "src/recovered/unowned/UnknownListOwner_Release_00602510.cpp",
+   "reason": "a deleting release of an OwnerDraw::WinData-like owner (no evidenced name); its placeholder class carries an address until the nested OwnerDraw layout lands"
+  },
+  {
+   "file": "src/recovered/unowned/UnknownToggle_Set_Unknown_68_0072a720.cpp",
+   "reason": "member of the original nested class WorldDominationTour::Map (Set_Back_Down, mischa85 names.csv); the placeholder class UnknownToggle_72a6d0 carries an address until that nested layout lands"
+  },
+  {
+   "file": "src/recovered/unowned/UnknownToggle_Set_Unknown_74_0072a6d0.cpp",
+   "reason": "member of the original nested class WorldDominationTour::Map (Set_Back_Hot, mischa85 names.csv); the placeholder class UnknownToggle_72a6d0 carries an address until that nested layout lands"
+  },
+  {
+   "file": "src/recovered/unowned/unknown_add_ref_member_0069ed20.cpp",
+   "reason": "a _com_ptr_t<ILocomotion>::_AddRef instance (ra2-decomp twin); the placeholder class carries an address until the template instance is spelled"
+  },
+  {
+   "file": "src/recovered/unowned/unknown_list_get_00768260.cpp",
+   "reason": "an ArrayList<int>::get instance (ra2-decomp twin); the placeholder class carries an address until the template instance is spelled"
+  },
+  {
+   "file": "src/recovered/unowned/unknown_load_block_a3d2b0_00672880.cpp",
+   "reason": "GameOptionsType::Load (mischa85 names.csv); kept under the placeholder UnknownBlock_a3d2b0: the port's save layer keys object layouts by class name and the shared lobby.hpp GameOptionsType has no fields yet (renaming broke ctest native-original-save-write)"
+  },
+  {
+   "file": "src/recovered/unowned/unknown_save_block_a3d2b0_00672830.cpp",
+   "reason": "GameOptionsType::Save (mischa85 names.csv); kept under the placeholder UnknownBlock_a3d2b0 for the same reason as its Load"
+  },
+  {
+   "file": "src/recovered/unowned/unknown_set_name_007320b0.cpp",
+   "reason": "member of the original nested class WorldDominationTour::Voices::Group (Set_Name, mischa85 names.csv); the placeholder class UnknownNamed_007320b0 carries an address until that nested layout lands"
+  },
+  {
+   "file": "src/recovered/classes/RawFileClass/00401940.cpp",
+   "reason": "view of ?File_Name@RawFileClass@@UBEPBDXZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_SubzoneConnectionStruct/0040b230.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_TechnoClass_ptr/0040bbc0.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$DynamicVectorClass@PAVTechnoClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/0040bc60.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/classes/LayerClass/0040cb00.cpp",
+   "reason": "view of ?unknown_slot9@LayerClass@@UAEXXZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_ObjectClass_ptr/0040ce20.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/DisplayClass/0040d120.cpp",
+   "reason": "view of ?unknown_slot43@DisplayClass@@UAEXXZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/classes/MouseClass/0040d150.cpp",
+   "reason": "view of ?unknown_slot40@MouseClass@@UAEHXZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/0040d1d0.cpp",
+   "reason": "view of ??1?$CDTimerClass@VFrameTimerClass@@@@QAE@XZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_ScriptClass_ptr/0040e8d0.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$VectorClass@PAVScriptClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_ScriptClass_ptr/0040e920.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$DynamicVectorClass@PAVScriptClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_VoxelAnimClass_ptr/0040ef80.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$VectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_VoxelAnimClass_ptr/0040efd0.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$DynamicVectorClass@PAVVoxelAnimClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/0040f020.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/0040f040.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/0040f050.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/0040f060.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_WeaponTypeClass_ptr/0040fc30.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$VectorClass@PAVWeaponTypeClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_WeaponTypeClass_ptr/0040fc80.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/0040fef0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/00411400.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/coordinates/CopyDiv256PairAsSignedWords_00413770.cpp",
+   "reason": "view of ?As_Cell@CoordStruct@@QBE?AVCell@@XZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/00423f70.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_0042b620.cpp",
+   "reason": "constructor view of ??0?$VectorClass@G@@QAE@IPBG@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_0042ce60.cpp",
+   "reason": "constructor view of ??0?$DynamicVectorClass@VCell@@@@QAE@IPBV1@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_0042d430.cpp",
+   "reason": "constructor view of ??0?$VectorClass@VBaseNodeClass@@@@QAE@IPBVBaseNodeClass@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/00434920.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_CaptureManagerClass_ptr/004686d0.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$VectorClass@PAVCaptureManagerClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_CaptureManagerClass_ptr/00468720.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$DynamicVectorClass@PAVCaptureManagerClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/00468f30.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/0047d130.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/00480b00.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/00496d10.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/004981a0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_EgoClass_ptr/004b45f0.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$VectorClass@PAVEgoClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_EgoClass_ptr/004b4640.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$DynamicVectorClass@PAVEgoClass@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/004b8960.cpp",
+   "reason": "view of __purecall (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/004bbee0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/coordinates/CopyDiv256PairAsSignedWords_004c2040.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_004c2520.cpp",
+   "reason": "constructor view of ??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@IPBUDrawRecord@FoggedObjectClass@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/address_offsets/GetGuardedScaledOffset_004f6ea0.cpp",
+   "reason": "view of ?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z: its template argument (a nested class or enum) is not spelled in the shared headers yet"
+  },
+  {
+   "file": "src/recovered/address_offsets/GetGuardedScaledOffset_004f82a0.cpp",
+   "reason": "view of ?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z: its template argument (a nested class or enum) is not spelled in the shared headers yet"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_004f8ae0.cpp",
+   "reason": "constructor view of ??0?$VectorClass@UAngerStruct@@@@QAE@IPBUAngerStruct@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_004f8d20.cpp",
+   "reason": "constructor view of ??0?$VectorClass@_N@@QAE@IPB_N@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/00522540.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/00522e80.cpp",
+   "reason": "view of ?Get_Input_Record_Mode@@YAHXZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/address_offsets/GetGuardedScaledOffset_0056ad10.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/word_sequences/EqualWordSequences_0056bc90.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/word_sequences/FindFirstWordIndexGuarded_0056bdb0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/word_sequences/FindFirstWordIndex_0056bec0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/classes/MapSeedClass/005794d0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/address_offsets/GetGuardedScaledOffset_0058de90.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/word_storage/InitializeWordStorage_0058e170.cpp",
+   "reason": "constructor view of ??0?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAE@IPBQAVBuildingTypeClass@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/0058eff0.cpp",
+   "reason": "view of ?Add@?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAE_NABQAVBuildingTypeClass@@@Z (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_0058f260.cpp",
+   "reason": "constructor view of ??0?$VectorClass@VRect@@@@QAE@IPBVRect@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_0059ffe0.cpp",
+   "reason": "constructor view of ??0?$DynamicVectorClass@U?$HashObject@II@@@@QAE@IPBU?$HashObject@II@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/005b5dc0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_HWND___ptr/005b6870.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$VectorClass@PAUHWND__@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_HWND___ptr/005b68c0.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$DynamicVectorClass@PAUHWND__@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/VectorClass_AcceleratorTracker/005b6910.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$VectorClass@UAcceleratorTracker@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/classes/DynamicVectorClass_AcceleratorTracker/005b6960.cpp",
+   "reason": "compiler-generated scalar deleting destructor (??_E?$DynamicVectorClass@UAcceleratorTracker@@@@UAEPAXI@Z): nothing to define in a file of its own; needs a join into the unit that emits the vtable (lane N5 precedent)"
+  },
+  {
+   "file": "src/recovered/005cd880.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/005eac10.cpp",
+   "reason": "view of ?Unknown_005EAC10@@YIXXZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/005eac20.cpp",
+   "reason": "view of ?Unknown_005EAC20@@YAXXZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_006051f0.cpp",
+   "reason": "constructor view of ??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/0060d0f0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_00621fa0.cpp",
+   "reason": "constructor view of ??0?$DynamicVectorClass@VRGBClass@@@@QAE@IPBVRGBClass@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/address_offsets/GetGuardedScaledOffset_00673900.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/word_sequences/EqualWordSequences_00673a40.cpp",
+   "reason": "view of ??8?$VectorClass@W4DiskID@@@@UBE_NABV0@@Z: its template argument (a nested class or enum) is not spelled in the shared headers yet"
+  },
+  {
+   "file": "src/recovered/word_sequences/FindFirstWordIndexGuarded_00673b60.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/word_sequences/FindFirstWordIndex_00673c70.cpp",
+   "reason": "view of ?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHABW4DiskID@@@Z: its template argument (a nested class or enum) is not spelled in the shared headers yet"
+  },
+  {
+   "file": "src/recovered/word_sequences/FindFirstWordIndex_006742a0.cpp",
+   "reason": "two RTTI-identical VectorClass<MultiMission *> / DynamicVectorClass<MultiMission *> instances (vtables 0x007A7388 netshare, 0x007A95C4 session) spelled alike; no file name tells them apart (owner ruling 3, 2026-11-16)"
+  },
+  {
+   "file": "src/recovered/classes/DisplayClass/006824f0.cpp",
+   "reason": "constructor view of ??0DisplayClass@@QAE@ABVNoInitClass@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/containers/ConstructArrayStorageExtension_00682580.cpp",
+   "reason": "constructor view of ??0?$DynamicVectorClass@UPoint2D@@@@QAE@IPBUPoint2D@@@Z: to be rebound as an explicit constructor specialization (lane N5 views batch 3 method), not done yet"
+  },
+  {
+   "file": "src/recovered/00698740.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/006a17b0.cpp",
+   "reason": "view of ?Unknown_006A17B0@TabClass@@QAEXXZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/006bc230.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/address_offsets/GetGuardedScaledOffset_006c03a0.cpp",
+   "reason": "view of ?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z: its template argument (a nested class or enum) is not spelled in the shared headers yet"
+  },
+  {
+   "file": "src/recovered/address_offsets/GetGuardedScaledOffset_006c0640.cpp",
+   "reason": "view of ?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z: its template argument (a nested class or enum) is not spelled in the shared headers yet"
+  },
+  {
+   "file": "src/recovered/006cd6e0.cpp",
+   "reason": "view of ?unknown_slot195@TechnoClass@@UAE_NXZ (the name the reference tables bind here): a member file in its joined view population would emit code the audit refuses; needs its unit compile (a join)"
+  },
+  {
+   "file": "src/recovered/006eb2c0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/00734100.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/00736210.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/address_offsets/GetGuardedScaledOffset_0076bb30.cpp",
+   "reason": "view of ?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAVWinsockBufferType@WinsockInterfaceClass@@@Z: its template argument (a nested class or enum) is not spelled in the shared headers yet"
+  },
+  {
+   "file": "src/recovered/word_sequences/FindFirstWordIndex_0076bd90.cpp",
+   "reason": "view of ?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAVWinsockBufferType@WinsockInterfaceClass@@@Z: its template argument (a nested class or enum) is not spelled in the shared headers yet"
+  },
+  {
+   "file": "src/recovered/007701b0.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/0078215d.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/classes/exception/0078b1e7.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/0078f3f5.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
+  },
+  {
+   "file": "src/recovered/00793976.cpp",
+   "reason": "seed view with no evidenced member name: no reference table binds a real name at this address and no unit compile emits it"
   }
  ]
 }

@@ -188,10 +188,10 @@ WolDictionary<HWND, WNDPROC> unknown_window_table_a73400(unknown_hash_window_5de
 // registers the atexit destructor (0x005DEE00, the next draft), which inlines the destructor with each
 // record's destructor, clear() and shrink(). TibSun's ODWinData (Dictionary<HWND, WinData>).
 
-inline void UnknownNodeList_006003d0::Remove_Node_00600410(UnknownNode_006003d0 *node)
+inline void NodeList::Remove_Node(TextNode *node)
 {
-    UnknownNode_006003d0 *previous = 0;
-    UnknownNode_006003d0 *current = Head;
+    TextNode *previous = 0;
+    TextNode *current = Head;
     while (current != 0) {
         if (node == current) {
             break;
@@ -201,10 +201,10 @@ inline void UnknownNodeList_006003d0::Remove_Node_00600410(UnknownNode_006003d0 
     }
     if (current != 0) {
         if (previous != 0) {
-            UnknownNode_006003d0 *next = current->Next;
+            TextNode *next = current->Next;
             previous->Next = next;
         } else {
-            UnknownNode_006003d0 *next = current->Next;
+            TextNode *next = current->Next;
             Head = next;
         }
         operator delete(current);
@@ -217,7 +217,7 @@ inline WinData::~WinData()
 {
     Set_Wide_Text_600510(0);
     while (list_34) {
-        ((UnknownNodeList_006003d0 *)this)->Remove_Node_00600410(list_34);
+        ((NodeList *)this)->Remove_Node(list_34);
     }
     delete unknown_3c;
 }
@@ -7848,12 +7848,12 @@ WinData::WinData()
 // Copies the owner-draw record list; full original162code+14NOP independently verified.
 
 namespace OwnerDraw {
-inline void WinData::Copy_List_600460(UnknownNode_006003d0 const *source)
+inline void WinData::Copy_List_600460(TextNode const *source)
 {
     while (list_34) {
-        UnknownNode_006003d0 *node = list_34;
-        UnknownNode_006003d0 *previous = 0;
-        UnknownNode_006003d0 *current;
+        TextNode *node = list_34;
+        TextNode *previous = 0;
+        TextNode *current;
         for (current = list_34; current; current = current->Next) {
             if (node == current) {
                 break;
@@ -7870,7 +7870,7 @@ inline void WinData::Copy_List_600460(UnknownNode_006003d0 const *source)
         }
     }
     for (; source; source = source->Next) {
-        UnknownNode_006003d0 *node = (UnknownNode_006003d0 *)operator new(wcslen(source->Data) * 2 + 0x12);
+        TextNode *node = (TextNode *)operator new(wcslen(source->Data) * 2 + 0x12);
         if (node) {
             node->Data = node->Text;
             node->Next = list_34;
@@ -7906,7 +7906,7 @@ namespace OwnerDraw {
 
 inline WinData &WinData::operator=(WinData const &other)
 {
-    UnknownNode_006003d0 *list = list_34;
+    TextNode *list = list_34;
     wchar_t *text = text_28;
     WideString *kept_3c = unknown_3c;
     if (this == &other) {
@@ -7933,7 +7933,7 @@ namespace OwnerDraw {
 
 WinData &WinData::unknown_copy_6006e0(WinData const &other)
 {
-    UnknownNode_006003d0 *list = list_34;
+    TextNode *list = list_34;
     wchar_t *text = text_28;
     WideString *kept_3c = unknown_3c;
     memcpy(this, &other, sizeof(WinData));
@@ -7950,11 +7950,11 @@ WinData &WinData::unknown_copy_6006e0(WinData const &other)
         wcscpy(text_28, source);
     }
     {
-        UnknownNode_006003d0 const *source_list=other.list_34;
+        TextNode const *source_list=other.list_34;
     while (list_34) {
-        UnknownNode_006003d0 *node = list_34;
-        UnknownNode_006003d0 *previous = 0;
-        UnknownNode_006003d0 *current;
+        TextNode *node = list_34;
+        TextNode *previous = 0;
+        TextNode *current;
         for (current = list_34; current; current = current->Next) {
             if (node == current) {
                 break;
@@ -7971,7 +7971,7 @@ WinData &WinData::unknown_copy_6006e0(WinData const &other)
         }
     }
     for (; source_list; source_list = source_list->Next) {
-        UnknownNode_006003d0 *node = (UnknownNode_006003d0 *)operator new(wcslen(source_list->Data) * 2 + 0x12);
+        TextNode *node = (TextNode *)operator new(wcslen(source_list->Data) * 2 + 0x12);
         if (node) {
             node->Data = node->Text;
             node->Next = list_34;
@@ -8235,7 +8235,7 @@ bool __fastcall unknown_control_test_601260(HWND window)
 // Referenced from 3 sites (unconditional call).
 // Ghidra prototype: void __thiscall Set_Wide_Text_00600510(int param_1,short *param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //   Wide_Length_00783605 -> src/recovered/00783605.cpp
 //
 // Types and names are Ghidra placeholders;
@@ -8297,7 +8297,7 @@ unsigned int Leaf_601410::get() { unsigned int r0 = ((Call_601410_0*)(((unsigned
 // Referenced from 4 sites (unconditional call).
 // Ghidra prototype: undefined4 __thiscall scalar_deleting_destructor_00601430(undefined4 param_1,byte param_2)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

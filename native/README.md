@@ -300,7 +300,7 @@ through a native binkw32 without a decoder (`port/src/bink.cpp`: BinkOpen reads
 the header from a file or the mix file handle, frames advance one per decode
 pass, nothing is drawn), so every movie plays out at once with no picture. Native
 causes on the way: the loading screen kept its message texts in ints
-(Unknown535910 +0x38/+0x3C), ILocomotion's by-value matrix slots
+(UnknownLoadProgress +0x38/+0x3C), ILocomotion's by-value matrix slots
 (RA2_LOCOMOTION_COM_VALUE_TYPES, AircraftClass::Draw) pass the hidden return
 pointer explicitly natively (arm64 returns large structs through x8), and the
 bridge trigger's Damage_High_Bridge 0x559000 and ShipLocomotionClass::Draw_Matrix

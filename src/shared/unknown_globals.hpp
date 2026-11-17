@@ -449,16 +449,16 @@ class Rect;
 typedef unsigned short wchar_t;
 #define _WCHAR_T_DEFINED
 #endif
-struct Unknown535910 {
-    Unknown535910();                        // 0x005359A0
+struct UnknownLoadProgress {
+    UnknownLoadProgress();                        // 0x005359A0
     virtual bool Message_00536ea0(int message, void *data);      // slot 0
     void Unknown_00535BF0();
     void Unknown_005359E0();                // 0x005359E0 (places itself by the screen size)
     Point2D Unknown_00535AB0();             // 0x00535AB0 (the loading screen's text position)
     int Unknown_00535B60();                 // 0x00535B60 (the name width: -1 in a campaign)
     void Unknown_00535B90();                // 0x00535B90 (opens LOAD.MIX)
-    void Unknown_00536E00(Surface *surface);    // 0x00536E00 (copies its surface onto another)
-    void Unknown_00536E20();                // 0x00536E20 (frees its buffers and surfaces)
+    void Unknown_Copy_Surface_00536E00(Surface *surface);    // 0x00536E00 (copies its surface onto another)
+    void Unknown_Release_00536E20();                // 0x00536E20 (frees its buffers and surfaces)
 
     MixFileClass *LoadMix;     // +0x04 LOAD.MIX
 #ifdef RA2_LOAD_PROGRESS_RECTS
@@ -485,9 +485,9 @@ struct Unknown535910 {
     int unknown_58;                         // +0x58
     Surface *unknown_5c;                    // +0x5C (0x20 bytes, constructed by 0x0049ED90)
 };
-Unknown535910 *Unknown_00535910();
+UnknownLoadProgress *Unknown_00535910();
 void Unknown_00535970();                    // 0x00535970 (releases and deletes the object)
-extern Unknown535910 *unknown_load_progress_a6e7c4;   // 0x00A6E7C4
+extern UnknownLoadProgress *unknown_load_progress_a6e7c4;   // 0x00A6E7C4
 // The loading-screen sizes: widths 640, 800, 1024 (0x007ADD68) and heights
 // 480, 600, 768 (0x007ADD74).
 extern int ScreenWidths[3];

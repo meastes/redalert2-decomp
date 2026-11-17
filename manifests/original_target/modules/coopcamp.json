@@ -121,7 +121,7 @@
    "padding_bytes": 13
   },
   {
-   "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVUnknownDescriptionList_00490E00@@HV?$DynamicVectorClass@H@@PBD2@Z",
+   "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVCoopCampListClass@@HV?$DynamicVectorClass@H@@PBD2@Z",
    "entry": "0048f7d0",
    "body_bytes": 873,
    "padding_bytes": 7
@@ -157,7 +157,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVUnknownDescriptionList_00490E00@@@Z",
+   "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVCoopCampListClass@@@Z",
    "entry": "00490150",
    "body_bytes": 848,
    "padding_bytes": 0
@@ -625,7 +625,7 @@
   },
   {
    "site": "005a38d0",
-   "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVUnknownDescriptionList_00490E00@@@Z",
+   "symbol": "?Send_Campaign_Options_00490150@CoopCampaignClass@@QAE_NAAVCoopCampListClass@@@Z",
    "target": "00490150",
    "function_entry": true
   },
@@ -637,7 +637,7 @@
   },
   {
    "site": "005a3500",
-   "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVUnknownDescriptionList_00490E00@@HV?$DynamicVectorClass@H@@PBD2@Z",
+   "symbol": "?Set_Campaign_Info_0048f7d0@CoopCampaignClass@@QAE_NABVCoopCampListClass@@HV?$DynamicVectorClass@H@@PBD2@Z",
    "target": "0048f7d0",
    "function_entry": true
   },
@@ -1002,7 +1002,7 @@
    "address": "00468fd0"
   },
   {
-   "symbol": "??0UnknownDescriptionList_00490E00@@QAE@XZ",
+   "symbol": "??0CoopCampListClass@@QAE@XZ",
    "address": "00490510"
   },
   {
@@ -1014,12 +1014,12 @@
    "address": "0042f350"
   },
   {
-   "symbol": "??1INIClass@@UAE@XZ",
-   "address": "0050b8d0"
+   "symbol": "??1CoopCampListClass@@QAE@XZ",
+   "address": "00490ca0"
   },
   {
-   "symbol": "??1UnknownDescriptionList_00490E00@@QAE@XZ",
-   "address": "00490ca0"
+   "symbol": "??1INIClass@@UAE@XZ",
+   "address": "0050b8d0"
   },
   {
    "symbol": "??2@YAPAXI@Z",

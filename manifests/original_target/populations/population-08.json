@@ -4,8 +4,8 @@
     "id": "population-08",
     "inventory_sha256": "a6e83d732959f1475aeb0c48bcfb990e9e75a3c13374eabebd19ad7f943521f1",
     "gaps_sha256": "d61d0da403b90e2409ab0cfa93e9dac80f1c06f0588399193bd138173c322f82",
-    "historical_population_sha256": "1c3ba311d0c5e2c08fb4f44d272f95b1b9e22c013823b74c4a66cf84da95cb8d",
-    "historical_acceptance_sha256": "e0b825cb545d610018df0741a9c1d55093b3568f14cabdd0525bcb1101201d01"
+    "historical_population_sha256": "84e091d2ce43c1cfafb2dea95d96b61dcc230458c16cd48f90e48de74208f489",
+    "historical_acceptance_sha256": "cbcad380b4979535fbb017404cb869e254310dca079d9049bfad1c54497be562"
   },
   "references": {
     "_opaque_code_address_40bc80_40bcb0": 4242608,
@@ -538,7 +538,7 @@
     "_atexit": 7874954,
     "__stricmp": 7872288,
     "??2@YAPAXI@Z": 7872535,
-    "_recover_735d70": 7560560,
+    "_unknown_init_globals_735d70": 7560560,
     "__waypoint_none_00ab6e88": 11234952,
     "__strncpy": 7873488,
     "___amsg_exit": 7887784,
@@ -779,14 +779,16 @@
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__real@8@bff6b6db6db6db6db800": 8026880,
-    "__purecall": 4950368
+    "__purecall": 4950368,
+    "_unknown_init_globals_5edf60": 6217568,
+    "_unknown_init_globals_63b590": 6534544
   },
   "regions": [
     {
       "entry": 6217568,
       "method": "5edf60",
-      "symbol": "_recover_5edf60",
-      "symbol_prefix": "_recover_5edf60",
+      "symbol": "_unknown_init_globals_5edf60",
+      "symbol_prefix": "_unknown_init_globals_5edf60",
       "options": [
         "/O1",
         "/Ob2",
@@ -872,8 +874,8 @@
           "resolved": 10959116
         }
       ],
-      "source": "src/recovered/005edf60.cpp",
-      "source_sha256": "d93c3cf7318f133fcbe6627d3cb67b780e879ce1d843a9e20551fb4995b2a330",
+      "source": "src/recovered/ownrdraw/unknown_init_globals.cpp",
+      "source_sha256": "592bfa511c8fefb6eba3a3764142c775aa1bf5dcab09fee28d227025692ac368",
       "source_order": 4213,
       "population": "population-08",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -882,8 +884,8 @@
     {
       "entry": 6534544,
       "method": "63b590",
-      "symbol": "_recover_63b590",
-      "symbol_prefix": "_recover_63b590",
+      "symbol": "_unknown_init_globals_63b590",
+      "symbol_prefix": "_unknown_init_globals_63b590",
       "options": [
         "/O2",
         "/Ob2",
@@ -913,8 +915,8 @@
           "resolved": 11233210
         }
       ],
-      "source": "src/recovered/0063b590.cpp",
-      "source_sha256": "b4a0a2055d73e610999c0338dbbad78021a4df53e79e5744a5669ccd7129f42f",
+      "source": "src/recovered/revent/unknown_init_globals.cpp",
+      "source_sha256": "0ff6c30fff9145bece451f4b3f0d94a0fd91b33555b5e10dd7c7b3abf40caa4a",
       "source_order": 4633,
       "population": "population-08",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
@@ -923,8 +925,8 @@
     {
       "entry": 7560560,
       "method": "735d70",
-      "symbol": "_recover_735d70",
-      "symbol_prefix": "_recover_735d70",
+      "symbol": "_unknown_init_globals_735d70",
+      "symbol_prefix": "_unknown_init_globals_735d70",
       "options": [
         "/O1",
         "/Ob2",
@@ -978,8 +980,8 @@
           "resolved": 314367
         }
       ],
-      "source": "src/recovered/00735d70.cpp",
-      "source_sha256": "61f6b1b952849cc1a3a15830faf2073707fc732b3d30e482e21ce0f57f5bef75",
+      "source": "src/recovered/windlg/unknown_init_globals.cpp",
+      "source_sha256": "71724f5d55c8a2e0fda069c0f0db21ce8a1c7836e26a4633c15a539f5891a79b",
       "source_order": 6536,
       "population": "population-08",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

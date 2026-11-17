@@ -636,9 +636,9 @@ void ProgressScreenClass::Clear_Window()
 }
 
 
-// void ProgressScreenClass::Set_Listener(Unknown535910 *listener) (0x006203E0; vtable slot 0)
+// void ProgressScreenClass::Set_Listener(UnknownLoadProgress *listener) (0x006203E0; vtable slot 0)
 
-void ProgressScreenClass::Set_Listener(Unknown535910 *listener)
+void ProgressScreenClass::Set_Listener(UnknownLoadProgress *listener)
 {
     Listener = listener;
 }

@@ -4,8 +4,8 @@
     "id": "population-3817",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "2e87b27389ff78f941e89c74b36caba69e98dae55e2c0ab399b44cdb7805d6d8",
-    "historical_acceptance_sha256": "19354eb7cabbf1c056336e02f0b76d0bf5723600db001068c8b880c0741940f4",
+    "historical_population_sha256": "8e8187a8c8e8586ffa55ff895221a08984cdf62ddad91877a92c568532332db5",
+    "historical_acceptance_sha256": "0bfa158c766ea771b13d1b1a7ca0b01fdfbbb7a7f10063f90596840736673d93",
     "separate_units": true
   },
   "references": {
@@ -314,7 +314,7 @@
     "?unknown_return_one_0054e8c0@": 5564608,
     "?SubzoneHash@": 5567040,
     "?unknown_is_kind_1_3_4_0056d5d0@": 5690832,
-    "?Unknown_0056d5f0@@YI_NH@Z": 5690864,
+    "?unknown_is_not_3_or_4_0056d5f0@@YI_NH@Z": 5690864,
     "?unknown_is_kind_3_4_0056d620@": 5690912,
     "?unknown_is_kind_3_4_0056d640@": 5690944,
     "?unknown_is_kind_3_4_0056d660@": 5690976,
@@ -4383,8 +4383,8 @@
     {
       "entry": 5690864,
       "method": "0056d5f0",
-      "symbol": "?Unknown_0056d5f0@@YI_NH@Z",
-      "symbol_prefix": "?Unknown_0056d5f0@@YI_NH@Z",
+      "symbol": "?unknown_is_not_3_or_4_0056d5f0@@YI_NH@Z",
+      "symbol_prefix": "?unknown_is_not_3_or_4_0056d5f0@@YI_NH@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -4397,13 +4397,13 @@
       "full_extent_bytes": 48,
       "full_extent_sha256": "748e7b8aefd608f0bbc43b405411a56f7d42576481a7208e916a6424728faa67",
       "relocations": [],
-      "source_sha256": "0aed8edc6e4df91a9ce91ed316bfe575f521b8bf0fc7063bcb38dd2d4a6ccbcd",
-      "source": "src/recovered/unowned/Unknown_0056d5f0.cpp",
+      "source_sha256": "5db27f00cd30985f1f5273606f8b85cf80642c4f0d186df48af16689f3e50db1",
+      "source": "src/recovered/mapgen/unknown_is_not_3_or_4.cpp",
       "population": "population-3817",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Unknown_0056d5f0",
+      "semantic_name": "unknown_is_not_3_or_4",
       "source_order": 170050
     }
   ]

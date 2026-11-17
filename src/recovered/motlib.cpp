@@ -843,7 +843,7 @@ void MonoClass::Refresh(int x, int y, int width, int height)
 // Referenced from 18 sites (unconditional call).
 // Ghidra prototype: void __fastcall MotionLibrary_dtor_0059eba0(int param_1)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
@@ -871,7 +871,7 @@ void __fastcall MotionLibrary_dtor_0059eba0(int self)
 // Referenced from 0 sites.
 // Ghidra prototype: void __fastcall Clear_0059edc0(int param_1)
 // Callees with accepted source:
-//   operator_delete_00781d3b -> src/recovered/00781d3b.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
