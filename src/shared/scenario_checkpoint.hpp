@@ -14,7 +14,7 @@ public:
  int Credits; // +34
  int TimerRemaining; // +38
  int Difficulty; // +3c
- unsigned short unknown_40;
+ unsigned short Stage;
 };
 extern EnvironmentClass Environment;   // 0x00855A90
 typedef char ScenarioCheckpoint_size_check[(sizeof(EnvironmentClass)==0x44)?1:-1];

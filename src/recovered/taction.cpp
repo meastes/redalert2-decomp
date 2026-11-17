@@ -862,7 +862,7 @@ bool TActionClass::unknown_make_enemy(HouseClass *house, ObjectClass *object, Tr
 // bool TActionClass::TAction_PREFERRED_TARGET(...) (0x006B0540)
 bool TActionClass::TAction_PREFERRED_TARGET(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (house != 0) house->unknown_541c = Data.Value;
+    if (house != 0) house->PreferredTarget = Data.Value;
     return true;
 }
 
@@ -1940,7 +1940,7 @@ bool TActionClass::TAction_CHEER(HouseClass *house, ObjectClass *object, Trigger
 // bool TActionClass::TAction_SET_AI_TRIGGER_TEAM_RATIO(...) (0x006B22F0)
 bool TActionClass::TAction_SET_AI_TRIGGER_TEAM_RATIO(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (house != 0) house->unknown_554c = Data.Value;
+    if (house != 0) house->RatioAITriggerTeam = Data.Value;
     return true;
 }
 
@@ -1948,7 +1948,7 @@ bool TActionClass::TAction_SET_AI_TRIGGER_TEAM_RATIO(HouseClass *house, ObjectCl
 // bool TActionClass::TAction_SET_TEAM_AIRCRAFT_RATIO(...) (0x006B2310)
 bool TActionClass::TAction_SET_TEAM_AIRCRAFT_RATIO(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (house != 0) house->unknown_5550 = Data.Value;
+    if (house != 0) house->RatioTeamAircraft = Data.Value;
     return true;
 }
 
@@ -1956,7 +1956,7 @@ bool TActionClass::TAction_SET_TEAM_AIRCRAFT_RATIO(HouseClass *house, ObjectClas
 // bool TActionClass::TAction_SET_TEAM_INFANTRY_RATIO(...) (0x006B2330)
 bool TActionClass::TAction_SET_TEAM_INFANTRY_RATIO(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (house != 0) house->unknown_5554 = Data.Value;
+    if (house != 0) house->RatioTeamInfantry = Data.Value;
     return true;
 }
 
@@ -1964,7 +1964,7 @@ bool TActionClass::TAction_SET_TEAM_INFANTRY_RATIO(HouseClass *house, ObjectClas
 // bool TActionClass::TAction_SET_TEAM_UNIT_RATIO(...) (0x006B2350)
 bool TActionClass::TAction_SET_TEAM_UNIT_RATIO(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (house != 0) house->unknown_5558 = Data.Value;
+    if (house != 0) house->RatioTeamUnits = Data.Value;
     return true;
 }
 

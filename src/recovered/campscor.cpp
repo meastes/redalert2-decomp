@@ -173,20 +173,20 @@ void CampaignScoreClass::unknown_465d10()
             int kills = 0;
             int j;
             for (j = 0; j < 20; j++) {
-                kills += house->unknown_5310[j];
+                kills += house->UnitsKilled[j];
             }
             for (j = 0; j < count; j++) {
-                kills += house->unknown_5364[j];
+                kills += house->BuildingsKilled[j];
             }
             unknown_session_a3d298.Scores[index].Kills = kills;
-            unknown_session_a3d298.Scores[index].Lost = house->unknown_5360 + house->unknown_53b4;
-            int built = house->unknown_5460.Sum();
-            built += house->unknown_5470.Sum();
-            built += house->unknown_5480.Sum();
-            built += house->unknown_5490.Sum();
-            unknown_session_a3d298.Scores[index].Built = house->unknown_5360 + house->unknown_53b4 + built;
-            if (house->unknown_5418 > 0) {
-                unknown_session_a3d298.Scores[index].Score += house->unknown_5418;
+            unknown_session_a3d298.Scores[index].Lost = house->UnitsLost + house->BuildingsLost;
+            int built = house->ABQuantity.Sum();
+            built += house->AUQuantity.Sum();
+            built += house->AIQuantity.Sum();
+            built += house->AAQuantity.Sum();
+            unknown_session_a3d298.Scores[index].Built = house->UnitsLost + house->BuildingsLost + built;
+            if (house->PointTotal > 0) {
+                unknown_session_a3d298.Scores[index].Score += house->PointTotal;
             }
             Debug_Printf("%s: %s\n Scheme: %d\n Lost = %d\n Kills = %d\n Built = %d\n Score = %d\n",
                 unknown_session_a3d298.Scores[index].Name,

@@ -62,11 +62,11 @@ public:
     NetNumType BridgeNet;               // +0xBA
     NetNodeType BridgeNode;             // +0xBE
     int IsBridge;                       // +0xC4
-    bool unknown_c8;                    // +0xC8
-    IPXAddressClass *unknown_cc;        // +0xCC
-    int *unknown_d0;                    // +0xD0
-    int unknown_d4;                     // +0xD4
-    int unknown_d8;                     // +0xD8
+    bool IsRouted;                    // +0xC8
+    IPXAddressClass *LastAddress;        // +0xCC
+    int *LastPacketID;                    // +0xD0
+    int MaxRXIndex;                     // +0xD4
+    int LastRXIndex;                     // +0xD8
 };
 
 #endif

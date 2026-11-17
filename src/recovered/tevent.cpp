@@ -242,34 +242,34 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
             if (!house->IsCivEvacuated) return false;
             break;
         case 0x20:
-            if (house->unknown_5460.unknown_func_491d10(Data) == 0) return false;
+            if (house->ABQuantity.unknown_func_491d10(Data) == 0) return false;
             *tripped = true;
             break;
         case 0x39:
-            if (house->unknown_5460.unknown_func_491d10(Data) != 0) return false;
+            if (house->ABQuantity.unknown_func_491d10(Data) != 0) return false;
             *tripped = true;
             break;
         case 0x13:
-            if (house->unknown_1b4 != Data) return false;
+            if (house->JustBuiltStructure != Data) return false;
             *tripped = true;
             break;
         case 0x14:
-            if (house->unknown_1bc != Data) return false;
+            if (house->JustBuiltUnit != Data) return false;
             *tripped = true;
             break;
         case 0x15:
-            if (house->unknown_1b8 != Data) return false;
+            if (house->JustBuiltInfantry != Data) return false;
             *tripped = true;
             break;
         case 0x16:
-            if (house->unknown_1c0 != Data) return false;
+            if (house->JustBuiltAircraft != Data) return false;
             *tripped = true;
             break;
         case 0x0F:
-            if (house->unknown_53b4 < Data) return false;
+            if (house->BuildingsLost < Data) return false;
             break;
         case 0x10:
-            if (house->unknown_5360 < Data) return false;
+            if (house->UnitsLost < Data) return false;
             break;
         default:
             break;
@@ -292,17 +292,17 @@ bool TEventClass::unknown_func_6e6050(int event, HouseClass *house, ObjectClass 
             if (house->CurBuildings > 0) return false;
             break;
         case 0x09:
-            if (house->unknown_228 > 0 || house->unknown_234 > 0) return false;
+            if (house->CurUnits > 0 || house->CurInfantry > 0) return false;
             break;
         case 0x37:
-            if (house->unknown_22c > 0) return false;
+            if (house->OwnedNavy > 0) return false;
             break;
         case 0x38:
-            if (house->unknown_228 - house->unknown_22c > 0) return false;
-            if (house->unknown_234 > 0) return false;
+            if (house->CurUnits - house->OwnedNavy > 0) return false;
+            if (house->CurInfantry > 0) return false;
             break;
         case 0x0B:
-            if (house->CurBuildings > 0 || house->unknown_228 > 0 || house->unknown_234 > 0) return false;
+            if (house->CurBuildings > 0 || house->CurUnits > 0 || house->CurInfantry > 0) return false;
             break;
         default:
             break;

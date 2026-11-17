@@ -4063,7 +4063,7 @@ int __fastcall unknown_owner_color(UnknownTechno_00610770 *techno);
 inline RGBClass Planning_Owner_House_Color(TechnoClass *techno)
 {
     int house = unknown_owner_color((UnknownTechno_00610770 *)techno);
-    return Houses[house]->unknown_55e9;
+    return Houses[house]->RemapColorRGB;
 }
 
 inline int Planning_House_Pixel(TechnoClass *techno, RGBClass const &target, int ratio)

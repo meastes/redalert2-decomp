@@ -115,14 +115,14 @@ IPXGlobalConnClass::IPXGlobalConnClass(int numsend, int numreceive, int maxlen, 
 {
     ProductID = product_id;
     IsBridge = 0;
-    unknown_c8 = true;
-    unknown_d4 = numreceive;
-    unknown_d0 = new int[unknown_d4];
-    unknown_cc = new IPXAddressClass[unknown_d4];
-    for (int i = 0; i < unknown_d4; i++) {
-        unknown_d0[i] = -1;
+    IsRouted = true;
+    MaxRXIndex = numreceive;
+    LastPacketID = new int[MaxRXIndex];
+    LastAddress = new IPXAddressClass[MaxRXIndex];
+    for (int i = 0; i < MaxRXIndex; i++) {
+        LastPacketID[i] = -1;
     }
-    unknown_d8 = 0;
+    LastRXIndex = 0;
 }
 
 
@@ -135,13 +135,13 @@ IPXGlobalConnClass::IPXGlobalConnClass(int numsend, int numreceive, int maxlen, 
 
 IPXGlobalConnClass::~IPXGlobalConnClass()
 {
-    if (unknown_d0) {
-        delete[] unknown_d0;
-        unknown_d0 = 0;
+    if (LastPacketID) {
+        delete[] LastPacketID;
+        LastPacketID = 0;
     }
-    if (unknown_cc) {
-        delete[] unknown_cc;
-        unknown_cc = 0;
+    if (LastAddress) {
+        delete[] LastAddress;
+        LastAddress = 0;
     }
 }
 
@@ -229,9 +229,9 @@ int IPXGlobalConnClass::Receive_Packet(void *buf, int buflen, IPXAddressClass *a
         IPXAddressClass received = *address;
         if (port != 0) received.Set_Port(port);
         int resend = 0;
-        for (int index = 0; index < unknown_d4; index++) {
+        for (int index = 0; index < MaxRXIndex; index++) {
             if ((unsigned int)index >= Queue->ReceiveTotal) break;
-            if (received == unknown_cc[index] && packet->PacketID == (unsigned long)unknown_d0[index]) {
+            if (received == LastAddress[index] && packet->PacketID == (unsigned long)LastPacketID[index]) {
                 resend = 1;
                 break;
             }
@@ -239,10 +239,10 @@ int IPXGlobalConnClass::Receive_Packet(void *buf, int buflen, IPXAddressClass *a
         Debug_Printf("Queueing new global PACKET_DATA_ACK packet\n");
         if (!resend) {
             if (Queue->Queue_Receive(buf, buflen, &received, sizeof(received))) {
-                unknown_cc[unknown_d8] = received;
-                unknown_d0[unknown_d8] = packet->PacketID;
-                unknown_d8++;
-                if (unknown_d8 >= unknown_d4) unknown_d8 = 0;
+                LastAddress[LastRXIndex] = received;
+                LastPacketID[LastRXIndex] = packet->PacketID;
+                LastRXIndex++;
+                if (LastRXIndex >= MaxRXIndex) LastRXIndex = 0;
             } else {
                 Debug_Printf("Failed to queue incoming packet. Ack not sent\n");
                 break;
@@ -468,9 +468,9 @@ void IPXGlobalConnClass::Discard_Old_Packets(unsigned long age)
             if ((long)(received + age) < TickCount.Time()) {
                 Debug_Printf("Stripping global packet due to age of %d seconds\n", (int)(TickCount.Time() - entry->ReceiveTime) / 60);
                 unsigned long id = ((CommHeaderType *)entry->Buffer)->PacketID;
-                for (int j = 0; j < unknown_d4; j++) {
-                    if (unknown_d0[j] == id) {
-                        unknown_d0[j] = -1;
+                for (int j = 0; j < MaxRXIndex; j++) {
+                    if (LastPacketID[j] == id) {
+                        LastPacketID[j] = -1;
                         break;
                     }
                 }
@@ -596,7 +596,7 @@ int IPXGlobalConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address,
 
     unsigned short port;
     CommHeaderType *header = (CommHeaderType *)buf;
-    if (unknown_game_mode_a3d298 == 4 && !flagged && unknown_flag_a3fba8 && unknown_c8) {
+    if (unknown_game_mode_a3d298 == 4 && !flagged && unknown_flag_a3fba8 && IsRouted) {
         if (header->unknown_03 == 0) {
             IPXAddressClass sender = dest;
             sender.Get_Address(net, node);
@@ -632,7 +632,7 @@ int IPXGlobalConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address,
     }
 
     if (PacketTransport) {
-        PacketTransport->WriteTo(buf, buflen, &dest, sizeof(dest), flagged, !unknown_c8, port);
+        PacketTransport->WriteTo(buf, buflen, &dest, sizeof(dest), flagged, !IsRouted, port);
     }
     return 1;
 }

@@ -62,7 +62,7 @@ DynamicVectorClass<EBolt *> unknown_EBolt_list_00853050;
 // Dynamic initializer (0x004B17B0, _$E) emitted by HeaderStatics_diagonal_init_004b1580.cpp; no source of its own.
 
 
-EBolt::EBolt() : Start(CoordStruct(0,0,0)),End(CoordStruct(0,0,0)),unknown_18(0),unknown_28(65536),AlternateColor(false) { unknown_1c=0; Owner=0; unknown_24=0; }
+EBolt::EBolt() : Start(CoordStruct(0,0,0)),End(CoordStruct(0,0,0)),unknown_18(0),unknown_28(65536),AlternateColor(false) { unknown_1c=0; Owner=0; WeaponSlot=0; }
 
 
 #include "shared/tactical.hpp"
@@ -264,7 +264,7 @@ void __fastcall EBolt::Update_All_004B2210()
  for(int i=unknown_EBolt_list_00853050.Count()-1;i>=0;--i) {
   EBolt *bolt=unknown_EBolt_list_00853050[i];
   if(bolt->Owner) {
-   CoordStruct coord=bolt->Owner->unknown_slot43(bolt->unknown_24);
+   CoordStruct coord=bolt->Owner->unknown_slot43(bolt->WeaponSlot);
    if(coord!=unknown_geometry_l) bolt->Start=coord;
   }
   bolt->Draw_004B2170();
@@ -298,7 +298,7 @@ void EBolt::Setup_004B2430(CoordStruct start,CoordStruct end,int value)
 
 CoordStruct EBolt::Owner_Coord_004B2510()
 {
- if(Owner) return Owner->unknown_slot43(unknown_24);
+ if(Owner) return Owner->unknown_slot43(WeaponSlot);
  return unknown_geometry_l;
 }
 
@@ -307,7 +307,7 @@ void EBolt::Attach_004B2580(TechnoClass *owner,int index)
 {
  if(owner && owner->Kind_Of()==1 && owner->IsActive && !owner->IsInLimbo) {
   Owner=static_cast<UnitClass *>(owner);
-  unknown_24=index;
+  WeaponSlot=index;
  }
 }
 

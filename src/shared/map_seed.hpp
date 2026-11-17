@@ -44,7 +44,7 @@ public:
     char const *Extension; // +08: SAV in base, SED in MapSeed
     wchar_t *Description; // +0C: points into MapSeed's inline buffer
     int unknown_10;
-    int unknown_14;
+    int Callback;
     int State; // +18: dialog result set by the command handlers (0x0053B200-0x0053B390)
     int unknown_1c;
     DynamicVectorClass<FileEntryClass *> Files; // +20, size18; RTTI confirms element type

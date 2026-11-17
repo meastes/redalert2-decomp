@@ -331,7 +331,7 @@ public:
     ParasiteClass *ParasiteImUsing;                 // +0x588 (owned; the parasite attached to this unit, hypothesis)
     CDTimerClass<FrameTimerClass> ParalysisTimer; // +0x58C
     bool IsMoveToSkipped;                           // +0x598
-    bool unknown_599;                           // +0x599
+    bool IsRotating;                           // +0x599
     bool IsUnloading;                           // +0x59A
     bool IsNavQueueLoop;                           // +0x59B
     bool IsScattering;                           // +0x59C

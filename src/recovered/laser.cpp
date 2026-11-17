@@ -83,7 +83,7 @@ LaserDrawClass::LaserDrawClass(CoordStruct start, CoordStruct end, int zadjust, 
                                float start_intensity, float end_intensity) :
     unknown_18(1),
     IsHouseColor(false),
-    unknown_1d(false),
+    IsSupported(false),
     Source(start),
     Target(end),
     ZAdjust(zadjust),
@@ -378,7 +378,7 @@ void LaserDrawClass::Draw_House_Color()
     RGBClass white(255,255,255);
     RGBClass glow_color;
     RGBClass core_color;
-    if (unknown_1d) {
+    if (IsSupported) {
         unsigned int red = InnerColor.Red * 2;
         unsigned int green = InnerColor.Green * 2;
         unsigned int blue = InnerColor.Blue * 2;
@@ -423,7 +423,7 @@ void LaserDrawClass::Draw_House_Color()
             LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start1, end1, pixel, start_z, end_z);
             LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start2, end2, pixel, start_z, end_z);
         }
-        if (unknown_1d && layer == 1) {
+        if (IsSupported && layer == 1) {
             glow_color = InnerColor;
         } else {
             unsigned int red = glow_color.Red >> 1;

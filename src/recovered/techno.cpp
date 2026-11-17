@@ -1606,7 +1606,7 @@ bool TechnoClass::Evaluate_Cell(int method,int mask,Cell const *cell,int range,O
                     if(tech->Health_Ratio()<Rules->ConditionGreen && House->Is_Ally(tech)) break;
                 } else {
                     if(!House->Is_Ally(tech) || Techno_Type_Class()->AttackFriendlies
-                       || (Kind_Of()==15 && (static_cast<InfantryClass *>(this)->unknown_5c0
+                       || (Kind_Of()==15 && (static_cast<InfantryClass *>(this)->IsBerzerk
                        || (static_cast<InfantryClass *>(this)->Type->Engineer && Mission==11
                            && tech->Health_Ratio()<=Rules->ConditionRed && tech->Kind_Of()==6
                            && reinterpret_cast<TechnoTypeClass *>(static_cast<BuildingClass *>(tech)->Type)->Cost_Of(tech->House)>0)))) break;
@@ -1726,7 +1726,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(object->Get_Height_AGL()<-20) return false;
     CoordStruct objectcoord=object->Center_Coord();
     if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),Techno_Type_Class()->MovementZone,object->IsOnBridge)!=zone) return false;
-    if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->unknown_5c0) && !Techno_Type_Class()->AttackFriendlies && House->Is_Ally(tech)) {
+    if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->IsBerzerk) && !Techno_Type_Class()->AttackFriendlies && House->Is_Ally(tech)) {
         if(unknown_6c16f0(-1)>=0 && !engineer) return false;
         if(object->Health_Ratio()==Rules->ConditionGreen) return false;
         if(object->Kind_Of()==2 && Kind_Of()==1) {
@@ -1819,7 +1819,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
         if(object->unknown_70<=0) *value=*value/2;
         else if(object->unknown_70<=object->Techno_Type_Class()->MaxStrength/2) *value=*value*2;
     }
-    if(House->unknown_190 && House->unknown_54f0!=-1 && tech->House!=Houses[House->unknown_54f0]) *value=1;
+    if(House->IsAllToHunt && House->Enemy!=-1 && tech->House!=Houses[House->Enemy]) *value=1;
     BuildingTypeClass *btype=static_cast<BuildingTypeClass *>(tclass);
     if((method&0x800) && otype==6) {
         if(btype->Power>0) *value=btype->Power*1000+*value;
@@ -1949,7 +1949,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
             TechnoClass *object=AircraftTracker.Fetch_Next_004134e0();
             while (object) {
                 int value=0;
-                if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->IsDown && object->In_Which_Layer()!=2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && Evaluate_Object(method,air_mask,range,object,&value,-1,&unknown_geometry_l)) {
+                if (!House->Is_Ally(object) && (!(method&0x4000) || House->Is_Ally(object->House)) && object->IsDown && object->In_Which_Layer()!=2 && (!only_enemy || object->House->ArrayIndex==House->Enemy) && Evaluate_Object(method,air_mask,range,object,&value,-1,&unknown_geometry_l)) {
                     if (Techno_Type_Class()->DistributedFire) {
                         CurrentTargets.Add(object);
                         CurrentTargetThreatValues.Add(value);
@@ -1970,7 +1970,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                 for (int x=-radius;x<=radius;++x) {
                     Cell scan=center+Cell(x,-radius);
                     if (Map.In_Radar(scan)) {
-                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
+                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->Enemy) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (Techno_Type_Class()->DistributedFire) { CurrentTargets.Add(object);CurrentTargetThreatValues.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
@@ -1981,7 +1981,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                     }
                     scan=center+Cell(x,radius);
                     if (Map.In_Radar(scan)) {
-                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
+                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->Enemy) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (Techno_Type_Class()->DistributedFire) { CurrentTargets.Add(object);CurrentTargetThreatValues.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
@@ -1994,7 +1994,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                 for (int y=1-radius;y<radius;++y) {
                     Cell scan=center+Cell(-radius,y);
                     if (Map.In_Radar(scan)) {
-                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
+                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->Enemy) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (Techno_Type_Class()->DistributedFire) { CurrentTargets.Add(object);CurrentTargetThreatValues.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
@@ -2005,7 +2005,7 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
                     }
                     scan=center+Cell(radius,y);
                     if (Map.In_Radar(scan)) {
-                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
+                        if (Evaluate_Cell(method,mask,&scan,range,&object,&value,zone) && object && (!only_enemy || static_cast<TechnoClass *>(object)->House->ArrayIndex==House->Enemy) && (!(method&0x4000) || House->Is_Ally(static_cast<TechnoClass *>(object)->House))) {
                             if (Techno_Type_Class()->DistributedFire) { CurrentTargets.Add(object);CurrentTargetThreatValues.Add(value); }
                             if (best_value<value) { best_object=object;best_value=value; }
                         }
@@ -2027,14 +2027,14 @@ AbstractClass *TechnoClass::unknown_slot219(int method, CoordStruct const *coord
             for (index=0;index<Aircraft.Count();++index) {
                 TechnoClass *object=Aircraft[index];
                 int value=0;
-                if (!House->Is_Ally(object) && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(object->House)) && Evaluate_Object(method,mask,-1,object,&value,-1,&unknown_geometry_l) && value>best_value) { best_object=object;best_value=value; }
+                if (!House->Is_Ally(object) && (!only_enemy || object->House->ArrayIndex==House->Enemy) && (!(method&0x4000) || House->Is_Ally(object->House)) && Evaluate_Object(method,mask,-1,object,&value,-1,&unknown_geometry_l) && value>best_value) { best_object=object;best_value=value; }
             }
         }
         if (method&0x10) mask|=4;
         for (index=0;index<Technos.Count();++index) {
             TechnoClass *object=Technos[index];
             int value=0;
-            if ((!House->Is_Ally(object) || unknown_6c16f0(-1)<0 || (!House->Is_Human_Player() && this && Kind_Of()==15 && (this && Kind_Of()==15 ? static_cast<InfantryClass *>(this):0)->Type->Engineer)) && object->Layer==2 && (!only_enemy || object->House->ArrayIndex==House->unknown_54f0) && (!(method&0x4000) || House->Is_Ally(object->House)) && Evaluate_Object(method,mask,-1,object,&value,zone,coord) && value>best_value) {best_object=object;best_value=value;}
+            if ((!House->Is_Ally(object) || unknown_6c16f0(-1)<0 || (!House->Is_Human_Player() && this && Kind_Of()==15 && (this && Kind_Of()==15 ? static_cast<InfantryClass *>(this):0)->Type->Engineer)) && object->Layer==2 && (!only_enemy || object->House->ArrayIndex==House->Enemy) && (!(method&0x4000) || House->Is_Ally(object->House)) && Evaluate_Object(method,mask,-1,object,&value,zone,coord) && value>best_value) {best_object=object;best_value=value;}
         }
     }
     return best_object;
@@ -2138,9 +2138,9 @@ void TechnoClass::AI()
     CellClass &cell=Map[where];
     bool draw_behind;
     if (Kind_Of()==6) {
-        if (static_cast<BuildingClass *>(this)->Type->CanBeHidden) draw_behind=cell.unknown_100>1;
+        if (static_cast<BuildingClass *>(this)->Type->CanBeHidden) draw_behind=cell.OccupyHeightsCoveringMe>1;
         else draw_behind=false;
-    } else draw_behind=cell.unknown_100!=0;
+    } else draw_behind=cell.OccupyHeightsCoveringMe!=0;
     if (draw_behind && !(this && Kind_Of()==2)) {
         unknown_6d9080(point,&window);
     } else if (BehindAnim) {
@@ -2197,7 +2197,7 @@ void TechnoClass::AI()
     if (Cloak==0 && Map[Center_Coord()].Is_House_Bit(House->ArrayIndex)) unknown_slot238();
     if (Cloak==2 && !Map[Center_Coord()].Is_House_Bit(House->ArrayIndex)) unknown_slot238();
     if (unknown_game_mode_a3d298==0 && !House->Is_Player_Control() && TarCom && !House->Is_Ally(static_cast<ObjectClass *>(TarCom)) && unknown_6c16f0(-1)<0) unknown_slot220(0);
-    if (TarCom && unknown_game_mode_a3d298!=0 && House->unknown_134 && unknown_6c16f0(-1)<0 && !House->Is_Ally(static_cast<ObjectClass *>(TarCom))) unknown_slot220(0);
+    if (TarCom && unknown_game_mode_a3d298!=0 && House->IsHuman && unknown_6c16f0(-1)<0 && !House->Is_Ally(static_cast<ObjectClass *>(TarCom))) unknown_slot220(0);
     if (TarCom && TarCom->Kind_Of()==2) {
         ObjectClass *aircraft=static_cast<ObjectClass *>(TarCom);
         if (Kind_Of()==1 && unknown_6c16f0(-1)<0 && (aircraft->Get_Height_AGL()>0 || Map[aircraft->Position_Coord_004f3f40()].Cell_Building())) unknown_slot220(0);
@@ -2347,7 +2347,7 @@ void TechnoClass::unknown_slot236()
                     Cell cell=Cell(center.X+x,center.Y+y);
                     if (!Owning_House()->Is_Player_Control() && !House->Is_Ally(PlayerPtr) && !PlayerPtr->IsDefeated) {
                         --Map[cell].GapsCoveringThisCell;
-                        if (PlayerPtr->unknown_566a && Map[cell].GapsCoveringThisCell<=0) {
+                        if (PlayerPtr->SpySatActive && Map[cell].GapsCoveringThisCell<=0) {
                             --Map[cell].ShroudCounter;
                             if (Map[cell].ShroudCounter<=0) {
                                 Map[cell].unknown_12c|=0x08u;
@@ -2812,7 +2812,7 @@ LaserDrawClass *TechnoClass::unknown_6c9df0(AbstractClass *target, int weapon_in
     RGBClass const *inner;
     RGBClass const *outer;
     if (weapon->IsHouseColor) {
-        inner = &House->unknown_55ec;
+        inner = &House->LaserColor;
         half.Red = inner->Red >> 1;
         half.Green = inner->Green >> 1;
         half.Blue = inner->Blue >> 1;
@@ -3254,10 +3254,10 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
         bullet->Limbo();
         if (Is_Foot_006ca890(this)) {
             if (static_cast<FootClass *>(this)->Locomotor.Checked()->Is_Moving() && !Techno_Type_Class()->JumpJet) {
-                bullet->unknown_a0 = true;
+                bullet->IsInaccurate = true;
             }
         }
-        if (!bullet->unknown_a0 && !btype->Inaccurate) {
+        if (!bullet->IsInaccurate && !btype->Inaccurate) {
             TechnoClass *techno = TarCom == 0 ? 0 : (TarCom->AbstractFlags.IsTechno ? static_cast<TechnoClass *>(TarCom) : 0);
             WeaponTypeClass *bullet_weapon = bullet->Get_Weapon_Type();
             if (techno != 0 && bullet_weapon != 0) {
@@ -3433,7 +3433,7 @@ BulletClass *TechnoClass::Fire_At(AbstractClass *target, int which)
                     if (laser != 0 && building->Type == Rules->PrismType) {
                         laser->unknown_18 = 3;
                         if (building->SupportingPrisms > 0) {
-                            laser->unknown_1d = true;
+                            laser->IsSupported = true;
                             laser->unknown_18 = 5;
                         }
                     }
@@ -3948,7 +3948,7 @@ bool TechnoClass::unknown_slot186()
                         break;
                     }
                 }
-                if (House->unknown_134 && here->Land == 2) {
+                if (House->IsHuman && here->Land == 2) {
                     break;
                 }
                 if (((CellClass *)Get_Cell_Ptr())->Cell_Building()) {
@@ -4122,20 +4122,20 @@ bool TechnoClass::Captured(HouseClass *house, int arg2)
         unknown_6155e0();
         House->Unknown_004ED440(this, false);
         Record_The_Kill(0);
-        house->unknown_5418 += Techno_Type_Class()->Cost_Of(House);
+        house->PointTotal += Techno_Type_Class()->Cost_Of(House);
         House->Tracking_Remove(this);
         house->Tracking_Add(this);
         switch (Kind_Of()) {
         case 6:
-            house->unknown_5364[Owner()]++;
+            house->BuildingsKilled[Owner()]++;
             break;
         case 1:
         case 2:
         case 15:
-            house->unknown_5310[Owner()]++;
+            house->UnitsKilled[Owner()]++;
             break;
         }
-        House->unknown_53b8 = house->Type->House;
+        House->WhoLastHurtMe = house->Type->House;
         if (!IsInLimbo) {
             Mark(0);
         }
@@ -4457,8 +4457,8 @@ void TechnoClass::Record_The_Kill(TechnoClass *killer)
             ((TechnoClass *)killer->SpawnOwner)->Veterancy.Made_A_Kill(
                 ((TechnoClass *)killer->SpawnOwner)->Techno_Type_Class()->Cost_Of(House), points);
         }
-        House->unknown_53b8 = killer->Owner();
-        killer->House->unknown_5418 += points;
+        House->WhoLastHurtMe = killer->Owner();
+        killer->House->PointTotal += points;
     }
     switch (Kind_Of()) {
     case 6:
@@ -4466,11 +4466,11 @@ void TechnoClass::Record_The_Kill(TechnoClass *killer)
             break;
         }
         if (((BuildingClass *)this)->WhoLastHurtMe != -1) {
-            House->unknown_53b4++;
+            House->BuildingsLost++;
         }
         if (killer != 0) {
-            killer->House->unknown_3aa0.Unknown_0070C490(((BuildingClass *)this)->Type->ArrayIndex);
-            killer->House->unknown_5364[Owner()]++;
+            killer->House->DestroyedBuildings.Unknown_0070C490(((BuildingClass *)this)->Type->ArrayIndex);
+            killer->House->BuildingsKilled[Owner()]++;
         }
         if (Map.Is_Player_Names()) {
             Map.Redraw_Radar(false);
@@ -4478,21 +4478,21 @@ void TechnoClass::Record_The_Kill(TechnoClass *killer)
         break;
     case 2:
         if (killer != 0) {
-            killer->House->unknown_2288.Unknown_0070C490(((AircraftClass *)this)->Type->ArrayIndex);
+            killer->House->DestroyedAircraft.Unknown_0070C490(((AircraftClass *)this)->Type->ArrayIndex);
             found = 1;
         }
     case 15:
         if (killer != 0 && !found) {
-            killer->House->unknown_2a90.Unknown_0070C490(((InfantryClass *)this)->Type->ArrayIndex);
+            killer->House->DestroyedInfantry.Unknown_0070C490(((InfantryClass *)this)->Type->ArrayIndex);
             found = 1;
         }
     case 1:
         if (killer != 0 && !found) {
-            killer->House->unknown_3298.Unknown_0070C490(((UnitClass *)this)->Type->ArrayIndex);
+            killer->House->DestroyedUnits.Unknown_0070C490(((UnitClass *)this)->Type->ArrayIndex);
         }
-        House->unknown_5360++;
+        House->UnitsLost++;
         if (killer != 0) {
-            killer->House->unknown_5310[Owner()]++;
+            killer->House->UnitsKilled[Owner()]++;
         }
         if (Map.Is_Player_Names()) {
             Map.Redraw_Radar(false);
@@ -6625,7 +6625,7 @@ void TechnoClass::unknown_slot249(Point2D const &point, Point2D const &center, R
         box = Expanded_Intersect(box, window);
         box.X--;
         box.Width++;
-        RGBClass color = House->unknown_55e9;
+        RGBClass color = House->RemapColorRGB;
         int pixel = Build_Hicolor_Pixel(color.Red, color.Green, color.Blue);
         LogicalSurface->Fill_Rect(box, 0);
         LogicalSurface->Draw_Rect(box, pixel);
@@ -6673,7 +6673,7 @@ void TechnoClass::unknown_slot251(Point2D const &point,Point2D const &center,Rec
             swprintf(text,StringTable::Load_String("TXT_POWER_DRAIN2",0,"D:\\Ra2\\Techno.CPP",0x3517),House->Power_Output(),House->Power_Drain());
             Rect background=Text_Rect(text,center.X,center.Y,0x149,4,2);
             background=background.Intersect(window);
-            RGBClass const &color=House->unknown_55e9;
+            RGBClass const &color=House->RemapColorRGB;
             unsigned pixel=Build_Hicolor_Pixel(color.Red,color.Green,color.Blue);
             LogicalSurface->Fill_Rect(background,0);
             LogicalSurface->Draw_Rect(background,pixel);
@@ -6685,7 +6685,7 @@ void TechnoClass::unknown_slot251(Point2D const &point,Point2D const &center,Rec
         if(Kind_Of()==6 && static_cast<BuildingClass *>(this)->Type->Width()==1) label=StringTable::Load_String("TXT_PRI",0,"D:\\Ra2\\Techno.CPP",0x352c);
         Rect background=Text_Rect(label,center.X,center.Y,0x149,4,2);
         background=background.Intersect(window);
-        RGBClass const &color=House->unknown_55e9;
+        RGBClass const &color=House->RemapColorRGB;
         unsigned pixel=Build_Hicolor_Pixel(color.Red,color.Green,color.Blue);
         LogicalSurface->Fill_Rect(background,0);
         LogicalSurface->Draw_Rect(background,pixel);
@@ -7514,7 +7514,7 @@ double TechnoClass::Target_Threat(ObjectClass *target, CoordStruct const &coord)
             }
         }
         value += target_special_threat * techno->Techno_Type_Class()->SpecialThreatValue;
-        if (House->unknown_54f0 != -1 && House->unknown_54f0 == techno->House->ArrayIndex) {
+        if (House->Enemy != -1 && House->Enemy == techno->House->ArrayIndex) {
             value += Rules->EnemyHouseThreatBonus;
         }
     }

@@ -1886,7 +1886,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 
         count = Houses.Count();
         for (i = 0; i < count; i++) {
-            int time = Houses[i]->unknown_1ec;
+            int time = Houses[i]->PowerBlackoutTimer;
             if (time > 0) {
                 Draw_Timer(line, ColorSchemes[Houses[i]->ColorSchemeIndex], time / 15,
                     StringTable::Load_String("MSG:BlackoutTimer", 0, "D:\\Ra2\\Tactical.CPP", 444), 0, 0);
@@ -3211,7 +3211,7 @@ void Tactical::Draw_Rally_Points(bool inshroud)
                 if (Clip_Line(start, end, TacticalRect)) {
                     LogicalSurface->Draw_Dashed_Line_Depth_Masked(start, end, shadow, Draw_Rally_Pattern, phase, inshroud);
                 }
-                RGBClass &rgb = building->House->unknown_55e9;
+                RGBClass &rgb = building->House->RemapColorRGB;
  int color = Build_Hicolor_Pixel(rgb.Red, rgb.Green, rgb.Blue);
                 start.Y--;
                 end.Y--;
@@ -3516,7 +3516,7 @@ void Tactical::Draw_Radial_Indicators()
                 } else if (unknown_pulse_abfd78 <= 0) {
                     unknown_pulse_7f6974 = 1;
                 }
-                RGBClass color = pending->House->unknown_55e9;
+                RGBClass color = pending->House->RemapColorRGB;
                 color.Adjust(unknown_pulse_abfd78, black);
                 int radius = pending->unknown_451930();
                 Draw_Radial_Indicator_00451BF0(radius, 0, coord, color, true, false);

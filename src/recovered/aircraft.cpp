@@ -98,7 +98,7 @@ bool __fastcall Is_Civilian_Passenger_004139F0(FootClass *passenger)
     InfantryClass *infantry = As_Infantry(passenger);
     if (!infantry) return false;
     if (!infantry->Type->Civilian) return false;
-    if (infantry->unknown_5c1) return false;
+    if (infantry->IsTechnician) return false;
     return true;
 }
 
@@ -1948,7 +1948,7 @@ int AircraftClass::Receive_Message(RadioClass *radio, int message, AbstractClass
         int capacity = type->Passengers;
         if (count == capacity) Door.Count_Down(type->DeployTime);
         InfantryClass *infantry = Aircraft_Radio_Infantry(radio);
-        if (infantry && infantry->Type->Civilian && !infantry->unknown_5c1) {
+        if (infantry && infantry->Type->Civilian && !infantry->IsTechnician) {
             unknown_slot220(0);
             Assign_Destination(0, true);
             QueueMission(4, false);

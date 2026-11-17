@@ -141,7 +141,7 @@ void __fastcall Destroy_Connection_005bb5d0(int id, int error)
         Debug_Printf("Destroying connection for house %d (%ls)\n", id, housep->UIName);
     }
 
-    if (!housep || !housep->unknown_134) {
+    if (!housep || !housep->IsHuman) {
         return;
     }
 

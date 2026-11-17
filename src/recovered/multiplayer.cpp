@@ -652,10 +652,10 @@ bool MultiplayerGameMode::Create_Starting_Objects_005b7ce0()
             if (!SpawnBaseUnits(house, &money) || !GenerateStartingUnits(house, &money)) return false;
             if (money > 0) house->Refund_Money(money);
             // These four 16-byte fields contain CounterClass objects, whose public base is VectorClass<int>.
-            reinterpret_cast<VectorClass<int> *>(&house->unknown_54a0)->Clear();
-            reinterpret_cast<VectorClass<int> *>(&house->unknown_54d0)->Clear();
-            reinterpret_cast<VectorClass<int> *>(&house->unknown_54c0)->Clear();
-            reinterpret_cast<VectorClass<int> *>(&house->unknown_54b0)->Clear();
+            reinterpret_cast<VectorClass<int> *>(&house->PBQuantity)->Clear();
+            reinterpret_cast<VectorClass<int> *>(&house->PAQuantity)->Clear();
+            reinterpret_cast<VectorClass<int> *>(&house->PIQuantity)->Clear();
+            reinterpret_cast<VectorClass<int> *>(&house->PUQuantity)->Clear();
         }
 next_house:
         ;

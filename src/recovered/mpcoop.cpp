@@ -775,11 +775,11 @@ bool MPCooperative::unknown_slot28()
     for (int i = 0; i < Houses.Count(); i++) {
         HouseClass *first = Houses[i];
         Debug_Printf("@@@@     House1 = %s\n", Wide_To_Narrow_006fa120(first->UIName));
-        if (!first->Type->MultiplayPassive && first->unknown_134) {
+        if (!first->Type->MultiplayPassive && first->IsHuman) {
             for (int j = i + 1; j < Houses.Count(); j++) {
                 HouseClass *second = Houses[j];
                 Debug_Printf("@@@@         House2 = %s\n", Wide_To_Narrow_006fa120(second->UIName));
-                if (!second->Type->MultiplayPassive && second->unknown_134) {
+                if (!second->Type->MultiplayPassive && second->IsHuman) {
                     char *second_name = Wide_To_Narrow_006fa120(second->UIName);
                     char *first_name = Wide_To_Narrow_006fa120(first->UIName);
                     Debug_Printf("@@@@ Making Allies of %s(%d/%d/%d) and %s(%d/%d/%d)\n",

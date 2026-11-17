@@ -52,7 +52,7 @@ public:
 
     int MouseQX;                    // +0x000 position queued with the last mouse key
     int MouseQY;                    // +0x004
-    unsigned short unknown_08;      // +0x008 character queued after a 0x0A key
+    unsigned short MouseWheel;      // +0x008 character queued after a 0x0A key
     Point2D unknown_0C;             // +0x00C copy of MouseQX/MouseQY
     unsigned char KeyState[256];    // +0x014 key state array passed to ToAscii
 

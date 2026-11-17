@@ -126,16 +126,16 @@ IsometricTileTypeClass::IsometricTileTypeClass(int type, int unknown1, unsigned 
     MarbleMadness(0xFFFF),
     NonMarbleMadness(0xFFFF),
     TileSetBaseID(0),
-    unknown_274(),
+    PreviewTiles(),
     NextTileTypeInSet(0),
     ToSnowTheater(-1),
     ToTemperateTheater(-1),
-    unknown_298(-1),
+    Anim(-1),
     Offset(Point2D(0, 0)),
     AttachesTo(-1),
     ZAdjust(0),
     Unused1((unsigned char)unknown1),
-    unknown_2b0(false),
+    IsMorphable(false),
     IsShadowCaster(false),
     IsAllowToPlace(true),
     IsRequiredForRMG(false),
@@ -145,7 +145,7 @@ IsometricTileTypeClass::IsometricTileTypeClass(int type, int unknown1, unsigned 
     NumTileTypesInSet(1),
     IsFileLoaded(false),
     IsAllowBurrowing(true),
-    unknown_2d6(false),
+    IsAllowTiberium(false),
     UseCount(0)
 {
     AbstractTypePtrTracker.Add(this);
@@ -191,11 +191,11 @@ IsometricTileTypeClass::~IsometricTileTypeClass()
     }
     IsoTileTypes.Delete(this);
     AbstractTypePtrTracker.Delete(this);
-    for (int i = unknown_274.Count() - 1; i >= 0; i--) {
-        if (unknown_274[i] != 0) {
-            delete unknown_274[i];
+    for (int i = PreviewTiles.Count() - 1; i >= 0; i--) {
+        if (PreviewTiles[i] != 0) {
+            delete PreviewTiles[i];
         }
-        unknown_274.Delete(i);
+        PreviewTiles.Delete(i);
     }
 }
 
@@ -781,10 +781,10 @@ void __fastcall IsometricTileTypeClass_Read_Control_File(int theater, bool from_
                     tile->Name = FixedString<49>(given_name);
                     tile->MarbleMadness = _MarbleMadness;
                     tile->NonMarbleMadness = _NonMarbleMadness;
-                    tile->unknown_2b0 = _Morphable;
+                    tile->IsMorphable = _Morphable;
                     tile->IsAllowToPlace = _AllowToPlace;
                     tile->IsAllowBurrowing = _AllowBurrowing;
-                    tile->unknown_2d6 = _AllowTiberium;
+                    tile->IsAllowTiberium = _AllowTiberium;
                     tile->IsRequiredForRMG = _RequiredForRMG;
                     tile->ImageData = 0;
                     tile->ImageAllocated = false;
@@ -797,7 +797,7 @@ void __fastcall IsometricTileTypeClass_Read_Control_File(int theater, bool from_
                         tile->IsFileLoaded = true;
                     }
                     tile->TileSetBaseID = TileSetIDLookup[TileSetLookupCount - 1];
-                    tile->unknown_274.Clear();
+                    tile->PreviewTiles.Clear();
                     if (has_section) {
                         char entry[32];
                         sprintf(entry, "Tile%02dAnim", i + 1);
@@ -806,7 +806,7 @@ void __fastcall IsometricTileTypeClass_Read_Control_File(int theater, bool from_
                         if (ini.Get_String(set_name, entry, "", anim_name, sizeof(anim_name))) {
                             AnimTypeClass *animtype = AnimTypeClass::Find_Or_Make(anim_name);
                             if (animtype != 0) {
-                                tile->unknown_298 = animtype->Fetch_Heap_ID();
+                                tile->Anim = animtype->Fetch_Heap_ID();
                                 sprintf(entry, "Tile%02dXOffset", i + 1);
                                 tile->Offset.X = ini.Get_Int(set_name, entry, tile->Offset.X);
                                 sprintf(entry, "Tile%02dYOffset", i + 1);
@@ -869,10 +869,10 @@ void __fastcall IsometricTileTypeClass_Read_Control_File(int theater, bool from_
                     tile->Name = FixedString<49>(given_name);
                     tile->MarbleMadness = _MarbleMadness;
                     tile->NonMarbleMadness = _NonMarbleMadness;
-                    tile->unknown_2b0 = _Morphable;
+                    tile->IsMorphable = _Morphable;
                     tile->IsAllowToPlace = _AllowToPlace;
                     tile->IsAllowBurrowing = _AllowBurrowing;
-                    tile->unknown_2d6 = _AllowTiberium;
+                    tile->IsAllowTiberium = _AllowTiberium;
                     tile->IsRequiredForRMG = _RequiredForRMG;
                     if (from_ccfile) {
                         tile->IsFileLoaded = true;
@@ -883,7 +883,7 @@ void __fastcall IsometricTileTypeClass_Read_Control_File(int theater, bool from_
                     }
                     tile->TileSetBaseID = TileSetIDLookup[TileSetLookupCount - 1];
                     tail_tile->NextTileTypeInSet = tile;
-                    tile->unknown_274.Clear();
+                    tile->PreviewTiles.Clear();
                     tail_tile = tile;
                 }
 
@@ -2258,7 +2258,7 @@ void IsometricTileTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)MarbleMadness);
     crc((long)NonMarbleMadness);
     crc((long)TileSetBaseID);
-    crc((long)unknown_274.Count());
+    crc((long)PreviewTiles.Count());
     if (NextTileTypeInSet != 0) {
         crc(NextTileTypeInSet->Fetch_ID());
     }
@@ -2267,7 +2267,7 @@ void IsometricTileTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)AttachesTo);
     crc((long)ZAdjust);
     crc((long)Unused1);
-    crc(unknown_2b0);
+    crc(IsMorphable);
     crc(IsShadowCaster);
     crc((long)unknown_2b4);
     crc((long)unknown_2b8);
@@ -2341,8 +2341,8 @@ void IsometricTileTypeClass::Detach(AbstractClass *target, bool all)
     if (NextTileTypeInSet == target) {
         NextTileTypeInSet = 0;
     }
-    if (unknown_298 != -1 && AnimTypes[unknown_298] == target) {
-        unknown_298 = -1;
+    if (Anim != -1 && AnimTypes[Anim] == target) {
+        Anim = -1;
     }
 }
 
@@ -2354,7 +2354,7 @@ void IsometricTileTypeClass::Detach(AbstractClass *target, bool all)
 
 unsigned short IsometricTileTypeClass::Preview_Tile_Color(int index, int value, bool second) const
 {
-    return unknown_274[index][value * 2 + (second != 0)];
+    return PreviewTiles[index][value * 2 + (second != 0)];
 }
 
 
@@ -2367,18 +2367,18 @@ void IsometricTileTypeClass::Build_Preview_Tiles()
     int i;
     int j;
     IsoTileImageStruct *tileset = (IsoTileImageStruct *)ImageData;
-    for (i = 0; i < unknown_274.Count(); i++) {
-        if (unknown_274[i] != 0) {
-            delete [] unknown_274[i];
+    for (i = 0; i < PreviewTiles.Count(); i++) {
+        if (PreviewTiles[i] != 0) {
+            delete [] PreviewTiles[i];
         }
     }
-    unknown_274.Clear();
+    PreviewTiles.Clear();
 
     for (i = 0; i < tileset->unknown_00[0] * tileset->unknown_00[1]; i++) {
         if (tileset->Tiles[i] != 0) {
             unsigned short *buffer = new unsigned short[24 + 2];
             IsoTileCellStruct const *record = (IsoTileCellStruct const *)tileset->Tiles[i];
-            unknown_274.Add(buffer);
+            PreviewTiles.Add(buffer);
             RGBClass low(record->LowRed, record->LowGreen, record->LowBlue);
             RGBClass high(record->HighRed, record->HighGreen, record->HighBlue);
             static float const _brightness_factor = 1.4f;
@@ -2396,7 +2396,7 @@ void IsometricTileTypeClass::Build_Preview_Tiles()
                 ptr += 2;
             }
         } else {
-            unknown_274.Add(0);
+            PreviewTiles.Add(0);
         }
     }
 }
@@ -2411,7 +2411,7 @@ void IsometricTileTypeClass::Build_Preview_Tiles()
 unsigned short *IsometricTileTypeClass::Preview_Tile(int tile, int level)
 {
     Load_Tile_Image();
-    return &unknown_274[tile][level * 2];
+    return &PreviewTiles[tile][level * 2];
 }
 #endif
 

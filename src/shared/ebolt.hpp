@@ -21,7 +21,7 @@ public:
  int unknown_18;
  int unknown_1c;
  UnitClass *Owner; // +20
- int unknown_24;
+ int WeaponSlot;
  int unknown_28;
  bool AlternateColor;
 };

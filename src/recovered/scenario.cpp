@@ -1536,7 +1536,7 @@ void __fastcall Unknown_0065e8c0(bool official)
 {
     if (unknown_players_a3fa7c.Count() + unknown_session_a3d298.AICount < Rules->MaxPlayers && !Debug_Map) {
         for (int index = 0; index < Houses.Count(); index++) {
-            if (!Houses[index]->unknown_134 && !Houses[index]->Type->MultiplayPassive && unknown_session_a3d298.AICount < 1) {
+            if (!Houses[index]->IsHuman && !Houses[index]->Type->MultiplayPassive && unknown_session_a3d298.AICount < 1) {
                 Houses[index]->Clobber_All();
             }
         }
@@ -1567,8 +1567,8 @@ void __fastcall Unknown_0065e8c0(bool official)
     HouseClass *special = HouseClass::As_Pointer(HouseTypeClass::Find_Index("Special"));
     for (int house = 0; house < Houses.Count(); house++) {
         Houses[house]->unknown_55f0.House = Houses[house];
-        if (!Houses[house]->unknown_134 && !Houses[house]->Type->MultiplayPassive) {
-            Houses[house]->unknown_5530 = CDTimerClass<FrameTimerClass>(Rules->AIHateDelays[Houses[house]->Difficulty]);
+        if (!Houses[house]->IsHuman && !Houses[house]->Type->MultiplayPassive) {
+            Houses[house]->PickEnemyTimer = CDTimerClass<FrameTimerClass>(Rules->AIHateDelays[Houses[house]->Difficulty]);
             int money = Houses[house]->Available_Money();
             Houses[house]->Refund_Money(money * (Rules->MultiplayerAICM[Houses[house]->Difficulty] * 0.01));
         }
@@ -1967,7 +1967,7 @@ void __fastcall Assign_Houses_0065fbb0()
         }
         wcsncpy(house->UIName, player->Name, 21);
         house->UIName[20] = 0;
-        house->unknown_134 = true;
+        house->IsHuman = true;
         house->Init_Data(player->unknown_53, player->unknown_4b, unknown_session_a3d298.unknown_24);
         house->ColorSchemeIndex = unknown_session_a3d298.Color_Index_To_Scheme(player->unknown_53);
         house->Update_Color();
@@ -1993,7 +1993,7 @@ void __fastcall Assign_Houses_0065fbb0()
             made++;
             HouseClass *house = new HouseClass(HouseTypes[country]);
             house->unknown_11c = BuildLevel;
-            house->unknown_134 = false;
+            house->IsHuman = false;
             house->Init_Data(color, country, unknown_session_a3d298.unknown_24);
             house->ColorSchemeIndex = unknown_session_a3d298.Color_Index_To_Scheme(color);
             house->Update_Color();
@@ -2180,8 +2180,8 @@ void __fastcall Create_Units_00660320(bool official)
                 unit = 0;
             }
             if (unit != 0) {
-                house->unknown_530c = unknown_geometry_k;
-                house->unknown_5308 = 0;
+                house->FlagHome = unknown_geometry_k;
+                house->FlagLocation = 0;
                 if (Scen->Special().unknown_bit_4) {
                     house->unknown_func_4e77a0(unit, true);
                 }
@@ -2728,9 +2728,9 @@ bool ScenarioClass::Read_Basic(CCINIClass &ini)
     } else {
         Assign_Houses_0065fbb0();
     }
-    PlayerPtr->unknown_134 = true;
+    PlayerPtr->IsHuman = true;
     PlayerPtr->IsPlayerControl = true;
-    PlayerPtr->unknown_55e4 = 0;
+    PlayerPtr->CurrentDropship = 0;
     unknown_session_a3d298.Update_Progress(58);
     Service_Game_IO_00481fb0();
     if (Debug_Map) {

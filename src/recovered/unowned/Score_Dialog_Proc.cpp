@@ -103,10 +103,10 @@ int __stdcall Score_Dialog_Proc_0069A7D0(HWND window, UINT message, WPARAM wpara
         for (int i = 0; i < count; i++) {
             HouseClass *house = Houses[i];
             if (house->IsPlayerControl) {
-                total += house->unknown_2288.Get_All_Totals_Sum();
-                total += house->unknown_2a90.Get_All_Totals_Sum();
-                total += house->unknown_3298.Get_All_Totals_Sum();
-                total += house->unknown_3aa0.Get_All_Totals_Sum();
+                total += house->DestroyedAircraft.Get_All_Totals_Sum();
+                total += house->DestroyedInfantry.Get_All_Totals_Sum();
+                total += house->DestroyedUnits.Get_All_Totals_Sum();
+                total += house->DestroyedBuildings.Get_All_Totals_Sum();
             }
         }
         item = GetDlgItem(window, 0x72B);

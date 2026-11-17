@@ -1268,7 +1268,7 @@ void MapClass::Place_Down(Cell const &cell, ObjectClass *object)
                                 seen[y * 16 + x] = true;
                                 if (Has_Cell(pos)) {
                                     CellClass &cellptr = (*this)[pos];
-                                    cellptr.unknown_100++;
+                                    cellptr.OccupyHeightsCoveringMe++;
                                 }
                             }
                             pos.X--;
@@ -1285,7 +1285,7 @@ void MapClass::Place_Down(Cell const &cell, ObjectClass *object)
                         newcell.Y += building->Type->AddOccupy[index].Y;
                         if (Has_Cell(newcell)) {
                             CellClass &cellptr = (*this)[newcell];
-                            cellptr.unknown_100++;
+                            cellptr.OccupyHeightsCoveringMe++;
                         }
                     }
                     if (Is_Occupy_Offset(building->Type->RemoveOccupy[index])) {
@@ -1294,7 +1294,7 @@ void MapClass::Place_Down(Cell const &cell, ObjectClass *object)
                         newcell.Y += building->Type->RemoveOccupy[index].Y;
                         if (Has_Cell(newcell)) {
                             CellClass &cellptr = (*this)[newcell];
-                            if (cellptr.unknown_100) cellptr.unknown_100--;
+                            if (cellptr.OccupyHeightsCoveringMe) cellptr.OccupyHeightsCoveringMe--;
                         }
                     }
                 }
@@ -1350,7 +1350,7 @@ void MapClass::Pick_Up(Cell const &cell, ObjectClass *object)
                                 seen[y * 16 + x] = true;
                                 if (Has_Cell(pos)) {
                                     CellClass &cellptr = (*this)[pos];
-                                    if (cellptr.unknown_100) cellptr.unknown_100--;
+                                    if (cellptr.OccupyHeightsCoveringMe) cellptr.OccupyHeightsCoveringMe--;
                                 }
                             }
                             pos.X--;
@@ -1367,7 +1367,7 @@ void MapClass::Pick_Up(Cell const &cell, ObjectClass *object)
                         newcell.Y += building->Type->AddOccupy[index].Y;
                         if (Has_Cell(newcell)) {
                             CellClass &cellptr = (*this)[newcell];
-                            if (cellptr.unknown_100) cellptr.unknown_100--;
+                            if (cellptr.OccupyHeightsCoveringMe) cellptr.OccupyHeightsCoveringMe--;
                         }
                     }
                 }
@@ -2254,7 +2254,7 @@ int MapClass::Cell_Region(Cell const &cell)
 int MapClass::Cell_Threat(Cell const &cell, HouseClass *house)
 {
     Cell coords = Map[cell].MapCoords;
-    return house->unknown_56d0[Cell_Region(coords)];
+    return house->Regions[Cell_Region(coords)];
 }
 
 
@@ -10724,7 +10724,7 @@ int MapClass::Region_Threat(HouseClass *house, int level, int from_subzone, int 
             return 0;
 
         case 1:
-            return house->unknown_56d0[Map.SubzoneTracking[level][to_subzone].unknown_20];
+            return house->Regions[Map.SubzoneTracking[level][to_subzone].unknown_20];
 
         case 2: {
             int from_region = Map.SubzoneTracking[level][from_subzone].unknown_20;
@@ -10748,7 +10748,7 @@ int MapClass::Region_Threat(HouseClass *house, int level, int from_subzone, int 
             short to_block_y = to_y - (to_y / 4 % 2 != 0);
 
             if (from_block_x == to_block_x && from_block_y == to_block_y) {
-                return (house->unknown_56d0[Cell_Region(XY_Cell(from_x, from_y))] + house->unknown_56d0[Cell_Region(XY_Cell(to_x, to_y))]) >> 1;
+                return (house->Regions[Cell_Region(XY_Cell(from_x, from_y))] + house->Regions[Cell_Region(XY_Cell(to_x, to_y))]) >> 1;
             }
 
             int facing;
@@ -10774,15 +10774,15 @@ int MapClass::Region_Threat(HouseClass *house, int level, int from_subzone, int 
                 facing = 0;
             }
 
-            int from_threat1 = house->unknown_56d0[Cell_Region(XY_Cell(from_block_x, from_block_y) + unknown_cells_a6f218[unknown_from_quadrants_7e0494[facing][0]])];
-            int from_threat2 = house->unknown_56d0[Cell_Region(unknown_cells_a6f218[unknown_from_quadrants_7e0494[facing][1]] + XY_Cell(from_block_x, from_block_y))];
+            int from_threat1 = house->Regions[Cell_Region(XY_Cell(from_block_x, from_block_y) + unknown_cells_a6f218[unknown_from_quadrants_7e0494[facing][0]])];
+            int from_threat2 = house->Regions[Cell_Region(unknown_cells_a6f218[unknown_from_quadrants_7e0494[facing][1]] + XY_Cell(from_block_x, from_block_y))];
             int from_threat = from_threat1;
             if (from_threat1 >= from_threat2) {
                 from_threat = from_threat2;
             }
 
-            int to_threat1 = house->unknown_56d0[Cell_Region(unknown_cells_a6f218[unknown_to_quadrants_7e04d4[facing][0]] + XY_Cell(to_block_x, to_block_y))];
-            int to_threat2 = house->unknown_56d0[Cell_Region(unknown_cells_a6f218[unknown_to_quadrants_7e04d4[facing][1]] + XY_Cell(to_block_x, to_block_y))];
+            int to_threat1 = house->Regions[Cell_Region(unknown_cells_a6f218[unknown_to_quadrants_7e04d4[facing][0]] + XY_Cell(to_block_x, to_block_y))];
+            int to_threat2 = house->Regions[Cell_Region(unknown_cells_a6f218[unknown_to_quadrants_7e04d4[facing][1]] + XY_Cell(to_block_x, to_block_y))];
             if (to_threat1 >= to_threat2) {
                 to_threat1 = to_threat2;
             }

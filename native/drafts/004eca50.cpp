@@ -57,7 +57,7 @@ inline UnknownVector3 Move_Coord(CoordStruct const &start, DirType const &dir, i
 
 Cell HouseClass::Random_Cell_In_Zone(int zone)
 {
-    int radius = LESS_MAX(MIN(unknown_53c8, 0x800), 0x300);
+    int radius = LESS_MAX(MIN(Radius, 0x800), 0x300);
     int maxdist = radius * 2;
     UnknownVector3 coord;
     switch (zone) {

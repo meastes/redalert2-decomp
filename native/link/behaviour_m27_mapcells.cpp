@@ -27,7 +27,7 @@ unsigned short *IsometricTileTypeClass::Preview_Tile(int tile, int level)
     if (ImageData == 0 && IsFileLoaded) {
         Load_Tile_Data();
     }
-    return unknown_274[tile] + level * 2;
+    return PreviewTiles[tile] + level * 2;
 }
 
 // 0x0056DBA0 under the name the deformation-grid rows use (a pointer to the same record).

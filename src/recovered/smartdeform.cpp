@@ -211,7 +211,7 @@ bool __fastcall Can_Deform_Cell_RMG(CellClass *cell, bool flag)
         if (!unknown_generation_cell_56dba0(cell->Fetch_CellID())->unknown_45[0]) {
             int tile = cell->IsoTileIndex;
             if (tile < IsoTileTypes.Count() && tile != 0xFFFF) {
-                return IsoTileTypes[tile]->unknown_2b0;
+                return IsoTileTypes[tile]->IsMorphable;
             }
             return true;
         }
@@ -245,7 +245,7 @@ bool __fastcall Can_Deform_Cell(CellClass *cell, bool flag)
                 if (cell->OverlayIndex == -1 && Map.In_Radar(cell->MapCoords)) {
                     int tile = cell->IsoTileIndex;
                     if (tile < IsoTileTypes.Count() && tile != 0xFFFF) {
-                        return IsoTileTypes[tile]->unknown_2b0;
+                        return IsoTileTypes[tile]->IsMorphable;
                     }
                     return true;
                 }
@@ -741,7 +741,7 @@ int __fastcall Get_Deformed_Cell_Height_00686c90(CellClass *cell)
         && cell->OccupierPtr == 0) {
         if (!unknown_generation_cell_56dba0(cell->Fetch_CellID())->unknown_45[0]) {
             int tile = cell->IsoTileIndex;
-            if (tile >= IsoTileTypes.Count() || tile == 0xFFFF || IsoTileTypes[tile]->unknown_2b0) {
+            if (tile >= IsoTileTypes.Count() || tile == 0xFFFF || IsoTileTypes[tile]->IsMorphable) {
                 return lowest / 15;
             }
         }

@@ -93,7 +93,7 @@
 
 
 FactoryClass::FactoryClass() :
- Object(0),unknown_58(false),IsDifferent(false),UnspentCost(0),unknown_60(0),unknown_64(-1),Owner(0),unknown_6c(false),IsOnHold(true)
+ Object(0),OnHold(false),IsDifferent(false),UnspentCost(0),unknown_60(0),unknown_64(-1),Owner(0),IsSuspended(false),IsOnHold(true)
 {
     Create_ID();
     Factories.Add(this);
@@ -131,7 +131,7 @@ FactoryClass::~FactoryClass()
 // FactoryClass production frame, original282+6; primary RTTI virtualslot23.
 inline bool Factory_Can_Advance_Production(FactoryClass const &factory)
 {
-    return !factory.unknown_6c && (factory.Object!=0 || factory.unknown_64!=0) && !factory.Is_Complete_004B9900();
+    return !factory.IsSuspended && (factory.Object!=0 || factory.unknown_64!=0) && !factory.Is_Complete_004B9900();
 }
 /***********************************************************************************************
  * FactoryClass::AI -- Process factory production logic.                                       *
@@ -159,15 +159,15 @@ void FactoryClass::AI()
             int amount=Cost_Per_Tick_004B9950();
             if(amount>=UnspentCost) amount=UnspentCost;
             if(amount>Owner->Available_Money()) {
-                unknown_58=true;
+                OnHold=true;
                 Stage=(int)((unsigned int)Stage-1U);
             } else {
                 Owner->Spend_Money(amount);
-                unknown_58=false;
+                OnHold=false;
                 UnspentCost=(int)((unsigned int)UnspentCost-(unsigned int)amount);
             }
             if(Stage==54) {
-                unknown_6c=true;
+                IsSuspended=true;
                 Set_Rate(0);
                 Owner->Spend_Money(UnspentCost);
                 UnspentCost=0;
@@ -180,7 +180,7 @@ void FactoryClass::AI()
 bool FactoryClass::unknown_4b9440(TechnoTypeClass *type, HouseClass *house, unsigned char resume)
 {
     if (type->Kind_Of()==7) Abandon_Production_004B97C0();
-    if (type->Kind_Of()!=7 && ((Rate!=0 && !unknown_6c) || Queue.Count()>0 || (Object && unknown_6c)) && !resume) {
+    if (type->Kind_Of()!=7 && ((Rate!=0 && !IsSuspended) || Queue.Count()>0 || (Object && IsSuspended)) && !resume) {
         if (Queue.Count()<Rules->MaximumQueuedObjects && !Owner->Is_Build_Limited_004F4F30(type)) {
             Queue.Add(type);
             return true;
@@ -189,7 +189,7 @@ bool FactoryClass::unknown_4b9440(TechnoTypeClass *type, HouseClass *house, unsi
         return false;
     }
     IsDifferent=true;
-    unknown_6c=true;
+    IsSuspended=true;
     Set_Rate(0);
     Stage=0;
     Object=static_cast<TechnoClass *>(type->Create_One_Of(house));
@@ -217,15 +217,15 @@ void FactoryClass::Set_Object_004B95E0(TechnoClass *object)
     Set_Rate(0);
     Stage = 54;
     IsDifferent = true;
-    unknown_6c = true;
+    IsSuspended = true;
 }
 
 
 bool FactoryClass::Suspend_004B9630(bool value)
 {
-    if (!unknown_6c) {
+    if (!IsSuspended) {
         IsOnHold = value;
-        unknown_6c = true;
+        IsSuspended = true;
         Set_Rate(0);
         return true;
     }
@@ -235,8 +235,8 @@ bool FactoryClass::Suspend_004B9630(bool value)
 
 bool FactoryClass::Start_Production_004B9670(bool suspend)
 {
- if((Object || unknown_64) && unknown_6c && (!Object || Stage!=54) && (unknown_64==-1 || Stage!=54)) {
-  unknown_6c=false;
+ if((Object || unknown_64) && IsSuspended && (!Object || Stage!=54) && (unknown_64==-1 || Stage!=54)) {
+  IsSuspended=false;
   Set_Rate(Production_Rate_004B9780());
   if(Owner->Available_Money() >= Cost_Per_Tick_004B9950()) {
    IsOnHold=true;
@@ -268,13 +268,13 @@ bool FactoryClass::Abandon_Production_004B97C0()
         if (unknown_64) unknown_64 = -1;
         Set_Rate(0);
         Stage = 0;
-        unknown_6c = true;
+        IsSuspended = true;
         IsDifferent = true;
         if (!Owner->Unknown_004F52F0()) {
-            if (Object->Kind_Of() == 15) Owner->unknown_5544 = -1;
-            if (Object->Kind_Of() == 1) Owner->unknown_5540 = -1;
-            if (Object->Kind_Of() == 2) Owner->unknown_5548 = -1;
-            if (Object->Kind_Of() == 6) Owner->unknown_553c = -1;
+            if (Object->Kind_Of() == 15) Owner->BuildInfantry = -1;
+            if (Object->Kind_Of() == 1) Owner->BuildUnit = -1;
+            if (Object->Kind_Of() == 2) Owner->BuildAircraft = -1;
+            if (Object->Kind_Of() == 6) Owner->BuildStructure = -1;
         }
         ++ScenarioInit;
         delete Object;
@@ -331,7 +331,7 @@ bool FactoryClass::Release_Completed_004B9970()
 {
     if (Object && Stage == 54) {
         Object = 0;
-        unknown_6c = true;
+        IsSuspended = true;
         IsDifferent = true;
         Stage = 0;
         Set_Rate(0);
@@ -339,7 +339,7 @@ bool FactoryClass::Release_Completed_004B9970()
     }
     if (unknown_64 && Stage == 54) {
         unknown_64 = -1;
-        unknown_6c = true;
+        IsSuspended = true;
         IsDifferent = true;
         Stage = 0;
         Set_Rate(0);
@@ -442,7 +442,7 @@ void FactoryClass::Compute_CRC(WWCRCEngine &crc) const
     Debug_Printf(factory_message_007d8018, Queue.Count());
     Debug_Printf(factory_message_007d8004, Object->Kind_Of());
     Debug_Printf(factory_message_007d7fec, Object->Fetch_Heap_ID());
-    Debug_Printf(factory_message_007d7fd8, unknown_6c);
+    Debug_Printf(factory_message_007d7fd8, IsSuspended);
     Debug_Printf(factory_message_007d7fc4, IsDifferent);
     Debug_Printf(factory_message_007d7fb4, UnspentCost);
     Debug_Printf(factory_message_007d7f9c, unknown_60);
@@ -450,7 +450,7 @@ void FactoryClass::Compute_CRC(WWCRCEngine &crc) const
     Debug_Printf(factory_message_007d7f70, Owner->Fetch_ID());
     Debug_Printf(factory_message_007d7f64, const_cast<FactoryClass *>(this)->Fetch_ID());
     AbstractClass::Compute_CRC(crc);
-    crc(unknown_6c);
+    crc(IsSuspended);
     crc(IsDifferent);
     crc((long)UnspentCost);
     crc((long)unknown_60);
@@ -476,7 +476,7 @@ void FactoryClass::Detach(AbstractClass *target,bool all)
 // Full original body 114 bytes, then14 NOPs to independently used004B9DF0.
 void FactoryClass::Start_Next_Queued_004B9D70()
 {
-    if (Queue.Count() && !Object && (!Rate || unknown_6c)) {
+    if (Queue.Count() && !Object && (!Rate || IsSuspended)) {
         TechnoTypeClass *type = Queue[0];
         Queue.Delete(0);
         int index = type->Fetch_Heap_ID();

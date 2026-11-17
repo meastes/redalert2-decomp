@@ -48,7 +48,7 @@ int BuildingClass::Exit_Object(TechnoClass *base)
     switch (base->Kind_Of()) {
     case 2:
         House->unknown_func_4f3720(2);
-        House->unknown_5548 = -1;
+        House->BuildAircraft = -1;
         if (!Unknown_00636ED0(base) && (!House->Ion_Sensitives_Should_Be_Offline() || aircraft->Type->AirportBound)) {
             if (!aircraft->Type->AirportBound) {
 Cell edge = Cell(Map.MapLocalSize.X, -Map.MapLocalSize.X) + Cell(1, Map.MapSize.Width) + Cell(Map.MapLocalSize.Y, Map.MapLocalSize.Y);
@@ -116,8 +116,8 @@ exitcell.X += random; exitcell.Y += random;
         if (!Type->Hospital && !Type->Armory && !Type->WeaponsFactory && !Unknown_00636EA0()) return 1;
         if (!Type->Hospital && !Type->Armory) {
             House->unknown_func_4f3720(base->Kind_Of());
-            if (base->Kind_Of() == 1) House->unknown_5540 = -1;
-            if (base->Kind_Of() == 15) House->unknown_5544 = -1;
+            if (base->Kind_Of() == 1) House->BuildUnit = -1;
+            if (base->Kind_Of() == 15) House->BuildInfantry = -1;
         }
         if (!Type->Refinery && !Type->Weeder) {
             if (Type->WeaponsFactory) {
@@ -300,7 +300,7 @@ exitcell.X += random; exitcell.Y += random;
     case 6:
         if (!House->Is_Human_Player()) {
             House->unknown_func_4f3720(6);
-            House->unknown_553c = -1;
+            House->BuildStructure = -1;
             BuildingClass *building = (BuildingClass *)base;
             BaseNodeClass *node = House->unknown_55f0.Next_Buildable(building->Type->ArrayIndex);
             CoordStruct placementcoord(0, 0, 0);
@@ -340,8 +340,8 @@ exitcell.X += random; exitcell.Y += random;
                 }
                 case 0:
                     if (base->Unlimbo(&placementcoord, 0)) {
-                        if (node && building->Type->ArrayIndex == House->unknown_553c) {
-                            House->unknown_553c = -1;
+                        if (node && building->Type->ArrayIndex == House->BuildStructure) {
+                            House->BuildStructure = -1;
                         }
                         if (base->Mission == -1 && base->MissionQueue == 0x12) {
                             base->Commence();

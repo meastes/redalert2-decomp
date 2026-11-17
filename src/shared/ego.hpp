@@ -14,7 +14,7 @@ public:
     void Draw(bool force);
     void Copy_Background(Surface *source);
     wchar_t *Text;          // +0x00 owned heap string
-    int unknown_04;
+    int XPos;
     int Y;                 // +0x08
     unsigned int TextFlags;// +0x0C
 };

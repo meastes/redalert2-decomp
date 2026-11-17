@@ -5085,7 +5085,7 @@ void CenterBaseCommandClass::Execute(int key) const
             }
         }
     }
-    if (other == unknown_geometry_l && yard == unknown_geometry_l && PlayerPtr->unknown_228) {
+    if (other == unknown_geometry_l && yard == unknown_geometry_l && PlayerPtr->CurUnits) {
         for (int index = 0; index < Units.Count(); index++) {
             UnitClass *unit = Units[index];
             if (unit != 0 && !unit->IsInLimbo && unit->House->Is_Player_Control()

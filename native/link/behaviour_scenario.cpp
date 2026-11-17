@@ -18,9 +18,9 @@ static_assert(offsetof(HouseClass, ArrayIndex) == 0x50 && offsetof(HouseClass, B
 static_assert(offsetof(HouseClass, ActLike) == 0x188 && offsetof(HouseClass, IsDefeated) == 0x195, "house_screen.hpp view");
 static_assert(offsetof(HouseClass, unknown_142) == 0x19A && offsetof(HouseClass, WaypointPaths) == 0x1B0, "house_screen.hpp view");
 static_assert(offsetof(HouseClass, SuperWeapons) == 0x228 && offsetof(HouseClass, CurBuildings) == 0x2C4, "house_screen.hpp view");
-static_assert(offsetof(HouseClass, Power) == 0x5364 && offsetof(HouseClass, unknown_5310) == 0x53D4, "house_screen.hpp view");
+static_assert(offsetof(HouseClass, Power) == 0x5364 && offsetof(HouseClass, UnitsKilled) == 0x53D4, "house_screen.hpp view");
 static_assert(offsetof(HouseClass, BaseCenter) == 0x5480 && offsetof(HouseClass, unknown_5414) == 0x54E0, "house_screen.hpp view");
-static_assert(offsetof(HouseClass, unknown_56d0) == 0x58A0 && offsetof(HouseClass, IniName) == 0x160B0, "house_screen.hpp view");
+static_assert(offsetof(HouseClass, Regions) == 0x58A0 && offsetof(HouseClass, IniName) == 0x160B0, "house_screen.hpp view");
 static_assert(offsetof(HouseClass, UIName) == 0x160E6 && offsetof(HouseClass, ColorSchemeIndex) == 0x16110, "house_screen.hpp view");
 static_assert(sizeof(AbstractClass) == 0x38, "house_screen.hpp As_IHouse: IHouse, the second base, follows the 0x38-byte AbstractClass");
 

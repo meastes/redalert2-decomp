@@ -1929,14 +1929,14 @@ void __fastcall Kick_Player_Now(ConnManClass *net, int index, FrameSyncStruct *t
         }
         for (i = 0; i < Houses.Count(); i++) {
             HouseClass *house = Houses[i];
-            if (house && !house->IsDefeated && house->unknown_134) {
+            if (house && !house->IsDefeated && house->IsHuman) {
                 house->LostConnection = true;
             }
         }
         Send_Statistics_Packet(false);
     }
     if (Unknown_005C3150(Houses[id]) > 1 && !recent) {
-        Houses[id]->unknown_18e = true;
+        Houses[id]->IsResigner = true;
     }
     for (i = index; i < net->Num_Connections() - 1; i++) {
         their[i] = their[i + 1];
@@ -2440,7 +2440,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
         if (!hptr) {
             continue;
         }
-        if (!hptr->unknown_134 && !hptr->IsPlayerControl) {
+        if (!hptr->IsHuman && !hptr->IsPlayerControl) {
             continue;
         }
 
@@ -2470,7 +2470,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                                 continue;
                             }
                             if (quithptr->ArrayIndex == DoList[j].House) {
-                                quithptr->unknown_18f = true;
+                                quithptr->IsGiverUpper = true;
                                 break;
                             }
                         }
@@ -2509,7 +2509,7 @@ int __fastcall Execute_DoList(int max_houses, int base_house, ConnManClass *net,
                             }
                         }
                         if ((unknown_flags_a3f600 & 2) && DoList[j].Type == 0x13) {
-                            hptr->unknown_134 = false;
+                            hptr->IsHuman = false;
                             hptr->IQ = Rules->MaxIQ;
                             HouseClass::Computer_Paranoid();
                             hptr->IniName = FixedString<21>("Computer");
@@ -3125,7 +3125,7 @@ void __fastcall Print_CRCs(EventClass *event)
     for (house = 0; house < Houses.Count(); house++) {
         GameCRC = 0;
         HouseClass *housep = Houses[house];
-        fprintf(file, "%s: IsHuman:%d  Color:%s  ID:%d  HouseType:%s\n", (char const *)housep->IniName, housep->unknown_134,
+        fprintf(file, "%s: IsHuman:%d  Color:%s  ID:%d  HouseType:%s\n", (char const *)housep->IniName, housep->IsHuman,
             ColorSchemes[housep->Type->Color]->Name, housep->ArrayIndex, (char const *)HouseTypes[housep->Type->ArrayIndex]->ID);
         mono->Printf("House %s:%x\n", (char const *)housep->Type->ID, GameCRC);
     }
@@ -3398,7 +3398,7 @@ void __fastcall Unknown_0062CF40(int index)
                                      _stricmp(Houses[i]->Type->ID, "Special") == 0)) {
                 strcpy(sh->Name, Houses[i]->Type->ID);
             }
-            sh->IsHuman = Houses[i]->unknown_134;
+            sh->IsHuman = Houses[i]->IsHuman;
             sh->Color[sizeof(sh->Color) - 1] = 0;
             strncpy(sh->Color, ColorSchemes[Houses[i]->ColorSchemeIndex]->Name, sizeof(sh->Color) - 1);
             sh->ID = i;

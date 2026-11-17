@@ -21,7 +21,7 @@ void RadSiteCell::Unknown_0047CE30(RadSiteClass *site)
 // 0x0047CEA0: adds to the cell's radiation level (+0xF0, a double).
 void RadSiteCell::RadLevel_Increase(double level)
 {
-    reinterpret_cast<CellClass *>(this)->unknown_f0 += level;
+    reinterpret_cast<CellClass *>(this)->RadLevel += level;
 }
 
 // 0x00422690 AnimClass (anim.hpp): stores +0x160 (the PSI warning's house).

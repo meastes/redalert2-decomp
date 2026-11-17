@@ -44,13 +44,13 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
             return 3;
         }
     }
-    if (factory->Rate!=0 && !factory->unknown_6c && kind==7) {
+    if (factory->Rate!=0 && !factory->IsSuspended && kind==7) {
         Debug_Printf("Request to Begin_Production of '%s' was rejected. Cannot queue buildings.\n",(char const *)type->Name);
         return 3;
     }
     Set_Factory(factory,kind,naval,buildcat);
     bool has_suspended=false;
-    if (factory->unknown_6c) {
+    if (factory->IsSuspended) {
         TechnoClass *object=factory->Object;
         if (object && object->Techno_Type_Class()==type) has_suspended=true;
     }
@@ -59,9 +59,9 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
         if (factory->Queue.Count() && !resume && !has_suspended) {
             Map.Flag_Tab_To_Redraw(SidebarClass_GetObjectTabIdx(kind,index,0));
         } else {
-            bool suspended=factory->unknown_6c;
+            bool suspended=factory->IsSuspended;
             factory->Start_Production_004B9670(onhold);
-            if (!suspended && unknown_game_mode_a3d298 && unknown_134) {
+            if (!suspended && unknown_game_mode_a3d298 && IsHuman) {
                 int duration=factory->Object->Techno_Type_Class()->Time_To_Build();
                 int stage=(int)(((unsigned)unknown_a3d568*(unsigned)unknown_max_ahead_a3d560/60)*54)/duration;
                 if (stage>=53) stage=53;
@@ -78,7 +78,7 @@ int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
         Debug_Printf("fptr->QueuedObjects.Count() == %d\n",factory->Queue.Count());
         Debug_Printf("Object->RTTI == %d\n",factory->Object ? factory->Object->Kind_Of() : -1);
         Debug_Printf("Object->HeapID == %d\n",factory->Object ? factory->Object->Fetch_Heap_ID() : -1);
-        Debug_Printf("IsSuspended\t= %d\n",factory->unknown_6c);
+        Debug_Printf("IsSuspended\t= %d\n",factory->IsSuspended);
         delete factory;
         Set_Factory(0,kind,naval,buildcat);
     }

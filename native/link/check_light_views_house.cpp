@@ -15,10 +15,10 @@ static_assert(offsetof(HouseClass, SuperWeapons) == 0x228, "house_screen.hpp Sup
 static_assert(offsetof(HouseClass, WarFactoryInfiltrated) == 0x29B, "house_screen.hpp unknown_207");
 static_assert(offsetof(HouseClass, unknown_230) == 0x2C4, "house_screen.hpp unknown_230");
 static_assert(offsetof(HouseClass, PowerOutput) == 0x5364, "house_screen.hpp PowerOutput");
-static_assert(offsetof(HouseClass, unknown_5364) == 0x5428, "house_screen.hpp unknown_5364");
+static_assert(offsetof(HouseClass, BuildingsKilled) == 0x5428, "house_screen.hpp unknown_5364");
 static_assert(offsetof(HouseClass, BaseCenter) == 0x5480, "house_screen.hpp BaseCenter");
 static_assert(offsetof(HouseClass, unknown_5414) == 0x54E0, "house_screen.hpp unknown_5414");
-static_assert(offsetof(HouseClass, unknown_56d0) == 0x58A0, "house_screen.hpp unknown_56d0");
+static_assert(offsetof(HouseClass, Regions) == 0x58A0, "house_screen.hpp unknown_56d0");
 static_assert(offsetof(HouseClass, IniName) == 0x160B0, "house_screen.hpp IniName");
 static_assert(offsetof(HouseClass, UIName) == 0x160E6, "house_screen.hpp UIName");
 static_assert(offsetof(HouseClass, ColorSchemeIndex) == 0x16110, "house_screen.hpp ColorSchemeIndex");

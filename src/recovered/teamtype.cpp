@@ -229,10 +229,10 @@ TypeList<TeamTypeClass const *> __fastcall TeamTypeClass::Suggested_New_Teams(Ho
     TypeList<TeamTypeClass const *> best;
     HouseClass *enemy = 0;
 
-    if (house->unknown_54f0 != -1) {
-        enemy = Houses[house->unknown_54f0];
+    if (house->Enemy != -1) {
+        enemy = Houses[house->Enemy];
     }
-    if (Random_Pick(1, 100) <= house->unknown_554c && house->IsAITriggersOn) {
+    if (Random_Pick(1, 100) <= house->RatioAITriggerTeam && house->IsAITriggersOn) {
         int team_count = 0;
         int defense_team_count = 0;
         for (index = 0; index < Teams.Count(); index++) {

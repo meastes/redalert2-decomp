@@ -106,7 +106,7 @@ KeyNumType WWKeyboardClass::Buff_Get()
         MouseQY = Fetch_Element();
         unknown_0C = Point2D(MouseQX, MouseQY);
     } else if (Is_Char_Key(key)) {
-        unknown_08 = Fetch_Element();
+        MouseWheel = Fetch_Element();
     }
     return key;
 }
@@ -423,11 +423,11 @@ char WWKeyboardClass::To_Char(KeyNumType key)
 
             case 0x0A:
             {
-                char character = (char)unknown_08;
+                char character = (char)MouseWheel;
                 if (character == 0x0D) {
                     character = 0;
                 }
-                unknown_08 = 0;
+                MouseWheel = 0;
                 return character;
             }
 

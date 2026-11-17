@@ -10,7 +10,7 @@ namespace {
 // default layout declares it int[12]).
 short *Disguise_Sensors(CellClass *cell)
 {
-    return reinterpret_cast<short *>(&cell->unknown_ac[0]);
+    return reinterpret_cast<short *>(&cell->DisguiseSensorsOfHouses[0]);
 }
 }
 

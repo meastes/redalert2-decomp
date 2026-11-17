@@ -17,7 +17,7 @@ void __fastcall Collect_Coop_Player_Score_0048e210(MPlayerScoreType &output, boo
     int count = Houses.Count();
     for (int index = 0; index < count; index++) {
         HouseClass *house = Houses[index];
-        if (house != 0 && house->Type->MultiplayPassive != true && house->unknown_134) {
+        if (house != 0 && house->Type->MultiplayPassive != true && house->IsHuman) {
             if (!skip_first) {
                 output.Winner = 0;
                 wcscpy(output.Name, house->UIName);
@@ -32,20 +32,20 @@ void __fastcall Collect_Coop_Player_Score_0048e210(MPlayerScoreType &output, boo
                 int kills = 0;
                 int i;
                 for (i = 0; i < 20; i++) {
-                    kills += house->unknown_5310[i];
+                    kills += house->UnitsKilled[i];
                 }
                 for (i = 0; i < count; i++) {
-                    kills += house->unknown_5364[i];
+                    kills += house->BuildingsKilled[i];
                 }
                 output.Kills = kills;
-                output.Lost = house->unknown_5360 + house->unknown_53b4;
-                int built = house->unknown_5460.Sum();
-                built += house->unknown_5470.Sum();
-                built += house->unknown_5480.Sum();
-                built += house->unknown_5490.Sum();
-                output.Built = house->unknown_5360 + house->unknown_53b4 + built;
-                if (house->unknown_5418 > 0) {
-                    output.Score += house->unknown_5418;
+                output.Lost = house->UnitsLost + house->BuildingsLost;
+                int built = house->ABQuantity.Sum();
+                built += house->AUQuantity.Sum();
+                built += house->AIQuantity.Sum();
+                built += house->AAQuantity.Sum();
+                output.Built = house->UnitsLost + house->BuildingsLost + built;
+                if (house->PointTotal > 0) {
+                    output.Score += house->PointTotal;
                 }
                 char const *result = output.Winner > 0 ? "Winner" : "Loser";
                 char *name = Wide_To_Narrow_006fa120(output.Name);

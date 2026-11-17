@@ -29,7 +29,7 @@ LaserDrawClass *TechnoClass::unknown_6c9df0(AbstractClass *target, int weapon_in
     RGBClass const *inner;
     RGBClass const *outer;
     if (weapon->IsHouseColor) {
-        inner = &House->unknown_55ec;
+        inner = &House->LaserColor;
         half.Red = inner->Red >> 1;
         half.Green = inner->Green >> 1;
         half.Blue = inner->Blue >> 1;

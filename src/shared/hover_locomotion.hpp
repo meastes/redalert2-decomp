@@ -69,7 +69,7 @@ public:
     double unknown_50;                  // +0x50
     double unknown_58;                  // +0x58 (1.0)
     double unknown_60;                  // +0x60
-    bool unknown_68;                    // +0x68 drifting
+    bool WasShoved;                    // +0x68 drifting
     int unknown_6c;                     // +0x6C drift
     bool unknown_70;                    // +0x70
     int unknown_74;                     // +0x74

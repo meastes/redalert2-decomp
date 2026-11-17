@@ -553,7 +553,7 @@ bool SmudgeTypeClass::Can_Place(Cell const &cell, bool arg2) const
             if (tile < 0 || tile >= IsoTileTypes.Count()) {
                 tile = 0;
             }
-            if (!IsoTileTypes[tile]->unknown_2b0) {
+            if (!IsoTileTypes[tile]->IsMorphable) {
                 return false;
             }
         }

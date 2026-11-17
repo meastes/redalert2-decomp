@@ -98,7 +98,7 @@ EnvironmentClass Environment;
 // Emitted by the checkpoint file-global object in the first static draft.
 
 
-EnvironmentClass::EnvironmentClass() : Credits(0),TimerRemaining(0),Difficulty(1),unknown_40(0)
+EnvironmentClass::EnvironmentClass() : Credits(0),TimerRemaining(0),Difficulty(1),Stage(0)
 {
  memset(Variables,0,sizeof(Variables));
 }
@@ -116,7 +116,7 @@ void EnvironmentClass::Capture_004B5AB0()
  Credits=PlayerPtr->Available_Money();
  TimerRemaining=Scen->MissionTimer.Value();
  Difficulty=PlayerPtr->Difficulty;
- unknown_40=Scen->Stage;
+ Stage=Scen->Stage;
 }
 
 
@@ -146,7 +146,7 @@ void EnvironmentClass::Restore_004B5B40()
             Scen->MissionTimer.Start();
         }
     }
-    Scen->Stage = unknown_40;
+    Scen->Stage = Stage;
 }
 
 

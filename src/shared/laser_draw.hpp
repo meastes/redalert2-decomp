@@ -37,7 +37,7 @@ public:
     StageClass Progress;                       // +0x00 (stage 0, rate 1)
     int unknown_18;                            // +0x18 (1; 0x4468DD stores 3)
     bool IsHouseColor;                         // +0x1C (drawn in the owner's colour)
-    bool unknown_1d;                           // +0x1D
+    bool IsSupported;                           // +0x1D
     CoordStruct Source;                        // +0x20
     CoordStruct Target;                        // +0x2C
     int ZAdjust;                               // +0x38

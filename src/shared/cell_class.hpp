@@ -459,9 +459,9 @@ public:
     unsigned int CloakedBy;                    // +0x078
     short SensorsOfHouses[24];                       // +0x07C
 #ifdef RA2_CELL_FULL_ASSIGN
-    unsigned short unknown_ac[24];              // +0x0AC [YR DisguiseSensorsOfHouses]
+    unsigned short DisguiseSensorsOfHouses[24];              // +0x0AC [YR DisguiseSensorsOfHouses]
 #else
-    int unknown_ac[12];                         // +0x0AC
+    int DisguiseSensorsOfHouses[12];                         // +0x0AC
 #endif
     int OccupiedBy;                             // +0x0DC
     void *Jumpjet;                           // +0x0E0
@@ -473,12 +473,12 @@ public:
     ObjectClass * Cell_Occupier(bool bridge=false) const {return(bridge ? AltOccupierPtr : OccupierPtr);}
 #endif
     int Land;                             // +0x0EC
-    double unknown_f0;                          // +0x0F0
+    double RadLevel;                          // +0x0F0
     void *RadSite;                           // +0x0F8
     UnknownCellOwned *PixelFX;               // +0x0FC
-    int unknown_100;                            // +0x100
-    int unknown_104;                            // +0x104
-    short unknown_108;                          // +0x108
+    int OccupyHeightsCoveringMe;                            // +0x100
+    int Intensity;                            // +0x104
+    short Ambient;                          // +0x108
     short Brightness;                          // +0x10A
     short TileBrightness;                          // +0x10C
     short AltBrightness;                          // +0x10E

@@ -889,13 +889,13 @@ int ObjectClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhea
     Strength = (int)((unsigned int)old_strength - (unsigned int)*damage);
     if (Strength <= 0 && Kind_Of() == 15 && !forced) {
         InfantryClass *infantry = static_cast<InfantryClass *>(this);
-        if (infantry->Type->Cyborg && !infantry->unknown_5c3) {
+        if (infantry->Type->Cyborg && !infantry->IsProne) {
             new AnimClass(Rules->InfantryExplode, CoordStruct(Coord), 0, 1, 0x600, 0);
             Strength = (int)((double)infantry->Type->MaxStrength * unknown_cyborg_recovery_007a7670);
             int restored_strength = Strength;
             if (restored_strength <= 1) restored_strength = 1;
             Strength = restored_strength;
-            infantry->unknown_5c3 = true;
+            infantry->IsProne = true;
             infantry->unknown_slot311(6, true, false);
             state = 3;
         }

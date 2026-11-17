@@ -548,7 +548,7 @@ bool SessionClass::Am_I_Master(HouseClass *house)
     }
     for (int i = 0; i < Houses.Count(); i++) {
         HouseClass *player = Houses[i];
-        if (player->unknown_134 && !player->IsDefeated) {
+        if (player->IsHuman && !player->IsDefeated) {
             if (house == player) {
                 return true;
             } else {
@@ -1606,7 +1606,7 @@ void SessionClass::Unknown_00672440()
     for (name = strtok(names, ","); name && *name; name = strtok(0, ",")) {
         for (i = 0; i < Houses.Count(); i++) {
             HouseClass *house = Houses[i];
-            if (house->unknown_134 && _stricmp(house->IniName, name) == 0) {
+            if (house->IsHuman && _stricmp(house->IniName, name) == 0) {
                 squad_1.Add(house);
             }
         }
@@ -1615,7 +1615,7 @@ void SessionClass::Unknown_00672440()
     for (name = strtok(names, ","); name && *name; name = strtok(0, ",")) {
         for (i = 0; i < Houses.Count(); i++) {
             HouseClass *house = Houses[i];
-            if (house->unknown_134 && _stricmp(house->IniName, name) == 0) {
+            if (house->IsHuman && _stricmp(house->IniName, name) == 0) {
                 squad_2.Add(house);
             }
         }

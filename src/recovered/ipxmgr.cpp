@@ -118,12 +118,12 @@ IPXManagerClass::IPXManagerClass(int glb_maxlen, int pvt_maxlen, int glb_num_pac
         Connection[i] = 0;
     }
     GlobalChannel = 0;
-    unknown_a8 = -1;
+    BadConnection = -1;
     MaxRetries = 0xFFFFFFFF;
-    unknown_4c = 0;
+    LobbyChannel = 0;
     unknown_50 = 0;
     SendOverflows = 0;
-    unknown_a4 = 0;
+    ReceiveOverflows = 0;
     RetryDelta = 2;
     Timeout = 60;
 }
@@ -142,9 +142,9 @@ IPXManagerClass::~IPXManagerClass()
         delete GlobalChannel;
         GlobalChannel = 0;
     }
-    if (unknown_4c) {
-        delete unknown_4c;
-        unknown_4c = 0;
+    if (LobbyChannel) {
+        delete LobbyChannel;
+        LobbyChannel = 0;
     }
     if (unknown_50) {
         delete unknown_50;
@@ -184,9 +184,9 @@ int IPXManagerClass::Init()
         delete GlobalChannel;
         GlobalChannel = 0;
     }
-    if (unknown_4c) {
-        delete unknown_4c;
-        unknown_4c = 0;
+    if (LobbyChannel) {
+        delete LobbyChannel;
+        LobbyChannel = 0;
     }
     if (unknown_50) {
         delete unknown_50;
@@ -207,16 +207,16 @@ int IPXManagerClass::Init()
     GlobalChannel->MaxRetries = MaxRetries;
     GlobalChannel->Timeout = Timeout;
 
-    unknown_4c = new IPXGlobalConnClass(unknown_1c, unknown_1c * 2, unknown_18, ProductID, 0xCDEF);
-    if (!unknown_4c) {
+    LobbyChannel = new IPXGlobalConnClass(unknown_1c, unknown_1c * 2, unknown_18, ProductID, 0xCDEF);
+    if (!LobbyChannel) {
         return 0;
     }
-    unknown_4c->Init();
-    unknown_4c->RetryDelta = RetryDelta;
-    unknown_4c->MaxRetries = MaxRetries;
-    unknown_4c->Timeout = Timeout;
+    LobbyChannel->Init();
+    LobbyChannel->RetryDelta = RetryDelta;
+    LobbyChannel->MaxRetries = MaxRetries;
+    LobbyChannel->Timeout = Timeout;
 
-    IPXConnClass::Configure(Socket, ConnectionNum, unknown_7c, unknown_94, unknown_80, unknown_98, unknown_74);
+    IPXConnClass::Configure(Socket, ConnectionNum, FirstHeaderBuf, SendHeader, FirstDataBuf, SendBuf, PacketLen);
     if (!PacketTransport) {
         return 0;
     }
@@ -309,10 +309,10 @@ void IPXManagerClass::unknown_slot17()
 
 void IPXManagerClass::unknown_slot18(unsigned long retrydelta, unsigned long maxretries, unsigned long timeout)
 {
-    if (unknown_4c) {
-        unknown_4c->RetryDelta = retrydelta;
-        unknown_4c->MaxRetries = maxretries;
-        unknown_4c->Timeout = timeout;
+    if (LobbyChannel) {
+        LobbyChannel->RetryDelta = retrydelta;
+        LobbyChannel->MaxRetries = maxretries;
+        LobbyChannel->Timeout = timeout;
     }
     if (unknown_50) {
         unknown_50->RetryDelta = retrydelta;
@@ -464,7 +464,7 @@ int IPXManagerClass::unknown_slot19(ConnectionClass *connection)
     if (connection == unknown_50) {
         return -4;
     }
-    if (connection == unknown_4c) {
+    if (connection == LobbyChannel) {
         return -3;
     }
     if (connection == GlobalChannel) {
@@ -584,10 +584,10 @@ void IPXManagerClass::Global_Channel_Op_3C(int index)
 
 int IPXManagerClass::Send_Lobby_Message(void *buf, int buflen, bool ack_req)
 {
-    if (!IPXStatus || !Listening || !unknown_4c) {
+    if (!IPXStatus || !Listening || !LobbyChannel) {
         return 0;
     }
-    int rc = unknown_4c->Send_Packet(buf, buflen, &unknown_4c->Address, ack_req, 0, 0);
+    int rc = LobbyChannel->Send_Packet(buf, buflen, &LobbyChannel->Address, ack_req, 0, 0);
     if (!rc) {
         SendOverflows++;
         Debug_Printf("Send overflow %d\n", SendOverflows);
@@ -604,7 +604,7 @@ int IPXManagerClass::Get_Lobby_Message(void *buf, int *buflen, IPXAddressClass *
     if (!IPXStatus || !Listening) {
         return 0;
     }
-    return unknown_4c->Get_Packet(buf, buflen, address, product_id);
+    return LobbyChannel->Get_Packet(buf, buflen, address, product_id);
 }
 
 
@@ -753,8 +753,8 @@ int IPXManagerClass::Service()
             Debug_Printf("Adding packet from %s ; %d to global queue\n",address.As_String(),port);
             if (!Forward_Router_Packet(packet,(char *)receive_buffer,packetlen,(IPXAddressClass *)address_buffer,port)) {
                 if (!GlobalChannel->Receive_Packet(packet,packetlen,&address,port)) {
-                    ++unknown_a4;
-                    Debug_Printf("GlobalChannel recive buffer overflow %d\n",unknown_a4);
+                    ++ReceiveOverflows;
+                    Debug_Printf("GlobalChannel recive buffer overflow %d\n",ReceiveOverflows);
                     break;
                 }
                 if (unknown_game_mode_a3d298==4 && unknown_session_a3d298.UseRouter) {
@@ -812,10 +812,10 @@ int IPXManagerClass::Service()
                     }
                 }
             }
-        } else if (packet->MagicNumber==unknown_4c->MagicNum) {
-            if (unknown_flag_a3fba8 && !unknown_4c->Receive_Packet(packet,packetlen,&address,0)) {
-                ++unknown_a4;
-                Debug_Printf("RouterChannel recive buffer overflow %d\n",unknown_a4);
+        } else if (packet->MagicNumber==LobbyChannel->MagicNum) {
+            if (unknown_flag_a3fba8 && !LobbyChannel->Receive_Packet(packet,packetlen,&address,0)) {
+                ++ReceiveOverflows;
+                Debug_Printf("RouterChannel recive buffer overflow %d\n",ReceiveOverflows);
                 break;
             }
         } else if (packet->MagicNumber==ProductID && !Forward_Router_Packet(packet,(char *)receive_buffer,packetlen,(IPXAddressClass *)address_buffer,port)) {
@@ -830,8 +830,8 @@ int IPXManagerClass::Service()
                     }
                     if (!Connection[0]->Receive_Packet(packet,packetlen)) {
                         packetlen=0;
-                        ++unknown_a4;
-                        Debug_Printf("Receive buffer overflow %d\n",unknown_a4);
+                        ++ReceiveOverflows;
+                        Debug_Printf("Receive buffer overflow %d\n",ReceiveOverflows);
                     }
                 }
 
@@ -846,8 +846,8 @@ int IPXManagerClass::Service()
                 if (found) {
                     if (!Connection[i]->Receive_Packet(packet,packetlen)) {
                         packetlen=0;
-                        ++unknown_a4;
-                        Debug_Printf("Reecive buffer overflow %d\n",unknown_a4);
+                        ++ReceiveOverflows;
+                        Debug_Printf("Reecive buffer overflow %d\n",ReceiveOverflows);
                     }
                 } else {
                 if (unknown_game_mode_a3d298==4 && !ScenarioInit && Frame>8 && !unknown_flag_a3fba8 && (unsigned)packetlen>15 && packet->Code==PACKET_DATA_NOACK) {
@@ -890,9 +890,9 @@ next_packet:
         result=0;
     }
     if (unknown_flag_a3fba8) {
-        if (unknown_4c) {
-            if (!unknown_4c->Service()) {
-                unknown_4c->Discard_Undeliverable_Packets();
+        if (LobbyChannel) {
+            if (!LobbyChannel->Service()) {
+                LobbyChannel->Discard_Undeliverable_Packets();
                 result=0;
             }
             if (!unknown_flag_a402d8) OwnerTalk.Unknown_0063F840();
@@ -907,13 +907,13 @@ next_packet:
         do {
             if (!Connection[i]->Service()) {
                 result=0;
-                unknown_a8=Connection[i]->ID;
-                Debug_Printf("Error - Connection %d has gone bad\n",unknown_a8);
+                BadConnection=Connection[i]->ID;
+                Debug_Printf("Error - Connection %d has gone bad\n",BadConnection);
             }
             ++i;
         } while (i<NumConnections);
     }
-    if (result) unknown_a8=-1;
+    if (result) BadConnection=-1;
     return result;
 }
 #endif
@@ -933,7 +933,7 @@ void IPXManagerClass::Set_Connection_Address(int id, IPXAddressClass *address)
 
 int IPXManagerClass::Get_Bad_Connection()
 {
-    return unknown_a8;
+    return BadConnection;
 }
 
 
@@ -964,10 +964,10 @@ int IPXManagerClass::Global_Num_Receive()
 
 int IPXManagerClass::unknown_slot20()
 {
-    if (!IPXStatus || !Listening || !unknown_4c) {
+    if (!IPXStatus || !Listening || !LobbyChannel) {
         return 0;
     }
-    return unknown_4c->Queue->SendCount;
+    return LobbyChannel->Queue->SendCount;
 }
 
 
@@ -976,10 +976,10 @@ int IPXManagerClass::unknown_slot20()
 
 int IPXManagerClass::unknown_slot21()
 {
-    if (!IPXStatus || !Listening || !unknown_4c) {
+    if (!IPXStatus || !Listening || !LobbyChannel) {
         return 0;
     }
-    return unknown_4c->Queue->ReceiveCount;
+    return LobbyChannel->Queue->ReceiveCount;
 }
 
 
@@ -1090,8 +1090,8 @@ unsigned long IPXManagerClass::Global_Response_Time()
 
 unsigned long IPXManagerClass::Lobby_Response_Time()
 {
-    if (unknown_4c) {
-        return unknown_4c->Queue->Avg_Delay();
+    if (LobbyChannel) {
+        return LobbyChannel->Queue->Avg_Delay();
     }
     return 0;
 }
@@ -1256,8 +1256,8 @@ void IPXManagerClass::Reset_Response_Time(bool clear)
     if (GlobalChannel) {
         GlobalChannel->Queue->Reset_Delay(true);
     }
-    if (unknown_4c) {
-        unknown_4c->Queue->Reset_Delay(true);
+    if (LobbyChannel) {
+        LobbyChannel->Queue->Reset_Delay(true);
     }
     if (unknown_50) {
         unknown_50->Queue->Reset_Delay(true);
@@ -1325,8 +1325,8 @@ void IPXManagerClass::Configure_Debug(int index, int offset, int size, int names
 
 void IPXManagerClass::Set_Lobby_Address(IPXAddressClass *address)
 {
-    if (unknown_4c) {
-        unknown_4c->Address = *address;
+    if (LobbyChannel) {
+        LobbyChannel->Address = *address;
     }
 }
 
@@ -1336,7 +1336,7 @@ void IPXManagerClass::Set_Lobby_Address(IPXAddressClass *address)
 void IPXManagerClass::Global_Channel_Clear_FieldC8()
 {
     if (GlobalChannel) {
-        GlobalChannel->unknown_c8 = false;
+        GlobalChannel->IsRouted = false;
     }
 }
 
@@ -1346,7 +1346,7 @@ void IPXManagerClass::Global_Channel_Clear_FieldC8()
 void IPXManagerClass::Set_Global_Routed()
 {
     if (GlobalChannel) {
-        GlobalChannel->unknown_c8 = true;
+        GlobalChannel->IsRouted = true;
     }
 }
 

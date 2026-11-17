@@ -158,7 +158,7 @@ class CCINIClass;
 class InfantryClass : public FootClass {
 public:
     InfantryClass(InfantryTypeClass *type, HouseClass *house);        // 0x004FF640
-    InfantryClass(NoInitClass const &noinit) : FootClass(noinit), unknown_5b0(noinit) {}   // inline (Load)
+    InfantryClass(NoInitClass const &noinit) : FootClass(noinit), Comment(noinit) {}   // inline (Load)
     virtual ~InfantryClass();                                         // 0x004FF980
 
     virtual HRESULT __stdcall GetClassID(GUID *clsid)                 // slot 3 0x005097C0 (inline)
@@ -271,17 +271,17 @@ public:
 
     InfantryTypeClass *Type;                    // +0x5A8
     int Sequence;                               // +0x5AC
-    CDTimerClass<FrameTimerClass> unknown_5b0;  // +0x5B0
-    int unknown_5bc;                            // +0x5BC
-    bool unknown_5c0;                           // +0x5C0
-    bool unknown_5c1;                           // +0x5C1
-    bool unknown_5c2;                           // +0x5C2
-    bool unknown_5c3;                           // +0x5C3
-    bool unknown_5c4;                           // +0x5C4
-    bool unknown_5c5;                           // +0x5C5
+    CDTimerClass<FrameTimerClass> Comment;  // +0x5B0
+    int Fear;                            // +0x5BC
+    bool IsBerzerk;                           // +0x5C0
+    bool IsTechnician;                           // +0x5C1
+    bool IsStoked;                           // +0x5C2
+    bool IsProne;                           // +0x5C3
+    bool IsZoneCheat;                           // +0x5C4
+    bool WasSelected;                           // +0x5C5
     int unknown_5c8;                            // +0x5C8
     bool unknown_5cc;                           // +0x5CC
-    int unknown_5d0;                            // +0x5D0
+    int LastSurface;                            // +0x5D0
     int unknown_5d4;                            // +0x5D4
 };
 

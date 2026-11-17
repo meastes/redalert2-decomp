@@ -2330,7 +2330,7 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
     HWND dialog=OwnerDraw_Begin_Dialog(0x105,Map_Seed_Dialog_Proc_00577bd0,0);
     if(dialog!=0) {
         rmg_callback_7e09c4=callback;
-        RandomMapGen.SeedData.unknown_14=(int)callback;
+        RandomMapGen.SeedData.Callback=(int)callback;
         SetWindowLongA(dialog,8,(LONG)&result);
         SendMessageA(dialog,0x4a9,0,1);
         Display_Dialog(dialog);
@@ -2342,7 +2342,7 @@ int __fastcall Do_Random_Map_Dialog_00577490(bool (*callback)())
         OwnerDraw_End_Dialog(dialog);
     }
     rmg_callback_7e09c4=Default_Map_Generation_Callback_00482100;
-    RandomMapGen.SeedData.unknown_14=0;
+    RandomMapGen.SeedData.Callback=0;
     if(unknown_preview_a6fee4!=0) {
         if(unknown_preview_a6fee4->unknown_00!=0) {
             RawFileClass file(rmg_preview_filename_7e1540);
@@ -2462,7 +2462,7 @@ void __fastcall Do_Random_Map_00577880(HWND dialog,bool (*callback)())
         unknown_preview_a6fee4=0;
     }
     rmg_callback_7e09c4=callback;
-    RandomMapGen.SeedData.unknown_14=(int)callback;
+    RandomMapGen.SeedData.Callback=(int)callback;
     if(RandomMapGen.SeedData.Seed==-1)
         RandomMapGen.SeedData.Seed=NonCriticalRandomNumber(0,65535);
     RandomMapGen.Unknown_0057A0D0(1,(int)dialog);

@@ -40,7 +40,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(object->Get_Height_AGL()<-20) return false;
     CoordStruct objectcoord=object->Center_Coord();
     if(zone!=-1 && Map.Zone(Coord_Cell(objectcoord),Techno_Type_Class()->MovementZone,object->IsOnBridge)!=zone) return false;
-    if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->unknown_5c0) && !Techno_Type_Class()->AttackFriendlies && House->Is_Ally(tech)) {
+    if((Kind_Of()!=15 || !static_cast<InfantryClass *>(this)->IsBerzerk) && !Techno_Type_Class()->AttackFriendlies && House->Is_Ally(tech)) {
         if(unknown_6c16f0(-1)>=0 && !engineer) return false;
         if(object->Health_Ratio()==Rules->ConditionGreen) return false;
         if(object->Kind_Of()==2 && Kind_Of()==1) {
@@ -133,7 +133,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
         if(object->unknown_70<=0) *value=*value/2;
         else if(object->unknown_70<=object->Techno_Type_Class()->MaxStrength/2) *value=*value*2;
     }
-    if(House->unknown_190 && House->unknown_54f0!=-1 && tech->House!=Houses[House->unknown_54f0]) *value=1;
+    if(House->IsAllToHunt && House->Enemy!=-1 && tech->House!=Houses[House->Enemy]) *value=1;
     BuildingTypeClass *btype=static_cast<BuildingTypeClass *>(tclass);
     if((method&0x800) && otype==6) {
         if(btype->Power>0) *value=btype->Power*1000+*value;

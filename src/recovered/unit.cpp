@@ -353,7 +353,7 @@ void UnitClass::AI()
 // Unit body/turret turning using current shared Facing and weapon layouts.
 void UnitClass::unknown_6fb890()
 {
-    if (TarCom && !unknown_599) {
+    if (TarCom && !IsRotating) {
         UnknownFacingDir toward = Direction_To(TarCom);
         if (Type->Turret) {
             WeaponStruct *weapon = unknown_slot230();
@@ -374,11 +374,11 @@ void UnitClass::unknown_6fb890()
         UnknownFacingDir direction((unsigned short)((Dir_To_256(SecondaryFacing.Current()) + 8) << 8));
         SecondaryFacing.Set(direction);
     } else {
-        unknown_599 = false;
+        IsRotating = false;
         if (Type->Turret) {
             if (SecondaryFacing.Is_Rotating()) {
                 if (!Type->TurretSpins) {
-                    unknown_599 = SecondaryFacing.Is_Rotating();
+                    IsRotating = SecondaryFacing.Is_Rotating();
                 }
             } else if (!TarCom) {
                 WeaponStruct *weapon = unknown_slot230();
@@ -744,7 +744,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
         return 0;
     case 22:
         FootClass::Receive_Message(radio, message, param);
-        if (!unknown_599 && PrimaryFacing.Current().Raw != 0x4000) {
+        if (!IsRotating && PrimaryFacing.Current().Raw != 0x4000) {
             Locomotor.Checked()->Do_Turn(UnknownFacingDir(0x4000));
             return 1;
         }
@@ -795,7 +795,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
                 if (Unit_Radio_Used_Size(Cargo) + sender->Techno_Type_Class()->Size <= capacity &&
                     !(sender->Techno_Type_Class()->Size > Type->SizeLimit)) {
                     FootClass::Receive_Message(radio, message, param);
-                    if (!Locomotor.Checked()->Is_Moving() && !unknown_599 && !IsTethered &&
+                    if (!Locomotor.Checked()->Is_Moving() && !IsRotating && !IsTethered &&
                         unknown_slot150(0x13, sender) == 1) {
                         param = this;
                         // Existing long&/int* ABI spellings both occupy one Win32 DWORD.
@@ -2202,7 +2202,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 break;
             }
             case 1:
-            if (!unknown_599) { Status=3;return 1; }
+            if (!IsRotating) { Status=3;return 1; }
             break;
             case 3:
             if (Cargo.Count>unknown_5cc) {
@@ -2295,7 +2295,7 @@ int UnitClass::Do_MISSION_UNLOAD()
     }
     int current_dir=Dir_To_256(PrimaryFacing.Current());
     if (current_dir!=64) {
-        if (!unknown_599) Locomotor.Checked()->Do_Turn(UnknownFacingDir(0x4000));
+        if (!IsRotating) Locomotor.Checked()->Do_Turn(UnknownFacingDir(0x4000));
         return 5;
     }
     if (!IsDumping) {
@@ -2361,9 +2361,9 @@ int UnitClass::Do_MISSION_UNLOAD()
                         if (!building->unknown_454[10]) building->PlayNthAnim(10,building->Health_Ratio()<=Rules->ConditionYellow,false,0);
                         int slot=unknown_294.First_Used_Slot();
                         HouseClass *owner=building->Owning_House();
-                        int purifiers=owner->unknown_52cc;
+                        int purifiers=owner->NumOrePurifiers;
                         if (owner->Power_Fraction()<1.0) purifiers=0;
-                        if (!owner->unknown_134 && unknown_game_mode_a3d298!=0) purifiers+=Rules->AIVirtualPurifiers[owner->Difficulty];
+                        if (!owner->IsHuman && unknown_game_mode_a3d298!=0) purifiers+=Rules->AIVirtualPurifiers[owner->Difficulty];
                         float amount=slot!=-1 ? unknown_294.Get_Amount(slot) : 0.0f;
                         float bonus=(float)purifiers*Rules->PurifierBonus*amount;
                         float removed;
@@ -2450,7 +2450,7 @@ int UnitClass::Do_MISSION_HARVEST()
     }
     bool found = false;
     for (index = 0; index < Type->Dock.Count(); index++) {
-        if (House->unknown_5420.unknown_func_491d10(Type->Dock[index]->ArrayIndex) > 0) {
+        if (House->BQuantity.unknown_func_491d10(Type->Dock[index]->ArrayIndex) > 0) {
             found = true;
             break;
         }
@@ -2594,7 +2594,7 @@ int UnitClass::Do_MISSION_HARVEST()
             return 1;
         case GOINGTOIDLE:
             if (IsUseless) {
-                if (House->unknown_5420.unknown_func_491d10(Rules->RepairBay->ArrayIndex) > 0) {
+                if (House->BQuantity.unknown_func_491d10(Rules->RepairBay->ArrayIndex) > 0) {
                     QueueMission(0x14, false);
                 } else {
                     QueueMission(0xf, false);
@@ -3122,7 +3122,7 @@ int UnitClass::Do_MISSION_GUARD()
     if (Type->Harvester || Type->Weeder) {
         if (!House->Unknown_004F52F0()) {
             for (int index = 0; index < Type->Dock.Count(); index++) {
-                if (House->unknown_5420.unknown_func_491d10(Type->Dock[index]->ArrayIndex) > 0) {
+                if (House->BQuantity.unknown_func_491d10(Type->Dock[index]->ArrayIndex) > 0) {
                     if (!Type->Harvester || !House->IsTiberiumShort) {
                         QueueMission(10, false);
                         return 1;
@@ -3335,7 +3335,7 @@ void UnitClass::APC_Close_Door()
 
 void UnitClass::APC_Open_Door()
 {
-    if (!Locomotor.Checked()->Is_Moving() && !unknown_599) {
+    if (!Locomotor.Checked()->Is_Moving() && !IsRotating) {
         Door.Count_Up(Type->DeployTime);
     }
 }
@@ -3361,7 +3361,7 @@ int UnitClass::Do_MISSION_REPAIR()
     TechnoClass *refinery = unknown_slot301(Rules->RepairBay, 0, 0);
     IsHarvesting = false;
     if (!refinery) {
-        if (!House->unknown_5420.unknown_func_491d10(Rules->RepairBay->ArrayIndex)) {
+        if (!House->BQuantity.unknown_func_491d10(Rules->RepairBay->ArrayIndex)) {
             unknown_slot261(0, 1);
         }
     } else if (unknown_slot150(2, refinery) == 1) {
@@ -3416,7 +3416,7 @@ int UnitClass::unknown_slot218(AbstractClass *target, int weapon, bool check_ran
         if (!Type->MobileFire && NavCom) return 7;
         if ((weapon_type->UseSparkParticles || weapon_type->UseFireParticles) && NavCom) return 7;
         if (TemporalImUsing && NavCom) return 7;
-        if (!IsFiring && unknown_599 && weapon_type->Projectile->ROT == 0) return 4;
+        if (!IsFiring && IsRotating && weapon_type->Projectile->ROT == 0) return 4;
         if (!weapon_type->OmniFire && !Type->LargeVisceroid && !Type->SmallVisceroid) {
             UnknownFacingDir current;
             if (Type->Turret) current = SecondaryFacing.Current();
@@ -4350,7 +4350,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
             return;
         }
         if ((Kind_Of() != 1 || !IsDumping)
-            && (NavCom == 0 || (nokidding && !unknown_599))
+            && (NavCom == 0 || (nokidding && !IsRotating))
             && (TarCom == 0 || forced || Random_Pick(1, 4) == 1)) {
             int facing;
             if (source != unknown_geometry_l) {

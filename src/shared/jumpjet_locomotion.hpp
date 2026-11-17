@@ -66,7 +66,7 @@ public:
     int unknown_78;                     // +0x78
     int unknown_7c;                     // +0x7C
     double unknown_80;                  // +0x80
-    bool unknown_88;                    // +0x88
+    bool IsLanding;                    // +0x88
     int unknown_8c;                     // +0x8C
 };
 

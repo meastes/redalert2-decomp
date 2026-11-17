@@ -90,8 +90,8 @@ LightConvertClass::LightConvertClass(PaletteClass const &artpalette, PaletteClas
                                      int red_tint, int green_tint, int blue_tint, bool blitters_created, unsigned char const *tint_mask,
                                      int intensity_levels)
     : ConvertClass(artpalette, screenpalette, typicalsurface, intensity_levels, true),
-      ArtPalette(&artpalette), ScreenPalette(&screenpalette), unknown_190(tint_mask), unknown_194(0),
-      Red(red_tint), Green(green_tint), Blue(blue_tint), StoredRed(red_tint), StoredGreen(green_tint), StoredBlue(blue_tint), unknown_1b0(false)
+      ArtPalette(&artpalette), ScreenPalette(&screenpalette), unknown_190(tint_mask), ReferenceCount(0),
+      Red(red_tint), Green(green_tint), Blue(blue_tint), StoredRed(red_tint), StoredGreen(green_tint), StoredBlue(blue_tint), UseIonLighting(false)
 {
     if (this->unknown_shadow_count >= 1) {
         if (tint_mask == 0) {
@@ -170,7 +170,7 @@ void LightConvertClass::Set_Tint(int red, int green, int blue, bool stored)
                 StoredGreen = green;
                 StoredBlue = blue;
             }
-            unknown_1b0 = true;
+            UseIonLighting = true;
         } else {
             if (red == -1) {
                 red = Red;
@@ -181,7 +181,7 @@ void LightConvertClass::Set_Tint(int red, int green, int blue, bool stored)
                 Green = green;
                 Blue = blue;
             }
-            unknown_1b0 = false;
+            UseIonLighting = false;
         }
         int red_step = (int)(red * 1000 * 0.065536);
         int green_step = (int)(green * 1000 * 0.065536);

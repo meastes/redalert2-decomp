@@ -164,20 +164,20 @@ void MP_Tally_Scores_005AABD0()
             int kills = 0;
             int j;
             for (j = 0; j < 20; j++) {
-                kills += house->unknown_5310[j];
+                kills += house->UnitsKilled[j];
             }
             for (j = 0; j < count; j++) {
-                kills += house->unknown_5364[j];
+                kills += house->BuildingsKilled[j];
             }
             unknown_session_a3d298.Scores[index].Kills = kills;
-            unknown_session_a3d298.Scores[index].Lost = house->unknown_53b4 + house->unknown_5360;
-            int built = house->unknown_54a0.Sum();
-            built += house->unknown_54b0.Sum();
-            built += house->unknown_54c0.Sum();
-            built += house->unknown_54d0.Sum();
+            unknown_session_a3d298.Scores[index].Lost = house->BuildingsLost + house->UnitsLost;
+            int built = house->PBQuantity.Sum();
+            built += house->PUQuantity.Sum();
+            built += house->PIQuantity.Sum();
+            built += house->PAQuantity.Sum();
             unknown_session_a3d298.Scores[index].Built = built;
-            if (house->unknown_5418 > 0) {
-                unknown_session_a3d298.Scores[index].Score += house->unknown_5418;
+            if (house->PointTotal > 0) {
+                unknown_session_a3d298.Scores[index].Score += house->PointTotal;
             }
             if (!house->IsDefeated) {
                 int score = unknown_session_a3d298.Scores[index].Score;

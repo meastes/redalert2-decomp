@@ -183,7 +183,7 @@ int TechnoTypeClass::GetRefund(HouseClass *house, bool full) const
 
 void const *TechnoTypeClass::unknown_slot38() const
 {
-    if (PlayerPtr && PlayerPtr->unknown_206 && Kind_Of() == 0x10 && AltCameoData && Trainable) {
+    if (PlayerPtr && PlayerPtr->BarracksInfiltrated && Kind_Of() == 0x10 && AltCameoData && Trainable) {
         return AltCameoData;
     }
     if (PlayerPtr && PlayerPtr->WarFactoryInfiltrated && Kind_Of() == 0x28 && AltCameoData && Trainable) {

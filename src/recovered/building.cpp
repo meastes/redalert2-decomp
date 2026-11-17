@@ -1685,7 +1685,7 @@ bool BuildingClass::Unlimbo(CoordStruct const *coord, int dir)
     if (TechnoClass::Unlimbo(coord, dir)) {
 
         if (Type->CloakGenerator) {
-            House->unknown_55e8 = true;
+            House->HasCloakGenerator = true;
         }
 
         if (!IsActive) {
@@ -2033,8 +2033,8 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
     Health_Ratio();
     int old_frame=unknown_43be20();
     if (source && !Considered_Vehicle()) {
-        House->unknown_5408=Frame;
-        House->unknown_540c=source->Owning_House()->ArrayIndex;
+        House->LATime=Frame;
+        House->LAEnemy=source->Owning_House()->ArrayIndex;
         unknown_6d3400(source);
     }
     Cell const *offset=Occupy_List(0);
@@ -2195,7 +2195,7 @@ void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
             if(crew)survivor=new InfantryClass(crew,House);
             Debug_Printf("Creating survivor type '%s' from building type '%s'\n",survivor->Type->Name.Buffer,Type->Name.Buffer);
             if(survivor) {
-                if(HasBuildupData && survivor->Type->Nominal)survivor->unknown_5c1=true;
+                if(HasBuildupData && survivor->Type->Nominal)survivor->IsTechnician=true;
                 ++ScenarioInit;
                 coordinate=CoordStruct(location.X*256+128,location.Y*256+164,0);
                 coordinate=((UnknownPlacementCellView *)&Map[coordinate])->Closest_Free_Spot(coordinate,false,false);
@@ -2413,7 +2413,7 @@ int BuildingClass::Exit_Object(TechnoClass *base)
     switch (base->Kind_Of()) {
     case 2:
         House->unknown_func_4f3720(2);
-        House->unknown_5548 = -1;
+        House->BuildAircraft = -1;
         if (!Unknown_00636ED0(base) && (!House->Ion_Sensitives_Should_Be_Offline() || aircraft->Type->AirportBound)) {
             if (!aircraft->Type->AirportBound) {
 Cell edge = Cell(Map.MapLocalSize.X, -Map.MapLocalSize.X) + Cell(1, Map.MapSize.Width) + Cell(Map.MapLocalSize.Y, Map.MapLocalSize.Y);
@@ -2481,8 +2481,8 @@ exitcell.X += random; exitcell.Y += random;
         if (!Type->Hospital && !Type->Armory && !Type->WeaponsFactory && !Unknown_00636EA0()) return 1;
         if (!Type->Hospital && !Type->Armory) {
             House->unknown_func_4f3720(base->Kind_Of());
-            if (base->Kind_Of() == 1) House->unknown_5540 = -1;
-            if (base->Kind_Of() == 15) House->unknown_5544 = -1;
+            if (base->Kind_Of() == 1) House->BuildUnit = -1;
+            if (base->Kind_Of() == 15) House->BuildInfantry = -1;
         }
         if (!Type->Refinery && !Type->Weeder) {
             if (Type->WeaponsFactory) {
@@ -2665,7 +2665,7 @@ exitcell.X += random; exitcell.Y += random;
     case 6:
         if (!House->Is_Human_Player()) {
             House->unknown_func_4f3720(6);
-            House->unknown_553c = -1;
+            House->BuildStructure = -1;
             BuildingClass *building = (BuildingClass *)base;
             BaseNodeClass *node = House->unknown_55f0.Next_Buildable(building->Type->ArrayIndex);
             CoordStruct placementcoord(0, 0, 0);
@@ -2705,8 +2705,8 @@ exitcell.X += random; exitcell.Y += random;
                 }
                 case 0:
                     if (base->Unlimbo(&placementcoord, 0)) {
-                        if (node && building->Type->ArrayIndex == House->unknown_553c) {
-                            House->unknown_553c = -1;
+                        if (node && building->Type->ArrayIndex == House->BuildStructure) {
+                            House->BuildStructure = -1;
                         }
                         if (base->Mission == -1 && base->MissionQueue == 0x12) {
                             base->Commence();
@@ -2832,15 +2832,15 @@ bool BuildingClass::Limbo()
             }
         }
         if (Type->OrePurifier && HasOpened) {
-            House->unknown_52cc--;
-            if (House->unknown_52cc < 0) {
-                House->unknown_52cc = 0;
+            House->NumOrePurifiers--;
+            if (House->NumOrePurifiers < 0) {
+                House->NumOrePurifiers = 0;
             }
         }
         if (Type->Helipad && HasOpened) {
-            House->unknown_218 -= Type->NumberOfDocks;
-            if (House->unknown_218 < 0) {
-                House->unknown_218 = 0;
+            House->AirportDocks -= Type->NumberOfDocks;
+            if (House->AirportDocks < 0) {
+                House->AirportDocks = 0;
             }
         }
         if (Type->LaserFencePost) {
@@ -3000,9 +3000,9 @@ void BuildingClass::unknown_slot282(bool captured)
             PlayNthAnim(5, Health_Ratio() <= Rules->ConditionYellow, false, 0);
             PlayNthAnim(6, Health_Ratio() <= Rules->ConditionYellow, false, 0);
         }
-        if (Type->OrePurifier) ++House->unknown_52cc;
+        if (Type->OrePurifier) ++House->NumOrePurifiers;
         if (Type->Helipad) {
-            House->unknown_218 += Type->NumberOfDocks;
+            House->AirportDocks += Type->NumberOfDocks;
             // The canonical sidebar member is reached through the actual Map base.
             Map.Unknown_0067C310(3);
         }
@@ -3057,7 +3057,7 @@ void BuildingClass::unknown_slot282(bool captured)
     }
     if (!House->Is_Player_Control() && MuteSWLaunches == 0 && unknown_game_mode_a3d298 != 0 &&
         (Type->SuperWeapon == -1 || !SuperWeapons[Type->SuperWeapon]->Type->AuxBuilding ||
-         House->unknown_5460.unknown_func_491d10(SuperWeapons[Type->SuperWeapon]->Type->AuxBuilding->ArrayIndex) != 0)) {
+         House->ABQuantity.unknown_func_491d10(SuperWeapons[Type->SuperWeapon]->Type->AuxBuilding->ArrayIndex) != 0)) {
         switch (Type->SuperWeapon) {
         case 0: Speech_Play_Name("EVA_NuclearSiloDetected", -1, -1); break;
         case 1: Speech_Play_Name("EVA_IronCurtainDetected", -1, -1); break;
@@ -3558,7 +3558,7 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
 {
     if(newowner!=House) {
     if(unknown_38 && !Type->CanBeOccupied) { unknown_38->Disarm(); }
-    if(Type->CloakGenerator) { newowner->unknown_55e8=true; }
+    if(Type->CloakGenerator) { newowner->HasCloakGenerator=true; }
     if(House->Type->MultiplayPassive && Type->ProduceCashStartup) {
         newowner->Refund_Money(Type->ProduceCashStartup);
         CashProductionTimer=CDTimerClass<FrameTimerClass>(Type->ProduceCashDelay);
@@ -3586,7 +3586,7 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     IsToDisplay=true;
     HasEngineer=true;
     if(Type->NeedsEngineer) { unknown_44d600(); }
-    if(unknown_game_mode_a3d298==4) { newowner->unknown_42a8.Unknown_0070C490(Type->ArrayIndex); }
+    if(unknown_game_mode_a3d298==4) { newowner->CapturedBuildings.Unknown_0070C490(Type->ArrayIndex); }
     TechnoClass *passenger=(TechnoClass*)Cargo.Attached_Object();
     if(passenger) { passenger->Captured(newowner,1); }
     DynamicVectorClass<Reestablish*> reestablish;
@@ -3630,8 +3630,8 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     if(Type->Cloning) { oldowner->CloningVats.Delete(this); }
     if(Type->PsychicDetectionRadius>0) { oldowner->PsychicDetectionBuildings.Delete(this); }
     oldowner->Buildings.Delete(this);
-    if(Type->OrePurifier) { --oldowner->unknown_52cc; }
-    if(Type->Helipad) { oldowner->unknown_218-=Type->NumberOfDocks; }
+    if(Type->OrePurifier) { --oldowner->NumOrePurifiers; }
+    if(Type->Helipad) { oldowner->AirportDocks-=Type->NumberOfDocks; }
     if(Type->CloakGenerator) {
         Disable_Cloak_Generator_0044fad0();
         CurrentCloakRadius=1;
@@ -3643,10 +3643,10 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     if(Type->CloakGenerator && unknown_slot195()) { Enable_Cloak_Generator_0044fa90(); }
     if(Type->GapGenerator && unknown_slot195()) { unknown_slot235(); }
     Become_Primary(false);
-    oldowner->unknown_5410=this;
+    oldowner->ToCapture=this;
     oldowner->unknown_func_4e8640();
     House->unknown_func_4e8640();
-    if(House->unknown_5410==this) { House->unknown_5410=0; }
+    if(House->ToCapture==this) { House->ToCapture=0; }
     if(oldowner->Is_Player_Control() && Type->ConstructionYard) {
         Map.PendingObjectPtr=0;Map.PendingObject=0;Map.PendingHouse=-1;
         Map.Unknown_00498F10(0);
@@ -3666,8 +3666,8 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
     if(Type->Cloning) { newowner->CloningVats.Add(this); }
     if(Type->PsychicDetectionRadius>0) { newowner->PsychicDetectionBuildings.Add(this); }
     newowner->Buildings.Add(this);
-    if(Type->OrePurifier) { ++House->unknown_52cc; }
-    if(Type->Helipad) { House->unknown_218+=Type->NumberOfDocks; }
+    if(Type->OrePurifier) { ++House->NumOrePurifiers; }
+    if(Type->Helipad) { House->AirportDocks+=Type->NumberOfDocks; }
     if(Type->Factory) {oldowner->unknown_func_4f3170(Type->Factory,Type->Naval,0);newowner->unknown_func_4f3170(Type->Factory,Type->Naval,0);}
     for(i=0;i<reestablish.Count();++i) {
         Reestablish *record=reestablish[i];
@@ -3798,7 +3798,7 @@ int BuildingClass::Do_MISSION_GUARD()
             int super = Type->SuperWeapon;
             if (super != -1) {
                 BuildingTypeClass *aux = SuperWeapons[super]->Type->AuxBuilding;
-                if (aux != 0 && House->unknown_5460.unknown_func_491d10(aux->ArrayIndex) == 0) {
+                if (aux != 0 && House->ABQuantity.unknown_func_491d10(aux->ArrayIndex) == 0) {
                     goto check_occupants;
                 }
             }
@@ -4004,7 +4004,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                         if(position==unknown_geometry_l || !infantry->Unlimbo(&position,0)) {
                             delete infantry;
                         } else {
-                            if(infantry->Type->Nominal) infantry->unknown_5c1=true;
+                            if(infantry->Type->Nominal) infantry->IsTechnician=true;
                             --ScenarioInit;
                             infantry->Scatter(unknown_geometry_l,true,false);
                             ++ScenarioInit;
@@ -4137,7 +4137,7 @@ void BuildingClass::Fire_Prism_Support(CoordStruct destination)
     RGBClass black;
     LaserDrawClass *laser = new LaserDrawClass(
         unknown_slot43(0), destination, 0, true,
-        House->unknown_55ec, black, black,
+        House->LaserColor, black, black,
         Rules->PrismSupportDuration, false, true, 1.0f, 0.0f);
     if (laser) {
         laser->IsHouseColor = true;
@@ -4465,8 +4465,8 @@ bool BuildingClass::Revealed(HouseClass *house)
 {
     if (TechnoClass::Revealed(house)) {
         if (ScenarioInit == 0) {
-            House->unknown_1b4 = Type->ArrayIndex;
-            House->unknown_18d = true;
+            House->JustBuiltStructure = Type->ArrayIndex;
+            House->IsBuiltSomething = true;
         }
         House->IsRecalcNeeded = true;
         if (!HasAnyLink() && House->Unknown_004F52F0() && Get_Mission() != 0x12 && MissionQueue != 0x12) {
@@ -4912,11 +4912,11 @@ void BuildingClass::unknown_slot54(bool removing)
         }
         if (House) {
             if (Type->Factory==7) {
-                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->unknown_52e8);
-                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->unknown_52ec);
-                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->unknown_52f0);
-                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->unknown_52f4);
-                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->unknown_52f8);
+                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->BuildingFactory);
+                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->Primary_Unused1);
+                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->Primary_Unused2);
+                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->Primary_Unused3);
+                Abandon_Orphaned_Production((UnknownBuildingFactory *)House->Primary_ForDefenses);
             } else {
                 Abandon_Orphaned_Production((UnknownBuildingFactory *)House->Fetch_Factory(Type->Factory,Type->Naval,0));
             }
@@ -5343,7 +5343,7 @@ void BuildingClass::Factory_AI_0044b480()
         if (Factory) {
             if (PlacementDelay.Value() == 0) {
                 FactoryClass *factory = static_cast<FactoryClass *>(Factory);
-                if (factory->Rate != 0 && !factory->unknown_6c) return;
+                if (factory->Rate != 0 && !factory->IsSuspended) return;
                 factory->Abandon_Production_004B97C0();
                 delete static_cast<FactoryClass *>(Factory);
                 Factory = 0;
@@ -7784,7 +7784,7 @@ void BuildingClass::unknown_slot74(int arg1)
     if((int)radius>0 && IsOn && House->Is_Player_Control()) {
         if(Type->ConcentricRadialIndicator) {
             static RGBClass white(255,255,255);
-            RGBClass color=House->unknown_55e9;
+            RGBClass color=House->RemapColorRGB;
             unsigned int phase=(timeGetTime()>>1)&0x3ff;
             if(!(phase&0x200)) {
                 if(!(phase&0x100)) color.Adjust((~phase)&0xff,white);
@@ -7793,9 +7793,9 @@ void BuildingClass::unknown_slot74(int arg1)
             double scaled=(double)radius+0.5;
             unsigned int pixels=(unsigned int)(int)(scaled/unknown_sqrt_4ba410(2.0)*60.0);
             pixels=(pixels*phase)>>10;
-            if(pixels>32) Draw_Radial_Indicator_00451BF0(pixels,0,Center_Coord(),House->unknown_55e9,false,true);
+            if(pixels>32) Draw_Radial_Indicator_00451BF0(pixels,0,Center_Coord(),House->RemapColorRGB,false,true);
         } else {
-            Draw_Radial_Indicator_00451BF0(radius,(unsigned char)arg1,Center_Coord(),House->unknown_55e9,true,false);
+            Draw_Radial_Indicator_00451BF0(radius,(unsigned char)arg1,Center_Coord(),House->RemapColorRGB,true,false);
         }
     }
 }
@@ -7987,9 +7987,9 @@ void BuildingClass::Unknown_00452390(HouseClass *house)
     BuildingTypeClass *type = Type;
     if(type->Radar) {
         House->unknown_func_4f5880();
-        if(House->Is_Player_Control() && !House->unknown_566a && visible)
+        if(House->Is_Player_Control() && !House->SpySatActive && visible)
             Speech_Play_Name(unknown_eva_007cfb74,-1,-1);
-        if(house->Is_Player_Control() && !House->unknown_566a && visible)
+        if(house->Is_Player_Control() && !House->SpySatActive && visible)
             Speech_Play_Name(unknown_eva_007cfb54,-1,-1);
     } else if(type->Power > 0) {
         House->unknown_func_4f5800(Rules->SpyPowerBlackout);
@@ -8006,8 +8006,8 @@ void BuildingClass::Unknown_00452390(HouseClass *house)
     } else {
         for(int index=0;index<Rules->BuildTech.Count();++index) {
             if(Rules->BuildTech[index] == type) {
-                if(House->ActLike == 0) house->unknown_205 = true;
-                else house->unknown_204 = true;
+                if(House->ActLike == 0) house->Side0TechInfiltrated = true;
+                else house->Side1TechInfiltrated = true;
                 house->IsRecalcNeeded = true;
                 if(House->Is_Player_Control() && visible)
                     Speech_Play_Name(unknown_eva_007cfac8,-1,-1);
@@ -8038,7 +8038,7 @@ void BuildingClass::Unknown_00452390(HouseClass *house)
             }
 
         } else if(type->Factory == 16) {
-            house->unknown_206 = true;
+            house->BarracksInfiltrated = true;
             house->IsRecalcNeeded = true;
             if(house->Is_Player_Control()) unknown_flag_8373c2 = true;
             if(House->Is_Player_Control() && visible)
@@ -8091,7 +8091,7 @@ int BuildingClass::Fetch_Super_Weapon()
 {
     if (Type->SuperWeapon != -1) {
         BuildingTypeClass *aux = SuperWeapons[Type->SuperWeapon]->Type->AuxBuilding;
-        if (aux != 0 && !House->unknown_5460.unknown_func_491d10(aux->ArrayIndex)) {
+        if (aux != 0 && !House->ABQuantity.unknown_func_491d10(aux->ArrayIndex)) {
             return -1;
         }
     }
@@ -8107,7 +8107,7 @@ int BuildingClass::Fetch_Super_Weapon2()
 {
     if (Type->SuperWeapon2 != -1) {
         BuildingTypeClass *aux = SuperWeapons[Type->SuperWeapon2]->Type->AuxBuilding;
-        if (aux != 0 && !House->unknown_5460.unknown_func_491d10(aux->ArrayIndex)) {
+        if (aux != 0 && !House->ABQuantity.unknown_func_491d10(aux->ArrayIndex)) {
             return -1;
         }
     }

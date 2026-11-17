@@ -126,7 +126,7 @@ public:
     IPXConnClass *Connection[CONNECT_MAX];  // +0x28
     int NumConnections;                 // +0x44
     IPXGlobalConnClass *GlobalChannel;  // +0x48
-    IPXGlobalConnClass *unknown_4c;     // +0x4C
+    IPXGlobalConnClass *LobbyChannel;     // +0x4C
     IPXConnClass *unknown_50;           // +0x50
     int CurConnection;                  // +0x54
     unsigned long RetryDelta;           // +0x58
@@ -136,10 +136,10 @@ public:
     unsigned long unknown_68;           // +0x68
     unsigned long unknown_6c;           // +0x6C
     int unknown_70;                     // +0x70
-    int unknown_74;                     // +0x74
-    int unknown_78;                     // +0x78
-    int unknown_7c;                     // +0x7C
-    int unknown_80;                     // +0x80
+    int PacketLen;                     // +0x74
+    int FullPacketLen;                     // +0x78
+    int FirstHeaderBuf;                     // +0x7C
+    int FirstDataBuf;                     // +0x80
 #ifdef RA2_IPX_MANAGER_CUR_DATA_BUF
     // Service 0x00525F60 keeps the packet it is handling at +0x8C (codex4 r545). Switched on per
     // unit (the IPXManagerClass unit, IPXManagerClass_constructor_00525030.cpp): one more member
@@ -150,12 +150,12 @@ public:
 #else
     char unknown_84[0x94 - 0x84];
 #endif
-    int unknown_94;                     // +0x94
-    int unknown_98;                     // +0x98
-    int unknown_9c;                     // +0x9C
+    int SendHeader;                     // +0x94
+    int SendBuf;                     // +0x98
+    int BufferFlags;                     // +0x9C
     int SendOverflows;                  // +0xA0
-    int unknown_a4;                     // +0xA4
-    int unknown_a8;                     // +0xA8
+    int ReceiveOverflows;                     // +0xA4
+    int BadConnection;                     // +0xA8
 };
 
 // The game's IPX manager (0x00A40978; defined in the IPXManagerClass unit).

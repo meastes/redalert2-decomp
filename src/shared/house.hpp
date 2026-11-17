@@ -164,7 +164,7 @@ public:
 
     HouseClass(HouseTypeClass *type);                                   // 0x004E18C0
     // Clears the per-cell values (+0x56D0; the constructor clears them twice).
-    void Clear_Cells() { memset(unknown_56d0, 0, sizeof(unknown_56d0)); }
+    void Clear_Cells() { memset(Regions, 0, sizeof(Regions)); }
     HouseClass(NoInitClass const &noinit);                              // 0x004E1680
 
     virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);   // 0x004E29D0
@@ -251,7 +251,7 @@ public:
     void AI_Build_Wall();                            // 0x004F2350 (AI_Building: a base node of type -3)
     bool unknown_func_4f5d30(int node);                    // 0x004F5D30 (AI_Building: by base node index)
     // TibSun Calculate_Enemy_Predictions: RA2 leaves every prediction at 0.33 (out of line 0x004F2330).
-    void Calculate_Enemy_Predictions() { unknown_15f84 = 0.33f; unknown_15f80 = 0.33f; unknown_15f7c = 0.33f; }
+    void Calculate_Enemy_Predictions() { EnemyInfantryForcePrediction = 0.33f; EnemyAirForcePrediction = 0.33f; EnemyArmorForcePrediction = 0.33f; }
     bool AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells);   // 0x004F1190 (AI_Building: places a base node)
 #ifdef RA2_HOUSE_NAVAL_YARD_PATH
     // Plans the naval yard node `node` by the water: the reachable shore cell nearest the base by path,
@@ -327,7 +327,7 @@ public:
     bool Is_Player_Control() const
     {
         if (unknown_game_mode_a3d298 == 0) {
-            return unknown_134 || IsPlayerControl;
+            return IsHuman || IsPlayerControl;
         }
         return this == PlayerPtr;
     }
@@ -336,10 +336,10 @@ public:
     bool Is_Human_Control() const
     {
         if (unknown_game_mode_a3d298 == 0) {
-            bool result = unknown_134 || IsPlayerControl;
+            bool result = IsHuman || IsPlayerControl;
             return result;
         }
-        return unknown_134;
+        return IsHuman;
     }
     void unknown_func_4f3c50(SuperClass *super);          // 0x004F3C50 (fires a super weapon near the base of house +0x54F0, or at the +0x541C target)
     void unknown_func_4f3e00(SuperClass *super);          // 0x004F3E00 (fires a super weapon at the best building of house +0x54F0)
@@ -439,7 +439,7 @@ public:
     int unknown_cc;                                       // +0x000CC
     double FirepowerBias;                                    // +0x000D0 (1.0)
     double GroundspeedBias;                                    // +0x000D8 (1.0)
-    double unknown_e0;                                    // +0x000E0 (1.0)
+    double AirspeedBias;                                    // +0x000E0 (1.0)
     double ArmorBias;                                    // +0x000E8 (1.0)
     double unknown_f0;                                    // +0x000F0 (1.0)
     double CostBias;                                    // +0x000F8 (1.0)
@@ -453,7 +453,7 @@ public:
     int unknown_128;                                      // +0x00128
     int ProductionMode;                                      // +0x0012C
     int ActLike;                                      // +0x00130 (TechnoClass constructor)
-    bool unknown_134;                                     // +0x00134
+    bool IsHuman;                                     // +0x00134
     bool IsPlayerControl;                                     // +0x00135
     bool IsStarted;                                     // +0x00136
     bool IsAlerted;                                     // +0x00137
@@ -480,168 +480,168 @@ public:
     bool IsSpied;                                     // +0x0018A
     bool IsThieved;                                     // +0x0018B
     bool DidRepair;                                     // +0x0018C
-    bool unknown_18d;                                     // +0x0018D
-    bool unknown_18e;                                     // +0x0018E
-    bool unknown_18f;                                     // +0x0018F
-    bool unknown_190;                                     // +0x00190
-    bool unknown_191;                                     // +0x00191
-    bool unknown_192;                                     // +0x00192 (true)
+    bool IsBuiltSomething;                                     // +0x0018D
+    bool IsResigner;                                     // +0x0018E
+    bool IsGiverUpper;                                     // +0x0018F
+    bool IsAllToHunt;                                     // +0x00190
+    bool IsParanoid;                                     // +0x00191
+    bool IsToLook;                                     // +0x00192 (true)
     int IQ;                                      // +0x00194
     int unknown_198;                                      // +0x00198
     DynamicVectorClass<SuperClass *> SuperWeapons;              // +0x0019C (vtable 0x007A2A24)
-    int unknown_1b4;                                      // +0x001B4 (-1)
-    int unknown_1b8;                                      // +0x001B8 (-1)
-    int unknown_1bc;                                      // +0x001BC (-1)
-    int unknown_1c0;                                      // +0x001C0 (-1)
+    int JustBuiltStructure;                                      // +0x001B4 (-1)
+    int JustBuiltInfantry;                                      // +0x001B8 (-1)
+    int JustBuiltUnit;                                      // +0x001BC (-1)
+    int JustBuiltAircraft;                                      // +0x001C0 (-1)
     int Blockage;                                      // +0x001C4 a count the tag destructor lowers
     CDTimerClass<FrameTimerClass> unknown_1c8;            // +0x001C8
-    CDTimerClass<FrameTimerClass> unknown_1d4;            // +0x001D4
+    CDTimerClass<FrameTimerClass> AlertTime;            // +0x001D4
     CDTimerClass<FrameTimerClass> BorrowedTime;            // +0x001E0 (restarted at 60 by the tag destructor)
-    CDTimerClass<FrameTimerClass> unknown_1ec;            // +0x001EC
-    CDTimerClass<FrameTimerClass> unknown_1f8;            // +0x001F8
-    bool unknown_204;                                     // +0x00204
-    bool unknown_205;                                     // +0x00205
-    bool unknown_206;                                     // +0x00206 (Get_Cameo_Data: infantry alt cameo)
+    CDTimerClass<FrameTimerClass> PowerBlackoutTimer;            // +0x001EC
+    CDTimerClass<FrameTimerClass> RadarBlackoutTimer;            // +0x001F8
+    bool Side1TechInfiltrated;                                     // +0x00204
+    bool Side0TechInfiltrated;                                     // +0x00205
+    bool BarracksInfiltrated;                                     // +0x00206 (Get_Cameo_Data: infantry alt cameo)
     bool WarFactoryInfiltrated;                                     // +0x00207 (Get_Cameo_Data: unit alt cameo)
-    int unknown_208;                                      // +0x00208
-    int unknown_20c;                                      // +0x0020C
-    int unknown_210;                                      // +0x00210
-    int unknown_214;                                      // +0x00214
-    int unknown_218;                                      // +0x00218
-    int unknown_21c;                                      // +0x0021C
-    int unknown_220;                                      // +0x00220
-    int unknown_224;                                      // +0x00224
-    int unknown_228;                                      // +0x00228
-    int unknown_22c;                                      // +0x0022C
+    int InfantryAltOwner;                                      // +0x00208
+    int UnitAltOwner;                                      // +0x0020C
+    int AircraftAltOwner;                                      // +0x00210
+    int BuildingAltOwner;                                      // +0x00214
+    int AirportDocks;                                      // +0x00218
+    int CreditsSpent;                                      // +0x0021C
+    int HarvestedCredits;                                      // +0x00220
+    int StolenBuildingsCredits;                                      // +0x00224
+    int CurUnits;                                      // +0x00228
+    int OwnedNavy;                                      // +0x0022C
     int CurBuildings;                                     // +0x00230
-    int unknown_234;                                      // +0x00234
-    int unknown_238;                                      // +0x00238
+    int CurInfantry;                                      // +0x00234
+    int CurAircraft;                                      // +0x00238
     StorageClass Tiberium;                                // +0x0023C
     int Balance;                                          // +0x0024C
     int Capacity;                                         // +0x00250
-    StorageClass unknown_254;                             // +0x00254
+    StorageClass Weed;                             // +0x00254
     int unknown_264;                                      // +0x00264
-    UnknownHouseTracker unknown_268;                      // +0x00268 (0x808 bytes; constructor 0x0070C440)
-    UnknownHouseTracker unknown_a70;                      // +0x00A70 (0x808 bytes; constructor 0x0070C440)
-    UnknownHouseTracker unknown_1278;                     // +0x01278 (0x808 bytes; constructor 0x0070C440)
-    UnknownHouseTracker unknown_1a80;                     // +0x01A80 (0x808 bytes; constructor 0x0070C440)
-    UnknownHouseTracker unknown_2288;                     // +0x02288 (0x808 bytes; constructor 0x0070C440)
-    UnknownHouseTracker unknown_2a90;                     // +0x02A90 (0x808 bytes; constructor 0x0070C440)
-    UnknownHouseTracker unknown_3298;                     // +0x03298 (0x808 bytes; constructor 0x0070C440)
-    UnknownHouseTracker unknown_3aa0;                     // +0x03AA0 (0x808 bytes; constructor 0x0070C440)
-    UnknownHouseTracker unknown_42a8;                     // +0x042A8 (0x808 bytes; constructor 0x0070C440)
-    UnknownHouseTracker unknown_4ab0;                     // +0x04AB0 (0x808 bytes; constructor 0x0070C440)
-    int unknown_52b8;                                     // +0x052B8
-    int unknown_52bc;                                     // +0x052BC
-    int unknown_52c0;                                     // +0x052C0
-    int unknown_52c4;                                     // +0x052C4
-    int unknown_52c8;                                     // +0x052C8
-    int unknown_52cc;                                     // +0x052CC
+    UnknownHouseTracker AircraftTotals;                      // +0x00268 (0x808 bytes; constructor 0x0070C440)
+    UnknownHouseTracker InfantryTotals;                      // +0x00A70 (0x808 bytes; constructor 0x0070C440)
+    UnknownHouseTracker UnitTotals;                     // +0x01278 (0x808 bytes; constructor 0x0070C440)
+    UnknownHouseTracker BuildingTotals;                     // +0x01A80 (0x808 bytes; constructor 0x0070C440)
+    UnknownHouseTracker DestroyedAircraft;                     // +0x02288 (0x808 bytes; constructor 0x0070C440)
+    UnknownHouseTracker DestroyedInfantry;                     // +0x02A90 (0x808 bytes; constructor 0x0070C440)
+    UnknownHouseTracker DestroyedUnits;                     // +0x03298 (0x808 bytes; constructor 0x0070C440)
+    UnknownHouseTracker DestroyedBuildings;                     // +0x03AA0 (0x808 bytes; constructor 0x0070C440)
+    UnknownHouseTracker CapturedBuildings;                     // +0x042A8 (0x808 bytes; constructor 0x0070C440)
+    UnknownHouseTracker TotalCrates;                     // +0x04AB0 (0x808 bytes; constructor 0x0070C440)
+    int AircraftFactories;                                     // +0x052B8
+    int InfantryFactories;                                     // +0x052BC
+    int UnitFactories;                                     // +0x052C0
+    int BuildingFactories;                                     // +0x052C4
+    int NumShipyards;                                     // +0x052C8
+    int NumOrePurifiers;                                     // +0x052CC
     int Power;                                            // +0x052D0
     int Drain;                                            // +0x052D4
-    FactoryClass *unknown_52d8;                            // +0x052D8
-    FactoryClass *unknown_52dc;                            // +0x052DC
-    FactoryClass *unknown_52e0;                            // +0x052E0
-    FactoryClass *unknown_52e4;                            // +0x052E4
-    FactoryClass *unknown_52e8;                            // +0x052E8
-    FactoryClass *unknown_52ec;                            // +0x052EC
-    FactoryClass *unknown_52f0;                            // +0x052F0
-    FactoryClass *unknown_52f4;                            // +0x052F4
-    FactoryClass *unknown_52f8;                            // +0x052F8
-    bool unknown_52fc;                                    // +0x052FC
-    bool unknown_52fd;                                    // +0x052FD
-    bool unknown_52fe;                                    // +0x052FE
-    bool unknown_52ff;                                    // +0x052FF
-    bool unknown_5300;                                    // +0x05300
+    FactoryClass *AircraftFactory;                            // +0x052D8
+    FactoryClass *InfantryFactory;                            // +0x052DC
+    FactoryClass *UnitFactory;                            // +0x052E0
+    FactoryClass *Primary_ForShips;                            // +0x052E4
+    FactoryClass *BuildingFactory;                            // +0x052E8
+    FactoryClass *Primary_Unused1;                            // +0x052EC
+    FactoryClass *Primary_Unused2;                            // +0x052F0
+    FactoryClass *Primary_Unused3;                            // +0x052F4
+    FactoryClass *Primary_ForDefenses;                            // +0x052F8
+    bool AircraftProductionPending;                                    // +0x052FC
+    bool InfantryProductionPending;                                    // +0x052FD
+    bool UnitProductionPending;                                    // +0x052FE
+    bool ShipProductionPending;                                    // +0x052FF
+    bool BuildingProductionPending;                                    // +0x05300
     bool unknown_5301;                                    // +0x05301
     bool unknown_5302;                                    // +0x05302
     bool unknown_5303;                                    // +0x05303
-    bool unknown_5304;                                    // +0x05304
-    AbstractClass *unknown_5308;                          // +0x05308 (0x004E77A0; a unit, or the cell 0x004E76A0 kept)
-    Cell unknown_530c;                              // +0x0530C (a marked cell; cleared by 0x004E7580)
-    int unknown_5310[20];                                 // +0x05310 (per house index: units/infantry/aircraft killed of that house; TechnoClass slot 55)
-    int unknown_5360;                                     // +0x05360
-    int unknown_5364[20];                                 // +0x05364 (per house index: buildings killed; TechnoClass slot 55)
-    int unknown_53b4;                                     // +0x053B4
-    int unknown_53b8;                                     // +0x053B8 (-1)
+    bool DefenseProductionPending;                                    // +0x05304
+    AbstractClass *FlagLocation;                          // +0x05308 (0x004E77A0; a unit, or the cell 0x004E76A0 kept)
+    Cell FlagHome;                              // +0x0530C (a marked cell; cleared by 0x004E7580)
+    int UnitsKilled[20];                                 // +0x05310 (per house index: units/infantry/aircraft killed of that house; TechnoClass slot 55)
+    int UnitsLost;                                     // +0x05360
+    int BuildingsKilled[20];                                 // +0x05364 (per house index: buildings killed; TechnoClass slot 55)
+    int BuildingsLost;                                     // +0x053B4
+    int WhoLastHurtMe;                                     // +0x053B8 (-1)
     CoordStruct BaseCenter;                               // +0x053BC
-    int unknown_53c8;                                     // +0x053C8
+    int Radius;                                     // +0x053C8
     // Each base zone's defence (RA's ZoneInfo; 0x004E8640 sums it).
     struct ZoneInfoStruct {
         int AirDefense;
         int ArmorDefense;
         int InfantryDefense;
     } ZoneInfo[5];                                        // +0x053CC
-    int unknown_5408;                                     // +0x05408
-    int unknown_540c;                                     // +0x0540C (-1)
-    ObjectClass *unknown_5410;                            // +0x05410
+    int LATime;                                     // +0x05408
+    int LAEnemy;                                     // +0x0540C (-1)
+    ObjectClass *ToCapture;                            // +0x05410
     int unknown_5414;                                     // +0x05414
-    int unknown_5418;                                     // +0x05418
-    int unknown_541c;                                     // +0x0541C (1)
-    UnknownHouseCounter unknown_5420;                     // +0x05420 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_5430;                     // +0x05430 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_5440;                     // +0x05440 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_5450;                     // +0x05450 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_5460;                     // +0x05460 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_5470;                     // +0x05470 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_5480;                     // +0x05480 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_5490;                     // +0x05490 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_54a0;                     // +0x054A0 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_54b0;                     // +0x054B0 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_54c0;                     // +0x054C0 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
-    UnknownHouseCounter unknown_54d0;                     // +0x054D0 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    int PointTotal;                                     // +0x05418
+    int PreferredTarget;                                     // +0x0541C (1)
+    UnknownHouseCounter BQuantity;                     // +0x05420 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter UQuantity;                     // +0x05430 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter IQuantity;                     // +0x05440 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter AQuantity;                     // +0x05450 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter ABQuantity;                     // +0x05460 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter AUQuantity;                     // +0x05470 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter AIQuantity;                     // +0x05480 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter AAQuantity;                     // +0x05490 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter PBQuantity;                     // +0x054A0 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter PUQuantity;                     // +0x054B0 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter PIQuantity;                     // +0x054C0 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
+    UnknownHouseCounter PAQuantity;                     // +0x054D0 (0x10 bytes; constructor 0x00491C00, Save 0x00491DB0)
     CDTimerClass<FrameTimerClass> unknown_54e0;           // +0x054E0
     int unknown_54ec;                                     // +0x054EC
-    int unknown_54f0;                                     // +0x054F0 (-1)
+    int Enemy;                                     // +0x054F0 (-1)
     DynamicVectorClass<AngerStruct> AngerNodes;           // +0x054F4 (vtable 0x007A2E64)
     DynamicVectorClass<ScoutStruct> ScoutNodes;           // +0x0550C (vtable 0x007A2E44)
-    CDTimerClass<FrameTimerClass> unknown_5524;           // +0x05524
-    CDTimerClass<FrameTimerClass> unknown_5530;           // +0x05530
-    int unknown_553c;                                     // +0x0553C (-1)
-    int unknown_5540;                                     // +0x05540 (-1)
-    int unknown_5544;                                     // +0x05544 (-1)
-    int unknown_5548;                                     // +0x05548 (-1)
-    int unknown_554c;                                     // +0x0554C (100)
-    int unknown_5550;                                     // +0x05550 (75)
-    int unknown_5554;                                     // +0x05554 (75)
-    int unknown_5558;                                     // +0x05558 (75)
+    CDTimerClass<FrameTimerClass> AITimer;           // +0x05524
+    CDTimerClass<FrameTimerClass> PickEnemyTimer;           // +0x05530
+    int BuildStructure;                                     // +0x0553C (-1)
+    int BuildUnit;                                     // +0x05540 (-1)
+    int BuildInfantry;                                     // +0x05544 (-1)
+    int BuildAircraft;                                     // +0x05548 (-1)
+    int RatioAITriggerTeam;                                     // +0x0554C (100)
+    int RatioTeamAircraft;                                     // +0x05550 (75)
+    int RatioTeamInfantry;                                     // +0x05554 (75)
+    int RatioTeamUnits;                                     // +0x05558 (75)
     int BaseDefenseTeamCount;                                     // +0x0555C
-    UnknownHouseBase unknown_5560[3];                     // +0x05560 (0x2C bytes; constructor 0x004A6910)
-    int unknown_55e4;                                     // +0x055E4
-    bool unknown_55e8;                                    // +0x055E8
-    RGBClass unknown_55e9;                                // +0x055E9 (black when made)
-    RGBClass unknown_55ec;                                // +0x055EC (white when made)
+    UnknownHouseBase DropshipLoadouts[3];                     // +0x05560 (0x2C bytes; constructor 0x004A6910)
+    int CurrentDropship;                                     // +0x055E4
+    bool HasCloakGenerator;                                    // +0x055E8
+    RGBClass RemapColorRGB;                                // +0x055E9 (black when made)
+    RGBClass LaserColor;                                // +0x055EC (white when made)
     BaseClass unknown_55f0;                               // +0x055F0 (the house's base plan)
     bool RecalcPower;                                    // +0x05668 (true)
     bool RecalcRadar;                                    // +0x05669 (true)
-    bool unknown_566a;                                    // +0x0566A
+    bool SpySatActive;                                    // +0x0566A
     Cell EMPDest;                                        // +0x0566C, reference-supported target cell
     Cell NukeDest;                                       // +0x05670, reference-supported target cell
     unsigned int Allies;                                  // +0x05674 one bit per house index
-    CDTimerClass<FrameTimerClass> unknown_5678;           // +0x05678
-    CDTimerClass<FrameTimerClass> unknown_5684;           // +0x05684
-    CDTimerClass<FrameTimerClass> unknown_5690;           // +0x05690
-    CDTimerClass<FrameTimerClass> unknown_569c;           // +0x0569C
-    CDTimerClass<FrameTimerClass> unknown_56a8;           // +0x056A8
-    CDTimerClass<FrameTimerClass> unknown_56b4;           // +0x056B4
-    CDTimerClass<FrameTimerClass> unknown_56c0;           // +0x056C0
-    IUnknown *unknown_56cc;                               // +0x056CC (saved through OleSaveToStream)
-    RegionClass unknown_56d0[0x4204];                             // +0x056D0 (cleared by the constructor)
+    CDTimerClass<FrameTimerClass> DamageTime;           // +0x05678
+    CDTimerClass<FrameTimerClass> TeamTime;           // +0x05684
+    CDTimerClass<FrameTimerClass> TriggerTime;           // +0x05690
+    CDTimerClass<FrameTimerClass> SpeakAttackDelay;           // +0x0569C
+    CDTimerClass<FrameTimerClass> SpeakPowerDelay;           // +0x056A8
+    CDTimerClass<FrameTimerClass> SpeakMoneyDelay;           // +0x056B4
+    CDTimerClass<FrameTimerClass> SpeakMaxedDelay;           // +0x056C0
+    IUnknown *AIGeneral;                               // +0x056CC (saved through OleSaveToStream)
+    RegionClass Regions[0x4204];                             // +0x056D0 (cleared by the constructor)
     FixedString<21> IniName;                              // +0x15EE0 (the [Houses] entry value; the type's ID)
-    FixedString<32> unknown_15ef5;                        // +0x15EF5 (a name; empty when made)
+    FixedString<32> UINameString;                        // +0x15EF5 (a name; empty when made)
     wchar_t UIName[21];                                   // +0x15F16 (the type's UIName)
     int ColorSchemeIndex;                                 // +0x15F40 (hypothesis; BulletClass inherits it)
-    int *unknown_15f44;                                   // +0x15F44 (a grid over the base plan area, Rect +0x5644)
+    int *BaseAreaMap;                                   // +0x15F44 (a grid over the base plan area, Rect +0x5644)
     DynamicVectorClass<IConnectionPoint *> ConnectionPoints;// +0x15F48 (vtable 0x0079E6A0)
-    ConnectionPointClass *unknown_15f60;                  // +0x15F60 (the house's connection point)
+    ConnectionPointClass *PowerEvents;                  // +0x15F60 (the house's connection point)
     int unknown_15f64;                                    // +0x15F64
     double unknown_15f68;                                 // +0x15F68 (1.0)
-    double unknown_15f70;                                 // +0x15F70 (1.0)
+    double DefenseCostMultiplier;                                 // +0x15F70 (1.0)
     int unknown_15f78;                                    // +0x15F78
-    float unknown_15f7c;                                  // +0x15F7C (0.33)
-    float unknown_15f80;                                  // +0x15F80 (0.33)
-    float unknown_15f84;                                  // +0x15F84 (0.34)
-    int unknown_15f88;                                    // +0x15F88
+    float EnemyArmorForcePrediction;                                  // +0x15F7C (0.33)
+    float EnemyAirForcePrediction;                                  // +0x15F80 (0.33)
+    float EnemyInfantryForcePrediction;                                  // +0x15F84 (0.34)
+    int PowerSurplus;                                    // +0x15F88
     int unknown_15f8c;                                    // +0x15F8C
 };
 

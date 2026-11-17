@@ -56,8 +56,8 @@ int IPXManagerClass::Service()
                 Debug_Printf(s_Adding_packet_from__s____d_to_gl_007de2e0,address.As_String(),(unsigned int)port);
                 if (!Forward_Router_Packet(packet,receive_buffer,packet_length,(IPXAddressClass *)address_buffer,port)) {
                     if (!GlobalChannel->Receive_Packet(receive_buffer,packet_length,&address,port)) {
-                        ++unknown_a4;
-                        Debug_Printf(s_GlobalChannel_recive_buffer_over_007de0d0,unknown_a4);
+                        ++ReceiveOverflows;
+                        Debug_Printf(s_GlobalChannel_recive_buffer_over_007de0d0,ReceiveOverflows);
                         break;
                     }
                     if (unknown_game_mode_a3d298==4 && use_router_a402d0) {
@@ -120,10 +120,10 @@ int IPXManagerClass::Service()
                         }
                     }
                 }
-            } else if (packet->MagicNumber==unknown_4c->MagicNum) {
-                if (unknown_flag_a3fba8 && !unknown_4c->Receive_Packet(receive_buffer,packet_length,&address,0)) {
-                    ++unknown_a4;
-                    Debug_Printf(s_RouterChannel_recive_buffer_over_007de0a4,unknown_a4);
+            } else if (packet->MagicNumber==LobbyChannel->MagicNum) {
+                if (unknown_flag_a3fba8 && !LobbyChannel->Receive_Packet(receive_buffer,packet_length,&address,0)) {
+                    ++ReceiveOverflows;
+                    Debug_Printf(s_RouterChannel_recive_buffer_over_007de0a4,ReceiveOverflows);
                     break;
                 }
             } else if (packet->MagicNumber==ProductID &&
@@ -141,9 +141,9 @@ check_address:
                         }
                         if (matches) {
                             if (!Connection[connection]->Receive_Packet(receive_buffer,packet_length)) {
-                                ++unknown_a4;
+                                ++ReceiveOverflows;
                                 packet_length=0;
-                                Debug_Printf(s_Reecive_buffer_overflow__d_007de0fc,unknown_a4);
+                                Debug_Printf(s_Reecive_buffer_overflow__d_007de0fc,ReceiveOverflows);
                             }
                             goto check_router_address;
                         }
@@ -171,9 +171,9 @@ check_address:
                         char *text=address.As_String();
                         Debug_Printf(format,packet->PacketID,text,(unsigned int)port);
                         if (!Connection[0]->Receive_Packet(receive_buffer,packet_length)) {
-                            ++unknown_a4;
+                            ++ReceiveOverflows;
                             packet_length=0;
-                            Debug_Printf(s_Receive_buffer_overflow__d_007de118,unknown_a4);
+                            Debug_Printf(s_Receive_buffer_overflow__d_007de118,ReceiveOverflows);
                         }
                     }
 check_router_address:
@@ -202,9 +202,9 @@ next_packet:;
         result=0;
     }
     if (unknown_flag_a3fba8) {
-        if (unknown_4c) {
-            if (!unknown_4c->Service()) {
-                unknown_4c->Discard_Undeliverable_Packets();
+        if (LobbyChannel) {
+            if (!LobbyChannel->Service()) {
+                LobbyChannel->Discard_Undeliverable_Packets();
                 result=0;
             }
             if (!unknown_a402d8) OwnerTalk.Unknown_0063F840();
@@ -218,11 +218,11 @@ next_packet:;
         for (int connection=0;connection<NumConnections;++connection) {
             if (!Connection[connection]->Service()) {
                 result=0;
-                unknown_a8=Connection[connection]->ID;
-                Debug_Printf(s_Error___Connection__d_has_gone_b_007de060,unknown_a8);
+                BadConnection=Connection[connection]->ID;
+                Debug_Printf(s_Error___Connection__d_has_gone_b_007de060,BadConnection);
             }
         }
     }
-    if (result) unknown_a8=-1;
+    if (result) BadConnection=-1;
     return result;
 }

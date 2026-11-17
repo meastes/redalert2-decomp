@@ -944,7 +944,7 @@ void __fastcall Dropship_Screen_004A6B90()
     }
 
     for (i = 0; i < selections.Count(); ++i) {
-        ((DropshipLoadoutClass *)&PlayerPtr->unknown_5560[i / 5])->Add_Type_004A6940(selections[i]);
+        ((DropshipLoadoutClass *)&PlayerPtr->DropshipLoadouts[i / 5])->Add_Type_004A6940(selections[i]);
     }
 
     delete drawer_dropship;

@@ -219,7 +219,7 @@ void __fastcall Send_Statistics_Packet(bool arg)
     HouseClass *houses[8];
     for (int h = 0; h < Houses.Count(); h++) {
         HouseClass *ptr = Houses[h];
-        if (ptr->unknown_134 && ptr != unknown_house_a72d28) {
+        if (ptr->IsHuman && ptr != unknown_house_a72d28) {
             houses[playercount] = ptr;
             playercount++;
         }
@@ -260,7 +260,7 @@ void __fastcall Send_Statistics_Packet(bool arg)
             HouseClass *hptr = houses[i];
             if (hptr->LostConnection) {
                 completion[i] = 1 << 1;
-            } else if (hptr->unknown_18f || hptr->unknown_18e) {
+            } else if (hptr->IsGiverUpper || hptr->IsResigner) {
                 completion[i] = (1 << 9) | (1 << 4);
             } else if (hptr->IsDefeated) {
                 completion[i] = 1 << 9;
@@ -345,7 +345,7 @@ void __fastcall Send_Statistics_Packet(bool arg)
 
         field_player_lost_connection[3] = digit;
         bool lcn = false;
-        if (player->LostConnection && !player->unknown_18e) {
+        if (player->LostConnection && !player->IsResigner) {
             lcn = true;
         }
         stats.Add_Field(field_player_lost_connection, (unsigned char)lcn);
@@ -363,85 +363,85 @@ void __fastcall Send_Statistics_Packet(bool arg)
         field_player_units_bought[3] = digit;
         field_player_planes_bought[3] = digit;
         field_player_buildings_bought[3] = digit;
-        TRACKER(unknown_a70).To_Network_Format();
-        TRACKER(unknown_1278).To_Network_Format();
-        TRACKER(unknown_268).To_Network_Format();
-        TRACKER(unknown_1a80).To_Network_Format();
-        stats.Add_Field(field_player_infantry_bought, UNIT_TOTALS(unknown_a70));
-        stats.Add_Field(field_player_units_bought, UNIT_TOTALS(unknown_1278));
-        stats.Add_Field(field_player_planes_bought, UNIT_TOTALS(unknown_268));
-        stats.Add_Field(field_player_buildings_bought, UNIT_TOTALS(unknown_1a80));
-        TRACKER(unknown_a70).To_PC_Format();
-        TRACKER(unknown_1278).To_PC_Format();
-        TRACKER(unknown_268).To_PC_Format();
-        TRACKER(unknown_1a80).To_PC_Format();
+        TRACKER(InfantryTotals).To_Network_Format();
+        TRACKER(UnitTotals).To_Network_Format();
+        TRACKER(AircraftTotals).To_Network_Format();
+        TRACKER(BuildingTotals).To_Network_Format();
+        stats.Add_Field(field_player_infantry_bought, UNIT_TOTALS(InfantryTotals));
+        stats.Add_Field(field_player_units_bought, UNIT_TOTALS(UnitTotals));
+        stats.Add_Field(field_player_planes_bought, UNIT_TOTALS(AircraftTotals));
+        stats.Add_Field(field_player_buildings_bought, UNIT_TOTALS(BuildingTotals));
+        TRACKER(InfantryTotals).To_PC_Format();
+        TRACKER(UnitTotals).To_PC_Format();
+        TRACKER(AircraftTotals).To_PC_Format();
+        TRACKER(BuildingTotals).To_PC_Format();
 
-        TRACKER(unknown_a70).Clear_Unit_Total();
-        TRACKER(unknown_268).Clear_Unit_Total();
-        TRACKER(unknown_1278).Clear_Unit_Total();
-        TRACKER(unknown_1a80).Clear_Unit_Total();
+        TRACKER(InfantryTotals).Clear_Unit_Total();
+        TRACKER(AircraftTotals).Clear_Unit_Total();
+        TRACKER(UnitTotals).Clear_Unit_Total();
+        TRACKER(BuildingTotals).Clear_Unit_Total();
 
         int index;
         for (index = 0; index < Units.Count(); index++) {
             UnitClass const *unit = Units[index];
             if (player == unit->House) {
-                TRACKER(unknown_1278).Increment_Unit_Total(unit->Type->ArrayIndex);
+                TRACKER(UnitTotals).Increment_Unit_Total(unit->Type->ArrayIndex);
             }
         }
         for (index = 0; index < Infantry.Count(); index++) {
             InfantryClass const *infantry = Infantry[index];
             if (player == infantry->House && !infantry->Type->Civilian) {
-                TRACKER(unknown_a70).Increment_Unit_Total(infantry->Type->ArrayIndex);
+                TRACKER(InfantryTotals).Increment_Unit_Total(infantry->Type->ArrayIndex);
             }
         }
         for (index = 0; index < Aircraft.Count(); index++) {
             AircraftClass const *aircraft = Aircraft[index];
             if (player == aircraft->House) {
-                TRACKER(unknown_268).Increment_Unit_Total(aircraft->Type->ArrayIndex);
+                TRACKER(AircraftTotals).Increment_Unit_Total(aircraft->Type->ArrayIndex);
             }
         }
         int count = player->Buildings.Count();
         for (index = 0; index < count; index++) {
             BuildingClass const *building = player->Buildings[index];
-            TRACKER(unknown_1a80).Increment_Unit_Total(building->Type->ArrayIndex);
+            TRACKER(BuildingTotals).Increment_Unit_Total(building->Type->ArrayIndex);
         }
 
-        TRACKER(unknown_a70).To_Network_Format();
-        TRACKER(unknown_1278).To_Network_Format();
-        TRACKER(unknown_268).To_Network_Format();
-        TRACKER(unknown_1a80).To_Network_Format();
+        TRACKER(InfantryTotals).To_Network_Format();
+        TRACKER(UnitTotals).To_Network_Format();
+        TRACKER(AircraftTotals).To_Network_Format();
+        TRACKER(BuildingTotals).To_Network_Format();
         field_player_infantry_left[3] = digit;
         field_player_units_left[3] = digit;
         field_player_planes_left[3] = digit;
         field_player_buildings_left[3] = digit;
-        stats.Add_Field(field_player_infantry_left, UNIT_TOTALS(unknown_a70));
-        stats.Add_Field(field_player_units_left, UNIT_TOTALS(unknown_1278));
-        stats.Add_Field(field_player_planes_left, UNIT_TOTALS(unknown_268));
-        stats.Add_Field(field_player_buildings_left, UNIT_TOTALS(unknown_1a80));
+        stats.Add_Field(field_player_infantry_left, UNIT_TOTALS(InfantryTotals));
+        stats.Add_Field(field_player_units_left, UNIT_TOTALS(UnitTotals));
+        stats.Add_Field(field_player_planes_left, UNIT_TOTALS(AircraftTotals));
+        stats.Add_Field(field_player_buildings_left, UNIT_TOTALS(BuildingTotals));
 
-        TRACKER(unknown_2a90).To_Network_Format();
-        TRACKER(unknown_3298).To_Network_Format();
-        TRACKER(unknown_2288).To_Network_Format();
-        TRACKER(unknown_3aa0).To_Network_Format();
+        TRACKER(DestroyedInfantry).To_Network_Format();
+        TRACKER(DestroyedUnits).To_Network_Format();
+        TRACKER(DestroyedAircraft).To_Network_Format();
+        TRACKER(DestroyedBuildings).To_Network_Format();
         field_player_infantry_killed[3] = digit;
         field_player_units_killed[3] = digit;
         field_player_planes_killed[3] = digit;
         field_player_buildings_killed[3] = digit;
-        stats.Add_Field(field_player_infantry_killed, UNIT_TOTALS(unknown_2a90));
-        stats.Add_Field(field_player_units_killed, UNIT_TOTALS(unknown_3298));
-        stats.Add_Field(field_player_planes_killed, UNIT_TOTALS(unknown_2288));
-        stats.Add_Field(field_player_buildings_killed, UNIT_TOTALS(unknown_3aa0));
+        stats.Add_Field(field_player_infantry_killed, UNIT_TOTALS(DestroyedInfantry));
+        stats.Add_Field(field_player_units_killed, UNIT_TOTALS(DestroyedUnits));
+        stats.Add_Field(field_player_planes_killed, UNIT_TOTALS(DestroyedAircraft));
+        stats.Add_Field(field_player_buildings_killed, UNIT_TOTALS(DestroyedBuildings));
 
         field_player_buildings_captured[3] = digit;
-        TRACKER(unknown_42a8).To_Network_Format();
-        stats.Add_Field(field_player_buildings_captured, UNIT_TOTALS(unknown_42a8));
+        TRACKER(CapturedBuildings).To_Network_Format();
+        stats.Add_Field(field_player_buildings_captured, UNIT_TOTALS(CapturedBuildings));
 
         field_player_crates_found[3] = digit;
-        TRACKER(unknown_4ab0).To_Network_Format();
-        stats.Add_Field(field_player_crates_found, UNIT_TOTALS(unknown_4ab0));
+        TRACKER(TotalCrates).To_Network_Format();
+        stats.Add_Field(field_player_crates_found, UNIT_TOTALS(TotalCrates));
 
         field_player_harvested[3] = digit;
-        stats.Add_Field(field_player_harvested, (unsigned int)player->unknown_220);
+        stats.Add_Field(field_player_harvested, (unsigned int)player->HarvestedCredits);
     }
 
     packet = stats.Create_Comms_Packet(packet_size);

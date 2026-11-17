@@ -66,7 +66,7 @@ public:
     DynamicVectorClass<UnknownBuilding *> Buildings;    // +0x068 (PowerClass help text; Vector +0x6C, ActiveCount +0x78)
     char unknown_080[0x130 - 0x80];
     int ActLike;                    // +0x130 (TechnoClass constructor)
-    bool unknown_134;                   // +0x134 (as shared/house.hpp)
+    bool IsHuman;                   // +0x134 (as shared/house.hpp)
     bool IsPlayerControl;                   // +0x135 (as shared/house.hpp; Tactical 0x006AAD70 tests it in the campaign)
     char unknown_136[0x13D - 0x136];
     bool IsDefeated;                   // +0x13D (radar: forces mode 1 in multiplayer)
@@ -79,7 +79,7 @@ public:
     char unknown_189[0x19C - 0x189];
     DynamicVectorClass<SuperClass *> SuperWeapons;    // +0x19C (Vector +0x1A0, ActiveCount +0x1AC)
     char unknown_1b4[0x206 - 0x1B4];
-    bool unknown_206;                   // +0x206 (Get_Cameo_Data: infantry alt cameo)
+    bool BarracksInfiltrated;                   // +0x206 (Get_Cameo_Data: infantry alt cameo)
     bool WarFactoryInfiltrated;                   // +0x207 (Get_Cameo_Data: unit alt cameo)
     char unknown_208[0x230 - 0x208];
     int unknown_230;                    // +0x230 (SidebarClass::AI: the sidebar's +0x4EE5 state follows it being positive)
@@ -87,15 +87,15 @@ public:
     int PowerOutput;                    // +0x52D0 (power bar help text; hypothesis)
     int PowerDrain;                     // +0x52D4
     char unknown_52d8[0x5310 - 0x52D8];
-    int unknown_5310[20];               // +0x5310 per house index: units, infantry, aircraft killed (as shared/house.hpp)
-    int unknown_5360;                   // +0x5360
-    int unknown_5364[20];               // +0x5364 per house index: buildings killed
+    int UnitsKilled[20];               // +0x5310 per house index: units, infantry, aircraft killed (as shared/house.hpp)
+    int UnitsLost;                   // +0x5360
+    int BuildingsKilled[20];               // +0x5364 per house index: buildings killed
     char unknown_53b4[0x53BC - 0x53B4];
     CoordStruct BaseCenter;             // +0x53BC (as shared/house.hpp)
     char unknown_53c8[0x5414 - 0x53C8];
     unsigned int unknown_5414;          // +0x5414 house bits that see this house's sight (TibSun RadarSpied; MapClass 0x00549C50)
     char unknown_5418[0x56D0 - 0x5418];
-    int unknown_56d0[0x4204];           // +0x56D0 a value per 4 x 4 cell block (MapClass 0x0054E3A0)
+    int Regions[0x4204];           // +0x56D0 a value per 4 x 4 cell block (MapClass 0x0054E3A0)
     char IniName[0x15];                 // +0x15EE0 the [Houses] entry value
     char unknown_15ef5[0x15F16 - 0x15EF5];
     wchar_t UIName[21];                 // +0x15F16 the type's UIName (radar player list)

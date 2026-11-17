@@ -312,6 +312,13 @@
    "section": 28
   },
   {
+   "symbol": "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+   "address": "0079db78",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 84
+  },
+  {
    "symbol": "_unknown_geometry_sixty",
    "address": "007ab4f8",
    "bytes": 16,
@@ -545,6 +552,12 @@
    "address": "0079a730",
    "bytes": 8,
    "kind": "table"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+   "address": "0079db78",
+   "bytes": 32,
+   "kind": "vtable"
   },
   {
    "symbol": "_unknown_geometry_sixty",
@@ -1015,10 +1028,6 @@
   {
    "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
    "reason": "relocation target unbound: ??_E?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z"
-  },
-  {
-   "symbol": "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@",
-   "reason": "relocation target unbound: ??_E?$DynamicVectorClass@PAVObjectClass@@@@UAEPAXI@Z"
   }
  ],
  "stand_in_references": [],

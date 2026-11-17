@@ -336,7 +336,7 @@ int __stdcall Game_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
                 int humans = 0;
                 for (int index = 0; index < Houses.Count(); index++) {
                     HouseClass *house = Houses[index];
-                    if (house->unknown_134 && !house->IsDefeated) {
+                    if (house->IsHuman && !house->IsDefeated) {
                         humans++;
                     }
                 }

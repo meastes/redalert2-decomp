@@ -993,7 +993,7 @@ void RadarClass::Draw_Names()
                                   scheme, 0, flags);
                 int kills = 0;
                 for (int other = 0; other < 20; other++) {
-                    kills += house->unknown_5310[other] + house->unknown_5364[other];
+                    kills += house->UnitsKilled[other] + house->BuildingsKilled[other];
                 }
                 swprintf(text, L"%2d", kills);
                 Fancy_Text_Printf(text, SidebarSurface, &SidebarSurface->Get_Rect(),
@@ -1779,7 +1779,7 @@ void RadarClass::Plot_Radar_Pixel(Point2D const &point)
         HouseClass *owner=tech->House;
         if(tech->unknown_slot48()) owner=tech->GetDisguiseHouse(false);
         int color;
-        if(owner) color=Build_Hicolor_Pixel(owner->unknown_55e9.Red,owner->unknown_55e9.Green,owner->unknown_55e9.Blue);
+        if(owner) color=Build_Hicolor_Pixel(owner->RemapColorRGB.Red,owner->RemapColorRGB.Green,owner->RemapColorRGB.Blue);
         else color=Fetch_Scheme_By_Name("LightGrey",1)->unknown_color_0x330;
         int remaining=tech->RadarFlashTimer.Value();
         if(remaining>0 && ((remaining-1)/Rules->FlashFrameTime)%2==1 && tech->House==PlayerPtr)

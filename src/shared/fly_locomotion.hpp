@@ -146,7 +146,7 @@ public:
     bool unknown_18;                    // +0x18
     CoordStruct unknown_1c;             // +0x1C
     CoordStruct unknown_28;             // +0x28
-    bool unknown_34;                    // +0x34
+    bool IsMoving;                    // +0x34
     int unknown_38;                     // +0x38
     int unknown_3c;                     // +0x3C
     double unknown_40;                  // +0x40
@@ -155,9 +155,9 @@ public:
     bool IsLanding;                    // +0x51
     bool CommencedLanding;                    // +0x52
     bool IsTumbling;                    // +0x53
-    int unknown_54;                     // +0x54
+    int CurrentROT;                     // +0x54
     int unknown_58;                     // +0x58
-    bool unknown_5c;                    // +0x5C
+    bool IsElevating;                    // +0x5C
 };
 
 #endif

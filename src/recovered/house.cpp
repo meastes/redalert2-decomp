@@ -172,37 +172,37 @@ DynamicVectorClass<HouseClass::BuildChoiceClass *> HouseClass::BuildChoiceClass:
 
 HouseClass::HouseClass(NoInitClass const &noinit)
     : AbstractClass(noinit),
-      unknown_1d4(noinit),
+      AlertTime(noinit),
       BorrowedTime(noinit),
-      unknown_1ec(noinit),
-      unknown_1f8(noinit),
+      PowerBlackoutTimer(noinit),
+      RadarBlackoutTimer(noinit),
       Tiberium(noinit),
-      unknown_254(noinit),
-      unknown_268(noinit),
-      unknown_a70(noinit),
-      unknown_1278(noinit),
-      unknown_1a80(noinit),
-      unknown_2288(noinit),
-      unknown_2a90(noinit),
-      unknown_3298(noinit),
-      unknown_3aa0(noinit),
-      unknown_42a8(noinit),
-      unknown_4ab0(noinit),
+      Weed(noinit),
+      AircraftTotals(noinit),
+      InfantryTotals(noinit),
+      UnitTotals(noinit),
+      BuildingTotals(noinit),
+      DestroyedAircraft(noinit),
+      DestroyedInfantry(noinit),
+      DestroyedUnits(noinit),
+      DestroyedBuildings(noinit),
+      CapturedBuildings(noinit),
+      TotalCrates(noinit),
       unknown_54e0(noinit),
-      unknown_5524(noinit),
-      unknown_5530(noinit),
-      unknown_55e9(noinit),
-      unknown_55ec(noinit),
+      AITimer(noinit),
+      PickEnemyTimer(noinit),
+      RemapColorRGB(noinit),
+      LaserColor(noinit),
       unknown_55f0(noinit),
-      unknown_5678(noinit),
-      unknown_5684(noinit),
-      unknown_5690(noinit),
-      unknown_569c(noinit),
-      unknown_56a8(noinit),
-      unknown_56b4(noinit),
-      unknown_56c0(noinit),
+      DamageTime(noinit),
+      TeamTime(noinit),
+      TriggerTime(noinit),
+      SpeakAttackDelay(noinit),
+      SpeakPowerDelay(noinit),
+      SpeakMoneyDelay(noinit),
+      SpeakMaxedDelay(noinit),
       IniName(noinit),
-      unknown_15ef5(noinit)
+      UINameString(noinit)
 {
 }
 
@@ -221,7 +221,7 @@ HouseClass::HouseClass(HouseTypeClass *type)
       Difficulty(Scen->CDifficulty),
       FirepowerBias(1.0),
       GroundspeedBias(1.0),
-      unknown_e0(1.0),
+      AirspeedBias(1.0),
       ArmorBias(1.0),
       unknown_f0(1.0),
       CostBias(1.0),
@@ -234,7 +234,7 @@ HouseClass::HouseClass(HouseTypeClass *type)
       unknown_124(0),
       unknown_128(0),
       ProductionMode(0),
-      unknown_134(0),
+      IsHuman(0),
       IsPlayerControl(0),
       IsStarted(0),
       IsAlerted(0),
@@ -260,118 +260,118 @@ HouseClass::HouseClass(HouseTypeClass *type)
       IsSpied(0),
       IsThieved(0),
       DidRepair(0),
-      unknown_18d(0),
-      unknown_18e(0),
-      unknown_18f(0),
-      unknown_190(0),
-      unknown_191(0),
-      unknown_192(1),
+      IsBuiltSomething(0),
+      IsResigner(0),
+      IsGiverUpper(0),
+      IsAllToHunt(0),
+      IsParanoid(0),
+      IsToLook(1),
       IQ(unknown_118),
       unknown_198(0),
-      unknown_1b4(-1),
-      unknown_1b8(-1),
-      unknown_1bc(-1),
-      unknown_1c0(-1),
+      JustBuiltStructure(-1),
+      JustBuiltInfantry(-1),
+      JustBuiltUnit(-1),
+      JustBuiltAircraft(-1),
       Blockage(0),
-      unknown_204(0),
-      unknown_205(0),
-      unknown_206(0),
+      Side1TechInfiltrated(0),
+      Side0TechInfiltrated(0),
+      BarracksInfiltrated(0),
       WarFactoryInfiltrated(0),
-      unknown_208(0),
-      unknown_20c(0),
-      unknown_210(0),
-      unknown_214(0),
-      unknown_218(0),
-      unknown_21c(0),
-      unknown_220(0),
-      unknown_224(0),
-      unknown_228(0),
-      unknown_22c(0),
+      InfantryAltOwner(0),
+      UnitAltOwner(0),
+      AircraftAltOwner(0),
+      BuildingAltOwner(0),
+      AirportDocks(0),
+      CreditsSpent(0),
+      HarvestedCredits(0),
+      StolenBuildingsCredits(0),
+      CurUnits(0),
+      OwnedNavy(0),
       CurBuildings(0),
-      unknown_234(0),
-      unknown_238(0),
+      CurInfantry(0),
+      CurAircraft(0),
       Balance(0),
       Capacity(0),
-      unknown_52b8(0),
-      unknown_52bc(0),
-      unknown_52c0(0),
-      unknown_52c4(0),
-      unknown_52c8(0),
-      unknown_52cc(0),
+      AircraftFactories(0),
+      InfantryFactories(0),
+      UnitFactories(0),
+      BuildingFactories(0),
+      NumShipyards(0),
+      NumOrePurifiers(0),
       Power(0),
       Drain(0),
-      unknown_52d8(0),
-      unknown_52dc(0),
-      unknown_52e0(0),
-      unknown_52e4(0),
-      unknown_52e8(0),
-      unknown_52ec(0),
-      unknown_52f0(0),
-      unknown_52f4(0),
-      unknown_52f8(0),
-      unknown_52fc(0),
-      unknown_52fd(0),
-      unknown_52fe(0),
-      unknown_52ff(0),
-      unknown_5300(0),
+      AircraftFactory(0),
+      InfantryFactory(0),
+      UnitFactory(0),
+      Primary_ForShips(0),
+      BuildingFactory(0),
+      Primary_Unused1(0),
+      Primary_Unused2(0),
+      Primary_Unused3(0),
+      Primary_ForDefenses(0),
+      AircraftProductionPending(0),
+      InfantryProductionPending(0),
+      UnitProductionPending(0),
+      ShipProductionPending(0),
+      BuildingProductionPending(0),
       unknown_5301(0),
       unknown_5302(0),
       unknown_5303(0),
-      unknown_5304(0),
-      unknown_5308(0),
-      unknown_530c(0, 0),
-      unknown_5360(0),
-      unknown_53b4(0),
-      unknown_53b8(-1),
+      DefenseProductionPending(0),
+      FlagLocation(0),
+      FlagHome(0, 0),
+      UnitsLost(0),
+      BuildingsLost(0),
+      WhoLastHurtMe(-1),
       BaseCenter(0, 0, 0),
-      unknown_53c8(0),
-      unknown_5408(0),
-      unknown_540c(-1),
-      unknown_5410(0),
+      Radius(0),
+      LATime(0),
+      LAEnemy(-1),
+      ToCapture(0),
       unknown_5414(0),
-      unknown_5418(0),
-      unknown_541c(1),
+      PointTotal(0),
+      PreferredTarget(1),
       unknown_54ec(0),
-      unknown_54f0(-1),
-      unknown_553c(-1),
-      unknown_5540(-1),
-      unknown_5544(-1),
-      unknown_5548(-1),
-      unknown_554c(100),
-      unknown_5550(75),
-      unknown_5554(75),
-      unknown_5558(75),
+      Enemy(-1),
+      BuildStructure(-1),
+      BuildUnit(-1),
+      BuildInfantry(-1),
+      BuildAircraft(-1),
+      RatioAITriggerTeam(100),
+      RatioTeamAircraft(75),
+      RatioTeamInfantry(75),
+      RatioTeamUnits(75),
       BaseDefenseTeamCount(0),
-      unknown_55e4(0),
-      unknown_55e8(0),
-      unknown_55e9(0, 0, 0),
-      unknown_55ec(255, 255, 255),
+      CurrentDropship(0),
+      HasCloakGenerator(0),
+      RemapColorRGB(0, 0, 0),
+      LaserColor(255, 255, 255),
       RecalcPower(1),
       RecalcRadar(1),
-      unknown_566a(0),
+      SpySatActive(0),
       EMPDest(0, 0),
       NukeDest(0, 0),
       Allies(0),
-      unknown_5678(int(900 * Rules->DamageDelay)),
-      unknown_5684(1),
-      unknown_5690(0),
-      unknown_569c(1),
-      unknown_56a8(1),
-      unknown_56b4(1),
-      unknown_56c0(1),
-      unknown_56cc(0),
+      DamageTime(int(900 * Rules->DamageDelay)),
+      TeamTime(1),
+      TriggerTime(0),
+      SpeakAttackDelay(1),
+      SpeakPowerDelay(1),
+      SpeakMoneyDelay(1),
+      SpeakMaxedDelay(1),
+      AIGeneral(0),
       ColorSchemeIndex(0),
-      unknown_15f44(0),
-      unknown_15f60(0),
+      BaseAreaMap(0),
+      PowerEvents(0),
       unknown_15f64(0),
       unknown_15f68(1.0),
-      unknown_15f70(1.0),
-      unknown_15f7c(0.33f),
-      unknown_15f80(0.33f),
-      unknown_15f84(0.34f),
-      unknown_15f88(0)
+      DefenseCostMultiplier(1.0),
+      EnemyArmorForcePrediction(0.33f),
+      EnemyAirForcePrediction(0.33f),
+      EnemyInfantryForcePrediction(0.34f),
+      PowerSurplus(0)
 {
-    unknown_15ef5 = FixedString<32>(unknown_string_83c55c);
+    UINameString = FixedString<32>(unknown_string_83c55c);
     UIName[0] = 0;
     Create_ID();
     if (Type != 0) {
@@ -392,32 +392,32 @@ HouseClass::HouseClass(HouseTypeClass *type)
         }
     }
     Houses.Add(this);
-    memset(unknown_56d0, 0, sizeof(unknown_56d0));
+    memset(Regions, 0, sizeof(Regions));
     for (int index = 0; index < SuperWeaponTypes.Count(); index++) {
         SuperWeapons.Add(new SuperClass(SuperWeaponTypes[index], this));
     }
-    memset(unknown_5310, 0, sizeof(unknown_5310));
-    memset(unknown_5364, 0, sizeof(unknown_5364));
+    memset(UnitsKilled, 0, sizeof(UnitsKilled));
+    memset(BuildingsKilled, 0, sizeof(BuildingsKilled));
     if (type != 0) {
         IniName = (char const *)type->ID;
         wcscpy(UIName, type->UIName);
     }
-    memset(unknown_56d0, 0, sizeof(unknown_56d0));
+    memset(Regions, 0, sizeof(Regions));
     unknown_120 |= 1 << ArrayIndex;
     int attack = Random_Pick(450, 1800);
     attack = int(attack * Rules->AttackDelay);
     unknown_54e0 = attack;
     unknown_54ec = attack;
-    unknown_268.unknown_func_70c4d0(AircraftTypes.Count());
-    unknown_a70.unknown_func_70c4d0(InfantryTypes.Count());
-    unknown_1278.unknown_func_70c4d0(UnitTypes.Count());
-    unknown_1a80.unknown_func_70c4d0(BuildingTypes.Count());
-    unknown_2288.unknown_func_70c4d0(AircraftTypes.Count());
-    unknown_2a90.unknown_func_70c4d0(InfantryTypes.Count());
-    unknown_3298.unknown_func_70c4d0(UnitTypes.Count());
-    unknown_3aa0.unknown_func_70c4d0(BuildingTypes.Count());
-    unknown_42a8.unknown_func_70c4d0(BuildingTypes.Count());
-    unknown_4ab0.unknown_func_70c4d0(19);
+    AircraftTotals.unknown_func_70c4d0(AircraftTypes.Count());
+    InfantryTotals.unknown_func_70c4d0(InfantryTypes.Count());
+    UnitTotals.unknown_func_70c4d0(UnitTypes.Count());
+    BuildingTotals.unknown_func_70c4d0(BuildingTypes.Count());
+    DestroyedAircraft.unknown_func_70c4d0(AircraftTypes.Count());
+    DestroyedInfantry.unknown_func_70c4d0(InfantryTypes.Count());
+    DestroyedUnits.unknown_func_70c4d0(UnitTypes.Count());
+    DestroyedBuildings.unknown_func_70c4d0(BuildingTypes.Count());
+    CapturedBuildings.unknown_func_70c4d0(BuildingTypes.Count());
+    TotalCrates.unknown_func_70c4d0(19);
     for (index = 0; index < 12; index++) {
         WaypointPaths[index] = 0;
     }
@@ -434,9 +434,9 @@ HouseClass::HouseClass(HouseTypeClass *type)
     }
     IUnknown *unknown = 0;
     QueryInterface(IID_IUnknown_7afce0, (void **)&unknown);
-    unknown_15f60 = new ConnectionPointClass(unknown_iid_7a1ac0, unknown);
+    PowerEvents = new ConnectionPointClass(unknown_iid_7a1ac0, unknown);
     IConnectionPoint *connection;
-    unknown_15f60->QueryInterface(IID_IConnectionPoint, (void **)&connection);
+    PowerEvents->QueryInterface(IID_IConnectionPoint, (void **)&connection);
     ConnectionPoints.Add(connection);
     unknown->Release();
 }
@@ -449,15 +449,15 @@ bool HouseClass::Can_Make_Money_004e27e0()
     int credits=Available_Money();
     int refinery_cost=unknown_func_4ef600(Rules->BuildRefinery)->Cost_Of(this);
     int harvester_cost=Get_First_Ownable(Rules->HarvesterUnit)->Cost_Of(this);
-    bool has_refinery=unknown_5460.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)>0 ||
-                      unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0;
-    bool has_harvester=unknown_5470.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex)>0 ||
-                       unknown_5470.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex)>0;
+    bool has_refinery=ABQuantity.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)>0 ||
+                      ABQuantity.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0;
+    bool has_harvester=AUQuantity.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex)>0 ||
+                       AUQuantity.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex)>0;
     if (has_refinery) {
         if (has_harvester) return true;
         bool has_factory=false;
         for (int index=0;index<Rules->BuildWeapons.Count();++index) {
-            has_factory=has_factory || unknown_5460.unknown_func_491d10(Rules->BuildWeapons[index]->ArrayIndex)>0;
+            has_factory=has_factory || ABQuantity.unknown_func_491d10(Rules->BuildWeapons[index]->ArrayIndex)>0;
         }
         int factory_cost=Rules->BuildWeapons[0]->Cost_Of(this);
         if ((has_factory && credits>=harvester_cost) || credits>=harvester_cost+factory_cost ||
@@ -689,7 +689,7 @@ int HouseClass::Assign_Handicap(int difficulty)
         HouseTypeClass *type = Type;
         FirepowerBias = Rules->Diff[difficulty].FirePower * type->FirepowerMult;
         GroundspeedBias = Rules->Diff[difficulty].GroundSpeed * Rules->GameSpeedBias * type->GroundspeedMult;
-        unknown_e0 = Rules->Diff[difficulty].AirSpeed * Rules->GameSpeedBias * type->AirspeedMult;
+        AirspeedBias = Rules->Diff[difficulty].AirSpeed * Rules->GameSpeedBias * type->AirspeedMult;
         ArmorBias = Rules->Diff[difficulty].Armor * type->ArmorMult;
         unknown_f0 = Rules->Diff[difficulty].ROF * type->ROFMult;
         CostBias = Rules->Diff[difficulty].Cost * type->CostMult;
@@ -699,7 +699,7 @@ int HouseClass::Assign_Handicap(int difficulty)
     } else {
         FirepowerBias = Rules->Diff[difficulty].FirePower;
         GroundspeedBias = Rules->Diff[difficulty].GroundSpeed * Rules->GameSpeedBias;
-        unknown_e0 = Rules->Diff[difficulty].AirSpeed * Rules->GameSpeedBias;
+        AirspeedBias = Rules->Diff[difficulty].AirSpeed * Rules->GameSpeedBias;
         ArmorBias = Rules->Diff[difficulty].Armor;
         unknown_f0 = Rules->Diff[difficulty].ROF;
         CostBias = Rules->Diff[difficulty].Cost;
@@ -707,7 +707,7 @@ int HouseClass::Assign_Handicap(int difficulty)
         BuildDelay = Rules->Diff[difficulty].BuildDelay;
         unknown_100 = Rules->Diff[difficulty].BuildTime * Rules->GameSpeedBias;
     }
-    unknown_5684 = CDTimerClass<FrameTimerClass>(Rules->TeamDelays[difficulty] + ArrayIndex * 175);
+    TeamTime = CDTimerClass<FrameTimerClass>(Rules->TeamDelays[difficulty] + ArrayIndex * 175);
     return old;
 }
 
@@ -731,9 +731,9 @@ HouseClass::~HouseClass()
         delete SuperWeapons[index];
     }
     SuperWeapons.Clear();
-    if (unknown_56cc != 0 && GameActive) {
-        unknown_56cc->Release();
-        unknown_56cc = 0;
+    if (AIGeneral != 0 && GameActive) {
+        AIGeneral->Release();
+        AIGeneral = 0;
     }
     while (unknown_38.Count() > 0) {
         delete unknown_38[0];
@@ -744,7 +744,7 @@ HouseClass::~HouseClass()
         ConnectionPoints[index] = 0;
     }
     ConnectionPoints.Clear();
-    unknown_15f60 = 0;
+    PowerEvents = 0;
     AbstractTypePtrTracker.Delete((ObjectClass *)this);
     FactoryPtrTracker.Delete(this);
     WaypointPathPtrTracker.Delete(this);
@@ -789,7 +789,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
         TypeList<int> over = type->PrerequisiteOverride;
         for (int i = 0; i < over.Count(); i++) {
             int id = over[i];
-            if (unknown_5460.unknown_func_491d10(id) > 0) {
+            if (ABQuantity.unknown_func_491d10(id) > 0) {
                 goto skip;
             }
         }
@@ -799,17 +799,17 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
         TypeList<int> pre = type->Prerequisite;
 
         int level = unknown_11c;
-        if (type->RequiresStolenAlliedTech && !unknown_205) {
+        if (type->RequiresStolenAlliedTech && !Side0TechInfiltrated) {
             return 0;
         }
-        if (type->RequiresStolenSovietTech && !unknown_204) {
+        if (type->RequiresStolenSovietTech && !Side1TechInfiltrated) {
             return 0;
         }
         if (type->RequiredHouses != -1 && (type->RequiredHouses & House_Owner_Bit(Type)) == 0) {
-            if ((type->RequiredHouses & unknown_208) == 0 || type->Kind_Of() != 0x10) {
-                if ((type->RequiredHouses & unknown_20c) == 0 || type->Kind_Of() != 0x28) {
-                    if ((type->RequiredHouses & unknown_210) == 0 || type->Kind_Of() != 3) {
-                        if ((type->RequiredHouses & unknown_214) == 0 || type->Kind_Of() != 7) {
+            if ((type->RequiredHouses & InfantryAltOwner) == 0 || type->Kind_Of() != 0x10) {
+                if ((type->RequiredHouses & UnitAltOwner) == 0 || type->Kind_Of() != 0x28) {
+                    if ((type->RequiredHouses & AircraftAltOwner) == 0 || type->Kind_Of() != 3) {
+                        if ((type->RequiredHouses & BuildingAltOwner) == 0 || type->Kind_Of() != 7) {
                             return 0;
                         }
                     }
@@ -836,7 +836,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
             case -1: {
                 bool found = false;
                 for (int j = 0; j < Rules->PrerequisitePower.Count(); j++) {
-                    if (unknown_5460.unknown_func_491d10(Rules->PrerequisitePower[j]) > 0) {
+                    if (ABQuantity.unknown_func_491d10(Rules->PrerequisitePower[j]) > 0) {
                         found = true;
                         break;
                     }
@@ -846,7 +846,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
             case -2: {
                 bool found = false;
                 for (int j = 0; j < Rules->PrerequisiteFactory.Count(); j++) {
-                    if (unknown_5460.unknown_func_491d10(Rules->PrerequisiteFactory[j]) > 0) {
+                    if (ABQuantity.unknown_func_491d10(Rules->PrerequisiteFactory[j]) > 0) {
                         found = true;
                         break;
                     }
@@ -856,7 +856,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
             case -3: {
                 bool found = false;
                 for (int j = 0; j < Rules->PrerequisiteBarracks.Count(); j++) {
-                    if (unknown_5460.unknown_func_491d10(Rules->PrerequisiteBarracks[j]) > 0) {
+                    if (ABQuantity.unknown_func_491d10(Rules->PrerequisiteBarracks[j]) > 0) {
                         found = true;
                         break;
                     }
@@ -866,7 +866,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
             case -4: {
                 bool found = false;
                 for (int j = 0; j < Rules->PrerequisiteRadar.Count(); j++) {
-                    if (unknown_5460.unknown_func_491d10(Rules->PrerequisiteRadar[j]) > 0) {
+                    if (ABQuantity.unknown_func_491d10(Rules->PrerequisiteRadar[j]) > 0) {
                         found = true;
                         break;
                     }
@@ -876,7 +876,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
             case -5: {
                 bool found = false;
                 for (int j = 0; j < Rules->PrerequisiteTech.Count(); j++) {
-                    if (unknown_5460.unknown_func_491d10(Rules->PrerequisiteTech[j]) > 0) {
+                    if (ABQuantity.unknown_func_491d10(Rules->PrerequisiteTech[j]) > 0) {
                         found = true;
                         break;
                     }
@@ -886,7 +886,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
             case -6: {
                 bool found = false;
                 for (int j = 0; j < Rules->PrerequisiteProc.Count(); j++) {
-                    if (unknown_5460.unknown_func_491d10(Rules->PrerequisiteProc[j]) > 0) {
+                    if (ABQuantity.unknown_func_491d10(Rules->PrerequisiteProc[j]) > 0) {
                         found = true;
                         break;
                     }
@@ -919,7 +919,7 @@ int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include
                     }
                     return 0;
                 }
-                if (unknown_5460.unknown_func_491d10(pre[index]) == 0) return 0;
+                if (ABQuantity.unknown_func_491d10(pre[index]) == 0) return 0;
                 breakout:;
             } break;
             }
@@ -930,10 +930,10 @@ skip:
     case 0x28: {
         int limit = type->BuildLimit;
         if (type->BuildLimit <= 0) {
-            if (unknown_54b0.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(limit)) return 0;
+            if (PUQuantity.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(limit)) return 0;
         }
         if (limit <= 0) return 1;
-        if (unknown_5430.unknown_func_491d10(type->Fetch_Heap_ID()) < type->BuildLimit) {
+        if (UQuantity.unknown_func_491d10(type->Fetch_Heap_ID()) < type->BuildLimit) {
             return 1;
         }
         if (include_in_progress) {
@@ -943,9 +943,9 @@ skip:
     }
     case 0x10: {
         if (type->BuildLimit <= 0) {
-            if (unknown_54c0.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(type->BuildLimit)) return 0;
+            if (PIQuantity.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(type->BuildLimit)) return 0;
         }
-        int count = unknown_5440.unknown_func_491d10(type->Fetch_Heap_ID());
+        int count = IQuantity.unknown_func_491d10(type->Fetch_Heap_ID());
         if (((InfantryTypeClass const *)type)->VehicleThief) {
             for (int i = 0; i < Units.Count(); i++) {
                 UnitClass *unit = Units[i];
@@ -968,10 +968,10 @@ skip:
     case 7: {
         int limit = type->BuildLimit;
         if (type->BuildLimit <= 0) {
-            if (unknown_54a0.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(limit)) return 0;
+            if (PBQuantity.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(limit)) return 0;
         }
         if (limit <= 0) return 1;
-        if (unknown_5420.unknown_func_491d10(type->Fetch_Heap_ID()) < type->BuildLimit) {
+        if (BQuantity.unknown_func_491d10(type->Fetch_Heap_ID()) < type->BuildLimit) {
             return 1;
         }
         if (include_in_progress) {
@@ -982,10 +982,10 @@ skip:
     case 3: {
         int limit = type->BuildLimit;
         if (type->BuildLimit <= 0) {
-            if (unknown_54d0.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(limit)) return 0;
+            if (PAQuantity.unknown_func_491d10(type->Fetch_Heap_ID()) >= abs(limit)) return 0;
         }
         if (limit <= 0) return 1;
-        if (unknown_5450.unknown_func_491d10(type->Fetch_Heap_ID()) < type->BuildLimit) {
+        if (AQuantity.unknown_func_491d10(type->Fetch_Heap_ID()) < type->BuildLimit) {
             return 1;
         }
         if (include_in_progress) {
@@ -1044,12 +1044,12 @@ static inline FootClass *House_Foot_View(AbstractClass *object)
 
 void HouseClass::AI()
 {
-    if (unknown_1ec.Value()==1) {
-        unknown_1ec = CDTimerClass<FrameTimerClass>(0);
+    if (PowerBlackoutTimer.Value()==1) {
+        PowerBlackoutTimer = CDTimerClass<FrameTimerClass>(0);
         RecalcPower = true;
     }
-    if (unknown_1f8.Value()==1) {
-        unknown_1f8 = CDTimerClass<FrameTimerClass>(0);
+    if (RadarBlackoutTimer.Value()==1) {
+        RadarBlackoutTimer = CDTimerClass<FrameTimerClass>(0);
         RecalcRadar = true;
     }
     if (RecalcPower != false) {
@@ -1065,9 +1065,9 @@ void HouseClass::AI()
             if (AngerNodes[index].Value>1) --AngerNodes[index].Value;
         }
     }
-    if (unknown_56cc) {
+    if (AIGeneral) {
         long frame_delay=0;
-        static_cast<IAIHouse *>(unknown_56cc)->AI(&frame_delay);
+        static_cast<IAIHouse *>(AIGeneral)->AI(&frame_delay);
     }
     if (!Is_Human_Control() && (IsBaseBuilding || IQ>=Rules->IQProduction)) {
         IsBaseBuilding=true;
@@ -1100,9 +1100,9 @@ void HouseClass::AI()
     }
     Power=Power>0 ? Power : 0;
     Drain=Drain>0 ? Drain : 0;
-    if (unknown_530c!=unknown_cell_a40f10 && Frame%15==0) {
+    if (FlagHome!=unknown_cell_a40f10 && Frame%15==0) {
         FootClass *foot=0;
-        ObjectClass *occupant=Map[unknown_530c].Cell_Techno(Point2D(0,0),false,0);
+        ObjectClass *occupant=Map[FlagHome].Cell_Techno(Point2D(0,0),false,0);
         if (occupant) {
             bool moving=false;
             foot=House_Foot_View(occupant);
@@ -1118,7 +1118,7 @@ void HouseClass::AI()
             }
         }
     }
-    if (unknown_5684.Value()==0 && !Is_Human_Control() && !Type->MultiplayPassive) {
+    if (TeamTime.Value()==0 && !Is_Human_Control() && !Type->MultiplayPassive) {
         TypeList<TeamTypeClass const *> teams=Suggested_New_Team(false);
         if (teams.Count()>0) {
             for (int index=0;index<teams.Count();++index) {
@@ -1126,42 +1126,42 @@ void HouseClass::AI()
                 const_cast<TeamTypeClass *>(teams[index])->Create_One_Of(this);
             }
         }
-        unknown_5684=CDTimerClass<FrameTimerClass>(Rules->TeamDelays[Difficulty]);
+        TeamTime=CDTimerClass<FrameTimerClass>(Rules->TeamDelays[Difficulty]);
     }
     if (PlayerPtr==this) {
         if (!CurBuildings && unknown_sell_mode_83368d) Map.Unknown_0049C7C0(0);
         if (PlayerPtr==this) {
-            if (unknown_56c0.Value()==0 && Available_Money()<100 &&
-                unknown_52c8+unknown_52c4+unknown_52c0+unknown_52bc>0) {
+            if (SpeakMaxedDelay.Value()==0 && Available_Money()<100 &&
+                NumShipyards+BuildingFactories+UnitFactories+InfantryFactories>0) {
                 Speech_Play_Name(eva_insufficient_funds_007cf9e8,-1,-1);
                 Map.Flash_Money();
-                unknown_56c0=CDTimerClass<FrameTimerClass>(Options.Normalize_Delay((int)(Rules->SpeakDelay*900.0)));
+                SpeakMaxedDelay=CDTimerClass<FrameTimerClass>(Options.Normalize_Delay((int)(Rules->SpeakDelay*900.0)));
             }
-            if (unknown_56c0.Value()==0) {
+            if (SpeakMaxedDelay.Value()==0) {
                 int capacity=Capacity;
                 if (capacity-(int)Tiberium.Get_Total_Amount()<30 && capacity>50) {
-                    unknown_56c0=CDTimerClass<FrameTimerClass>(Options.Normalize_Delay((int)(Rules->SpeakDelay*900.0)));
+                    SpeakMaxedDelay=CDTimerClass<FrameTimerClass>(Options.Normalize_Delay((int)(Rules->SpeakDelay*900.0)));
                 }
             }
             if (Power_Fraction()<1.0) {
-                if (unknown_5460.unknown_func_491d10(Rules->BuildConst[0]->ArrayIndex)>0 ||
-                    unknown_5460.unknown_func_491d10(Rules->BuildConst[1]->ArrayIndex)>0) {
+                if (ABQuantity.unknown_func_491d10(Rules->BuildConst[0]->ArrayIndex)>0 ||
+                    ABQuantity.unknown_func_491d10(Rules->BuildConst[1]->ArrayIndex)>0) {
                     if (!low_power_notice_a40fc8) {
                         Speech_Play_Name("EVA_LowPower",-1,-1);
                         unknown_session_a3d298.Messages.Add_Message(0,0,StringTable::Load_String(txt_low_power_007da260,0,house_cpp_path_007da270,0x892),
                             ColorSchemeIndex,0x4046,(int)(Rules->MessageDelay*900.0),false);
                         low_power_notice_a40fc8=1;
                     }
-                    unknown_56a8=CDTimerClass<FrameTimerClass>(Options.Normalize_Delay((int)(Rules->SpeakDelay*900.0)));
+                    SpeakPowerDelay=CDTimerClass<FrameTimerClass>(Options.Normalize_Delay((int)(Rules->SpeakDelay*900.0)));
                 }
             } else low_power_notice_a40fc8=0;
         }
     }
-    ObjectClass *flag=static_cast<ObjectClass *>(unknown_5308);
+    ObjectClass *flag=static_cast<ObjectClass *>(FlagLocation);
     if (flag && flag->Kind_Of()==1) flag->Mark(2);
-    if (unknown_5690.Value()==0 || unknown_18d) {
-        unknown_5690=CDTimerClass<FrameTimerClass>(90);
-        unknown_18d=false;
+    if (TriggerTime.Value()==0 || IsBuiltSomething) {
+        TriggerTime=CDTimerClass<FrameTimerClass>(90);
+        IsBuiltSomething=false;
     }
     for (int super_index=0;super_index<SuperWeapons.Count();++super_index) {
         SuperClass *super=SuperWeapons[super_index];
@@ -1173,14 +1173,14 @@ void HouseClass::AI()
     if (unknown_game_mode_a3d298!=0 && !IsDefeated && Frame>0 && !Type->MultiplayPassive) {
         bool defeated=false;
         if (unknown_session_a3d298.unknown_2a) {
-            int units=unknown_5430.unknown_func_491d10(Rules->BaseUnit[0]->ArrayIndex)
-                + unknown_5430.unknown_func_491d10(Rules->BaseUnit[1]->ArrayIndex);
+            int units=UQuantity.unknown_func_491d10(Rules->BaseUnit[0]->ArrayIndex)
+                + UQuantity.unknown_func_491d10(Rules->BaseUnit[1]->ArrayIndex);
             if (!CurBuildings && units<=0) defeated=true;
-        } else if (!CurBuildings && !unknown_238 && !unknown_234) {
-            int units=unknown_228;
+        } else if (!CurBuildings && !CurAircraft && !CurInfantry) {
+            int units=CurUnits;
             if (units && Scen->Special().HarvesterImmune) {
-                int immune=unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex)
-                    + unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex);
+                int immune=UQuantity.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex)
+                    + UQuantity.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex);
                 units-=immune;
             }
             if (units<=0) defeated=true;
@@ -1196,8 +1196,8 @@ defeat_checked:;
             unknown_38[tag_index]->Spring(8,0,unknown_cell_a40f10,false,0);
         }
     }
-    if (unknown_5524.Value()==0 && !Is_Human_Control() && !Type->MultiplayPassive) {
-        unknown_5524=CDTimerClass<FrameTimerClass>(Expert_AI());
+    if (AITimer.Value()==0 && !Is_Human_Control() && !Type->MultiplayPassive) {
+        AITimer=CDTimerClass<FrameTimerClass>(Expert_AI());
     }
     if (!Is_Human_Control() && !Type->MultiplayPassive) {
         int mode=ProductionMode;
@@ -1208,7 +1208,7 @@ defeat_checked:;
             AI_Aircraft();
         } else if (mode==1) {
             AI_Building();
-            if (unknown_553c==-1 || !BuildingTypes[unknown_553c]->Who_Can_Build_Me(true,true,true,this)) {
+            if (BuildStructure==-1 || !BuildingTypes[BuildStructure]->Who_Can_Build_Me(true,true,true,this)) {
                 AI_Unit();
                 AI_Infantry();
                 AI_Aircraft();
@@ -1216,14 +1216,14 @@ defeat_checked:;
         } else if (mode==2) {
             AI_Unit();
             UnitTypeClass *harvester=Get_First_Ownable(Rules->HarvesterUnit);
-            if (unknown_5540!=harvester->ArrayIndex) {
+            if (BuildUnit!=harvester->ArrayIndex) {
                 AI_Infantry();
                 AI_Aircraft();
             }
-            bool none=unknown_5540==-1 && unknown_5544==-1 && unknown_5548==-1;
-            if (unknown_5540!=-1 && !UnitTypes[unknown_5540]->Who_Can_Build_Me(true,true,true,this)) none=true;
-            if (unknown_5544!=-1 && !InfantryTypes[unknown_5544]->Who_Can_Build_Me(true,true,true,this)) none=true;
-            if ((unknown_5548!=-1 && !AircraftTypes[unknown_5548]->Who_Can_Build_Me(true,true,true,this)) || none) {
+            bool none=BuildUnit==-1 && BuildInfantry==-1 && BuildAircraft==-1;
+            if (BuildUnit!=-1 && !UnitTypes[BuildUnit]->Who_Can_Build_Me(true,true,true,this)) none=true;
+            if (BuildInfantry!=-1 && !InfantryTypes[BuildInfantry]->Who_Can_Build_Me(true,true,true,this)) none=true;
+            if ((BuildAircraft!=-1 && !AircraftTypes[BuildAircraft]->Who_Can_Build_Me(true,true,true,this)) || none) {
                 AI_Building();
             }
         }
@@ -1252,8 +1252,8 @@ update_super_weapons:;
         goto update_super_weapons;
     }
     if (DidRepair && unknown_1c8.Value()==0) DidRepair=false;
-    if (this==PlayerPtr && unknown_192) {
-        unknown_192=false;
+    if (this==PlayerPtr && IsToLook) {
+        IsToLook=false;
         Map.Reveal_Technos(false,false);
     }
 }
@@ -1312,7 +1312,7 @@ void HouseClass::Attacked(TechnoClass *source)
 
 float HouseClass::Harvested(float amount, int type)
 {
-    unknown_5418 = (int)(amount * 5.0f + unknown_5418);
+    PointTotal = (int)(amount * 5.0f + PointTotal);
     Balance = (int)(((UnknownTiberiumView *)Tiberiums[type])->Value * Type->unknown_0x148 * amount + Balance);
     return amount;
 }
@@ -1350,10 +1350,10 @@ void HouseClass::Place_Tiberium(int count, int type)
 {
     while (count > 0) {
         float limit = (float)Rules->WeedCapacity;
-        if (!(unknown_254.Get_Total_Amount() < limit)) {
+        if (!(Weed.Get_Total_Amount() < limit)) {
             break;
         }
-        unknown_254.Add_Amount(1.0f, type);
+        Weed.Add_Amount(1.0f, type);
         count--;
     }
 }
@@ -1363,10 +1363,10 @@ void HouseClass::Place_Tiberium(int count, int type)
 
 double HouseClass::Weed_Fraction() const
 {
-    if (unknown_254.Get_Total_Amount() == 0.0f) {
+    if (Weed.Get_Total_Amount() == 0.0f) {
         return 0.0;
     }
-    return unknown_254.Get_Total_Amount() / Rules->WeedCapacity;
+    return Weed.Get_Total_Amount() / Rules->WeedCapacity;
 }
 
 
@@ -1416,7 +1416,7 @@ void HouseClass::Spend_Money_004e5280(int money)
         }
     }
     Silo_Redraw_Check((int)old_amount, old_capacity);
-    unknown_21c += spent;
+    CreditsSpent += spent;
 }
 
 
@@ -1533,8 +1533,8 @@ void HouseClass::Make_Ally(HouseClass *house, bool announce)
         Allies |= 1 << house->ArrayIndex;
         unknown_func_4f3420();
         unknown_func_4f33e0(house);
-        if (unknown_54f0 == house->ArrayIndex) {
-            unknown_54f0 = -1;
+        if (Enemy == house->ArrayIndex) {
+            Enemy = -1;
         }
         if (ScenarioInit) {
             unknown_120 |= 1 << house->ArrayIndex;
@@ -1620,7 +1620,7 @@ void HouseClass::Make_Enemy(HouseClass *house, bool announce)
             house->unknown_func_4f3420();
             house->Add_Anger(1, house);
         }
-        if (unknown_game_mode_a3d298 != 0 && !ScenarioInit && unknown_134) {
+        if (unknown_game_mode_a3d298 != 0 && !ScenarioInit && IsHuman) {
             wchar_t buffer[80];
             swprintf(buffer, StringTable::Load_String("TXT_AT_WAR", 0, "D:\\Ra2\\House.CPP", 3272), UIName, house->UIName);
             unknown_messages_a3dc70.Add_Message(0, 0, buffer, Type->Color, 0x4046, (int)(Rules->MessageDelay * 900.0), 0);
@@ -1665,7 +1665,7 @@ void HouseClass::unknown_func_4e5dc0(int cell, int amount)
     int index = 0;
     for (int count = 9; count != 0; count--, index++) {
         int value = amount >> unknown_adjacent_shift_7d9fc4[index];
-        int *entry = &unknown_56d0[unknown_adjacent_offset_7d9fa0[index] + cell].Threat;
+        int *entry = &Regions[unknown_adjacent_offset_7d9fa0[index] + cell].Threat;
         if (negative) {
             *entry -= value;
         } else {
@@ -1915,26 +1915,26 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
 void HouseClass::Just_Built(TechnoClass *techno)
 {
     int sound = -1;
-    unknown_18d = true;
+    IsBuiltSomething = true;
     TechnoTypeClass *type = techno->Techno_Type_Class();
     switch (techno->Kind_Of()) {
     case 1:
-        unknown_1bc = type->Fetch_Heap_ID();
-        unknown_54b0.Increment(type->Fetch_Heap_ID());
+        JustBuiltUnit = type->Fetch_Heap_ID();
+        PUQuantity.Increment(type->Fetch_Heap_ID());
         sound = Rules->CreateUnitSound;
         break;
     case 15:
-        unknown_1b8 = type->Fetch_Heap_ID();
-        unknown_54c0.Increment(type->Fetch_Heap_ID());
+        JustBuiltInfantry = type->Fetch_Heap_ID();
+        PIQuantity.Increment(type->Fetch_Heap_ID());
         sound = Rules->CreateInfantrySound;
         break;
     case 6:
-        unknown_1b4 = type->Fetch_Heap_ID();
-        unknown_54a0.Increment(type->Fetch_Heap_ID());
+        JustBuiltStructure = type->Fetch_Heap_ID();
+        PBQuantity.Increment(type->Fetch_Heap_ID());
         break;
     case 2:
-        unknown_1c0 = type->Fetch_Heap_ID();
-        unknown_54d0.Increment(type->Fetch_Heap_ID());
+        JustBuiltAircraft = type->Fetch_Heap_ID();
+        PAQuantity.Increment(type->Fetch_Heap_ID());
         sound = Rules->CreateAircraftSound;
         break;
     }
@@ -2006,8 +2006,8 @@ void HouseClass::Clobber_All()
 
 void HouseClass::Detach(AbstractClass *target, bool all)
 {
-    if (unknown_5410 == target) {
-        unknown_5410 = 0;
+    if (ToCapture == target) {
+        ToCapture = 0;
     }
     TagClass *tag = dynamic_cast<TagClass *>(target);
     if (tag != 0) {
@@ -2025,32 +2025,32 @@ void HouseClass::Detach(AbstractClass *target, bool all)
             WaypointPaths[index] = 0;
         }
     }
-    if (unknown_52d8 == target) {
-        unknown_52d8 = 0;
+    if (AircraftFactory == target) {
+        AircraftFactory = 0;
     }
-    if (unknown_52dc == target) {
-        unknown_52dc = 0;
+    if (InfantryFactory == target) {
+        InfantryFactory = 0;
     }
-    if (unknown_52e0 == target) {
-        unknown_52e0 = 0;
+    if (UnitFactory == target) {
+        UnitFactory = 0;
     }
-    if (unknown_52e4 == target) {
-        unknown_52e4 = 0;
+    if (Primary_ForShips == target) {
+        Primary_ForShips = 0;
     }
-    if (unknown_52e8 == target) {
-        unknown_52e8 = 0;
+    if (BuildingFactory == target) {
+        BuildingFactory = 0;
     }
-    if (unknown_52ec == target) {
-        unknown_52ec = 0;
+    if (Primary_Unused1 == target) {
+        Primary_Unused1 = 0;
     }
-    if (unknown_52f0 == target) {
-        unknown_52f0 = 0;
+    if (Primary_Unused2 == target) {
+        Primary_Unused2 = 0;
     }
-    if (unknown_52f4 == target) {
-        unknown_52f4 = 0;
+    if (Primary_Unused3 == target) {
+        Primary_Unused3 = 0;
     }
-    if (unknown_52f8 == target) {
-        unknown_52f8 = 0;
+    if (Primary_ForDefenses == target) {
+        Primary_ForDefenses = 0;
     }
 }
 
@@ -2063,7 +2063,7 @@ bool HouseClass::unknown_func_4e7440(int type)
 {
     for (int index = 0; index < Houses.Count(); index++) {
         HouseClass *house = Houses[index];
-        if (house != 0 && !Is_Ally(house) && house->unknown_5460.unknown_func_491d10(type) > 0) {
+        if (house != 0 && !Is_Ally(house) && house->ABQuantity.unknown_func_491d10(type) > 0) {
             return true;
         }
     }
@@ -2092,26 +2092,26 @@ TechnoTypeClass *HouseClass::unknown_func_4e74c0(int kind, bool naval)
     switch (kind) {
     case 2:
     case 3:
-        if (unknown_5548 != -1) {
-            return (TechnoTypeClass *)AircraftTypes[unknown_5548];
+        if (BuildAircraft != -1) {
+            return (TechnoTypeClass *)AircraftTypes[BuildAircraft];
         }
         break;
     case 1:
     case 40:
-        if (unknown_5540 != -1) {
-            return (TechnoTypeClass *)UnitTypes[unknown_5540];
+        if (BuildUnit != -1) {
+            return (TechnoTypeClass *)UnitTypes[BuildUnit];
         }
         break;
     case 15:
     case 16:
-        if (unknown_5544 != -1) {
-            return (TechnoTypeClass *)InfantryTypes[unknown_5544];
+        if (BuildInfantry != -1) {
+            return (TechnoTypeClass *)InfantryTypes[BuildInfantry];
         }
         break;
     case 6:
     case 7:
-        if (unknown_553c != -1) {
-            return (TechnoTypeClass *)BuildingTypes[unknown_553c];
+        if (BuildStructure != -1) {
+            return (TechnoTypeClass *)BuildingTypes[BuildStructure];
         }
         break;
     }
@@ -2142,21 +2142,21 @@ bool HouseClass::unknown_func_4e7580(AbstractClass *object, bool arg2)
     if (object != 0) {
         if (object->Kind_Of() == 1) {
             result = ((UnknownUnitReleaseView *)object)->unknown_func_7049f0();
-            if (result && unknown_5308 == object) {
-                unknown_5308 = 0;
+            if (result && FlagLocation == object) {
+                FlagLocation = 0;
             }
         } else {
             Cell cell = Coord_Cell(object->Center_Coord());
             if (Map.In_Radar(cell)) {
                 result = ((UnknownCellView *)&Map[cell])->unknown_func_478720();
-                if (result && unknown_5308 == object) {
-                    unknown_5308 = 0;
+                if (result && FlagLocation == object) {
+                    FlagLocation = 0;
                 }
             }
         }
-        if (arg2 && unknown_530c != unknown_geometry_k) {
-            ((UnknownCellView *)&Map[unknown_530c])->unknown_44 = -1;
-            unknown_530c = unknown_geometry_k;
+        if (arg2 && FlagHome != unknown_geometry_k) {
+            ((UnknownCellView *)&Map[FlagHome])->unknown_44 = -1;
+            FlagHome = unknown_geometry_k;
         }
         return result;
     }
@@ -2172,7 +2172,7 @@ bool HouseClass::unknown_func_4e7580(AbstractClass *object, bool arg2)
 bool HouseClass::Flag_Attach(Cell const &cell, bool arg2)
 {
     if (Map.In_Radar(cell)) {
-        unknown_func_4e7580(unknown_5308, arg2);
+        unknown_func_4e7580(FlagLocation, arg2);
         Cell target = cell;
         bool ok = Map[target].Flag_Place(Type->House);
         if (!ok) {
@@ -2182,7 +2182,7 @@ bool HouseClass::Flag_Attach(Cell const &cell, bool arg2)
             }
         }
         if (ok) {
-            unknown_5308 = &Map[target];
+            FlagLocation = &Map[target];
         }
         return ok;
     }
@@ -2202,9 +2202,9 @@ struct UnknownUnitView {
 bool HouseClass::unknown_func_4e77a0(ObjectClass *object, bool arg2)
 {
     if (object != 0 && !object->IsInLimbo) {
-        unknown_func_4e7580(unknown_5308, arg2);
+        unknown_func_4e7580(FlagLocation, arg2);
         ((UnknownUnitView *)object)->unknown_func_7049c0(Type->House);
-        unknown_5308 = object;
+        FlagLocation = object;
         return true;
     }
     return false;
@@ -2225,8 +2225,8 @@ void HouseClass::MPlayer_Defeated_004e77f0()
     IsDefeated=true;
     if (IQ==Rules->MaxIQ && !Is_Human_Control() && Rules->Paranoid && unknown_game_mode_a3d298!=0) Computer_Paranoid();
     if (Scen->unknown_000 & 0x10) {
-        if (unknown_5308) unknown_func_4e7580(unknown_5308,true);
-        else if (unknown_530c!=unknown_cell_a40f10) unknown_func_4e7580((AbstractClass *)&Map[unknown_530c],true);
+        if (FlagLocation) unknown_func_4e7580(FlagLocation,true);
+        else if (FlagHome!=unknown_cell_a40f10) unknown_func_4e7580((AbstractClass *)&Map[FlagHome],true);
     }
     if (unknown_game_mode_a3d298!=0 && (Scen->unknown_000 & 0x800)) {
         for (i=0;i<Units.Count();++i) {
@@ -2570,7 +2570,7 @@ extern DynamicVectorClass<BuildingTypeClass *> BuildingTypes;       // 0x00A35CD
 
 BuildingClass *HouseClass::Find_Building(int type, int zone)
 {
-    if (unknown_5420.unknown_func_491d10(type) > 0) {
+    if (BQuantity.unknown_func_491d10(type) > 0) {
         int count = Buildings.Count();
         for (int index = 0; index < count; index++) {
             UnknownBuildingView *building = (UnknownBuildingView *)Buildings[index];
@@ -2617,7 +2617,7 @@ inline int Base_Distance(CoordStruct const &a, CoordStruct const &b)
 void HouseClass::unknown_func_4e8640()
 {
     BaseCenter = unknown_geometry_l;
-    unknown_53c8 = 0;
+    Radius = 0;
     for (int zone = 0; zone < 5; zone++) {
         ZoneInfo[zone].AirDefense = 0;
         ZoneInfo[zone].ArmorDefense = 0;
@@ -2658,7 +2658,7 @@ void HouseClass::unknown_func_4e8640()
             if (radius <= 0x200) {
                 radius = 0x200;
             }
-            unknown_53c8 = radius;
+            Radius = radius;
             buildings = Buildings.Count();
             for (index = 0; index < buildings; index++) {
                 UnknownBuildingView *building = (UnknownBuildingView *)Buildings[index];
@@ -2672,7 +2672,7 @@ void HouseClass::unknown_func_4e8640()
                 }
             }
         } else {
-            unknown_53c8 = 0x200;
+            Radius = 0x200;
         }
     }
 }
@@ -2682,8 +2682,8 @@ void HouseClass::unknown_func_4e8640()
 
 int HouseClass::Expert_AI()
 {
-    if(unknown_5530==0) {
-        if(unknown_54f0==-1 && unknown_game_mode_a3d298!=0 && !Type->MultiplayPassive) {
+    if(PickEnemyTimer==0) {
+        if(Enemy==-1 && unknown_game_mode_a3d298!=0 && !Type->MultiplayPassive) {
             CoordStruct center=BaseCenter;
             if(center!=unknown_geometry_l) {
                 int closest=0x7fffffff;
@@ -2701,8 +2701,8 @@ int HouseClass::Expert_AI()
             }
         }
     }
-    if(unknown_54f0!=-1) {
-        HouseClass *enemy=Houses[unknown_54f0];
+    if(Enemy!=-1) {
+        HouseClass *enemy=Houses[Enemy];
         if(enemy->IsDefeated) {
             for(int index=0;index<AngerNodes.Count();++index) {
                 if(AngerNodes[index].House==enemy) {
@@ -2710,7 +2710,7 @@ int HouseClass::Expert_AI()
                     break;
                 }
             }
-            unknown_54f0=-1;
+            Enemy=-1;
         }
     }
     if(unknown_game_mode_a3d298!=0 || IQ>=Rules->IQSuperWeapons) AI_Supers_004f3910();
@@ -2720,8 +2720,8 @@ int HouseClass::Expert_AI()
     } else {
         if(unknown_198==0 && Available_Money()<25) unknown_198=1;
         if(unknown_198==1 && Available_Money()>=25) unknown_198=0;
-        if(unknown_198==3 && unknown_5408+900<Frame) unknown_198=0;
-        if(unknown_198!=3 && unknown_5408+900>Frame) unknown_198=3;
+        if(unknown_198==3 && LATime+900<Frame) unknown_198=0;
+        if(unknown_198!=3 && LATime+900>Frame) unknown_198=3;
     }
     if(unknown_game_mode_a3d298!=0) {
         int urgency[2];
@@ -2778,8 +2778,8 @@ int HouseClass::Check_Raise_Money_004e8d80()
     int urgency=0;
     if (Is_Human_Control()) return 0;
     if (!Can_Make_Money_004e27e0()) {
-        bool has_refinery=unknown_5460.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)>0 ||
-                          unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0;
+        bool has_refinery=ABQuantity.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)>0 ||
+                          ABQuantity.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0;
         if (has_refinery) {
             for (int index=0;index<unknown_BuildingClass_list_00a40af8.Count();++index) {
                 BuildingClass *building=unknown_BuildingClass_list_00a40af8[index];
@@ -2787,8 +2787,8 @@ int HouseClass::Check_Raise_Money_004e8d80()
                     (building->Type==Rules->BuildRefinery[0] || building->Type==Rules->BuildRefinery[1]) &&
                     building->Mission==18) return 0;
             }
-            if (unknown_5540!=Rules->HarvesterUnit[0]->ArrayIndex &&
-                unknown_5540!=Rules->HarvesterUnit[1]->ArrayIndex) {
+            if (BuildUnit!=Rules->HarvesterUnit[0]->ArrayIndex &&
+                BuildUnit!=Rules->HarvesterUnit[1]->ArrayIndex) {
                 if (Available_Money()<Rules->HarvesterUnit[0]->Cost_Of(this) &&
                     Available_Money()<Rules->HarvesterUnit[1]->Cost_Of(this)) urgency=1;
             } else {
@@ -2809,8 +2809,8 @@ int HouseClass::Check_Raise_Money_004e8d80()
             } else urgency=1;
             }
         } else {
-            if (unknown_553c!=Rules->BuildRefinery[0]->ArrayIndex &&
-                unknown_553c!=Rules->BuildRefinery[1]->ArrayIndex) {
+            if (BuildStructure!=Rules->BuildRefinery[0]->ArrayIndex &&
+                BuildStructure!=Rules->BuildRefinery[1]->ArrayIndex) {
                 if (Available_Money()<Rules->BuildRefinery[0]->Cost_Of(this) &&
                     Available_Money()<Rules->BuildRefinery[1]->Cost_Of(this)) urgency=1;
             } else {
@@ -2857,10 +2857,10 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
 {
     int refund=0;
     int needed;
-    bool can_build_harvester=(unknown_5460.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)>0 ||
-                              unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0) &&
-                             (unknown_5460.unknown_func_491d10(Rules->BuildWeapons[0]->ArrayIndex)>0 ||
-                              unknown_5460.unknown_func_491d10(Rules->BuildWeapons[1]->ArrayIndex)>0);
+    bool can_build_harvester=(ABQuantity.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)>0 ||
+                              ABQuantity.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex)>0) &&
+                             (ABQuantity.unknown_func_491d10(Rules->BuildWeapons[0]->ArrayIndex)>0 ||
+                              ABQuantity.unknown_func_491d10(Rules->BuildWeapons[1]->ArrayIndex)>0);
     if (can_build_harvester) needed=Get_First_Ownable(Rules->HarvesterUnit)->Cost_Of(this);
     else needed=unknown_func_4ef600(Rules->BuildRefinery)->Cost_Of(this);
     int i=unknown_55f0.Nodes.Count()-1;
@@ -2893,12 +2893,12 @@ bool HouseClass::AI_Raise_Money_004e90f0(int urgency)
                     delete Factories[j];
                 }
             }
-            unknown_5540=-1;
-            unknown_5544=-1;
-            unknown_5548=-1;
-            unknown_553c=-1;
+            BuildUnit=-1;
+            BuildInfantry=-1;
+            BuildAircraft=-1;
+            BuildStructure=-1;
             if (can_build_harvester) {
-                unknown_5540=Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex;
+                BuildUnit=Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex;
                 ProductionMode=2;
             } else {
                 int next=unknown_55f0.Next_Buildable_Index();
@@ -2938,7 +2938,7 @@ GO_HUNT:
 // leaves the node copy's stores in source order: 99.42).
 int HouseClass::AI_Building()
 {
-    if (unknown_553c != -1) return 15;
+    if (BuildStructure != -1) return 15;
     if (unknown_50.Count() == 0) return 15;
 
     BaseNodeClass *node = unknown_55f0.Next_Buildable();
@@ -2976,7 +2976,7 @@ int HouseClass::AI_Building()
         if (node->Type == -2) return 15;
 
         BuildingTypeClass *type = BuildingTypes[node->Type];
-        if (Drain + type->PowerDrain_c6c > Power - unknown_15f88) {
+        if (Drain + type->PowerDrain_c6c > Power - PowerSurplus) {
             bool found = false;
             for (int index = 0; index < Rules->BuildConst.Count(); index++) {
                 if (Rules->BuildConst[index] == type) {
@@ -3017,7 +3017,7 @@ int HouseClass::AI_Building()
                 node->Cell = Cell(0, 0);
             }
         }
-        unknown_553c = node->Type;
+        BuildStructure = node->Type;
     }
     return 15;
 }
@@ -3028,16 +3028,16 @@ int HouseClass::AI_Building()
 
 int HouseClass::AI_Unit()
 {
-    if (unknown_5540 != -1) return 15;
+    if (BuildUnit != -1) return 15;
 
-    int harvesters = unknown_5470.unknown_func_491d10(Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex);
-    int refineries = unknown_5460.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)
-        + unknown_5460.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex);
+    int harvesters = AUQuantity.unknown_func_491d10(Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex);
+    int refineries = ABQuantity.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex)
+        + ABQuantity.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex);
     int per_refinery = Rules->HarvestersPerRefinery;
     if (IQ >= Rules->IQHarvester && !IsTiberiumShort && !Is_Human_Control()
             && per_refinery * refineries > harvesters) {
         if ((unsigned)Get_First_Ownable(Rules->HarvesterUnit)->TechLevel <= (unsigned)unknown_11c) {
-            unknown_5540 = Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex;
+            BuildUnit = Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex;
             return 15;
         }
     }
@@ -3096,9 +3096,9 @@ int HouseClass::AI_Unit()
 
     double chance = Random_Pick(0, 0x7FFFFFFE) * (1.0 / 2147483646.0);
     if (chance < Rules->FillEarliestTeamProbability[Difficulty] * 0.01) {
-        unknown_5540 = best;
+        BuildUnit = best;
     } else if (bestcount) {
-        unknown_5540 = bestlist[Random_Pick(0, bestcount - 1)];
+        BuildUnit = bestlist[Random_Pick(0, bestcount - 1)];
     }
     return 15;
 }
@@ -3109,7 +3109,7 @@ int HouseClass::AI_Unit()
 
 int HouseClass::AI_Infantry()
 {
-    if (unknown_5544 != -1) return 15;
+    if (BuildInfantry != -1) return 15;
 
     int counter[100];
     int earliest[100];
@@ -3165,9 +3165,9 @@ int HouseClass::AI_Infantry()
 
     double chance = Random_Pick(0, 0x7FFFFFFE) * (1.0 / 2147483646.0);
     if (chance < Rules->FillEarliestTeamProbability[Difficulty] * 0.01) {
-        unknown_5544 = best;
+        BuildInfantry = best;
     } else if (bestcount) {
-        unknown_5544 = bestlist[Random_Pick(0, bestcount - 1)];
+        BuildInfantry = bestlist[Random_Pick(0, bestcount - 1)];
     }
     return 15;
 }
@@ -3178,7 +3178,7 @@ int HouseClass::AI_Infantry()
 
 int HouseClass::AI_Aircraft()
 {
-    if (unknown_5548 != -1) return 15;
+    if (BuildAircraft != -1) return 15;
 
     int counter[100];
     int earliest[100];
@@ -3234,9 +3234,9 @@ int HouseClass::AI_Aircraft()
 
     double chance = Random_Pick(0, 0x7FFFFFFE) * (1.0 / 2147483646.0);
     if (chance < Rules->FillEarliestTeamProbability[Difficulty] * 0.01) {
-        unknown_5548 = best;
+        BuildAircraft = best;
     } else if (bestcount) {
-        unknown_5548 = bestlist[Random_Pick(0, bestcount - 1)];
+        BuildAircraft = bestlist[Random_Pick(0, bestcount - 1)];
     }
     return 15;
 }
@@ -3256,25 +3256,25 @@ void HouseClass::Tracking_Remove(TechnoClass *techno)
         switch (techno->Kind_Of()) {
         case 6:
             if (techno->Considered_Vehicle()) {
-                unknown_228--;
+                CurUnits--;
             } else {
                 CurBuildings--;
             }
-            unknown_5420.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
+            BQuantity.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
             break;
         case 2:
-            unknown_238--;
-            unknown_5450.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
+            CurAircraft--;
+            AQuantity.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
             break;
         case 15:
-            unknown_234--;
-            unknown_5440.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
+            CurInfantry--;
+            IQuantity.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
             break;
         case 1:
-            unknown_228--;
-            unknown_5430.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
+            CurUnits--;
+            UQuantity.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
             if (techno->Techno_Type_Class()->Naval && techno->Techno_Type_Class()->Passengers == 0) {
-                unknown_22c--;
+                OwnedNavy--;
             }
             break;
         }
@@ -3297,36 +3297,36 @@ void HouseClass::Tracking_Add(TechnoClass *techno)
         switch (techno->Kind_Of()) {
         case 6: {
             if (techno->Considered_Vehicle()) {
-                unknown_228++;
+                CurUnits++;
             } else {
                 CurBuildings++;
             }
             int index = techno->Techno_Type_Class()->Fetch_Heap_ID();
-            unknown_5420.Increment(index);
-            unknown_1a80.Unknown_0070C490(index);
+            BQuantity.Increment(index);
+            BuildingTotals.Unknown_0070C490(index);
             break;
         }
         case 2: {
-            unknown_238++;
+            CurAircraft++;
             int index = techno->Techno_Type_Class()->Fetch_Heap_ID();
-            unknown_5450.Increment(index);
-            unknown_268.Unknown_0070C490(index);
+            AQuantity.Increment(index);
+            AircraftTotals.Unknown_0070C490(index);
             break;
         }
         case 15: {
             int index = techno->Techno_Type_Class()->Fetch_Heap_ID();
-            unknown_234++;
-            unknown_5440.Increment(index);
-            unknown_a70.Unknown_0070C490(index);
+            CurInfantry++;
+            IQuantity.Increment(index);
+            InfantryTotals.Unknown_0070C490(index);
             break;
         }
         case 1: {
-            unknown_228++;
+            CurUnits++;
             int index = techno->Techno_Type_Class()->Fetch_Heap_ID();
-            unknown_5430.Increment(index);
-            unknown_1278.Unknown_0070C490(index);
+            UQuantity.Increment(index);
+            UnitTotals.Unknown_0070C490(index);
             if (techno->Techno_Type_Class()->Naval && techno->Techno_Type_Class()->Passengers == 0) {
-                unknown_22c++;
+                OwnedNavy++;
             }
             break;
         }
@@ -3344,18 +3344,18 @@ int *HouseClass::unknown_func_4eab10(int kind, bool naval)
     case 1:
     case 40:
         if (naval) {
-            return &unknown_52c8;
+            return &NumShipyards;
         }
-        return &unknown_52c0;
+        return &UnitFactories;
     case 2:
     case 3:
-        return &unknown_52b8;
+        return &AircraftFactories;
     case 15:
     case 16:
-        return &unknown_52bc;
+        return &InfantryFactories;
     case 6:
     case 7:
-        return &unknown_52c4;
+        return &BuildingFactories;
     }
     return 0;
 }
@@ -3415,10 +3415,10 @@ int HouseClass::Which_Zone(CoordStruct const &coord) const
         return -1;
     }
     int distance = Coord_Distance(BaseCenter, coord);
-    if (distance <= unknown_53c8) {
+    if (distance <= Radius) {
         return 0;
     }
-    if (distance > unknown_53c8 * 4) {
+    if (distance > Radius * 4) {
         return -1;
     }
     int facing = Dir_To_256(Coord_Direction(BaseCenter, coord));
@@ -3480,19 +3480,19 @@ Cell HouseClass::Zone_Cell(int zone) const
     case 0:
         return Coord_Cell(BaseCenter);
     case 1: {
-        UnknownVector3 coord = Zone_Coord_Move(BaseCenter, (short)0x0000, unknown_53c8 * 3);
+        UnknownVector3 coord = Zone_Coord_Move(BaseCenter, (short)0x0000, Radius * 3);
         return Coord_Cell(CoordStruct(coord.X, coord.Y, coord.Z));
     }
     case 2: {
-        UnknownVector3 coord = Zone_Coord_Move(BaseCenter, (short)0x4000, unknown_53c8 * 3);
+        UnknownVector3 coord = Zone_Coord_Move(BaseCenter, (short)0x4000, Radius * 3);
         return Coord_Cell(CoordStruct(coord.X, coord.Y, coord.Z));
     }
     case 4: {
-        UnknownVector3 coord = Zone_Coord_Move(BaseCenter, (short)0xC000, unknown_53c8 * 3);
+        UnknownVector3 coord = Zone_Coord_Move(BaseCenter, (short)0xC000, Radius * 3);
         return Coord_Cell(CoordStruct(coord.X, coord.Y, coord.Z));
     }
     case 3: {
-        UnknownVector3 coord = Zone_Coord_Move(BaseCenter, (short)0x8000, unknown_53c8 * 3);
+        UnknownVector3 coord = Zone_Coord_Move(BaseCenter, (short)0x8000, Radius * 3);
         return Coord_Cell(CoordStruct(coord.X, coord.Y, coord.Z));
     }
     }
@@ -3586,21 +3586,21 @@ FactoryClass *HouseClass::Fetch_Factory(int kind, bool naval, int arg3)
     switch (kind) {
     case 15:
     case 16:
-        factory=unknown_52dc;
+        factory=InfantryFactory;
         break;
     case 1:
     case 40:
-        if (naval) factory=unknown_52e4;
-        else factory=unknown_52e0;
+        if (naval) factory=Primary_ForShips;
+        else factory=UnitFactory;
         break;
     case 6:
     case 7:
-        if (arg3==5) factory=unknown_52f8;
-        else factory=unknown_52e8;
+        if (arg3==5) factory=Primary_ForDefenses;
+        else factory=BuildingFactory;
         break;
     case 2:
     case 3:
-        factory=unknown_52d8;
+        factory=AircraftFactory;
         break;
     default:
         factory=0;
@@ -3620,27 +3620,27 @@ void HouseClass::unknown_func_4eb620(int kind, bool naval, int arg3)
     switch (kind) {
     case 15:
     case 16:
-        unknown_52fd = true;
+        InfantryProductionPending = true;
         // fall through
     case 1:
     case 40:
         if (naval) {
-            unknown_52ff = true;
+            ShipProductionPending = true;
         } else {
-            unknown_52fe = true;
+            UnitProductionPending = true;
         }
         break;
     case 6:
     case 7:
         if (arg3 == 5) {
-            unknown_5304 = true;
+            DefenseProductionPending = true;
         } else {
-            unknown_5300 = true;
+            BuildingProductionPending = true;
         }
         break;
     case 2:
     case 3:
-        unknown_52fc = true;
+        AircraftProductionPending = true;
         break;
     }
 }
@@ -3656,27 +3656,27 @@ void HouseClass::unknown_func_4eb6d0(int kind, bool naval, int arg3)
     switch (kind) {
     case 15:
     case 16:
-        unknown_52fd = false;
+        InfantryProductionPending = false;
         // fall through
     case 1:
     case 40:
         if (naval) {
-            unknown_52ff = false;
+            ShipProductionPending = false;
         } else {
-            unknown_52fe = false;
+            UnitProductionPending = false;
         }
         break;
     case 6:
     case 7:
         if (arg3 == 5) {
-            unknown_5304 = false;
+            DefenseProductionPending = false;
         } else {
-            unknown_5300 = false;
+            BuildingProductionPending = false;
         }
         break;
     case 2:
     case 3:
-        unknown_52fc = false;
+        AircraftProductionPending = false;
         break;
     }
 }
@@ -3692,22 +3692,22 @@ bool HouseClass::unknown_func_4eb770(int kind, bool naval, int arg3)
     switch (kind) {
     case 15:
     case 16:
-        return unknown_52fd;
+        return InfantryProductionPending;
     case 1:
     case 40:
         if (naval) {
-            return unknown_52ff;
+            return ShipProductionPending;
         }
-        return unknown_52fe;
+        return UnitProductionPending;
     case 6:
     case 7:
         if (arg3 == 5) {
-            return unknown_5304;
+            return DefenseProductionPending;
         }
-        return unknown_5300;
+        return BuildingProductionPending;
     case 2:
     case 3:
-        return unknown_52fc;
+        return AircraftProductionPending;
     }
     return false;
 }
@@ -3725,27 +3725,27 @@ void HouseClass::unknown_func_4eb810(int kind, bool naval, int arg3, bool value)
     switch (kind) {
     case 15:
     case 16:
-        unknown_52fd = value;
+        InfantryProductionPending = value;
         // fall through
     case 1:
     case 40:
         if (naval) {
-            unknown_52ff = value;
+            ShipProductionPending = value;
         } else {
-            unknown_52fe = value;
+            UnitProductionPending = value;
         }
         break;
     case 6:
     case 7:
         if (arg3 == 5) {
-            unknown_5304 = value;
+            DefenseProductionPending = value;
         } else {
-            unknown_5300 = value;
+            BuildingProductionPending = value;
         }
         break;
     case 2:
     case 3:
-        unknown_52fc = value;
+        AircraftProductionPending = value;
         break;
     }
 }
@@ -3763,26 +3763,26 @@ void HouseClass::Set_Factory(FactoryClass *factory, int kind, bool naval, int bu
     case 1:
     case 40:
         if (naval) {
-            unknown_52e4 = factory;
+            Primary_ForShips = factory;
         } else {
-            unknown_52e0 = factory;
+            UnitFactory = factory;
         }
         break;
     case 15:
     case 16:
-        unknown_52dc = factory;
+        InfantryFactory = factory;
         break;
     case 6:
     case 7:
         if (buildcat == 5) {
-            unknown_52f8 = factory;
+            Primary_ForDefenses = factory;
         } else {
-            unknown_52e8 = factory;
+            BuildingFactory = factory;
         }
         break;
     case 2:
     case 3:
-        unknown_52d8 = factory;
+        AircraftFactory = factory;
         break;
     }
 }
@@ -3825,7 +3825,7 @@ void __fastcall HouseClass::Read_Scenario_INI(CCINIClass &ini)
     for (int i = 0; i < Houses.Count(); i++) {
         HouseClass *house = Houses[i];
         house->Read_INI(ini);
-        if (!unknown_game_mode_a3d298 && (house->unknown_134 || house->IsPlayerControl)) {
+        if (!unknown_game_mode_a3d298 && (house->IsHuman || house->IsPlayerControl)) {
             house->Assign_Handicap(Scen->Difficulty);
         } else if (!unknown_game_mode_a3d298) {
             house->Assign_Handicap(Scen->CDifficulty);
@@ -3870,19 +3870,19 @@ void HouseClass::Read_INI(CCINIClass &ini)
     }
 
     char buffer[100];
-    ini.Get_String(section, "UIName", unknown_15ef5, buffer, 32);
-    unknown_15ef5 = buffer;
-    if (unknown_15ef5[0] != 0) {
-        wcsncpy(UIName, StringTable::Load_String(unknown_15ef5, 0, "D:\\Ra2\\House.CPP", 7898), 32);
+    ini.Get_String(section, "UIName", UINameString, buffer, 32);
+    UINameString = buffer;
+    if (UINameString[0] != 0) {
+        wcsncpy(UIName, StringTable::Load_String(UINameString, 0, "D:\\Ra2\\House.CPP", 7898), 32);
         UIName[20] = 0;
     } else {
         wcscpy(UIName, Type->UIName);
     }
 
-    unknown_554c = ini.Get_Int(section, "RatioAITriggerTeam", unknown_554c);
-    unknown_5550 = ini.Get_Int(section, "RatioTeamAircraft", 75);
-    unknown_5554 = ini.Get_Int(section, "RatioTeamInfantry", 75);
-    unknown_5558 = ini.Get_Int(section, "RatioTeamUnits", 75);
+    RatioAITriggerTeam = ini.Get_Int(section, "RatioAITriggerTeam", RatioAITriggerTeam);
+    RatioTeamAircraft = ini.Get_Int(section, "RatioTeamAircraft", 75);
+    RatioTeamInfantry = ini.Get_Int(section, "RatioTeamInfantry", 75);
+    RatioTeamUnits = ini.Get_Int(section, "RatioTeamUnits", 75);
 
     ActLike = Type->Side;
     if (ActLike == -1) {
@@ -3901,7 +3901,7 @@ void HouseClass::Read_INI(CCINIClass &ini)
     Update_Color();
     Update_Laser_Color();
 
-    unknown_56cc = 0;
+    AIGeneral = 0;
     Make_Ally(Houses[ArrayIndex], false);
     int allies = ini.Get_Houses(section, "Allies", 0);
     for (int index = 0; index < Houses.Count(); index++) {
@@ -3911,7 +3911,7 @@ void HouseClass::Read_INI(CCINIClass &ini)
         }
     }
 
-    unknown_5684 = CDTimerClass<FrameTimerClass>(Rules->TeamDelays[Difficulty] + ArrayIndex * 175);
+    TeamTime = CDTimerClass<FrameTimerClass>(Rules->TeamDelays[Difficulty] + ArrayIndex * 175);
     unknown_55f0.Read_INI(ini, section);
     unknown_55f0.House = this;
 }
@@ -3964,8 +3964,8 @@ void HouseClass::Write_INI(CCINIClass &ini)
     }
     ini.Put_Houses(section, "Allies", allies);
 
-    if (unknown_15ef5[0] != 0) {
-        ini.Put_String(section, "UIName", unknown_15ef5);
+    if (UINameString[0] != 0) {
+        ini.Put_String(section, "UIName", UINameString);
     }
     unknown_55f0.Write_INI(ini, section);
 }
@@ -4031,7 +4031,7 @@ HRESULT __stdcall HouseClass::All_To_Hunt()
             }
         }
     }
-    unknown_190 = true;
+    IsAllToHunt = true;
     return S_OK;
 }
 
@@ -4094,7 +4094,7 @@ extern UnknownA3D29CView *unknown_a3d29c;   // 0x00A3D29C
 
 inline bool Is_Controlled_4ec5e0(HouseClass const *house)
 {
-    if (house->unknown_134 || house->IsPlayerControl) {
+    if (house->IsHuman || house->IsPlayerControl) {
         return true;
     }
     return false;
@@ -4104,7 +4104,7 @@ inline bool Is_Controlled_4ec5e0(HouseClass const *house)
 inline bool Is_Human_4ec5e0(HouseClass const *house)
 {
     if (unknown_game_mode_a3d298 != 0) {
-        return house->unknown_134;
+        return house->IsHuman;
     }
     return Is_Controlled_4ec5e0(house);
 }
@@ -4116,7 +4116,7 @@ void HouseClass::Computer_Paranoid()
         for (int index = 0; index < Houses.Count(); index++) {
             HouseClass *house = Houses[index];
             if (house != 0 && !house->IsDefeated && !Is_Human_4ec5e0(house)) {
-                house->unknown_191 = true;
+                house->IsParanoid = true;
                 for (int other_index = 0; other_index < Houses.Count(); other_index++) {
                     HouseClass *other = Houses[other_index];
                     if (other != 0 && !other->IsDefeated) {
@@ -4288,7 +4288,7 @@ inline UnknownVector3 Move_Coord(CoordStruct const &start, DirType const &dir, i
 
 Cell HouseClass::Random_Cell_In_Zone(int zone)
 {
-    int radius = LESS_MAX(MIN(unknown_53c8, 0x800), 0x300);
+    int radius = LESS_MAX(MIN(Radius, 0x800), 0x300);
     int maxdist = radius * 2;
     UnknownVector3 coord;
     switch (zone) {
@@ -4531,7 +4531,7 @@ void HouseClass::Unknown_004ED440(TechnoClass *techno, bool sold)
     Map.Unknown_0067C150(techno);
     switch (techno->Kind_Of()) {
     case 6:
-        unknown_5460.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
+        ABQuantity.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
         if (techno != 0) {
             BuildingClass *building = (BuildingClass *)techno;
             RecalcPower = true;
@@ -4541,7 +4541,7 @@ void HouseClass::Unknown_004ED440(TechnoClass *techno, bool sold)
                 int type = storage.First_Used_Slot();
                 while (type != -1) {
                     int amount = (int)storage.Remove_Amount(2147483648.0f, type);
-                    unknown_5418 += amount * 5.0f;
+                    PointTotal += amount * 5.0f;
                     Balance += Tiberiums[type]->Value * Type->unknown_0x148 * amount;
                     type = storage.First_Used_Slot();
                 }
@@ -4551,13 +4551,13 @@ void HouseClass::Unknown_004ED440(TechnoClass *techno, bool sold)
         }
         break;
     case 2:
-        unknown_5490.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
+        AAQuantity.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     case 15:
-        unknown_5480.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
+        AIQuantity.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     case 1:
-        unknown_5470.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
+        AUQuantity.Decrement(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     }
 }
@@ -4573,7 +4573,7 @@ void HouseClass::Tracking_Active_Add(TechnoClass *techno, bool arg2)
 {
     switch (techno->Kind_Of()) {
     case 6:
-        unknown_5460.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
+        ABQuantity.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
         if (techno != 0 && techno->Kind_Of() == 6) {
             BuildingClass *building = (BuildingClass *)techno;
             Adjust_Drain(building->unknown_449dd0());
@@ -4582,15 +4582,15 @@ void HouseClass::Tracking_Active_Add(TechnoClass *techno, bool arg2)
         }
         break;
     case 2:
-        unknown_5490.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
+        AAQuantity.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     case 15:
-        if (!((InfantryClass *)techno)->unknown_5c1) {
-            unknown_5480.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
+        if (!((InfantryClass *)techno)->IsTechnician) {
+            AIQuantity.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
         }
         break;
     case 1:
-        unknown_5470.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
+        AUQuantity.Increment(techno->Techno_Type_Class()->Fetch_Heap_ID());
         break;
     }
 }
@@ -4621,14 +4621,14 @@ void HouseClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)Type->House);
     crc(FirepowerBias);
     crc(GroundspeedBias);
-    crc(unknown_e0);
+    crc(AirspeedBias);
     crc(ArmorBias);
     crc(unknown_f0);
     crc(CostBias);
     crc(unknown_100);
     crc(unknown_108);
     crc(BuildDelay);
-    crc(unknown_134);
+    crc(IsHuman);
     crc(IsStarted);
     crc(IsAlerted);
     crc(IsAITriggersOn);
@@ -4637,24 +4637,24 @@ void HouseClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)unknown_198);
     crc((long)Blockage);
     crc(unknown_1c8.Value());
-    crc(unknown_1d4.Value());
+    crc(AlertTime.Value());
     crc(BorrowedTime.Value());
-    crc((long)unknown_228);
+    crc((long)CurUnits);
     crc((long)CurBuildings);
-    crc((long)unknown_234);
-    crc((long)unknown_238);
+    crc((long)CurInfantry);
+    crc((long)CurAircraft);
     crc((long)Balance);
     crc((long)Capacity);
-    crc((long)unknown_52b8);
-    crc((long)unknown_52bc);
-    crc((long)unknown_52c0);
-    crc((long)unknown_52c8);
-    crc((long)unknown_52c4);
-    crc((long)unknown_52cc);
+    crc((long)AircraftFactories);
+    crc((long)InfantryFactories);
+    crc((long)UnitFactories);
+    crc((long)NumShipyards);
+    crc((long)BuildingFactories);
+    crc((long)NumOrePurifiers);
     crc((long)Power);
     crc((long)Drain);
-    crc((long)unknown_53b8);
-    crc((long)unknown_54f0);
+    crc((long)WhoLastHurtMe);
+    crc((long)Enemy);
     unknown_55f0.Compute_CRC(crc);
 }
 
@@ -4697,36 +4697,36 @@ HRESULT __stdcall HouseClass::Load(IStream *stream)
         int count;
         new (this) HouseClass(NoInitClass());
         unknown_55f0.Load(stream);
-        unknown_5420.Load(stream);
-        unknown_5430.Load(stream);
-        unknown_5440.Load(stream);
-        unknown_5450.Load(stream);
-        unknown_5460.Load(stream);
-        unknown_5470.Load(stream);
-        unknown_5480.Load(stream);
-        unknown_5490.Load(stream);
-        unknown_54a0.Load(stream);
-        unknown_54b0.Load(stream);
-        unknown_54c0.Load(stream);
-        unknown_54d0.Load(stream);
+        BQuantity.Load(stream);
+        UQuantity.Load(stream);
+        IQuantity.Load(stream);
+        AQuantity.Load(stream);
+        ABQuantity.Load(stream);
+        AUQuantity.Load(stream);
+        AIQuantity.Load(stream);
+        AAQuantity.Load(stream);
+        PBQuantity.Load(stream);
+        PUQuantity.Load(stream);
+        PIQuantity.Load(stream);
+        PAQuantity.Load(stream);
 
         Swizzler.Swizzle((void **)&Type);
-        Swizzler.Swizzle((void **)&unknown_52dc);
-        Swizzler.Swizzle((void **)&unknown_52e0);
-        Swizzler.Swizzle((void **)&unknown_52d8);
-        Swizzler.Swizzle((void **)&unknown_52e4);
-        Swizzler.Swizzle((void **)&unknown_52e8);
-        Swizzler.Swizzle((void **)&unknown_52ec);
-        Swizzler.Swizzle((void **)&unknown_52f0);
-        Swizzler.Swizzle((void **)&unknown_52f4);
-        Swizzler.Swizzle((void **)&unknown_52f8);
-        Swizzler.Swizzle((void **)&unknown_5410);
+        Swizzler.Swizzle((void **)&InfantryFactory);
+        Swizzler.Swizzle((void **)&UnitFactory);
+        Swizzler.Swizzle((void **)&AircraftFactory);
+        Swizzler.Swizzle((void **)&Primary_ForShips);
+        Swizzler.Swizzle((void **)&BuildingFactory);
+        Swizzler.Swizzle((void **)&Primary_Unused1);
+        Swizzler.Swizzle((void **)&Primary_Unused2);
+        Swizzler.Swizzle((void **)&Primary_Unused3);
+        Swizzler.Swizzle((void **)&Primary_ForDefenses);
+        Swizzler.Swizzle((void **)&ToCapture);
         int index;
         for (index = 0; index < 12; index++) {
             Swizzler.Swizzle((void **)&WaypointPaths[index]);
         }
         for (index = 0; index < 3; index++) {
-            unknown_5560[index].unknown_func_4a6b10();
+            DropshipLoadouts[index].unknown_func_4a6b10();
         }
 
         LOAD_LIST(stream, SuperWeapons, SuperClass *);
@@ -4798,7 +4798,7 @@ HRESULT __stdcall HouseClass::Load(IStream *stream)
         BOOL present = 0;
         result = stream->Read(&present, sizeof(present), 0);
         if (SUCCEEDED(result) && present) {
-            result = OleLoadFromStream(stream, unknown_iid_7a2030, (void **)&unknown_56cc);
+            result = OleLoadFromStream(stream, unknown_iid_7a2030, (void **)&AIGeneral);
         }
     }
     return result;
@@ -4846,18 +4846,18 @@ HRESULT __stdcall HouseClass::Save(IStream *stream, BOOL clear_dirty)
     HRESULT result = AbstractClass::Save(stream, clear_dirty);
     if (SUCCEEDED(result)) {
     unknown_55f0.Save(stream);
-    unknown_5420.Save(stream);
-    unknown_5430.Save(stream);
-    unknown_5440.Save(stream);
-    unknown_5450.Save(stream);
-    unknown_5460.Save(stream);
-    unknown_5470.Save(stream);
-    unknown_5480.Save(stream);
-    unknown_5490.Save(stream);
-    unknown_54a0.Save(stream);
-    unknown_54b0.Save(stream);
-    unknown_54c0.Save(stream);
-    unknown_54d0.Save(stream);
+    BQuantity.Save(stream);
+    UQuantity.Save(stream);
+    IQuantity.Save(stream);
+    AQuantity.Save(stream);
+    ABQuantity.Save(stream);
+    AUQuantity.Save(stream);
+    AIQuantity.Save(stream);
+    AAQuantity.Save(stream);
+    PBQuantity.Save(stream);
+    PUQuantity.Save(stream);
+    PIQuantity.Save(stream);
+    PAQuantity.Save(stream);
 
     SAVE_LIST(stream, SuperWeapons, SuperClass *);
     SAVE_LIST(stream, unknown_38, TagClass *);
@@ -4869,10 +4869,10 @@ HRESULT __stdcall HouseClass::Save(IStream *stream, BOOL clear_dirty)
     SAVE_LIST(stream, CloningVats, BuildingClass *);
     SAVE_LIST(stream, PsychicDetectionBuildings, BuildingClass *);
 
-    BOOL present = unknown_56cc != 0;
+    BOOL present = AIGeneral != 0;
     result = stream->Write(&present, sizeof(present), 0);
     if (SUCCEEDED(result) && present) {
-        PersistStreamPtr persist(unknown_56cc);
+        PersistStreamPtr persist(AIGeneral);
         result = OleSaveToStream(persist, stream);
     }
     }
@@ -4980,9 +4980,9 @@ void HouseClass::Add_Anger(int amount, HouseClass *house)
         }
     }
     if (angriest != 0) {
-        unknown_54f0 = angriest->ArrayIndex;
+        Enemy = angriest->ArrayIndex;
     } else {
-        unknown_54f0 = -1;
+        Enemy = -1;
     }
 }
 
@@ -5365,7 +5365,7 @@ inline UnknownFacingDir Offset_Direction(int x, int y)
 int __fastcall House_Facing_Score(HouseClass *house, Cell const &cell, int score, int facing)
 {
     BaseClass &base = house->unknown_55f0;
-    int value = house->unknown_15f44[cell.X - base.BaseAreaRect.X + (cell.Y - base.BaseAreaRect.Y) * base.BaseAreaRect.Width];
+    int value = house->BaseAreaMap[cell.X - base.BaseAreaRect.X + (cell.Y - base.BaseAreaRect.Y) * base.BaseAreaRect.Width];
     int diff = 0;
     if (facing != -1) {
         Point2D d;
@@ -5719,9 +5719,9 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
     float air_ratio = lowest != 0 ? air_value / (float)best_value : 0.0f;
     float armor_ratio = lowest != 0 ? armor_value / (float)best_value : 0.0f;
     float ground_ratio = lowest != 0 ? ground_value / (float)best_value : 0.0f;
-    float air_deficit = unknown_15f80 - air_ratio;
-    float armor_deficit = unknown_15f7c - armor_ratio;
-    float ground_deficit = unknown_15f84 - ground_ratio;
+    float air_deficit = EnemyAirForcePrediction - air_ratio;
+    float armor_deficit = EnemyArmorForcePrediction - armor_ratio;
+    float ground_deficit = EnemyInfantryForcePrediction - ground_ratio;
 
     DynamicVectorClass<BuildingTypeClass *> air_defenses = Get_Anti_Air_Defense_Buildings_004f1e50(owned);
     DynamicVectorClass<BuildingTypeClass *> armor_defenses = Get_Anti_Armor_Defense_Buildings_004f1ff0(owned);
@@ -5732,16 +5732,16 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
     if (air_deficit <= armor_deficit || air_deficit <= ground_deficit) {
         if (armor_deficit > ground_deficit) {
             defenses = &armor_defenses;
-            unknown_15f44 = armor_map;
+            BaseAreaMap = armor_map;
             category = 1;
         } else {
             defenses = &ground_defenses;
-            unknown_15f44 = ground_map;
+            BaseAreaMap = ground_map;
             category = 2;
         }
     } else {
         defenses = &air_defenses;
-        unknown_15f44 = air_map;
+        BaseAreaMap = air_map;
         category = 0;
     }
 
@@ -5750,15 +5750,15 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
         if (armor_defenses.Count() > 0) {
             defenses = &armor_defenses;
             category = 1;
-            unknown_15f44 = armor_map;
+            BaseAreaMap = armor_map;
         } else if (ground_defenses.Count() > 0) {
             defenses = &ground_defenses;
             category = 2;
-            unknown_15f44 = ground_map;
+            BaseAreaMap = ground_map;
         } else if (air_defenses.Count() > 0) {
             defenses = &air_defenses;
             category = 0;
-            unknown_15f44 = air_map;
+            BaseAreaMap = air_map;
         } else {
             success = false;
         }
@@ -5837,7 +5837,7 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
     delete[] air_map;
     delete[] armor_map;
     delete[] ground_map;
-    unknown_15f44 = 0;
+    BaseAreaMap = 0;
 
     return success;
 }
@@ -6018,7 +6018,7 @@ void HouseClass::Recalc_Power_004f2cc0()
             }
         }
     }
-    if (unknown_1ec.Value() != 0) Power = 0;
+    if (PowerBlackoutTimer.Value() != 0) Power = 0;
     Building_Refresh_House_Buildings_0044fa40(this);
     FactoryClass::Update_Rates(this);
     if (was_low != (Power_Fraction() < 1.0)) Update_Present_Super_Weapons();
@@ -6039,7 +6039,7 @@ void HouseClass::unknown_func_4f2e50()
     RecalcRadar = false;
     if (this == PlayerPtr) {
         bool radar = false;
-        if (unknown_1f8 == 0) {
+        if (RadarBlackoutTimer == 0) {
             if (Scen->FreeRadar) {
                 radar = true;
             } else if (Power_Fraction() >= 1.0) {
@@ -6047,7 +6047,7 @@ void HouseClass::unknown_func_4f2e50()
                     BuildingClass *building = Buildings[index];
                     if (building != 0 && building->IsOn && building->Type->Radar && !building->IsInLimbo
                         && building->IsDown
-                        && ((unknown_game_mode_a3d298 == 0 && !unknown_134 && !IsPlayerControl) || building->IsDiscoveredByPlayer
+                        && ((unknown_game_mode_a3d298 == 0 && !IsHuman && !IsPlayerControl) || building->IsDiscoveredByPlayer
                             || unknown_game_mode_a3d298 != 0)
                         && building->Mission != 0x13 && building->MissionQueue != 0x13) {
                         if (building->StunDuration == 0 && !building->unknown_slot111()) {
@@ -6080,21 +6080,21 @@ void HouseClass::unknown_func_4f2fc0()
         for (int index = 0; index < Buildings.Count(); index++) {
             BuildingClass *building = Buildings[index];
             if (building != 0 && building->Type->SpySat && !building->IsInLimbo && building->IsDown
-                && ((unknown_game_mode_a3d298 == 0 && !unknown_134 && !IsPlayerControl) || building->IsDiscoveredByPlayer
+                && ((unknown_game_mode_a3d298 == 0 && !IsHuman && !IsPlayerControl) || building->IsDiscoveredByPlayer
                     || unknown_game_mode_a3d298 != 0)
                 && building->Mission != 0x13 && building->MissionQueue != 0x13) {
-                if (!unknown_566a) {
+                if (!SpySatActive) {
                     Voc_Play(Rules->SpySatActivationSound, 1.0f, 0x2000, 0);
                     Map.Spy_Satellite_Reveal();
-                    unknown_566a = true;
+                    SpySatActive = true;
                 }
                 return;
             }
         }
-        if (unknown_566a) {
+        if (SpySatActive) {
             Map.Spy_Satellite_Hide();
             Voc_Play(Rules->SpySatDeactivationSound, 1.0f, 0x2000, 0);
-            unknown_566a = false;
+            SpySatActive = false;
         }
     }
 }
@@ -6165,23 +6165,23 @@ void HouseClass::unknown_func_4f3170(int kind, bool naval, int arg3)
     switch (kind) {
     case 7:
         if (arg3 == 5) {
-            factory = unknown_52f8;
+            factory = Primary_ForDefenses;
         } else {
-            factory = unknown_52e8;
+            factory = BuildingFactory;
         }
         break;
     case 40:
         if (naval) {
-            factory = unknown_52e4;
+            factory = Primary_ForShips;
         } else {
-            factory = unknown_52e0;
+            factory = UnitFactory;
         }
         break;
     case 16:
-        factory = unknown_52dc;
+        factory = InfantryFactory;
         break;
     case 3:
-        factory = unknown_52d8;
+        factory = AircraftFactory;
         break;
     default:
         return;
@@ -6203,7 +6203,7 @@ void HouseClass::unknown_func_4f3170(int kind, bool naval, int arg3)
             if (PlayerPtr == this) {
                 Map.Flag_Tab_To_Redraw(SidebarClass::Which_Column(kind, arg3, naval));
             }
-        } else if (factory->unknown_6c && !factory->IsOnHold) {
+        } else if (factory->IsSuspended && !factory->IsOnHold) {
             factory->Start_Production_004B9670(false);
         }
     }
@@ -6256,7 +6256,7 @@ void HouseClass::unknown_func_4f33e0(HouseClass *house)
 void HouseClass::unknown_func_4f3420()
 {
     for (int region = 0; region < 0x4204; region++) {
-        unknown_56d0[region].Threat = 0;
+        Regions[region].Threat = 0;
     }
     for (int index = Technos.Count() - 1; index >= 0; index--) {
         TechnoClass *techno = Technos[index];
@@ -6362,11 +6362,11 @@ void HouseClass::unknown_func_4f3720(int arg1)
         if (Available_Money() < Rules->AIAlternateProductionCreditCutoff) {
             bool barracks = false;
             for (int index = 0; index < Rules->BuildBarracks.Count(); index++) {
-                barracks = barracks || unknown_5460.unknown_func_491d10(Rules->BuildBarracks[index]->ArrayIndex) > 0;
+                barracks = barracks || ABQuantity.unknown_func_491d10(Rules->BuildBarracks[index]->ArrayIndex) > 0;
             }
             bool factory = false;
             for (int index2 = 0; index2 < Rules->BuildWeapons.Count(); index2++) {
-                factory = factory || unknown_5460.unknown_func_491d10(Rules->BuildWeapons[index2]->ArrayIndex) > 0;
+                factory = factory || ABQuantity.unknown_func_491d10(Rules->BuildWeapons[index2]->ArrayIndex) > 0;
             }
             if (!(factory && barracks && Drain <= Power && Random_Pick(0, 1) != 0) && arg1 != 6) {
                 ProductionMode = 1;
@@ -6402,10 +6402,10 @@ void HouseClass::AI_Supers_004f3910()
                 switch (super->Type->Type) {
                 case 0: {
                     SuperClass *pending = super;
-                    if (unknown_54f0 != -1) {
+                    if (Enemy != -1) {
                         target_0 = unknown_cell_a40f10;
-                        if (unknown_541c == 1) target_0 = unknown_func_4f65a0();
-                        else target_0 = unknown_func_4f6a80(unknown_541c);
+                        if (PreferredTarget == 1) target_0 = unknown_func_4f65a0();
+                        else target_0 = unknown_func_4f6a80(PreferredTarget);
                         if (target_0 != unknown_cell_a40f10)
                             unknown_func_4e68d0(SuperWeapons.ID(pending), target_0);
                     }
@@ -6413,10 +6413,10 @@ void HouseClass::AI_Supers_004f3910()
                 }
                 case 2: {
                     SuperClass *pending = super;
-                    if (!IonStormClass_Is_Ion_Storm_Active() && unknown_54f0 != -1) {
+                    if (!IonStormClass_Is_Ion_Storm_Active() && Enemy != -1) {
                         target_2 = unknown_cell_a40f10;
-                        if (unknown_541c == 1) target_2 = unknown_func_4f65a0();
-                        else target_2 = unknown_func_4f6a80(unknown_541c);
+                        if (PreferredTarget == 1) target_2 = unknown_func_4f65a0();
+                        else target_2 = unknown_func_4f6a80(PreferredTarget);
                         if (target_2 != unknown_cell_a40f10)
                             unknown_func_4e68d0(SuperWeapons.ID(pending), target_2);
                     }
@@ -6437,12 +6437,12 @@ void HouseClass::AI_Supers_004f3910()
 
 void HouseClass::unknown_func_4f3ae0(SuperClass *super)
 {
-    if (unknown_54f0 != -1) {
+    if (Enemy != -1) {
         Cell cell = unknown_cell_a40f10;
-        if (unknown_541c == 1) {
+        if (PreferredTarget == 1) {
             cell = unknown_func_4f65a0();
         } else {
-            cell = unknown_func_4f6a80(unknown_541c);
+            cell = unknown_func_4f6a80(PreferredTarget);
         }
         if (cell != unknown_cell_a40f10) {
             unknown_func_4e68d0(SuperWeapons.ID(super), cell);
@@ -6457,7 +6457,7 @@ void HouseClass::unknown_func_4f3ae0(SuperClass *super)
 
 void HouseClass::unknown_func_4f3b70(SuperClass *super)
 {
-    if (unknown_54f0 != -1) {
+    if (Enemy != -1) {
         unknown_func_4e68d0(SuperWeapons.ID(super), unknown_cell_a40f10);
     }
 }
@@ -6469,12 +6469,12 @@ void HouseClass::unknown_func_4f3b70(SuperClass *super)
 
 void HouseClass::unknown_func_4f3bb0(SuperClass *super)
 {
-    if (unknown_54f0 != -1) {
+    if (Enemy != -1) {
         Cell cell = unknown_cell_a40f10;
-        if (unknown_541c == 1) {
+        if (PreferredTarget == 1) {
             cell = unknown_func_4f65a0();
         } else {
-            cell = unknown_func_4f6a80(unknown_541c);
+            cell = unknown_func_4f6a80(PreferredTarget);
         }
         if (cell != unknown_cell_a40f10) {
             unknown_func_4e68d0(SuperWeapons.ID(super), cell);
@@ -6499,10 +6499,10 @@ void __stdcall unknown_empty_004f3c40(int unused_0)
 
 void HouseClass::unknown_func_4f3c50(SuperClass *super)
 {
-    HouseClass *house = unknown_54f0 != -1 ? Houses[unknown_54f0] : this;
+    HouseClass *house = Enemy != -1 ? Houses[Enemy] : this;
     Cell cell = unknown_cell_a40f10;
-    if (unknown_541c != 1) {
-        cell = unknown_func_4f6a80(unknown_541c);
+    if (PreferredTarget != 1) {
+        cell = unknown_func_4f6a80(PreferredTarget);
     } else {
         cell = Coord_Cell(house->BaseCenter);
         cell = Map.Nearby_Location(cell, 0, -1, 0, false, Point2D(5, 5), 0, 0, 0, 1, Cell(0, 0), 0);
@@ -6520,12 +6520,12 @@ void HouseClass::unknown_func_4f3c50(SuperClass *super)
 
 void HouseClass::unknown_func_4f3d70(SuperClass *super)
 {
-    if (!IonStormClass_Is_Ion_Storm_Active() && unknown_54f0 != -1) {
+    if (!IonStormClass_Is_Ion_Storm_Active() && Enemy != -1) {
         Cell cell = unknown_cell_a40f10;
-        if (unknown_541c == 1) {
+        if (PreferredTarget == 1) {
             cell = unknown_func_4f65a0();
         } else {
-            cell = unknown_func_4f6a80(unknown_541c);
+            cell = unknown_func_4f6a80(PreferredTarget);
         }
         if (cell != unknown_cell_a40f10) {
             unknown_func_4e68d0(SuperWeapons.ID(super), cell);
@@ -6541,10 +6541,10 @@ void HouseClass::unknown_func_4f3d70(SuperClass *super)
 
 void HouseClass::unknown_func_4f3e00(SuperClass *super)
 {
-    if (unknown_54f0 != -1) {
+    if (Enemy != -1) {
         BuildingClass *best = 0;
         int value = -1;
-        HouseClass *house = Houses[unknown_54f0];
+        HouseClass *house = Houses[Enemy];
         for (int i = unknown_BuildingClass_list_00a40af8.Count() - 1; i >= 0; i--) {
             BuildingClass *building = unknown_BuildingClass_list_00a40af8[i];
             if (building->House == house) {
@@ -6602,7 +6602,7 @@ inline bool Is_Network_Computer(HouseClass *house)
 void HouseClass::AI_Takeover()
 {
     if (!Is_Human_Player()) return;
-    unknown_134=false;
+    IsHuman=false;
     IsPlayerControl=false;
     IQ=Rules->MaxIQ;
     IniName=FixedString<21>("Computer");
@@ -6644,7 +6644,7 @@ void HouseClass::AI_Takeover()
     IsBaseBuilding=true;
     for (int node=unknown_55f0.Nodes.Count()-1;node>=0;--node) {
         int type=unknown_55f0.Nodes[node].Type;
-        if (type>=0 && unknown_5460.unknown_func_491d10(type)>0) {
+        if (type>=0 && ABQuantity.unknown_func_491d10(type)>0) {
             BuildingTypeClass *building_type=BuildingTypes[type];
             for (int owned=Buildings.Count()-1;owned>=0;--owned) {
                 BuildingClass *building=Buildings[owned];
@@ -6708,7 +6708,7 @@ void HouseClass::AI_Takeover()
                 BuildingTypeClass *planned_type=BuildingTypes[unknown_55f0.Nodes[power_node].Type];
                 power+=planned_type->Power;
                 drain+=planned_type->PowerDrain_c6c;
-                if (power_node>0 && power<drain+unknown_15f88) {
+                if (power_node>0 && power<drain+PowerSurplus) {
                     unknown_55f0.Nodes.Insert_After(power_node-1,BaseNodeClass(building->Type->ArrayIndex,
                         Coord_Cell(building->Position_Coord_004f3f40())));
                     power+=building->Type->Power;
@@ -6734,7 +6734,7 @@ void HouseClass::AI_Takeover()
                         BuildingTypeClass *planned_type=BuildingTypes[unknown_55f0.Nodes[power_node].Type];
                         power+=planned_type->Power;
                         drain+=planned_type->PowerDrain_c6c;
-                        if (power_node>0 && power<drain+unknown_15f88) {
+                        if (power_node>0 && power<drain+PowerSurplus) {
                             unknown_55f0.Nodes.Insert_After(power_node-1,BaseNodeClass(Rules->GDIPowerTurbine->ArrayIndex,
                                 Coord_Cell(building->Position_Coord_004f3f40())));
                             power+=Rules->GDIPowerTurbine->Power;
@@ -6867,17 +6867,17 @@ bool HouseClass::Is_Build_Limited_004F4F30(TechnoTypeClass *type)
     switch (type->Kind_Of()) {
     case 40:
         if (type->BuildLimit<=0) {
-            if (queued+unknown_54b0.unknown_func_491d10(type->Fetch_Heap_ID())>=abs(type->BuildLimit)) return true;
+            if (queued+PUQuantity.unknown_func_491d10(type->Fetch_Heap_ID())>=abs(type->BuildLimit)) return true;
         }
         if (type->BuildLimit>0) {
-            if (queued+unknown_5430.unknown_func_491d10(type->Fetch_Heap_ID())>=type->BuildLimit) return true;
+            if (queued+UQuantity.unknown_func_491d10(type->Fetch_Heap_ID())>=type->BuildLimit) return true;
         }
         break;
     case 16: {
         if (type->BuildLimit<=0) {
-            if (queued+unknown_54c0.unknown_func_491d10(type->Fetch_Heap_ID())>=abs(type->BuildLimit)) return true;
+            if (queued+PIQuantity.unknown_func_491d10(type->Fetch_Heap_ID())>=abs(type->BuildLimit)) return true;
         }
-        int owned=unknown_5440.unknown_func_491d10(type->Fetch_Heap_ID());
+        int owned=IQuantity.unknown_func_491d10(type->Fetch_Heap_ID());
         if (((InfantryTypeClass *)type)->VehicleThief) {
             for (int i=0;i<Units.Count();++i) {
                 UnitClass *unit=Units[i];
@@ -6891,27 +6891,27 @@ bool HouseClass::Is_Build_Limited_004F4F30(TechnoTypeClass *type)
     }
     case 7:
         if (type->BuildLimit<=0) {
-            if (queued+unknown_54a0.unknown_func_491d10(type->Fetch_Heap_ID())>=abs(type->BuildLimit)) return true;
+            if (queued+PBQuantity.unknown_func_491d10(type->Fetch_Heap_ID())>=abs(type->BuildLimit)) return true;
         }
         if (type->BuildLimit>0) {
-            if (queued+unknown_5420.unknown_func_491d10(type->Fetch_Heap_ID())>=type->BuildLimit) return true;
+            if (queued+BQuantity.unknown_func_491d10(type->Fetch_Heap_ID())>=type->BuildLimit) return true;
         }
         break;
     case 3:
         if (((AircraftTypeClass *)type)->AirportBound) {
             int owned=0,queued_aircraft=0;
             for (int i=0;i<Rules->PadAircraft.Count();++i) {
-                owned+=unknown_5490.unknown_func_491d10(Rules->PadAircraft[i]->Fetch_Heap_ID());
+                owned+=AAQuantity.unknown_func_491d10(Rules->PadAircraft[i]->Fetch_Heap_ID());
                 if (factory) queued_aircraft+=factory->Count_Type_004B9E40(Rules->PadAircraft[i]);
             }
-            if (queued_aircraft+owned>=unknown_218) return true;
+            if (queued_aircraft+owned>=AirportDocks) return true;
             break;
         }
         if (type->BuildLimit<=0) {
-            if (queued+unknown_54d0.unknown_func_491d10(type->Fetch_Heap_ID())>=abs(type->BuildLimit)) return true;
+            if (queued+PAQuantity.unknown_func_491d10(type->Fetch_Heap_ID())>=abs(type->BuildLimit)) return true;
         }
         if (type->BuildLimit>0) {
-            if (queued+unknown_5450.unknown_func_491d10(type->Fetch_Heap_ID())>=type->BuildLimit) return true;
+            if (queued+AQuantity.unknown_func_491d10(type->Fetch_Heap_ID())>=type->BuildLimit) return true;
         }
         break;
     }
@@ -6928,7 +6928,7 @@ extern int unknown_game_mode_a3d298;        // 0x00A3D298
 bool HouseClass::Is_Player_Control()
 {
     if (!unknown_game_mode_a3d298) {
-        return unknown_134 || IsPlayerControl;
+        return IsHuman || IsPlayerControl;
     }
     return this == PlayerPtr;
 }
@@ -6939,7 +6939,7 @@ bool HouseClass::Is_Player_Control()
 bool HouseClass::Is_Human_Player()
 {
     if (unknown_game_mode_a3d298==0) return Is_Player_Control();
-    return unknown_134;
+    return IsHuman;
 }
 
 
@@ -6975,7 +6975,7 @@ bool HouseClass::unknown_func_4f5320(BuildingTypeClass *type, Cell const &cell)
 void HouseClass::Update_Color()
 {
     ColorScheme *scheme = ColorSchemes[ColorSchemeIndex];
-    unknown_55e9 = Unpack_Hicolor_Pixel(scheme->Converter->Convert(scheme->unknown_color_0x330));
+    RemapColorRGB = Unpack_Hicolor_Pixel(scheme->Converter->Convert(scheme->unknown_color_0x330));
 }
 
 
@@ -7009,9 +7009,9 @@ void __fastcall Normalize_Color(double &red, double &green, double &blue)
 
 void HouseClass::Update_Laser_Color()
 {
-    double red = unknown_55e9.Red;
-    double green = unknown_55e9.Green;
-    double blue = unknown_55e9.Blue;
+    double red = RemapColorRGB.Red;
+    double green = RemapColorRGB.Green;
+    double blue = RemapColorRGB.Blue;
     Normalize_Color(red, green, blue);
     if (red < 96.0) {
         red = 0;
@@ -7023,7 +7023,7 @@ void HouseClass::Update_Laser_Color()
         blue = 0;
     }
     Normalize_Color(red, green, blue);
-    unknown_55ec.Set(red, green, blue);
+    LaserColor.Set(red, green, blue);
 }
 
 
@@ -7031,7 +7031,7 @@ void HouseClass::Update_Laser_Color()
 
 void HouseClass::unknown_func_4f5800(long delay)
 {
-    unknown_1ec = CDTimerClass<FrameTimerClass>(delay);
+    PowerBlackoutTimer = CDTimerClass<FrameTimerClass>(delay);
     RecalcPower = true;
 }
 
@@ -7040,7 +7040,7 @@ void HouseClass::unknown_func_4f5800(long delay)
 
 void HouseClass::unknown_func_4f5840(long delay)
 {
-    unknown_1f8 = CDTimerClass<FrameTimerClass>(delay);
+    RadarBlackoutTimer = CDTimerClass<FrameTimerClass>(delay);
     RecalcRadar = true;
 }
 
@@ -7050,7 +7050,7 @@ void HouseClass::unknown_func_4f5840(long delay)
 
 void HouseClass::unknown_func_4f5880()
 {
-    if (this == PlayerPtr && !unknown_566a) {
+    if (this == PlayerPtr && !SpySatActive) {
         Map.Spy_Satellite_Hide();
     }
 }
@@ -7317,7 +7317,7 @@ bool HouseClass::unknown_func_4f64c0(BaseNodeClass const &node)
         return false;
     }
     if (type->Power>0) return true;
-    if (unknown_5408+Rules->AIRestrictReplaceTime<=Frame) return true;
+    if (LATime+Rules->AIRestrictReplaceTime<=Frame) return true;
     return false;
 }
 
@@ -7325,7 +7325,7 @@ bool HouseClass::unknown_func_4f64c0(BaseNodeClass const &node)
 // House super-weapon target cell, original004F65A0. Independently authored from target flow.
 Cell HouseClass::unknown_func_4f65a0()
 {
-    HouseClass *enemy=Houses[unknown_54f0];
+    HouseClass *enemy=Houses[Enemy];
     DynamicVectorClass<AbstractClass *> targets;
     int best=0;
     for (int i=0;i<Technos.Count();++i) {
@@ -7338,7 +7338,7 @@ Cell HouseClass::unknown_func_4f65a0()
             else if (Difficulty==0) {
                 for (int j=0;j<Factories.Count();++j) {
                     FactoryClass *factory=Factories[j];
-                    if (factory->Get_Object()==techno && factory->Rate && !factory->unknown_6c) valid=true;
+                    if (factory->Get_Object()==techno && factory->Rate && !factory->IsSuspended) valid=true;
                 }
             }
             switch (techno->Kind_Of()) {

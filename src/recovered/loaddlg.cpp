@@ -83,7 +83,7 @@ LoadOptionsClass::LoadOptionsClass()
 {
     unknown_04 = 0;
     Description = 0;
-    unknown_14 = 0;
+    Callback = 0;
     Extension = "SAV";
     unknown_10 = 0x800;
     Files.Clear();
@@ -410,8 +410,8 @@ bool LoadOptionsClass::Dialog()
                 if (OwnerDraw_Dialog_Message_Handler() == true) {
                     State = 2;
                 }
-                if (unknown_14) {
-                    ((void (*)())unknown_14)();
+                if (Callback) {
+                    ((void (*)())Callback)();
                 }
                 if (!GameActive) {
                     Title_Screen_Restore(false);

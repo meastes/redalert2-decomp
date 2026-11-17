@@ -79,7 +79,7 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
         SendMessageA(ally, 0xF1, PlayerPtr->Is_Ally(house) ? 1 : 0, 0);
     }
     unknown_5e1fd0(ally, house->Is_Ally(PlayerPtr));
-    if (house->unknown_18f) {
+    if (house->IsGiverUpper) {
         ShowWindow(GetDlgItem(dialog, team_ids[index]), 0);
     } else if (MuteSWLaunches) {
         HWND team = GetDlgItem(dialog, team_ids[index]);
@@ -87,7 +87,7 @@ void RadarClass::Unknown_00634670(int arg1, int index, HouseClass *house)
         EnableWindow(team, FALSE);
     }
     int total = 0;
-    for (int i = 0; i < 20; ++i) total += house->unknown_5310[i] + house->unknown_5364[i];
+    for (int i = 0; i < 20; ++i) total += house->UnitsKilled[i] + house->BuildingsKilled[i];
     char digits[16];
     snprintf(digits, sizeof digits, "%d", total);
     for (n = 0; digits[n]; ++n) text[n] = (unsigned char)digits[n];

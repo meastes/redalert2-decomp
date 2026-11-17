@@ -2167,8 +2167,8 @@ void TeamClass::TMission_ATTACK_BUILDING_WITH_PROPERTY(ScriptMissionClass const 
         int value = (mission.Data >> 16) & 0xFFFF;
         BuildingTypeClass *type = BuildingTypes[mission.Data & 0xFFFF];
         HouseClass *enemy = 0;
-        if (first->House->unknown_54f0 != -1) {
-            enemy = Houses[first->House->unknown_54f0];
+        if (first->House->Enemy != -1) {
+            enemy = Houses[first->House->Enemy];
         }
         AbstractClass *target = Pick_Building_With_Property(type, enemy, first, value, Class->OnlyTargetHouseEnemy);
         if (target != 0) {
@@ -2202,8 +2202,8 @@ void TeamClass::TMission_MOVETO_BUILDING_WITH_PROPERTY(ScriptMissionClass const 
         int value = (mission.Data >> 16) & 0xFFFF;
         BuildingTypeClass *type = BuildingTypes[mission.Data & 0xFFFF];
         HouseClass *enemy = 0;
-        if (first->House->unknown_54f0 != -1) {
-            enemy = Houses[first->House->unknown_54f0];
+        if (first->House->Enemy != -1) {
+            enemy = Houses[first->House->Enemy];
         }
         AbstractClass *target = Pick_Building_With_Property(type, enemy, first, value, Class->OnlyTargetHouseEnemy);
         if (target != 0) {
@@ -2641,7 +2641,7 @@ void TeamClass::TMission_unknown_6bdaa0(ScriptMissionClass const &mission, bool 
         if (leader == 0) { StepCompleted = true; return; }
         HouseClass *house = leader->House;
         HouseClass *enemy = 0;
-        if (house->unknown_54f0 != -1) enemy = Houses[house->unknown_54f0];
+        if (house->Enemy != -1) enemy = Houses[house->Enemy];
         if (enemy == 0) { StepCompleted = true; return; }
         CoordStruct there = enemy->BaseCenter;
         if (there == unknown_geometry_l) { StepCompleted = true; return; }
@@ -2691,8 +2691,8 @@ void TeamClass::TMission_MOVE_TO_BASE_FRONT(ScriptMissionClass const &mission, b
     if (unknown) {
         FootClass *leader = Fetch_A_Leader();
         HouseClass *enemy = 0;
-        if (leader != 0 && leader->House->unknown_54f0 != -1) {
-            enemy = Houses[leader->House->unknown_54f0];
+        if (leader != 0 && leader->House->Enemy != -1) {
+            enemy = Houses[leader->House->Enemy];
         }
         CoordStruct center = leader->House->BaseCenter;
         UnknownFacingDir dir;
@@ -2786,8 +2786,8 @@ void TeamClass::TMission_unknown_6be1c0(ScriptMissionClass const &mission, bool 
         int value = (mission.Data >> 16) & 0xFFFF;
         BuildingTypeClass *type = BuildingTypes[mission.Data & 0xFFFF];
         HouseClass *enemy = 0;
-        if (house->unknown_54f0 != -1) {
-            enemy = Houses[house->unknown_54f0];
+        if (house->Enemy != -1) {
+            enemy = Houses[house->Enemy];
         }
         AbstractClass *target = Pick_Building_With_Property(type, enemy, leader, value, Class->OnlyTargetHouseEnemy);
         if (target != 0) {

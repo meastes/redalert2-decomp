@@ -303,7 +303,7 @@ void Tactical::Render(Surface *surface, bool fullredraw, int drawpass)
 
         count = Houses.Count();
         for (i = 0; i < count; i++) {
-            int time = Houses[i]->unknown_1ec;
+            int time = Houses[i]->PowerBlackoutTimer;
             if (time > 0) {
                 Draw_Timer(line, ColorSchemes[Houses[i]->ColorSchemeIndex], time / 15,
                     StringTable::Load_String("MSG:BlackoutTimer", 0, "D:\\Ra2\\Tactical.CPP", 444), 0, 0);

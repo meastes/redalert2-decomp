@@ -131,7 +131,7 @@ FootClass::FootClass(HouseClass *house) :
     LastBeParasitedStartFrame(0),
     ParasiteImUsing(0),
     IsMoveToSkipped(false),
-    unknown_599(false),
+    IsRotating(false),
     IsUnloading(false),
     IsNavQueueLoop(false),
     IsScattering(false),
@@ -1816,7 +1816,7 @@ int FootClass::Receive_Message(RadioClass *from, int message, AbstractClass *&pa
         if (Get_Mission() == 7) {
             QueueMission(5, false);
         }
-        if (!unknown_599 && NavCom == 0) {
+        if (!IsRotating && NavCom == 0) {
             Scatter(unknown_geometry_l, 1 != 0, 1 != 0);
         }
         break;
@@ -2977,7 +2977,7 @@ void FootClass::Compute_CRC(WWCRCEngine &crc) const
     crc(IsPlanningToLook);
     crc(IsDeploying);
     crc(IsFiring);
-    crc(unknown_599);
+    crc(IsRotating);
     crc(IsUnloading);
     crc(IsNavQueueLoop);
     crc(IsScattering);
@@ -3155,7 +3155,7 @@ void FootClass::Draw_Action_Line()
     TacticalMap->Coord_To_Pixel(end_coord, end);
     start.Y += TacticalRect.Y;
     end.Y += TacticalRect.Y;
-    color = House->unknown_55e9;
+    color = House->RemapColorRGB;
     int pixel = Build_Hicolor_Pixel(color);
     Clipped_Fill(Rect(RectPoint2D(start.X - 2, start.Y - 2), 3, 3), pixel);
     Clipped_Fill(Rect(RectPoint2D(end.X - 2, end.Y - 2), 3, 3), pixel);
@@ -3468,7 +3468,7 @@ Cell FootClass::unknown_4cbb40(int radius)
         return center;
     }
 
-    int numharv = House->unknown_5470.unknown_func_491d10(House->Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex);
+    int numharv = House->AUQuantity.unknown_func_491d10(House->Get_First_Ownable(Rules->HarvesterUnit)->ArrayIndex);
     if (numharv < 1) {
         numharv = 1;
     }
@@ -4163,7 +4163,7 @@ TechnoClass *FootClass::unknown_slot301(TechnoTypeClass *type, int arg2, int arg
 TechnoClass *FootClass::unknown_slot300(TechnoTypeClass *type, int arg2, int arg3, int *score)
 {
     TechnoClass *best = 0;
-    if (House->unknown_5420.unknown_func_491d10(((BuildingTypeClass *)type)->ArrayIndex) != 0) {
+    if (House->BQuantity.unknown_func_491d10(((BuildingTypeClass *)type)->ArrayIndex) != 0) {
         int count = House->Buildings.Count();
         for (int index = 0; index < count; index++) {
             BuildingClass *building = House->Buildings[index];

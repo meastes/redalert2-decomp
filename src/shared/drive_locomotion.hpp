@@ -90,14 +90,14 @@ public:
     CoordStruct DestinationCoord;             // +0x34 destination
     CoordStruct unknown_40;             // +0x40 head-to coordinate
     int SpeedAccum;                     // +0x4C speed accumulator
-    double unknown_50;                  // +0x50 (a speed fraction; Stop_Moving caps it at 0.3)
+    double TargetSpeed;                  // +0x50 (a speed fraction; Stop_Moving caps it at 0.3)
     int TrackNumber;                     // +0x58 track number
     int TrackIndex;                     // +0x5C track index
-    bool unknown_60;                    // +0x60
+    bool IsOnShortTrack;                    // +0x60
     bool IsTurretLockedDown;                    // +0x61
     bool IsRotating;                    // +0x62
     bool IsDriving;                    // +0x63
-    bool unknown_64;                    // +0x64
+    bool IsRocking;                    // +0x64
     bool IsLocomotorUnlocked;                    // +0x65 unlocked
     UnknownLocomotionPtr Piggybacker;   // +0x68
     int unknown_6c;                     // +0x6C

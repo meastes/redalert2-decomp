@@ -107,14 +107,14 @@ DriveLocomotionClass::DriveLocomotionClass() :
     DestinationCoord(unknown_geometry_l),
     unknown_40(unknown_geometry_l),
     SpeedAccum(0),
-    unknown_50(0),
+    TargetSpeed(0),
     TrackNumber(-1),
     TrackIndex(-1),
-    unknown_60(false),
+    IsOnShortTrack(false),
     IsTurretLockedDown(false),
     IsRotating(false),
     IsDriving(false),
-    unknown_64(false),
+    IsRocking(false),
     IsLocomotorUnlocked(true)
 {
 }
@@ -404,7 +404,7 @@ void __stdcall DriveLocomotionClass::Stop_Moving()
             }
         }
     }
-    unknown_50 = Min(unknown_50, 0.3f);
+    TargetSpeed = Min(TargetSpeed, 0.3f);
     DestinationCoord = unknown_geometry_l;
 }
 
@@ -590,7 +590,7 @@ bool __stdcall DriveLocomotionClass::Process()
                     }
                 } else if (LinkedTo->IsSinking) {
                     Stop_Driver();
-                    unknown_50 = 0;
+                    TargetSpeed = 0;
                 } else if (LinkedTo->NavCom != 0) {
                     Move_To(LinkedTo->NavCom->Destination_Coord(LinkedTo));
                 }
@@ -617,7 +617,7 @@ void DriveLocomotionClass::unknown_4a0bc0(CoordStruct const &headto, int mark)
     if (headto == unknown_geometry_l) {
         return;
     }
-    if (!unknown_60 && TrackNumber != -1) {
+    if (!IsOnShortTrack && TrackNumber != -1) {
         int track = DriveTrackControl[TrackNumber].Track;
         if (track) {
             TrackType const *points = DriveRawTracks[track - 1].Track;
@@ -657,7 +657,7 @@ void __stdcall DriveLocomotionClass::Force_Track(int track, CoordStruct coord)
     if (coord != unknown_geometry_l) {
         if (Start_Driver(CoordStruct(coord.X, coord.Y, coord.Z))) {
             DestinationCoord = coord;
-            unknown_50 = 1.0;
+            TargetSpeed = 1.0;
         }
     }
 }
@@ -782,14 +782,14 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
             }
 
             if (LinkedTo->IsCrushing) {
-                unknown_50 = MIN(unknown_50, 0.2);
-                LinkedTo->unknown_slot306(unknown_50);
+                TargetSpeed = MIN(TargetSpeed, 0.2);
+                LinkedTo->unknown_slot306(TargetSpeed);
             } else if (forced_speed) {
                 LinkedTo->unknown_slot306(speed);
-            } else if (LinkedTo->Speed < unknown_50) {
-                LinkedTo->unknown_slot306(MIN(unknown_50, LinkedTo->Speed + tclass->AccelerationFactor));
-            } else if (LinkedTo->Speed > unknown_50) {
-                LinkedTo->unknown_slot306(MAX(unknown_50, LinkedTo->Speed - maxspeed * tclass->DeaccelerationFactor));
+            } else if (LinkedTo->Speed < TargetSpeed) {
+                LinkedTo->unknown_slot306(MIN(TargetSpeed, LinkedTo->Speed + tclass->AccelerationFactor));
+            } else if (LinkedTo->Speed > TargetSpeed) {
+                LinkedTo->unknown_slot306(MAX(TargetSpeed, LinkedTo->Speed - maxspeed * tclass->DeaccelerationFactor));
             }
 
             if (LinkedTo->Kind_Of() == 1) {
@@ -804,7 +804,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
             }
         }
     } else {
-        LinkedTo->unknown_slot306(unknown_50);
+        LinkedTo->unknown_slot306(TargetSpeed);
     }
 
     int current_speed = LinkedTo->Current_Speed();
@@ -853,7 +853,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
         bool adj;
 
         track = &DriveTrackControl[TrackNumber];
-        if (unknown_60) {
+        if (IsOnShortTrack) {
             tracknum = track->StartTrack;
         } else {
             tracknum = track->Track;
@@ -932,7 +932,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
                     if (newcellptr->OverlayIndex != -1) {
                         OverlayTypeClass *otype = OverlayTypes[newcellptr->OverlayIndex];
-                        if (unknown_64 && (LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
+                        if (IsRocking && (LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
                             LinkedTo->IsCrushing = true;
                             TechnoTypeClass const *ttype = LinkedTo->Techno_Type_Class();
                             if (ttype->TiltsWhenCrushes) {
@@ -977,7 +977,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                             case 0:
                             case 2:
                                 if (LinkedTo->Kind_Of() == 1 && !((UnitClass *)LinkedTo)->Type->Passive) break;
-                                unknown_60 = false;
+                                IsOnShortTrack = false;
                                 TrackNumber = tnum;
                                 track = newtrack;
 
@@ -1089,7 +1089,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
         int tracknum;
 
         track = &DriveTrackControl[TrackNumber];
-        if (unknown_60) {
+        if (IsOnShortTrack) {
             tracknum = track->StartTrack;
         } else {
             tracknum = track->Track;
@@ -1489,7 +1489,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
             speed *= 0.75;
         }
         if (TrackNumber < 0x40) {
-            unknown_50 = speed;
+            TargetSpeed = speed;
         } else {
             if (speed != LinkedTo->Speed) {
                 LinkedTo->unknown_slot306(speed);
@@ -1525,12 +1525,12 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
         CellClass const *adjcell;
         if (nextface != -1 && (adjcell = &((CellClass const *)destptr)->Adjacent_Cell(nextface)) != 0 && adjcell->OverlayIndex != -1 && OverlayTypes[adjcell->OverlayIndex]->IsCrushable || crushable_dest) {
             nextface = facing;
-            unknown_64 = true;
+            IsRocking = true;
         } else {
-            unknown_64 = false;
+            IsRocking = false;
         }
 
-        unknown_60 = false;
+        IsOnShortTrack = false;
         TrackNumber = facing * 8 + nextface;
         if (DriveTrackControl[TrackNumber].Track == 0) {
             TrackNumber = facing * 8 + facing;
@@ -1752,7 +1752,7 @@ bool __stdcall DriveLocomotionClass::Is_Moving_Here(CoordStruct to)
     if (head == unknown_geometry_l) {
         return false;
     }
-    if (!unknown_60 && TrackNumber != -1) {
+    if (!IsOnShortTrack && TrackNumber != -1) {
         int track = DriveTrackControl[TrackNumber].Track;
         if (track) {
             TrackType const *points = DriveRawTracks[track - 1].Track;
@@ -1783,7 +1783,7 @@ bool __stdcall DriveLocomotionClass::Will_Jump_Tracks()
     if (next_face>=-1 && next_face<=8) {
         TrackControlStruct const *track=&DriveTrackControl[TrackNumber];
         int track_number;
-        if (unknown_60) track_number=track->StartTrack;
+        if (IsOnShortTrack) track_number=track->StartTrack;
         else track_number=track->Track;
         bool turn=false;
         if (next_face!=8 && next_face!=-1 && Dir_To_8(UnknownFacingDir((unsigned short)((unsigned char)track->Facing<<8)))!=next_face) turn=true;

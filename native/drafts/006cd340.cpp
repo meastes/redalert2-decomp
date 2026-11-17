@@ -63,7 +63,7 @@ bool TechnoClass::unknown_slot186()
                         break;
                     }
                 }
-                if (House->unknown_134 && here->Land == 2) {
+                if (House->IsHuman && here->Land == 2) {
                     break;
                 }
                 if (((CellClass *)Get_Cell_Ptr())->Cell_Building()) {

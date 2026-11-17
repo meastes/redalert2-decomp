@@ -60,7 +60,7 @@ void Tactical::Draw_Radial_Indicators()
                     unknown_radial_step_7f6974 = 1;
                 }
 
-                RGBClass color = pending->House->unknown_55e9;
+                RGBClass color = pending->House->RemapColorRGB;
                 color.Adjust(unknown_radial_pulse_abfd78, black);
                 int radius = pending->unknown_451930();
                 Draw_Radial_Indicator_00451BF0(radius, 0, center, color, true, false);

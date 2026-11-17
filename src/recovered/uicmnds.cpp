@@ -515,7 +515,7 @@ void __fastcall Unknown_006F62D0(unsigned long argument)
 void Unknown_006F6380()
 {
     if (CurrentObject.Count() != 0 && !PlayerPtr->IsDefeated) {
-        if (CurrentObject[0]->Owning_House() != PlayerPtr && CurrentObject[0]->Owning_House()->unknown_134) {
+        if (CurrentObject[0]->Owning_House() != PlayerPtr && CurrentObject[0]->Owning_House()->IsHuman) {
             unsigned long owner = CurrentObject[0]->Owner();
             if (unknown_game_mode_a3d298 != 0 && !(Scen->unknown_000 & 0x400) && Rules->AlliesAllowed) {
                 OutList.Add(EventClass(PlayerPtr->ArrayIndex, 3, owner));

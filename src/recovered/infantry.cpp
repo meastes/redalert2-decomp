@@ -131,16 +131,16 @@ InfantryClass::InfantryClass(InfantryTypeClass *type, HouseClass *house) :
     FootClass(house),
     Type(type),
     Sequence(-1),
-    unknown_5bc(0),
-    unknown_5c0(false),
-    unknown_5c1(false),
-    unknown_5c2(false),
-    unknown_5c3(false),
-    unknown_5c4(false),
-    unknown_5c5(false),
+    Fear(0),
+    IsBerzerk(false),
+    IsTechnician(false),
+    IsStoked(false),
+    IsProne(false),
+    IsZoneCheat(false),
+    WasSelected(false),
     unknown_5c8(0),
     unknown_5cc(false),
-    unknown_5d0(2)
+    LastSurface(2)
 {
     Create_ID();
     Infantry.Add(this);
@@ -177,7 +177,7 @@ void InfantryClass::Init()
                 }
             }
         }
-        if (House != 0 && House->unknown_206 && Type->Trainable) {
+        if (House != 0 && House->BarracksInfiltrated && Type->Trainable) {
             Veterancy.Set_Veteran(true);
         }
         Strength = Type->MaxStrength;
@@ -222,7 +222,7 @@ InfantryClass::~InfantryClass()
 
 int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhead,TechnoClass *source,bool forced,int no_crew)
 {
-    if (unknown_5c3 && *damage>0 && !forced) {
+    if (IsProne && *damage>0 && !forced) {
         *damage=int(*damage*warhead->ProneDamage);
         if (*damage<1) *damage=1;
     }
@@ -247,7 +247,7 @@ int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhea
             new AnimClass(Rules->Wake,CoordStruct(Coord),0,1,0x600,0);
             new AnimClass(Rules->SplashList[0],CoordStruct(Coord)+CoordStruct(0,0,3),0,1,0x600,0);
             delete_after_sequence=true;
-        } else if (Type->Cyborg && unknown_5c3) {
+        } else if (Type->Cyborg && IsProne) {
             new AnimClass(Rules->InfantryExplode,CoordStruct(Coord),0,1,0x600,0);
             delete_after_sequence=true;
         } else if (Type->JumpJet) {
@@ -311,14 +311,14 @@ int InfantryClass::Take_Damage(int *damage,int distance,WarheadTypeClass *warhea
         CoordStruct source_position=source ? CoordStruct(source->Coord) : unknown_geometry_l;
         if (!House->Is_Human_Player() && Type->Engineer && (Get_Mission()==5 || Get_Mission()==11)) QueueMission(15,false);
         if (source) Scatter(source_position,false,false);
-        if (source && unknown_5bc<100) {
-            if (Type->Fraidycat) unknown_5bc=300;
-            else if (!Type->Fearless && !Has_Ability(13)) unknown_5bc=100;
+        if (source && Fear<100) {
+            if (Type->Fraidycat) Fear=300;
+            else if (!Type->Fearless && !Has_Ability(13)) Fear=100;
         } else if (!Type->Fearless && !Has_Ability(13)) {
             int more_fear=50;
             if (Health_Ratio()>Rules->ConditionRed) more_fear/=2;
             if (Health_Ratio()>Rules->ConditionYellow) more_fear/=2;
-            unknown_5bc=unknown_5bc+more_fear<300 ? unknown_5bc+more_fear : 300;
+            Fear=Fear+more_fear<300 ? Fear+more_fear : 300;
         }
     }
     return result;
@@ -723,7 +723,7 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
         if (Type->JumpJet || Mission!=1 || NavCom!=target) Stop_Driver();
     }
     if (House->Is_Human_Player() && target && NavCom==target &&
-        unknown_5c3 && !Type->Fraidycat && !Type->Cyborg) unknown_slot311(7,false,false);
+        IsProne && !Type->Fraidycat && !Type->Cyborg) unknown_slot311(7,false,false);
     if (Get_Mission()==7 || MissionQueue==7) {
         if (!HasAnyLink()) {
             TechnoClass *transport=target->As_Techno();
@@ -796,7 +796,7 @@ void InfantryClass::unknown_slot220(AbstractClass *target)
         IsFiring = false;
         if (Is_Deploying()) {
             unknown_slot311(28, 0, 0);
-        } else if (unknown_5c3) {
+        } else if (IsProne) {
             unknown_slot311(2, 0, 0);
         } else {
             unknown_slot311(0, 0, 0);
@@ -909,8 +909,8 @@ scatter_done:
         Commence();
     }
     unknown_506f30();
-    if (NavCom == 0 && !unknown_5c3 && unknown_5c2 && unknown_5b0.Value() == 0) {
-        unknown_5c2 = false;
+    if (NavCom == 0 && !IsProne && IsStoked && Comment.Value() == 0) {
+        IsStoked = false;
     }
     Update_Fire_00507530();
     if (IsActive) {
@@ -1362,7 +1362,7 @@ bool InfantryClass::unknown_slot258()
         IdleTimer = CDTimerClass<FrameTimerClass>((long)Infantry_Idle_Interval(
             Rules->IdleActionFrequency * 450.0,
             Rules->IdleActionFrequency * 1800.0));
-        if (Type->Fraidycat && !House->Unknown_004F52F0() && unknown_5bc > 50) {
+        if (Type->Fraidycat && !House->Unknown_004F52F0() && Fear > 50) {
             Scatter(unknown_geometry_l, true, false);
             return true;
         }
@@ -1485,18 +1485,18 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
             else if (sequence == 12) sequence = 21;
             else if (sequence == 4 || sequence == 8) sequence = 22;
         }
-        if (unknown_5d0 == 0 && on_land == 1) {
+        if (LastSurface == 0 && on_land == 1) {
             CoordStruct coord = Coord;
             Voc_Play_At(Type->LeaveWaterSound, coord, 0);
-        } else if (unknown_5d0 == 1 && on_land == 0) {
+        } else if (LastSurface == 1 && on_land == 0) {
             CoordStruct coord = Coord;
             Voc_Play_At(Type->EnterWaterSound, coord, 0);
         }
-        unknown_5d0 = on_land;
+        LastSurface = on_land;
     }
     if (In_Air() && !IsOnBridge && Type->DoControls[23].Frame > 0 && sequence == 0) {
         sequence = 23;
-    } else if (sequence == 3 && unknown_5bc >= 200) {
+    } else if (sequence == 3 && Fear >= 200) {
         sequence = 37;
     }
     if (sequence == Sequence || (Sequence != -1 && !force && !unknown_do_controls_7a3474[Sequence].Interrupt)) {
@@ -1531,11 +1531,11 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
     }
     switch (sequence) {
     case 5:
-        unknown_5c3 = true;
+        IsProne = true;
         break;
     case 7:
     case 27:
-        unknown_5c3 = false;
+        IsProne = false;
         return true;
     }
     return true;
@@ -1551,7 +1551,7 @@ bool InfantryClass::Stop_Driver()
 {
     if (Is_Deploying()) {
         unknown_slot311(28, 0, 0);
-    } else if (unknown_5c3) {
+    } else if (IsProne) {
         unknown_slot311(2, 0, 0);
     } else {
         unknown_slot311(0, 0, 0);
@@ -1559,9 +1559,9 @@ bool InfantryClass::Stop_Driver()
     int facing = Dir_To_8(PrimaryFacing.Current());
     CoordStruct coord = Coord;
     if (Can_Enter_Cell(&Map[coord], facing, Unknown_005D47D0(), 0, 1) == 0) {
-        unknown_5c4 = false;
+        IsZoneCheat = false;
     } else {
-        unknown_5c4 = true;
+        IsZoneCheat = true;
     }
     return FootClass::Stop_Driver();
 }
@@ -1624,8 +1624,8 @@ bool InfantryClass::unknown_slot290(CoordStruct &headto)
 bool InfantryClass::Limbo()
 {
     Locomotor.Checked()->Stop_Movement_Animation();
-    unknown_5d0 = 2;
-    unknown_5c3 = false;
+    LastSurface = 2;
+    IsProne = false;
     Sequence = 0;
     return FootClass::Limbo();
 }
@@ -1641,7 +1641,7 @@ BulletClass *InfantryClass::Fire_At(AbstractClass *target, int arg2)
     IsFiring = false;
     BulletClass *result = TechnoClass::Fire_At(target, arg2);
     if (result != 0 && !IsInLimbo && Type->Fraidycat && Ammo == 0) {
-        unknown_5bc = 300;
+        Fear = 300;
         if (Get_Mission() == 1 || Get_Mission() == 15) {
             QueueMission(5, false);
         }
@@ -1677,7 +1677,7 @@ bool InfantryClass::Unlimbo(CoordStruct const *coord, int dir)
         if (where.Z <= unknown_geometry_j + ground) {
             Set_Occupy_Bit(where);
         }
-        unknown_5d0 = 2;
+        LastSurface = 2;
         return true;
     }
     return false;
@@ -1701,10 +1701,10 @@ inline int Coord_Length_XYZ(CoordStruct const &coord)
 AbstractClass *InfantryClass::unknown_slot219(int threat, CoordStruct const *coord, bool arg3)
 {
     if (!House->Unknown_004F52F0() && Type->Engineer) {
-        ObjectClass *object = (ObjectClass *)House->unknown_5410;
+        ObjectClass *object = (ObjectClass *)House->ToCapture;
         if (object != 0) {
             if (Coord_Length_XYZ(Center_Coord() - object->Center_Coord()) < 0xF00) {
-                return (AbstractClass *)House->unknown_5410;
+                return (AbstractClass *)House->ToCapture;
             }
         }
         threat |= 0x200;
@@ -2024,7 +2024,7 @@ bool InfantryClass::unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3,
 
 wchar_t const *InfantryClass::unknown_slot35()
 {
-    if (unknown_5c1) {
+    if (IsTechnician) {
         return StringTable::Load_String("TXT_TECHNICIAN", 0, "D:\\Ra2\\Infantry.CPP", 4221);
     }
     if (unknown_slot48() && !House->Is_Ally(PlayerPtr)) {
@@ -2420,25 +2420,25 @@ inline void Infantry_Decay_Fear(int &fear)
 }
 void InfantryClass::unknown_506f30()
 {
-    if (unknown_5bc > 0) {
+    if (Fear > 0) {
         if (!Type->Fearless) {
-            Infantry_Decay_Fear(unknown_5bc);
+            Infantry_Decay_Fear(Fear);
         }
-        if (unknown_5bc == 0 && Ammo == 0 && unknown_slot163()) {
+        if (Fear == 0 && Ammo == 0 && unknown_slot163()) {
             Ammo = Type->Ammo;
         }
-        if (unknown_5c3) {
-            if (unknown_5bc < 50 && !Is_Deploying()) {
+        if (IsProne) {
+            if (Fear < 50 && !Is_Deploying()) {
                 unknown_slot311(7, false, false);
             }
-        } else if (unknown_5bc >= 50 && !Is_Deploying()) {
+        } else if (Fear >= 50 && !Is_Deploying()) {
             if (!(House->Unknown_004F52F0() && (NavCom != 0 || Locomotor.Checked()->Is_Moving()))
                 && !Type->Fraidycat) {
                 unknown_slot311(5, false, false);
             }
         }
     }
-    if (Type->Fraidycat && unknown_5bc > 50 && !Is_Deploying() && !IsFalling) {
+    if (Type->Fraidycat && Fear > 50 && !Is_Deploying() && !IsFalling) {
         if (!Locomotor.Checked()->Is_Moving() && NavCom == 0) {
             Scatter(unknown_geometry_l, true, false);
         }
@@ -2531,7 +2531,7 @@ void InfantryClass::Update_Fire_00507530()
             }
             if (Is_Deploying()) {
                 unknown_slot311(29, false, false);
-            } else if (unknown_5c3) {
+            } else if (IsProne) {
                 unknown_slot311(8, false, false);
             } else {
                 unknown_slot311(4, false, false);
@@ -2565,7 +2565,7 @@ void InfantryClass::Update_Fire_00507530()
 
     }
     int fire_frame = Type->FireUp;
-    if (unknown_5c3) {
+    if (IsProne) {
         fire_frame = Type->FireProne;
     }
     if (IsFiring && StageClass::Stage == fire_frame) {
@@ -2574,7 +2574,7 @@ void InfantryClass::Update_Fire_00507530()
             Fire_At(TarCom, weapon);
         } else {
             IsFiring = false;
-            if (unknown_5c3) {
+            if (IsProne) {
                 unknown_slot311(2, false, false);
             } else if (Is_Deploying()) {
                 unknown_slot311(28, false, false);
@@ -2630,7 +2630,7 @@ void InfantryClass::Advance_Animation_005078b0()
                 }
             }
             if (Locomotor.Checked()->Is_Moving() && Speed > 0.1) {
-                if (unknown_5c3) {
+                if (IsProne) {
                     unknown_slot311(6, true, false);
                 } else {
                     unknown_slot311(3, true, false);
@@ -2638,7 +2638,7 @@ void InfantryClass::Advance_Animation_005078b0()
             } else {
                 if (Is_Deploying()) {
                     unknown_slot311(28, true, false);
-                } else if (unknown_5c3) {
+                } else if (IsProne) {
                     unknown_slot311(2, true, false);
                 } else {
                     unknown_slot311(0, true, false);
@@ -2689,7 +2689,7 @@ void InfantryClass::Update_Movement_00507b90()
     }
     if (NavCom != 0) {
         Cell target_cell = Coord_Cell(NavCom->Destination_Coord(this));
-        if (unknown_5c4 && Can_Enter_Cell(Get_Target_Cell_Ptr(), -1, -1, 0, 1) == 7) {
+        if (IsZoneCheat && Can_Enter_Cell(Get_Target_Cell_Ptr(), -1, -1, 0, 1) == 7) {
             goto select_sequence;
         }
         if (!Locomotor.Checked()->Is_Moving() && !IsTethered && NavCom != 0 && IsLocked) {
@@ -2712,7 +2712,7 @@ select_sequence:
             }
             return;
         }
-        if (unknown_5c3) {
+        if (IsProne) {
             unknown_slot311(6, false, false);
         } else {
             unknown_slot311(3, false, false);
@@ -2810,7 +2810,7 @@ bool InfantryClass::Is_Ready_To_Random_Animate()
     if (Locomotor.Checked()->Is_Moving()) {
         return false;
     }
-    if (unknown_5c3) {
+    if (IsProne) {
         return false;
     }
     if (IsFiring) {
@@ -2977,7 +2977,7 @@ bool InfantryClass::Ready_To_Commence()
 void InfantryClass::Start_Fear()
 {
     if (!Type->Fearless && !Has_Ability(13)) {
-        unknown_5bc = 300;
+        Fear = 300;
     }
 }
 
@@ -2988,7 +2988,7 @@ void InfantryClass::Start_Fear()
 void InfantryClass::Stop_Fear()
 {
     if (!Type->Fearless) {
-        unknown_5bc = 0;
+        Fear = 0;
     }
 }
 
@@ -3016,13 +3016,13 @@ void InfantryClass::Compute_CRC(WWCRCEngine &crc) const
 {
     FootClass::Compute_CRC(crc);
     crc((long)Sequence);
-    crc(unknown_5b0.Value());
-    crc((long)unknown_5bc);
-    crc(unknown_5c1);
-    crc(unknown_5c2);
-    crc(unknown_5c3);
-    crc(unknown_5c4);
-    crc(unknown_5c5);
+    crc(Comment.Value());
+    crc((long)Fear);
+    crc(IsTechnician);
+    crc(IsStoked);
+    crc(IsProne);
+    crc(IsZoneCheat);
+    crc(WasSelected);
 }
 
 
@@ -3039,7 +3039,7 @@ CoordStruct InfantryClass::Turret_Coord(int arg1)
 int InfantryClass::Current_Speed()
 {
     int speed = FootClass::Current_Speed();
-    if (unknown_5c3) {
+    if (IsProne) {
         if (Type->Crawls) {
             speed += speed / -3;
         } else {
@@ -3109,7 +3109,7 @@ bool InfantryClass::JumpJet_To_Walk()
 
 void InfantryClass::Berzerk()
 {
-    unknown_5c0 = true;
+    IsBerzerk = true;
 }
 
 

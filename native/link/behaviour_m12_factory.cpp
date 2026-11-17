@@ -19,7 +19,7 @@ public:
 // 0x004B9420: the factory's +0x58 flag.
 bool UnknownFactory::Is_On_Hold()
 {
-    return ((FactoryClass *)(void *)this)->unknown_58;
+    return ((FactoryClass *)(void *)this)->OnHold;
 }
 
 // 0x004B9430: the +0x59 flag (the production just completed; hypothesis), cleared on reading.

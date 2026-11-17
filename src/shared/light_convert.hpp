@@ -22,14 +22,14 @@ public:
     PaletteClass const *ArtPalette;                                   // +0x188
     PaletteClass const *ScreenPalette;                                // +0x18C
     unsigned char const *unknown_190;                                 // +0x190 remap, default 0x007DF768
-    int unknown_194;                                                  // +0x194
+    int ReferenceCount;                                                  // +0x194
     int Red;                                                          // +0x198
     int Green;                                                        // +0x19C
     int Blue;                                                         // +0x1A0
     int StoredRed;                                                    // +0x1A4
     int StoredGreen;                                                  // +0x1A8
     int StoredBlue;                                                   // +0x1AC
-    bool unknown_1b0;                                                 // +0x1B0
+    bool UseIonLighting;                                                 // +0x1B0
 };
 
 // Limits each tint to 0..1000 (0x005385A0; Westwood's Clamp_Tile_RGB, LIGHTCALC).

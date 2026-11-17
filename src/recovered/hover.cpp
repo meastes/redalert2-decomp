@@ -79,7 +79,7 @@ HoverLocomotionClass::HoverLocomotionClass() :
     unknown_50(0),
     unknown_58(1.0),
     unknown_60(0),
-    unknown_68(false),
+    WasShoved(false),
     unknown_6c(0),
     unknown_70(false)
 {
@@ -366,7 +366,7 @@ unsigned char __stdcall HoverLocomotionClass::Process()
 
     Gravity_AI_004fb9d0();
 
-    if (unknown_68) {
+    if (WasShoved) {
         if (Is_Powered()) {
             UnknownFacingDir dir = LinkedTo->PrimaryFacing.Current();
             LinkedTo->PrimaryFacing.Set(dir + Dir256_004fbfc0(unknown_6c));
@@ -380,12 +380,12 @@ unsigned char __stdcall HoverLocomotionClass::Process()
                 unknown_6c -= delta;
             }
             if (unknown_6c == 0) {
-                unknown_68 = false;
+                WasShoved = false;
             }
         } else {
-            unknown_68 = false;
+            WasShoved = false;
         }
-        if (!unknown_68) {
+        if (!WasShoved) {
             Map[Object_Coord(LinkedTo)].Trigger_Veins();
             if (Map[Object_Coord(LinkedTo)].Land_Type() == 2) {
                 if (Object_Coord(LinkedTo).Z < Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_g) {
@@ -1009,7 +1009,7 @@ bool __stdcall HoverLocomotionClass::Shove(UnknownFacingDir dir)
 
 void HoverLocomotionClass::Start_Drift()
 {
-    unknown_68 = true;
+    WasShoved = true;
     unknown_6c = Scen->Random()(20, 30);
     if (Scen->Random()(0, 99) < 50) {
         unknown_6c = -unknown_6c;

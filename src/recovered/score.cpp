@@ -471,19 +471,19 @@ int ScoreClass::Efficiency(HouseClass *house)
     for (int i = 0; i < Houses.Count(); i++) {
         HouseClass *other = Houses[i];
         if ((house->Is_Ally(other) && other->Is_Ally(house)) || house == other) {
-            remain += other->unknown_5460.Sum();
-            remain += other->unknown_5470.Sum();
-            remain += other->unknown_5480.Sum();
-            remain += other->unknown_5490.Sum();
-            total += other->unknown_53b4;
-            total += other->unknown_5360;
+            remain += other->ABQuantity.Sum();
+            remain += other->AUQuantity.Sum();
+            remain += other->AIQuantity.Sum();
+            remain += other->AAQuantity.Sum();
+            total += other->BuildingsLost;
+            total += other->UnitsLost;
         }
     }
     total += remain;
     Debug_Printf("Remaining: %ld, Total: %ld\n", remain, total);
     float build = total > 0 ? (float)remain / total : 0.0f;
     Debug_Printf("BuildEconomy = %f\n", build);
-    int const &harvested = house->unknown_220;
+    int const &harvested = house->HarvestedCredits;
     Debug_Printf("Money: %ld, Harvested: %ld, Initial: %ld\n", house->Available_Money(), harvested, house->unknown_124);
     total = harvested + house->unknown_124;
     float money = total > 0 ? (float)house->Available_Money() / (float)total : 0.0f;
@@ -509,13 +509,13 @@ void ScoreClass::Do_Graphs()
     for (int index = 0; index < Houses.Count(); index++) {
         HouseClass *house = Houses[index];
         Debug_Printf("Stats: %s - UnitsLost %ld, BuildingsLost %ld\n", (char const *)house->Type->ID,
-                     house->unknown_5360, house->unknown_53b4);
+                     house->UnitsLost, house->BuildingsLost);
         if ((PlayerPtr->Is_Ally(house) && house->Is_Ally(PlayerPtr)) || PlayerPtr == house) {
-            allyunits += house->unknown_5360;
-            allybuildings += house->unknown_53b4;
+            allyunits += house->UnitsLost;
+            allybuildings += house->BuildingsLost;
         } else {
-            enemyunits += house->unknown_5360;
-            enemybuildings += house->unknown_53b4;
+            enemyunits += house->UnitsLost;
+            enemybuildings += house->BuildingsLost;
         }
         Debug_Printf("AllyUnits %ld, AllyBuildings %ld, EnemyUnits %ld, EnemyBldgs %ld\n",
                      allyunits, allybuildings, enemyunits, enemybuildings);

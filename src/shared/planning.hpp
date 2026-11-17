@@ -143,7 +143,7 @@ inline RGBClass Planning_House_Color(TechnoClass *techno)
     if (techno->House->Is_Player_Control() && PlayerPtr) {
         house = PlayerPtr->ArrayIndex;
     }
-    return Houses[house]->unknown_55e9;
+    return Houses[house]->RemapColorRGB;
 }
 
 // The screen pixel of a colour moved ratio/256 of the way toward target (0x00619E00).

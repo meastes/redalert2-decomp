@@ -238,7 +238,7 @@ CellClass::~CellClass()
     OccupierPtr = 0;
     if (MapCoords != unknown_geometry_k && Drawer != 0) {
         if (GameActive) {
-            Drawer->unknown_194--;
+            Drawer->ReferenceCount--;
         }
         Drawer = 0;
     }
@@ -276,12 +276,12 @@ CellClass::CellClass() :
     OccupierPtr(0),
     AltOccupierPtr(0),
     Land(0),
-    unknown_f0(0),
+    RadLevel(0),
     RadSite(0),
     PixelFX(0),
-    unknown_100(0),
-    unknown_104(0x10000),
-    unknown_108(0),
+    OccupyHeightsCoveringMe(0),
+    Intensity(0x10000),
+    Ambient(0),
     Brightness(1000),
     TileBrightness(1000),
     AltBrightness(1000),
@@ -312,7 +312,7 @@ CellClass::CellClass() :
         SensorsOfHouses[index] = 0;
     }
     for (index = 0; index < 12; index++) {
-        unknown_ac[index] = 0;
+        DisguiseSensorsOfHouses[index] = 0;
     }
     Create_ID();
     unknown_124 = 0;
@@ -598,7 +598,7 @@ bool CellClass::Is_Clear_To_Build(int speed, BuildingTypeClass const *what, Hous
                     return false;
                 }
             } else {
-                if (IsoTileIndex >= 0 && IsoTileIndex < IsoTileTypes.Count() && !IsoTileTypes[IsoTileIndex]->unknown_2b0) {
+                if (IsoTileIndex >= 0 && IsoTileIndex < IsoTileTypes.Count() && !IsoTileTypes[IsoTileIndex]->IsMorphable) {
                     return false;
                 }
                 if (Cell_Building() != 0) {
@@ -1000,9 +1000,9 @@ void CellClass::Recalc_Attributes(int cell_height)
         int height;
         itype->Get_Tile_Pixel_Dimensions((unsigned char)SubTile, width, height);
         Elevation = (height - 30) / 15;
-        if (!IsAnimAttached && itype->unknown_298 != -1 && itype->AttachesTo == (unsigned char)SubTile) {
+        if (!IsAnimAttached && itype->Anim != -1 && itype->AttachesTo == (unsigned char)SubTile) {
             CoordStruct anim_coord = CoordStruct(MapCoords, Height * unknown_geometry_g) + TacticalMap->Pixel_To_Coord_Absolute(itype->Offset);
-            AnimClass *anim = new AnimClass(AnimTypes[itype->unknown_298], anim_coord, 0, -1, 0x1600, 0);
+            AnimClass *anim = new AnimClass(AnimTypes[itype->Anim], anim_coord, 0, -1, 0x1600, 0);
             anim->ZAdjust = itype->ZAdjust;
             anim->IsAttachedToCell = true;
             anim->IsToDeleteOnOverpass = true;
@@ -2538,19 +2538,19 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
             HouseClass *house = object->House;
             UnitTypeClass *mcv = house->Get_First_Ownable(Rules->BaseUnit);
             if (house->CurBuildings == 0 && house->Available_Money() > 1500 &&
-                    house->unknown_5430.unknown_func_491d10(mcv->ArrayIndex) == 0 && unknown_flag_a3d2b8) {
+                    house->UQuantity.unknown_func_491d10(mcv->ArrayIndex) == 0 && unknown_flag_a3d2b8) {
                 powerup = CRATE_UNIT;
                 force_mcv = true;
             }
 
             switch (powerup) {
                 case CRATE_UNIT:
-                    if (object->House->unknown_228 > 50) powerup = CRATE_MONEY;
+                    if (object->House->CurUnits > 50) powerup = CRATE_MONEY;
                     if (Land == 2 || Land == 6) powerup = CRATE_MONEY;
                     break;
 
                 case CRATE_SQUAD:
-                    if (object->House->unknown_234 > 100) powerup = CRATE_MONEY;
+                    if (object->House->CurInfantry > 100) powerup = CRATE_MONEY;
                     if (Land == 2 || Land == 6) powerup = CRATE_MONEY;
                     break;
 
@@ -2587,7 +2587,7 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
             }
 
             if (unknown_game_mode_a3d298 == 4) {
-                object->House->unknown_4ab0.Unknown_0070C490(powerup);
+                object->House->TotalCrates.Unknown_0070C490(powerup);
             }
         }
 
@@ -2669,10 +2669,10 @@ crate_money:
                     utp = object->House->Get_First_Ownable(Rules->BaseUnit);
                 }
                 if (utp == 0 &&
-                        (object->House->unknown_5420.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex) > 0 ||
-                         object->House->unknown_5420.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex) > 0) &&
-                        object->House->unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex) == 0 &&
-                        object->House->unknown_5430.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex) == 0) {
+                        (object->House->BQuantity.unknown_func_491d10(Rules->BuildRefinery[0]->ArrayIndex) > 0 ||
+                         object->House->BQuantity.unknown_func_491d10(Rules->BuildRefinery[1]->ArrayIndex) > 0) &&
+                        object->House->UQuantity.unknown_func_491d10(Rules->HarvesterUnit[0]->ArrayIndex) == 0 &&
+                        object->House->UQuantity.unknown_func_491d10(Rules->HarvesterUnit[1]->ArrayIndex) == 0) {
                     utp = object->House->Get_First_Ownable(Rules->HarvesterUnit);
                 }
                 if (Rules->UnitCrateType != 0) {
@@ -3134,7 +3134,7 @@ bool CellClass::Can_Tiberium_Germinate(TiberiumClass *tiberium)
             return false;
         }
         if (Ground[Land].Build && OverlayIndex == -1 && !Ramp
-            && (IsoTileIndex < 0 || IsoTileIndex >= IsoTileTypes.Count() || IsoTileTypes[IsoTileIndex]->unknown_2d6)) {
+            && (IsoTileIndex < 0 || IsoTileIndex >= IsoTileTypes.Count() || IsoTileTypes[IsoTileIndex]->IsAllowTiberium)) {
             return true;
         }
     }
@@ -3303,13 +3303,13 @@ void CellClass::Recalc_Passability()
 
 inline void CellClass::Inc_Drawer_Ref_Count(LightConvertClass *drawer) const
 {
-    drawer->unknown_194++;
+    drawer->ReferenceCount++;
 }
 
 inline void CellClass::Dec_Drawer_Ref_Count(LightConvertClass *drawer) const
 {
     if (GameActive) {
-        drawer->unknown_194--;
+        drawer->ReferenceCount--;
     }
 }
 
@@ -3352,8 +3352,8 @@ void CellClass::Init_Drawer(LightConvertClass *drawer, int intensity, int ambien
     }
 
     if (got_drawer) {
-        unknown_104 = intensity;
-        unknown_108 = ambient;
+        Intensity = intensity;
+        Ambient = ambient;
         Brightness = brightness;
         TileBrightness = tile_brightness;
         AltBrightness = alt_brightness;
@@ -3373,8 +3373,8 @@ void CellClass::Init_Drawer(LightConvertClass *drawer, int intensity, int ambien
     RedTint = 1000;
     GreenTint = 1000;
     BlueTint = 1000;
-    unknown_104 = 0x10000;
-    unknown_108 = 0;
+    Intensity = 0x10000;
+    Ambient = 0;
 }
 
 
@@ -3505,7 +3505,7 @@ void CellClass::Init_Light(int &intensity, int &ambient, int &brightness, int &t
 // limited to 0..2000.
 void CellClass::Recalc_Light()
 {
-    Brightness = unknown_108 + 1000 * Scen->CurrentAmbientLight / 100;
+    Brightness = Ambient + 1000 * Scen->CurrentAmbientLight / 100;
     AltBrightness = Brightness;
 
     if (IonStormClass_Is_Ion_Storm_Active()) {
@@ -3519,8 +3519,8 @@ void CellClass::Recalc_Light()
         AltBrightness += (Height + 4) * Scen->AmbientLevel - Scen->AmbientGround;
     }
 
-    TileBrightness = (Brightness * unknown_104) >> 16;
-    AltBrightness = (AltBrightness * unknown_104) >> 16;
+    TileBrightness = (Brightness * Intensity) >> 16;
+    AltBrightness = (AltBrightness * Intensity) >> 16;
     Brightness = (Brightness < 2000) ? Brightness : 2000;
     TileBrightness = (TileBrightness < 2000) ? TileBrightness : 2000;
     AltBrightness = (AltBrightness < 2000) ? AltBrightness : 2000;
@@ -4815,7 +4815,7 @@ unsigned int Leaf_47ce40::get() { return *(unsigned int*)((char*)this + 0xf8); }
 
 int CellClass::IsRadiated() const
 {
-    if (unknown_f0 > 1.0) {
+    if (RadLevel > 1.0) {
         return 1;
     }
     return 0;
@@ -4828,7 +4828,7 @@ int CellClass::IsRadiated() const
 
 int CellClass::GetRadLevel() const
 {
-    return Min(unknown_f0, Rules->RadLevelMax);
+    return Min(RadLevel, Rules->RadLevelMax);
 }
 
 
@@ -4861,8 +4861,8 @@ void Owner_0047cea0::RadLevel_Increase_0047cea0(double amount)
 
 void CellClass::Reduce_f0(double amount)
 {
-    double value = (unknown_f0 -= amount);
-    unknown_f0 = 0.0 > value ? 0.0 : value;
+    double value = (RadLevel -= amount);
+    RadLevel = 0.0 > value ? 0.0 : value;
 }
 
 

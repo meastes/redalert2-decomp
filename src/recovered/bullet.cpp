@@ -114,7 +114,7 @@ DynamicVectorClass<BulletClass *> BulletClass::Array;
 BulletClass::BulletClass() :
     Type(0),
     Owner(0),
-    unknown_a0(false),
+    IsInaccurate(false),
     Bright(false),
     BounceCount(0),
     unknown_ec(true),

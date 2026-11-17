@@ -91,7 +91,7 @@ JumpjetLocomotionClass::JumpjetLocomotionClass() :
     unknown_70(0),
     unknown_78(0),
     unknown_80(0),
-    unknown_88(false)
+    IsLanding(false)
 {
     unknown_50.Set_Desired(UnknownFacingDir(0x4000));
     unknown_50.Set(UnknownFacingDir(0x4000));
@@ -223,9 +223,9 @@ bool __stdcall JumpjetLocomotionClass::Process()
 
 void __stdcall JumpjetLocomotionClass::Move_To(CoordStruct to)
 {
-    if (unknown_3c != unknown_geometry_l && unknown_4c != 0 && unknown_88) {
+    if (unknown_3c != unknown_geometry_l && unknown_4c != 0 && IsLanding) {
         LinkedTo->Clear_Occupy_Bit(unknown_3c);
-        unknown_88 = false;
+        IsLanding = false;
     }
     unknown_3c = CoordStruct(to.X, to.Y, to.Z);
     if (to != unknown_geometry_l) {
@@ -265,9 +265,9 @@ void __stdcall JumpjetLocomotionClass::Move_To(CoordStruct to)
 void __stdcall JumpjetLocomotionClass::Stop_Moving()
 {
     if (ScenarioInit == 0 && unknown_48) {
-        if (unknown_3c != unknown_geometry_l && unknown_4c != 0 && unknown_88) {
+        if (unknown_3c != unknown_geometry_l && unknown_4c != 0 && IsLanding) {
             LinkedTo->Clear_Occupy_Bit(unknown_3c);
-            unknown_88 = false;
+            IsLanding = false;
         }
         Cell here = Coord_Cell(Object_Coord(LinkedTo));
         Cell cell = Map.Nearby_Location(here, LinkedTo->Techno_Type_Class()->SpeedType, -1, LinkedTo->Techno_Type_Class()->MovementZone, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
@@ -577,7 +577,7 @@ void JumpjetLocomotionClass::unknown_530550()
     int result = LinkedTo->Can_Enter_Cell(&cell, -1, -1, 0, 1);
     int spot = Unknown_004763D0(unknown_3c);
     bool landable;
-    if (cell.Is_Spot_Free(spot, (cell.unknown_140 >> 8) & 1) || unknown_88) {
+    if (cell.Is_Spot_Free(spot, (cell.unknown_140 >> 8) & 1) || IsLanding) {
         landable = true;
     } else {
         landable = false;
@@ -586,12 +586,12 @@ void JumpjetLocomotionClass::unknown_530550()
         landable = true;
     }
     if (LinkedTo->MissionQueue != 7 && LinkedTo->Get_Mission() != 7) {
-        if (!landable || (!(Map[unknown_3c].unknown_140 & 0x100) && (result > 2 || (result == 2 && !unknown_88)))) {
+        if (!landable || (!(Map[unknown_3c].unknown_140 & 0x100) && (result > 2 || (result == 2 && !IsLanding)))) {
             Stop_Moving();
             return;
         }
-        if (!unknown_88) {
-            unknown_88 = true;
+        if (!IsLanding) {
+            IsLanding = true;
             LinkedTo->Set_Occupy_Bit(unknown_3c);
         }
     }
@@ -625,7 +625,7 @@ void JumpjetLocomotionClass::unknown_530550()
             }
             AircraftTracker.Unknown_00413310(LinkedTo);
             unknown_4c = 0;
-            unknown_88 = false;
+            IsLanding = false;
         }
     }
 }
@@ -826,9 +826,9 @@ void __stdcall JumpjetLocomotionClass::Mark_All_Occupation_Bits(int mark)
 {
     if (mark == 0) {
         UnknownCoord434820 head = Head_To_Coord();
-        if (head != unknown_geometry_l && (unknown_4c == 0 || unknown_88)) {
+        if (head != unknown_geometry_l && (unknown_4c == 0 || IsLanding)) {
             LinkedTo->Clear_Occupy_Bit(head);
-            unknown_88 = false;
+            IsLanding = false;
         }
     }
 }

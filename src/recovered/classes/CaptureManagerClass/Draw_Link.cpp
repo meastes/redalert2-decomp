@@ -11,6 +11,6 @@ void CaptureManagerClass::Draw_Link()
     if (Owner != 0 && Unit != 0) {
         CoordStruct to = Unit->Coord;
         to.Z += 70;
-        Owner->unknown_6d0990(Owner->unknown_slot43(0), to, Owner->House->unknown_55e9);
+        Owner->unknown_6d0990(Owner->unknown_slot43(0), to, Owner->House->RemapColorRGB);
     }
 }

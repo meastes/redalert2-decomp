@@ -348,7 +348,7 @@ public:
 
     BulletTypeClass *Type;                  // +0x098
     TechnoClass *Owner;                     // +0x09C
-    bool unknown_a0;                        // +0x0A0
+    bool IsInaccurate;                        // +0x0A0
     UnknownBulletData Data;                 // +0x0A4
     bool Bright;                            // +0x0CC
     TVelocity3D<double> Velocity;                // +0x0D0

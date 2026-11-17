@@ -328,16 +328,16 @@ inline int AITriggerTypeClass::Owned_Count(HouseClass *house) const
         int count = 0;
         switch (type->Kind_Of()) {
         case 7:
-            count = house->unknown_5460.unknown_func_491d10(index);
+            count = house->ABQuantity.unknown_func_491d10(index);
             break;
         case 0x28:
-            count = house->unknown_5470.unknown_func_491d10(index);
+            count = house->AUQuantity.unknown_func_491d10(index);
             break;
         case 0x10:
-            count = house->unknown_5480.unknown_func_491d10(index);
+            count = house->AIQuantity.unknown_func_491d10(index);
             break;
         case 3:
-            count = house->unknown_5490.unknown_func_491d10(index);
+            count = house->AAQuantity.unknown_func_491d10(index);
             break;
         }
         return count;

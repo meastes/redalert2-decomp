@@ -536,7 +536,7 @@ void __fastcall Destroy_Null_Connection(int id, int error)
         return;
     }
     housep = Houses[id];
-    if (!housep || !housep->unknown_134) {
+    if (!housep || !housep->IsHuman) {
         return;
     }
 

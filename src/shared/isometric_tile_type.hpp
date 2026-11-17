@@ -164,16 +164,16 @@ public:
     int MarbleMadness;                                  // +0x268 0xFFFF: none (TibSun names from here; hypotheses)
     int NonMarbleMadness;                               // +0x26C 0xFFFF: none
     int TileSetBaseID;                                  // +0x270
-    DynamicVectorClass<unsigned short *> unknown_274;   // +0x274 the preview colour tables (TibSun PreviewTiles)
+    DynamicVectorClass<unsigned short *> PreviewTiles;   // +0x274 the preview colour tables (TibSun PreviewTiles)
     AbstractClass *NextTileTypeInSet;                         // +0x28C next variation (TibSun NextTileTypeInSet)
     int ToSnowTheater;                                  // +0x290 -1: none
     int ToTemperateTheater;                             // +0x294 -1: none
-    int unknown_298;                                    // +0x298 AnimTypes index (-1: none)
+    int Anim;                                    // +0x298 AnimTypes index (-1: none)
     Point2D Offset;                                     // +0x29C the animation's offset
     int AttachesTo;                                     // +0x2A4 -1: none
     int ZAdjust;                                        // +0x2A8
     int Unused1;                                        // +0x2AC the constructor's second argument
-    bool unknown_2b0;                                   // +0x2B0 (smudges allowed; map_cell_view.hpp; TibSun IsMorphable)
+    bool IsMorphable;                                   // +0x2B0 (smudges allowed; map_cell_view.hpp; TibSun IsMorphable)
     bool IsShadowCaster;                                // +0x2B1
     bool IsAllowToPlace;                                // +0x2B2
     bool IsRequiredForRMG;                              // +0x2B3
@@ -184,7 +184,7 @@ public:
     bool IsFileLoaded;                                   // +0x2C4 image loads on demand (TibSun IsFileLoaded)
     char Filename[16];                                  // +0x2C5 the image file's name
     bool IsAllowBurrowing;                                   // +0x2D5 (map_cell_view.hpp; TibSun IsAllowBurrowing)
-    bool unknown_2d6;                                   // +0x2D6 (map_cell_view.hpp: tiberium may grow; TibSun IsAllowTiberium)
+    bool IsAllowTiberium;                                   // +0x2D6 (map_cell_view.hpp: tiberium may grow; TibSun IsAllowTiberium)
     int UseCount;                                       // +0x2D8
 };
 

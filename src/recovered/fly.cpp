@@ -95,7 +95,7 @@ FlyLocomotionClass::FlyLocomotionClass() :
     unknown_18(false),
     unknown_1c(unknown_geometry_l),
     unknown_28(unknown_geometry_l),
-    unknown_34(false),
+    IsMoving(false),
     unknown_38(0),
     unknown_40(0),
     unknown_48(0),
@@ -103,9 +103,9 @@ FlyLocomotionClass::FlyLocomotionClass() :
     IsLanding(false),
     CommencedLanding(false),
     IsTumbling(false),
-    unknown_54(0),
+    CurrentROT(0),
     unknown_58(0),
-    unknown_5c(false)
+    IsElevating(false)
 {
 }
 
@@ -140,7 +140,7 @@ FlyLocomotionClass::~FlyLocomotionClass()
 
 bool __stdcall FlyLocomotionClass::Is_Moving()
 {
-    return unknown_34 || LinkedTo->PitchAngle > 0.0f;
+    return IsMoving || LinkedTo->PitchAngle > 0.0f;
 }
 
 
@@ -233,7 +233,7 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
                 } else {
                     unknown_1c = unknown_geometry_l;
                 }
-                unknown_5c = false;
+                IsElevating = false;
             } else {
                 unknown_1c = to;
 
@@ -247,16 +247,16 @@ void __stdcall FlyLocomotionClass::Move_To(COMCoordStruct to)
                     landing_altitude = flyctrl->Landing_Altitude();
                 }
 
-                unknown_34 = true;
+                IsMoving = true;
 
                 if (LinkedTo->Strength > 0 && !unknown_50 && (IsLanding || LinkedTo->Get_Height_AGL() <= landing_altitude)) {
                     Take_Off_004bf0d0();
                 }
 
                 bool locked = Is_Locked_To_Straight_Flight_004bfa10();
-                unknown_5c = locked;
+                IsElevating = locked;
                 if (LinkedTo->Kind_Of() == 2 && !((AircraftClass *)LinkedTo)->Type->Landable) {
-                    unknown_5c = true;
+                    IsElevating = true;
                 }
             }
         }
@@ -306,7 +306,7 @@ bool FlyLocomotionClass::unknown_4bca00()
 {
     FootClass *initial=LinkedTo;
     if (initial && initial->Kind_Of()==2 && !static_cast<AircraftClass *>(initial)->Type->Landable) {
-        unknown_5c=true;
+        IsElevating=true;
         IsLanding=false;
         unknown_50=false;
         unknown_38=LinkedTo->Techno_Type_Class()->Flight_Level();
@@ -429,8 +429,8 @@ void FlyLocomotionClass::unknown_4bcd50()
     if (here!=LinkedTo->LastFlightMapCoords && Is_Moving_Now()) {
         AircraftTracker.Update_00413600(LinkedTo,LinkedTo->LastFlightMapCoords,here);
     }
-    if (LinkedTo->Get_Mission()==7 && unknown_5c) {
-        unknown_5c=false;
+    if (LinkedTo->Get_Mission()==7 && IsElevating) {
+        IsElevating=false;
     }
     CoordStruct coord;
     if ((!Is_Powered() || LinkedTo->Strength==0) && LinkedTo->Get_Height_AGL()!=0) {
@@ -633,7 +633,7 @@ void FlyLocomotionClass::unknown_4bcd50()
             LinkedTo->PitchAngle=MIN(LinkedTo->Techno_Type_Class()->PitchAngle,factor*LinkedTo->Techno_Type_Class()->PitchAngle);
         }
     }
-    if (!unknown_5c && LinkedTo->Strength>0 && !IsLanding && !unknown_50) {
+    if (!IsElevating && LinkedTo->Strength>0 && !IsLanding && !unknown_50) {
         if (Cell(unknown_1c)==LinkedTo->Get_Cell() && unknown_40==0.0 && (LinkedTo->TarCom==0 || LinkedTo->Ammo==0)) {
             unknown_4bf1f0();
         }
@@ -673,11 +673,11 @@ void FlyLocomotionClass::Rotation_AI()
     if (IsTumbling && LinkedTo->Strength>0) {
         if (!Is_Powered()) {
             UnknownFacingDir current=LinkedTo->PrimaryFacing.Current();
-            UnknownFacingDir direction=Fly_Add_Rotation_004bdd10(current,unknown_54);
+            UnknownFacingDir direction=Fly_Add_Rotation_004bdd10(current,CurrentROT);
             LinkedTo->PrimaryFacing.Set(direction);
-            int step=abs(unknown_54)<1?abs(unknown_54):1;
-            if (unknown_54<0) unknown_54+=step;
-            else unknown_54-=step;
+            int step=abs(CurrentROT)<1?abs(CurrentROT):1;
+            if (CurrentROT<0) CurrentROT+=step;
+            else CurrentROT-=step;
         } else {
             IsTumbling=false;
             Map[Object_Coord(LinkedTo)].Trigger_Veins();
@@ -812,7 +812,7 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
             }
         }
         if (Cell(LinkedTo->Center_Coord())==Cell(unknown_1c) || Map[Cell(unknown_1c)].Cell_Building()==LinkedTo->Contact(0)) {
-            unknown_34=false;
+            IsMoving=false;
             Move_To(CoordStruct(unknown_geometry_l.X,unknown_geometry_l.Y,unknown_geometry_l.Z));
             LinkedTo->Assign_Destination(0,true);
         }
@@ -905,7 +905,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
             LinkedTo->SecondaryFacing.Set_Desired(Fly_Direction_004bddf0(LinkedTo->Center_Coord(),coord));
         }
     }
-    if (unknown_5c && dist<0x300) {
+    if (IsElevating && dist<0x300) {
         unknown_38=unknown_1c.Z-Map.Get_Height_GL(unknown_1c);
     } else if (LinkedTo->Techno_Type_Class()->IsDropship) {
         if (dist>=LinkedTo->Techno_Type_Class()->SlowdownDistance) {
@@ -922,7 +922,7 @@ int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
             if (stage) {
                 unknown_40=0.0;
             }
-            if (!unknown_5c && unknown_48<unknown_fly_land_speed_7a10f8) {
+            if (!IsElevating && unknown_48<unknown_fly_land_speed_7a10f8) {
                 unknown_4bf1f0();
             }
         } else if (dist<0x200) {
@@ -1184,9 +1184,9 @@ bool __stdcall FlyLocomotionClass::Is_Ion_Sensitive()
 void FlyLocomotionClass::Start_Drift()
 {
     IsTumbling = true;
-    unknown_54 = Scen->Random()(20, 30);
+    CurrentROT = Scen->Random()(20, 30);
     if (Scen->Random()(0, 99) < 50) {
-        unknown_54 = -unknown_54;
+        CurrentROT = -CurrentROT;
     }
 }
 
@@ -1221,7 +1221,7 @@ void __stdcall FlyLocomotionClass::Acquire_Hunter_Seeker_Target()
         DynamicVectorClass<ObjectClass *> aitargets;
         DynamicVectorClass<ObjectClass *> humantargets;
 
-        bool atenemy = unknown_game_mode_a3d298 != 0 && LinkedTo->House->unknown_54f0 != -1 && !LinkedTo->House->Is_Human_Player();
+        bool atenemy = unknown_game_mode_a3d298 != 0 && LinkedTo->House->Enemy != -1 && !LinkedTo->House->Is_Human_Player();
 
         for (int index = Technos.Count() - 1; index >= 0; index--) {
             TechnoClass *techno = Technos[index];
@@ -1232,7 +1232,7 @@ void __stdcall FlyLocomotionClass::Acquire_Hunter_Seeker_Target()
                     enemy = false;
                 }
             } else {
-                if (techno->House != Houses[LinkedTo->House->unknown_54f0]) {
+                if (techno->House != Houses[LinkedTo->House->Enemy]) {
                     enemy = false;
                 }
             }
@@ -1269,7 +1269,7 @@ bool FlyLocomotionClass::unknown_4bf8f0()
     if (IsLanding) {
         return true;
     }
-    if (!unknown_5c) {
+    if (!IsElevating) {
         return true;
     }
     UnknownHeldComPtr<IFlyControl, &unknown_uuid_7d80a8> flyctrl(LinkedTo);
