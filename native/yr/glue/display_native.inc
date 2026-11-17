@@ -6,7 +6,7 @@
 // NATIVE. Behaviour code for the native build; never part of an exact build.
 // ---------------------------------------------------------------------------------------------
 
-void DisplayClass::Set_Copy_Cursor_Shape(Cell const * list)
+void DisplayClass::Set_Cursor_Shape(Cell const * list)
 {
 	if (CursorSize) {
 		Cursor_Mark(ZoneCell+ZoneOffset, false);
