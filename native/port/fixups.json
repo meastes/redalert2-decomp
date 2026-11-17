@@ -3403,9 +3403,9 @@
   },
   {
    "source": "src/recovered/ownrdraw.cpp",
-   "old": "        HWND parent = GetParent(window);\n        if (unknown_5e7740((unsigned int)parent, window)) {\n            record->unknown_b0 = 1;\n",
-   "new": "        HWND parent = GetParent(window);\n        // NATIVE (lane C23): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E) is drawn as the menu buttons are.\n        if (unknown_5e7740((unsigned int)parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\n            record->unknown_b0 = 1;\n",
-   "why": "Native addition (lane C23, user request 2026-11-16: the one-game toggle looked like help text; not original behaviour): the one-game app's main-menu toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) takes the main menu buttons' art (record +0xB0 = 1: the button shape SDBTNANM's normal, lit and pressed frames in WM_PAINT 0x005F0320), as YR's twin ClassifyLayoutBand gives it (yr/fixups.json). 0x005E7740 knows only the menu column's ids. Without the toggle (RA2.app, every other dialog) nothing changes: no control has that id.",
+   "old": "        if (unknown_5e79a0((unsigned int)parent, window)) {\n            record->unknown_b0 = 3;\n",
+   "new": "        // NATIVE (lane C23): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E) is a dialog push button.\n        if (unknown_5e79a0((unsigned int)parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\n            record->unknown_b0 = 3;\n",
+   "why": "Native addition (lane C23, user requests 2026-11-16: the one-game toggle should look like the dialogs' push buttons, Keyboard Options' Assign and Reset All; not original behaviour): the one-game app's main-menu toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) takes those buttons' kind (record +0xB0 = 3: the 126x25 push button shape 0x00AC10C0 through its drawer 0x006F2250, frames 0, 2 lit, 1 pressed, in WM_PAINT 0x005F0320), as YR's twin ClassifyLayoutBand gives it (yr/fixups.json). 0x005E79A0 knows only the listed dialogs' ids. Without the toggle (RA2.app, every other dialog) nothing changes: no control has that id.",
    "verified": false
   }
  ]

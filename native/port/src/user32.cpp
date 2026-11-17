@@ -135,6 +135,7 @@ void fire_timers()
 
 }  // namespace
 namespace { extern HWND toggle_menu; void place_toggle(HWND menu); }   // the game toggle (lane Y5), below
+namespace ra2port { void toggle_watch_report(); }                       // the game toggle watch (lane C23), below
 
 namespace ra2port {
 HWND main_window() { return main_hwnd; }
@@ -1299,6 +1300,7 @@ LRESULT button_proc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
     switch (message) {
     case 0x0201: case 0x0203:                                  // WM_LBUTTONDOWN / DBLCLK
         if (!w->enabled) return 0;
+        if (w->id == 0x7F5E) ra2port::toggle_watch_report();   // the game toggle (kToggleId, below): tests (lane C23)
         capture_hwnd = hwnd;
         set_focus(hwnd);
         w->pushed = true;
@@ -1624,12 +1626,14 @@ WNDPROC predefined_proc(const std::string &cls)
 // The combined app's game toggle (lane Y5; win32_port.hpp set_game_toggle): in the main menu (the
 // dialog with Exit Game, 0x3EE "GUI:ExitGame") a clone of its Exit Game button, with the other
 // game's name, above the left end of its bottom bar (0x695, the tool tip line). Since lane C23 (user
-// request 2026-11-16: the version-line clone of lane Y5 read as help text) it is a red menu button:
-// the game's own owner-draw button code paints it with the menu buttons' art and press feedback,
-// told so by the id kToggleId (RA2: port/fixups.json, unknown_5e7eb0 0x005E7EB0; YR: yr/fixups.json,
-// ClassifyLayoutBand) and drawn again over each frame of the menu's movie (the statics' movie timer,
-// link/behaviour_m14_ownerdraw.cpp and yr/glue/ownrdraw_native.inc), at Exit Game's size after the
-// game has laid the menu out. Its WM_COMMAND
+// requests 2026-11-16: the version-line clone of lane Y5 read as help text; then: like the dialogs'
+// push buttons, Keyboard Options' Assign and Reset All, and without flicker) it is drawn by the
+// game's own owner-drawn button code as those buttons are (kind 3: the 126x25 push button shape,
+// red with yellow text, its lit and pressed frames and the click sound), told so by the id kToggleId
+// (RA2: port/fixups.json, 0x005E7EB0; YR: yr/fixups.json, ClassifyLayoutBand), at that shape's size.
+// The menu's movie (632x570 at the top left) covers everything above the bar on the left, so the
+// movie's timer draws the toggle on each new frame before the frame is shown (link/
+// behaviour_m14_ownerdraw.cpp, yr/glue/ownrdraw_native.inc). Its WM_COMMAND
 // never reaches the game's procedure (it has no such control); a click ends the game through Exit
 // Game and the question's OK (0x5AE in the message box with the text 0x5B0, WWMessageBox::Process
 // 0x005B46B0), pressed by the port.
@@ -1647,17 +1651,17 @@ Window *child_with(Window *dlg, LONG id)
     return nullptr;
 }
 // The toggle's place: once the game has laid the menu out (it moves its controls for the screen
-// size before showing the dialog, and sizes the menu buttons to their art), Exit Game's size, just
-// above the left end of the bottom bar.
+// size before showing the dialog), the push button shape's size, just above the left end of the
+// bottom bar.
 void place_toggle(HWND menu)
 {
     Window *dlg = win(menu);
     if (!dlg) return;
-    Window *t = child_with(dlg, kToggleId), *bar = child_with(dlg, kBottomBarId), *exit_button = child_with(dlg, kExitGameId);
-    if (!t || !bar || !exit_button) return;
-    int w = exit_button->rect.right - exit_button->rect.left, h = exit_button->rect.bottom - exit_button->rect.top;
-    if (w <= 0 || h <= 0 || bar->rect.top < h) return;
-    t->rect = {bar->rect.left, bar->rect.top - h - 2, bar->rect.left + w, bar->rect.top - 2};
+    Window *t = child_with(dlg, kToggleId), *bar = child_with(dlg, kBottomBarId);
+    if (!t || !bar) return;
+    const int w = 126, h = 25;   // the push button shape (0x00AC10C0, YR's CloseButtonShape) at every screen size
+    if (bar->rect.top < h + 6) return;
+    t->rect = {bar->rect.left, bar->rect.top - h - 6, bar->rect.left + w, bar->rect.top - 6};
     invalidate(menu);
     fprintf(stderr, "port: game toggle \"%s\" at %d,%d %dx%d in the main menu\n", toggle_label.c_str(), (int)t->rect.left,
             (int)t->rect.top, w, h);
@@ -1843,6 +1847,39 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
 
 }  // namespace
 namespace ra2port {
+// RA2_NATIVE_TEST_TOGGLE_WATCH=1 (test scaffolding, lane C23: the toggle flickered over the menu's
+// movie): every primary present (ddraw_dsound.cpp) checks the toggle's rectangle; until it is
+// pressed, the number of presents whose rectangle differs from the one before is counted, and the
+// press logs it ("port: game toggle watch: ..."). A steady button changes once (its first picture);
+// one wiped by each movie frame and drawn again changes on every other present.
+static const bool toggle_watch_on = getenv("RA2_NATIVE_TEST_TOGGLE_WATCH") != nullptr;
+static uint32_t toggle_watch_last = 0;
+static long toggle_watch_presents = 0, toggle_watch_changes = 0;
+void toggle_watch(const void *pixels, int width, int height, int pitch)
+{
+    if (!toggle_watch_on || !toggle_menu) return;
+    Window *dlg = win(toggle_menu);
+    Window *t = dlg ? child_with(dlg, kToggleId) : nullptr;
+    if (!t || !dlg->visible || t->pushed) return;
+    RECT r = t->rect;
+    if (r.left < 0 || r.top < 0 || r.right > width || r.bottom > height || r.left >= r.right) return;
+    uint32_t h = 2166136261u;
+    for (LONG y = r.top; y < r.bottom; ++y) {
+        const uint16_t *row = (const uint16_t *)((const unsigned char *)pixels + (size_t)y * pitch);
+        for (LONG x = r.left; x < r.right; ++x) h = (h ^ row[x]) * 16777619u;
+    }
+    ++toggle_watch_presents;
+    if (h != toggle_watch_last) ++toggle_watch_changes;
+    toggle_watch_last = h;
+}
+void toggle_watch_report()
+{
+    if (!toggle_watch_on) return;
+    fprintf(stderr, "port: game toggle watch: %ld presents, its picture changed %ld times before the press\n",
+            toggle_watch_presents, toggle_watch_changes);
+    toggle_watch_presents = toggle_watch_changes = 0;
+    toggle_watch_last = 0;
+}
 void set_game_toggle(const char *label, void (*clicked)())
 {
     toggle_label = label ? label : "";

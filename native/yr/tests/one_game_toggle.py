@@ -13,7 +13,8 @@ process through the main menu's toggle, with scripted input (one script per engi
 
 Checks: each run's engines start in that order, on one window, and each swap's engine skips the
 start-up movies and reaches its menu sooner than a first start; the toggle is placed in both main
-menus as a red menu button that shows its press (window dumps, lane C23); the skirmishes run game frames; the settings file holds the game chosen last; no trap, no
+menus as a red dialog push button, steady over the menu's movie, that shows its press (window
+dumps, lane C23); the skirmishes run game frames; the settings file holds the game chosen last; no trap, no
 fault; no process of the run is left (native/tests/game_process.py ends the group; checked).
 Skipped (77) without the installed game (RA2 with Yuri's Revenge in --data-dir, game.exe given).
 
@@ -33,11 +34,15 @@ import game_process  # noqa: E402  (native/tests: the game's process group, lane
 # Both games at 800x600 (RA2: the write folder's RA2.INI; YR: its installed RA2MD.INI, as the
 # yr-native tests run it): Single Player, Skirmish (the single-player menu's third button) and Start
 # Game (the setup's second slot) in the right-hand column. Each menu click waits for its dialog to
-# settle ("s<k>", host.cpp; k counts that engine's dialogs). The toggle (lane C23: a red menu button
-# above the bottom bar's left end) is clicked by its control id (0x7F5E, "@ctl="), with a window dump
-# before the press and one while it is held (the screenshot check, toggle_look).
+# settle ("s<k>", host.cpp; k counts that engine's dialogs). The toggle (lane C23: a dialog push
+# button, as Keyboard Options' Assign, above the bottom bar's left end, over the menu's movie) is
+# clicked by its control id (0x7F5E, "@ctl="), with six window dumps 120 ms apart before the press
+# (no flicker: the movie runs under it) and one while it is held (the screenshot check, toggle_look).
 TOGGLE_ID = 0x7F5E
-TOGGLE = ('s1+1500 dump\ns1+1700 ldown @ctl=%d\ns1+1900 dump\ns1+2300 lup @ctl=%d\n' % (TOGGLE_ID, TOGGLE_ID))
+MIN_RED = 0.30
+IDLE_DUMPS = 6
+TOGGLE = (''.join('s1+%d dump\n' % (1500 + 120 * k) for k in range(IDLE_DUMPS))
+          + 's1+2300 ldown @ctl=%d\ns1+2500 dump\ns1+2900 lup @ctl=%d\n' % (TOGGLE_ID, TOGGLE_ID))
 SKIRMISH = 's1+1500 click 720 220\ns2+1000 click 720 304\ns3+2500 click 720 262\n'
 INI = '[Video]\nScreenWidth=800\nScreenHeight=600\n'
 
@@ -53,7 +58,7 @@ def run(a, name, scripts, game, seconds, run_to='never'):
         paths.append(p)
     env = dict(os.environ, RA2_NATIVE_SETTINGS=os.path.join(a.work, 'settings'), RA2_GAME_EXE=a.game_exe,
                RA2_NATIVE_WINDOW_DUMP=os.path.join(work, 'shots', 'w'), RA2_NATIVE_WINDOW_DUMP_MS='1000',
-               RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_DIALOG_LOG='1')
+               RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_DIALOG_LOG='1', RA2_NATIVE_TEST_TOGGLE_WATCH='1')
     env.pop('RA2_GAMEMD_EXE', None)
     env.pop('RA2_NATIVE_INPUT_SCRIPT', None)
     cmd = [a.binary] + (['--game=' + game] if game else []) + [
@@ -86,9 +91,11 @@ def read_bmp(path):
 
 
 def toggle_look(text, work, name, failures):
-    """The screenshot check: in each engine's main menu the toggle is a red menu button (red art over
-    most of its rectangle, as the menu buttons' SDBTNANM frames are; the version-line clone it
-    replaced had almost none) and looks different while pressed (the pressed frame)."""
+    """The screenshot check: in each engine's main menu the toggle is a red push button (its red art
+    over much of its rectangle; the version-line clone of lane Y5 had none), shows in every one of six
+    pictures over the running movie, the same each time (no flicker: lane C23's first version was
+    drawn after each movie frame and a picture without it could be shown), and looks different while
+    pressed (the pressed frame)."""
     engine = None
     shots = {}
     placed = {}
@@ -102,14 +109,24 @@ def toggle_look(text, work, name, failures):
         m = re.match(r'^host: window dump (\d+)', line)
         if m and engine is not None:
             shots.setdefault(engine, []).append(int(m.group(1)))
+    # Every present of the screen while the toggle waits (the port's watch, RA2_NATIVE_TEST_TOGGLE_WATCH):
+    # a steady toggle changes once, its first picture; lane C23's first version, drawn after each
+    # movie frame, changed on about every other present.
+    watches = [(int(a), int(b)) for a, b in re.findall(r'^port: game toggle watch: (\d+) presents, its picture changed (\d+) times', text, re.M)]
+    for k, (presents, changes) in enumerate(watches[:2]):
+        print('%s: engine %d: toggle steady over %d presents (%d changes)' % (name, k, presents, changes))
+        if presents < 20 or changes > 2:
+            failures.append('%s: engine %d: the toggle flickers: its picture changed %d times in %d presents' % (name, k, changes, presents))
+    if len(watches) < 2:
+        failures.append('%s: the toggle watch reported %d presses (wanted 2)' % (name, len(watches)))
     for e in (0, 1):
-        if e not in placed or len(shots.get(e, [])) < 2:
-            failures.append('%s: engine %d: no toggle placement or no dumps around its press (%s, %s)'
+        if e not in placed or len(shots.get(e, [])) < IDLE_DUMPS + 1:
+            failures.append('%s: engine %d: no toggle placement or too few dumps around its press (%s, %s)'
                             % (name, e, placed.get(e), shots.get(e)))
             continue
         x, y, w, h = placed[e]
         looks = []
-        for n in shots[e][:2]:
+        for n in shots[e][:IDLE_DUMPS + 1]:
             path = os.path.join(work, 'shots', 'w-e%d.%d.bmp' % (e, n))
             if not os.path.exists(path):
                 failures.append('%s: engine %d: no dump %s' % (name, e, path))
@@ -120,14 +137,22 @@ def toggle_look(text, work, name, failures):
                    if 0 <= int((y + j + 0.5) * sy) < height and 0 <= int((x + i + 0.5) * sx) < width]
             red = sum(1 for r, g, b in box if r >= 80 and r > 1.5 * g and r > 1.5 * b)
             looks.append((box, red / max(1, len(box))))
-        if len(looks) < 2:
+        if len(looks) < IDLE_DUMPS + 1:
             continue
-        share = looks[0][1]
-        changed = sum(1 for p, q in zip(looks[0][0], looks[1][0]) if p != q) / max(1, len(looks[0][0]))
-        print('%s: engine %d: toggle at %d,%d %dx%d: %.0f%% red, %.0f%% changed while pressed'
-              % (name, e, x, y, w, h, share * 100, changed * 100))
-        if share < 0.15:   # the button 27-28%, its frame and text the rest; the version-line clone 0%
-            failures.append('%s: engine %d: the toggle is not a red menu button (%.0f%% red in its rectangle)' % (name, e, share * 100))
+        idle, pressed = looks[:IDLE_DUMPS], looks[IDLE_DUMPS]
+
+        def same(p, q):
+            return sum(1 for a, b in zip(p, q) if a == b) / max(1, len(p))
+        shares = [l[1] for l in idle]
+        steady = min(same(idle[0][0], l[0]) for l in idle[1:])
+        changed = 1 - same(idle[0][0], pressed[0])
+        print('%s: engine %d: toggle at %d,%d %dx%d: %s%% red in six pictures, %.0f%% the same in all, %.0f%% changed while pressed'
+              % (name, e, x, y, w, h, '/'.join('%.0f' % (v * 100) for v in shares), steady * 100, changed * 100))
+        if min(shares) < MIN_RED:
+            failures.append('%s: engine %d: the toggle is not a red push button in every picture (%s%% red)'
+                            % (name, e, '/'.join('%.0f' % (v * 100) for v in shares)))
+        if steady < 0.9:
+            failures.append('%s: engine %d: the toggle flickers (only %.0f%% of it the same in six pictures)' % (name, e, steady * 100))
         if changed < 0.05:
             failures.append('%s: engine %d: the toggle shows no press (%.0f%% of it changed)' % (name, e, changed * 100))
 

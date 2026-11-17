@@ -1220,9 +1220,9 @@
   },
   {
    "file": "src/ownrdraw.cpp",
-   "old": "\t\tif (FUN_00609BC0(parent, window)) {\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
-   "new": "\t\tif (FUN_00609BC0(parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\t// NATIVE (lane C23): the one-game toggle\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
-   "why": "lane C23 (user request 2026-11-16: the one-game toggle looked like help text): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) takes the main menu buttons' art (WinData +0xB0 = 1: the button shape's normal, lit and pressed frames), as RA2's twin 0x005E7EB0 gives it (link/behaviour_launch.cpp). FUN_00609BC0 knows only the menu column's ids."
+   "old": "\t\tif (FUN_00609E20(parent, window)) {\n\t\t\tdata->Dialog.LayoutBand = 3;\n",
+   "new": "\t\tif (FUN_00609E20(parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\t// NATIVE (lane C23): the one-game toggle\n\t\t\tdata->Dialog.LayoutBand = 3;\n",
+   "why": "lane C23 (user requests 2026-11-16: the one-game toggle should look like the dialogs' push buttons, Keyboard Options' Assign and Reset All): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) takes those buttons' kind (WinData +0xB0 = 3: the push button shape's normal, lit and pressed frames), as RA2's twin 0x005E7EB0 gives it (port/fixups.json). FUN_00609E20 knows only the listed dialogs' ids."
   }
  ]
 }

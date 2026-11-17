@@ -493,10 +493,15 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
             if (extra.movie->AdvanceFrame()) {
                 static int traced = 0;
                 if (traced++ < 3 && getenv("RA2_NATIVE_PERF_LOG")) dprintf(2, "perf: t%u static movie frame\n", (unsigned)GetTickCount());
+                // NATIVE (lane C23): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E) stands over the
+                // main menu's movie (632x570 at the top left, the whole TV screen, so no place above the bottom
+                // bar is outside it), whose frame has just been drawn on the surface under the toggle: the
+                // toggle is drawn on it again now, before the frame's area is shown, so no picture lacks it.
+                if (HWND toggle = GetDlgItem(GetParent(window), 0x7F5E)) {
+                    InvalidateRect(toggle, 0, FALSE);
+                    UpdateWindow(toggle);
+                }
                 InvalidateRect(window, 0, FALSE);
-                // NATIVE (lane C23): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E) stands over
-                // the main menu's movie, which draws each frame on the surface under it: drawn again after it.
-                if (HWND toggle = GetDlgItem(GetParent(window), 0x7F5E)) InvalidateRect(toggle, 0, FALSE);
             }
             if (!extra.movie->Is_Finished()) return 0;
             if (record->unknown_5c) {

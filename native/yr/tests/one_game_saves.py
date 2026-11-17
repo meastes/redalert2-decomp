@@ -30,9 +30,10 @@ sys.path.insert(0, os.path.join(HERE, '..', '..', 'tools'))
 import game_process  # noqa: E402  (native/tests: the game's process group, lane C19)
 import original_save_compare  # noqa: E402  (native/tools: the compound file's streams)
 
-# As one_game_toggle.py: the toggle at the left end of the bottom bar; Single Player, Skirmish, Start
-# Game; then the mouse over the view's middle (a mouse left in a corner scrolls the view).
-TOGGLE = 's1+1500 click 85 588\n'
+# As one_game_toggle.py: the toggle by its control id (0x7F5E; a push button above the bottom bar's left
+# end since lane C23); Single Player, Skirmish, Start Game; then the mouse over the view's middle (a
+# mouse left in a corner scrolls the view).
+TOGGLE = 's1+1500 click @ctl=32606\n'
 SKIRMISH = 's1+1500 click 720 220\ns2+1000 click 720 304\ns3+2500 click 720 262\ns3+3500 move 316 300\n'
 CENTER = '1 move 316 300\n'
 INI = '[Video]\nScreenWidth=800\nScreenHeight=600\n'

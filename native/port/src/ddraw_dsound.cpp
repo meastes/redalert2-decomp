@@ -12,6 +12,7 @@
 #include <chrono>
 #include <math.h>
 #include <mutex>
+namespace ra2port { void toggle_watch(const void *pixels, int width, int height, int pitch); }   // user32.cpp (lane C23)
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -247,6 +248,7 @@ struct Surface {
     {
         if (host() && host()->present) host()->present(pixels.data(), (int)width, (int)height, (int)pitch, (int)bytes * 8);
         dump_presented();
+        if (primary && bytes == 2) ra2port::toggle_watch(pixels.data(), (int)width, (int)height, (int)pitch);   // tests (user32.cpp)
         char detail[64];
         snprintf(detail, sizeof detail, "%dx%d %d bpp", (int)width, (int)height, (int)bytes * 8);
         progress("present", detail);

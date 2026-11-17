@@ -1223,9 +1223,13 @@ LRESULT CALLBACK OwnerDraw::StaticHandler(HWND window, UINT message, WPARAM wpar
 				return 0;
 			}
 			if (extra.Movie->AdvanceFrame()) {
+				// NATIVE (lane C23): the one-game toggle (id 0x7F5E) stands over the main menu's movie: drawn on
+				// the new frame now, before the frame's area is shown (as RA2's, behaviour_m14_ownerdraw.cpp).
+				if (HWND toggle = GetDlgItem(GetParent(window), 0x7F5E)) {
+					InvalidateRect(toggle, NULL, FALSE);
+					UpdateWindow(toggle);
+				}
 				InvalidateRect(window, NULL, FALSE);
-				// NATIVE (lane C23): the one-game toggle (id 0x7F5E) over the main menu's movie, drawn again after each frame.
-				if (HWND toggle = GetDlgItem(GetParent(window), 0x7F5E)) InvalidateRect(toggle, NULL, FALSE);
 			}
 			if (!extra.Movie->FramesLeft()) {
 				return 0;

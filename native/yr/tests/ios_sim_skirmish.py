@@ -296,13 +296,13 @@ def main():
         lines = play_script(a.play_w, play_ms)
         if a.toggle:
             # ra2yr-one (lane Y8): one input script per engine start (one_game.cpp --engine-scripts):
-            # the first game's main menu toggle (its bottom bar's left end, the menus centred on the
-            # wider surface), then the play script in the other game.
+            # the first game's main menu toggle (by its control id, 0x7F5E: a push button above the
+            # bottom bar's left end since lane C23), then the play script in the other game.
             os.makedirs(a.work, exist_ok=True)
             toggle = os.path.join(a.work, 'toggle.script')
             play = os.path.join(a.work, 'play-engine1.script')
             with open(toggle, 'w') as f:
-                f.write('s1+2500 tdown %d 588\ns1+2580 tup %d 588\n' % ((a.play_w - 800) // 2 + 85, (a.play_w - 800) // 2 + 85))
+                f.write('s1+2500 tdown @ctl=32606\ns1+2580 tup @ctl=32606\n')
             with open(play, 'w') as f:
                 f.write('\n'.join(lines) + '\n')
             a.launch_arg = a.launch_arg + ['--engine-scripts=%s,%s' % (toggle, play)]

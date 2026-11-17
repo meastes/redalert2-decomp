@@ -425,16 +425,19 @@ are unchanged.
 `ra2port::set_game_toggle` (port/src/user32.cpp): the main menu (the dialog with Exit Game,
 0x3EE "GUI:ExitGame", the same in both games) gets a clone of its Exit Game button (id 0x7F5E),
 labelled "Play Yuri's Revenge" / "Play Red Alert 2" and placed, once the game has laid the menu out,
-at Exit Game's size just above the left end of the menu's bottom bar (the tool-tip line 0x695), away
-from the right-hand column. Lane C23 (user request 2026-11-16: the version-line clone of lane Y5
-read as help text) made it a red menu button: the game's own owner-draw button code paints it with
-the menu buttons' art (SDBTNANM: normal, lit and pressed frames, the click sound), because the id
-is given the menu buttons' kind (WinData +0xB0 = 1) beside the column's listed ids: RA2 in
-port/fixups.json (unknown_5e7eb0 0x005E7EB0), YR in yr/fixups.json (ClassifyLayoutBand, its twin).
-It stands over the menu's movie (the TV screen), whose frames draw on the surface under it, so the
-movie's timer has it drawn again after each frame (both games' static procedures). YR's button
-paint also takes the button's BST_PUSHED as pressed, as RA2's does (the port sends no WM_DRAWITEM),
-so both games' menu buttons show their press. The deeper menus are simply the running game's. The selection is the settings' `game=` line (the thin host
+just above the left end of the menu's bottom bar (the tool-tip line 0x695), away from the
+right-hand column. Lane C23 (user requests 2026-11-16: the version-line clone of lane Y5 read as
+help text; then: it should look like the dialogs' push buttons, Keyboard Options' Assign and Reset
+All, and not flicker) made it such a push button: the game's own owner-draw button code paints it
+as those buttons (kind 3, WinData +0xB0: the 126x25 push button shape, red with yellow text, its
+lit and pressed frames, the click sound), because the id is given that kind beside the listed
+dialogs' ids: RA2 in port/fixups.json (unknown_5e7eb0 0x005E7EB0), YR in yr/fixups.json
+(ClassifyLayoutBand, its twin); it takes that shape's size. The menu's movie (the TV screen,
+632x570 at the top left) covers everything above the bar on the left, so the toggle stands over
+it: the movie's timer draws the toggle on each new frame before the frame is shown (both games'
+static procedures; the first version drew it after the frame, and a picture without it could be
+shown: the flicker the user saw on the Duo). YR's button paint also takes the button's BST_PUSHED
+as pressed, as RA2's does (the port sends no WM_DRAWITEM), so both games' buttons show their press. The deeper menus are simply the running game's. The selection is the settings' `game=` line (the thin host
 writes it at every start and swap); the next start runs that game with its start-up movies.
 
 ctest `one-game-toggle` (yr/tests/one_game_toggle.py, needs RA2_NATIVE_YR_DATA_DIR and
@@ -442,10 +445,13 @@ RA2_NATIVE_CENSUS_GAME_EXE): RA2 menu -> toggle -> YR menu (no start-up movie) -
 menu -> a skirmish in RA2; the game chosen last (RA2) -> YR -> a skirmish in YR; then YR, chosen
 last, starts with its movies. Checks the engine order, the skipped movies, the toggle in each
 menu, game frames in both skirmishes, the settings and that no process of the run is left. The
-toggle is clicked by its id (input script `@ctl=32606`), and window dumps before and during the
-press check that it is a red menu button (at least 15% of its rectangle red: 27-28% measured, the
-old version-line clone 0%) that changes
-while held (lane C23).
+toggle is clicked by its id (input script `@ctl=32606`), and window dumps check it: six pictures
+120 ms apart over the running movie must each show it red (at least 30% of its rectangle: 70-74%
+measured; the menu-button art of the first version 27%, the version-line clone 0%) and the same
+(no flicker), and the picture while it is held must differ (the pressed frame); and with
+`RA2_NATIVE_TEST_TOGGLE_WATCH=1` the port checks the toggle's rectangle at every present of the screen
+until the press: at most 2 changes (measured 2 in 310 presents; the after-the-frame version 78-80)
+(lane C23).
 
 Fixed on the way: YR's exit freed the menu drawers with the vector deleting destructor
 (gamemd.exe 0x0072B230, harmless at exit on Windows, an abort natively; fixups.json).
