@@ -131,7 +131,7 @@ int TextLabelClass::Draw_Me(int forced)
                         Voc_Play(Rules->MessageCharTyped, 1.0f, 0x2000, 0);
                     }
                 }
-                OwnerDraw::unknown_draw_edit_text_600830(LogicalSurface, rect, Text, length, font, color,
+                OwnerDraw::Draw_Edit_Text(LogicalSurface, rect, Text, length, font, color,
                                                         &Scroll, Has_Focus(), 0, 1, RevealCount);
                 return true;
             }

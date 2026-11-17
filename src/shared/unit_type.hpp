@@ -88,8 +88,8 @@ public:
     bool CrateGoodie;                       // +0xBA5
     bool Harvester;                         // +0xBA6
     bool Weeder;                            // +0xBA7
-    bool unknown_ba8;                       // +0xBA8
-    bool unknown_ba9;                       // +0xBA9
+    bool IsFireAnim;                       // +0xBA8
+    bool IsLockTurret;                       // +0xBA9
     bool DeployToFire;                      // +0xBAA
     bool IsSimpleDeployer;                  // +0xBAB
     bool IsTilter;                          // +0xBAC

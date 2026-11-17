@@ -61,7 +61,7 @@ extern "C" GUID const CLSID_TeamClass;            // 0x007A1CD0
 class TeamClass : public AbstractClass {
 public:
     TeamClass(NoInitClass const &noinit) :                          // (inlined into Load)
-        AbstractClass(noinit), unknown_58(noinit), unknown_64(noinit) {}
+        AbstractClass(noinit), TimeOut(noinit), SuspendTimer(noinit) {}
     virtual ~TeamClass();                                           // 0x006B7770 (scalar deleting 0x006BE740)
 
     bool Remove(FootClass *member, int slot, bool arg3);  // 0x006B8FB0 (removes a member: Red Alert's Remove; slot -1 finds it by type)
@@ -171,17 +171,17 @@ public:
     ScriptClass *Script;            // +0x28
     HouseClass *Owner;              // +0x2C
     AbstractClass *unknown_30;      // +0x30 (swizzled; class unknown)
-    AbstractClass *unknown_34;      // +0x34 (swizzled; class unknown)
+    AbstractClass *Zone;      // +0x34 (swizzled; class unknown)
     AbstractClass *unknown_38;      // +0x38 (swizzled; class unknown)
     AbstractClass *MissionTarget;      // +0x3C (swizzled; class unknown)
-    AbstractClass *unknown_40;      // +0x40 (swizzled; class unknown)
-    AbstractClass *unknown_44;      // +0x44 (swizzled; class unknown)
+    AbstractClass *Target;      // +0x40 (swizzled; class unknown)
+    AbstractClass *UnusedPtr1;      // +0x44 (swizzled; class unknown)
     int unknown_48;                 // +0x48
-    int unknown_4c;                 // +0x4C
-    int unknown_50;                 // +0x50
+    int Risk;                 // +0x4C
+    int CreationFrame;                 // +0x50
     FootClass *Member;              // +0x54
-    CDTimerClass<FrameTimerClass> unknown_58;   // +0x58
-    UnknownTimer423F60 unknown_64;              // +0x64 (NoInitClass constructor out of line)
+    CDTimerClass<FrameTimerClass> TimeOut;   // +0x58
+    UnknownTimer423F60 SuspendTimer;              // +0x64 (NoInitClass constructor out of line)
     TagClass *Tag;                  // +0x70
     bool IsTransient;                  // +0x74
     bool NeedsReGrouping;              // +0x75

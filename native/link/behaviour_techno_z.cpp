@@ -54,7 +54,7 @@ int TechnoClass::unknown_slot176()
     CellClass *here = &Map[cell];
     if (Kind_Of() == 1) {
         UnitClass *unit = (UnitClass *)this;
-        if (unknown_370) {
+        if (IsTethered) {
             TechnoClass *contact = Contact_With_Whom(0);
             if (contact != 0 && contact->Kind_Of() == 6 && contact->Get_Mission() == 0x10) {
                 return zadjust - 3;

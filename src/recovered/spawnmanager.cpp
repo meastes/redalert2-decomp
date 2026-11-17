@@ -95,11 +95,11 @@ SpawnManagerClass::SpawnManagerClass(TechnoClass *owner, AircraftTypeClass *type
             SpawnedNodes.Add(node);
         }
     }
-    unknown_50 = 20;
+    UpdateTimer = 20;
     Destination = 0;
     Target = 0;
     Status = 0;
-    unknown_5c = 0;
+    SpawnTimer = 0;
     unknown_SpawnManagerClass_list_00abd028.Add(this);
 }
 
@@ -112,11 +112,11 @@ SpawnManagerClass::SpawnManagerClass()
     Owner = 0;
     SpawnType = 0;
     SpawnCount = 0;
-    unknown_50 = 0;
+    UpdateTimer = 0;
     Destination = 0;
     Target = 0;
     Status = 0;
-    unknown_5c = 0;
+    SpawnTimer = 0;
     unknown_SpawnManagerClass_list_00abd028.Add(this);
 }
 
@@ -125,8 +125,8 @@ SpawnManagerClass::SpawnManagerClass()
 
 SpawnManagerClass::SpawnManagerClass(NoInitClass const &noinit) :
     AbstractClass(noinit),
-    unknown_50(0),
-    unknown_5c(0)
+    UpdateTimer(0),
+    SpawnTimer(0)
 {
 }
 
@@ -210,17 +210,17 @@ void SpawnManagerClass::Kill_Nodes()
 
 void SpawnManagerClass::AI()
 {
-    if (unknown_50.Value()) {
+    if (UpdateTimer.Value()) {
         return;
     }
-    unknown_50 = 10;
+    UpdateTimer = 10;
 
     for (int i = 0; i < SpawnedNodes.Count(); i++) {
         bool burst = false;
         AircraftClass *unit = SpawnedNodes[i]->Unit;
         switch (SpawnedNodes[i]->Status) {
         case 0:
-            if (Destination == 0 || unknown_5c.Value() || Status == 2 || Owner->House->Ion_Sensitives_Should_Be_Offline()) {
+            if (Destination == 0 || SpawnTimer.Value() || Status == 2 || Owner->House->Ion_Sensitives_Should_Be_Offline()) {
                 break;
             }
             if (SpawnedNodes[i]->IsMissile == 1) {
@@ -232,9 +232,9 @@ void SpawnManagerClass::AI()
                 }
             }
             if (Owner->Techno_Type_Class()->MissileSpawn) {
-                unknown_5c = 9;
+                SpawnTimer = 9;
             } else {
-                unknown_5c = 20;
+                SpawnTimer = 20;
             }
             if (SpawnedNodes[i]->IsMissile == 1) {
                 WeaponTypeClass *weapon = Owner->unknown_slot231(0)->WeaponType;
@@ -563,8 +563,8 @@ void SpawnManagerClass::Compute_CRC(WWCRCEngine &crc) const
     if (Destination != 0) {
         crc(Destination->Fetch_ID());
     }
-    crc(unknown_5c.Value());
-    crc(unknown_50.Value());
+    crc(SpawnTimer.Value());
+    crc(UpdateTimer.Value());
     crc((long)SpawnedNodes.Count());
     crc((long)SpawnCount);
     if (SpawnType != 0) {

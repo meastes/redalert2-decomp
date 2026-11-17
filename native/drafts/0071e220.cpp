@@ -94,10 +94,10 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 }
                 LinkedTo->PathDelay = Rules->PathDelay * 900.0;
                 if (!LinkedTo->unknown_4c3000(unknown_1c.As_Cell(), 0, 0)) {
-                    unknown_36 = false;
+                    IsReallyMoving = false;
                     if (LinkedTo->unknown_slot171(unknown_1c)) {
                         LinkedTo->On_Movement_Blocked();
-                        if (Coord_Length(LinkedTo->Center_Coord(), unknown_1c) < Rules->CloseEnoughDistance && !LinkedTo->unknown_370) {
+                        if (Coord_Length(LinkedTo->Center_Coord(), unknown_1c) < Rules->CloseEnoughDistance && !LinkedTo->IsTethered) {
                             LinkedTo->Assign_Destination(0, true);
                         } else if (LinkedTo->unknown_53c != 0) {
                             LinkedTo->unknown_53c--;
@@ -107,7 +107,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             }
                             LinkedTo->IsNewNavCom = false;
                             Cell dest = unknown_1c.As_Cell();
-                            if (LinkedTo->unknown_32d) {
+                            if (LinkedTo->IsLocked) {
                                 Cell nav_dest = LinkedTo->Destination_Coord(0).As_Cell();
                                 if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                     LinkedTo->Assign_Destination(0, true);
@@ -115,7 +115,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             }
                             if (LinkedTo->TarCom != 0) {
                                 Cell tar_dest = LinkedTo->TarCom->Destination_Coord(LinkedTo).As_Cell();
-                                if (LinkedTo->unknown_32d && LinkedTo->TarCom != 0) {
+                                if (LinkedTo->IsLocked && LinkedTo->TarCom != 0) {
                                     Cell nav_dest = LinkedTo->Destination_Coord(LinkedTo).As_Cell();
                                     if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                         LinkedTo->unknown_slot220(0);
@@ -171,7 +171,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 }
                 int move = LinkedTo->Can_Enter_Cell(&Map[cell], dir, LinkedTo->Unknown_005D47D0(), 0, true);
                 if (move != 0) {
-                    unknown_36 = false;
+                    IsReallyMoving = false;
                     LinkedTo->Stop_Movement_Animation();
                     if (move == 6) {
                         CellClass &cellptr = Map[cell];
@@ -262,7 +262,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     return;
                 }
                 if (Mark_Head_To(coord)) {
-                    unknown_36 = true;
+                    IsReallyMoving = true;
                     if (!LinkedTo->IsActive) {
                         return;
                     }
@@ -281,7 +281,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
             LinkedTo->IsNewNavCom = false;
         }
     } else {
-    unknown_36 = true;
+    IsReallyMoving = true;
     if (Distance2(Flat(LinkedTo->Center_Coord()), Flat(unknown_28)) < 17) {
         LinkedTo->Mark(0);
         if (LinkedTo->Path[0] == -1) {
@@ -306,7 +306,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 LinkedTo->unknown_slot306(0.0);
                 unknown_28 = unknown_geometry_l;
                 Stop_Moving();
-                unknown_36 = false;
+                IsReallyMoving = false;
             }
             LinkedTo->Mark(1);
             LinkedTo->IsNewNavCom = false;
@@ -314,7 +314,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         return;
     }
     if (LinkedTo->unknown_slot201()) {
-        unknown_36 = false;
+        IsReallyMoving = false;
         LinkedTo->IsNewNavCom = false;
         return;
     }

@@ -21,15 +21,15 @@ TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) :
     AccelerationFactor(0.03),
     CloakingSpeed(7),
     Locomotor(unknown_clsid_7a1fd0),
-    unknown_330(0.0),
-    unknown_338(0.0),
+    VoxelCenterY(0.0),
+    VoxelCenterX(0.0),
     Weight(1.0),
     PhysicalSize(2.0),
     Size(1.0),
     SizeLimit(0.0),
     HoverAttack(false),
     VHPScan(0),
-    unknown_368(15),
+    InitialMission(15),
     RollAngle(0.5235987755982988),
     PitchSpeed(0.25),
     PitchAngle(0.3490658503988659),
@@ -80,7 +80,7 @@ TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) :
     FlightLevel(-1),
     TechLevel(255),
     ThreatPosed(0),
-    unknown_59c(0),
+    Reward(0),
     Speed(0),
     SpeedType(speed_type),
     InitialAmmo(-1),
@@ -135,7 +135,7 @@ TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) :
     TypeImmune(false),
     MoveToShroud(true),
     Trainable(true),
-    unknown_a9b(false),
+    IsDamageSparks(false),
     TargetLaser(false),
     ImmuneToVeins(false),
     TiberiumHeal(false),
@@ -144,11 +144,11 @@ TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) :
     IsDropship(false),
     ToProtect(false),
     Disableable(true),
-    unknown_aa4(false),
+    IsUnbuildable(false),
     DoubleOwned(false),
     Invisible(false),
     RadarVisible(false),
-    unknown_aa8(false),
+    IsLeader(false),
     Sensors(false),
     Nominal(false),
     Turret(false),
@@ -175,7 +175,7 @@ TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) :
     HunterSeeker(false),
     Crusher(false),
     TiltsWhenCrushes(true),
-    unknown_af5(false),
+    IsSubterranean(false),
     AutoCrush(false),
     CanDisguise(false),
     PermaDisguise(false),
@@ -247,7 +247,7 @@ TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) :
         EliteWeapon[index].TurretLocked = false;
     }
     for (index = 0; index < 15; index++) {
-        unknown_710[index] = -1;
+        TurretWeapon[index] = -1;
     }
     AbstractTypePtrTracker.Add(this);
     TechnoTypes.Add(this);

@@ -78,14 +78,14 @@ TemporalClass::TemporalClass(TechnoClass *owner)
 {
     Owner = owner;
     Target = 0;
-    unknown_2c = CDTimerClass<FrameTimerClass>();
-    unknown_40 = 0;
-    unknown_44 = 0;
+    LifeTimer = CDTimerClass<FrameTimerClass>();
+    NextTemporal = 0;
+    PrevTemporal = 0;
     unknown_TemporalClass_list_00ac02e0.Add(this);
     unknown_48 = 0;
-    unknown_4c = 0;
+    WarpPerStep = 0;
     unknown_38 = 0;
-    unknown_3c = 0;
+    SourceSW = 0;
 }
 
 
@@ -125,10 +125,10 @@ HRESULT __stdcall TemporalClass::Load(IStream *stream)
         new (this) TemporalClass(NoInitClass());
         Swizzler.Swizzle((void **)&Owner);
         Swizzler.Swizzle((void **)&Target);
-        Swizzler.Swizzle((void **)&unknown_40);
-        Swizzler.Swizzle((void **)&unknown_44);
+        Swizzler.Swizzle((void **)&NextTemporal);
+        Swizzler.Swizzle((void **)&PrevTemporal);
         Swizzler.Swizzle((void **)&unknown_38);
-        Swizzler.Swizzle((void **)&unknown_3c);
+        Swizzler.Swizzle((void **)&SourceSW);
     }
     return result;
 }
@@ -162,7 +162,7 @@ HRESULT __stdcall TemporalClass::GetClassID(GUID *classid)
 
 void TemporalClass::AI()
 {
-    if(Target!=0 && Target->TemporalTargetingMe==this && unknown_40!=0) {
+    if(Target!=0 && Target->TemporalTargetingMe==this && NextTemporal!=0) {
         Target->TemporalTargetingMe=0;
         Target->BeingWarpedOut=false;
         Just_Let_Go();
@@ -171,7 +171,7 @@ void TemporalClass::AI()
     unknown_48-=Get_Warp_Per_Step(0);
     if(unknown_48<=0) {
         if(Target==0) {
-            Target=0;unknown_44=0;unknown_40=0;unknown_3c=0;unknown_38=0;
+            Target=0;PrevTemporal=0;NextTemporal=0;SourceSW=0;unknown_38=0;
         } else {
             new AnimClass(Rules->WarpAway,Target->Position_Coord_004f3f40(),0,1,0x600,0);
         }
@@ -192,9 +192,9 @@ void TemporalClass::AI()
                         }
                     }
                 }
-                if(unknown_3c!=0) {
-                    ((SuperClass *)unknown_3c)->Suspend(false);
-                    unknown_3c=0;
+                if(SourceSW!=0) {
+                    ((SuperClass *)SourceSW)->Suspend(false);
+                    SourceSW=0;
                 }
                 Target->unknown_slot216((int)Owner);
                 Target->Record_The_Kill(Owner);
@@ -206,7 +206,7 @@ void TemporalClass::AI()
                 Target->Delete_Me();
             }
         }
-        Target=0;unknown_44=0;unknown_40=0;unknown_3c=0;unknown_38=0;
+        Target=0;PrevTemporal=0;NextTemporal=0;SourceSW=0;unknown_38=0;
     }
 }
 
@@ -220,11 +220,11 @@ void TemporalClass::AI()
 int TemporalClass::Get_Warp_Per_Step(int step)
 {
     int helpers = 0;
-    if (unknown_44 != 0 && step <= 50) {
-        helpers = unknown_44->Get_Warp_Per_Step(step + 1);
+    if (PrevTemporal != 0 && step <= 50) {
+        helpers = PrevTemporal->Get_Warp_Per_Step(step + 1);
     }
-    unknown_4c = Owner->unknown_slot231(Owner->What_Weapon_Should_I_Use(0))->WeaponType->unknown_a4;
-    return unknown_4c + helpers;
+    WarpPerStep = Owner->unknown_slot231(Owner->What_Weapon_Should_I_Use(0))->WeaponType->Attack;
+    return WarpPerStep + helpers;
 }
 
 
@@ -240,9 +240,9 @@ void TemporalClass::Detach_Techno(TechnoClass *target)
         }
     } else if (target == Target) {
         Target = 0;
-        unknown_44 = 0;
-        unknown_40 = 0;
-        unknown_3c = 0;
+        PrevTemporal = 0;
+        NextTemporal = 0;
+        SourceSW = 0;
         unknown_38 = 0;
     }
 }
@@ -253,11 +253,11 @@ void __fastcall unknown_temporal_thaw_0044d380(int building);
 
 void TemporalClass::Let_Go_Of_Target()
 {
-    if(unknown_40==0) {
-        if(unknown_44!=0) {
-            if(Target!=0) Target->TemporalTargetingMe=unknown_44;
-            unknown_44->unknown_40=0;
-            unknown_44->unknown_48=unknown_48;
+    if(NextTemporal==0) {
+        if(PrevTemporal!=0) {
+            if(Target!=0) Target->TemporalTargetingMe=PrevTemporal;
+            PrevTemporal->NextTemporal=0;
+            PrevTemporal->unknown_48=unknown_48;
         } else if(Target!=0) {
             Target->TemporalTargetingMe=0;
             Target->BeingWarpedOut=false;
@@ -270,15 +270,15 @@ void TemporalClass::Let_Go_Of_Target()
             Target->Mark(2);
         }
     } else {
-        if(unknown_44!=0) {
-            unknown_44->unknown_40=unknown_40;
-            if(unknown_40!=0) unknown_40->unknown_44=unknown_44;
-        } else unknown_40->unknown_44=0;
+        if(PrevTemporal!=0) {
+            PrevTemporal->NextTemporal=NextTemporal;
+            if(NextTemporal!=0) NextTemporal->PrevTemporal=PrevTemporal;
+        } else NextTemporal->PrevTemporal=0;
     }
     Target=0;
-    unknown_44=0;
-    unknown_40=0;
-    unknown_3c=0;
+    PrevTemporal=0;
+    NextTemporal=0;
+    SourceSW=0;
     unknown_38=0;
 }
 
@@ -317,23 +317,23 @@ void TemporalClass::Let_Go()
         Target->TemporalTargetingMe = 0;
         Target = 0;
     }
-    if (unknown_44 != 0) {
-        if (unknown_44->unknown_40 == this) {
-            unknown_44->unknown_40 = 0;
+    if (PrevTemporal != 0) {
+        if (PrevTemporal->NextTemporal == this) {
+            PrevTemporal->NextTemporal = 0;
         }
-        unknown_44->Just_Let_Go();
-        unknown_44 = 0;
+        PrevTemporal->Just_Let_Go();
+        PrevTemporal = 0;
     }
-    if (unknown_40 != 0) {
-        if (unknown_40->unknown_44 == this) {
-            unknown_40->unknown_44 = 0;
+    if (NextTemporal != 0) {
+        if (NextTemporal->PrevTemporal == this) {
+            NextTemporal->PrevTemporal = 0;
         }
-        unknown_40->Just_Let_Go();
-        unknown_40 = 0;
+        NextTemporal->Just_Let_Go();
+        NextTemporal = 0;
     }
-    unknown_44 = 0;
-    unknown_40 = 0;
-    unknown_3c = 0;
+    PrevTemporal = 0;
+    NextTemporal = 0;
+    SourceSW = 0;
     unknown_38 = 0;
 }
 
@@ -360,21 +360,21 @@ void TemporalClass::Just_Let_Go()
     Target->BeingWarpedOut = false;
     Target->TemporalTargetingMe = 0;
     Target = 0;
-    if (unknown_44 != 0) {
-        if (unknown_44->unknown_40 == this) {
-            unknown_44->unknown_40 = 0;
+    if (PrevTemporal != 0) {
+        if (PrevTemporal->NextTemporal == this) {
+            PrevTemporal->NextTemporal = 0;
         }
-        unknown_44->Just_Let_Go();
+        PrevTemporal->Just_Let_Go();
     }
-    if (unknown_40 != 0) {
-        if (unknown_40->unknown_44 == this) {
-            unknown_40->unknown_44 = 0;
+    if (NextTemporal != 0) {
+        if (NextTemporal->PrevTemporal == this) {
+            NextTemporal->PrevTemporal = 0;
         }
-        unknown_40->Just_Let_Go();
+        NextTemporal->Just_Let_Go();
     }
-    unknown_44 = 0;
-    unknown_40 = 0;
-    unknown_3c = 0;
+    PrevTemporal = 0;
+    NextTemporal = 0;
+    SourceSW = 0;
     unknown_38 = 0;
 }
 
@@ -433,10 +433,10 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
             if(Target->Kind_Of()==6 && !Target->Techno_Type_Class()->IsInsignificant && !Target->Considered_Vehicle())
                 Target->House->Attacked(As_Building(Target));
         } else {
-            unknown_40=(TemporalClass *)Target->TemporalTargetingMe;
-            unknown_44=unknown_40->unknown_44;
-            unknown_40->unknown_44=this;
-            if(unknown_44!=0) unknown_44->unknown_40=this;
+            NextTemporal=(TemporalClass *)Target->TemporalTargetingMe;
+            PrevTemporal=NextTemporal->PrevTemporal;
+            NextTemporal->PrevTemporal=this;
+            if(PrevTemporal!=0) PrevTemporal->NextTemporal=this;
         }
         Target->BeingWarpedOut=true;
         if(Target->Kind_Of()==6) {

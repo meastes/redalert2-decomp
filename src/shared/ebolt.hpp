@@ -12,7 +12,7 @@ public:
  // Pure drawing helper; association with EBolt is a hypothesis (original ECX unused).
  void Draw_Line_004B1850(CoordStruct start,CoordStruct end,int color,int first_depth,int second_depth);
  void Draw_Bolt_004B1900(CoordStruct start,CoordStruct end,int count);
- ~EBolt() { if(Owner) { Owner->unknown_5c4=0; Owner=0; } }
+ ~EBolt() { if(Owner) { Owner->ElectricBolt=0; Owner=0; } }
  static void Delete_All_004B23B0();
  CoordStruct Owner_Coord_004B2510();
  void Attach_004B2580(TechnoClass *owner,int index);

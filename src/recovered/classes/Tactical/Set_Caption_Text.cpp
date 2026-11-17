@@ -13,13 +13,13 @@ public:
     void Set_Caption_Text_006a53f0(unsigned short const *text, int value);
     void Unknown_006A5440()
     {
-        unknown_a4 = -1;
+        EndGameGraphicsFrame = -1;
         unknown_24[0] = 0;
     }
 
     char unknown_00[0x24];
     unsigned short unknown_24[64];      // +0x24
-    int unknown_a4;                     // +0xA4
+    int EndGameGraphicsFrame;                     // +0xA4
 };
 
 void Tactical::Set_Caption_Text_006a53f0(unsigned short const *text, int value)
@@ -29,5 +29,5 @@ void Tactical::Set_Caption_Text_006a53f0(unsigned short const *text, int value)
     } else {
         wcscpy(unknown_24, text);
     }
-    unknown_a4 = value;
+    EndGameGraphicsFrame = value;
 }

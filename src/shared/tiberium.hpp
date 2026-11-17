@@ -75,13 +75,13 @@ public:
     // (ArrayIndex, Value, Image, NumFrames, NumImages; names hypotheses).
     int ArrayIndex;                                 // +0x098
     int Spread;                                     // +0x09C frames between spreads
-    double unknown_a0;                              // +0x0A0 [SpreadPercentage] (0.1)
+    double SpreadPercentage;                              // +0x0A0 [SpreadPercentage] (0.1)
     int Growth;                                     // +0x0A8 frames between growths
     int unknown_ac;                                 // +0x0AC
     double GrowthPercentage;                              // +0x0B0 [GrowthPercentage] (0.1)
     int Value;                                      // +0x0B8 (credits per stage; hypothesis)
     int Power;                                      // +0x0BC
-    int unknown_c0;                                 // +0x0C0 [Color] (a colour scheme index)
+    int Color;                                 // +0x0C0 [Color] (a colour scheme index)
     TypeList<AnimTypeClass *> Debris;               // +0x0C4 (vtable 0x007A3B3C)
     OverlayTypeClass *Image;                        // +0x0E0
     int FrameCount;                                 // +0x0E4

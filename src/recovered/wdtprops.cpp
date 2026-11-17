@@ -133,7 +133,7 @@ namespace WorldDominationTour {
 int CampaignProperties::unknown_14() const
 {
     if (TheWDTState.Get()) {
-        return TheWDTState->unknown_14;
+        return TheWDTState->MapID;
     }
     return 1;
 }

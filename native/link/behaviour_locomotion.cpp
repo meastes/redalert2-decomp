@@ -24,8 +24,8 @@ Matrix3D * __stdcall DriveLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *ke
         Matrix3D rotation;
         transform.Make_Identity();
         rotation.Make_Identity();
-        float length = (float)LinkedTo->Techno_Type_Class()->unknown_330;
-        float width = (float)LinkedTo->Techno_Type_Class()->unknown_338;
+        float length = (float)LinkedTo->Techno_Type_Class()->VoxelCenterY;
+        float width = (float)LinkedTo->Techno_Type_Class()->VoxelCenterX;
         float roll_cos = Fast_Cos(LinkedTo->AngleRotatedForwards);
         float roll_sin = Fast_Sin(LinkedTo->AngleRotatedForwards);
         float pitch_cos = Fast_Cos(LinkedTo->AngleRotatedSideways);

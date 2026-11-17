@@ -89,7 +89,7 @@ DynamicVectorClass<TActionClass *> Actions;
 extern DynamicVectorClass<AbstractClass *> EventActionPtrTracker;
 
 TActionClass::TActionClass() :
-    unknown_24(-1),
+    HeapID(-1),
     Next(0),
     Type(0),
     unknown_30(0),
@@ -99,11 +99,11 @@ TActionClass::TActionClass() :
     unknown_40(0),
     EffectLocation(0),
     unknown_48(0),
-    unknown_4c(0),
-    unknown_50(0)
+    Tag(0),
+    Trigger(0)
 {
     Actions.Add(this);
-    unknown_24 = Actions.ID(this);
+    HeapID = Actions.ID(this);
     AbstractTypePtrTracker.Add((ObjectClass *)this);
     EventActionPtrTracker.Add(this);
     Text[0] = 0;
@@ -136,11 +136,11 @@ void TActionClass::Detach(AbstractClass *target, bool all)
     if ((AbstractClass *)unknown_30 == target) {
         unknown_30 = 0;
     }
-    if (unknown_50 == target) {
-        unknown_50 = 0;
+    if (Trigger == target) {
+        Trigger = 0;
     }
-    if (unknown_4c == target) {
-        unknown_4c = 0;
+    if (Tag == target) {
+        Tag = 0;
     }
 }
 
@@ -180,14 +180,14 @@ void TActionClass::Build_INI_Entry(char *buffer) const
         value = ((TeamTypeClass *)unknown_30)->ArrayIndex;
         kind = 1;
         name = unknown_30->ID;
-    } else if (unknown_50 != 0 && value_kind == 0x0B) {
-        value = ((TriggerTypeClass *)unknown_50)->ArrayIndex;
+    } else if (Trigger != 0 && value_kind == 0x0B) {
+        value = ((TriggerTypeClass *)Trigger)->ArrayIndex;
         kind = 2;
-        name = ((TriggerTypeClass *)unknown_50)->ID;
-    } else if (unknown_4c != 0 && value_kind == 0x1A) {
-        value = ((TagTypeClass *)unknown_4c)->ArrayIndex;
+        name = ((TriggerTypeClass *)Trigger)->ID;
+    } else if (Tag != 0 && value_kind == 0x1A) {
+        value = ((TagTypeClass *)Tag)->ArrayIndex;
         kind = 3;
-        name = ((TagTypeClass *)unknown_4c)->ID;
+        name = ((TagTypeClass *)Tag)->ID;
     } else if (value_kind == 0x27) {
         kind = 4;
         name = Get_Text();
@@ -253,21 +253,21 @@ void TActionClass::Read_INI()
 
         case 2:
             if (value == -1) {
-                unknown_50 = 0;
+                Trigger = 0;
             } else if (strlen(token) < 3) {
-                unknown_50 = TriggerTypes[value];
+                Trigger = TriggerTypes[value];
             } else {
-                unknown_50 = TriggerTypeClass::Find_Or_Make(token);
+                Trigger = TriggerTypeClass::Find_Or_Make(token);
             }
             break;
 
         case 3:
             if (value == -1) {
-                unknown_4c = 0;
+                Tag = 0;
             } else if (strlen(token) < 3) {
-                unknown_4c = TagTypes[value];
+                Tag = TagTypes[value];
             } else {
-                unknown_4c = TagTypeClass::Find_Or_Make(token);
+                Tag = TagTypeClass::Find_Or_Make(token);
             }
             break;
 
@@ -1534,7 +1534,7 @@ bool TActionClass::unknown_weapon_explosion_at_waypoint(HouseClass *house, Objec
     }
     int index = Data.Value;
     WeaponTypeClass *weapon = Weapons[index];
-    int damage = weapon->unknown_a4;
+    int damage = weapon->Attack;
     int land = Map[coord].Land;
     AnimTypeClass *anim = Select_Damage_Anim(damage, weapon->Warhead, land, &coord);
     if (anim != 0) {
@@ -1647,7 +1647,7 @@ bool TActionClass::unknown_center_on_waypoint(HouseClass *house, ObjectClass *ob
 
 bool TActionClass::unknown_func_6b1c80(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    TacticalMap->unknown_c0 = Rules->ZoomInFactor;
+    TacticalMap->ZoomFactor = Rules->ZoomInFactor;
     IgnoreInput = true;
     WWKeyboard->Clear();
     WWMouse->Hide_Mouse();
@@ -1664,7 +1664,7 @@ bool TActionClass::unknown_func_6b1c80(HouseClass *house, ObjectClass *object, T
 
 bool TActionClass::TAction_ZOOM_OUT(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    TacticalMap->unknown_c0 = 1.0;
+    TacticalMap->ZoomFactor = 1.0;
     WWKeyboard->Clear();
     IgnoreInput = Scen->IsInputLocked;
     WWMouse->Show_Mouse();
@@ -1713,10 +1713,10 @@ bool TActionClass::TAction_CHANGE_SPOTLIGHT_BEHAVIOR(HouseClass *house, ObjectCl
 
 bool TActionClass::TAction_DESTROY_TRIGGER(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_50 != 0) {
+    if (Trigger != 0) {
         int count = Triggers.Count();
         for (int index = 0; index < count; index++) {
-            if (Triggers[index]->Class == (TriggerTypeClass *)unknown_50) {
+            if (Triggers[index]->Class == (TriggerTypeClass *)Trigger) {
                 delete Triggers[index];
                 index--;
             }
@@ -1732,10 +1732,10 @@ bool TActionClass::TAction_DESTROY_TRIGGER(HouseClass *house, ObjectClass *objec
 
 bool TActionClass::TAction_DESTROY_TAG(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_4c != 0) {
+    if (Tag != 0) {
         int count = Tags.Count();
         for (int index = 0; index < count; index++) {
-            if (Tags[index]->Class == (TagTypeClass *)unknown_4c) {
+            if (Tags[index]->Class == (TagTypeClass *)Tag) {
                 delete Tags[index];
                 index--;
             }
@@ -1750,9 +1750,9 @@ bool TActionClass::TAction_DESTROY_TAG(HouseClass *house, ObjectClass *object, T
 
 bool TActionClass::TAction_FORCE_TRIGGER(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_50 != 0) {
+    if (Trigger != 0) {
         for (int index = 0; index < Triggers.Count(); index++) {
-            if ((AbstractClass *)Triggers[index]->Class == unknown_50) {
+            if ((AbstractClass *)Triggers[index]->Class == Trigger) {
                 Triggers[index]->Spring(0, unknown_geometry_k);
             }
         }
@@ -1767,10 +1767,10 @@ bool TActionClass::TAction_FORCE_TRIGGER(HouseClass *house, ObjectClass *object,
 
 bool TActionClass::TAction_ENABLE_TRIGGER(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_50 != 0) {
+    if (Trigger != 0) {
         for (int index = 0; index < Triggers.Count(); index++) {
             TriggerTypeClass *type = Triggers[index]->Class;
-            if ((AbstractClass *)type == unknown_50) {
+            if ((AbstractClass *)type == Trigger) {
                 if ((Scen->Difficulty != 0 || type->IsEnabledOnEasy)
                         && (Scen->Difficulty != 1 || type->IsEnabledOnMedium)
                         && (Scen->Difficulty != 2 || type->IsEnabledOnHard)) {
@@ -1788,9 +1788,9 @@ bool TActionClass::TAction_ENABLE_TRIGGER(HouseClass *house, ObjectClass *object
 
 bool TActionClass::TAction_DISABLE_TRIGGER(HouseClass *house, ObjectClass *object, TriggerClass *trigger, Cell *cell)
 {
-    if (unknown_50 != 0) {
+    if (Trigger != 0) {
         for (int index = 0; index < Triggers.Count(); index++) {
-            if ((AbstractClass *)Triggers[index]->Class == unknown_50) {
+            if ((AbstractClass *)Triggers[index]->Class == Trigger) {
                 Triggers[index]->Disable();
             }
         }
@@ -1997,7 +1997,7 @@ bool TActionClass::unknown_nuke_at_waypoint(HouseClass *house, ObjectClass *obje
     }
     WeaponTypeClass *payload = Weapons[WeaponTypeClass::Index_From_Name("NukePayload")];
     BulletTypeClass *projectile = payload->Projectile;
-    BulletClass *bullet = Create_Bullet(projectile, (AbstractClass *)&Map[coord], 0, payload->unknown_a4, payload->Warhead, 50, false);
+    BulletClass *bullet = Create_Bullet(projectile, (AbstractClass *)&Map[coord], 0, payload->Attack, payload->Warhead, 50, false);
     bullet->Set_Weapon_Type(payload);
     CoordStruct launch = coord + CoordStruct(0, 0, 20000);
     if (bullet != 0) {
@@ -2108,7 +2108,7 @@ bool TActionClass::unknown_chem_missile_at_waypoint(HouseClass *house, ObjectCla
     Cell from = Map.Unknown_005689D0(Coord_Cell(coord), 0);
     WeaponTypeClass *launcher = Weapons[WeaponTypeClass::Index_From_Name("ChemLauncher")];
     BulletTypeClass *projectile = launcher->Projectile;
-    BulletClass *bullet = Create_Bullet(projectile, (AbstractClass *)&Map[coord], 0, launcher->unknown_a4, launcher->Warhead, 20, false);
+    BulletClass *bullet = Create_Bullet(projectile, (AbstractClass *)&Map[coord], 0, launcher->Attack, launcher->Warhead, 20, false);
     if (bullet != 0) {
         double y = unknown_cos_4ba4d0(-9.587672516830327e-05);
         y *= unknown_sin_4ba480(1.5707483884323126);
@@ -2292,8 +2292,8 @@ HRESULT __stdcall TActionClass::Load(IStream *stream)
     new (this) TActionClass(NoInitClass());
     Swizzler.Swizzle((void **)&Next);
     Swizzler.Swizzle((void **)&unknown_30);
-    Swizzler.Swizzle((void **)&unknown_4c);
-    Swizzler.Swizzle((void **)&unknown_50);
+    Swizzler.Swizzle((void **)&Tag);
+    Swizzler.Swizzle((void **)&Trigger);
     return S_OK;
 }
 
@@ -2322,11 +2322,11 @@ void TActionClass::Compute_CRC(WWCRCEngine &crc) const
     if (unknown_30 != 0) {
         crc(unknown_30->Fetch_ID());
     }
-    if (unknown_4c != 0) {
-        crc(unknown_4c->Fetch_ID());
+    if (Tag != 0) {
+        crc(Tag->Fetch_ID());
     }
-    if (unknown_50 != 0) {
-        crc(unknown_50->Fetch_ID());
+    if (Trigger != 0) {
+        crc(Trigger->Fetch_ID());
     }
     crc((long)Data.Value);
 }
@@ -2500,7 +2500,7 @@ int TActionClass::Kind_Of() const
 
 int TActionClass::Fetch_Heap_ID() const
 {
-    return unknown_24;
+    return HeapID;
 }
 
 

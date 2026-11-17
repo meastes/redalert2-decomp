@@ -243,7 +243,7 @@ bool IPXInterfaceClass::Open_Socket(int socketnum)
     }
     Debug_Printf("IPX Socket created OK\n");
 
-    if (!Get_Network_Card_Address(unknown_3f2f8, &address)) {
+    if (!Get_Network_Card_Address(NetCard, &address)) {
         Debug_Printf("IPX Error - failed to get the net card address\n");
         closesocket(Socket);
         return false;

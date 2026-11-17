@@ -24,7 +24,7 @@ class ShipLocomotionClass : public LocomotionClass, public IPiggyback {
 public:
     ShipLocomotionClass();                                                     // 0x00675600
     ShipLocomotionClass(NoInitClass const &noinit) :                           // inline (Load)
-        LocomotionClass(noinit), unknown_24(noinit) {}
+        LocomotionClass(noinit), RampTimer(noinit) {}
     virtual ~ShipLocomotionClass();                                            // 0x006756A0
 
     virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);   // 0x006757E0
@@ -87,12 +87,12 @@ public:
 
     int unknown_1c;                     // +0x1C ramp
     int unknown_20;                     // +0x20 ramp
-    UnknownSlopeTimer unknown_24;       // +0x24
-    CoordStruct unknown_34;             // +0x34 destination
+    UnknownSlopeTimer RampTimer;       // +0x24
+    CoordStruct DestinationCoord;             // +0x34 destination
     CoordStruct HeadToCoord;             // +0x40 head-to coordinate
-    int unknown_4c;                     // +0x4C speed accumulator
-    double unknown_50;                  // +0x50 (a speed fraction; Stop_Moving caps it at 0.3)
-    int unknown_58;                     // +0x58 track number
+    int SpeedAccum;                     // +0x4C speed accumulator
+    double TargetSpeed;                  // +0x50 (a speed fraction; Stop_Moving caps it at 0.3)
+    int TrackNumber;                     // +0x58 track number
     int TrackIndex;                     // +0x5C track index
     bool IsOnShortTrack;                    // +0x60
     bool IsTurretLockedDown;                    // +0x61

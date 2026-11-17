@@ -298,7 +298,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
     int move=Can_Enter_Cell(&Map[cell],-1,-1,0,true);
     if(move==6 && distance>close_enough && !train) {
         int zone=unknown_zone_table_7a1200[Techno_Type_Class()->MovementZone];
-        bool check=Techno_Type_Class()->unknown_af5 && Map[cell].Can_Burrow_Here();
+        bool check=Techno_Type_Class()->IsSubterranean && Map[cell].Can_Burrow_Here();
         Cell nearby=Map.Nearby_Location(cell,Techno_Type_Class()->SpeedType,
             Map.Zone(Get_Cell(),zone,IsOnBridge),zone,IsOnBridge,Point2D(1,1),false,true,check,true,Get_Cell(),0);
         int dest_y=cell.Y;
@@ -317,7 +317,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
     if(move==7 && !train) {
         if(Map[cell].Cell_Building()!=0) {
             int zone=unknown_zone_table_7a1200[Techno_Type_Class()->MovementZone];
-            bool check=Techno_Type_Class()->unknown_af5 && Map[cell].Can_Burrow_Here();
+            bool check=Techno_Type_Class()->IsSubterranean && Map[cell].Can_Burrow_Here();
             Cell nearby=Map.Nearby_Location(cell,Techno_Type_Class()->SpeedType,
                 Map.Zone(Get_Cell(),zone,IsOnBridge),zone,IsOnBridge,Point2D(1,1),false,true,check,true,Get_Cell(),0);
             Assign_Destination(&Map[nearby],true);
@@ -342,11 +342,11 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
     PathDelay=0;
     if(Kind_Of()==1 && Path[0]!=-1) {
         UnitClass *unit=static_cast<UnitClass *>(this);
-        FootClass *follower=unit->unknown_5b0;
+        FootClass *follower=unit->FollowingMe;
         int length=0;
         if(path) length=path->Length-2;
         Cell next_cell=cell;
-        if(follower && !unit->unknown_5b8) {
+        if(follower && !unit->IsFollowing) {
             while(follower) {
                 CellClass *current=&Map[next_cell];
                 next_cell=current->Adjacent_Cell((work_path[length]+4)%8).MapCoords;
@@ -356,7 +356,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
                     follower->Assign_Destination(&Map[next_cell],true);
                     follower->unknown_4c3000(next_cell,0,0);
                 }
-                follower=static_cast<UnitClass *>(follower)->unknown_5b0;
+                follower=static_cast<UnitClass *>(follower)->FollowingMe;
             }
         }
     }
@@ -431,7 +431,7 @@ int FootClass::Do_MISSION_MOVE()
 int FootClass::Do_MISSION_PATROL()
 {
     int trange = unknown_slot188(2);
-    unknown_37f = true;
+    IsOnPatrol = true;
     int dist = trange / 256 + 6;
 
     switch (Status) {
@@ -732,7 +732,7 @@ int FootClass::Do_MISSION_GUARD()
     int result = 0;
     if (Arm.Value() != 0) {
         result = Arm.Value();
-    } else if (!Techno_Type_Class()->DistributedFire || unknown_3a8.Count() <= 0) {
+    } else if (!Techno_Type_Class()->DistributedFire || CurrentTargets.Count() <= 0) {
         result = delay + Scen->Random()(0, 2);
     }
     return result;
@@ -932,7 +932,7 @@ void FootClass::unknown_slot304()
             }
         }
     }
-    if ((!NavCom || In_Air()) && (!in_range || !unknown_32d || require_deploy_cell)) {
+    if ((!NavCom || In_Air()) && (!in_range || !IsLocked || require_deploy_cell)) {
     if (unknown_478.Count()>0) {
         Assign_Destination(unknown_478[0],false);
         unknown_478.Delete(0);
@@ -1205,10 +1205,10 @@ int FootClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
         }
     }
     if (ParasiteEatingMe != 0 && source != ParasiteEatingMe && *damage > ParasiteEatingMe->Techno_Type_Class()->SuppressionThreshold) {
-        ParasiteEatingMe->ParasiteImUsing->unknown_2c = CDTimerClass<FrameTimerClass>(*damage * 2 - ParasiteEatingMe->Techno_Type_Class()->SuppressionThreshold);
+        ParasiteEatingMe->ParasiteImUsing->SuppressionTimer = CDTimerClass<FrameTimerClass>(*damage * 2 - ParasiteEatingMe->Techno_Type_Class()->SuppressionThreshold);
     }
     if (ParasiteEatingMe != 0 && *damage < 0) {
-        ParasiteEatingMe->ParasiteImUsing->unknown_2c = CDTimerClass<FrameTimerClass>(50);
+        ParasiteEatingMe->ParasiteImUsing->SuppressionTimer = CDTimerClass<FrameTimerClass>(50);
         ParasiteEatingMe->ParasiteImUsing->Unknown_00607440();
     }
     int result = TechnoClass::Take_Damage(damage, distance, warhead, source, forced, arg6);
@@ -1334,7 +1334,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
                 center.Z = Map.Get_Height_GL(center);
             }
 
-            if (((Techno_Type_Class()->unknown_af5 && !Rules->AllowShroudedSubteranneanMoves) || Kind_Of() == 2) && Map.Is_Shrouded(center)) return true;
+            if (((Techno_Type_Class()->IsSubterranean && !Rules->AllowShroudedSubteranneanMoves) || Kind_Of() == 2) && Map.Is_Shrouded(center)) return true;
 
             int mzone = Techno_Type_Class()->MovementZone;
             Cell cell = Coord_Cell(object->Destination_Coord(0));
@@ -1344,7 +1344,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
             if (mzone == 6) mzone = 0;
             else if (mzone == 9) mzone = 7;
 
-            bool moveanywhere = In_Air() || Techno_Type_Class()->unknown_af5 || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet) || Kind_Of() == 2;
+            bool moveanywhere = In_Air() || Techno_Type_Class()->IsSubterranean || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet) || Kind_Of() == 2;
 
             bool ontobridge = Is_Moving_Onto_Bridge(0);
             CoordStruct coord = Cell_Coord(cell);
@@ -1353,7 +1353,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
             bool forcemove = !arg3 && (Foot_Key_Down(unknown_key_a40ba4) || Foot_Key_Down(unknown_key_a40ba8));
 
             if (moveanywhere && action == 2) {
-                Cell nearby = Map.Nearby_Location(cell, Techno_Type_Class()->SpeedType, -1, mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, Techno_Type_Class()->unknown_af5 && Get_Height_AGL() < 0, 1, Cell(0, 0), 0);
+                Cell nearby = Map.Nearby_Location(cell, Techno_Type_Class()->SpeedType, -1, mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, Techno_Type_Class()->IsSubterranean && Get_Height_AGL() < 0, 1, Cell(0, 0), 0);
                 if (nearby != unknown_geometry_k) {
                     targ = &Map[nearby];
                 }
@@ -1383,7 +1383,7 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
 
     case 59: {
         WeaponStruct *weapon = unknown_slot231(0);
-        bool heals = (weapon != 0 && weapon->WeaponType != 0 && weapon->WeaponType->unknown_a4 < 0);
+        bool heals = (weapon != 0 && weapon->WeaponType != 0 && weapon->WeaponType->Attack < 0);
         Player_Assign_Mission(heals ? 0xB : 5, this, 0, 0);
         return true;
     }
@@ -1874,7 +1874,7 @@ int FootClass::Do_MISSION_ENTER()
         contact = Unknown_0040DC20(ArchivedTarget);
     }
     if (contact != 0) {
-        if (unknown_slot150(0xE, contact) != 1 && !unknown_370) {
+        if (unknown_slot150(0xE, contact) != 1 && !IsTethered) {
             unknown_slot149(3);
             unknown_slot261(0, true);
         } else if (NavCom == 0 && unknown_478.Count() > 0) {
@@ -2307,10 +2307,10 @@ void FootClass::Clear_Navigation_List()
 
 bool FootClass::unknown_slot189()
 {
-    if (!unknown_32d) {
+    if (!IsLocked) {
         return false;
     }
-    if (Techno_Type_Class()->IsTrain || unknown_32c || Get_Mission() == 4 || (Team != 0 && Team->Is_Leaving_Map())) {
+    if (Techno_Type_Class()->IsTrain || IsALoaner || Get_Mission() == 4 || (Team != 0 && Team->Is_Leaving_Map())) {
         return true;
     }
     return false;
@@ -2336,7 +2336,7 @@ bool FootClass::Is_Recruitable(HouseClass *house)
     if (!MissionClass::Is_Recruitable_Mission(Get_Mission())) {
         return false;
     }
-    return unknown_379 ? true : false;
+    return IsTeamRecruitable ? true : false;
 }
 
 
@@ -2491,9 +2491,9 @@ void FootClass::AI()
             }
         }
     }
-    if (!unknown_32d && Techno_Type_Class()->BalloonHover
+    if (!IsLocked && Techno_Type_Class()->BalloonHover
         && Map.Unknown_0055A740((CellClass *)Get_Cell_Ptr(), 1)) {
-        unknown_32d = true;
+        IsLocked = true;
     }
     if (Locomotor.Checked()->Is_Moving_Now() && In_Air() && House->Is_Ally(PlayerPtr)
         && SightTimer.Value() == 0) {
@@ -2509,7 +2509,7 @@ void FootClass::AI()
     }
 
     int frame = TotalFramesWalked;
-    if (Locomotor != 0 && !unknown_325 && !IsFalling) {
+    if (Locomotor != 0 && !IsSinking && !IsFalling) {
         Locomotor.Checked()->Process();
         if (!IsActive) {
             return;
@@ -2522,7 +2522,7 @@ void FootClass::AI()
             TotalFramesWalked++;
         }
     }
-    if ((frame != TotalFramesWalked || Locomotor.Checked()->Is_Moving_Now()) && !IsFalling && !unknown_37d) {
+    if ((frame != TotalFramesWalked || Locomotor.Checked()->Is_Moving_Now()) && !IsFalling && !IsRocking) {
         if (!IsMoveSoundPlaying && Techno_Type_Class()->MoveSound.Count() > 0) {
             MoveSoundAudioController.Unknown_00405D50();
             Voc_Play_At(Random_Sound(Techno_Type_Class()->MoveSound), CoordStruct(Coord), &MoveSoundAudioController);
@@ -2530,7 +2530,7 @@ void FootClass::AI()
         }
         MoveSoundDelay = 3;
     } else if (IsMoveSoundPlaying) {
-        if (MoveSoundDelay != 0 && !IsFalling && !unknown_37d) {
+        if (MoveSoundDelay != 0 && !IsFalling && !IsRocking) {
             MoveSoundDelay--;
         } else {
             MoveSoundAudioController.Unknown_00406070();
@@ -2545,8 +2545,8 @@ void FootClass::AI()
         }
         IsABomb = IsFalling;
     }
-    if (unknown_325 != unknown_326) {
-        if (unknown_325) {
+    if (IsSinking != WasSinkingAlready) {
+        if (IsSinking) {
             if (Techno_Type_Class()->VoiceSinking != -1) {
                 Voc_Play_At(Techno_Type_Class()->VoiceSinking, CoordStruct(Coord), 0);
             }
@@ -2558,10 +2558,10 @@ void FootClass::AI()
         } else if (!IsMoveSoundPlaying) {
             MoveSoundAudioController.Unknown_00406070();
         }
-        unknown_326 = unknown_325;
+        WasSinkingAlready = IsSinking;
     }
-    if (unknown_37d != unknown_37e) {
-        if (unknown_37d) {
+    if (IsRocking != WasCrashingAlready) {
+        if (IsRocking) {
             MoveSoundAudioController.Unknown_00406070();
             if (Techno_Type_Class()->VoiceCrashing != -1 && House->Is_Player_Control()) {
                 Voc_Play_At(Techno_Type_Class()->VoiceCrashing, CoordStruct(Coord), 0);
@@ -2572,7 +2572,7 @@ void FootClass::AI()
         } else if (!IsMoveSoundPlaying) {
             MoveSoundAudioController.Unknown_00406070();
         }
-        unknown_37e = unknown_37d;
+        WasCrashingAlready = IsRocking;
     }
     Voc_Update_At(CoordStruct(Coord), &MoveSoundAudioController);
 
@@ -2692,7 +2692,7 @@ int FootClass::Current_Speed()
         speed = (int)(speed * Rules->VeteranSpeed);
     }
     int result = (int)(speed * Speed);
-    if (Kind_Of() == 1 && ((UnitClass *)this)->unknown_5b4 != -1) {
+    if (Kind_Of() == 1 && ((UnitClass *)this)->Flagged != -1) {
         result /= 2;
     }
     return result;
@@ -3187,7 +3187,7 @@ double FootClass::Threat_Avoidance_Value() const
 
 bool FootClass::unknown_slot282()
 {
-    if (!unknown_32d) {
+    if (!IsLocked) {
         return false;
     }
     if (Team != 0 && !Team->Is_Leaving_Map()) {
@@ -3240,8 +3240,8 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
 {
     bool succeeded = false;
 
-    if (unknown_37f) {
-        unknown_388 = true;
+    if (IsOnPatrol) {
+        IsOnWaypointPatrol = true;
     }
 
     if (waypoint != 0) {
@@ -3330,7 +3330,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
         WaypointTargetCell = Cell(0, 0);
     }
 
-    unknown_388 = false;
+    IsOnWaypointPatrol = false;
     return succeeded;
 }
 
@@ -3343,7 +3343,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
 bool FootClass::Tiberium_Check(Cell const &cell)
 {
     if (Map.In_Local_Radar(cell, true)) {
-        if (unknown_game_mode_a3d298 == 0 && unknown_372) {
+        if (unknown_game_mode_a3d298 == 0 && IsOwnedByPlayer) {
             int height = Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0));
             CoordStruct spot = CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, height);
             if (Map.Is_Shrouded(spot)) {
@@ -3616,7 +3616,7 @@ bool FootClass::Weed_Check(Cell &cell, int dx, int dy)
     Cell next = cell + Cell(dx, dy);
     if (Map.In_Local_Radar(next, true)) {
         cell = next;
-        if (unknown_game_mode_a3d298 == 0 && unknown_372) {
+        if (unknown_game_mode_a3d298 == 0 && IsOwnedByPlayer) {
             int height = Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0));
             CoordStruct spot = CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, height);
             if (Map.Is_Shrouded(spot)) {
@@ -3843,7 +3843,7 @@ Cell FootClass::unknown_4cca40(Cell const &cell, bool arg2)
         if (mzone == 6) mzone = 0;
         else if (mzone == 9 && House->Ion_Sensitives_Should_Be_Offline()) mzone = 7;
 
-        bool moveanywhere = In_Air() || Techno_Type_Class()->unknown_af5 || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet && !House->Ion_Sensitives_Should_Be_Offline()) || Kind_Of() == 2;
+        bool moveanywhere = In_Air() || Techno_Type_Class()->IsSubterranean || (Kind_Of() == 15 && ((InfantryClass *)this)->Type->JumpJet && !House->Ion_Sensitives_Should_Be_Offline()) || Kind_Of() == 2;
 
         bool ontobridge = Is_Moving_Onto_Bridge(0);
         CoordStruct center = Cell_Coord(cell);
@@ -3854,7 +3854,7 @@ Cell FootClass::unknown_4cca40(Cell const &cell, bool arg2)
         bool shrouded = Map.Is_Shrouded(center);
 
         if (moveanywhere && action == 2) {
-            nearby = Map.Nearby_Location(cell, Techno_Type_Class()->SpeedType, -1, mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, Techno_Type_Class()->unknown_af5 && Get_Height_AGL() < 0, 1, Cell(0, 0), 0);
+            nearby = Map.Nearby_Location(cell, Techno_Type_Class()->SpeedType, -1, mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, Techno_Type_Class()->IsSubterranean && Get_Height_AGL() < 0, 1, Cell(0, 0), 0);
         } else {
             if (!in_radar || shrouded || !moveanywhere && (!Techno_Type_Class()->Teleporter || action == 2) && !Map.Unknown_0054F7C0(cptr->unknown_24, nearby, mzone, ontobridge, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, false)) {
                 nearby = Map.Nearby_Location(cell, Techno_Type_Class()->SpeedType, Map.Zone(cptr->unknown_24, mzone, ontobridge), mzone, ((UnknownCellClass *)&Map[cell])->Flags >> 8 & 1, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
@@ -4064,7 +4064,7 @@ void FootClass::IronCurtain(int arg1)
         return;
     }
     if (ParasiteEatingMe != 0) {
-        ParasiteEatingMe->ParasiteImUsing->unknown_2c = CDTimerClass<FrameTimerClass>(50);
+        ParasiteEatingMe->ParasiteImUsing->SuppressionTimer = CDTimerClass<FrameTimerClass>(50);
         ParasiteEatingMe->ParasiteImUsing->Unknown_00607440();
     }
     ParalysisTimer = CDTimerClass<FrameTimerClass>(0);
@@ -4100,7 +4100,7 @@ bool FootClass::unknown_slot224(int source)
             }
             Strength = 0;
         }
-        unknown_37d = true;
+        IsRocking = true;
         unknown_slot149(3);
         unknown_slot210();
         Kill_Cargo((TechnoClass *)source);
@@ -4178,7 +4178,7 @@ TechnoClass *FootClass::unknown_slot300(TechnoTypeClass *type, int arg2, int arg
                 }
                 if (unknown_slot150(15, building) == 1) {
                     int distance = Distance_Squared(building);
-                    if (*score == -1 || distance < *score || building->unknown_32b) {
+                    if (*score == -1 || distance < *score || building->IsLeader) {
                         best = building;
                         *score = distance;
                     }
@@ -4202,7 +4202,7 @@ TechnoClass *FootClass::unknown_slot299(DynamicVectorClass<TechnoTypeClass *> co
         int score = -1;
         TechnoClass *found = unknown_slot300((*types)[index], arg2, arg3, &score);
         if (found != 0) {
-            if (best == 0 || score < best_score || best_score == -1 || found->unknown_32b) {
+            if (best == 0 || score < best_score || best_score == -1 || found->IsLeader) {
                 best = found;
                 best_score = score;
             }

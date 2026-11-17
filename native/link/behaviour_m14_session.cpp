@@ -11,7 +11,7 @@ extern "C" int __cdecl _stricmp(char const *a, char const *b);   // 0x00781F20
 // map is the random map generator's seed file rather than a map.
 bool MultiMission::Is_Random_Map()
 {
-    return _stricmp(unknown_58, "RandMap.Sed") == 0;
+    return _stricmp(Filename, "RandMap.Sed") == 0;
 }
 
 // 0x00672810 (decompile, on the object at 0x00A3D2B0 = the session + 0x18: clears

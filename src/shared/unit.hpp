@@ -180,20 +180,20 @@ public:
     bool unknown_6fdfc0();                                            // 0x006FDFC0 (slot 132: deploy check)
     int unknown_707130();                                             // 0x00707130 (the value of the stored load scaled by the owner; inlined everywhere)
 
-    int unknown_5a8;                        // +0x5A8 (-1)
+    int FiringSyncDelay;                        // +0x5A8 (-1)
     UnitTypeClass *Type;                    // +0x5AC
-    AbstractClass *unknown_5b0;             // +0x5B0 (swizzled)
-    int unknown_5b4;                        // +0x5B4 (-1)
-    bool unknown_5b8;                       // +0x5B8
-    bool unknown_5b9;                       // +0x5B9
-    bool unknown_5ba;                       // +0x5BA
-    bool unknown_5bb;                       // +0x5BB
-    int unknown_5bc;                        // +0x5BC (-1)
-    int unknown_5c0;                        // +0x5C0 (-1)
-    UnknownUnit5C4 *unknown_5c4;            // +0x5C4
-    bool unknown_5c8;                       // +0x5C8
+    AbstractClass *FollowingMe;             // +0x5B0 (swizzled)
+    int Flagged;                        // +0x5B4 (-1)
+    bool IsFollowing;                       // +0x5B8
+    bool IsDumping;                       // +0x5B9
+    bool IsHarvesting;                       // +0x5BA
+    bool IsCompositingToEightBitSurface;                       // +0x5BB
+    int VisceroidFacing;                        // +0x5BC (-1)
+    int DeathCounter;                        // +0x5C0 (-1)
+    UnknownUnit5C4 *ElectricBolt;            // +0x5C4
+    bool Deployed;                       // +0x5C8
     int unknown_5cc;                        // +0x5CC
-    wchar_t unknown_5d0[256];               // +0x5D0 the name slot 35 composes ("%s %s")
+    wchar_t ToolTipText[256];               // +0x5D0 the name slot 35 composes ("%s %s")
 };
 
 // Every unit (0x00866198): Units, declared in shared/foot.hpp.

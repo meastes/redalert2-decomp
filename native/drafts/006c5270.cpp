@@ -21,7 +21,7 @@
 double TechnoClass::unknown_6c5270(Cell const &cell)
 {
     WeaponStruct *weapon = unknown_slot230();
-    if (weapon == 0 || weapon->WeaponType == 0 || !weapon->WeaponType->unknown_11e) {
+    if (weapon == 0 || weapon->WeaponType == 0 || !weapon->WeaponType->IsSupressed) {
         return 1.0;
     }
     double factor = 1.0;

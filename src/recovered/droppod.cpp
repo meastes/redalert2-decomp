@@ -205,8 +205,8 @@ bool __stdcall DropPodLocomotionClass::Process()
                 if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[unknown_20].Cell_Techno(Point2D(0, 0), false, 0))) {
                     CoordStruct scattered = Coord_Scatter(unknown_20, 0x55, false);
                     Voc_Play_At(weapon->unknown_bc.Pick(NonCriticalRandomNumber()), coord, 0);
-                    Explosion_Damage(scattered, weapon->unknown_a4 * 2, LinkedTo, weapon->Warhead, true);
-                    new AnimClass(Select_Damage_Anim(weapon->unknown_a4 * 2, weapon->Warhead, 0, &scattered), scattered, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(scattered));
+                    Explosion_Damage(scattered, weapon->Attack * 2, LinkedTo, weapon->Warhead, true);
+                    new AnimClass(Select_Damage_Anim(weapon->Attack * 2, weapon->Warhead, 0, &scattered), scattered, 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(scattered));
                 }
             }
         }

@@ -97,12 +97,12 @@ public:
 
     FootClass *Owner;                               // +0x24 (the parasite unit; its +0x588 holds this)
     FootClass *unknown_28;                          // +0x28 (the unit attacked; its +0x580 is Owner)
-    CDTimerClass<FrameTimerClass> unknown_2c;       // +0x2C
+    CDTimerClass<FrameTimerClass> SuppressionTimer;       // +0x2C
     CDTimerClass<FrameTimerClass> unknown_38;       // +0x38
     ParasiteVictim *Victim;                         // +0x44
     int unknown_48;                                 // +0x48
     int GrappleAnimFrame;                                 // +0x4C
-    int unknown_50;                                 // +0x50
+    int GrappleAnimDelay;                                 // +0x50
     bool GrappleAnimGotInvalid;                                // +0x54 listed in AnimPtrTracker
 };
 

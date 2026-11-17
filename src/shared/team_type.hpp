@@ -119,7 +119,7 @@ public:
     ScriptTypeClass *Script;        // +0xD8
     TaskForceClass *TaskForce;      // +0xDC
     int IsGlobal;                   // +0xE0
-    int unknown_e4;                 // +0xE4
+    int TaskForceMZone;                 // +0xE4
     bool IsReachCheckNeeded;                // +0xE8
     bool HasNavalTransport;                // +0xE9
     bool AvoidThreats;              // +0xEA

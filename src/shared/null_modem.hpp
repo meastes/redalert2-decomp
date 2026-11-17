@@ -153,7 +153,7 @@ public:
     int unknown_18;                     // +0x18 (-1)
     int unknown_1c;                     // +0x1C
     int unknown_20;                     // +0x20
-    int unknown_24;                     // +0x24 (3000)
+    int ModemWaitCarrier;                     // +0x24 (3000)
     int unknown_28;                     // +0x28 (1200)
     int ModemGuardTime;                     // +0x2C (60)
     char unknown_30;                    // +0x30 ('+': the modem escape code)

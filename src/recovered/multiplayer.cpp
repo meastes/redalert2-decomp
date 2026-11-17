@@ -182,7 +182,7 @@ void __fastcall MultiplayerGameMode::unknown_fill_combo_5b70b0(HWND combo, int i
     for (int index = 0; index < unknown_mode_count_5b6f80(); index++) {
         MultiplayerGameMode *mode = unknown_modes_5b6c30()[index];
         if (!listed || mode->unknown_slot12()) {
-            int item = SendMessageA(combo, 0x143, 0, (LPARAM)mode->Get_Name().unknown_text_770430());
+            int item = SendMessageA(combo, 0x143, 0, (LPARAM)mode->Get_Name().text());
             if (mode->Get_ID() == id) {
                 SendMessageA(combo, 0x14E, item, 0);
             }
@@ -211,7 +211,7 @@ void __fastcall MultiplayerGameMode::unknown_fill_list_5b71e0(HWND list, int id)
             continue;
         }
         if (!listed || mode->unknown_slot12()) {
-            int item = SendMessageA(list, 0x4CD, 0, (LPARAM)mode->Get_Name().unknown_text_770430());
+            int item = SendMessageA(list, 0x4CD, 0, (LPARAM)mode->Get_Name().text());
             if (mode->Get_ID() == id) {
                 SendMessageA(list, 0x186, item, 0);
             }
@@ -392,7 +392,7 @@ void MultiplayerGameMode::PopulateTeamDropdownForPlayer(HWND combo, int player)
         player = unknown_players_a3fa7c[player]->Team;
         for (int team_index = 0; team_index < Teams.Count(); team_index++) {
             MultiplayerTeam *team = Teams[team_index];
-            int item = SendMessageA(combo, 0x143, 0, (LPARAM)team->Name.unknown_text_770430());   // CB_ADDSTRING
+            int item = SendMessageA(combo, 0x143, 0, (LPARAM)team->Name.text());   // CB_ADDSTRING
             if (team->Number == player) {
                 SendMessageA(combo, 0x14e, item, 0);                                       // CB_SETCURSEL
             }

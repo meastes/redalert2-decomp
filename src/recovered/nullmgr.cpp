@@ -136,7 +136,7 @@ NullModemClass::NullModemClass(int numsend, int numreceive, int maxlen, unsigned
     unknown_18 = -1;
     unknown_1c = 0;
     unknown_20 = 0;
-    unknown_24 = 3000;
+    ModemWaitCarrier = 3000;
     unknown_28 = 1200;
     ModemGuardTime = 60;
     unknown_30 = '+';
@@ -1103,7 +1103,7 @@ DialStatusType NullModemClass::Dial_Modem(char *string, int method, bool reconne
         SerialPort->Set_Abort_Function(Abort_Modem);
         ModemDialogIsOpen = false;
 
-        delay = unknown_24;
+        delay = ModemWaitCarrier;
         Debug_Printf("Waiting for dial result\n");
         while (process == true) {
             if (OwnerDraw_Dialog_Message_Handler() == true || ModemDialogIsOpen) {
@@ -1258,7 +1258,7 @@ DialStatusType NullModemClass::Answer_Modem(bool reconnect)
                 Debug_Printf("Answering with ATA\n");
                 SerialPort->Write_To_Serial_Port((unsigned char *)"ATA\r", strlen("ATA\r"));
                 ring = true;
-                delay = unknown_24;
+                delay = ModemWaitCarrier;
             } else if (strstr(buffer, "CONNECT")) {
                 memset(ModemRXString, 0, 80);
                 strncpy(ModemRXString, buffer, 79);

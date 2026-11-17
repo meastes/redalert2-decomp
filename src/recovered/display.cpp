@@ -1462,7 +1462,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     if (object != 0) {
         TechnoClass *techno = object->As_Techno();
         if (techno != 0 && (techno->Kind_Of() != 6 || !((BuildingClass *)techno)->Type->InvisibleInGame) && !Debug_Map) {
-            techno->unknown_380 = true;
+            techno->IsMouseHovering = true;
         }
     }
 
@@ -1838,7 +1838,7 @@ void DisplayClass::Compute_Start_Pos()
     int count=0;
     for (int i=0;i<Technos.Count();i++) {
         TechnoClass *tech=Technos[i];
-        if (!tech->IsInLimbo && tech->unknown_372) {
+        if (!tech->IsInLimbo && tech->IsOwnedByPlayer) {
             center += Object_Coord(tech);
             count++;
         }
@@ -2590,7 +2590,7 @@ void DisplayClass::Reveal_Technos(bool skip_buildings, bool arg2)
             continue;
         }
         if (techno->House->Is_Player_Control()) {
-            if (techno->unknown_373) {
+            if (techno->IsDiscoveredByPlayer) {
                 techno->unknown_slot262(0, 0, false, 0);
                 CoordStruct coord = techno->Coord;
                 Map.Unknown_0054A550(coord, 0, techno->LastSightRange + 3, 0);
@@ -2631,7 +2631,7 @@ void DisplayClass::Update_Technos_Visibility(bool skip_buildings, bool arg2)
             continue;
         }
         if (techno->House->Is_Player_Control()) {
-            if (techno->unknown_373) {
+            if (techno->IsDiscoveredByPlayer) {
                 techno->unknown_slot263(0, 0, false, 0);
                 if (techno->Techno_Type_Class()->GapGenerator) {
                     techno->unknown_slot236();
@@ -2662,7 +2662,7 @@ void DisplayClass::All_To_Look(bool skip_buildings, bool arg2)
             continue;
         }
         if (techno->House->Is_Player_Control()) {
-            if (techno->unknown_373) {
+            if (techno->IsDiscoveredByPlayer) {
                 techno->Look(false, arg2);
             }
         } else if (techno->Kind_Of() == 6 && Rules->IsAllyReveal && techno->House->Is_Ally(PlayerPtr)) {
@@ -2683,7 +2683,7 @@ void DisplayClass::Constrained_Look(CoordStruct const &center, int distance)
         TechnoClass *techno = Layer[2][index]->As_Techno();
         if (techno != 0) {
             if (techno->House->Is_Player_Control()) {
-                if (techno->unknown_373 && Coord_Length(center - techno->Center_Coord()) <= techno->Techno_Type_Class()->Sight * 256 + distance) {
+                if (techno->IsDiscoveredByPlayer && Coord_Length(center - techno->Center_Coord()) <= techno->Techno_Type_Class()->Sight * 256 + distance) {
                     techno->Look(false, false);
                 }
             } else {
@@ -2811,7 +2811,7 @@ wchar_t const *DisplayClass::Help_Text(int id)
     }
     TechnoClass *techno = object != 0 && object->AbstractFlags.IsTechno ? (TechnoClass *)object : 0;
     if (techno != 0) {
-        if (!techno->unknown_372) {
+        if (!techno->IsOwnedByPlayer) {
             if (techno->Cloak == 2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) {
                 return 0;
             }
@@ -2915,7 +2915,7 @@ void DisplayClass::Active_Click_0049E870(ObjectClass *object, Cell cell, int act
         CurrentObject[index]->Set_Waypoint_Path(waypoint_path, waypoint_id);
         if (Is_Foot(CurrentObject[index])) {
             TechnoClass *techno = (TechnoClass *)CurrentObject[index];
-            techno->unknown_37f = false;
+            techno->IsOnPatrol = false;
         }
     }
 

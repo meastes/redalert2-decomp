@@ -65,58 +65,58 @@ public:
     static int __fastcall Index_From_Name(char const *name);            // 0x00733F30 (-1 if none)
     static WeaponTypeClass *__fastcall Find_Or_Make(char const *name);  // 0x00733EA0
 
-    int unknown_98;                         // +0x098
+    int AmbientDamage;                         // +0x098
     int Burst;                              // +0x09C
     BulletTypeClass *Projectile;            // +0x0A0
-    int unknown_a4;                         // +0x0A4
-    int unknown_a8;                         // +0x0A8
+    int Attack;                         // +0x0A4
+    int MaxSpeed;                         // +0x0A8
     WarheadTypeClass *Warhead;              // +0x0AC
-    int unknown_b0;                         // +0x0B0
-    int unknown_b4;                         // +0x0B4
-    int unknown_b8;                         // +0x0B8
+    int ROF;                         // +0x0B0
+    int Range;                         // +0x0B4
+    int MinimumRange;                         // +0x0B8
     TypeList<int> unknown_bc;               // +0x0BC
     TypeList<AnimTypeClass *> Anim;         // +0x0D8
-    AnimTypeClass *unknown_f4;              // +0x0F4 "AssaultAnim"
-    ParticleSystemTypeClass *unknown_f8;    // +0x0F8 "AttachedParticleSystem"
-    RGBClass unknown_fc;                    // +0x0FC "LaserInnerColor"
-    RGBClass unknown_ff;                    // +0x0FF "LaserOuterColor"
-    RGBClass unknown_102;                   // +0x102 "LaserOuterSpread"
-    bool unknown_105;                       // +0x105
-    bool unknown_106;                       // +0x106
-    bool unknown_107;                       // +0x107
-    bool unknown_108;                       // +0x108
-    bool unknown_109;                       // +0x109
-    bool unknown_10a;                       // +0x10A
-    bool unknown_10b;                       // +0x10B
-    bool unknown_10c;                       // +0x10C
-    bool unknown_10d;                       // +0x10D
-    bool unknown_10e;                       // +0x10E
-    bool unknown_10f;                       // +0x10F
-    bool unknown_110;                       // +0x110
-    bool unknown_111;                       // +0x111
-    bool unknown_112;                       // +0x112
-    bool unknown_113;                       // +0x113
-    bool unknown_114;                       // +0x114
-    bool unknown_115;                       // +0x115
-    bool unknown_116;                       // +0x116
-    int unknown_118;                        // +0x118
-    bool unknown_11c;                       // +0x11C
-    bool unknown_11d;                       // +0x11D
-    bool unknown_11e;                       // +0x11E
-    bool unknown_11f;                       // +0x11F
-    bool unknown_120;                       // +0x120
-    bool unknown_121;                       // +0x121
-    bool unknown_122;                       // +0x122
-    bool unknown_123;                       // +0x123
-    char unknown_124;                       // +0x124 "LaserDuration"
-    bool unknown_125;                       // +0x125
+    AnimTypeClass *AssaultAnim;              // +0x0F4 "AssaultAnim"
+    ParticleSystemTypeClass *AttachedParticleSystem;    // +0x0F8 "AttachedParticleSystem"
+    RGBClass LaserInnerColor;                    // +0x0FC "LaserInnerColor"
+    RGBClass LaserOuterColor;                    // +0x0FF "LaserOuterColor"
+    RGBClass LaserOuterSpread;                   // +0x102 "LaserOuterSpread"
+    bool UseFireParticles;                       // +0x105
+    bool UseSparkParticles;                       // +0x106
+    bool OmniFire;                       // +0x107
+    bool DistributedWeaponFire;                       // +0x108
+    bool IsRailgun;                       // +0x109
+    bool IsLobber;                       // +0x10A
+    bool IsBright;                       // +0x10B
+    bool IsSonic;                       // +0x10C
+    bool Spawner;                       // +0x10D
+    bool LimboLaunch;                       // +0x10E
+    bool DecloakToFire;                       // +0x10F
+    bool CellRangefinding;                       // +0x110
+    bool FireOnce;                       // +0x111
+    bool NeverUse;                       // +0x112
+    bool RevealOnFire;                       // +0x113
+    bool TerrainFire;                       // +0x114
+    bool SabotageCursor;                       // +0x115
+    bool DisguiseFireOnly;                       // +0x116
+    int DisguiseFakeBlinkTime;                        // +0x118
+    bool Suicide;                       // +0x11C
+    bool IsTurboBoosted;                       // +0x11D
+    bool IsSupressed;                       // +0x11E
+    bool IsCamera;                       // +0x11F
+    bool IsElectric;                       // +0x120
+    bool IsLaser;                       // +0x121
+    bool IsBigLaser;                       // +0x122
+    bool IsHouseColor;                       // +0x123
+    char LaserDuration;                       // +0x124 "LaserDuration"
+    bool IsIonSensitive;                       // +0x125
     bool AreaFire;                       // +0x126
-    bool unknown_127;                       // +0x127
-    bool unknown_128;                       // +0x128
-    bool unknown_129;                       // +0x129
-    bool unknown_12a;                       // +0x12A
-    bool unknown_12b;                       // +0x12B
-    int unknown_12c;                        // +0x12C
+    bool IsElectricBolt;                       // +0x127
+    bool DrawBoltAsLaser;                       // +0x128
+    bool IsAlternateColor;                       // +0x129
+    bool IsRadBeam;                       // +0x12A
+    bool IsRadEruption;                       // +0x12B
+    int RadLevel;                        // +0x12C
 };
 
 // Every weapon type (0x00839B90; defined in the unit at 0x0040F720).

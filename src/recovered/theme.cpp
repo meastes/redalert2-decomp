@@ -82,8 +82,8 @@
 ThemeControl::ThemeControl() :
     Scenario(0),
     Duration(0),
-    unknown_288(true),
-    unknown_289(false),
+    Normal(true),
+    Repeat(false),
     Available(false),
     Owner(-1)
 {
@@ -111,10 +111,10 @@ bool ThemeControl::Fill_In(CCINIClass const &ini)
         }
         strcpy(Sound, sound);
         Scenario = ini.Get_Int(Name, "Scenario", Scenario);
-        unknown_288 = ini.Get_Bool(Name, "Normal", unknown_288);
-        unknown_289 = ini.Get_Bool(Name, "Repeat", unknown_289);
+        Normal = ini.Get_Bool(Name, "Normal", Normal);
+        Repeat = ini.Get_Bool(Name, "Repeat", Repeat);
         Owner = ini.Get_Side(Name, "Side", Owner);
-        if (unknown_288) {
+        if (Normal) {
             ini.Get_Wide_String(Name, "Name", FullName, sizeof(FullName) / sizeof(FullName[0]));
         }
         return true;
@@ -273,7 +273,7 @@ ThemeClass::ThemeClass() :
     Pending(THEME_NONE),
     Volume(255),
     IsRepeat(false),
-    unknown_11(false),
+    IsFading(false),
     IsShuffle(false),
     Sample(0)
 {
@@ -324,7 +324,7 @@ void ThemeClass::AI()
     if (AudioDeviceAvailable() && !Debug_Quiet && ScoresPresent && Volume > 0) {
         bool ready = false;
         if (Sample != 0) {
-            if (unknown_11 && !AudioStreamerIsFading(Sample)) {
+            if (IsFading && !AudioStreamerIsFading(Sample)) {
                 AudioStreamerStop(Sample);
             }
             ready = AudioStreamerIsPlaying(Sample);
@@ -358,7 +358,7 @@ void ThemeClass::AI()
 
 ThemeType ThemeClass::Pick_Next_Song(ThemeType current)
 {
-    if ((current > -1 && !Themes[current]->unknown_289 && !IsRepeat) || current < 0) {
+    if ((current > -1 && !Themes[current]->Repeat && !IsRepeat) || current < 0) {
         if (IsShuffle == 1) {
             int tries = 0;
             int pick;
@@ -414,7 +414,7 @@ void ThemeClass::Queue_Song(ThemeType theme)
                 if (Sample != 0) {
                     AudioStreamerFadeOut(Sample);
                 }
-                unknown_11 = true;
+                IsFading = true;
             }
         }
     }
@@ -443,7 +443,7 @@ int ThemeClass::Play_Song(ThemeType theme)
             return Current;
         }
         Stop();
-        unknown_11 = false;
+        IsFading = false;
         if (theme != THEME_NONE && theme != -3) {  // -3: Tiberian Sun's THEME_QUIET
             if (theme > THEME_NONE && Volume > 0) {
                 Score = theme;
@@ -457,8 +457,8 @@ int ThemeClass::Play_Song(ThemeType theme)
                         Theme.Queue_Song(theme);
                     }
                 }
-                Debug_Printf("Theme::PlaySong(%d) - %s\n", Score, IsRepeat == true || Themes[theme]->unknown_289 == true ? "Repeating" : "Playing");
-                if (IsRepeat == true || Themes[theme]->unknown_289 == true) {
+                Debug_Printf("Theme::PlaySong(%d) - %s\n", Score, IsRepeat == true || Themes[theme]->Repeat == true ? "Repeating" : "Playing");
+                if (IsRepeat == true || Themes[theme]->Repeat == true) {
                     Pending = theme;
                 }
             } else {
@@ -510,7 +510,7 @@ void ThemeClass::Stop(bool fade)
             if (Sample != 0) {
                 AudioStreamerFadeOut(Sample);
             }
-            unknown_11 = true;
+            IsFading = true;
         } else {
             Debug_Printf("Theme::Stop(%d)\n", Score);
             if (Sample != 0) {
@@ -533,7 +533,7 @@ int __fastcall AudioStreamerIsFading(void *sample);
 bool ThemeClass::Still_Playing() const
 {
     if (Sample != 0) {
-        if (unknown_11 && !AudioStreamerIsFading(Sample)) {
+        if (IsFading && !AudioStreamerIsFading(Sample)) {
             AudioStreamerStop(Sample);
         }
         return AudioStreamerIsPlaying(Sample) != 0;

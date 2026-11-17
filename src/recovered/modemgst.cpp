@@ -846,7 +846,7 @@ bool ModemGuest::Receive_Options_00597e50(UnknownSerialPacket const *packet)
         if (strcmp(unknown_session_a3d298.ScenarioFileName_658, "RandMap.Sed") || !unknown_session_a3d298.ScenarioIsOfficial_880) {
             for (int index = 0; index < unknown_multi_missions_a3d8d8.Count(); index++) {
                 MultiMission *mission = unknown_multi_missions_a3d8d8[index];
-                if (!Compare_Narrow_00781f20(unknown_session_a3d298.ScenarioFileName_658, mission->unknown_58)) {
+                if (!Compare_Narrow_00781f20(unknown_session_a3d298.ScenarioFileName_658, mission->Filename)) {
                     wcscpy(unknown_map_name_a3d342, mission->Description);
                     found = true;
                     break;

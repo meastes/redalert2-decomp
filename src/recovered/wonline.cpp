@@ -860,7 +860,7 @@ int __fastcall Unknown_0073ca50(WideString const &message)
     HWND users=GetDlgItem(WS_Top_Window(),0x53e);
     int count=SendMessageA(users,0x191,32,(LPARAM)unknown_selected_actions_b294f4);
     if(count==0) {
-        unknown_chat_a72cfc->unknown_slot58(message.unknown_text_770430());
+        unknown_chat_a72cfc->unknown_slot58(message.text());
         return 0;
     } else {
         WOL::User *last=0,*head=0,*item=0;
@@ -875,7 +875,7 @@ int __fastcall Unknown_0073ca50(WideString const &message)
             if(last) last->next=item;
             last=item;
         }
-        if(head) unknown_chat_a72cfc->unknown_slot59(head,message.unknown_text_770430());
+        if(head) unknown_chat_a72cfc->unknown_slot59(head,message.text());
         while(head) { item=head; head=head->next; delete item; }
         return 1;
     }
@@ -889,7 +889,7 @@ int __fastcall Unknown_0073cb80(WideString const &message)
     HWND users=GetDlgItem(WS_Top_Window(),0x53e);
     int count=SendMessageA(users,0x191,32,(LPARAM)unknown_selected_users_b26694);
     if(count==0) {
-        unknown_chat_a72cfc->unknown_slot60(message.unknown_text_770430());
+        unknown_chat_a72cfc->unknown_slot60(message.text());
         return 0;
     } else {
         WOL::User *last=0,*head=0,*item=0;
@@ -904,7 +904,7 @@ int __fastcall Unknown_0073cb80(WideString const &message)
             if(last) last->next=item;
             last=item;
         }
-        if(head) unknown_chat_a72cfc->unknown_slot61(head,message.unknown_text_770430());
+        if(head) unknown_chat_a72cfc->unknown_slot61(head,message.text());
         while(head) { item=head; head=head->next; delete item; }
         return 1;
     }
@@ -1633,7 +1633,7 @@ WideString __fastcall Unknown_0073f550(Wstring const &filename)
     }
     for (int index = 0; index < unknown_multi_missions_a3d8d8.Count(); index++) {
         MultiMission *mission = unknown_multi_missions_a3d8d8[index];
-        if (_stricmp(filename.Peek_Buffer(), mission->unknown_58) == 0) {
+        if (_stricmp(filename.Peek_Buffer(), mission->Filename) == 0) {
             return WideString(mission->Description);
         }
     }
@@ -2978,7 +2978,7 @@ int __fastcall Pick_Lobby_00744090(bool require_room)
         ini.Load(file,false);
         sprintf(entry,wdt_territory_format_007fe6cc,*(int*)unknown_session_a3d298.unknown_08);
         strcpy(fallback,entry);
-        if(Get_New_WDT_State_00769510()->unknown_14==0)
+        if(Get_New_WDT_State_00769510()->MapID==0)
             ini.Get_String(wdt_north_america_007fe6bc,entry,fallback,section,sizeof(section));
         else
             ini.Get_String(wdt_europe_007fe6b4,entry,fallback,section,sizeof(section));
@@ -3078,7 +3078,7 @@ int __fastcall Request_Channel_Join_00744700(WOL::Channel *channel,Wstring const
         strcpy(channel->key,password.Peek_Buffer());
         unknown_pending_channel_b26a60=*channel;
         {
-            WideString message(title.unknown_text_770430());
+            WideString message(title.text());
             Open_Wait_Window_0074d4d0(2,message,false);
         }
         Debug_Printf(wol_join_debug_7fe71c,name);
@@ -5225,7 +5225,7 @@ int __stdcall WOL_Game_Options_Proc_0074a710(HWND window,UINT message,WPARAM wpa
             if(Compare_Wide_007837d3(text.Get(),guest_empty_wide_839d4c)==0)
                 text=OwnerDraw::unknown_5e2260((unsigned)window,child);
         }
-        SendMessageA(tooltip,0x4b2,0,(LPARAM)text.unknown_text_770430());
+        SendMessageA(tooltip,0x4b2,0,(LPARAM)text.text());
         return 0;
     }
     case 0x2b:
@@ -5671,7 +5671,7 @@ int __stdcall Wonline_Guest_Dialog_0074c660(HWND window,UINT message,WPARAM wpar
             if(Compare_Wide_007837d3(text.Get(),guest_empty_wide_839d4c)==0)
                 text=OwnerDraw::unknown_5e2260((unsigned)window,child);
         }
-        SendMessageA(tooltip,0x4b2,0,(LPARAM)text.unknown_text_770430());
+        SendMessageA(tooltip,0x4b2,0,(LPARAM)text.text());
         return 0;
     }
     case 2:
@@ -5910,7 +5910,7 @@ void __fastcall Open_Wait_Window_0074d4d0(unsigned int events,WideString const &
         unknown_b2abe0 |= events;
         if(message.Length()>0) {
             HWND text=GetDlgItem(dialog,0x5b2);
-            SendMessageA(text,0x4b2,0,(LPARAM)message.unknown_text_770430());
+            SendMessageA(text,0x4b2,0,(LPARAM)message.text());
         }
     } else if(events) {
         HWND focus=WS_Top_Window();
@@ -5918,7 +5918,7 @@ void __fastcall Open_Wait_Window_0074d4d0(unsigned int events,WideString const &
         dialog=(HWND)WS_Create_Dialog(ProgramInstance,0xc4,MainWindow,Wonline_Wait_Dialog_0074d5e0,0);
         unknown_show_dialog_5ff7e0(dialog,0xc4);
         HWND text=GetDlgItem(dialog,0x5b2);
-        SendMessageA(text,0x4b2,0,(LPARAM)message.unknown_text_770430());
+        SendMessageA(text,0x4b2,0,(LPARAM)message.text());
         unknown_b2abe0=events;
         if(focus) SetFocus(focus);
     }
@@ -8144,7 +8144,7 @@ long __stdcall Wonline_Profile_Login_Dialog_00753370(HWND window,UINT message,WP
         HWND nicknames=GetDlgItem(window,0x628);
         Clear_ComboBox(nicknames);SendMessageA(nicknames,0x141,9,0);
         WideString prompt(StringTable::Load_String(profile_choose_nick_7fd2f0,0,wol_source_file_007fd62c,0x5a2e));
-        int item=SendMessageA(nicknames,0x4c2,0,(LPARAM)prompt.unknown_text_770430());
+        int item=SendMessageA(nicknames,0x4c2,0,(LPARAM)prompt.text());
         SendMessageA(nicknames,0x151,item,-1);SendMessageA(nicknames,0x14e,item,0);
         char const *nickname,*password;
         for(int nick_index=1;nick_index<=32;++nick_index) {
@@ -8152,7 +8152,7 @@ long __stdcall Wonline_Profile_Login_Dialog_00753370(HWND window,UINT message,WP
             if(unknown_chat_a72cfc->unknown_slot36(nick_index,&nickname,&password)==0 && nickname) {
                 if(strlen(nickname)>0) {
                     WideString wide=Wstring_To_Wide(nickname);
-                    int entry=SendMessageA(nicknames,0x4c2,0,(LPARAM)wide.unknown_text_770430());
+                    int entry=SendMessageA(nicknames,0x4c2,0,(LPARAM)wide.text());
                     SendMessageA(nicknames,0x151,entry,nick_index);
                 }
             }
@@ -8912,18 +8912,18 @@ void __fastcall Update_Buddy_Profile_007562b0(HWND dialog)
         if(found && value) entry=*value;
     }
     if(found) {
-        SendMessageA(rank,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_1c).unknown_text_770430());
-        SendMessageA(points,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_10).unknown_text_770430());
-        SendMessageA(wins,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_08).unknown_text_770430());
-        SendMessageA(losses,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_0c).unknown_text_770430());
-        SendMessageA(disconnects,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_20).unknown_text_770430());
+        SendMessageA(rank,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_1c).text());
+        SendMessageA(points,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_10).text());
+        SendMessageA(wins,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_08).text());
+        SendMessageA(losses,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_0c).text());
+        SendMessageA(disconnects,0x4b2,0,(LPARAM)unknown_number_text_7710c0(entry.unknown_20).text());
     } else {
         WideString unranked(StringTable::Load_String(wol_profile_unranked_7fd2c4,0,wol_source_file_007fd62c,0x608d));
-        SendMessageA(rank,0x4b2,0,(LPARAM)unranked.unknown_text_770430());
-        SendMessageA(points,0x4b2,0,(LPARAM)unranked.unknown_text_770430());
-        SendMessageA(wins,0x4b2,0,(LPARAM)unranked.unknown_text_770430());
-        SendMessageA(losses,0x4b2,0,(LPARAM)unranked.unknown_text_770430());
-        SendMessageA(disconnects,0x4b2,0,(LPARAM)unranked.unknown_text_770430());
+        SendMessageA(rank,0x4b2,0,(LPARAM)unranked.text());
+        SendMessageA(points,0x4b2,0,(LPARAM)unranked.text());
+        SendMessageA(wins,0x4b2,0,(LPARAM)unranked.text());
+        SendMessageA(losses,0x4b2,0,(LPARAM)unranked.text());
+        SendMessageA(disconnects,0x4b2,0,(LPARAM)unranked.text());
     }
 }
 
@@ -11180,7 +11180,7 @@ HRESULT __stdcall CChatEventSink::OnUpdateList(HRESULT result, WOL::Update *upda
             SimpleWonlineDialogControl control;
             HWND dialog = OwnerDraw_Begin_Dialog(0xd3, Download_Dialog_Proc_00748cd0, 0);
             HWND item = GetDlgItem(dialog, 0x5c7);
-            SendMessageA(item, 0x4b2, 0, (LPARAM)message.unknown_text_770430());
+            SendMessageA(item, 0x4b2, 0, (LPARAM)message.text());
             if (WS_Wait_Dialog(dialog, (bool (*)())Unknown_0073c120, 0, 1, 1) == 2) {
                 SetEvent(unknown_b264f8);
                 SetCurrentDirectoryA(directory);
@@ -11757,7 +11757,7 @@ HRESULT __stdcall CChatEventSink::OnChannelJoin(HRESULT result, WOL::Channel *ch
                     else Apply_Endpoint_Map_0075c570(strchr(unknown_b2658c, ':'));
                     int i;
                     for (i = 0; i < unknown_multi_missions_a3d8d8.Count(); ++i) {
-                        char const *scenario = unknown_multi_missions_a3d8d8[i]->unknown_58;
+                        char const *scenario = unknown_multi_missions_a3d8d8[i]->Filename;
                         if (_stricmp(unknown_session_a3d298.ScenarioFileName_658, scenario) == 0) {
                             Select_Scenario_005c7c30(i);
                             break;

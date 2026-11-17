@@ -7,7 +7,7 @@
 
 struct ThemeControl {
     char unknown_000[0x288];
-    bool unknown_288;                       // +0x288
+    bool Normal;                       // +0x288
 };
 
 class ThemeClass {
@@ -26,5 +26,5 @@ bool ThemeClass::unknown_is_flagged(unsigned theme) const
     if (theme == (unsigned)-3 || theme == (unsigned)-2 || theme >= ThemeCount) {
         return false;
     }
-    return Themes[theme]->unknown_288 ? true : false;
+    return Themes[theme]->Normal ? true : false;
 }

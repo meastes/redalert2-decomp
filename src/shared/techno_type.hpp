@@ -143,15 +143,15 @@ public:
     TypeList<int> DebrisMaximums;               // +0x300
     GUID Locomotor;                             // +0x31C
     int unknown_32c;                            // +0x32C (not constructed)
-    double unknown_330;                         // +0x330
-    double unknown_338;                         // +0x338
+    double VoxelCenterY;                         // +0x330
+    double VoxelCenterX;                         // +0x338
     double Weight;                              // +0x340
     double PhysicalSize;                        // +0x348
     double Size;                                // +0x350
     double SizeLimit;                           // +0x358
     bool HoverAttack;                           // +0x360
     int VHPScan;                                // +0x364
-    int unknown_368;                            // +0x368
+    int InitialMission;                            // +0x368
     int unknown_36c;                            // +0x36C (not constructed)
     double RollAngle;                           // +0x370
     double PitchSpeed;                          // +0x378
@@ -216,7 +216,7 @@ public:
     TypeList<int> Prerequisite;                 // +0x560
     TypeList<int> PrerequisiteOverride;         // +0x57C
     int ThreatPosed;                            // +0x598
-    int unknown_59c;                            // +0x59C
+    int Reward;                            // +0x59C
     int Speed;                                  // +0x5A0
     int SpeedType;                              // +0x5A4 (constructor argument)
     int InitialAmmo;                            // +0x5A8
@@ -272,14 +272,14 @@ public:
     int TurretCount;                            // +0x704
     int WeaponCount;                            // +0x708 (not constructed)
     bool IsChargeTurret;                        // +0x70C
-    int unknown_710[15];                        // +0x710 turret weapon indexes (-1)
+    int TurretWeapon[15];                        // +0x710 turret weapon indexes (-1)
     WeaponStruct Weapon[15];                    // +0x74C
     bool ClearAllWeapons;                       // +0x8F0
     WeaponStruct EliteWeapon[15];               // +0x8F4
     bool TypeImmune;                            // +0xA98
     bool MoveToShroud;                          // +0xA99
     bool Trainable;                             // +0xA9A
-    bool unknown_a9b;                           // +0xA9B
+    bool IsDamageSparks;                           // +0xA9B
     bool TargetLaser;                           // +0xA9C
     bool ImmuneToVeins;                         // +0xA9D
     bool TiberiumHeal;                          // +0xA9E
@@ -288,11 +288,11 @@ public:
     bool IsDropship;                            // +0xAA1
     bool ToProtect;                             // +0xAA2
     bool Disableable;                           // +0xAA3
-    bool unknown_aa4;                           // +0xAA4
+    bool IsUnbuildable;                           // +0xAA4
     bool DoubleOwned;                           // +0xAA5
     bool Invisible;                             // +0xAA6
     bool RadarVisible;                          // +0xAA7
-    bool unknown_aa8;                           // +0xAA8
+    bool IsLeader;                           // +0xAA8
     bool Sensors;                               // +0xAA9
     bool Nominal;                               // +0xAAA
     bool Turret;                                // +0xAAB
@@ -321,7 +321,7 @@ public:
     bool HunterSeeker;                          // +0xAF2
     bool Crusher;                               // +0xAF3
     bool TiltsWhenCrushes;                      // +0xAF4
-    bool unknown_af5;                           // +0xAF5
+    bool IsSubterranean;                           // +0xAF5
     bool AutoCrush;                             // +0xAF6
     bool CanDisguise;                           // +0xAF7
     bool PermaDisguise;                         // +0xAF8

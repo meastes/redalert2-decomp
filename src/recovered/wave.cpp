@@ -291,7 +291,7 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
         CellClass &cell = Map[location];
         WeaponTypeClass *weapon = Owner->unknown_slot231(0)->WeaponType;
         WarheadTypeClass *warhead = weapon->Warhead;
-        int damage = weapon->unknown_98;
+        int damage = weapon->AmbientDamage;
         ObjectClass *object;
         if (!(cell.unknown_140 & 0x100) || StartCoord.Z < (cell.Height + 4) * unknown_geometry_g)
             object = cell.OccupierPtr;
@@ -306,7 +306,7 @@ void WaveClass::Damage_Cell_00721eb0(CoordStruct const &coord)
                 location = cell.MapCoords;
                 location.Chain_Reaction_Damage();
             }
-            if (overlay->Wall) cell.Reduce_Wall(weapon->unknown_98);
+            if (overlay->Wall) cell.Reduce_Wall(weapon->AmbientDamage);
         }
         if (cell.Is_Tile_Destroyable_Cliff()) {
             int chance = Rules->CollapseChance;

@@ -97,7 +97,7 @@ public:
     bool WallAbsoluteDestroyer;             // +0x145
     bool Wood;                              // +0x146
     bool Tiberium;                          // +0x147
-    bool unknown_148;                       // +0x148
+    bool IsOrganic;                       // +0x148
     bool Sparky;                            // +0x149
     bool Sonic;                             // +0x14A
     bool Fire;                              // +0x14B

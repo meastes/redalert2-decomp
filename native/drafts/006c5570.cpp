@@ -35,7 +35,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
     if(tech->Cloak==2) {
         if(!Map[object->Center_Coord()].Is_Sensed(House->ArrayIndex) && House!=tech->House) return false;
     }
-    if(!tech->unknown_32d) return false;
+    if(!tech->IsLocked) return false;
     if(tech->Control()->IsNoThreat) return false;
     if(object->Get_Height_AGL()<-20) return false;
     CoordStruct objectcoord=object->Center_Coord();
@@ -71,7 +71,7 @@ bool TechnoClass::Evaluate_Object(int method,int mask,int range,ObjectClass *obj
             if(!unknown_slot212(object,which)) return false;
         }
     }
-    if(House->Is_Player_Control() && !tech->unknown_372 && !tech->unknown_373 && unknown_game_mode_a3d298==0 && object->Kind_Of()!=2) return false;
+    if(House->Is_Player_Control() && !tech->IsOwnedByPlayer && !tech->IsDiscoveredByPlayer && unknown_game_mode_a3d298==0 && object->Kind_Of()!=2) return false;
     if(object->Kind_Of()==6 && static_cast<BuildingClass *>(object)->Type->InvisibleInGame) return false;
     int otype=object->Kind_Of();
     if(!((1<<otype)&mask) && (!(mask&2) || !object->Considered_Vehicle())) return false;

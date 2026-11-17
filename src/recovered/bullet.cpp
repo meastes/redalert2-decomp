@@ -783,7 +783,7 @@ bool BulletClass::unknown_slot118(CoordStruct const &source, TVelocity3D<double>
             int maximum=Rules->BallisticScatter*2;
             int scatter=Scen->Random()(0,maximum);
             int product = (int)((unsigned int)scatter * (unsigned int)(int)distance); // original32-bit IMUL before signed IDIV
-            int radius = product / WeaponType->unknown_b4;
+            int radius = product / WeaponType->Range;
             int random_direction = Scen->Random()(0, 0x7ffffffe);
             // Full original conversion payloads verified in R1415 launch-data-proof.json.
             double random_angle = random_direction * 4.656612877414201e-10;
@@ -986,7 +986,7 @@ void BulletClass::Detonate(CoordStruct const &position)
     if (WH->ShakeYlo != 0 || WH->ShakeYhi != 0)
         Map.ShakeY = Random2_Pick(WH->ShakeYlo, WH->ShakeYhi);
     if (WeaponType != 0) {
-        int level = WeaponType->unknown_12c;
+        int level = WeaponType->RadLevel;
         if (level > 0) {
             unknown_func_463720(Coord_Cell(position), (int)WeaponType->Warhead->CellSpread, level);
         }
@@ -1084,11 +1084,11 @@ void BulletClass::Detonate(CoordStruct const &position)
             do {
                 CellClass &neighbor = center->Adjacent_Cell(facing);
                 facing = (facing + 1) & 7;
-                BulletClass *fragment = Create_Bullet(projectile, &neighbor, Owner, weapon->unknown_a4, weapon->Warhead, 50, false);
+                BulletClass *fragment = Create_Bullet(projectile, &neighbor, Owner, weapon->Attack, weapon->Warhead, 50, false);
                 if (fragment != 0) {
                     int random_direction = Scen->Random()(0, 32);
                     short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
-                    double speed = (double)(weapon->unknown_a8 / 10);
+                    double speed = (double)(weapon->MaxSpeed / 10);
                     double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
                     TVelocity2D<double> planar(unknown_cos_4ba4d0(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed, unknown_sin_4ba480(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed);
                     TVelocity3D<double> velocity;
@@ -1097,11 +1097,11 @@ void BulletClass::Detonate(CoordStruct const &position)
                     fragment->unknown_slot118(CoordStruct(Coord), velocity);
                 }
             } while (--remaining != 0);
-            BulletClass *fragment = Create_Bullet(projectile, center, Owner, weapon->unknown_a4, weapon->Warhead, 50, false);
+            BulletClass *fragment = Create_Bullet(projectile, center, Owner, weapon->Attack, weapon->Warhead, 50, false);
             if (fragment != 0) {
                 int random_direction = Scen->Random()(0, 32);
                 short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
-                double speed = (double)(weapon->unknown_a8 / 10);
+                double speed = (double)(weapon->MaxSpeed / 10);
                 double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
                 TVelocity2D<double> planar(unknown_cos_4ba4d0(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed, unknown_sin_4ba480(angle) * unknown_cos_4ba4d0(4.712436918747274) * speed);
                 TVelocity3D<double> velocity;
@@ -1156,7 +1156,7 @@ void BulletClass::unknown_func_462c50()
     WeaponTypeClass *weapon = Type->ShrapnelWeapon;
     BulletTypeClass *projectile = weapon->Projectile;
     Cell origin = Get_Cell();
-    int range = weapon->unknown_b4 / 256;
+    int range = weapon->Range / 256;
     int fired = 0;
     // One velocity for both loops, zeroed with Set() before each fragment (TibSun building.cpp idiom).
     TVelocity3D<double> velocity;
@@ -1166,16 +1166,16 @@ void BulletClass::unknown_func_462c50()
             CellClass *cellptr = &Map[unknown_cells_a6f248[index] + origin];
             ObjectClass *target = cellptr->OccupierPtr;
             if (target != 0 && target != Owner && Owner != 0 && !Owner->House->Is_Ally((TechnoClass *)target)) {
-                BulletClass *fragment = Create_Bullet(projectile, target, Owner, weapon->unknown_a4, weapon->Warhead, weapon->unknown_a8, weapon->unknown_10b);
+                BulletClass *fragment = Create_Bullet(projectile, target, Owner, weapon->Attack, weapon->Warhead, weapon->MaxSpeed, weapon->IsBright);
                 if (fragment != 0) {
                     velocity.Set(0, 0, 0);
                     velocity.Set_Yaw(Coord_Direction_462c50(Coord_Of_462c50(this), target->Center_Coord()));
                     velocity.Set_Pitch(DirType(0x2000));
-                    velocity.Set_Speed(weapon->unknown_a8);
+                    velocity.Set_Speed(weapon->MaxSpeed);
                     fragment->unknown_slot118(Coord_Of_462c50(this), velocity);
                     CoordStruct source = Coord_Of_462c50(this);
-                    if (weapon->unknown_121 && Owner != 0) Owner->unknown_6c9df0(target, 0, weapon, source);
-                    if (weapon->unknown_127 && Owner != 0) Owner->CreateEBolt(target, weapon, source);
+                    if (weapon->IsLaser && Owner != 0) Owner->unknown_6c9df0(target, 0, weapon, source);
+                    if (weapon->IsElectricBolt && Owner != 0) Owner->CreateEBolt(target, weapon, source);
                 }
                 if (++fired == count) return;
             }
@@ -1187,16 +1187,16 @@ void BulletClass::unknown_func_462c50()
             Cell cell = Get_Cell();
             cell.X += Random_Pick(-2, 2);
             cell.Y += Random_Pick(-2, 2);
-            BulletClass *fragment = Create_Bullet(projectile, &Map[cell], Owner, weapon->unknown_a4, weapon->Warhead, weapon->unknown_a8, weapon->unknown_10b);
+            BulletClass *fragment = Create_Bullet(projectile, &Map[cell], Owner, weapon->Attack, weapon->Warhead, weapon->MaxSpeed, weapon->IsBright);
             if (fragment != 0) {
                 velocity.Set(0, 0, 0);
                 velocity.Set_Yaw(Coord_Direction_462c50(Coord_Of_462c50(this), Map_Cell(cell).Center_Coord()));
-                velocity.Set_Speed(weapon->unknown_a8);
+                velocity.Set_Speed(weapon->MaxSpeed);
                 velocity.Set_Pitch(DirType(0x2000));
                 fragment->unknown_slot118(Coord_Of_462c50(this), velocity);
                 CoordStruct source = Coord_Of_462c50(this);
-                if (weapon->unknown_121 && Owner != 0) Owner->unknown_6c9df0(&Map_Cell(cell), 0, weapon, source);
-                if (weapon->unknown_127 && Owner != 0) Owner->CreateEBolt(&Map_Cell(cell), weapon, source);
+                if (weapon->IsLaser && Owner != 0) Owner->unknown_6c9df0(&Map_Cell(cell), 0, weapon, source);
+                if (weapon->IsElectricBolt && Owner != 0) Owner->CreateEBolt(&Map_Cell(cell), weapon, source);
             }
         } while (--remaining != 0);
     }
@@ -1396,8 +1396,8 @@ void BulletClass::unknown_func_463c50()
     WeaponTypeClass *payload = Weapons[WeaponTypeClass::Index_From_Name("NukePayload")];
     BulletTypeClass *projectile = payload->Projectile;
     WarheadTypeClass *warhead = payload->Warhead;
-    int speed = payload->unknown_a8;
-    int damage = payload->unknown_a4;
+    int speed = payload->MaxSpeed;
+    int damage = payload->Attack;
     TechnoClass *owner = Owner;
     BulletClass *bullet = Create_Bullet(projectile, target, owner, damage, warhead, speed, true);
     if (bullet != 0) {

@@ -176,7 +176,7 @@ public:
     // 0x1A, 0x27, 4, 3, 0x26, 1 are the kinds Build_INI_Entry writes; name hypothesis).
     static int __fastcall Value_Kind(int type);
 
-    int unknown_24;                         // +0x24
+    int HeapID;                         // +0x24
     TActionClass *Next;                     // +0x28
     int Type;                               // +0x2C
     AbstractTypeClass *unknown_30;          // +0x30
@@ -186,8 +186,8 @@ public:
     int unknown_40;                         // +0x40
     int EffectLocation;                         // +0x44
     int unknown_48;                         // +0x48
-    AbstractClass *unknown_4c;              // +0x4C
-    AbstractClass *unknown_50;              // +0x50
+    AbstractClass *Tag;              // +0x4C
+    AbstractClass *Trigger;              // +0x50
     char Text[32];                          // +0x54
 #ifdef RA2_TACTION_TYPED_DATA
     union ActionData {

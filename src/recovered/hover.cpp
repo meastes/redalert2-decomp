@@ -157,8 +157,8 @@ Matrix3D *__stdcall HoverLocomotionClass::Draw_Matrix(Matrix3D *matrix,int *key)
         translation.Make_Identity();
         Matrix3D rotation;
         rotation.Make_Identity();
-        float width=(float)LinkedTo->Techno_Type_Class()->unknown_330;
-        float length=(float)LinkedTo->Techno_Type_Class()->unknown_338;
+        float width=(float)LinkedTo->Techno_Type_Class()->VoxelCenterY;
+        float length=(float)LinkedTo->Techno_Type_Class()->VoxelCenterX;
         float cos_pitch=Fast_Cos(LinkedTo->AngleRotatedForwards);
         float sin_pitch=Fast_Sin(LinkedTo->AngleRotatedForwards);
         float cos_roll=Fast_Cos(LinkedTo->AngleRotatedSideways);
@@ -622,7 +622,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
             if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
                 return 7;
             }
-            if (LinkedTo->unknown_32d) {
+            if (LinkedTo->IsLocked) {
                 LinkedTo->Set_Occupy_Bit(unknown_24);
             }
             memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);

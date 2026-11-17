@@ -145,7 +145,7 @@ TeamTypeClass::TeamTypeClass(char const *ini_name) :
     Script(0),
     TaskForce(0),
     IsGlobal(0),
-    unknown_e4(9),
+    TaskForceMZone(9),
     IsReachCheckNeeded(true),
     HasNavalTransport(false),
     AvoidThreats(false),
@@ -256,9 +256,9 @@ TypeList<TeamTypeClass const *> __fastcall TeamTypeClass::Suggested_New_Teams(Ho
                 TeamClass *t = Teams[index];
                 if (t->Owner == house) {
                     if (t->Class->IsBaseDefense) {
-                        if (t->unknown_50 < frame) {
+                        if (t->CreationFrame < frame) {
                             team = t;
-                            frame = t->unknown_50;
+                            frame = t->CreationFrame;
                         }
                     }
                 }
@@ -730,7 +730,7 @@ bool TeamTypeClass::Can_Recruit(FootClass *foot, HouseClass *house)
                 return false;
             }
         }
-        if ((foot->unknown_379 || Autocreate) && (foot->unknown_37a || !Autocreate)
+        if ((foot->IsTeamRecruitable || Autocreate) && (foot->IsAutocreateRecruitable || !Autocreate)
             && (foot->Team == 0 || foot->Team->Class->Priority < Priority)) {
             if (foot->Kind_Of() == 2 && foot->unknown_slot231(0)->WeaponType != 0 && foot->Ammo == 0) {
                 return false;
@@ -780,7 +780,7 @@ void TeamTypeClass::unknown_func_6c0180()
 {
     IsReachCheckNeeded = true;
     HasNavalTransport = false;
-    unknown_e4 = 9;
+    TaskForceMZone = 9;
     for (int index = 0; index < TaskForce->CountEntries; index++) {
         TechnoTypeClass *type = TaskForce->Entries[index].Type;
         if (type->Naval) {
@@ -790,7 +790,7 @@ void TeamTypeClass::unknown_func_6c0180()
                 HasNavalTransport = true;
             }
         }
-        unknown_e4 = Unknown_0056A900(type->MovementZone, unknown_e4);
+        TaskForceMZone = Unknown_0056A900(type->MovementZone, TaskForceMZone);
     }
     if (IsBaseDefense) {
         IsReachCheckNeeded = false;

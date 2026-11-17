@@ -793,7 +793,7 @@
    "padding_bytes": 4
   },
   {
-   "symbol": "?unknown_hotkey_text_5fc600@OwnerDraw@@YIXGPAG@Z",
+   "symbol": "?GetKeyboardKeyString@OwnerDraw@@YIXGPAG@Z",
    "entry": "005fc600",
    "body_bytes": 535,
    "padding_bytes": 9
@@ -1021,7 +1021,7 @@
    "padding_bytes": 15
   },
   {
-   "symbol": "?unknown_draw_edit_text_600830@OwnerDraw@@YIXPAVSurface@@AAVRect@@PBGHPAVBitFontClass@@IPAHHHHH@Z",
+   "symbol": "?Draw_Edit_Text@OwnerDraw@@YIXPAVSurface@@AAVRect@@PBGHPAVBitFontClass@@IPAHHHHH@Z",
    "entry": "00600830",
    "body_bytes": 1094,
    "padding_bytes": 10
@@ -1344,63 +1344,63 @@
    "address": "007b3278",
    "bytes": 9,
    "kind": "rtti",
-   "section": 563
+   "section": 555
   },
   {
    "symbol": "??_R3XSurface@@8",
    "address": "007b3288",
    "bytes": 16,
    "kind": "rtti",
-   "section": 564
+   "section": 556
   },
   {
    "symbol": "??_R4XSurface@@6B@",
    "address": "007b3298",
    "bytes": 20,
    "kind": "rtti",
-   "section": 566
+   "section": 557
   },
   {
    "symbol": "??_R1A@?0A@A@Surface@@8",
    "address": "007b32b0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 561
+   "section": 559
   },
   {
    "symbol": "??_R1A@?0A@A@XSurface@@8",
    "address": "007b32c8",
    "bytes": 24,
    "kind": "rtti",
-   "section": 562
+   "section": 561
   },
   {
    "symbol": "??_R1A@?0A@A@BSurface@@8",
    "address": "007b32e0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 555
+   "section": 562
   },
   {
    "symbol": "??_R2BSurface@@8",
    "address": "007b32f8",
    "bytes": 13,
    "kind": "rtti",
-   "section": 556
+   "section": 563
   },
   {
    "symbol": "??_R3BSurface@@8",
    "address": "007b3308",
    "bytes": 16,
    "kind": "rtti",
-   "section": 557
+   "section": 564
   },
   {
    "symbol": "??_R4BSurface@@6B@",
    "address": "007b3318",
    "bytes": 20,
    "kind": "rtti",
-   "section": 559
+   "section": 566
   },
   {
    "symbol": "??_R2Surface@@8",
@@ -1456,21 +1456,21 @@
    "address": "007ce2b0",
    "bytes": 22,
    "kind": "rtti",
-   "section": 560
+   "section": 558
   },
   {
    "symbol": "??_R0?AVXSurface@@@8",
    "address": "007ce2c8",
    "bytes": 23,
    "kind": "rtti",
-   "section": 565
+   "section": 560
   },
   {
    "symbol": "??_R0?AVBSurface@@@8",
    "address": "007ce2e0",
    "bytes": 23,
    "kind": "rtti",
-   "section": 558
+   "section": 565
   },
   {
    "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
@@ -7968,7 +7968,7 @@
   },
   {
    "site": "005d97a0",
-   "symbol": "?unknown_hotkey_text_5fc600@OwnerDraw@@YIXGPAG@Z",
+   "symbol": "?GetKeyboardKeyString@OwnerDraw@@YIXGPAG@Z",
    "target": "005fc600",
    "function_entry": true
   },
@@ -8100,7 +8100,7 @@
   },
   {
    "site": "006f1620",
-   "symbol": "?unknown_draw_edit_text_600830@OwnerDraw@@YIXPAVSurface@@AAVRect@@PBGHPAVBitFontClass@@IPAHHHHH@Z",
+   "symbol": "?Draw_Edit_Text@OwnerDraw@@YIXPAVSurface@@AAVRect@@PBGHPAVBitFontClass@@IPAHHHHH@Z",
    "target": "00600830",
    "function_entry": true
   },
@@ -9347,6 +9347,10 @@
    "address": "0076fa50"
   },
   {
+   "symbol": "?text@WideString@@QBEPBGXZ",
+   "address": "00770430"
+  },
+  {
    "symbol": "?unknown_5115f0@@YIXPAUHWND__@@@Z",
    "address": "005115f0"
   },
@@ -9689,10 +9693,6 @@
   {
    "symbol": "?unknown_tab_proc_5f0f40@OwnerDraw@@YGJPAUHWND__@@IIJ@Z",
    "address": "005f0f40"
-  },
-  {
-   "symbol": "?unknown_text_770430@WideString@@QBEPBGXZ",
-   "address": "00770430"
   },
   {
    "symbol": "?unknown_tooltip_a737f0@OwnerDraw@@3UUnknownTooltipState@1@A",

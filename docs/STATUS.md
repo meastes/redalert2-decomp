@@ -11,22 +11,22 @@ the native port is in progress. Per-batch evidence through A15 is in
 
 | Measure | Value |
 | --- | ---: |
-| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,524,107 of 3,769,805 (93.48%)** |
+| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) | **3,524,110 of 3,769,805 (93.48%)** |
 | Judgment-call bytes (accepted rows resting on a flagged, unprovable choice: count_calibrated, split_declaration, declarations_only; read from the manifest) | 29,167 in 10 regions (0.77% of .text) |
 | Accepted regions | 17,907 |
 | Matched C/C++ body bytes | 3,272,459 (86.81% of .text) |
 | Count-calibrated C/C++ bytes (rows whose named locals were chosen by count calibration under the user's three conditions, 2026-11-09; own category, included in the matched C/C++ bytes above) | 14,606 in 7 regions (0.39% of .text) |
 | Evidenced inline assembly body bytes (cited TibSun `__asm`; own category beside library code, not C/C++ credit) | 2,514 (0.07% of .text) |
-| Frozen padding bytes | 143,008 |
-| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 405 module(s): 15,569 functions, 3,182,050 code bytes; **2,086 data bytes compiler-emitted and proven at their original addresses** in 43 sections, 343,768 bytes of vtable/RTTI copies kept elsewhere; 38 header gaps (withheld template details, modules.json header_gaps; no bytes) in 17 module(s); own ledger, no .text credit (_command, _isotile, _logic, _map, _mixfile, _palette, _rect, _rtti, _rules, _warhead, abstract, abstype, abuffer, ahandle, ahandle2, aircraft, airctype, aitrig, alphalighting, alphashp, anim, animfile, animtype, app, astar, audattr, audbag, audcache, audchanl, auddev, audevent, audio, audlists, audplay, audsrc, audstrm, audtimer, b64pipe, b64straw, bar, base, base64, beacon, bench, bfiofile, bfiofile2, bitfont, bittext, blight, blit, blowfish, blowpipe, blwstraw, bomb, bounce, brain, buff, buffer, building, builtype, bullet, bullettype, campaign, campscor, cargo, carry, category, ccfile, ccini, cctooltip, cd, cdcntrl, cdfile, cell, checkbox, cheklist, colrlist, combat, combuf, combuf2, connect, conquer, const, control, convert, coopcamp, coord, copyprotection, counter, cpoint, crate, crc, crcpipe, crcstraw, credits, cstraw, cstream, data, ddraw, delay, dial8, dialog, dib, diskswap, display, draw, drive, drop, droppod, dropship, drv_dsnd, dsurface, ebolt, edit, effects, emember, empulse, enviro, event, facing, factory, fastmath, field, findpath2, fly, fog, foot, fuse, gadget, gamedlg, gametime, gauge, gdlgsupp, getcd, getcpu, globals, goptions, grphmenu, grphmenu2, grphmimg, grphmitm, grphmsct, gscreen, hicolor, house, houstype, hover, hsv, infantry, infatype, ini, init, interpal, intro, ion, ionblast, ipxaddr, ipxconn, ipxgconn, ipxmgr, isotile, isotype, jshell, jumpjet, kamikaze, keyboard, laser, layer, lcwpipe, lcwstraw, ldprgmgr, light, lightcalc, lightcon, link, link2, list, loaddlg, loco, logic, lzo1x_c, lzo1x_d, lzopipe, lzostraw, mainloop, mainopt, map, mapgen, mapsel, matrix3d, mech, milsectmr, missile, mission, mixfile, modemgst, modemhst, modemreg, motlib, mouse, movie, movies, mpcoop, mpfreeforall, mplayer, mpmath, mpobserver, mpscore, mpsiege, mpsiegeteam, mpu, mpunholyalliance, msanim, mschoice, msengine, msfont, msgbox, msglist, mstimer, multiplayer, multiplayerteam, multiplayerteam2, netdlg, netdlg2, netshare, nullconn, nulldlg, nullmgr, object, objtype, options, overlay, overtype, ovrlight, ownrdraw, packet, palette, parasite, particle, partsys, phoneed, pipe, pixelfx, pk, pkpipe, pkstraw, planmgr, polygon, power, preview, progress, psystype, ptype, quat, queue, radar, radbeam, radio, ramfile, random, rawfile, rc_ptr_base, readline, reinf, restate, revent, rgb, rle, rndstraw, rocket, rocket2, rules, saveload, savever, scenario, scheme, score, script, scroll, serialed, session, sha, shapebtn, shapipe, shastraw, ship, side, sidebar, skirmish, slider, smartdeform, smudge, smudtype, sounddlg, spawnmanager, special, sprite, srfcache, startup, statbtn, stats, stbuffer, stimer, stlscore, storage, straw, subtitle, super, suprtype, swizzle, tab, tactical, taction, tag, tagtype, target, taskforc, team, teamtype, techno, techtype, teleport, temporal, terrain, terrtype, tevent, textbtn, theme, tiberium, tmission, toggle, tooltip, tracker, trigger, trigtype, trim, tube, tunnel, txtlabel, txtlabel2, uicmnds, uicmnds2, unit, unittype, unvqtblc, utracker, vanim, vanimtype, vector, vein, version, veteran, voc, volinfo, vox, voxdrsys, voxel, voxlib, voxpal, vqa, vqalib_audio, vqalib_buffer_, vqalib_drawer, vqalib_dstream, vqalib_loader, vqalib_task, vqalib_timer, vqalib_unvq, vqalib_unvqtran, vqoption, walk, warhead, wave, waypoint, wdtcampaign, wdtconflict, wdtgameoptions, wdthistory, wdtmap, wdtnet, wdtprops, wdtsel, wdtstate, wdtterr, wdtvoice, weapon, wincomm, windlg, winfix, winstub, wolpersonainformation, wolpersonainformation2, wonline, worlddom, writepcx, wspipx, wsproto, wspudp, wstring, wwmous, wwmouse, xpipe, xstraw, xsurface, zbuffer) |
-| Route A units (one source per original translation unit under its own header state, refile_unit.py; part of the Module form line) | 376 unit(s): 15,316 functions, 3,156,946 code bytes; residual rows in their own files: **split 1,248 rows, 116,476 bytes** (held by another frozen population; the known ceiling of what joining can still move), **flipped 15 rows, 1,367 bytes** (not exact when moved), kept by rule 13 rows, 4,078 bytes; 686 per-unit switches kept; 5,999 stand-in references from other units. Split rows by cause (read from each row's file and its holding population, no compile): template members 334 rows, 29,004 bytes (the file sets a container implementation switch such as VECTOR_IMPLEMENT_* or instantiates a template); needs another unit's header state 305 rows, 35,109 bytes (another switch, another include or ghidra_types.hpp); stand-ins 92 rows, 12,598 bytes (placeholder-form rows); emitted by another source 257 rows, 11,195 bytes (comment-only files: an inline constructor, dynamic initialiser or compiler-generated destructor another source emits; moves only with its emitter); held by a population that compiles each source alone 92 rows, 7,323 bytes (the holding population compiles each source alone); other option set 85 rows, 8,472 bytes (compiled under another option set than the unit's group); the unit's own second population 34 rows, 8,811 bytes (every row of the holding population is this unit's: a second compile group a join would empty); no bound in the unit's frozen pass 23 rows, 1,041 bytes (a mixed population; the unit's frozen inventory pass gives no equal bound); not yet classified 26 rows, 2,923 bytes (nothing in the text or the holding population decides). |
-| Rows bound by their own frozen population (joined into a unit's translation unit; bound, gap padding and provenance from `bound_population`'s pass) | 3,011 rows, 192,318 bytes, 159 donor populations |
-| Rows joined under the unit's /GR (frozen without /GR; every RTTI structure the unit emits still proven at its original address; manifest note "joined under the unit's /GR") / under the unit's options (frozen under another option set; the unit's set evidenced by its own rows; manifest note "joined under the unit's options (frozen under X)") | /GR: 1,037 rows, 63,521 bytes, 141 units; options: 3 rows, 182 bytes, 2 units |
+| Frozen padding bytes | 143,011 |
+| Module form (sources in original translation-unit form, no addresses; manifests/original_target/modules/) | 405 module(s): 15,605 functions, 3,184,482 code bytes; **2,086 data bytes compiler-emitted and proven at their original addresses** in 43 sections, 344,948 bytes of vtable/RTTI copies kept elsewhere; 38 header gaps (withheld template details, modules.json header_gaps; no bytes) in 17 module(s); own ledger, no .text credit (_command, _isotile, _logic, _map, _mixfile, _palette, _rect, _rtti, _rules, _warhead, abstract, abstype, abuffer, ahandle, ahandle2, aircraft, airctype, aitrig, alphalighting, alphashp, anim, animfile, animtype, app, astar, audattr, audbag, audcache, audchanl, auddev, audevent, audio, audlists, audplay, audsrc, audstrm, audtimer, b64pipe, b64straw, bar, base, base64, beacon, bench, bfiofile, bfiofile2, bitfont, bittext, blight, blit, blowfish, blowpipe, blwstraw, bomb, bounce, brain, buff, buffer, building, builtype, bullet, bullettype, campaign, campscor, cargo, carry, category, ccfile, ccini, cctooltip, cd, cdcntrl, cdfile, cell, checkbox, cheklist, colrlist, combat, combuf, combuf2, connect, conquer, const, control, convert, coopcamp, coord, copyprotection, counter, cpoint, crate, crc, crcpipe, crcstraw, credits, cstraw, cstream, data, ddraw, delay, dial8, dialog, dib, diskswap, display, draw, drive, drop, droppod, dropship, drv_dsnd, dsurface, ebolt, edit, effects, emember, empulse, enviro, event, facing, factory, fastmath, field, findpath2, fly, fog, foot, fuse, gadget, gamedlg, gametime, gauge, gdlgsupp, getcd, getcpu, globals, goptions, grphmenu, grphmenu2, grphmimg, grphmitm, grphmsct, gscreen, hicolor, house, houstype, hover, hsv, infantry, infatype, ini, init, interpal, intro, ion, ionblast, ipxaddr, ipxconn, ipxgconn, ipxmgr, isotile, isotype, jshell, jumpjet, kamikaze, keyboard, laser, layer, lcwpipe, lcwstraw, ldprgmgr, light, lightcalc, lightcon, link, link2, list, loaddlg, loco, logic, lzo1x_c, lzo1x_d, lzopipe, lzostraw, mainloop, mainopt, map, mapgen, mapsel, matrix3d, mech, milsectmr, missile, mission, mixfile, modemgst, modemhst, modemreg, motlib, mouse, movie, movies, mpcoop, mpfreeforall, mplayer, mpmath, mpobserver, mpscore, mpsiege, mpsiegeteam, mpu, mpunholyalliance, msanim, mschoice, msengine, msfont, msgbox, msglist, mstimer, multiplayer, multiplayerteam, multiplayerteam2, netdlg, netdlg2, netshare, nullconn, nulldlg, nullmgr, object, objtype, options, overlay, overtype, ovrlight, ownrdraw, packet, palette, parasite, particle, partsys, phoneed, pipe, pixelfx, pk, pkpipe, pkstraw, planmgr, polygon, power, preview, progress, psystype, ptype, quat, queue, radar, radbeam, radio, ramfile, random, rawfile, rc_ptr_base, readline, reinf, restate, revent, rgb, rle, rndstraw, rocket, rocket2, rules, saveload, savever, scenario, scheme, score, script, scroll, serialed, session, sha, shapebtn, shapipe, shastraw, ship, side, sidebar, skirmish, slider, smartdeform, smudge, smudtype, sounddlg, spawnmanager, special, sprite, srfcache, startup, statbtn, stats, stbuffer, stimer, stlscore, storage, straw, subtitle, super, suprtype, swizzle, tab, tactical, taction, tag, tagtype, target, taskforc, team, teamtype, techno, techtype, teleport, temporal, terrain, terrtype, tevent, textbtn, theme, tiberium, tmission, toggle, tooltip, tracker, trigger, trigtype, trim, tube, tunnel, txtlabel, txtlabel2, uicmnds, uicmnds2, unit, unittype, unvqtblc, utracker, vanim, vanimtype, vector, vein, version, veteran, voc, volinfo, vox, voxdrsys, voxel, voxlib, voxpal, vqa, vqalib_audio, vqalib_buffer_, vqalib_drawer, vqalib_dstream, vqalib_loader, vqalib_task, vqalib_timer, vqalib_unvq, vqalib_unvqtran, vqoption, walk, warhead, wave, waypoint, wdtcampaign, wdtconflict, wdtgameoptions, wdthistory, wdtmap, wdtnet, wdtprops, wdtsel, wdtstate, wdtterr, wdtvoice, weapon, wincomm, windlg, winfix, winstub, wolpersonainformation, wolpersonainformation2, wonline, worlddom, writepcx, wspipx, wsproto, wspudp, wstring, wwmous, wwmouse, xpipe, xstraw, xsurface, zbuffer) |
+| Route A units (one source per original translation unit under its own header state, refile_unit.py; part of the Module form line) | 376 unit(s): 15,352 functions, 3,159,378 code bytes; residual rows in their own files: **split 1,246 rows, 118,909 bytes** (held by another frozen population; the known ceiling of what joining can still move), **flipped 15 rows, 1,367 bytes** (not exact when moved), kept by rule 13 rows, 4,078 bytes; 686 per-unit switches kept; 5,765 stand-in references from other units. Split rows by cause (read from each row's file and its holding population, no compile): template members 391 rows, 32,710 bytes (the file sets a container implementation switch such as VECTOR_IMPLEMENT_* or instantiates a template); needs another unit's header state 280 rows, 34,723 bytes (another switch, another include or ghidra_types.hpp); stand-ins 85 rows, 12,915 bytes (placeholder-form rows); emitted by another source 250 rows, 10,619 bytes (comment-only files: an inline constructor, dynamic initialiser or compiler-generated destructor another source emits; moves only with its emitter); held by a population that compiles each source alone 92 rows, 7,323 bytes (the holding population compiles each source alone); other option set 88 rows, 8,523 bytes (compiled under another option set than the unit's group); the unit's own second population 34 rows, 8,811 bytes (every row of the holding population is this unit's: a second compile group a join would empty); no bound in the unit's frozen pass 26 rows, 3,285 bytes (a mixed population; the unit's frozen inventory pass gives no equal bound); not yet classified 0 rows, 0 bytes (nothing in the text or the holding population decides). |
+| Rows bound by their own frozen population (joined into a unit's translation unit; bound, gap padding and provenance from `bound_population`'s pass) | 3,037 rows, 193,908 bytes, 165 donor populations |
+| Rows joined under the unit's /GR (frozen without /GR; every RTTI structure the unit emits still proven at its original address; manifest note "joined under the unit's /GR") / under the unit's options (frozen under another option set; the unit's set evidenced by its own rows; manifest note "joined under the unit's options (frozen under X)") | /GR: 1,051 rows, 64,229 bytes, 141 units; options: 3 rows, 182 bytes, 2 units |
 | `$E` rows joined to the one unit the .CRT$XCU table evidences (no flag; manifest note "xcu single") | 81 rows, 2,031 bytes, 9 units |
 | `$E` rows joined to a .CRT$XCU boundary pick, flag `unit_evidence: xcu-exclusion` (the previous unit already owns that header static; bytes cannot tell the two candidates apart) | 172 rows, 4,857 bytes |
 | `$E` rows joined to a .CRT$XCU boundary pick, flag `unit_evidence: xcu-prefix+map` (prefix rule and unit map agree; bytes cannot tell the two candidates apart) | 77 rows, 2,113 bytes |
 | `$E` rows joined to a .CRT$XCU boundary pick, flag `unit_evidence: xcu-prefix` (prefix rule alone; bytes cannot tell the two candidates apart) | 195 rows, 5,340 bytes |
-| Address-named source files remaining (collision / seed name; rename_files.py) | 1,055 files: collision 252, seed name 775, not yet renamed 1, other 27 (no unit or folder spelling, not one accepted row) |
+| Address-named source files remaining (collision / seed name; rename_files.py) | 129 files: collision 30, seed name 99, not yet renamed 0, other 0 (no unit or folder spelling, not one accepted row) |
 | Files depending on VECTOR_DECLARATIONS_ONLY (container members left undefined; per file, no bytes counted) | 4 (Constructor.cpp, Resize.cpp, gamedlg.cpp, ownrdraw.cpp) |
 | Data bound by enclosed section layout (flag data_bound_by: layout; the split into declarations is a hypothesis) | 20 symbols in 1 source(s); 404 bytes in the proven sections that hold them |
 | Data bound by bss elimination (flag data_bound_by: elimination; earns nothing by itself) | 1 symbols in 1 source(s) |
@@ -35,17 +35,17 @@ the native port is in progress. Per-batch evidence through A15 is in
 | Linked library bytes (identified archive members built from the pinned SP3 LIBCMT/COMSUPP and VC98 import libraries; manifests/original_target/library.json; not source credit) | 89,127 in 899 sections (2.36% of .text) |
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
-| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,272,349 of 3,515,676 (93.08%) |
+| In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,272,349 of 3,515,673 (93.08%) |
 | In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,889 of 17,985 (99.47%) |
 | Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 92 of 96 scored) | 98.92% by bytes, 99.87% per function |
 | In-scope functions with source (exact or draft: accepted rows plus non-exact drafts in source) | 17,982 of 17,985 (99.98%) |
 | Non-exact drafts in source (#ifdef RA2_NON_MATCHING, manifests/original_target/non_exact.json; never compiled by the exact build; no .text credit) | 98 functions, 182,364 bytes, mean score 68.13 |
-| Original .text scaffold bytes | 245,698 |
+| Original .text scaffold bytes | 245,695 |
 | Logical .text bytes | 3,769,805 |
-| Compiler populations | 595 |
+| Compiler populations | 599 |
 | Compile path (build environment, with the pinned VC6 SP3 8447 compiler; docs/ORIGINAL_TARGET_BUILD.md "Fixed compile folder") | `<drive>:\private\tmp\ra2c\XXXXXXXX\gNNNN\accepted.cpp; /I <drive>:\private\tmp\ra2c\XXXXXXXX\src; TMP <drive>:\private\tmp\ra2c\XXXXXXXX\tmp-N` |
-| Populations under /GR (docs/DECISIONS.md "/GR per population") | 342 of 595 |
-| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text credit) | 223,812 of 711,662 file-backed (31.4%); RTTI 76,027, vtables 36,972, strings 93,897; 15 class hierarchy descriptor(s) differ from the original only in the ambiguous bit (known difference; the attributes word is not counted) |
+| Populations under /GR (docs/DECISIONS.md "/GR per population") | 342 of 599 |
+| Non-code bytes proven at their original addresses (module maps, deduplicated by address; not .text credit) | 223,932 of 711,662 file-backed (31.5%); RTTI 76,035, vtables 37,084, strings 93,897; 12 class hierarchy descriptor(s) differ from the original only in the ambiguous bit (known difference; the attributes word is not counted) |
 
 Manifest history (body bytes added per commit, and per hour since the previous commit):
 
@@ -3033,6 +3033,75 @@ Manifest history (body bytes added per commit, and per hour since the previous c
 | `ce35e49db` | 2026-11-15 07:15 -0600 | 17,907 | 3,272,459 | +0 | 0 |
 | `8518c8b67` | 2026-11-15 08:12 -0600 | 17,907 | 3,272,459 | +0 | 0 |
 | `f0e55af69` | 2026-11-15 08:12 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `8fa9c42e5` | 2026-11-15 09:26 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `eb0835bf6` | 2026-11-15 11:09 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `2616a1a15` | 2026-11-15 13:41 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `16f292be8` | 2026-11-15 14:38 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `dce30fbf4` | 2026-11-15 17:17 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `5ed06f87f` | 2026-11-15 17:17 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `1722427e3` | 2026-11-15 17:17 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `a7242baa8` | 2026-11-15 18:28 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `e51eebac1` | 2026-11-15 18:29 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `5b3d4397e` | 2026-11-15 19:21 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `89cafd070` | 2026-11-15 19:21 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `2ed696fff` | 2026-11-15 19:21 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `223548916` | 2026-11-15 21:03 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `0d65d9378` | 2026-11-15 23:30 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `70037a4f6` | 2026-11-15 23:30 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `cf0817a77` | 2026-11-15 23:31 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `b8789d883` | 2026-11-16 00:36 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `06688192c` | 2026-11-16 02:08 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `14369c2a6` | 2026-11-16 02:08 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `9ebb02e03` | 2026-11-16 02:41 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `7d6f09cef` | 2026-11-16 02:41 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `80e04cd35` | 2026-11-16 03:07 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `3cef4df3e` | 2026-11-16 03:40 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `dd7457797` | 2026-11-16 03:40 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `1fc418da0` | 2026-11-16 04:28 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `48dced696` | 2026-11-16 04:28 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `0827b9412` | 2026-11-16 06:25 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `a350af3da` | 2026-11-16 06:25 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `cd6aa7d41` | 2026-11-16 07:05 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `40d59042d` | 2026-11-16 07:31 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `3aeefb8bc` | 2026-11-16 07:37 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `3bd0538fd` | 2026-11-16 07:39 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `dbd6bf411` | 2026-11-16 07:42 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `dcd3b99cf` | 2026-11-16 07:46 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `d3d27291a` | 2026-11-16 07:51 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `f3b37d1a6` | 2026-11-16 07:53 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `83c829cb2` | 2026-11-16 08:24 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `7c1f0f52b` | 2026-11-16 09:14 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `c98567539` | 2026-11-16 09:14 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `6fa5d71e3` | 2026-11-16 09:39 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `5ce62e2c4` | 2026-11-16 10:05 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `cf30ba056` | 2026-11-16 10:12 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `9cf7f4f82` | 2026-11-16 11:10 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `14ef980f7` | 2026-11-16 12:22 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `8a28ea7b1` | 2026-11-16 13:24 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `a442883cf` | 2026-11-16 13:24 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `5d4e44bae` | 2026-11-16 13:24 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `3bfd2ec2f` | 2026-11-16 13:24 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `60724cdd3` | 2026-11-16 15:21 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `e8bc45cbb` | 2026-11-16 15:21 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `a5f470963` | 2026-11-16 15:26 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `ccf390ca9` | 2026-11-16 15:29 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `bd8bf8fef` | 2026-11-16 15:34 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `da5e27309` | 2026-11-16 15:38 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `3ffa3cfc2` | 2026-11-16 15:38 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `3734dc798` | 2026-11-16 16:19 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `62a203129` | 2026-11-16 16:28 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `a02be401c` | 2026-11-16 16:34 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `3adc1d0ef` | 2026-11-16 17:36 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `a7c1b94ff` | 2026-11-16 18:34 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `30bb9678c` | 2026-11-16 18:35 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `44d1b5db4` | 2026-11-16 20:05 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `d91c20d7f` | 2026-11-16 20:08 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `11fe81474` | 2026-11-16 20:08 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `578feb0e5` | 2026-11-16 20:12 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `179227ab9` | 2026-11-16 20:12 -0600 | 17,907 | 3,272,459 | +0 |  |
+| `091b46210` | 2026-11-16 20:44 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `823530877` | 2026-11-16 21:43 -0600 | 17,907 | 3,272,459 | +0 | 0 |
+| `32cdb55e2` | 2026-11-16 22:25 -0600 | 17,907 | 3,272,459 | +0 | 0 |
 
 <!-- /generated:status -->
 

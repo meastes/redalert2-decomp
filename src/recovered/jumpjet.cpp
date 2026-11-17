@@ -170,7 +170,7 @@ bool __stdcall JumpjetLocomotionClass::Process()
         if (LinkedTo->House->Ion_Sensitives_Should_Be_Offline() && unknown_4c != 0 && unknown_4c != 5) {
             LinkedTo->unknown_slot224(0);
         }
-        if (LinkedTo->unknown_37d && unknown_4c != 5 && unknown_4c != 6 && LinkedTo->Get_Height_AGL() > 0) {
+        if (LinkedTo->IsRocking && unknown_4c != 5 && unknown_4c != 6 && LinkedTo->Get_Height_AGL() > 0) {
             unknown_78 = -5;
             unknown_4c = 5;
             if (LinkedTo->Kind_Of() == 0xF) {
@@ -206,7 +206,7 @@ bool __stdcall JumpjetLocomotionClass::Process()
                 LinkedTo->Unselect();
             }
         }
-        if (!LinkedTo->unknown_373 && LinkedTo->House != PlayerPtr) {
+        if (!LinkedTo->IsDiscoveredByPlayer && LinkedTo->House != PlayerPtr) {
             if (!Map.Is_Shrouded(Object_Coord(LinkedTo))) {
                 LinkedTo->Revealed(PlayerPtr);
             }

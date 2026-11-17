@@ -66,13 +66,13 @@ public:
 
     int unknown_e8;                             // +0x0E8
     VoxelAnimTypeClass *Class;                  // +0x0EC
-    ObjectClass *unknown_f0;                    // +0x0F0
-    HouseClass *unknown_f4;                    // +0x0F4
+    ObjectClass *AttachedParticleSys;                    // +0x0F0
+    HouseClass *House;                    // +0x0F4
     bool unknown_f8;                            // +0x0F8
-    UnknownAudioController unknown_fc;          // +0x0FC
-    UnknownAudioController unknown_110;         // +0x110
-    bool unknown_124;                           // +0x124
-    int unknown_128;                            // +0x128
+    UnknownAudioController StartSoundAudioController;          // +0x0FC
+    UnknownAudioController StopSoundAudioController;         // +0x110
+    bool IsInvisible;                           // +0x124
+    int ECCounter;                            // +0x128
     int unknown_12c;                            // +0x12C
 };
 

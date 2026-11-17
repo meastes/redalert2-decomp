@@ -57,7 +57,7 @@ namespace OwnerDraw {
 BOOL __stdcall unknown_5ed180(HWND window, LPARAM lparam);                 // 0x005ED180 (subclass a control)
 BOOL __stdcall unknown_restore_child_5edd30(HWND window, LPARAM lparam);   // 0x005EDD30
 void __fastcall unknown_draw_dimmed_back_5fe490(Rect const &area, HWND window, int kind);   // 0x005FE490
-void __fastcall unknown_draw_edit_text_600830(Surface *surface, Rect &rect, wchar_t const *text, int caret,
+void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text, int caret,
                                               BitFontClass *font, unsigned int color, int *scroll, int ime,
                                               int password, int frame, int unknown9);   // 0x00600830
 extern int unknown_caret_hidden_a763ec;                                    // 0x00A763EC
@@ -1595,7 +1595,7 @@ LRESULT __stdcall unknown_new_edit_proc_5f22a0(HWND window, UINT message, WPARAM
         if (!combo) unknown_5fdb20(AlternateSurface, background, 1, -1);
         Rect area(display.left + 2, display.top, display.right - (display.left + 2) + 1, display.bottom - display.top + 1);
         unknown_caret_hidden_a763ec = caret_hidden;
-        unknown_draw_edit_text_600830(AlternateSurface, area, (wchar_t const *)text.Get(), record->unknown_40,
+        Draw_Edit_Text(AlternateSurface, area, (wchar_t const *)text.Get(), record->unknown_40,
                                       record->font_64, unknown_color_a733e4, &record->unknown_44, record->unknown_38,
                                       ((unsigned int)record->unknown_54 >> 5) & 1, 0, 0);
         ValidateRect(window, 0);

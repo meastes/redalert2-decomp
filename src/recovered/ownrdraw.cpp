@@ -4033,11 +4033,11 @@ LRESULT __stdcall unknown_combo_drop_proc_5ead20(HWND window, UINT message, WPAR
                 WideString text;
                 text = unknown_5e2100(parent, (int)unknown_combo_owner_a763f4, index);
                 if (wcscmp((wchar_t const *)text.Get(), L"")) {
-                    SendMessageA(tip, 0x4b2, 0, (LPARAM)text.unknown_text_770430());
+                    SendMessageA(tip, 0x4b2, 0, (LPARAM)text.text());
                 } else {
                     text = unknown_5e2160(parent, (int)unknown_combo_owner_a763f4);
                     if (wcscmp((wchar_t const *)text.Get(), L"")) {
-                        SendMessageA(tip, 0x4b2, 0, (LPARAM)text.unknown_text_770430());
+                        SendMessageA(tip, 0x4b2, 0, (LPARAM)text.text());
                     }
                 }
             }
@@ -4768,7 +4768,7 @@ extern "C" __declspec(dllimport) BOOL __stdcall GetUpdateRect(HWND,RECT *,BOOL);
 void __fastcall WideToCharString_006fa0f0(char *,unsigned short const *,int);
 namespace OwnerDraw {
 void __fastcall unknown_draw_dimmed_back_5fe490(Rect const &,HWND,int);
-void __fastcall unknown_draw_edit_text_600830(Surface *,Rect &,wchar_t const *,int,
+void __fastcall Draw_Edit_Text(Surface *,Rect &,wchar_t const *,int,
     BitFontClass *,unsigned int,int *,int,int,int,int);
 LRESULT __stdcall unknown_edit_control_proc_5f1900(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
 {
@@ -4877,7 +4877,7 @@ LRESULT __stdcall unknown_edit_control_proc_5f1900(HWND window,UINT message,WPAR
         unknown_edit_text_5f2120(window,unknown_edit_buffer_a7393c,0x1400,&caret);
         Rect text(display.left,display.top,display.right-display.left+1,display.bottom-display.top+1);
         LONG text_style=GetWindowLongA(window,-16);
-        unknown_draw_edit_text_600830(AlternateSurface,text,unknown_edit_buffer_a7393c,caret,
+        Draw_Edit_Text(AlternateSurface,text,unknown_edit_buffer_a7393c,caret,
             data->font_64,unknown_color_a733e4,&data->unknown_44,data->unknown_38,((unsigned int)text_style>>5)&1,0,0);
         ValidateRect(window,0);
     }
@@ -5619,7 +5619,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
                     text = name;
                 }
             }
-            SendMessageA(status, 0x4B2, 0, (LPARAM)text.unknown_text_770430());
+            SendMessageA(status, 0x4B2, 0, (LPARAM)text.text());
         }
     }
 
@@ -6738,7 +6738,7 @@ LRESULT __stdcall unknown_hotkey_proc_5fc330(HWND window, UINT message, WPARAM w
         }
         wchar_t text[64];
         unsigned short hotkey = (unsigned short)SendMessageA(window, 0x402, 0, 0);
-        unknown_hotkey_text_5fc600(hotkey, text);
+        GetKeyboardKeyString(hotkey, text);
         if (record->surface_10) {
             AlternateSurface->Copy_From(screen, *record->surface_10, local, false, true);
         }
@@ -6769,7 +6769,7 @@ LRESULT __stdcall unknown_hotkey_proc_5fc330(HWND window, UINT message, WPARAM w
 namespace OwnerDraw {
 
 // The text of a hot key control's value ("Alt+Ctrl+Shift+Key"; nothing for an extended key) (0x005FC600).
-void __fastcall unknown_hotkey_text_5fc600(unsigned short hotkey, wchar_t *text)
+void __fastcall GetKeyboardKeyString(unsigned short hotkey, wchar_t *text)
 {
     char name[32];
     char buffer[500];
@@ -8001,7 +8001,7 @@ template<class T> inline T unknown_max(T a, T b) { return a < b ? b : a; }
 // first shown character). With ime the open IME composition is spliced in at the caret and drawn in the
 // composition color; password shows '*' for every character; frame clears the text's background first.
 // Each drawn run moves rect's left edge past it; the caret is drawn after the run that ends at it.
-void __fastcall unknown_draw_edit_text_600830(Surface *surface, Rect &rect, wchar_t const *text, int caret,
+void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text, int caret,
                                               BitFontClass *font, unsigned int color, int *scroll, int ime,
                                               int password, int frame, int unknown9)
 {

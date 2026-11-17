@@ -259,7 +259,7 @@ void InfantryClass::unknown_slot93(int why)
                 Mark(1);
             }
         }
-        if (unknown_370) {
+        if (IsTethered) {
             unknown_slot149(8);
             if (Type->VoiceComment.Count()>1) Voc_Play_At(Type->VoiceComment[1],CoordStruct(Coord),0);
             if (IsOnBridge) {

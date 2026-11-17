@@ -54,9 +54,9 @@ public:
 
     CoordStruct unknown_1c;             // +0x1C destination
     CoordStruct unknown_28;             // +0x28 head-to coordinate
-    bool unknown_34;                    // +0x34 moving
-    bool unknown_35;                    // +0x35 processing
-    bool unknown_36;                    // +0x36 really moving
+    bool IsMoving;                    // +0x34 moving
+    bool IsProcessingMovement;                    // +0x35 processing
+    bool IsReallyMoving;                    // +0x36 really moving
     UnknownLocomotionPtr Piggybacker;   // +0x38
 };
 

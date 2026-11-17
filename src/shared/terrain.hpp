@@ -103,8 +103,8 @@ public:
 
     UnknownStage Animation;                 // +0x098
     TerrainTypeClass *Class;                // +0x0B0
-    bool unknown_b4;                        // +0x0B4
-    bool unknown_b5;                        // +0x0B5
+    bool IsOnFire;                        // +0x0B4
+    bool IsCrumbling;                        // +0x0B5
     Rect unknown_b8;                        // +0x0B8 (its Width and Height, +0xC0 and +0xC4, hold the object's screen position: slot 53)
 };
 

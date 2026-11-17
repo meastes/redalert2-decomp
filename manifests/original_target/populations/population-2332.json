@@ -4,8 +4,8 @@
     "id": "population-2332",
     "inventory_sha256": "76cc31bf2121336622675c652515b2450ff2311f3d67e038eecacdf30bb105dc",
     "gaps_sha256": "7073f14aea03992e6b55d6f6168945149e7932a55137855bd291b5e4fd7f09c5",
-    "historical_population_sha256": "2675ed50ed7a5885cdf19a6792b3032f325823df6e7c568b3df392edcc984299",
-    "historical_acceptance_sha256": "c1a5aaf8b1a4475a07f328dbc8de5a9b44e10f5e4d017a02a5596030646e353e",
+    "historical_population_sha256": "5b1992be6c95c675b5bfe55c0af54019c8b7fbd8027a034f65e975ab9f1b5c1a",
+    "historical_acceptance_sha256": "954a88c15547a057680bb90b8161d7f6c95feb075825e8cc8ad5d9e05e3dc090",
     "separate_units": true
   },
   "references": {
@@ -7768,7 +7768,7 @@
     "?Build_All_Shores@MapClass@@QAE_NH_N@Z": 5620416,
     "?Expand_Water@MapClass@@QAE_NPAVCellClass@@H_N@Z": 5621296,
     "?Place_Shore@MapClass@@QAE_NPAVCellClass@@HH_N@Z": 5623536,
-    "?unknown_draw_edit_text_600830@OwnerDraw@@YIXPAVSurface@@AAVRect@@PBGHPAVBitFontClass@@IPAHHHHH@Z": 6293552,
+    "?Draw_Edit_Text@OwnerDraw@@YIXPAVSurface@@AAVRect@@PBGHPAVBitFontClass@@IPAHHHHH@Z": 6293552,
     "?Chars_In_Width@BitFontClass@@QBEHPBGHHH@Z": 4396816,
     "?Rebuild_Shores_At@MapClass@@QAE_NABVCell@@@Z": 5665936,
     "?Check_Map@MapClass@@QAE_NXZ": 5675872,
@@ -8332,7 +8332,7 @@
           "resolved": 4291952209
         }
       ],
-      "source_sha256": "7d1d44616ab7c12c96ef84746498593216fa860aaeb9d0baba59c48dd9b989e0",
+      "source_sha256": "b31212c59d3000f254defced93892c3f67b5924d776add6a24bf531985e4cf18",
       "source": "src/recovered/classes/ThemeClass/Fade_Stream.cpp",
       "population": "population-2332",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

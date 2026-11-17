@@ -22,7 +22,7 @@ bool ThemeClass::Is_Allowed(unsigned theme)
         if (!control->Available) {
             return false;
         }
-        if (!control->unknown_288) {
+        if (!control->Normal) {
             return false;
         }
         if (PlayerPtr != 0 && control->Owner != -1 && PlayerPtr->Type->Side != control->Owner) {

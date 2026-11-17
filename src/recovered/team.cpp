@@ -108,17 +108,17 @@ TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) :
     Script(0),
     Owner(owner),
     unknown_30(0),
-    unknown_34(0),
+    Zone(0),
     unknown_38(0),
     MissionTarget(0),
-    unknown_40(0),
-    unknown_44((AbstractClass *)arg3),
+    Target(0),
+    UnusedPtr1((AbstractClass *)arg3),
     unknown_48(0),
-    unknown_4c(0),
-    unknown_50(Frame),
+    Risk(0),
+    CreationFrame(Frame),
     Member(0),
-    unknown_58(),
-    unknown_64(0L),
+    TimeOut(),
+    SuspendTimer(0L),
     Tag(0),
     IsTransient(false),
     NeedsReGrouping(false),
@@ -148,7 +148,7 @@ TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) :
             Owner->BaseDefenseTeamCount++;
         }
         if (Class->Waypoint_Location() != unknown_geometry_k) {
-            unknown_34 = (AbstractClass *)&Map[Class->Waypoint_Location()];
+            Zone = (AbstractClass *)&Map[Class->Waypoint_Location()];
         }
         Class->Number++;
         if (Class->Tag != 0) {
@@ -228,8 +228,8 @@ void TeamClass::Assign_Mission_Target(AbstractClass *target)
             }
         }
     }
-    if (unknown_40 == MissionTarget || unknown_40 == 0) {
-        unknown_40 = target;
+    if (Target == MissionTarget || Target == 0) {
+        Target = target;
     }
     MissionTarget = target;
     if (target != 0 && target->Kind_Of() == 0xB) {
@@ -270,7 +270,7 @@ inline long Timer_Value(UnknownTimer423F60 const &timer)
 void TeamClass::AI()
 {
     if (IsLeavingMap) {
-        if (Timer_Value(unknown_64) != 0) {
+        if (Timer_Value(SuspendTimer) != 0) {
             return;
         }
         IsLeavingMap = false;
@@ -286,8 +286,8 @@ void TeamClass::AI()
     if (!IsMoving && (IsFullStrength || IsForcedActive)) {
         Flag_Into_Action();
     }
-    if (IsReforming || IsMoving || unknown_34 == 0 || unknown_38 == 0) {
-        Calc_Center(&unknown_34, &unknown_38);
+    if (IsReforming || IsMoving || Zone == 0 || unknown_38 == 0) {
+        Calc_Center(&Zone, &unknown_38);
     }
     if ((!IsMoving || (!IsFullStrength && Class->Reinforce)) && (!Owner->Unknown_004F52F0() || !IsHasBeen)) {
         for (int index = 0; index < Class->TaskForce->CountEntries; index++) {
@@ -296,7 +296,7 @@ void TeamClass::AI()
             }
         }
     }
-    if (Member == 0 && (IsHasBeen || (unknown_game_mode_a3d298 != 0 && Frame - unknown_50 > Rules->DissolveUnfilledTeamDelay))) {
+    if (Member == 0 && (IsHasBeen || (unknown_game_mode_a3d298 != 0 && Frame - CreationFrame > Rules->DissolveUnfilledTeamDelay))) {
         if (TargetNotAssigned) {
             for (int index = 0; index < LogicTags.Count(); index++) {
                 TagClass *tag = LogicTags[index];
@@ -329,15 +329,15 @@ void TeamClass::AI()
             }
             if (Script->Has_Mission()) {
                 Assign_Mission_Target(0);
-                unknown_40 = 0;
+                Target = 0;
             } else {
                 delete this;
                 return;
             }
         }
         if (!is_next) {
-            if (unknown_40 == 0) {
-                unknown_40 = MissionTarget;
+            if (Target == 0) {
+                Target = MissionTarget;
             }
         }
         ScriptMissionClass mission = Script->Get_Current_Mission();
@@ -460,26 +460,26 @@ void TeamClass::Regroup()
     IsMoving = false;
     Script->Reset();
     if (unknown_48 > 0) {
-        Calc_Center(&unknown_34, &unknown_38);
-        if (unknown_34 == 0) {
+        Calc_Center(&Zone, &unknown_38);
+        if (Zone == 0) {
             if (unknown_38 == 0) {
                 return;
             }
-            unknown_34 = unknown_38;
+            Zone = unknown_38;
         }
-        Cell best_cell = Coord_Cell(unknown_34->Center_Coord());
+        Cell best_cell = Coord_Cell(Zone->Center_Coord());
         int best = 0x7FFFFFFF;
         int count = Owner->Buildings.Count();
         for (int index = 0; index < count; index++) {
             BuildingClass *building = Owner->Buildings[index];
             if (building != 0 && !building->IsInLimbo && building->unknown_slot231(0)->WeaponType == 0) {
                 Cell cell = Coord_Cell(building->Center_Coord());
-                int value = Coord_Distance(building->Center_Coord(), unknown_34->Center_Coord()) * (Map.Cell_Threat(cell, Owner) + 1);
+                int value = Coord_Distance(building->Center_Coord(), Zone->Center_Coord()) * (Map.Cell_Threat(cell, Owner) + 1);
                 if (building->Type->IsCanUnitRepair) {
                     value /= 2;
                 }
                 if (value < best) {
-                    cell = Fetch_A_Leader()->Safety_Point_004bb3f0(Coord_Cell(unknown_34->Center_Coord()), cell, 2, 4);
+                    cell = Fetch_A_Leader()->Safety_Point_004bb3f0(Coord_Cell(Zone->Center_Coord()), cell, 2, 4);
                     if (cell != unknown_geometry_k) {
                         best = value;
                         best_cell = cell;
@@ -487,10 +487,10 @@ void TeamClass::Regroup()
                 }
             }
         }
-        unknown_40 = &Map[best_cell];
+        Target = &Map[best_cell];
         Coordinate_Move();
     } else {
-        unknown_34 = 0;
+        Zone = 0;
     }
 }
 
@@ -533,7 +533,7 @@ bool TeamClass::Recalc_Strength()
         GuardSlowerIsNotUnderStrength = false;
         IsUnderStrength = true;
         IsFullStrength = false;
-        unknown_34 = 0;
+        Zone = 0;
         if (IsHasBeen) {
             if (TargetNotAssigned) {
                 for (int index = LogicTags.Count() - 1; index >= 0; index--) {
@@ -580,13 +580,13 @@ bool TeamClass::Add(FootClass *member)
         }
     }
     unknown_48++;
-    unknown_4c += member->unknown_slot168();
-    if (unknown_34 == 0) {
-        Calc_Center(&unknown_34, &unknown_38);
+    Risk += member->unknown_slot168();
+    if (Zone == 0) {
+        Calc_Center(&Zone, &unknown_38);
     }
     JustDisappeared = true;
     NeedsToDisappear = true;
-    member->unknown_37a = Class->AreTeamMembersRecruitable;
+    member->IsAutocreateRecruitable = Class->AreTeamMembersRecruitable;
     return true;
 }
 
@@ -598,7 +598,7 @@ bool TeamClass::Can_Add(FootClass *member, int *slot)
     if (this != member->Team && _Is_It_Breathing(member) && member->House == Owner) {
         if (!member->HasAnyLink() || (member->Kind_Of() == 2 && ((AircraftClass *)member)->Type->AirportBound)) {
             if (member->Get_Mission() == -1 || MissionClass::Is_Recruitable_Mission(member->Get_Mission())) {
-                if (member->unknown_379 || Class->Autocreate) {
+                if (member->IsTeamRecruitable || Class->Autocreate) {
                     bool aircraft_or_waiting = false;
                     if (Script != 0) {
                         if (Script->Get_Current_Mission().Mission == 8) {
@@ -608,7 +608,7 @@ bool TeamClass::Can_Add(FootClass *member, int *slot)
                     if (member->Kind_Of() == 2) {
                         aircraft_or_waiting = true;
                     }
-                    if (member->unknown_37a || !Class->Autocreate || aircraft_or_waiting) {
+                    if (member->IsAutocreateRecruitable || !Class->Autocreate || aircraft_or_waiting) {
                         if (member->Team == 0 || member->Team->Class->Priority < Class->Priority) {
                             if (member->Kind_Of() != 2 || member->unknown_slot231(0)->WeaponType == 0 || member->Ammo != 0) {
                                 for (*slot = 0; *slot < Class->TaskForce->CountEntries; (*slot)++) {
@@ -671,7 +671,7 @@ bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
             current = next;
             unknown_48--;
             found = true;
-            unknown_4c -= member->unknown_slot168();
+            Risk -= member->unknown_slot168();
             continue;
         }
         first = first || current->IsInitiated;
@@ -681,12 +681,12 @@ bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
     if (member->Team != 0) {
         member->Team = 0;
     }
-    if (ScenarioInit == 0 && member->IsActive && !member->unknown_37d && !member->IsInLimbo && !arg3) {
+    if (ScenarioInit == 0 && member->IsActive && !member->IsRocking && !member->IsInLimbo && !arg3) {
         member->unknown_slot261(false, true);
     }
     if (!first && Member != 0) {
         Member->IsInitiated = true;
-        unknown_34 = 0;
+        Zone = 0;
     }
     JustDisappeared = true;
     NeedsToDisappear = true;
@@ -703,7 +703,7 @@ bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
 
 int TeamClass::Recruit(int slot)
 {
-    CoordStruct center = unknown_34 != 0 ? unknown_34->Center_Coord() : unknown_geometry_l;
+    CoordStruct center = Zone != 0 ? Zone->Center_Coord() : unknown_geometry_l;
     if (Class->Waypoint_Location() != unknown_geometry_k) {
         center = Cell_Coord(Class->Waypoint_Location());
     }
@@ -816,14 +816,14 @@ void TeamClass::Detach(AbstractClass *target, bool all)
     if (target == Script) {
         Script = 0;
     }
-    if (unknown_40 == target) {
-        unknown_40 = 0;
+    if (Target == target) {
+        Target = 0;
     }
     if (MissionTarget == target) {
         MissionTarget = 0;
     }
-    if (unknown_34 == target) {
-        unknown_34 = 0;
+    if (Zone == target) {
+        Zone = 0;
     }
     if (Class == target) {
         Class = 0;
@@ -831,8 +831,8 @@ void TeamClass::Detach(AbstractClass *target, bool all)
     if (unknown_38 == target) {
         unknown_38 = 0;
     }
-    if (unknown_44 == target) {
-        unknown_44 = 0;
+    if (UnusedPtr1 == target) {
+        UnusedPtr1 = 0;
     }
     if (unknown_30 == target) {
         unknown_30 = 0;
@@ -910,7 +910,7 @@ void TeamClass::Calc_Center(AbstractClass **center, AbstractClass **close_member
         int quantity = 0;
         FootClass *closest = 0;
         while (member != 0) {
-            if (_Is_It_Breathing(member) && (member->IsInitiated || member->Kind_Of() == 2) && member->unknown_32d) {
+            if (_Is_It_Breathing(member) && (member->IsInitiated || member->Kind_Of() == 2) && member->IsLocked) {
                 x += member->Position_Coord_004f3f40().X;
                 y += member->Position_Coord_004f3f40().Y;
                 quantity++;
@@ -920,7 +920,7 @@ void TeamClass::Calc_Center(AbstractClass **center, AbstractClass **close_member
                     quantity++;
                 }
                 if (member->Techno_Type_Class()->Passengers <= 0 || !member->Techno_Type_Class()->Naval) {
-                    int try_dist = member->Distance_Squared((ObjectClass *)unknown_40);
+                    int try_dist = member->Distance_Squared((ObjectClass *)Target);
                     if (!dist || try_dist < dist) {
                         dist = try_dist;
                         closest = member;
@@ -956,7 +956,7 @@ void TeamClass::Took_Damage(FootClass *member, int result, TechnoClass *source)
 {
     if (source != 0 && result != 0 && !Class->Suicide) {
         if (!IsMoving) {
-            unknown_34 = 0;
+            Zone = 0;
             NeedsReGrouping = true;
             IsReforming = true;
             return;
@@ -967,19 +967,19 @@ void TeamClass::Took_Damage(FootClass *member, int result, TechnoClass *source)
                 return;
             }
         }
-        if (first != 0 && first->Kind_Of() != 2 && Member->unknown_slot231(0)->WeaponType != 0 && unknown_40 != (AbstractClass *)source) {
+        if (first != 0 && first->Kind_Of() != 2 && Member->unknown_slot231(0)->WeaponType != 0 && Target != (AbstractClass *)source) {
             if (Class->Annoyance) {
-                unknown_34 = 0;
+                Zone = 0;
                 NeedsReGrouping = true;
                 IsReforming = true;
             }
-            if (unknown_40 != 0) {
-                TechnoClass *techno = unknown_40->As_Techno();
+            if (Target != 0) {
+                TechnoClass *techno = Target->As_Techno();
                 if (techno != 0 && techno->unknown_slot231(0)->WeaponType != 0) {
-                    if (unknown_34 == 0) {
+                    if (Zone == 0) {
                         return;
                     }
-                    if (techno->unknown_slot214(unknown_34->Center_Coord())) {
+                    if (techno->unknown_slot214(Zone->Center_Coord())) {
                         return;
                     }
                 }
@@ -999,16 +999,16 @@ void TeamClass::Took_Damage(FootClass *member, int result, TechnoClass *source)
 
 void TeamClass::Coordinate_Attack()
 {
-    if (unknown_40 == 0) {
-        unknown_40 = MissionTarget;
+    if (Target == 0) {
+        Target = MissionTarget;
     }
-    if (unknown_40 != 0 && unknown_40->Kind_Of() == 0xB && Member != 0 && Fetch_A_Leader()->Kind_Of() != 2) {
-        CellClass *cell = As_Cell(unknown_40);
+    if (Target != 0 && Target->Kind_Of() == 0xB && Member != 0 && Fetch_A_Leader()->Kind_Of() != 2) {
+        CellClass *cell = As_Cell(Target);
         if (cell->Cell_Object(Point2D(0, 0), false) != 0) {
-            unknown_40 = cell->Cell_Object(Point2D(0, 0), false);
+            Target = cell->Cell_Object(Point2D(0, 0), false);
         }
     }
-    if (unknown_40 == 0) {
+    if (Target == 0) {
         StepCompleted = true;
         return;
     }
@@ -1019,7 +1019,7 @@ void TeamClass::Coordinate_Attack()
         if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2)) {
             if (mission.Mission == 0xF && unit->Kind_Of() == 0xF && ((InfantryClass *)unit)->Type->Infiltrate) {
                 unit->QueueMission(8, false);
-                unit->unknown_slot220(unknown_40);
+                unit->unknown_slot220(Target);
             } else if (unit->Get_Mission() != 1 && unit->Get_Mission() != 7 && unit->Get_Mission() != 8
                 && unit->Get_Mission() != 0x11 && (unit->Get_Mission() != 0x10 || !unit->Deploy_To_Fire())) {
                 unit->unknown_slot149(3);
@@ -1027,8 +1027,8 @@ void TeamClass::Coordinate_Attack()
                 unit->unknown_slot220(0);
                 unit->Assign_Destination(0, true);
             }
-            if (unit->TarCom != unknown_40 && unit->TarCom == 0) {
-                unit->unknown_slot220(unknown_40);
+            if (unit->TarCom != Target && unit->TarCom == 0) {
+                unit->unknown_slot220(Target);
             }
             if (unit->Kind_Of() != 2 || unit->unknown_slot231(0)->WeaponType == 0 || unit->Ammo > 0) {
                 attacking = true;
@@ -1053,11 +1053,11 @@ bool TeamClass::Coordinate_Regroup()
     while (unit != 0) {
         Coordinate_Conscript(unit);
         if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2)) {
-            if (unit->unknown_5d4c00(unknown_34) > Stray_Distance() && (unit->Get_Mission() != 0xB || unit->TarCom == 0)) {
+            if (unit->unknown_5d4c00(Zone) > Stray_Distance() && (unit->Get_Mission() != 0xB || unit->TarCom == 0)) {
                 if (unit->NavCom == 0) {
                     retval = false;
                     unit->QueueMission(2, false);
-                    Cell dest = unit->Adjust_Dest(Coord_Cell(unknown_34->Center_Coord()));
+                    Cell dest = unit->Adjust_Dest(Coord_Cell(Zone->Center_Coord()));
                     unit->Assign_Destination(&Map[dest], true);
                 }
             } else if (unit->Get_Mission() != 0xB) {
@@ -1088,10 +1088,10 @@ void TeamClass::Coordinate_Move()
     if (unit == 0) {
         return;
     }
-    if (unknown_40 == 0) {
-        unknown_40 = MissionTarget;
+    if (Target == 0) {
+        Target = MissionTarget;
     }
-    if (unknown_40 != 0) {
+    if (Target != 0) {
         if (!Lagging_Units()) {
             for (; unit != 0; unit = (FootClass *)unit->Member) {
                 if (Coordinate_Conscript(unit)) {
@@ -1107,11 +1107,11 @@ void TeamClass::Coordinate_Move()
                         stray *= 2;
                     }
                     found = true;
-                    int distance = unit->unknown_5d4c00(unknown_40);
+                    int distance = unit->unknown_5d4c00(Target);
                     if (distance > stray
                         || (unit->Get_Height_AGL() < 0 && Script->Get_Next_Mission().Mission != 3)
                         || (unit->Kind_Of() == 2 && unit->Get_Height() > 0
-                            && &Map[unit->Center_Coord()] != unknown_40
+                            && &Map[unit->Center_Coord()] != Target
                             && Script->Get_Next_Mission().Mission != 3)) {
                         if (Class->Aggressive && unit->TarCom != 0) {
                             continue;
@@ -1123,13 +1123,13 @@ void TeamClass::Coordinate_Move()
                             }
                         }
                         if (unit->NavCom == 0) {
-                            unit->Assign_Destination(unknown_40, true);
+                            unit->Assign_Destination(Target, true);
                         }
                         AbstractClass *navcom = unit->NavCom;
-                        if (navcom != unknown_40) {
+                        if (navcom != Target) {
                             if (unit->Techno_Type_Class()->BalloonHover
-                                || (navcom != unknown_40 && unit->Kind_Of() == 2 && navcom == unit->Get_Cell_Ptr())) {
-                                unit->Assign_Destination(unknown_40, true);
+                                || (navcom != Target && unit->Kind_Of() == 2 && navcom == unit->Get_Cell_Ptr())) {
+                                unit->Assign_Destination(Target, true);
                             }
                         }
                         finished = false;
@@ -1202,11 +1202,11 @@ bool TeamClass::Lagging_Units()
 bool TeamClass::Coordinate_Conscript(FootClass *member)
 {
     if (_Is_It_Breathing(member) && !member->IsInitiated) {
-        if (member->unknown_5d4c00(unknown_34) > Stray_Distance()) {
+        if (member->unknown_5d4c00(Zone) > Stray_Distance()) {
             if (member->NavCom == 0) {
                 member->QueueMission(2, false);
                 member->unknown_slot220(0);
-                member->Assign_Destination(unknown_34, true);
+                member->Assign_Destination(Zone, true);
             }
             return true;
         }
@@ -1241,7 +1241,7 @@ void __fastcall TeamClass::Suspend_Teams(int priority, HouseClass *house)
             }
             team->JustDisappeared = true;
             team->NeedsToDisappear = true;
-            team->unknown_64 = UnknownTimer423F60((long)(Rules->SuspendDelay * 900.0));
+            team->SuspendTimer = UnknownTimer423F60((long)(Rules->SuspendDelay * 900.0));
             team->IsLeavingMap = true;
         }
     }
@@ -1268,7 +1268,7 @@ bool TeamClass::Has_Entered_Map()
 {
     bool all = true;
     for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
-        if (!member->unknown_32d) {
+        if (!member->IsLocked) {
             all = false;
             break;
         }
@@ -1328,11 +1328,11 @@ HRESULT __stdcall TeamClass::Load(IStream *stream)
         Swizzler.Swizzle((void **)&Tag);
         Swizzler.Swizzle((void **)&Member);
         Swizzler.Swizzle((void **)&unknown_38);
-        Swizzler.Swizzle((void **)&unknown_40);
-        Swizzler.Swizzle((void **)&unknown_34);
+        Swizzler.Swizzle((void **)&Target);
+        Swizzler.Swizzle((void **)&Zone);
         Swizzler.Swizzle((void **)&MissionTarget);
         Swizzler.Swizzle((void **)&unknown_30);
-        Swizzler.Swizzle((void **)&unknown_44);
+        Swizzler.Swizzle((void **)&UnusedPtr1);
         result = S_OK;
     }
     return result;
@@ -1374,12 +1374,12 @@ void TeamClass::Compute_CRC(WWCRCEngine &crc) const
         crc(unknown_38->Fetch_ID());
     }
     crc((long)unknown_48);
-    crc((long)unknown_4c);
+    crc((long)Risk);
     if (Member != 0) {
         crc(((AbstractClass *)Member)->Fetch_ID());
     }
-    crc(unknown_58.Value());
-    crc(Timer_Value(unknown_64));
+    crc(TimeOut.Value());
+    crc(Timer_Value(SuspendTimer));
     if (Tag != 0) {
         crc(((AbstractClass *)Tag)->Fetch_ID());
     }
@@ -1405,8 +1405,8 @@ void TeamClass::Compute_CRC(WWCRCEngine &crc) const
 void TeamClass::TMission_GOTO_SHROUD(ScriptMissionClass const &mission, bool unknown)
 {
     if (unknown) {
-        if (unknown_34 != 0) {
-            Assign_Mission_Target(Map.Find_Nearby_Shroud(unknown_34));
+        if (Zone != 0) {
+            Assign_Mission_Target(Map.Find_Nearby_Shroud(Zone));
         } else {
             Assign_Mission_Target(Map.Find_Nearby_Shroud(Member));
         }
@@ -1498,7 +1498,7 @@ void TeamClass::TMission_PATROL(ScriptMissionClass const &mission, bool unknown)
     if (unknown) {
         Assign_Mission_Target(cell);
     }
-    if (unknown_40 == 0) {
+    if (Target == 0) {
         ScriptMissionClass current = Script->Get_Current_Mission();
         if ((unsigned)current.Data < 0x65) {
             Assign_Mission_Target(cell);
@@ -1510,12 +1510,12 @@ void TeamClass::TMission_PATROL(ScriptMissionClass const &mission, bool unknown)
             AbstractClass *found = leader->unknown_slot219(1, &CoordStruct(leader->Coord), 0);
             if (found != 0) {
                 Assign_Mission_Target(found);
-            } else if (unknown_40 != cell) {
+            } else if (Target != cell) {
                 Assign_Mission_Target(0);
             }
         }
     }
-    if (unknown_40 != 0 && unknown_40->AbstractFlags.IsObject) {
+    if (Target != 0 && Target->AbstractFlags.IsObject) {
         Coordinate_Attack();
     } else {
         Coordinate_Move();
@@ -1740,10 +1740,10 @@ void TeamClass::TMission_DEPLOY(ScriptMissionClass const &mission, bool unknown)
 void TeamClass::TMission_GUARD(ScriptMissionClass const &mission, bool unknown)
 {
     if (unknown) {
-        unknown_58 = CDTimerClass<FrameTimerClass>(mission.Data * 15);
+        TimeOut = CDTimerClass<FrameTimerClass>(mission.Data * 15);
     }
     Coordinate_Regroup();
-    if (unknown_58.Value() == 0) {
+    if (TimeOut.Value() == 0) {
         StepCompleted = true;
     }
 }
@@ -1763,11 +1763,11 @@ void TeamClass::TMission_DO(ScriptMissionClass const &mission, bool unknown)
         Coordinate_Conscript(unit);
         if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2)) {
             if (unit->TarCom == 0 && unit->NavCom == 0
-                && unit->unknown_5d4c00(unknown_34) > Stray_Distance() * 2 && do_mission != 0xB) {
+                && unit->unknown_5d4c00(Zone) > Stray_Distance() * 2 && do_mission != 0xB) {
                 unit->QueueMission(2, false);
-                unit->Assign_Destination(unknown_34, true);
+                unit->Assign_Destination(Zone, true);
                 unit->QueueMission(2, false);
-                Cell dest = unit->Adjust_Dest(Coord_Cell(unknown_34->Center_Coord()));
+                Cell dest = unit->Adjust_Dest(Coord_Cell(Zone->Center_Coord()));
                 unit->Assign_Destination(&Map[dest], true);
             } else if (unit->TarCom == 0 && unit->NavCom == 0 && unit->Get_Mission() != do_mission
                 && (do_mission != 5 || unit->Get_Mission() != 0x10)) {
@@ -1827,10 +1827,10 @@ void TeamClass::TMission_CLEAR_LOCAL(ScriptMissionClass const &mission, bool unk
 
 void TeamClass::TMission_HOUND_DOG(ScriptMissionClass const &mission, bool unknown)
 {
-    Calc_Center(&unknown_34, &unknown_38);
-    unknown_40 = unknown_34;
+    Calc_Center(&Zone, &unknown_38);
+    Target = Zone;
     Coordinate_Move();
-    TechnoClass *target = unknown_34->As_Techno();
+    TechnoClass *target = Zone->As_Techno();
     if (target != 0) {
         for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
             if (_Is_It_Breathing(member) && (member->IsInitiated || member->Kind_Of() == 2)) {
@@ -2089,7 +2089,7 @@ void TeamClass::TMission_ION_STORM_END(ScriptMissionClass const &mission, bool u
 
 void TeamClass::TMission_CENTER_VIEWPOINT(ScriptMissionClass const &mission, bool unknown)
 {
-    CoordStruct coord = unknown_34->Center_Coord();
+    CoordStruct coord = Zone->Center_Coord();
     coord.Z = Map.Get_Height_GL(coord);
     if ((Map[coord].unknown_140 & 0x100) || (Map[coord].unknown_140 & 0x400)) {
         coord.Z += unknown_geometry_j;
@@ -2742,7 +2742,7 @@ void TeamClass::TMission_unknown_6be010(ScriptMissionClass const &mission, bool 
         Complete_Step_006be010(this);
         return;
     }
-    house->unknown_func_4e68d0(weapon->Type->Type,Coord_Cell(unknown_34->Center_Coord()));
+    house->unknown_func_4e68d0(weapon->Type->Type,Coord_Cell(Zone->Center_Coord()));
     Complete_Step_006be010(this);
 }
 
@@ -2791,7 +2791,7 @@ void TeamClass::TMission_unknown_6be1c0(ScriptMissionClass const &mission, bool 
         }
         AbstractClass *target = Pick_Building_With_Property(type, enemy, leader, value, Class->OnlyTargetHouseEnemy);
         if (target != 0) {
-            house->unknown_func_4e68d0(sphere->Type->Type, Coord_Cell(unknown_34->Center_Coord()));
+            house->unknown_func_4e68d0(sphere->Type->Type, Coord_Cell(Zone->Center_Coord()));
             house->unknown_func_4e68d0(warp->Type->Type, Coord_Cell(target->Center_Coord()));
             Assign_Mission_Target(target);
         }
@@ -2842,7 +2842,7 @@ void TeamClass::TMission_unknown_6be440(ScriptMissionClass const &mission, bool 
         int target_data = Quarry_To_Threat(mission.Data);
         AbstractClass *target = leader->unknown_slot219(target_data, &leader->Position_Coord_004f3f40(), Class->OnlyTargetHouseEnemy);
         if (target != 0) {
-            house->unknown_func_4e68d0(sphere->Type->Type, Coord_Cell(unknown_34->Center_Coord()));
+            house->unknown_func_4e68d0(sphere->Type->Type, Coord_Cell(Zone->Center_Coord()));
             house->unknown_func_4e68d0(warp->Type->Type, Coord_Cell(target->Center_Coord()));
             Assign_Mission_Target(target);
         }

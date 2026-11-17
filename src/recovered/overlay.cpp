@@ -443,7 +443,7 @@ bool OverlayClass::Mark(int mark)
                     if (tibtype != -1) {
                         TiberiumClass *tiberium = Tiberiums[tibtype];
                         if (tiberium != 0) {
-                            aptr->unknown_bc = ColorSchemes[tiberium->unknown_c0]->Converter;
+                            aptr->unknown_bc = ColorSchemes[tiberium->Color]->Converter;
                             aptr->AlternativeBrightness = cellptr->Brightness;
                         }
                     }
@@ -676,7 +676,7 @@ void OverlayClass::Editor_Draw_It(Point2D const &point, Rect const &cliprect)
     position.Y += unknown_int_839634;
     if (Class->Tiberium) {
         TiberiumClass *tiberium = Tiberiums[To_Tiberium(Overlay_Type_Index(Class))];
-        ColorScheme *scheme = ColorSchemes[tiberium->unknown_c0];
+        ColorScheme *scheme = ColorSchemes[tiberium->Color];
         shape = OverlayTypes[tiberium->Image->ArrayIndex]->Get_Image_Data();
         if (!shape && Class->CellAnim) {
             shape = Class->CellAnim->Get_Image_Data();

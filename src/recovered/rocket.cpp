@@ -90,8 +90,8 @@ RocketLocomotionClass::RocketLocomotionClass() :
     unknown_18(unknown_geometry_l),
     MissionState(0),
     unknown_48(0),
-    unknown_50(0),
-    unknown_54(0)
+    CurrentPitch(0),
+    CruiseDistance(0)
 {
 }
 
@@ -147,8 +147,8 @@ static inline CoordStruct Move_Coord(CoordStruct const &start, UnknownFacingDir 
 CoordStruct RocketLocomotionClass::unknown_63dbe0(int distance)
 {
     CoordStruct coord = Object_Coord(LinkedTo);
-    CoordStruct result = Move_Coord(coord, LinkedTo->PrimaryFacing.Current(), Fast_Cos(unknown_50) * (double)distance);
-    result.Z += Fast_Sin(unknown_50) * (double)distance;
+    CoordStruct result = Move_Coord(coord, LinkedTo->PrimaryFacing.Current(), Fast_Cos(CurrentPitch) * (double)distance);
+    result.Z += Fast_Sin(CurrentPitch) * (double)distance;
     return result;
 }
 
@@ -282,15 +282,15 @@ bool __stdcall RocketLocomotionClass::Process()
     switch (MissionState) {
     case 1:
         unknown_48 = 0;
-        if (unknown_24.Progress() == 1.0) {
+        if (MissionTimer.Progress() == 1.0) {
             MissionState = 2;
-            unknown_24 = UnknownSlopeTimer(rocket->TiltFrames);
+            MissionTimer = UnknownSlopeTimer(rocket->TiltFrames);
         }
         break;
     case 2:
         unknown_48 = 0;
-        if (unknown_24.Progress() == 1.0) {
-            unknown_50 = rocket->PitchFinal * 1.5707963267948966;
+        if (MissionTimer.Progress() == 1.0) {
+            CurrentPitch = rocket->PitchFinal * 1.5707963267948966;
             MissionState = 3;
             if (LinkedTo->unknown_slot178() == unknown_geometry_k) {
                 AircraftTracker.Unknown_004131E0(LinkedTo);
@@ -300,7 +300,7 @@ bool __stdcall RocketLocomotionClass::Process()
         } else {
             float initial = rocket->PitchInitial * 1.5707963267948966;
             float final = rocket->PitchFinal * 1.5707963267948966;
-            unknown_50 = initial + (final - initial) * unknown_24.Progress();
+            CurrentPitch = initial + (final - initial) * MissionTimer.Progress();
         }
         break;
     case 3:
@@ -310,7 +310,7 @@ bool __stdcall RocketLocomotionClass::Process()
         }
         if (LinkedTo->Get_Height_AGL() >= rocket->Altitude) {
             MissionState = 4;
-            unknown_54 = Ground_Distance(unknown_18, LinkedTo);
+            CruiseDistance = Ground_Distance(unknown_18, LinkedTo);
         }
         break;
     case 4:
@@ -318,20 +318,20 @@ bool __stdcall RocketLocomotionClass::Process()
         if (unknown_48 > LinkedTo->Techno_Type_Class()->Speed) {
             unknown_48 = LinkedTo->Techno_Type_Class()->Speed;
         }
-        if (rocket->LazyCurve && unknown_54 != 0) {
+        if (rocket->LazyCurve && CruiseDistance != 0) {
             if (unknown_63dcf0(rocket)) {
                 exploded = true;
             break;
             }
             int distance = Ground_Distance2(unknown_18, LinkedTo);
-            double ratio = (double)distance / unknown_54;
+            double ratio = (double)distance / CruiseDistance;
             double rest = 1.0 - ratio;
-            unknown_50 = unknown_63de10() * rest + rocket->PitchFinal * ratio * 1.5707963267948966;
+            CurrentPitch = unknown_63de10() * rest + rocket->PitchFinal * ratio * 1.5707963267948966;
         } else {
-            if (unknown_50 > 0.0f) {
-                unknown_50 -= rocket->TurnRate;
-                if (unknown_50 < 0.0f) {
-                    unknown_50 = 0;
+            if (CurrentPitch > 0.0f) {
+                CurrentPitch -= rocket->TurnRate;
+                if (CurrentPitch < 0.0f) {
+                    CurrentPitch = 0;
                 }
             }
             CoordStruct dest = unknown_18;
@@ -347,20 +347,20 @@ bool __stdcall RocketLocomotionClass::Process()
     case 5:
         exploded = unknown_63dcf0(rocket);
         if (!exploded) {
-            double diff = unknown_63de10() - unknown_50;
+            double diff = unknown_63de10() - CurrentPitch;
             float step = diff;
             if (step < 0.0) {
                 step = -step;
             }
             if (step > rocket->TurnRate) {
                 if (diff < 0.0) {
-                    unknown_50 -= rocket->TurnRate;
+                    CurrentPitch -= rocket->TurnRate;
                 } else {
                     float rate = rocket->TurnRate;
-                    unknown_50 += rate;
+                    CurrentPitch += rate;
                 }
             } else {
-                unknown_50 += diff;
+                CurrentPitch += diff;
             }
         }
         break;
@@ -368,9 +368,9 @@ bool __stdcall RocketLocomotionClass::Process()
     if (exploded) {
         return false;
     }
-    if (Is_Moving_Now() && unknown_34 == 0) {
+    if (Is_Moving_Now() && TrailerTimer == 0) {
         new AnimClass(AnimTypes[AnimTypeClass::From_Name(unknown_rocket_trail_anim_7ee808)], Object_Coord(LinkedTo), 0, 1, 0x600, 0);
-        unknown_34 = 3;
+        TrailerTimer = 3;
     }
     if (unknown_48 > 0.0) {
         CoordStruct coord = unknown_63dbe0((int)unknown_48);
@@ -449,12 +449,12 @@ void __stdcall RocketLocomotionClass::Move_To(COMCoordStruct to)
     if (unknown_18 == unknown_geometry_l) {
         if (rocket->PauseFrames != 0) {
             MissionState = 1;
-            unknown_24 = rocket->PauseFrames;
+            MissionTimer = rocket->PauseFrames;
         } else {
             MissionState = 2;
-            unknown_24 = rocket->TiltFrames;
+            MissionTimer = rocket->TiltFrames;
         }
-        unknown_50 = rocket->PitchInitial * 1.5707963267948966;
+        CurrentPitch = rocket->PitchInitial * 1.5707963267948966;
         unknown_18 = to;
     }
 }
@@ -512,8 +512,8 @@ Matrix3D * __stdcall RocketLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *k
     Matrix3D transform;
     transform.Make_Identity();
     transform.Rotate_Z((float)((Dir_To_32(LinkedTo->PrimaryFacing.Current()) - 8) * -0.19634954084936207));
-    if (unknown_50 != 0.0f) {
-        transform.Rotate_Y(-unknown_50);
+    if (CurrentPitch != 0.0f) {
+        transform.Rotate_Y(-CurrentPitch);
         RocketStruct const *rocket;
         if (((AircraftClass *)LinkedTo)->Type == Rules->V3Rocket.Type) {
             rocket = &Rules->V3Rocket;
@@ -522,9 +522,9 @@ Matrix3D * __stdcall RocketLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *k
         }
         float final_pitch = rocket->PitchFinal * 1.5707963267948966;
         if (key != 0) {
-            if ((float)(rocket->PitchInitial * 1.5707963267948966) == unknown_50) {
+            if ((float)(rocket->PitchInitial * 1.5707963267948966) == CurrentPitch) {
                 *key |= 0x20;
-            } else if (unknown_50 == final_pitch) {
+            } else if (CurrentPitch == final_pitch) {
                 *key |= 0x40;
             } else {
                 *key = -1;

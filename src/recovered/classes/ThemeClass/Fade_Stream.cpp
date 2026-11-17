@@ -16,7 +16,7 @@ public:
     int Playing;                    // +0x04
     int Suspended;                  // +0x08
     char unknown_0c[0x11 - 0x0C];
-    bool unknown_11;                // +0x11
+    bool IsFading;                // +0x11
     char unknown_12[0x2C - 0x12];
     void *Sample;                   // +0x2C
 };
@@ -26,5 +26,5 @@ void ThemeClass::Fade_Stream_006e8180()
     if (Sample != 0) {
         AudioStreamerFadeOut(Sample);
     }
-    unknown_11 = true;
+    IsFading = true;
 }

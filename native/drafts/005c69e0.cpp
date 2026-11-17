@@ -202,7 +202,7 @@ long __stdcall Lobby_Dialog_Proc_005c69e0(HWND window, unsigned message, unsigne
             request->text = (unsigned short const *)0;
             if (control == 0x6eb && request->unknown_04 != -1) {
                 MultiplayerGameMode *mode = (MultiplayerGameMode *)SendDlgItemMessageA(window, 0x6eb, 0x199, request->unknown_04, 0);
-                if (mode) request->text = mode->unknown_name_24.unknown_text_770430();
+                if (mode) request->text = mode->unknown_name_24.text();
             }
         }
         return 1;

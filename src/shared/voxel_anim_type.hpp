@@ -61,7 +61,7 @@ public:
 
     bool Normalized;                        // +0x264
     bool Translucent;                       // +0x265
-    bool unknown_266;                       // +0x266
+    bool IsSharesSourceData;                       // +0x266
     int VoxelIndex;                         // +0x268
     int Duration;                           // +0x26C
     double Elasticity;                      // +0x270

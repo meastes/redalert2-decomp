@@ -18,7 +18,7 @@ int __fastcall Create_Air_Reinforcement(HouseClass *house, int air, int number, 
         ScenarioInit--;
         if (!obj) return sub;
 
-        obj->unknown_32c = true;
+        obj->IsALoaner = true;
 
         int source = house->unknown_128;
         switch (source) {

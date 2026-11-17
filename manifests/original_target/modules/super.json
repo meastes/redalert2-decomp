@@ -504,7 +504,8 @@
    "address": "007c3228",
    "bytes": 16,
    "kind": "rtti",
-   "section": 64
+   "section": 64,
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4SuperClass@@6BIPersistStream@@@",
@@ -865,7 +866,8 @@
    "symbol": "??_R3SuperClass@@8",
    "address": "007c3228",
    "bytes": 16,
-   "kind": "rtti"
+   "kind": "rtti",
+   "known_difference": "hierarchy ambiguous bit"
   },
   {
    "symbol": "??_R4SuperClass@@6BIPersistStream@@@",

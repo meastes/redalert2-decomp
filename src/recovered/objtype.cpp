@@ -341,7 +341,7 @@ BuildingClass *ObjectTypeClass::Who_Can_Build_Me(bool in_theory, bool legal, boo
         }
         if (!in_theory && building->HasAnyLink() && Kind_Of() == 3) {
             if (Kind_Of() == 3 && building->Unknown_00636EA0()) {
-                if (building->unknown_32b) {
+                if (building->IsLeader) {
                     return building;
                 }
                 anybuilding = building;
@@ -352,13 +352,13 @@ BuildingClass *ObjectTypeClass::Who_Can_Build_Me(bool in_theory, bool legal, boo
             if (!building->Type->Naval) {
                 continue;
             }
-            if (building->unknown_32b) {
+            if (building->IsLeader) {
                 return building;
             }
         } else if (building->Type->Naval) {
             continue;
         }
-        if (building->unknown_32b) {
+        if (building->IsLeader) {
             return building;
         }
         anybuilding = building;

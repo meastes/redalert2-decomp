@@ -30,8 +30,8 @@ struct ThemeControl {
     unsigned short FullName[0x40];  // +0x200 display name ("Name", wide)
     int Scenario;               // +0x280
     float Duration;             // +0x284 length (0x006E7AF0 measures it)
-    bool unknown_288;           // +0x288 (TS Normal; 0x006E7780 reads the wide name only when set)
-    bool unknown_289;           // +0x289 (TS Repeat; Pick_Next_Song skips repeating a theme with it set)
+    bool Normal;           // +0x288 (TS Normal; 0x006E7780 reads the wide name only when set)
+    bool Repeat;           // +0x289 (TS Repeat; Pick_Next_Song skips repeating a theme with it set)
     bool Available;             // +0x28A the sound file exists (0x006E7AF0)
     int Owner;                  // +0x28C side (-1: any)
 };
@@ -39,8 +39,8 @@ struct ThemeControl {
 // A theme record (0x290 bytes?); only the flags the player tests.
 struct ThemeControl {
     char unknown_000[0x288];
-    bool unknown_288;
-    bool unknown_289;           // +0x289 (Pick_Next_Song skips repeating a theme with it set)
+    bool Normal;
+    bool Repeat;           // +0x289 (Pick_Next_Song skips repeating a theme with it set)
 };
 #endif
 
@@ -99,7 +99,7 @@ public:
     ThemeType Pending;      // +0x08 queued theme
     int Volume;             // +0x0C 0-255 (Set_Volume clamps it)
     bool IsRepeat;          // +0x10 (OptionsClass IsScoreRepeat)
-    bool unknown_11;        // +0x11
+    bool IsFading;        // +0x11
     bool IsShuffle;         // +0x12 (OptionsClass IsScoreShuffle)
     char unknown_13;
     DynamicVectorClass<ThemeControl *> Themes;  // +0x14 the theme records (vector storage +0x18, count +0x24;

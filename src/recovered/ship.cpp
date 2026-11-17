@@ -106,11 +106,11 @@
 ShipLocomotionClass::ShipLocomotionClass() :
     unknown_1c(0),
     unknown_20(0),
-    unknown_34(unknown_geometry_l),
+    DestinationCoord(unknown_geometry_l),
     HeadToCoord(unknown_geometry_l),
-    unknown_4c(0),
-    unknown_50(0),
-    unknown_58(-1),
+    SpeedAccum(0),
+    TargetSpeed(0),
+    TrackNumber(-1),
     TrackIndex(-1),
     IsOnShortTrack(false),
     IsTurretLockedDown(false),
@@ -271,7 +271,7 @@ Matrix3D *ShipLocomotionClass::unknown_675a60(Matrix3D *matrix)
 {
     Matrix3D tilt;
     tilt.Make_Identity();
-    if (!unknown_24.Has_Completed2()) {
+    if (!RampTimer.Has_Completed2()) {
         Matrix3D blend;
         double ratio = Slope_Ratio();
         tilt = *Get_Slope_Transition_Matrix(&blend, unknown_20, unknown_1c, ratio);
@@ -289,7 +289,7 @@ Matrix3D *ShipLocomotionClass::unknown_675a60(Matrix3D *matrix)
 
 double ShipLocomotionClass::Slope_Ratio()
 {
-    return unknown_24.Progress();
+    return RampTimer.Progress();
 }
 
 
@@ -301,7 +301,7 @@ void ShipLocomotionClass::Set_Slope(int ramp)
     if (ramp != unknown_1c) {
         unknown_20 = unknown_1c;
         unknown_1c = ramp;
-        unknown_24 = UnknownSlopeTimer(3);
+        RampTimer = UnknownSlopeTimer(3);
     }
 }
 
@@ -313,7 +313,7 @@ void __stdcall ShipLocomotionClass::Force_New_Slope(int ramp)
 {
     unknown_20 = ramp;
     unknown_1c = ramp;
-    unknown_24 = UnknownSlopeTimer();
+    RampTimer = UnknownSlopeTimer();
 }
 
 
@@ -323,7 +323,7 @@ void __stdcall ShipLocomotionClass::Force_New_Slope(int ramp)
 
 bool __stdcall ShipLocomotionClass::Is_Moving()
 {
-    if (unknown_34 != unknown_geometry_l) {
+    if (DestinationCoord != unknown_geometry_l) {
         return true;
     }
     if (HeadToCoord != unknown_geometry_l) {
@@ -354,7 +354,7 @@ bool __stdcall ShipLocomotionClass::Is_Moving_Now()
 
 CoordStruct __stdcall ShipLocomotionClass::Destination()
 {
-    return CoordStruct(unknown_34.X, unknown_34.Y, unknown_34.Z);
+    return CoordStruct(DestinationCoord.X, DestinationCoord.Y, DestinationCoord.Z);
 }
 
 
@@ -378,11 +378,11 @@ CoordStruct __stdcall ShipLocomotionClass::Head_To_Coord()
 void __stdcall ShipLocomotionClass::Move_To(COMCoordStruct to)
 {
     if (!LinkedTo->unknown_slot201() && !LinkedTo->unknown_slot202() && !LinkedTo->unknown_slot111() && !LinkedTo->unknown_slot112()) {
-        unknown_34 = CoordStruct(to.X, to.Y, to.Z);
+        DestinationCoord = CoordStruct(to.X, to.Y, to.Z);
         if (to != unknown_geometry_l) {
             to = CoordStruct(to.X, to.Y, to.Z);
             if (Loco_Cell(to)->Flags & 0x100) {
-                unknown_34.Z += unknown_geometry_j;
+                DestinationCoord.Z += unknown_geometry_j;
             }
         }
     }
@@ -397,17 +397,17 @@ void __stdcall ShipLocomotionClass::Move_To(COMCoordStruct to)
 
 void __stdcall ShipLocomotionClass::Stop_Moving()
 {
-    if (HeadToCoord != unknown_geometry_l && LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
-        for (UnitClass *car = (UnitClass *)((UnitClass *)LinkedTo)->unknown_5b0; car != 0; ) {
+    if (HeadToCoord != unknown_geometry_l && LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->IsFollowing) {
+        for (UnitClass *car = (UnitClass *)((UnitClass *)LinkedTo)->FollowingMe; car != 0; ) {
             car->Locomotor.Checked()->Stop_Moving();
-            car = (UnitClass *)car->unknown_5b0;
-            if (car == 0 || car == car->unknown_5b0) {
+            car = (UnitClass *)car->FollowingMe;
+            if (car == 0 || car == car->FollowingMe) {
                 break;
             }
         }
     }
-    unknown_50 = Min(unknown_50, 0.3f);
-    unknown_34 = unknown_geometry_l;
+    TargetSpeed = Min(TargetSpeed, 0.3f);
+    DestinationCoord = unknown_geometry_l;
 }
 
 
@@ -438,8 +438,8 @@ Matrix3D * __stdcall ShipLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key
     if (!Is_Level()) {
         transform.Make_Identity();
         rotation.Make_Identity();
-        float length = LinkedTo->Techno_Type_Class()->unknown_330;
-        float width = LinkedTo->Techno_Type_Class()->unknown_338;
+        float length = LinkedTo->Techno_Type_Class()->VoxelCenterY;
+        float width = LinkedTo->Techno_Type_Class()->VoxelCenterX;
         float roll_cos = Fast_Cos(LinkedTo->AngleRotatedForwards);
         float roll_sin = Fast_Sin(LinkedTo->AngleRotatedForwards);
         float pitch_cos = Fast_Cos(LinkedTo->AngleRotatedSideways);
@@ -510,12 +510,12 @@ void __stdcall ShipLocomotionClass::Unlimbo()
 bool __stdcall ShipLocomotionClass::Process()
 {
     Set_Slope(static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Ramp);
-    if (unknown_58 != -1 && IsDriving) {
+    if (TrackNumber != -1 && IsDriving) {
         if (While_Moving(false) || !LinkedTo->IsActive) {
             return false;
         }
-        if (unknown_58 == -1 && (Is_Moving() || LinkedTo->unknown_4d0 != -1)
-            && (LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->unknown_5b9)) {
+        if (TrackNumber == -1 && (Is_Moving() || LinkedTo->unknown_4d0 != -1)
+            && (LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->IsDumping)) {
             bool stop = false;
             Start_Of_Move(stop, true, false);
             if (stop || !LinkedTo->IsActive) {
@@ -534,7 +534,7 @@ bool __stdcall ShipLocomotionClass::Process()
                 return false;
             }
         }
-        if (LinkedTo->Mission == 5 && !IsDriving && unknown_34 != unknown_geometry_l && Object_Coord(LinkedTo) == unknown_34) {
+        if (LinkedTo->Mission == 5 && !IsDriving && DestinationCoord != unknown_geometry_l && Object_Coord(LinkedTo) == DestinationCoord) {
             unknown_67a7a0();
             return false;
         }
@@ -550,7 +550,7 @@ bool __stdcall ShipLocomotionClass::Process()
             }
             if ((LinkedTo->Get_Mission() != 5 || Is_Moving()) && LinkedTo->Get_Mission() != 16) {
                 if (Is_Moving() || LinkedTo->unknown_4d0 != -1) {
-                    if (LinkedTo->unknown_32d && LinkedTo->Get_Mission() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(unknown_34)) {
+                    if (LinkedTo->IsLocked && LinkedTo->Get_Mission() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(DestinationCoord)) {
                         Stop_Driver();
                         if (unknown_67a7a0()) {
                             return false;
@@ -569,9 +569,9 @@ bool __stdcall ShipLocomotionClass::Process()
                             return false;
                         }
                     }
-                } else if (LinkedTo->unknown_325) {
+                } else if (LinkedTo->IsSinking) {
                     Stop_Driver();
-                    unknown_50 = 0;
+                    TargetSpeed = 0;
                 } else if (LinkedTo->NavCom != 0) {
                     Move_To(LinkedTo->NavCom->Destination_Coord(LinkedTo));
                 }
@@ -582,7 +582,7 @@ bool __stdcall ShipLocomotionClass::Process()
         && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2 && Rules->Wake != 0) {
         new AnimClass(Rules->Wake, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
     }
-    if (unknown_34 == unknown_geometry_l && HeadToCoord == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->Speed > 0.0) {
+    if (DestinationCoord == unknown_geometry_l && HeadToCoord == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->Speed > 0.0) {
         LinkedTo->unknown_slot306(0.0);
     }
     return Is_Moving();
@@ -598,8 +598,8 @@ void ShipLocomotionClass::unknown_676b20(CoordStruct const &headto, int mark)
     if (headto == unknown_geometry_l) {
         return;
     }
-    if (!IsOnShortTrack && unknown_58 != -1) {
-        int track = ShipTrackControl[unknown_58].Track;
+    if (!IsOnShortTrack && TrackNumber != -1) {
+        int track = ShipTrackControl[TrackNumber].Track;
         if (track) {
             TrackType const *points = ShipRawTracks[track - 1].Track;
             int cell = ShipRawTracks[track - 1].Cell;
@@ -633,12 +633,12 @@ void ShipLocomotionClass::unknown_676b20(CoordStruct const &headto, int mark)
 
 void __stdcall ShipLocomotionClass::Force_Track(int track, CoordStruct coord)
 {
-    unknown_58 = track;
+    TrackNumber = track;
     TrackIndex = 0;
     if (coord != unknown_geometry_l) {
         if (Start_Driver(CoordStruct(coord.X, coord.Y, coord.Z))) {
-            unknown_34 = coord;
-            unknown_50 = 1.0;
+            DestinationCoord = coord;
+            TargetSpeed = 1.0;
         }
     }
 }
@@ -738,14 +738,14 @@ inline CoordStruct::CoordStruct(Point2D const &point, int z) : BASECLASS(point.X
 
 bool ShipLocomotionClass::While_Moving(bool just_started)
 {
-    if ((!IsDriving || unknown_58 == -1) && LinkedTo->Path[0] != 8 || (IsRotating && !LinkedTo->Techno_Type_Class()->Turret)) {
-        unknown_4c = 0;
+    if ((!IsDriving || TrackNumber == -1) && LinkedTo->Path[0] != 8 || (IsRotating && !LinkedTo->Techno_Type_Class()->Turret)) {
+        SpeedAccum = 0;
         return false;
     }
     if (LinkedTo->Techno_Type_Class()->Accelerates) {
         bool not_passive = LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->Type->Passive;
-        if (unknown_58 < 0x40 && not_passive) {
-            CoordStruct dest_coord = unknown_34;
+        if (TrackNumber < 0x40 && not_passive) {
+            CoordStruct dest_coord = DestinationCoord;
             dest_coord.Z = Map.Get_Height_GL(dest_coord) + (Map[dest_coord].IsUnderBridge ? unknown_geometry_j : 0);
             int distance = (Object_Coord(LinkedTo) - CoordStruct(dest_coord)).Length();
 
@@ -757,46 +757,46 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             if (distance < tclass->SlowdownDistance) {
                 forced_speed = true;
                 speed = MAX(_deaccel, speed - tclass->Speed * tclass->DeaccelerationFactor);
-            } else if (LinkedTo->unknown_325) {
+            } else if (LinkedTo->IsSinking) {
                 speed = MAX(_sinking, speed - tclass->Speed * _sinking_scale);
                 forced_speed = true;
             }
 
             if (LinkedTo->IsCrushing) {
-                unknown_50 = MIN(unknown_50, 0.2);
-                LinkedTo->unknown_slot306(unknown_50);
+                TargetSpeed = MIN(TargetSpeed, 0.2);
+                LinkedTo->unknown_slot306(TargetSpeed);
             } else if (forced_speed) {
                 LinkedTo->unknown_slot306(speed);
-            } else if (LinkedTo->Speed < unknown_50) {
-                LinkedTo->unknown_slot306(MIN(unknown_50, LinkedTo->Speed + tclass->AccelerationFactor));
-            } else if (LinkedTo->Speed > unknown_50) {
-                LinkedTo->unknown_slot306(MAX(unknown_50, LinkedTo->Speed - tclass->Speed * tclass->DeaccelerationFactor));
+            } else if (LinkedTo->Speed < TargetSpeed) {
+                LinkedTo->unknown_slot306(MIN(TargetSpeed, LinkedTo->Speed + tclass->AccelerationFactor));
+            } else if (LinkedTo->Speed > TargetSpeed) {
+                LinkedTo->unknown_slot306(MAX(TargetSpeed, LinkedTo->Speed - tclass->Speed * tclass->DeaccelerationFactor));
             }
 
             if (LinkedTo->Kind_Of() == 1) {
                 UnitClass *unit = (UnitClass *)LinkedTo;
-                UnitClass *following = (UnitClass *)unit->unknown_5b0;
+                UnitClass *following = (UnitClass *)unit->FollowingMe;
                 if (following != 0) {
                     do {
                         following->unknown_slot306(LinkedTo->Speed);
-                        following = (UnitClass *)following->unknown_5b0;
-                    } while (following && following != following->unknown_5b0);
+                        following = (UnitClass *)following->FollowingMe;
+                    } while (following && following != following->FollowingMe);
                 }
             }
         }
     } else {
-        LinkedTo->unknown_slot306(unknown_50);
+        LinkedTo->unknown_slot306(TargetSpeed);
     }
 
     int maxspeed = LinkedTo->Current_Speed();
 
     int actual;
-    actual = unknown_4c + (just_started ? 0 : maxspeed);
+    actual = SpeedAccum + (just_started ? 0 : maxspeed);
 
     int nextface;
     nextface = LinkedTo->Path[0];
 
-    if (nextface == 8 && unknown_58 == -1) {
+    if (nextface == 8 && TrackNumber == -1) {
         LinkedTo->Mark(0);
         Stop_Driver();
 
@@ -817,10 +817,10 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             int count = tube->unknown_1c0;
             LinkedTo->unknown_45c.Z = current_height + (Map.Get_Height_GL(exit) - current_height) / count;
             IsDriving = true;
-            unknown_58 = -1;
+            TrackNumber = -1;
         } else {
             LinkedTo->Path[0] = -1;
-            unknown_58 = -1;
+            TrackNumber = -1;
             HeadToCoord = unknown_geometry_l;
             Stop_Driver();
         }
@@ -833,7 +833,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
         int tracknum;
         bool adj;
 
-        track = &ShipTrackControl[unknown_58];
+        track = &ShipTrackControl[TrackNumber];
         if (IsOnShortTrack) {
             tracknum = track->StartTrack;
         } else {
@@ -891,7 +891,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                     if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
                         LinkedTo->IsOnBridge = false;
                     }
-                    if (LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
+                    if (LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->IsFollowing) {
                         FootClass *train = LinkedTo;
                         bool is_bridge = train->IsOnBridge || (Object_Coord(LinkedTo).Z >= (Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_j));
                         ObjectClass *object = is_bridge ? Map[newcell].AltOccupierPtr : Map[newcell].OccupierPtr;
@@ -959,7 +959,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                             case 2:
                                 if (LinkedTo->Kind_Of() == 1 && !((UnitClass *)LinkedTo)->Type->Passive) break;
                                 IsOnShortTrack = false;
-                                unknown_58 = tnum;
+                                TrackNumber = tnum;
                                 track = newtrack;
 
                                 tracknum = track->Track;
@@ -1027,15 +1027,15 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
                 }
 
                 Stop_Driver();
-                unknown_58 = -1;
+                TrackNumber = -1;
                 TrackIndex = 0;
 
                 bool arrived = false;
                 AbstractClass *target = LinkedTo->NavCom;
                 if (target != 0 && LinkedTo->Get_Cell() == target->Destination_Coord(LinkedTo).As_Cell()) {
-                    if (abs(LinkedTo->Destination_Coord(LinkedTo).Z - unknown_34.Z) < 2 * unknown_geometry_g) {
+                    if (abs(LinkedTo->Destination_Coord(LinkedTo).Z - DestinationCoord.Z) < 2 * unknown_geometry_g) {
                         arrived = true;
-                        unknown_34 = unknown_geometry_l;
+                        DestinationCoord = unknown_geometry_l;
                         Stop_Driver();
                         IsDriving = false;
                     }
@@ -1063,14 +1063,14 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
         }
     }
 
-    unknown_4c = actual;
+    SpeedAccum = actual;
 
-    if (actual > 0 && unknown_58 > -1) {
+    if (actual > 0 && TrackNumber > -1) {
         TrackControlStruct const *track;
         TrackType const *ptr;
         int tracknum;
 
-        track = &ShipTrackControl[unknown_58];
+        track = &ShipTrackControl[TrackNumber];
         if (IsOnShortTrack) {
             tracknum = track->StartTrack;
         } else {
@@ -1090,7 +1090,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             CellClass *stepcellptr = &Map[stepcoord];
 
             CoordStruct partial(0, 0, 0);
-            movement = Lerp(partial, movement, unknown_4c / 7.0);
+            movement = Lerp(partial, movement, SpeedAccum / 7.0);
             CoordStruct partialcoord = oldcoord + movement;
 
             CellClass *oldcellptr = &Map[oldcoord];
@@ -1099,7 +1099,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started)
             CoordStruct coord = Object_Coord(LinkedTo);
 
             if (partialcellptr != stepcellptr && partialcellptr != oldcellptr) {
-                if (unknown_4c > 3) {
+                if (SpeedAccum > 3) {
                     coord = stepcoord;
                 }
             } else {
@@ -1169,7 +1169,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         return false;
     }
 
-    if (!(unknown_34 != unknown_geometry_l)) return false;
+    if (!(DestinationCoord != unknown_geometry_l)) return false;
 
     if (LinkedTo->SpawnManager != 0 && LinkedTo->SpawnManager->Launching_Count() != 0) return true;
     if (LinkedTo->unknown_slot111() || LinkedTo->unknown_slot112()) return false;
@@ -1177,7 +1177,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
     if (facing != -1) {
         if (LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 1 || LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 15) {
-            int dist = LinkedTo->Distance(unknown_34) / 256;
+            int dist = LinkedTo->Distance(DestinationCoord) / 256;
             if (dist < 24) {
                 LinkedTo->Path[dist] = -1;
                 facing = LinkedTo->Path[0];
@@ -1191,19 +1191,19 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         }
         LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
 
-        if (!LinkedTo->unknown_4c3000((unknown_34).As_Cell(), 0, 0)) {
+        if (!LinkedTo->unknown_4c3000((DestinationCoord).As_Cell(), 0, 0)) {
             if (LinkedTo == 0) {
                 stop_processing = true;
                 return false;
             }
-            if (!LinkedTo->unknown_slot171(unknown_34)) {
+            if (!LinkedTo->unknown_slot171(DestinationCoord)) {
                 LinkedTo->Assign_Destination(0, true);
                 return false;
             }
 
-                if (unknown_34 == unknown_geometry_l) return false;
+                if (DestinationCoord == unknown_geometry_l) return false;
 
-                if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(unknown_34) < Rules->CloseEnoughDistance && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
+                if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(DestinationCoord) < Rules->CloseEnoughDistance && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
                     Stop_Driver();
                     if (unknown_67a7a0()) return true;
                     if (!LinkedTo->IsActive) return false;
@@ -1217,8 +1217,8 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                             CellClass *cellptr = &Map[cell];
                             TechnoClass *blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)) + 2 * unknown_geometry_g, 0);
                             if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
-                                if (LinkedTo->Distance(unknown_34) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
-                                    if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
+                                if (LinkedTo->Distance(DestinationCoord) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
+                                    if (abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                                         if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                                             Stop_Driver();
                                             if (unknown_67a7a0()) return true; return false;
@@ -1254,7 +1254,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                 }
 
                 Stop_Driver();
-                unknown_58 = -1;
+                TrackNumber = -1;
                 IsTurretLockedDown = false;
                 return false;
             
@@ -1277,8 +1277,8 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                     blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(center) + 2 * unknown_geometry_g, 0);
                 }
                 if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
-                    if (LinkedTo->Distance(unknown_34) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
-                        if (abs(unknown_34.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
+                    if (LinkedTo->Distance(DestinationCoord) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
+                        if (abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
                             if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
                                 Stop_Driver();
                                 return unknown_67a7a0();
@@ -1353,9 +1353,9 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                         LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                         return Start_Of_Move(stop_processing, false, false);
                     }
-                    int dist = unit->Distance(unknown_34);
+                    int dist = unit->Distance(DestinationCoord);
                     if (dist >= Rules->CloseEnoughDistance
-                        || abs(unknown_34.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
+                        || abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
                         || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
                         bool is_bridge;
                         if (!(Map[destcell].unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[destcell].Height) <= 2) {
@@ -1389,12 +1389,12 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                 }
                 if (LinkedTo->PathDelay == 0) {
                     bool around_blockage = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
-                    bool ok = LinkedTo->unknown_4c3000((unknown_34).As_Cell(), 0, (around_blockage != 0) + 1);
+                    bool ok = LinkedTo->unknown_4c3000((DestinationCoord).As_Cell(), 0, (around_blockage != 0) + 1);
                     if (LinkedTo == 0) {
                         stop_processing = true;
                         return false;
                     }
-                    if (ok || LinkedTo->unknown_slot171(unknown_34)) {
+                    if (ok || LinkedTo->unknown_slot171(DestinationCoord)) {
                         LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
                         return true;
                     }
@@ -1432,7 +1432,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
             }
 
             LinkedTo->IsNewNavCom = false;
-            unknown_58 = -1;
+            TrackNumber = -1;
             return true;
         }
 
@@ -1470,8 +1470,8 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         if (LinkedTo->Health_Ratio() <= Rules->ConditionYellow) {
             speed *= 0.75;
         }
-        if (unknown_58 < 0x40) {
-            unknown_50 = speed;
+        if (TrackNumber < 0x40) {
+            TargetSpeed = speed;
         } else {
             if (speed != LinkedTo->Speed) {
                 LinkedTo->unknown_slot306(speed);
@@ -1483,16 +1483,16 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
 
         int nextface = LinkedTo->Path[1];
         if (nextface == -1) {
-            if (LinkedTo->Distance(unknown_34) > 0x200) {
+            if (LinkedTo->Distance(DestinationCoord) > 0x200) {
                 int patharg = LinkedTo->Techno_Type_Class()->IsTrain ? 1 : 0;
-                bool found = LinkedTo->unknown_4c3000((unknown_34).As_Cell(), patharg, 0);
+                bool found = LinkedTo->unknown_4c3000((DestinationCoord).As_Cell(), patharg, 0);
                 bool &result = found;
                 if (!result) {
                     if (LinkedTo == 0) {
                         stop_processing = true;
                         return found;
                     }
-                    if (!LinkedTo->unknown_slot171(unknown_34)) {
+                    if (!LinkedTo->unknown_slot171(DestinationCoord)) {
                         LinkedTo->Assign_Destination(0, true);
                     }
                 }
@@ -1513,12 +1513,12 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         }
 
         IsOnShortTrack = false;
-        unknown_58 = facing * 8 + nextface;
-        if (ShipTrackControl[unknown_58].Track == 0) {
-            unknown_58 = facing * 8 + facing;
+        TrackNumber = facing * 8 + nextface;
+        if (ShipTrackControl[TrackNumber].Track == 0) {
+            TrackNumber = facing * 8 + facing;
         }
 
-        if (ShipTrackControl[unknown_58].Flag & 8) {
+        if (ShipTrackControl[TrackNumber].Flag & 8) {
             int nextcando;
             if (!Map[destcell].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
                 nextcando = 7;
@@ -1548,8 +1548,8 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                             LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
                             return Start_Of_Move(stop_processing, false, false);
                         }
-                        if (LinkedTo->Distance_YZX(unknown_34) >= Rules->CloseEnoughDistance
-                            || abs(unknown_34.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
+                        if (LinkedTo->Distance_YZX(DestinationCoord) >= Rules->CloseEnoughDistance
+                            || abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
                             || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
                             CellClass *cellptr = &Map[destcell];
                             bool is_bridge;
@@ -1585,7 +1585,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
                 }
 
                 LinkedTo->Path[0] = -1;
-                unknown_58 = -1;
+                TrackNumber = -1;
                 dest = unknown_geometry_l;
                 if (nextcando == 5 || nextcando == 4) {
                     return Start_Of_Move(stop_processing, retry, true);
@@ -1604,7 +1604,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool 
         LinkedTo->IsNewNavCom = false;
         TrackIndex = 0;
         if (!Start_Driver(dest)) {
-            unknown_58 = -1;
+            TrackNumber = -1;
             LinkedTo->Path[0] = -1;
             LinkedTo->unknown_slot306(0);
         }
@@ -1631,7 +1631,7 @@ void  unknown_empty_0067a680(void)
 Point2D ShipLocomotionClass::Smooth_Turn(Point2D const &offset, int &facing)
 {
     int workdir = facing;
-    int flags = ShipTrackControl[unknown_58].Flag;
+    int flags = ShipTrackControl[TrackNumber].Flag;
     int x = offset.X;
     int y = offset.Y;
     if (flags & 1) {
@@ -1734,8 +1734,8 @@ bool __stdcall ShipLocomotionClass::Is_Moving_Here(CoordStruct to)
     if (head == unknown_geometry_l) {
         return false;
     }
-    if (!IsOnShortTrack && unknown_58 != -1) {
-        int track = ShipTrackControl[unknown_58].Track;
+    if (!IsOnShortTrack && TrackNumber != -1) {
+        int track = ShipTrackControl[TrackNumber].Track;
         if (track) {
             TrackType const *points = ShipRawTracks[track - 1].Track;
             int cell = ShipRawTracks[track - 1].Cell;
@@ -1763,7 +1763,7 @@ bool __stdcall ShipLocomotionClass::Will_Jump_Tracks()
 {
     int next_face=LinkedTo->Path[0];
     if (next_face>=-1 && next_face<=8) {
-        TrackControlStruct const *track=&ShipTrackControl[unknown_58];
+        TrackControlStruct const *track=&ShipTrackControl[TrackNumber];
         int track_number;
         if (IsOnShortTrack) track_number=track->StartTrack;
         else track_number=track->Track;
@@ -1799,7 +1799,7 @@ void __stdcall ShipLocomotionClass::Unlock()
 
 int __stdcall ShipLocomotionClass::Get_Track_Number()
 {
-    return unknown_58;
+    return TrackNumber;
 }
 
 
@@ -1815,7 +1815,7 @@ int __stdcall ShipLocomotionClass::Get_Track_Index()
 
 int __stdcall ShipLocomotionClass::Get_Speed_Accum()
 {
-    return unknown_4c;
+    return SpeedAccum;
 }
 
 

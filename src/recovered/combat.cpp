@@ -521,7 +521,7 @@ void __fastcall Combat_Lighting(CoordStruct coord, int damage, WarheadTypeClass 
                     size = 21;
                 }
             }
-            (new SpotLightClass(coord, size))->unknown_14 |= flags;
+            (new SpotLightClass(coord, size))->DisableFlags |= flags;
         }
     }
 }

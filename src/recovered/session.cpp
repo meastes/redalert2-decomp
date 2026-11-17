@@ -1336,7 +1336,7 @@ unsigned long SessionClass::Compute_Unique_ID()
 MultiMission::MultiMission(INIClass &ini, char const *section)
 {
     Description[0] = 0;
-    unknown_58[sizeof(unknown_58) - 1] = '\0';
+    Filename[sizeof(Filename) - 1] = '\0';
     strcpy(Digest, "No Digest");
     IsOfficial = true;
     MinPlayers = 2;
@@ -1345,8 +1345,8 @@ MultiMission::MultiMission(INIClass &ini, char const *section)
     if (!section) {
         return;
     }
-    strcpy(unknown_58, section);
-    strcat(unknown_58, ".MAP");
+    strcpy(Filename, section);
+    strcat(Filename, ".MAP");
     if (ini.Is_Present(section, "DescriptionText")) {
         char text[0x2C];
         ini.Get_String(section, "DescriptionText", "", text, 0x2C);
@@ -1376,9 +1376,9 @@ MultiMission::MultiMission(INIClass &ini, char const *section)
             position = modes.Get_Token(position, ",", token);
         }
     }
-    CCFileClass file(unknown_58);
+    CCFileClass file(Filename);
     if (!file.Is_Available()) {
-        Debug_Printf("Unable to locate scenario %s - No digest info will be loaded\n", unknown_58);
+        Debug_Printf("Unable to locate scenario %s - No digest info will be loaded\n", Filename);
     } else {
         if (!file.Open(FILE_RIGHTS_READ)) {
             return;
@@ -1411,10 +1411,10 @@ MultiMission::MultiMission(char const *filename, unsigned short const *descripti
                            char const *modes, int unknown_180, int players)
 {
     if (filename) {
-        strncpy(unknown_58, filename, sizeof(unknown_58));
-        unknown_58[sizeof(unknown_58) - 1] = '\0';
+        strncpy(Filename, filename, sizeof(Filename));
+        Filename[sizeof(Filename) - 1] = '\0';
     } else {
-        strcpy(unknown_58, "No File Name");
+        strcpy(Filename, "No File Name");
     }
     if (description) {
         wcsncpy(Description, description, 0x2C);
@@ -1452,7 +1452,7 @@ MultiMission::MultiMission(char const *filename, unsigned short const *descripti
 bool MultiMission::Is_On_CD(int cd)
 {
     if (cd == -2) {
-        return RawFileClass(unknown_58).Is_Available();
+        return RawFileClass(Filename).Is_Available();
     }
     if (Is_On_Disk(DiskIDs, (DiskID)-1)) {
         return true;
@@ -1468,10 +1468,10 @@ bool MultiMission::Is_On_CD(int cd)
 void MultiMission::Set_Filename(char const *filename)
 {
     if (filename) {
-        strncpy(unknown_58, filename, sizeof(unknown_58));
-        unknown_58[sizeof(unknown_58) - 1] = '\0';
+        strncpy(Filename, filename, sizeof(Filename));
+        Filename[sizeof(Filename) - 1] = '\0';
     } else {
-        strcpy(unknown_58, "No File Name");
+        strcpy(Filename, "No File Name");
     }
 }
 

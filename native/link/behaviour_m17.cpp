@@ -52,7 +52,7 @@ int MapSizeGameOption::Get_Value(rc_ptr<WDTTerritory> const &territory) const
     if (!values) {
         return 0;
     }
-    return values[territory->unknown_12 * 4 + territory->unknown_13];
+    return values[territory->unknown_12 * 4 + territory->Height];
 }
 
 // 0x00728AB0 (pass-6a decompile; parked draft Scout777 77.48 not used): with a prefix,
@@ -65,7 +65,7 @@ WideString MapSizeGameOption::Describe(rc_ptr<WDTTerritory> const &territory, Wi
         return prefix + separator
             + StringTable::Load_String(Map_Size_Label(territory->unknown_12), 0, "D:\\Ra2\\WDTGameOptions.cpp", 0x81);
     }
-    return WideString(StringTable::Load_String(Map_Size_Label(territory->unknown_13), 0, "D:\\Ra2\\WDTGameOptions.cpp", 0x83));
+    return WideString(StringTable::Load_String(Map_Size_Label(territory->Height), 0, "D:\\Ra2\\WDTGameOptions.cpp", 0x83));
 }
 
 }

@@ -459,7 +459,7 @@ public:
     virtual void unknown_slot198();                             // slot 198 (+0x318) 0x006D4060
     virtual bool unknown_slot199(int type);                         // slot 199 (+0x31C) 0x006CC510
     virtual bool Player_Assign_Mission(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4); // slot 200 (+0x320) 0x006CC2A0
-    virtual bool unknown_slot201() { return unknown_3fc > 0; } // slot 201 (+0x324) 0x006D8E80
+    virtual bool unknown_slot201() { return StunDuration > 0; } // slot 201 (+0x324) 0x006D8E80
     virtual bool unknown_slot202();                             // slot 202 (+0x328) 0x00453BC0 (kept copy elsewhere)
     virtual bool unknown_slot203() { return IronCurtainTimer.Value() > 0; }  // slot 203 (+0x32C) kept copy 0x0041B390 (the +0x154 timer still runs)
     virtual bool CanCheer();                                 // slot 204 (+0x330) 0x0041B3D0 (kept copy elsewhere)
@@ -648,10 +648,10 @@ public:
     int ActLike;                        // +0x114 (-1)
     VeterancyClass Veterancy;          // +0x118
     double ArmorBias;                     // +0x120 (1.0)
-    double unknown_128;                     // +0x128 (1.0)
+    double FirepowerBias;                     // +0x128 (1.0)
     CDTimerClass<FrameTimerClass> IdleTimer;  // +0x130
     CDTimerClass<FrameTimerClass> RadarFlashTimer;  // +0x13C
-    CDTimerClass<FrameTimerClass> unknown_148;  // +0x148 (45)
+    CDTimerClass<FrameTimerClass> TargetingTimer;  // +0x148 (45)
     CDTimerClass<FrameTimerClass> IronCurtainTimer;  // +0x154
     CDTimerClass<FrameTimerClass> IronTintTimer;  // +0x160
     int IronTintStage;                        // +0x16C
@@ -662,7 +662,7 @@ public:
     bool UnlimboingInfantry;                       // +0x190
     CDTimerClass<FrameTimerClass> ReloadTimer;  // +0x194
     Point2D RadarPos;                    // +0x1A0 the point the radar tracks (slots 264-266)
-    int unknown_1a8;                        // +0x1A8
+    int SpiedBy;                        // +0x1A8
     int Group;                        // +0x1AC (-1)
     AbstractClass *ArchivedTarget;             // +0x1B0 (swizzled)
     HouseClass *House;                      // +0x1B4
@@ -713,54 +713,54 @@ public:
     int BurstIndex;                        // +0x310
     CDTimerClass<FrameTimerClass> TargetingLaserTimer;  // +0x314
     short SoundRandomSeed;                      // +0x320 (random when constructed)
-    short unknown_322;                      // +0x322
-    bool unknown_324;                       // +0x324
-    bool unknown_325;                       // +0x325
-    bool unknown_326;                       // +0x326
-    bool unknown_327;                       // +0x327
-    bool unknown_328;                       // +0x328
-    bool unknown_329;                       // +0x329
-    bool unknown_32a;                       // +0x32A
-    bool unknown_32b;                       // +0x32B
-    bool unknown_32c;                       // +0x32C
-    bool unknown_32d;                       // +0x32D
-    RecoilData unknown_330;         // +0x330
-    RecoilData unknown_350;         // +0x350
-    bool unknown_370;                       // +0x370
-    bool unknown_371;                       // +0x371
-    bool unknown_372;                       // +0x372
-    bool unknown_373;                       // +0x373
-    bool unknown_374;                       // +0x374
-    bool unknown_375;                       // +0x375
-    unsigned char unknown_376;              // +0x376 (a countdown; slot 23 decrements it)
+    short SinkingYOffset;                      // +0x322
+    bool CountedAsOwned;                       // +0x324
+    bool IsSinking;                       // +0x325
+    bool WasSinkingAlready;                       // +0x326
+    bool IsNeedingRescue;                       // +0x327
+    bool IsUseless;                       // +0x328
+    bool IsTickedOff;                       // +0x329
+    bool IsCloakable;                       // +0x32A
+    bool IsLeader;                       // +0x32B
+    bool IsALoaner;                       // +0x32C
+    bool IsLocked;                       // +0x32D
+    RecoilData TurretRecoil;         // +0x330
+    RecoilData BarrelRecoil;         // +0x350
+    bool IsTethered;                       // +0x370
+    bool IsAlternativeTether;                       // +0x371
+    bool IsOwnedByPlayer;                       // +0x372
+    bool IsDiscoveredByPlayer;                       // +0x373
+    bool IsDiscoveredByComputer;                       // +0x374
+    bool IsALemon;                       // +0x375
+    unsigned char Cooldown;              // +0x376 (a countdown; slot 23 decrements it)
     bool unknown_377;                       // +0x377
-    char unknown_378;                       // +0x378 (signed: the height level last revealed from; TechnoClass slot 70)
-    bool unknown_379;                       // +0x379 (true)
-    bool unknown_37a;                       // +0x37A (true)
-    bool unknown_37b;                       // +0x37B
-    bool unknown_37c;                       // +0x37C
-    bool unknown_37d;                       // +0x37D
-    bool unknown_37e;                       // +0x37E
-    bool unknown_37f;                       // +0x37F
-    bool unknown_380;                       // +0x380
-    bool unknown_381;                       // +0x381
-    AbstractClass *unknown_384;             // +0x384 (swizzled)
-    bool unknown_388;                       // +0x388
-    int unknown_38c;                        // +0x38C
-    DynamicVectorClass<int> unknown_390;    // +0x390
-    DynamicVectorClass<AbstractClass *> unknown_3a8;    // +0x3A8
+    char SightIncrease;                       // +0x378 (signed: the height level last revealed from; TechnoClass slot 70)
+    bool IsTeamRecruitable;                       // +0x379 (true)
+    bool IsAutocreateRecruitable;                       // +0x37A (true)
+    bool IsRadarTracked;                       // +0x37B
+    bool IsInTransport;                       // +0x37C
+    bool IsRocking;                       // +0x37D
+    bool WasCrashingAlready;                       // +0x37E
+    bool IsOnPatrol;                       // +0x37F
+    bool IsMouseHovering;                       // +0x380
+    bool ShouldBeReselectOnUnlimbo;                       // +0x381
+    AbstractClass *OldTeam;             // +0x384 (swizzled)
+    bool IsOnWaypointPatrol;                       // +0x388
+    int RadialFireSegment;                        // +0x38C
+    DynamicVectorClass<int> CurrentTargetThreatValues;    // +0x390
+    DynamicVectorClass<AbstractClass *> CurrentTargets;    // +0x3A8
     DynamicVectorClass<AbstractClass *> unknown_3c0;    // +0x3C0
-    UnknownAudioController unknown_3d8;     // +0x3D8
-    int unknown_3ec;                        // +0x3EC (1)
-    int unknown_3f0;                        // +0x3F0
-    int unknown_3f4;                        // +0x3F4 (the frame when constructed)
-    AbstractClass *unknown_3f8;             // +0x3F8 (swizzled)
-    int unknown_3fc;                        // +0x3FC
-    int unknown_400;                        // +0x400
-    bool unknown_404;                       // +0x404 (TechnoClass 0x006D4310 sets it)
-    UnknownTechno408 *unknown_408;          // +0x408 (released by the destructor)
-    ObjectTypeClass *unknown_40c;           // +0x40C (swizzled; a type: the disguise, InfantryClass slots 50/255/256)
-    HouseClass *unknown_410;                // +0x410 (swizzled; a house: the disguise's, InfantryClass slots 51/256)
+    UnknownAudioController TurretRotateSoundController;     // +0x3D8
+    int IsTurretRotateSoundPlaying;                        // +0x3EC (1)
+    int TurretIsRotating;                        // +0x3F0
+    int LastTargetScanFrame;                        // +0x3F4 (the frame when constructed)
+    AbstractClass *QueueUpToEnter;             // +0x3F8 (swizzled)
+    int StunDuration;                        // +0x3FC
+    int ThreatPosed;                        // +0x400
+    bool ShouldLoseTargetNow;                       // +0x404 (TechnoClass 0x006D4310 sets it)
+    UnknownTechno408 *PlanningToken;          // +0x408 (released by the destructor)
+    ObjectTypeClass *Disguise;           // +0x40C (swizzled; a type: the disguise, InfantryClass slots 50/255/256)
+    HouseClass *DisguisedAsHouse;                // +0x410 (swizzled; a house: the disguise's, InfantryClass slots 51/256)
     int unknown_414;                        // +0x414
 };
 

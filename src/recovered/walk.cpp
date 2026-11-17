@@ -79,9 +79,9 @@
 WalkLocomotionClass::WalkLocomotionClass() :
     unknown_1c(unknown_geometry_l),
     unknown_28(unknown_geometry_l),
-    unknown_34(false),
-    unknown_35(false),
-    unknown_36(false)
+    IsMoving(false),
+    IsProcessingMovement(false),
+    IsReallyMoving(false)
 {
 }
 
@@ -98,7 +98,7 @@ WalkLocomotionClass::~WalkLocomotionClass()
 
 bool __stdcall WalkLocomotionClass::Is_Moving()
 {
-    return unknown_34;
+    return IsMoving;
 }
 
 
@@ -142,9 +142,9 @@ CoordStruct __stdcall WalkLocomotionClass::Head_To_Coord()
 
 bool __stdcall WalkLocomotionClass::Process()
 {
-    unknown_35 = true;
+    IsProcessingMovement = true;
     unknown_71e220(true);
-    unknown_35 = false;
+    IsProcessingMovement = false;
     return Is_Moving();
 }
 
@@ -163,10 +163,10 @@ void __stdcall WalkLocomotionClass::Move_To(CoordStruct to)
             if (Loco_Cell(to)->Flags & 0x100) {
                 unknown_1c.Z += Tactical_Pixel_To_Z_Lepton(60);
             }
-            unknown_34 = true;
+            IsMoving = true;
         } else if (unknown_28 == unknown_geometry_l) {
-            bool moving = unknown_34;
-            unknown_34 = false;
+            bool moving = IsMoving;
+            IsMoving = false;
             if (moving) {
                 LinkedTo->unknown_slot308();
             }
@@ -183,8 +183,8 @@ void __stdcall WalkLocomotionClass::Stop_Moving()
 {
     unknown_1c = unknown_geometry_l;
     if (unknown_28 == unknown_geometry_l) {
-        unknown_34 = false;
-        unknown_36 = false;
+        IsMoving = false;
+        IsReallyMoving = false;
         LinkedTo->unknown_slot308();
     }
 }
@@ -205,10 +205,10 @@ void __stdcall WalkLocomotionClass::Do_Turn(UnknownFacingDir dir)
 
 void __stdcall WalkLocomotionClass::Force_Immediate_Destination(CoordStruct coord)
 {
-    bool moving = unknown_34;
+    bool moving = IsMoving;
     unknown_28 = CoordStruct(coord.X, coord.Y, coord.Z);
     if (unknown_28 == unknown_geometry_l && unknown_1c == unknown_geometry_l) {
-        unknown_34 = false;
+        IsMoving = false;
         if (moving) {
             LinkedTo->unknown_slot308();
         }
@@ -296,10 +296,10 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 }
                 LinkedTo->PathDelay = Rules->PathDelay * 900.0;
                 if (!LinkedTo->unknown_4c3000(unknown_1c.As_Cell(), 0, 0)) {
-                    unknown_36 = false;
+                    IsReallyMoving = false;
                     if (LinkedTo->unknown_slot171(unknown_1c)) {
                         LinkedTo->On_Movement_Blocked();
-                        if (Coord_Length(LinkedTo->Center_Coord(), unknown_1c) < Rules->CloseEnoughDistance && !LinkedTo->unknown_370) {
+                        if (Coord_Length(LinkedTo->Center_Coord(), unknown_1c) < Rules->CloseEnoughDistance && !LinkedTo->IsTethered) {
                             LinkedTo->Assign_Destination(0, true);
                         } else if (LinkedTo->unknown_53c != 0) {
                             LinkedTo->unknown_53c--;
@@ -309,7 +309,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             }
                             LinkedTo->IsNewNavCom = false;
                             Cell dest = unknown_1c.As_Cell();
-                            if (LinkedTo->unknown_32d) {
+                            if (LinkedTo->IsLocked) {
                                 Cell nav_dest = LinkedTo->Destination_Coord(0).As_Cell();
                                 if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                     LinkedTo->Assign_Destination(0, true);
@@ -317,7 +317,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             }
                             if (LinkedTo->TarCom != 0) {
                                 Cell tar_dest = LinkedTo->TarCom->Destination_Coord(LinkedTo).As_Cell();
-                                if (LinkedTo->unknown_32d && LinkedTo->TarCom != 0) {
+                                if (LinkedTo->IsLocked && LinkedTo->TarCom != 0) {
                                     Cell nav_dest = LinkedTo->Destination_Coord(LinkedTo).As_Cell();
                                     if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                         LinkedTo->unknown_slot220(0);
@@ -373,7 +373,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 }
                 int move = LinkedTo->Can_Enter_Cell(&Map[cell], dir, LinkedTo->Unknown_005D47D0(), 0, true);
                 if (move != 0) {
-                    unknown_36 = false;
+                    IsReallyMoving = false;
                     LinkedTo->Stop_Movement_Animation();
                     if (move == 6) {
                         CellClass &cellptr = Map[cell];
@@ -464,7 +464,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                     return;
                 }
                 if (Mark_Head_To(coord)) {
-                    unknown_36 = true;
+                    IsReallyMoving = true;
                     if (!LinkedTo->IsActive) {
                         return;
                     }
@@ -483,7 +483,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
             LinkedTo->IsNewNavCom = false;
         }
     } else {
-    unknown_36 = true;
+    IsReallyMoving = true;
     if (Distance2(Flat(LinkedTo->Center_Coord()), Flat(unknown_28)) < 17) {
         LinkedTo->Mark(0);
         if (LinkedTo->Path[0] == -1) {
@@ -508,7 +508,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                 LinkedTo->unknown_slot306(0.0);
                 unknown_28 = unknown_coord_af9060;
                 Stop_Moving();
-                unknown_36 = false;
+                IsReallyMoving = false;
             }
             LinkedTo->Mark(1);
             LinkedTo->IsNewNavCom = false;
@@ -516,7 +516,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         return;
     }
     if (LinkedTo->unknown_slot201()) {
-        unknown_36 = false;
+        IsReallyMoving = false;
         LinkedTo->IsNewNavCom = false;
         return;
     }
@@ -736,7 +736,7 @@ HRESULT __stdcall WalkLocomotionClass::End_Piggyback(ILocomotion **pointer)
 
 bool __stdcall WalkLocomotionClass::Is_Ok_To_End()
 {
-    if (!Is_Moving() && Piggybacker != 0 && !unknown_35) {
+    if (!Is_Moving() && Piggybacker != 0 && !IsProcessingMovement) {
         return true;
     }
     return false;
@@ -797,7 +797,7 @@ bool __stdcall WalkLocomotionClass::Is_Moving_Here(CoordStruct to)
 
 bool __stdcall WalkLocomotionClass::Is_Really_Moving_Now()
 {
-    return unknown_36;
+    return IsReallyMoving;
 }
 
 
@@ -829,7 +829,7 @@ bool __stdcall WalkLocomotionClass::Is_Piggybacking()
 
 void __stdcall WalkLocomotionClass::Stop_Movement_Animation()
 {
-    unknown_36 = false;
+    IsReallyMoving = false;
 }
 
 

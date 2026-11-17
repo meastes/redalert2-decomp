@@ -53,11 +53,11 @@ public:
 
     CoordStruct unknown_1c;                     // +0x1C destination
     CoordStruct unknown_28;                     // +0x28
-    bool unknown_34;                            // +0x34 moving
+    bool IsMoving;                            // +0x34 moving
     bool unknown_35;                            // +0x35
     bool unknown_36;                            // +0x36
     int unknown_38;                             // +0x38
-    CDTimerClass<FrameTimerClass> unknown_3c;   // +0x3C
+    CDTimerClass<FrameTimerClass> Timer;   // +0x3C
     UnknownLocomotionPtr Piggybacker;           // +0x48
 };
 

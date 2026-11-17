@@ -240,17 +240,17 @@ void EventClass::Execute()
                     }
                 }
             }
-            if (!techno->unknown_370) {
+            if (!techno->IsTethered) {
                 techno->unknown_slot149(3);
             } else {
                 TechnoClass *contact = techno->Contact(0);
                 if (contact && contact->IsActive && contact->Kind_Of() == 6 && ((BuildingClass *)contact)->Type->DockUnload) {
                     techno->unknown_slot149(3);
-                    techno->unknown_370 = false;
+                    techno->IsTethered = false;
                 }
             }
-            if (techno->unknown_3f8) {
-                techno->unknown_3f8 = 0;
+            if (techno->QueueUpToEnter) {
+                techno->QueueUpToEnter = 0;
             }
             if (techno) {
                 foot = techno->AbstractFlags.IsFoot;
@@ -300,7 +300,7 @@ void EventClass::Execute()
     case 6:
         techno = TargetAt(0x07).As_Techno();
         Planning_Techno_00615480(techno, 0);
-        if (techno && techno->IsActive && !techno->IsInLimbo && !techno->unknown_370 && techno->Mission != 0x12 && techno->Mission != 0x13) {
+        if (techno && techno->IsActive && !techno->IsInLimbo && !techno->IsTethered && techno->Mission != 0x12 && techno->Mission != 0x13) {
             if (!techno->IsOnBridge) {
                 if (!Map[CoordStruct(techno->Coord)].Ramp && (unsigned char)techno->unknown_slot164()) {
                     break;
@@ -333,7 +333,7 @@ void EventClass::Execute()
     case 9:
         techno = TargetAt(0x07).As_Techno();
         Planning_Techno_00615480(techno, 0);
-        if (techno && techno->IsActive && !techno->IsInLimbo && !techno->unknown_370 && !techno->unknown_3fc) {
+        if (techno && techno->IsActive && !techno->IsInLimbo && !techno->IsTethered && !techno->StunDuration) {
             if (!techno->IsOnBridge) {
                 if (!Map[CoordStruct(techno->Coord)].Ramp && (unsigned char)techno->unknown_slot164()) {
                     break;
@@ -369,7 +369,7 @@ void EventClass::Execute()
         if (techno) {
             foot = techno->AbstractFlags.IsFoot;
         }
-        if (techno && foot && techno->IsActive && !techno->IsInLimbo && !techno->unknown_370) {
+        if (techno && foot && techno->IsActive && !techno->IsInLimbo && !techno->IsTethered) {
             ((FootClass *)techno)->IsScattering = true;
             techno->Scatter(unknown_geometry_l, true, false);
         }

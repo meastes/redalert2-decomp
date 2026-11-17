@@ -108,10 +108,10 @@ public:
 #else
     char unknown_1b8[0x32D - 0x1B8];
 #endif
-    bool unknown_32d;                       // +0x32D (as shared/techno.hpp)
+    bool IsLocked;                       // +0x32D (as shared/techno.hpp)
 #ifdef RA2_MAP_CLOSE_OBJECT
     char unknown_32e[0x372 - 0x32E];
-    bool unknown_372;                       // +0x372 (as shared/techno.hpp; owned by the player: MapClass 0x0054E8D0)
+    bool IsOwnedByPlayer;                       // +0x372 (as shared/techno.hpp; owned by the player: MapClass 0x0054E8D0)
 #endif
 };
 

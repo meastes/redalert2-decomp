@@ -129,7 +129,7 @@ int __fastcall Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
                     }
                 }
             }
-            SendMessageA(tip, 0x4b2, 0, (LPARAM)text.unknown_text_770430());
+            SendMessageA(tip, 0x4b2, 0, (LPARAM)text.text());
         }
         break;
     }

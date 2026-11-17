@@ -105,10 +105,10 @@
 
 UDPInterfaceClass::UDPInterfaceClass()
 {
-    unknown_3f2fc = 0;
+    Port = 0;
     NumSockets = 0;
     NumUnreachable = 0;
-    unknown_3f334 = INVALID_SOCKET;
+    SelectedSocket = INVALID_SOCKET;
 }
 
 
@@ -213,10 +213,10 @@ bool UDPInterfaceClass::OpenSocket(unsigned short port)
     sockaddr_in addr;
     addr.sin_family = AF_INET;
     if (port) {
-        unknown_3f2fc = port;
+        Port = port;
         addr.sin_port = htons(port);
     } else {
-        unknown_3f2fc = 0;
+        Port = 0;
         addr.sin_port = htons(UDPInterfaceClass_UDPListenPort);
     }
     addr.sin_addr = htonl(INADDR_ANY);
@@ -289,8 +289,8 @@ void UDPInterfaceClass::Close_Spare_Socket(unsigned short port)
             if (SocketPorts[i] == port) {
                 Debug_Printf("Closing spare socket %d\n", Sockets[i]);
                 closesocket(Sockets[i]);
-                if (Sockets[i] == unknown_3f334) {
-                    unknown_3f334 = INVALID_SOCKET;
+                if (Sockets[i] == SelectedSocket) {
+                    SelectedSocket = INVALID_SOCKET;
                 }
                 for (int j = i; j < NumSockets - 1; j++) {
                     Sockets[j] = Sockets[j + 1];
@@ -315,12 +315,12 @@ void UDPInterfaceClass::Select_Port_Socket(unsigned short port)
     if (port && port != UDPInterfaceClass_UDPListenPort) {
         for (int i = 0; i < NumSockets; i++) {
             if (SocketPorts[i] == port) {
-                unknown_3f334 = Sockets[i];
+                SelectedSocket = Sockets[i];
                 return;
             }
         }
     }
-    unknown_3f334 = INVALID_SOCKET;
+    SelectedSocket = INVALID_SOCKET;
 }
 
 
@@ -567,7 +567,7 @@ void UDPInterfaceClass::Close_All_Port_Sockets()
         closesocket(Sockets[index]);
     }
     NumSockets = 0;
-    unknown_3f334 = -1;
+    SelectedSocket = -1;
 }
 
 
@@ -684,10 +684,10 @@ int UDPInterfaceClass::Message_Handler(int window, int message, int wparam, int 
 
     case FD_WRITE:
     {
-        if (unknown_3f334 != -1) {
+        if (SelectedSocket != -1) {
             for (int i = 0; i < NumSockets; i++) {
-                if (Sockets[i] == unknown_3f334) {
-                    socket = unknown_3f334;
+                if (Sockets[i] == SelectedSocket) {
+                    socket = SelectedSocket;
                     Debug_Printf("FD_WRITE - Using socket %d\n", socket);
                 }
             }

@@ -80,7 +80,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     LogicalSurface=EightBitSurface;
     drawpoint=Point2D(128,128);
     cliprect=LogicalSurface->Get_Rect();
-    unknown_5bb=true;
+    IsCompositingToEightBitSurface=true;
     key=unknown_use_voxel_cache_839a58 ? 0 : -1;
     {
         Matrix3D draw_result;
@@ -155,16 +155,16 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         }
     }
     rect=window;
-    if (unknown_322>0) rect=Intersect(rect,Rect(0,0,unknown_int_839638,unknown_322-TacticalMap->TacPixelY));
-    else if (unknown_325) unknown_322=(short)(TacticalMap->TacPixelY+point.Y+unknown_unit_rect_ad0490.Y+unknown_unit_rect_ad0490.Height-128);
+    if (SinkingYOffset>0) rect=Intersect(rect,Rect(0,0,unknown_int_839638,SinkingYOffset-TacticalMap->TacPixelY));
+    else if (IsSinking) SinkingYOffset=(short)(TacticalMap->TacPixelY+point.Y+unknown_unit_rect_ad0490.Y+unknown_unit_rect_ad0490.Height-128);
     int apparent_brightness=unknown_slot254(brightness);
     if (unknown_slot203()) apparent_brightness=GetInvulnerabilityTintIntensity(apparent_brightness);
     unknown_slot312(*old_surface,point,rect,apparent_brightness);
     Rect dirtyrect=unknown_unit_rect_ad0490;
     Surface *composite_surface=LogicalSurface;
     LogicalSurface=old_surface;
-    unknown_5bb=false;
-    if (!unknown_325) {
+    IsCompositingToEightBitSurface=false;
+    if (!IsSinking) {
         Point2D shadow_drawpoint=point;
         if (Type->BalloonHover) goto plain;
         if (Type->SpeedType==1) goto plain;
@@ -186,10 +186,10 @@ plain:
             TacticalMap->Coord_To_Pixel(coord,shadow_drawpoint);
             shadow_drawpoint+=Locomotor.Checked()->Shadow_Point();
         }
-        if (unknown_37c) shadow_drawpoint.Y-=14;
+        if (IsInTransport) shadow_drawpoint.Y-=14;
         int height=Get_Height_AGL();
         CellClass *cell= &Map[Position_Coord_004f3f40()];
-        if (unknown_37c && !IsOnBridge && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
+        if (IsInTransport && !IsOnBridge && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
             (((cell->unknown_140&0x800) && (cell->Adjacent_Cell(0).unknown_140&0x100)) ||
              (!(cell->unknown_140&0x800) && (cell->Adjacent_Cell(6).unknown_140&0x100)))) shadow_drawpoint.Y-=60;
         Surface *cache_key;   // the shadow mask surface

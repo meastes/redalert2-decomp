@@ -230,7 +230,7 @@ bool AircraftClass::Unlimbo(CoordStruct const *coord, int dir)
 {
     CoordStruct placed = *coord;
     if (!Type->MissileSpawn) {
-        if (!unknown_32c && Map.Unknown_0055A7F0(*coord)) {
+        if (!IsALoaner && Map.Unknown_0055A7F0(*coord)) {
             placed.Z = Map.Get_Height_GL(*coord);
         } else {
             AircraftTypeClass *type = Type;
@@ -239,8 +239,8 @@ bool AircraftClass::Unlimbo(CoordStruct const *coord, int dir)
     }
     if (FootClass::Unlimbo(&placed, dir)) {
         if (!(Type->IsSelectable && Type->Landable) ||
-            (unknown_slot231(0)->WeaponType && unknown_slot231(0)->WeaponType->unknown_11f))
-            unknown_32c = true;
+            (unknown_slot231(0)->WeaponType && unknown_slot231(0)->WeaponType->IsCamera))
+            IsALoaner = true;
         if (Cargo.Object) Passenger = true;
         SecondaryFacing.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
         StageClass::Set_Rate(1);
@@ -305,7 +305,7 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
 
         Matrix3D matrix;
         matrix = *Locomotor.Checked()->Shadow_Matrix(&COMMatrix3DStruct(), &key);
-        if (!unknown_325) {
+        if (!IsSinking) {
             Draw_Voxel_Shadow(Type->Voxel, 0,
                 key, &Type->ShadowVoxelIndex,
                 window, shadow_point,
@@ -413,7 +413,7 @@ void AircraftClass::AI()
     }
     FootClass::AI();
     if (!IsActive) return;
-    if (unknown_325) {
+    if (IsSinking) {
         CoordStruct current = Coord;
         Set_Coord(current - CoordStruct(0, 0, 5));
         if (Get_Height_AGL() < -400) {
@@ -513,7 +513,7 @@ choose_destination:
         if (!Locomotor.Checked()->Is_Moving()) Status = 3;
         return 1;
     case 3:
-        if (!unknown_370) {
+        if (!IsTethered) {
             if (Cargo.Object) {
                 if (Type->Carryall) {
                     Mark(0);
@@ -522,9 +522,9 @@ choose_destination:
                 } else {
                 FootClass *passenger = (FootClass *)Cargo.Detach_Object();
                 Map.Pick_Up(Get_Cell(), this);
-                if (Exit_Object(passenger)) passenger->unknown_37c = false;
+                if (Exit_Object(passenger)) passenger->IsInTransport = false;
                 Map.Place_Down(Get_Cell(), this);
-                if (!passenger->unknown_37c && passenger->Team) Team->Add(passenger);
+                if (!passenger->IsInTransport && passenger->Team) Team->Add(passenger);
                 if (!Cargo.Object) unknown_slot261(false, true);
                 }
             } else {
@@ -820,7 +820,7 @@ BulletClass *AircraftClass::Fire_At(AbstractClass *target, int arg2)
             TVelocity3D<double> dir = TVelocity3D<double>(diff.X, diff.Y, diff.Z);
             Set_Yaw(bullet->Velocity, Get_Yaw(dir));
             Set_Pitch(bullet->Velocity, Get_Pitch(dir));
-            Set_Speed(bullet->Velocity, unknown_slot231(0)->WeaponType->unknown_a8);
+            Set_Speed(bullet->Velocity, unknown_slot231(0)->WeaponType->MaxSpeed);
         }
 
         if (House->Is_Player_Control()) {
@@ -995,7 +995,7 @@ void AircraftClass::Drop_Off_Cargo()
         return;
     }
     {
-        passenger->unknown_37c = false;
+        passenger->IsInTransport = false;
         passenger->unknown_slot263(0, 0, false, 0);
         passenger->unknown_slot262(0, 0, 0, 0);
         Map.Unknown_0054A550(CoordStruct(Coord), passenger->LastSightRange - 3,
@@ -1105,7 +1105,7 @@ select_destination:
         return 1;
     case 3: {
         Debug_Printf("Do_MISSION_MOVE_Carryall - LAND\n");
-        if (Cargo.Object && unknown_3f8) {
+        if (Cargo.Object && QueueUpToEnter) {
             IsCarryallNotLanding = true;
             return 1;
         }
@@ -1128,7 +1128,7 @@ select_destination:
                 Debug_Printf("Do_MISSION_MOVE_Carryall - LAND - RADIO_NEED_TO_MOVE got RADIO_ROGER\n");
                 passenger->Limbo();
                 passenger->IsOnBridge = false;
-                passenger->unknown_37c = true;
+                passenger->IsInTransport = true;
                 Cargo.Attach(passenger);
                 goto finalize_pickup;
             }
@@ -1161,7 +1161,7 @@ static inline bool Near_In_Plane(CoordStruct here, CoordStruct target)
 
 int AircraftClass::Do_MISSION_PATROL()
 {
-    unknown_37f = true;
+    IsOnPatrol = true;
     switch (Status) {
     case 0:
         if (!NavCom) {
@@ -1270,7 +1270,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
     if (In_Which_Layer() == 2) goto grounded;
     if (Get_Height_AGL() <= landing_altitude || Type->MissileSpawn) goto grounded;
     if (Cargo.Object) {
-        if (!unknown_32c) goto select_destination;
+        if (!IsALoaner) goto select_destination;
         if (!Team) {
             mission = 16;
             Assign_Destination(Good_LZ(), true);
@@ -1278,7 +1278,7 @@ bool AircraftClass::unknown_slot261(bool first, bool second)
         }
         goto default_mission;
     } else {
-        if (!unknown_32c) goto check_owner;
+        if (!IsALoaner) goto check_owner;
         if (!House->Is_Human_Player()) goto check_owner;
         goto check_team;
 check_owner:
@@ -1289,7 +1289,7 @@ check_team:
             Team->Remove(this, -1, 0);
 check_weapon:
         if (unknown_slot231(0)->WeaponType) {
-        if (unknown_32c) {
+        if (IsALoaner) {
             if (!Ammo) {
                 if (Team) Team->Remove(this, -1, 0);
                 unknown_slot220(0);
@@ -1303,7 +1303,7 @@ check_weapon:
             goto choose_mission;
         }
         if (!In_Air() || (NavCom && Mission == 7) || Type->Dock.Count() <= 0 ||
-            (!unknown_32d && Team)) goto choose_mission;
+            (!IsLocked && Team)) goto choose_mission;
         {
             TechnoClass *dock = unknown_slot299((DynamicVectorClass<TechnoTypeClass *> const *)&Type->Dock, 0, 0);
             Assign_Destination(0, true);
@@ -1327,7 +1327,7 @@ select_destination:
     mission = 2;
     goto choose_mission;
 grounded:
-    if (unknown_32c) {
+    if (IsALoaner) {
         if (Cargo.Object) mission = Team ? 5 : 16;
         else if (!Team) {
             unknown_slot220(0);
@@ -1570,7 +1570,7 @@ int AircraftClass::Do_MISSION_ATTACK()
         IsLockedStraight = false;
         if (TarCom != 0 && Ammo != 0) {
             if (Is_Strafe()) {
-                if (Planar_Distance(TarCom) < unknown_slot231(0)->WeaponType->unknown_b4) {
+                if (Planar_Distance(TarCom) < unknown_slot231(0)->WeaponType->Range) {
                     Status = 4;
                     return 1;
                 }
@@ -1640,12 +1640,12 @@ int AircraftClass::Do_MISSION_ATTACK()
             if (Is_Strafe()) {
                 Status = 6;
                 IsLockedStraight = true;
-                return unknown_slot231(0)->WeaponType->unknown_b0;
+                return unknown_slot231(0)->WeaponType->ROF;
             }
             if (Is_Fighter()) {
                 IsLockedStraight = true;
                 Status = Ammo <= 0 ? 10 : 1;
-                return unknown_slot231(0)->WeaponType->unknown_b0;
+                return unknown_slot231(0)->WeaponType->ROF;
             }
             Status = 5;
             break;
@@ -1722,7 +1722,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(TarCom, true);
             Status = 7;
-            return unknown_slot231(0)->WeaponType->unknown_b0;
+            return unknown_slot231(0)->WeaponType->ROF;
         }
         default:
             if (Ammo == 0) {
@@ -1746,7 +1746,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(TarCom, true);
             Status = 8;
-            return unknown_slot231(0)->WeaponType->unknown_b0;
+            return unknown_slot231(0)->WeaponType->ROF;
         }
         default:
             if (Ammo == 0) {
@@ -1770,7 +1770,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Assign_Destination(TarCom, true);
             Status = 9;
-            return unknown_slot231(0)->WeaponType->unknown_b0;
+            return unknown_slot231(0)->WeaponType->ROF;
         }
         default:
             if (Ammo == 0) {
@@ -1792,7 +1792,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             Fire_At(TarCom, What_Weapon_Should_I_Use(TarCom));
             Map[TarCom->Center_Coord()].Incoming(&Position_Coord_004f3f40(), true, false, false);
             Status = 3;
-            return (unknown_slot231(0)->WeaponType->unknown_b4 + 0x400) / Type->Speed;
+            return (unknown_slot231(0)->WeaponType->Range + 0x400) / Type->Speed;
         }
         default:
             if (Ammo == 0) {
@@ -1810,7 +1810,7 @@ int AircraftClass::Do_MISSION_ATTACK()
             }
         }
         if (Ammo == 0) {
-            if (unknown_32c || House->Is_Human_Player()) {
+            if (IsALoaner || House->Is_Human_Player()) {
                 unknown_slot220(0);
             }
         } else if (TarCom != 0) {
@@ -1982,7 +1982,7 @@ int AircraftClass::Receive_Message(RadioClass *radio, int message, AbstractClass
         return count < capacity ? 1 : 10;
     }
     case 8:
-        if (Type->Carryall && Get_Mission() == 2 && unknown_370) {
+        if (Type->Carryall && Get_Mission() == 2 && IsTethered) {
             if ((Cargo.Object && Cargo.Attached_Object() == radio) || NavCom == radio) return 10;
         }
         break;
@@ -2043,7 +2043,7 @@ int AircraftClass::Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass
         && !cell->Unknown_00478760(4, 0, 0, -1, 0, -1, 1)) {
         return 7;
     }
-    if (unknown_game_mode_a3d298 == 0 && unknown_372 && !unknown_32c) {
+    if (unknown_game_mode_a3d298 == 0 && IsOwnedByPlayer && !IsALoaner) {
         if (Map.Is_Shrouded(cell->Center_Coord())) {
             return 7;
         }
@@ -2114,7 +2114,7 @@ AbstractClass *AircraftClass::Good_Fire_Location(AbstractClass *desired)
                     Cell sample = XY_Cell(sample_x / 256, sample_y / 256);
                     Cell cell = sample;
                     if (Map.In_Local_Radar(cell, true) &&
-                        (unknown_game_mode_a3d298 || unknown_32c ||
+                        (unknown_game_mode_a3d298 || IsALoaner ||
                          (reinterpret_cast<UnknownCellClass *>(&Map[cell])->unknown_12c & 0x10)) &&
                         Cell_Seems_Ok(cell, true)) {
                         int distance;
@@ -2575,7 +2575,7 @@ void AircraftClass::Assign_Destination(AbstractClass *target, bool immediate)
                         if (Ready_To_Commence()) Commence();
                     }
                     if (building->Type->IsCanUnitRepair) {
-                        unknown_3f8 = building;
+                        QueueUpToEnter = building;
                         target = 0;
                     }
                 } else {
@@ -2690,7 +2690,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
                     aircraft->Get_Cell().X, aircraft->Get_Cell().Y,
                     direction, MissionClass::Name_From_Mission(aircraft->Get_Mission()), tag,
                     aircraft->Veterancy.To_Integer(), aircraft->Group,
-                    aircraft->unknown_379, aircraft->unknown_37a);
+                    aircraft->IsTeamRecruitable, aircraft->IsAutocreateRecruitable);
             ini.Put_String(unknown_aircraft_section_79b0d0, id, line);
         }
     }
@@ -2738,9 +2738,9 @@ void __fastcall AircraftClass::Read_INI_0041A840(CCINIClass &ini)
                     token = strtok(0, ",");
                     if (token) aircraft->Group = atoi(token);
                     token = strtok(0, ",");
-                    if (token) aircraft->unknown_379 = atoi(token) != 0;
+                    if (token) aircraft->IsTeamRecruitable = atoi(token) != 0;
                     token = strtok(0, ",");
-                    if (token) aircraft->unknown_37a = atoi(token) != 0;
+                    if (token) aircraft->IsAutocreateRecruitable = atoi(token) != 0;
                     if (aircraft->Unlimbo(&coord, direction)) {
                         AircraftTypeClass *type = aircraft->Type;
                         aircraft->Strength = (int)((double)health * (1.0 / 256.0) * type->MaxStrength);
@@ -2930,8 +2930,8 @@ bool AircraftClass::Commence()
 
 bool AircraftClass::unknown_slot282()
 {
-    if (TarCom == 0 && unknown_32d && Get_Mission() != 26 && Get_Mission() != 27) {
-        if ((Team == 0 && unknown_32c) || (Team != 0 && Team->Is_Leaving_Map())) {
+    if (TarCom == 0 && IsLocked && Get_Mission() != 26 && Get_Mission() != 27) {
+        if ((Team == 0 && IsALoaner) || (Team != 0 && Team->Is_Leaving_Map())) {
             return true;
         }
     }

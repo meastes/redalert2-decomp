@@ -79,8 +79,8 @@ RadSiteClass::RadSiteClass() :
     Spread(0),
     SpreadInLeptons(0),
     RadLevel(0),
-    unknown_50(0),
-    unknown_54(0),
+    LevelSteps(0),
+    Intensity(0),
     IntensitySteps(0),
     IntensityDecrement(0),
     RadDuration(0),
@@ -255,7 +255,7 @@ void RadSiteClass::Unknown_00637640()
     int level_delay = Rules->RadLevelDelay;
     int light_delay = Rules->RadLightDelay;
     unknown_28 = CDTimerClass<FrameTimerClass>(level_delay);
-    unknown_34 = CDTimerClass<FrameTimerClass>(light_delay);
+    RadLightTimer = CDTimerClass<FrameTimerClass>(light_delay);
     int red = Rules->RadColor.Red;
     int green = Rules->RadColor.Green;
     int blue = Rules->RadColor.Blue;
@@ -278,8 +278,8 @@ void RadSiteClass::Unknown_00637640()
     unknown_58 = r;
     unknown_5c = g;
     unknown_60 = b;
-    unknown_54 = intensity;
-    unknown_50 = RadDuration / level_delay;
+    Intensity = intensity;
+    LevelSteps = RadDuration / level_delay;
     IntensitySteps = RadDuration / light_delay;
     IntensityDecrement = intensity / IntensitySteps;
     RadSiteCell &cell = (RadSiteCell &)Map[BaseCell];
@@ -307,9 +307,9 @@ void RadSiteClass::AI()
         Unknown_00637DC0();
         unknown_28 = CDTimerClass<FrameTimerClass>(Rules->RadLevelDelay);
     }
-    if (unknown_34.Value() == 0) {
+    if (RadLightTimer.Value() == 0) {
         Update_Light();
-        unknown_34 = CDTimerClass<FrameTimerClass>(Rules->RadLightDelay);
+        RadLightTimer = CDTimerClass<FrameTimerClass>(Rules->RadLightDelay);
     }
     if (RadTimeLeft <= 0) {
         delete this;
@@ -370,7 +370,7 @@ void RadSiteClass::Unknown_00637C10()
         for (int x = xstart; x < xend; x++) {
             Cell cell(x, y);
             double level = Get_Rad_Level_At(cell);
-            level = level / unknown_50 * steps;
+            level = level / LevelSteps * steps;
             RadSiteCell &target = (RadSiteCell &)Map[cell];
             target.RadLevel_Decrease(level);
         }
@@ -389,7 +389,7 @@ void RadSiteClass::Unknown_00637DC0()
         for (int x = xstart; x < xend; x++) {
             Cell cell(x, y);
             double level = Get_Rad_Level_At(cell);
-            level /= unknown_50;
+            level /= LevelSteps;
             RadSiteCell &target = (RadSiteCell &)Map[cell];
             target.RadLevel_Decrease(level);
         }

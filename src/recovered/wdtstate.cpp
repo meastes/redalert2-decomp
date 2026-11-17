@@ -112,7 +112,7 @@ State::State(rc_ptr<WDTState> const &wdt_state, unsigned index) :
     // Through Get(): rc_ptr::operator-> (with its null test) would not fold
     // the second read (0x00730830 and its copy in Create 0x00730700).
     if (TheWDTState.Get() && index < TheWDTState.Get()->ConflictCount) {
-        Owners = (unsigned char *)TheWDTState.Get()->unknown_44[index];
+        Owners = (unsigned char *)TheWDTState.Get()->OwnerHistory[index];
     }
 }
 

@@ -29,10 +29,10 @@ void Tactical::AI()
             if (MoveFactor > 1.0) {
                 MoveFactor = 1.0f;
             }
-            Point2D pos = Lerp(unknown_c8, MoveTo, MoveFactor);
+            Point2D pos = Lerp(MoveFrom, MoveTo, MoveFactor);
             if (MoveFactor >= 1.0) {
                 MoveTo = Point2D(0, 0);
-                unknown_c8 = Point2D(0, 0);
+                MoveFrom = Point2D(0, 0);
                 MoveSpeed = 0;
                 MoveFactor = 0;
             }

@@ -6,6 +6,6 @@
 // value (not -1), else TechnoClass's slot 201 (0x006D8E80, +0x3FC > 0).
 bool UnitClass::unknown_slot201()
 {
-    return unknown_5c0 != -1 || TechnoClass::unknown_slot201();
+    return DeathCounter != -1 || TechnoClass::unknown_slot201();
 }
 

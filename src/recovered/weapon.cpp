@@ -88,53 +88,53 @@
 
 WeaponTypeClass::WeaponTypeClass(char const *ini_name)
     : AbstractTypeClass(ini_name),
-      unknown_98(0),
+      AmbientDamage(0),
       Burst(1),
       Projectile(0),
-      unknown_a4(0),
-      unknown_a8(0),
+      Attack(0),
+      MaxSpeed(0),
       Warhead(0),
-      unknown_b0(0),
-      unknown_b4(0),
-      unknown_b8(0),
-      unknown_f4(0),
-      unknown_f8(0),
-      unknown_105(false),
-      unknown_106(false),
-      unknown_107(false),
-      unknown_108(false),
-      unknown_109(false),
-      unknown_10a(false),
-      unknown_10b(false),
-      unknown_10c(false),
-      unknown_10d(false),
-      unknown_10e(false),
-      unknown_10f(true),
-      unknown_110(false),
-      unknown_111(false),
-      unknown_112(false),
-      unknown_113(true),
-      unknown_114(false),
-      unknown_115(false),
-      unknown_116(false),
-      unknown_118(0),
-      unknown_11c(false),
-      unknown_11d(false),
-      unknown_11e(false),
-      unknown_11f(false),
-      unknown_120(false),
-      unknown_121(false),
-      unknown_122(false),
-      unknown_123(false),
-      unknown_124(10),
-      unknown_125(false),
+      ROF(0),
+      Range(0),
+      MinimumRange(0),
+      AssaultAnim(0),
+      AttachedParticleSystem(0),
+      UseFireParticles(false),
+      UseSparkParticles(false),
+      OmniFire(false),
+      DistributedWeaponFire(false),
+      IsRailgun(false),
+      IsLobber(false),
+      IsBright(false),
+      IsSonic(false),
+      Spawner(false),
+      LimboLaunch(false),
+      DecloakToFire(true),
+      CellRangefinding(false),
+      FireOnce(false),
+      NeverUse(false),
+      RevealOnFire(true),
+      TerrainFire(false),
+      SabotageCursor(false),
+      DisguiseFireOnly(false),
+      DisguiseFakeBlinkTime(0),
+      Suicide(false),
+      IsTurboBoosted(false),
+      IsSupressed(false),
+      IsCamera(false),
+      IsElectric(false),
+      IsLaser(false),
+      IsBigLaser(false),
+      IsHouseColor(false),
+      LaserDuration(10),
+      IsIonSensitive(false),
       AreaFire(false),
-      unknown_127(false),
-      unknown_128(false),
-      unknown_129(false),
-      unknown_12a(false),
-      unknown_12b(false),
-      unknown_12c(0)
+      IsElectricBolt(false),
+      DrawBoltAsLaser(false),
+      IsAlternateColor(false),
+      IsRadBeam(false),
+      IsRadEruption(false),
+      RadLevel(0)
 {
     AbstractClass::Create_ID();
     Weapons.Add(this);
@@ -163,9 +163,9 @@ WeaponTypeClass::WeaponTypeClass(NoInitClass const &noinit) :
     AbstractTypeClass(noinit),
     unknown_bc(noinit),
     Anim(noinit),
-    unknown_fc(noinit),
-    unknown_ff(noinit),
-    unknown_102(noinit)
+    LaserInnerColor(noinit),
+    LaserOuterColor(noinit),
+    LaserOuterSpread(noinit)
 {
 }
 
@@ -220,61 +220,61 @@ WeaponTypeClass::~WeaponTypeClass()
 bool WeaponTypeClass::Read_INI(CCINIClass &ini)
 {
     if (ini.Is_Present(ID)) {
-        unknown_98 = ini.Get_Int(ID, "AmbientDamage", unknown_98);
-        unknown_10c = ini.Get_Bool(ID, "IsSonic", unknown_10c);
-        unknown_10d = ini.Get_Bool(ID, "Spawner", unknown_10d);
-        unknown_10e = ini.Get_Bool(ID, "LimboLaunch", unknown_10e);
-        unknown_10f = ini.Get_Bool(ID, "DecloakToFire", unknown_10f);
-        unknown_110 = ini.Get_Bool(ID, "CellRangefinding", unknown_110);
-        unknown_111 = ini.Get_Bool(ID, "FireOnce", unknown_111);
-        unknown_112 = ini.Get_Bool(ID, "NeverUse", unknown_112);
-        unknown_113 = ini.Get_Bool(ID, "RevealOnFire", unknown_113);
-        unknown_114 = ini.Get_Bool(ID, "TerrainFire", unknown_114);
-        unknown_115 = ini.Get_Bool(ID, "SabotageCursor", unknown_115);
-        unknown_116 = ini.Get_Bool(ID, "DisguiseFireOnly", unknown_116);
-        unknown_118 = ini.Get_Int(ID, "DisguiseFakeBlinkTime", unknown_118);
-        unknown_11c = ini.Get_Bool(ID, "Suicide", unknown_11c);
-        unknown_11e = ini.Get_Bool(ID, "Supress", unknown_11e);
+        AmbientDamage = ini.Get_Int(ID, "AmbientDamage", AmbientDamage);
+        IsSonic = ini.Get_Bool(ID, "IsSonic", IsSonic);
+        Spawner = ini.Get_Bool(ID, "Spawner", Spawner);
+        LimboLaunch = ini.Get_Bool(ID, "LimboLaunch", LimboLaunch);
+        DecloakToFire = ini.Get_Bool(ID, "DecloakToFire", DecloakToFire);
+        CellRangefinding = ini.Get_Bool(ID, "CellRangefinding", CellRangefinding);
+        FireOnce = ini.Get_Bool(ID, "FireOnce", FireOnce);
+        NeverUse = ini.Get_Bool(ID, "NeverUse", NeverUse);
+        RevealOnFire = ini.Get_Bool(ID, "RevealOnFire", RevealOnFire);
+        TerrainFire = ini.Get_Bool(ID, "TerrainFire", TerrainFire);
+        SabotageCursor = ini.Get_Bool(ID, "SabotageCursor", SabotageCursor);
+        DisguiseFireOnly = ini.Get_Bool(ID, "DisguiseFireOnly", DisguiseFireOnly);
+        DisguiseFakeBlinkTime = ini.Get_Int(ID, "DisguiseFakeBlinkTime", DisguiseFakeBlinkTime);
+        Suicide = ini.Get_Bool(ID, "Suicide", Suicide);
+        IsSupressed = ini.Get_Bool(ID, "Supress", IsSupressed);
         Burst = ini.Get_Int(ID, "Burst", Burst);
-        unknown_a4 = ini.Get_Int(ID, "Damage", unknown_a4);
-        unknown_a8 = ini.Get_Percent(ID, "Speed", unknown_a8);
-        unknown_b0 = ini.Get_Int(ID, "ROF", unknown_b0);
-        unknown_b4 = ini.Get_Lepton(ID, "Range", unknown_b4);
-        unknown_b8 = ini.Get_Lepton(ID, "MinimumRange", unknown_b8);
+        Attack = ini.Get_Int(ID, "Damage", Attack);
+        MaxSpeed = ini.Get_Percent(ID, "Speed", MaxSpeed);
+        ROF = ini.Get_Int(ID, "ROF", ROF);
+        Range = ini.Get_Lepton(ID, "Range", Range);
+        MinimumRange = ini.Get_Lepton(ID, "MinimumRange", MinimumRange);
         unknown_bc = Get_Voc_List(ini, ID, "Report", unknown_bc);
         Anim = TypeListReader<AnimTypeClass>::Get(ini, ID, "Anim", Anim);
-        unknown_f4 = Get_Type(ini, ID, "AssaultAnim", unknown_f4);
-        unknown_11f = ini.Get_Bool(ID, "Camera", unknown_11f);
-        unknown_121 = ini.Get_Bool(ID, "IsLaser", unknown_121);
-        unknown_123 = ini.Get_Bool(ID, "IsHouseColor", unknown_123);
-        unknown_120 = ini.Get_Bool(ID, "Charges", unknown_120);
-        unknown_11d = ini.Get_Bool(ID, "TurboBoost", unknown_11d);
-        unknown_105 = ini.Get_Bool(ID, "UseFireParticles", unknown_105);
-        unknown_106 = ini.Get_Bool(ID, "UseSparkParticles", unknown_106);
-        unknown_107 = ini.Get_Bool(ID, "OmniFire", unknown_107);
-        unknown_108 = ini.Get_Bool(ID, "DistributedWeaponFire", unknown_108);
-        unknown_109 = ini.Get_Bool(ID, "IsRailgun", unknown_109);
-        unknown_10a = ini.Get_Bool(ID, "Lobber", unknown_10a);
-        unknown_fc = ini.Get_RGB(ID, "LaserInnerColor", unknown_fc);
-        unknown_ff = ini.Get_RGB(ID, "LaserOuterColor", unknown_ff);
-        unknown_102 = ini.Get_RGB(ID, "LaserOuterSpread", unknown_102);
-        unknown_124 = ini.Get_Int(ID, "LaserDuration", unknown_124);
-        unknown_122 = ini.Get_Bool(ID, "IsBigLaser", unknown_122);
-        unknown_10b = ini.Get_Bool(ID, "Bright", unknown_10b);
-        unknown_125 = ini.Get_Bool(ID, "IonSensitive", unknown_125);
+        AssaultAnim = Get_Type(ini, ID, "AssaultAnim", AssaultAnim);
+        IsCamera = ini.Get_Bool(ID, "Camera", IsCamera);
+        IsLaser = ini.Get_Bool(ID, "IsLaser", IsLaser);
+        IsHouseColor = ini.Get_Bool(ID, "IsHouseColor", IsHouseColor);
+        IsElectric = ini.Get_Bool(ID, "Charges", IsElectric);
+        IsTurboBoosted = ini.Get_Bool(ID, "TurboBoost", IsTurboBoosted);
+        UseFireParticles = ini.Get_Bool(ID, "UseFireParticles", UseFireParticles);
+        UseSparkParticles = ini.Get_Bool(ID, "UseSparkParticles", UseSparkParticles);
+        OmniFire = ini.Get_Bool(ID, "OmniFire", OmniFire);
+        DistributedWeaponFire = ini.Get_Bool(ID, "DistributedWeaponFire", DistributedWeaponFire);
+        IsRailgun = ini.Get_Bool(ID, "IsRailgun", IsRailgun);
+        IsLobber = ini.Get_Bool(ID, "Lobber", IsLobber);
+        LaserInnerColor = ini.Get_RGB(ID, "LaserInnerColor", LaserInnerColor);
+        LaserOuterColor = ini.Get_RGB(ID, "LaserOuterColor", LaserOuterColor);
+        LaserOuterSpread = ini.Get_RGB(ID, "LaserOuterSpread", LaserOuterSpread);
+        LaserDuration = ini.Get_Int(ID, "LaserDuration", LaserDuration);
+        IsBigLaser = ini.Get_Bool(ID, "IsBigLaser", IsBigLaser);
+        IsBright = ini.Get_Bool(ID, "Bright", IsBright);
+        IsIonSensitive = ini.Get_Bool(ID, "IonSensitive", IsIonSensitive);
         AreaFire = ini.Get_Bool(ID, "AreaFire", AreaFire);
-        unknown_127 = ini.Get_Bool(ID, "IsElectricBolt", unknown_127);
-        unknown_128 = ini.Get_Bool(ID, "DrawBoltAsLaser", unknown_128);
-        unknown_129 = ini.Get_Bool(ID, "IsAlternateColor", unknown_129);
-        unknown_12a = ini.Get_Bool(ID, "IsRadBeam", unknown_12a);
-        unknown_12b = ini.Get_Bool(ID, "IsRadEruption", unknown_12b);
-        unknown_12c = ini.Get_Int(ID, "RadLevel", unknown_12c);
+        IsElectricBolt = ini.Get_Bool(ID, "IsElectricBolt", IsElectricBolt);
+        DrawBoltAsLaser = ini.Get_Bool(ID, "DrawBoltAsLaser", DrawBoltAsLaser);
+        IsAlternateColor = ini.Get_Bool(ID, "IsAlternateColor", IsAlternateColor);
+        IsRadBeam = ini.Get_Bool(ID, "IsRadBeam", IsRadBeam);
+        IsRadEruption = ini.Get_Bool(ID, "IsRadEruption", IsRadEruption);
+        RadLevel = ini.Get_Int(ID, "RadLevel", RadLevel);
         char system[20];
         system[0] = 0;
         ini.Get_String(ID, "AttachedParticleSystem", system, system, sizeof(system));
         int index = ParticleSystemTypeClass::Index_Or_Make(system);
         if (index != -1) {
-            unknown_f8 = ParticleSystemTypes[index];
+            AttachedParticleSystem = ParticleSystemTypes[index];
         }
         Warhead = Get_Type(ini, ID, "Warhead", Warhead);
         Projectile = Get_Type(ini, ID, "Projectile", Projectile);
@@ -302,7 +302,7 @@ void WeaponTypeClass::Init_Max_Speed()
         if (Projectile->Floater) {
             gravity = Get_Floater_Gravity();
         }
-        unknown_a8 = Calculate_Projectile_Speed(unknown_b4, gravity);
+        MaxSpeed = Calculate_Projectile_Speed(Range, gravity);
     }
 }
 
@@ -398,36 +398,36 @@ bool WeaponTypeClass::Is_Wall_Destroyer() const
 void WeaponTypeClass::Compute_CRC(WWCRCEngine &crc) const
 {
     AbstractTypeClass::Compute_CRC(crc);
-    crc((long)unknown_98);
-    crc(unknown_10c);
-    crc(unknown_11d);
-    crc(unknown_11e);
-    crc(unknown_11f);
-    crc(unknown_121);
-    crc(unknown_123);
+    crc((long)AmbientDamage);
+    crc(IsSonic);
+    crc(IsTurboBoosted);
+    crc(IsSupressed);
+    crc(IsCamera);
+    crc(IsLaser);
+    crc(IsHouseColor);
     crc((long)Burst);
     if (Projectile != 0) {
         crc(Projectile->Fetch_ID());
     }
-    crc((long)unknown_a4);
-    crc((long)unknown_a8);
+    crc((long)Attack);
+    crc((long)MaxSpeed);
     if (Warhead != 0) {
         crc(Warhead->Fetch_ID());
     }
-    crc((long)unknown_b0);
-    crc((long)unknown_b4);
+    crc((long)ROF);
+    crc((long)Range);
     crc((long)unknown_bc.Count());
     crc((long)Anim.Count());
-    crc(unknown_105);
-    crc(unknown_10a);
-    crc((char)unknown_124);
-    crc(unknown_122);
-    crc(unknown_109);
-    crc(unknown_120);
-    crc(unknown_10b);
-    crc(unknown_106);
-    crc(unknown_107);
-    crc(unknown_108);
+    crc(UseFireParticles);
+    crc(IsLobber);
+    crc((char)LaserDuration);
+    crc(IsBigLaser);
+    crc(IsRailgun);
+    crc(IsElectric);
+    crc(IsBright);
+    crc(UseSparkParticles);
+    crc(OmniFire);
+    crc(DistributedWeaponFire);
 }
 
 
@@ -476,8 +476,8 @@ HRESULT __stdcall WeaponTypeClass::Load(IStream *stream)
     unknown_bc.Load(stream);
     Swizzle_Pointer(Warhead);
     Swizzle_Pointer(Projectile);
-    Swizzle_Pointer(unknown_f8);
-    Swizzle_Pointer(unknown_f4);
+    Swizzle_Pointer(AttachedParticleSystem);
+    Swizzle_Pointer(AssaultAnim);
     for (int index = 0; index < Anim.Count(); index++) {
         Swizzle_Pointer(Anim[index]);
     }
@@ -565,7 +565,7 @@ int WeaponTypeClass::Get_Speed(int range) const
         double gravity = Projectile->Floater ? Get_Floater_Gravity() : Rules->Gravity;
         return Calculate_Projectile_Speed(range, gravity);
     }
-    return unknown_a8;
+    return MaxSpeed;
 }
 
 

@@ -267,7 +267,7 @@ WideString MapSizeGameOption::Describe(rc_ptr<WDTTerritory> const &territory, Wi
                StringTable::Load_String(MapSize_Labels[territory.Get()->unknown_12], 0, "D:\\Ra2\\WDTGameOptions.cpp", 129);
     }
     return WideString(
-        StringTable::Load_String(MapSize_Labels[territory.Get()->unknown_13], 0, "D:\\Ra2\\WDTGameOptions.cpp", 131));
+        StringTable::Load_String(MapSize_Labels[territory.Get()->Height], 0, "D:\\Ra2\\WDTGameOptions.cpp", 131));
 }
 
 }

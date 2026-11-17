@@ -24,7 +24,7 @@
 TeleportLocomotionClass::TeleportLocomotionClass() :
     unknown_1c(unknown_geometry_l),
     unknown_28(unknown_geometry_l),
-    unknown_34(false),
+    IsMoving(false),
     unknown_35(false),
     unknown_36(false),
     unknown_38(0)
@@ -36,7 +36,7 @@ TeleportLocomotionClass::TeleportLocomotionClass() :
 
 bool __stdcall TeleportLocomotionClass::Is_Moving()
 {
-    return unknown_34 == 1 ? true : false;
+    return IsMoving == 1 ? true : false;
 }
 
 
@@ -81,7 +81,7 @@ void __stdcall TeleportLocomotionClass::Move_To(CoordStruct to)
     }
     Pick_Arrival(coord);
     if (unknown_28 != unknown_geometry_l) {
-        unknown_34 = true;
+        IsMoving = true;
         unknown_1c = unknown_28;
     } else {
         LinkedTo->Assign_Destination(0, true);
@@ -94,7 +94,7 @@ void __stdcall TeleportLocomotionClass::Move_To(CoordStruct to)
 void __stdcall TeleportLocomotionClass::Stop_Moving()
 {
     unknown_1c = unknown_geometry_l;
-    unknown_34 = false;
+    IsMoving = false;
     unknown_36 = false;
 }
 
@@ -218,7 +218,7 @@ void TeleportLocomotionClass::Check_Landing(CoordStruct coord)
     }
     if (Map[Coord_Cell(coord)].Land == 2 && !LinkedTo->Techno_Type_Class()->Naval && LinkedTo->Kind_Of() != 15
         && !(Map[coord].unknown_140 & 0x100) && Map[coord].Land != 1) {
-        LinkedTo->unknown_325 = true;
+        LinkedTo->IsSinking = true;
         LinkedTo->unknown_slot210();
         return;
     }
@@ -227,7 +227,7 @@ void TeleportLocomotionClass::Check_Landing(CoordStruct coord)
             int damage = LinkedTo->Techno_Type_Class()->MaxStrength;
             LinkedTo->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
         } else {
-            LinkedTo->unknown_325 = true;
+            LinkedTo->IsSinking = true;
             LinkedTo->unknown_slot210();
         }
     }
@@ -375,17 +375,17 @@ bool __stdcall TeleportLocomotionClass::Process()
                     }
                     new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
                     distance = Coord_Distance(LinkedTo->Center_Coord(), unknown_28);
-                    unknown_3c = 0;
+                    Timer = 0;
                     if (Rules->ChronoTrigger) {
-                        unknown_3c = distance / Rules->ChronoDistanceFactor;
+                        Timer = distance / Rules->ChronoDistanceFactor;
                     }
-                    unknown_3c = unknown_3c > Rules->ChronoMinimumDelay ? unknown_3c : CDTimerClass<FrameTimerClass>(Rules->ChronoMinimumDelay);
+                    Timer = Timer > Rules->ChronoMinimumDelay ? Timer : CDTimerClass<FrameTimerClass>(Rules->ChronoMinimumDelay);
                     if (distance < Rules->ChronoRangeMinimum) {
-                        unknown_3c = Rules->ChronoMinimumDelay;
+                        Timer = Rules->ChronoMinimumDelay;
                     }
                     LinkedTo->WarpingOut = true;
                     if (LinkedTo->Kind_Of() == 1 && ((UnitClass *)LinkedTo)->Type->Harvester) {
-                        unknown_3c = 0;
+                        Timer = 0;
                         LinkedTo->WarpingOut = false;
                     }
                     if (LinkedTo->ParasiteEatingMe != 0) {
@@ -433,7 +433,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         }
     } else if (unknown_38 == 0) {
         LinkedTo->BeingWarpedOut = true;
-        unknown_3c = 60;
+        Timer = 60;
         unknown_38++;
         return false;
     }
@@ -490,7 +490,7 @@ bool __stdcall TeleportLocomotionClass::Process()
             }
         }
         if (!Map.In_Local_Radar(LinkedTo->Get_Cell(), true)) {
-            LinkedTo->unknown_32d = false;
+            LinkedTo->IsLocked = false;
         }
         if (LinkedTo->TeleportState == 0) {
             Check_Landing(unknown_28);
@@ -500,7 +500,7 @@ bool __stdcall TeleportLocomotionClass::Process()
             Stop_Moving();
             LinkedTo->Assign_Archive_Target(0);
             LinkedTo->Assign_Destination(0, true);
-            unknown_3c = LinkedTo->ChronoLockRemaining;
+            Timer = LinkedTo->ChronoLockRemaining;
             new AnimClass(Rules->WarpOut, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
             unknown_38++;
             return false;
@@ -515,7 +515,7 @@ bool __stdcall TeleportLocomotionClass::Process()
         LinkedTo->WarpingOut = false;
         LinkedTo->Assign_Archive_Target(0);
         LinkedTo->Assign_Destination(0, true);
-        unknown_34 = false;
+        IsMoving = false;
         LinkedTo->TeleportState = 0;
         unknown_38 = 0;
     }
@@ -529,7 +529,7 @@ bool __stdcall TeleportLocomotionClass::Process()
 
 void __stdcall TeleportLocomotionClass::Process_Delay()
 {
-    if (unknown_3c.Value() == 0) {
+    if (Timer.Value() == 0) {
         LinkedTo->WarpingOut = false;
         if (unknown_38 > 0) {
             unknown_38++;

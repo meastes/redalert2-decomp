@@ -187,7 +187,7 @@ void InfantryClass::Init()
         } else {
             Ammo = Type->Ammo;
         }
-        unknown_32a = Type->Cloakable;
+        IsCloakable = Type->Cloakable;
     }
 }
 
@@ -665,7 +665,7 @@ void InfantryClass::unknown_slot93(int why)
                 Mark(1);
             }
         }
-        if (unknown_370) {
+        if (IsTethered) {
             unknown_slot149(8);
             if (Type->VoiceComment.Count()>1) Voc_Play_At(Type->VoiceComment[1],CoordStruct(Coord),0);
             if (IsOnBridge) {
@@ -730,11 +730,11 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
             if (transport) {
                 if (transport->HasAnyLink()) {
                     if (transport->Kind_Of()==1) {
-                        unknown_3f8=(AbstractClass *)As_Unit(target);
+                        QueueUpToEnter=(AbstractClass *)As_Unit(target);
                         Assign_Archive_Target(0);
                         target=0;
                     } else if (transport->Kind_Of()==6) {
-                        unknown_3f8=As_Building((ObjectClass *)target);
+                        QueueUpToEnter=As_Building((ObjectClass *)target);
                         Assign_Archive_Target(0);
                         target=0;
                     } else Assign_Archive_Target(target);
@@ -955,7 +955,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
         infantry_owner=cell->BridgeInfType;
         vehicle=reinterpret_cast<CellOccupancyFlags_00503190 const &>(cell->unknown_128).vehicle!=0;
     }
-    if (unknown_32d && !ScenarioInit && !Map.Unknown_0055A740(cell,true) && !unknown_slot189()) return 7;
+    if (IsLocked && !ScenarioInit && !Map.Unknown_0055A740(cell,true) && !unknown_slot189()) return 7;
     int result=0;
     if (cell->OverlayIndex!=-1) {
         OverlayTypeClass *overlay=OverlayTypes[cell->OverlayIndex];
@@ -978,7 +978,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
                 if (occupant==NavCom || reinterpret_cast<AbstractClass*>(&Map[CoordStruct(occupant->Coord)])==NavCom || occupant==TarCom) {
                     if (!occupant->unknown_slot83()) {
                         float cost=Ground[cell->Land].Cost[Type->SpeedType];
-                        bool unrestricted=unknown_370 || bridge;
+                        bool unrestricted=IsTethered || bridge;
                         if (!unrestricted && cost==0) return 7;
                         return 0;
                     }
@@ -1017,7 +1017,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
                     continue;
                 }
             }
-            if (Get_Mission()==7 && occupant==NavCom && unknown_370) return 0;
+            if (Get_Mission()==7 && occupant==NavCom && IsTethered) return 0;
             if (House->Is_Ally(static_cast<TechnoClass*>(occupant)) || ScenarioInit) {
                 switch (occupant->Kind_Of()) {
                 case 1: {
@@ -1057,7 +1057,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
         }
         occupant=occupant->unknown_30;
     }
-    if (!unknown_370 && !bridge && Ground[cell->Land].Cost[Type->SpeedType]==0) return 7;
+    if (!IsTethered && !bridge && Ground[cell->Land].Cost[Type->SpeedType]==0) return 7;
     if (!result && vehicle) return 2;
     if (infantry_owner!=-1) {
         if (House->Is_Ally(infantry_owner)) {
@@ -1219,7 +1219,7 @@ int InfantryClass::unknown_slot218(AbstractClass *target, int weapon, bool check
         }
         WeaponTypeClass *weapon_type = unknown_slot231(weapon)->WeaponType;
         if (weapon_type != 0) {
-            if (weapon_type->unknown_105 && NavCom != 0) {
+            if (weapon_type->UseFireParticles && NavCom != 0) {
                 return 7;
             }
             if (weapon_type->AreaFire && target != Get_Cell_Ptr()) {
@@ -1672,7 +1672,7 @@ bool InfantryClass::Unlimbo(CoordStruct const *coord, int dir)
     }
     if (FootClass::Unlimbo(&where, dir)) {
         if (Type->Sight == 0) {
-            unknown_373 = false;
+            IsDiscoveredByPlayer = false;
         }
         if (where.Z <= unknown_geometry_j + ground) {
             Set_Occupy_Bit(where);
@@ -1736,7 +1736,7 @@ AbstractClass *InfantryClass::unknown_slot219(int threat, CoordStruct const *coo
             threat |= unknown_slot231(1)->WeaponType->Allowed_Threats();
         }
     }
-    if (unknown_slot163() && unknown_slot231(0)->WeaponType->Warhead->unknown_148) {
+    if (unknown_slot163() && unknown_slot231(0)->WeaponType->Warhead->IsOrganic) {
         threat &= ~0xB4;
     }
     if ((Type->C4 || Has_Ability(14)) && !House->Unknown_004F52F0()) {
@@ -1860,7 +1860,7 @@ return_capture_action:
             return 5;
         }
         WeaponTypeClass *weapon = unknown_slot231(What_Weapon_Should_I_Use(object))->WeaponType;
-        if (action == 5 && weapon && weapon->unknown_115) return 0x40;
+        if (action == 5 && weapon && weapon->SabotageCursor) return 0x40;
         if (House->Is_Player_Control() && action == 5 && Type->Ivan) {
             if (object->Class_Of()->IsBombable && !object->unknown_38) return 0x35;
             return 0x36;
@@ -2343,11 +2343,11 @@ void __fastcall InfantryClass::Read_INI(CCINIClass &ini)
                     }
                     token = strtok(0, ",");
                     if (token != 0) {
-                        infantry->unknown_379 = atoi(token) != 0;
+                        infantry->IsTeamRecruitable = atoi(token) != 0;
                     }
                     token = strtok(0, ",");
                     if (token != 0) {
-                        infantry->unknown_37a = atoi(token) != 0;
+                        infantry->IsAutocreateRecruitable = atoi(token) != 0;
                     }
                     if (&Map[coord] == &BlubCell || !infantry->Unlimbo(&coord, direction)) {
                         delete infantry;
@@ -2406,7 +2406,7 @@ void __fastcall InfantryClass::Write_INI(CCINIClass &ini)
                     Unknown_004763D0(coord),
                     MissionClass::Name_From_Mission(mission), direction, tag,
                     infantry->Veterancy.To_Integer(), infantry->Group,
-                    infantry->IsOnBridge, infantry->unknown_379, infantry->unknown_37a);
+                    infantry->IsOnBridge, infantry->IsTeamRecruitable, infantry->IsAutocreateRecruitable);
             ini.Put_String(unknown_infantry_section_7a33f0, id, line);
         }
     }
@@ -2451,7 +2451,7 @@ void InfantryClass::unknown_506f30()
 // Inventory 0x0050711C is inside a displacement, not a separate entry.
 bool InfantryClass::Edge_Of_World_AI()
 {
-    if (Team != 0 && unknown_32d) {
+    if (Team != 0 && IsLocked) {
         Team->TargetNotAssigned = true;
     }
     if (Team == 0 && Get_Mission() == 5) {
@@ -2582,7 +2582,7 @@ void InfantryClass::Update_Fire_00507530()
                 unknown_slot311(0, false, false);
             }
         }
-        if (TarCom != 0 && unknown_slot231(0)->WeaponType->unknown_a8 < Rules->Incoming) {
+        if (TarCom != 0 && unknown_slot231(0)->WeaponType->MaxSpeed < Rules->Incoming) {
             ((UnknownCellClass *)&Map[TarCom->Center_Coord()])->Unknown_00476920(&CoordStruct(Coord), true, false, false);
         }
     }
@@ -2692,7 +2692,7 @@ void InfantryClass::Update_Movement_00507b90()
         if (unknown_5c4 && Can_Enter_Cell(Get_Target_Cell_Ptr(), -1, -1, 0, 1) == 7) {
             goto select_sequence;
         }
-        if (!Locomotor.Checked()->Is_Moving() && !unknown_370 && NavCom != 0 && unknown_32d) {
+        if (!Locomotor.Checked()->Is_Moving() && !IsTethered && NavCom != 0 && IsLocked) {
             Cell current_cell = Coord_Cell(Destination_Coord(0));
             if (!Map.Unknown_0054F7C0(current_cell, target_cell, Type->MovementZone,
             Is_Moving_Onto_Bridge(0), (unsigned char)((Map[target_cell].unknown_140 >> 8) & 1), unknown_slot189())
@@ -2733,7 +2733,7 @@ select_sequence:
 // Deployed attack and radiation update (0x00507F70).
 inline int Infantry_Deployment_Radiation_Threshold(WeaponTypeClass const &weapon)
 {
-    return weapon.unknown_12c / 3;
+    return weapon.RadLevel / 3;
 }
 int InfantryClass::Update_Deployed_Attack()
 {
@@ -2911,8 +2911,8 @@ HRESULT __stdcall InfantryClass::Load(IStream *stream)
         locomotor->Release();
         TargetTracker.Add_Index(Fetch_ID(), this);
         Swizzle_Pointer(Type);
-        Swizzle_Pointer(unknown_40c);
-        Swizzle_Pointer(unknown_410);
+        Swizzle_Pointer(Disguise);
+        Swizzle_Pointer(DisguisedAsHouse);
         result = S_OK;
     }
     return result;
@@ -3316,8 +3316,8 @@ ObjectTypeClass *InfantryClass::GetDisguise(bool arg1)
     if (House->Is_Ally(PlayerPtr) && !arg1) {
         return Type;
     }
-    if (unknown_40c != 0) {
-        return unknown_40c;
+    if (Disguise != 0) {
+        return Disguise;
     }
     if (PlayerPtr != 0 && PlayerPtr->ActLike == 0) {
         return Rules->AlliedDisguise;
@@ -3335,7 +3335,7 @@ HouseClass *InfantryClass::GetDisguiseHouse(bool arg1)
     if (House->Is_Ally(PlayerPtr) && !arg1) {
         return House;
     }
-    return unknown_410 != 0 ? unknown_410 : PlayerPtr;
+    return DisguisedAsHouse != 0 ? DisguisedAsHouse : PlayerPtr;
 }
 
 
@@ -3348,11 +3348,11 @@ void InfantryClass::DisguiseAs(TechnoClass *techno)
     if (techno != 0 && techno->Kind_Of() == 15) {
         TechnoClass::DisguiseAs(techno);
         if (techno->unknown_slot48()) {
-            unknown_40c = techno->GetDisguise(true);
-            unknown_410 = techno->GetDisguiseHouse(true);
+            Disguise = techno->GetDisguise(true);
+            DisguisedAsHouse = techno->GetDisguiseHouse(true);
         } else {
-            unknown_40c = techno->Class_Of();
-            unknown_410 = techno->Owning_House();
+            Disguise = techno->Class_Of();
+            DisguisedAsHouse = techno->Owning_House();
         }
     }
 }
@@ -3367,11 +3367,11 @@ void InfantryClass::ClearDisguise()
 {
     if (Type->PermaDisguise) {
         Disguised = true;
-        unknown_410 = House;
+        DisguisedAsHouse = House;
         if (House->ActLike == 0) {
-            unknown_40c = Rules->AlliedDisguise;
+            Disguise = Rules->AlliedDisguise;
         } else {
-            unknown_40c = Rules->SovietDisguise;
+            Disguise = Rules->SovietDisguise;
         }
     } else {
         Disguised = false;
@@ -3390,7 +3390,7 @@ bool InfantryClass::IsDisguisedAs(HouseClass *house)
         Cell cell = Coord_Cell(Center_Coord());
         UnknownCellClass *object = (UnknownCellClass *)&Map[cell];
         if (!House->Is_Ally(house) && !object->unknown_47c300(house->ArrayIndex)) {
-            if (unknown_410 == house || unknown_410 == 0 || house->Is_Ally(unknown_410)) {
+            if (DisguisedAsHouse == house || DisguisedAsHouse == 0 || house->Is_Ally(DisguisedAsHouse)) {
                 return true;
             }
         }

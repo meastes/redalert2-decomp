@@ -144,7 +144,7 @@ public:
     virtual bool Get_Host_Name(char *name, int len);                 // slot 17 0x0076B990
     virtual int Get_Num_Local_Addresses() { return 0; }                          // slot 18 0x0076AA20 (inline)
     virtual int Get_Local_Address(int arg1) { return 0; }                  // slot 19 0x0076AA30 (inline)
-    virtual void Set_NetCard(int arg1) { unknown_3f2f8 = arg1; }     // slot 20 0x0076AA40 (inline)
+    virtual void Set_NetCard(int arg1) { NetCard = arg1; }     // slot 20 0x0076AA40 (inline)
     virtual void Build_Packet_CRC(WinsockBufferType *packet);           // slot 21 0x0076B290
     virtual bool Passes_CRC_Check(WinsockBufferType *packet);           // slot 22 0x0076B310
 
@@ -161,7 +161,7 @@ public:
     static int SocketReceiveBuffer;     // 0x00800AC0 (0x20000)
     static int SocketSendBuffer;        // 0x00800ABC (0x20000)
 
-    int unknown_04;                                     // +0x04
+    int MaxPacketSize;                                     // +0x04
     DynamicVectorClass<WinsockBufferType *> InBuffers;  // +0x08
     DynamicVectorClass<WinsockBufferType *> OutBuffers; // +0x20
     DynamicVectorClass<WinsockBufferType *> AltBuffers; // +0x38
@@ -178,8 +178,8 @@ public:
     SOCKET Socket;                                      // +0x3F06C
     SOCKET Socket2;                                     // +0x3F070
     char ReceiveBuffer[0x280];                          // +0x3F074 (UDP: the packet CRC, then the data)
-    int unknown_3f2f4;                                  // +0x3F2F4
-    int unknown_3f2f8;                                  // +0x3F2F8
+    int ConnectStatus;                                  // +0x3F2F4
+    int NetCard;                                  // +0x3F2F8
 };
 
 // The active transport (0x00839C50).

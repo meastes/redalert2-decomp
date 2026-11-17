@@ -17,7 +17,7 @@ class RocketLocomotionClass : public LocomotionClass {
 public:
     RocketLocomotionClass();                                                    // 0x0063DAC0
     RocketLocomotionClass(NoInitClass const &noinit) :                          // inline (Load)
-        LocomotionClass(noinit), unknown_24(noinit) {}
+        LocomotionClass(noinit), MissionTimer(noinit) {}
     virtual ~RocketLocomotionClass();                                           // 0x0063DB30
 
     virtual HRESULT __stdcall GetClassID(GUID *clsid);                          // 0x0063EB60
@@ -44,13 +44,13 @@ public:
     void unknown_63e7d0();                                                       // 0x0063E7D0 (detonates)
 
     CoordStruct unknown_18;                     // +0x18
-    UnknownSlopeTimer unknown_24;               // +0x24 (a frame timer and, +0x30, the duration it was set to; Move_To assigns a fresh one)
-    CDTimerClass<FrameTimerClass> unknown_34;   // +0x34
+    UnknownSlopeTimer MissionTimer;               // +0x24 (a frame timer and, +0x30, the duration it was set to; Move_To assigns a fresh one)
+    CDTimerClass<FrameTimerClass> TrailerTimer;   // +0x34
     int MissionState;                             // +0x40 (state)
     int unknown_44;                             // +0x44
     double unknown_48;                          // +0x48
-    float unknown_50;                           // +0x50 (the pitch; Draw_Matrix tilts by it)
-    int unknown_54;                             // +0x54
+    float CurrentPitch;                           // +0x50 (the pitch; Draw_Matrix tilts by it)
+    int CruiseDistance;                             // +0x54
 };
 
 #endif

@@ -132,7 +132,7 @@ int MultiplayerTeam::CountMembers() const
 
 int MultiplayerTeam::AddToList(HWND list)
 {
-    int item = SendMessageA(list, 0x143, 0, (LPARAM)Name.unknown_text_770430());   // CB_ADDSTRING
+    int item = SendMessageA(list, 0x143, 0, (LPARAM)Name.text());   // CB_ADDSTRING
     SendMessageA(list, 0x151, item, Number);                                     // CB_SETITEMDATA
     return item;
 }

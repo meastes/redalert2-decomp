@@ -46,7 +46,7 @@ public:
     virtual int Get_Num_Local_Addresses() { return LocalAddresses.Count(); }     // slot 18 0x0076D430 (inline)
     virtual int Get_Local_Address(int index) { return (int)LocalAddresses[index]; }   // slot 19 0x0076D440 (inline)
     virtual bool OpenSocket(unsigned short port);                      // slot 23 0x0076C350 (opens and binds the primary socket)
-    virtual unsigned short Get_Port() { return unknown_3f2fc; }   // slot 24 0x0076D450 (inline)
+    virtual unsigned short Get_Port() { return Port; }   // slot 24 0x0076D450 (inline)
     virtual bool Init_Ports();                                      // slot 25 0x0076C6D0 (Init, then no sockets)
     virtual bool Open_Spare_Socket(unsigned short port);                // slot 26 0x0076C480
     virtual void Close_Spare_Socket(unsigned short port);               // slot 27 0x0076C5B0
@@ -56,11 +56,11 @@ public:
 
     bool Is_Reachable(unsigned long *address, unsigned short port);   // 0x0076CC70 (not marked unreachable)
 
-    unsigned short unknown_3f2fc;                       // +0x3F2FC
+    unsigned short Port;                       // +0x3F2FC
     SOCKET Sockets[8];                                  // +0x3F300
     unsigned short SocketPorts[8];                      // +0x3F320
     int NumSockets;                                     // +0x3F330
-    SOCKET unknown_3f334;                               // +0x3F334
+    SOCKET SelectedSocket;                               // +0x3F334
     DynamicVectorClass<unsigned char *> BroadcastAddresses;     // +0x3F338
     unsigned short BroadcastPorts[256];                 // +0x3F350
     DynamicVectorClass<unsigned char *> LocalAddresses; // +0x3F550

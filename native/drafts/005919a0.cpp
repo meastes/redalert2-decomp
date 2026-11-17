@@ -94,7 +94,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         return;
                     }
                     {
-                        if (Coord_Length(LinkedTo->Center_Coord(), unknown_18) < Rules->CloseEnoughDistance && !LinkedTo->unknown_370) {
+                        if (Coord_Length(LinkedTo->Center_Coord(), unknown_18) < Rules->CloseEnoughDistance && !LinkedTo->IsTethered) {
                             LinkedTo->Assign_Destination(0, 1);
                         } else if (LinkedTo->unknown_53c != 0) {
                             LinkedTo->unknown_53c--;
@@ -104,7 +104,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                             }
                             LinkedTo->IsNewNavCom = false;
                             Cell dest = unknown_18.As_Cell();
-                            if (LinkedTo->unknown_32d) {
+                            if (LinkedTo->IsLocked) {
                                 Cell nav_dest = LinkedTo->Destination_Coord(0).As_Cell();
                                 if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                     LinkedTo->Assign_Destination(0, 1);
@@ -112,7 +112,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                             }
                             if (LinkedTo->TarCom != 0) {
                                 Cell tar_dest = LinkedTo->TarCom->Destination_Coord(LinkedTo).As_Cell();
-                                if (LinkedTo->unknown_32d) {
+                                if (LinkedTo->IsLocked) {
                                     Cell nav_dest = LinkedTo->Destination_Coord(LinkedTo).As_Cell();
                                     if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                         LinkedTo->unknown_slot220(0);

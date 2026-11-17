@@ -521,13 +521,13 @@ void __fastcall GScreenClass::Blit(bool mouse, Surface *surface, Rect const *are
     }
 
     Rect src_rect = *area;
-    if (TacticalMap != 0 && TacticalMap->unknown_c0 != 1.0) {
+    if (TacticalMap != 0 && TacticalMap->ZoomFactor != 1.0) {
         int zoom_surface_width = surface->Get_Width();
         int zoom_surface_height = surface->Get_Height();
         Rect tmp;
-        double zoomed_width = (double)zoom_surface_width / TacticalMap->unknown_c0;
+        double zoomed_width = (double)zoom_surface_width / TacticalMap->ZoomFactor;
         tmp.X = (int)(((double)zoom_surface_width - zoomed_width) / 2.0);
-        double zoomed_height = (double)zoom_surface_height / TacticalMap->unknown_c0;
+        double zoomed_height = (double)zoom_surface_height / TacticalMap->ZoomFactor;
         tmp.Y = (int)(((double)zoom_surface_height - zoomed_height) / 2.0);
         tmp.Width = (int)zoomed_width;
         tmp.Height = (int)zoomed_height;

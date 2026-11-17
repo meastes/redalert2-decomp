@@ -61,8 +61,8 @@ public:
     int RegenRate;                                  // +0x30
     int ReloadRate;                                 // +0x34
     DynamicVectorClass<SpawnControl *> SpawnedNodes;   // +0x38
-    CDTimerClass<FrameTimerClass> unknown_50;       // +0x50
-    CDTimerClass<FrameTimerClass> unknown_5c;       // +0x5C
+    CDTimerClass<FrameTimerClass> UpdateTimer;       // +0x50
+    CDTimerClass<FrameTimerClass> SpawnTimer;       // +0x5C
     AbstractClass *Destination;                     // +0x68
     AbstractClass *Target;                          // +0x6C
     int Status;                                     // +0x70

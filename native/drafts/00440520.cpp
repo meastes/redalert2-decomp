@@ -40,7 +40,7 @@ inline Cell Center_Cell(AbstractClass *object)
 int BuildingClass::Exit_Object(TechnoClass *base)
 {
     if (!base) return 0;
-    base->unknown_32d = true;
+    base->IsLocked = true;
     AircraftClass *aircraft = 0;
     if (base->Kind_Of() == 2) aircraft = (AircraftClass *)base;
     Cell cellnum;

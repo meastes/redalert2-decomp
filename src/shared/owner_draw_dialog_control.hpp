@@ -314,7 +314,7 @@ extern UnknownWindowProcIndex unknown_window_procs_a73688;
 // caret's character index (0x005F2120).
 int __fastcall unknown_edit_text_5f2120(HWND window, wchar_t *text, int size, int *caret);
 // The text of a hot key control's value ("Alt+Ctrl+Shift+Key"; empty for an extended key) (0x005FC600).
-void __fastcall unknown_hotkey_text_5fc600(unsigned short hotkey, wchar_t *text);
+void __fastcall GetKeyboardKeyString(unsigned short hotkey, wchar_t *text);
 // Draws a progress bar's fill of fraction (16.16) over area of surface (0x005FE7C0).
 void __fastcall unknown_5fe7c0(Rect const &area, Surface *surface, int color, int fraction);
 // Draws a frame thickness pixels wide around rect, in the owner-draw frame colour for color -1 (0x005FDB20).

@@ -440,7 +440,7 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
         ReadinessReductionMultiplier = ini.Get_Double(ID, "ReadinessReductionMultiplier", ReadinessReductionMultiplier);
         PreventAttackMove = ini.Get_Bool(ID, "PreventAttackMove", PreventAttackMove);
         Points = ini.Get_Int(ID, "Points", Points);
-        unknown_59c = Points;
+        Reward = Points;
         ThreatPosed = ini.Get_Int(ID, "ThreatPosed", ThreatPosed);
         Owner = ini.Get_Owners(ID, "Owner", Owner);
         AIBasePlanningSide = ini.Get_Int(ID, "AIBasePlanningSide", AIBasePlanningSide);
@@ -524,9 +524,9 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
         SpecialThreatValue = ini.Get_Double(ID, "SpecialThreatValue", SpecialThreatValue);
         IsSelectableCombatant = ini.Get_Bool(ID, "IsSelectableCombatant", IsSelectableCombatant);
 
-        unknown_aa8 = false;
-        if (Weapon[0].WeaponType != 0 && Weapon[0].WeaponType->unknown_a4 > 0) {
-            unknown_aa8 = true;
+        IsLeader = false;
+        if (Weapon[0].WeaponType != 0 && Weapon[0].WeaponType->Attack > 0) {
+            IsLeader = true;
         }
 
         char fullname[512];
@@ -613,7 +613,7 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
         }
         TurretNotExportedOnGround = ArtINI.Get_Bool(unknown_1c8, "TurretNotExportedOnGround", TurretNotExportedOnGround);
         MovementZone = ini.Get_MovementZone(ID, "MovementZone", MovementZone);
-        unknown_af5 = MovementZone == 6;
+        IsSubterranean = MovementZone == 6;
 
         if (IsVoxel) {
             Fetch_Voxel_Image();
@@ -621,8 +621,8 @@ bool TechnoTypeClass::Read_INI(CCINIClass &ini)
             Fetch_Aux_Voxel_Image();
         }
         if (Voxel.unknown_00 != 0 && !Voxel.unknown_00->LoadFailed) {
-            unknown_330 = Voxel.unknown_00->Get_Layer_Info(0, 0)->YSize * 0.5f + 0.5;
-            unknown_338 = Voxel.unknown_00->Get_Layer_Info(0, 0)->XSize * 0.5f;
+            VoxelCenterY = Voxel.unknown_00->Get_Layer_Info(0, 0)->YSize * 0.5f + 0.5;
+            VoxelCenterX = Voxel.unknown_00->Get_Layer_Info(0, 0)->XSize * 0.5f;
         }
 
         return true;
@@ -902,14 +902,14 @@ void TechnoTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)Dock.Count());
     crc((long)DebrisMaximums.Count());
     crc(&Locomotor, sizeof(Locomotor));
-    crc(unknown_330);
-    crc(unknown_338);
+    crc(VoxelCenterY);
+    crc(VoxelCenterX);
     crc(Weight);
     crc(PhysicalSize);
     crc(Size);
     crc(SizeLimit);
     crc(HoverAttack);
-    crc((long)unknown_368);
+    crc((long)InitialMission);
     crc(ImmuneToVeins);
     crc(TiberiumHeal);
     crc(TargetLaser);
@@ -944,7 +944,7 @@ void TechnoTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)Prerequisite.Count());
     crc((long)PrerequisiteOverride.Count());
     crc((long)ThreatPosed);
-    crc((long)unknown_59c);
+    crc((long)Reward);
     crc((long)Speed);
     crc((long)SpeedType);
     crc((long)Ammo);
@@ -963,11 +963,11 @@ void TechnoTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc(IsDropship);
     crc(ToProtect);
     crc(Disableable);
-    crc(unknown_aa4);
+    crc(IsUnbuildable);
     crc(DoubleOwned);
     crc(Invisible);
     crc(RadarVisible);
-    crc(unknown_aa8);
+    crc(IsLeader);
     crc(Sensors);
     crc(Nominal);
     crc(Turret);
@@ -1061,7 +1061,7 @@ bool TechnoTypeClass::Has_Turret_Weapons() const
 
 void TechnoTypeClass::Set_Turret_Weapon(int weapon, int index)
 {
-    unknown_710[index] = weapon;
+    TurretWeapon[index] = weapon;
 }
 
 
@@ -1069,7 +1069,7 @@ void TechnoTypeClass::Set_Turret_Weapon(int weapon, int index)
 
 int TechnoTypeClass::Get_Turret_Weapon(int index) const
 {
-    return unknown_710[index];
+    return TurretWeapon[index];
 }
 
 

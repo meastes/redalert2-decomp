@@ -95,7 +95,7 @@ VoxelAnimTypeClass::VoxelAnimTypeClass(char const *ininame) :
     ObjectTypeClass(ininame),
     Normalized(false),
     Translucent(false),
-    unknown_266(false),
+    IsSharesSourceData(false),
     VoxelIndex(0),
     Duration(30),
     Elasticity(.8f),
@@ -146,7 +146,7 @@ VoxelAnimTypeClass::~VoxelAnimTypeClass()
     Detach_This_From_All(this, true);
     AbstractTypePtrTracker.Delete(this);
     VoxelAnimTypes.Delete(this);
-    if (unknown_266) {
+    if (IsSharesSourceData) {
         Voxel.unknown_00 = 0;
         Voxel.unknown_04 = 0;
     }
@@ -243,8 +243,8 @@ bool VoxelAnimTypeClass::Read_INI(CCINIClass &ini)
         Warhead = Get_Warhead(ini, ID, "Warhead", Warhead);
         AttachedSystem = Get_Particle_System(ini, ID, "AttachedSystem", AttachedSystem);
 
-        unknown_266 = share_body || share_barrel || share_turret;
-        if (unknown_266) {
+        IsSharesSourceData = share_body || share_barrel || share_turret;
+        if (IsSharesSourceData) {
             ObjectTypeClass *source = ini.Get_Object_Type(ID, "ShareSource");
             if (source != 0) {
                 if (share_body) {
@@ -328,7 +328,7 @@ void VoxelAnimTypeClass::Compute_CRC(WWCRCEngine &crc) const
     ObjectTypeClass::Compute_CRC(crc);
     crc(Normalized);
     crc(Translucent);
-    crc(unknown_266);
+    crc(IsSharesSourceData);
     crc((long)VoxelIndex);
     crc((long)Duration);
     crc(Elasticity);

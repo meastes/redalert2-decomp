@@ -986,7 +986,7 @@ bool AITriggerTypeClass::Team_Zone_Check(TeamTypeClass *team, HouseClass *house,
         return true;
     }
     Cell house_cell = Coord_Cell(house->BaseCenter);
-    int zone_type = team->unknown_e4;
+    int zone_type = team->TaskForceMZone;
     Cell enemy_cell = Coord_Cell(enemy->BaseCenter);
     if (team->HasNavalTransport) {
         int enemy_zone = Map.Zone(enemy_cell, zone_type, false);

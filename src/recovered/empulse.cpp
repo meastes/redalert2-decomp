@@ -183,7 +183,7 @@ void EMPulseClass::Apply_004B4E30(TechnoClass *source)
                             Cell building_cell=Coord_Cell(building->Center_Coord());
                             if (building_cell==cell && !building->Type->InvisibleInGame) {
                                 building->unknown_44d6c0();
-                                building->unknown_3fc=Duration;
+                                building->StunDuration=Duration;
                                 if (building->Type->Radar) building->House->RecalcRadar=true;
                             }
                         } else {
@@ -196,7 +196,7 @@ void EMPulseClass::Apply_004B4E30(TechnoClass *source)
                                     || !((UnitClass *)foot)->Type->SmallVisceroid)) {
                                     foot->Locomotor.Checked()->Power_Off();
                                     if (foot->Locomotor.Checked()->Is_Moving()) foot->Locomotor.Checked()->Stop_Moving();
-                                    foot->unknown_3fc=Duration;
+                                    foot->StunDuration=Duration;
                                     AnimClass *effect=(AnimClass *)operator new(sizeof(AnimClass));
                                     if (effect) {
                                         int delay=Scen->Random()(0,25);

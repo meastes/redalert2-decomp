@@ -4,8 +4,8 @@
     "id": "population-2412",
     "inventory_sha256": "356e11c8c8f61b812dcd8b8e65e8fcff631d3432230a70c553c0f77043cdb5b1",
     "gaps_sha256": "ce23356bfa8d85824fd7675e6dc49cc3968f4672fcd764c059657dfea2dc0ecb",
-    "historical_population_sha256": "b4ad781068204a2ca496a477449efb8112ea629f364c59ec83f5935b8729faf2",
-    "historical_acceptance_sha256": "e224dcd3cfd4ad0d47b7511834e16f4a8bd25aafcb76645f729343f5f94ce648"
+    "historical_population_sha256": "753d7a43a2a7a03362b926f0ba3abd202d3c1341ca36957d2c2f386d7eda144b",
+    "historical_acceptance_sha256": "9509828953deabed18fd05dd16fc31d5ceefa7454ec3dc04babd965917f400af"
   },
   "references": {
     "?Init_00401000@Call_402190_0@@QAEIXZ": 4198400,
@@ -2448,7 +2448,7 @@
     "?Next@UnknownGaussianSource_005798d0@@QAENXZ": 5740592,
     "__imp__EnableWindow@8": 7971984,
     "__imp__timeGetTime@0": 7972132,
-    "?unknown_text_770430@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
     "?Write@WinModemClass@@QAEXPAXH@Z": 7556208,
     "?unknown_wstring_b26cb8@@3VWstring@@A": 11693240,
     "?Set@UnknownRefHolder_00639530@@QAEXPAUUnknownRefCounted_00639530@@@Z": 6526256,
@@ -2475,7 +2475,7 @@
     "?PopulateTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PBV?$DynamicVectorClass@H@@H@Z": 5993696,
     "?DrawTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PBV?$DynamicVectorClass@PAVMultiMission@@@@PAVMultiMission@@@Z": 5993808,
     "?PopulateTeamDropdownForPlayer@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z": 5993936,
-    "?unknown_text_770430@WideString@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856,
     "?CreateMPTeams@MultiplayerGameMode@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z": 5994272,
     "?UnfixAlliances@MultiplayerGameMode@@UAE_NXZ": 5994528,
     "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z": 6003552,
@@ -5955,7 +5955,7 @@
     "?unknown_window_proc_table_a73688@@3V?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A": 10958472,
     "__imp__CallWindowProcA@20": 7972032,
     "?Get_Pointer@?$WolDictionary@IUWinData@OwnerDraw@@@@QBE_NABIPAPAUWinData@OwnerDraw@@@Z": 6297360,
-    "?unknown_hotkey_text_5fc600@OwnerDraw@@YIXGPAG@Z": 6276608,
+    "?GetKeyboardKeyString@OwnerDraw@@YIXGPAG@Z": 6276608,
     "__imp__GetKeyNameTextA@12": 7971916,
     "?Shrink_Table@?$WolDictionary@VWideString@@_N@@QAEXXZ": 6085024,
     "?unknown_slot4@SimpleWonlineDialogControl@@UAE_NXZ": 7585840,

@@ -5076,7 +5076,7 @@ void CenterBaseCommandClass::Execute(int key) const
             if (building != 0 && !building->IsInLimbo && building->House->Is_Player_Control()) {
                 if (building->Type->ConstructionYard) {
                     yard = building->Center_Coord();
-                    if (building->unknown_32b) {
+                    if (building->IsLeader) {
                         break;
                     }
                 } else if (other == unknown_geometry_l) {

@@ -533,7 +533,7 @@ int __stdcall Unknown_Options_Dialog_Proc_005d97a0(HWND window, UINT message, WP
                 }
 
                 HWND key_label = GetDlgItem(window, 0x63C);
-                OwnerDraw::unknown_hotkey_text_5fc600(Key_To_Hotkey(key), buffer);
+                OwnerDraw::GetKeyboardKeyString(Key_To_Hotkey(key), buffer);
                 SendMessageA(key_label, 0x4B2, 0, (LPARAM)buffer);
 
                 HWND hotkey = GetDlgItem(window, 0x4CD);

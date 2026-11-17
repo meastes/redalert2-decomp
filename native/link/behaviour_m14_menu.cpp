@@ -7,7 +7,7 @@ extern wchar_t const unknown_empty_wide_839d4c[];   // 0x00839D4C (the empty wid
 
 // 0x00770430 (decompile: returns the buffer, or the empty wide string 0x00839D4C
 // for a null one): the owner-draw status line reads a control's help text with it.
-unsigned short const *WideString::unknown_text_770430() const
+unsigned short const *WideString::text() const
 {
     return Buffer ? Buffer : (unsigned short const *)unknown_empty_wide_839d4c;
 }
@@ -16,10 +16,10 @@ unsigned short const *WideString::unknown_text_770430() const
 // same leaf: the buffer, or the empty wide string).
 class UnknownWideText_005c3450 {
 public:
-    unsigned short const *unknown_text_770430() const;
+    unsigned short const *text() const;
     unsigned short *Buffer;
 };
-unsigned short const *UnknownWideText_005c3450::unknown_text_770430() const
+unsigned short const *UnknownWideText_005c3450::text() const
 {
     return Buffer ? Buffer : (unsigned short const *)unknown_empty_wide_839d4c;
 }

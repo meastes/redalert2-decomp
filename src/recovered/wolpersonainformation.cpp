@@ -396,15 +396,15 @@ void __fastcall Unknown_Persona_Stats_Text_00739a50(HWND window, bool clear)
     SendMessageA(control, 0x4B2, 0, (LPARAM)L"");
     WideString text(StringTable::Load_String("GUI:UnknownStats", 0, "D:\\Ra2\\WOLPersonaInformation.cpp", 639));
     control = GetDlgItem(window, 0x6F0);
-    SendMessageA(control, 0x4B2, 0, (LPARAM)text.unknown_text_770430());
+    SendMessageA(control, 0x4B2, 0, (LPARAM)text.text());
     control = GetDlgItem(window, 0x6F1);
-    SendMessageA(control, 0x4B2, 0, (LPARAM)text.unknown_text_770430());
+    SendMessageA(control, 0x4B2, 0, (LPARAM)text.text());
     control = GetDlgItem(window, 0x701);
-    SendMessageA(control, 0x4B2, 0, (LPARAM)text.unknown_text_770430());
+    SendMessageA(control, 0x4B2, 0, (LPARAM)text.text());
     control = GetDlgItem(window, 0x6F4);
-    SendMessageA(control, 0x4B2, 0, (LPARAM)text.unknown_text_770430());
+    SendMessageA(control, 0x4B2, 0, (LPARAM)text.text());
     control = GetDlgItem(window, 0x6F5);
-    SendMessageA(control, 0x4B2, 0, (LPARAM)text.unknown_text_770430());
+    SendMessageA(control, 0x4B2, 0, (LPARAM)text.text());
 }
 
 

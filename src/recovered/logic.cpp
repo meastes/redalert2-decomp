@@ -275,7 +275,7 @@ void LogicClass::Environment_AI()
         FootClass *foot = (FootClass *)(*this)[index];
         bool is_foot;
         if (foot != 0) is_foot = foot->AbstractFlags.IsFoot;
-        if (foot != 0 && is_foot && foot->Locomotor != 0 && !foot->unknown_325) {
+        if (foot != 0 && is_foot && foot->Locomotor != 0 && !foot->IsSinking) {
             foot->Locomotor.Checked()->Process();
         }
     }

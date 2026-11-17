@@ -77,7 +77,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             xoff += 4;
             yoff -= 2;
         }
-        if (House->Is_Ally(PlayerPtr) || (unknown_1a8 & (1 << PlayerPtr->Type->House))) {
+        if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1 << PlayerPtr->Type->House))) {
             unknown_slot249(point + p2, point, window);
         }
     } else {
@@ -120,7 +120,7 @@ void TechnoClass::unknown_slot248(Point2D const &point, Rect const &window, bool
             CC_Draw_Shape(LogicalSurface, NormalDrawer, (ShapeFileStruct const *)ObjectTypeClass_PipShapes,
                           frame, position, window, 0x600, 0, 0, 0, 1000, 0, 0, Point2D(0, 0));
         }
-        if (House->Is_Ally(PlayerPtr) || (unknown_1a8 & (1 << PlayerPtr->Type->House))) {
+        if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1 << PlayerPtr->Type->House))) {
             unknown_slot249(point + Point2D(-10, 10), point, window);
         }
     }

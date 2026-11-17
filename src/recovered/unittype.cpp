@@ -85,8 +85,8 @@ UnitTypeClass::UnitTypeClass(char const *ini_name) :
     CrateGoodie(false),
     Harvester(false),
     Weeder(false),
-    unknown_ba8(false),
-    unknown_ba9(false),
+    IsFireAnim(false),
+    IsLockTurret(false),
     DeployToFire(false),
     IsSimpleDeployer(false),
     IsTilter(true),
@@ -273,11 +273,11 @@ bool UnitTypeClass::Read_INI(CCINIClass &ini)
         SpeedType = ini.Get_SpeedType(section, "SpeedType", (::SpeedType)SpeedType);
         IsTilter = ini.Get_Bool(section, "IsTilter", IsTilter);
         CarriesCrate = ini.Get_Bool(section, "CarriesCrate", CarriesCrate);
-        unknown_ba9 = !Turret;
+        IsLockTurret = !Turret;
         TooBigToFitUnderBridge = ini.Get_Bool(section, "TooBigToFitUnderBridge", TooBigToFitUnderBridge);
         (INIPoint3D &)HalfDamageSmokeLocation = ini.Get_Point(section, "HalfDamageSmokeLocation", (INIPoint3D const &)HalfDamageSmokeLocation);
-        unknown_368 = 15;
-        if (Harvester || Weeder) unknown_368 = 10;
+        InitialMission = 15;
+        if (Harvester || Weeder) InitialMission = 10;
         char const *art_section = unknown_1c8;
         UseTurretShadow = ArtINI.Get_Bool(art_section, "UseTurretShadow", UseTurretShadow);
         WalkFrames = (char)ArtINI.Get_Int(art_section, "WalkFrames", WalkFrames);
@@ -440,8 +440,8 @@ void UnitTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc(CrateGoodie);
     crc(Harvester);
     crc(Weeder);
-    crc(unknown_ba8);
-    crc(unknown_ba9);
+    crc(IsFireAnim);
+    crc(IsLockTurret);
     crc(IsTilter);
     crc(IsSimpleDeployer);
     crc(UseTurretShadow);

@@ -34,7 +34,7 @@ SpotLightClass::SpotLightClass(CoordStruct coord, int size) :
     Coord(coord),
     Radius(0),
     unknown_10(size),
-    unknown_14(0)
+    DisableFlags(0)
 {
     SpotLights.Add(this);
 }
@@ -179,7 +179,7 @@ extern "C" void __cdecl MMX_Brighten_Color_655(void *sptr, void *dptr, int spitc
 
 void SpotLightClass::unknown_func_5ddb90()
 {
-    unsigned int flags = unknown_14 & 0xF;
+    unsigned int flags = DisableFlags & 0xF;
     if ((flags & ~1) == 0) {
         if (FPSCounter_CurrentFrameRate < GetMinFrameRate()) {
             return;
@@ -248,7 +248,7 @@ void SpotLightClass::unknown_func_5ddb90()
                     }
                 } else {
                     fallback:
-                    if (unknown_14 & 1) {
+                    if (DisableFlags & 1) {
                         for (int y = 0; y < srect.Height; y++) {
                             for (int x = 0; x < srect.Width; x++) {
                                 spixel = *sptr++;
@@ -264,7 +264,7 @@ void SpotLightClass::unknown_func_5ddb90()
                             sptr_row += 256;
                             sptr = sptr_row;
                         }
-                    } else if (unknown_14 & 0xE) {
+                    } else if (DisableFlags & 0xE) {
                         for (int x = 0; x < srect.Height; x++) {
                             for (int y = 0; y < srect.Width; y++) {
                                 spixel = *sptr++;
@@ -274,15 +274,15 @@ void SpotLightClass::unknown_func_5ddb90()
                                     int rr = rgb.Red;
                                     int gg = rgb.Green;
                                     int bb = rgb.Blue;
-                                    if (!(unknown_14 & 2)) {
+                                    if (!(DisableFlags & 2)) {
                                         rr = (rr * scale) >> 8;
                                         if (rr > 255) rr = 255;
                                     }
-                                    if (!(unknown_14 & 4)) {
+                                    if (!(DisableFlags & 4)) {
                                         gg = (gg * scale) >> 8;
                                         if (gg > 255) gg = 255;
                                     }
-                                    if (!(unknown_14 & 8)) {
+                                    if (!(DisableFlags & 8)) {
                                         bb = (bb * scale) >> 8;
                                         if (bb > 255) bb = 255;
                                     }

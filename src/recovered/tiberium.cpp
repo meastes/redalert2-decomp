@@ -92,12 +92,12 @@ TiberiumClass::TiberiumClass(char const *ininame)
     : AbstractTypeClass(ininame),
       ArrayIndex(-1),
       Spread(0),
-      unknown_a0(0.1),
+      SpreadPercentage(0.1),
       Growth(0),
       GrowthPercentage(0.1),
       Value(0),
       Power(0),
-      unknown_c0(0),
+      Color(0),
       Image(0),
       FrameCount(0),
       NumFrames(0),
@@ -169,12 +169,12 @@ bool TiberiumClass::Read_INI(CCINIClass &ini)
 {
     if (AbstractTypeClass::Read_INI(ini)) {
         Spread = ini.Get_Int(ID, "Spread", Spread);
-        unknown_a0 = ini.Get_Double(ID, "SpreadPercentage", unknown_a0);
+        SpreadPercentage = ini.Get_Double(ID, "SpreadPercentage", SpreadPercentage);
         Growth = ini.Get_Int(ID, "Growth", Growth);
         GrowthPercentage = ini.Get_Double(ID, "GrowthPercentage", GrowthPercentage);
         Value = ini.Get_Int(ID, "Value", Value);
         Power = ini.Get_Int(ID, "Power", Power);
-        unknown_c0 = ini.Get_ColorScheme(ID, "Color", unknown_c0);
+        Color = ini.Get_ColorScheme(ID, "Color", Color);
         Debris = TypeListReader<AnimTypeClass>::Get(ini, ID, "Debris", Debris);
         switch (ini.Get_Int(ID, "Image", -1)) {
             case -1:
@@ -254,7 +254,7 @@ void TiberiumClass::Compute_CRC(WWCRCEngine &crc) const
     crc((long)Growth);
     crc((long)Value);
     crc((long)Power);
-    crc((long)unknown_c0);
+    crc((long)Color);
     crc((long)FrameCount);
     crc((long)NumFrames);
 }
@@ -507,8 +507,8 @@ void  Deinit_Tiberium_Spread_System_006e9670(void)
 
 void TiberiumClass::Process_Spread()
 {
-    if (SpreadQueue != 0 && SpreadQueue->Count != 0 && unknown_a0 > 0.00001) {
-        int count = MIN(25, MAX(5, (int)(SpreadQueue->Count * unknown_a0)));
+    if (SpreadQueue != 0 && SpreadQueue->Count != 0 && SpreadPercentage > 0.00001) {
+        int count = MIN(25, MAX(5, (int)(SpreadQueue->Count * SpreadPercentage)));
         count = abs(Scen->Random()()) % count + 1;
         if (SpreadQueue->Active_Count() > Map_Cell_Count() - 20) {
             Rebuild_Spread();

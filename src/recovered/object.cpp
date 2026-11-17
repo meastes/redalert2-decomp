@@ -136,7 +136,7 @@ ObjectClass::ObjectClass() :
 
 ObjectClass::ObjectClass(NoInitClass const &noinit) :
     AbstractClass(noinit),
-    unknown_24(noinit)
+    Riser(noinit)
 {
 }
 
@@ -235,7 +235,7 @@ void ObjectClass::AI()
 
     int previous_state = In_Which_Layer();
     int new_height = (int)((unsigned int)Get_Height() +
-                          (unsigned int)unknown_24.unknown_08);
+                          (unsigned int)Riser.unknown_08);
     if (IsDown) {
         Mark(0);
         Coord.Z = new_height;
@@ -252,9 +252,9 @@ void ObjectClass::AI()
     if (!IsInLimbo) {
 
         int velocity;
-        if (IsAnimAttached) velocity = Object_AI_Clamped_Speed(Rules->ParachuteMaxFallRate, (unknown_24.unknown_08 = (int)((unsigned int)unknown_24.unknown_08 - 1u)));
-        else velocity = Object_AI_Clamped_Speed(Rules->NoParachuteMaxFallRate, (unknown_24.unknown_08 = (int)((double)unknown_24.unknown_08 - unknown_falling_decrement_007a7668)));
-        unknown_24.unknown_08 = velocity;
+        if (IsAnimAttached) velocity = Object_AI_Clamped_Speed(Rules->ParachuteMaxFallRate, (Riser.unknown_08 = (int)((unsigned int)Riser.unknown_08 - 1u)));
+        else velocity = Object_AI_Clamped_Speed(Rules->NoParachuteMaxFallRate, (Riser.unknown_08 = (int)((double)Riser.unknown_08 - unknown_falling_decrement_007a7668)));
+        Riser.unknown_08 = velocity;
         if (previous_state != In_Which_Layer()) Map.Submit(this);
         if (!IsFalling) {
         if (IsToExplode && Strength > 0) {
@@ -550,7 +550,7 @@ bool ObjectClass::unknown_slot80()
         return false;
     }
     TechnoClass *techno = As_Techno();
-    if (!Debug_Map && Can_Player_Move() && techno && techno->unknown_32c) {
+    if (!Debug_Map && Can_Player_Move() && techno && techno->IsALoaner) {
         return false;
     }
     if (unknown_833684) {
@@ -567,7 +567,7 @@ bool ObjectClass::unknown_slot80()
     if (this) {
         techno_flag = AbstractFlags.IsTechno;
     }
-    if (this && techno_flag && static_cast<TechnoTypeClass *>(Class_Of())->unknown_aa8) {
+    if (this && techno_flag && static_cast<TechnoTypeClass *>(Class_Of())->IsLeader) {
         CurrentObject.Add_Head(this);
     } else {
         CurrentObject.Add(this);

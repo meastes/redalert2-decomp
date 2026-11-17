@@ -117,18 +117,18 @@ Rect unknown_unit_rect_ad0490 = unknown_static_rect;
 
 UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
     FootClass(house),
-    unknown_5a8(-1),
+    FiringSyncDelay(-1),
     Type(type),
-    unknown_5b0(0),
-    unknown_5b4(-1),
-    unknown_5b8(false),
-    unknown_5b9(false),
-    unknown_5ba(false),
-    unknown_5bb(false),
-    unknown_5bc(-1),
-    unknown_5c0(-1),
-    unknown_5c4(0),
-    unknown_5c8(false),
+    FollowingMe(0),
+    Flagged(-1),
+    IsFollowing(false),
+    IsDumping(false),
+    IsHarvesting(false),
+    IsCompositingToEightBitSurface(false),
+    VisceroidFacing(-1),
+    DeathCounter(-1),
+    ElectricBolt(0),
+    Deployed(false),
     unknown_5cc(0)
 {
     Create_ID();
@@ -148,7 +148,7 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
         } else {
             Ammo = Type->Ammo;
         }
-        unknown_32a = Type->Cloakable;
+        IsCloakable = Type->Cloakable;
         unknown_70 = Strength = Type->MaxStrength;
     }
     ReloadTimer = CDTimerClass<FrameTimerClass>(0);
@@ -186,9 +186,9 @@ UnitClass::UnitClass(UnitTypeClass *type, HouseClass *house) :
 
 UnitClass::~UnitClass()
 {
-    if (unknown_5c4) {
-        unknown_5c4->unknown_4b25c0();
-        unknown_5c4 = 0;
+    if (ElectricBolt) {
+        ElectricBolt->unknown_4b25c0();
+        ElectricBolt = 0;
     }
     if (GameActive && Type != 0) {
         if (House->Can_Build(Type, 0, 0) == -1) {
@@ -207,10 +207,10 @@ UnitClass::~UnitClass()
                 }
             }
         }
-        if (FootClass::Limbo() && unknown_5b4 != -1) {
+        if (FootClass::Limbo() && Flagged != -1) {
             ObjectClass *object = this;   // (the call below stays virtual, as in the original)
-            Houses[unknown_5b4]->Flag_Attach(object->Get_Cell(), 0);
-            unknown_5b4 = -1;
+            Houses[Flagged]->Flag_Attach(object->Get_Cell(), 0);
+            Flagged = -1;
         }
     }
     Detach_This_From_All(this, true);
@@ -252,8 +252,8 @@ void UnitClass::AI()
         }
         return;
     }
-    if (unknown_5c0 != -1) {
-        if (unknown_5c0++ >= Type->MaxDeathCounter) {
+    if (DeathCounter != -1) {
+        if (DeathCounter++ >= Type->MaxDeathCounter) {
             Explode();
             Mark(0);
             Delete_Me();
@@ -265,9 +265,9 @@ void UnitClass::AI()
         unknown_slot267(false);
         return;
     }
-    int countdown = unknown_5a8 - 1;
+    int countdown = FiringSyncDelay - 1;
     if (countdown < -1) countdown = -1;
-    unknown_5a8 = countdown;
+    FiringSyncDelay = countdown;
     if (Type->DeploysInto) {
         for (int index = 0; index < Rules->BuildConst.Count(); index++) {
             if (Rules->BuildConst[index] == Type->DeploysInto) {
@@ -281,7 +281,7 @@ void UnitClass::AI()
     if (Ready_To_Commence()) Commence();
     FootClass::AI();
     if (Type->CanDisguise && !Type->PermaDisguise) UpdateDisguise();
-    if (unknown_325) {
+    if (IsSinking) {
         CoordStruct position = Coord;
         CoordStruct lowered(position.X, position.Y, position.Z - 5);
         Set_Coord(lowered);
@@ -304,12 +304,12 @@ void UnitClass::AI()
         }
     }
     if (IsActive) {
-        if (Get_Mission() != 10) unknown_5ba = false;
+        if (Get_Mission() != 10) IsHarvesting = false;
         unknown_6fbc90();
         unknown_6fb890();
         if (Get_Mission() == 5) {
             CoordStruct position = Coord;
-            if (!Map.Unknown_0054AB00(position) && unknown_32d) {
+            if (!Map.Unknown_0054AB00(position) && IsLocked) {
                 if (Team) Team->TargetNotAssigned = true;
                 unknown_slot210();
                 Delete_Me();
@@ -322,7 +322,7 @@ void UnitClass::AI()
             Door.Count_Down(Type->DeployTime);
         }
         if (Ready_To_Commence()) Commence();
-        if (Cloak == 2 && unknown_5b4 != -1) Do_Shimmer();
+        if (Cloak == 2 && Flagged != -1) Do_Shimmer();
         if ((Frame & 15) == 0 && (Mission == 11 || Mission == 5) && !House->Is_Human_Player() && MissionQueue == -1 && Strength < Type->MaxStrength && (!ArchivedTarget || Mission == 11) && !Type->Harvester && !Type->Weeder) {
             BuildingClass *repair_building = Find_Unit_Repair_Facility(House, this);
             if (repair_building) {
@@ -357,7 +357,7 @@ void UnitClass::unknown_6fb890()
         UnknownFacingDir toward = Direction_To(TarCom);
         if (Type->Turret) {
             WeaponStruct *weapon = unknown_slot230();
-            if (Unknown_006D8640(weapon) && !weapon->WeaponType->unknown_107) {
+            if (Unknown_006D8640(weapon) && !weapon->WeaponType->OmniFire) {
                 if (weapon->TurretLocked) {
                     SecondaryFacing.Set_Desired(PrimaryFacing.Current());
                 } else {
@@ -392,7 +392,7 @@ void UnitClass::unknown_6fb890()
         }
     }
     if (Type->Turret) {
-        unknown_3f0 = SecondaryFacing.Is_Rotating();
+        TurretIsRotating = SecondaryFacing.Is_Rotating();
     }
 }
 
@@ -402,7 +402,7 @@ bool UnitClass::Edge_Of_World_AI()
 {
     if (Get_Mission() == 5) {
         CoordStruct position = Coord;
-        if (!Map.Unknown_0054AB00(position) && unknown_32d) {
+        if (!Map.Unknown_0054AB00(position) && IsLocked) {
             if (Team) {
                 Team->TargetNotAssigned = true;
             }
@@ -606,7 +606,7 @@ void UnitClass::unknown_6fbc90()
         }
         break;
     case 0:
-        if (!Type->unknown_ba8) IsFiring = false;
+        if (!Type->IsFireAnim) IsFiring = false;
         if (Type->LargeVisceroid || Type->SmallVisceroid) {
             StageClass::Stage = Unit_Attack_Frames_007F8F2C[Dir_To_8(Direction_To(TarCom))];
             StageClass::Set_Rate(5);
@@ -614,7 +614,7 @@ void UnitClass::unknown_6fbc90()
         Fire_At(TarCom, weapon);
         return;
     case 2:
-        if (!Type->unknown_ba9 && Type->Turret) {
+        if (!Type->IsLockTurret && Type->Turret) {
             SecondaryFacing.Set_Desired(Direction_To(TarCom));
             return;
         }
@@ -672,25 +672,25 @@ void UnitClass::unknown_6fbf40()
                 UnitClass *other = (UnitClass *)object;
                 if (other->NavCom || other->TarCom) return;
                 other->Assign_Destination(this, true);
-                unknown_5bc = -1;
+                VisceroidFacing = -1;
                 return;
             }
         }
     }
     if (NavCom || TarCom) return;
     int direction;
-    if (unknown_5bc == -1 || Scen->Random()(0, 2) == 0) {
+    if (VisceroidFacing == -1 || Scen->Random()(0, 2) == 0) {
         direction = Scen->Random()(0, 7);
-        unknown_5bc = direction;
+        VisceroidFacing = direction;
     } else {
-        direction = unknown_5bc;
+        direction = VisceroidFacing;
     }
     CellClass *destination = &Map[Unit_Adjacent_Cell(position, direction)];
     if (Can_Enter_Cell(destination, direction, unknown_5d47d0(), &Map[position], 1) == 0) {
         Assign_Destination(destination, true);
         return;
     }
-    unknown_5bc = -1;
+    VisceroidFacing = -1;
 }
 
 
@@ -712,7 +712,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
             if ((tile.unknown_140 & 0x100) && !Is_Moving_Onto_Bridge(0)) return 10;
         }
         if (Get_Mission() == 16) return 10;
-        if (unknown_370) return 10;
+        if (IsTethered) return 10;
         return CurrentTube == -1 ? 1 : 10;
     case 7:
         FootClass::Receive_Message(radio, message, param);
@@ -720,7 +720,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
         unknown_slot220(0);
         QueueMission(0, false);
         Clear_Navigation_List();
-        if (!unknown_370 || !Contact(0)) {
+        if (!IsTethered || !Contact(0)) {
             unknown_slot150(2, sender);
             unknown_slot149(0x18);
         }
@@ -750,7 +750,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
         }
         if (!Locomotor.Checked()->Is_Moving()) {
             TechnoClass *contact = Contact(0);
-            if (unknown_370 && contact && contact->Kind_Of() == 6 && Get_Mission() == 7)
+            if (IsTethered && contact && contact->Kind_Of() == 6 && Get_Mission() == 7)
                 unknown_slot150(21, contact);
         }
         return 1;
@@ -795,7 +795,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
                 if (Unit_Radio_Used_Size(Cargo) + sender->Techno_Type_Class()->Size <= capacity &&
                     !(sender->Techno_Type_Class()->Size > Type->SizeLimit)) {
                     FootClass::Receive_Message(radio, message, param);
-                    if (!Locomotor.Checked()->Is_Moving() && !unknown_599 && !unknown_370 &&
+                    if (!Locomotor.Checked()->Is_Moving() && !unknown_599 && !IsTethered &&
                         unknown_slot150(0x13, sender) == 1) {
                         param = this;
                         // Existing long&/int* ABI spellings both occupy one Win32 DWORD.
@@ -808,8 +808,8 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
         }
         break;
     case 23:
-        if ((Type->Harvester || Type->Weeder) && unknown_5b9) {
-            unknown_5b9 = false;
+        if ((Type->Harvester || Type->Weeder) && IsDumping) {
+            IsDumping = false;
             Scatter(unknown_geometry_l, true, false);
             QueueMission(10, false);
             if (Ready_To_Commence()) Commence();
@@ -836,7 +836,7 @@ bool UnitClass::Unlimbo(CoordStruct const *coord, int dir)
 {
     if (FootClass::Unlimbo(coord, dir)) {
         SecondaryFacing.Set(UnknownFacingDir((unsigned short)(dir << 8)));
-        if (unknown_32a && !unknown_32d) {
+        if (IsCloakable && !IsLocked) {
             Cloak = 2;
         }
         if (!Type->SmallVisceroid && !Type->LargeVisceroid) {
@@ -875,8 +875,8 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
     if (result == 5) return result;
     if (result == 4) {
         if (Type->DeathFrames > 0) {
-            if (unknown_5c0 == -1) {
-                unknown_5c0 = 0;
+            if (DeathCounter == -1) {
+                DeathCounter = 0;
                 unknown_slot216((int)source);
             }
             Strength = 1;
@@ -890,7 +890,7 @@ int UnitClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhead,
                     unknown_slot216((int)source);
                     Strength = 1;
                     IsActive = true;
-                    unknown_325 = true;
+                    IsSinking = true;
                     unknown_slot210();
                     goto remove_passengers;
                 }
@@ -991,7 +991,7 @@ drop_crate:
         if (Type->Crashable) {
             if (!unknown_slot224(0)) Delete_Me();
         } else {
-            if (!unknown_325) Delete_Me();
+            if (!IsSinking) Delete_Me();
         }
     } else {
         if (result && Type->Harvester && House == PlayerPtr) {
@@ -999,7 +999,7 @@ drop_crate:
             if (Unknown_0063B5B0(4, cell))
                 Speech_Play_Name(Unit_Ore_Miner_Under_Attack_007F819C, -1, -1);
         }
-        if (Team || !source || unknown_370 || House->Is_Ally(source) || House->Unknown_004F52F0())
+        if (Team || !source || IsTethered || House->Is_Ally(source) || House->Unknown_004F52F0())
             return result;
         if (unknown_707170(source)) {
             Assign_Destination(source, true);
@@ -1128,7 +1128,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
     }
     if (!Type->Harvester && !Type->Weeder) {
         if (!unknown_slot163()) {
-            if (unknown_32c && Type->Passengers > 0 && Cargo.Object && !Team) {
+            if (IsALoaner && Type->Passengers > 0 && Cargo.Object && !Team) {
                 mission = 16;
                 goto queue;
             }
@@ -1464,7 +1464,7 @@ void UnitClass::unknown_slot93(int reason)
                 }
             }
         }
-        if (unknown_370 && contact && contact->Kind_Of()==6 && Get_Mission()==7) {
+        if (IsTethered && contact && contact->Kind_Of()==6 && Get_Mission()==7) {
             if (contact==Map[cell-Cell(0,1)].Cell_Building()) {
                 switch (unknown_slot150(21,contact)) {
                 case 1: case 5: break;
@@ -1497,7 +1497,7 @@ void UnitClass::unknown_slot93(int reason)
                 return;
             }
         }
-        if (unknown_370 && (Get_Mission()!=7 || (Unknown_0040DC20(NavCom) && Contact(0)!=NavCom)) && Get_Mission()!=16) {
+        if (IsTethered && (Get_Mission()!=7 || (Unknown_0040DC20(NavCom) && Contact(0)!=NavCom)) && Get_Mission()!=16) {
             bool arrived=NavCom==0;
             if (NavCom && NavCom->Kind_Of()==11 && ((CellClass *)NavCom)->MapCoords==Coord_Cell(Position_Coord_004f3f40())) arrived=true;
             if (!Map[Position_Coord_004f3f40()].Cell_Building() || arrived) {
@@ -1540,7 +1540,7 @@ void UnitClass::unknown_slot93(int reason)
             }
             if (Map[Position_Coord_004f3f40()].Cell_Building() && !NavCom && unknown_49c.Count()==0 && unknown_478.Count()==0) Scatter(unknown_geometry_l,true,true);
         }
-        if (Get_Mission()==5 && !Map.Unknown_0054AB00(Position_Coord_004f3f40()) && unknown_32d) {
+        if (Get_Mission()==5 && !Map.Unknown_0054AB00(Position_Coord_004f3f40()) && IsLocked) {
             if (Team) Team->TargetNotAssigned=true;
             unknown_slot210();
             Delete_Me();
@@ -1549,19 +1549,19 @@ void UnitClass::unknown_slot93(int reason)
         unknown_slot263(false,false,false,0);
         unknown_slot262(false,false,false,0);
         Map.Unknown_0054A550(Position_Coord_004f3f40(),0,LastSightRange+3,0);
-        if (!unknown_5b9 && Ready_To_Commence()) Commence();
-        if (Type->Harvester && Get_Mission()!=16 && Mission!=7 && MissionQueue!=7 && !unknown_5b9) {
+        if (!IsDumping && Ready_To_Commence()) Commence();
+        if (Type->Harvester && Get_Mission()!=16 && Mission!=7 && MissionQueue!=7 && !IsDumping) {
             RadioClass *radio=Contact(0);
             if (radio && radio->What_Am_I()==6 && ((BuildingClass *)radio)->Type->Refinery) unknown_slot149(3);
         }
-        if (Type->Weeder && Get_Mission()!=16 && Mission!=7 && MissionQueue!=7 && !unknown_5b9) {
+        if (Type->Weeder && Get_Mission()!=16 && Mission!=7 && MissionQueue!=7 && !IsDumping) {
             RadioClass *radio=Contact(0);
             if (radio && radio->What_Am_I()==6 && ((BuildingClass *)radio)->Type->Weeder) unknown_slot149(3);
         }
         if (!NavCom && Path[0]==-1 && !Type->MobileFire) Arm=unknown_slot187(1)/4;
         CellClass *current_cell=&Map[Position_Coord_004f3f40()];
         int land=current_cell->Land;
-        if (!Locomotor.Checked()->Is_Moving() && Can_Enter_Cell(current_cell,-1,-1,0,1)==7 && (!IsOnBridge || !(current_cell->unknown_140&0x100)) && !unknown_325) {
+        if (!Locomotor.Checked()->Is_Moving() && Can_Enter_Cell(current_cell,-1,-1,0,1)==7 && (!IsOnBridge || !(current_cell->unknown_140&0x100)) && !IsSinking) {
             if (Mission!=7) {
                 new AnimClass(Select_Damage_Anim(Strength,Rules->C4Warhead,land,&Position_Coord_004f3f40()),Position_Coord_004f3f40(),0,1,0x2600,Get_Explosion_Z_0047fcc0(Position_Coord_004f3f40()));
                 int damage=Strength;
@@ -1612,7 +1612,7 @@ void  unknown_empty_006fe600(void)
 
 bool UnitClass::Render(Rect *bounds, bool arg2, bool arg3)
 {
-    if (unknown_370) {
+    if (IsTethered) {
         TechnoClass *contact = Contact_With_Whom(0);
         if (contact->Kind_Of() == 6 && (contact->Get_Mission() == 16 || contact->MissionQueue == 16)) {
             DelayTimerClass *state = &contact->Door;
@@ -1726,11 +1726,11 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
     int frame;
     if (Type->Facings==8 && !unknown_slot48()) frame=(Dir_To_8(PrimaryFacing.Current())+1)&7;
     else frame=0;
-    if (unknown_5a8>=0) {
-        frame=Type->StartFiringFrame+Type->FiringFrames*frame+unknown_5a8/2;
+    if (FiringSyncDelay>=0) {
+        frame=Type->StartFiringFrame+Type->FiringFrames*frame+FiringSyncDelay/2;
     } else if (!Locomotor.Checked()->Is_Moving() && Type->IdleRate==0) {
-        if (unknown_5c0>=0) {
-            int death_frame=unknown_5c0/Type->DeathFrameRate;
+        if (DeathCounter>=0) {
+            int death_frame=DeathCounter/Type->DeathFrameRate;
             int start_death_frame=Type->StartDeathFrame;
             int last_frame=Type->DeathFrames-1;
             if (death_frame>=last_frame) death_frame=last_frame;
@@ -1744,7 +1744,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
     }
     if (Type->Turret) {
         Point2D shadow_point=point;
-        if (unknown_37c) shadow_point.Y-=14;
+        if (IsInTransport) shadow_point.Y-=14;
         CC_Draw_Shape(LogicalSurface,NormalDrawer,shape,frame+shape->Get_Count()/2,
                       shadow_point,window,0x2e01,0,unknown_slot176()-2,0,1000,0,0,Point2D(0,0));
         Surface *old_surface=LogicalSurface;
@@ -1752,7 +1752,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
         Point2D composite_point=Point2D(128,128);
         Matrix3D barrel_matrix;
         Rect composite_window=LogicalSurface->Get_Rect();
-        unknown_5bb=true;
+        IsCompositingToEightBitSurface=true;
         unknown_unit_rect_ad0490=unknown_static_rect;
         voxel=&Type->AuxVoxel2;
         if (Unit_Voxel_Loaded_007005b0(*voxel)) {
@@ -1764,7 +1764,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
             barrel_matrix=turret_matrix;
             Vector3 translation=Unit_Matrix_Translation_007005b0(turret_matrix);
             barrel_matrix.Translate(-translation);
-            if (unknown_330.unknown_18) turret_matrix.Translate_X(-unknown_330.TravelSoFar);
+            if (TurretRecoil.unknown_18) turret_matrix.Translate_X(-TurretRecoil.TravelSoFar);
             Vector3 fire_offset=Vector3((float)(unknown_slot231(0)->FLH.X/-8),0.0f,(float)(unknown_slot231(0)->FLH.Z/-8));
             barrel_matrix.Translate(-fire_offset);
             FacingClass pitch=BarrelPitch;
@@ -1775,7 +1775,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
                 else direction=(64-direction)/3+64;
                 pitch.Set(UnknownFacingDir((unsigned short)(direction<<8)));
             }
-            if (unknown_350.unknown_18) barrel_matrix.Translate_X(-unknown_350.TravelSoFar);
+            if (BarrelRecoil.unknown_18) barrel_matrix.Translate_X(-BarrelRecoil.TravelSoFar);
             barrel_matrix.Rotate_Y((float)-Unit_Direction_Radians32_007005b0(pitch.Current()));
             barrel_matrix.Translate(fire_offset);
             barrel_matrix.Translate(translation);
@@ -1799,7 +1799,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
         unknown_slot312(*old_surface,point,window,apparent_brightness);
         LogicalSurface->Fill_Rect(unknown_unit_rect_ad0490,0);
         LogicalSurface=old_surface;
-        unknown_5bb=false;
+        IsCompositingToEightBitSurface=false;
     } else {
         if (Type->TooBigToFitUnderBridge && Is_Z_Fudge_Bridge() && Get_Z_Fudge_Column()==0) {
             unknown_slot293(shape,frame,&point,&window,0,256,-16,0,0,brightness,0,0,Point2D(0,0),0);
@@ -1878,7 +1878,7 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
     LogicalSurface=EightBitSurface;
     drawpoint=Point2D(128,128);
     cliprect=LogicalSurface->Get_Rect();
-    unknown_5bb=true;
+    IsCompositingToEightBitSurface=true;
     key=unknown_use_voxel_cache_839a58 ? 0 : -1;
     {
         Matrix3D draw_result;
@@ -1953,16 +1953,16 @@ void UnitClass::unknown_slot310(Point2D point,Rect window,int brightness)
         }
     }
     rect=window;
-    if (unknown_322>0) rect=Intersect(rect,Rect(0,0,unknown_int_839638,unknown_322-TacticalMap->TacPixelY));
-    else if (unknown_325) unknown_322=(short)(TacticalMap->TacPixelY+point.Y+unknown_unit_rect_ad0490.Y+unknown_unit_rect_ad0490.Height-128);
+    if (SinkingYOffset>0) rect=Intersect(rect,Rect(0,0,unknown_int_839638,SinkingYOffset-TacticalMap->TacPixelY));
+    else if (IsSinking) SinkingYOffset=(short)(TacticalMap->TacPixelY+point.Y+unknown_unit_rect_ad0490.Y+unknown_unit_rect_ad0490.Height-128);
     int apparent_brightness=unknown_slot254(brightness);
     if (unknown_slot203()) apparent_brightness=GetInvulnerabilityTintIntensity(apparent_brightness);
     unknown_slot312(*old_surface,point,rect,apparent_brightness);
     Rect dirtyrect=unknown_unit_rect_ad0490;
     Surface *composite_surface=LogicalSurface;
     LogicalSurface=old_surface;
-    unknown_5bb=false;
-    if (!unknown_325) {
+    IsCompositingToEightBitSurface=false;
+    if (!IsSinking) {
         Point2D shadow_drawpoint=point;
         if (Type->BalloonHover) goto plain;
         if (Type->SpeedType==1) goto plain;
@@ -1984,10 +1984,10 @@ plain:
             TacticalMap->Coord_To_Pixel(coord,shadow_drawpoint);
             shadow_drawpoint+=Locomotor.Checked()->Shadow_Point();
         }
-        if (unknown_37c) shadow_drawpoint.Y-=14;
+        if (IsInTransport) shadow_drawpoint.Y-=14;
         int height=Get_Height_AGL();
         CellClass *cell= &Map[Position_Coord_004f3f40()];
-        if (unknown_37c && !IsOnBridge && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
+        if (IsInTransport && !IsOnBridge && height>=unknown_bridge_height_ad057c && (cell->unknown_140&0x100) &&
             (((cell->unknown_140&0x800) && (cell->Adjacent_Cell(0).unknown_140&0x100)) ||
              (!(cell->unknown_140&0x800) && (cell->Adjacent_Cell(6).unknown_140&0x100)))) shadow_drawpoint.Y-=60;
         Surface *cache_key;   // the shadow mask surface
@@ -2034,7 +2034,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
     Point2D adjusted_point = input;
     adjusted_point.Y -= *reinterpret_cast<signed char const *>(&IonBlastYDrawOffset);
     Point2D raw_point = adjusted_point;
-    if (unknown_37c) {
+    if (IsInTransport) {
         adjusted_point.Y += 14;
     }
     Cell cell = Get_Cell();
@@ -2065,7 +2065,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
         }
         brightness += Rules->ExtraUnitLight;
 
-        if (Type->Harvester && unknown_5ba && !Locomotor.Checked()->Is_Moving_Now()) {
+        if (Type->Harvester && IsHarvesting && !Locomotor.Checked()->Is_Moving_Now()) {
             Point2D pixel;
             int face = Dir_To_8(PrimaryFacing.Current());
             Coord_Pixel_00700e70(Move_Coord_00700e70(unknown_slot42(), Facing_Dir(face), 30), pixel);
@@ -2079,7 +2079,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
         }
 
         UnitTypeClass *oldclass = Type;
-        if (Type->Harvester && unknown_5b9 && oldclass->UnloadingClass != 0) {
+        if (Type->Harvester && IsDumping && oldclass->UnloadingClass != 0) {
             Type = oldclass->UnloadingClass;
         }
         ObjectTypeClass *type = Type;
@@ -2096,8 +2096,8 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
             }
         }
         Type = oldclass;
-        if (unknown_5b4 != -1) {
-            CC_Draw_Shape(LogicalSurface, ColorSchemes[Houses[unknown_5b4]->ColorSchemeIndex]->Converter,
+        if (Flagged != -1) {
+            CC_Draw_Shape(LogicalSurface, ColorSchemes[Houses[Flagged]->ColorSchemeIndex]->Converter,
                 (ShapeFileStruct const *)MixFileClass::Retrieve("FLAGFLY.SHP"), Frame % 14, raw_point, window, 0xa00,
                 0, 0, 0, brightness, 0, 0, Point2D(0, 0));
         }
@@ -2288,7 +2288,7 @@ int UnitClass::Do_MISSION_UNLOAD()
     }
     if (!HasAnyLink()) {
         unknown_slot261(false,true);
-        unknown_5b9=false;
+        IsDumping=false;
         if (Locomotor.Checked()->Is_Moving()) Stop_Driver();
         if (Ready_To_Commence()) Commence();
         return 1;
@@ -2298,8 +2298,8 @@ int UnitClass::Do_MISSION_UNLOAD()
         if (!unknown_599) Locomotor.Checked()->Do_Turn(UnknownFacingDir(0x4000));
         return 5;
     }
-    if (!unknown_5b9) {
-        unknown_5b9=true;
+    if (!IsDumping) {
+        IsDumping=true;
         StageClass::Stage=0;
         StageClass::Set_Rate(1);
         if (Type->Harvester) {
@@ -2311,7 +2311,7 @@ int UnitClass::Do_MISSION_UNLOAD()
         switch (Status) {
             case 4: {
                 if (Type->Weeder) {
-                    unknown_5b9=false;
+                    IsDumping=false;
                     if (NavCom && MissionQueue!=-1 && MissionQueue!=10) {
                         if (Locomotor.Checked()->Is_Moving()) Stop_Driver();
                         if (Ready_To_Commence()) Commence();
@@ -2324,7 +2324,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                     bool active=false;
                     if (building && building->Type->Refinery) active=building->unknown_454[8]!=0;
                     if (active) return 1;
-                    unknown_5b9=false;
+                    IsDumping=false;
                     if (NavCom && MissionQueue!=-1 && MissionQueue!=10) {
                         if (Locomotor.Checked()->Is_Moving()) Stop_Driver();
                         if (Ready_To_Commence()) Commence();
@@ -2474,7 +2474,7 @@ int UnitClass::Do_MISSION_HARVEST()
                     Assign_Archive_Target(0);
                     hastarget = false;
                 }
-                unknown_5ba = false;
+                IsHarvesting = false;
                 bool ok;
                 if (Type->Weeder) {
                     ok = Goto_Weed(Rules->TiberiumFarScan / 256);
@@ -2494,7 +2494,7 @@ int UnitClass::Do_MISSION_HARVEST()
                     ok = Goto_Tiberium(Rules->TiberiumFarScan / 256, hastarget);
                 }
                 if (ok) {
-                    unknown_5ba = true;
+                    IsHarvesting = true;
                     StageClass::Set_Rate(2);
                     StageClass::Stage = 0;
                     Status = HARVESTING;
@@ -2505,14 +2505,14 @@ int UnitClass::Do_MISSION_HARVEST()
                         Assign_Destination(ArchivedTarget, true);
                     } else {
                         Status = GOINGTOIDLE;
-                        unknown_328 = true;
+                        IsUseless = true;
                         if (Type->Harvester) {
                             House->IsTiberiumShort = true;
                         }
                         return 105;
                     }
                 } else {
-                    unknown_328 = false;
+                    IsUseless = false;
                 }
             }
             break;
@@ -2525,7 +2525,7 @@ int UnitClass::Do_MISSION_HARVEST()
                 return 1;
             }
             if (!Harvesting()) {
-                unknown_5ba = false;
+                IsHarvesting = false;
                 if (Type->Harvester && unknown_slot165() == 1.0) {
                     Status = FINDHOME;
                     Cell cell;
@@ -2552,7 +2552,7 @@ int UnitClass::Do_MISSION_HARVEST()
                     Status = FINDHOME;
                 } else {
                     Status = HARVESTING;
-                    unknown_5ba = true;
+                    IsHarvesting = true;
                 }
                 return 1;
             }
@@ -2593,7 +2593,7 @@ int UnitClass::Do_MISSION_HARVEST()
             QueueMission(7, false);
             return 1;
         case GOINGTOIDLE:
-            if (unknown_328) {
+            if (IsUseless) {
                 if (House->unknown_5420.unknown_func_491d10(Rules->RepairBay->ArrayIndex) > 0) {
                     QueueMission(0x14, false);
                 } else {
@@ -2721,7 +2721,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
         vehicle=reinterpret_cast<CellOccupancyFlags_00703040 const &>(cell->unknown_128).vehicle!=0;
         infantry_owner=cell->BridgeInfType;
     }
-    if (!ScenarioInit && !Map.Unknown_0055A740(cell,true) && !unknown_slot189() && unknown_32d) return 7;
+    if (!ScenarioInit && !Map.Unknown_0055A740(cell,true) && !unknown_slot189() && IsLocked) return 7;
     result=FootClass::Can_Enter_Cell(cell,direction,height,adjacent,unused);
     if (result==7) return 7;
     if (cell->OverlayIndex!=-1) {
@@ -3095,7 +3095,7 @@ move:
     if (Map[*where].Has_Tunnel()) {
         return Map[*where].Can_Enter_Tunnel(this) ? 0x23 : 0x24;
     }
-    if (unknown_5c8) {
+    if (Deployed) {
         action = 0;
     }
     return action;
@@ -3167,8 +3167,8 @@ int UnitClass::Do_MISSION_GUARD()
 
 int UnitClass::Do_MISSION_MOVE()
 {
-    unknown_5ba = false;
-    if (unknown_5c8) {
+    IsHarvesting = false;
+    if (Deployed) {
         QueueMission(5, false);
         return 1;
     }
@@ -3185,7 +3185,7 @@ int UnitClass::Do_MISSION_MOVE()
 
 int UnitClass::Do_MISSION_PATROL()
 {
-    unknown_5ba = false;
+    IsHarvesting = false;
     if (!Door.Is_Count_Down_Complete()) {
         Door.Count_Down(Type->DeployTime);
     }
@@ -3280,8 +3280,8 @@ int UnitClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
 
 bool UnitClass::Flag_Attach(int arg1)
 {
-    if (arg1 != -1 && unknown_5b4 == -1) {
-        unknown_5b4 = arg1;
+    if (arg1 != -1 && Flagged == -1) {
+        Flagged = arg1;
         Mark(2);
         return true;
     }
@@ -3292,8 +3292,8 @@ bool UnitClass::Flag_Attach(int arg1)
 // Clears the recorded +0x5B4 value and notifies virtual slot71 when set.
 bool UnitClass::Flag_Remove()
 {
-    if (unknown_5b4 != -1) {
-        unknown_5b4 = -1;
+    if (Flagged != -1) {
+        Flagged = -1;
         Mark(2);
         return true;
     }
@@ -3359,7 +3359,7 @@ InfantryTypeClass *UnitClass::Crew_Type()
 int UnitClass::Do_MISSION_REPAIR()
 {
     TechnoClass *refinery = unknown_slot301(Rules->RepairBay, 0, 0);
-    unknown_5ba = false;
+    IsHarvesting = false;
     if (!refinery) {
         if (!House->unknown_5420.unknown_func_491d10(Rules->RepairBay->ArrayIndex)) {
             unknown_slot261(0, 1);
@@ -3407,17 +3407,17 @@ int UnitClass::unknown_slot218(AbstractClass *target, int weapon, bool check_ran
         if (Type->DeployToFire && Deploy_To_Fire() && !usable_land) return 11;
     }
     if (action == 0) {
-        if (unknown_370 && Contact_With_Whom(0)->Kind_Of() == 6) return 6;
+        if (IsTethered && Contact_With_Whom(0)->Kind_Of() == 6) return 6;
         WeaponTypeClass *weapon_type = unknown_slot231(weapon)->WeaponType;
         if (unknown_6c16f0(-1) < 0) {
             TechnoClass *object = As_Techno_0040dbd0(target);
             if (!object || !object->Considered_Vehicle() || object->Health_Ratio() >= Rules->ConditionGreen) return 5;
         }
         if (!Type->MobileFire && NavCom) return 7;
-        if ((weapon_type->unknown_106 || weapon_type->unknown_105) && NavCom) return 7;
+        if ((weapon_type->UseSparkParticles || weapon_type->UseFireParticles) && NavCom) return 7;
         if (TemporalImUsing && NavCom) return 7;
         if (!IsFiring && unknown_599 && weapon_type->Projectile->ROT == 0) return 4;
-        if (!weapon_type->unknown_107 && !Type->LargeVisceroid && !Type->SmallVisceroid) {
+        if (!weapon_type->OmniFire && !Type->LargeVisceroid && !Type->SmallVisceroid) {
             UnknownFacingDir current;
             if (Type->Turret) current = SecondaryFacing.Current();
             else current = PrimaryFacing.Current();
@@ -3458,7 +3458,7 @@ BulletClass *UnitClass::Fire_At(AbstractClass *target, int arg2)
         } else {
             frame = -1;
         }
-        if (unknown_5a8 != -1 && frame != -1) {
+        if (FiringSyncDelay != -1 && frame != -1) {
             synchronized = true;
         } else {
             synchronized = false;
@@ -3471,13 +3471,13 @@ BulletClass *UnitClass::Fire_At(AbstractClass *target, int arg2)
                 StartReloading();
             }
             if (!synchronized && Type->FiringFrames > 0) {
-                unknown_5a8 = Type->FiringFrames * 2 - 1;
+                FiringSyncDelay = Type->FiringFrames * 2 - 1;
             }
             if (bullet->Type->Scalable) {
                 bullet->InitScalable();
             }
             if (Type->DisguiseWhenStill) {
-                DisguiseBlinkTimer = CDTimerClass<FrameTimerClass>(weapon->unknown_118);
+                DisguiseBlinkTimer = CDTimerClass<FrameTimerClass>(weapon->DisguiseFakeBlinkTime);
             }
         }
     }
@@ -3596,7 +3596,7 @@ void UnitClass::Overrun_Square(Cell const &where, bool threaten)
             UnknownUnitInfantryView2 *infantry = (UnknownUnitInfantryView2 *)object;
             if (object->Kind_Of() == 15 && infantry->Type->VehicleThief && infantry->unknown_494 == this && !Type->IsTrain) {
                 ObjectClass *next = object->unknown_30;
-                unknown_372 = infantry->unknown_372;
+                IsOwnedByPlayer = infantry->IsOwnedByPlayer;
                 unknown_slot54(false);
                 Captured(infantry->House, 1);
                 object->Delete_Me();
@@ -3700,7 +3700,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
     }
     if(target==NavCom && !UnlimboingInfantry) return;
     UnlimboingInfantry=false;
-    if(unknown_5c8) {FootClass::Abort_Motion();return;}
+    if(Deployed) {FootClass::Abort_Motion();return;}
 
 	/*
 	**	Transport vehicles must tell all passengers that are about to load, that they
@@ -3713,7 +3713,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	/*
 	 * If tethered to a carryall while sleeping, untether before moving.
 	 */
-	if (target != 0 && HasAnyLink() && Get_Mission() == 0 && unknown_370 && Contact(0)->Kind_Of() == 2) {
+	if (target != 0 && HasAnyLink() && Get_Mission() == 0 && IsTethered && Contact(0)->Kind_Of() == 2) {
 		AircraftClass * a = (AircraftClass *)Contact(0);
 		if (a->Type->Carryall) {
 			a->Assign_Destination(0, true);
@@ -3746,7 +3746,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		if (!HasAnyLink()) {
 			TechnoClass *destination_techno=target->As_Techno();
             if(destination_techno && destination_techno->Kind_Of()==1) {
-                unknown_3f8=Unit_Dynamic_Cast<UnitClass,1>(target);
+                QueueUpToEnter=Unit_Dynamic_Cast<UnitClass,1>(target);
                 Assign_Archive_Target(0);target=0;
             } else if (b != 0 && b->Kind_Of()==6) {
 
@@ -3762,7 +3762,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 					**	The refinery must NOT have the navcom assigned by this routine.
 					*/
 					if (b->Type->UnitRepair) {
-						if(Health_Ratio()<Rules->ConditionGreen) {target=0;unknown_3f8=b;}
+						if(Health_Ratio()<Rules->ConditionGreen) {target=0;QueueUpToEnter=b;}
                         else {unknown_slot149(3);target=0;}
 					}
 				} else {
@@ -3811,7 +3811,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	 * Subterranean units prepend their navigation target onto the queue and
 	 * re-target the nearest reachable cell when driving rather than burrowing.
 	 */
-	if (target != 0 && Type->unknown_af5 && Locomotor.Checked()->Is_Moving()) {
+	if (target != 0 && Type->IsSubterranean && Locomotor.Checked()->Is_Moving()) {
 		UnknownComPtr<IPersist, &unknown_uuid_IPersist_7cf208> persist(Locomotor);
 		GUID clsid;
 		persist.Checked()->GetClassID(&clsid);
@@ -3839,7 +3839,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		 * A subterranean unit that is told to move immediately must decide whether
 		 * it can burrow straight to the destination or has to plan a surface route.
 		 */
-		if (Type->unknown_af5 && immediate) {
+		if (Type->IsSubterranean && immediate) {
 			bool isbridge = Is_Moving_Onto_Bridge(0);
 
 			Cell from = Cell(Destination_Coord(0));
@@ -4127,11 +4127,11 @@ static inline void Resolve_Unit_Link(int link_index,unsigned linked_link_index)
 {
     UnitClass *unit = Units[link_index];
     if (linked_link_index == (unsigned)-1 || linked_link_index >= (unsigned)Units.Count()) {
-        unit->unknown_5b0 = 0;
+        unit->FollowingMe = 0;
     } else {
         UnitClass *linked = Units[linked_link_index];
-        unit->unknown_5b0 = linked;
-        linked->unknown_5b8 = true;
+        unit->FollowingMe = linked;
+        linked->IsFollowing = true;
     }
 }
 void __fastcall UnitClass::Read_INI(CCINIClass &ini)
@@ -4183,9 +4183,9 @@ void __fastcall UnitClass::Read_INI(CCINIClass &ini)
                         links.Add(linked_index);
                     }
                     token = strtok(0, ",");
-                    if (token) unit->unknown_379 = atoi(token) != 0;
+                    if (token) unit->IsTeamRecruitable = atoi(token) != 0;
                     token = strtok(0, ",");
-                    if (token) unit->unknown_37a = atoi(token) != 0;
+                    if (token) unit->IsAutocreateRecruitable = atoi(token) != 0;
                     if (unit->Unlimbo(&coord, direction)) {
                         UnitTypeClass *type = Unit_Read_Float_Health_00706AE0(*unit, (float)health);
                         if (unit->Strength > type->MaxStrength - 3) unit->Strength = type->MaxStrength;
@@ -4227,7 +4227,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
         if (unit != 0 && !unit->IsInLimbo && unit->IsActive) {
             char id[12];
             sprintf(id, "%d", index);
-            int linked = unit->unknown_5b0 != 0 ? Units.ID((UnitClass *)unit->unknown_5b0) : -1;
+            int linked = unit->FollowingMe != 0 ? Units.ID((UnitClass *)unit->FollowingMe) : -1;
             char const *tag;
             if (unit->Tag != 0 && unit->Tag->Class != 0) {
                 tag = (char const *)unit->Tag->Class->ID;
@@ -4244,7 +4244,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
                     direction,
                     MissionClass::Name_From_Mission(unit->Get_Mission()), tag,
                     unit->Veterancy.To_Integer(), unit->Group, unit->IsOnBridge, linked,
-                    unit->unknown_379, unit->unknown_37a);
+                    unit->IsTeamRecruitable, unit->IsAutocreateRecruitable);
             ini.Put_String(UnitClass_INI_NAME, id, line);
         }
     }
@@ -4336,7 +4336,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
     if (NavCom != 0 && !nokidding) {
         return;
     }
-    if (unknown_5c8) {
+    if (Deployed) {
         return;
     }
     if (source == unknown_geometry_l) {
@@ -4349,7 +4349,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
         if (Control()->IsParalyzed) {
             return;
         }
-        if ((Kind_Of() != 1 || !unknown_5b9)
+        if ((Kind_Of() != 1 || !IsDumping)
             && (NavCom == 0 || (nokidding && !unknown_599))
             && (TarCom == 0 || forced || Random_Pick(1, 4) == 1)) {
             int facing;
@@ -4410,9 +4410,9 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
 bool UnitClass::Limbo()
 {
     if (FootClass::Limbo()) {
-        if (unknown_5b4 != -1) {
-            Houses[unknown_5b4]->Flag_Attach(Get_Cell(), 0);
-            unknown_5b4 = -1;
+        if (Flagged != -1) {
+            Houses[Flagged]->Flag_Attach(Get_Cell(), 0);
+            Flagged = -1;
         }
         return true;
     }
@@ -4493,7 +4493,7 @@ struct UnknownUnitBuildingView : TechnoClass {
 
 bool UnitClass::Ready_To_Commence()
 {
-    if (Mission == 6 || Mission == 21 || unknown_5b9) {
+    if (Mission == 6 || Mission == 21 || IsDumping) {
         return false;
     }
     if (MissionQueue != 7 && Locomotor.Checked()->Is_Moving_Now() && Get_Height_AGL() >= 0
@@ -4542,8 +4542,8 @@ HRESULT __stdcall UnitClass::Load(IStream *stream)
         locomotor->Release();
         TargetTracker.Add_Index(Fetch_ID(), this);
         Swizzle_Pointer(Type);
-        Swizzle_Pointer(unknown_5b0);
-        unknown_5c4 = 0;
+        Swizzle_Pointer(FollowingMe);
+        ElectricBolt = 0;
         result = S_OK;
     }
     return result;
@@ -4555,9 +4555,9 @@ HRESULT __stdcall UnitClass::Load(IStream *stream)
 
 HRESULT __stdcall UnitClass::Save(IStream *stream, BOOL clear_dirty)
 {
-    if (unknown_5c4) {
-        unknown_5c4->unknown_4b25c0();
-        unknown_5c4 = 0;
+    if (ElectricBolt) {
+        ElectricBolt->unknown_4b25c0();
+        ElectricBolt = 0;
     }
     return FootClass::Save(stream, clear_dirty);
 }
@@ -4572,13 +4572,13 @@ void UnitClass::Compute_CRC(WWCRCEngine &crc) const
     FootClass::Compute_CRC(crc);
     crc((long)Type->Kind_Of());
     crc(Type->Fetch_ID());
-    if (unknown_5b0) {
-        crc(unknown_5b0->Fetch_ID());
+    if (FollowingMe) {
+        crc(FollowingMe->Fetch_ID());
     }
-    crc((long)unknown_5b4);
-    crc(unknown_5b8);
-    crc(unknown_5b9);
-    crc(unknown_5ba);
+    crc((long)Flagged);
+    crc(IsFollowing);
+    crc(IsDumping);
+    crc(IsHarvesting);
     crc(IsToScatter);
 }
 
@@ -4589,8 +4589,8 @@ void UnitClass::Compute_CRC(WWCRCEngine &crc) const
 void UnitClass::Detach(AbstractClass *target, bool all)
 {
     FootClass::Detach(target, all);
-    if (unknown_5b0 == target) {
-        unknown_5b0 = 0;
+    if (FollowingMe == target) {
+        FollowingMe = 0;
     }
     if (Type == target) {
         Type = 0;
@@ -4900,12 +4900,12 @@ bool UnitClass::INoticeSink_Unknown(int code, int arg)
 bool UnitClass::Captured(HouseClass *house, int arg2)
 {
     if (house != House) {
-        unknown_5b8 = false;
-        UnitClass *unit = (UnitClass *)unknown_5b0;
+        IsFollowing = false;
+        UnitClass *unit = (UnitClass *)FollowingMe;
         if (unit) {
             unit->Captured(house, 1);
-            unknown_5b0 = unit;
-            unit->unknown_5b8 = true;
+            FollowingMe = unit;
+            unit->IsFollowing = true;
         }
         return FootClass::Captured(house, 1);
     }
@@ -4990,7 +4990,7 @@ ObjectTypeClass *UnitClass::GetDisguise(bool arg1)
     if (House->Is_Ally(PlayerPtr) && !arg1) {
         return Type;
     }
-    return (ObjectTypeClass *)unknown_40c;
+    return (ObjectTypeClass *)Disguise;
 }
 
 
@@ -5003,7 +5003,7 @@ HouseClass *UnitClass::GetDisguiseHouse(bool arg1)
     if (House->Is_Ally(PlayerPtr) && !arg1) {
         return House;
     }
-    return (HouseClass *)unknown_410;
+    return (HouseClass *)DisguisedAsHouse;
 }
 
 
@@ -5015,8 +5015,8 @@ HouseClass *UnitClass::GetDisguiseHouse(bool arg1)
 void UnitClass::Disguise_As_Type(ObjectTypeClass *type)
 {
     if (type) {
-        unknown_40c = type;
-        unknown_410 = 0;
+        Disguise = type;
+        DisguisedAsHouse = 0;
         Disguised = true;
         DisguiseCreationFrame = Frame;
         unknown_slot266();
@@ -5033,17 +5033,17 @@ void UnitClass::DisguiseAs(TechnoClass *target)
     switch (target->Kind_Of()) {
     case 1:
         if (!target->unknown_slot48()) return;
-        unknown_40c = target->GetDisguise(true);
-        unknown_410 = target->GetDisguiseHouse(true);
+        Disguise = target->GetDisguise(true);
+        DisguisedAsHouse = target->GetDisguiseHouse(true);
         break;
     case 11:
         if (!unknown_slot208(target)) return;
-        unknown_40c = OverlayTypes[((CellClass *)target)->OverlayIndex];
-        unknown_410 = 0;
+        Disguise = OverlayTypes[((CellClass *)target)->OverlayIndex];
+        DisguisedAsHouse = 0;
         break;
     case 36:
-        unknown_40c = target->Class_Of();
-        unknown_410 = 0;
+        Disguise = target->Class_Of();
+        DisguisedAsHouse = 0;
         TechnoClass::DisguiseAs(target);
         return;
     default:
@@ -5060,8 +5060,8 @@ void UnitClass::ClearDisguise()
 {
     Disguised = false;
     unknown_slot266();
-    unknown_40c = 0;
-    unknown_410 = 0;
+    Disguise = 0;
+    DisguisedAsHouse = 0;
 }
 
 
@@ -5076,7 +5076,7 @@ bool UnitClass::IsDisguisedAs(HouseClass *house)
         Cell position = Coord_Cell(Center_Coord());
         CellClass &cell = Map[position];
         if (!House->Is_Ally(house) && !cell.unknown_47c300(house->ArrayIndex)) {
-            HouseClass *disguise = (HouseClass *)unknown_410;
+            HouseClass *disguise = (HouseClass *)DisguisedAsHouse;
             if (disguise == house || !disguise || house->Is_Ally(disguise)) {
                 return true;
             }
@@ -5149,8 +5149,8 @@ void UnitClass::UpdateDisguise()
         if (choice >= last) choice = last;
         ObjectTypeClass *type = Unit_Default_Mirage_Disguises()[choice];
         if (type) {
-            unknown_40c = type;
-            unknown_410 = 0;
+            Disguise = type;
+            DisguisedAsHouse = 0;
             Disguised = true;
             DisguiseCreationFrame = Frame;
             unknown_slot266();
@@ -5201,8 +5201,8 @@ wchar_t const *UnitClass::unknown_slot35()
         if (!role) {
             role = StringTable::Load_String("Tip:Rocket", 0, "D:\\Ra2\\Unit.CPP", 10349);
         }
-        swprintf(unknown_5d0, L"%s %s", role, Type->UIName);
-        return unknown_5d0;
+        swprintf(ToolTipText, L"%s %s", role, Type->UIName);
+        return ToolTipText;
     }
     return Type->UIName;
 }

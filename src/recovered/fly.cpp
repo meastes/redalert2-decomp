@@ -269,7 +269,7 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
 {
     if (Is_Moving()) {
         Cell cell(Object_Coord(LinkedTo));
-        if (!LinkedTo->unknown_32c && !Map.In_Local_Radar(cell, true) && !LinkedTo->unknown_slot282()) {
+        if (!LinkedTo->IsALoaner && !Map.In_Local_Radar(cell, true) && !LinkedTo->unknown_slot282()) {
             cell = Map.Unknown_005689D0(cell, 1);
         }
         FootClass *linked = LinkedTo;
@@ -379,7 +379,7 @@ bool FlyLocomotionClass::Edge_Of_World_AI()
             return true;
         }
     } else {
-        LinkedTo->unknown_32d = true;
+        LinkedTo->IsLocked = true;
     }
     return false;
 }
@@ -957,7 +957,7 @@ Matrix3D * __stdcall FlyLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
     }
     transform.Rotate_Z((float)((Dir_To_32(LinkedTo->SecondaryFacing.Current()) - 8) * -0.19634954084936207));
     if (LinkedTo->Get_Height_AGL() > 0) {
-        if (LinkedTo->unknown_37d) {
+        if (LinkedTo->IsRocking) {
             transform.Rotate_X(LinkedTo->AngleRotatedSideways);
             if (unknown_48 > LinkedTo->Techno_Type_Class()->PitchSpeed) {
                 transform.Rotate_Y((float)(LinkedTo->AngleRotatedForwards + LinkedTo->Techno_Type_Class()->PitchAngle));

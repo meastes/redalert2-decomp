@@ -201,7 +201,7 @@ unsigned char *__fastcall unknown_fill_buffer_498160(int value);              //
 // Prints edit text in font at rect of surface (0x00600830; defined in the owner-draw unit, OwnRDraw):
 // scrolled by *scroll so the caret stays visible, with the open IME composition when ime is set.
 namespace OwnerDraw {
-void __fastcall unknown_draw_edit_text_600830(Surface *surface, Rect &rect, wchar_t const *text, int caret,
+void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text, int caret,
                                               BitFontClass *font, unsigned int color, int *scroll, int ime,
                                               int password, int frame, int unknown9);
 }

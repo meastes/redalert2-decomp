@@ -188,12 +188,12 @@ bool ScrollClass::Resolve_Point(Point2D const &point,Cell &cell,CoordStruct &coo
         if (!shadow && !fog) {
             object=TacticalMap->Get_Selectable_Object_006aa990(point);
             TechnoClass *techno=object->As_Techno();
-            if (techno && !techno->unknown_372) {
+            if (techno && !techno->IsOwnedByPlayer) {
                 if ((techno->Cloak==2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) || techno->Techno_Type_Class()->Invisible) object=0;
             }
             if (object && object->Kind_Of()==6) {
                 BuildingClass *building=static_cast<BuildingClass *>(object);
-                if (!building->unknown_372 && ((building->TranslucencyLevel==15 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) || building->Type->InvisibleInGame)) object=0;
+                if (!building->IsOwnedByPlayer && ((building->TranslucencyLevel==15 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) || building->Type->InvisibleInGame)) object=0;
             }
         }
         return true;
@@ -234,14 +234,14 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
     } else {
         bool visible = true;
         TechnoClass *techno = As_Techno_0040dbd0(object);
-        if (techno != 0 && !techno->unknown_372) {
+        if (techno != 0 && !techno->IsOwnedByPlayer) {
             if ((techno->Cloak == 2 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex))
                     || techno->Techno_Type_Class()->Invisible) {
                 visible = false;
             }
         }
 
-        if (object != 0 && object->Kind_Of() == 6 && !((BuildingClass *)object)->unknown_372
+        if (object != 0 && object->Kind_Of() == 6 && !((BuildingClass *)object)->IsOwnedByPlayer
                 && ((BuildingClass *)object)->TranslucencyLevel == 15
                 && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->ArrayIndex)) {
             visible = false;
@@ -249,7 +249,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
         if (visible) {
             if (object != 0 && object->CanBeSelected()
                     && (object->Kind_Of() != 6 || !((BuildingClass *)object)->IsFogged)
-                    && (techno == 0 || !techno->unknown_32c)) {
+                    && (techno == 0 || !techno->IsALoaner)) {
                 action = 7;
             }
             if (BeaconManager.FindBeaconAt_0042e860(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, Map[cell].Height * unknown_geometry_g))) {

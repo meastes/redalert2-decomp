@@ -138,13 +138,13 @@ public:
     unsigned char Palette[0x300];          // +0x1FC current movie palette (PaletteClass layout)
     int CurrentFrame;                      // +0x4FC
     int FrameCount;                        // +0x500
-    int unknown_504;                       // +0x504
-    int unknown_508;                       // +0x508 (-1)
+    int DesiredColorMode;                       // +0x504
+    int PrimaryColorMode;                       // +0x508 (-1)
     bool Opened;                           // +0x50C
     int Width;                             // +0x510
     int Height;                            // +0x514
-    int unknown_518;                       // +0x518
-    int unknown_51c;                       // +0x51C
+    int DrawBufferWidth;                       // +0x518
+    int DrawBufferHeight;                       // +0x51C
     bool PaletteChanged;                   // +0x520
     int Flags;                             // +0x524
     unsigned FileSize;                     // +0x528
@@ -154,9 +154,9 @@ public:
     int (*Callback538)();                  // +0x538
     void (*Callback53C)();                 // +0x53C
     void (*Callback540)();                 // +0x540 called after each frame
-    int unknown_544;                       // +0x544
-    bool unknown_548;                      // +0x548 paused
-    bool unknown_549;                      // +0x549
+    int Event3Frame;                       // +0x544
+    bool IsPaused;                      // +0x548 paused
+    bool IsAdvanceReady;                      // +0x549
 };
 
 // The VQA movie wrapper (0x4C bytes).

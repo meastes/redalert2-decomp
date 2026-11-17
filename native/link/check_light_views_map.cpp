@@ -22,8 +22,8 @@ static_assert(offsetof(TechnoClass, unknown_74) == 0xB8, "map_techno.hpp TechnoC
 static_assert(offsetof(TechnoClass, unknown_7d) == 0xC1, "map_techno.hpp TechnoClass::unknown_7d");
 static_assert(offsetof(TechnoClass, House) == 0x218, "map_techno.hpp TechnoClass::House");
 static_assert(offsetof(TechnoClass, Cloak) == 0x220, "map_techno.hpp TechnoClass::Cloak");
-static_assert(offsetof(TechnoClass, unknown_32d) == 0x3DD, "map_techno.hpp TechnoClass::unknown_32d");
-static_assert(offsetof(TechnoClass, unknown_372) == 0x422, "map_techno.hpp TechnoClass::unknown_372");
+static_assert(offsetof(TechnoClass, IsLocked) == 0x3DD, "map_techno.hpp TechnoClass::IsLocked");
+static_assert(offsetof(TechnoClass, IsOwnedByPlayer) == 0x422, "map_techno.hpp TechnoClass::IsOwnedByPlayer");
 static_assert(offsetof(BuildingTypeClass, ThreatRange) == 0x6F4, "map_techno.hpp BuildingTypeClass GuardRange");
 static_assert(offsetof(BuildingTypeClass, Speed) == 0x7BC, "map_techno.hpp BuildingTypeClass SpeedType");
 static_assert(offsetof(BuildingTypeClass, ToOverlay) == 0xEF0, "map_techno.hpp BuildingTypeClass::ToOverlay");

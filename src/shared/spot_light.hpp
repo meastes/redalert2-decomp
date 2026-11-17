@@ -27,7 +27,7 @@ public:
     CoordStruct Coord;                              // +0x00
     int Radius;                                 // +0x0C (0; +8 per frame, deleted at 80)
     int unknown_10;                                 // +0x10 the size argument
-    int unknown_14;                                 // +0x14 (0)
+    int DisableFlags;                                 // +0x14 (0)
 };
 
 // Every spot light (0x00A731C0; defined with the unit's header statics; name hypothesis).

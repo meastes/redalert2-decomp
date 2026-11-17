@@ -2783,7 +2783,7 @@ void MapSeedClass::Apply_WDT_Territory_00578bc0()
         case 1: Width=1; break;
         default: Width=1; break;
         }
-        switch(territory->unknown_13) {
+        switch(territory->Height) {
         case 0: Height=0; break;
         case 2: Height=2; break;
         case 3: Height=3; break;

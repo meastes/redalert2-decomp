@@ -858,9 +858,9 @@ void MapClass::Set_Local_Dimensions(Rect const &rect)
     Map.Flag_To_Redraw(2);
     for (int index = 0; index < unknown_list_a40c20.Count(); index++) {
         TechnoClass *techno = unknown_list_a40c20[index];
-        bool was = techno->unknown_32d;
-        techno->unknown_32d = In_Local_Radar(techno->unknown_slot104(), true);
-        if (!was && techno->unknown_32d && techno->House->Is_Player_Control()
+        bool was = techno->IsLocked;
+        techno->IsLocked = In_Local_Radar(techno->unknown_slot104(), true);
+        if (!was && techno->IsLocked && techno->House->Is_Player_Control()
             && techno->Kind_Of() != 6 && techno->unknown_7d && !techno->unknown_76) {
             techno->Look(false, false);
         }
@@ -2396,7 +2396,7 @@ ObjectClass *MapClass::Close_Object(CoordStruct const &coord)
         if (In_Radar(newcell)) {
             TechnoClass *o = (TechnoClass *)(*this)[newcell].Cell_Occupier();
             while (o != 0) {
-                if (!o->AbstractFlags.IsTechno || o->unknown_372 || o->Cloak != 2) {
+                if (!o->AbstractFlags.IsTechno || o->IsOwnedByPlayer || o->Cloak != 2) {
                     int d = -1;
                     if (o->Kind_Of() == 6) {
                         d = Distance(coord, CoordStruct(newcell.X * 256 + 128, newcell.Y * 256 + 128, 0));

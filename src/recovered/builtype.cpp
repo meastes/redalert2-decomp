@@ -1867,7 +1867,7 @@ void BuildingTypeClass::Calculate_Base_Defense_Values()
     if(IsBaseDefense) {
         WeaponTypeClass *weapon=Get_Weapon(0)->WeaponType;
         if(weapon) {
-            int rate=(int)((double)weapon->unknown_a4/((double)weapon->unknown_b0*Defense_Rate_Scale_0079d2e8));
+            int rate=(int)((double)weapon->Attack/((double)weapon->ROF*Defense_Rate_Scale_0079d2e8));
             if(weapon->Projectile->AA) {
                 AntiAirValue=(int)Limit_Defense_Rating((double)rate*weapon->Warhead->Verses[3],(double)Rules->MaximumBaseDefenseValue);
             }

@@ -810,7 +810,7 @@ void SuperClass::Place(Cell const &cell, bool player)
                 CoordStruct sound = coord;
                 CoordStruct launch(sound.X, sound.Y, sound.Z + 20000);
                 BulletTypeClass *btype = payload->Projectile;
-                BulletClass *bullet = Create_Bullet(btype, target, 0, payload->unknown_a4, payload->Warhead, payload->unknown_a8, false);
+                BulletClass *bullet = Create_Bullet(btype, target, 0, payload->Attack, payload->Warhead, payload->MaxSpeed, false);
                 bullet->Set_Weapon_Type(payload);
                 Unknown_00438B80(House, target, bullet, "PSIWARN");
                 if (bullet != 0) {

@@ -4,8 +4,8 @@
     "id": "population-3745",
     "inventory_sha256": "dc62176afe5c7e1fca8ff2a394bdf0f73d8c3fd19a4465012ed6d6b75b11e3cb",
     "gaps_sha256": "6bbbb1f5ff45e5beb274c1d562b6634b986cc91a326aaccd6995c6a6af088f7f",
-    "historical_population_sha256": "ecdeead5fe68bd54944817885e32bdca61321d1d8878e628e7855bdaff325ace",
-    "historical_acceptance_sha256": "4625b08f60982c801b596458fddfa94e949c8c80a074335d67596bf0fe681c7b"
+    "historical_population_sha256": "59a5046153b8da3eef8ab05b38c25bbfd1eb1e929d58bf392e33aaa482d61c97",
+    "historical_acceptance_sha256": "df5f6b4c3705fe75b207512dfbcf43ac12322ded39cec4fe3a2e536a28bc7608"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -8427,7 +8427,9 @@
     "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856
   },
   "regions": [
     {
@@ -8526,7 +8528,7 @@
           "resolved": 909928
         }
       ],
-      "source_sha256": "e88d067c33302360e12457c56c97000ab23a44fc8a46cf37fb14b447eb485e19",
+      "source_sha256": "706d4f8d8f0197b382b438690902a125398fc286dd164151227cc320b557d473",
       "source": "src/recovered/classes/Tactical/Set_Caption_Text.cpp",
       "population": "population-3745",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

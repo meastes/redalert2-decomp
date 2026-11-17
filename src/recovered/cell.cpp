@@ -2573,11 +2573,11 @@ bool CellClass::Goodie_Check(ObjectClass *crate_object)
                     break;
 
                 case CRATE_FIREPOWER:
-                    if (object->unknown_128 != 1 || !object->unknown_slot163()) powerup = CRATE_MONEY;
+                    if (object->FirepowerBias != 1 || !object->unknown_slot163()) powerup = CRATE_MONEY;
                     break;
 
                 case CRATE_CLOAK:
-                    if (object->unknown_32a) powerup = CRATE_MONEY;
+                    if (object->IsCloakable) powerup = CRATE_MONEY;
                     break;
 
             }
@@ -2753,7 +2753,7 @@ crate_money:
                 for (int i = 0; i < DisplayClass::Layer[2].Count(); i++) {
                     ObjectClass *obj = DisplayClass::Layer[2][i];
                     if (obj != 0 && obj->IsDown && obj->Is_Techno() && Length3(Ground_Coord() - obj->Center_Coord()) < Rules->CrateRadius) {
-                        ((TechnoClass *)obj)->unknown_32a = true;
+                        ((TechnoClass *)obj)->IsCloakable = true;
                     }
                 }
                 }
@@ -2808,7 +2808,7 @@ crate_money:
                     }
                 }
                 }
-                if (sindex != -1 && object->House->SuperWeapons[super->ArrayIndex]->Grant(true, false, false) && object->unknown_372) {
+                if (sindex != -1 && object->House->SuperWeapons[super->ArrayIndex]->Grant(true, false, false) && object->IsOwnedByPlayer) {
                     Map.Unknown_0067C530(0x1F, super->ArrayIndex);
                 }
                 break;
@@ -2856,8 +2856,8 @@ crate_money:
                 for (int i = 0; i < DisplayClass::Layer[2].Count(); i++) {
                     ObjectClass *obj = DisplayClass::Layer[2][i];
                     if (obj != 0 && obj->Is_Techno() && Length3_YZX(Ground_Coord() - obj->Center_Coord()) < Rules->CrateRadius &&
-                            ((TechnoClass *)obj)->unknown_128 == 1) {
-                        ((TechnoClass *)obj)->unknown_128 = data * ((TechnoClass *)obj)->unknown_128;
+                            ((TechnoClass *)obj)->FirepowerBias == 1) {
+                        ((TechnoClass *)obj)->FirepowerBias = data * ((TechnoClass *)obj)->FirepowerBias;
                         if (obj->Owning_House()->Is_Player_Control()) tospeak = true;
                     }
                 }
@@ -3048,7 +3048,7 @@ bool CellClass::Can_Tiberium_Spread() const
     if (Ramp) {
         return false;
     }
-    if (Tiberiums[tiberium]->unknown_a0 < 0.00001) {
+    if (Tiberiums[tiberium]->SpreadPercentage < 0.00001) {
         return false;
     }
     if (OccupierPtr != 0) {

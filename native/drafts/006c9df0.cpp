@@ -24,19 +24,19 @@ LaserDrawClass *TechnoClass::unknown_6c9df0(AbstractClass *target, int weapon_in
                                             CoordStruct const &source)
 {
     RGBClass half;
-    int duration = weapon->unknown_124;
-    RGBClass const *spread = &weapon->unknown_102;
+    int duration = weapon->LaserDuration;
+    RGBClass const *spread = &weapon->LaserOuterSpread;
     RGBClass const *inner;
     RGBClass const *outer;
-    if (weapon->unknown_123) {
+    if (weapon->IsHouseColor) {
         inner = &House->unknown_55ec;
         half.Red = inner->Red >> 1;
         half.Green = inner->Green >> 1;
         half.Blue = inner->Blue >> 1;
         outer = &half;
     } else {
-        inner = &weapon->unknown_fc;
-        outer = &weapon->unknown_ff;
+        inner = &weapon->LaserInnerColor;
+        outer = &weapon->LaserOuterColor;
     }
     CoordStruct from;
     CoordStruct to;
@@ -63,7 +63,7 @@ LaserDrawClass *TechnoClass::unknown_6c9df0(AbstractClass *target, int weapon_in
     }
     LaserDrawClass *laser = new LaserDrawClass(from, to, depth, true, *inner, *outer, *spread, duration,
                                                false, true, 1.0f, 0.0f);
-    if (laser != 0 && weapon->unknown_123) {
+    if (laser != 0 && weapon->IsHouseColor) {
         laser->IsHouseColor = true;
     }
     return laser;

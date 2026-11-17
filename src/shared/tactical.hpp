@@ -215,7 +215,7 @@ public:
     // Layout from the constructor 0x006A24B0 (init-list stores, then the body).
     short unknown_24;               // +0x24 cleared by the constructor
     char unknown_26[0xA4 - 0x26];
-    int unknown_a4;                 // +0xA4 -1 after construction
+    int EndGameGraphicsFrame;                 // +0xA4 -1 after construction
     int LastAIFrame;                 // +0xA8 the frame of the last update (-1 after construction)
     // +0xAC/+0xAD: two flags nothing reads (TibSun field_58/field_59, "unused"). Hypothesis: one 2-byte member
     // whose inline constructor clears both (the constructor's zoom low-dword store stays below it: store order)
@@ -232,13 +232,13 @@ public:
     int TacPixelY;                  // +0xB4
     int LastTacPixelX;              // +0xB8
     int LastTacPixelY;              // +0xBC
-    double unknown_c0;              // +0xC0 zoom factor (Blit_Display divides by it; 1.0 = none)
-    Point2D unknown_c8;             // +0xC8 the scroll start (AI 0x006A2DD0 interpolates it to unknown_d0)
+    double ZoomFactor;              // +0xC0 zoom factor (Blit_Display divides by it; 1.0 = none)
+    Point2D MoveFrom;             // +0xC8 the scroll start (AI 0x006A2DD0 interpolates it to unknown_d0)
     Point2D MoveTo;             // +0xD0 the scroll target
     float MoveSpeed;               // +0xD8 the scroll step per frame (ScrollClass slot 26 tests it against 0)
     float MoveFactor;               // +0xDC the scroll progress, 0..1
     int CellRedrawCount;                 // +0xE0
-    CellClass *unknown_e4[800];     // +0xE4 the cells to redraw (TibSun CellRedraw; cleared by the constructor, swizzled by Load; unknown_e0 counts them)
+    CellClass *CellRedraw[800];     // +0xE4 the cells to redraw (TibSun CellRedraw; cleared by the constructor, swizzled by Load; unknown_e0 counts them)
     Point2D TacticalCoord;            // +0xD64 the view position
     Point2D LastTacticalCoord;            // +0xD6C
     Point2D DesiredTacticalCoord;            // +0xD74 the requested view position

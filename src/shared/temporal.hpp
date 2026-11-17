@@ -45,13 +45,13 @@ public:
 
     TechnoClass *Owner;                             // +0x24 the firer
     TechnoClass *Target;                            // +0x28 the techno being erased
-    CDTimerClass<FrameTimerClass> unknown_2c;       // +0x2C
+    CDTimerClass<FrameTimerClass> LifeTimer;       // +0x2C
     AbstractClass *unknown_38;                      // +0x38
-    AbstractClass *unknown_3c;                      // +0x3C
-    TemporalClass *unknown_40;                      // +0x40 the previous link on the same target
-    TemporalClass *unknown_44;                      // +0x44 the next link (a helper)
+    AbstractClass *SourceSW;                      // +0x3C
+    TemporalClass *NextTemporal;                      // +0x40 the previous link on the same target
+    TemporalClass *PrevTemporal;                      // +0x44 the next link (a helper)
     int unknown_48;                                 // +0x48
-    int unknown_4c;                                 // +0x4C the warp per step (Get_Warp_Per_Step)
+    int WarpPerStep;                                 // +0x4C the warp per step (Get_Warp_Per_Step)
 };
 
 extern DynamicVectorClass<TemporalClass *> unknown_TemporalClass_list_00ac02e0;   // 0x00AC02E0

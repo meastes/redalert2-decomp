@@ -190,7 +190,7 @@ static bool _Create_Paradrop(TeamTypeClass *teamtype, FootClass *object, Cell or
     AircraftClass *plane = (AircraftClass *)ptype->Create_One_Of(object->House);
     ScenarioInit--;
     if (plane) {
-        plane->unknown_32c = true;
+        plane->IsALoaner = true;
 
         if (teamtype->UseTransportOrigin) {
             dest = teamtype->Transport_Waypoint_Location();
@@ -384,7 +384,7 @@ FootClass * __fastcall _Create_Group(TeamTypeClass *teamtype)
         transport->Cargo.Attach(object);
 
         if (hasunload && transport->Kind_Of() == 2) {
-            transport->unknown_32c = true;
+            transport->IsALoaner = true;
         }
     }
 

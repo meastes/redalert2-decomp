@@ -395,11 +395,11 @@ void __stdcall DriveLocomotionClass::Move_To(COMCoordStruct to)
 
 void __stdcall DriveLocomotionClass::Stop_Moving()
 {
-    if (unknown_40 != unknown_geometry_l && LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
-        for (UnitClass *car = (UnitClass *)((UnitClass *)LinkedTo)->unknown_5b0; car != 0; ) {
+    if (unknown_40 != unknown_geometry_l && LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->IsFollowing) {
+        for (UnitClass *car = (UnitClass *)((UnitClass *)LinkedTo)->FollowingMe; car != 0; ) {
             car->Locomotor.Checked()->Stop_Moving();
-            car = (UnitClass *)car->unknown_5b0;
-            if (car == 0 || car == car->unknown_5b0) {
+            car = (UnitClass *)car->FollowingMe;
+            if (car == 0 || car == car->FollowingMe) {
                 break;
             }
         }
@@ -441,8 +441,8 @@ Matrix3D * __stdcall DriveLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *ke
         Matrix3D rotation;
         transform.Make_Identity();
         rotation.Make_Identity();
-        float length = LinkedTo->Techno_Type_Class()->unknown_330;
-        float width = LinkedTo->Techno_Type_Class()->unknown_338;
+        float length = LinkedTo->Techno_Type_Class()->VoxelCenterY;
+        float width = LinkedTo->Techno_Type_Class()->VoxelCenterX;
         float roll_cos = Fast_Cos(LinkedTo->AngleRotatedForwards);
         float roll_sin = Fast_Sin(LinkedTo->AngleRotatedForwards);
         float pitch_cos = Fast_Cos(LinkedTo->AngleRotatedSideways);
@@ -525,7 +525,7 @@ bool __stdcall DriveLocomotionClass::Process()
             return false;
         }
         if (TrackNumber == -1 && (Is_Moving() || LinkedTo->unknown_4d0 != -1)
-            && (LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->unknown_5b9)) {
+            && (LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->IsDumping)) {
             bool stop = false;
             if (LinkedTo->Kind_Of() == 1 && LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 15) {
                 CoordStruct coord = LinkedTo->NavCom->Destination_Coord(LinkedTo);
@@ -569,7 +569,7 @@ bool __stdcall DriveLocomotionClass::Process()
             }
             if ((LinkedTo->Get_Mission() != 5 || Is_Moving()) && LinkedTo->Get_Mission() != 16) {
                 if (Is_Moving() || LinkedTo->unknown_4d0 != -1) {
-                    if (LinkedTo->unknown_32d && LinkedTo->Get_Mission() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(DestinationCoord)) {
+                    if (LinkedTo->IsLocked && LinkedTo->Get_Mission() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(DestinationCoord)) {
                         Stop_Driver();
                         if (Abandon_Navigation()) {
                             return false;
@@ -588,7 +588,7 @@ bool __stdcall DriveLocomotionClass::Process()
                             return false;
                         }
                     }
-                } else if (LinkedTo->unknown_325) {
+                } else if (LinkedTo->IsSinking) {
                     Stop_Driver();
                     unknown_50 = 0;
                 } else if (LinkedTo->NavCom != 0) {
@@ -776,7 +776,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
             if (distance < tclass->SlowdownDistance) {
                 forced_speed = true;
                 speed = MAX(_deaccel, speed - maxspeed * tclass->DeaccelerationFactor);
-            } else if (LinkedTo->unknown_325) {
+            } else if (LinkedTo->IsSinking) {
                 speed = MAX(_sinking, speed - maxspeed * _sinking_scale);
                 forced_speed = true;
             }
@@ -794,12 +794,12 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
             if (LinkedTo->Kind_Of() == 1) {
                 UnitClass *unit = (UnitClass *)LinkedTo;
-                UnitClass *following = (UnitClass *)unit->unknown_5b0;
+                UnitClass *following = (UnitClass *)unit->FollowingMe;
                 if (following != 0) {
                     do {
                         following->unknown_slot306(LinkedTo->Speed);
-                        following = (UnitClass *)following->unknown_5b0;
-                    } while (following && following != following->unknown_5b0);
+                        following = (UnitClass *)following->FollowingMe;
+                    } while (following && following != following->FollowingMe);
                 }
             }
         }
@@ -910,7 +910,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                     if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
                         LinkedTo->IsOnBridge = false;
                     }
-                    if (LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->unknown_5b8) {
+                    if (LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->IsFollowing) {
                         FootClass *train = LinkedTo;
                         bool is_bridge = train->IsOnBridge || (Object_Coord(LinkedTo).Z >= (Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_j));
                         ObjectClass *object = is_bridge ? Map[newcell].AltOccupierPtr : Map[newcell].OccupierPtr;

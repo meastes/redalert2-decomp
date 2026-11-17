@@ -109,7 +109,7 @@ int BuildingClass::Do_MISSION_MISSILE()
             }
             AbstractClass *target = &Map[House->NukeDest];
             WeaponTypeClass *weapon = SuperWeaponTypes[LastSuperWeaponIndex]->WeaponType;
-            BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, weapon->unknown_a4,
+            BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, weapon->Attack,
                 weapon->Warhead, 255, true);
             if (bullet) {
                 bullet->Set_Weapon_Type(weapon);
@@ -196,8 +196,8 @@ int BuildingClass::Do_MISSION_MISSILE()
             UnknownFacingDir yaw = Radian_Dir_m26(unknown_math_4ba600(double(fire.Y) - to.Y, double(to.X) - fire.X));
             int speed = Calculate_Projectile_Speed(unknown_5d4c00(target), Rules->Gravity);
 
-            BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, weapon->unknown_a4,
-                weapon->Warhead, 3 * speed / 4, weapon->unknown_10b);
+            BulletClass *bullet = Create_Bullet(weapon->Projectile, target, this, weapon->Attack,
+                weapon->Warhead, 3 * speed / 4, weapon->IsBright);
 
             Velocity_m26 velocity = {0, 0, 0};
             velocity.Set_Yaw(yaw);
@@ -223,8 +223,8 @@ int BuildingClass::Do_MISSION_MISSILE()
 
             if (bullet && valid && bullet->unknown_slot118(source, TVelocity3D<double>(velocity.X, velocity.Y, velocity.Z))) {
                 if (unknown_slot232() && Techno_Type_Class()->TurretRecoil) {
-                    unknown_330.unknown_6d8b90();
-                    unknown_350.unknown_6d8b90();
+                    TurretRecoil.unknown_6d8b90();
+                    BarrelRecoil.unknown_6d8b90();
                 }
                 int random_value = NonCriticalRandomNumber();
                 Voc_Play_At(weapon->unknown_bc.Pick(random_value), unknown_slot43(0), 0);

@@ -497,7 +497,7 @@ bool VQMovieHandle::Is_Finished()
 
 bool VQMovieHandle::AdvanceFrame()
 {
-    if (!Movie->Player->unknown_548 && Movie->Playing) {
+    if (!Movie->Player->IsPaused && Movie->Playing) {
         return Movie_Advance_Frame(Movie, &Finished);
     }
     return false;

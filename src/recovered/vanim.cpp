@@ -91,15 +91,15 @@
 VoxelAnimClass::VoxelAnimClass() :
     unknown_e8(-1),
     Class(0),
-    unknown_f0(0),
-    unknown_f4(0),
+    AttachedParticleSys(0),
+    House(0),
     unknown_f8(false),
-    unknown_124(false),
-    unknown_128(0)
+    IsInvisible(false),
+    ECCounter(0)
 {
     AbstractClass::Create_ID();
-    unknown_fc.Init();
-    unknown_110.Init();
+    StartSoundAudioController.Init();
+    StopSoundAudioController.Init();
     VoxelAnims.Add(this);
 }
 
@@ -112,17 +112,17 @@ VoxelAnimClass::~VoxelAnimClass()
 {
     Detach_This_From_All(this, true);
     VoxelAnims.Delete(this);
-    if (unknown_f0 != 0) {
-        unknown_f0->Delete_Me();
-        unknown_f0 = 0;
+    if (AttachedParticleSys != 0) {
+        AttachedParticleSys->Delete_Me();
+        AttachedParticleSys = 0;
     }
     if (GameActive) {
         Limbo();
     }
-    unknown_fc.Unknown_00406070();
-    unknown_110.Unknown_00406070();
-    unknown_fc.Unknown_00405C10();
-    unknown_110.Unknown_00405C10();
+    StartSoundAudioController.Unknown_00406070();
+    StopSoundAudioController.Unknown_00406070();
+    StartSoundAudioController.Unknown_00405C10();
+    StopSoundAudioController.Unknown_00405C10();
     AbstractTypePtrTracker.Delete(this);
     Class = 0;
 }
@@ -176,7 +176,7 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
             TacticalMap->Coord_To_Pixel(ground, pixel);
         }
     }
-    if (unknown_124) return;
+    if (IsInvisible) return;
     VoxelLibrary *voxel = Class->Voxel.unknown_00;
     if (voxel == 0) return;
     Matrix3D matrix;
@@ -207,8 +207,8 @@ void VoxelAnimClass::Draw_It(Point2D const &point, Rect const &window)
         brightness = Map[coord].Brightness;
     }
     ConvertClass *drawer;
-    if (unknown_f4 != 0) {
-        drawer = ColorSchemes[unknown_f4->ColorSchemeIndex]->Converter;
+    if (House != 0) {
+        drawer = ColorSchemes[House->ColorSchemeIndex]->Converter;
     } else if (Class->IsTiberium) {
         drawer = TiberiumDrawer;
     } else {
@@ -246,16 +246,16 @@ void __cdecl VoxelAnimClass::Clear_All()
 void VoxelAnimClass::AI()
 {
     if (Class->StartSound != -1) {
-        Voc_Update_At(Center_Coord(), &unknown_fc);
+        Voc_Update_At(Center_Coord(), &StartSoundAudioController);
     }
     if (unknown_f8) {
         Delete_Me();
         return;
     }
-    if (unknown_128 != 0) {
-        unknown_128--;
+    if (ECCounter != 0) {
+        ECCounter--;
     }
-    if (unknown_128 <= 0) {
+    if (ECCounter <= 0) {
         bool water = Map[CoordStruct(Coord)].Land == 2;
         bool bridge = CoordStruct(Coord).Z >= Map.Get_Height_GL(CoordStruct(Coord)) + unknown_geometry_j;
         if (water && !bridge) {
@@ -334,7 +334,7 @@ void VoxelAnimClass::AI()
     switch (result) {
         case 1:
             if (Map[CoordStruct(Coord)].Land == 2) {
-                unknown_128 = 0;
+                ECCounter = 0;
             } else {
                 if (Class->BounceAnim != 0) {
                     new AnimClass(Class->BounceAnim, CoordStruct(Coord), 0, 1, 0x600, 0);
@@ -349,7 +349,7 @@ void VoxelAnimClass::AI()
             }
             break;
         case 2:
-            unknown_128 = 0;
+            ECCounter = 0;
             break;
     }
     Set_Coord(BounceClass::Coord());
@@ -374,11 +374,11 @@ HRESULT __stdcall VoxelAnimClass::Load(IStream *stream)
     HRESULT result = ObjectClass::Load(stream);
     if (SUCCEEDED(result)) {
         new (this) VoxelAnimClass(NoInitClass());
-        unknown_fc.Init();
-        unknown_110.Init();
+        StartSoundAudioController.Init();
+        StopSoundAudioController.Init();
         Swizzler.Swizzle((void **)&Class);
-        Swizzler.Swizzle((void **)&unknown_f0);
-        Swizzler.Swizzle((void **)&unknown_f4);
+        Swizzler.Swizzle((void **)&AttachedParticleSys);
+        Swizzler.Swizzle((void **)&House);
     }
     return result;
 }
@@ -399,13 +399,13 @@ void VoxelAnimClass::Compute_CRC(WWCRCEngine &crc) const
     ObjectClass::Compute_CRC(crc);
     crc((long)unknown_e8);
     crc(Class->Fetch_ID());
-    if (unknown_f0 != 0) {
-        crc(unknown_f0->Fetch_ID());
+    if (AttachedParticleSys != 0) {
+        crc(AttachedParticleSys->Fetch_ID());
     }
-    crc(unknown_f4->Fetch_ID());
+    crc(House->Fetch_ID());
     crc(unknown_f8);
-    crc(unknown_124);
-    crc((long)unknown_128);
+    crc(IsInvisible);
+    crc((long)ECCounter);
 }
 
 

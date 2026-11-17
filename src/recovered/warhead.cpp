@@ -116,7 +116,7 @@ WarheadTypeClass::WarheadTypeClass(char const *ini_name) :
     WallAbsoluteDestroyer(false),
     Wood(false),
     Tiberium(false),
-    unknown_148(false),
+    IsOrganic(false),
     Sparky(false),
     Sonic(false),
     Fire(false),
@@ -300,7 +300,7 @@ bool WarheadTypeClass::Read_INI(CCINIClass &ini)
                 token = strtok(0, ",");
             }
         }
-        unknown_148 = Is_Zero(Verses[4]) && Is_Zero(Verses[6]);
+        IsOrganic = Is_Zero(Verses[4]) && Is_Zero(Verses[6]);
         return true;
     }
     return false;
@@ -320,7 +320,7 @@ void WarheadTypeClass::Compute_CRC(WWCRCEngine &crc) const
     crc(Wall);
     crc(Wood);
     crc(Tiberium);
-    crc(unknown_148);
+    crc(IsOrganic);
     crc(Sparky);
     crc(Sonic);
     crc(Fire);

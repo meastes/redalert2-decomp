@@ -40,7 +40,7 @@ public:
     bool Is_To_Flag_As_Tripped() const;                                   // 0x006E6D50 (false for types 1, 6, 0x2C)
     static int __fastcall Event_Flags(int type);                        // 0x006E6A30 (hypothesis)
 
-    int unknown_24;                         // +0x24
+    int HeapID;                         // +0x24
     TEventClass *Next;                      // +0x28
     int Type;                               // +0x2C
     AbstractTypeClass *unknown_30;          // +0x30

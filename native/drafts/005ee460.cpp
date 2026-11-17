@@ -464,7 +464,7 @@ LRESULT __stdcall unknown_control_proc_5ee460(HWND window, UINT message, WPARAM 
                     text = name;
                 }
             }
-            SendMessageA(status, 0x4B2, 0, (LPARAM)text.unknown_text_770430());
+            SendMessageA(status, 0x4B2, 0, (LPARAM)text.text());
         }
     }
 

@@ -99,7 +99,7 @@ WDTTerritory::WDTTerritory()
     unknown_10 = 10000;
     *(unsigned short *)unknown_0c = 0;
     unknown_12 = 1;
-    unknown_13 = 1;
+    Height = 1;
     PlayerCount = 2;
     unknown_15[0x1C - 0x15] = 1;
     unknown_15[0x1D - 0x15] = 0;
@@ -172,13 +172,13 @@ rc_ptr<WDTState> __fastcall WDTState::Create(unsigned char *data)
 
 WDTState::WDTState()
 {
-    unknown_14 = 0;
+    MapID = 0;
     unknown_18 = 0;
     unknown_20 = 0;
     ConflictCount = 0;
     unknown_28 = 1000000;
     Territories = DynamicVectorClass<rc_ptr<WDTTerritory> >();
-    unknown_44 = 0;
+    OwnerHistory = 0;
 }
 
 
@@ -199,13 +199,13 @@ WDTState::WDTState(unsigned char *data)
     ShortLabel = 0;
     LongLabel = 0;
     unknown_10 = 0;
-    unknown_14 = 0;
+    MapID = 0;
     unknown_18 = 0;
     unknown_1c = 0;
     unknown_20 = 0;
     ConflictCount = 0;
     unknown_28 = 0;
-    unknown_44 = 0;
+    OwnerHistory = 0;
     if (packet->Get_Field("NACK", 0, nack_length)) {
         delete packet;
         return;
@@ -241,7 +241,7 @@ WDTState::WDTState(unsigned char *data)
     memset(LongLabel, 0, ldsc_length);
     memset(unknown_10, 0, wurl_length);
     memset(hsvc, 0, hsvc_length);
-    packet->Get_Field("CMID", unknown_14);
+    packet->Get_Field("CMID", MapID);
     packet->Get_Field("CYID", unknown_18);
     if (unknown_48) {
         unknown_28 = 0;
@@ -284,13 +284,13 @@ WDTState::~WDTState()
     if (unknown_10 != 0) {
         delete unknown_10;
     }
-    if (unknown_44 != 0) {
+    if (OwnerHistory != 0) {
         for (unsigned i = 0; (int)i < (int)ConflictCount; i++) {
-            if (unknown_44[i] != 0) {
-                delete (char *)unknown_44[i];
+            if (OwnerHistory[i] != 0) {
+                delete (char *)OwnerHistory[i];
             }
         }
-        delete unknown_44;
+        delete OwnerHistory;
     }
 }
 
@@ -326,9 +326,9 @@ bool WDTState::Create_History(void *data, int length)
     if ((unsigned)(length * 4) < unknown_20 * ConflictCount) {
         return false;
     }
-    unknown_44 = new void *[ConflictCount];
+    OwnerHistory = new void *[ConflictCount];
     for (unsigned i = 0; i < ConflictCount; i++) {
-        unknown_44[i] = new unsigned char[unknown_20];
+        OwnerHistory[i] = new unsigned char[unknown_20];
     }
     unsigned char *bytes = (unsigned char *)data;
     int index = 0;
@@ -337,16 +337,16 @@ bool WDTState::Create_History(void *data, int length)
         for (unsigned item = 0; item < unknown_20; item++) {
             switch (pair) {
                 case 0:
-                    ((unsigned char *)unknown_44[conflict])[item] = bytes[index] & 3;
+                    ((unsigned char *)OwnerHistory[conflict])[item] = bytes[index] & 3;
                     break;
                 case 1:
-                    ((unsigned char *)unknown_44[conflict])[item] = (bytes[index] >> 2) & 3;
+                    ((unsigned char *)OwnerHistory[conflict])[item] = (bytes[index] >> 2) & 3;
                     break;
                 case 2:
-                    ((unsigned char *)unknown_44[conflict])[item] = (bytes[index] >> 4) & 3;
+                    ((unsigned char *)OwnerHistory[conflict])[item] = (bytes[index] >> 4) & 3;
                     break;
                 default:
-                    ((unsigned char *)unknown_44[conflict])[item] = bytes[index] >> 6;
+                    ((unsigned char *)OwnerHistory[conflict])[item] = bytes[index] >> 6;
                     break;
             }
             pair++;
@@ -400,7 +400,7 @@ bool WDTState::Create_Territories(void *data, int length)
         territory->unknown_15[0x1D - 0x15] = (kind >> 4) & 0x0F;
         territory->unknown_15[0x1E - 0x15] = bytes[i++] + 0x80;
         territory->unknown_12 = bytes[i++] + 0x80;
-        territory->unknown_13 = bytes[i++] + 0x80;
+        territory->Height = bytes[i++] + 0x80;
         territory->PlayerCount = bytes[i++] + 0x80;
         *(int *)&territory->unknown_15[0x18 - 0x15] = bytes[i++] - 0x80;
         territory->unknown_15[0x1F - 0x15] = Unbias_72c490(bytes[i]); i++;

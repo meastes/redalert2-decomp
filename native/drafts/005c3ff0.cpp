@@ -264,7 +264,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
             for (int mode = 0; mode <= MultiplayerGameMode::unknown_mode_count_5b6f80(); mode++) {
                 if (MultiplayerGameMode::unknown_find_mode_5b6fe0(mode) != 0) {
                     Debug_Printf("Setting Campaign info for Mode %d: %s\n", mode,
-                        Wide_To_Narrow_006fa120(MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_name_20.unknown_text_770430()));
+                        Wide_To_Narrow_006fa120(MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_name_20.text()));
                     if (MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_slot18(index, list, first, second)) {
                         MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_slot19(time, unknown, scores);
                     }
@@ -275,7 +275,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
             for (int mode = 0; mode <= MultiplayerGameMode::unknown_mode_count_5b6f80(); mode++) {
                 if (MultiplayerGameMode::unknown_find_mode_5b6fe0(mode) != 0) {
                     Debug_Printf("Handling Campaign info for Mode %d: %s\n", mode,
-                        Wide_To_Narrow_006fa120(MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_name_20.unknown_text_770430()));
+                        Wide_To_Narrow_006fa120(MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_name_20.text()));
                     MultiplayerGameMode::unknown_find_mode_5b6fe0(mode)->unknown_slot25(copy[1] - '0', copy + 2);
                 }
             }
@@ -482,8 +482,8 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
         same = false;
         for (int i = 0; i < unknown_session_a3d298.Scenarios.Count(); i++) {
             MultiMission *scenario = unknown_session_a3d298.Scenarios[i];
-            if (_stricmp(unknown_session_a3d298.ScenarioFileName_658, scenario->unknown_58) == 0) {
-                CCFileClass file(scenario->unknown_58);
+            if (_stricmp(unknown_session_a3d298.ScenarioFileName_658, scenario->Filename) == 0) {
+                CCFileClass file(scenario->Filename);
                 if (file.Is_Available(false) && file.Size() == unknown_session_a3d298.ScenarioFileLength_87c) {
                     INIClass ini;
                     ini.Load(file, false);
@@ -518,7 +518,7 @@ bool __fastcall Decode_Pub_Gameopt_005c3ff0(char const *text, char const *sender
         mode->UnfixAlliances();
     }
     HWND dialog = Find_Lobby_Window_005c2c40();
-    SendMessageA(GetDlgItem(dialog, 0x6EC), 0x4B2, 0, (LPARAM)mode->unknown_name_20.unknown_text_770430());
+    SendMessageA(GetDlgItem(dialog, 0x6EC), 0x4B2, 0, (LPARAM)mode->unknown_name_20.text());
     SendMessageA(GetDlgItem(dialog, 0x5A8), 0x4B2, 0, (LPARAM)unknown_scenario_name_a3d342);
     Scen->TechLevel = -1;
     Frame = 0;

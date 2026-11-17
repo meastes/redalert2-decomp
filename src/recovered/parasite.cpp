@@ -81,10 +81,10 @@ ParasiteClass::ParasiteClass(AbstractClass *owner)
     Owner = (FootClass *)owner;
     unknown_28 = 0;
     unknown_38 = CDTimerClass<FrameTimerClass>();
-    unknown_2c = CDTimerClass<FrameTimerClass>();
+    SuppressionTimer = CDTimerClass<FrameTimerClass>();
     GrappleAnimGotInvalid = false;
     GrappleAnimFrame = 0;
-    unknown_50 = 0;
+    GrappleAnimDelay = 0;
     Victim = 0;
     unknown_48 = 0;
     unknown_ParasiteClass_list_00a76430.Add(this);
@@ -122,7 +122,7 @@ void ParasiteClass::Compute_CRC(WWCRCEngine &crc) const
     }
     crc((long)unknown_48);
     crc((long)GrappleAnimFrame);
-    crc((long)unknown_50);
+    crc((long)GrappleAnimDelay);
     crc(GrappleAnimGotInvalid);
 }
 
@@ -133,7 +133,7 @@ void ParasiteClass::Compute_CRC(WWCRCEngine &crc) const
 void ParasiteClass::Unknown_006064C0()
 {
     GrappleAnimFrame = 0;
-    unknown_50 = 0;
+    GrappleAnimDelay = 0;
     unknown_48 = 0;
     if (Victim != 0) {
         Victim->unknown_slot60();
@@ -192,7 +192,7 @@ HRESULT __stdcall ParasiteClass::GetClassID(GUID *classid)
 
 void ParasiteClass::Reset_Grapple_Counters_006066a0()
 {
-    unknown_50 = 0;
+    GrappleAnimDelay = 0;
     GrappleAnimFrame = 0;
 }
 
@@ -225,8 +225,8 @@ bool ParasiteClass::Grapple_Frame_006066B0()
         delay = 4;
         break;
     }
-    if (++unknown_50 >= delay) {
-        unknown_50 = 0;
+    if (++GrappleAnimDelay >= delay) {
+        GrappleAnimDelay = 0;
         if (++GrappleAnimFrame >= 10) {
             return true;
         }
@@ -327,14 +327,14 @@ void ParasiteClass::Unknown_00606780()
                 }
                 FootClass *victim = unknown_28;
                 Unknown_00607440();
-                victim->unknown_325 = true;
+                victim->IsSinking = true;
                 victim->unknown_slot216((int)Owner);
                 victim->unknown_slot210();
                 Unknown_006064C0();
                 Owner->ParalysisTimer = CDTimerClass<FrameTimerClass>(0);
                 return;
             }
-            damage = weapon->unknown_a4;
+            damage = weapon->Attack;
             unknown_28->Take_Damage(&damage, 0, warhead, Owner, false, true);
             if (unknown_28) {
                 unknown_48 = Scen->Random()(0, 1) ? 2 : 3;
@@ -413,7 +413,7 @@ void ParasiteClass::AI()
     if (unknown_38.Value() != 0) {
         return;
     }
-    unknown_38 = CDTimerClass<FrameTimerClass>(weapon->unknown_b0);
+    unknown_38 = CDTimerClass<FrameTimerClass>(weapon->ROF);
     unknown_28->ParalysisTimer = CDTimerClass<FrameTimerClass>(warhead->Paralyzes);
     int damage;
     if (unknown_28->Kind_Of() == 15) {
@@ -436,7 +436,7 @@ void ParasiteClass::AI()
         int x = (int)(unknown_cos_4ba4d0(angle) * distance + coord.X);
         CoordStruct push(x, y, z);
         unknown_28->unknown_slot223(push, 1.5f);
-        damage = weapon->unknown_a4;
+        damage = weapon->Attack;
         unknown_28->Take_Damage(&damage, 0, warhead, Owner, false, true);
     }
 }
@@ -463,7 +463,7 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
             unknown_28 = 0;
             return;
         }
-        if (unknown_2c.Value() > 0 && !Owner->unknown_slot203()) {
+        if (SuppressionTimer.Value() > 0 && !Owner->unknown_slot203()) {
             unknown_28->ParasiteEatingMe = 0;
             unknown_28 = 0;
             Owner->Delete_Me();
@@ -474,12 +474,12 @@ void ParasiteClass::Detach(AbstractClass *target, bool all)
         if (coord != unknown_geometry_l) {
             if (Owner->Unlimbo(&coord, Dir_To_256(unknown_28->PrimaryFacing.Current()))) {
                 ScenarioInit--;
-                if (Owner->unknown_381 && Owner->House->Is_Player_Control()) {
-                    Owner->unknown_381 = false;
+                if (Owner->ShouldBeReselectOnUnlimbo && Owner->House->Is_Player_Control()) {
+                    Owner->ShouldBeReselectOnUnlimbo = false;
                     Owner->unknown_slot80();
                 }
-                if (Owner->unknown_384 != 0) {
-                    ((TeamClass *)Owner->unknown_384)->Add(Owner);
+                if (Owner->OldTeam != 0) {
+                    ((TeamClass *)Owner->OldTeam)->Add(Owner);
                 }
                 if (!Owner->unknown_slot270()) {
                     Owner->Assign_Archive_Target(0);
@@ -522,7 +522,7 @@ void ParasiteClass::Unknown_00607440()
     Cell cell;
     if (naval) {
         cell = Adjacent_Cell(unknown_28->Get_Cell(), (FacingType)Dir_To_8(exit_dir));
-    } else if (unknown_2c.Value() == 0) {
+    } else if (SuppressionTimer.Value() == 0) {
         cell = unknown_28->Get_Cell();
     } else {
         Owner->Strength = 0;
@@ -552,12 +552,12 @@ void ParasiteClass::Unknown_00607440()
         }
     }
     if (can_exit && Owner->Unlimbo(&coord, Dir_To_256(exit_dir))) {
-        if (Owner->unknown_381 && Owner->House->Is_Player_Control()) {
-            Owner->unknown_381 = false;
+        if (Owner->ShouldBeReselectOnUnlimbo && Owner->House->Is_Player_Control()) {
+            Owner->ShouldBeReselectOnUnlimbo = false;
             Owner->unknown_slot80();
         }
-        if (Owner->unknown_384 != 0) {
-            ((TeamClass *)Owner->unknown_384)->Add(Owner);
+        if (Owner->OldTeam != 0) {
+            ((TeamClass *)Owner->OldTeam)->Add(Owner);
         }
         if (!Owner->unknown_slot270()) {
             Owner->Assign_Archive_Target(0);
@@ -566,7 +566,7 @@ void ParasiteClass::Unknown_00607440()
         }
         Owner->unknown_slot261(false, true);
         Owner->unknown_slot262(false, false, false, 0);
-        Owner->ParalysisTimer = CDTimerClass<FrameTimerClass>(Owner->unknown_slot231(0)->WeaponType->unknown_b0 * 3);
+        Owner->ParalysisTimer = CDTimerClass<FrameTimerClass>(Owner->unknown_slot231(0)->WeaponType->ROF * 3);
         Unknown_006064C0();
     } else {
         Owner->Strength = 0;

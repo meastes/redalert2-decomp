@@ -51,8 +51,8 @@ bool __fastcall Find_Local_Scenario_0066c5b0(char *filename, int length, char *d
 {
     if (_stricmp(filename, "RandMap.Sed") != 0) {
         for (int index = 0; index < unknown_multi_missions_a3d8d8.Count(); index++) {
-            if (_stricmp(unknown_multi_missions_a3d8d8[index]->unknown_58, filename) == 0) {
-                CCFileClass file(unknown_multi_missions_a3d8d8[index]->unknown_58);
+            if (_stricmp(unknown_multi_missions_a3d8d8[index]->Filename, filename) == 0) {
+                CCFileClass file(unknown_multi_missions_a3d8d8[index]->Filename);
                 if (!file.Is_Available() && unknown == true) {
                     MultiMission *mission = unknown_multi_missions_a3d8d8[index];
                     if (!mission->Is_On_CD(CD_Get_Current_Disk(60))) {
@@ -71,7 +71,7 @@ bool __fastcall Find_Local_Scenario_0066c5b0(char *filename, int length, char *d
                     char file_digest[32];
                     ini.Get_String("Digest", "1", "No digest here mate. Nope.", file_digest, sizeof(file_digest));
                     if (digest == 0 || *digest == '\0' || strcmp(digest, file_digest) == 0) {
-                        strcpy(filename, unknown_multi_missions_a3d8d8[index]->unknown_58);
+                        strcpy(filename, unknown_multi_missions_a3d8d8[index]->Filename);
                         return true;
                     }
                 }

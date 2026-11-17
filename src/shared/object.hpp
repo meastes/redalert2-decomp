@@ -349,7 +349,7 @@ public:
     int GetHealthStatus() const;                                       // 0x005D46B0 (0, 1 or 2)
     void Set_Ambient_Sound(int value);                                   // 0x005D5520
 
-    UnknownTriple unknown_24;               // +0x24
+    UnknownTriple Riser;               // +0x24
     ObjectClass *unknown_30;                // +0x30
     TagClass *Tag;                   // +0x34 (tag hypothesis: Attach_Tag counts on +0x2C)
     BombClass *unknown_38;                  // +0x38

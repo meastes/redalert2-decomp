@@ -141,9 +141,9 @@ WWMouseClass::WWMouseClass(Surface *surface, HWND window)
       SurfaceBackgroundRect(unknown_empty_rect),
       SidebarBackground(0),
       SidebarBackgroundRect(unknown_empty_rect),
-      unknown_80(unknown_empty_rect),
-      unknown_90(-1),
-      unknown_94(0)
+      ConditionalRect(unknown_empty_rect),
+      ConditionalState(-1),
+      TimerHandle(0)
 {
     Block_Mouse();
     Calc_Confining_Rect();

@@ -399,7 +399,7 @@ public:
 #ifdef RA2_CELL_GOODIE_CHECK
     bool CrateGoodie;                           // +0xBA5 (as shared/unit_type.hpp)
 #else
-    char unknown_ba5;
+    char IsCrateGoodie;
 #endif
     bool Harvester;                             // +0xBA6 (as shared/unit_type.hpp)
     char unknown_ba7[0xBAA - 0xBA7];
@@ -415,16 +415,16 @@ public:
 #endif
 class UnitClass : public FootClass {
 public:
-    int unknown_5a8;                            // +0x5A8 (-1)
+    int FiringSyncDelay;                            // +0x5A8 (-1)
     UnitTypeClass *Type;                        // +0x5AC
-    FootClass *unknown_5b0;                     // +0x5B0 the next unit of a convoy (FootClass 0x004C3000; hypothesis)
-    int unknown_5b4;                            // +0x5B4 (-1; FootClass slot 303 halves the speed when set)
-    bool unknown_5b8;                           // +0x5B8 (FootClass 0x004C3000: the convoy does not follow)
-    bool unknown_5b9; // +0x5B9, owner-approved restart flag
-    char unknown_5ba;
-    bool unknown_5bb;                           // +0x5BB (composite surface; matches full UnitClass, TechnoClass 0x006D1510)
+    FootClass *FollowingMe;                     // +0x5B0 the next unit of a convoy (FootClass 0x004C3000; hypothesis)
+    int Flagged;                            // +0x5B4 (-1; FootClass slot 303 halves the speed when set)
+    bool IsFollowing;                           // +0x5B8 (FootClass 0x004C3000: the convoy does not follow)
+    bool IsDumping; // +0x5B9, owner-approved restart flag
+    char IsHarvesting;
+    bool IsCompositingToEightBitSurface;                           // +0x5BB (composite surface; matches full UnitClass, TechnoClass 0x006D1510)
     char unknown_5bc[0x5C4 - 0x5BC];
-    EBolt *unknown_5c4;                         // +0x5C4 the unit's electric bolt (TechnoClass 0x006CA130)
+    EBolt *ElectricBolt;                         // +0x5C4 the unit's electric bolt (TechnoClass 0x006CA130)
 };
 #endif
 

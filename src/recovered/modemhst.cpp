@@ -981,7 +981,7 @@ void ModemHost::Select_Multi_Map_0059b090()
         Select_Scenario_005c7c30(scenario);
         Update_Network_Dialog_Preview(Window);
         ShowWindow(Window, 5);
-        if (_stricmp(unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58, "RandMap.Sed") == 0) {
+        if (_stricmp(unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Filename, "RandMap.Sed") == 0) {
             if (MultiplayerMapPreview != 0) {
                 delete MultiplayerMapPreview;
             }
@@ -999,7 +999,7 @@ void ModemHost::Select_Multi_Map_0059b090()
         ShowWindow(Window, 5);
         if (Select_Scenario_005c7c30(unknown_session_a3d298.ScenarioIndex) == true) {
             Send_Dlg_Item_Message(Window, 0x5A8, 0x4B2, 0, (LPARAM)unknown_map_name_a3d342);
-            if (_stricmp(unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58, "RandMap.Sed") == 0) {
+            if (_stricmp(unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Filename, "RandMap.Sed") == 0) {
                 if (MultiplayerMapPreview != 0) {
                     delete MultiplayerMapPreview;
                     MultiplayerMapPreview = new MapPreviewClass;
@@ -1045,7 +1045,7 @@ void ModemHost::Select_Random_Map_0059b2c0()
         bool found = false;
         int index;
         for (index = 0; index < unknown_session_a3d298.Scenarios.Count(); index++) {
-            if (_stricmp(unknown_session_a3d298.Scenarios[index]->unknown_58, "RandMap.Sed") == 0) {
+            if (_stricmp(unknown_session_a3d298.Scenarios[index]->Filename, "RandMap.Sed") == 0) {
                 found = true;
                 break;
             }
@@ -1352,7 +1352,7 @@ bool ModemHost::Start_Game_0059c290(bool load_game)
         return false;
     }
     Scen->TechLevel = unknown_session_a3d298.ScenarioIndex;
-    strcpy(Scen->FileName, unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->unknown_58);
+    strcpy(Scen->FileName, unknown_session_a3d298.Scenarios[unknown_session_a3d298.ScenarioIndex]->Filename);
     Scen->CDifficulty = 1;
     Scen->Difficulty = 1;
     unknown_session_a3d55c = 0;

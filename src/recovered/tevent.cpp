@@ -69,13 +69,13 @@ DynamicVectorClass<TEventClass *> Events;
 extern DynamicVectorClass<AbstractClass *> EventActionPtrTracker;
 
 TEventClass::TEventClass() :
-    unknown_24(-1),
+    HeapID(-1),
     Next(0),
     Type(0),
     unknown_30(0)
 {
     Events.Add(this);
-    unknown_24 = Events.ID(this);
+    HeapID = Events.ID(this);
     EventActionPtrTracker.Add(this);
     AbstractTypePtrTracker.Add((ObjectClass *)this);
     Data = 0;
@@ -662,7 +662,7 @@ int TEventClass::Kind_Of() const
 
 int TEventClass::Fetch_Heap_ID() const
 {
-    return unknown_24;
+    return HeapID;
 }
 
 

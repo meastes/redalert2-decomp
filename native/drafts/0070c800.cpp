@@ -30,16 +30,16 @@
 VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coord, HouseClass *owner) :
     unknown_e8(-1),
     Class(type),
-    unknown_f0(0),
-    unknown_f4(owner),
+    AttachedParticleSys(0),
+    House(owner),
     unknown_f8(false),
-    unknown_124(false),
-    unknown_128(0)
+    IsInvisible(false),
+    ECCounter(0)
 {
     AbstractClass::Create_ID();
-    unknown_fc.Init();
-    unknown_110.Init();
-    unknown_128 = Class->Duration;
+    StartSoundAudioController.Init();
+    StopSoundAudioController.Init();
+    ECCounter = Class->Duration;
     VoxelAnims.Add(this);
     if (!Class->IsMeteor) {
         ObjectClass::Unlimbo(&coord, 0);
@@ -64,10 +64,10 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
             velocity.X = -velocity.X;
             velocity.Y = -velocity.Y;
         }
-        unknown_128 -= abs(Scen->Random()() % 20);
-        int x = coord.X - unknown_128 * velocity.X;
-        int y = coord.Y - unknown_128 * velocity.Y;
-        int z = coord.Z - unknown_128 * velocity.Z;
+        ECCounter -= abs(Scen->Random()() % 20);
+        int x = coord.X - ECCounter * velocity.X;
+        int y = coord.Y - ECCounter * velocity.Y;
+        int z = coord.Z - ECCounter * velocity.Z;
         CoordStruct start(x, y, z);
         ObjectClass::Unlimbo(&start, 0);
         int spin_roll = Scen->Random()();
@@ -75,12 +75,12 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass *type, CoordStruct const &coor
             abs(spin_roll) % (int)(Class->MaxAngularVelocity - Class->MinAngularVelocity + 1.0) + Class->MinAngularVelocity);
     }
     if (Class->StartSound != -1) {
-        Voc_Play_At(Class->StartSound, coord, &unknown_fc);
+        Voc_Play_At(Class->StartSound, coord, &StartSoundAudioController);
     } else {
-        unknown_fc.Unknown_00406070();
+        StartSoundAudioController.Unknown_00406070();
     }
-    unknown_110.Unknown_00405FE0();
+    StopSoundAudioController.Unknown_00405FE0();
     if (Class->AttachedSystem != 0) {
-        unknown_f0 = new ParticleSystemClass(Class->AttachedSystem, coord, &Map[coord], (TechnoClass *)this, unknown_geometry_l);
+        AttachedParticleSys = new ParticleSystemClass(Class->AttachedSystem, coord, &Map[coord], (TechnoClass *)this, unknown_geometry_l);
     }
 }

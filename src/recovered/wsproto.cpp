@@ -119,7 +119,7 @@ WinsockInterfaceClass::WinsockInterfaceClass()
     StaticAltBuffersInUse = 0;
     NextInBuffer = 0;
     NextOutBuffer = 0;
-    unknown_04 = 0x240;
+    MaxPacketSize = 0x240;
     Debug_Printf("WinsockInterface constructed\n");
 }
 
@@ -398,7 +398,7 @@ bool WinsockInterfaceClass::Init()
 
     unsigned long length;
     char protocol_buffer[4096];
-    unknown_04 = 0x222;
+    MaxPacketSize = 0x222;
     length = sizeof(protocol_buffer);
     int count = EnumProtocolsA(Protocols, protocol_buffer, &length);
     if (count != SOCKET_ERROR) {
@@ -412,7 +412,7 @@ bool WinsockInterfaceClass::Init()
             }
         }
         if (max_frame != 0x7FFFFFFF && max_frame > 400) {
-            unknown_04 = max_frame;
+            MaxPacketSize = max_frame;
         }
     } else {
         Debug_Printf("Failed to get protocol enumeration\n");

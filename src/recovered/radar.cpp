@@ -1655,7 +1655,7 @@ void RadarClass::Reset_Radar()
     map->RadarClass::Set_Local_Dimensions(map->MapLocalSize);
     Compute_Radar_Image();
     for (int index = 0; index < unknown_list_a40c20.Count(); index++) {
-        unknown_list_a40c20[index]->unknown_37b = false;
+        unknown_list_a40c20[index]->IsRadarTracked = false;
     }
 }
 
@@ -1716,7 +1716,7 @@ void RadarClass::Post_Load_Radar_Fixup()
     map->RadarClass::Set_Local_Dimensions(map->MapLocalSize);
     Compute_Radar_Image();
     for (int index = 0; index < unknown_list_a40c20.Count(); index++) {
-        unknown_list_a40c20[index]->unknown_37b = false;
+        unknown_list_a40c20[index]->IsRadarTracked = false;
     }
     if (RadarMode == 3) {
         RadarState = 5;
@@ -2736,7 +2736,7 @@ int __stdcall Unknown_006340F0(HWND window, UINT message, WPARAM wparam, LPARAM 
             Map.Unknown_00634970((int)window);
             if (unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) {
                 HWND mode = Get_Item(window, 0x426);
-                SendMessageA(mode, 0x4B2, 0, (LPARAM)unknown_session_a3d298.Mode->Get_Name().unknown_text_770430());
+                SendMessageA(mode, 0x4B2, 0, (LPARAM)unknown_session_a3d298.Mode->Get_Name().text());
             }
             HWND map_name = Get_Item(window, 0x71B);
             SendMessageA(map_name, 0x4B2, 0, (LPARAM)unknown_map_name_a3d342);

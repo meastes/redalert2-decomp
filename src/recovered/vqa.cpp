@@ -183,22 +183,22 @@ VQAClass::VQAClass(char const *filename, int flags, int (*callback538)(), void (
     Config.AudioHandler = (VQACallback)Stream_Audio_Handler;
     Config.HMIBufSize = 0x2000;
     CurrentFrame = 0;
-    unknown_544 = 0;
+    Event3Frame = 0;
     FrameCount = 0;
     strcpy(Filename, filename);
     Width = 0;
     Height = 0;
-    unknown_518 = 0;
-    unknown_51c = 0;
-    unknown_508 = -1;
+    DrawBufferWidth = 0;
+    DrawBufferHeight = 0;
+    PrimaryColorMode = -1;
     PaletteChanged = false;
     Callback538 = callback538;
     Callback53C = callback53c;
     Callback540 = callback540;
     FileOpen = false;
     Opened = false;
-    unknown_548 = false;
-    unknown_549 = false;
+    IsPaused = false;
+    IsAdvanceReady = false;
     Companion = 0;
 }
 
@@ -337,7 +337,7 @@ bool VQAClass::Open_And_Load_Buffers()
         return false;
     }
     FrameCount = Handle->Frames;
-    unknown_504 = Handle->unknown_0C;
+    DesiredColorMode = Handle->unknown_0C;
     Width = Handle->Width;
     Height = Handle->Height;
     Opened = true;
@@ -416,8 +416,8 @@ void VQAClass::Seek_To_Frame(int frame)
 bool VQAClass::Seek_To_Stored_Frame()
 {
     if (Opened) {
-        if (VQA_SeekFrame(Handle, unknown_544, 0) != -6) {
-            CurrentFrame = unknown_544;
+        if (VQA_SeekFrame(Handle, Event3Frame, 0) != -6) {
+            CurrentFrame = Event3Frame;
         } else {
             return false;
         }
@@ -441,20 +441,20 @@ int VQAClass::Play_VQA(int last_frame_to_play, bool nobreakout)
         last_frame_to_play = FrameCount - 1;
     }
     VQA_SetStop(Handle, last_frame_to_play);
-    if (unknown_508 != -1) {
+    if (PrimaryColorMode != -1) {
         int unknown2;
         int unknown3;
         int state;
         VQA_GetBlockInfo(Handle, &unknown3, &unknown2, &state);
         if (state == 1) {
-            VQA_Unknown_0070B690(unknown_508);
+            VQA_Unknown_0070B690(PrimaryColorMode);
             if (Get_Option(11)) {
                 VQA_SetUnVQ(Handle, VQA_Unknown_0077FE89, VQA_Unknown_0070BBC0);
             } else {
                 VQA_SetUnVQ(Handle, VQA_Unknown_0077FD80, VQA_Unknown_0070B820);
             }
         } else if (state == 4) {
-            VQA_Unknown_0070B690(unknown_508);
+            VQA_Unknown_0070B690(PrimaryColorMode);
             if (Get_Option(11)) {
                 VQA_SetUnVQ(Handle, VQA_Unknown_0070BF60, VQA_Unknown_0070C0A0);
             }
@@ -469,10 +469,10 @@ int VQAClass::Play_VQA(int last_frame_to_play, bool nobreakout)
                 continue;
             }
             sleeping = false;
-            unknown_548 = false;
+            IsPaused = false;
             Debug_Printf("Movie is awake\n");
         }
-        if (GameInFocus == true && !unknown_548) {
+        if (GameInFocus == true && !IsPaused) {
             result = VQA_Play(Handle, 1, 0);
             if (result >= 0) {
                 if (PaletteChanged) {
@@ -489,10 +489,10 @@ int VQAClass::Play_VQA(int last_frame_to_play, bool nobreakout)
             }
         } else if (!sleeping) {
             sleeping = true;
-            if (Opened && !unknown_548) {
+            if (Opened && !IsPaused) {
                 VQA_Play(Handle, 2, 0);
             }
-            unknown_548 = true;
+            IsPaused = true;
             Debug_Printf("Movie is sleeping\n");
         }
         if (!nobreakout && WWKeyboard->Check() && WWKeyboard->Get() == 0x81B) {
@@ -530,31 +530,31 @@ void VQAClass::Play_VQA_Frame(int frame_number)
 bool VQAClass::Advance_Frame(bool *finished)
 {
     *finished = false;
-    if (!unknown_549) {
+    if (!IsAdvanceReady) {
         VQA_SetStop(Handle, FrameCount);
-        if (unknown_508 != -1) {
+        if (PrimaryColorMode != -1) {
             int unknown2;
             int unknown3;
             int state;
             VQA_GetBlockInfo(Handle, &unknown3, &unknown2, &state);
             if (state == 1 || state == 4) {
-                VQA_Unknown_0070B690(unknown_508);
+                VQA_Unknown_0070B690(PrimaryColorMode);
                 if (state == 1) {
                     VQA_SetUnVQ(Handle, VQA_Unknown_0077FD80, VQA_Unknown_0070B820);
                 }
             }
         }
         Debug_Printf("VQAClass::Advance_Frame() - Ready\n");
-        unknown_549 = true;
+        IsAdvanceReady = true;
     }
-    if (unknown_548 == true && !(unknown_flags_a3f600 & 2) && SpecialDialog == 0) {
+    if (IsPaused == true && !(unknown_flags_a3f600 & 2) && SpecialDialog == 0) {
         if (GameInFocus != true) {
             goto pause;
         }
-        unknown_548 = false;
+        IsPaused = false;
         Debug_Printf("VQAClass::Advance_Frame() - Unpause\n");
     }
-    if (GameInFocus == true && !unknown_548) {
+    if (GameInFocus == true && !IsPaused) {
         int result = VQA_Play(Handle, 1, 0);
         if (result >= 0) {
             if (PaletteChanged) {
@@ -583,10 +583,10 @@ bool VQAClass::Advance_Frame(bool *finished)
     }
 pause:
     if (!unknown_vqa_paused_af901c) {
-        if (Opened && !unknown_548) {
+        if (Opened && !IsPaused) {
             VQA_Play(Handle, 2, 0);
         }
-        unknown_548 = true;
+        IsPaused = true;
         unknown_vqa_paused_af901c = true;
         Debug_Printf("VQAClass::Advance_Frame() - Pause\n");
     }
@@ -598,10 +598,10 @@ pause:
 
 void VQAClass::Pause_VQA()
 {
-    if (Opened && !unknown_548) {
+    if (Opened && !IsPaused) {
         VQA_Play(Handle, 2, 0);
     }
-    unknown_548 = true;
+    IsPaused = true;
 }
 
 
@@ -609,7 +609,7 @@ void VQAClass::Pause_VQA()
 
 void VQAClass::Resume_VQA()
 {
-    unknown_548 = false;
+    IsPaused = false;
 }
 
 
@@ -638,7 +638,7 @@ void VQAClass::Reset_VQA()
 
 int VQAClass::Get_Desired_Color_Mode()
 {
-    return unknown_504;
+    return DesiredColorMode;
 }
 
 
@@ -648,14 +648,14 @@ int VQAClass::Get_Desired_Color_Mode()
 bool VQAClass::Set_Draw_Buffer(int buffer, int buffer_width, int buffer_height, int x_offset, int y_offset)
 {
     if (buffer_width == -1) {
-        buffer_width = unknown_518;
+        buffer_width = DrawBufferWidth;
     } else {
-        unknown_518 = buffer_width;
+        DrawBufferWidth = buffer_width;
     }
     if (buffer_height == -1) {
-        buffer_height = unknown_51c;
+        buffer_height = DrawBufferHeight;
     } else {
-        unknown_51c = buffer_height;
+        DrawBufferHeight = buffer_height;
     }
     if (x_offset == -1) {
         x_offset = 0;
@@ -671,7 +671,7 @@ bool VQAClass::Set_Draw_Buffer(int buffer, int buffer_width, int buffer_height, 
 
 void VQAClass::Set_Primary_Color_Mode(int mode)
 {
-    unknown_508 = mode;
+    PrimaryColorMode = mode;
 }
 
 
@@ -679,10 +679,10 @@ void VQAClass::Set_Primary_Color_Mode(int mode)
 
 void VQAClass::Handle_Codebook_Event(void *buf, unsigned num)
 {
-    if (unknown_508 != -1) {
+    if (PrimaryColorMode != -1) {
         Hicolor_Translate(buf, num / 2);
     }
-    unknown_544 = CurrentFrame;
+    Event3Frame = CurrentFrame;
 }
 
 

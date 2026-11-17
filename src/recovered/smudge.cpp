@@ -186,20 +186,17 @@ bool SmudgeClass::Mark(int mark)
 //
 // Body: 3 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void Disown_006877e0(void)
+// Ghidra prototype: void SmudgeClass_Disown(void)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.
 //
 
-namespace seed_006877e0 {
-
-void __stdcall Disown_006877e0(int unused_0)
+void __stdcall SmudgeClass_Disown(int unused_0)
 {
     return;
 }
 
-}  // namespace seed_006877e0
 
 
 /***********************************************************************************************

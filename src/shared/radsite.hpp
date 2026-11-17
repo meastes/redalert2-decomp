@@ -96,13 +96,13 @@ public:
 
     LightSourceClass *LightSource;                  // +0x24
     CDTimerClass<FrameTimerClass> unknown_28;       // +0x28
-    CDTimerClass<FrameTimerClass> unknown_34;       // +0x34
+    CDTimerClass<FrameTimerClass> RadLightTimer;       // +0x34
     Cell BaseCell;                            // +0x40
     int Spread;                                     // +0x44
     int SpreadInLeptons;                            // +0x48 (Spread * 256 + 128)
     int RadLevel;                                   // +0x4C
-    int unknown_50;                                 // +0x50
-    int unknown_54;                                 // +0x54
+    int LevelSteps;                                 // +0x50
+    int Intensity;                                 // +0x54
     int unknown_58;                                 // +0x58 light colour (red; hypothesis)
     int unknown_5c;                                 // +0x5C (green)
     int unknown_60;                                 // +0x60 (blue)

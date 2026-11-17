@@ -5,6 +5,6 @@
 // view (src/recovered/unowned/unknown_has_44_0072c390.cpp) pads 0x44 bytes.
 bool WDTState::Is_Valid() const
 {
-    return unknown_44 != 0;
+    return OwnerHistory != 0;
 }
 

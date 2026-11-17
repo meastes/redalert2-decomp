@@ -151,7 +151,7 @@ int MPCooperative::Unknown_005A2E50()
         unknown_campaigns_40->Get_Record(i, &record);
         for (int m = 0; m < 3; m++) {
             if (unknown_session_a3d298.ScenarioIndex != 0) {
-                char const *scenario = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->unknown_58;
+                char const *scenario = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->Filename;
                 if (_strnicmp(scenario, record->Maps + m * 260, strlen(record->Maps + m * 260)) == 0) {
                     found = i;
                 }
@@ -205,7 +205,7 @@ void MPCooperative::unknown_slot8()
             unknown_campaign_44->Get_Map_Name_0048fb40(&name, 0);
             int i;
             for (i = 0; i < unknown_multi_missions_a3d8d8.Count(); i++) {
-                char const *scenario = unknown_multi_missions_a3d8d8[i]->unknown_58;
+                char const *scenario = unknown_multi_missions_a3d8d8[i]->Filename;
                 if (_strnicmp(scenario, name, strlen(name)) == 0) {
                     unknown_session_a3d298.ScenarioIndex = i;
                     Select_Scenario_005c7c30(i);
@@ -222,15 +222,15 @@ void MPCooperative::unknown_slot8()
             unknown_campaigns_40->Get_Record(index, &record);
             char *name = 0;
             unknown_campaign_44->Get_Map_Name_0048fb40(&name, 0);
-            Debug_Printf("@@@ Looking for %s", unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->unknown_58);
-            char const *scenario = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->unknown_58;
+            Debug_Printf("@@@ Looking for %s", unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->Filename);
+            char const *scenario = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->Filename;
             if (_strnicmp(scenario, name, strlen(name)) != 0) {
                 int other = index == 0;
                 do {
                     unknown_campaign_44->Load_Campaign_0048f590(other);
                     unknown_campaign_44->Load_Campaign_0048f590(index);
                     unknown_campaign_44->Get_Map_Name_0048fb40(&name, 0);
-                    scenario = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->unknown_58;
+                    scenario = unknown_multi_missions_a3d8d8[unknown_session_a3d298.ScenarioIndex]->Filename;
                 } while (_strnicmp(scenario, name, strlen(name)) != 0);
             }
         }
@@ -274,7 +274,7 @@ int MPCooperative::FirstValidMapIndex()
         unknown_campaign_44->Load_Campaign_0048f590(0);
         unknown_campaign_44->Get_Map_Name_0048fb40(&name, 0);
         for (int i = 0; i < unknown_multi_missions_a3d8d8.Count(); i++) {
-            char const *scenario = unknown_multi_missions_a3d8d8[i]->unknown_58;
+            char const *scenario = unknown_multi_missions_a3d8d8[i]->Filename;
             if (_strnicmp(scenario, name, strlen(name)) == 0) {
                 return i;
             }
@@ -988,7 +988,7 @@ void MPCooperative::DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission 
                 if (found != 0) {
                     break;
                 }
-                char const *scenario = (*maps)[k]->unknown_58;
+                char const *scenario = (*maps)[k]->Filename;
                 if (_stricmp(scenario, name) == 0) {
                     found = (*maps)[k];
                 }
@@ -1014,7 +1014,7 @@ void MPCooperative::DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission 
             if (found != 0) {
                 break;
             }
-            char const *scenario = (*maps)[k]->unknown_58;
+            char const *scenario = (*maps)[k]->Filename;
             if (_stricmp(scenario, name) == 0) {
                 found = (*maps)[k];
             }
@@ -1104,7 +1104,7 @@ void MPCooperative::unknown_slot30()
             sprintf(name, "%s.MAP", map);
             int i;
             for (i = 0; i < count; i++) {
-                char const *scenario = unknown_multi_missions_a3d8d8[i]->unknown_58;
+                char const *scenario = unknown_multi_missions_a3d8d8[i]->Filename;
                 if (_stricmp(scenario, name) == 0) {
                     break;
                 }
@@ -1155,7 +1155,7 @@ void MPCooperative::unknown_slot31()
                         if (map != 0) {
                             break;
                         }
-                        char const *scenario = unknown_multi_missions_a3d8d8[i]->unknown_58;
+                        char const *scenario = unknown_multi_missions_a3d8d8[i]->Filename;
                         if (_stricmp(scenario, name) == 0) {
                             map = unknown_multi_missions_a3d8d8[i];
                         }
@@ -1315,7 +1315,7 @@ void MPCooperative::unknown_slot37()
     int count = unknown_multi_missions_a3d8d8.Count();
     sprintf(name, "%s.MAP", map);
     for (int i = 0; i < count; i++) {
-        if (strncmp(name, unknown_multi_missions_a3d8d8[i]->unknown_58, 0x104) == 0) {
+        if (strncmp(name, unknown_multi_missions_a3d8d8[i]->Filename, 0x104) == 0) {
             unknown_session_a3d298.ScenarioIndex = i;
             break;
         }

@@ -65,7 +65,7 @@ public:
     unsigned short const *Get() const;                      // 0x007703F0 (out of line; the unit's callers expand it)
     // The same (a second copy, 0x00770430; MultiplayerTeam passes the team
     // name through it).
-    unsigned short const *unknown_text_770430() const;
+    unsigned short const *text() const;
     unsigned Length() const;                            // 0x007704A0
     // A copy with string appended (0x0076FED0; the new buffer is sized at
     // four bytes per character).

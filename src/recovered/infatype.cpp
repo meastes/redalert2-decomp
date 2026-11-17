@@ -514,7 +514,7 @@ static inline TypeList<AnimTypeClass *> Get_Anim_List(CCINIClass &ini, char cons
  *=============================================================================================*/
 bool InfantryTypeClass::Read_INI(CCINIClass &ini)
 {
-    unknown_a9b = false;
+    IsDamageSparks = false;
     if (TechnoTypeClass::Read_INI(ini)) {
         Pip = ini.Get_PipType(ID, "Pip", Pip);
         VoiceComment = Get_Voc_List(ini, ID, "VoiceComment", VoiceComment);
@@ -523,7 +523,7 @@ bool InfantryTypeClass::Read_INI(CCINIClass &ini)
         Cyborg = ini.Get_Bool(ID, "Cyborg", Cyborg);
         NotHuman = ini.Get_Bool(ID, "NotHuman", NotHuman);
         if (Cyborg) {
-            unknown_a9b = true;
+            IsDamageSparks = true;
         }
         EnterWaterSound = Get_Sound(ini, ID, "EnterWaterSound", EnterWaterSound);
         LeaveWaterSound = Get_Sound(ini, ID, "LeaveWaterSound", LeaveWaterSound);

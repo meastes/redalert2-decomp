@@ -84,9 +84,9 @@ protected:
     Rect SurfaceBackgroundRect;          // +0x5C
     BSurface *SidebarBackground;         // +0x6C same for the sidebar surface
     Rect SidebarBackgroundRect;          // +0x70
-    Rect unknown_80;                     // +0x80 initialized empty, otherwise unused here
-    int unknown_90;                      // +0x90 initialized to -1, otherwise unused here
-    int unknown_94;                      // +0x94 initialized to 0, otherwise unused here
+    Rect ConditionalRect;                     // +0x80 initialized empty, otherwise unused here
+    int ConditionalState;                      // +0x90 initialized to -1, otherwise unused here
+    int TimerHandle;                      // +0x94 initialized to 0, otherwise unused here
 };
 
 // Shared state of the mouse thread (0x00B2AF30; the thread's parameter).

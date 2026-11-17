@@ -1074,7 +1074,7 @@ bool INIClass::Put_Unicode(char const *section, char const *entry, unsigned shor
 
 bool INIClass::Put_Unicode(Wstring const &section, Wstring const &entry, WideString const &string)
 {
-    return Put_Unicode(section.Peek_Buffer(), entry.Peek_Buffer(), string.unknown_text_770430());
+    return Put_Unicode(section.Peek_Buffer(), entry.Peek_Buffer(), string.text());
 }
 
 

@@ -22,14 +22,14 @@ public:
     char *ShortLabel;                         // +0x08
     char *LongLabel;                          // +0x0C
     char *unknown_10;                         // +0x10
-    unsigned char unknown_14;                       // +0x14
+    unsigned char MapID;                       // +0x14
     unsigned unknown_18;                            // +0x18 (CYID)
     unsigned unknown_1c;                            // +0x1C (TOTK/CYLN, plus one)
     unsigned unknown_20;                            // +0x20
     unsigned ConflictCount;                         // +0x24
     unsigned unknown_28; // +0x28 (TICC), added to time(0) by OnWDTState
     DynamicVectorClass<rc_ptr<WDTTerritory> > Territories;  // +0x2C
-    void **unknown_44;                              // +0x44
+    void **OwnerHistory;                              // +0x44
 #ifdef WDT_STATE_DECLARE_CONSTRUCTORS
     unsigned char unknown_48;                       // +0x48 (Is_Previous_Cycle 0x0072C3A0; size 0x4C, WDTState::Create)
 #endif

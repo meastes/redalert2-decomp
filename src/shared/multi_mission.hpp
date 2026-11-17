@@ -36,7 +36,7 @@ public:
     // TibSun's inline accessors (session.h MultiMission), only where shared/modem_host.hpp asks for them (the
     // WOnline.cpp unit's register ties move when MultiMission gains members). Get_Official gives
     // Send_Options 0x0059BC90 its vector-before-index load.
-    char const *Get_Filename() const { return unknown_58; }
+    char const *Get_Filename() const { return Filename; }
     char const *Get_Digest() const { return Digest; }
     bool Get_Official() { return IsOfficial; }
 #endif
@@ -58,7 +58,7 @@ public:
     bool Supports_Game_Mode(Wstring &mode);
 
     unsigned short Description[0x2C];      // +0x00 the map's description (ModemGuest 0x00597E50 shows it)
-    char unknown_58[0x15C - 0x58];          // +0x58 the map's file name (the cooperative campaign records list it)
+    char Filename[0x15C - 0x58];          // +0x58 the map's file name (the cooperative campaign records list it)
     char Digest[0x17C - 0x15C];        // +0x15C the map's digest (ModemHost 0x0059BC90 sends it)
     bool IsOfficial;                       // +0x17C official map (sent as the options IsOfficial bit; a game mode test is skipped when false and 0x0073C370 agrees)
     char unknown_17d[0x180 - 0x17D];

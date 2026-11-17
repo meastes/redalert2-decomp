@@ -1583,7 +1583,7 @@ PathStruct *AStarClass::Find_Path(Cell const &from, Cell const &to, FootClass *f
     bool with_hs;
     if (foot->Techno_Type_Class()->IsTrain) {
         with_hs = false;
-    } else if (!foot->unknown_32d || foot->unknown_slot189()) {
+    } else if (!foot->IsLocked || foot->unknown_slot189()) {
         with_hs = false;
     } else if (!Map.In_Local_Radar(hs_from, true) || !Map.In_Local_Radar(hs_to, true)) {
         with_hs = false;

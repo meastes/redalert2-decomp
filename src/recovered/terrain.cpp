@@ -132,7 +132,7 @@ int TerrainClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhe
                 new AnimClass(Select_Damage_Anim(100, Rules->C4Warhead, Land_Type_At(Get_Coord(this)), &Get_Coord(this)), Get_Coord(this), 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(Get_Coord(this)));
                 Explosion_Damage(Get_Coord(this), 100, 0, Rules->C4Warhead, 1);
                 Get_Cell().Chain_Reaction_Damage();
-            } else if (unknown_b4) {
+            } else if (IsOnFire) {
                 Shorten_Attached_Anims(this);
             } else {
                 Start_Crumbling();
@@ -154,8 +154,8 @@ int TerrainClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhe
 
 TerrainClass::TerrainClass(TerrainTypeClass *type, Cell const &cell) :
     Class(type),
-    unknown_b4(false),
-    unknown_b5(false),
+    IsOnFire(false),
+    IsCrumbling(false),
     unknown_b8(0, 0, 0, 0)
 {
     AbstractClass::Create_ID();
@@ -178,8 +178,8 @@ TerrainClass::TerrainClass(TerrainTypeClass *type, Cell const &cell) :
 
 TerrainClass::TerrainClass() :
     Class(0),
-    unknown_b4(false),
-    unknown_b5(false),
+    IsOnFire(false),
+    IsCrumbling(false),
     unknown_b8(0, 0, 0, 0)
 {
     Terrains.Add(this);
@@ -272,7 +272,7 @@ void TerrainClass::Set_Occupy_Bit(CoordStruct const &coord)
 // The object is animated or crumbling (local helper; slot 67's shadow flags).
 static inline bool Is_Animating(TerrainClass const *terrain)
 {
-    return terrain->Class->IsAnimated || terrain->unknown_b5;
+    return terrain->Class->IsAnimated || terrain->IsCrumbling;
 }
 
 void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
@@ -284,8 +284,8 @@ void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
         int frame = 0;
         if (Class->IsAnimated) {
             frame = Animation.Value;
-        } else if (unknown_b5) {
-            frame = Animation.Value + unknown_b5;
+        } else if (IsCrumbling) {
+            frame = Animation.Value + IsCrumbling;
         } else if (Strength < 2) {
             frame = 1;
         }
@@ -329,8 +329,8 @@ void TerrainClass::Editor_Draw_It(Point2D const &point, Rect const &window)
     ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
     if (shape != 0) {
         int frame = 0;
-        if (unknown_b5) {
-            frame = Animation.Value + unknown_b5;
+        if (IsCrumbling) {
+            frame = Animation.Value + IsCrumbling;
         }
         Point2D position = point;
         int height = -Tactical_Z_Lepton_To_Pixel(Get_Height());
@@ -397,14 +397,14 @@ int TerrainClass::Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass 
 
 bool TerrainClass::Catch_Fire()
 {
-    if (!unknown_b5 && !unknown_b4 && Class->Armor == 6 && !Class->SpawnsTiberium) {
+    if (!IsCrumbling && !IsOnFire && Class->Armor == 6 && !Class->SpawnsTiberium) {
         int pick = Scen->Random()();
         AnimClass *anim = new AnimClass(Rules->TreeFire[pick & 1], Center_Coord() + CoordStruct(0, 0, 80), 0, 255, 0x600, 0);
         if (anim) {
             anim->Attach_To(this);
         }
         anim->ZAdjust -= 20;
-        unknown_b4 = true;
+        IsOnFire = true;
         return true;
     }
     return false;
@@ -416,9 +416,9 @@ bool TerrainClass::Catch_Fire()
 
 void TerrainClass::Fire_Out()
 {
-    if (unknown_b4) {
-        unknown_b4 = false;
-        if (!unknown_b5 && Strength == 0) {
+    if (IsOnFire) {
+        IsOnFire = false;
+        if (!IsCrumbling && Strength == 0) {
             unknown_slot54(1);
             Mark(2);
             Start_Crumbling();
@@ -446,7 +446,7 @@ void TerrainClass::AI()
         }
     }
     if (Animation.Graphic_Logic()) {
-        if (unknown_b5) {
+        if (IsCrumbling) {
             if (Animation.Fetch_Stage() == ((ShapeFileStruct const *)Class->Get_Image_Data())->FrameCount - 1) {
                 Delete_Me();
                 return;
@@ -470,8 +470,8 @@ void TerrainClass::AI()
 
 void TerrainClass::Start_Crumbling()
 {
-    if (!unknown_b5) {
-        unknown_b5 = true;
+    if (!IsCrumbling) {
+        IsCrumbling = true;
         Animation.Set_Rate(2);
         Animation.Value = 0;
     }
@@ -636,8 +636,8 @@ void TerrainClass::Compute_CRC(WWCRCEngine &crc) const
     ObjectClass::Compute_CRC(crc);
     crc((long)Class->Kind_Of());
     crc(Class->Fetch_ID());
-    crc(unknown_b4);
-    crc(unknown_b5);
+    crc(IsOnFire);
+    crc(IsCrumbling);
     crc((long)unknown_b8.X);
     crc((long)unknown_b8.Y);
 }

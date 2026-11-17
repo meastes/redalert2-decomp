@@ -15,7 +15,7 @@ void UnknownUnit5C4::unknown_4b25c0()
 {
     EBolt *bolt = (EBolt *)this;
     if (bolt->Owner) {
-        bolt->Owner->unknown_5c4 = 0;
+        bolt->Owner->ElectricBolt = 0;
         bolt->Owner = 0;
     }
 }

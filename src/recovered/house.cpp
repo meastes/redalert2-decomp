@@ -608,7 +608,7 @@ long __stdcall HouseClass::Category_Power(int category)
         TechnoClass *techno = Technos[index];
         TechnoTypeClass *type = techno->Techno_Type_Class();
         if (techno->House == this && type->Category == category) {
-            power += type->unknown_59c + type->ThreatPosed;
+            power += type->Reward + type->ThreatPosed;
         }
     }
     return power;
@@ -625,7 +625,7 @@ long __stdcall HouseClass::Public_Category_Power(int category)
         TechnoClass *techno = Technos[index];
         TechnoTypeClass *type = techno->Techno_Type_Class();
         if (techno->House == this && type->Category == category) {
-            power += type->unknown_59c + type->ThreatPosed;
+            power += type->Reward + type->ThreatPosed;
         }
     }
     return power;
@@ -783,7 +783,7 @@ static inline int House_Owner_Bit(HouseTypeClass const *type)
 int HouseClass::Can_Build(TechnoTypeClass const *type, bool forced, bool include_in_progress)
 {
     if (!forced) {
-        if (type->unknown_aa4) {
+        if (type->IsUnbuildable) {
             return 0;
         }
         TypeList<int> over = type->PrerequisiteOverride;
@@ -1851,7 +1851,7 @@ bool HouseClass::Unknown_004E6950(int kind, int index, bool naval, Cell const &c
                         Abandon_Production(kind, index, naval);
                         placed = true;
                         if (PlayerPtr == this) {
-                            if (tech->IsActive && !tech->unknown_373) tech->Revealed(this);
+                            if (tech->IsActive && !tech->IsDiscoveredByPlayer) tech->Revealed(this);
                             Voc_Play(Rules->BuildingSlam, 1.0f, 0x2000, 0);
                             if (!Debug_Map) {
                                 Map.Set_Cursor_Shape(0);
@@ -3052,7 +3052,7 @@ int HouseClass::AI_Unit()
         TeamClass *team = Teams[index];
         if (team != 0) {
             TeamTypeClass *type = team->Class;
-            int age = team->unknown_50;
+            int age = team->CreationFrame;
             if (((type->Reinforce && !team->IsFullStrength) || (!team->IsForcedActive && !team->IsHasBeen)) && team->Owner == this) {
                 DynamicVectorClass<TechnoTypeClass *> needed;
                 team->Team_Members(needed);
@@ -3121,7 +3121,7 @@ int HouseClass::AI_Infantry()
         TeamClass *team = Teams[index];
         if (team != 0) {
             TeamTypeClass *type = team->Class;
-            int age = team->unknown_50;
+            int age = team->CreationFrame;
             if (((type->Reinforce && !team->IsFullStrength) || (!team->IsForcedActive && !team->IsHasBeen)) && team->Owner == this) {
                 DynamicVectorClass<TechnoTypeClass *> needed;
                 team->Team_Members(needed);
@@ -3190,7 +3190,7 @@ int HouseClass::AI_Aircraft()
         TeamClass *team = Teams[index];
         if (team != 0) {
             TeamTypeClass *type = team->Class;
-            int age = team->unknown_50;
+            int age = team->CreationFrame;
             if (((type->Reinforce && !team->IsFullStrength) || (!team->IsForcedActive && !team->IsHasBeen)) && team->Owner == this) {
                 DynamicVectorClass<TechnoTypeClass *> needed;
                 team->Team_Members(needed);
@@ -3251,7 +3251,7 @@ int HouseClass::AI_Aircraft()
 
 void HouseClass::Tracking_Remove(TechnoClass *techno)
 {
-    techno->unknown_324 = false;
+    techno->CountedAsOwned = false;
     if (!techno->Techno_Type_Class()->IsInsignificant) {
         switch (techno->Kind_Of()) {
         case 6:
@@ -3292,7 +3292,7 @@ void HouseClass::Tracking_Remove(TechnoClass *techno)
 
 void HouseClass::Tracking_Add(TechnoClass *techno)
 {
-    techno->unknown_324 = true;
+    techno->CountedAsOwned = true;
     if (!techno->Techno_Type_Class()->IsInsignificant) {
         switch (techno->Kind_Of()) {
         case 6: {
@@ -4232,9 +4232,9 @@ void HouseClass::unknown_func_4ec9b0()
     if (count != 0) {
         for (int index = 0; index < count; index++) {
             UnknownBuildingView *building = (UnknownBuildingView *)CurrentObject[index];
-            if (building != 0 && building->Kind_Of() == 6 && !building->unknown_372 &&
+            if (building != 0 && building->Kind_Of() == 6 && !building->IsOwnedByPlayer &&
                 ((UnknownBuildingTypeView *)building->Type)->unknown_c68 > 0 &&
-                (building->unknown_1a8 & (1 << PlayerPtr->Type->House)) != 0) {
+                (building->SpiedBy & (1 << PlayerPtr->Type->House)) != 0) {
                 building->Mark(2);
             }
         }
@@ -6012,7 +6012,7 @@ void HouseClass::Recalc_Power_004f2cc0()
     for (int index = 0; index < count; ++index) {
         BuildingClass *building = Buildings[index];
         if (building && !building->IsInLimbo && building->IsDown) {
-            if (!Is_Player_Control() || building->unknown_373 || unknown_game_mode_a3d298 != 0) {
+            if (!Is_Player_Control() || building->IsDiscoveredByPlayer || unknown_game_mode_a3d298 != 0) {
                 Power += building->unknown_449d40();
                 Drain += building->unknown_449dd0();
             }
@@ -6047,10 +6047,10 @@ void HouseClass::unknown_func_4f2e50()
                     BuildingClass *building = Buildings[index];
                     if (building != 0 && building->IsOn && building->Type->Radar && !building->IsInLimbo
                         && building->IsDown
-                        && ((unknown_game_mode_a3d298 == 0 && !unknown_134 && !IsPlayerControl) || building->unknown_373
+                        && ((unknown_game_mode_a3d298 == 0 && !unknown_134 && !IsPlayerControl) || building->IsDiscoveredByPlayer
                             || unknown_game_mode_a3d298 != 0)
                         && building->Mission != 0x13 && building->MissionQueue != 0x13) {
-                        if (building->unknown_3fc == 0 && !building->unknown_slot111()) {
+                        if (building->StunDuration == 0 && !building->unknown_slot111()) {
                             radar = true;
                         }
                         break;
@@ -6080,7 +6080,7 @@ void HouseClass::unknown_func_4f2fc0()
         for (int index = 0; index < Buildings.Count(); index++) {
             BuildingClass *building = Buildings[index];
             if (building != 0 && building->Type->SpySat && !building->IsInLimbo && building->IsDown
-                && ((unknown_game_mode_a3d298 == 0 && !unknown_134 && !IsPlayerControl) || building->unknown_373
+                && ((unknown_game_mode_a3d298 == 0 && !unknown_134 && !IsPlayerControl) || building->IsDiscoveredByPlayer
                     || unknown_game_mode_a3d298 != 0)
                 && building->Mission != 0x13 && building->MissionQueue != 0x13) {
                 if (!unknown_566a) {
