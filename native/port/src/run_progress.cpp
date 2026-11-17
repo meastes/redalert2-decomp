@@ -1,0 +1,555 @@
+// Start-up progress for test runs (ra2-native --run-to=<milestone>). The port
+// sees every file, window, DirectDraw object and dialog the game asks for, so
+// it names how far start-up got without touching recovered code. A run ends
+// by itself: at the requested milestone, at the first link-closure trap, on a
+// fault, or at the time limit (--run-seconds, default 5), always printing the
+// summary to stderr. Diagnostics only; the game never depends on it.
+#include "ra2port/win32_port.hpp"
+#include "os.hpp"
+
+#include <chrono>
+#include <condition_variable>
+#include <execinfo.h>
+#include <map>
+#include <pthread.h>
+#include <mutex>
+#include <signal.h>
+#include <dlfcn.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <string>
+#include <strings.h>
+#include <thread>
+#include <unistd.h>
+#include <vector>
+
+extern "C" long long ra2port_now_ms(void);           // user32.cpp
+extern "C" thread_local uint64_t ra2port_slept_ns;   // win32_time.cpp: this thread's Sleep time
+static const auto process_start = std::chrono::steady_clock::now();
+
+namespace ra2port {
+
+namespace {
+
+// Milestones in start-up order; "furthest" is the latest one reached.
+const char *const ORDER[] = {
+    "main",       // host main: every static initialiser has run
+    "winmain",    // the recovered WinMain is entered
+    "ini",        // RA2.INI opened (WinMain's configuration)
+    "mix",        // the first MIX file opened (LANGUAGE.MIX: keys, then mix init)
+    "strings",    // the string table (ra2.csf) opened
+    "window",     // the main window created
+    "ddraw",      // DirectDrawCreate
+    "primary",    // the primary surface created (first DirectDraw surface)
+    "surfaces",   // an off-screen surface after the primary (Allocate_Surfaces)
+    "dialog",     // the first dialog requested (owner-drawn menus: templates)
+    "present",    // the first frame presented
+    "init",       // Init_Game returned success (Main_Game goes on to Select_Game)
+    "menu",       // the main menu shown (not detected yet: a dialog, blocked with the templates)
+    "scenario",   // --skirmish: Start_Scenario loaded the map (Select_Game returned true)
+    "frame",      // --skirmish: the first Main_Loop iteration returned
+    "frames",     // --skirmish: --skirmish-frames=N iterations returned (--frames=N: a game from the menus)
+    "menu-return",// the main menu shown again after a game (Scout1119, M14)
+};
+const int ORDER_COUNT = sizeof(ORDER) / sizeof(ORDER[0]);
+
+struct State {
+    std::mutex lock;
+    bool active = false;
+    std::string target;
+    int seconds = 5;
+    std::chrono::steady_clock::time_point start;
+    std::vector<std::pair<std::string, std::string>> reached;   // milestone, detail (+ms)
+    std::map<std::string, std::vector<std::string>> counters;
+    bool done = false;
+    bool retired = false;   // the combined app's swap ended this engine (lane Y5): its watchdog stands down
+    std::condition_variable retire_cv;   // wakes the watchdog when retired (lane Y9)
+    std::thread *watchdog = nullptr;     // joined by ra2port_stop_threads (lane Y9)
+};
+// Never destroyed: the watchdog thread outlives exit handlers (the combined app runs an ended
+// engine's handlers while its thread still sleeps, lane Y5).
+State &state() { static State *s = new State; return *s; }
+
+int order_of(const std::string &m)
+{
+    for (int i = 0; i < ORDER_COUNT; ++i)
+        if (m == ORDER[i]) return i;
+    return -1;
+}
+
+long elapsed_ms()
+{
+    return (long)std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now() - state().start).count();
+}
+
+}  // namespace
+}  // namespace ra2port
+extern "C" int ra2port_last_frame(void);   // below
+// A coverage build's dump (diagnostics only; nothing in an ordinary build): also called by the
+// host's quit, which ends with _exit (an input script's "quit", a LAN pair's instances; lane C21).
+extern "C" void ra2port_coverage_dump(void)
+{
+    static bool dumped = false;
+    if (dumped) return;
+    if (void (*dump)(void) = (void (*)(void))dlsym(RTLD_DEFAULT, "__sanitizer_cov_dump")) {
+        dumped = true;
+        dump();
+    }
+}
+namespace ra2port {
+namespace {
+void summary_locked(const char *stop)
+{
+    State &s = state();
+    if (s.done) return;
+    s.done = true;
+    // A coverage build (-fsanitize-coverage=func,trace-pc-guard, linked with
+    // -fsanitize=undefined; UBSAN_OPTIONS=coverage=1) writes its .sancov file at
+    // exit, which the runs' _exit skips: dump it here (diagnostics only; looked
+    // up at run time so ordinary builds reference no sanitizer symbol).
+    if (void (*dump)(void) = (void (*)(void))dlsym(RTLD_DEFAULT, "__sanitizer_cov_dump")) {
+        ra2port_coverage_dump();
+        // The program's load address, so the dumped PCs map to its symbols (ASLR; lane C16 audit).
+        Dl_info self = {};
+        if (dladdr((void *)&elapsed_ms, &self)) fprintf(stderr, "run-to: coverage image base %p\n", self.dli_fbase);
+    }
+    int furthest = -1;
+    std::string last;
+    for (auto &r : s.reached) {
+        int o = order_of(r.first);
+        if (o > furthest) { furthest = o; last = r.first; }
+    }
+    fprintf(stderr, "run-to: target %s; stopped: %s after %ld ms; furthest milestone: %s\n",
+            s.target.c_str(), stop, elapsed_ms(), furthest >= 0 ? last.c_str() : "(none)");
+    // The game frames run (lane C16: a run stopped by its time limit says how far the game got,
+    // so a test tells a slow machine from a stall).
+    fprintf(stderr, "run-to:   frames run %d\n", ra2port_last_frame());
+    for (auto &r : s.reached)
+        fprintf(stderr, "run-to:   milestone %-9s %s\n", r.first.c_str(), r.second.c_str());
+    for (auto &c : s.counters) {
+        fprintf(stderr, "run-to:   %s: %zu", c.first.c_str(), c.second.size());
+        size_t shown = 0;
+        for (auto &d : c.second) {
+            if (shown++ == 40) { fprintf(stderr, " ..."); break; }
+            fprintf(stderr, "%s%s", shown == 1 ? " (" : ", ", d.c_str());
+        }
+        fprintf(stderr, "%s\n", c.second.empty() ? "" : ")");
+    }
+    fflush(stderr);
+}
+
+pthread_t main_thread;
+
+// Time limit: the main thread prints where it is (a stall, e.g. a wait loop).
+void on_stall(int)
+{
+    void *frames[48];
+    int n = backtrace(frames, 48);
+    fprintf(stderr, "run-to: main thread at the time limit:\n");
+    backtrace_symbols_fd(frames, n, 2);
+}
+
+void on_signal(int sig, siginfo_t *info, void *context)
+{
+    // Best effort from a signal handler: the run is ending anyway. The faulting
+    // pc and address (a frameless leaf does not appear in the backtrace).
+    char what[128];
+    uintptr_t pc = 0, lr = 0, frame = 0;
+    bool registers = os::fault_registers(context, &pc, &lr, &frame);
+    Dl_info where = {};
+    if (pc) dladdr((void *)pc, &where);
+    snprintf(what, sizeof what, "signal %d at %s+%ld (fault address %p)", sig,
+             where.dli_sname ? where.dli_sname : "?", where.dli_sname ? (long)(pc - (uintptr_t)where.dli_saddr) : 0L,
+             info ? info->si_addr : nullptr);
+    summary_locked(what);
+    void *frames[48];
+    int n = backtrace(frames, 48);
+    backtrace_symbols_fd(frames, n, 2);
+    // A call through a bad pointer leaves pc outside any image, and backtrace()
+    // stops there: walk the faulting thread's frame chain from the context.
+    if (registers && !where.dli_sname) {
+        uintptr_t *fp = (uintptr_t *)frame;
+        char line[256];
+        for (int i = 0; i < 24; ++i) {
+            Dl_info at = {};
+            dladdr((void *)lr, &at);
+            int len = snprintf(line, sizeof line, "fault frame %d: %s+%ld\n", i, at.dli_sname ? at.dli_sname : "?",
+                               at.dli_sname ? (long)(lr - (uintptr_t)at.dli_saddr) : 0L);
+            if (len > 0) write(2, line, (size_t)len < sizeof line ? (size_t)len : sizeof line - 1);
+            if (!fp || ((uintptr_t)fp & 7)) break;
+            lr = fp[1];
+            fp = (uintptr_t *)fp[0];
+        }
+    }
+    _exit(4);
+}
+
+}  // namespace
+
+void progress(const char *milestone, const char *detail)
+{
+    State &s = state();
+    if (!s.active) {
+        // RA2_NATIVE_PROGRESS_LOG=1 (test diagnostics, Scout1295): the milestones of a run
+        // without --run-to (the app, a LAN pair) on stderr, each time it is reached.
+        static const bool log = getenv("RA2_NATIVE_PROGRESS_LOG") != nullptr;
+        if (log) fprintf(stderr, "progress: %s%s%s\n", milestone, detail ? "  " : "", detail ? detail : "");
+        return;
+    }
+    std::lock_guard<std::mutex> g(s.lock);
+    bool primary = false;
+    for (auto &r : s.reached) {
+        if (r.first == milestone) return;
+        if (r.first == "primary") primary = true;
+    }
+    // "surfaces" counts the off-screen surfaces made after the primary one.
+    if (!strcmp(milestone, "surfaces") && !primary) return;
+    char text[512];
+    snprintf(text, sizeof text, "+%ld ms%s%s", elapsed_ms(), detail ? "  " : "", detail ? detail : "");
+    s.reached.emplace_back(milestone, text);
+    fprintf(stderr, "run-to: reached %s %s\n", milestone, text);
+    if (s.target == milestone) {
+        summary_locked("target reached");
+        _exit(0);
+    }
+}
+
+void progress_count(const char *counter, const char *detail)
+{
+    State &s = state();
+    if (!s.active) return;
+    {
+        std::lock_guard<std::mutex> g(s.lock);
+        auto &v = s.counters[counter];
+        std::string d = detail ? detail : "";
+        bool seen = false;
+        for (auto &x : v) if (x == d) { seen = true; break; }
+        if (!seen) v.push_back(d);
+    }
+    // File-name milestones.
+    if (detail && !strcmp(counter, "files opened")) {
+        const char *base = detail;
+        for (const char *p = detail; *p; ++p) if (*p == '\\' || *p == '/') base = p + 1;
+        size_t n = strlen(base);
+        if (!strcasecmp(base, "ra2.ini")) progress("ini", detail);
+        else if (n > 4 && !strcasecmp(base + n - 4, ".mix")) progress("mix", detail);
+        else if (n > 4 && !strcasecmp(base + n - 4, ".csf")) progress("strings", detail);
+    }
+}
+
+}  // namespace ra2port
+
+extern "C" {
+
+// --run-to=<milestone> [--run-seconds=N]: arms the progress log, the watchdog
+// and the fault summary. Unknown milestone names are accepted (they are never
+// reached, so the run ends at a trap, a fault or the time limit).
+void ra2port_run_to(const char *target, int seconds)
+{
+    using namespace ra2port;
+    State &s = state();
+    s.active = true;
+    s.target = target ? target : "";
+    s.seconds = seconds > 0 ? seconds : 5;
+    s.start = std::chrono::steady_clock::now();
+    struct sigaction action = {};
+    action.sa_sigaction = on_signal;
+    action.sa_flags = SA_SIGINFO;
+    sigemptyset(&action.sa_mask);
+    for (int sig : {SIGSEGV, SIGBUS, SIGILL, SIGFPE, SIGABRT}) sigaction(sig, &action, nullptr);
+    main_thread = pthread_self();
+    signal(SIGUSR2, on_stall);
+    State *run = &s;
+    s.watchdog = new std::thread([run] {
+        {
+            std::unique_lock<std::mutex> g(run->lock);
+            if (run->retire_cv.wait_for(g, std::chrono::seconds(run->seconds), [run] { return run->retired; })) return;
+        }
+        pthread_kill(main_thread, SIGUSR2);
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
+        {
+            std::lock_guard<std::mutex> g(state().lock);
+            char what[48];
+            snprintf(what, sizeof what, "time limit (%d s)", state().seconds);
+            summary_locked(what);
+        }
+        _exit(2);
+    });
+}
+
+int ra2port_run_active(void) { return ra2port::state().active ? 1 : 0; }
+
+// The combined app (lane Y5): this engine ended for a swap; the next engine's run carries on with
+// the time left (the thin host passes it), and this one's watchdog does nothing more.
+void ra2port_run_retire(void)
+{
+    using namespace ra2port;
+    std::lock_guard<std::mutex> g(state().lock);
+    state().retired = true;
+    state().active = false;
+    state().retire_cv.notify_all();
+}
+
+int ra2port_stop_timers(void);                                  // gdi_winmm_advapi.cpp
+int ra2port_wait_game_threads(unsigned ms, void **left, int max);  // kernel32.cpp
+}
+bool ra2port_stop_async_select();                               // wsock32.cpp
+extern "C" {
+
+// The one-game app (lane Y9; native/yr/README.md "iOS in one executable" item 5): this engine has
+// ended (WinMain returned) and its code stays live for the game's next start, which resets the
+// game's data in place, so none of its threads may still run: the multimedia timers it left
+// (stopped and joined), the WSAAsyncSelect thread (joined), the run's watchdog (retired, joined),
+// and the game's own CreateThread threads (waited for: they end with the game's shutdown; any
+// still running after the wait is named in the log).
+int ra2port_stop_threads(void)
+{
+    using namespace ra2port;
+    int timers = ra2port_stop_timers();
+    bool sockets = ra2port_stop_async_select();
+    std::thread *watchdog = nullptr;
+    {
+        std::lock_guard<std::mutex> g(state().lock);
+        state().retired = true;
+        state().active = false;
+        watchdog = state().watchdog;
+        state().watchdog = nullptr;
+    }
+    state().retire_cv.notify_all();
+    bool had_watchdog = watchdog != nullptr;
+    if (watchdog && watchdog->joinable()) watchdog->join();
+    delete watchdog;
+    void *left[16] = {};
+    int running = ra2port_wait_game_threads(3000, left, 16);
+    fprintf(stderr, "engine: threads stopped: %d timer(s)%s%s, %d game thread(s) still running\n", timers,
+            sockets ? ", the socket thread" : "", had_watchdog ? ", the watchdog" : "", running);
+    for (int i = 0; i < running && i < 16; ++i) {
+        Dl_info info = {};
+        fprintf(stderr, "engine: game thread still running: %p %s\n", left[i], dladdr(left[i], &info) && info.dli_sname ? info.dli_sname : "");
+    }
+    return running;
+}
+
+// Milestones reported from the dialect side (native/link/harness_skirmish.cpp).
+void ra2port_progress(const char *milestone, const char *detail) { ra2port::progress(milestone, detail); }
+
+// --skirmish=<map> [--skirmish-frames=N] (platform/sdl/main.cpp): the test
+// harness that starts a skirmish without the menu dialogs.
+namespace { const char *skirmish_map = nullptr; int skirmish_frames = 1; }
+void ra2port_set_skirmish(const char *map, int frames)
+{
+    skirmish_map = map;
+    // 0: interactive play (--play): no frame limit.
+    skirmish_frames = frames > 0 ? frames : frames == 0 ? 0x7FFFFFFF : 1;
+}
+const char *ra2port_skirmish_map(void) { return skirmish_map; }
+// --skirmish-order=<kind>[@<frame>] (link/harness_orders.cpp).
+namespace { const char *skirmish_order = nullptr; }
+void ra2port_set_skirmish_order(const char *order) { skirmish_order = order; }
+// Also for a game started from the menus (Scout1121: the hunt order of the
+// menu-to-score loop).
+const char *ra2port_skirmish_order(void) { return skirmish_order; }
+int ra2port_skirmish_frames(void) { return skirmish_frames; }
+// Scripted input points (platform/sdl/host.cpp): the skirmish harness
+// registers the resolver of "@ID[:n][+dx,dy]" (link/harness_input.cpp).
+namespace { int (*point_resolver)(const char *, int *, int *) = nullptr; }
+void ra2port_set_point_resolver(int (*resolver)(const char *spec, int *x, int *y)) { point_resolver = resolver; }
+extern "C" int ra2port_top_dialog_control_center(int id, int *x, int *y);   // user32.cpp
+// "ctl=<id>" (lane C22): the top dialog's control with that id (menus, any screen size); else the
+// game's resolver (harness_input.cpp: the player's objects, the sidebar).
+int ra2port_resolve_point(const char *spec, int *x, int *y)
+{
+    if (!strncmp(spec, "ctl=", 4)) return ra2port_top_dialog_control_center(atoi(spec + 4), x, y);
+    return point_resolver ? point_resolver(spec, x, y) : 0;
+}
+// A Main_Loop frame began (link/harness_skirmish.cpp): the host plays the
+// scripted input due at it (--input-script).
+namespace { int last_frame = 0; }
+int ra2port_last_frame(void) { return last_frame; }
+// --frames=N without --skirmish (Scout1119, M14): a game started from the
+// menus reports milestone `frames` after N Main_Loop frames.
+void ra2port_set_frames(int frames) { if (!skirmish_map) skirmish_frames = frames > 0 ? frames : 0x7FFFFFFF; }
+void ra2port_frame(int frame)
+{
+    last_frame = frame;
+    // RA2_NATIVE_PERF_LOG=1 (diagnostics, Scout1209): when a game's first Main_Loop
+    // frame runs (steady ms, the input script's clock; ms since the process
+    // started) and the main thread's sleeps so far.
+    static int perf_log = -1;
+    if (perf_log < 0) perf_log = getenv("RA2_NATIVE_PERF_LOG") ? 1 : 0;
+    if (perf_log) {
+        static int perf_last = -1;
+        if (perf_last < 0 || frame < perf_last)
+            fprintf(stderr, "perf: Main_Loop frame %d at steady %lld ms (%.0f ms after start), main thread slept %.0f ms\n", frame,
+                    ra2port_now_ms(), std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - process_start).count(),
+                    ra2port_slept_ns / 1e6);
+        if (perf_last < 0 || frame < perf_last)
+            fprintf(stderr, "perf: file system so far: %lu stat, %lu directory reads, %lu opens, %lu reads, %lu seeks\n",
+                    ra2port::fs_op_count(ra2port::FS_STAT), ra2port::fs_op_count(ra2port::FS_LIST), ra2port::fs_op_count(ra2port::FS_OPEN), ra2port::fs_op_count(ra2port::FS_READ), ra2port::fs_op_count(ra2port::FS_SEEK));
+        perf_last = frame;
+    }
+    // RA2_NATIVE_FPS_LOG=1: Main_Loop frames per wall-clock second on stderr
+    // (any run, --play too): the frame limiter's check (Sync_Delay 0x00540960).
+    static int fps_log = -1;
+    if (fps_log < 0) fps_log = getenv("RA2_NATIVE_FPS_LOG") ? 1 : 0;
+    if (fps_log) {
+        static auto start = std::chrono::steady_clock::now();
+        static int start_frame = frame;
+        double s = std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count();
+        if (s >= 5.0) {
+            fprintf(stderr, "fps: %.1f (frames %d..%d in %.2f s)\n", (frame - start_frame) / s, start_frame, frame, s);
+            start = std::chrono::steady_clock::now();
+            start_frame = frame;
+        }
+    }
+    const ra2port::Host *h = ra2port::host();
+    if (h && h->frame) h->frame(frame);
+}
+
+// The run ended another way (WinMain returned): print the summary.
+void ra2port_run_end(const char *why)
+{
+    using namespace ra2port;
+    if (!state().active) return;
+    std::lock_guard<std::mutex> g(state().lock);
+    summary_locked(why);
+}
+
+// Called by the link-closure traps (gen/link_closure.c): unrecovered code was
+// reached. Under --run-to the run ends here with the summary.
+void ra2port_trap_reached(const char *name)
+{
+    using namespace ra2port;
+    State &s = state();
+    if (!s.active) return;
+    {
+        std::lock_guard<std::mutex> g(s.lock);
+        s.counters["traps"].push_back(name);
+    }
+    if (getenv("RA2_NATIVE_TRAP_CONTINUE")) return;
+    std::lock_guard<std::mutex> g(s.lock);
+    std::string what = std::string("unrecovered ") + name;
+    summary_locked(what.c_str());
+    void *frames[48];                       // the trap's callers
+    int n = backtrace(frames, 48);
+    backtrace_symbols_fd(frames, n, 2);
+    _exit(3);
+}
+
+}  // extern "C"
+
+// Prep_For_Blit 0x007753B0 (port/fixups.json, C6): a blit that reached outside its
+// destination surface, clipped to it (the original never draws there; a native layout
+// did, and wrote outside the surface). The first few are reported, then a count.
+extern "C" void ra2port_blit_window_clipped(int x, int y, int width, int height, int surface_width, int surface_height)
+{
+    static int reported = 0;
+    if (++reported <= 8) {
+        fprintf(stderr, "blit: %d,%d %dx%d reaches outside its %dx%d surface: clipped%s\n", x, y, width, height,
+                surface_width, surface_height, reported == 8 ? " (no more reports)" : "");
+    }
+}
+
+// BitFontClass::Set_Surface / Draw_Char (port/fixups.json, lane C17; codex4 R740 SAVE0029):
+// the locked surface's size per font, and a check of each character's rows and columns
+// against it. The original's text always lands inside its surface; a draw that would not
+// is reported (the first few) with the surface, the clip box and the position, and skipped.
+namespace {
+struct FontSurface { void const *buffer; int pitch, width, height; };
+std::mutex font_lock;
+std::map<void const *, FontSurface> &font_surfaces()
+{
+    static std::map<void const *, FontSurface> surfaces;
+    return surfaces;
+}
+}
+extern "C" void ra2port_font_surface(void const *font, void const *buffer, int pitch, int width, int height)
+{
+    std::lock_guard<std::mutex> g(font_lock);
+    font_surfaces()[font] = FontSurface{buffer, pitch, width, height};
+}
+extern "C" int ra2port_font_rows_ok(void const *font, void const *buffer, int x, int y, int rows, int left, int right,
+                                    int clip_left, int clip_top, int clip_right, int clip_bottom)
+{
+    FontSurface s;
+    {
+        std::lock_guard<std::mutex> g(font_lock);
+        auto it = font_surfaces().find(font);
+        if (it == font_surfaces().end()) return 1;
+        s = it->second;
+    }
+    bool ok = s.buffer == buffer && y >= 0 && y + rows <= s.height && left >= 0 && right < s.width &&
+              (s.pitch >= s.width || rows <= 0);
+    if (!ok) {
+        static int reported = 0;
+        if (++reported <= 8) {
+            fprintf(stderr, "font: a character at %d,%d (%d rows, columns %d..%d) falls outside its %dx%d surface "
+                    "(pitch %d, buffer %s; clip box %d,%d..%d,%d): skipped%s\n", x, y, rows, left, right, s.width,
+                    s.height, s.pitch, s.buffer == buffer ? "same" : "changed", clip_left, clip_top, clip_right,
+                    clip_bottom, reported == 8 ? " (no more reports)" : "");
+        }
+    }
+    return ok ? 1 : 0;
+}
+
+// SwizzleManagerClass::Process_Tables 0x0069FC30 (port/fixups.json, Scout1133):
+// a loaded pointer whose object never called Here_I_Am. The original faults
+// there (1 / 0; arm64 integer division does not trap, so the native loop spun).
+// Prints the unmatched ID (the saving process's address), the field, and the
+// nearest registered objects (old ID below the unmatched one, new object below
+// the field) with their vtable symbols, so the owning class can be named.
+namespace {
+struct SwizzleRow { intptr_t id; void *pointer; };
+const char *vtable_name(const void *object)
+{
+    if (!object) return "-";
+    Dl_info info = {};
+    void *vptr = *(void * const *)object;
+    if (dladdr(vptr, &info) && info.dli_sname) return info.dli_sname;
+    return "?";
+}
+int swizzle_unmatched_count = 0;
+std::map<void *, void *> &swizzle_callers() { static std::map<void *, void *> m; return m; }
+int swizzle_trace = -1;
+}
+extern "C" void ra2port_swizzle_note(void *field, void *caller)
+{
+    if (swizzle_trace < 0) swizzle_trace = getenv("RA2_NATIVE_SWIZZLE_TRACE") ? 1 : 0;
+    if (swizzle_trace) swizzle_callers()[field] = caller;
+}
+extern "C" void ra2port_swizzle_unmatched(intptr_t id, void *field, const void *swizzled, int count)
+{
+    const SwizzleRow *rows = (const SwizzleRow *)swizzled;
+    const SwizzleRow *below_id = nullptr, *owner = nullptr;
+    for (int i = 0; i < count; ++i) {
+        if (rows[i].id <= id && (!below_id || rows[i].id > below_id->id)) below_id = &rows[i];
+        if ((char *)rows[i].pointer <= (char *)field && (!owner || (char *)rows[i].pointer > (char *)owner->pointer)) owner = &rows[i];
+    }
+    ++swizzle_unmatched_count;
+    if (swizzle_unmatched_count > 200) return;
+    fprintf(stderr, "swizzle: unmatched id %#lx field %p", (long)id, field);
+    if (below_id) fprintf(stderr, " | id-1 %#lx (+%#lx) %s", (long)below_id->id, (long)(id - below_id->id), vtable_name(below_id->pointer));
+    if (owner) fprintf(stderr, " | field in %p (+%#lx) %s", owner->pointer, (long)((char *)field - (char *)owner->pointer), vtable_name(owner->pointer));
+    auto c = swizzle_callers().find(field);
+    if (c != swizzle_callers().end()) {
+        Dl_info info = {};
+        dladdr(c->second, &info);
+        fprintf(stderr, " | caller %s+%#lx (image +%#lx)", info.dli_sname ? info.dli_sname : "?",
+                info.dli_saddr ? (long)((char *)c->second - (char *)info.dli_saddr) : 0L,
+                (long)((char *)c->second - (char *)info.dli_fbase));
+    }
+    fprintf(stderr, "\n");
+}
+// After the table: the original faulted at the first unmatched field.
+// RA2_NATIVE_SWIZZLE_CONTINUE=1 nulls them and goes on (diagnostics only).
+extern "C" void ra2port_swizzle_done(void)
+{
+    if (!swizzle_unmatched_count) return;
+    fprintf(stderr, "swizzle: %d unmatched fields\n", swizzle_unmatched_count);
+    int n = swizzle_unmatched_count;
+    swizzle_unmatched_count = 0;
+    if (!getenv("RA2_NATIVE_SWIZZLE_CONTINUE")) { (void)n; raise(SIGFPE); }
+}
+

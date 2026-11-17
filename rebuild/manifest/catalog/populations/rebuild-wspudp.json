@@ -1,0 +1,3408 @@
+{
+  "id": "rebuild-wspudp",
+  "population": {
+    "id": "rebuild-wspudp",
+    "inventory_sha256": "29149e71e447c1595d599d7c7d1143a9c5209e6001e605e85e3c531e8af1a2cb",
+    "gaps_sha256": "0cc5a0b391778154d942b3b866cc67b4e58d34789133fdf47c84a7c296ac07f5",
+    "historical_population_sha256": "cc06a234da5f8751d4f2f027f3d4e038d64ab95ec6e92a5de81f99ad6f740e7b",
+    "historical_acceptance_sha256": "6ae73387138ae2769377e282adaf4c28d9e4d91348a8d4f3e21da2a21f157cdf"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11710152,
+    "_ISO_TILE_SIZE": 8059672,
+    "_LEPTONS_PER_PIXEL": 11710224,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11710208,
+    "_ONE_RAD": 8059680,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11710200,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11710160,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11710120,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11710232,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11710168,
+    "_CELL_DIAG_SLOPE_ANGLE": 11710192,
+    "_BRIDGE_LEPTON_HEIGHT": 11710216,
+    "_CELL_NONE": 11710144,
+    "_COORD_NONE": 11710176,
+    "_RECT_NONE": 11710128,
+    "??0WinsockInterfaceClass@@QAE@XZ": 7777408,
+    "??_7?$DynamicVectorClass@PAE@@6B@": 8059820,
+    "??_7UDPInterfaceClass@@6B@": 8059692,
+    "??3@YAXPAX@Z": 7871803,
+    "?Close@WinsockInterfaceClass@@QAEXXZ": 7777808,
+    "??_7?$VectorClass@PAE@@6B@": 8059852,
+    "??1WinsockInterfaceClass@@UAE@XZ": 7777648,
+    "??2@YAPAXI@Z": 7872535,
+    "??_C@_0M@IBML@?$CFd?4?$CFd?4?$CFd?4?$CFd?$AA@": 8331188,
+    "_sscanf": 7878448,
+    "?UDPListenPort@UDPInterfaceClass@@2HA": 8347856,
+    "_closesocket@4": 7871382,
+    "??_C@_0CC@FMML@About?5to?5open?5primary?5UDP?5socket@": 8392560,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "_socket@12": 7871394,
+    "_htons@4": 7871340,
+    "_htonl@4": 7871334,
+    "??_C@_0CJ@GDHB@About?5to?5bind?5the?5UDP?5socket?5to?5@": 8392516,
+    "_bind@12": 7871388,
+    "_WSAGetLastError@0": 7871358,
+    "??_C@_0CA@IAOD@Bind?5failed?5with?5error?5code?5?$CFd?6?$AA@": 8392484,
+    "_setsockopt@20": 7871400,
+    "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z": 7780592,
+    "??_C@_0CC@PEFM@Primary?5UDP?5Socket?5init?5complete@": 8392448,
+    "??_C@_0CA@NPOB@About?5to?5open?5spare?5UDP?5socket?6?$AA@": 8392692,
+    "??_C@_0BF@OELP@Got?5spare?5socket?5?$CFd?6?$AA@": 8392668,
+    "??_C@_0CI@IGHL@Failed?5to?5bind?5spare?5socket?5to?5p@": 8392628,
+    "??_C@_0CA@NDJO@Spare?5UDP?5Socket?5init?5complete?6?$AA@": 8392596,
+    "??_C@_0BJ@LEI@Closing?5spare?5socket?5?$CFd?6?$AA@": 8392724,
+    "?Init@WinsockInterfaceClass@@QAE_NXZ": 7778464,
+    "??_C@_0BO@OJIG@About?5to?5query?5the?5host?5name?6?$AA@": 8392912,
+    "_gethostname@8": 7871442,
+    "??_C@_0BD@PBIF@Host?5name?5is?5?8?$CFs?8?6?$AA@": 8392892,
+    "??_C@_0BN@JDKF@About?5to?5call?5gethostbyname?6?$AA@": 8386368,
+    "_gethostbyname@4": 7871364,
+    "??_C@_0CF@NPCK@gethostbyname?5failed?$CB?5Error?5code@": 8283476,
+    "??_C@_0CC@GFGP@Found?5local?5address?3?5?$CFd?4?$CFd?4?$CFd?4?$CFd@": 8392856,
+    "??_C@_0CE@HMIH@About?5to?5open?5alternate?5UDP?5sock@": 8392820,
+    "?AlternateListenPort@@3HA": 8347864,
+    "??_C@_0BO@OJGD@About?5to?5bind?5the?5UDP?5socket?6?$AA@": 8392788,
+    "??_C@_0CE@LHNC@Alternate?5UDP?5Socket?5init?5comple@": 8392752,
+    "?Is_Broadcast@IPXAddressClass@@QAEHXZ": 5387616,
+    "?WriteTo@WinsockInterfaceClass@@UAEXPAXH0H_N1G@Z": 7779952,
+    "?Get_New_Out_Buffer@WinsockInterfaceClass@@IAEPAX_N@Z": 7779232,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "__imp__SendMessageA@16": 7972000,
+    "?Windows_Message_Handler@@YIXXZ": 5988064,
+    "?Start_Listening@WinsockInterfaceClass@@UAE_NXZ": 7777920,
+    "_WSAAsyncSelect@16": 7871424,
+    "??_C@_0CG@MABK@Async?5select?5failed?5on?5spare?5soc@": 8392944,
+    "?Stop_Listening@WinsockInterfaceClass@@UAEXXZ": 7778064,
+    "??_C@_0DB@OJNJ@Marking?5address?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd@": 8392984,
+    "??_C@_0BM@HFGK@FD_WRITE?5?9?5Using?5socket?5?$CFd?6?$AA@": 8393388,
+    "??_C@_0BO@HLIP@FD_WRITE?5?9?5Got?5error?5code?5?$CFd?6?$AA@": 8393356,
+    "??_C@_0DC@HLE@FD_WRITE?5?9?5No?5AltOutBuffers?5left@": 8393304,
+    "??_C@_0CP@OHOC@FD_WRITE?5?9?5No?5OutBuffers?5left?5?9?5@": 8393256,
+    "?AlternateSendPort@@3HA": 8347860,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "??8IPXAddressClass@@QAE_NAAV0@@Z": 5387728,
+    "?LoopbackPort@@3HA": 8347868,
+    "_ntohs@4": 7871352,
+    "??_C@_0BJ@KJOH@sendto?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd?6?$AA@": 8393228,
+    "_sendto@24": 7871412,
+    "??_C@_0BK@CMAK@sendto?5returned?5error?5?$CFd?6?$AA@": 8393200,
+    "??_C@_0CM@JJEL@FD_WRITE?5?9?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd?5is?5u@": 8393156,
+    "??_C@_0BN@NKKG@FD_READ?5?9?5Got?5error?5code?5?$CFd?6?$AA@": 8393124,
+    "_recvfrom@24": 7871406,
+    "??_C@_0BL@DGAO@recvfrom?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd?6?$AA@": 8393096,
+    "?Get_Packet_Loss_Percent@@YAHXZ": 7780848,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "?Get_New_In_Buffer@WinsockInterfaceClass@@IAEPAXXZ": 7779584,
+    "??_C@_0DM@HNIM@Throwing?5away?5malformed?5packet?5f@": 8393036,
+    "?IsMalformedPacketReported@@3_NA": 11710236,
+    "_$E2": 7781984,
+    "_$E5": 7782032,
+    "_$E8": 7782064,
+    "_$E11": 7782096,
+    "_$E14": 7782128,
+    "_$E17": 7782160,
+    "_$E20": 7782192,
+    "_$E23": 7782256,
+    "_$E26": 7782304,
+    "_$E29": 7782352,
+    "_$E32": 7782400,
+    "_$E35": 7782416,
+    "_$E38": 7782448,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0UDPInterfaceClass@@QAE@XZ": 7782480,
+    "??_G?$DynamicVectorClass@PAE@@UAEPAXI@Z": 7788736,
+    "?Passes_CRC_Check@WinsockInterfaceClass@@MAE_NPAUWinsockBufferType@1@@Z": 7779088,
+    "?Build_Packet_CRC@WinsockInterfaceClass@@MAEXPAUWinsockBufferType@1@@Z": 7778960,
+    "?Get_Host_Name@WinsockInterfaceClass@@UAE_NPADH@Z": 7780752,
+    "?Clear_Socket_Error@WinsockInterfaceClass@@UAEXI@Z": 7780512,
+    "?Discard_Out_Buffers@WinsockInterfaceClass@@UAEXXZ": 7778256,
+    "?Discard_In_Buffers@WinsockInterfaceClass@@UAEXXZ": 7778144,
+    "?Read@WinsockInterfaceClass@@UAEHPAXAAH01AAG@Z": 7779744,
+    "?Close_Socket@WinsockInterfaceClass@@UAEXXZ": 7777856,
+    "??_GUDPInterfaceClass@@UAEPAXI@Z": 7787616,
+    "??_R0?AVWinsockInterfaceClass@@@8": 8390128,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVUDPInterfaceClass@@@8": 8392416,
+    "?Set_NetCard@WinsockInterfaceClass@@UAEXH@Z": 7776832,
+    "??_G?$VectorClass@PAE@@UAEPAXI@Z": 7788656,
+    "??1UDPInterfaceClass@@UAE@XZ": 7782640,
+    "?Clear_Broadcast_Addresses@UDPInterfaceClass@@UAEXXZ": 7782960,
+    "?Set_Broadcast_Address@UDPInterfaceClass@@UAEXPBDG@Z": 7783056,
+    "?OpenSocket@UDPInterfaceClass@@UAE_NG@Z": 7783248,
+    "?Open_Port_Socket@UDPInterfaceClass@@UAE_NG@Z": 7783552,
+    "?Close_Port_Socket@UDPInterfaceClass@@UAEXG@Z": 7783856,
+    "?Select_Port_Socket@UDPInterfaceClass@@UAEXG@Z": 7784048,
+    "?Init_Ports@UDPInterfaceClass@@UAE_NXZ": 7784144,
+    "?Open_Socket@UDPInterfaceClass@@UAE_NI@Z": 7784176,
+    "?WriteTo@UDPInterfaceClass@@UAEXPAXH0H_N1G@Z": 7784800,
+    "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
+    "?Start_Listening@UDPInterfaceClass@@UAE_NXZ": 7785264,
+    "?Stop_Listening@UDPInterfaceClass@@UAEXXZ": 7785376,
+    "?Add_Peer@UDPInterfaceClass@@UAEXPAEG@Z": 7785408,
+    "?Is_Reachable@UDPInterfaceClass@@QAE_NPAEG@Z": 7785584,
+    "?Close_All_Port_Sockets@UDPInterfaceClass@@UAEXXZ": 7785664,
+    "?Message_Handler@UDPInterfaceClass@@UAEHPAUHWND__@@IIJ@Z": 7785792,
+    "?Get_Protocol@UDPInterfaceClass@@UAE?AW4ProtocolEnum@@XZ": 7787488,
+    "?Protocol_Event_Message@UDPInterfaceClass@@UAEHI@Z": 7787504,
+    "?Get_Num_Local_Addresses@UDPInterfaceClass@@UAEHXZ": 7787568,
+    "?Get_Local_Address@UDPInterfaceClass@@UAEPAEH@Z": 7787584,
+    "?Get_Port@UDPInterfaceClass@@UAEGXZ": 7787600,
+    "?Clear@?$DynamicVectorClass@PAE@@UAEXXZ": 7787952,
+    "?ID@?$DynamicVectorClass@PAE@@UAEHPBQAE@Z": 7788000,
+    "?GetItem@?$VectorClass@PAE@@UBEPAEH@Z": 7788032,
+    "??8?$VectorClass@PAE@@UBE_NABV0@@Z": 7788048,
+    "?Resize@?$VectorClass@PAE@@UAE_NHPBQAE@Z": 7788112,
+    "?Clear@?$VectorClass@PAE@@UAEXXZ": 7788288,
+    "?ID@?$VectorClass@PAE@@UAEHABQAE@Z": 7788336,
+    "?ID@?$VectorClass@PAE@@UAEHPBQAE@Z": 7788400,
+    "?Resize@?$DynamicVectorClass@PAE@@UAE_NHPBQAE@Z": 7788432,
+    "?ID@?$DynamicVectorClass@PAE@@UAEHABQAE@Z": 7788608,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 7781984,
+      "method": "0076be60",
+      "body_bytes": 40,
+      "body_sha256": "de42aeef07e9d9b8aa85d5623f8e86d73b319316c9c274c69a4ee799f716648e",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "118769df13db33e819d6e7b0a3890edfdff4a62c6fefe5117bd2962a9f3c870a",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 90943
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292142482
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11710152,
+          "addend": 0,
+          "resolved": 11710152
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7781984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782032,
+      "method": "0076be90",
+      "body_bytes": 19,
+      "body_sha256": "1f0a811962e71c534cda0361e2b849eba090932fc583b72f18f872fa2aa8584b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ac79037a9fc3bf6b460028ed14027902a5028f1a858cee8f1d2bb85e43c06f4e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11710152,
+          "addend": 0,
+          "resolved": 11710152
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8059672,
+          "addend": 0,
+          "resolved": 8059672
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11710224,
+          "addend": 0,
+          "resolved": 11710224
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782064,
+      "method": "0076beb0",
+      "body_bytes": 19,
+      "body_sha256": "503946c39886e168e1ce0a96aad1bde4e07b5b42e2824fe831ee9a0fba42ef29",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "850a329a05d2b6c52f9c791166289977e9baa435867984163d7a704912396add",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11710224,
+          "addend": 0,
+          "resolved": 11710224
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11710208,
+          "addend": 0,
+          "resolved": 11710208
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782096,
+      "method": "0076bed0",
+      "body_bytes": 19,
+      "body_sha256": "35ad94f00d929b18fd2983eb448d4f7b6bb1fe6565463d625fb76bce42b59653",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b0ca25c20d4cdc182d338cfdbf705bf662aa293ca4862b1035a42ddee4c6e1db",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8059680,
+          "addend": 0,
+          "resolved": 8059680
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11710200,
+          "addend": 0,
+          "resolved": 11710200
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782128,
+      "method": "0076bef0",
+      "body_bytes": 19,
+      "body_sha256": "c7bc45a8a9914fbe17324b63b1643f539f4a873e2a1fe2480894bffc2ef89746",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e5c2faa347a2fe2c45b8ae7880b5273d9c118aa357beac9d88569b71abb8d0c8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8059680,
+          "addend": 0,
+          "resolved": 8059680
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11710160,
+          "addend": 0,
+          "resolved": 11710160
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782160,
+      "method": "0076bf10",
+      "body_bytes": 19,
+      "body_sha256": "c8246ab6d625d7cc2428bbaeb7ea9cdc495b34df05472818e3b9a1a42c281169",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "261b3bea1f4d6010555e3a6a60670d6031ee007034a13271124780d60609b2e3",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8059680,
+          "addend": 0,
+          "resolved": 8059680
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11710120,
+          "addend": 0,
+          "resolved": 11710120
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782192,
+      "method": "0076bf30",
+      "body_bytes": 49,
+      "body_sha256": "8ce3384abf5ca1fc24d7601cf2b34573614fe3c3d9cd984e96002a280962743e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "46058edfc4a37269aa212020dd5e6ca6db09b4bfd8abfb748c38f8c6da7a156b",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11710120,
+          "addend": 0,
+          "resolved": 11710120
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11710160,
+          "addend": 0,
+          "resolved": 11710160
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292142553
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11710152,
+          "addend": 0,
+          "resolved": 11710152
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 78261
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11710232,
+          "addend": 0,
+          "resolved": 11710232
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782256,
+      "method": "0076bf70",
+      "body_bytes": 33,
+      "body_sha256": "1f7a520b4dc264ab256eb5520eb934b58a562454454ca2f404d7e8d11d7c1975",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "bd0ea5e13f36c1acec934a45e1854842dc44945d0286aa847ae73b3b5870868a",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11710232,
+          "addend": 0,
+          "resolved": 11710232
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292142633
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11710168,
+          "addend": 0,
+          "resolved": 11710168
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782304,
+      "method": "0076bfa0",
+      "body_bytes": 44,
+      "body_sha256": "ae6a852c3e64e3b51763e2e27998f39f59c312653bb836b2c7f1fe1c5b9ae857",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "acb3e85f84e63226168a748d5965e891f6068b82535b155082f77c2d304ba263",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11710232,
+          "addend": 0,
+          "resolved": 11710232
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11710152,
+          "addend": 0,
+          "resolved": 11710152
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292142574
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11710192,
+          "addend": 0,
+          "resolved": 11710192
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782352,
+      "method": "0076bfd0",
+      "body_bytes": 39,
+      "body_sha256": "5dcaed7880cdc5e926f8b72c1ca1fad4d1cbd9964bfc53a0d5a315cc7f300769",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0d8e0e246ec20b4fc8de645f81ecb07ec3ae2cf57ca23a94a0e55b0905584f25",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11710232,
+          "addend": 0,
+          "resolved": 11710232
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 78112
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11710216,
+          "addend": 0,
+          "resolved": 11710216
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782400,
+      "method": "0076c000",
+      "body_bytes": 15,
+      "body_sha256": "68569bff08621e743961d855fb5861bb1f8917350458c1ada07995bde546ff51",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ba509995612dfffdfe860a5ff27aa47fe9e57fd897afb24514cc78df46cae330",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11710144,
+          "addend": 0,
+          "resolved": 11710144
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11710144,
+          "addend": 2,
+          "resolved": 11710146
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782416,
+      "method": "0076c010",
+      "body_bytes": 18,
+      "body_sha256": "f6e3f03ce99c4a371e7d44ab2ec7ac8387949ef697345f073906f3e31f8a81bb",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b26102a7a30f80b76809d6960ec6be7966f8a51c6975159914d38b8657be9d46",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11710176,
+          "addend": 0,
+          "resolved": 11710176
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11710176,
+          "addend": 4,
+          "resolved": 11710180
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11710176,
+          "addend": 8,
+          "resolved": 11710184
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782448,
+      "method": "0076c030",
+      "body_bytes": 23,
+      "body_sha256": "99acbbb1be4933a510dfac3ec98d2ff9c17f34cbdf909be85dd2edd9b40d343f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "420f736691bd0daca3ad1040295c7136b1680a494cc0d7f8717fe98e415eece0",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11710128,
+          "addend": 0,
+          "resolved": 11710128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11710128,
+          "addend": 4,
+          "resolved": 11710132
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11710128,
+          "addend": 8,
+          "resolved": 11710136
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11710128,
+          "addend": 12,
+          "resolved": 11710140
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782480,
+      "method": "0076c050",
+      "body_bytes": 145,
+      "body_sha256": "f29fd33f446595aff55f6467708a178d313e73875c51fbcb1ba4c6388b78ce8c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "bf20bd6e2b9cf84e54935c498cbb3f5e6ef2e7538867ddf850bd346e33e303dc",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0UDPInterfaceClass@@QAE@XZ",
+      "symbol_prefix": "??0UDPInterfaceClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0WinsockInterfaceClass@@QAE@XZ",
+          "target": 7777408,
+          "addend": 0,
+          "resolved": 4294962216
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAE@@6B@",
+          "target": 8059820,
+          "addend": 0,
+          "resolved": 8059820
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "??_7UDPInterfaceClass@@6B@",
+          "target": 8059692,
+          "addend": 0,
+          "resolved": 8059692
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782640,
+      "method": "0076c0f0",
+      "body_bytes": 305,
+      "body_sha256": "c101db66a44bec8a51834573c514f1c1973b32febac0fedfb8a88df520ae13dc",
+      "padding_bytes": 15,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "2b9b13aae987546758e8bcc667acbc72b7ebad7804e809561c477612cbd3ebf9",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1UDPInterfaceClass@@UAE@XZ",
+      "symbol_prefix": "??1UDPInterfaceClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7UDPInterfaceClass@@6B@",
+          "target": 8059692,
+          "addend": 0,
+          "resolved": 8059692
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 89127
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 89045
+        },
+        {
+          "offset": 181,
+          "kind": 20,
+          "symbol": "?Close@WinsockInterfaceClass@@QAEXXZ",
+          "target": 7777808,
+          "addend": 0,
+          "resolved": 4294962279
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAE@@6B@",
+          "target": 8059852,
+          "addend": 0,
+          "resolved": 8059852
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 88944
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAE@@6B@",
+          "target": 8059852,
+          "addend": 0,
+          "resolved": 8059852
+        },
+        {
+          "offset": 270,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 88889
+        },
+        {
+          "offset": 298,
+          "kind": 20,
+          "symbol": "??1WinsockInterfaceClass@@UAE@XZ",
+          "target": 7777648,
+          "addend": 0,
+          "resolved": 4294962002
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7782960,
+      "method": "0076c230",
+      "body_bytes": 91,
+      "body_sha256": "a00ec0a842a2fe706e3df0937bb730e07eb3efdba24b340e082cb38da1b30202",
+      "padding_bytes": 5,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "4d2151302c8200ee7ea2578f68085f3604b6946e75c1350c7d2fbd850bdb33f0",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Broadcast_Addresses@UDPInterfaceClass@@UAEXXZ",
+      "symbol_prefix": "?Clear_Broadcast_Addresses@UDPInterfaceClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 88816
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7782960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7783056,
+      "method": "0076c290",
+      "body_bytes": 177,
+      "body_sha256": "d358377da5f838abe3a8ccf1a0e26160e754688372ff5947054478ea818d8449",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "cfd451ee49bfd81391ae0c31f534aafdcd431d2c53c3bb8e9976efb586829f1e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Broadcast_Address@UDPInterfaceClass@@UAEXPBDG@Z",
+      "symbol_prefix": "?Set_Broadcast_Address@UDPInterfaceClass@@UAEXPBDG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 89465
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "??_C@_0M@IBML@?$CFd?4?$CFd?4?$CFd?4?$CFd?$AA@",
+          "target": 8331188,
+          "addend": 0,
+          "resolved": 8331188
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "_sscanf",
+          "target": 7878448,
+          "addend": 0,
+          "resolved": 95341
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?UDPListenPort@UDPInterfaceClass@@2HA",
+          "target": 8347856,
+          "addend": 0,
+          "resolved": 8347856
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7783056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7783248,
+      "method": "0076c350",
+      "body_bytes": 295,
+      "body_sha256": "88d123fcd35a835574303617708d914490028252d27a9b836baf3b2bb25bde73",
+      "padding_bytes": 9,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "6af3bc8a370bf73f94c16a0b5011da3d5fa117c84e96f92d8a9b133e414b4801",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?OpenSocket@UDPInterfaceClass@@UAE_NG@Z",
+      "symbol_prefix": "?OpenSocket@UDPInterfaceClass@@UAE_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 88111
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "??_C@_0CC@FMML@About?5to?5open?5primary?5UDP?5socket@",
+          "target": 8392560,
+          "addend": 0,
+          "resolved": 8392560
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291405173
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "_socket@12",
+          "target": 7871394,
+          "addend": 0,
+          "resolved": 88089
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?UDPListenPort@UDPInterfaceClass@@2HA",
+          "target": 8347856,
+          "addend": 0,
+          "resolved": 8347856
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 87967
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "_htonl@4",
+          "target": 7871334,
+          "addend": 0,
+          "resolved": 87949
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@GDHB@About?5to?5bind?5the?5UDP?5socket?5to?5@",
+          "target": 8392516,
+          "addend": 0,
+          "resolved": 8392516
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291405058
+        },
+        {
+          "offset": 176,
+          "kind": 20,
+          "symbol": "_bind@12",
+          "target": 7871388,
+          "addend": 0,
+          "resolved": 87960
+        },
+        {
+          "offset": 187,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 87919
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "??_C@_0CA@IAOD@Bind?5failed?5with?5error?5code?5?$CFd?6?$AA@",
+          "target": 8392484,
+          "addend": 0,
+          "resolved": 8392484
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291405014
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "_setsockopt@20",
+          "target": 7871400,
+          "addend": 0,
+          "resolved": 87888
+        },
+        {
+          "offset": 269,
+          "kind": 20,
+          "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+          "target": 7780592,
+          "addend": 0,
+          "resolved": 4294964367
+        },
+        {
+          "offset": 274,
+          "kind": 6,
+          "symbol": "??_C@_0CC@PEFM@Primary?5UDP?5Socket?5init?5complete@",
+          "target": 8392448,
+          "addend": 0,
+          "resolved": 8392448
+        },
+        {
+          "offset": 279,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404933
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7783248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7783552,
+      "method": "0076c480",
+      "body_bytes": 296,
+      "body_sha256": "e0086305212bd7d82d64371d168da1db5204bc4a686773d5cf1990ad5be61a78",
+      "padding_bytes": 8,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "fbae8a5bfa7a2f6d62ef91d7a6581f292c3b9b3e0e4817d8d54f8110fa758417",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Open_Port_Socket@UDPInterfaceClass@@UAE_NG@Z",
+      "symbol_prefix": "?Open_Port_Socket@UDPInterfaceClass@@UAE_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "??_C@_0CA@NPOB@About?5to?5open?5spare?5UDP?5socket?6?$AA@",
+          "target": 8392692,
+          "addend": 0,
+          "resolved": 8392692
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404837
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "_socket@12",
+          "target": 7871394,
+          "addend": 0,
+          "resolved": 87753
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "??_C@_0BF@OELP@Got?5spare?5socket?5?$CFd?6?$AA@",
+          "target": 8392668,
+          "addend": 0,
+          "resolved": 8392668
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404793
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 87653
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "_htonl@4",
+          "target": 7871334,
+          "addend": 0,
+          "resolved": 87635
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@GDHB@About?5to?5bind?5the?5UDP?5socket?5to?5@",
+          "target": 8392516,
+          "addend": 0,
+          "resolved": 8392516
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404742
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "_bind@12",
+          "target": 7871388,
+          "addend": 0,
+          "resolved": 87650
+        },
+        {
+          "offset": 193,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 87633
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "??_C@_0CI@IGHL@Failed?5to?5bind?5spare?5socket?5to?5p@",
+          "target": 8392628,
+          "addend": 0,
+          "resolved": 8392628
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404704
+        },
+        {
+          "offset": 267,
+          "kind": 20,
+          "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+          "target": 7780592,
+          "addend": 0,
+          "resolved": 4294964065
+        },
+        {
+          "offset": 272,
+          "kind": 6,
+          "symbol": "??_C@_0CA@NDJO@Spare?5UDP?5Socket?5init?5complete?6?$AA@",
+          "target": 8392596,
+          "addend": 0,
+          "resolved": 8392596
+        },
+        {
+          "offset": 277,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404631
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7783552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7783856,
+      "method": "0076c5b0",
+      "body_bytes": 188,
+      "body_sha256": "fd9bd712bfec7be9fc2f4047232e76ef2a64ab7789d0ccf8511abd719b3c5298",
+      "padding_bytes": 4,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "8ba529a7b4d335e5a68bb11cc4eefd76e0851fed010a98b7a388aeab1fb97dc1",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Close_Port_Socket@UDPInterfaceClass@@UAEXG@Z",
+      "symbol_prefix": "?Close_Port_Socket@UDPInterfaceClass@@UAEXG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@LEI@Closing?5spare?5socket?5?$CFd?6?$AA@",
+          "target": 8392724,
+          "addend": 0,
+          "resolved": 8392724
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404524
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 87431
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7783856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7784048,
+      "method": "0076c670",
+      "body_bytes": 92,
+      "body_sha256": "728d6304bcb53d1934d9dcaed4a35b05c727db0e3fa9f937ec9b90589d7a49f6",
+      "padding_bytes": 4,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "644f5e56e7a1d19b9a93a6b1d96e17c6416f98670cbb2797b2ac98347f0494a2",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Select_Port_Socket@UDPInterfaceClass@@UAEXG@Z",
+      "symbol_prefix": "?Select_Port_Socket@UDPInterfaceClass@@UAEXG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?UDPListenPort@UDPInterfaceClass@@2HA",
+          "target": 8347856,
+          "addend": 0,
+          "resolved": 8347856
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7784048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7784144,
+      "method": "0076c6d0",
+      "body_bytes": 30,
+      "body_sha256": "ebecbe6d554b55bdf57bc90333a24b2caa5dc897952d075ce9f8b69702ae9ba0",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f91e0ad90095c42099380514da626c41dbec76c5760e603b1721556144f0e1db",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Ports@UDPInterfaceClass@@UAE_NXZ",
+      "symbol_prefix": "?Init_Ports@UDPInterfaceClass@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+          "target": 7778464,
+          "addend": 0,
+          "resolved": 4294961608
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7784144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7784176,
+      "method": "0076c6f0",
+      "body_bytes": 624,
+      "body_sha256": "95f5f4f92566726bf3abfeeda65edc1e0265184dc6dbf7ba2489b8ded2af4ff9",
+      "padding_bytes": 0,
+      "full_extent_bytes": 624,
+      "full_extent_sha256": "95f5f4f92566726bf3abfeeda65edc1e0265184dc6dbf7ba2489b8ded2af4ff9",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Open_Socket@UDPInterfaceClass@@UAE_NI@Z",
+      "symbol_prefix": "?Open_Socket@UDPInterfaceClass@@UAE_NI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?UDPListenPort@UDPInterfaceClass@@2HA",
+          "target": 8347856,
+          "addend": 0,
+          "resolved": 8347856
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "??_C@_0BO@OJIG@About?5to?5query?5the?5host?5name?6?$AA@",
+          "target": 8392912,
+          "addend": 0,
+          "resolved": 8392912
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404224
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "_gethostname@8",
+          "target": 7871442,
+          "addend": 0,
+          "resolved": 87184
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "??_C@_0BD@PBIF@Host?5name?5is?5?8?$CFs?8?6?$AA@",
+          "target": 8392892,
+          "addend": 0,
+          "resolved": 8392892
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404187
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "??_C@_0BN@JDKF@About?5to?5call?5gethostbyname?6?$AA@",
+          "target": 8386368,
+          "addend": 0,
+          "resolved": 8386368
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404174
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "_gethostbyname@4",
+          "target": 7871364,
+          "addend": 0,
+          "resolved": 87061
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 87044
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "??_C@_0CF@NPCK@gethostbyname?5failed?$CB?5Error?5code@",
+          "target": 8283476,
+          "addend": 0,
+          "resolved": 8283476
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291404139
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 87451
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "??_C@_0CC@GFGP@Found?5local?5address?3?5?$CFd?4?$CFd?4?$CFd?4?$CFd@",
+          "target": 8392856,
+          "addend": 0,
+          "resolved": 8392856
+        },
+        {
+          "offset": 312,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291403972
+        },
+        {
+          "offset": 319,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 88036
+        },
+        {
+          "offset": 405,
+          "kind": 6,
+          "symbol": "??_C@_0CE@HMIH@About?5to?5open?5alternate?5UDP?5sock@",
+          "target": 8392820,
+          "addend": 0,
+          "resolved": 8392820
+        },
+        {
+          "offset": 410,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291403874
+        },
+        {
+          "offset": 425,
+          "kind": 20,
+          "symbol": "_socket@12",
+          "target": 7871394,
+          "addend": 0,
+          "resolved": 86789
+        },
+        {
+          "offset": 456,
+          "kind": 6,
+          "symbol": "?AlternateListenPort@@3HA",
+          "target": 8347864,
+          "addend": 0,
+          "resolved": 8347864
+        },
+        {
+          "offset": 469,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 86691
+        },
+        {
+          "offset": 480,
+          "kind": 20,
+          "symbol": "_htonl@4",
+          "target": 7871334,
+          "addend": 0,
+          "resolved": 86674
+        },
+        {
+          "offset": 485,
+          "kind": 6,
+          "symbol": "??_C@_0BO@OJGD@About?5to?5bind?5the?5UDP?5socket?6?$AA@",
+          "target": 8392788,
+          "addend": 0,
+          "resolved": 8392788
+        },
+        {
+          "offset": 494,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291403790
+        },
+        {
+          "offset": 516,
+          "kind": 20,
+          "symbol": "_bind@12",
+          "target": 7871388,
+          "addend": 0,
+          "resolved": 86692
+        },
+        {
+          "offset": 580,
+          "kind": 20,
+          "symbol": "_setsockopt@20",
+          "target": 7871400,
+          "addend": 0,
+          "resolved": 86640
+        },
+        {
+          "offset": 594,
+          "kind": 20,
+          "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+          "target": 7780592,
+          "addend": 0,
+          "resolved": 4294963114
+        },
+        {
+          "offset": 599,
+          "kind": 6,
+          "symbol": "??_C@_0CE@LHNC@Alternate?5UDP?5Socket?5init?5comple@",
+          "target": 8392752,
+          "addend": 0,
+          "resolved": 8392752
+        },
+        {
+          "offset": 604,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291403680
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7784176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7784800,
+      "method": "0076c960",
+      "body_bytes": 93,
+      "body_sha256": "2a588a90c02fde75fe8fb526874beab0ab237ae8f8d24ebab85047616df5079e",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "085a97ba8db7866d6edf019ac9f144b902b42956e84d2b0dd815c1ef92371da1",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?WriteTo@UDPInterfaceClass@@UAEXPAXH0H_N1G@Z",
+      "symbol_prefix": "?WriteTo@UDPInterfaceClass@@UAEXPAXH0H_N1G@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+          "target": 5387616,
+          "addend": 0,
+          "resolved": 4292570093
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "?WriteTo@WinsockInterfaceClass@@UAEXPAXH0H_N1G@Z",
+          "target": 7779952,
+          "addend": 0,
+          "resolved": 4294962360
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7784800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7784896,
+      "method": "0076c9c0",
+      "body_bytes": 357,
+      "body_sha256": "b204b62d4c9735587a83be1a80493d06dec33a9e810064783cd2aa501d8baccb",
+      "padding_bytes": 11,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "cce1fa4aa521f4aec483b033c845e381c973a4b4255f07c76d9c0b6e507c8eb6",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z",
+      "symbol_prefix": "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?Get_New_Out_Buffer@WinsockInterfaceClass@@IAEPAX_N@Z",
+          "target": 7779232,
+          "addend": 0,
+          "resolved": 4294961579
+        },
+        {
+          "offset": 301,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 313,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 4293170147
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7784896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7785264,
+      "method": "0076cb30",
+      "body_bytes": 108,
+      "body_sha256": "a88f1e48f56857d90f7bc79787127682ea14a18de77240ab262e18257bab1c4c",
+      "padding_bytes": 4,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "4e0673774de40934a8ada2aebe14cdd5c08ad92c150061a6433f35227dc06f2f",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Start_Listening@UDPInterfaceClass@@UAE_NXZ",
+      "symbol_prefix": "?Start_Listening@UDPInterfaceClass@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Start_Listening@WinsockInterfaceClass@@UAE_NXZ",
+          "target": 7777920,
+          "addend": 0,
+          "resolved": 4294959942
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_WSAAsyncSelect@16",
+          "target": 7871424,
+          "addend": 0,
+          "resolved": 86101
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 4293170013
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "??_C@_0CG@MABK@Async?5select?5failed?5on?5spare?5soc@",
+          "target": 8392944,
+          "addend": 0,
+          "resolved": 8392944
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291403101
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7785264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7785376,
+      "method": "0076cba0",
+      "body_bytes": 17,
+      "body_sha256": "6e406819a0742f0d9d92fcca40df82a0ff47ddb524f2f7216947e09cad60f402",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b93bdc4640c49e565d64055182c28f0b68f7eb31cc9ca31d50d7baadd7d7f57d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Listening@UDPInterfaceClass@@UAEXXZ",
+      "symbol_prefix": "?Stop_Listening@UDPInterfaceClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Stop_Listening@WinsockInterfaceClass@@UAEXXZ",
+          "target": 7778064,
+          "addend": 0,
+          "resolved": 4294959976
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7785376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7785408,
+      "method": "0076cbc0",
+      "body_bytes": 166,
+      "body_sha256": "19aa61438fb8b1db8f9aceee3892969cb3ff40146739cf57b9a29345abc75aea",
+      "padding_bytes": 10,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "debfcd899dfa5c869fa794e1c37542008b10d78077d68fc61a92911c3629ed30",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Peer@UDPInterfaceClass@@UAEXPAEG@Z",
+      "symbol_prefix": "?Add_Peer@UDPInterfaceClass@@UAEXPAEG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "??_C@_0DB@OJNJ@Marking?5address?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd@",
+          "target": 8392984,
+          "addend": 0,
+          "resolved": 8392984
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291402942
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7785408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7785584,
+      "method": "0076cc70",
+      "body_bytes": 77,
+      "body_sha256": "ab22a70254c74915722fad6bad257394545a9e8017042f25a29fb3b1f251ad54",
+      "padding_bytes": 3,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "31da19d9b5d3154fe630fce4e0a13bb118693b1b2afad9cfb7365e89dace7432",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Reachable@UDPInterfaceClass@@QAE_NPAEG@Z",
+      "symbol_prefix": "?Is_Reachable@UDPInterfaceClass@@QAE_NPAEG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7785584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7785664,
+      "method": "0076ccc0",
+      "body_bytes": 127,
+      "body_sha256": "f9fcf4cdec6a3fb91dabe2d741710e51a44a8d414025b5ac02f4ff92434c5368",
+      "padding_bytes": 1,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "60c926e9836af19d4b79fb831795de17d197e42abafad2e7d97ec82831ae16a8",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Close_All_Port_Sockets@UDPInterfaceClass@@UAEXXZ",
+      "symbol_prefix": "?Close_All_Port_Sockets@UDPInterfaceClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@LEI@Closing?5spare?5socket?5?$CFd?6?$AA@",
+          "target": 8392724,
+          "addend": 0,
+          "resolved": 8392724
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291402764
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "_WSAAsyncSelect@16",
+          "target": 7871424,
+          "addend": 0,
+          "resolved": 85702
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 85652
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7785664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7785792,
+      "method": "0076cd40",
+      "body_bytes": 1685,
+      "body_sha256": "b984b6ae2992f0a25b6e3941d4a95309faa5f64364410df1aca24677c77daf00",
+      "padding_bytes": 11,
+      "full_extent_bytes": 1696,
+      "full_extent_sha256": "2ecd56c898c01dbd832b5482a86263f7fcc9cb19c8b655a50e7d2990b57f84df",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Message_Handler@UDPInterfaceClass@@UAEHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Message_Handler@UDPInterfaceClass@@UAEHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 190,
+          "kind": 6,
+          "symbol": "??_C@_0BM@HFGK@FD_WRITE?5?9?5Using?5socket?5?$CFd?6?$AA@",
+          "target": 8393388,
+          "addend": 0,
+          "resolved": 8393388
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291402473
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "??_C@_0BO@HLIP@FD_WRITE?5?9?5Got?5error?5code?5?$CFd?6?$AA@",
+          "target": 8393356,
+          "addend": 0,
+          "resolved": 8393356
+        },
+        {
+          "offset": 236,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291402432
+        },
+        {
+          "offset": 280,
+          "kind": 6,
+          "symbol": "??_C@_0DC@HLE@FD_WRITE?5?9?5No?5AltOutBuffers?5left@",
+          "target": 8393304,
+          "addend": 0,
+          "resolved": 8393304
+        },
+        {
+          "offset": 285,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291402383
+        },
+        {
+          "offset": 319,
+          "kind": 6,
+          "symbol": "??_C@_0CP@OHOC@FD_WRITE?5?9?5No?5OutBuffers?5left?5?9?5@",
+          "target": 8393256,
+          "addend": 0,
+          "resolved": 8393256
+        },
+        {
+          "offset": 324,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291402344
+        },
+        {
+          "offset": 365,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 85179
+        },
+        {
+          "offset": 395,
+          "kind": 20,
+          "symbol": "_htonl@4",
+          "target": 7871334,
+          "addend": 0,
+          "resolved": 85143
+        },
+        {
+          "offset": 412,
+          "kind": 6,
+          "symbol": "?AlternateSendPort@@3HA",
+          "target": 8347860,
+          "addend": 0,
+          "resolved": 8347860
+        },
+        {
+          "offset": 418,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 85126
+        },
+        {
+          "offset": 433,
+          "kind": 20,
+          "symbol": "_htonl@4",
+          "target": 7871334,
+          "addend": 0,
+          "resolved": 85105
+        },
+        {
+          "offset": 454,
+          "kind": 6,
+          "symbol": "?UDPListenPort@UDPInterfaceClass@@2HA",
+          "target": 8347856,
+          "addend": 0,
+          "resolved": 8347856
+        },
+        {
+          "offset": 460,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 85084
+        },
+        {
+          "offset": 465,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10532,
+          "resolved": 10746812
+        },
+        {
+          "offset": 482,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 491,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 502,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10528,
+          "resolved": 10746808
+        },
+        {
+          "offset": 507,
+          "kind": 20,
+          "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+          "target": 5387728,
+          "addend": 0,
+          "resolved": 4292568721
+        },
+        {
+          "offset": 521,
+          "kind": 20,
+          "symbol": "_htonl@4",
+          "target": 7871334,
+          "addend": 0,
+          "resolved": 85017
+        },
+        {
+          "offset": 528,
+          "kind": 6,
+          "symbol": "?LoopbackPort@@3HA",
+          "target": 8347868,
+          "addend": 0,
+          "resolved": 8347868
+        },
+        {
+          "offset": 538,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 85006
+        },
+        {
+          "offset": 561,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 84995
+        },
+        {
+          "offset": 638,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 84918
+        },
+        {
+          "offset": 688,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@KJOH@sendto?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd?6?$AA@",
+          "target": 8393228,
+          "addend": 0,
+          "resolved": 8393228
+        },
+        {
+          "offset": 693,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291401975
+        },
+        {
+          "offset": 726,
+          "kind": 20,
+          "symbol": "_sendto@24",
+          "target": 7871412,
+          "addend": 0,
+          "resolved": 84890
+        },
+        {
+          "offset": 736,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 84826
+        },
+        {
+          "offset": 748,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 84814
+        },
+        {
+          "offset": 754,
+          "kind": 6,
+          "symbol": "??_C@_0BK@CMAK@sendto?5returned?5error?5?$CFd?6?$AA@",
+          "target": 8393200,
+          "addend": 0,
+          "resolved": 8393200
+        },
+        {
+          "offset": 759,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291401909
+        },
+        {
+          "offset": 793,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 84763
+        },
+        {
+          "offset": 843,
+          "kind": 6,
+          "symbol": "??_C@_0CM@JJEL@FD_WRITE?5?9?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd?5is?5u@",
+          "target": 8393156,
+          "addend": 0,
+          "resolved": 8393156
+        },
+        {
+          "offset": 848,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291401820
+        },
+        {
+          "offset": 911,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 85096
+        },
+        {
+          "offset": 1003,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 85004
+        },
+        {
+          "offset": 1058,
+          "kind": 6,
+          "symbol": "??_C@_0BN@NKKG@FD_READ?5?9?5Got?5error?5code?5?$CFd?6?$AA@",
+          "target": 8393124,
+          "addend": 0,
+          "resolved": 8393124
+        },
+        {
+          "offset": 1101,
+          "kind": 20,
+          "symbol": "_recvfrom@24",
+          "target": 7871406,
+          "addend": 0,
+          "resolved": 84509
+        },
+        {
+          "offset": 1155,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 84401
+        },
+        {
+          "offset": 1205,
+          "kind": 6,
+          "symbol": "??_C@_0BL@DGAO@recvfrom?5?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd?6?$AA@",
+          "target": 8393096,
+          "addend": 0,
+          "resolved": 8393096
+        },
+        {
+          "offset": 1210,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291401458
+        },
+        {
+          "offset": 1226,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 1277,
+          "kind": 20,
+          "symbol": "?Get_Packet_Loss_Percent@@YAHXZ",
+          "target": 7780848,
+          "addend": 0,
+          "resolved": 4294961071
+        },
+        {
+          "offset": 1292,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 1297,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293703243
+        },
+        {
+          "offset": 1320,
+          "kind": 20,
+          "symbol": "?Get_New_In_Buffer@WinsockInterfaceClass@@IAEPAXXZ",
+          "target": 7779584,
+          "addend": 0,
+          "resolved": 4294959764
+        },
+        {
+          "offset": 1409,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 84147
+        },
+        {
+          "offset": 1448,
+          "kind": 6,
+          "symbol": "??_C@_0DM@HNIM@Throwing?5away?5malformed?5packet?5f@",
+          "target": 8393036,
+          "addend": 0,
+          "resolved": 8393036
+        },
+        {
+          "offset": 1453,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291401215
+        },
+        {
+          "offset": 1458,
+          "kind": 6,
+          "symbol": "?IsMalformedPacketReported@@3_NA",
+          "target": 11710236,
+          "addend": 0,
+          "resolved": 11710236
+        },
+        {
+          "offset": 1471,
+          "kind": 6,
+          "symbol": "?IsMalformedPacketReported@@3_NA",
+          "target": 11710236,
+          "addend": 0,
+          "resolved": 11710236
+        },
+        {
+          "offset": 1489,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 84518
+        },
+        {
+          "offset": 1529,
+          "kind": 20,
+          "symbol": "_htonl@4",
+          "target": 7871334,
+          "addend": 0,
+          "resolved": 84009
+        },
+        {
+          "offset": 1547,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10528,
+          "resolved": 10746808
+        },
+        {
+          "offset": 1556,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10532,
+          "resolved": 10746812
+        },
+        {
+          "offset": 1565,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10536,
+          "resolved": 10746816
+        },
+        {
+          "offset": 1580,
+          "kind": 20,
+          "symbol": "_ntohs@4",
+          "target": 7871352,
+          "addend": 0,
+          "resolved": 83976
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7785792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7787488,
+      "method": "0076d3e0",
+      "body_bytes": 6,
+      "body_sha256": "7140f35dee6220b79b12aecc27acf5105bf3b77d1588e89fce345de7c16c72b7",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "19b223c8571b1c77168d2cce1d14e0e191da4c5d4f24609f4cc5781c903a40a6",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Protocol@UDPInterfaceClass@@UAE?AW4ProtocolEnum@@XZ",
+      "symbol_prefix": "?Get_Protocol@UDPInterfaceClass@@UAE?AW4ProtocolEnum@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7787488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7787504,
+      "method": "0076d3f0",
+      "body_bytes": 54,
+      "body_sha256": "99ca66e955d818474b6070a24c281adc9791ebc4346eb492d532bc057ac57151",
+      "padding_bytes": 10,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "59543189f5bc5af23a04674c8846aeff8681a5492614a5657fdeb943f3cc0da0",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Protocol_Event_Message@UDPInterfaceClass@@UAEHI@Z",
+      "symbol_prefix": "?Protocol_Event_Message@UDPInterfaceClass@@UAEHI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7787504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7787568,
+      "method": "0076d430",
+      "body_bytes": 7,
+      "body_sha256": "d1f8941e8a0c91eed82ab324ceeaf227431ce6810a2f31af26edabbee777d796",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f0959a07dba476768cd63533bac3a63040b705b074aff01a1b7d615eca53eab4",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Num_Local_Addresses@UDPInterfaceClass@@UAEHXZ",
+      "symbol_prefix": "?Get_Num_Local_Addresses@UDPInterfaceClass@@UAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7787568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7787584,
+      "method": "0076d440",
+      "body_bytes": 16,
+      "body_sha256": "66494bfb068b0668f0e770f7d5dbf0573fe1193ac41c3a7e990a674790825007",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "66494bfb068b0668f0e770f7d5dbf0573fe1193ac41c3a7e990a674790825007",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Local_Address@UDPInterfaceClass@@UAEPAEH@Z",
+      "symbol_prefix": "?Get_Local_Address@UDPInterfaceClass@@UAEPAEH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7787584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7787600,
+      "method": "0076d450",
+      "body_bytes": 8,
+      "body_sha256": "953fea0936a2e2dbc73a1eba4b372bd199dac57c7e1a4799a9b32aab46013ded",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "dc69a2bd2a8567be381d7e9ffa24f674e93b43765cd361a8fab60dd9cecd14d0",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Port@UDPInterfaceClass@@UAEGXZ",
+      "symbol_prefix": "?Get_Port@UDPInterfaceClass@@UAEGXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7787600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7787616,
+      "method": "0076d460",
+      "body_bytes": 325,
+      "body_sha256": "ed5e54ec6a6531fbea6aaac85c624d6d6600167bebca57455782dd5bdc2523d6",
+      "padding_bytes": 11,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "99d8b3184ea4b102f7796129860407bd6e1b2aa496f1b12c67080d7442b87d9a",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GUDPInterfaceClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GUDPInterfaceClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7UDPInterfaceClass@@6B@",
+          "target": 8059692,
+          "addend": 0,
+          "resolved": 8059692
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 84151
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 84069
+        },
+        {
+          "offset": 181,
+          "kind": 20,
+          "symbol": "?Close@WinsockInterfaceClass@@QAEXXZ",
+          "target": 7777808,
+          "addend": 0,
+          "resolved": 4294957303
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAE@@6B@",
+          "target": 8059852,
+          "addend": 0,
+          "resolved": 8059852
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83968
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAE@@6B@",
+          "target": 8059852,
+          "addend": 0,
+          "resolved": 8059852
+        },
+        {
+          "offset": 270,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83913
+        },
+        {
+          "offset": 298,
+          "kind": 20,
+          "symbol": "??1WinsockInterfaceClass@@UAE@XZ",
+          "target": 7777648,
+          "addend": 0,
+          "resolved": 4294957026
+        },
+        {
+          "offset": 311,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83872
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7787616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7787952,
+      "method": "76d5b0",
+      "body_bytes": 42,
+      "body_sha256": "14940036daa231a771794cc33336ab2a1ea1ca87d13afcf500667a86aa69a197",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "259c2a76910d1580775839554a6f6e963d6516b6edddcd6234dd213cf368198d",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAE@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAE@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83824
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7787952,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-10"
+    },
+    {
+      "entry": 7788000,
+      "method": "0076d5e0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAE@@UAEHPBQAE@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAE@@UAEHPBQAE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4489"
+    },
+    {
+      "entry": 7788032,
+      "method": "0076d600",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAE@@UBEPAEH@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAE@@UBEPAEH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788032,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7788048,
+      "method": "0076d610",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAE@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAE@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788048,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7788112,
+      "method": "0076d650",
+      "body_bytes": 174,
+      "body_sha256": "e559feab7aa7bd8e61948416e564cfacbbe580f315d76393447faf9893c6216d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "476d9584a5e9f2ccb6467575a8a2109a5e0d763dd7eee0fe31e60b5673ddc5da",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAE@@UAE_NHPBQAE@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAE@@UAE_NHPBQAE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 84380
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83568
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788112,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7788288,
+      "method": "0076d700",
+      "body_bytes": 39,
+      "body_sha256": "89e563b6b652af838efa481f1c2cab1e1694bbc5801c93ca64b31fc2b125e4d4",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e01fb4c2f90302a09952f3b573a206e4579ed4259ee7663e5758d9f3fddec454",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAE@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAE@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83491
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788288,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7788336,
+      "method": "0076d730",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAE@@UAEHABQAE@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAE@@UAEHABQAE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788336,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7788400,
+      "method": "0076d770",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAE@@UAEHPBQAE@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAE@@UAEHPBQAE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788400,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7788432,
+      "method": "0076d790",
+      "body_bytes": 176,
+      "body_sha256": "e7fcd6c398d56666886848e4f179909e91e9bf0373076450bf5676b80c83ca82",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "e7fcd6c398d56666886848e4f179909e91e9bf0373076450bf5676b80c83ca82",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAE@@UAE_NHPBQAE@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAE@@UAE_NHPBQAE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 84064
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83261
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7788608,
+      "method": "0076d840",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAE@@UAEHABQAE@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAE@@UAEHABQAE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788608,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4490"
+    },
+    {
+      "entry": 7788656,
+      "method": "76d870",
+      "body_bytes": 73,
+      "body_sha256": "159d30d89d09a8f703af2ead3ddadbdef317b2abfbe0cb2a9f9e244bc0a4455a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9f8ca7de09149192d1a0d44bfd2878bda690db90b952d19099309c085631547c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAE@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAE@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAE@@6B@",
+          "target": 8059852,
+          "addend": 0,
+          "resolved": 8059852
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83118
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83083
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 7788736,
+      "method": "76d8c0",
+      "body_bytes": 73,
+      "body_sha256": "9a6043b888aab274a2ce1e4f420c8584b381521fbab3a4e774fc48bc6fbb32e7",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d020e3f56f3c8fd15a32e34982100bfd9ed539e5bcd50709dfa365cc076ec17b",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAE@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAE@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAE@@6B@",
+          "target": 8059852,
+          "addend": 0,
+          "resolved": 8059852
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83038
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 83003
+        }
+      ],
+      "source_sha256": "3ee40a49dbb1e466bf59a8f894c591280a5046757118a7e2771ee9609db7d96b",
+      "source": "rebuild/src/wspudp.cpp",
+      "population": "rebuild-wspudp",
+      "source_order": 7788736,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    }
+  ]
+}

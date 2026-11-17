@@ -1,0 +1,188 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+// Function comment blocks from mischa85/RedAlert2 392e904 src/carry.cpp (matching RA2 1.006 decomp), placed above our
+// own notes; code unchanged.
+
+// carry.cpp: the original translation unit re-filed as one source (Route A): the accepted
+// bodies of its canonical compile group in address order, under the unit's own header
+// state (its switches and includes in their original order). The module map
+// manifests/original_target/modules/carry.json carries the addresses and the rows that
+// stay in their own files.
+
+// Header-static dynamic initializers of the unit at 0x00468AC0:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x00468AC0-0x00468CA6); the other
+// drafts of this plan are emitted by these includes.
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+
+
+// Dynamic initializer (0x00468AF0, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468B10, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468B30, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468B50, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468B70, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468B90, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468BD0, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468C00, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468C30, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468C60, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468C70, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+// Dynamic initializer (0x00468C90, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_00468ac0.cpp; no source of its own.
+
+
+
+
+#include "shared/carryover.hpp"
+#include "shared/building_class.hpp"
+#include "shared/techno.hpp"
+#include "shared/techno_type.hpp"
+#include "shared/house.hpp"
+#include "shared/house_type.hpp"
+#include "shared/unit.hpp"
+#include "shared/infantry.hpp"
+#include "shared/building_type_list.hpp"
+#include "shared/unknown_globals.hpp"
+#include "shared/cell.hpp"
+
+
+/***********************************************************************************************
+ * CarryoverClass::CarryoverClass -- Constructor for carry over objects.                       *
+ *                                                                                             *
+ *    This is the constructor for a carry over object. Such an object is used to record the    *
+ *    object that will be "carried over" into a new scenario at some future time.              *
+ *                                                                                             *
+ * INPUT:   techno   -- Pointer to the object that will be carried over.                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/10/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00468CB0)
+// Records the object's kind, type, cell, strength and house.
+// The unit builds buildings (Create): the full BuildingClass before techno.hpp's stub.
+
+CarryoverClass::CarryoverClass(TechnoClass *techno) :
+    RTTI(0),
+    Position(0, 0),
+    Strength(0),
+    House(-1)
+{
+    if (techno) {
+        RTTI = techno->Kind_Of();
+        switch (RTTI) {
+            case 1:
+            case 6:
+                Type = techno->Techno_Type_Class()->Fetch_Heap_ID();
+                break;
+            case 15:
+                Type = techno->Techno_Type_Class()->Fetch_Heap_ID();
+                break;
+        }
+        House = techno->House->Type->House;
+        Strength = techno->Strength;
+        Position = techno->Get_Cell();
+    }
+}
+
+
+/***********************************************************************************************
+ * CarryoverClass::Create -- Creates a carried over object.                                    *
+ *                                                                                             *
+ *    Use this routine to convert a carried over object into an actual object that will be     *
+ *    placed on the map.                                                                       *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the object successfully created and placed on the map?                   *
+ *                                                                                             *
+ * WARNINGS:   This routine might not place the object if the old map location was invalid     *
+ *             or there are other barriers to the object's creation and placement.             *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/10/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+// (0x00468D50)
+// Recreates the object for its house at its cell with its strength;
+// infantry is placed with ScenarioInit cleared. Always false.
+
+bool CarryoverClass::Create() const
+{
+    HouseClass *house = HouseClass::As_Pointer(House);
+    TechnoClass *techno = 0;
+    switch (RTTI) {
+        case 1:
+            techno = new UnitClass(UnitTypes[Type], house);
+            break;
+        case 6:
+            techno = new BuildingClass(BuildingTypes[Type], house);
+            break;
+        case 15:
+            techno = new InfantryClass(InfantryTypes[Type], house);
+            break;
+    }
+    if (techno) {
+        bool old = ScenarioInit != 0;
+        techno->Strength = Strength;
+        if (RTTI == 15) {
+            ScenarioInit = 0;
+        }
+        CoordStruct coord(Position.X * 256 + 128, Position.Y * 256 + 128, 0);
+        techno->Unlimbo(&coord, 0);
+        if (RTTI == 15) {
+            ScenarioInit = old;
+        }
+    }
+    return false;
+}
+
+
+// void *CarryoverClass::`scalar deleting destructor'(unsigned int flags) (0x00468E80)
+// Compiler-generated with the vtable (LinkClass's destructor). No source of its own.

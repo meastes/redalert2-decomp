@@ -1,0 +1,62 @@
+# Rebuild trial tree
+
+This folder holds a three-day trial (started 2026-11-17). It rebuilds the Red Alert 2 1.006 `game.exe`
+from a new source tree laid out like the original: one source file per original translation unit
+(`src/<unit>.cpp`), one header per class (`include/`), and no per-unit views or feature switches. A
+function counts only when the original compiler (VC6) turns its source into the exact original bytes,
+and the tree as a whole must pass the whole-file exact build.
+
+## How it relates to the rest of this repository
+
+- **Main tree** (`src/` on `main`): this project's exact-match record, and the code the native ports build
+  from. The trial never edits it. It serves as the answer key: function bodies taken from it are
+  provenance class b.
+- **mischa85/RedAlert2**: a separate matching decompilation of the same executable. Most of the text here
+  is adopted from it, whole files, credited per file. Its module map decides where each unit's functions
+  lie. `manifest/adopted.csv` lists every adopted file with origin and commit; licences are in
+  `LICENSE.md` and the repository's `THIRD_PARTY.md`.
+
+## Where the bytes come from
+
+Every accepted function has a provenance class in `manifest/provenance.csv`:
+
+| Class | Meaning |
+| --- | --- |
+| a | text adopted from mischa85 (or the TibSun archive / ra2-decomp it builds on) |
+| b | the body from this repository's main tree, reshaped to this tree's names and headers |
+| c | written fresh from the Ghidra seed and the class layout, without either reference |
+
+The percentage this tree reproduces is mostly adopted work (class a). Read it together with the split
+below.
+
+<!-- numbers: updated at each gated landing -->
+**At the last gated landing (2026-11-17 22:39Z):** 129 units, 2,671 functions exact; 10.19% of `.text`
+built from source, 13.01% reproduced with the linked library and assembled bytes.
+
+| Class | Functions | Bytes |
+| --- | ---: | ---: |
+| a, adopted | 2,505 | 354,172 |
+| b, reshaped from main | 8 | 11,120 |
+| c, fresh | 63 | 6,944 |
+| Windows workers (adopted) | 95 | 11,936 |
+
+Structure: 0 duplicate class definitions, 0 stray externs in sources, 3 address-suffixed names,
+142 units held, 355 functions not yet exact (44,646 bytes; 8 functions of 1 KB or more, 17,323 bytes).
+The newest numbers are always the last line of `manifest/progress.csv`.
+
+## Structure gate
+
+`tools/rebuild.py catalog` refuses to land a tree that breaks the structure budget in
+`manifest/structure_budget.json`. The tree-wide checks: zero duplicate class definitions (counted by
+qualified name), no source outside a unit, no free functions standing in for class members, and no tool
+data in sources. Each unit is also checked on its own: a new unit may not add stray `extern` lines or
+address-suffixed names.
+
+## Layout
+
+- `src/`: one file per original unit.
+- `include/`: headers, one per class.
+- `manifest/`: units and their rows (`units.json`), the catalog the build reads, provenance,
+  adoption index, progress, time log and worker rows.
+- `tools/`: adopt, check, catalog and census tools. They need this repository's private inputs (the
+  original executable and the compiler), which are not published.

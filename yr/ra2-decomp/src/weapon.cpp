@@ -1,0 +1,403 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#define NDEBUG
+#define INCLUDE_COM
+#include "always.h"
+#include "geometry.h"
+#include "weapon.h"
+#include "_rules.h"
+#include "_weapon.h"
+#include "animtype.h"
+#include "bullettype.h"
+#include "combat.h"
+#include "findmake.h"
+#include "globals.h"
+#include "incdec.h"
+#include "psystype.h"
+#include "rules.h"
+#include "session.h"
+#include "sun.h"
+#include "swizzle.h"
+#include "tracker.h"
+#include "warhead.h"
+#include <cstring>
+
+// SYNTHETIC: GAMEMD 0x00771A60 SYMBOL
+// _$E2
+// SYNTHETIC: GAMEMD 0x00771A90 SYMBOL
+// _$E5
+// SYNTHETIC: GAMEMD 0x00771AB0 SYMBOL
+// _$E8
+// SYNTHETIC: GAMEMD 0x00771AD0 SYMBOL
+// _$E11
+// SYNTHETIC: GAMEMD 0x00771AF0 SYMBOL
+// _$E14
+// SYNTHETIC: GAMEMD 0x00771B10 SYMBOL
+// _$E17
+// SYNTHETIC: GAMEMD 0x00771B30 SYMBOL
+// _$E20
+// SYNTHETIC: GAMEMD 0x00771B70 SYMBOL
+// _$E23
+// SYNTHETIC: GAMEMD 0x00771BA0 SYMBOL
+// _$E26
+// SYNTHETIC: GAMEMD 0x00771BD0 SYMBOL
+// _$E29
+// SYNTHETIC: GAMEMD 0x00771C00 SYMBOL
+// _$E32
+// SYNTHETIC: GAMEMD 0x00771C10 SYMBOL
+// _$E35
+// SYNTHETIC: GAMEMD 0x00771C30 SYMBOL
+// _$E38
+// SYNTHETIC: GAMEMD 0x00771C50 SYMBOL
+// _$E49
+
+// FUNCTION: GAMEMD 0x00771C70
+WeaponTypeClass::WeaponTypeClass(char const * ininame) :
+	BASECLASS(ininame),
+	AmbientDamage(0),
+	Burst(1),
+	Bullet(NULL),
+	Attack(0),
+	MaxSpeed(MPH_IMMOBILE),
+	WarheadPtr(NULL),
+	ROF(0),
+	Range(0),
+	MinimumRange(0),
+	Sound(),
+	DownReport(),
+	Anim(),
+	OccupantAnim(NULL),
+	AssaultAnim(NULL),
+	OpenToppedAnim(NULL),
+	AttachedParticleSystem(NULL),
+	LaserInnerColor(0, 0, 0),
+	LaserOuterColor(0, 0, 0),
+	LaserOuterSpread(0, 0, 0),
+	UseFireParticles(false),
+	UseSparkParticles(false),
+	OmniFire(false),
+	DistributedWeaponFire(false),
+	IsRailgun(false),
+	IsLobber(false),
+	IsBright(false),
+	IsSonic(false),
+	Spawner(false),
+	LimboLaunch(false),
+	DecloakToFire(true),
+	CellRangefinding(false),
+	FireOnce(false),
+	NeverUse(false),
+	RevealOnFire(true),
+	TerrainFire(false),
+	SabotageCursor(false),
+	MigAttackCursor(false),
+	DisguiseFireOnly(false),
+	DisguiseFakeBlinkTime(0),
+	InfiniteMindControl(false),
+	FireWhileMoving(true),
+	DrainWeapon(false),
+	FireInTransport(true),
+	Suicide(false),
+	IsTurboBoosted(false),
+	IsSupressed(false),
+	IsCamera(false),
+	IsElectric(false),
+	IsLaser(false),
+	DiskLaser(false),
+	IsLine(false),
+	IsBigLaser(false),
+	IsHouseColor(false),
+	LaserDuration(10),
+	IsIonSensitive(false),
+	AreaFire(false),
+	IsElectricBolt(false),
+	DrawBoltAsLaser(false),
+	IsAlternateColor(false),
+	IsRadBeam(false),
+	IsRadEruption(false),
+	RadLevel(0),
+	IsMagBeam(false)
+{
+	Create_ID();
+	Weapons.Add(this);
+}
+
+// FUNCTION: GAMEMD 0x00771F00
+WeaponTypeClass::WeaponTypeClass(NoInitClass const & x) :
+	BASECLASS(x),
+	Sound(x),
+	DownReport(x),
+	Anim(x),
+	LaserInnerColor(x),
+	LaserOuterColor(x),
+	LaserOuterSpread(x)
+{
+}
+
+// FUNCTION: GAMEMD 0x00771F50
+WeaponTypeClass::~WeaponTypeClass(void)
+{
+	Detach_This_From_All(this, true);
+	Bullet = NULL;
+	WarheadPtr = NULL;
+
+	Weapons.Delete(this);
+}
+
+// FUNCTION: GAMEMD 0x00772080
+bool WeaponTypeClass::Read_INI(CCINIClass & ini)
+{
+	ini.Reset();
+	if (ini.Is_Present(IniName)) {
+		AmbientDamage = ini.Get_Int(IniName, "AmbientDamage", AmbientDamage);
+		IsSonic = ini.Get_Bool(IniName, "IsSonic", IsSonic);
+		Spawner = ini.Get_Bool(IniName, "Spawner", Spawner);
+		LimboLaunch = ini.Get_Bool(IniName, "LimboLaunch", LimboLaunch);
+		DecloakToFire = ini.Get_Bool(IniName, "DecloakToFire", DecloakToFire);
+		CellRangefinding = ini.Get_Bool(IniName, "CellRangefinding", CellRangefinding);
+		FireOnce = ini.Get_Bool(IniName, "FireOnce", FireOnce);
+		NeverUse = ini.Get_Bool(IniName, "NeverUse", NeverUse);
+		RevealOnFire = ini.Get_Bool(IniName, "RevealOnFire", RevealOnFire);
+		TerrainFire = ini.Get_Bool(IniName, "TerrainFire", TerrainFire);
+		SabotageCursor = ini.Get_Bool(IniName, "SabotageCursor", SabotageCursor);
+		MigAttackCursor = ini.Get_Bool(IniName, "MigAttackCursor", MigAttackCursor);
+		DisguiseFireOnly = ini.Get_Bool(IniName, "DisguiseFireOnly", DisguiseFireOnly);
+		InfiniteMindControl = ini.Get_Bool(IniName, "InfiniteMindControl", InfiniteMindControl);
+		FireWhileMoving = ini.Get_Bool(IniName, "FireWhileMoving", FireWhileMoving);
+		DrainWeapon = ini.Get_Bool(IniName, "DrainWeapon", DrainWeapon);
+		FireInTransport = ini.Get_Bool(IniName, "FireInTransport", FireInTransport);
+		DisguiseFakeBlinkTime = ini.Get_Int(IniName, "DisguiseFakeBlinkTime", DisguiseFakeBlinkTime);
+		Suicide = ini.Get_Bool(IniName, "Suicide", Suicide);
+		IsSupressed = ini.Get_Bool(IniName, "Supress", IsSupressed);
+		Burst = ini.Get_Int(IniName, "Burst", Burst);
+		Attack = ini.Get_Int(IniName, "Damage", Attack);
+		MaxSpeed = ini.Get_MPHType(IniName, "Speed", MaxSpeed);
+		ROF = ini.Get_Int(IniName, "ROF", ROF);
+		Range = ini.Get_Lepton(IniName, "Range", Range);
+		MinimumRange = ini.Get_Lepton(IniName, "MinimumRange", MinimumRange);
+
+		Sound = ini.Get_VocType_List(ini, IniName, "Report", Sound);
+		DownReport = ini.Get_VocType_List(ini, IniName, "DownReport", DownReport);
+		Anim = TGet_TypeList<AnimTypeClass>(ini, IniName, "Anim", Anim);
+		AssaultAnim = TGet_Class(ini, IniName, "AssaultAnim", AssaultAnim);
+		OccupantAnim = TGet_Class(ini, IniName, "OccupantAnim", OccupantAnim);
+		OpenToppedAnim = TGet_Class(ini, IniName, "OpenToppedAnim", OpenToppedAnim);
+
+		IsCamera = ini.Get_Bool(IniName, "Camera", IsCamera);
+		IsLaser = ini.Get_Bool(IniName, "IsLaser", IsLaser);
+		DiskLaser = ini.Get_Bool(IniName, "DiskLaser", DiskLaser);
+		IsLine = ini.Get_Bool(IniName, "IsLine", IsLine);
+		IsHouseColor = ini.Get_Bool(IniName, "IsHouseColor", IsHouseColor);
+		IsElectric = ini.Get_Bool(IniName, "Charges", IsElectric);
+		IsTurboBoosted = ini.Get_Bool(IniName, "TurboBoost", IsTurboBoosted);
+
+		UseFireParticles = ini.Get_Bool(IniName, "UseFireParticles", UseFireParticles);
+		UseSparkParticles = ini.Get_Bool(IniName, "UseSparkParticles", UseSparkParticles);
+		OmniFire = ini.Get_Bool(IniName, "OmniFire", OmniFire);
+		DistributedWeaponFire = ini.Get_Bool(IniName, "DistributedWeaponFire", DistributedWeaponFire);
+		IsRailgun = ini.Get_Bool(IniName, "IsRailgun", IsRailgun);
+		IsLobber = ini.Get_Bool(IniName, "Lobber", IsLobber);
+
+		LaserInnerColor = ini.Get_RGBClass(IniName, "LaserInnerColor", LaserInnerColor);
+		LaserOuterColor = ini.Get_RGBClass(IniName, "LaserOuterColor", LaserOuterColor);
+		LaserOuterSpread = ini.Get_RGBClass(IniName, "LaserOuterSpread", LaserOuterSpread);
+		LaserDuration = ini.Get_Int(IniName, "LaserDuration", LaserDuration);
+		IsBigLaser = ini.Get_Bool(IniName, "IsBigLaser", IsBigLaser);
+
+		IsBright = ini.Get_Bool(IniName, "Bright", IsBright);
+		IsIonSensitive = ini.Get_Bool(IniName, "IonSensitive", IsIonSensitive);
+		AreaFire = ini.Get_Bool(IniName, "AreaFire", AreaFire);
+		IsElectricBolt = ini.Get_Bool(IniName, "IsElectricBolt", IsElectricBolt);
+		DrawBoltAsLaser = ini.Get_Bool(IniName, "DrawBoltAsLaser", DrawBoltAsLaser);
+		IsAlternateColor = ini.Get_Bool(IniName, "IsAlternateColor", IsAlternateColor);
+		IsRadBeam = ini.Get_Bool(IniName, "IsRadBeam", IsRadBeam);
+		IsRadEruption = ini.Get_Bool(IniName, "IsRadEruption", IsRadEruption);
+		RadLevel = ini.Get_Int(IniName, "RadLevel", RadLevel);
+		IsMagBeam = ini.Get_Bool(IniName, "IsMagBeam", IsMagBeam);
+
+		char buffer[20];
+		buffer[0] = '\0';
+		ini.Get_String(IniName, "AttachedParticleSystem", buffer, buffer, sizeof(buffer));
+		ParticleSystemType ps = ParticleSystemTypeClass::From_Name(buffer);
+		if (ps != PARTSYS_NONE) {
+			AttachedParticleSystem = ParticleSystemTypes[ps];
+		}
+
+		WarheadPtr = TGet_Class(ini, IniName, "Warhead", WarheadPtr);
+		Bullet = TGet_Class(ini, IniName, "Projectile", Bullet);
+
+		return(true);
+	}
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x007729F0
+void WeaponTypeClass::Init_Max_Speed(void)
+{
+	if (Bullet != NULL && Bullet->ROT == 0) {
+		double gravity = Rule->Gravity;
+		if (Bullet->IsFloater) {
+			gravity = Get_Floater_Gravity();
+		}
+		MaxSpeed = Calculate_Projectile_Speed(Range, gravity);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00772A50
+ArmorType Armor_From_Name(char const * name)
+{
+	if (!name) return(ARMOR_NONE);
+
+	for (ArmorType index = ARMOR_FIRST; index < ARMOR_COUNT; index++) {
+		if (stricmp(ArmorName[index], name) == 0) {
+			return(index);
+		}
+	}
+
+	return(ARMOR_NONE);
+}
+
+// FUNCTION: GAMEMD 0x00772A90
+ThreatType WeaponTypeClass::Allowed_Threats(void) const
+{
+	ThreatType threat = THREAT_NORMAL;
+	if (Bullet->IsAntiAircraft) {
+		threat = ThreatType(threat | THREAT_AIR);
+	}
+	if (Bullet->IsAntiGround) {
+		threat = ThreatType(threat | THREAT_INFANTRY|THREAT_VEHICLES|THREAT_BOATS|THREAT_BUILDINGS);
+	}
+	return(threat);
+}
+
+// FUNCTION: GAMEMD 0x00772AC0
+bool WeaponTypeClass::Is_Wall_Destroyer(void) const
+{
+	if (WarheadPtr != NULL && WarheadPtr->IsWallDestroyer) {
+		return(true);
+	}
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x00772AE0
+void WeaponTypeClass::Compute_CRC(CRCEngine &crc) const
+{
+	BASECLASS::Compute_CRC(crc);
+	crc(AmbientDamage);
+	crc(IsSonic);
+	crc(IsTurboBoosted);
+	crc(IsSupressed);
+	crc(IsCamera);
+	crc(IsLaser);
+	crc(IsHouseColor);
+	crc(Burst);
+	if (Bullet != NULL) crc(Bullet->Fetch_ID());
+	crc(Attack);
+	crc(MaxSpeed);
+	if (WarheadPtr != NULL) crc(WarheadPtr->Fetch_ID());
+	crc(ROF);
+	crc(Range);
+	crc(Sound.Count());
+	crc(DownReport.Count());
+	crc(Anim.Count());
+	crc(UseFireParticles);
+	crc(IsLobber);
+	crc((char)LaserDuration);
+	crc(IsBigLaser);
+	crc(IsRailgun);
+	crc(IsElectric);
+	crc(IsBright);
+	crc(UseSparkParticles);
+	crc(OmniFire);
+	crc(DistributedWeaponFire);
+}
+
+// FUNCTION: GAMEMD 0x00772C90
+HRESULT STDMETHODCALLTYPE WeaponTypeClass::GetClassID(CLSID * retval)
+{
+	if (retval == NULL) return(E_POINTER);
+	*retval = CLSID_WeaponTypeClass;
+	return(S_OK);
+}
+
+// FUNCTION: GAMEMD 0x00772CD0
+HRESULT STDMETHODCALLTYPE WeaponTypeClass::Load(IStream * stream)
+{
+	Sound.Clear();
+	DownReport.Clear();
+	HRESULT result = BASECLASS::Load(stream);
+	if (SUCCEEDED(result)) {
+		new (this) WeaponTypeClass(NoInitClass());
+
+		Anim.Load(stream);
+		Sound.Load(stream);
+		DownReport.Load(stream);
+
+		Swizzle_Pointer(&WarheadPtr);
+		Swizzle_Pointer(&Bullet);
+		Swizzle_Pointer(&AttachedParticleSystem);
+		Swizzle_Pointer(&AssaultAnim);
+		Swizzle_Pointer(&OccupantAnim);
+		Swizzle_Pointer(&OpenToppedAnim);
+
+		for (int i = 0; i < Anim.Count(); i++) {
+			Swizzle_Pointer(&Anim[i]);
+		}
+
+		result = S_OK;
+	}
+	return(result);
+}
+
+// FUNCTION: GAMEMD 0x00772EB0
+HRESULT STDMETHODCALLTYPE WeaponTypeClass::Save(IStream * stream, BOOL cleardirty)
+{
+	HRESULT result = BASECLASS::Save(stream, cleardirty);
+	if (SUCCEEDED(result)) {
+		Anim.Save(stream);
+		Sound.Save(stream);
+		DownReport.Save(stream);
+
+		result = S_OK;
+	}
+	return(result);
+}
+
+// FUNCTION: GAMEMD 0x00772FA0
+WeaponTypeClass * WeaponTypeClass::Find_Or_Make(const char *name)
+{
+	return(TFind_Or_Make<WeaponTypeClass>(name, Weapons));
+}
+
+// FUNCTION: GAMEMD 0x00773030
+WeaponType WeaponTypeClass::From_Name(char const * name)
+{
+	for (int index = 0; index < Weapons.Count(); index++) {
+		if (stricmp(Weapons[index]->IniName, name) == 0) {
+			return(WeaponType(index));
+		}
+	}
+	return(WEAPON_NONE);
+}
+
+// FUNCTION: GAMEMD 0x00773070
+int WeaponTypeClass::Get_Speed(int range) const
+{
+	if (Bullet != NULL && Bullet->ROT == 0) {
+		double gravity = Bullet->IsFloater ? Get_Floater_Gravity() : (double)Rule->Gravity;
+		return(Calculate_Projectile_Speed(range, gravity));
+	}
+	return(MaxSpeed);
+}
+
+// FUNCTION: GAMEMD 0x007730D0
+// WeaponTypeClass::Fetch_Object_Size
+
+// FUNCTION: GAMEMD 0x007730E0
+// WeaponTypeClass::Fetch_RTTI
+
+// SYNTHETIC: GAMEMD 0x007730F0
+// ??_GWeaponTypeClass@@UAEPAXI@Z

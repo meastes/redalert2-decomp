@@ -1,0 +1,406 @@
+#define RA2_COORD_FROM_CELL_INLINE
+#define RA2_COORD_LENGTH
+#define RA2_COORD_AS_CELL
+#include "shared/mech_locomotion.hpp"
+#include "shared/unknown_geometry.hpp"
+#include "shared/cell.hpp"
+#include "shared/rules.hpp"
+#include "shared/tube.hpp"
+#include "shared/overlay_type.hpp"
+#include "shared/house.hpp"
+#include "shared/techno_type.hpp"
+#include "shared/fast_math.hpp"
+#include "shared/unknown_vector3.hpp"
+#include "shared/adjacent_cell.hpp"
+#include "shared/infantry.hpp"
+#include "shared/radio.hpp"
+#include "shared/sound_play.hpp"
+#include "shared/building_light.hpp"
+// @ref ?unknown_geometry_l@@3UCoordStruct@@A=00a70b18
+// @ref ?unknown_4c3000@FootClass@@QAE_NVCell@@HH@Z=004c3000
+
+static inline int Coord_Length(CoordStruct const &a, CoordStruct const &b)
+{
+    UnknownVector3 delta = UnknownVector3(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+    return delta.Length();
+}
+
+static inline int Distance3(CoordStruct const &a, CoordStruct const &b)
+{
+    return (a - b).Length();
+}
+
+static inline Point2D Flat(CoordStruct const &coord)
+{
+    return Point2D(coord.X, coord.Y);
+}
+
+static inline int Distance2(Point2D const &a, Point2D const &b)
+{
+    Point2D delta(a.X - b.X, a.Y - b.Y);
+    double x = delta.X;
+    double y = delta.Y;
+    return (int)Fast_Sqrt(y * y + x * x);
+}
+
+static inline CoordStruct Move_Coord(CoordStruct const &coord, UnknownFacingDir facing, int distance)
+{
+    double angle = ((short)facing.Raw - 0x3fff) * unknown_facing_radians_79b620;
+    return CoordStruct((int)(coord.X + unknown_cos_4ba4d0(angle) * distance), (int)(coord.Y - unknown_sin_4ba480(angle) * distance), coord.Z);
+}
+
+static inline UnknownFacingDir Direction(CoordStruct const &coord1, CoordStruct const &coord2)
+{
+    int x1 = coord1.X;
+    int x2 = coord2.X;
+    return UnknownFacingDir((unsigned short)(int)((Fast_Atan2((double)coord1.Y - (double)coord2.Y, (double)x2 - (double)x1) - 1.5707963267948966) * -10430.060040584269));
+}
+
+// The height step per tube direction; the count is read after the caller has built the coordinate.
+static inline int Tube_Height_Step(CoordStruct const &exit, TubeClass const *tube, int current_height)
+{
+    int count = tube->unknown_1c0;
+    return (Map.Get_Height_GL(exit) - current_height) / count;
+}
+
+static inline Cell Adjacent_Tube(Cell const &cell, int facing)
+{
+    return cell + AdjacentCell[facing & 7];
+}
+
+static inline Cell Adjacent_Cell_V(Cell cell, int facing)
+{
+    Cell const &offset = AdjacentCell[facing & 7];
+    return Cell(cell.X + offset.X, cell.Y + offset.Y);
+}
+
+void MechLocomotionClass::Movement_AI(bool continue_moving)
+{
+    if (LinkedTo->PrimaryFacing.Is_Rotating()) {
+        return;
+    }
+
+    if (HeadToCoord == unknown_geometry_l) {
+        if (unknown_18 != unknown_geometry_l) {
+            if (LinkedTo->Path[0] == -1) {
+                if (LinkedTo->PathDelay != 0) {
+                    LinkedTo->Stop_Movement_Animation();
+                    return;
+                }
+                LinkedTo->PathDelay = Rules->PathDelay * 900.0;
+                if (!LinkedTo->unknown_4c3000(unknown_18.As_Cell(), 0, 0)) {
+                    if (!LinkedTo->unknown_slot171(unknown_18)) {
+                        LinkedTo->Assign_Destination(0, 1);
+                        return;
+                    }
+                    {
+                        if (Coord_Length(LinkedTo->Center_Coord(), unknown_18) < Rules->CloseEnoughDistance && !LinkedTo->IsTethered) {
+                            LinkedTo->Assign_Destination(0, 1);
+                        } else if (LinkedTo->unknown_53c != 0) {
+                            LinkedTo->unknown_53c--;
+                        } else {
+                            if (LinkedTo->IsNewNavCom) {
+                                Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
+                            }
+                            LinkedTo->IsNewNavCom = false;
+                            Cell dest = unknown_18.As_Cell();
+                            if (LinkedTo->IsLocked) {
+                                Cell nav_dest = LinkedTo->Destination_Coord(0).As_Cell();
+                                if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
+                                    LinkedTo->Assign_Destination(0, 1);
+                                }
+                            }
+                            if (LinkedTo->TarCom != 0) {
+                                Cell tar_dest = LinkedTo->TarCom->Destination_Coord(LinkedTo).As_Cell();
+                                if (LinkedTo->IsLocked) {
+                                    Cell nav_dest = LinkedTo->Destination_Coord(LinkedTo).As_Cell();
+                                    if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
+                                        LinkedTo->unknown_slot220(0);
+                                    }
+                                }
+                            }
+                        }
+                        LinkedTo->unknown_slot306(0.0);
+                        Stop_Moving();
+                        unknown_30 = false;
+                        return;
+                    }
+                }
+                LinkedTo->unknown_53c = 10;
+            }
+
+            int dir = LinkedTo->Path[0];
+            if (dir == 8) {
+                int tube = Map[Object_Coord(LinkedTo)].Tube;
+                if (tube >= 0 && tube < Tubes.Count()) {
+                    LinkedTo->Mark(0);
+                    LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
+                    TubeClass *tube_ptr = Tubes[tube];
+                    Cell cell = tube_ptr->ExitCell;
+                    HeadToCoord = Cell_Coord(cell);
+                    memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
+                    LinkedTo->Path[23] = -1;
+                    LinkedTo->CurrentTube = tube;
+                    LinkedTo->CurrentTubeDir = 0;
+                    TPoint2D<short> const &enter = tube_ptr->EnterCell;
+                    CoordStruct enter_coord = Cell_Coord(Cell(enter));
+                    Cell visual_cell = Adjacent_Tube(Cell(enter), tube_ptr->Directions[0]);
+                    LinkedTo->unknown_45c = Object_Coord(LinkedTo) + (Map[visual_cell].unknown_475d60() - enter_coord);
+                    int start_h = Map.Get_Height_GL(Object_Coord(LinkedTo));
+                    cell = tube_ptr->ExitCell;
+                    LinkedTo->unknown_45c.Z = start_h + Tube_Height_Step(CoordStruct(cell, 0), tube_ptr, start_h);
+                    return;
+                }
+                LinkedTo->Path[0] = -1;
+                HeadToCoord = unknown_geometry_l;
+                Stop_Moving();
+                LinkedTo->Assign_Destination(0, 1);
+                return;
+            } else {
+
+            Cell what = Adjacent_Cell_V(Object_Coord(LinkedTo).As_Cell(), dir);
+            CoordStruct head_coord = Cell_Coord(what);
+            head_coord.Z = Map.Get_Height_GL(head_coord);
+            CellClass *what_cell = &Map[what];
+            if (LinkedTo->IsOnBridge ^ what_cell->IsUnderBridge) {
+                LinkedTo->IsPlanningToLook = true;
+            }
+            int can_enter = LinkedTo->Can_Enter_Cell(&Map[what], dir, LinkedTo->Unknown_005D47D0(), 0, true);
+            if (((can_enter != 5 && can_enter != 4) || !LinkedTo->Techno_Type_Class()->Crusher || what_cell->OverlayIndex != 0) && can_enter != 0) {
+                LinkedTo->Stop_Movement_Animation();
+                if (can_enter == 6) {
+                    CellClass *cellptr = &Map[what];
+                    if (continue_moving) {
+                        LinkedTo->Path[0] = -1;
+                        HeadToCoord = unknown_geometry_l;
+                        LinkedTo->PathDelay = 0;
+                        Movement_AI(false);
+                        return;
+                    }
+                    int dist = Distance3(LinkedTo->Center_Coord(), unknown_18);
+                    if (dist < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()
+                        && abs(unknown_18.Z - Object_Coord(LinkedTo).Z) < unknown_geometry_g * 2
+                        && Map[Object_Coord(LinkedTo)].Land != 10) {
+                        LinkedTo->unknown_slot306(0.0);
+                        LinkedTo->Assign_Destination(0, 1);
+                        LinkedTo->Path[0] = -1;
+                        Stop_Moving();
+                        unknown_30 = false;
+                    } else {
+                        bool bridge;
+                        if (cellptr->IsUnderBridge) {
+                            int z = Object_Coord(LinkedTo).Z;
+                            bridge = true;
+                            if (abs(z / unknown_geometry_g - cellptr->Height) <= 2) {
+                                bridge = false;
+                            }
+                        } else {
+                            bridge = false;
+                        }
+                        cellptr->Incoming(&unknown_geometry_l, true, true, bridge);
+                    }
+                    return;
+                }
+
+                if (can_enter == 2) {
+                    if (!LinkedTo->IsToPathAroundBlockage) {
+                        LinkedTo->IsToPathAroundBlockage = true;
+                        LinkedTo->BlockagePathDelay = Rules->BlockagePathDelay;
+                    }
+                    if (LinkedTo->PathDelay == 0) {
+                        bool blocked = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
+                        bool found = LinkedTo->unknown_4c3000(unknown_18.As_Cell(), 0, blocked ? 2 : 1);
+                        LinkedTo->PathDelay = Rules->PathDelay * 900.0;
+                        if (!found) {
+                            if (!LinkedTo->unknown_slot171(unknown_18)) {
+                                LinkedTo->Assign_Destination(0, 1);
+                            } else {
+                                LinkedTo->On_Movement_Blocked();
+                            }
+                        } else {
+                            LinkedTo->JumpJet_To_Walk();
+                        }
+                        return;
+                    }
+                    UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), head_coord);
+                    Do_Turn(face);
+                    return;
+                }
+
+                if (can_enter == 3) {
+                    Map.Try_Open_Gate(LinkedTo, what);
+                    LinkedTo->unknown_53c = 10;
+                    return;
+                }
+
+                if (can_enter != 1) {
+                    if (can_enter != 7) {
+                        if (can_enter == 5 || can_enter == 4) {
+                            ObjectClass *object = Map[what].Cell_Object(Point2D(0, 0), false);
+                            if (continue_moving) {
+                                LinkedTo->Path[0] = -1;
+                                HeadToCoord = unknown_geometry_l;
+                                LinkedTo->PathDelay = 0;
+                                Movement_AI(false);
+                                return;
+                            }
+                            if (object != 0) {
+                                if (!LinkedTo->House->Is_Ally((TechnoClass *)object)) {
+                                    LinkedTo->Override_Mission(1, (AbstractClass *)object, 0);
+                                }
+                            } else if (Map[what].OverlayIndex != -1 && OverlayTypes[Map[what].OverlayIndex]->Wall) {
+                                LinkedTo->Override_Mission(1, (AbstractClass *)&Map[what], 0);
+                            }
+                        }
+                        LinkedTo->Path[0] = -1;
+                        LinkedTo->unknown_slot306(0.0);
+                        Stop_Moving();
+                        LinkedTo->IsNewNavCom = false;
+                        goto done;
+                    }
+                } else {
+                    Map[what].Shimmer();
+                }
+                if (!continue_moving) return;
+                LinkedTo->Path[0] = -1;
+                HeadToCoord = unknown_geometry_l;
+                LinkedTo->PathDelay = 0;
+                Movement_AI(false);
+                return;
+            }
+
+            if (Mark_Head_To(head_coord)) {
+                {
+                    if (LinkedTo->Path[0] != -1 && LinkedTo->Path[0] != 8) {
+                        Cell cell = Adjacent_Tube(LinkedTo->Get_Cell(), LinkedTo->Path[0]);
+                        int overlay = Map[cell].OverlayIndex;
+                        if (overlay != -1) {
+                            OverlayTypeClass *otype = OverlayTypes[overlay];
+                            if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
+                                LinkedTo->IsCrushing = true;
+                                if (LinkedTo->Techno_Type_Class()->TiltsWhenCrushes) {
+                                    LinkedTo->RockingForwardsPerFrame = -0.01f;
+                                }
+                            }
+                        }
+                    }
+                }
+                if (!LinkedTo->IsActive) {
+                    return;
+                }
+                UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), HeadToCoord);
+                Do_Turn(face);
+                if (LinkedTo->PrimaryFacing.Is_Rotating()) {
+                    return;
+                }
+                LinkedTo->unknown_slot306(1.0);
+            } else {
+                LinkedTo->unknown_slot306(0.0);
+            }
+            }
+        } else {
+            if (LinkedTo->Speed > 0.0) {
+                LinkedTo->unknown_slot306(0.0);
+            }
+        }
+    } else {
+
+    if (Distance2(Flat(LinkedTo->Center_Coord()), Flat(HeadToCoord)) < 16) {
+        LinkedTo->Mark(0);
+        if (LinkedTo->Path[0] == -1) {
+            LinkedTo->Path[1] = -1;
+        }
+        memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
+        LinkedTo->Path[23] = -1;
+        LinkedTo->Set_Coord(HeadToCoord);
+        LinkedTo->LastPathingCell = HeadToCoord.As_Cell();
+        LinkedTo->Set_Height_AGL(0);
+        Mark_Head_To(unknown_geometry_l);
+        if (LinkedTo->Path[0] == -1) {
+            LinkedTo->unknown_slot306(0.0);
+        }
+        LinkedTo->IsOccupyingCell = true;
+        LinkedTo->IsToPathAroundBlockage = false;
+        if (unknown_18 == unknown_geometry_l
+            || (LinkedTo->Get_Cell() == unknown_18.As_Cell()
+                && abs(LinkedTo->Destination_Coord(0).Z - unknown_18.Z) < unknown_geometry_g * 2)) {
+            LinkedTo->Assign_Destination(0, 1);
+            LinkedTo->unknown_slot306(0.0);
+            Stop_Moving();
+            unknown_30 = false;
+        }
+        LinkedTo->unknown_slot93(2);
+        if (!LinkedTo->IsActive) {
+            return;
+        }
+        if (LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
+            return;
+        }
+        {
+            {
+                {
+                    if (LinkedTo->Path[0] != -1 && LinkedTo->Path[0] != 8) {
+                        Cell cell = Adjacent_Tube(LinkedTo->Get_Cell(), LinkedTo->Path[0]);
+                        int overlay = Map[cell].OverlayIndex;
+                        if (overlay != -1) {
+                            OverlayTypeClass *otype = OverlayTypes[overlay];
+                            if ((LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
+                                LinkedTo->IsCrushing = true;
+                                if (LinkedTo->Techno_Type_Class()->TiltsWhenCrushes) {
+                                    LinkedTo->RockingForwardsPerFrame = -0.01f;
+                                }
+                            }
+                        }
+                    }
+                }
+                if (!LinkedTo->IsActive || LinkedTo->IsInLimbo) {
+                    return;
+                }
+                LinkedTo->Mark(1);
+            }
+        }
+    } else {
+
+    LinkedTo->unknown_slot306(1.0);
+    int speed = LinkedTo->Current_Speed();
+    UnknownFacingDir desired = Direction(LinkedTo->Center_Coord(), HeadToCoord);
+    Do_Turn(desired);
+    if (LinkedTo->PrimaryFacing.Is_Rotating()) {
+        return;
+    }
+    if (LinkedTo->unknown_slot47()) {
+        LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
+        LinkedTo->IsOccupyingCell = false;
+        LinkedTo->IsToPathAroundBlockage = false;
+    }
+    {
+    Cell old_cell = LinkedTo->Get_Cell();
+    CoordStruct new_coord = Move_Coord(Object_Coord(LinkedTo), desired, speed);
+    Cell new_cell = new_coord.As_Cell();
+    if (old_cell != new_cell) {
+        LinkedTo->Mark(0);
+        LinkedTo->Set_Coord(new_coord);
+        CellClass *old_cellptr = &Map[old_cell];
+        CellClass *new_cellptr = &Map[new_cell];
+        if (new_cellptr->Height == old_cellptr->Height - 4 && new_cellptr->IsUnderBridge) {
+            LinkedTo->IsOnBridge = true;
+        }
+        if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
+            LinkedTo->IsOnBridge = false;
+        }
+        LinkedTo->Set_Height_AGL(0);
+        LinkedTo->Mark(1);
+        Map[Object_Coord(LinkedTo)].Trigger_Veins();
+    } else {
+        bool was_down = LinkedTo->IsDown;
+        LinkedTo->IsDown = false;
+        LinkedTo->Set_Coord(new_coord);
+        LinkedTo->Set_Height_AGL(0);
+        LinkedTo->IsDown = was_down;
+    }
+    }
+    }
+    }
+done:
+    LinkedTo->IsNewNavCom = false;
+}

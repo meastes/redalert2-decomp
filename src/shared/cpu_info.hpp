@@ -1,0 +1,31 @@
+// CPU and timer queries used to scale timings to the machine (declarations
+// only; Get_CPU_Info is accepted in src/recovered/unowned/).
+#ifndef RA2_SHARED_CPU_INFO_HPP
+#define RA2_SHARED_CPU_INFO_HPP
+
+// Runs the CPUID probes: the family (5 Pentium, 6 Pentium Pro and later),
+// whether CPUID exists and, with text, the unavailable-feature text
+// (0x004D2A20).
+void __fastcall Get_CPU_Info(int *family, unsigned char *has_cpuid, char *text, unsigned int size);
+
+// The CPU type (-1 unknown, else an index below 9; 0x004D2A60) and its name (0x004D2B80);
+// names hypotheses. The clock in MHz from the time stamp counter (mpu.cpp, 0x005ABF70).
+int Get_CPU_Type();
+char const *__fastcall Get_CPU_Type_Name();
+int Get_RDTSC_CPU_Speed();
+// Reads the time stamp counter into TSC_Low/TSC_High (mpu.cpp, 0x005ABF60).
+void RDTSC();
+
+// The CPU vendor text (0x008015A5; Get_CPU_Info 0x004D2A20 copies it, the version dialog prints it).
+extern char VendorID[];
+
+// The performance counter frequency: returns its low dword and stores the
+// high dword in high (mpu.cpp, 0x005ABF20; QueryPerformanceFrequency).
+unsigned int __fastcall Get_CPU_Rate(unsigned int & high);
+
+// Scenario.cpp's delay scaling constants (0x007A9208 0.8 for a Pentium Pro
+// or later, 0x007A9210 200.0; data of that unit, not shared literals).
+extern double const unknown_cpu_delay_scale_7a9208;
+extern double const unknown_cpu_delay_factor_7a9210;
+
+#endif

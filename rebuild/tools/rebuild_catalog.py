@@ -1,0 +1,163 @@
+"""Write the rebuild tree's canonical catalog (rebuild/manifest/catalog/) and its build config.
+
+Only rebuilt units are catalogued; every other byte of the image stays original scaffold, as
+in main's first phase. Each unit is one population `rebuild-<unit>` (one translation unit,
+its own reference table). Its rows keep main's frozen evidence unchanged: bound, body and
+padding hashes, padding provenance and the inventory pass, which the row names as its
+`bound_population` (main's population that froze it). The build config is main's private
+config plus one entry per rebuild population, pointing at the home population's inventory
+(written to build/r/rebuild-config.json, never tracked).
+
+Every row of a catalogued unit must be exact in the last `rebuild.py check` of the unit's
+current source text; otherwise the unit is left out and reported.
+"""
+import hashlib
+import json
+from pathlib import Path
+
+import rebuild as R
+
+KEEP = ('entry', 'method', 'body_bytes', 'body_sha256', 'padding_bytes', 'full_extent_bytes',
+        'full_extent_sha256', 'padding_sha256', 'boundary_confidence', 'switch_data_bytes', 'padding_provenance')
+
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def write():
+    catalog = R.main_catalog()
+    by_entry = {r['entry']: r for r in catalog['regions']}
+    populations = {p['id']: p for p in catalog['populations']}
+    units = R.load_json(R.UNITS, {})
+    config = json.loads(R.CONFIG.read_text())
+    regions, pops, tables, needed, refused = [], [], {}, set(), []
+    for unit, info in sorted(units.items(), key=lambda kv: kv[1]['range'][0]):
+        last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
+        source = R.ROOT / info['source']
+        if last is None or last['source_sha256'] != sha(source.read_bytes()):
+            refused.append('%s: no check of the current text' % unit); continue
+        # A unit with inline assembly needs the evidenced-asm flag and citation per row (main's rule);
+        # the rebuild catalog does not carry those yet, so such units stay pending.
+        from canonical import inline_asm_blocks
+        if inline_asm_blocks(source.read_text(errors='replace')):
+            refused.append('%s: inline assembly (evidence flags not carried yet)' % unit); continue
+        results = {r['entry']: r for r in last['results']}
+        exact = [row for row in info['rows'] if results.get(row['entry'], {}).get('status') == 'exact']
+        # A row frozen in a closed compiler-output population (main's A14 array-construction
+        # policy) cannot join another translation unit: it stays original bytes, reported.
+        closed = {p['id'] for p in catalog['populations'] if p.get('compiler_output_policy')}
+        for row in [r for r in exact if by_entry[int(r['entry'], 16)].get('bound_population',
+                                                                            by_entry[int(r['entry'], 16)]['population']) in closed]:
+            refused.append('%s: %s held by a closed compiler-output population' % (unit, row['entry']))
+            exact.remove(row)
+        if not exact:
+            refused.append('%s: no exact row' % unit); continue
+        # Every row of mischa85's module range (the unit's own functions) must be exact unless the
+        # unit guards its drafts (partial_ok); rows outside it (initializers, compiler-emitted
+        # copies the object may or may not hold) count when exact.
+        core = info.get('core')
+        inside = [r for r in info['rows'] if core and core[0] <= r['entry'] < core[1]] if core else info['rows']
+        missed = [r for r in inside if results.get(r['entry'], {}).get('status') != 'exact']
+        if missed and not info.get('partial_ok'):
+            refused.append('%s: %d of %d own rows not exact' % (unit, len(missed), len(inside))); continue
+        # Every initializer the object registers (.CRT$XCU) must be an exact row: the audit checks
+        # the whole table against the original.
+        from coff import Coff
+        coff = Coff(Path(last['object']).read_bytes())
+        registered = {coff.symbols[x]['name'] for s in coff.sections if s['name'].startswith('.CRT$XC')
+                      for o, x, k in s['relocs']}
+        exact_names = {r['symbol'] for r in exact}
+        if registered - exact_names:
+            refused.append('%s: initializers not exact rows: %s' % (unit, ' '.join(sorted(registered - exact_names))[:80]))
+            continue
+        # Every other function the object emits must bind to an original address (a copy kept
+        # elsewhere); an unbound one would be unaccounted code.
+        resolve_u = R.resolver(unit, info)
+        loose = [s['name'] for s in coff._functions if s['name'] not in exact_names and
+                 not s['name'].startswith(('??_G', '??_E')) and resolve_u(s['name'])[0] is None]
+        # Data the object defines (.bss, .data) must bind by name or by the data binder.
+        for i, s in enumerate(coff.sections, 1):
+            if s['flags'] & 0xc0 and not s['flags'] & 0x1020 and not s['name'].startswith(('.CRT', '.debug', '.drectve')):
+                loose += [n['name'] for n in coff.symbols.values() if n['section'] == i and n['storage'] in (2, 3)
+                          and not n['name'].startswith(('.', '$')) and resolve_u(n['name'])[0] is None]
+        # Floating constants (COMDAT .rdata __real@) must bind too: the build refuses an unbound one.
+        loose += [n['name'] for n in coff.symbols.values() if n['name'].startswith('__real@')
+                  and n['section'] > 0 and resolve_u(n['name'])[0] is None and n['name'] not in
+                  {b['symbol'] for r in exact for b in results[r['entry']].get('relocations', [])}]
+        if loose:
+            refused.append('%s: emitted functions with no row or binding: %s' % (unit, ' '.join(loose)[:100]))
+            continue
+        # The structure gate per unit (user, 2026-11-17): stray externs and address-suffixed names
+        # within the unit's budget (rebuild/manifest/structure_budget.json; zero for a new unit).
+        import rebuild_census
+        faults = rebuild_census.unit_faults(unit, source.read_text(errors='replace'))
+        if faults:
+            refused.append('%s: structure: %s' % (unit, '; '.join(faults)))
+            continue
+        pid = 'rebuild-' + unit.replace('_', '-')
+        homes = {}
+        for row in exact:
+            main = by_entry[int(row['entry'], 16)]
+            own = main.get('bound_population', main['population'])
+            homes[own] = homes.get(own, 0) + row['body']
+        home = max(homes, key=homes.get)
+        pops.append(dict(id=pid, inventory_sha256=populations[home]['inventory_sha256'],
+                         gaps_sha256=populations[home]['gaps_sha256'],
+                         historical_population_sha256=populations[home]['historical_population_sha256'],
+                         historical_acceptance_sha256=populations[home]['historical_acceptance_sha256']))
+        config['populations'][pid] = dict(config['populations'][home])
+        table = tables.setdefault(pid, {})
+        resolve = R.resolver(unit, info)
+        for row in exact:
+            main = by_entry[int(row['entry'], 16)]
+            result = results[row['entry']]
+            own = main.get('bound_population', main['population'])
+            region = {k: main[k] for k in KEEP if k in main}
+            region.update(symbol=result['symbol'], symbol_prefix=result['symbol'], options=info['options'],
+                          relocations=result['relocations'], source_sha256=last['source_sha256'],
+                          source=info['source'], population=pid, source_order=main['entry'],
+                          source_quality_family='rebuild')
+            if own != home:
+                region['bound_population'] = own
+                needed.add(own)
+            for binding in result['relocations']:
+                if binding['symbol'] != '$local':
+                    table[binding['symbol']] = binding['target']
+            regions.append(region)
+        # Every other name the object defines or references (kept-elsewhere copies, vtables and
+        # their slots, literals) that resolves gets its binding; the audit decides what it accepts.
+        from coff import Coff
+        coff = Coff(Path(last['object']).read_bytes())
+        for symbol in coff.symbols.values():
+            name = symbol['name']
+            if name.startswith(('.', '$L', '$SG')) or symbol['storage'] not in (2, 3) or name in table:
+                continue
+            address, label = resolve(name)
+            if address is not None:
+                table[name] = address
+        needed.add(home)
+    for own in sorted(needed - {p['id'] for p in pops}):
+        pops.append(dict(populations[own]))
+    headers = [dict(path=p.relative_to(R.ROOT).as_posix(), sha256=sha(p.read_bytes()))
+               for p in sorted((R.REBUILD / 'include').rglob('*')) if p.is_file()]
+    for region in regions:
+        region['references'] = tables[region['population']]
+    out = dict(schema=catalog['schema'], target=catalog['target'],
+               baseline_manifest_sha256=catalog['baseline_manifest_sha256'],
+               populations=pops, population_references={}, regions=sorted(regions, key=lambda r: r['entry']),
+               headers=headers, source_quality_checkpoint=catalog.get('source_quality_checkpoint'))
+    import catalog_io
+    target = R.MANIFEST / 'catalog'
+    catalog_io.dump(out, target)
+    # Units with no catalogued row stay pending (canonical.rebuild_pending_sources).
+    catalogued = {r['source'] for r in regions}
+    for unit, info in units.items():
+        info['status'] = 'catalogued' if info['source'] in catalogued else 'pending'
+    R.write_json(R.UNITS, units)
+    R.write_json(R.WORK / 'rebuild-config.json', config)
+    print('catalog: %d units, %d rows, %d body bytes; %d populations (%d bound-only)' % (
+        len(catalogued), len(regions), sum(r['body_bytes'] for r in regions), len(pops),
+        len(pops) - len(catalogued)))
+    for line in refused:
+        print('  left out: ' + line)

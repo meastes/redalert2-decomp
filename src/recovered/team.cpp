@@ -1,0 +1,2892 @@
+// team.cpp: the original translation unit re-filed as one source (Route A): the accepted
+// bodies of its canonical compile group in address order, under the unit's own header
+// state (its switches and includes in their original order). The module map
+// manifests/original_target/modules/team.json carries the addresses and the rows that
+// stay in their own files.
+
+
+#define RA2_TEAM_AI_HANDLERS
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+#include "shared/unit.hpp"
+#include "shared/foot.hpp"
+#include "shared/cell.hpp"
+#include "shared/aircraft.hpp"
+#include "shared/team.hpp"
+#include "shared/team_type.hpp"
+#include "shared/house.hpp"
+#include "shared/tag.hpp"
+#include "shared/map_view.hpp"
+#include "shared/crt_memory.hpp"
+#include "shared/ai_trigger_type.hpp"
+#include "shared/task_force.hpp"
+#include "shared/rules.hpp"
+#include "shared/scenario_tags.hpp"
+#include "shared/theme.hpp"
+#include "shared/debug_printf.hpp"
+#include "shared/techno_type.hpp"
+#include "shared/coord_distance.hpp"
+#include "shared/aircraft_type.hpp"
+#include "shared/infantry_type.hpp"
+#include "shared/tube.hpp"
+#include "shared/unknown_vector3.hpp"
+#include "shared/id_source.hpp"
+#include "shared/unit_type.hpp"
+#include "shared/script.hpp"
+#include "shared/tactical.hpp"
+#include "shared/anim.hpp"
+#include "shared/facing.hpp"
+#include "shared/fast_math.hpp"
+#include "shared/building_light.hpp"
+#include "shared/super.hpp"
+
+
+// Header-static dynamic initializers of the unit at 0x006B7240:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x006B7240-0x006B7426); the other
+// drafts of this plan are emitted by these includes.
+
+
+// Dynamic initializer (0x006B7270, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B7290, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B72B0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B72D0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B72F0, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B7310, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B7350, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B7380, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B73B0, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B73E0, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B73F0, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// Dynamic initializer (0x006B7410, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_006b7240.cpp; no source of its own.
+
+
+// TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) (0x006B7430)
+// Creates a team of a type for a house: joins the team list and the abstract
+// lists, counts itself in its type (and the owner's team count), makes the
+// script and tag, and heads for the type's waypoint.
+
+extern DynamicVectorClass<AbstractClass *> AbstractTypePtrTracker;
+extern DynamicVectorClass<AbstractClass *> NeuronPtrTracker;
+
+TeamClass::TeamClass(TeamTypeClass *type, HouseClass *owner, int arg3) :
+    Class(type),
+    Script(0),
+    Owner(owner),
+    unknown_30(0),
+    Zone(0),
+    unknown_38(0),
+    MissionTarget(0),
+    Target(0),
+    UnusedPtr1((AbstractClass *)arg3),
+    unknown_48(0),
+    Risk(0),
+    CreationFrame(Frame),
+    Member(0),
+    TimeOut(),
+    SuspendTimer(0L),
+    Tag(0),
+    IsTransient(false),
+    NeedsReGrouping(false),
+    GuardSlowerIsNotUnderStrength(false),
+    IsForcedActive(false),
+    IsHasBeen(false),
+    IsFullStrength(false),
+    IsUnderStrength(true),
+    IsReforming(false),
+    IsLagging(false),
+    NeedsToDisappear(true),
+    JustDisappeared(false),
+    IsMoving(false),
+    StepCompleted(true),
+    TargetNotAssigned(false),
+    IsLeavingMap(false),
+    IsSuspended(false)
+{
+    Teams.Add(this);
+    AbstractTypePtrTracker.Add(this);
+    TagPtrTracker.Add(this);
+    ObjectPtrTracker.Add(this);
+    NeuronPtrTracker.Add(this);
+    memset(Quantity, 0, sizeof(Quantity));
+    if (Class != 0) {
+        if (Owner != 0 && Class->IsBaseDefense) {
+            Owner->BaseDefenseTeamCount++;
+        }
+        if (Class->Waypoint_Location() != unknown_geometry_k) {
+            Zone = (AbstractClass *)&Map[Class->Waypoint_Location()];
+        }
+        Class->Number++;
+        if (Class->Tag != 0) {
+            Tag = new TagClass(Class->Tag);
+        }
+        Script = new ScriptClass(Class->Script);
+    }
+}
+
+
+// TeamClass::~TeamClass() (0x006B7770)
+// Reports the team's outcome to the AI trigger types that use its type,
+// releases its members and tag, leaves the lists and deletes a transient
+// team type.
+
+extern bool GameActive;            // 0x00A40958
+extern DynamicVectorClass<AbstractClass *> AbstractTypePtrTracker;
+extern DynamicVectorClass<AbstractClass *> NeuronPtrTracker;
+
+TeamClass::~TeamClass()
+{
+    for (int index = 0; index < AITriggerTypes.Count(); index++) {
+        if (AITriggerTypes[index]->TeamTypeOne == Class) {
+            if (IsSuspended) {
+                AITriggerTypes[index]->Register_Success();
+            } else {
+                AITriggerTypes[index]->Register_Failure();
+            }
+        }
+    }
+    if (Owner != 0 && Class != 0 && Class->IsBaseDefense) {
+        Owner->BaseDefenseTeamCount--;
+    }
+    if (GameActive && Class != 0) {
+        while (Member != 0) {
+            Remove(Member, -1, 0);
+        }
+        Class->Number--;
+        if (Tag != 0) {
+            if (Tag->AttachCount == 0) {
+                Tag->Mark_To_Delete();
+            }
+            Tag = 0;
+        }
+    }
+    Detach_This_From_All(this, true);
+    NeuronPtrTracker.Delete(this);
+    ObjectPtrTracker.Delete(this);
+    AbstractTypePtrTracker.Delete(this);
+    TagPtrTracker.Delete(this);
+    Teams.Delete(this);
+    if (IsTransient && Class != 0) {
+        delete Class;
+    }
+}
+
+
+// Sets the team's target (+0x3C, with +0x40 following it when unset or equal), first sending members that were working on the old target back to guard; a cell target (kind 0x0B) not on the map flags +0x81 and sends the members to it.
+
+void TeamClass::Assign_Mission_Target(AbstractClass *target)
+{
+    if (target != MissionTarget) {
+        FootClass *member = Member;
+        if (MissionTarget != 0) {
+            for (; member != 0; member = (FootClass *)member->Member) {
+                bool target_hit = member->TarCom == MissionTarget;
+                bool destination_hit = member->NavCom == MissionTarget;
+                if (target_hit || destination_hit) {
+                    member->QueueMission(5, false);
+                    if (destination_hit) {
+                        member->Assign_Destination(0, true);
+                    }
+                    if (target_hit) {
+                        member->unknown_slot220(0);
+                    }
+                }
+            }
+        }
+    }
+    if (Target == MissionTarget || Target == 0) {
+        Target = target;
+    }
+    MissionTarget = target;
+    if (target != 0 && target->Kind_Of() == 0xB) {
+        if (!Map.Unknown_0055A740((CellClass *)target, 1)) {
+            TargetNotAssigned = true;
+            for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+                member->Assign_Destination(0, true);
+            }
+        } else {
+            TargetNotAssigned = false;
+        }
+    }
+}
+
+
+// void TeamClass::AI() (0x006B7AD0; slot 23): Red Alert's/TS TeamClass::AI. Waits out a suspension,
+// recalculates the strength flags after the roster changed, regroups or flags the team into action,
+// recalculates its center, recruits, disbands an empty team (springing the leaves-map tags first),
+// then advances and runs the script step (the handlers below; VC6 expands the small ones) or
+// coordinates the regroup or the move.
+
+
+// CDTimerClass::Value() for the timer type whose class is not recovered.
+inline long Timer_Value(UnknownTimer423F60 const &timer)
+{
+    long remain = timer.DelayTime;
+    if (timer.Started != -1) {
+        long value = timer.Timer - timer.Started;
+        if (value < remain) {
+            return remain - value;
+        } else {
+            return 0;
+        }
+    }
+    return remain;
+}
+
+void TeamClass::AI()
+{
+    if (IsLeavingMap) {
+        if (Timer_Value(SuspendTimer) != 0) {
+            return;
+        }
+        IsLeavingMap = false;
+    }
+    if (NeedsToDisappear) {
+        if (!Recalc_Strength()) {
+            return;
+        }
+    }
+    if (IsMoving && IsUnderStrength) {
+        Regroup();
+    }
+    if (!IsMoving && (IsFullStrength || IsForcedActive)) {
+        Flag_Into_Action();
+    }
+    if (IsReforming || IsMoving || Zone == 0 || unknown_38 == 0) {
+        Calc_Center(&Zone, &unknown_38);
+    }
+    if ((!IsMoving || (!IsFullStrength && Class->Reinforce)) && (!Owner->Unknown_004F52F0() || !IsHasBeen)) {
+        for (int index = 0; index < Class->TaskForce->CountEntries; index++) {
+            if (Quantity[index] < Class->TaskForce->Entries[index].Amount) {
+                Recruit(index);
+            }
+        }
+    }
+    if (Member == 0 && (IsHasBeen || (unknown_game_mode_a3d298 != 0 && Frame - CreationFrame > Rules->DissolveUnfilledTeamDelay))) {
+        if (TargetNotAssigned) {
+            for (int index = 0; index < LogicTags.Count(); index++) {
+                TagClass *tag = LogicTags[index];
+                if (tag->Spring(0x17, 0, unknown_geometry_k)) {
+                    index--;
+                    if (LogicTags.Count() == 0) {
+                        break;
+                    }
+                }
+            }
+        }
+        delete this;
+        return;
+    }
+    bool leaving = Member != 0 && Member->unknown_slot112();
+    if (IsMoving && !IsReforming && !IsUnderStrength && !leaving) {
+        bool is_next = false;
+        if (StepCompleted) {
+            is_next = true;
+            StepCompleted = false;
+            Script->Next_Mission();
+            for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+                if (Class->TransportsReturnOnUnload && member->Techno_Type_Class()->Passengers > 0) {
+                    if (member->ArchivedTarget != 0) {
+                        Debug_Printf("A Transport just recieved orders to go home after unloading\n");
+                    }
+                } else {
+                    member->Assign_Archive_Target(0);
+                }
+            }
+            if (Script->Has_Mission()) {
+                Assign_Mission_Target(0);
+                Target = 0;
+            } else {
+                delete this;
+                return;
+            }
+        }
+        if (!is_next) {
+            if (Target == 0) {
+                Target = MissionTarget;
+            }
+        }
+        ScriptMissionClass mission = Script->Get_Current_Mission();
+        switch (mission.Mission) {
+        case 0x2C: TMission_UNLOAD_TRUCK(mission, is_next); break;
+        case 0x18: TMission_PLAY_SPEECH(mission, is_next); break;
+        case 0x2D: TMission_LOAD_TRUCK(mission, is_next); break;
+        case 0x26: TMission_CLEAR_GLOBAL(mission, is_next); break;
+        case 0x25: TMission_DESTROY_MEMBERS(mission, is_next); break;
+        case 0x16: TMission_GOTO_SHROUD(mission, is_next); break;
+        case 0x04: TMission_MOVECELL(mission, is_next); break;
+        case 0x03: TMission_MOVE(mission, is_next); break;
+        case 0x01: TMission_ATT_WAYPT(mission, is_next); break;
+        case 0x10: TMission_PATROL(mission, is_next); break;
+        case 0x0F: TMission_unknown_6bb260(mission, is_next); break;
+        case 0x15: TMission_SCATTER(mission, is_next); break;
+        case 0x14: TMission_CHANGE_HOUSE(mission, is_next); break;
+        case 0x12: TMission_TEAMCHANGE(mission, is_next); break;
+        case 0x11: TMission_SCRIPT(mission, is_next); break;
+        case 0x00: TMission_ATTACK(mission, is_next); break;
+        case 0x0E: TMission_LOAD(mission, is_next); break;
+        case 0x09: TMission_DEPLOY(mission, is_next); break;
+        case 0x05: TMission_GUARD(mission, is_next); break;
+        case 0x0B: TMission_DO(mission, is_next); break;
+        case 0x0C: TMission_SET_GLOBAL(mission, is_next); break;
+        case 0x0A: TMission_HOUND_DOG(mission, is_next); break;
+        case 0x13: TMission_PANIC(mission, is_next); break;
+        case 0x0D: TMission_IDLE_ANIM(mission, is_next); break;
+        case 0x06: TMission_LOOP(mission, is_next); break;
+        case 0x07:
+            PlayerPtr->Flag_To_Win(false);
+            StepCompleted = true;
+            break;
+        case 0x17:
+            PlayerPtr->Flag_To_Lose(false);
+            StepCompleted = true;
+            break;
+        case 0x19: TMission_PLAY_SOUND(mission, is_next); break;
+        case 0x1A: TMission_PLAY_MOVIE(mission, is_next); break;
+        case 0x1B:
+            Theme.Queue_Song((ThemeType)mission.Data);
+            StepCompleted = true;
+            break;
+        case 0x1C: TMission_REDUCE_TIBERIUM(mission, is_next); break;
+        case 0x1D: TMission_BEGIN_PRODUCTION(mission, is_next); break;
+        case 0x1E: TMission_FIRE_SALE(mission, is_next); break;
+        case 0x1F: TMission_SELF_DESTRUCT(mission, is_next); break;
+        case 0x20: TMission_ION_STORM_START(mission, is_next); break;
+        case 0x21: TMission_ION_STORM_END(mission, is_next); break;
+        case 0x22: TMission_CENTER_VIEWPOINT(mission, is_next); break;
+        case 0x23:
+            Map.Shroud_The_Map();
+            StepCompleted = true;
+            break;
+        case 0x24:
+            Map.Reveal_The_Map();
+            StepCompleted = true;
+            break;
+        case 0x27: TMission_SET_LOCAL(mission, is_next); break;
+        case 0x28: TMission_CLEAR_LOCAL(mission, is_next); break;
+        case 0x29: TMission_UNPANIC(mission, is_next); break;
+        case 0x2A: TMission_FORCE_FACING(mission, is_next); break;
+        case 0x2B: TMission_FULLY_LOADED(mission, is_next); break;
+        case 0x2E: TMission_ATTACK_BUILDING_WITH_PROPERTY(mission, is_next); break;
+        case 0x2F: TMission_MOVETO_BUILDING_WITH_PROPERTY(mission, is_next); break;
+        case 0x3A: TMission_MOVETO_FRIENDLY_BUILDING_WITH_PROPERTY(mission, is_next); break;
+        case 0x30: TMission_SCOUT(mission, is_next); break;
+        case 0x08: TMission_unknown_6bd4b0(mission, is_next); break;
+        case 0x31: TMission_SUCCESS(mission, is_next); break;
+        case 0x32:
+            if (is_next) {
+                unknown_func_6bd990(mission.Data);
+                StepCompleted = true;
+            }
+            break;
+        case 0x33: TMission_PLAY_ANIM(mission, is_next); break;
+        case 0x34: TMission_TALK_BUBBLE(mission, is_next); break;
+        case 0x35: TMission_unknown_6bdaa0(mission, is_next); break;
+        case 0x36: TMission_MOVE_TO_BASE_FRONT(mission, is_next); break;
+        case 0x37: TMission_unknown_6be010(mission, is_next); break;
+        case 0x38: TMission_unknown_6be1c0(mission, is_next); break;
+        case 0x39: TMission_unknown_6be440(mission, is_next); break;
+        default:
+            break;
+        }
+    } else {
+        if (IsMoving) {
+            IsReforming = !Coordinate_Regroup();
+        } else {
+            Coordinate_Move();
+        }
+    }
+}
+
+
+// Marks the team moving and "has been", clears under-strength, flags the members when reforming or forced active, restarts the script and completes the step.
+
+void TeamClass::Flag_Into_Action()
+{
+    IsMoving = true;
+    IsHasBeen = true;
+    IsUnderStrength = false;
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        if (IsReforming || IsForcedActive) {
+            member->IsInitiated = true;
+        }
+    }
+    Script->Reset();
+    StepCompleted = true;
+}
+
+
+// void TeamClass::Regroup() (0x006B88B0; TS Regroup): restarts the script and sends the team toward the
+// owner's unarmed building that rates best (distance from the team's center times one more than the
+// house's value of the building's 4 x 4 cell block, halved for repair buildings) with a cell the leader
+// can reach on the way (0x004BB3F0, hypothesis: Safety_Point); the target becomes that cell.
+
+void TeamClass::Regroup()
+{
+    IsMoving = false;
+    Script->Reset();
+    if (unknown_48 > 0) {
+        Calc_Center(&Zone, &unknown_38);
+        if (Zone == 0) {
+            if (unknown_38 == 0) {
+                return;
+            }
+            Zone = unknown_38;
+        }
+        Cell best_cell = Coord_Cell(Zone->Center_Coord());
+        int best = 0x7FFFFFFF;
+        int count = Owner->Buildings.Count();
+        for (int index = 0; index < count; index++) {
+            BuildingClass *building = Owner->Buildings[index];
+            if (building != 0 && !building->IsInLimbo && building->unknown_slot231(0)->WeaponType == 0) {
+                Cell cell = Coord_Cell(building->Center_Coord());
+                int value = Coord_Distance(building->Center_Coord(), Zone->Center_Coord()) * (Map.Cell_Threat(cell, Owner) + 1);
+                if (building->Type->IsCanUnitRepair) {
+                    value /= 2;
+                }
+                if (value < best) {
+                    cell = Fetch_A_Leader()->Safety_Point_004bb3f0(Coord_Cell(Zone->Center_Coord()), cell, 2, 4);
+                    if (cell != unknown_geometry_k) {
+                        best = value;
+                        best_cell = cell;
+                    }
+                }
+            }
+        }
+        Target = &Map[best_cell];
+        Coordinate_Move();
+    } else {
+        Zone = 0;
+    }
+}
+
+
+// bool TeamClass::Recalc_Strength() (0x006B8BB0)
+// Recomputes the strength flags from the member count against the task
+// force's total; a team that never had members is deleted when its last
+// member is gone.
+
+extern DynamicVectorClass<TagClass *> LogicTags;      // 0x00866160
+
+bool TeamClass::Recalc_Strength()
+{
+    bool was_under_strength = IsUnderStrength;
+    int total = Class->TaskForce->Total_Amount();
+    if (unknown_48 > 0) {
+        IsFullStrength = unknown_48 == total;
+        if (IsFullStrength) {
+            IsHasBeen = true;
+        }
+        if (Class->Reinforce) {
+            if (total > 2) {
+                IsUnderStrength = unknown_48 <= total / 3;
+            } else {
+                IsUnderStrength = unknown_48 < total;
+            }
+        } else {
+            IsUnderStrength = !IsHasBeen;
+        }
+        if (Class->GuardSlower) {
+            if (IsUnderStrength) {
+                GuardSlowerIsNotUnderStrength = false;
+            } else {
+                GuardSlowerIsNotUnderStrength = true;
+            }
+        }
+        JustDisappeared = false;
+        NeedsToDisappear = false;
+    } else {
+        GuardSlowerIsNotUnderStrength = false;
+        IsUnderStrength = true;
+        IsFullStrength = false;
+        Zone = 0;
+        if (IsHasBeen) {
+            if (TargetNotAssigned) {
+                for (int index = LogicTags.Count() - 1; index >= 0; index--) {
+                    TagClass *tag = LogicTags[index];
+                    if (tag->Spring(0x17, 0, unknown_geometry_k, 0, 0) && LogicTags.Count() == 0) {
+                        break;
+                    }
+                }
+            }
+            delete this;
+            return false;
+        }
+    }
+    if (was_under_strength != IsUnderStrength) {
+        IsReforming = true;
+    }
+    return true;
+}
+
+
+// Adds a foot object to the team (when it may join): leaves its old team, becomes the first member in the list, takes the team type's group and tag, and counts it.
+
+bool TeamClass::Add(FootClass *member)
+{
+    if (member == 0) {
+        return false;
+    }
+    int slot;
+    if (!Can_Add(member, &slot)) {
+        return false;
+    }
+    if (member->Team != 0) {
+        member->Team->Remove(member, -1, 0);
+    }
+    Quantity[slot]++;
+    member->IsInitiated = Member == 0;
+    member->Member = Member;
+    Member = member;
+    member->Team = this;
+    member->Group = Class->Get_Group();
+    if (Tag != 0) {
+        if (!Class->OnTransOnly || member->Techno_Type_Class()->Passengers > 0) {
+            member->Attach_Tag(Tag);
+        }
+    }
+    unknown_48++;
+    Risk += member->unknown_slot168();
+    if (Zone == 0) {
+        Calc_Center(&Zone, &unknown_38);
+    }
+    JustDisappeared = true;
+    NeedsToDisappear = true;
+    member->IsAutocreateRecruitable = Class->AreTeamMembersRecruitable;
+    return true;
+}
+
+
+// Whether a foot object may join the team, and the task force slot it would fill (written to *slot): it must be a live object of the team's house that is not in radio contact (aircraft only airport-bound ones), recruitable, outranking its current team, and its type must be in the task force with room left.
+
+bool TeamClass::Can_Add(FootClass *member, int *slot)
+{
+    if (this != member->Team && _Is_It_Breathing(member) && member->House == Owner) {
+        if (!member->HasAnyLink() || (member->Kind_Of() == 2 && ((AircraftClass *)member)->Type->AirportBound)) {
+            if (member->Get_Mission() == -1 || MissionClass::Is_Recruitable_Mission(member->Get_Mission())) {
+                if (member->IsTeamRecruitable || Class->Autocreate) {
+                    bool aircraft_or_waiting = false;
+                    if (Script != 0) {
+                        if (Script->Get_Current_Mission().Mission == 8) {
+                            aircraft_or_waiting = true;
+                        }
+                    }
+                    if (member->Kind_Of() == 2) {
+                        aircraft_or_waiting = true;
+                    }
+                    if (member->IsAutocreateRecruitable || !Class->Autocreate || aircraft_or_waiting) {
+                        if (member->Team == 0 || member->Team->Class->Priority < Class->Priority) {
+                            if (member->Kind_Of() != 2 || member->unknown_slot231(0)->WeaponType == 0 || member->Ammo != 0) {
+                                for (*slot = 0; *slot < Class->TaskForce->CountEntries; (*slot)++) {
+                                    if (Class->TaskForce->Entries[*slot].Type == member->Class_Of()) {
+                                        break;
+                                    }
+                                }
+                                if (*slot != Class->TaskForce->CountEntries) {
+                                    return Quantity[*slot] < Class->TaskForce->Entries[*slot].Amount ? true : false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+
+// Red Alert's Remove: takes a foot object out of the team: clears its tag when it is the team's, counts down the task force slot it filled (found by type when slot is -1), unlinks it from the member list, idles it unless arg3, and when no remaining member is initiated (+0x579) flags the first one.
+
+bool TeamClass::Remove(FootClass *member, int slot, bool arg3)
+{
+    member->IsDroppedFromTeam = true;
+    if (this != member->Team) {
+        return true;
+    }
+    if (member->Tag == Tag && member->House != 0 && !member->House->Is_Human_Player()) {
+        member->Attach_Tag(0);
+    }
+    if (slot == -1 && Class != 0 && Class->TaskForce != 0) {
+        for (slot = 0; slot < Class->TaskForce->CountEntries; slot++) {
+            if (Class->TaskForce->Entries[slot].Type == member->Class_Of()) {
+                break;
+            }
+        }
+    }
+    if (Class != 0 && Class->TaskForce != 0 && (unsigned)slot < (unsigned)Class->TaskForce->CountEntries) {
+        Quantity[slot]--;
+    }
+    bool first = false;
+    FootClass *previous = 0;
+    FootClass *current = Member;
+    bool found = false;
+    while (current != 0 && (!found || !first)) {
+        if (current == member) {
+            if (previous != 0) {
+                previous->Member = current->Member;
+            } else {
+                Member = (FootClass *)current->Member;
+            }
+            FootClass *next = (FootClass *)current->Member;
+            current->Member = 0;
+            current->Team = 0;
+            current->SuspendedMission = -1;
+            current->SuspendedNavCom = 0;
+            current->SuspendedTarCom = 0;
+            current = next;
+            unknown_48--;
+            found = true;
+            Risk -= member->unknown_slot168();
+            continue;
+        }
+        first = first || current->IsInitiated;
+        previous = current;
+        current = (FootClass *)current->Member;
+    }
+    if (member->Team != 0) {
+        member->Team = 0;
+    }
+    if (ScenarioInit == 0 && member->IsActive && !member->IsRocking && !member->IsInLimbo && !arg3) {
+        member->unknown_slot261(false, true);
+    }
+    if (!first && Member != 0) {
+        Member->IsInitiated = true;
+        Zone = 0;
+    }
+    JustDisappeared = true;
+    NeedsToDisappear = true;
+    return true;
+}
+
+
+// int TeamClass::Recruit(int slot) (0x006B91C0; Red Alert's Recruit)
+// Adds the nearest object (squared distance from the team's zone or the type's waypoint, 0x3200 more
+// outside the type's group unless the group is -2 or the type recruits) of task force slot's type that
+// may join, when the slot is still short: infantry, aircraft, or one of the owner's units with its
+// passengers. Returns the number added.
+
+
+int TeamClass::Recruit(int slot)
+{
+    CoordStruct center = Zone != 0 ? Zone->Center_Coord() : unknown_geometry_l;
+    if (Class->Waypoint_Location() != unknown_geometry_k) {
+        center = Cell_Coord(Class->Waypoint_Location());
+    }
+    int added = 0;
+    if (Class->TaskForce->Entries[slot].Amount > Quantity[slot]) {
+        int group = Class->Get_Group();
+        switch (Class->TaskForce->Entries[slot].Type->Kind_Of()) {
+        case 0xF:
+        case 0x10: {
+            FootClass *best = 0;
+            int best_distance = -1;
+            for (int index = 0; index < Infantry.Count(); index++) {
+                FootClass *infantry = (FootClass *)Infantry[index];
+                if (group == -2 || infantry->Group == group || Class->Recruiter) {
+                    int distance = infantry->Distance_Squared(center);
+                    if (infantry->Group != group) {
+                        distance += 0x3200;
+                    }
+                    if ((distance < best_distance || best_distance == -1) && Can_Add(infantry, &slot)) {
+                        best = infantry;
+                        best_distance = distance;
+                    }
+                }
+            }
+            if (best != 0) {
+                best->unknown_slot220(0);
+                Add(best);
+                added++;
+            }
+            break;
+        }
+        case 2:
+        case 3: {
+            AircraftClass *best = 0;
+            int best_distance = -1;
+            for (int index = 0; index < Aircraft.Count(); index++) {
+                AircraftClass *aircraft = Aircraft[index];
+                if (group == -2 || aircraft->Group == group || Class->Recruiter) {
+                    int distance = aircraft->Distance_Squared(center);
+                    if (aircraft->Group != group) {
+                        distance += 0x3200;
+                    }
+                    if ((distance < best_distance || best_distance == -1) && Can_Add(aircraft, &slot)) {
+                        best = aircraft;
+                        best_distance = distance;
+                    }
+                }
+            }
+            if (best != 0) {
+                best->unknown_slot220(0);
+                Add(best);
+                added++;
+            }
+            break;
+        }
+        case 1:
+        case 0x28: {
+            UnitClass *best = 0;
+            int best_distance = -1;
+            for (int index = 0; index < Units.Count(); index++) {
+                UnitClass *unit = Units[index];
+                if (group == -2 || unit->Group == group || Class->Recruiter) {
+                    int distance = unit->Distance_Squared(center);
+                    if (unit->Group != group) {
+                        distance += 0x3200;
+                    }
+                    if (unit->House == Owner && unit->Type == Class->TaskForce->Entries[slot].Type) {
+                        if ((distance < best_distance || best_distance == -1) && Can_Add(unit, &slot)) {
+                            best = unit;
+                            best_distance = distance;
+                        }
+                    }
+                }
+            }
+            if (best != 0) {
+                best->unknown_slot220(0);
+                Add(best);
+                added++;
+                FootClass *passenger = (FootClass *)best->Cargo.Attached_Object();
+                while (passenger != 0) {
+                    Add(passenger);
+                    ObjectClass *next = passenger->unknown_30;
+                    passenger = next != 0 && next->AbstractFlags.IsFoot ? (FootClass *)next : 0;
+                }
+            }
+            break;
+        }
+        }
+    }
+    return added;
+}
+
+
+// void TeamClass::Detach(AbstractClass *target, bool all) (0x006B9590, slot 10): forgets an
+// object that leaves the game: the tag, the first member (only when `all`; the member's
+// next team member at FootClass +0x4C8 takes its place), the owner, the script, the
+// type and the six swizzled references.
+
+void TeamClass::Detach(AbstractClass *target, bool all)
+{
+    if (target == Tag) {
+        Tag = 0;
+    }
+    if (target == Member && all) {
+        Member = (FootClass *)Member->Member;
+    }
+    if (target == Owner) {
+        Owner = 0;
+    }
+    if (target == Script) {
+        Script = 0;
+    }
+    if (Target == target) {
+        Target = 0;
+    }
+    if (MissionTarget == target) {
+        MissionTarget = 0;
+    }
+    if (Zone == target) {
+        Zone = 0;
+    }
+    if (Class == target) {
+        Class = 0;
+    }
+    if (unknown_38 == target) {
+        unknown_38 = 0;
+    }
+    if (UnusedPtr1 == target) {
+        UnusedPtr1 = 0;
+    }
+    if (unknown_30 == target) {
+        unknown_30 = 0;
+    }
+}
+
+
+// void TeamClass::Calc_Center(AbstractClass **center, AbstractClass **close_member) (0x006B9610;
+// Red Alert's Calc_Center): with a hound-dog script step the nearest allied unit or infantry outside the
+// team (its tube's exit cell while it is in a tube), otherwise the average position of the locked
+// members that play, and the member nearest the team's target (+0x40).
+
+// The offset from one coordinate to another (hypothesis: Westwood's Coord operator-, whose
+// constructor 0x0041B630 stays out of line).
+static inline UnknownVector3 Coord_Offset(CoordStruct const &to, CoordStruct const &from)
+{
+    return UnknownVector3(to.X - from.X, to.Y - from.Y, to.Z - from.Z);
+}
+
+// The distance between two coordinates (hypothesis: Westwood's Distance_To).
+static inline int Coord_Offset_Distance(CoordStruct const &to, CoordStruct const &from)
+{
+    UnknownVector3 offset = Coord_Offset(to, from);
+    double y = offset.Y;
+    double z = offset.Z;
+    double x = offset.X;
+    return (int)unknown_sqrt_4ba410(x * x + z * z + y * y);
+}
+
+void TeamClass::Calc_Center(AbstractClass **center, AbstractClass **close_member)
+{
+    *close_member = 0;
+    *center = 0;
+    FootClass *member = Member;
+    if (member == 0) {
+        return;
+    }
+    if (Script->Get_Current_Mission().Mission == 10) {
+        FootClass *closest = 0;
+        int distance = -1;
+        for (int unit_index = 0; unit_index < Units.Count(); unit_index++) {
+            FootClass *unit = (FootClass *)Units[unit_index];
+            if (_Is_It_Breathing(unit) && unit->House->Is_Ally(Owner) && this != (TeamClass *)unit->Team) {
+                UnknownVector3 offset = Coord_Offset(member->Center_Coord(), unit->Center_Coord());
+                int trial = offset.Length();
+                if (distance == -1 || trial < distance) {
+                    distance = trial;
+                    closest = unit;
+                }
+            }
+        }
+        for (int infantry_index = 0; infantry_index < Infantry.Count(); infantry_index++) {
+            FootClass *infantry = (FootClass *)Infantry[infantry_index];
+            if (_Is_It_Breathing(infantry) && infantry->House->Is_Ally(Owner) && this != (TeamClass *)infantry->Team) {
+                int trial = Coord_Offset_Distance(member->Center_Coord(), infantry->Center_Coord());
+                if (distance == -1 || trial < distance) {
+                    distance = trial;
+                    closest = infantry;
+                }
+            }
+        }
+        if (closest != 0) {
+            if (closest->CurrentTube >= 0) {
+                Cell exit = Tubes[closest->CurrentTube]->ExitCell;
+                *center = &Map[exit];
+            } else {
+                *center = closest;
+            }
+            *close_member = Member;
+        }
+    } else {
+        int x = 0;
+        int y = 0;
+        int dist = 0;
+        int quantity = 0;
+        FootClass *closest = 0;
+        while (member != 0) {
+            if (_Is_It_Breathing(member) && (member->IsInitiated || member->Kind_Of() == 2) && member->IsLocked) {
+                x += member->Position_Coord_004f3f40().X;
+                y += member->Position_Coord_004f3f40().Y;
+                quantity++;
+                if (Class->GuardSlower && member->unknown_slot283()) {
+                    x += member->Position_Coord_004f3f40().X;
+                    y += member->Position_Coord_004f3f40().Y;
+                    quantity++;
+                }
+                if (member->Techno_Type_Class()->Passengers <= 0 || !member->Techno_Type_Class()->Naval) {
+                    int try_dist = member->Distance_Squared((ObjectClass *)Target);
+                    if (!dist || try_dist < dist) {
+                        dist = try_dist;
+                        closest = member;
+                    }
+                }
+            }
+            member = (FootClass *)member->Member;
+        }
+        if (quantity) {
+            x /= quantity;
+            y /= quantity;
+            CoordStruct coord = CoordStruct(x, y, 0);
+            *center = &Map[coord];
+            if (closest == 0) {
+                closest = Member;
+            }
+            if (closest->Can_Enter_Cell((CellClass *)*center, -1, -1, 0, 1) != 0) {
+                *center = closest;
+            }
+        }
+        if (closest != 0) {
+            *close_member = closest;
+        }
+    }
+}
+
+
+// void TeamClass::Took_Damage(FootClass *member, int result, TechnoClass *source) (0x006B9AA0)
+// A member was damaged by a source: a team that is not moving regroups; otherwise
+// a team whose first member is not of the excluded kind may turn on the source.
+
+void TeamClass::Took_Damage(FootClass *member, int result, TechnoClass *source)
+{
+    if (source != 0 && result != 0 && !Class->Suicide) {
+        if (!IsMoving) {
+            Zone = 0;
+            NeedsReGrouping = true;
+            IsReforming = true;
+            return;
+        }
+        FootClass *first = Member;
+        for (FootClass *current = Member; current != 0; current = (FootClass *)current->Member) {
+            if (current == (FootClass *)source) {
+                return;
+            }
+        }
+        if (first != 0 && first->Kind_Of() != 2 && Member->unknown_slot231(0)->WeaponType != 0 && Target != (AbstractClass *)source) {
+            if (Class->Annoyance) {
+                Zone = 0;
+                NeedsReGrouping = true;
+                IsReforming = true;
+            }
+            if (Target != 0) {
+                TechnoClass *techno = Target->As_Techno();
+                if (techno != 0 && techno->unknown_slot231(0)->WeaponType != 0) {
+                    if (Zone == 0) {
+                        return;
+                    }
+                    if (techno->unknown_slot214(Zone->Center_Coord())) {
+                        return;
+                    }
+                }
+            }
+            source->Kind_Of();
+        }
+    }
+}
+
+
+// void TeamClass::Coordinate_Attack() (0x006B9BB0; Red Alert's Coordinate_Attack)
+// Takes the mission target when the team has none; a cell target (unless the leader is an aircraft)
+// becomes its occupant. Without a target completes the step; otherwise conscripts every member, sends
+// infiltrating infantry on a mission-15 line to capture it (mission 8), puts the others to attack
+// (mission 1) unless already attacking, entering, capturing, mission 17 or a busy mission 16, gives
+// idle members the target, and completes the step when no member still can attack.
+
+void TeamClass::Coordinate_Attack()
+{
+    if (Target == 0) {
+        Target = MissionTarget;
+    }
+    if (Target != 0 && Target->Kind_Of() == 0xB && Member != 0 && Fetch_A_Leader()->Kind_Of() != 2) {
+        CellClass *cell = As_Cell(Target);
+        if (cell->Cell_Object(Point2D(0, 0), false) != 0) {
+            Target = cell->Cell_Object(Point2D(0, 0), false);
+        }
+    }
+    if (Target == 0) {
+        StepCompleted = true;
+        return;
+    }
+    ScriptMissionClass mission = Script->Get_Current_Mission();
+    bool attacking = false;
+    for (FootClass *unit = Member; unit != 0; unit = (FootClass *)unit->Member) {
+        Coordinate_Conscript(unit);
+        if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2)) {
+            if (mission.Mission == 0xF && unit->Kind_Of() == 0xF && ((InfantryClass *)unit)->Type->Infiltrate) {
+                unit->QueueMission(8, false);
+                unit->unknown_slot220(Target);
+            } else if (unit->Get_Mission() != 1 && unit->Get_Mission() != 7 && unit->Get_Mission() != 8
+                && unit->Get_Mission() != 0x11 && (unit->Get_Mission() != 0x10 || !unit->Deploy_To_Fire())) {
+                unit->unknown_slot149(3);
+                unit->QueueMission(1, false);
+                unit->unknown_slot220(0);
+                unit->Assign_Destination(0, true);
+            }
+            if (unit->TarCom != Target && unit->TarCom == 0) {
+                unit->unknown_slot220(Target);
+            }
+            if (unit->Kind_Of() != 2 || unit->unknown_slot231(0)->WeaponType == 0 || unit->Ammo > 0) {
+                attacking = true;
+            }
+        }
+    }
+    if (!attacking) {
+        StepCompleted = true;
+    }
+}
+
+
+// bool TeamClass::Coordinate_Regroup() (0x006B9F40; Red Alert's Coordinate_Regroup)
+// Conscripts every member, then sends the live, initiated (or aircraft) members farther than the stray
+// distance from the team's zone (+0x34) toward it (unless guarding with a target, mission 0x0B) and puts
+// the near ones back to guard; returns whether none had to move, and then clears NeedsReGrouping.
+
+bool TeamClass::Coordinate_Regroup()
+{
+    FootClass *unit = Member;
+    bool retval = true;
+    while (unit != 0) {
+        Coordinate_Conscript(unit);
+        if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2)) {
+            if (unit->unknown_5d4c00(Zone) > Stray_Distance() && (unit->Get_Mission() != 0xB || unit->TarCom == 0)) {
+                if (unit->NavCom == 0) {
+                    retval = false;
+                    unit->QueueMission(2, false);
+                    Cell dest = unit->Adjust_Dest(Coord_Cell(Zone->Center_Coord()));
+                    unit->Assign_Destination(&Map[dest], true);
+                }
+            } else if (unit->Get_Mission() != 0xB) {
+                unit->QueueMission(5, false);
+                unit->Assign_Destination(0, true);
+            }
+        }
+        unit = (FootClass *)unit->Member;
+    }
+    if (retval == true) {
+        NeedsReGrouping = false;
+    }
+    return retval;
+}
+
+
+// void TeamClass::Coordinate_Move() (0x006BA1A0; Red Alert's Coordinate_Move)
+// Moves the team toward its target (+0x40, else the mission target +0x3C) once no member lags:
+// conscripts each member, sends the playing ones farther than the stray distance (doubled for slot 21)
+// or still to climb/descend toward it, idles the arrived ones, and completes the step (StepCompleted) when
+// every playing member arrived while the team is moving.
+
+void TeamClass::Coordinate_Move()
+{
+    FootClass *unit = Member;
+    bool finished = true;
+    bool found = false;
+    if (unit == 0) {
+        return;
+    }
+    if (Target == 0) {
+        Target = MissionTarget;
+    }
+    if (Target != 0) {
+        if (!Lagging_Units()) {
+            for (; unit != 0; unit = (FootClass *)unit->Member) {
+                if (Coordinate_Conscript(unit)) {
+                    finished = false;
+                }
+                if (unit->Get_Mission() == 0x10 || unit->MissionQueue == 0x10) {
+                    finished = false;
+                }
+                if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2)
+                    && unit->Get_Mission() != 0x10 && unit->MissionQueue != 0x10) {
+                    int stray = Stray_Distance();
+                    if (unit->In_Air()) {
+                        stray *= 2;
+                    }
+                    found = true;
+                    int distance = unit->unknown_5d4c00(Target);
+                    if (distance > stray
+                        || (unit->Get_Height_AGL() < 0 && Script->Get_Next_Mission().Mission != 3)
+                        || (unit->Kind_Of() == 2 && unit->Get_Height() > 0
+                            && &Map[unit->Center_Coord()] != Target
+                            && Script->Get_Next_Mission().Mission != 3)) {
+                        if (Class->Aggressive && unit->TarCom != 0) {
+                            continue;
+                        }
+                        if (unit->Get_Mission() != 2) {
+                            unit->QueueMission(2, false);
+                            if (unit->Ready_To_Commence()) {
+                                unit->Commence();
+                            }
+                        }
+                        if (unit->NavCom == 0) {
+                            unit->Assign_Destination(Target, true);
+                        }
+                        AbstractClass *navcom = unit->NavCom;
+                        if (navcom != Target) {
+                            if (unit->Techno_Type_Class()->BalloonHover
+                                || (navcom != Target && unit->Kind_Of() == 2 && navcom == unit->Get_Cell_Ptr())) {
+                                unit->Assign_Destination(Target, true);
+                            }
+                        }
+                        finished = false;
+                    } else {
+                        if (unit->Get_Mission() == 2
+                            && (unit->NavCom == 0
+                                || (unit->unknown_5d4c00(unit->NavCom) <= Rules->CloseEnoughDistance && !unit->Locomotor.Checked()->Is_Moving()))
+                            && unit->TarCom == 0) {
+                            unit->Assign_Destination(0, true);
+                            unit->unknown_slot261(false, true);
+                        }
+                    }
+                    bool arrived = unit->Kind_Of() == 2 && unit->NavCom == unit->Get_Cell_Ptr();
+                    bool hovering = unit->AbstractFlags.IsTechno && unit->Techno_Type_Class()->BalloonHover && distance < stray;
+                    if (unit->NavCom != 0 && !arrived && !hovering) {
+                        finished = false;
+                    }
+                }
+            }
+        } else {
+            finished = false;
+        }
+    }
+    if (!found) {
+        finished = false;
+    }
+    if (finished && IsMoving) {
+        StepCompleted = true;
+    }
+}
+
+
+// Red Alert's Lagging_Units: while the team is lagging, every live, placed member farther from the team's object (+0x38) than the allowed distance (tripled for aircraft, a third for non-guarding members of guard-slower teams) is sent toward it, the others are put back to guard (mission 5); stores and returns whether any lags.
+
+bool TeamClass::Lagging_Units()
+{
+    FootClass *member = Member;
+    bool lagging = false;
+    if (!IsLagging) {
+        return false;
+    }
+    for (; member != 0; member = (FootClass *)member->Member) {
+        if (_Is_It_Breathing(member) && (member->IsInitiated || member->Kind_Of() == 2)) {
+            int allowed = Stray_Distance();
+            if (member->Kind_Of() == 2) {
+                allowed *= 3;
+            }
+            if (Class->GuardSlower && !member->unknown_slot283()) {
+                allowed /= 3;
+            }
+            if (Coord_Length(member->Center_Coord() - unknown_38->Center_Coord()) > allowed) {
+                if (member->NavCom == 0) {
+                    member->QueueMission(2, false);
+                    member->Assign_Destination(unknown_38, true);
+                }
+                lagging = true;
+            } else if (member->Get_Mission() != 5) {
+                member->QueueMission(5, false);
+                member->Assign_Destination(0, true);
+            }
+        }
+    }
+    IsLagging = lagging;
+    return lagging;
+}
+
+
+// For a live member that is not yet in place: when it is farther from the team's object (+0x34) than the allowed distance, sends it toward it (guard mission 2, no target, destination +0x34) and returns true; otherwise flags it in place.
+
+bool TeamClass::Coordinate_Conscript(FootClass *member)
+{
+    if (_Is_It_Breathing(member) && !member->IsInitiated) {
+        if (member->unknown_5d4c00(Zone) > Stray_Distance()) {
+            if (member->NavCom == 0) {
+                member->QueueMission(2, false);
+                member->unknown_slot220(0);
+                member->Assign_Destination(Zone, true);
+            }
+            return true;
+        }
+        member->IsInitiated = true;
+    }
+    return false;
+}
+
+
+// Whether a foot object is a member of the team.
+
+bool TeamClass::Is_A_Member(FootClass *object)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        if (member == object) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+// Disbands every team of the house whose team type has a lower priority than the given one: removes its members, flags it to disappear and starts its leaving timer.
+
+void __fastcall TeamClass::Suspend_Teams(int priority, HouseClass *house)
+{
+    for (int index = 0; index < Teams.Count(); index++) {
+        TeamClass *team = Teams[index];
+        if (team != 0 && house == team->Owner && team->Class->Priority < priority) {
+            while (team->Member != 0) {
+                team->Remove(team->Member, -1, 0);
+            }
+            team->JustDisappeared = true;
+            team->NeedsToDisappear = true;
+            team->SuspendTimer = UnknownTimer423F60((long)(Rules->SuspendDelay * 900.0));
+            team->IsLeavingMap = true;
+        }
+    }
+}
+
+
+// Whether the team is moving and its current script line is action 3 toward a waypoint that is not on the map.
+
+bool TeamClass::Is_Leaving_Map()
+{
+    if (IsMoving && Script->Has_Mission()) {
+        ScriptMissionClass mission = Script->Get_Current_Mission();
+        if (mission.Mission == 3 && !Map.In_Local_Radar(Scen->Get_Waypoint_Location(mission.Data), true)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+// Whether every member has its +0x32D flag set.
+
+bool TeamClass::Has_Entered_Map()
+{
+    bool all = true;
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        if (!member->IsLocked) {
+            all = false;
+            break;
+        }
+    }
+    return all;
+}
+
+
+// Clears the team's target and clears every member's target, flagging it.
+
+void TeamClass::Scan_Limit()
+{
+    Assign_Mission_Target(0);
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        member->unknown_slot220(0);
+        member->IsScanLimited = true;
+    }
+}
+
+
+// The member that should lead the team: the live one (on the map or an aircraft) with the highest LeadershipRating; the first member when none qualifies.
+
+// Red Alert's _Is_It_Playing: a member that is alive (0x006BDD80, Red Alert's _Is_It_Breathing) and
+// in place or an aircraft. File-local inline of the Team unit; callers after this point may use it.
+static inline bool _Is_It_Playing(FootClass *object)
+{
+    return TeamClass::_Is_It_Breathing(object) && (object->IsInitiated || object->Kind_Of() == 2);
+}
+
+FootClass *TeamClass::Fetch_A_Leader()
+{
+    FootClass *member = Member;
+    FootClass *leader = Member;
+    int best = -1;
+    for (; member != 0; member = (FootClass *)member->Member) {
+        int rating = member->Techno_Type_Class()->LeadershipRating;
+        if (_Is_It_Playing(member) && rating > best) {
+            leader = member;
+            best = rating;
+        }
+    }
+    return leader;
+}
+
+
+// HRESULT __stdcall TeamClass::Load(IStream *stream) (0x006BAAE0)
+// Restores the team in place and swizzles its pointers.
+
+HRESULT __stdcall TeamClass::Load(IStream *stream)
+{
+    HRESULT result = AbstractClass::Load(stream);
+    if (SUCCEEDED(result)) {
+        new (this) TeamClass(NoInitClass());
+        Swizzler.Swizzle((void **)&Class);
+        Swizzler.Swizzle((void **)&Script);
+        Swizzler.Swizzle((void **)&Owner);
+        Swizzler.Swizzle((void **)&Tag);
+        Swizzler.Swizzle((void **)&Member);
+        Swizzler.Swizzle((void **)&unknown_38);
+        Swizzler.Swizzle((void **)&Target);
+        Swizzler.Swizzle((void **)&Zone);
+        Swizzler.Swizzle((void **)&MissionTarget);
+        Swizzler.Swizzle((void **)&unknown_30);
+        Swizzler.Swizzle((void **)&UnusedPtr1);
+        result = S_OK;
+    }
+    return result;
+}
+
+
+// HRESULT __stdcall TeamClass::Save(IStream *stream, BOOL clear_dirty) (0x006BABD0)
+
+HRESULT __stdcall TeamClass::Save(IStream *stream, BOOL clear_dirty)
+{
+    HRESULT result = AbstractClass::Save(stream, clear_dirty);
+    if (SUCCEEDED(result)) {
+        result = S_OK;
+    }
+    return result;
+}
+
+
+// HRESULT __stdcall TeamClass::GetClassID(GUID *clsid) (0x006BABF0)
+
+HRESULT __stdcall TeamClass::GetClassID(GUID *clsid)
+{
+    if (clsid == 0) {
+        return E_POINTER;
+    }
+    *clsid = CLSID_TeamClass;
+    return S_OK;
+}
+
+
+// void TeamClass::Compute_CRC(WWCRCEngine &crc) const (0x006BAC30)
+
+void TeamClass::Compute_CRC(WWCRCEngine &crc) const
+{
+    AbstractClass::Compute_CRC(crc);
+    crc(Class->Fetch_ID());
+    crc(((AbstractClass *)Owner)->Fetch_ID());
+    if (unknown_38 != 0) {
+        crc(unknown_38->Fetch_ID());
+    }
+    crc((long)unknown_48);
+    crc((long)Risk);
+    if (Member != 0) {
+        crc(((AbstractClass *)Member)->Fetch_ID());
+    }
+    crc(TimeOut.Value());
+    crc(Timer_Value(SuspendTimer));
+    if (Tag != 0) {
+        crc(((AbstractClass *)Tag)->Fetch_ID());
+    }
+    crc(IsForcedActive);
+    crc(IsHasBeen);
+    crc(IsFullStrength);
+    crc(IsUnderStrength);
+    crc(IsReforming);
+    crc(IsLagging);
+    crc(NeedsToDisappear);
+    crc(JustDisappeared);
+    crc(IsMoving);
+    crc(StepCompleted);
+    crc(TargetNotAssigned);
+    crc(IsLeavingMap);
+    crc(Quantity, sizeof(Quantity));
+}
+
+
+// void TeamClass::TMission_GOTO_SHROUD(ScriptMissionClass const &mission, bool unknown) (0x006BADC0)
+// When flagged, targets the cell under the team's object (+0x34, else the first member), then runs 0x006BA1A0.
+
+void TeamClass::TMission_GOTO_SHROUD(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown) {
+        if (Zone != 0) {
+            Assign_Mission_Target(Map.Find_Nearby_Shroud(Zone));
+        } else {
+            Assign_Mission_Target(Map.Find_Nearby_Shroud(Member));
+        }
+    }
+    Coordinate_Move();
+}
+
+
+// void TeamClass::TMission_MOVECELL(ScriptMissionClass const &mission, bool unknown) (0x006BAE00)
+// When flagged, targets the cell whose coordinates are Data % 128 and Data / 128, then runs 0x006BA1A0.
+
+void TeamClass::TMission_MOVECELL(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown) {
+        Assign_Mission_Target(&Map[Cell((short)(mission.Data % 128), (short)(mission.Data / 128))]);
+    }
+    Coordinate_Move();
+}
+
+
+// void TeamClass::TMission_MOVE(ScriptMissionClass const &mission, bool unknown) (0x006BAE60)
+// When flagged, targets the cell of waypoint Data; unless the team is moving toward a following
+// mission-3 line whose waypoint passes 0x0055A660, a cell the leader cannot enter is replaced by a
+// reachable cell near it for the leader's speed type (none when there is none); then runs 0x006BA1A0.
+
+void TeamClass::TMission_MOVE(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown) {
+        FootClass *leader = Fetch_A_Leader();
+        Cell cell = Scen->Get_Waypoint_Location(mission.Data);
+        Assign_Mission_Target(&Map[cell]);
+        bool adjust = true;
+        if (IsMoving && Script->Has_Mission()) {
+            ScriptMissionClass next = Script->Get_Current_Mission();
+            if (next.Mission == 3 && !Map.In_Local_Radar(Scen->Get_Waypoint_Location(next.Data), true)) {
+                adjust = false;
+            }
+        }
+        if (adjust) {
+            if (leader->Can_Enter_Cell(&Map[cell], -1, -1, 0, 0) != 0) {
+                cell = Map.Nearby_Location(cell, leader->Techno_Type_Class()->SpeedType, -1, 0, false,
+                    Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+            }
+        }
+        if (cell != unknown_geometry_k) {
+            Assign_Mission_Target(&Map[cell]);
+        } else {
+            Assign_Mission_Target(0);
+        }
+    }
+    Coordinate_Move();
+}
+
+
+// void TeamClass::TMission_ATT_WAYPT(ScriptMissionClass const &mission, bool unknown) (0x006BB020)
+// When flagged targets the cell of waypoint Data (or the occupant of that cell); with a target, runs 0x006B9BB0 if any member has ammo to spare, otherwise clears the target and completes the step.
+
+void TeamClass::TMission_ATT_WAYPT(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown) {
+        CellClass *cell = Scen->Get_Waypoint_Target(mission.Data);
+        if (cell != 0 && cell->Kind_Of() == 0xB) {
+            ObjectClass *occupant = cell->Cell_Object(Point2D(0, 0), cell->unknown_140 >> 8 & 1);
+            if (occupant != 0) {
+                cell = (CellClass *)occupant;
+            }
+        }
+        Assign_Mission_Target(cell);
+    }
+    if (MissionTarget != 0) {
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+            if (member->Techno_Type_Class()->Ammo <= 0 || member->Ammo > 0) {
+                Coordinate_Attack();
+                return;
+            }
+        }
+    }
+    Assign_Mission_Target(0);
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_PATROL(ScriptMissionClass const &mission, bool unknown) (0x006BB0F0)
+// Targets the cell of waypoint Data (when flagged, or while no second target is set and the script line is below 0x65); every Rules minutes lets the leader pick a better target for the team; then runs 0x006B9BB0 when the target has its +0x14 bit 1 set, else 0x006BA1A0.
+
+void TeamClass::TMission_PATROL(ScriptMissionClass const &mission, bool unknown)
+{
+    CellClass *cell = Scen->Get_Waypoint_Target(mission.Data);
+    if (unknown) {
+        Assign_Mission_Target(cell);
+    }
+    if (Target == 0) {
+        ScriptMissionClass current = Script->Get_Current_Mission();
+        if ((unsigned)current.Data < 0x65) {
+            Assign_Mission_Target(cell);
+        }
+    }
+    if (Frame % (int)(Rules->PatrolTime * 900.0) == 0) {
+        FootClass *leader = Fetch_A_Leader();
+        if (leader != 0) {
+            AbstractClass *found = leader->unknown_slot219(1, &CoordStruct(leader->Coord), 0);
+            if (found != 0) {
+                Assign_Mission_Target(found);
+            } else if (Target != cell) {
+                Assign_Mission_Target(0);
+            }
+        }
+    }
+    if (Target != 0 && Target->AbstractFlags.IsObject) {
+        Coordinate_Attack();
+    } else {
+        Coordinate_Move();
+    }
+}
+
+
+// void TeamClass::TMission_unknown_6bb260(ScriptMissionClass const &mission, bool unknown) (0x006BB260)
+// When flagged targets the cell of waypoint Data; a cell target is replaced by the occupant at its centre (if any), then runs 0x006B9BB0 (or clears the target and completes the step when there is none).
+
+void TeamClass::TMission_unknown_6bb260(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown) {
+        Assign_Mission_Target(Scen->Get_Waypoint_Target(mission.Data));
+    }
+    if (MissionTarget != 0 && MissionTarget->Kind_Of() == 0xB) {
+        CellClass *cell = As_Cell(MissionTarget);
+        ObjectClass *occupant = cell->Cell_Object(Point2D(0, 0), false);
+        if (occupant != 0) {
+            Assign_Mission_Target(occupant);
+            Coordinate_Attack();
+        }
+    } else {
+        if (MissionTarget == 0) {
+            Assign_Mission_Target(0);
+            StepCompleted = true;
+        } else {
+            Coordinate_Attack();
+        }
+    }
+}
+
+
+// void TeamClass::TMission_SCATTER(ScriptMissionClass const &mission, bool unknown) (0x006BB310)
+// Calls ObjectClass slot 87 (forced) with the zero coordinate on every member, then completes the step.
+
+void TeamClass::TMission_SCATTER(ScriptMissionClass const &mission, bool unknown)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        member->Scatter(unknown_geometry_l, true, false);
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_CHANGE_HOUSE(ScriptMissionClass const &mission, bool unknown) (0x006BB350)
+// Calls FootClass slot 222 on every member with the house of type Data (and 1), then completes the step.
+
+void TeamClass::TMission_CHANGE_HOUSE(ScriptMissionClass const &mission, bool unknown)
+{
+    FootClass *member = Member;
+    while (member != 0) {
+        FootClass *next = (FootClass *)member->Member;
+        member->Captured(HouseClass::As_Pointer(mission.Data), 1);
+        member = next;
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_TEAMCHANGE(ScriptMissionClass const &mission, bool unknown) (0x006BB3B0)
+// Moves every member into a new team of team type Data (same owner) and deletes this team.
+
+void TeamClass::TMission_TEAMCHANGE(ScriptMissionClass const &mission, bool unknown)
+{
+    TeamClass *team = new TeamClass(TeamTypes[mission.Data], Owner, 0);
+    FootClass *member = Member;
+    while (member != 0) {
+        Remove(member, -1, 0);
+        team->Add(member);
+        member = Member;
+    }
+    delete this;
+}
+
+
+// void TeamClass::TMission_SCRIPT(ScriptMissionClass const &mission, bool unknown) (0x006BB420)
+// Replaces the team's script with a new one of script type Data and starts it.
+
+void TeamClass::TMission_SCRIPT(ScriptMissionClass const &mission, bool unknown)
+{
+    if (Script != 0) {
+        delete Script;
+    }
+    Script = new ScriptClass(ScriptTypes[mission.Data]);
+    Script->Reset();
+}
+
+
+// void TeamClass::TMission_ATTACK(ScriptMissionClass const &mission, bool unknown) (0x006BB480)
+// Sends the team's leader to a target found from Data, then completes the
+// step once every member has ammo.
+
+void TeamClass::TMission_ATTACK(ScriptMissionClass const &mission, bool unknown)
+{
+    if (MissionTarget == 0 && Member != 0) {
+        FootClass *leader = Fetch_A_Leader();
+        int target_data = Quarry_To_Threat(mission.Data);
+        AbstractClass *target = leader->unknown_slot219(target_data, &CoordStruct(leader->Coord), Class->OnlyTargetHouseEnemy);
+        Assign_Mission_Target(target);
+        bool armed = true;
+        if (MissionTarget != 0) {
+            for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+                if (member->Techno_Type_Class()->Ammo <= 0 || member->Ammo > 0) {
+                    armed = false;
+                    break;
+                }
+            }
+        }
+        if (armed) {
+            StepCompleted = true;
+        }
+    }
+    bool armed = true;
+    if (MissionTarget != 0) {
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+            if (member->Techno_Type_Class()->Ammo <= 0 || member->Ammo > 0) {
+                armed = false;
+                break;
+            }
+        }
+    }
+    if (armed) {
+        StepCompleted = true;
+    }
+    Coordinate_Attack();
+}
+
+
+// void TeamClass::TMission_LOAD(ScriptMissionClass const &mission, bool unknown) (0x006BB5F0; Red Alert's TMission_Load)
+
+void TeamClass::TMission_LOAD(ScriptMissionClass const &mission, bool unknown)
+{
+    FootClass *unit = Member;
+    FootClass *trans = 0;
+    bool aircraft = Has_Air_Transport();
+    while (unit != 0) {
+        if (unit->Techno_Type_Class()->Passengers > 0 && unit->Cargo.How_Many() < unit->Techno_Type_Class()->Passengers) {
+            if ((!aircraft && unit->Kind_Of() == 1) || (aircraft && unit->Kind_Of() == 2)) {
+                trans = unit;
+                break;
+            }
+        }
+        unit = (FootClass *)unit->Member;
+    }
+    if (trans == 0) {
+        StepCompleted = true;
+        return;
+    }
+    if (trans->HasAnyLink()) {
+        return;
+    }
+    bool finished = true;
+    unit = Member;
+    while (unit != 0 && unknown_48 > 1) {
+        Coordinate_Conscript(unit);
+        if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2) && unit != trans) {
+            finished = false;
+            if (unit->Get_Mission() != 7) {
+                unit->QueueMission(7, false);
+                unit->unknown_slot220(0);
+                unit->Assign_Destination(trans, true);
+                break;
+            }
+        }
+        unit = (FootClass *)unit->Member;
+    }
+    if (finished) {
+        if (Class->TransportsReturnOnUnload) {
+            CoordStruct coord = trans->Coord;
+            trans->Assign_Archive_Target(&Map[coord]);
+        }
+        StepCompleted = true;
+    }
+}
+
+
+// void TeamClass::TMission_DEPLOY(ScriptMissionClass const &mission, bool unknown) (0x006BB8B0; Red Alert's TMission_Deploy)
+// Conscripts every member; a live unit whose type deploys into a building stops the step: unless it is
+// already unloading (mission 0x10) it is told to deploy where the building fits (else 0x00458B10 for its
+// cell and house); simple deployers and deploying infantry get mission 0x10. Completes when no unit deploys.
+
+void TeamClass::TMission_DEPLOY(ScriptMissionClass const &mission, bool unknown)
+{
+    FootClass *unit = Member;
+    bool finished = true;
+    while (unit != 0) {
+        Coordinate_Conscript(unit);
+        if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2)) {
+            bool mcv = unit->Kind_Of() == 1 && ((UnitClass *)unit)->Type->DeploysInto != 0;
+            bool deployer = unit->Kind_Of() == 1 && ((UnitClass *)unit)->Type->IsSimpleDeployer;
+            bool infantry = unit->Kind_Of() == 0xF && ((InfantryClass *)unit)->Is_Deployer();
+            if (mcv) {
+                finished = false;
+                if (unit->Get_Mission() != 0x10) {
+                    unit->Mark(0);
+                    if (!((UnitClass *)unit)->Type->DeploysInto->Legal_Placement(unit->Get_Cell(), 0)) {
+                        ((UnitClass *)unit)->Type->DeploysInto->Flush_For_Placement(unit->Get_Cell(), unit->House);
+                        unit->Mark(1);
+                    } else {
+                        unit->Mark(1);
+                        unit->Assign_Destination(0, true);
+                        unit->unknown_slot220(0);
+                        unit->QueueMission(0x10, false);
+                    }
+                }
+            } else if ((deployer || infantry) && unit->Get_Mission() != 0x10) {
+                unit->QueueMission(0x10, false);
+            }
+        }
+        unit = (FootClass *)unit->Member;
+    }
+    if (finished) {
+        StepCompleted = true;
+    }
+}
+
+
+// void TeamClass::TMission_GUARD(ScriptMissionClass const &mission, bool unknown) (0x006BBB40)
+// Waits Data * 15 frames: when flagged starts the timer, runs 0x006B9F40, and completes the step once the timer has run out.
+
+void TeamClass::TMission_GUARD(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown) {
+        TimeOut = CDTimerClass<FrameTimerClass>(mission.Data * 15);
+    }
+    Coordinate_Regroup();
+    if (TimeOut.Value() == 0) {
+        StepCompleted = true;
+    }
+}
+
+
+// void TeamClass::TMission_DO(ScriptMissionClass const &mission, bool unknown) (0x006BBBB0; Red Alert's Coordinate_Do)
+// Conscripts every member; a live one without target and destination that strayed beyond twice the
+// allowed distance (unless Data is mission 0xB) moves back to the team (+0x34), the cell beside it
+// (0x004C8AF0) as destination; otherwise one without target and destination takes mission Data (except
+// guard 5 over unloading 0x10).
+
+void TeamClass::TMission_DO(ScriptMissionClass const &mission, bool unknown)
+{
+    FootClass *unit = Member;
+    int do_mission = mission.Data;
+    while (unit != 0) {
+        Coordinate_Conscript(unit);
+        if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2)) {
+            if (unit->TarCom == 0 && unit->NavCom == 0
+                && unit->unknown_5d4c00(Zone) > Stray_Distance() * 2 && do_mission != 0xB) {
+                unit->QueueMission(2, false);
+                unit->Assign_Destination(Zone, true);
+                unit->QueueMission(2, false);
+                Cell dest = unit->Adjust_Dest(Coord_Cell(Zone->Center_Coord()));
+                unit->Assign_Destination(&Map[dest], true);
+            } else if (unit->TarCom == 0 && unit->NavCom == 0 && unit->Get_Mission() != do_mission
+                && (do_mission != 5 || unit->Get_Mission() != 0x10)) {
+                unit->Assign_Archive_Target(0);
+                unit->QueueMission(do_mission, false);
+                unit->unknown_slot220(0);
+                unit->Assign_Destination(0, true);
+            }
+        }
+        unit = (FootClass *)unit->Member;
+    }
+}
+
+
+// void TeamClass::TMission_SET_GLOBAL(ScriptMissionClass const &mission, bool unknown) (0x006BBE60)
+// Sets local variable Data.
+
+void TeamClass::TMission_SET_GLOBAL(ScriptMissionClass const &mission, bool unknown)
+{
+    Scen->Set_Global_To(mission.Data, true);
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_CLEAR_GLOBAL(ScriptMissionClass const &mission, bool unknown) (0x006BBE90)
+// Clears local variable Data.
+
+void TeamClass::TMission_CLEAR_GLOBAL(ScriptMissionClass const &mission, bool unknown)
+{
+    Scen->Set_Global_To(mission.Data, false);
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_SET_LOCAL(ScriptMissionClass const &mission, bool unknown) (0x006BBEC0)
+// Sets global variable Data.
+
+void TeamClass::TMission_SET_LOCAL(ScriptMissionClass const &mission, bool unknown)
+{
+    Scen->Set_Local_To(mission.Data, true);
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_CLEAR_LOCAL(ScriptMissionClass const &mission, bool unknown) (0x006BBEF0)
+// Clears global variable Data.
+
+void TeamClass::TMission_CLEAR_LOCAL(ScriptMissionClass const &mission, bool unknown)
+{
+    Scen->Set_Local_To(mission.Data, false);
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_HOUND_DOG(ScriptMissionClass const &mission, bool unknown) (0x006BBF20)
+// Re-picks the team's targets (+0x34/+0x38 through 0x006B9610), copies +0x34 to +0x40, runs 0x006BA1A0, and then points every live, placed member at the new target's own target.
+
+void TeamClass::TMission_HOUND_DOG(ScriptMissionClass const &mission, bool unknown)
+{
+    Calc_Center(&Zone, &unknown_38);
+    Target = Zone;
+    Coordinate_Move();
+    TechnoClass *target = Zone->As_Techno();
+    if (target != 0) {
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+            if (_Is_It_Breathing(member) && (member->IsInitiated || member->Kind_Of() == 2)) {
+                if (member->TarCom != 0 && member->TarCom != target->TarCom) {
+                    member->unknown_slot220(0);
+                }
+                if (target->TarCom != 0) {
+                    if (!member->Locomotor.Checked()->Is_Moving() && member->unknown_slot163() && member->Get_Mission() == 5) {
+                        member->QueueMission(1, false);
+                        member->unknown_slot220(target->TarCom);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// void TeamClass::TMission_UNPANIC(ScriptMissionClass const &mission, bool unknown) (0x006BC040)
+// Calls FootClass slot 296 on every member, then completes the step.
+
+void TeamClass::TMission_UNPANIC(ScriptMissionClass const &mission, bool unknown)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        member->Stop_Fear();
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_FORCE_FACING(ScriptMissionClass const &mission, bool unknown) (0x006BC070)
+// Waits until no member is moving, turning idle members toward direction Data (Data << 13 in the 16-bit facing).
+
+void TeamClass::TMission_FORCE_FACING(ScriptMissionClass const &mission, bool unknown)
+{
+    bool done = true;
+    FootClass *member = Member;
+    if (member != 0) {
+        do {
+            if (member->Locomotor.Checked()->Is_Moving()) {
+                done = false;
+            } else {
+                int facing = mission.Data;
+                if (member->PrimaryFacing.Current().Raw != (unsigned short)(facing << 13)) {
+                    member->Locomotor.Checked()->Do_Turn(Facing_Dir(mission.Data));
+                }
+            }
+            member = (FootClass *)member->Member;
+        } while (member != 0);
+        if (!done) {
+            return;
+        }
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_PANIC(ScriptMissionClass const &mission, bool unknown) (0x006BC130)
+// Calls FootClass slot 295 on every member, then completes the step.
+
+void TeamClass::TMission_PANIC(ScriptMissionClass const &mission, bool unknown)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        member->Start_Fear();
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_BERZERK(ScriptMissionClass const &mission, bool unknown) (0x006BC160)
+// Calls FootClass slot 294 on every member, then completes the step.
+
+void TeamClass::TMission_BERZERK(ScriptMissionClass const &mission, bool unknown)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        member->Berzerk();
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_IDLE_ANIM(ScriptMissionClass const &mission, bool unknown) (0x006BC190)
+// Calls FootClass slot 297 with the line's data on every member, then completes the step.
+
+void TeamClass::TMission_IDLE_ANIM(ScriptMissionClass const &mission, bool unknown)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        member->Do_Idle(mission.Data);
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_LOOP(ScriptMissionClass const &mission, bool unknown) (0x006BC1E0)
+// Moves the script to line mission.Data - 2 (the step after it advances to
+// Data - 1) and completes the step.
+
+void TeamClass::TMission_LOOP(ScriptMissionClass const &mission, bool unknown)
+{
+    Script->Set_Mission(mission.Data - 2);
+    StepCompleted = true;
+}
+
+
+extern "C" unsigned int global_6bc210_a35db4;
+class Call_6bc210_0 {public: unsigned int Flag_To_Win_004e7ee0(unsigned int flag_argument);};
+class Leaf_6bc210 { public: unsigned int get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2); };
+unsigned int Leaf_6bc210::get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2) { unsigned int flag_result = ((Call_6bc210_0*)(global_6bc210_a35db4))->Flag_To_Win_004e7ee0((unsigned int)(0)); *(unsigned char*)(((unsigned int)this) + 0x80) = 1; return flag_result; }
+
+
+// void TeamClass::TMission_PLAY_SPEECH(ScriptMissionClass const &mission, bool unknown) (0x006BC250)
+// Completes the step without doing anything.
+
+void TeamClass::TMission_PLAY_SPEECH(ScriptMissionClass const &mission, bool unknown)
+{
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_PLAY_SOUND(ScriptMissionClass const &mission, bool unknown) (0x006BC260)
+// Plays the sound named by the line at full volume, then completes the step.
+
+void TeamClass::TMission_PLAY_SOUND(ScriptMissionClass const &mission, bool unknown)
+{
+    Voc_Play(mission.Data, 1.0f, 0x2000, 0);
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_PLAY_MOVIE(ScriptMissionClass const &mission, bool unknown) (0x006BC290)
+// Calls 0x005A07F0 with the line's data, -1 and three ones, then completes the step.
+
+void TeamClass::TMission_PLAY_MOVIE(ScriptMissionClass const &mission, bool unknown)
+{
+    Unknown_005A07F0(mission.Data, -1, 1, 1, 1);
+    StepCompleted = true;
+}
+
+
+// void Owner_006bc2c0::TMission_PLAY_MUSIC(int mission_address, int) (0x006BC2C0; mischa85 names.csv
+// TeamClass::TMission_PLAY_MUSIC): queues the mission's song on Theme and marks the step done (+0x80).
+
+class ThemeClass;
+extern ThemeClass Theme;
+namespace seed_006bc2c0 {
+
+struct Callee_006e7e20 { void Queue_Song_006e7e20(int value); };
+
+struct Owner_006bc2c0 { void TMission_PLAY_MUSIC(int argument_address, int unused_1); };
+
+void Owner_006bc2c0::TMission_PLAY_MUSIC(int argument_address, int unused_1)
+{
+    int team_address = (int)this;
+    ((Callee_006e7e20*)(&Theme))->Queue_Song_006e7e20((int)(*(unsigned int *)(argument_address + 4)));
+    *(unsigned char *)(team_address + 0x80) = 1;
+    return;
+}
+
+}  // namespace seed_006bc2c0
+
+
+// void TeamClass::TMission_REDUCE_TIBERIUM(ScriptMissionClass const &mission, bool unknown) (0x006BC2E0)
+// Calls 0x0055D990 on the cell of every member, then completes the step.
+
+void TeamClass::TMission_REDUCE_TIBERIUM(ScriptMissionClass const &mission, bool unknown)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        Map.Area_Reduce_Tiberium(Coord_Cell(member->Center_Coord()));
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_BEGIN_PRODUCTION(ScriptMissionClass const &mission, bool unknown) (0x006BC360)
+// Sets the team type owner's +0x136 flag.
+
+void TeamClass::TMission_BEGIN_PRODUCTION(ScriptMissionClass const &mission, bool unknown)
+{
+    Class->Owner->IsStarted = true;
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_FIRE_SALE(ScriptMissionClass const &mission, bool unknown) (0x006BC380)
+// Sets the team type owner's +0x198 to 4.
+
+void TeamClass::TMission_FIRE_SALE(ScriptMissionClass const &mission, bool unknown)
+{
+    Class->Owner->unknown_198 = 4;
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_SELF_DESTRUCT(ScriptMissionClass const &mission, bool unknown) (0x006BC3A0)
+// Kills every member that is alive and on the map (slot 86 with the rules' warhead), repeating while any was hit, then completes the step.
+
+void TeamClass::TMission_SELF_DESTRUCT(ScriptMissionClass const &mission, bool unknown)
+{
+    bool hit;
+    do {
+        hit = false;
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+            if (member->Strength > 0 && member->IsActive && member->IsDown && !member->IsInLimbo) {
+                int damage = member->Strength;
+                member->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
+                hit = true;
+            }
+        }
+    } while (hit);
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_DESTROY_MEMBERS(ScriptMissionClass const &mission, bool unknown) (0x006BC410)
+// Takes every member off the map (slot 52) and removes it (slot 60), then completes the step.
+
+void TeamClass::TMission_DESTROY_MEMBERS(ScriptMissionClass const &mission, bool unknown)
+{
+    FootClass *member = Member;
+    while (member != 0) {
+        FootClass *next = (FootClass *)member->Member;
+        member->Limbo();
+        member->Delete_Me();
+        member = next;
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_ION_STORM_START(ScriptMissionClass const &mission, bool unknown) (0x006BC460)
+// Unless 0x0051FC50 reports its flag, calls 0x0051F930 with the line's data, a rules value and the zero cell, then completes the step.
+
+void TeamClass::TMission_ION_STORM_START(ScriptMissionClass const &mission, bool unknown)
+{
+    if (!IonStormClass_Is_Ion_Storm_Active()) {
+        IonStormClass_Ion_Storm_Begin(mission.Data, Rules->LightningDeferment, unknown_geometry_k, 0);
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_ION_STORM_END(ScriptMissionClass const &mission, bool unknown) (0x006BC4A0)
+// Runs 0x0051FBB0 when 0x0051FC50 reports its flag, then completes the step.
+
+void TeamClass::TMission_ION_STORM_END(ScriptMissionClass const &mission, bool unknown)
+{
+    if (IonStormClass_Is_Ion_Storm_Active()) {
+        IonStormClass_Ion_Storm_End();
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_CENTER_VIEWPOINT(ScriptMissionClass const &mission, bool unknown) (0x006BC4C0)
+// Moves the tactical view to the team's target, raised over the map (and over cells flagged 0x100 or 0x400), using Data.
+
+void TeamClass::TMission_CENTER_VIEWPOINT(ScriptMissionClass const &mission, bool unknown)
+{
+    CoordStruct coord = Zone->Center_Coord();
+    coord.Z = Map.Get_Height_GL(coord);
+    if ((Map[coord].unknown_140 & 0x100) || (Map[coord].unknown_140 & 0x400)) {
+        coord.Z += unknown_geometry_j;
+    }
+    TacticalMap->Setup_Trigger_Scroll(coord, mission.Data);
+    StepCompleted = true;
+}
+
+
+extern "C" unsigned char data_6bc570_8324e0[];
+class Call_6bc570_0 {public: unsigned int target();};
+class Leaf_6bc570 { public: unsigned int get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2); };
+unsigned int Leaf_6bc570::get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2) { unsigned int call_result = ((Call_6bc570_0*)((unsigned int)data_6bc570_8324e0))->target(); *(unsigned char*)(((unsigned int)this) + 0x80) = 1; return call_result; }
+
+
+extern "C" unsigned char data_6bc590_8324e0[];
+class Call_6bc590_0 {public: unsigned int target();};
+class Leaf_6bc590 { public: unsigned int get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2); };
+unsigned int Leaf_6bc590::get(unsigned int unused_script_argument_1, unsigned int unused_script_argument_2) { unsigned int call_result = ((Call_6bc590_0*)((unsigned int)data_6bc590_8324e0))->target(); *(unsigned char*)(((unsigned int)this) + 0x80) = 1; return call_result; }
+
+
+// void TeamClass::TMission_FULLY_LOADED(ScriptMissionClass const &mission, bool unknown) (0x006BC5B0)
+// Completes the step once every member holds as many passengers as its type carries (leaves it pending while any is short).
+
+void TeamClass::TMission_FULLY_LOADED(ScriptMissionClass const &mission, bool unknown)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        if (member->Techno_Type_Class()->Passengers > member->Cargo.Count) {
+            return;
+        }
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_UNLOAD_TRUCK(ScriptMissionClass const &mission, bool unknown) (0x006BC5F0)
+// Turns every TRUCKB unit of the team (the type is the TRUCKA one) and completes the step.
+
+void TeamClass::TMission_UNLOAD_TRUCK(ScriptMissionClass const &mission, bool unknown)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        if (member->Kind_Of() == 1 && _stricmp(member->Techno_Type_Class()->ID, "TRUCKB") == 0) {
+            ((UnitClass *)member)->Type = UnitTypes[UnitTypeClass::From_Name("TRUCKA")];
+        }
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_LOAD_TRUCK(ScriptMissionClass const &mission, bool unknown) (0x006BC660)
+// Turns every TRUCKA unit of the team (the type is the TRUCKB one) and completes the step.
+
+void TeamClass::TMission_LOAD_TRUCK(ScriptMissionClass const &mission, bool unknown)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        if (member->Kind_Of() == 1 && _stricmp(member->Techno_Type_Class()->ID, "TRUCKA") == 0) {
+            ((UnitClass *)member)->Type = UnitTypes[UnitTypeClass::From_Name("TRUCKB")];
+        }
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_ATTACK_BUILDING_WITH_PROPERTY(ScriptMissionClass const &mission, bool unknown) (0x006BC6D0)
+// Picks a target of a building type (Data: type index in the low word, a
+// value in the high word) for the first member, then waits until every
+// member has ammo and completes the step.
+
+extern DynamicVectorClass<BuildingTypeClass *> BuildingTypes;      // 0x00A35CD8
+
+void TeamClass::TMission_ATTACK_BUILDING_WITH_PROPERTY(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown && MissionTarget == 0 && Member != 0) {
+        FootClass *first = Member;
+        int value = (mission.Data >> 16) & 0xFFFF;
+        BuildingTypeClass *type = BuildingTypes[mission.Data & 0xFFFF];
+        HouseClass *enemy = 0;
+        if (first->House->Enemy != -1) {
+            enemy = Houses[first->House->Enemy];
+        }
+        AbstractClass *target = Pick_Building_With_Property(type, enemy, first, value, Class->OnlyTargetHouseEnemy);
+        if (target != 0) {
+            Assign_Mission_Target(target);
+        }
+    }
+    if (MissionTarget != 0) {
+        for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+            if (member->Techno_Type_Class()->Ammo <= 0 || member->Ammo > 0) {
+                Coordinate_Attack();
+                return;
+            }
+        }
+    }
+    Assign_Mission_Target(0);
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_MOVETO_BUILDING_WITH_PROPERTY(ScriptMissionClass const &mission, bool unknown) (0x006BC7B0)
+// Picks a target of a building type (Data: type index in the low word, a value in the high word) for
+// the first member and targets the reachable cell nearest it in the first member's movement zone
+// (none when there is none); completes the step when the team has no second target, then runs 0x006BA1A0.
+
+extern DynamicVectorClass<BuildingTypeClass *> BuildingTypes;      // 0x00A35CD8
+
+void TeamClass::TMission_MOVETO_BUILDING_WITH_PROPERTY(ScriptMissionClass const &mission, bool unknown)
+{
+    if (MissionTarget == 0 && Member != 0) {
+        FootClass *first = Member;
+        int value = (mission.Data >> 16) & 0xFFFF;
+        BuildingTypeClass *type = BuildingTypes[mission.Data & 0xFFFF];
+        HouseClass *enemy = 0;
+        if (first->House->Enemy != -1) {
+            enemy = Houses[first->House->Enemy];
+        }
+        AbstractClass *target = Pick_Building_With_Property(type, enemy, first, value, Class->OnlyTargetHouseEnemy);
+        if (target != 0) {
+            int zone_type = first->Techno_Type_Class()->MovementZone;
+            CoordStruct coord = ((ObjectClass *)target)->Coord;
+            Cell cell = Coord_Cell(coord);
+            Cell found = Map.Nearby_Location(cell, first->Techno_Type_Class()->SpeedType,
+                Map.Zone(Coord_Cell(first->Center_Coord()), zone_type, first->IsOnBridge), zone_type, false,
+                Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+            if (found != unknown_geometry_k) {
+                Assign_Mission_Target(&Map[found]);
+            } else {
+                Assign_Mission_Target(0);
+            }
+        }
+        if (MissionTarget == 0) {
+            StepCompleted = true;
+        }
+    }
+    Coordinate_Move();
+}
+
+
+// void TeamClass::TMission_MOVETO_FRIENDLY_BUILDING_WITH_PROPERTY(ScriptMissionClass const &mission, bool unknown) (0x006BC980)
+// Picks a target of a building type (Data: type index in the low word, a value in the high word) for
+// the first member and targets the reachable cell nearest it in the first member's movement zone
+// (none when there is none); completes the step when the team has no second target, then runs 0x006BA1A0.
+
+extern DynamicVectorClass<BuildingTypeClass *> BuildingTypes;      // 0x00A35CD8
+
+void TeamClass::TMission_MOVETO_FRIENDLY_BUILDING_WITH_PROPERTY(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown && MissionTarget == 0 && Member != 0) {
+        int value = (mission.Data >> 16) & 0xFFFF;
+        BuildingTypeClass *type = BuildingTypes[mission.Data & 0xFFFF];
+        FootClass *first = Fetch_A_Leader();
+        AbstractClass *target = Pick_Own_Building_With_Property(type, 0, first, value, false);
+        if (target != 0) {
+            int zone_type = first->Techno_Type_Class()->MovementZone;
+            CoordStruct coord = ((ObjectClass *)target)->Coord;
+            Cell cell = Coord_Cell(coord);
+            Cell found = Map.Nearby_Location(cell, first->Techno_Type_Class()->SpeedType,
+                Map.Zone(Coord_Cell(first->Center_Coord()), zone_type, first->IsOnBridge), zone_type, false,
+                Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+            if (found != unknown_geometry_k) {
+                Assign_Mission_Target(&Map[found]);
+            } else {
+                Assign_Mission_Target(0);
+            }
+        }
+    }
+    if (MissionTarget == 0) {
+        StepCompleted = true;
+    } else {
+        Coordinate_Move();
+    }
+}
+
+
+// void TeamClass::TMission_SCOUT(ScriptMissionClass const &mission, bool unknown) (0x006BCBB0)
+
+// Complete original-backed BuildingClass-vector copies; no helper source credit.
+
+void TeamClass::TMission_SCOUT(ScriptMissionClass const &mission, bool unknown)
+{
+    bool found = true;
+    if (unknown_30 == 0) {
+        int count = 0;
+        int index;
+        for (index = 0; index < Owner->ScoutNodes.Count(); index++) {
+            if (!Owner->ScoutNodes[index].IsPreferred) {
+                count++;
+            }
+        }
+        if (count > 0) {
+            int pick = Scen->Random()(0, count - 1);
+            for (index = 0; index < Owner->ScoutNodes.Count(); index++) {
+                if (!Owner->ScoutNodes[index].IsPreferred) {
+                    if (pick == 0) {
+                        unknown_30 = (AbstractClass *)Owner->ScoutNodes[index].House;
+                        break;
+                    }
+                    pick--;
+                }
+            }
+            DynamicVectorClass<BuildingClass *> list;
+            for (index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
+                if ((HouseClass *)unknown_30 == unknown_BuildingClass_list_00a40af8[index]->House) {
+                    list.Add(unknown_BuildingClass_list_00a40af8[index]);
+                }
+            }
+            if (list.Count() > 0) {
+                BuildingClass *building = list[Scen->Random()(0, list.Count() - 1)];
+                FootClass *leader = Fetch_A_Leader();
+                Point2D radius(1, 1);
+                Cell no_cell(0, 0);
+                CoordStruct coord = building->Coord;
+                Cell dest = Map.Nearby_Location(Coord_Cell(coord), leader->Techno_Type_Class()->SpeedType, -1, 0, false,
+                    radius, 0, 0, 0, 1, no_cell, 0);
+                if (dest != unknown_geometry_k) {
+                    Assign_Mission_Target(&Map[dest]);
+                } else {
+                    Assign_Mission_Target(0);
+                }
+            } else {
+                Owner->Mark_Scouted((HouseClass *)unknown_30);
+                unknown_30 = 0;
+            }
+        } else {
+            found = false;
+        }
+    } else {
+        FootClass *leader = Fetch_A_Leader();
+        if (leader != 0 && leader->Mission != 2 && leader->MissionQueue != 2) {
+            Owner->Mark_Scouted((HouseClass *)unknown_30);
+            unknown_30 = 0;
+        }
+    }
+    Coordinate_Move();
+    if (found) {
+        StepCompleted = false;
+    } else {
+        StepCompleted = true;
+    }
+}
+
+
+// BuildingClass *__fastcall Pick_Building_With_Property(BuildingTypeClass *type, HouseClass *enemy, FootClass *member, int mode, bool enemy_only) (0x006BCF70)
+// The building of a type that rates best by mode (0 lowest and 1 highest house value of its cell's
+// block, 2 nearest and 3 farthest from the member) among enemy's buildings and those of houses the
+// member's house is not allied with (or passive ones): enemy's best when it beats the overall best,
+// else the overall best unless enemy_only.
+
+AbstractClass *__fastcall Pick_Building_With_Property(BuildingTypeClass *type, HouseClass *enemy, FootClass *member, int mode, bool enemy_only)
+{
+    BuildingClass *enemy_best = 0;
+    BuildingClass *best = 0;
+    int enemy_best_value = -1;
+    int best_value = -1;
+    for (int index = 0; index < unknown_BuildingClass_list_00a40af8.Count(); index++) {
+        BuildingClass *building = unknown_BuildingClass_list_00a40af8[index];
+        bool is_enemy = building->House == enemy;
+        if (building->Type == type
+            && (is_enemy || !member->House->Is_Ally(building->House) || building->House->Type->MultiplayPassive)) {
+            int value = -1;
+            switch (mode) {
+            case 0: {
+                Cell cell = Coord_Cell(building->Center_Coord());
+                value = 0x7FFFFFFF - Map.Cell_Threat(cell, member->House);
+                break;
+            }
+            case 1: {
+                Cell cell = Coord_Cell(building->Center_Coord());
+                value = Map.Cell_Threat(cell, member->House);
+                break;
+            }
+            case 2: {
+                CoordStruct here = member->Coord;
+                CoordStruct there = building->Coord;
+                value = 0x7FFFFFFF - Coord_Distance(there, here);
+                break;
+            }
+            case 3: {
+                CoordStruct here = member->Coord;
+                CoordStruct there = building->Coord;
+                value = Coord_Distance(there, here);
+                break;
+            }
+            }
+            if (value > enemy_best_value && is_enemy) {
+                enemy_best = building;
+                enemy_best_value = value;
+            }
+            if (value > best_value) {
+                best = building;
+                best_value = value;
+            }
+        }
+    }
+    if (enemy_best != 0 && enemy_best_value > best_value) {
+        return enemy_best;
+    }
+    if (enemy_only) {
+        return enemy_best;
+    }
+    return best;
+}
+
+
+// BuildingClass *__fastcall Pick_Own_Building_With_Property(BuildingTypeClass *type, HouseClass *enemy, FootClass *member, int mode, bool arg5) (0x006BD240)
+// The member's own house's building of a type that rates best by mode: 0 lowest and 1 highest
+// house value of its cell's block (0x0054E3A0), 2 nearest and 3 farthest from the member.
+
+AbstractClass *__fastcall Pick_Own_Building_With_Property(BuildingTypeClass *type, HouseClass *enemy, FootClass *member, int mode, bool arg5)
+{
+    BuildingClass *best = 0;
+    int best_value = -1;
+    HouseClass *house = member->House;
+    int count = house->Buildings.Count();
+    for (int index = 0; index < count; index++) {
+        BuildingClass *building = house->Buildings[index];
+        if (building->Type == type) {
+            int value = -1;
+            switch (mode) {
+            case 0: {
+                Cell cell = Coord_Cell(building->Center_Coord());
+                value = 0x7FFFFFFF - Map.Cell_Threat(cell, member->House);
+                break;
+            }
+            case 1: {
+                Cell cell = Coord_Cell(building->Center_Coord());
+                value = Map.Cell_Threat(cell, member->House);
+                break;
+            }
+            case 2: {
+                CoordStruct here = member->Coord;
+                CoordStruct there = building->Coord;
+                CoordStruct delta(there.X-here.X, there.Y-here.Y, there.Z-here.Z);
+                value = 0x7FFFFFFF - (int)unknown_sqrt_4ba410((double)delta.X * delta.X + (double)delta.Z * delta.Z + (double)delta.Y * delta.Y);
+                break;
+            }
+            case 3: {
+                CoordStruct here = member->Coord;
+                CoordStruct there = building->Coord;
+                value = Coord_Distance(there, here);
+                break;
+            }
+            }
+            if (value > best_value) {
+                best_value = value;
+                best = building;
+            }
+        }
+    }
+    return best;
+}
+
+
+// void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool unknown) (0x006BD4B0; Red Alert's TMission_Unload)
+// Members carrying passengers unload (mission 0x10) where their cell has no building; once none carries
+// any, Data says who leaves the team: transports go home (with TransportsReturnOnUnload, to +0x1B0) or
+// leave for Data 2 and 3, the others (non-transports, or units when the task force has a transport
+// aircraft) leave for Data 1 and 3. Then completes the step.
+
+void TeamClass::TMission_unknown_6bd4b0(ScriptMissionClass const &mission, bool unknown)
+{
+    FootClass *unit = Member;
+    bool finished = true;
+    while (unit != 0) {
+        FootClass *next = (FootClass *)unit->Member;
+        Coordinate_Conscript(unit);
+        if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Kind_Of() == 2)) {
+            if (unit->Cargo.Object != 0) {
+                finished = false;
+                if (Map[unit->Center_Coord()].Cell_Building() == 0 && unit->Get_Mission() != 0x10) {
+                    unit->Assign_Destination(0, true);
+                    unit->unknown_slot220(0);
+                    unit->QueueMission(0x10, false);
+                    finished = false;
+                }
+            }
+        }
+        unit = next;
+    }
+    if (!finished) {
+        return;
+    }
+    unit = Member;
+    int mode = mission.Data;
+    bool aircraft = Has_Air_Transport();
+    while (unit != 0) {
+        FootClass *next = (FootClass *)unit->Member;
+        if (unit->Techno_Type_Class()->Passengers == 0 || aircraft && unit->Kind_Of() != 2) {
+            if (mode == 1 || mode == 3) {
+                Remove(unit, -1, false);
+                unit->unknown_slot220(0);
+                unit->Assign_Destination(0, true);
+            }
+        } else if (unit->Techno_Type_Class()->Passengers > 0) {
+            if (Class->TransportsReturnOnUnload) {
+                Remove(unit, -1, false);
+                unit->unknown_slot220(0);
+                unit->Assign_Destination(unit->ArchivedTarget, true);
+                unit->QueueMission(2, false);
+                if (unit->Ready_To_Commence()) {
+                    unit->Commence();
+                }
+                unit->Assign_Archive_Target(0);
+            } else if (mode == 3 || mode == 2) {
+                Remove(unit, -1, false);
+                unit->unknown_slot220(0);
+                unit->Assign_Destination(0, true);
+            }
+        }
+        unit = next;
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_SUCCESS(ScriptMissionClass const &mission, bool unknown) (0x006BD7F0)
+// Completes the step and sets IsSuspended.
+
+void TeamClass::TMission_SUCCESS(ScriptMissionClass const &mission, bool unknown)
+{
+    StepCompleted = true;
+    IsSuspended = true;
+}
+
+
+// Whether the team type's task force has a transporter entry (kind 3) that carries passengers.
+
+bool TeamClass::Has_Air_Transport()
+{
+    for (int index = 0; index < Class->TaskForce->CountEntries; index++) {
+        TechnoTypeClass *type = Class->TaskForce->Entries[index].Type;
+        if (type->Kind_Of() == 3 && type->Passengers > 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+// Fills a list with the techno types the team type's task force still lacks: every entry's type once per count, minus one for each current member.
+
+void TeamClass::Team_Members(DynamicVectorClass<TechnoTypeClass *> &types)
+{
+    for (int index = 0; index < Class->TaskForce->CountEntries; index++) {
+        TechnoTypeClass *type = Class->TaskForce->Entries[index].Type;
+        for (int count = Class->TaskForce->Entries[index].Amount; count > 0; count--) {
+            types.Add(type);
+        }
+    }
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        TechnoTypeClass *type = member->Techno_Type_Class();
+        types.Delete(type);
+    }
+}
+
+
+// void Owner_006bd960::TMission_FLASH(int mission_address, char apply) (0x006BD960; mischa85 names.csv
+// TeamClass::TMission_FLASH): sets the flash count (+0xD8) of every member and marks the step done.
+
+namespace seed_006bd960 {
+
+struct Owner_006bd960 { void TMission_FLASH(int argument_address, char apply_to_members); };
+
+void Owner_006bd960::TMission_FLASH(int argument_address, char apply_to_members)
+{
+    int team_address = (int)this;
+    unsigned int member_value;
+    int member_address;
+
+    if (apply_to_members != '\0') {
+        member_value = (unsigned int)(*(unsigned int *)(argument_address + 4));
+        for (member_address = *(int *)(team_address + 0x54); member_address != 0; member_address = *(int *)(member_address + 0x4c8)) {
+            *(unsigned int *)(member_address + 0xd8) = member_value;
+        }
+        *(unsigned char *)(team_address + 0x80) = 1;
+    }
+    return;
+}
+
+}  // namespace seed_006bd960
+
+
+// void TeamClass::unknown_func_6bd990(int value) (0x006BD990): stores value in every member (+0xD8).
+
+void TeamClass::unknown_func_6bd990(int value)
+{
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        member->FlashCount = value;
+    }
+}
+
+
+// void TeamClass::TMission_PLAY_ANIM(ScriptMissionClass const &mission, bool unknown) (0x006BD9B0)
+// When flagged, creates the animation (type = low 16 bits of Data, loops = high 16 bits) at every member and attaches it.
+
+void TeamClass::TMission_PLAY_ANIM(ScriptMissionClass const &mission, bool unknown)
+{
+    int type = mission.Data & 0xFFFF;
+    if (unknown && type >= 0 && type < AnimTypes.Count()) {
+        FootClass *member = Member;
+        unsigned int loops = mission.Data >> 16 & 0xFFFF;
+        AnimTypeClass *anim_type = AnimTypes[type];
+        if (member != 0) {
+            do {
+                AnimClass *anim = new AnimClass(anim_type, member->Center_Coord(), 0, loops, 0x600, 0);
+                if (anim != 0) {
+                    anim->Attach_To(member);
+                }
+                member = (FootClass *)member->Member;
+            } while (member != 0);
+            StepCompleted = true;
+            return;
+        }
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_TALK_BUBBLE(ScriptMissionClass const &mission, bool unknown) (0x006BDA70)
+// When flagged, calls 0x006D8FD0 for the first member with the line's data, then completes the step.
+
+void TeamClass::TMission_TALK_BUBBLE(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown) {
+        Unknown_006D8FD0(Member, mission.Data);
+        StepCompleted = true;
+    }
+}
+
+
+// Gather near the enemy base, with native RA2 behavior and widths.
+extern double const unknown_facing_scale_79b628;
+extern double const unknown_facing_origin_79b630;
+// Choose a point at the safe distance from the enemy base along the bearing.
+// Hypothesis: file-local operation boundary, with no original out-of-line identity.
+static inline UnknownVector3 Enemy_Gather_Point(CoordStruct const &there, UnknownFacingDir const &dir, int distance)
+{
+    double angle = ((short)dir.Raw - 0x3fff) * unknown_facing_radians_79b620;
+    double y = there.Y;
+    int target_y = (int)(y - unknown_sin_4ba480(angle) * distance);
+    int target_x = (int)(unknown_cos_4ba4d0(angle) * distance + there.X);
+    UnknownVector3 point(target_x, target_y, there.Z);
+    return point;
+}
+
+void TeamClass::TMission_unknown_6bdaa0(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown) {
+        FootClass *leader = Fetch_A_Leader();
+        if (leader == 0) { StepCompleted = true; return; }
+        HouseClass *house = leader->House;
+        HouseClass *enemy = 0;
+        if (house->Enemy != -1) enemy = Houses[house->Enemy];
+        if (enemy == 0) { StepCompleted = true; return; }
+        CoordStruct there = enemy->BaseCenter;
+        if (there == unknown_geometry_l) { StepCompleted = true; return; }
+        CoordStruct center = house->BaseCenter;
+        if (center == unknown_geometry_l) center = leader->Center_Coord();
+        CoordStruct offset = center - there;
+        Point2D delta;
+        delta.X = offset.X;
+        delta.Y = offset.Y;
+        double dy = -delta.Y;
+        UnknownFacingDir dir((unsigned short)(int)((Fast_Atan2(dy, delta.X) - unknown_facing_origin_79b630)
+            * unknown_facing_scale_79b628));
+        int distance = Rules->AISafeDistance << 8;
+        UnknownVector3 point = Enemy_Gather_Point(there, dir, distance);
+        Cell cell = XY_Cell(point.X / 256, point.Y / 256);
+        cell = Map.Nearby_Location(cell, leader->Techno_Type_Class()->SpeedType, -1, 0, false,
+            Point2D(3,3), false, false, false, true, Cell(0,0), 0);
+        Assign_Mission_Target(&Map[cell]);
+        Debug_Printf("A %s Team has chosen ( %d, %d) for its GatherAtEnemy cell.\n", (char const *)Class->Name, cell.X, cell.Y);
+    }
+    Coordinate_Move();
+}
+
+
+// Whether an object is alive and may be dealt with: it counts, has strength, and either the editor flag is set or it is not 0x76.
+
+bool __fastcall TeamClass::_Is_It_Breathing(ObjectClass *object)
+{
+    if (object != 0 && object->IsActive && object->Strength != 0 && (ScenarioInit != 0 || !object->IsInLimbo)) {
+        return true;
+    }
+    return false;
+}
+
+
+// void TeamClass::TMission_MOVE_TO_BASE_FRONT(ScriptMissionClass const &mission, bool unknown) (0x006BDDB0)
+// When unknown is set: from the leader's base center, picks the direction toward the enemy's base
+// (a random one without an enemy), goes AISafeDistance cells that way and targets the free 3x3 spot
+// nearest there for the leader's speed type (hypothesis: the GatherAtBase action beside 0x006BDAA0's
+// GatherAtEnemy). Then runs 0x006BA1A0.
+
+extern double const unknown_facing_scale_79b628;
+extern double const unknown_facing_origin_79b630;
+
+void TeamClass::TMission_MOVE_TO_BASE_FRONT(ScriptMissionClass const &mission, bool unknown)
+{
+    if (unknown) {
+        FootClass *leader = Fetch_A_Leader();
+        HouseClass *enemy = 0;
+        if (leader != 0 && leader->House->Enemy != -1) {
+            enemy = Houses[leader->House->Enemy];
+        }
+        CoordStruct center = leader->House->BaseCenter;
+        UnknownFacingDir dir;
+        if (enemy == 0) {
+            dir = UnknownFacingDir((unsigned short)((unsigned char)Scen->Random()(0, 255) << 8));
+        } else {
+            CoordStruct there = enemy->BaseCenter;
+            CoordStruct delta = there - center;
+            dir = UnknownFacingDir((unsigned short)(int)((Fast_Atan2(-delta.Y, delta.X) - unknown_facing_origin_79b630)
+                * unknown_facing_scale_79b628));
+        }
+        int distance = Rules->AISafeDistance << 8;
+        double angle = ((short)dir.Raw - 0x3fff) * unknown_facing_radians_79b620;
+        double y = center.Y;
+        CoordStruct coord((int)(unknown_cos_4ba4d0(angle) * distance + center.X), (int)(y - unknown_sin_4ba480(angle) * distance), center.Z);
+        Cell cell = Coord_Cell(coord);
+        cell = Map.Nearby_Location(cell, leader->Techno_Type_Class()->SpeedType, -1, 0, false,
+            Point2D(3, 3), 0, 0, 0, 1, Cell(0, 0), 0);
+        Assign_Mission_Target(&Map[cell]);
+    }
+    Coordinate_Move();
+}
+
+
+// void TeamClass::TMission_unknown_6be010(ScriptMissionClass const &mission, bool unknown) (0x006BE010)
+// Type-1 superweapon handler, twin of 0x006BE1C0: fires it at the team when ready,
+// waits while it is charging within the rules' AI fraction, else completes the step.
+inline void Complete_Step_006be010(TeamClass *team) { team->StepCompleted=true; }
+void TeamClass::TMission_unknown_6be010(ScriptMissionClass const &mission, bool unknown)
+{
+    FootClass *leader=Fetch_A_Leader();
+    if(!leader) { Complete_Step_006be010(this); return; }
+    HouseClass *house=leader->House;
+    SuperClass *weapon=0;
+    int count=house->SuperWeapons.Count();
+    for(int index=0;index<count;++index) {
+        if(house->SuperWeapons[index]->Type->Type==1) {
+            weapon=house->SuperWeapons[index];
+            break;
+        }
+    }
+    if(!weapon) { Complete_Step_006be010(this); return; }
+    if(!weapon->unknown_0x57) {
+        double remaining=weapon->RechargeTimer.Value();
+        double total=weapon->Type->RechargeTime;
+        if(weapon->unknown_0x55 && remaining/total <= 1.0f-Rules->AIMinorSuperReadyPercent) return;
+        Complete_Step_006be010(this);
+        return;
+    }
+    house->unknown_func_4e68d0(weapon->Type->Type,Coord_Cell(Zone->Center_Coord()));
+    Complete_Step_006be010(this);
+}
+
+
+// void TeamClass::TMission_unknown_6be1c0(ScriptMissionClass const &mission, bool unknown) (0x006BE1C0)
+// Chronoshift: with the leader house's super weapons of types 3 and 4 (hypothesis: ChronoSphere and
+// ChronoWarp) and the first ready, picks a building of type Data & 0xFFFF (mode Data >> 16, as 0x006BCF70)
+// and fires both, 3 at the team's cell (+0x34) and 4 at the building's, which becomes the team's target;
+// completes the step unless the first is still charging below the rules' AI ready fraction.
+
+extern DynamicVectorClass<BuildingTypeClass *> BuildingTypes;      // 0x00A35CD8
+
+void TeamClass::TMission_unknown_6be1c0(ScriptMissionClass const &mission, bool unknown)
+{
+    FootClass *leader = Fetch_A_Leader();
+    if (leader == 0) {
+        StepCompleted = true;
+        return;
+    }
+    HouseClass *house = leader->House;
+    SuperClass *sphere = 0;
+    SuperClass *warp = 0;
+    for (int index = 0; index < house->SuperWeapons.Count(); index++) {
+        if (house->SuperWeapons[index]->Type->Type == 3) {
+            sphere = house->SuperWeapons[index];
+        }
+        if (house->SuperWeapons[index]->Type->Type == 4) {
+            warp = house->SuperWeapons[index];
+        }
+    }
+    if (sphere != 0 && warp != 0) {
+        if (!sphere->unknown_0x57) {
+            double remaining = sphere->RechargeTimer.Value();
+            double total = sphere->Type->RechargeTime;
+            if (sphere->unknown_0x55 && remaining / total <= 1.0f - Rules->AIMinorSuperReadyPercent) {
+                return;
+            }
+            StepCompleted = true;
+            return;
+        }
+        int value = (mission.Data >> 16) & 0xFFFF;
+        BuildingTypeClass *type = BuildingTypes[mission.Data & 0xFFFF];
+        HouseClass *enemy = 0;
+        if (house->Enemy != -1) {
+            enemy = Houses[house->Enemy];
+        }
+        AbstractClass *target = Pick_Building_With_Property(type, enemy, leader, value, Class->OnlyTargetHouseEnemy);
+        if (target != 0) {
+            house->unknown_func_4e68d0(sphere->Type->Type, Coord_Cell(Zone->Center_Coord()));
+            house->unknown_func_4e68d0(warp->Type->Type, Coord_Cell(target->Center_Coord()));
+            Assign_Mission_Target(target);
+        }
+        StepCompleted = true;
+        return;
+    }
+    StepCompleted = true;
+}
+
+
+// void TeamClass::TMission_unknown_6be440(ScriptMissionClass const &mission, bool unknown) (0x006BE440)
+// Chronoshift to a target: with the leader house's super weapons of types 3 and 4 (hypothesis: ChronoSphere
+// and ChronoWarp) and the first charged, the leader picks a target of the script argument's kind
+// (0x006220E0, slot 219 from its position, the team type's OnlyTargetHouseEnemy); 3 fires at the team's
+// cell (+0x34) and 4 at the target's, which becomes the team's target. Completes the step unless the first
+// is present and still charging below the rules' AI ready fraction. The early leader exit and the named
+// target kind give the original's tail sharing; the inline Position_Coord_004f3f40 site (with the other
+// pending sites) keeps 0x006BDD80 out of line in the expanded leader search, as in 0x006BE1C0.
+
+void TeamClass::TMission_unknown_6be440(ScriptMissionClass const &mission, bool unknown)
+{
+    FootClass *leader = Fetch_A_Leader();
+    if (leader == 0) {
+        StepCompleted = true;
+        return;
+    }
+    HouseClass *house = leader->House;
+    SuperClass *sphere = 0;
+    SuperClass *warp = 0;
+    for (int index = 0; index < house->SuperWeapons.Count(); index++) {
+        if (house->SuperWeapons[index]->Type->Type == 3) {
+            sphere = house->SuperWeapons[index];
+        }
+        if (house->SuperWeapons[index]->Type->Type == 4) {
+            warp = house->SuperWeapons[index];
+        }
+    }
+    if (sphere != 0 && warp != 0) {
+        if (!sphere->unknown_0x57) {
+            double remaining = sphere->RechargeTimer.Value();
+            double total = sphere->Type->RechargeTime;
+            if (sphere->unknown_0x55 && remaining / total <= 1.0f - Rules->AIMinorSuperReadyPercent) {
+                return;
+            }
+            StepCompleted = true;
+            return;
+        }
+        int target_data = Quarry_To_Threat(mission.Data);
+        AbstractClass *target = leader->unknown_slot219(target_data, &leader->Position_Coord_004f3f40(), Class->OnlyTargetHouseEnemy);
+        if (target != 0) {
+            house->unknown_func_4e68d0(sphere->Type->Type, Coord_Cell(Zone->Center_Coord()));
+            house->unknown_func_4e68d0(warp->Type->Type, Coord_Cell(target->Center_Coord()));
+            Assign_Mission_Target(target);
+        }
+        StepCompleted = true;
+        return;
+    }
+    StepCompleted = true;
+}
+
+
+// How far a member may stray: a rules distance, a different one while the current script line is action 0x35 or 0x36.
+
+int TeamClass::Stray_Distance()
+{
+    int action = Script->Get_Current_Mission().Mission;
+    if (action != 0x36 && action != 0x35) {
+        return Rules->StrayDistance;
+    }
+    return Rules->RelaxedStray;
+}
+
+
+// Whether any member has unlimited ammo or still has some.
+
+bool TeamClass::Has_Ammo()
+{
+    bool result = false;
+    for (FootClass *member = Member; member != 0; member = (FootClass *)member->Member) {
+        if (member->Techno_Type_Class()->Ammo <= 0 || member->Ammo > 0) {
+            result = true;
+            break;
+        }
+    }
+    return result;
+}
+
+
+// TeamClass::Size_Of (0x006BE720)
+// Compiler-emitted from shared/team.hpp in this unit; no source of its own.
+
+
+// TeamClass::Kind_Of (0x006BE730)
+// Compiler-emitted from shared/team.hpp in this unit; no source of its own.
+
+
+// TeamClass::scalar_deleting_destructor (0x006BE740)
+// Compiler-emitted from shared/team.hpp in this unit; no source of its own.

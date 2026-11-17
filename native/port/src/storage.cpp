@@ -1,0 +1,917 @@
+// OLE32 structured storage and stream persistence for save games (Scout1125,
+// native M15): StgCreateDocfile/StgOpenStorage, IStorage, IStream,
+// IPropertySetStorage/IPropertyStorage and OleSaveToStream/OleLoadFromStream,
+// as far as the game's save code calls them (SaveLoad.cpp Save_Game 0x006554A0,
+// Load_Game 0x00656890, SaveVersionInfo 0x00659530/0x00659A90; slot
+// orders as in the Win32 SDK's objidl.h/propidl.h).
+//
+// Saves are written only in the original game's format (user, 2026-11-14; lane C20
+// made it the only writer): a compound file with the i686 object images, which the
+// installed game loads. The original's own saves are read in place, read only.
+// Streams live in memory; Commit (or the last Release of a storage the save code
+// created) writes the file.
+//
+// TRANSITION (lane C20; remove in release N+1): the port's own container, "RA2NSTG2"
+// (version 2: MouseClass saved whole; "RA2NSTG1" saves still load), the named streams,
+// then the property sets, is still READ for this one release, so a player's existing
+// port saves load and are saved again in the original's format. It is written only
+// under the test hook RA2_NATIVE_TEST_PORT_SAVE=1 (ctest native-port-save-transition
+// makes a port save with it). Release N+1 removes the reader (Storage::Load's container
+// branch), the hook and Storage::Save's container branch, ra2port_port_save_version
+// and the MouseClass version 1 read (port/fixups.json), and that ctest.
+#include "ra2port/original_layouts.hpp"
+#include "ra2port/win32_port.hpp"
+
+#include <algorithm>
+#include <functional>
+#include <map>
+#include <memory>
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <string>
+#include <vector>
+
+using namespace ra2port;
+
+extern "C" int ra2port_original_save_mode;   // port/src/original_save.cpp
+extern "C" int ra2port_original_write_mode;  // the same, writing (lane C17)
+// The version of the port save being read (1 or 2; 0 when none): MouseClass::Load reads
+// 0x4F3C bytes of a version 1 save, its whole native object from version 2 (port/fixups.json).
+extern "C" int ra2port_port_save_version = 0;
+
+namespace {
+const HRESULT S_OK = 0, S_FALSE = 1, E_NOTIMPL = (HRESULT)0x80004001u, E_NOINTERFACE = (HRESULT)0x80004002u,
+              E_POINTER = (HRESULT)0x80004003u, E_FAIL = (HRESULT)0x80004005u,
+              STG_E_FILENOTFOUND = (HRESULT)0x80030002u, STG_E_INVALIDFUNCTION = (HRESULT)0x80030001u,
+              STG_E_READFAULT = (HRESULT)0x8003001Eu, STG_E_FILEALREADYEXISTS = (HRESULT)0x80030050u,
+              STG_E_ACCESSDENIED = (HRESULT)0x80030005u;
+
+struct GUID { uint32_t d1; uint16_t d2, d3; uint8_t d4[8]; };
+bool operator<(const GUID &a, const GUID &b) { return memcmp(&a, &b, sizeof a) < 0; }
+bool same(const GUID *a, const GUID &b) { return a && !memcmp(a, &b, sizeof b); }
+const GUID IID_IUnknown = {0, 0, 0, {0xC0, 0, 0, 0, 0, 0, 0, 0x46}};
+const GUID IID_ISequentialStream = {0x0c733a30, 0x2a1c, 0x11ce, {0xad, 0xe5, 0x00, 0xaa, 0x00, 0x44, 0x77, 0x3d}};
+const GUID IID_IStream = {0x0000000c, 0, 0, {0xC0, 0, 0, 0, 0, 0, 0, 0x46}};
+const GUID IID_IStorage = {0x0000000b, 0, 0, {0xC0, 0, 0, 0, 0, 0, 0, 0x46}};
+const GUID IID_IPropertySetStorage = {0x0000013A, 0, 0, {0xC0, 0, 0, 0, 0, 0, 0, 0x46}};
+const GUID IID_IPropertyStorage = {0x00000138, 0, 0, {0xC0, 0, 0, 0, 0, 0, 0, 0x46}};
+const GUID IID_IPersistStream = {0x00000109, 0, 0, {0xC0, 0, 0, 0, 0, 0, 0, 0x46}};
+
+typedef std::basic_string<WCHAR> wstr;
+wstr to_w(const WCHAR *s) { return s ? wstr(s, wlen(s)) : wstr(); }
+wstr ascii_w(const char *s)
+{
+    wstr w;
+    for (; *s; ++s) w.push_back((WCHAR)(unsigned char)*s);
+    return w;
+}
+
+// RA2_NATIVE_STG_LOG=1: one stderr line per storage call (diagnostics).
+void stg_log(const char *fmt, ...) __attribute__((format(printf, 1, 2)));
+void stg_log(const char *fmt, ...)
+{
+    static int on = -1;
+    if (on < 0) on = getenv("RA2_NATIVE_STG_LOG") != nullptr;
+    if (!on) return;
+    va_list a;
+    va_start(a, fmt);
+    fprintf(stderr, "stg: ");
+    vfprintf(stderr, fmt, a);
+    fprintf(stderr, "\n");
+    va_end(a);
+}
+
+
+struct IUnknownPort {
+    virtual HRESULT QueryInterface(const GUID *iid, void **out) = 0;
+    virtual ULONG AddRef() = 0;
+    virtual ULONG Release() = 0;
+};
+
+// PROPVARIANT as the game declares it natively (shared/savegame_info.hpp: vt,
+// three reserved words, then a union of a 32-bit long, two string pointers and
+// a FILETIME): 16 bytes on arm64.
+struct PropVariant {
+    uint16_t vt, r1, r2, r3;
+    union { int32_t lVal; WCHAR *pwszVal; char *pszVal; FILETIME filetime; };
+};
+struct PropSpec { uint32_t kind, propid; };
+enum { VT_EMPTY = 0, VT_I2 = 2, VT_I4 = 3, VT_BOOL = 11, VT_UI4 = 19, VT_LPSTR = 30, VT_LPWSTR = 31, VT_FILETIME = 64 };
+struct Prop { uint16_t vt = VT_EMPTY; int32_t value = 0; FILETIME time = {0, 0}; std::string narrow; wstr wide; };
+typedef std::map<uint32_t, Prop> PropSet;
+
+struct Data {
+    std::map<wstr, std::shared_ptr<std::vector<uint8_t>>> streams;
+    std::map<GUID, PropSet> sets;
+};
+
+// ---- IStream over a shared byte vector ----
+struct Stream : IUnknownPort {
+    ULONG refs = 1;
+    std::shared_ptr<std::vector<uint8_t>> bytes;
+    uint64_t pos = 0;
+    explicit Stream(std::shared_ptr<std::vector<uint8_t>> b) : bytes(b) {}
+    HRESULT QueryInterface(const GUID *iid, void **out) override
+    {
+        if (!out) return E_POINTER;
+        if (same(iid, IID_IUnknown) || same(iid, IID_IStream) || same(iid, IID_ISequentialStream)) {
+            *out = this;
+            AddRef();
+            return S_OK;
+        }
+        *out = nullptr;
+        return E_NOINTERFACE;
+    }
+    ULONG AddRef() override { return ++refs; }
+    ULONG Release() override { ULONG r = --refs; if (!r) delete this; return r; }
+    virtual HRESULT Read(void *buffer, ULONG size, ULONG *read)
+    {
+        uint64_t avail = pos < bytes->size() ? bytes->size() - pos : 0;
+        ULONG n = size < avail ? size : (ULONG)avail;
+        if (n) memcpy(buffer, bytes->data() + pos, n);
+        pos += n;
+        if (read) *read = n;
+        return n < size ? S_FALSE : S_OK;
+    }
+    virtual HRESULT Write(const void *buffer, ULONG size, ULONG *written)
+    {
+        if (pos + size > bytes->size()) bytes->resize(pos + size);
+        if (size) memcpy(bytes->data() + pos, buffer, size);
+        pos += size;
+        if (written) *written = size;
+        return S_OK;
+    }
+    virtual HRESULT Seek(int64_t move, DWORD origin, uint64_t *position)
+    {
+        int64_t base = origin == 0 ? 0 : origin == 1 ? (int64_t)pos : (int64_t)bytes->size();
+        if (origin > 2 || base + move < 0) return STG_E_INVALIDFUNCTION;
+        pos = (uint64_t)(base + move);
+        if (position) *position = pos;
+        return S_OK;
+    }
+    virtual HRESULT SetSize(uint64_t size) { bytes->resize(size); return S_OK; }
+    virtual HRESULT CopyTo(IUnknownPort *to, uint64_t count, uint64_t *read, uint64_t *written)
+    {
+        uint64_t avail = pos < bytes->size() ? bytes->size() - pos : 0;
+        uint64_t n = count < avail ? count : avail;
+        ULONG done = 0;
+        HRESULT r = ((Stream *)to)->Write(bytes->data() + pos, (ULONG)n, &done);
+        pos += n;
+        if (read) *read = n;
+        if (written) *written = done;
+        return r;
+    }
+    virtual HRESULT Commit(DWORD) { return S_OK; }
+    virtual HRESULT Revert() { return S_OK; }
+    virtual HRESULT LockRegion(uint64_t, uint64_t, DWORD) { return S_OK; }
+    virtual HRESULT UnlockRegion(uint64_t, uint64_t, DWORD) { return S_OK; }
+    virtual HRESULT Stat(void *stat, DWORD) { (void)stat; unimplemented("IStream::Stat"); return E_NOTIMPL; }
+    virtual HRESULT Clone(void **out)
+    {
+        Stream *s = new Stream(bytes);
+        s->pos = pos;
+        *out = s;
+        return S_OK;
+    }
+};
+
+// ---- IPropertyStorage over one property set ----
+struct PropertyStorage : IUnknownPort {
+    ULONG refs = 1;
+    PropSet *set;
+    IUnknownPort *owner;
+    PropertyStorage(PropSet *s, IUnknownPort *o) : set(s), owner(o) { owner->AddRef(); }
+    ~PropertyStorage() { owner->Release(); }
+    HRESULT QueryInterface(const GUID *iid, void **out) override
+    {
+        if (!out) return E_POINTER;
+        if (same(iid, IID_IUnknown) || same(iid, IID_IPropertyStorage)) { *out = this; AddRef(); return S_OK; }
+        *out = nullptr;
+        return E_NOINTERFACE;
+    }
+    ULONG AddRef() override { return ++refs; }
+    ULONG Release() override { ULONG r = --refs; if (!r) delete this; return r; }
+    virtual HRESULT ReadMultiple(ULONG count, const PropSpec *specs, PropVariant *values)
+    {
+        bool any = false;
+        for (ULONG i = 0; i < count; ++i) {
+            PropVariant &v = values[i];
+            memset(&v, 0, sizeof v);
+            if (specs[i].kind != 1) continue;          // PRSPEC_PROPID only
+            auto it = set->find(specs[i].propid);
+            stg_log("read property %u: %s", (unsigned)specs[i].propid, it == set->end() ? "absent" : "found");
+            if (it == set->end()) continue;
+            Prop const &p = it->second;
+            v.vt = p.vt;
+            any = true;
+            switch (p.vt) {
+            case VT_LPWSTR: {
+                WCHAR *w = (WCHAR *)malloc((p.wide.size() + 1) * sizeof(WCHAR));
+                memcpy(w, p.wide.c_str(), (p.wide.size() + 1) * sizeof(WCHAR));
+                v.pwszVal = w;
+                break;
+            }
+            case VT_LPSTR: {
+                char *s = (char *)malloc(p.narrow.size() + 1);
+                memcpy(s, p.narrow.c_str(), p.narrow.size() + 1);
+                v.pszVal = s;
+                break;
+            }
+            case VT_FILETIME: v.filetime = p.time; break;
+            default: v.lVal = p.value; break;
+            }
+        }
+        return any ? S_OK : S_FALSE;
+    }
+    virtual HRESULT WriteMultiple(ULONG count, const PropSpec *specs, const PropVariant *values, ULONG)
+    {
+        for (ULONG i = 0; i < count; ++i) {
+            if (specs[i].kind != 1) continue;
+            Prop p;
+            p.vt = values[i].vt;
+            switch (p.vt) {
+            case VT_LPWSTR: p.wide = to_w(values[i].pwszVal); break;
+            case VT_LPSTR: p.narrow = values[i].pszVal ? values[i].pszVal : ""; break;
+            case VT_FILETIME: p.time = values[i].filetime; break;
+            default: p.value = values[i].lVal; break;
+            }
+            (*set)[specs[i].propid] = p;
+        }
+        return S_OK;
+    }
+    virtual HRESULT DeleteMultiple(ULONG count, const PropSpec *specs)
+    {
+        for (ULONG i = 0; i < count; ++i) set->erase(specs[i].propid);
+        return S_OK;
+    }
+    virtual HRESULT ReadPropertyNames(ULONG, const uint32_t *, WCHAR **) { return E_NOTIMPL; }
+    virtual HRESULT WritePropertyNames(ULONG, const uint32_t *, const WCHAR *const *) { return E_NOTIMPL; }
+    virtual HRESULT DeletePropertyNames(ULONG, const uint32_t *) { return E_NOTIMPL; }
+    virtual HRESULT Commit(DWORD) { return S_OK; }
+    virtual HRESULT Revert() { return S_OK; }
+};
+
+// ---- IStorage (+ IPropertySetStorage as a second interface) ----
+struct Storage;
+struct PropertySetStorage : IUnknownPort {
+    Storage *outer;
+    explicit PropertySetStorage(Storage *s) : outer(s) {}
+    HRESULT QueryInterface(const GUID *iid, void **out) override;
+    ULONG AddRef() override;
+    ULONG Release() override;
+    virtual HRESULT Create(const GUID &fmtid, const GUID *clsid, DWORD flags, DWORD mode, void **out);
+    virtual HRESULT Open(const GUID &fmtid, DWORD mode, void **out);
+    virtual HRESULT Delete(const GUID &fmtid);
+    virtual HRESULT Enum(void **out) { (void)out; return E_NOTIMPL; }
+};
+
+void put32(std::vector<uint8_t> &o, uint32_t v) { for (int i = 0; i < 4; ++i) o.push_back((uint8_t)(v >> (8 * i))); }
+void putw(std::vector<uint8_t> &o, wstr const &s)
+{
+    put32(o, (uint32_t)s.size());
+    for (WCHAR c : s) { o.push_back((uint8_t)c); o.push_back((uint8_t)(c >> 8)); }
+}
+struct Reader {
+    const uint8_t *p, *end;
+    bool ok = true;
+    uint32_t u32()
+    {
+        if (end - p < 4) { ok = false; return 0; }
+        uint32_t v = p[0] | p[1] << 8 | p[2] << 16 | (uint32_t)p[3] << 24;
+        p += 4;
+        return v;
+    }
+    wstr w()
+    {
+        uint32_t n = u32();
+        wstr s;
+        if ((uint64_t)(end - p) < (uint64_t)n * 2) { ok = false; return s; }
+        for (uint32_t i = 0; i < n; ++i, p += 2) s.push_back((WCHAR)(p[0] | p[1] << 8));
+        return s;
+    }
+    bool bytes(void *to, size_t n)
+    {
+        if ((size_t)(end - p) < n) { ok = false; return false; }
+        memcpy(to, p, n);
+        p += n;
+        return true;
+    }
+};
+
+// ---- The original game's saves: compound files, read only (lane C6) ----
+// ole32 wrote them (StgCreateDocfile): a 512-byte header, the FAT and its
+// DIFAT chain, a directory of 128-byte entries, the mini stream for streams
+// under the cutoff (4,096 bytes). Only the root storage's streams are read (the
+// summary streams Save_Game writes and CONTENTS); the summary property set
+// ("\005SummaryInformation") is not, so SaveVersionInfo::Load 0x00659A90 reads
+// the summary from the streams, as it does for a file without property sets.
+const uint8_t compound_magic[8] = {0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1};
+
+uint32_t le32(const uint8_t *p) { return p[0] | p[1] << 8 | p[2] << 16 | (uint32_t)p[3] << 24; }
+uint16_t le16(const uint8_t *p) { return (uint16_t)(p[0] | p[1] << 8); }
+
+bool compound_streams(std::vector<uint8_t> in, Data &data)
+{
+    const uint32_t END = 0xFFFFFFFAu;   // MAXREGSECT + 1: chain ends, free and FAT/DIFAT sectors
+    if (in.size() < 512 || memcmp(in.data(), compound_magic, 8)) return false;
+    const uint8_t *h = in.data();
+    unsigned shift = le16(h + 30), mini_shift = le16(h + 32);
+    if (shift != 9 && shift != 12) return false;
+    if (mini_shift != 6) return false;
+    const size_t sector = (size_t)1 << shift, mini = (size_t)1 << mini_shift;
+    in.resize((in.size() + sector - 1) / sector * sector);   // ole32 ends the file inside the last sector
+    h = in.data();
+    const uint32_t fat_sectors = le32(h + 44), dir_start = le32(h + 48), cutoff = le32(h + 56);
+    const uint32_t minifat_start = le32(h + 60), difat_start = le32(h + 68);
+    const size_t sectors = (in.size() + sector - 1) / sector;   // an upper bound on sector numbers
+    auto at = [&](uint32_t s) -> const uint8_t * {
+        size_t off = ((size_t)s + 1) * sector;
+        return off + sector <= in.size() ? in.data() + off : nullptr;
+    };
+    // FAT sector numbers: 109 in the header, then the DIFAT chain.
+    std::vector<uint32_t> difat;
+    for (int i = 0; i < 109; ++i) difat.push_back(le32(h + 76 + 4 * i));
+    for (uint32_t s = difat_start, guard = 0; s < END && guard < sectors; ++guard) {
+        const uint8_t *p = at(s);
+        if (!p) return false;
+        for (size_t i = 0; i + 1 < sector / 4; ++i) difat.push_back(le32(p + 4 * i));
+        s = le32(p + sector - 4);
+    }
+    std::vector<uint32_t> fat;
+    for (uint32_t i = 0; i < fat_sectors && i < difat.size(); ++i) {
+        const uint8_t *p = at(difat[i]);
+        if (!p) return false;
+        for (size_t k = 0; k < sector / 4; ++k) fat.push_back(le32(p + 4 * k));
+    }
+    auto chain = [&](uint32_t s, std::vector<uint8_t> &out) -> bool {
+        for (size_t guard = 0; s < END; ++guard) {
+            const uint8_t *p = at(s);
+            if (!p || s >= fat.size() || guard > fat.size()) return false;
+            out.insert(out.end(), p, p + sector);
+            s = fat[s];
+        }
+        return true;
+    };
+    std::vector<uint8_t> dir;
+    if (!chain(dir_start, dir) || dir.size() < 128) return false;
+    struct Entry { wstr name; uint8_t type; uint32_t left, right, child, start; uint64_t size; };
+    std::vector<Entry> entries;
+    for (size_t off = 0; off + 128 <= dir.size(); off += 128) {
+        const uint8_t *e = dir.data() + off;
+        Entry x;
+        unsigned bytes = le16(e + 64);
+        for (unsigned i = 0; i + 2 < bytes && i < 64; i += 2) x.name.push_back((WCHAR)le16(e + i));
+        x.type = e[66];
+        x.left = le32(e + 68);
+        x.right = le32(e + 72);
+        x.child = le32(e + 76);
+        x.start = le32(e + 116);
+        x.size = le32(e + 120);   // version 3 files: the high half is not used
+        entries.push_back(x);
+    }
+    if (entries.empty() || entries[0].type != 5) return false;
+    std::vector<uint8_t> ministream, minifat_bytes;
+    if (!chain(entries[0].start, ministream)) return false;
+    if (minifat_start < END && !chain(minifat_start, minifat_bytes)) return false;
+    std::vector<uint32_t> minifat;
+    for (size_t i = 0; i + 4 <= minifat_bytes.size(); i += 4) minifat.push_back(le32(minifat_bytes.data() + i));
+    // The root's children: the red-black tree under its child entry.
+    std::vector<uint32_t> todo{entries[0].child};
+    std::vector<bool> seen(entries.size());
+    while (!todo.empty()) {
+        uint32_t i = todo.back();
+        todo.pop_back();
+        if (i >= entries.size() || seen[i]) continue;
+        seen[i] = true;
+        Entry const &e = entries[i];
+        todo.push_back(e.left);
+        todo.push_back(e.right);
+        if (e.type != 2) continue;   // streams only (no sub-storages in a saved game)
+        auto bytes = std::make_shared<std::vector<uint8_t>>();
+        if (e.size < cutoff) {
+            uint32_t s = e.start;
+            for (size_t guard = 0; s < END && bytes->size() < e.size; ++guard) {
+                if (s >= minifat.size() || (size_t)(s + 1) * mini > ministream.size() || guard > minifat.size()) return false;
+                bytes->insert(bytes->end(), ministream.begin() + (size_t)s * mini, ministream.begin() + (size_t)(s + 1) * mini);
+                s = minifat[s];
+            }
+        } else if (!chain(e.start, *bytes)) {
+            return false;
+        }
+        if (bytes->size() < e.size) return false;
+        bytes->resize(e.size);
+        data.streams[e.name] = bytes;
+    }
+    return data.streams.count(ascii_w("CONTENTS")) != 0;
+}
+
+// ---- Writing the original's format (lane C17; the only format written since lane C20) ----
+// A compound file as ole32 lays one out for the game (version 3: 512-byte sectors, the
+// mini stream for streams under 4,096 bytes), holding the root storage's streams; the
+// property sets are left out (the original's own saves have none). The root entry's
+// state bits carry kPortMark: the port may replace or delete a compound file it wrote,
+// never one the original wrote.
+const uint32_t kPortMark = 0x504E3252u;   // "R2NP"
+
+// TRANSITION test hook (lane C20; removed with the container reader in release N+1):
+// RA2_NATIVE_TEST_PORT_SAVE=1 writes the port's old container, so ctest
+// native-port-save-transition can make the port save a player may still have.
+bool test_port_save()
+{
+    const char *f = getenv("RA2_NATIVE_TEST_PORT_SAVE");
+    return f && !strcmp(f, "1");
+}
+
+// CFB name order: shorter names first, then by upper-cased UTF-16 units.
+bool cfb_less(wstr const &a, wstr const &b)
+{
+    if (a.size() != b.size()) return a.size() < b.size();
+    for (size_t i = 0; i < a.size(); ++i) {
+        WCHAR x = a[i] >= 'a' && a[i] <= 'z' ? (WCHAR)(a[i] - 32) : a[i];
+        WCHAR y = b[i] >= 'a' && b[i] <= 'z' ? (WCHAR)(b[i] - 32) : b[i];
+        if (x != y) return x < y;
+    }
+    return false;
+}
+
+std::vector<uint8_t> compound_file(Data const &data)
+{
+    const uint32_t SECT = 512, MINI = 64, CUTOFF = 4096, FREE = 0xFFFFFFFFu, END = 0xFFFFFFFEu,
+                   FATSECT = 0xFFFFFFFDu, NOSTREAM = 0xFFFFFFFFu;
+    struct Item { wstr name; std::shared_ptr<std::vector<uint8_t>> bytes; uint32_t start = END; };
+    std::vector<Item> items;
+    for (auto &st : data.streams) items.push_back({st.first, st.second});
+    std::sort(items.begin(), items.end(), [](Item const &a, Item const &b) { return cfb_less(a.name, b.name); });
+    // The mini stream and its FAT.
+    std::vector<uint8_t> ministream;
+    std::vector<uint32_t> minifat;
+    for (Item &it : items) {
+        size_t n = it.bytes->size();
+        if (n >= CUTOFF || n == 0) continue;
+        uint32_t first = (uint32_t)minifat.size(), blocks = (uint32_t)((n + MINI - 1) / MINI);
+        for (uint32_t k = 0; k < blocks; ++k) minifat.push_back(k + 1 < blocks ? first + k + 1 : END);
+        ministream.insert(ministream.end(), it.bytes->begin(), it.bytes->end());
+        ministream.resize((size_t)(first + blocks) * MINI, 0);
+        it.start = first;
+    }
+    // Regular sectors: the large streams, the mini stream, the mini FAT, the directory, then the FAT.
+    std::vector<uint8_t> body;                 // sector images after the header
+    std::vector<uint32_t> fat;
+    auto place = [&](std::vector<uint8_t> const &bytes) -> uint32_t {
+        if (bytes.empty()) return END;
+        uint32_t first = (uint32_t)fat.size(), count = (uint32_t)((bytes.size() + SECT - 1) / SECT);
+        for (uint32_t k = 0; k < count; ++k) fat.push_back(k + 1 < count ? first + k + 1 : END);
+        body.insert(body.end(), bytes.begin(), bytes.end());
+        body.resize((size_t)(first + count) * SECT, 0);
+        return first;
+    };
+    for (Item &it : items) if (it.bytes->size() >= CUTOFF) it.start = place(*it.bytes);
+    uint32_t ministream_start = place(ministream);
+    std::vector<uint8_t> minifat_bytes;
+    for (uint32_t v : minifat) put32(minifat_bytes, v);
+    minifat_bytes.resize((minifat_bytes.size() + SECT - 1) / SECT * SECT, 0xFF);
+    uint32_t minifat_start = place(minifat_bytes), minifat_sectors = (uint32_t)(minifat_bytes.size() / SECT);
+    // The directory: the root, then the streams as a balanced red-black tree (the
+    // deepest level red, the rest black: every path holds the same number of black entries).
+    size_t count = items.size();
+    std::vector<uint32_t> left(count, NOSTREAM), right(count, NOSTREAM);
+    std::vector<int> depth(count, 0);
+    int deepest = 0;
+    std::function<uint32_t(size_t, size_t, int)> build = [&](size_t lo, size_t hi, int d) -> uint32_t {
+        if (lo >= hi) return NOSTREAM;
+        size_t mid = (lo + hi) / 2;
+        depth[mid] = d;
+        deepest = std::max(deepest, d);
+        left[mid] = build(lo, mid, d + 1);
+        right[mid] = build(mid + 1, hi, d + 1);
+        return (uint32_t)(mid + 1);   // directory index (the root is entry 0)
+    };
+    uint32_t tree = build(0, count, 0);
+    bool perfect = count == 0 || ((count + 1) & count) == 0;
+    std::vector<uint8_t> dir;
+    auto entry = [&](wstr const &name, uint8_t type, uint8_t color, uint32_t l, uint32_t r, uint32_t child,
+                     uint32_t state, uint32_t start, uint32_t size) {
+        uint8_t e[128];
+        memset(e, 0, sizeof e);
+        size_t n = std::min<size_t>(name.size(), 31);
+        for (size_t i = 0; i < n; ++i) { e[2 * i] = (uint8_t)name[i]; e[2 * i + 1] = (uint8_t)(name[i] >> 8); }
+        uint16_t bytes = (uint16_t)((n + 1) * 2);
+        e[64] = (uint8_t)bytes; e[65] = (uint8_t)(bytes >> 8);
+        e[66] = type;
+        e[67] = color;
+        auto w32 = [&](int at, uint32_t v) { for (int i = 0; i < 4; ++i) e[at + i] = (uint8_t)(v >> (8 * i)); };
+        w32(68, l); w32(72, r); w32(76, child); w32(96, state); w32(116, start); w32(120, size);
+        dir.insert(dir.end(), e, e + 128);
+    };
+    entry(ascii_w("Root Entry"), 5, 1, NOSTREAM, NOSTREAM, tree, kPortMark,
+          ministream.empty() ? END : ministream_start, (uint32_t)ministream.size());
+    for (size_t i = 0; i < count; ++i) {
+        uint8_t color = !perfect && depth[i] == deepest ? 0 : 1;
+        entry(items[i].name, 2, color, left[i], right[i], NOSTREAM, 0, items[i].bytes->empty() ? END : items[i].start,
+              (uint32_t)items[i].bytes->size());
+    }
+    while (dir.size() % SECT) {                 // unused entries
+        uint8_t e[128];
+        memset(e, 0, sizeof e);
+        memset(e + 68, 0xFF, 12);
+        dir.insert(dir.end(), e, e + 128);
+    }
+    uint32_t dir_start = place(dir);
+    // The FAT covers every sector, its own included.
+    uint32_t data_sectors = (uint32_t)fat.size(), fat_sectors = 0;
+    while ((size_t)fat_sectors * (SECT / 4) < data_sectors + fat_sectors) ++fat_sectors;
+    if (fat_sectors > 109) return std::vector<uint8_t>();   // over 7 MB: no DIFAT sectors written
+    uint32_t fat_start = data_sectors;
+    for (uint32_t k = 0; k < fat_sectors; ++k) fat.push_back(FATSECT);
+    fat.resize((size_t)fat_sectors * (SECT / 4), FREE);
+    std::vector<uint8_t> fat_bytes;
+    for (uint32_t v : fat) put32(fat_bytes, v);
+    body.insert(body.end(), fat_bytes.begin(), fat_bytes.end());
+    std::vector<uint8_t> o(512, 0);
+    memcpy(o.data(), compound_magic, 8);
+    auto h16 = [&](int at, uint16_t v) { o[at] = (uint8_t)v; o[at + 1] = (uint8_t)(v >> 8); };
+    auto h32 = [&](int at, uint32_t v) { for (int i = 0; i < 4; ++i) o[at + i] = (uint8_t)(v >> (8 * i)); };
+    h16(24, 0x3E); h16(26, 3); h16(28, 0xFFFE); h16(30, 9); h16(32, 6);
+    h32(40, 0); h32(44, fat_sectors); h32(48, dir_start); h32(52, 0); h32(56, CUTOFF);
+    h32(60, minifat_sectors ? minifat_start : END); h32(64, minifat_sectors); h32(68, END); h32(72, 0);
+    for (int i = 0; i < 109; ++i) h32(76 + 4 * i, i < (int)fat_sectors ? fat_start + (uint32_t)i : FREE);
+    o.insert(o.end(), body.begin(), body.end());
+    return o;
+}
+
+// Whether the compound file at path is one the port wrote (its root entry's state bits).
+bool port_written_compound(const char *path)
+{
+    FILE *f = fopen(path, "rb");
+    if (!f) return false;
+    uint8_t h[512];
+    bool ok = fread(h, 1, 512, f) == 512 && !memcmp(h, compound_magic, 8) && le16(h + 30) == 9;
+    uint8_t root[128];
+    if (ok) ok = fseek(f, (long)(512 + (size_t)le32(h + 48) * 512), SEEK_SET) == 0 && fread(root, 1, 128, f) == 128;
+    fclose(f);
+    return ok && root[66] == 5 && le32(root + 96) == kPortMark;
+}
+
+// The load dialog lists an original save by its description; the port marks it
+// (only in the copy in memory: the file is never written).
+void mark_original(Data &data)
+{
+    auto it = data.streams.find(ascii_w("Scenario Description"));
+    if (it == data.streams.end()) return;
+    static const char16_t mark[] = u"(Original) ";
+    std::vector<uint8_t> &b = *it->second;
+    std::vector<uint8_t> prefix;
+    for (size_t i = 0; mark[i]; ++i) { prefix.push_back((uint8_t)mark[i]); prefix.push_back((uint8_t)(mark[i] >> 8)); }
+    b.insert(b.begin(), prefix.begin(), prefix.end());
+}
+
+struct Storage;
+std::vector<Storage *> &open_port_saves()
+{
+    static std::vector<Storage *> open;
+    return open;
+}
+
+struct Storage : IUnknownPort {
+    ULONG refs = 1;
+    std::string path;        // host path
+    bool writable;
+    bool dirty = false;
+    bool original = false;   // an original save (compound file): read only, original_save_mode while open
+    int version = 0;         // a port save read: its container version (ra2port_port_save_version while open)
+    bool compound_out = false;   // written in the original's format (lane C17): ra2port_original_write_mode while open
+    Data data;
+    PropertySetStorage props{this};
+    Storage(std::string const &host, bool write) : path(host), writable(write) {}
+    ~Storage()
+    {
+        if (original) --ra2port_original_save_mode;
+        if (compound_out) --ra2port_original_write_mode;
+        if (version) {
+            // The version of the most recently opened port save still open (a storage
+            // closed out of order, such as the summary read's, leaves the others' own).
+            auto &open = open_port_saves();
+            for (size_t i = open.size(); i-- > 0;) {
+                if (open[i] == this) { open.erase(open.begin() + (long)i); break; }
+            }
+            ra2port_port_save_version = open.empty() ? 0 : open.back()->version;
+            stg_log("close %s: port save version now %d", path.c_str(), ra2port_port_save_version);
+        }
+        // A port save that was read (TRANSITION) is never written back: only a storage
+        // the save code created is saved.
+        if (writable && dirty && !original && !version) Save();
+    }
+    bool Save()
+    {
+        if (compound_out) {
+            std::vector<uint8_t> c = compound_file(data);
+            if (c.empty()) { stg_log("save %s: too large for the original's format", path.c_str()); return false; }
+            FILE *f = fopen(path.c_str(), "wb");
+            if (!f) return false;
+            bool ok = fwrite(c.data(), 1, c.size(), f) == c.size();
+            fclose(f);
+            dirty = false;
+            stg_log("save %s: original format, %zu streams, %zu bytes", path.c_str(), data.streams.size(), c.size());
+            return ok;
+        }
+        // TRANSITION (remove in release N+1): the port's container, written only under the
+        // test hook RA2_NATIVE_TEST_PORT_SAVE=1 (StgCreateDocfile).
+        std::vector<uint8_t> o;
+        const char magic[8] = {'R', 'A', '2', 'N', 'S', 'T', 'G', '2'};
+        o.insert(o.end(), magic, magic + 8);
+        put32(o, (uint32_t)data.streams.size());
+        for (auto &s : data.streams) {
+            putw(o, s.first);
+            put32(o, (uint32_t)s.second->size());
+            o.insert(o.end(), s.second->begin(), s.second->end());
+        }
+        put32(o, (uint32_t)data.sets.size());
+        for (auto &set : data.sets) {
+            const uint8_t *g = (const uint8_t *)&set.first;
+            o.insert(o.end(), g, g + sizeof(GUID));
+            put32(o, (uint32_t)set.second.size());
+            for (auto &p : set.second) {
+                put32(o, p.first);
+                put32(o, p.second.vt);
+                put32(o, (uint32_t)p.second.value);
+                put32(o, p.second.time.dwLowDateTime);
+                put32(o, p.second.time.dwHighDateTime);
+                wstr narrow(p.second.narrow.begin(), p.second.narrow.end());
+                putw(o, narrow);
+                putw(o, p.second.wide);
+            }
+        }
+        FILE *f = fopen(path.c_str(), "wb");
+        if (!f) return false;
+        bool ok = fwrite(o.data(), 1, o.size(), f) == o.size();
+        fclose(f);
+        dirty = false;
+        return ok;
+    }
+    bool Load()
+    {
+        FILE *f = fopen(path.c_str(), "rb");
+        if (!f) return false;
+        std::vector<uint8_t> in;
+        uint8_t block[65536];
+        size_t n;
+        while ((n = fread(block, 1, sizeof block, f)) > 0) in.insert(in.end(), block, block + n);
+        fclose(f);
+        if (in.size() >= 8 && !memcmp(in.data(), compound_magic, 8)) {
+            if (!compound_streams(in, data)) {
+                stg_log("open %s: compound file without a readable CONTENTS stream", path.c_str());
+                data = Data();
+                return false;
+            }
+            original = true;
+            writable = false;
+            ++ra2port_original_save_mode;
+            if (!port_written_compound(path.c_str())) mark_original(data);   // the port's own (C17) are not marked
+            stg_log("open %s: original save (compound file), %zu streams, read only", path.c_str(), data.streams.size());
+            return true;
+        }
+        // TRANSITION (lane C20): the port's own container is read for this one release, so
+        // a player's port saves load and are saved again in the original's format. Remove
+        // this branch in release N+1 (see the head of this file).
+        Reader r{in.data(), in.data() + in.size()};
+        char magic[8];
+        if (!r.bytes(magic, 8) || memcmp(magic, "RA2NSTG", 7) || (magic[7] != '1' && magic[7] != '2')) return false;
+        version = magic[7] - '0';
+        uint32_t streams = r.u32();
+        for (uint32_t i = 0; i < streams && r.ok; ++i) {
+            wstr name = r.w();
+            uint32_t size = r.u32();
+            auto bytes = std::make_shared<std::vector<uint8_t>>(size);
+            if (size) r.bytes(bytes->data(), size);
+            data.streams[name] = bytes;
+        }
+        uint32_t sets = r.u32();
+        for (uint32_t i = 0; i < sets && r.ok; ++i) {
+            GUID g;
+            r.bytes(&g, sizeof g);
+            PropSet &set = data.sets[g];
+            uint32_t count = r.u32();
+            for (uint32_t k = 0; k < count && r.ok; ++k) {
+                uint32_t id = r.u32();
+                Prop p;
+                p.vt = (uint16_t)r.u32();
+                p.value = (int32_t)r.u32();
+                p.time.dwLowDateTime = r.u32();
+                p.time.dwHighDateTime = r.u32();
+                wstr narrow = r.w();
+                p.narrow.assign(narrow.begin(), narrow.end());
+                p.wide = r.w();
+                set[id] = p;
+            }
+        }
+        if (r.ok) {
+            open_port_saves().push_back(this);
+            stg_log("open %s: port save version %d", path.c_str(), version);
+            ra2port_port_save_version = version;
+        } else {
+            version = 0;
+        }
+        return r.ok;
+    }
+    HRESULT QueryInterface(const GUID *iid, void **out) override
+    {
+        if (!out) return E_POINTER;
+        if (same(iid, IID_IUnknown) || same(iid, IID_IStorage)) { *out = this; AddRef(); return S_OK; }
+        if (same(iid, IID_IPropertySetStorage)) { *out = &props; AddRef(); return S_OK; }
+        *out = nullptr;
+        return E_NOINTERFACE;
+    }
+    ULONG AddRef() override { return ++refs; }
+    ULONG Release() override { ULONG r = --refs; if (!r) delete this; return r; }
+    virtual HRESULT CreateStream(const WCHAR *name, DWORD, DWORD, DWORD, void **out)
+    {
+        auto bytes = std::make_shared<std::vector<uint8_t>>();
+        data.streams[to_w(name)] = bytes;
+        dirty = true;
+        *out = new Stream(bytes);
+        return S_OK;
+    }
+    virtual HRESULT OpenStream(const WCHAR *name, void *, DWORD mode, DWORD, void **out)
+    {
+        auto it = data.streams.find(to_w(name));
+        if (it == data.streams.end()) { *out = nullptr; return STG_E_FILENOTFOUND; }
+        if (mode & 3) dirty = true;
+        *out = new Stream(it->second);
+        return S_OK;
+    }
+    virtual HRESULT CreateStorage(const WCHAR *, DWORD, DWORD, DWORD, void **out) { *out = nullptr; unimplemented("IStorage::CreateStorage"); return E_NOTIMPL; }
+    virtual HRESULT OpenStorage(const WCHAR *, void *, DWORD, void *, DWORD, void **out) { *out = nullptr; unimplemented("IStorage::OpenStorage"); return E_NOTIMPL; }
+    virtual HRESULT CopyTo(DWORD, const GUID *, void *, void *) { return E_NOTIMPL; }
+    virtual HRESULT MoveElementTo(const WCHAR *, void *, const WCHAR *, DWORD) { return E_NOTIMPL; }
+    virtual HRESULT Commit(DWORD) { return !writable || version || Save() ? S_OK : E_FAIL; }
+    virtual HRESULT Revert() { return S_OK; }
+    virtual HRESULT EnumElements(DWORD, void *, DWORD, void **out) { *out = nullptr; return E_NOTIMPL; }
+    virtual HRESULT DestroyElement(const WCHAR *name) { data.streams.erase(to_w(name)); dirty = true; return S_OK; }
+    virtual HRESULT RenameElement(const WCHAR *, const WCHAR *) { return E_NOTIMPL; }
+    virtual HRESULT SetElementTimes(const WCHAR *, const FILETIME *, const FILETIME *, const FILETIME *) { return S_OK; }
+    virtual HRESULT SetClass(const GUID *) { return S_OK; }
+    virtual HRESULT SetStateBits(DWORD, DWORD) { return S_OK; }
+    virtual HRESULT Stat(void *, DWORD) { unimplemented("IStorage::Stat"); return E_NOTIMPL; }
+};
+
+HRESULT PropertySetStorage::QueryInterface(const GUID *iid, void **out) { return outer->QueryInterface(iid, out); }
+ULONG PropertySetStorage::AddRef() { return outer->AddRef(); }
+ULONG PropertySetStorage::Release() { return outer->Release(); }
+HRESULT PropertySetStorage::Create(const GUID &fmtid, const GUID *, DWORD, DWORD, void **out)
+{
+    PropSet &set = outer->data.sets[fmtid];
+    set.clear();
+    outer->dirty = true;
+    *out = new PropertyStorage(&set, outer);
+    return S_OK;
+}
+HRESULT PropertySetStorage::Open(const GUID &fmtid, DWORD mode, void **out)
+{
+    auto it = outer->data.sets.find(fmtid);
+    stg_log("open property set %08x: %s", (unsigned)fmtid.d1, it == outer->data.sets.end() ? "absent" : "found");
+    if (it == outer->data.sets.end()) { *out = nullptr; return STG_E_FILENOTFOUND; }
+    if (mode & 3) outer->dirty = true;
+    *out = new PropertyStorage(&it->second, outer);
+    return S_OK;
+}
+HRESULT PropertySetStorage::Delete(const GUID &fmtid) { outer->data.sets.erase(fmtid); outer->dirty = true; return S_OK; }
+
+std::string narrow_name(const WCHAR *name)
+{
+    std::string s;
+    for (size_t i = 0; name && name[i]; ++i) s.push_back((char)name[i]);
+    return s;
+}
+
+// IPersistStream as the game's objects implement it (IPersist::GetClassID slot 3).
+struct PersistStreamPort : IUnknownPort {
+    virtual HRESULT GetClassID(GUID *clsid) = 0;
+    virtual HRESULT IsDirty() = 0;
+    virtual HRESULT Load(void *stream) = 0;
+    virtual HRESULT Save(void *stream, BOOL clear_dirty) = 0;
+};
+}  // namespace
+
+// kernel32.cpp's DeleteFileA: a compound file the port wrote may be deleted (lane C17).
+extern "C" int ra2port_port_written_compound(const char *path) { return port_written_compound(path) ? 1 : 0; }
+
+extern "C" {
+HRESULT CoCreateInstance(const GUID *clsid, IUnknownPort *outer, DWORD context, const GUID *iid, void **out);
+
+// STGM_CREATE (0x1000) | STGM_READWRITE (2) | STGM_SHARE_EXCLUSIVE (0x10): the save code's 0x1012.
+HRESULT StgCreateDocfile(const WCHAR *name, DWORD mode, DWORD reserved, void **out)
+{
+    (void)reserved;
+    if (!out) return E_POINTER;
+    char path[1024];
+    std::string game = narrow_name(name);
+    host_path_write(game.c_str(), path, sizeof path);
+    if (!(mode & 0x1000)) {
+        FILE *f = fopen(path, "rb");
+        if (f) { fclose(f); *out = nullptr; return STG_E_FILEALREADYEXISTS; }
+    }
+    {
+        // Never over an original save (a compound file the port did not write). With a
+        // write folder the path is already there, not the installation.
+        FILE *f = fopen(path, "rb");
+        uint8_t head[8] = {0};
+        if (f) {
+            size_t got = fread(head, 1, 8, f);
+            fclose(f);
+            if (got == 8 && !memcmp(head, compound_magic, 8) && !port_written_compound(path)) {
+                stg_log("create %s -> %s: an original save, not replaced", game.c_str(), path);
+                *out = nullptr;
+                return STG_E_ACCESSDENIED;
+            }
+        }
+    }
+    // The original's format needs the field maps (gen/original_layouts.cpp): every game
+    // build that ships has them (arm64 macOS and iOS, x86_64 Windows); a build without
+    // them cannot save rather than write a file the installed game would misread.
+    bool port_container = test_port_save();
+    if (!port_container && ra2port_original_layout_count == 0) {
+        fprintf(stderr, "stg: %s not saved: this build has no field maps for the original's save format\n", game.c_str());
+        *out = nullptr;
+        return E_FAIL;
+    }
+    Storage *s = new Storage(path, true);
+    s->dirty = true;
+    if (!port_container) {
+        s->compound_out = true;
+        ++ra2port_original_write_mode;
+    }
+    stg_log("create %s -> %s%s", game.c_str(), path, s->compound_out ? " (original format)" : " (port container: test hook)");
+    *out = s;
+    return S_OK;
+}
+
+HRESULT StgOpenStorage(const WCHAR *name, void *priority, DWORD mode, void *exclude, DWORD reserved, void **out)
+{
+    (void)priority; (void)exclude; (void)reserved;
+    if (!out) return E_POINTER;
+    char path[1024];
+    std::string game = narrow_name(name);
+    host_path(game.c_str(), path, sizeof path);
+    Storage *s = new Storage(path, (mode & 3) != 0);
+    stg_log("open %s -> %s mode %x", game.c_str(), path, (unsigned)mode);
+    if (!s->Load()) {
+        stg_log("open %s: not a native save storage", path);
+        trace("StgOpenStorage %s -> %s: not a native save storage", game.c_str(), path);
+        s->writable = false;
+        s->Release();
+        *out = nullptr;
+        return STG_E_FILENOTFOUND;
+    }
+    *out = s;
+    return S_OK;
+}
+
+// WriteClassStm then IPersistStream::Save(stream, TRUE) (ole32 OleSaveToStream).
+HRESULT OleSaveToStream(void *persist, void *stream)
+{
+    if (!persist || !stream) return E_POINTER;
+    PersistStreamPort *p = (PersistStreamPort *)persist;
+    GUID clsid;
+    HRESULT r = p->GetClassID(&clsid);
+    if (r < 0) return r;
+    r = ((Stream *)stream)->Write(&clsid, sizeof clsid, nullptr);
+    if (r < 0) return r;
+    static unsigned saved = 0;
+    stg_log("save object %u class %08x", saved++, clsid.d1);
+    return p->Save(stream, 1);
+}
+
+// ReadClassStm, CoCreateInstance, then IPersistStream::Load (ole32 OleLoadFromStream).
+HRESULT OleLoadFromStream(void *stream, const GUID *iid, void **out)
+{
+    if (!out) return E_POINTER;
+    *out = nullptr;
+    GUID clsid;
+    ULONG got = 0;
+    HRESULT r = ((Stream *)stream)->Read(&clsid, sizeof clsid, &got);
+    static unsigned loaded = 0;
+    stg_log("load object %u class %08x%s", loaded++, clsid.d1, r < 0 || got != sizeof clsid ? " (read fault)" : "");
+    if (r < 0 || got != sizeof clsid) return STG_E_READFAULT;
+    void *object = nullptr;
+    r = CoCreateInstance(&clsid, nullptr, 1, iid, &object);
+    if (r < 0 || !object) stg_log("load object %u not created: %08x", loaded - 1, (unsigned)r);
+    if (r < 0 || !object) return r < 0 ? r : E_FAIL;
+    void *persist = nullptr;
+    r = ((IUnknownPort *)object)->QueryInterface(&IID_IPersistStream, &persist);
+    if (r < 0 || !persist) {
+        ((IUnknownPort *)object)->Release();
+        return r < 0 ? r : E_NOINTERFACE;
+    }
+    r = ((PersistStreamPort *)persist)->Load(stream);
+    ((IUnknownPort *)persist)->Release();
+    if (r < 0) stg_log("load object %u failed: %08x", loaded - 1, (unsigned)r);
+    if (r < 0) {
+        ((IUnknownPort *)object)->Release();
+        return r;
+    }
+    *out = object;
+    return S_OK;
+}
+}  // extern "C"

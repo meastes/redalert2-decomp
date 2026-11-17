@@ -1,0 +1,1464 @@
+{
+ "module": "wdtnet",
+ "source": "src/recovered/wdtnet.cpp",
+ "header": null,
+ "population": "population-4278",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 904,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "0072bbd0",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "0072bc00",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "0072bc20",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "0072bc40",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "0072bc60",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "0072bc80",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "0072bca0",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "0072bce0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "0072bd10",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "0072bd40",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "0072bd70",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "0072bd80",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "0072bda0",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "?Create@WDTTerritory@@SI?AV?$rc_ptr@VWDTTerritory@@@@XZ",
+   "entry": "0072bdc0",
+   "body_bytes": 57,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "??0WDTTerritory@@QAE@XZ",
+   "entry": "0072be00",
+   "body_bytes": 145,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "?WDTTerritory_Destructor_0072bea0@seed_0072bea0@@YIXPAI@Z",
+   "entry": "0072bea0",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?Create@WDTState@@SI?AV?$rc_ptr@VWDTState@@@@PAE@Z",
+   "entry": "0072beb0",
+   "body_bytes": 60,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "??0WDTState@@QAE@XZ",
+   "entry": "0072bef0",
+   "body_bytes": 170,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??0WDTState@@QAE@PAE@Z",
+   "entry": "0072bfa0",
+   "body_bytes": 816,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??1WDTState@@UAE@XZ",
+   "entry": "0072c2d0",
+   "body_bytes": 185,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?unknown_has_44@UnknownOwner_0072c390@@QBE_NXZ",
+   "entry": "0072c390",
+   "body_bytes": 9,
+   "padding_bytes": 7
+  },
+  {
+   "symbol": "?get@Leaf_72c3a0@@QAEEXZ",
+   "entry": "0072c3a0",
+   "body_bytes": 4,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "?Create_History@WDTState@@QAE_NPAXH@Z",
+   "entry": "0072c3b0",
+   "body_bytes": 216,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "?Create_Territories@WDTState@@QAE_NPAXH@Z",
+   "entry": "0072c490",
+   "body_bytes": 1338,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?WDTTerritory_Scalar_Deleting_Destructor_0072c9d0@Owner_0072c9d0@seed_0072c9d0@@QAEPAIE@Z",
+   "entry": "0072c9d0",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  },
+  {
+   "symbol": "??_GWDTState@@UAEPAXI@Z",
+   "entry": "0072ca00",
+   "body_bytes": 30,
+   "padding_bytes": 2
+  },
+  {
+   "symbol": "??0?$rc_ptr@VWDTTerritory@@@@QAE@PAVWDTTerritory@@@Z",
+   "entry": "0072caa0",
+   "body_bytes": 32,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??_G?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z",
+   "entry": "0072ced0",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "??_G?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z",
+   "entry": "0072cf20",
+   "body_bytes": 74,
+   "padding_bytes": 6
+  },
+  {
+   "symbol": "?get@Leaf_72cf70@@QAEIXZ",
+   "entry": "0072cf70",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  }
+ ],
+ "code_bytes": 3888,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 6
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 7
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 12
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 15
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 18
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 21
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 24
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 27
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 47
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+   "address": "007af1a0",
+   "bytes": 8,
+   "kind": "vtable",
+   "section": 69
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af2b8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7WDTState@@6B@",
+   "address": "007af304",
+   "bytes": 16,
+   "kind": "vtable",
+   "section": 88
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ReferenceCounted@@8",
+   "address": "007c0720",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 51
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58a8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 64
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58c0",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 65
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58d0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 66
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTState@@@@6B@",
+   "address": "007c58e0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 68
+  },
+  {
+   "symbol": "??_R1A@?0A@A@WDTTerritory@@8",
+   "address": "007c5c48",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 52
+  },
+  {
+   "symbol": "??_R2WDTTerritory@@8",
+   "address": "007c5c60",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 53
+  },
+  {
+   "symbol": "??_R3WDTTerritory@@8",
+   "address": "007c5c70",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 54
+  },
+  {
+   "symbol": "??_R4WDTTerritory@@6B@",
+   "address": "007c5c80",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 56
+  },
+  {
+   "symbol": "??_R2?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5c94",
+   "bytes": 5,
+   "kind": "rtti",
+   "section": 72
+  },
+  {
+   "symbol": "??_R3?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5ca0",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 73
+  },
+  {
+   "symbol": "??_R4?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
+   "address": "007c5cb0",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 74
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5cc8",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 76
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5ce0",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 77
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5cf8",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 78
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5d08",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 79
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
+   "address": "007c5d18",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 81
+  },
+  {
+   "symbol": "??_R1A@?0A@A@WDTState@@8",
+   "address": "007c5d30",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 82
+  },
+  {
+   "symbol": "??_R2WDTState@@8",
+   "address": "007c5d48",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 83
+  },
+  {
+   "symbol": "??_R3WDTState@@8",
+   "address": "007c5d58",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 84
+  },
+  {
+   "symbol": "??_R4WDTState@@6B@",
+   "address": "007c5d68",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 86
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti",
+   "section": 45
+  },
+  {
+   "symbol": "??_R0?AVReferenceCounted@@@8",
+   "address": "007ee550",
+   "bytes": 31,
+   "kind": "rtti",
+   "section": 50
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTState@@@@@8",
+   "address": "007fbcb0",
+   "bytes": 35,
+   "kind": "rtti",
+   "section": 67
+  },
+  {
+   "symbol": "??_R0?AVWDTTerritory@@@8",
+   "address": "007fc138",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 55
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@@8",
+   "address": "007fc158",
+   "bytes": 56,
+   "kind": "rtti",
+   "section": 75
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@@8",
+   "address": "007fc190",
+   "bytes": 63,
+   "kind": "rtti",
+   "section": 80
+  },
+  {
+   "symbol": "??_R0?AVWDTState@@@8",
+   "address": "007fc1d0",
+   "bytes": 23,
+   "kind": "rtti",
+   "section": 85
+  },
+  {
+   "symbol": "??_C@_04BIMG@TICC?$AA@",
+   "address": "007fc1e8",
+   "bytes": 5,
+   "kind": "string",
+   "section": 94
+  },
+  {
+   "symbol": "??_C@_04FLNH@CYID?$AA@",
+   "address": "007fc1f0",
+   "bytes": 5,
+   "kind": "string",
+   "section": 95
+  },
+  {
+   "symbol": "??_C@_04DCOH@CMID?$AA@",
+   "address": "007fc1f8",
+   "bytes": 5,
+   "kind": "string",
+   "section": 96
+  },
+  {
+   "symbol": "??_C@_04MBGE@HSVC?$AA@",
+   "address": "007fc200",
+   "bytes": 5,
+   "kind": "string",
+   "section": 97
+  },
+  {
+   "symbol": "??_C@_04IHEF@MPVC?$AA@",
+   "address": "007fc208",
+   "bytes": 5,
+   "kind": "string",
+   "section": 98
+  },
+  {
+   "symbol": "??_C@_04IHCH@LDSC?$AA@",
+   "address": "007fc210",
+   "bytes": 5,
+   "kind": "string",
+   "section": 99
+  },
+  {
+   "symbol": "??_C@_04CCI@SDSC?$AA@",
+   "address": "007fc218",
+   "bytes": 5,
+   "kind": "string",
+   "section": 100
+  },
+  {
+   "symbol": "??_C@_04PDOL@WURL?$AA@",
+   "address": "007fc220",
+   "bytes": 5,
+   "kind": "string",
+   "section": 101
+  },
+  {
+   "symbol": "??_C@_04BGEB@CYLN?$AA@",
+   "address": "007fc228",
+   "bytes": 5,
+   "kind": "string",
+   "section": 102
+  },
+  {
+   "symbol": "??_C@_04KPPJ@CRTK?$AA@",
+   "address": "007fc230",
+   "bytes": 5,
+   "kind": "string",
+   "section": 103
+  },
+  {
+   "symbol": "??_C@_04KLPF@TOTK?$AA@",
+   "address": "007fc238",
+   "bytes": 5,
+   "kind": "string",
+   "section": 104
+  },
+  {
+   "symbol": "??_C@_04OJNO@NACK?$AA@",
+   "address": "007fc240",
+   "bytes": 5,
+   "kind": "string",
+   "section": 105
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007a4528",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_7?$rc_ptr@VWDTState@@@@6B@",
+   "address": "007af1a0",
+   "bytes": 8,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007af2b8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7WDTState@@6B@",
+   "address": "007af304",
+   "bytes": 16,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@rc_ptr_base@@8",
+   "address": "007bc618",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc630",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc648",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTTerritory@@@@8",
+   "address": "007bc658",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTTerritory@@@@6B@",
+   "address": "007bc668",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ReferenceCounted@@8",
+   "address": "007c0720",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58a8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58c0",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$rc_ptr@VWDTState@@@@8",
+   "address": "007c58d0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$rc_ptr@VWDTState@@@@6B@",
+   "address": "007c58e0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@WDTTerritory@@8",
+   "address": "007c5c48",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2WDTTerritory@@8",
+   "address": "007c5c60",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3WDTTerritory@@8",
+   "address": "007c5c70",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4WDTTerritory@@6B@",
+   "address": "007c5c80",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5c94",
+   "bytes": 5,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5ca0",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
+   "address": "007c5cb0",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5cc8",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5ce0",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5cf8",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@8",
+   "address": "007c5d08",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
+   "address": "007c5d18",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@WDTState@@8",
+   "address": "007c5d30",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2WDTState@@8",
+   "address": "007c5d48",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3WDTState@@8",
+   "address": "007c5d58",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4WDTState@@6B@",
+   "address": "007c5d68",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVrc_ptr_base@@@8",
+   "address": "007ddac8",
+   "bytes": 26,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTTerritory@@@@@8",
+   "address": "007ddae8",
+   "bytes": 39,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVReferenceCounted@@@8",
+   "address": "007ee550",
+   "bytes": 31,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$rc_ptr@VWDTState@@@@@8",
+   "address": "007fbcb0",
+   "bytes": 35,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVWDTTerritory@@@8",
+   "address": "007fc138",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@@8",
+   "address": "007fc158",
+   "bytes": 56,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AV?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@@8",
+   "address": "007fc190",
+   "bytes": 63,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVWDTState@@@8",
+   "address": "007fc1d0",
+   "bytes": 23,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_C@_04BIMG@TICC?$AA@",
+   "address": "007fc1e8",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04FLNH@CYID?$AA@",
+   "address": "007fc1f0",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04DCOH@CMID?$AA@",
+   "address": "007fc1f8",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04MBGE@HSVC?$AA@",
+   "address": "007fc200",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04IHEF@MPVC?$AA@",
+   "address": "007fc208",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04IHCH@LDSC?$AA@",
+   "address": "007fc210",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04CCI@SDSC?$AA@",
+   "address": "007fc218",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04PDOL@WURL?$AA@",
+   "address": "007fc220",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04BGEB@CYLN?$AA@",
+   "address": "007fc228",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KPPJ@CRTK?$AA@",
+   "address": "007fc230",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04KLPF@TOTK?$AA@",
+   "address": "007fc238",
+   "bytes": 5,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_04OJNO@NACK?$AA@",
+   "address": "007fc240",
+   "bytes": 5,
+   "kind": "string"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "0075d210",
+   "symbol": "?Create@WDTState@@SI?AV?$rc_ptr@VWDTState@@@@PAE@Z",
+   "target": "0072beb0",
+   "function_entry": true
+  },
+  {
+   "site": "0075d210",
+   "symbol": "?Is_Valid@WDTState@@QBE_NXZ",
+   "target": "0072c390",
+   "function_entry": true
+  },
+  {
+   "site": "0075d210",
+   "symbol": "?Is_Previous_Cycle@WDTState@@QBEEXZ",
+   "target": "0072c3a0",
+   "function_entry": true
+  },
+  {
+   "site": "0072cd80",
+   "symbol": "??0?$rc_ptr@VWDTTerritory@@@@QAE@XZ",
+   "target": "0072cf70",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0PacketClass@@QAE@PAD@Z",
+   "address": "00602aa0"
+  },
+  {
+   "symbol": "??0rc_ptr_base@@QAE@XZ",
+   "address": "006394e0"
+  },
+  {
+   "symbol": "??1PacketClass@@QAE@XZ",
+   "address": "00602a60"
+  },
+  {
+   "symbol": "??1ReferenceCounted@@UAE@XZ",
+   "address": "00639710"
+  },
+  {
+   "symbol": "??1rc_ptr_base@@UAE@XZ",
+   "address": "00639510"
+  },
+  {
+   "symbol": "??2@YAPAXI@Z",
+   "address": "00782017"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??8?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UBE_NABV0@@Z",
+   "address": "0072cb80"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_G?$rc_ptr@VWDTState@@@@UAEPAXI@Z",
+   "address": "00728fa0"
+  },
+  {
+   "symbol": "??_GWDTTerritory@@UAEPAXI@Z",
+   "address": null
+  },
+  {
+   "symbol": "?Fetch@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UBE?AV?$rc_ptr@VWDTTerritory@@@@H@Z",
+   "address": "0072ca70"
+  },
+  {
+   "symbol": "?Get_Field@PacketClass@@QAE_NPBDAAE@Z",
+   "address": "00602d60"
+  },
+  {
+   "symbol": "?Get_Field@PacketClass@@QAE_NPBDAAI@Z",
+   "address": "00602f10"
+  },
+  {
+   "symbol": "?Get_Field@PacketClass@@QAE_NPBDPAXAAH@Z",
+   "address": "00602f60"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "address": "0072cea0"
+  },
+  {
+   "symbol": "?ID@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHPBV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "address": null
+  },
+  {
+   "symbol": "?ID@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "address": "0072cd20"
+  },
+  {
+   "symbol": "?ID@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHPBV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "address": null
+  },
+  {
+   "symbol": "?ReferenceCounted_Destructor_00639710@seed_0072bea0@@YIXXZ",
+   "address": "00639710"
+  },
+  {
+   "symbol": "?ReferenceCounted_Destructor_00639710@seed_0072c9d0@@YIXXZ",
+   "address": "00639710"
+  },
+  {
+   "symbol": "?Release@ReferenceCounted@@UAEXXZ",
+   "address": "00639720"
+  },
+  {
+   "symbol": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAE_NHPBV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "address": "0072cd80"
+  },
+  {
+   "symbol": "?Resize@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAE_NHPBV?$rc_ptr@VWDTTerritory@@@@@Z",
+   "address": "0072cbd0"
+  },
+  {
+   "symbol": "?Set@rc_ptr_base@@QAEXPAVReferenceCounted@@@Z",
+   "address": "00639530"
+  },
+  {
+   "symbol": "?operator_delete_00781d3b@seed_0072c9d0@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?target@Call_72cf70_0@@QAEIXZ",
+   "address": "006394e0"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_slot1@ReferenceCounted@@UAE_NH@Z",
+   "address": "00639740"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_WDTTerritory_VTable_007af2d8",
+   "address": "007af2d8"
+  },
+  {
+   "symbol": "_WDTTerritory_VTable_007af2d8",
+   "address": "007af2d8"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_data_72cf70_7a452c",
+   "address": "007a452c"
+  }
+ ],
+ "route": "A",
+ "unit": "wdtnet.cpp",
+ "form": "one include block",
+ "switches": [
+  "VECTOR_IMPLEMENT_DYNAMIC_ADD",
+  "VECTOR_IMPLEMENT_DYNAMIC_ASSIGN",
+  "VECTOR_IMPLEMENT_DYNAMIC_CONSTRUCTOR",
+  "VECTOR_IMPLEMENT_DYNAMIC_CLEAR",
+  "VECTOR_IMPLEMENT_VECTOR_CLEAR",
+  "VECTOR_IMPLEMENT_VECTOR_DESTRUCTOR",
+  "WDT_STATE_DECLARE_CONSTRUCTORS",
+  "RA2_VECTOR_SIGNED_SIZE"
+ ],
+ "include_blocks": [
+  {
+   "before": "0072bdc0",
+   "lines": 12
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "0072bea0",
+   "bytes": 11,
+   "population": "population-2913",
+   "bound": "own frozen bound (population-2913)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0072c390",
+   "bytes": 9,
+   "population": "population-4391",
+   "bound": "own frozen bound (population-4391)"
+  },
+  {
+   "entry": "0072c3a0",
+   "bytes": 4,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0072c9d0",
+   "bytes": 36,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0072ca00",
+   "bytes": 30,
+   "population": "population-4352",
+   "bound": "own frozen bound (population-4352)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0072caa0",
+   "bytes": 32,
+   "population": "population-02",
+   "bound": "own frozen bound (population-02)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0072cf70",
+   "bytes": 18,
+   "population": "population-02",
+   "bound": "own frozen bound (population-02)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "0072bbd0",
+   "bytes": 40,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bc00",
+   "bytes": 19,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bc20",
+   "bytes": 19,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bc40",
+   "bytes": 19,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bc60",
+   "bytes": 19,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bc80",
+   "bytes": 19,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bca0",
+   "bytes": 49,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bce0",
+   "bytes": 33,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bd10",
+   "bytes": 44,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bd40",
+   "bytes": 39,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bd70",
+   "bytes": 15,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bd80",
+   "bytes": 18,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "0072bda0",
+   "bytes": 23,
+   "population": "population-498",
+   "bound": "own frozen bound (population-498)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  }
+ ],
+ "residuals": [
+  {
+   "kind": "split",
+   "entry": "0072ca20",
+   "bytes": 43,
+   "population": "population-2187",
+   "source": "src/recovered/classes/DynamicVectorClass_rc_ptr_WDTTerritory/Clear.cpp",
+   "cause": "held by population-2187; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0072ca50",
+   "bytes": 27,
+   "population": "population-1622",
+   "source": "src/recovered/classes/DynamicVectorClass_rc_ptr_WDTTerritory/ID_pointer.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0072ca70",
+   "bytes": 47,
+   "population": "population-2187",
+   "source": "src/recovered/classes/VectorClass_rc_ptr_WDTTerritory/Fetch.cpp",
+   "cause": "held by population-2187; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0072cac0",
+   "bytes": 185,
+   "population": "population-3297",
+   "source": "src/recovered/classes/VectorClass_rc_ptr_WDTTerritory/operator_assign.cpp",
+   "cause": "held by population-3297; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0072cb80",
+   "bytes": 70,
+   "population": "population-2187",
+   "source": "src/recovered/classes/VectorClass_rc_ptr_WDTTerritory/operator_equal.cpp",
+   "cause": "held by population-2187; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0072cbd0",
+   "bytes": 282,
+   "population": "population-2187",
+   "source": "src/recovered/classes/VectorClass_rc_ptr_WDTTerritory/Resize.cpp",
+   "cause": "held by population-2187; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0072ccf0",
+   "bytes": 40,
+   "population": "population-2187",
+   "source": "src/recovered/classes/VectorClass_rc_ptr_WDTTerritory/Clear.cpp",
+   "cause": "held by population-2187; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0072cd20",
+   "bytes": 55,
+   "population": "population-2187",
+   "source": "src/recovered/classes/VectorClass_rc_ptr_WDTTerritory/ID_object.cpp",
+   "cause": "held by population-2187; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0072cd60",
+   "bytes": 27,
+   "population": "population-1622",
+   "source": "src/recovered/classes/VectorClass_rc_ptr_WDTTerritory/ID_pointer.cpp",
+   "cause": "held by population-1622; not joined: not emitted by the unit's own use of its lists"
+  },
+  {
+   "kind": "split",
+   "entry": "0072cd80",
+   "bytes": 285,
+   "population": "population-2187",
+   "source": "src/recovered/classes/DynamicVectorClass_rc_ptr_WDTTerritory/Resize.cpp",
+   "cause": "held by population-2187; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  },
+  {
+   "kind": "split",
+   "entry": "0072cea0",
+   "bytes": 42,
+   "population": "population-2187",
+   "source": "src/recovered/classes/DynamicVectorClass_rc_ptr_WDTTerritory/ID_object.cpp",
+   "cause": "held by population-2187; not joined: the unit without member switches fails the strict audit (Unsupported allocatable data section .rdata #49 in agent-ac27a113)"
+  }
+ ],
+ "unit_functions": 41,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  },
+  {
+   "symbol": "??_7WDTTerritory@@6B@",
+   "reason": "relocation target unbound: ??_EWDTTerritory@@UAEPAXI@Z"
+  },
+  {
+   "symbol": "??_7?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
+   "reason": "relocation target unbound: ?ID@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHPBV?$rc_ptr@VWDTTerritory@@@@@Z"
+  },
+  {
+   "symbol": "??_7?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
+   "reason": "relocation target unbound: ?ID@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHPBV?$rc_ptr@VWDTTerritory@@@@@Z"
+  }
+ ],
+ "stand_in_references": [
+  {
+   "site": "0075d210",
+   "target": "0072c390",
+   "symbol": "?Is_Valid@WDTState@@QBE_NXZ",
+   "module_symbol": "?unknown_has_44@UnknownOwner_0072c390@@QBE_NXZ"
+  },
+  {
+   "site": "0075d210",
+   "target": "0072c3a0",
+   "symbol": "?Is_Previous_Cycle@WDTState@@QBEEXZ",
+   "module_symbol": "?get@Leaf_72c3a0@@QAEEXZ"
+  },
+  {
+   "site": "0072cd80",
+   "target": "0072cf70",
+   "symbol": "??0?$rc_ptr@VWDTTerritory@@@@QAE@XZ",
+   "module_symbol": "?get@Leaf_72cf70@@QAEIXZ"
+  }
+ ],
+ "stand_in_reference_count": 3,
+ "residual_split": {
+  "rows": 11,
+  "bytes": 1103
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

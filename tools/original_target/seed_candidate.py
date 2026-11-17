@@ -1,0 +1,3625 @@
+#!/usr/bin/env python3
+"""Turn a frozen Ghidra export into a compilable scratch candidate.
+
+The seed is a starting point for iteration with diff_candidate.py, never
+recovered source: Ghidra types, conventions, noreturn guesses and control flow
+are hypotheses. The tool adds VC6-compatible Ghidra type names, declares each
+FUN_/DAT_ reference with an address-bearing name (so diff_candidate.py binds it
+automatically), turns __thiscall owners and callees into member functions with
+the correct ECX ABI, and notes callees that already have accepted canonical
+source.
+"""
+import argparse
+import catalog_io
+import json
+from pathlib import Path
+import re
+import sys
+from seed_import_aliases import AliasRefusal, check_generated_import_names
+from seed_import_alias_facts import recorded_direct_imports
+
+REPOSITORY = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+INCLUDE = '#include "shared/ghidra_types.hpp"'
+MARKER = ('// seed-generated: tools/original_target/regenerate_seeds.py may rewrite this file;\n'
+          '// delete this line when editing it by hand.')
+HEADER = re.compile(r'^\s*(?P<ret>[\w\s\*]+?)\s*(?P<conv>__thiscall|__fastcall|__stdcall|__cdecl)?\s*'
+                    r'(?P<name>FUN_[0-9a-f]{8}|\w+)\s*\((?P<params>[^)]*)\)\s*$', re.M)
+CALLEE = re.compile(r'\b(FUN_[0-9a-f]{8})\b')
+# PTR_ labels may name their target kind (PTR_FUN_, PTR_DAT_, PTR_s_...); the
+# trailing address is always the label's own location.
+DATA = re.compile(r'\b(_?PTR_(?:\w+?_)?[0-9a-f]{8}|_?DAT_[0-9a-f]{8}|LAB_[0-9a-f]{8})\b')
+STRING = re.compile(r'\b([su]_\w*_[0-9a-f]{8})\b')
+# Horizontal whitespace only, with a mandatory identifier between repetitions.
+# Masked long literals/comments can otherwise cause catastrophic backtracking.
+LOCAL = re.compile(r'^[\t ]+([A-Za-z_]\w*(?:[\t ]+[A-Za-z_]\w*)*?'
+                   r'(?:[\t ]*\*+[\t ]*|[\t ]+))([A-Za-z_]\w*)'
+                   r'([\t ]*\[\w+\])?;[\t ]*$', re.M)
+ASSIGN = re.compile(r'^(\s*)(\w+) = (.+);\s*$', re.M)
+PARTIAL = re.compile(r'\b(\w+)\._(\d+)_(\d+)_')
+PARTIAL_TYPES = {'1': 'uchar', '2': 'ushort', '4': 'uint'}
+# Ghidra label names keep the label text, including characters C++ rejects
+# (`s_Object_>RTTI_____d_007d8004`, `PTR_s_<none>_007cd978`).
+LABEL = re.compile(r'\b((?:_?PTR_)?[su]_)([^\s,;()\[\]]*?)(_[0-9a-f]{8})\b')
+# Absolute-address globals Ghidra names by type prefix (`iRam00000000`).
+RAM = re.compile(r'\b([a-z]*)Ram([0-9a-f]{8})\b')
+RAM_TYPES = {'i': 'int', 'u': 'uint', 'c': 'char', 'b': 'byte', 's': 'short', 'us': 'ushort',
+             'f': 'float', 'd': 'double', 'p': 'void *', 'pi': 'int *', 'pu': 'uint *', 'pc': 'char *',
+             'pp': 'void **', 'pb': 'byte *', 'ps': 'short *'}
+
+# Only scratch declarations. Opaque SDK objects stay incomplete; do not invent
+# their layout just to make a field access compile. No platform SDK is included.
+SDK_PREAMBLE = r'''
+typedef long HRESULT, LSTATUS, INT_PTR;   // LPARAM, LRESULT come from ghidra_types.hpp (unsigned)
+typedef unsigned int SIZE_T, ULONG_PTR, UINT_PTR, DWORD_PTR, REGSAM, COLORREF, MMRESULT;
+typedef short SHORT;
+typedef unsigned short ATOM, WCHAR;
+typedef int *LPBOOL;
+typedef byte *LPBYTE;
+typedef WORD *LPWORD;
+typedef DWORD *PDWORD;
+typedef UINT *PUINT;
+typedef LONG *PLONG;
+typedef void *PVOID;
+typedef const void *LPCVOID;
+typedef char *LPCH;
+typedef const char *PCNZCH;
+typedef wchar16 *LPWCH, *LPOLESTR;
+typedef const wchar16 *PCNZWCH, *LPCOLESTR;
+typedef wchar16 **SNB;
+typedef void *HACCEL, *HBITMAP, *HBRUSH, *HCURSOR, *HFONT, *HGDIOBJ, *HGLOBAL;
+typedef void *HICON, *HIMAGELIST, *HIMC, *HLOCAL, *HMENU, *HRGN, *HRSRC;
+typedef HKEY *PHKEY;
+typedef GUID CLSID;
+typedef CLSID *LPCLSID;
+typedef RECT *LPRECT;
+struct POINT { LONG x, y; };
+typedef POINT *LPPOINT;
+struct FILETIME { DWORD dwLowDateTime, dwHighDateTime; };
+typedef FILETIME *LPFILETIME, *PFILETIME;
+struct SYSTEMTIME { WORD wYear, wMonth, wDayOfWeek, wDay, wHour, wMinute, wSecond, wMilliseconds; };
+typedef SYSTEMTIME *LPSYSTEMTIME;
+union LARGE_INTEGER { struct { DWORD LowPart; LONG HighPart; }; __int64 QuadPart; };
+struct MEMORYSTATUS { DWORD dwLength, dwMemoryLoad, dwTotalPhys, dwAvailPhys, dwTotalPageFile, dwAvailPageFile, dwTotalVirtual, dwAvailVirtual; };
+typedef MEMORYSTATUS *LPMEMORYSTATUS;
+struct MEMORY_BASIC_INFORMATION { void *BaseAddress, *AllocationBase; DWORD AllocationProtect; SIZE_T RegionSize; DWORD State, Protect, Type; };
+typedef MEMORY_BASIC_INFORMATION *PMEMORY_BASIC_INFORMATION;
+struct MSG { HWND hwnd; UINT message; WPARAM wParam; LPARAM lParam; DWORD time; POINT pt; };
+typedef MSG *LPMSG;
+struct PAINTSTRUCT { HDC hdc; BOOL fErase; RECT rcPaint; BOOL fRestore, fIncUpdate; BYTE rgbReserved[32]; };
+typedef PAINTSTRUCT *LPPAINTSTRUCT;
+struct XFORM { float eM11, eM12, eM21, eM22, eDx, eDy; };
+typedef int (__stdcall *FARPROC)();
+typedef LRESULT (__stdcall *WNDPROC)(HWND, UINT, WPARAM, LPARAM);
+typedef INT_PTR (__stdcall *DLGPROC)(HWND, UINT, WPARAM, LPARAM);
+typedef BOOL (__stdcall *WNDENUMPROC)(HWND, LPARAM);
+typedef BOOL (__stdcall *LOCALE_ENUMPROCA)(LPSTR);
+typedef DWORD (__stdcall *LPTHREAD_START_ROUTINE)(LPVOID);
+typedef void (__stdcall *TIMERPROC)(HWND, UINT, UINT_PTR, DWORD);
+typedef void (__stdcall *LPTIMECALLBACK)(UINT, UINT, DWORD_PTR, DWORD_PTR, DWORD_PTR);
+typedef BOOL (__stdcall *PHANDLER_ROUTINE)(DWORD);
+struct EXCEPTION_POINTERS;
+typedef LONG (__stdcall *LPTOP_LEVEL_EXCEPTION_FILTER)(EXCEPTION_POINTERS *);
+struct IUnknown; typedef IUnknown *LPUNKNOWN;
+struct IStream; typedef IStream *LPSTREAM;
+struct IPersistStream; typedef IPersistStream *LPPERSISTSTREAM;
+struct IStorage;
+'''.strip()
+SDK_OPAQUE = {
+    'CANDIDATELIST': 'LPCANDIDATELIST', 'DLGTEMPLATE': 'LPCDLGTEMPLATEA',
+    'COMMTIMEOUTS': 'LPCOMMTIMEOUTS', 'COMSTAT': 'LPCOMSTAT', 'CPINFO': 'LPCPINFO',
+    'DCB': 'LPDCB', 'OSVERSIONINFOA': 'LPOSVERSIONINFOA',
+    'PROCESS_INFORMATION': 'LPPROCESS_INFORMATION', 'STARTUPINFOA': 'LPSTARTUPINFOA',
+    'TEXTMETRICA': 'LPTEXTMETRICA', 'TIME_ZONE_INFORMATION': 'LPTIME_ZONE_INFORMATION',
+    'BY_HANDLE_FILE_INFORMATION': 'LPBY_HANDLE_FILE_INFORMATION',
+    'WIN32_FIND_DATAA': 'LPWIN32_FIND_DATAA', 'EXCEPTION_RECORD': 'PEXCEPTION_RECORD',
+    'INPUT_RECORD': 'PINPUT_RECORD',
+}
+SDK_PREAMBLE += '\n' + '\n'.join('struct %s; typedef %s *%s;' % (kind, kind, alias)
+                                for kind, alias in sorted(SDK_OPAQUE.items()))
+SDK_PREAMBLE += '\nstruct BITMAPINFO; struct LOGFONTA; struct MSGBOXPARAMSA; struct WNDCLASSA;'
+
+# Documented Win32 console records; no SDK headers or game layouts. Keep the
+# union arm present in the export even when EventType suggests another arm.
+SDK_INPUT_RECORD = '''struct _COORD { SHORT X, Y; }; typedef _COORD COORD;
+struct _KEY_EVENT_RECORD {
+    BOOL bKeyDown;
+    WORD wRepeatCount, wVirtualKeyCode, wVirtualScanCode;
+    union { WCHAR UnicodeChar; CHAR AsciiChar; } uChar;
+    DWORD dwControlKeyState;
+}; typedef _KEY_EVENT_RECORD KEY_EVENT_RECORD;
+struct _MOUSE_EVENT_RECORD {
+    COORD dwMousePosition;
+    DWORD dwButtonState, dwControlKeyState, dwEventFlags;
+}; typedef _MOUSE_EVENT_RECORD MOUSE_EVENT_RECORD;
+struct _WINDOW_BUFFER_SIZE_RECORD { COORD dwSize; };
+typedef _WINDOW_BUFFER_SIZE_RECORD WINDOW_BUFFER_SIZE_RECORD;
+struct _MENU_EVENT_RECORD { UINT dwCommandId; }; typedef _MENU_EVENT_RECORD MENU_EVENT_RECORD;
+struct _FOCUS_EVENT_RECORD { BOOL bSetFocus; }; typedef _FOCUS_EVENT_RECORD FOCUS_EVENT_RECORD;
+struct _INPUT_RECORD {
+    WORD EventType;
+    union {
+        KEY_EVENT_RECORD KeyEvent;
+        MOUSE_EVENT_RECORD MouseEvent;
+        WINDOW_BUFFER_SIZE_RECORD WindowBufferSizeEvent;
+        MENU_EVENT_RECORD MenuEvent;
+        FOCUS_EVENT_RECORD FocusEvent;
+    } Event;
+}; typedef _INPUT_RECORD INPUT_RECORD; typedef INPUT_RECORD *PINPUT_RECORD;'''
+
+
+def code_view(text):
+    """Mask comments and literals, preserving positions and line breaks."""
+    pattern = r'//[^\n]*|/\*[\s\S]*?\*/|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\''
+    return re.sub(pattern, lambda m: ''.join('\n' if c == '\n' else ' ' for c in m[0]), text)
+
+
+def scalar_partials(body):
+    """Lower supported scalar slices; never guess a different access width.
+
+    Ghidra also emits three-, five-, six- and seven-byte slices. They have no
+    corresponding primitive lvalue here. Refuse those exports rather than
+    silently reading or writing four bytes; a later, evidenced repair can
+    handle their complete expressions. Comments and literals are not slices.
+    """
+    edits = []
+    for match in PARTIAL.finditer(code_view(body)):
+        kind = PARTIAL_TYPES.get(match[3])
+        if kind is None:
+            raise ValueError('Unsupported Ghidra scalar slice width %s: %s' %
+                             (match[3], match[0]))
+        edits.append((match.start(), match.end(),
+                      '(*(%s*)((char*)&%s + %s))' % (kind, match[1], match[2])))
+    for start, end, replacement in reversed(edits):
+        body = body[:start] + replacement + body[end:]
+    return body
+
+
+def validate_synthetic_storage(body, params=()):
+    """Refuse undeclared Ghidra storage, rather than inventing its width.
+
+    A unique-space temporary has no addressable C++ storage without a declared
+    type. An underscored alias of a declared byte/word slot can cover more of
+    the frame or argument slot than that declaration. Neither spelling proves
+    an extent, overlap, signedness or safe new local. This check only refuses;
+    declared names, members, labels and calls keep their existing handling.
+    """
+    view = code_view(body)
+    if re.search(r'#|\b(?:typedef|using|class|struct|union|enum)\b', view):
+        return
+    rows, comma = scalar_declarations(view)
+    if comma:
+        return
+    slots = {}
+    for kind, name, array in rows:
+        slots.setdefault(name, []).append((kind, array))
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind, None))
+    for match in re.finditer(r'\(\s*(?:__\w+\s+)?\*\s*(\w+)\s*\)\s*\(', view+' '+' '.join(params)):
+        slots.setdefault(match[1], []).append(('', None))
+    narrow = {'char', 'signed char', 'unsigned char', 'uchar', 'byte', 'undefined1',
+              'short', 'signed short', 'unsigned short', 'ushort', 'undefined2', 'bool'}
+    pattern = r'\b(unique0x[0-9a-fA-F]+|_(param_\d+|local_[0-9a-fA-F]+))\b'
+    for match in re.finditer(pattern, view):
+        name = match[1]
+        if name in slots:
+            continue
+        before, after = view[:match.start()].rstrip(), view[match.end():].lstrip()
+        if (before.endswith(('.', '->', '::')) or after.startswith(('(', ':')) or
+                re.search(r'\bgoto\s*$', before)):
+            continue
+        if name.startswith('unique0x'):
+            raise ValueError('Undeclared Ghidra unique storage %s: width and storage are unverified' % name)
+        base = match[2]
+        declarations = slots.get(base, [])
+        if len(declarations) != 1:
+            continue
+        kind, array = declarations[0]
+        if not array and clean_type(kind) in narrow:
+            raise ValueError('Undeclared widened Ghidra storage alias %s for %s %s: '
+                             'extent and overlap are unverified' % (name, kind, base))
+
+
+def scalar_declarations(view):
+    """Find simple statement/parameter declarations, including nested scopes.
+
+    This conservative index is for refusing shadowing, not inferring layouts.
+    Comma declarations are flagged separately because the later names have no
+    repeated type spelling. Ghidra's ordinary local list uses one name per line.
+    """
+    pattern = re.compile(r'(?:^|(?<=[;{}(\n]))[\t ]*'
+                         r'([A-Za-z_]\w*(?:[\t ]+[A-Za-z_]\w*)*?'
+                         r'(?:[\t ]*[*&]+[\t ]*|[\t ]+))([A-Za-z_]\w*)'
+                         r'([\t ]*\[[^\]\n]*\])?(?=[\t ]*[;=,)])', re.M)
+    rows, comma = [], False
+    for match in pattern.finditer(view):
+        kind, name, array = match.groups()
+        if kind.strip().split()[0] in ('return', 'goto', 'delete', 'throw', 'break', 'continue'):
+            continue
+        rows.append((kind.strip(), name, array))
+        comma |= ',' in view[match.end():].split(';', 1)[0]
+    return rows, comma
+
+
+def nan_artifacts(body, params=(), named_functions=()):
+    """Spell Ghidra's NaN predicate on a stable floating scalar as self-inequality.
+
+    No helper call, argument store or new precision boundary is introduced.
+    Expressions with effects, volatile/unknown storage and named real functions
+    remain unresolved. This recovers a value predicate, not exception behavior;
+    a source candidate still needs the complete original instruction audit.
+    """
+    view = code_view(body)
+    if ('NAN' in named_functions or re.search(r'#\s*(?:define|undef)\s+NAN\b', view) or
+            re.search(r'(?:^|[;{}\n])\s*(?!return\b|throw\b|delete\b|goto\b)'
+                      r'(?:[A-Za-z_]\w*\s+)+\**\s*NAN\s*\(', view)):
+        return body
+    slots = {}
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind.strip(), None))
+    declarations, comma = scalar_declarations(view)
+    if comma or re.search(r'\(\s*\*\s*NAN\s*\)', view+' '+code_view(' '.join(params))):
+        return body
+    for kind, name, array in declarations:
+        slots.setdefault(name, []).append((kind.strip(), array))
+    if 'NAN' in slots:
+        return body
+    kinds = {'float', 'double', 'float10', 'const float', 'const double', 'const float10'}
+    edits = []
+    for match in re.finditer(r'\bNAN\s*\(\s*([A-Za-z_]\w*)\s*\)', view):
+        name = match[1]
+        declarations = slots.get(name, [])
+        if len(declarations) != 1:
+            continue
+        kind, array = declarations[0]
+        if kind not in kinds or array:
+            continue
+        edits.append((match.start(), match.end(), '(%s != %s)' % (name, name)))
+    for start, end, replacement in reversed(edits):
+        body = body[:start] + replacement + body[end:]
+    return body
+
+
+def sdk_named_types(body, params=(), result='void'):
+    """Supply used Win32 interface names, without guessing opaque game layouts.
+
+    The file-search record is the same 0x140-byte ANSI Windows interface as
+    shared/win32_find.hpp. POINT's tag and ULONG have their documented Win32
+    definitions. Leave unrelated seeds, authored types and shadowing unchanged.
+    No SDK headers, global macro guards or emitted helper code are introduced.
+    """
+    view = code_view(body)
+    signature = code_view(' '.join([result] + list(params)))
+    declarations = scalar_declarations(view)[0]
+    identifiers = {name for _, name, _ in declarations}
+    identifiers.update(name for _, name in map(param_parts, params))
+
+    def needed(name):
+        if not re.search(r'\b' + name + r'\b', view + ' ' + signature):
+            return False
+        if name in identifiers or re.search(r'#\s*(?:define|undef)\s+' + name + r'\b', view):
+            return False
+        if (re.search(r'\btypedef\b[^;{}]*\b' + name + r'\s*;', view) or
+                re.search(r'\b(?:struct|class|union)\s+' + name + r'\s*[{:]', view) or
+                re.search(r'\b' + name + r'\s*\(', view)):
+            return False
+        return True
+
+    preamble = SDK_PREAMBLE
+    if needed('tagPOINT'):
+        preamble = preamble.replace('struct POINT { LONG x, y; };',
+                                    'struct tagPOINT { LONG x, y; };\ntypedef tagPOINT POINT;')
+    if needed('ULONG'):
+        preamble += '\ntypedef unsigned long ULONG;'
+    # The native Win32 CRT's va_list is a char pointer. In particular,
+    # FormatMessageA takes va_list*, not an opaque integer or a new layout.
+    if needed('va_list'):
+        preamble += '\ntypedef char *va_list;'
+    if needed('LCTYPE'):
+        preamble += '\ntypedef DWORD LCTYPE;'
+    if needed('OLECHAR'):
+        preamble += '\ntypedef WCHAR OLECHAR;'
+    names = ('_WIN32_FIND_DATAA', 'WIN32_FIND_DATAA', 'PWIN32_FIND_DATAA', 'LPWIN32_FIND_DATAA')
+    # One real interface type serves the tag, typedef and pointer spellings.
+    # Do not add a conflicting definition when the seed owns any of these names.
+    blocked = any(name in identifiers or re.search(r'\btypedef\b[^;{}]*\b' + name + r'\s*;', view) or
+                  re.search(r'\b(?:struct|class|union)\s+' + name + r'\s*[{:]', view) or
+                  re.search(r'#\s*(?:define|undef)\s+' + name + r'\b', view) for name in names)
+    if not blocked and any(needed(name) for name in names):
+        record = ('struct _WIN32_FIND_DATAA {\n'
+                  '    DWORD dwFileAttributes;\n'
+                  '    FILETIME ftCreationTime, ftLastAccessTime, ftLastWriteTime;\n'
+                  '    DWORD nFileSizeHigh, nFileSizeLow, dwReserved0, dwReserved1;\n'
+                  '    CHAR cFileName[260], cAlternateFileName[14];\n'
+                  '};\n'
+                  'typedef _WIN32_FIND_DATAA WIN32_FIND_DATAA;\n'
+                  'typedef WIN32_FIND_DATAA *PWIN32_FIND_DATAA, *LPWIN32_FIND_DATAA;')
+        preamble = preamble.replace('struct WIN32_FIND_DATAA; typedef WIN32_FIND_DATAA *LPWIN32_FIND_DATAA;', record)
+    preamble = process_sdk_records(preamble, view, signature, identifiers)
+    preamble = com_interface_types(preamble, view, signature, identifiers)
+    preamble = tagged_sdk_types(preamble, body, params, result)
+    return strict_hwnd_sdk_type(preamble, body, params, result)
+
+
+def tagged_sdk_types(preamble, body, params=(), result='void'):
+    """Complete documented SDK tag/alias groups only on real tag demand.
+
+    Replace the primary tag in place so all imports and dependent records use
+    one type. Existing unsigned LPARAM remains unchanged. Exception records
+    stay incomplete; no game layout, original SDK edition or ABI is inferred.
+    """
+    if not re.search(r'\b(?:_MEMORYSTATUS|_FILETIME|tagMSG|_SECURITY_ATTRIBUTES|_EXCEPTION_POINTERS|_INPUT_RECORD)\b', body+' '+result+' '+' '.join(params)):
+        return preamble
+    view = generated_statement_view(body)
+    signature = generated_statement_view(' '.join([result]+list(params)))
+    if (view is None or signature is None or '=' in signature or
+            any(re.search(r'[()[\]]',parameter) for parameter in params)):
+        return preamble
+    context = view+' '+signature
+    if '::' in context or re.search(r'\b(?:typedef|using|enum|namespace|template)\b', context):
+        return preamble
+    start = len(view)-len(view.lstrip())
+    if start==len(view) or view[start]!='{':
+        return preamble
+    depth, end = 0, None
+    for offset in range(start,len(view)):
+        depth += (view[offset]=='{')-(view[offset]=='}')
+        if depth==0:
+            end=offset+1;break
+    if end is None:
+        return preamble
+    function = view[start:end]
+    normalized_function=re.sub(r'\s+',' ',function)
+    if (scalar_declarations(function)[1] or scalar_declarations(normalized_function)[1] or
+            re.search(r'\b(?:class|struct|union)\s+(?:[A-Za-z_]\w*\s*)?[:{]',function)):
+        return preamble
+    # C whitespace can split a declaration across lines even though ordinary
+    # Ghidra locals use one line. Index both views for ownership and type demand;
+    # do not change the source or the shared declaration parser.
+    declarations=list(dict.fromkeys(scalar_declarations(view)[0]+scalar_declarations(re.sub(r'\s+',' ',view))[0]))
+    identifiers={name for _,name,_ in declarations}
+    identifiers.update(name for _,name in map(param_parts,params))
+    kinds=[kind for kind,_,_ in declarations]+[kind for kind,_ in map(param_parts,params)]+[result]
+    def parenthesis_root(position):
+        try:
+            end=matching_paren(context,position)
+            while True:
+                before=context[:position].rstrip()
+                following=len(context)-len(context[end+1:].lstrip())
+                if (not before.endswith('(') or following==len(context) or context[following]!=')'):
+                    return position
+                outer=len(before)-1
+                if matching_paren(context,outer)!=following:
+                    return position
+                position,end=outer,following
+        except ValueError:
+            return None
+    groups=[
+        (('_MEMORYSTATUS','MEMORYSTATUS','LPMEMORYSTATUS'), ('DWORD','SIZE_T'),
+         'struct MEMORYSTATUS { DWORD dwLength, dwMemoryLoad, dwTotalPhys, dwAvailPhys, dwTotalPageFile, dwAvailPageFile, dwTotalVirtual, dwAvailVirtual; };',
+         'struct _MEMORYSTATUS { DWORD dwLength, dwMemoryLoad; SIZE_T dwTotalPhys, dwAvailPhys, dwTotalPageFile, dwAvailPageFile, dwTotalVirtual, dwAvailVirtual; };\ntypedef _MEMORYSTATUS MEMORYSTATUS;'),
+        (('_FILETIME','FILETIME','PFILETIME','LPFILETIME'), ('DWORD',),
+         'struct FILETIME { DWORD dwLowDateTime, dwHighDateTime; };',
+         'struct _FILETIME { DWORD dwLowDateTime, dwHighDateTime; };\ntypedef _FILETIME FILETIME;'),
+        (('tagMSG','MSG','PMSG','NPMSG','LPMSG'), ('HWND','UINT','WPARAM','LPARAM','DWORD','POINT'),
+         'struct MSG { HWND hwnd; UINT message; WPARAM wParam; LPARAM lParam; DWORD time; POINT pt; };',
+         'struct tagMSG { HWND hwnd; UINT message; WPARAM wParam; LPARAM lParam; DWORD time; POINT pt; };\ntypedef tagMSG MSG;'),
+        (('_SECURITY_ATTRIBUTES','SECURITY_ATTRIBUTES','PSECURITY_ATTRIBUTES','LPSECURITY_ATTRIBUTES'), ('DWORD','LPVOID','BOOL'),
+         None,
+         'struct _SECURITY_ATTRIBUTES { DWORD nLength; LPVOID lpSecurityDescriptor; BOOL bInheritHandle; };\ntypedef _SECURITY_ATTRIBUTES SECURITY_ATTRIBUTES;\ntypedef SECURITY_ATTRIBUTES *PSECURITY_ATTRIBUTES, *LPSECURITY_ATTRIBUTES;'),
+        (('_EXCEPTION_POINTERS','EXCEPTION_POINTERS','PEXCEPTION_POINTERS','LPTOP_LEVEL_EXCEPTION_FILTER'), (),
+         'struct EXCEPTION_POINTERS;',
+         'struct _EXCEPTION_POINTERS;\ntypedef _EXCEPTION_POINTERS EXCEPTION_POINTERS;'),
+        (('_INPUT_RECORD','INPUT_RECORD','PINPUT_RECORD'),
+         ('SHORT','WORD','WCHAR','CHAR','BOOL','DWORD','UINT','COORD','_COORD',
+          'KEY_EVENT_RECORD','_KEY_EVENT_RECORD','MOUSE_EVENT_RECORD','_MOUSE_EVENT_RECORD',
+          'WINDOW_BUFFER_SIZE_RECORD','_WINDOW_BUFFER_SIZE_RECORD',
+          'MENU_EVENT_RECORD','_MENU_EVENT_RECORD','FOCUS_EVENT_RECORD','_FOCUS_EVENT_RECORD'),
+         'struct INPUT_RECORD; typedef INPUT_RECORD *PINPUT_RECORD;', SDK_INPUT_RECORD),
+    ]
+    for names,dependencies,existing,definition in groups:
+        tag,public=names[:2]
+        if not re.search(r'\b'+tag+r'\b',context):
+            continue
+        blocked=False
+        for name in names+dependencies:
+            token=r'\b'+name+r'\b'
+            if (name in identifiers or typedef_mentions(view,name) or
+                    re.search(r'\b(?:struct|class|union)\s+'+name+r'\s*[;{:]',context) or
+                    re.search(token+r'\s*\(',context) or
+                    re.search(r'(?:::|->|\.)\s*'+token+'|'+token+r'\s*::',context) or
+                    re.search(token+r'\s*:(?!:)',context) or
+                    re.search(token+r'\s*=',context) or
+                    re.search(token+r'\s*\[',context) or
+                    re.search(r'\([^(){};]*[*&][^(){};]*'+token+r'\s*\)',context)):
+                blocked=True;break
+            # Parenthesized values/declarators are not evidence of a tag type.
+            for match in re.finditer(r'\(\s*'+token+r'\s*\)',context):
+                position=parenthesis_root(match.start())
+                is_size=position==match.start() and re.search(r'\bsizeof\s*$',context[:position])
+                # A real C-style cast is unary and has an operand after the
+                # closing parenthesis. Nested declarators are checked at their
+                # outermost redundant parentheses, not at an inner '(' token.
+                after=context[match.end():].lstrip()
+                is_cast=position is not None and unary_operator(context,position) and after and after[0] not in ';,)]}'
+                if not (is_size or is_cast):
+                    blocked=True;break
+        if blocked or re.search(r'\b(?:struct|class|union)\s+'+public+r'\b',context):
+            continue
+        if tag=='_INPUT_RECORD' and any(re.search(r'\b(?:struct|class|union)\s+'+name+r'\b',context)
+                                       for name in dependencies if name.endswith('_RECORD') or name=='COORD'):
+            continue
+        if tag=='_INPUT_RECORD' and (
+                re.search(r'\b(?:__declspec|__attribute__|alignas|_Alignas)\b',function) or
+                re.search(r'\b(?:struct|class|union)\b[^;{}]*\b(?:__declspec|__attribute__|alignas|_Alignas)\b',context)):
+            continue
+        # Normal declarations/signatures, explicit pointer casts and sizeof
+        # provide type demand. A label/member/value token on its own does not.
+        kind_pattern=r'(?:const\s+|volatile\s+|struct\s+)*'+tag+r'(?:\s*\*|\s+const|\s+volatile)*'
+        demand=any(re.fullmatch(kind_pattern,kind.strip()) for kind in kinds)
+        demand |= bool(re.search(r'\(\s*(?:const\s+|volatile\s+|struct\s+)*'+tag+r'\s*\*+\s*\)',context))
+        demand |= bool(re.search(r'\bsizeof\s*\(\s*(?:struct\s+)?'+tag+r'\s*\)',context))
+        if not demand:
+            continue
+        if tag=='_EXCEPTION_POINTERS':
+            relevant=[kind for kind in kinds if re.search(r'\b(?:_EXCEPTION_POINTERS|EXCEPTION_POINTERS)\b',kind)]
+            if (any('*' not in kind for kind in relevant) or
+                    re.search(r'\bsizeof\s*\(\s*(?:struct\s+)?(?:_EXCEPTION_POINTERS|EXCEPTION_POINTERS)\s*\)',context)):
+                continue
+            runtime_declarations=list(dict.fromkeys(scalar_declarations(function)[0]+scalar_declarations(normalized_function)[0]))
+            runtime_slots=[(kind,name) for kind,name,_ in runtime_declarations]+list(map(param_parts,params))
+            pointer_names={name:kind.count('*')+(1 if re.search(r'\bPEXCEPTION_POINTERS\b',kind) else 0)
+                           for kind,name in runtime_slots if re.search(r'\b(?:_EXCEPTION_POINTERS|EXCEPTION_POINTERS|PEXCEPTION_POINTERS)\b',kind)}
+            if any(sum(slot_name==name for _,slot_name in runtime_slots)!=1 for name in pointer_names):
+                continue
+            def unary_dereferences(position):
+                count=0
+                before=function[:position].rstrip()
+                while before.endswith('*') and unary_operator(function,len(before)-1):
+                    count+=1
+                    before=before[:-1].rstrip()
+                return count
+            dereferenced=False
+            for name,pointer_depth in pointer_names.items():
+                if not name:
+                    continue
+                if re.search(r'\b'+re.escape(name)+r'\s*(?:->|\[)',function):
+                    dereferenced=True
+                for match in re.finditer(r'\*\s*\b'+re.escape(name)+r'\b',function):
+                    if unary_dereferences(match.end()-len(name))>=pointer_depth:
+                        dereferenced=True
+            if dereferenced:
+                continue
+            # A cast can introduce a record access without any declared name.
+            # Do not try to parse a full member-expression grammar here.
+            cast_pattern=r'\(\s*(?:(?:struct\s+)?(?:_EXCEPTION_POINTERS|EXCEPTION_POINTERS)\s*(?P<stars>\*+)|PEXCEPTION_POINTERS(?P<alias_stars>\s*\*+)?)\s*\)'
+            if re.search(cast_pattern+r'[^;{}]*(?:->|\[)',function):
+                continue
+            cast_dereference=False
+            for match in re.finditer(cast_pattern,function):
+                pointer_depth=len(match['stars']) if match['stars'] else 1+len((match['alias_stars'] or '').strip())
+                if unary_dereferences(match.start())>=pointer_depth:
+                    cast_dereference=True
+            if cast_dereference:
+                continue
+        if existing:
+            preamble=preamble.replace(existing,definition)
+        else:
+            preamble+='\n'+definition
+        if tag=='tagMSG' and any(re.search(r'\b'+name+r'\b',context) for name in ('PMSG','NPMSG')):
+            preamble=preamble.replace('typedef MSG *LPMSG;','typedef MSG *PMSG, *NPMSG, *LPMSG;')
+        if tag=='_EXCEPTION_POINTERS' and re.search(r'\bPEXCEPTION_POINTERS\b',context):
+            preamble=preamble.replace('typedef _EXCEPTION_POINTERS EXCEPTION_POINTERS;','typedef _EXCEPTION_POINTERS EXCEPTION_POINTERS;\ntypedef EXCEPTION_POINTERS *PEXCEPTION_POINTERS;')
+    return preamble
+
+
+def strict_hwnd_sdk_type(preamble, body, params=(), result='void'):
+    """Supply the documented STRICT HWND pointee when an operation needs it.
+
+    Opaque handle transport keeps its existing spelling. Ghidra's scaled HWND
+    arithmetic/unused-member views need the SDK's actual four-byte dummy record,
+    not a byte-pointer cast or a guessed game layout. Nominal identity and original
+    STRICT configuration remain seed hypotheses; no runtime handle validity follows.
+    """
+    raw = '\n'.join([body, result] + list(params))
+    if 'HWND' not in raw:
+        return preamble
+    if (any(token in raw for token in ('%:', '<%', '%>', '<:', ':>', '??')) or
+            re.search(r'\\\r?\n|\b(?:u8|[uUL])?R"', raw)):
+        return preamble
+    view = code_view(body)
+    signature = code_view(' '.join([result] + list(params)))
+    context = view + ' ' + signature
+    # These exports do not carry a full C++ scope model. Qualified declaration
+    # shadows and enumerators can look like ordinary parameter/type uses.
+    if '#' in context or '::' in context or re.search(r'\b(?:enum|typedef|using|namespace)\b', context):
+        return preamble
+    # seed() passes its outer function body first, followed by generated
+    # declarations. Do not confuse a callee prototype's parameter names with
+    # the caller's locals or accept arbitrary C++ declaration/scope grammar.
+    start = len(view) - len(view.lstrip())
+    if start == len(view) or view[start] != '{':
+        return preamble
+    depth, end = 0, None
+    for offset in range(start, len(view)):
+        depth += (view[offset] == '{') - (view[offset] == '}')
+        if depth == 0:
+            end = offset + 1
+            break
+    if end is None:
+        return preamble
+    function_view = view[start:end]
+    if (scalar_declarations(function_view)[1] or
+            re.search(r'\b(?:struct|class|union)\s+(?:[A-Za-z_]\w*\s*)?[:{]', function_view)):
+        return preamble
+    names = ('HWND', 'HWND__', 'MSG', 'LPMSG', 'WNDPROC', 'DLGPROC',
+             'WNDENUMPROC', 'TIMERPROC')
+    identifiers = {name for _, name, _ in scalar_declarations(view)[0]}
+    identifiers.update(name for _, name in map(param_parts, params))
+    known_calls = set(import_facts()) | {'if', 'while', 'switch', 'for', 'sizeof'}
+    def parenthesis_root(position):
+        try:
+            end = matching_paren(context, position)
+            while True:
+                before = context[:position].rstrip()
+                following = len(context) - len(context[end+1:].lstrip())
+                if (not before.endswith('(') or following == len(context) or
+                        context[following] != ')'):
+                    return position
+                outer = len(before)-1
+                if matching_paren(context, outer) != following:
+                    return position
+                position, end = outer, following
+        except ValueError:
+            return None
+    def unary_at(position):
+        if unary_operator(context, position):
+            return True
+        # The existing helper recognises scalar/explicit-pointer casts. HWND
+        # is a separately guarded SDK pointer alias; (HWND)(value) is a cast.
+        before = context[:position].rstrip()
+        cast = re.search(r'\(\s*HWND\s*\)$', before)
+        return bool(cast and unary_operator(context, cast.start()))
+    def ambiguous_parenthesized_name(name):
+        # T(name) can declare a shadow even though the simple declaration index
+        # does not see it. Only expressions and independently named calls are
+        # classified here; unknown call-versus-type syntax remains unresolved.
+        for match in re.finditer(r'\(\s*' + re.escape(name) + r'\b', context):
+            if not context[match.end():].lstrip().startswith((')', '[', '(', ',')):
+                continue  # A binary/member expression is not a declarator.
+            position = parenthesis_root(match.start())
+            if position is None:
+                return True
+            before = context[:position].rstrip()
+            if unary_at(position):
+                continue
+            call = re.search(r'([A-Za-z_]\w*)$', before)
+            if call and (call[1] in known_calls or re.fullmatch(r'FUN_[0-9a-f]{8}', call[1])):
+                continue
+            return True
+        return False
+    def pointer_declaration(name):
+        pattern = r'\([^(){};]*[*&][^(){};]*\b' + re.escape(name) + r'\s*\)'
+        for match in re.finditer(pattern, context):
+            position = parenthesis_root(match.start())
+            if position is None or not unary_at(position):
+                return True
+        return False
+    for name in names:
+        token = r'\b' + name + r'\b'
+        if (name in identifiers or typedef_mentions(view, name) or
+                re.search(r'\b(?:struct|class|union|enum|namespace)\s+' + name + r'\s*[{;:]', context) or
+                re.search(r'\busing\s+(?:typename\s+)?' + token, context) or
+                re.search(token + r'\s*\(', context) or
+                re.search(r'\([^(){};]*[*&][^(){};]*' + token + r'\s*\)', context) or
+                ambiguous_parenthesized_name(name)):
+            return preamble
+    if re.search(r'(?:::|->|\.)\s*HWND(?:__)?\b|\bHWND(?:__)?\s*::', context):
+        return preamble
+    # A bare HWND__ label/enumerator/value is not a type demand.
+    demand = bool(re.search(r'\bHWND__\s*[*&]|\b(?:struct\s+)?HWND__\s+[A-Za-z_]\w*\s*[;=,)]|\bsizeof\s*\(\s*HWND__\s*\)', context))
+    slots = {}
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind, None))
+    for kind, name, array in scalar_declarations(function_view)[0]:
+        slots.setdefault(name, []).append((kind, array))
+    # A handle assignment can follow a control block. Distinguish that closing
+    # brace from the end of an aggregate declaring a new object of the same name.
+    control_starts = set()
+    for match in re.finditer(r'\b(?:if|while|for|switch)\s*\(', function_view):
+        try:
+            end_condition = matching_paren(function_view, match.end() - 1)
+        except ValueError:
+            return preamble
+        brace = re.match(r'\s*\{', function_view[end_condition + 1:])
+        if brace:
+            control_starts.add(end_condition + brace.end())
+    control_starts.update(match.end() - 1 for match in re.finditer(r'\b(?:else|do)\s*\{', function_view))
+    control_ends = set()
+    stack = []
+    for match in re.finditer(r'[{}]', function_view):
+        if match.group() == '{':
+            stack.append(match.start())
+        elif stack.pop() in control_starts:
+            control_ends.add(match.start())
+    for name, declarations in slots.items():
+        if len(declarations) != 1 or declarations[0][1] or clean_type(declarations[0][0]) != 'HWND':
+            continue
+        if any(match.start() not in control_ends for match in
+               re.finditer(r'}\s*[*&]*\s*\b' + re.escape(name) + r'\b', function_view)):
+            continue  # Anonymous/tagged aggregate declarator missed by the index.
+        if (ambiguous_parenthesized_name(name) or pointer_declaration(name) or
+                re.search(r'\b' + re.escape(name) + r'\s*\(', function_view)):
+            continue
+        for match in re.finditer(r'\b' + re.escape(name) + r'\b', function_view):
+            before = function_view[:match.start()].rstrip()
+            if before.endswith(('.', '->', '::')):
+                continue
+            after = function_view[match.end():]
+            if (re.match(r'\s*(?:\+\+|--|[+-]=?|\[|->\s*unused\b)', after) or
+                    before.endswith(('++', '--')) or
+                    before.endswith('*') and unary_operator(function_view, len(before)-1)):
+                demand = True
+    if not demand:
+        return preamble
+    # Prefix, rather than append: MSG/callbacks/imports must all use the same
+    # local SDK type. HANDLE and all other handle aliases remain unchanged.
+    return 'struct HWND__ { int unused; };\ntypedef HWND__ *HWND;\n' + preamble
+
+
+def typedef_mentions(view, name):
+    """Conservatively detect a spelling inside a whole typedef declaration.
+
+    Braced anonymous/tagged records can contain semicolons before the alias.
+    Masked source preserves delimiters; an unterminated declaration refuses
+    subsequent uses rather than inventing type ownership.
+    """
+    for match in re.finditer(r'\btypedef\b', view):
+        stack, end = [], len(view)
+        pairs = {')': '(', ']': '[', '}': '{'}
+        for cursor in range(match.end(), len(view)):
+            char = view[cursor]
+            if char in '([{':
+                stack.append(char)
+            elif char in pairs:
+                if not stack or stack.pop() != pairs[char]:
+                    break
+            elif char == ';' and not stack:
+                end = cursor
+                break
+        if re.search(r'\b' + re.escape(name) + r'\b', view[match.end():end]):
+            return True
+    return False
+
+
+def process_sdk_records(preamble, view, signature, identifiers):
+    """Complete explicitly used, documented native Win32 records.
+
+    Tags and public/pointer aliases share one complete record. Preserve an
+    authored or shadowing spelling by refusing its whole coupled group. These
+    are SDK declarations only, not inferred game layouts or helper bodies.
+    """
+    records = [
+        # Documented SDK tags/public aliases, not inferred game records:
+        # https://learn.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-systemtime
+        # https://learn.microsoft.com/en-us/windows/win32/api/timezoneapi/ns-timezoneapi-time_zone_information
+        # https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-osversioninfoa
+        (('_SYSTEMTIME', 'SYSTEMTIME', 'PSYSTEMTIME', 'LPSYSTEMTIME'),
+         'struct SYSTEMTIME { WORD wYear, wMonth, wDayOfWeek, wDay, wHour, wMinute, wSecond, wMilliseconds; };\n'
+         'typedef SYSTEMTIME *LPSYSTEMTIME;',
+         '''struct _SYSTEMTIME {
+    WORD wYear, wMonth, wDayOfWeek, wDay, wHour, wMinute, wSecond, wMilliseconds;
+};
+typedef _SYSTEMTIME SYSTEMTIME;
+typedef SYSTEMTIME *PSYSTEMTIME, *LPSYSTEMTIME;'''),
+        (('_TIME_ZONE_INFORMATION', 'TIME_ZONE_INFORMATION', 'PTIME_ZONE_INFORMATION', 'LPTIME_ZONE_INFORMATION'),
+         'struct TIME_ZONE_INFORMATION; typedef TIME_ZONE_INFORMATION *LPTIME_ZONE_INFORMATION;',
+         '''struct _TIME_ZONE_INFORMATION {
+    LONG Bias;
+    WCHAR StandardName[32];
+    SYSTEMTIME StandardDate;
+    LONG StandardBias;
+    WCHAR DaylightName[32];
+    SYSTEMTIME DaylightDate;
+    LONG DaylightBias;
+};
+typedef _TIME_ZONE_INFORMATION TIME_ZONE_INFORMATION;
+typedef TIME_ZONE_INFORMATION *PTIME_ZONE_INFORMATION, *LPTIME_ZONE_INFORMATION;'''),
+        (('_OSVERSIONINFOA', 'OSVERSIONINFOA', 'POSVERSIONINFOA', 'LPOSVERSIONINFOA'),
+         'struct OSVERSIONINFOA; typedef OSVERSIONINFOA *LPOSVERSIONINFOA;',
+         '''struct _OSVERSIONINFOA {
+    DWORD dwOSVersionInfoSize, dwMajorVersion, dwMinorVersion, dwBuildNumber, dwPlatformId;
+    CHAR szCSDVersion[128];
+};
+typedef _OSVERSIONINFOA OSVERSIONINFOA;
+typedef OSVERSIONINFOA *POSVERSIONINFOA, *LPOSVERSIONINFOA;'''),
+        (('_PROCESS_INFORMATION', 'PROCESS_INFORMATION', 'PPROCESS_INFORMATION', 'LPPROCESS_INFORMATION'),
+         'struct PROCESS_INFORMATION; typedef PROCESS_INFORMATION *LPPROCESS_INFORMATION;',
+         '''struct _PROCESS_INFORMATION {
+    HANDLE hProcess, hThread;
+    DWORD dwProcessId, dwThreadId;
+};
+typedef _PROCESS_INFORMATION PROCESS_INFORMATION;
+typedef PROCESS_INFORMATION *PPROCESS_INFORMATION, *LPPROCESS_INFORMATION;'''),
+        (('_STARTUPINFOA', 'STARTUPINFOA', 'LPSTARTUPINFOA'),
+         'struct STARTUPINFOA; typedef STARTUPINFOA *LPSTARTUPINFOA;',
+         '''struct _STARTUPINFOA {
+    DWORD cb;
+    LPSTR lpReserved, lpDesktop, lpTitle;
+    DWORD dwX, dwY, dwXSize, dwYSize, dwXCountChars, dwYCountChars;
+    DWORD dwFillAttribute, dwFlags;
+    WORD wShowWindow, cbReserved2;
+    LPBYTE lpReserved2;
+    HANDLE hStdInput, hStdOutput, hStdError;
+};
+typedef _STARTUPINFOA STARTUPINFOA;
+typedef STARTUPINFOA *LPSTARTUPINFOA;'''),
+        (('_cpinfo', 'CPINFO', 'LPCPINFO'),
+         'struct CPINFO; typedef CPINFO *LPCPINFO;',
+         '''struct _cpinfo {
+    UINT MaxCharSize;
+    BYTE DefaultChar[2];
+    BYTE LeadByte[12];
+};
+typedef _cpinfo CPINFO;
+typedef CPINFO *LPCPINFO;'''),
+    ]
+    for names, forward, definition in records:
+        if not any(re.search(r'\b' + name + r'\b', view + ' ' + signature) for name in names):
+            continue
+        # Time-zone fields depend on the same real SYSTEMTIME record and SDK
+        # scalar widths. Refuse a conflicting dependency with the entire group.
+        dependencies = {
+            '_SYSTEMTIME': ('WORD',),
+            '_TIME_ZONE_INFORMATION': ('LONG', 'WCHAR', 'WORD', '_SYSTEMTIME',
+                                       'SYSTEMTIME', 'PSYSTEMTIME', 'LPSYSTEMTIME'),
+            '_OSVERSIONINFOA': ('DWORD', 'CHAR'),
+        }.get(names[0], ())
+        blocked = any(name in identifiers or
+                      typedef_mentions(view, name) or
+                      re.search(r'\b(?:struct|class|union)\s+' + name + r'\s*[{:]', view) or
+                      re.search(r'#\s*(?:define|undef)\s+' + name + r'\b', view) or
+                      re.search(r'\b' + name + r'\s*\(', view) or
+                      re.search(r'\([^(){};]*[*&][^(){};]*\b' + name + r'\s*\)', view + ' ' + signature) or
+                      re.search(r'(?:::|->|\.)\s*' + name + r'\b|\b' + name + r'\s*::', view + ' ' + signature)
+                      for name in names + dependencies)
+        if not blocked:
+            preamble = preamble.replace(forward, definition)
+    return preamble
+
+
+def com_interface_types(preamble, view, signature, identifiers):
+    """Supply documented C COM vtables for explicitly named SDK interfaces.
+
+    These are i386 SDK declarations, not recovered game classes. Full vtable
+    lengths keep pointer arithmetic/sizeof honest; unused record pointees stay
+    incomplete. C REFIID/REFCLSID are pointers. No SDK headers or helper bodies.
+    """
+    names = {'IUnknown', 'IStream', 'IPersistStream', 'IStorage',
+             'IUnknownVtbl', 'IStreamVtbl', 'IPersistStreamVtbl', 'IStorageVtbl',
+             'LPUNKNOWN', 'LPSTREAM', 'LPPERSISTSTREAM', 'LPSTORAGE'}
+    if not any(re.search(r'\b' + name + r'\b', view + ' ' + signature) for name in names):
+        return preamble
+    dependencies = names | {'ULONG', 'LARGE_INTEGER', 'ULARGE_INTEGER',
+                            'STATSTG', 'IEnumSTATSTG'}
+    # An authored definition, macro, callable or shadowing identifier owns its
+    # spelling. Refuse the entire coupled interface group on a conflict.
+    for name in dependencies:
+        if (name in identifiers or
+                re.search(r'\btypedef\b[^;{}]*\b' + name + r'\s*;', view) or
+                re.search(r'\b(?:struct|class|union)\s+' + name + r'\s*[{:]', view) or
+                re.search(r'#\s*(?:define|undef)\s+' + name + r'\b', view) or
+                re.search(r'\b' + name + r'\s*\(', view)):
+            return preamble
+    if 'typedef unsigned long ULONG;' not in preamble:
+        preamble += '\ntypedef unsigned long ULONG;'
+    return preamble + r'''
+// Documented i386 COM C ABI; nominal Ghidra interface identity still needs proof.
+union ULARGE_INTEGER { struct { DWORD LowPart, HighPart; }; unsigned __int64 QuadPart; };
+struct tagSTATSTG; typedef tagSTATSTG STATSTG;
+struct IEnumSTATSTG;
+struct IUnknownVtbl {
+    HRESULT (__stdcall *QueryInterface)(IUnknown *, IID const *, void **);
+    ULONG (__stdcall *AddRef)(IUnknown *);
+    ULONG (__stdcall *Release)(IUnknown *);
+};
+struct IUnknown { IUnknownVtbl *lpVtbl; };
+struct IStreamVtbl {
+    HRESULT (__stdcall *QueryInterface)(IStream *, IID const *, void **);
+    ULONG (__stdcall *AddRef)(IStream *);
+    ULONG (__stdcall *Release)(IStream *);
+    HRESULT (__stdcall *Read)(IStream *, void *, ULONG, ULONG *);
+    HRESULT (__stdcall *Write)(IStream *, void const *, ULONG, ULONG *);
+    HRESULT (__stdcall *Seek)(IStream *, LARGE_INTEGER, DWORD, ULARGE_INTEGER *);
+    HRESULT (__stdcall *SetSize)(IStream *, ULARGE_INTEGER);
+    HRESULT (__stdcall *CopyTo)(IStream *, IStream *, ULARGE_INTEGER, ULARGE_INTEGER *, ULARGE_INTEGER *);
+    HRESULT (__stdcall *Commit)(IStream *, DWORD);
+    HRESULT (__stdcall *Revert)(IStream *);
+    HRESULT (__stdcall *LockRegion)(IStream *, ULARGE_INTEGER, ULARGE_INTEGER, DWORD);
+    HRESULT (__stdcall *UnlockRegion)(IStream *, ULARGE_INTEGER, ULARGE_INTEGER, DWORD);
+    HRESULT (__stdcall *Stat)(IStream *, STATSTG *, DWORD);
+    HRESULT (__stdcall *Clone)(IStream *, IStream **);
+};
+struct IStream { IStreamVtbl *lpVtbl; };
+struct IPersistStreamVtbl {
+    HRESULT (__stdcall *QueryInterface)(IPersistStream *, IID const *, void **);
+    ULONG (__stdcall *AddRef)(IPersistStream *);
+    ULONG (__stdcall *Release)(IPersistStream *);
+    HRESULT (__stdcall *GetClassID)(IPersistStream *, CLSID *);
+    HRESULT (__stdcall *IsDirty)(IPersistStream *);
+    HRESULT (__stdcall *Load)(IPersistStream *, IStream *);
+    HRESULT (__stdcall *Save)(IPersistStream *, IStream *, BOOL);
+    HRESULT (__stdcall *GetSizeMax)(IPersistStream *, ULARGE_INTEGER *);
+};
+struct IPersistStream { IPersistStreamVtbl *lpVtbl; };
+struct IStorageVtbl {
+    HRESULT (__stdcall *QueryInterface)(IStorage *, IID const *, void **);
+    ULONG (__stdcall *AddRef)(IStorage *);
+    ULONG (__stdcall *Release)(IStorage *);
+    HRESULT (__stdcall *CreateStream)(IStorage *, wchar16 const *, DWORD, DWORD, DWORD, IStream **);
+    HRESULT (__stdcall *OpenStream)(IStorage *, wchar16 const *, void *, DWORD, DWORD, IStream **);
+    HRESULT (__stdcall *CreateStorage)(IStorage *, wchar16 const *, DWORD, DWORD, DWORD, IStorage **);
+    HRESULT (__stdcall *OpenStorage)(IStorage *, wchar16 const *, IStorage *, DWORD, SNB, DWORD, IStorage **);
+    HRESULT (__stdcall *CopyTo)(IStorage *, DWORD, IID const *, SNB, IStorage *);
+    HRESULT (__stdcall *MoveElementTo)(IStorage *, wchar16 const *, IStorage *, wchar16 const *, DWORD);
+    HRESULT (__stdcall *Commit)(IStorage *, DWORD);
+    HRESULT (__stdcall *Revert)(IStorage *);
+    HRESULT (__stdcall *EnumElements)(IStorage *, DWORD, void *, DWORD, IEnumSTATSTG **);
+    HRESULT (__stdcall *DestroyElement)(IStorage *, wchar16 const *);
+    HRESULT (__stdcall *RenameElement)(IStorage *, wchar16 const *, wchar16 const *);
+    HRESULT (__stdcall *SetElementTimes)(IStorage *, wchar16 const *, FILETIME const *, FILETIME const *, FILETIME const *);
+    HRESULT (__stdcall *SetClass)(IStorage *, CLSID const *);
+    HRESULT (__stdcall *SetStateBits)(IStorage *, DWORD, DWORD);
+    HRESULT (__stdcall *Stat)(IStorage *, STATSTG *, DWORD);
+};
+struct IStorage { IStorageVtbl *lpVtbl; };
+typedef IStorage *LPSTORAGE;
+'''
+
+
+def large_integer_member_artifacts(body, params=()):
+    """Normalize Ghidra's named .s halves only on unambiguous SDK locals.
+
+    The SDK/preamble already supplies the same anonymous DWORD LowPart and
+    signed LONG HighPart at offsets 0 and 4. No layout, storage, access width,
+    signedness, read order or runtime helper changes. This is a spelling repair,
+    not evidence for the decompiler's other type, ABI or stack hypotheses.
+    """
+    if 'LARGE_INTEGER' not in body:
+        return body
+    # code_view is not a preprocessor or a raw-string/line-splice lexer.
+    if '%:' in body or '??' in body or re.search(r'\\\r?\n|\b(?:u8|[uUL])?R"', body):
+        return body
+    view = code_view(body)
+    if '#' in view or re.search(r'\b(?:typedef|using|namespace|class|struct|union)\b', view):
+        return body
+    declarations, comma = scalar_declarations(view)
+    parameters = {name for _, name in map(param_parts, params) if name}
+    if comma or any(name in {'LARGE_INTEGER', 'DWORD', 'LONG'}
+                    for _, name, _ in declarations) or parameters & {'LARGE_INTEGER', 'DWORD', 'LONG'}:
+        return body
+    edits = []
+    for decl in re.finditer(r'^[\t ]+LARGE_INTEGER[\t ]+([A-Za-z_]\w*)[\t ]*;', view, re.M):
+        name = decl[1]
+        if (re.search(r'\b' + re.escape(name) + r'\b', code_view(' '.join(params))) or
+                view[:decl.start()].count('{') - view[:decl.start()].count('}') != 1):
+            continue
+        if [(kind, array) for kind, ident, array in declarations if ident == name] != [('LARGE_INTEGER', None)]:
+            continue
+        pending, refused = [], False
+        for token in re.finditer(r'\b' + re.escape(name) + r'\b', view):
+            before = view[:token.start()].rstrip()
+            if before.endswith(('.', '->', '::')):
+                continue  # A different object's member or namespace spelling.
+            if decl.start(1) == token.start():
+                continue
+            suffix = view[token.end():]
+            member = re.match(r'\s*\.\s*s\s*\.\s*(LowPart|HighPart)\b', suffix)
+            if member:
+                end = token.end() + member.end()
+                if body[token.end():end] != view[token.end():end]:
+                    refused = True  # Preserve comments inside a selector.
+                    break
+                pending.append((token.end(), end, '.' + member[1]))
+                continue
+            if re.match(r'\s*\.\s*(?:LowPart|HighPart|QuadPart)\b', suffix):
+                continue
+            # A frozen export may mix named SDK halves with raw DWORD slices.
+            # Only recognize the two complete in-bounds words; scalar_partials
+            # still lowers each slice later with its original unsigned width.
+            if re.match(r'\._(?:0|4)_4_\b', suffix):
+                continue
+            if before.endswith('&') and unary_operator(view, len(before)-1):
+                continue  # The same local's address, including an explicit cast.
+            refused = True
+            break
+        if not refused:
+            edits.extend(pending)
+    for start, end, replacement in sorted(edits, reverse=True):
+        body = body[:start] + replacement + body[end:]
+    return body
+
+
+def sdk_preamble(body, params=(), result='void'):
+    """Only used, known Windows interface types enter a seed's namespace.
+
+    Keep the alias inside each seed's namespace. A shared macro guard would
+    suppress the typedef in subsequent namespaces of a composite population.
+    Explicit typedefs and identifier shadowing stay with their authored text.
+    """
+    preamble = sdk_named_types(body, params, result)
+    view = code_view(body)
+    signature = code_view(' '.join([result] + list(params)))
+    if not re.search(r'\bwchar_t\b', view + ' ' + signature):
+        return preamble
+    if re.search(r'\btypedef\b[^;{}]*\bwchar_t\s*;', view):
+        return preamble
+    if any(name == 'wchar_t' for _, name in map(param_parts, params)):
+        return preamble
+    if any(name == 'wchar_t' for _, name, _ in scalar_declarations(view)[0]):
+        return preamble
+    return preamble + '\ntypedef wchar16 wchar_t;'
+
+
+def local_labels(body):
+    """Keep real goto labels local, drop unused label declarations, refuse gaps."""
+    view = code_view(body)
+    definitions = set(re.findall(r'^\s*(LAB_[0-9a-f]{8})\s*:', view, re.M))
+    targets = set(re.findall(r'\bgoto\s+(LAB_[0-9a-f]{8})\s*;', view))
+    missing = targets - definitions
+    if missing:
+        raise ValueError('Missing Ghidra goto label(s): ' + ', '.join(sorted(missing)))
+    # The label and its following statement have independent indentation.
+    body = re.sub(r'^(\s*)(LAB_[0-9a-f]{8})\s*:',
+                  lambda m: m[1] + (m[2] + ':;' if m[2] in targets else ''), body, flags=re.M)
+    return body, definitions
+
+
+def generated_statement_view(body):
+    """Mask trivia only for the ordinary generated C statement subset.
+
+    These small repairs do not parse preprocessing or alternate C++ tokens.
+    Preserve such input rather than infer statement/scope boundaries from it.
+    """
+    if (any(token in body for token in ('%:', '<%', '%>', '<:', ':>', '??')) or
+            re.search(r'\\\r?\n|\b(?:u8|[uUL])?R"', body)):
+        return None
+    view = code_view(body)
+    if '#' in view or '/*' in view or '"' in view or "'" in view:
+        return None
+    return view
+
+
+def terminal_label_statements(body):
+    """Give a terminal Ghidra label its empty statement before a block closes.
+
+    This preserves an empty/fallthrough branch, including do/while labels. It
+    neither invents a break nor changes the destination of any goto. General
+    case expressions, declarations and nonordinary scope grammar stay untouched.
+    """
+    view = generated_statement_view(body)
+    if (view is None or not view.lstrip().startswith('{') or '::' in view or
+            re.search(r'\b(?:class|struct|union|enum|namespace|template)\b', view)):
+        return body
+    integer = r'-?(?:0[xX][0-9a-fA-F]+|[0-9]+)[uUlL]*'
+    constant = r'(?:' + integer + r'|[A-Za-z_]\w*)'
+    pattern = re.compile(r'^[\t ]*(?:case[\t ]+' + constant +
+                         r'|default|[A-Za-z_]\w*)[\t ]*:(?=\s*})', re.M)
+    candidates = {match.end()-1 for match in pattern.finditer(view)
+                  if match[0].strip()[:-1].strip() not in ('public', 'private', 'protected', 'case')}
+    stack, questions, insertions = [], 0, []
+    pairs = {')': '(', ']': '[', '}': '{'}
+    for position, token in enumerate(view):
+        if token in '([{':
+            stack.append(token)
+        elif token in ')]}':
+            if not stack or stack.pop() != pairs[token]:
+                return body
+        elif token == '?':
+            questions += 1
+        elif token == ':':
+            if questions:
+                questions -= 1
+            elif position in candidates and stack and all(item == '{' for item in stack):
+                insertions.append(position+1)
+    if stack or questions:
+        return body
+    for position in reversed(insertions):
+        body = body[:position] + ';' + body[position:]
+    return body
+
+
+def concat_artifacts(body):
+    """Expand width-exact CONCAT operations, evaluating each operand once."""
+    pattern = re.compile(r'\bCONCAT([1-8])([1-8])\s*\(')
+    while True:
+        sites = list(pattern.finditer(code_view(body)))
+        if not sites:
+            return body
+        match = sites[-1]  # innermost/rightmost first
+        high, low = int(match[1]), int(match[2])
+        if high + low > 8:
+            raise ValueError('CONCAT wider than 64 bits')
+        end = matching_paren(body, match.end() - 1)
+        args = split_args(body[match.end():end])
+        if len(args) != 2:
+            raise ValueError('CONCAT requires two operands')
+        result = 'uint' if high + low <= 4 else 'ulonglong'
+        def operand(text, width):
+            kind = {1: 'uchar', 2: 'ushort', 4: 'uint', 8: 'ulonglong'}.get(width)
+            if kind:
+                return '(%s)(%s)' % (kind, text)
+            return '((%s)(%s) & 0x%x%s)' % (result, text, (1 << (8 * width)) - 1,
+                                             'ui64' if width > 4 else '')
+        expression = '(((%s)(%s) << %d) | (%s)(%s))' % (
+            result, operand(args[0], high), low * 8, result, operand(args[1], low))
+        body = body[:match.start()] + expression + body[end + 1:]
+
+
+def extend_artifacts(body):
+    """Width-exact zero/sign extension; no signed reinterpretation of uint64."""
+    pattern = re.compile(r'\b([ZS])EXT([1248])([1248])\s*\(')
+    while True:
+        sites = list(pattern.finditer(code_view(body)))
+        if not sites:
+            return body
+        match = sites[-1]
+        first, last = int(match[2]), int(match[3])
+        if first > last:
+            raise ValueError('Invalid Ghidra extension width')
+        end = matching_paren(body, match.end() - 1)
+        args = split_args(body[match.end():end])
+        if len(args) != 1:
+            raise ValueError('Ghidra extension requires one operand')
+        kinds = {1: 'char', 2: 'short', 4: 'int', 8: 'longlong'}
+        source = kinds[first]
+        destination = kinds[last]
+        if match[1] == 'Z':
+            source = {1: 'uchar', 2: 'ushort', 4: 'uint', 8: 'ulonglong'}[first]
+            destination = {1: 'uchar', 2: 'ushort', 4: 'uint', 8: 'ulonglong'}[last]
+        elif first == 1:
+            source = 'signed char'
+        body = body[:match.start()] + '((%s)(%s)(%s))' % (destination, source, args[0]) + body[end + 1:]
+
+
+def byte_update_value_safe(value):
+    """Existing preserved-byte rule: evaluate a pure value once, at its width."""
+    value_view = code_view(value)
+    # A call or write can change the slot while the high bytes are being
+    # assembled. Do not replace that expression with a different ordering.
+    if re.search(r'\+\+|--|(?<![=!<>])=(?!=)|,|\b\w+\s*\(', value_view):
+        return False
+    calls = False
+    for parenthesis in re.finditer(r'\)\s*\(', value_view):
+        end = parenthesis.start()
+        depth, start = 1, end - 1
+        while start >= 0 and depth:
+            depth += (value_view[start] == ')') - (value_view[start] == '(')
+            start -= 1
+        inside = clean_type(value_view[start+2:end])
+        scalar_kinds = INTEGRAL32 | {'char', 'uchar', 'byte', 'undefined1', 'ushort', 'short', 'undefined2'}
+        # A scalar pointer cast followed by a parenthesized address is not
+        # an indirect call: *(undefined1 *)(base + offset). Keep unknown,
+        # qualified and function-pointer casts unresolved.
+        pointer_cast = (inside.endswith('*') and clean_type(inside[:-1]) in scalar_kinds
+                        and not re.search(r'\b(?:const|volatile)\b', value_view[start+2:end]))
+        if inside not in scalar_kinds and not pointer_cast:
+            calls = True
+            break
+    if calls:
+        return False
+    return True
+
+
+_CARRIER_ORIGINAL = {}
+
+
+def native_carrier_stores(body, params, entry, inventory):
+    from seed_carrier_stores import source_groups, inspect_carrier_stores, CarrierRefusal
+    from types import SimpleNamespace
+    api = SimpleNamespace(code_view=code_view, scalar_declarations=scalar_declarations,
+                          param_parts=param_parts, split_args=split_args, INTEGRAL32=INTEGRAL32)
+    groups = source_groups(body, params, api)
+    if groups is None or inventory is None:
+        return set()
+    evidence_root = (REPOSITORY / 'private/original-target-20261020/inventory').resolve()
+    directory = next((p for p in inventory.passes if (p/'decompiled'/('%08x.c'%entry)).is_file()), None)
+    if directory is None or not directory.resolve().is_relative_to(evidence_root):
+        return set()
+    key = REPOSITORY.resolve()
+    if key not in _CARRIER_ORIGINAL:
+        from verify_manifest import Audit
+        _CARRIER_ORIGINAL[key] = (Audit(REPOSITORY, 'private/original-target-20261020/inputs/game.exe'),
+                                  {r['entry'] for r in catalog_io.load(catalog_io.locate(REPOSITORY), references=False)['regions']})
+    audit, accepted = _CARRIER_ORIGINAL[key]
+    try:
+        facts = inspect_carrier_stores(audit, entry, inventory, groups, accepted)
+    except (CarrierRefusal, ValueError, KeyError):
+        return set()
+    return {row['start'] for row in facts['stores']}
+
+
+def floating_word_store_artifacts(body, params=(), native_stores=()):
+    """Recover a low DWORD stored in Ghidra's merged double stack carrier.
+
+    slot=(double)CONCAT44(slot._4_4_, value) is a storage reconstruction:
+    preserve the upper word without reading it. A bare float operand supplies
+    its 32 representation bits, not an integer conversion of its FP value.
+    Only unambiguous declared double slots and known DWORD values qualify.
+    Numeric conversions with non-preserving high words stay unresolved.
+    """
+    if 'CONCAT44' not in body:
+        return body
+    view = code_view(body)
+    declarations, comma = scalar_declarations(view)
+    if comma or '#' in view:
+        return body
+    slots = {}
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind.strip(), None))
+    for kind, name, array in declarations:
+        slots.setdefault(name, []).append((kind, array))
+    if ('CONCAT44' in slots or re.search(r'\(\s*\*\s*CONCAT44\s*\)', view+' '+' '.join(params))):
+        return body
+    pattern = re.compile(r'^[\t ]*(?P<slot>[A-Za-z_]\w*)[\t ]*=(?!=)\s*'
+                         r'\(\s*double\s*\)\s*CONCAT44\s*\(', re.M)
+    edits = []
+    for match in pattern.finditer(view):
+        before = view[:match.start()].rstrip()
+        if before and before[-1] not in '{;}':
+            continue
+        slot = match['slot']
+        if (slots.get(slot) != [('double', None)] and
+                not (slots.get(slot) == [('undefined8', None)] and match.start('slot') in native_stores)):
+            continue
+        opening = match.end()-1
+        closing = matching_paren(view, opening)
+        end = closing+1
+        while end < len(view) and view[end].isspace():
+            end += 1
+        if end >= len(view) or view[end] != ';':
+            continue
+        if body[match.start('slot'):closing+1] != view[match.start('slot'):closing+1]:
+            continue  # Do not discard comments inside the reconstructed store.
+        args = split_args(body[opening+1:closing])
+        if len(args) != 2 or not re.fullmatch(re.escape(slot)+r'\s*\.\s*_4_4_',code_view(args[0]).strip()):
+            continue
+        value = args[1].strip()
+        token = code_view(value).strip()
+        rhs = None
+        if re.fullmatch(r'-?(?:0[xX][0-9a-fA-F]+|[0-9]+)[uUlL]*', token):
+            rhs = '(uint)('+value+')'
+        elif re.fullmatch(r'[A-Za-z_]\w*', token):
+            declared = slots.get(token, [])
+            if len(declared) != 1:
+                continue
+            kind, array = declared[0]
+            if array or '&' in kind or re.search(r'\bvolatile\b',kind):
+                continue
+            kind = clean_type(kind)
+            if kind == 'float':
+                rhs = '*((uint const *)&('+value+'))'
+            elif kind in INTEGRAL32 or kind in POINTER_ALIASES or '*' in kind:
+                rhs = '(uint)('+value+')'
+        if rhs is None:
+            continue
+        edits.append((match.start('slot'),end+1,'*((uint *)&('+slot+')) = '+rhs+';'))
+    for start, end, replacement in reversed(edits):
+        body = body[:start]+replacement+body[end:]
+    return body
+
+
+def partial_byte_update_artifacts(body, params=()):
+    """Recover a byte-two store hidden inside a self-preserving low-three slice.
+
+    x._0_3_ = CONCAT12(value, (ushort)x) preserves bytes zero, one and three.
+    x._0_3_ = (uint3)(ushort)x does the same with a zero byte two. Do not read
+    those preserved bytes or invent a three-byte primitive lvalue. Only an
+    unambiguous, mutable, declared four-byte scalar/pointer slot qualifies;
+    arbitrary slices, array elements and used assignment results stay refused.
+    """
+    if '._0_3_' not in body:
+        return body
+    view = code_view(body)
+    declarations, comma = scalar_declarations(view)
+    if comma or '#' in view:
+        return body
+    slots = {}
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind.strip(), None))
+    for kind, name, array in declarations:
+        slots.setdefault(name, []).append((kind, array))
+    if any(name in slots for name in ('CONCAT12', 'uint3', 'ushort')):
+        return body
+    pattern = re.compile(r'^[\t ]*(?P<slot>[A-Za-z_]\w*)\._0_3_[\t ]*=(?!=)\s*', re.M)
+    edits = []
+    for match in pattern.finditer(view):
+        before = view[:match.start()].rstrip()
+        if before and before[-1] not in '{;}':
+            continue
+        slot = match['slot']
+        declared = slots.get(slot, [])
+        if len(declared) != 1:
+            continue
+        kind, array = declared[0]
+        if array or '&' in kind or re.search(r'\b(?:const|volatile)\b', kind):
+            continue
+        kind = clean_type(kind)
+        if kind not in INTEGRAL32 and kind not in POINTER_ALIASES and '*' not in kind:
+            continue
+        end = expression_end(view, match.end())
+        if end >= len(view) or view[end] != ';':
+            continue
+        rhs = view[match.end():end].strip()
+        if re.fullmatch(r'\(\s*uint3\s*\)\s*\(\s*ushort\s*\)\s*'+re.escape(slot), rhs):
+            value = '0'
+        else:
+            concat = re.match(r'CONCAT12\s*\(', view[match.end():])
+            if not concat:
+                continue
+            opening = match.end()+concat.end()-1
+            closing = matching_paren(view, opening)
+            if view[closing+1:end].strip():
+                continue
+            args = split_args(body[opening+1:closing])
+            if len(args) != 2 or not re.fullmatch(r'\s*\(\s*ushort\s*\)\s*'+re.escape(slot)+r'\s*', code_view(args[1])):
+                continue
+            value = args[0]
+            if not value.strip() or not byte_update_value_safe(value):
+                continue
+        replacement = '((uchar *)&(%s))[2] = (uchar)(%s);' % (slot, value)
+        edits.append((match.start('slot'), end+1, replacement))
+    for start, end, replacement in reversed(edits):
+        body = body[:start]+replacement+body[end:]
+    return body
+
+
+def byte_update_artifacts(body, params=()):
+    """Recover standalone low-byte stores, without reading an invented uint24.
+
+    Ghidra spells a byte store into a reused four-byte slot as
+    x = CONCAT31(x._1_3_, value). The other three bytes are preserved, not
+    loaded by a wider unaligned access. Only declared scalar slots and constant
+    array elements qualify. Used assignment results, effectful values, unknown
+    storage, volatile objects and masks changing the upper bytes stay untouched.
+    """
+    view = code_view(body)
+    slots = {name: (kind, None) for kind, name in map(param_parts, params) if name}
+    declarations = {name: 1 for name in slots}
+    # A two-word cast is not an unnamed declaration followed by a comma.
+    declaration_view = re.sub(r'\(\s*(?:unsigned|signed)\s+(?:long|short|int|char)'
+                              r'(?:\s+int)?\s*\)', lambda m: ' ' * len(m[0]), view)
+    declared, comma_declarations = scalar_declarations(declaration_view)
+    for _, name, _ in declared:
+        declarations[name] = declarations.get(name, 0) + 1
+    for kind, name, array in LOCAL.findall(view):
+        if kind.strip().split()[0] in ('return', 'goto', 'delete', 'throw', 'break', 'continue'):
+            continue
+        slots[name] = (kind.strip(), array.strip() if array else None)
+    pattern = re.compile(r'^[\t ]*(?P<slot>[A-Za-z_]\w*(?:[\t ]*\[[\t ]*\d+[\t ]*\])?)'
+                         r'[\t ]*=(?!=)\s*', re.M)
+    edits = []
+    for match in pattern.finditer(view):
+        before = view[:match.start()].rstrip()
+        if before and before[-1] not in '{;}':
+            continue  # A line break does not make a used assignment standalone.
+        slot = re.sub(r'\s+', '', match['slot'])
+        name = slot.split('[', 1)[0]
+        kind, array = slots.get(name, ('', None))
+        if re.search(r'\b(?:const|volatile)\b', kind):
+            continue
+        kind = clean_type(kind)
+        if kind not in INTEGRAL32 and kind not in POINTER_ALIASES and '*' not in kind:
+            continue
+        if '[' in slot:
+            count = re.fullmatch(r'\[\s*(\d+)\s*\]', array or '')
+            if not count or int(slot[slot.index('[')+1:-1]) >= int(count[1]):
+                continue
+        elif array:
+            continue
+        cursor = match.end()
+        cast = re.match(r'\(([\w\t ]+(?:\s*\*)*)\)\s*', view[cursor:])
+        mixed_cast = False
+        if cast:
+            cast_kind = clean_type(cast[1])
+            if cast_kind != kind:
+                # On the pinned 32-bit target these integral/pointer casts
+                # change neither representation nor the preserved high bytes.
+                # A narrow/wide/FP cast, qualified storage or a shadowed slot
+                # cannot use this mixed-storage repair.
+                if (declarations.get(name) != 1 or comma_declarations or cast_kind in slots or '#' in view or
+                        'CONCAT31' in slots or
+                        re.search(r'\b(?:typedef|using|namespace|class|struct|union|enum)\b', view) or
+                        re.search(r'\b(?:const|volatile|__ptr64|__far|__huge|far|near)\b', cast[1]) or
+                        not (cast_kind in INTEGRAL32 or cast_kind in POINTER_ALIASES or '*' in cast_kind)):
+                    continue
+                mixed_cast = True
+            cursor += cast.end()
+        concat = re.match(r'CONCAT31\s*\(', view[cursor:])
+        if not concat:
+            continue
+        opening = cursor + concat.end() - 1
+        closing = matching_paren(view, opening)
+        if mixed_cast and body[match.start('slot'):closing+1] != view[match.start('slot'):closing+1]:
+            continue  # Preserve comments/literals inside a newly recognized store.
+        args = split_args(body[opening+1:closing])
+        if len(args) != 2 or re.sub(r'\s+', '', args[0]) != slot + '._1_3_':
+            continue
+        value = args[1]
+        if not byte_update_value_safe(value):
+            continue
+        tail = re.match(r'\s*(?:&\s*(0x[0-9a-fA-F]+|\d+)[uU]?)?\s*;', view[closing+1:])
+        if not tail:
+            continue
+        if tail[1]:
+            mask = int(tail[1], 16 if tail[1].lower().startswith('0x') else 10)
+            if mask > 0xffffffff or mask & 0xffffff00 != 0xffffff00:
+                continue
+            value = '(uchar)(%s) & 0x%02x' % (value, mask & 0xff)
+        replacement = '*(uchar *)&(%s) = (uchar)(%s);' % (slot, value)
+        edits.append((match.start('slot'), closing + 1 + tail.end(), replacement))
+    for start, end, replacement in reversed(edits):
+        body = body[:start] + replacement + body[end:]
+    return body
+
+
+def stack_artifacts(body, params, convention):
+    """Name stack storage honestly, reusing a known local/argument when possible.
+
+    Ghidra stack offsets are hypotheses. An otherwise absent slot gets a
+    width-only unknown local and a review note, never an absolute pointer.
+    """
+    slots = {}
+    for kind, name, array in LOCAL.findall(body):
+        offset = re.fullmatch(r'(?:\w*Stack|local)_([0-9a-f]+)', name)
+        if offset:
+            slots.setdefault(-int(offset[1], 16), []).append(name)
+    offset = 4
+    skip = {'__thiscall': 1, '__fastcall': 2}.get(convention, 0)
+    for param in params[skip:]:
+        kind, name = param_parts(param)
+        if name:
+            slots.setdefault(offset, []).append(name)
+        offset += stack_bytes(param)
+    declarations = []
+    for token in sorted(set(re.findall(r'\bstack0x[0-9a-f]{8}\b', code_view(body)))):
+        raw = int(token[7:], 16)
+        signed = raw - (1 << 32) if raw & (1 << 31) else raw
+        known = slots.get(signed, [])
+        if len(known) == 1:
+            replacement = known[0]
+        else:
+            replacement = 'unknown_stack_%08x' % raw
+            declarations.append('    undefined4 %s; // TODO: unknown stack storage width/aliasing (%s).' %
+                                (replacement, token))
+        body = re.sub(r'\b' + token + r'\b', replacement, body)
+    if declarations:
+        body = body.replace('{', '{\n' + '\n'.join(declarations), 1)
+    return body
+
+
+def floating_operand_globals(body, row, params=()):
+    """Recover the storage width of bare operands of original x87 memory operations."""
+    view = code_view(body)
+    # The export must itself use the global as a numeric operand of a floating
+    # expression. A pointer or integer expression cannot acquire a new type
+    # just because the original also reads the same absolute address with x87.
+    symbols = list(DATA.finditer(view))
+    if not symbols or not row:
+        return {}
+    types = variable_types(body, params)
+    floats = {name for name, kind in types.items() if kind in ('float', 'double')}
+    floating = r'(?:(?:\(\s*(?:float|double)\s*\)\s*)[A-Za-z_]\w*'
+    if floats:
+        floating += '|' + '|'.join(re.escape(name) for name in sorted(floats))
+    floating += ')'
+    address_counts = {}
+    wanted = {}
+    previous_end = None
+    for match in symbols:
+        name = match.group()
+        address = int(name[-8:], 16)
+        address_counts[address] = address_counts.get(address, 0) + 1
+        left = view[:match.start()]
+        right = view[match.end():]
+        if name.startswith('LAB_') or re.match(r'\s*(?:\[|\.|->|\()', right):
+            continue
+        arithmetic = re.search(r'(?<![\w.])' + floating + r'\s*([*+/-])\s*$', left)
+        if arithmetic:
+            prefix = left[:arithmetic.start()].rstrip()
+            if prefix and prefix[-1] not in '=(,;{' and not re.search(r'\breturn$', prefix):
+                arithmetic = None
+        if arithmetic:
+            allowed = {'*': ('fmul',), '+': ('fadd',), '-': ('fsub',), '/': ('fdiv',)}[arithmetic[1]]
+        elif previous_end is not None and re.fullmatch(r'\s*\*\s*', view[previous_end:match.start()]):
+            allowed = ('fmul',)
+        elif re.match(r'\s*(?:<=?|>=?)\s*' + floating + r'\b', right):
+            allowed = ('fcom', 'fcomp')
+        else:
+            continue
+        wanted[address] = (name, allowed)
+        previous_end = match.end() if allowed == ('fmul',) else None
+    wanted = {address: fact for address, fact in wanted.items() if address_counts[address] == 1}
+    if not wanted:
+        return {}
+    import capstone
+    from capstone import x86_const as x86
+    decoder = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_32)
+    decoder.detail = True
+    evidence = {}
+    for span in row.get('ranges', ()):
+        raw = bytes.fromhex(span['bytes_hex'])
+        covered = 0
+        for ins in decoder.disasm(raw, int(span['start'], 16)):
+            covered += ins.size
+            for operand in ins.operands:
+                if operand.type == x86.X86_OP_IMM:
+                    address = operand.imm & 0xffffffff
+                    if address in wanted:
+                        evidence[address] = None
+                    continue
+                if operand.type != x86.X86_OP_MEM:
+                    continue
+                mem = operand.mem
+                address = mem.disp & 0xffffffff
+                if address not in wanted:
+                    continue
+                symbol, allowed = wanted[address]
+                width = {4: 'float', 8: 'double'}.get(operand.size)
+                if (address in evidence or mem.base or mem.index or mem.segment or
+                        ins.mnemonic not in allowed or len(ins.operands) != 1):
+                    width = None
+                evidence[address] = width
+        if covered != len(raw):
+            return {}
+    return {wanted[address][0]: kind for address, kind in evidence.items() if kind}
+
+
+
+def pointer_global_type(body, symbol):
+    """Reuse an unambiguous local pointer type; prefixes alone do not fix layout."""
+    types = variable_types(body)
+    assigned = {types[m[1]] for m in re.finditer(r'\b(\w+)\s*=\s*' + re.escape(symbol) + r'\s*;', body)
+                if m[1] in types and '*' in types[m[1]]}
+    if len(assigned) == 1:
+        return assigned.pop()
+    return 'code *' if re.match(r'_?PTR_(?:FUN|LAB)_', symbol) else 'void *'
+
+
+def variable_types(body, params=()):
+    types = {name: kind for kind, name in map(param_parts, params) if name}
+    types.update({name: kind.strip() + (' *' if array else '')
+                  for kind, name, array in LOCAL.findall(code_view(body))
+                  if kind.strip().split()[0] not in ('return', 'goto', 'delete', 'throw', 'break', 'continue')})
+    return types
+
+
+def scalar_address_views(body, params=()):
+    """Type memory views of merged 32-bit locals, retaining their storage type.
+
+    Ghidra sometimes reuses one undefined4 slot for packed values and addresses,
+    then writes a bare *slot or slot[index]. A unique explicit pointer-assignment
+    type supplies a four-byte primitive view, not a new local type or layout.
+    Numeric uses, partial writes, address taking and evaluation order stay as
+    written. Conflicting/unknown pointees and duplicate declarations refuse it.
+    This repairs scratch C++ syntax; the original loads/ABI still need proof.
+    """
+    view, declarations = code_view(body), {}
+    for match in LOCAL.finditer(view):
+        declarations.setdefault(match[2], []).append(match)
+    parameters = {param_parts(p)[1] for p in params}
+    pointee32 = {'int', 'uint', 'undefined4', 'long', 'ulong', 'unsigned int',
+                 'unsigned long', 'signed int', 'signed long'}
+    edits, notes = [], []
+    for name, decls in declarations.items():
+        if len(decls) != 1 or name in parameters:
+            continue
+        decl = decls[0]
+        if decl[3] or clean_type(decl[1]) not in INTEGRAL32:
+            continue
+        token = r'\b' + re.escape(name) + r'\b'
+        hints = set()
+        for match in re.finditer(token + r'\s*=\s*\(\s*([^()]+?)\s*\*\s*\)', view):
+            before = view[:match.start()].rstrip()
+            if before.endswith(('*', '.', '->', '::', ']')):
+                continue
+            # Qualifiers are meaningful for a memory access. Do not erase
+            # const/volatile as clean_type does for ABI-width comparisons.
+            hints.add(' '.join(match[1].split()))
+        if len(hints) != 1 or not hints <= pointee32:
+            continue
+        pointee, count = next(iter(hints)), 0
+        for match in re.finditer(token, view):
+            before, after = view[:match.start()].rstrip(), view[match.end():].lstrip()
+            if before.endswith(('.', '->', '::')) or after.startswith(('(', '.', '->', '::')):
+                continue
+            if before.endswith('*') and unary_operator(view, len(before)-1):
+                # Do not infer the additional pointer level in **slot.
+                prefix = before[:-1].rstrip()
+                if prefix.endswith('*') and unary_operator(view, len(prefix)-1):
+                    continue
+                edits.append((match.start(), match.end(), '(%s *)%s' % (pointee, name)))
+            elif after.startswith('['):
+                edits.append((match.start(), match.end(), '((%s *)%s)' % (pointee, name)))
+            else:
+                continue
+            count += 1
+        if count:
+            notes.append('// Scratch %s memory view: %s * from explicit assignments; '
+                         'merged %s storage retained, original-load/type proof still required.' %
+                         (name, pointee, clean_type(decl[1])))
+    for first, last, replacement in sorted(edits, reverse=True):
+        body = body[:first] + replacement + body[last:]
+    return body, notes
+
+
+def unary_operator(view, position):
+    before = view[:position].rstrip()
+    # A cast can precede a unary load: (code **)*DAT reads DAT's pointee.
+    # Treating that star as multiplication would cast DAT itself to uint,
+    # producing illegal indirection and losing the intended memory read.
+    # Peel each cast in (int)(uint)*DAT. A closing parenthesis alone cannot
+    # distinguish this from f(uint)*DAT; its complete left context matters.
+    while True:
+        if not before or before[-1] in '([=!,;:{}?&|^~+-*/%<>' or re.search(r'\breturn$', before):
+            return True
+        if not before.endswith(')'):
+            return False
+        depth, start = 1, len(before)-2
+        while start >= 0:
+            if before[start] == ')':
+                depth += 1
+            elif before[start] == '(':
+                depth -= 1
+                if depth == 0:
+                    break
+            start -= 1
+        if start < 0:
+            return False
+        kind = before[start+1:-1].strip()
+        pointer_cast = re.fullmatch(r'[A-Za-z_]\w*(?:::\w+)*(?:\s+[A-Za-z_]\w*)*\s*\*+\s*', kind)
+        scalar_cast = clean_type(kind) in INTEGRAL32 | {
+            'bool', 'char', 'signed char', 'unsigned char', 'short', 'ushort', 'unsigned short',
+            'longlong', 'ulonglong', 'undefined1', 'undefined2', 'undefined3', 'undefined8',
+            'float', 'double', 'float10', 'byte', 'uchar', 'code'}
+        if not pointer_cast and not scalar_cast:
+            return False
+        # f(uint), sizeof(uint), T(uint) and a[index](uint) stop at their
+        # expression/callee prefix rather than being mistaken for casts.
+        before = before[:start].rstrip()
+
+
+def cast_void_global_offsets(body, globals_):
+    """Keep literal byte offsets on otherwise opaque global pointers explicit.
+
+    Ghidra uses byte offsets on a void pointer. Cast the stored address bits,
+    leaving the outer load/store width untouched. Indexing, pointer differences,
+    variable offsets and unknown layouts are not inferred by this narrow rule.
+    """
+    view, sites = code_view(body), []
+    for symbol, kind in globals_.items():
+        if not re.fullmatch(r'void\s*\*', clean_type(kind)):
+            continue
+        pattern = (r'\b' + re.escape(symbol) +
+                   r'\b(?=\s*[+-]\s*(?:0x[0-9a-fA-F]+|\d+)\b(?![.\w]))')
+        for match in re.finditer(pattern, view):
+            before = view[:match.start()].rstrip()
+            if before.endswith(('&', '*')) and unary_operator(view, len(before) - 1):
+                continue
+            if before.endswith(('(uint)', '(int)', '(unsigned int)')):
+                continue
+            sites.append((match.start(), match.end()))
+    for first, last in sorted(sites, reverse=True):
+        body = body[:first] + '(uint)' + body[first:last] + body[last:]
+    return body
+
+
+_SHARED_POINTERS = {}
+
+
+def shared_pointer_types(directory=None):
+    """Read unambiguous, address-annotated pointer declarations from shared layouts.
+
+    Only existing top-level class/struct names and primitive pointees are used.
+    No struct layout, inheritance, or field offset is synthesized by this index.
+    """
+    directory = Path(directory or REPOSITORY / 'src/shared').resolve()
+    if directory in _SHARED_POINTERS:
+        return _SHARED_POINTERS[directory]
+    texts = {p: p.read_text(encoding='utf-8') for p in sorted(directory.glob('*.hpp'))}
+    tags = {}
+    for text in texts.values():
+        tags.update({name: tag for tag, name in re.findall(r'^(class|struct)\s+(\w+)\b', code_view(text), re.M)})
+    choices = {}
+    pattern = re.compile(r'^\s*extern\s+([A-Za-z_]\w*\s*\*)\s*(\w+)\s*;[^\n]*//\s*0x([0-9a-fA-F]{8})\b', re.M)
+    for path, text in texts.items():
+        for match in pattern.finditer(text):
+            kind = match[1].strip()
+            pointee = kind.rstrip('*').strip()
+            if pointee not in tags and pointee not in ('int', 'uint', 'char', 'short', 'ushort', 'byte', 'void'):
+                continue
+            kind = pointee + ' *'
+            choices.setdefault(int(match[3], 16), []).append(dict(
+                kind=kind, header='shared/' + path.name,
+                forward=('%s %s;' % (tags[pointee], pointee)) if pointee in tags else None))
+    result = {address: rows[0] for address, rows in choices.items()
+              if len({r['kind'] for r in rows}) == 1}
+    _SHARED_POINTERS[directory] = result
+    return result
+
+
+def recover_global_pointers(body, params=(), shared=None):
+    """Infer stored pointer globals from their uses, without inventing layouts.
+
+    An address taken with &DAT is storage, not evidence of a stored pointer.
+    Direct dereferences/subscripts and consistent pointer assignments supply
+    evidence. Conflicting pointee types keep a width-only uint pointee. Ghidra
+    byte-offset arithmetic is kept explicit at the pointer/integer boundary;
+    subscripts retain their inferred element stride. These remain hypotheses.
+    """
+    view, types = code_view(body), variable_types(body, params)
+    shared = shared or {}
+    inferred = {}
+    for symbol in sorted(set(DATA.findall(view))):
+        if not re.fullmatch(r'_?DAT_[0-9a-f]{8}', symbol):
+            continue
+        token = r'\b' + re.escape(symbol) + r'\b'
+        hints = set()
+        for match in re.finditer(r'^\s*(\w+)\s*=\s*' + token + r'\s*;', view, re.M):
+            kind = types.get(match[1], '')
+            if '*' in kind:
+                hints.add(kind)
+        for match in re.finditer(token + r'\s*(?:==|!=|=)\s*\(([^()]+\*)\)', view):
+            hints.add(match[1].strip())
+        callable_ = re.search(r'\(\s*\*\s*' + token + r'\s*\)\s*\(', view)
+        dereferenced = False
+        for match in re.finditer(r'\*\s*' + token, view):
+            if unary_operator(view, match.start()):
+                dereferenced = True
+        indexed = re.search(token + r'\s*\[', view)
+        known = shared.get(int(symbol[-8:], 16))
+        if known and not callable_ and not dereferenced and not indexed:
+            # Incomplete shared owner types suffice at raw address boundaries.
+            # Direct pointee accesses remain width-only until fields are recovered.
+            inferred[symbol] = known['kind']
+        elif callable_:
+            inferred[symbol] = 'code *'
+        elif hints or dereferenced or indexed:
+            inferred[symbol] = hints.pop() if len(hints) == 1 else 'undefined4 *'
+    for symbol in inferred:
+        # A cast is at the raw byte-offset boundary, rather than at every read.
+        view = code_view(body)
+        sites = list(re.finditer(r'\b' + symbol + r'\b', view))
+        for match in reversed(sites):
+            before = view[:match.start()].rstrip()
+            after = view[match.end():].lstrip()
+            if before.endswith(('&', '*')) and unary_operator(view, len(before) - 1):
+                continue
+            if not re.match(r'(?:[+\-*/%]|<<|>>|[&|^])', after) and not before.endswith(('+', '-', '*', '/', '%', '^', '|', '&', '<<', '>>')):
+                continue
+            body = body[:match.start()] + '(uint)' + body[match.start():]
+    return body, inferred
+
+
+def expression_end(view, start):
+    """End of an assignment RHS, including multiline and for-loop clauses."""
+    depth = 0
+    for index in range(start, len(view)):
+        char = view[index]
+        if char in '([':
+            depth += 1
+        elif char in ')]':
+            if depth == 0:
+                return index
+            depth -= 1
+        elif depth == 0 and char in ';,':
+            return index
+    return len(view)
+
+
+def lvalue_type(left, types):
+    """Recover only explicit cast-dereferences and declared scalar/array slots."""
+    left = left.rstrip()
+    # Explicit dereference casts include nested addresses and partial fields.
+    line = left[left.rfind('\n') + 1:].strip()
+    while line.startswith('(') and line.endswith(')'):
+        try:
+            if matching_paren(line, 0) != len(line) - 1:
+                break
+        except ValueError:
+            break
+        line = line[1:-1].strip()
+    cast = re.match(r'^\*\s*\(\s*([\w\s]+(?:\s*\*)+)\s*\)', line)
+    if cast:
+        return cast[1].rsplit('*', 1)[0].strip()
+    # Most expressions end in a declared name (also assignments within for/if).
+    match = re.search(r'\b(\w+)$', line)
+    if match:
+        name = match[1]
+        if name in types:
+            kind = types[name]
+            prefix = line[:match.start()].rstrip()
+            return kind.rsplit('*', 1)[0].strip() if prefix.endswith('*') and '*' in kind else kind
+    array = re.search(r'\b(\w+)\s*\[[^\[\]]*\]$', line)
+    if array and '*' in types.get(array[1], ''):
+        return types[array[1]].rsplit('*', 1)[0].strip()
+    return None
+
+
+def cast_storage_boundaries(body, params=(), globals_=None):
+    """Spell C's scalar assignment conversions at stores, not every operand.
+
+    Ghidra output includes multiline/embedded stores that the old line regex
+    missed. The declared destination fixes the conversion width. Never cast
+    aggregate assignments or transform compound assignments as plain stores.
+    """
+    types = variable_types(body, params)
+    types.update(globals_ or {})
+    view = code_view(body)
+    edits = []
+    for match in re.finditer(r'(?<![=!<>+\-*/%&|^])=(?!=)', view):
+        kind = lvalue_type(view[:match.start()], types)
+        if not kind or not re.fullmatch(r'[\w\s]+(?:\s*\*)*', kind):
+            continue
+        end = expression_end(view, match.end())
+        rhs = body[match.end():end]
+        value = rhs.strip()
+        if not value or value.startswith('(' + kind + ')'):
+            continue
+        # Shared aggregate types are not scalar conversion targets.
+        if '*' not in kind and not re.fullmatch(r'(?:unsigned |signed )?(?:char|short|int|long|long long|__int64)|'
+                                               r'undefined[1-8]?|u?int[1-8]?|byte|u?char|u?short|u?long|'
+                                               r'float(?:10)?|double|u?longlong|[dq]word|size_t|BOOL|DWORD|UINT|'
+                                               r'LONG|SHORT|WORD|BYTE|LPARAM|WPARAM|LRESULT|HWND|HANDLE|HINSTANCE', kind):
+            continue
+        # Preserve nested assignment evaluation by inserting paired tokens.
+        first = match.end() + len(rhs) - len(rhs.lstrip())
+        last = end - len(rhs) + len(rhs.rstrip())
+        edits += [(first, '(%s)(' % kind), (last, ')')]
+    for position, text in sorted(edits, key=lambda item: item[0], reverse=True):
+        body = body[:position] + text + body[position:]
+    return body
+
+
+INTEGRAL32 = {'int', 'uint', 'undefined4', 'long', 'ulong', 'unsigned', 'signed',
+              'unsigned int', 'signed int', 'unsigned long', 'signed long',
+              'DWORD', 'UINT', 'LONG', 'ULONG', 'BOOL', 'LPARAM', 'WPARAM', 'LRESULT'}
+POINTER_ALIASES = {'HWND', 'HANDLE', 'HINSTANCE', 'HMODULE', 'LPVOID', 'HDC', 'HKEY',
+                   'LPSTR', 'LPCSTR', 'LPDWORD', 'LPCRITICAL_SECTION', 'LPSECURITY_ATTRIBUTES',
+                   'LPOVERLAPPED', 'LPWSTR', 'LPCWSTR', 'PVOID', 'LPCVOID', 'FARPROC'}
+
+
+def clean_type(kind):
+    return ' '.join(re.sub(r'\b(?:extern|static|const|volatile)\b', '', kind).split())
+
+
+def equality_operand(view, boundary, direction):
+    """Find one full equality operand without crossing a lower-precedence operator."""
+    index = boundary if direction == 1 else boundary - 1
+    stack = []
+    while 0 <= index < len(view):
+        char = view[index]
+        opening, closing = ('([', ')]') if direction == 1 else (')]', '([')
+        if char in opening:
+            stack.append(char)
+        elif char in closing:
+            if not stack:
+                break
+            stack.pop()
+        elif not stack:
+            if char in ';,{}?:=' or char == '!' and view[index:index+2] == '!=':
+                break
+            if char in '&|^':
+                double = view[index:index+2] in ('&&', '||') or view[index-1:index+1] in ('&&', '||')
+                if double or char != '&' or not unary_operator(view, index):
+                    break
+        index += direction
+    first, last = (boundary, index) if direction == 1 else (index + 1, boundary)
+    while first < last and view[first].isspace(): first += 1
+    while last > first and view[last-1].isspace(): last -= 1
+    if direction == -1:
+        match = re.match(r'return\b\s*', view[first:last])
+        if match: first += match.end()
+    return first, last
+
+
+def one_atom(text):
+    if re.fullmatch(r'\w+(?:\+\+|--)?', text):
+        return True
+    if text.startswith('('):
+        try:
+            return matching_paren(text, 0) == len(text) - 1
+        except ValueError:
+            return False
+    match = re.match(r'\w+\s*\[', text)
+    if match:
+        depth = 1
+        for index in range(match.end(), len(text)):
+            if text[index] == '[': depth += 1
+            elif text[index] == ']': depth -= 1
+            if depth == 0: return index == len(text) - 1
+    return False
+
+
+def equality_type(expression, types):
+    expression = expression.strip()
+    while expression.startswith('('):
+        try:
+            if matching_paren(expression, 0) != len(expression)-1: break
+        except ValueError:
+            return None
+        expression = expression[1:-1].strip()
+    if re.fullmatch(r'\w+', expression):
+        kind = clean_type(types.get(expression, ''))
+        return 'pointer' if '*' in kind or kind in POINTER_ALIASES else ('int32' if kind in INTEGRAL32 else None)
+    if re.fullmatch(r'&\s*\w+', expression):
+        return 'pointer'
+    load = re.match(r'^\*\s*\(\s*([\w\s]+(?:\s*\*)+)\s*\)\s*', expression)
+    if load and one_atom(expression[load.end():]):
+        kind = clean_type(load[1].rsplit('*', 1)[0])
+        return 'pointer' if '*' in kind or kind in POINTER_ALIASES else ('int32' if kind in INTEGRAL32 else None)
+    cast = re.match(r'^\(\s*([\w\s]+(?:\s*\*)*)\s*\)\s*', expression)
+    if cast and one_atom(expression[cast.end():]):
+        kind = clean_type(cast[1])
+        return 'pointer' if '*' in kind or kind in POINTER_ALIASES else ('int32' if kind in INTEGRAL32 else None)
+    array = re.match(r'^(\w+)\s*\[', expression)
+    if array and one_atom(expression) and '*' in types.get(array[1], ''):
+        kind = clean_type(types[array[1]].rsplit('*', 1)[0])
+        return 'pointer' if '*' in kind or kind in POINTER_ALIASES else ('int32' if kind in INTEGRAL32 else None)
+    # Ghidra often indexes a pointer loaded from an explicit pointer-to-pointer
+    # view: (*(int **)(owner + offset))[index]. Keep both original reads.
+    if expression.startswith('('):
+        try:
+            close = matching_paren(expression, 0)
+        except ValueError:
+            return None
+        suffix = expression[close+1:].strip()
+        if suffix.startswith('[') and one_atom('base' + suffix):
+            base = expression[1:close].strip()
+            load = re.match(r'^\*\s*\(\s*([\w\s]+\*\s*\*+)\s*\)\s*', base)
+            if load and one_atom(base[load.end():]):
+                kind = clean_type(load[1].rsplit('*', 2)[0])
+                return 'pointer' if '*' in kind or kind in POINTER_ALIASES else ('int32' if kind in INTEGRAL32 else None)
+    return None
+
+
+def function_address_arithmetic(body, params=()):
+    """Lower casted sums of function-address bits, not callable ABIs.
+
+    The i386 export occasionally merges an integer scratch slot with WNDPROC
+    or code*. C++ forbids adding to a function pointer. An explicit 32-bit
+    result cast and a pure, typed integer RHS permit unsigned address-bit
+    arithmetic. Preserve the RHS (including signed division), calls, storage,
+    and every other use of the pointer. Unknown or shadowed types refuse it.
+    """
+    view = code_view(body)
+    if re.search(r'#|\b(?:typedef|using|class|struct|union|enum)\b', view):
+        return body
+    rows, comma = scalar_declarations(view)
+    if comma:
+        return body
+    slots = {}
+    for kind, name, array in rows:
+        slots.setdefault(name, []).append((kind, array))
+    for kind, name in map(param_parts, params):
+        if name:
+            slots.setdefault(name, []).append((kind, None))
+    for match in re.finditer(r'(?:^|[;{}\n])\s*[A-Za-z_]\w*(?:\s+[A-Za-z_]\w*)*\s*\(\s*(?:__\w+\s+)?\*\s*(\w+)\s*\)\s*\(', view+'\n'+';\n'.join(params), re.M):
+        slots.setdefault(match[1], []).append(('', None))
+    def kind_of(name):
+        declarations = slots.get(name, [])
+        if len(declarations) != 1 or declarations[0][1]:
+            return ''
+        kind = ' '.join(declarations[0][0].split())
+        if re.search(r'\b(?:volatile|extern|static)\b|&', kind):
+            return ''
+        return re.sub(r'\s*\*\s*', '*', kind)
+    functions = {'WNDPROC', 'code*'}
+    # A local named like a type makes cast interpretation ambiguous.
+    if set(slots) & (INTEGRAL32 | {'WNDPROC', 'code'}):
+        return body
+    def integer_rhs(text):
+        if re.search(r'\+\+|--', text):
+            return False
+        tokens = re.findall(r'0[xX][0-9a-fA-F]+[uUlL]*|[0-9]+[uUlL]*|[A-Za-z_]\w*|\S', text)
+        position = [0]
+        def unary():
+            pos = position[0]
+            if pos == len(tokens):
+                raise ValueError()
+            token = tokens[pos]
+            position[0] += 1
+            if token in ('+', '-'):
+                if unary() != 'int32': raise ValueError()
+                return 'int32'
+            if token == '(':
+                end = pos + 1
+                while end < len(tokens) and re.fullmatch(r'[A-Za-z_]\w*', tokens[end]): end += 1
+                kind = ' '.join(tokens[pos+1:end])
+                if end < len(tokens) and tokens[end] == ')' and kind in INTEGRAL32:
+                    position[0] = end + 1
+                    if unary() not in ('int32', 'bits32'): raise ValueError()
+                    return 'int32'
+                result = expression(0)
+                if position[0] == len(tokens) or tokens[position[0]] != ')': raise ValueError()
+                position[0] += 1
+                return result
+            if re.fullmatch(r'0[xX][0-9a-fA-F]+[uUlL]*|[0-9]+[uUlL]*', token):
+                suffix = re.search(r'[uUlL]*$', token)[0].lower()
+                if suffix not in ('', 'u', 'l', 'ul', 'lu'): raise ValueError()
+                number = token[:-len(suffix)] if suffix else token
+                base = 16 if number.lower().startswith('0x') else 8 if len(number)>1 and number[0]=='0' else 10
+                if int(number, base) > 0xffffffff: raise ValueError()
+                return 'int32'
+            kind = kind_of(token)
+            if kind in INTEGRAL32: return 'int32'
+            if kind in functions or kind.endswith('*') and kind[:-1] in INTEGRAL32:
+                return 'bits32'
+            raise ValueError()
+        precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '%': 2}
+        def expression(minimum):
+            result = unary()
+            while position[0] < len(tokens):
+                op = tokens[position[0]]
+                if precedence.get(op, -1) < minimum: break
+                position[0] += 1
+                other = expression(precedence[op] + 1)
+                if result != 'int32' or other != 'int32': raise ValueError()
+                result = 'int32'
+            return result
+        try:
+            return expression(0) == 'int32' and position[0] == len(tokens)
+        except (ValueError, RecursionError):
+            return False
+    edits = []
+    for match in re.finditer(r'\(\s*([A-Za-z_][\w\s]*?(?:\s*\*)?)\s*\)\s*\(\s*([A-Za-z_]\w*)\s*([+-])(?![+=\->])', view):
+        result_kind = re.sub(r'\s*\*\s*', '*', ' '.join(match[1].split()))
+        if result_kind not in functions | INTEGRAL32 or kind_of(match[2]) not in functions:
+            continue
+        opening = view.rfind('(', match.start(), match.start(2))
+        try:
+            closing = matching_paren(view, opening)
+        except ValueError:
+            continue
+        if not integer_rhs(view[match.end():closing]):
+            continue
+        edits.append((match.start(2), match.end(2), '((unsigned int)%s)' % match[2]))
+    for start, end, replacement in reversed(edits):
+        body = body[:start] + replacement + body[end:]
+    return body
+
+
+def full_pointer_equality(body, params=(), globals_=None):
+    types = variable_types(body, params)
+    types.update(globals_ or {})
+    view = code_view(body)
+    edits = []
+    for match in re.finditer(r'==|!=', view):
+        left = equality_operand(view, match.start(), -1)
+        right = equality_operand(view, match.end(), 1)
+        if view[:left[0]].rstrip().endswith(('==','!=')) or view[right[1]:].lstrip().startswith(('==','!=')):
+            continue
+        values = [view[first:last] for first,last in (left,right)]
+        kinds = [equality_type(value, types) for value in values]
+        if 'pointer' not in kinds or any(kind not in ('pointer','int32') for kind in kinds):
+            continue
+        if all(re.fullmatch(r'\w+', value) for value in values) and clean_type(types.get(values[0],'')) == clean_type(types.get(values[1],'')):
+            continue
+        # Cast the complete value, including an address-of or loaded pointer.
+        # The existing dereference keeps its original width and single evaluation.
+        for (first,last), kind in zip((left,right), kinds):
+            if kind == 'pointer':
+                edits.extend(((first, '(uint)('), (last, ')')))
+    # Ambiguous/chained equalities can select overlapping operands; refuse them.
+    positions = [position for position, _ in edits]
+    if len(positions) != len(set(positions)):
+        return body
+    for position, text in sorted(edits, reverse=True):
+        body = body[:position] + text + body[position:]
+    return body
+
+
+UNSIGNED32 = {'uint', 'undefined4', 'ulong', 'unsigned', 'unsigned int', 'unsigned long',
+              'DWORD', 'UINT', 'ULONG', 'LPARAM', 'WPARAM', 'LRESULT'}
+PROMOTED_SMALL = {'bool', 'char', 'signed char', 'unsigned char', 'byte', 'uchar',
+                  'short', 'signed short', 'unsigned short', 'ushort', 'undefined1', 'undefined2'}
+
+
+def expression_category(kind):
+    """Only evidenced i386 pointer and ordinary integral categories."""
+    kind = clean_type(kind or '')
+    if '::*' in kind or '(' in kind:
+        return None
+    if '*' in kind or kind in POINTER_ALIASES:
+        return 'pointer'
+    if kind in UNSIGNED32:
+        return 'unsigned32'
+    if kind in INTEGRAL32 or kind in PROMOTED_SMALL:
+        return 'signed32'
+    return None
+
+
+def seed_expression_type(expression, types, depth=0):
+    """Infer an operand's existing type, never change its arithmetic or reads.
+
+    This small grammar refuses unknown calls/types, FP/wide arithmetic and
+    conditionals. Explicit casts and loads, ordinary promoted integral math,
+    and pointer +/- integer keep their existing widths and element strides.
+    """
+    if depth > 64:
+        return None
+    expression = expression.strip()
+    while expression.startswith('('):
+        try:
+            if matching_paren(expression, 0) != len(expression)-1:
+                break
+        except ValueError:
+            return None
+        expression = expression[1:-1].strip()
+    operators, stack, index = [], [], 0
+    ranks = {'|':0, '^':1, '&':2, '<<':3, '>>':3, '+':4, '-':4, '*':5, '/':5, '%':5}
+    while index < len(expression):
+        char = expression[index]
+        if char in '([':
+            stack.append(char)
+        elif char in ')]':
+            if not stack:
+                return None
+            stack.pop()
+        elif not stack:
+            pair = expression[index:index+2]
+            if pair in ('++', '--', '->', '&&', '||'):
+                index += 2
+                continue
+            op = pair if pair in ('<<', '>>') else char
+            if op in ranks and not (op in ('+', '-', '*', '&') and unary_operator(expression, index)):
+                operators.append((ranks[op], index, op))
+            if len(op) == 2:
+                index += 1
+        index += 1
+    if stack:
+        return None
+    if operators:
+        _, at, op = min(operators, key=lambda item:(item[0],-item[1]))
+        left = seed_expression_type(expression[:at], types, depth+1)
+        right = seed_expression_type(expression[at+len(op):], types, depth+1)
+        a, b = expression_category(left), expression_category(right)
+        integral = {'signed32', 'unsigned32'}
+        if a in integral and b in integral:
+            return ('uint' if a == 'unsigned32' else 'int') if op in ('<<', '>>') else ('uint' if 'unsigned32' in (a,b) else 'int')
+        if op in ('+', '-') and a == 'pointer' and b in integral:
+            return left
+        if op == '+' and b == 'pointer' and a in integral:
+            return right
+        if op == '-' and a == b == 'pointer' and clean_type(left) == clean_type(right):
+            return 'int'
+        return None
+    variable = re.fullmatch(r'(?:\+\+|--)?(\w+)(?:\+\+|--)?', expression)
+    if variable and variable[1] in types:
+        return types[variable[1]]
+    literal = re.fullmatch(r'(0[xX][0-9a-fA-F]+|[0-9]+)([uUlL]*)', expression)
+    if literal and literal[2].lower() in ('', 'u', 'l', 'ul', 'lu'):
+        value = int(literal[1], 16 if literal[1].lower().startswith('0x') else 10)
+        if value <= 0xffffffff and ('u' in literal[2].lower() or value <= 0x7fffffff or literal[1].lower().startswith('0x')):
+            return 'uint' if 'u' in literal[2].lower() or value > 0x7fffffff else 'int'
+    load = re.match(r'^\*\s*\(\s*([\w\s]+(?:\s*\*)+)\s*\)\s*', expression)
+    if load and one_atom(expression[load.end():]):
+        return load[1].rsplit('*',1)[0].strip()
+    cast = re.match(r'^\(\s*([\w\s]+(?:\s*\*)*)\s*\)\s*', expression)
+    if cast:
+        rest = expression[cast.end():].strip()
+        if rest and (one_atom(rest) or seed_expression_type(rest, types, depth+1) is not None):
+            return cast[1].strip()
+    array = re.match(r'^(\w+)\s*\[', expression)
+    if array and one_atom(expression) and '*' in types.get(array[1], ''):
+        return types[array[1]].rsplit('*',1)[0].strip()
+    if expression.startswith(('+', '-', '~', '!')):
+        kind = seed_expression_type(expression[1:], types, depth+1)
+        category = expression_category(kind)
+        if expression[0] == '!' and category:
+            return 'bool'
+        if category in ('signed32', 'unsigned32'):
+            return 'uint' if category == 'unsigned32' else 'int'
+    if expression.startswith('&') and re.fullmatch(r'&\s*\w+', expression):
+        return 'void *'
+    if expression.startswith('*'):
+        operand = expression[1:].strip()
+        simple = re.fullmatch(r'(\w+)(?:\+\+|--)?', operand)
+        if simple and '*' in types.get(simple[1], ''):
+            return types[simple[1]].rsplit('*',1)[0].strip()
+    return None
+
+
+def unsigned_pointer_ordering(body, params=(), globals_=None):
+    """Order pointer bits only against an already unsigned32 operand.
+
+    Signed/unknown/wide/FP counterparts stay unresolved. Cast the COMPLETE
+    pointer operand once; do not change pointee loads or arithmetic strides.
+    """
+    types = variable_types(body, params)
+    types.update(globals_ or {})
+    view, edits = code_view(body), []
+    for match in re.finditer(r'(?<![<>=!])(?:<=|>=|<|>)(?![<>=])', view):
+        spans = [equality_operand(view,match.start(),-1), equality_operand(view,match.end(),1)]
+        values = [view[a:b] for a,b in spans]
+        categories = [expression_category(seed_expression_type(value,types)) for value in values]
+        if sorted(categories, key=str) != sorted(['pointer','unsigned32']):
+            continue
+        scalar = values[categories.index('unsigned32')]
+        if re.fullmatch(r'0(?:[uUlL]*)', scalar):
+            continue  # A literal zero can already be a null pointer constant.
+        first,last = spans[categories.index('pointer')]
+        if any(first < b and last > a for a,b in edits):
+            return body
+        edits.append((first,last))
+    for first,last in sorted(edits,reverse=True):
+        body = body[:first] + '(uint)(' + body[first:last] + ')' + body[last:]
+    return body
+
+
+def primitive_pointer_ordering(body, params=(), globals_=None):
+    """Compare incompatible primitive pointer views as i386 address bits.
+
+    Only bare, uniquely declared primitive pointers and addresses of known
+    primitive storage qualify. Unknown/class/function/qualified types and
+    compound operands are unchanged. No load, stride or access width changes.
+    """
+    view = code_view(body)
+    if '#' in view or re.search(r'\b(?:typedef|using|class|struct|union|enum)\b', view):
+        return body
+    declared, comma = scalar_declarations(view)
+    if comma:
+        return body
+    declarations, types = {}, dict(globals_ or {})
+    for kind, name, array in declared:
+        declarations[name] = declarations.get(name, 0) + 1
+        types[name] = kind + (' *' if array else '')
+    for kind, name in map(param_parts, params):
+        if name:
+            declarations[name] = declarations.get(name, 0) + 1
+            types[name] = kind
+    primitives = {'char', 'signed char', 'unsigned char', 'byte', 'uchar',
+                  'short', 'unsigned short', 'ushort', 'int', 'unsigned int',
+                  'uint', 'undefined1', 'undefined2', 'undefined4', 'long',
+                  'unsigned long', 'ulong', 'float', 'double', 'bool'}
+    def operand_type(value):
+        match = re.fullmatch(r'(&\s*)?([A-Za-z_]\w*)', value.strip())
+        if not match or declarations.get(match[2], 0) > 1:
+            return None
+        kind = ' '.join(types.get(match[2], '').split())
+        if not re.fullmatch(r'[A-Za-z_][\w ]*(?:\s*\*\s*)*', kind):
+            return None
+        base = kind.replace('*', '').strip()
+        if base not in primitives:
+            return None
+        depth = kind.count('*') + bool(match[1])
+        return (base, depth) if depth else None
+    edits = []
+    for match in re.finditer(r'(?<![<>=!])(?:<=|>=|<|>)(?![<>=])', view):
+        spans = [equality_operand(view, match.start(), -1),
+                 equality_operand(view, match.end(), 1)]
+        values = [view[first:last] for first, last in spans]
+        kinds = [operand_type(value) for value in values]
+        if None in kinds or kinds[0] == kinds[1]:
+            continue
+        for first, last in spans:
+            if any(first < b and last > a for a, b in edits):
+                return body
+            edits.append((first, last))
+    for first, last in sorted(edits, reverse=True):
+        body = body[:first] + '(uint)(' + body[first:last] + ')' + body[last:]
+    return body
+
+
+def normalize_import_exrefs(body, facts=None):
+    """Resolve only known imported-function external-reference spellings."""
+    if facts is None:
+        facts = import_facts()
+    view = code_view(body)
+    edits = [(match.start(), match.end(), match[1])
+             for match in re.finditer(r'\b(\w+)_exref\b', view) if match[1] in facts]
+    for first,last,name in reversed(edits):
+        body = body[:first] + name + body[last:]
+    return body
+
+
+
+def pointer_equality_boundaries(body, params=(), globals_=None):
+    """Compare address bits once when Ghidra gives incompatible pointer views."""
+    types = variable_types(body, params)
+    types.update(globals_ or {})
+    view = code_view(body)
+    edits = []
+    def bare_identifier(start, end):
+        before, after = view[:start].rstrip(), view[end:].lstrip()
+        return not before.endswith(('*', '&', '.', '->', ')')) and not after.startswith(('[', '.', '->', '('))
+    for match in re.finditer(r'\b(\w+)\s*(==|!=)\s*(\w+)\b', view):
+        if not bare_identifier(match.start(1), match.end(1)) or not bare_identifier(match.start(3), match.end(3)):
+            continue
+        left, right = types.get(match[1], ''), types.get(match[3], '')
+        if not left or not right or left == right or '*' not in left + right:
+            continue
+        if any('*' not in kind and re.search(r'\b(?:float(?:10)?|double|u?longlong|(?:unsigned |signed )?__int64)\b', kind) for kind in (left, right)):
+            continue
+        # Equality is independent of signedness. No relational ordering or
+        # pointer arithmetic is rewritten under this rule.
+        for group, kind in ((1, left), (3, right)):
+            if '*' in kind:
+                edits.append((match.start(group), '(uint)'))
+    for position, text in sorted(edits, reverse=True):
+        body = body[:position] + text + body[position:]
+    view = code_view(body)
+    edits = []
+    for match in re.finditer(r'\b(\w+)\s*(==|!=)\s*\(\s*[\w\s]+\*+\s*\)\s*(0x[0-9a-fA-F]+|[0-9]+)\b', view):
+        if '*' not in types.get(match[1], '') or not bare_identifier(match.start(1), match.end(1)):
+            continue
+        if int(match[3], 0) > 0xffffffff:
+            continue
+        edits.append((match.start(), match.end(), '(uint)%s %s %s' % (match[1], match[2], match[3])))
+    for first, last, text in reversed(edits):
+        body = body[:first] + text + body[last:]
+    return full_pointer_equality(body, params, globals_)
+
+
+def return_boundaries(body, kind):
+    """Make 32-bit pointer/value return conversions explicit at the ABI boundary."""
+    if '*' not in kind and kind not in ('int', 'uint', 'undefined4', 'long', 'ulong', 'DWORD', 'LRESULT', 'HWND', 'HANDLE'):
+        return body
+    view, edits = code_view(body), []
+    for match in re.finditer(r'\breturn\s+', view):
+        end = expression_end(view, match.end())
+        rhs = body[match.end():end]
+        value = rhs.strip()
+        if not value or value.startswith('(' + kind + ')'):
+            continue
+        first = match.end() + len(rhs) - len(rhs.lstrip())
+        last = end - len(rhs) + len(rhs.rstrip())
+        edits.extend(((first, '(%s)(' % kind), (last, ')')))
+    for position, text in sorted(edits, key=lambda item: item[0], reverse=True):
+        body = body[:position] + text + body[position:]
+    return body
+
+
+def reindent(body):
+    """Ghidra indents two spaces per level; the project uses four."""
+    lines = []
+    for line in body.splitlines():
+        stripped = line.lstrip(' ')
+        lines.append(' ' * (2 * (len(line) - len(stripped))) + stripped if stripped else '')
+    return '\n'.join(lines)
+
+
+def nonnegative_tests(body):
+    """Rewrite Ghidra's `-1 < E` back to `E >= 0`.
+
+    Ghidra normalizes signed `E >= 0` to `-1 < E`; VC6 compiles the former as
+    `test`/`jl` and the latter as `cmp E, -1`. The operand E extends to the
+    first `)`, `&&`, `||`, `?`, `:`, `;` or `,` at its own nesting depth; Ghidra
+    parenthesizes anything that binds more loosely than `<`, so `E >= 0` keeps
+    the same meaning.
+    """
+    output, cursor = '', 0
+    for match in re.finditer(r'-1 < ', body):
+        if match.start() < cursor or (match.start() and body[match.start() - 1] not in ' (!'):
+            continue
+        at, depth = match.end(), 0
+        while at < len(body):
+            char = body[at]
+            if char in '([':
+                depth += 1
+            elif char in ')]':
+                if depth == 0:
+                    break
+                depth -= 1
+            elif depth == 0 and (char in '?:;,' or body.startswith('&&', at) or body.startswith('||', at)):
+                break
+            at += 1
+        operand = body[match.end():at].rstrip()
+        if not operand:
+            continue
+        output += body[cursor:match.start()] + operand + ' >= 0'
+        cursor = match.end() + len(operand)
+    return output + body[cursor:]
+
+
+def split_params(text):
+    text = text.strip()
+    if not text or text == 'void':
+        return []
+    return [p.strip() for p in text.split(',')]
+
+
+def parse_header(text):
+    """Return (ret, conv, name, params, header span) for a Ghidra export."""
+    for match in HEADER.finditer(text):
+        if match.group('name').startswith('FUN_') or match.group('conv'):
+            return (match.group('ret').strip(), match.group('conv') or '', match.group('name'),
+                    split_params(match.group('params')), match.span())
+    raise ValueError('No Ghidra function header found')
+
+
+def param_parts(param):
+    """'undefined4 *param_2' -> ('undefined4 *', 'param_2')."""
+    match = re.match(r'^(.*?)(\w+)$', param.strip())
+    if not match or param.strip() == '...':
+        return param, ''
+    return match.group(1).strip(), match.group(2)
+
+
+def matching_paren(text, start):
+    depth = 0
+    for index in range(start, len(text)):
+        if text[index] == '(':
+            depth += 1
+        elif text[index] == ')':
+            depth -= 1
+            if depth == 0:
+                return index
+    raise ValueError('Unbalanced call at %d' % start)
+
+
+def split_args(text):
+    args, depth, current = [], 0, ''
+    for index, char in enumerate(code_view(text)):
+        if char == ',' and depth == 0:
+            args.append(current); current = ''; continue
+        depth += char in '([' ; depth -= char in ')]'
+        current += text[index]
+    if current.strip():
+        args.append(current)
+    return [a.strip() for a in args]
+
+
+def call_sites(body, name):
+    """Yield (start, end, args, value_used) for each call of name."""
+    view = code_view(body)
+    for match in re.finditer(r'\b' + name + r'\s*\(', view):
+        open_at = match.end() - 1; close_at = matching_paren(view, open_at)
+        start = match.start()
+        if re.fullmatch(r'FUN_[0-9a-f]{8}', name):
+            # Ghidra may preserve a class/namespace before an address name.
+            # It belongs to this bound function token, not to the replacement
+            # call expression. Leave actual object/member expressions alone.
+            qualifier = re.search(r'(?<![\w.:>])(?:(?:::)?(?:[A-Za-z_]\w*::\s*)+|::)$', view[:start])
+            if qualifier and re.fullmatch(r'[\w\s:]+', body[qualifier.start():start]):
+                start = qualifier.start()
+        before = view[:start].rstrip()
+        used = bool(before) and before[-1] in '=(),!&|+-*<>?:' or before.endswith('return')
+        yield start, close_at + 1, split_args(body[open_at + 1:close_at]), used
+
+
+def ecx_owners(row):
+    """Callee address -> ECX setups before each direct call in the original.
+
+    Each entry is ('imm', value) for `mov ecx, imm32`, ('reg', name) for a
+    register copy, or None when the setup is not a plain load just before the
+    call (looked for among the six preceding instructions, stopping at any
+    other write of ECX).
+    """
+    if not row:
+        return {}
+    import capstone
+    decoder = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_32)
+    owners = {}
+    for span in row['ranges']:
+        instructions = list(decoder.disasm(bytes.fromhex(span['bytes_hex']), int(span['start'], 16)))
+        for index, insn in enumerate(instructions):
+            if insn.mnemonic != 'call' or not insn.op_str.startswith('0x'):
+                continue
+            setup = None
+            for previous in reversed(instructions[max(0, index - 6):index]):
+                operands = previous.op_str.split(', ')
+                if operands[0] != 'ecx':
+                    if previous.mnemonic in ('call', 'ret', 'jmp') or previous.mnemonic.startswith('j'):
+                        break
+                    continue
+                if previous.mnemonic == 'mov' and len(operands) == 2 and operands[1].startswith('0x'):
+                    setup = ('imm', int(operands[1], 16))
+                elif previous.mnemonic == 'mov' and len(operands) == 2 and operands[1] in ('esi', 'edi', 'ebx', 'ebp'):
+                    setup = ('reg', operands[1])
+                break
+            owners.setdefault(int(insn.op_str, 16), []).append(setup)
+    return owners
+
+
+def validate_recursive_calls(body, name, conv, params):
+    """A recursive call must fit the signature this seed actually defines.
+
+    Other callees can carry explicit unresolved overload hypotheses; a seed
+    defines only one self signature. Missing register operands cannot be
+    reconstructed from the number of supplied stack arguments.
+    """
+    view = code_view(body)
+    if name in variable_types(body, params):
+        return
+    member = conv == '__thiscall'
+    variadic = '...' in params
+    count = len(params) - int(variadic)
+    for start, end, args, _ in call_sites(body, name):
+        if not view.startswith(name, start) or view[:start].rstrip().endswith(('.', '->', '::')):
+            continue
+        expected = {count, count - 1} if member and count else {count}
+        valid = len(args) >= min(expected) if variadic else len(args) in expected
+        if not valid:
+            raise ValueError('Recursive Ghidra call %s supplies %d arguments; seed signature requires %s (%s). '
+                             'Register operands/prototype remain unverified' %
+                             (name, len(args), '/'.join(str(n) for n in sorted(expected)), conv or '__cdecl'))
+
+
+def declare_callee(body, name, prototype, owner_hint=None):
+    """Return (body, declarations) shaped by Ghidra's call sites.
+
+    Caller-side arity often differs from the callee export (an implicit ECX
+    owner, dropped stack arguments); each distinct arity becomes an overload,
+    which keeps the address in every mangled name.
+    """
+    c_ret, c_conv, c_params = prototype
+    sites = list(call_sites(body, name))
+    # Ghidra callers treat 32-bit results as whatever they need; a uint return
+    # keeps EAX semantics and converts with the caller's own casts.
+    wide = re.search(r'float|double|longlong|undefined8|qword', c_ret)
+    if c_ret.strip() != 'void' and not wide or any(site[3] for site in sites) and not wide:
+        c_ret = 'undefined4'
+    members = c_conv == '__thiscall'
+    expected = c_params[1:] if members else c_params
+    signatures, output, cursor = {}, '', 0
+    for start, end, args, _ in sites:
+        if start < cursor:
+            continue
+        if members:
+            owner_known = len(args) == len(c_params)
+            owner = args[0] if owner_known else owner_hint or '0 /* TODO: implicit ECX owner */'
+            rest = args[1:] if owner_known else args
+            call = '((Callee_%s*)(%s))->%s(%s)' % (name[4:], owner, name, ', '.join(rest))
+        else:
+            rest = args
+        params = expected if len(rest) == len(expected) else ['int'] * len(rest)
+        signatures[len(rest)] = params
+        # C-style casts to the declared parameter types keep 32-bit values
+        # unchanged while satisfying C++ pointer conversion rules.
+        rest = ['(%s)(%s)' % (param_parts(p)[0] or p, a) for p, a in zip(params, rest)]
+        if members:
+            call = '((Callee_%s*)(%s))->%s(%s)' % (name[4:], owner, name, ', '.join(rest))
+        else:
+            call = '%s(%s)' % (name, ', '.join(rest))
+        output += body[cursor:start] + call; cursor = end
+    body = output + body[cursor:]
+    if not signatures:
+        # Only the address is taken (`(code *)FUN_...`): any declaration that
+        # keeps the address-bearing name binds it.
+        return body, ['extern void __cdecl %s(void);' % name]
+    if members:
+        methods = ' '.join('%s %s(%s);' % (c_ret, name, ', '.join(p)) for p in signatures.values())
+        return body, ['struct Callee_%s { %s };' % (name[4:], methods)]
+    return body, ['extern %s %s %s(%s);' % (c_ret, c_conv, name, ', '.join(p) or 'void')
+                  for p in signatures.values()]
+
+
+ADDRESS_STORE = re.compile(r'^(\s*)(\*\w+|\w+\[[^\]\n]+\]) = (&\w+);', re.M)
+
+
+def address_stores(body):
+    """`*p = &label;` / `p[k] = &label;` store an address into a 32-bit slot.
+
+    Ghidra writes vtable-pointer and table stores this way; C++ needs the
+    pointer converted explicitly (the stored 32-bit value is unchanged).
+    """
+    return ADDRESS_STORE.sub(lambda m: '%s%s = (undefined4)(%s);' % m.groups(), body)
+
+
+def cast_assignments(body, params):
+    """Make Ghidra's C-style implicit pointer/integer assignments explicit.
+
+    `local = rhs;` becomes `local = (T)(rhs);` for declared locals/params. The
+    conversion is the one C would apply implicitly, so 32-bit values and
+    arithmetic conversions are unchanged; C++ merely requires it spelled out.
+    """
+    view = generated_statement_view(body)
+    if view is None:
+        return body
+    types = variable_types(body, params)
+    def complete_rhs(expression):
+        # A line can continue an enclosing if/for condition. Never pull its
+        # closing delimiters, comma tail or subsequent statement into a cast.
+        stack = []
+        for token in expression:
+            if token in '{;}' or token == ',' and not stack:
+                return False
+            if token in '([':
+                stack.append(token)
+            elif token in ')]':
+                if not stack or stack.pop() != {')': '(', ']': '['}[token]:
+                    return False
+        return not stack and not re.search(r'\b(?:goto|return|break|continue|case|default|if|else|for|while|do|switch|throw|try|catch|__asm)\b', expression)
+    def repl(match):
+        indent, name, rhs = match.groups()
+        kind = types.get(name)
+        if (not kind or rhs.startswith('(' + kind + ')') or
+                view[match.start(2):match.end(2)] != name or
+                view[match.end(3):match.end(3)+1] != ';' or
+                not complete_rhs(view[match.start(3):match.end(3)])):
+            return match.group(0)
+        return '%s%s = (%s)(%s);' % (indent, name, kind, rhs)
+    return ASSIGN.sub(repl, body)
+
+
+_IMPORTS = []
+
+
+def import_facts():
+    """Recorded import signatures and IAT slots; no inferred platform ABI."""
+    if not _IMPORTS:
+        path = REPOSITORY / 'manifests/imports.json'
+        _IMPORTS.append({i['name']: i for i in json.loads(path.read_bytes())['imports']} if path.exists() else {})
+    return _IMPORTS[0]
+
+
+def imported_calls(body):
+    """Imported API calls and function-address values -> recorded import facts."""
+    facts = import_facts()
+    names = set(re.findall(r'\b[A-Za-z_]\w*\b', code_view(body)))
+    return {name: facts[name] for name in names if name in facts}
+
+
+def declare_import(body, name, fact):
+    """Use the recorded SDK signature and bind the actual IAT slot.
+
+    A missing/unknown convention or inconsistent arity stays a seed refusal;
+    counting source arguments cannot establish a callee's stack convention.
+    """
+    if fact.get('convention') not in ('__stdcall', '__cdecl') or not fact.get('signature'):
+        raise ValueError('Import signature/convention unavailable: ' + name)
+    ret, conv, parsed_name, params, _ = parse_header(fact['signature'])
+    if conv != fact['convention'] or parsed_name != name:
+        raise ValueError('Inconsistent import signature: ' + name)
+    variadic = bool(params and params[-1] == '...')
+    fixed = params[:-1] if variadic else params
+    output, cursor = '', 0
+    for start, end, args, used in call_sites(body, name):
+        if start < cursor:
+            continue
+        if len(args) < len(fixed) or not variadic and len(args) != len(fixed):
+            raise ValueError('Import argument count disagrees with manifest: ' + name)
+        arguments = ['(%s)(%s)' % (param_parts(p)[0] or p, a) for p, a in zip(fixed, args)]
+        arguments += args[len(fixed):]
+        output += body[cursor:start] + name + '(' + ', '.join(arguments) + ')'
+        cursor = end
+    stack = sum(stack_bytes(p) for p in fixed)
+    binding = '__imp__%s@%d' % (name, stack) if conv == '__stdcall' else '__imp__' + name
+    declaration = 'extern "C" __declspec(dllimport) %s %s %s(%s); // @ref %s=%s' % (
+        ret, conv, name, ', '.join(params) or 'void', binding, fact['iat'])
+    return output + body[cursor:], declaration
+
+
+KEYWORDS = {'if', 'while', 'for', 'switch', 'return', 'sizeof', 'do'}
+
+
+def inventory_call_names(inventory):
+    names = getattr(inventory, '_seed_named_calls', None)
+    if names is None:
+        names = {}
+        for directory in inventory.passes:
+            for entry, row in inventory.rows(directory).items():
+                name = row['name']
+                if not name.startswith('FUN_') and re.fullmatch(r'[A-Za-z_]\w*', name):
+                    names.setdefault(name, set()).add(entry)
+        inventory._seed_named_calls = names
+    return names
+
+
+def direct_call_aliases(body, params, direct_targets):
+    """Normalize Ghidra func_0x spellings only for observed direct calls.
+
+    A suffix alone is not callee evidence. Local bindings, qualified names,
+    and address-only/mixed uses keep their spelling and remain hypotheses.
+    The existing FUN_ pipeline supplies the prototype and ECX/stack handling.
+    """
+    view = code_view(body)
+    if re.search(r'^\s*#', view, re.M):
+        return body
+    declared = set(variable_types(body, params))
+    declared.update(name for _, name, _ in scalar_declarations(view)[0])
+    aliases = set(re.findall(r'\bfunc_0x[0-9a-fA-F]{8}\b', view))
+    edits = []
+    for name in sorted(aliases - declared):
+        target = int(name[7:], 16)
+        if target not in direct_targets or 'FUN_%08x' % target in declared:
+            continue
+        uses = list(re.finditer(r'\b' + re.escape(name) + r'\b', view))
+        if any(view[:use.start()].rstrip().endswith(('::', '.', '->')) or
+               not re.match(r'\s*\(', view[use.end():]) for use in uses):
+            continue
+        edits.extend((use.start(), use.end(), 'FUN_%08x' % target) for use in uses)
+    for start, end, replacement in sorted(edits, reverse=True):
+        body = body[:start] + replacement + body[end:]
+    return body
+
+
+def named_calls(body, inventory, direct_targets, excluded=()):
+    """Bind duplicate function names using the caller's original direct targets."""
+    names = inventory_call_names(inventory)
+    view = code_view(body)
+    result = {}
+    for name in sorted(set(re.findall(r'\b([A-Za-z_]\w*)\s*\(', view)) - KEYWORDS):
+        addresses = names.get(name)
+        if not addresses or name in excluded:
+            continue
+        if len(addresses) > 1:
+            addresses = addresses.intersection(direct_targets)
+            if len(addresses) != 1:
+                raise ValueError('Ambiguous Ghidra callee name: ' + name)
+            if re.search(r'::\s*' + re.escape(name) + r'\s*\(', view):
+                target = next(iter(addresses))
+                raise ValueError('Qualified Ghidra callee %s at %08x needs a member prototype' %
+                                 (name, target))
+        result[name] = next(iter(addresses))
+    return result
+
+
+
+def qualified_constructor_calls(body, params, inventory, direct_targets):
+    """Lower pointer-only Ghidra constructor tags through the member pipeline.
+
+    A library tag is not a recovered class identity. Require one observed
+    direct target, an explicit matching thiscall export and consistent native
+    stack cleanup. Only erase the receiver's pointer cast; never invent class
+    storage, infer ECX, change argument bits or add an overload/body.
+    """
+    view = code_view(body)
+    if re.search(r'^\s*#', view, re.M):
+        return body, {}
+    pattern = re.compile(r'(?<![\w:])(?P<owner>[A-Za-z_]\w*)\s*::\s*(?P=owner)\s*\(')
+    groups = {}
+    for match in pattern.finditer(view):
+        groups.setdefault(match['owner'], []).append(match)
+    bindings = inventory_call_names(inventory) if groups else {}
+    declarations, comma = scalar_declarations(view)
+    if comma:
+        return body, {}
+    variables = set(variable_types(body, params))
+    variables.update(name for _, name, _ in declarations)
+    edits, prototypes = [], {}
+    scalar = INTEGRAL32 | {'float'}
+    for owner, matches in groups.items():
+        addresses = set(bindings.get(owner, ())).intersection(direct_targets)
+        if len(addresses) != 1 or owner in variables:
+            continue
+        target = next(iter(addresses))
+        name = 'FUN_%08x' % target
+        if name in variables or re.search(r'\(\s*\*\s*(?:'+re.escape(owner)+'|'+name+r')\b', view+' '+' '.join(params)):
+            continue
+        exported = code_view(inventory.decompiled(target) or '')
+        header = re.search(r'^\s*void\s+__thiscall\s+'+re.escape(owner)+r'\s*::\s*'+re.escape(owner)+r'\s*\(([^)]*)\)\s*$', exported, re.M)
+        if not header:
+            continue
+        c_params = split_params(header[1])
+        if not c_params or re.sub(r'\s+', '', param_parts(c_params[0])[0]) != owner+'*':
+            continue
+        if any(clean_type(param_parts(p)[0]) not in scalar for p in c_params[1:]):
+            continue
+        if stack_cleanup(inventory.function(target)[1]) != 4 * (len(c_params)-1):
+            continue
+        changes = []
+        for match in matches:
+            before = view[:match.start()].rstrip()
+            if (before.endswith(('.', '->', '::', 'return')) or
+                    before and before[-1] in '=(),!&|+-*<>?:'):
+                break
+            opening = match.end()-1
+            closing = matching_paren(view, opening)
+            args = split_args(body[opening+1:closing])
+            if len(args) != len(c_params):
+                break
+            cast = re.match(r'^\(\s*'+re.escape(owner)+r'\s*\*\s*\)', code_view(args[0]))
+            if not cast or args[0][:cast.end()] != code_view(args[0])[:cast.end()]:
+                break
+            # No comment in the qualified tag is discarded.
+            if body[match.start():opening+1] != view[match.start():opening+1]:
+                break
+            args[0] = '(void *)'+args[0][cast.end():]
+            changes.append((match.start(), closing+1, name+'('+', '.join(args)+')'))
+        else:
+            changed = body
+            for lo, hi, text in reversed(changes):
+                changed = changed[:lo]+text+changed[hi:]
+            # Remaining uses may require class layout: arrays, by-value slots,
+            # sizeof, a pointer variable, or an unhandled/mixed qualified use.
+            if re.search(r'\b'+re.escape(owner)+r'\b', code_view(changed+' '+' '.join(params))):
+                continue
+            edits.extend(changes)
+            prototypes[target] = ('void', '__thiscall', c_params)
+    for lo, hi, text in sorted(edits, reverse=True):
+        body = body[:lo]+text+body[hi:]
+    return body, prototypes
+
+
+def named_thunk_values(body, entry, inventory, params=()):
+    """Declare address-only thunk names from positive original DATA evidence.
+
+    The existing `code` type means an unknown callable signature. No new call
+    or helper body is generated, and no ABI or bounds acceptance is implied.
+    A shared suffix/jump target alone never identifies a thunk's own address.
+    """
+    view = code_view(body)
+    tokens = set(re.findall(r'\bthunk_[A-Za-z_]\w*\b', view))
+    if not tokens:
+        return []
+    groups = getattr(inventory, '_seed_thunk_value_names', None)
+    if groups is None:
+        groups = {}
+        for directory in inventory.passes:
+            for at, row in inventory.rows(directory).items():
+                if re.fullmatch(r'thunk_[A-Za-z_]\w*', row['name']):
+                    groups.setdefault(row['name'], set()).add(at)
+        inventory._seed_thunk_value_names = groups
+    identifiers = set(variable_types(body, params))
+    identifiers.update(name for _, name, _ in scalar_declarations(view)[0])
+    declarations = []
+    for name in sorted(tokens & groups.keys()):
+        if name in identifiers or list(call_sites(body, name)):
+            continue
+        uses = list(re.finditer(r'\b' + re.escape(name) + r'\b', view))
+        if any(view[:m.start()].rstrip().endswith(('::', '.', '->')) or
+               re.match(r'\s*(?:\)*\s*\(|\[)', view[m.end():]) for m in uses):
+            continue
+        from seed_thunk_values import original_thunk_address
+        proof = original_thunk_address(entry, groups[name], inventory)
+        if proof is None:
+            continue
+        sites = ','.join('%08x' % at for at in proof['push_sites'])
+        declarations.append('// Address-only thunk: original DATA PUSH sites %s; inventory bounds/entry roots and callable ABI remain hypotheses.' % sites)
+        # Namespace-local C++ linkage keeps different owners' bindings separate
+        # when a composite population contains both same-named thunk entries.
+        declarations.append('extern code %s; // @ref ?%s@seed_%08x@@=%08x' %
+                            (name, name, entry, proof['entry']))
+    return declarations
+
+
+def accepted_sources(catalog):
+    return {r['entry']: r['source'] for r in catalog.get('regions', [])}
+
+
+def stack_cleanup(row):
+    """Bytes a function pops on return (`ret N`), from its frozen original body.
+
+    None when the body has no return or returns inconsistently (tail calls,
+    noreturn paths), in which case the Ghidra convention is left alone.
+    """
+    if not row:
+        return None
+    import capstone
+    decoder = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_32)
+    pops = set()
+    for span in row['ranges']:
+        for insn in decoder.disasm(bytes.fromhex(span['bytes_hex']), int(span['start'], 16)):
+            if insn.mnemonic == 'ret':
+                pops.add(int(insn.op_str, 16) if insn.op_str else 0)
+    return pops.pop() if len(pops) == 1 else None
+
+
+def stack_bytes(param):
+    """Stack bytes of one parameter: 8 for 64-bit integers and doubles, else 4."""
+    kind = param_parts(param)[0]
+    if '*' in kind:
+        return 4
+    return 8 if re.search(r'double|float10|longlong|undefined8|qword|__int64', kind) else 4
+
+
+def fit_convention(conv, params, popped, has_this):
+    """Correct Ghidra's convention/stack parameters with the original `ret N`.
+
+    Callee-cleanup (`ret N`) means __stdcall/__thiscall/__fastcall stack
+    parameters totalling N bytes; a plain `ret` means caller cleanup. Missing
+    stack parameters are added as unused dwords so the callee pops N bytes.
+    """
+    if popped is None:
+        return conv, params
+    if popped % 4:
+        raise ValueError('Non-DWORD return cleanup %d cannot be represented by the generated i386 C++ ABI; '
+                         'entry and prototype remain unverified' % popped)
+    fixed = {'__thiscall': 1, '__fastcall': 2}.get(conv, 0) if has_this or conv == '__fastcall' else 0
+    if conv == '__fastcall' and popped > 0 and len(params) < fixed:
+        # The first two DWORD-or-smaller arguments occupy ECX/EDX. If Ghidra
+        # exports only ECX, appending stack placeholders first would put one
+        # in EDX and make the generated RET pop four bytes too few.
+        # Do not apply this correction to FP/by-value/unknown parameters:
+        # those do not establish occupied integer-register positions.
+        register_scalars = INTEGRAL32 | POINTER_ALIASES | {
+            'bool', 'char', 'signed char', 'unsigned char', 'byte', 'uchar',
+            'short', 'signed short', 'unsigned short', 'ushort',
+            'undefined1', 'undefined2'}
+        kinds = [param_parts(p)[0].strip() for p in params]
+        if any(kind not in register_scalars and '*' not in kind for kind in kinds):
+            raise ValueError('Missing fastcall register positions with unverified parameter representation')
+        names = {param_parts(p)[1] for p in params}
+        params = list(params)
+        for slot in range(len(params), fixed):
+            name = 'unused_fastcall_register_%d' % slot
+            while name in names:
+                name += '_'
+            names.add(name)
+            params.append('int ' + name)
+    stack = params[fixed:]
+    if popped == 0 and conv == '__stdcall' and stack:
+        return '__cdecl', params
+    if popped > 0 and conv in ('', '__cdecl'):
+        conv = '__stdcall'
+    used = sum(stack_bytes(p) for p in stack)
+    if popped > 0 and conv in ('__stdcall', '__thiscall', '__fastcall') and used < popped:
+        params = params + ['int unused_%d' % i for i in range(len(stack), len(stack) + (popped - used) // 4)]
+    return conv, params
+
+
+CHAR = r"'(?:\\.|[^'\\])+'"
+
+
+def byte_global(body, symbol):
+    """True when Ghidra uses the global only as a character value."""
+    name = re.escape(symbol)
+    uses = len(re.findall(r'\b%s\b' % name, body))
+    chars = len(re.findall(r'\b%s\s*(?:==|!=|=)\s*%s' % (name, CHAR), body)) + \
+        len(re.findall(r'%s\s*(?:==|!=)\s*%s\b' % (CHAR, name), body)) + \
+        len(re.findall(r'\(char\)%s\b' % name, body))
+    return uses > 0 and chars == uses
+
+
+RTTI_ADDRESS = re.compile(r'(?<![\w&])&\s*([A-Za-z_]\w*(?:::[A-Za-z_]\w*)*)::RTTI_Type_Descriptor\b')
+_RTTI_ADDRESSES = []
+
+
+def rtti_address_names(descriptors):
+    """Only unambiguous, ordinary class/struct names from original RTTI."""
+    found, repeated = {}, set()
+    for symbol, address in descriptors.items():
+        match = re.fullmatch(r'\?\?_R0\?A[UV]([A-Za-z_]\w*(?:@[A-Za-z_]\w*)*)@@@8', symbol)
+        if not match:
+            continue
+        name = '::'.join(reversed(match[1].split('@')))
+        if name in found and found[name] != address:
+            repeated.add(name)
+        found[name] = address
+    return {name: address for name, address in found.items() if name not in repeated}
+
+
+def original_rtti_addresses():
+    """Hash the exact target, then reuse the strict auditor's RTTI bindings."""
+    if not _RTTI_ADDRESSES:
+        from verify_manifest import Audit
+        audit = Audit(REPOSITORY, 'private/original-target-20261020/inputs/game.exe')
+        _RTTI_ADDRESSES.append(rtti_address_names(audit.original_type_descriptors()))
+    return _RTTI_ADDRESSES[0]
+
+
+def rtti_address_labels(body, addresses=None):
+    """Name address-only RTTI labels without inventing the owning class layout.
+
+    A DAT label supplies the same address bits. Direct descriptor values,
+    fields, arrays and descriptor-pointer arithmetic remain unsupported.
+    """
+    view = code_view(body)
+    matches = list(RTTI_ADDRESS.finditer(view))
+    if not matches:
+        return body, []
+    addresses = original_rtti_addresses() if addresses is None else addresses
+    edits, used = [], {}
+    for match in matches:
+        address = addresses.get(match[1])
+        if type(address) is not int or not 0 < address <= 0xffffffff:
+            continue
+        before = re.sub(r'(?:\(\s*)+$', '', view[:match.start()].rstrip()).rstrip()
+        if before.endswith('*'):
+            continue              # a descriptor value/sizeof-object needs its real type
+        after = view[match.end():].lstrip()
+        # Also reject arithmetic after parentheses around the address. This
+        # conservatively skips arithmetic on an enclosing call result too.
+        after = re.sub(r'^(?:\)\s*)+', '', after)
+        if after.startswith(('.', '->', '::', '[', '+', '-', '*', '/', '%', '<<', '>>')):
+            continue
+        label = 'DAT_%08x' % address
+        edits.append((match.start(), match.end(), '&' + label))
+        used[match[1]] = address
+    for start, end, replacement in reversed(edits):
+        body = body[:start] + replacement + body[end:]
+    notes = ['// Original RTTI address: %s -> DAT_%08x; descriptor layout is not modeled.' % item
+             for item in sorted(used.items())]
+    return body, notes
+
+
+_SWITCH_ORIGINAL = []
+_BYTE_FIELD_ORIGINAL = []
+_WORD_STORE_ORIGINAL = []
+_WORD_STORE_ROWS = {}
+
+
+def word_store_artifacts(body, params, entry, inventory=None, facts=None):
+    """Preserve observed WORD stores behind Ghidra's CONCAT22 spelling.
+
+    Never synthesize the unresolved high-token's address. Original membership,
+    local windows and source correspondence remain scratch-seed hypotheses.
+    """
+    from seed_narrow_stores import ASSIGNMENT, source_groups, inspect_word_windows, apply_word_groups
+    view = code_view(body)
+    if not ASSIGNMENT.search(view):
+        return body, []
+    declarations, comma = scalar_declarations(view)
+    if comma:
+        return body, []
+    groups = source_groups(body, view, declarations, map(param_parts, params))
+    if not groups:
+        return body, []
+    if facts is None:
+        if inventory is None:
+            return body, []
+        evidence_root = (REPOSITORY / 'private/original-target-20261020/inventory').resolve()
+        directory = next((p for p in inventory.passes if
+                          (p / 'decompiled' / ('%08x.c' % entry)).is_file()), None)
+        if directory is None or not directory.resolve().is_relative_to(evidence_root):
+            return body, []
+        path = directory / 'instructions.jsonl'
+        row = inventory.rows(directory).get(entry)
+        if row is None or not path.is_file():
+            return body, []
+        key = (path.resolve(), entry)
+        if key not in _WORD_STORE_ROWS:
+            needle, records = ('%08x' % entry).encode('ascii'), []
+            with path.open('rb') as stream:
+                for line in stream:
+                    if needle in line.lower():
+                        record = json.loads(line)
+                        if int(record['function_entry'], 16) == entry:
+                            records.append(record)
+            _WORD_STORE_ROWS[key] = records
+        if not _WORD_STORE_ORIGINAL:
+            from verify_manifest import Audit
+            _WORD_STORE_ORIGINAL.append(Audit(REPOSITORY, 'private/original-target-20261020/inputs/game.exe'))
+        audit = _WORD_STORE_ORIGINAL[0]
+
+        def is_code(address, length):
+            section = audit.pe.get_section_by_rva(address - audit.base)
+            return bool(section and section.Characteristics & 0x20000000 and
+                        address + length <= audit.base + section.VirtualAddress + section.SizeOfRawData)
+
+        facts = inspect_word_windows(entry, row['ranges'], _WORD_STORE_ROWS[key],
+                                     audit.original, set(groups), is_code)
+    return apply_word_groups(body, groups, facts)
+
+
+def array_byte_partials(body, params=()):
+    """Retain existing scalar/pointer-array storage at explicit byte slices."""
+    from seed_byte_access import array_byte_parts
+    view = code_view(body)
+    declarations, comma = scalar_declarations(view)
+    if comma:
+        return body
+    return array_byte_parts(body, view, declarations,
+                            {param_parts(param)[1] for param in params})
+
+
+def input_record_byte_partials(body, params=(), result='void'):
+    """Keep one documented DWORD byte-read's entire qualified lvalue path.
+
+    This is deliberately a local mutable _INPUT_RECORD case, not a general
+    member-expression parser. Unsigned character access preserves the one-byte
+    read and aliasing; pointer, volatile, shadowed and lvalue uses refuse.
+    """
+    if 'dwControlKeyState' not in body or '._2_1_' not in body:
+        return body
+    if 'struct _INPUT_RECORD {' not in tagged_sdk_types(SDK_PREAMBLE, body, params, result):
+        return body
+    view=generated_statement_view(body)
+    if view is None:
+        return body
+    start=len(view)-len(view.lstrip())
+    if start==len(view) or view[start]!='{':
+        return body
+    depth=0;end=None
+    for offset in range(start,len(view)):
+        depth+=(view[offset]=='{')-(view[offset]=='}')
+        if not depth:
+            end=offset+1;break
+    if end is None:
+        return body
+    function=view[:end]
+    if re.search(r'\b(?:sizeof|__alignof|decltype|typeid|__declspec|__attribute__|alignas|_Alignas)\b',function):
+        return body
+    declarations=scalar_declarations(re.sub(r'\s+',' ',function))[0]
+    if (any('&' in kind or kind.strip()=='auto' for kind,_,_ in declarations) or
+            re.search(r'(?:^|[;{}])\s*[^;{}=]*&[^;{}=]*=',function)):
+        return body
+    parameters={name for _,name in map(param_parts,params)}
+    stack=[];parentheses=[]
+    for offset,token in enumerate(function):
+        if token=='(':
+            stack.append(offset)
+        elif token==')':
+            if not stack:
+                return body
+            parentheses.append((stack.pop(),offset))
+    if stack:
+        return body
+    mutation=r'=(?!=)|<<=|>>=|[+*/%&|^\-]=|\+\+|--'
+    local=re.compile(r'(?:^|(?<=[;{}]))\s*(?:struct\s+)?_INPUT_RECORD\s+(?P<name>[A-Za-z_]\w*)\s*;')
+    edits=[]
+    for declaration in local.finditer(function):
+        name=declaration['name'];at=declaration.start('name')
+        if (function[:declaration.start()].count('{')-function[:declaration.start()].count('}')!=1 or
+                name in parameters or sum(slot==name for _,slot,_ in declarations)!=1):
+            continue
+        refused=False
+        for mention in re.finditer(r'\b'+re.escape(name)+r'\b',function):
+            if mention.start()==at:
+                continue
+            before=function[:mention.start()].rstrip();after=function[mention.end():].lstrip()
+            if before.endswith(('.', '->', ':')):
+                refused=True;break
+            if after.startswith('.'):
+                continue
+            if (before.endswith('&') and unary_operator(function,len(before)-1) and
+                    after and after[0] in '),;'):
+                continue  # Existing output-buffer address passed to the API.
+            refused=True;break
+        if refused:
+            continue
+        pattern=re.compile(r'\b'+re.escape(name)+r'\s*\.\s*Event\s*\.\s*MouseEvent\s*\.\s*dwControlKeyState\s*\.\s*_2_1_\b')
+        for match in pattern.finditer(function):
+            before=function[:match.start()].rstrip();after=function[match.end():].lstrip()
+            span=body[match.start():match.end()]
+            if ('/*' in span or '//' in span or before.endswith(('(', '++', '--')) or
+                    (before.endswith(('&','*')) and unary_operator(function,len(before)-1)) or
+                    re.search(r'\b(?:sizeof|__alignof|decltype|typeid)\s*(?:\([^;{}]*)?$',before) or
+                    re.match(mutation+r'|\.|->|\[|\(',after)):
+                continue
+            ambiguous=False
+            for a,z in parentheses:
+                if not a<match.start()<z:
+                    continue
+                prefix=function[:a].rstrip()
+                label=re.search(r'([A-Za-z_]\w*)$',prefix)
+                # A call may take a reference or use unknown overload rules.
+                # Refuse its entire argument list, not only the first slot.
+                if (',' in function[a+1:z] or prefix.endswith((')',']','>','++','--')) or
+                        (prefix.endswith(('&','*')) and unary_operator(function,len(prefix)-1)) or
+                        (label and label[1] not in ('if','while','switch','for','return')) or
+                        re.match(mutation,function[z+1:].lstrip())):
+                    ambiguous=True;break
+            if ambiguous:
+                continue
+            path=span[:span.rfind('.')].rstrip()
+            edits.append((match.start(),match.end(),'(*(uchar const *)((char const *)&('+path+') + 2))'))
+    for a,z,replacement in sorted(edits,reverse=True):
+        body=body[:a]+replacement+body[z:]
+    return body
+
+
+def low_offset_byte_fields(body, params, global_types, shared, entry,
+                           inventory=None, facts=None):
+    """Repair data-offset labels only with existing pointer and original widths.
+
+    Facts for real seeds come from the hash-checked original executable. They
+    prove observed local reads, not Ghidra bounds, source types or root validity.
+    """
+    from seed_byte_access import OFFSET, offset_groups, inspect_byte_fields, apply_offset_groups
+    view = code_view(body)
+    if not OFFSET.search(view) or not shared:
+        return body, []
+    slots = {}
+    for kind, name, array in scalar_declarations(view)[0]:
+        slots.setdefault(name, []).append((kind, array))
+    for kind, name in map(param_parts, params):
+        slots.setdefault(name, []).append((kind, None))
+    names = set(slots)
+    local_types = {name: values[0][0] for name, values in slots.items()
+                   if len(values) == 1 and not values[0][1]}
+    groups = offset_groups(body, view, global_types, shared,
+                           local_types, names, 0x400000)
+    if not groups:
+        return body, []
+    if facts is None:
+        if inventory is None:
+            return body, []
+        if not _BYTE_FIELD_ORIGINAL:
+            from verify_manifest import Audit
+            _BYTE_FIELD_ORIGINAL.append(Audit(REPOSITORY, 'private/original-target-20261020/inputs/game.exe'))
+        audit = _BYTE_FIELD_ORIGINAL[0]
+        row = inventory.function(entry)[1]
+        facts = inspect_byte_fields(entry, row['ranges'], audit.original, set(groups)) if row else {}
+    return apply_offset_groups(body, groups, facts)
+
+
+def original_index_switch(entry, dispatch, table):
+    from seed_switches import inspect_index_switch
+    if not _SWITCH_ORIGINAL:
+        from verify_manifest import Audit
+        audit = Audit(REPOSITORY, 'private/original-target-20261020/inputs/game.exe')
+        catalog = catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
+        _SWITCH_ORIGINAL.append((audit, {row['entry'] for row in catalog['regions']}))
+    audit, accepted = _SWITCH_ORIGINAL[0]
+    return inspect_index_switch(audit, entry, dispatch, table, accepted)
+
+
+def indexed_switch_artifacts(body, entry, params=(), facts=None):
+    """Use verified integer cases, never a runtime array of instruction pointers."""
+    from seed_switches import UnsupportedSwitch
+    pattern = re.compile(r'\bswitch\s*\(\s*\(\s*&switchD_([0-9a-f]{8})::switchdataD_([0-9a-f]{8})'
+                         r'\s*\)\s*\[\s*([A-Za-z_]\w*)\s*\]\s*\)')
+    view = code_view(body)
+    matches = list(pattern.finditer(view))
+    if not matches:
+        return body, []
+    types, edits, notes = variable_types(body, params), [], []
+    for match in matches:
+        if clean_type(types.get(match[3], '')) not in INTEGRAL32:
+            continue
+        opening = match.end()
+        while opening < len(view) and view[opening].isspace():
+            opening += 1
+        if opening == len(view) or view[opening] != '{':
+            continue
+        depth, cursor, cases, unsupported = 1, opening+1, [], False
+        while cursor < len(view) and depth:
+            if view[cursor] == '{': depth += 1
+            elif view[cursor] == '}': depth -= 1
+            elif (depth == 1 and view.startswith('case', cursor) and
+                  not (view[cursor-1].isalnum() or view[cursor-1] == '_') and
+                  (cursor+4 == len(view) or not (view[cursor+4].isalnum() or view[cursor+4] == '_'))):
+                case = re.match(r'case\s*\(\s*undefined\s*\*\s*\)\s*0x([0-9a-fA-F]+)\s*:', view[cursor:])
+                if not case:
+                    unsupported = True
+                    break
+                cases.append((cursor, cursor+case.end(), int(case[1], 16)))
+                cursor += case.end()-1
+            cursor += 1
+        if unsupported or depth or not cases:
+            continue
+        dispatch, table = int(match[1], 16), int(match[2], 16)
+        try:
+            proof = original_index_switch(entry, dispatch, table) if facts is None else facts[(dispatch, table)]
+        except (UnsupportedSwitch, KeyError):
+            continue
+        targets = proof['targets']
+        if len({target for _, _, target in cases}) != len(cases) or {target for _, _, target in cases} != set(targets):
+            continue
+        # Refuse overlapping edits; nested case labels belong to their own switch.
+        if any(start < cursor and end > match.start() for start, end, _ in edits):
+            continue
+        edits.append((match.start(), match.end(), 'switch(%s)' % match[3]))
+        for start, end, target in cases:
+            indices = [index for index, at in enumerate(targets) if at == target]
+            edits.append((start, end, ' '.join('case %d:' % index for index in indices)))
+        notes.append('// Original guarded switch %08x: integer indices from read-only table %08x; '
+                     'local-flow/call/entry hypotheses remain explicit.' % (dispatch, table))
+    for start, end, replacement in sorted(edits, reverse=True):
+        body = body[:start]+replacement+body[end:]
+    return body, notes
+
+
+_TYPED_SCHEMAS = {}
+
+
+def typed_schema():
+    from seed_shared_types import SharedTypes
+    directory = (REPOSITORY/'src/shared').resolve()
+    fingerprint = tuple((p.name,p.stat().st_size,p.stat().st_mtime_ns) for p in sorted(directory.glob('*.hpp')))
+    old = _TYPED_SCHEMAS.get(directory)
+    if old is None or old[0] != fingerprint:
+        old = (fingerprint,SharedTypes(directory));_TYPED_SCHEMAS[directory]=old
+    return old[1]
+
+
+def earlier_uncontradicted_inventory(entry, inventory, owner=None):
+    from inventory import Inventory
+    from seed_typed import exported_owner
+    paths = list(inventory.passes)
+    chosen = next((i for i,p in enumerate(paths) if (p/'decompiled'/('%08x.c'%entry)).is_file()),None)
+    if chosen is None:return None
+    for i in range(chosen+1,len(paths)):
+        text = (paths[i]/'decompiled'/('%08x.c'%entry))
+        if not text.is_file():continue
+        try:ret,conv,name,params,span=parse_header(text.read_text())
+        except ValueError:continue
+        prior_owner=exported_owner(params,param_parts) if conv=='__thiscall' else None
+        if owner is not None and prior_owner not in (None,owner):continue
+        return Inventory(paths[i:])
+    return None
+
+
+def seed(entry, inventory, accepted, _import_aliases=True, _typed=True):
+    text = inventory.decompiled(entry)
+    if entry == 0x5ee460 and entry not in accepted and text is not None:
+        from seed_owner_draw import optional_owner_draw_seed
+
+        repaired = optional_owner_draw_seed(text, inventory, REPOSITORY)
+        if repaired is not None:
+            return repaired
+    if entry == 0x440520 and entry not in accepted and text is not None:
+        from seed_building_exit import optional_building_exit_seed
+
+        repaired = optional_building_exit_seed(text, inventory, REPOSITORY)
+        if repaired is not None:
+            return repaired
+    if entry == 0x6faa30 and entry not in accepted and text is not None:
+        from seed_unit_tunnel import optional_tunnel_seed
+
+        repaired = optional_tunnel_seed(text, inventory, REPOSITORY)
+        if repaired is not None:
+            return repaired
+    if entry == 0x6ff690 and entry not in accepted and text is not None:
+        from seed_unit_voxel import optional_voxel_seed
+
+        repaired = optional_voxel_seed(text, inventory, REPOSITORY)
+        if repaired is not None:
+            return repaired
+    if entry == 0x448400 and entry not in accepted and text is not None:
+        from seed_missile import optional_missile_seed
+
+        repaired = optional_missile_seed(text, inventory, REPOSITORY)
+        if repaired is not None:
+            return repaired
+    if entry == 0x622290 and entry not in accepted and text is not None:
+        from seed_quaternion import optional_quaternion_seed
+
+        repaired = optional_quaternion_seed(text, inventory, REPOSITORY)
+        if repaired is not None:
+            return repaired
+    if text is None:
+        raise ValueError('No Ghidra export for %08x' % entry)
+    from seed_fp_bitview import optional_raw_scalar
+    text, raw_scalar_notes = optional_raw_scalar(entry,text,inventory,REPOSITORY,globals())
+    from seed_integer_candidate import optional_integer_candidate
+    text, integer_candidate_notes = optional_integer_candidate(entry,text,inventory,REPOSITORY,globals())
+    alias_imports = {}
+    if _import_aliases:
+        macros = set(re.findall(r'^\s*#\s*define\s+(\w+)',
+            (REPOSITORY / 'src/shared/ghidra_types.hpp').read_text(), re.M))
+        text, alias_imports = recorded_direct_imports(text, import_facts(), parse_header, stack_bytes, macros)
+    ret, conv, name, params, (start, end) = parse_header(text)
+    typed = None
+    if _typed and conv == '__thiscall':
+        from seed_typed import exported_owner, adapt_seed, placeholder_types, TypedRefusal
+        declared = exported_owner(params,param_parts)
+        if not params:
+            prior = earlier_uncontradicted_inventory(entry,inventory)
+            if prior is not None:
+                ptext=prior.decompiled(entry)
+                if parse_header(ptext)[1] != '__thiscall':
+                    return ('// Ghidra supplied thiscall without a receiver; earlier frozen free-function export retained.\n'+
+                            seed(entry,prior,accepted,_import_aliases=_import_aliases,_typed=False))
+        if declared:
+            schema=typed_schema()
+            if declared in schema.records:
+                hint=schema.method_at(entry)
+                rtti=_owners().owner(entry)
+                actual=schema.constructor_owner(entry) or (rtti[0] if rtti and rtti[0] in schema.records else declared)
+                receiver=param_parts(params[0])[1]
+                fields=re.findall(r'\b'+re.escape(receiver)+r'\s*->\s*(\w+)',code_view(text[end:]))
+                contradicted=actual!=declared and any(f!='vftable_0' for f in fields)
+                if contradicted:
+                    prior=earlier_uncontradicted_inventory(entry,inventory,actual)
+                    if prior is None:raise TypedRefusal('Typed owner contradicts shared constructor/RTTI: '+declared+' vs '+actual)
+                    ptext=prior.decompiled(entry);pr,pc,pn,pp,ps=parse_header(ptext)
+                    raw=seed(entry,prior,accepted,_import_aliases=_import_aliases,_typed=False)
+                    variables=variable_types(ptext[ps[1]:],pp)
+                    result,_=adapt_seed(raw,ptext,entry,actual,schema,variables,
+                                       lambda body:cast_assignments(body,pp),placeholder_types(prior.passes,entry))
+                    return ('// Rejected contradictory typed layout '+declared+'; shared headers identify '+actual+'.\n'
+                            '// Earlier frozen byte views retained; no fields invented for the contradictory owner.\n'+result)
+                static=hint[1] if hint and hint[1].static else None
+                if static and (len(params)!=1 or ',' in static.parameters):
+                    prior=earlier_uncontradicted_inventory(entry,inventory)
+                    if prior is not None:
+                        return ('// Rejected forced instance layout: shared header declares '+static.declaration+'\n'+
+                                seed(entry,prior,accepted,_import_aliases=_import_aliases,_typed=False))
+                    raise TypedRefusal('Static shared signature contradicts supplied instance parameters')
+                typed=(actual,schema,static)
+    conv, params = fit_convention(conv, params, stack_cleanup(inventory.function(entry)[1]),
+                                  conv == '__thiscall')
+    body = nonnegative_tests(reindent(text[end:].strip()))
+    frozen_body = body
+    from seed_capture_native import optional_capture
+    from types import SimpleNamespace
+    body, capture_notes = optional_capture(body, params, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_packed_value import optional_packed_copy
+    body, packed_notes = optional_packed_copy(body, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_recursive_forwarding import optional_recursive_forwarding
+    body, recursive_notes = optional_recursive_forwarding(body, name, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_recursive_diamond import optional_recursive_diamond
+    body, diamond_notes = optional_recursive_diamond(body, name, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_height_coordinate import optional_height_coordinate
+    body, height_prototypes, height_headers, height_notes = optional_height_coordinate(
+        body, frozen_body, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    from seed_rect_scan import optional_rect_scan
+    body, params, rect_headers, rect_notes = optional_rect_scan(
+        body, frozen_body, params, conv, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    validate_synthetic_storage(body, params)
+    body = large_integer_member_artifacts(body, params)
+    body = normalize_import_exrefs(body)
+    body, labels = local_labels(body)
+    body = terminal_label_statements(body)
+    body, switch_notes = indexed_switch_artifacts(body, entry, params)
+    owners = ecx_owners(inventory.function(entry)[1])
+    body = direct_call_aliases(body, params, owners)
+    body = nan_artifacts(body, params, inventory_call_names(inventory) if re.search(r'\bNAN\s*\(', code_view(body)) else ())
+    body = floating_word_store_artifacts(body, params, native_carrier_stores(body, params, entry, inventory))
+    from seed_wide_partial_stores import low_word_store_hypotheses
+    from types import SimpleNamespace
+    body, wide_partial_notes = low_word_store_hypotheses(body, params, SimpleNamespace(**globals()))
+    from seed_opaque_fp_storage import optional_fp_storage
+    body, opaque_fp_notes = optional_fp_storage(body, params, entry, inventory, REPOSITORY, SimpleNamespace(**globals()))
+    body = partial_byte_update_artifacts(body, params)
+    from seed_dword_partials import low24_store_hypotheses
+    body, low24_notes = low24_store_hypotheses(body, params, SimpleNamespace(**globals()))
+    body = byte_update_artifacts(body, params)
+    body, word_store_notes = word_store_artifacts(body, params, entry, inventory)
+    body = stack_artifacts(extend_artifacts(concat_artifacts(body)), params, conv)
+    body = LABEL.sub(lambda m: m.group(1) + re.sub(r'\W', '_', m.group(2)) + m.group(3), body)
+    body = RAM.sub(lambda m: '(*(%s *)0x%s)' % (RAM_TYPES.get(m.group(1), 'int'), m.group(2)), body)
+    body = input_record_byte_partials(body, params, ret)
+    from seed_pointer_storage import validate_pointer_storage
+    validate_pointer_storage(body, params, SimpleNamespace(**globals()))
+    body = scalar_partials(body)
+    body = array_byte_partials(body, params)
+    body, scalar_view_notes = scalar_address_views(body, params)
+    body, rtti_notes = rtti_address_labels(body)
+    abi_forwards = set(height_headers) | set(rect_headers)
+    declarations, notes = [], list(rtti_notes) + switch_notes + scalar_view_notes + word_store_notes + raw_scalar_notes + integer_candidate_notes + wide_partial_notes + opaque_fp_notes + capture_notes + low24_notes + packed_notes + recursive_notes + diamond_notes + height_notes + rect_notes
+    this_name = param_parts(params[0])[1] if conv == '__thiscall' and params else None
+    body, constructor_prototypes = qualified_constructor_calls(body, params, inventory, owners)
+    for callee in sorted(set(CALLEE.findall(code_view(body))) - {name}):
+        address = int(callee[4:], 16)
+        if address in accepted:
+            notes.append('//   %s -> %s' % (callee, accepted[address]))
+        callee_text = inventory.decompiled(address)
+        try:
+            if address in constructor_prototypes:
+                c_ret, c_conv, c_params = constructor_prototypes[address]
+            else:
+                c_ret, c_conv, _, c_params, _ = parse_header(callee_text or '')
+        except ValueError:
+            declarations.append('extern void %s(...);  // no Ghidra prototype' % callee); continue
+        popped = stack_cleanup(inventory.function(address)[1])
+        if popped and c_conv in ('', '__cdecl'):
+            c_conv = '__stdcall'          # callee pops its own arguments
+        elif popped == 0 and c_conv == '__stdcall':
+            c_conv = '__cdecl'
+        from seed_scalar_fp import recover as recover_scalar_fp
+        from types import SimpleNamespace
+        fp_view = recover_scalar_fp(REPOSITORY, inventory, entry, address, body, params,
+                                    (c_ret, c_conv, c_params), accepted, SimpleNamespace(**globals()))
+        if not fp_view:
+            from seed_scalar_pairs import recover_pairs
+            fp_view = recover_pairs(REPOSITORY, inventory, entry, address, body, params,
+                                    (c_ret, c_conv, c_params), accepted, SimpleNamespace(**globals()))
+        if fp_view:
+            body = fp_view['body']
+            c_ret, c_conv, c_params = fp_view['prototype']
+            notes.append(fp_view['note'])
+        # The original's ECX load before each call names an owner Ghidra's
+        # text dropped: one global object for every site, or this function's
+        # own `this` kept in a register.
+        setups = set(owners.get(address, []))
+        hint = None
+        if len(setups) == 1 and None not in setups:
+            kind, value = next(iter(setups))
+            if kind == 'imm':
+                hint = '&DAT_%08x' % value
+                if c_conv in ('', '__cdecl', '__stdcall') and (popped or not c_params):
+                    c_conv, c_params = '__thiscall', ['void *this_'] + list(c_params)
+            elif this_name:
+                hint = this_name
+        if address in height_prototypes:
+            c_ret, c_conv, c_params = height_prototypes[address]
+        from seed_callee_abi import accepted_member_view
+        from types import SimpleNamespace
+        abi = accepted_member_view(REPOSITORY, inventory, entry, address, body, params,
+                                   (c_ret, c_conv, c_params), this_name, accepted,
+                                   SimpleNamespace(**globals()))
+        if not abi:
+            from seed_wide_callee_abi import accepted_wide_member_view
+            abi = accepted_wide_member_view(REPOSITORY, inventory, entry, address, body, params,
+                                           (c_ret, c_conv, c_params), this_name, accepted,
+                                           SimpleNamespace(**globals()))
+        if abi:
+            c_ret, c_conv, c_params = abi['prototype']
+            hint = abi.get('owner', this_name)
+            abi_forwards.update(abi['forwards'])
+            notes.append(abi['note'])
+        body, lines = declare_callee(body, callee, (c_ret, c_conv, c_params), hint)
+        declarations.extend(lines)
+    if list(call_sites(body, name)):
+        validate_recursive_calls(body, name, conv, params)
+        body, _ = declare_callee(body, name, (ret, conv, params), this_name)
+        body = body.replace('Callee_%08x' % entry, 'Owner_%08x' % entry)
+    imports = imported_calls(body)
+    imports.update(alias_imports)
+    alias_declarations = {}
+    for api, fact in sorted(imports.items()):
+        body, declaration = declare_import(body, api, fact)
+        declarations.append(declaration)
+        if api in alias_imports:
+            alias_declarations[api] = declaration
+    for library, address in sorted(named_calls(body, inventory, owners, imports).items()):
+        declarations.append('extern "C" undefined4 __cdecl %s(...);  // @ref _%s=%08x' % (library, library, address))
+    declarations.extend(named_thunk_values(body, entry, inventory, params))
+    evidence_root = (REPOSITORY / 'private/original-target-20261020/inventory').resolve()
+    shared = (shared_pointer_types() if any(p.resolve().is_relative_to(evidence_root) for p in inventory.passes) else {})
+    body, global_types = recover_global_pointers(body, params, shared)
+    for symbol, kind in floating_operand_globals(body, inventory.function(entry)[1], params).items():
+        if symbol not in global_types and int(symbol[-8:], 16) not in shared:
+            global_types[symbol] = kind
+    body, byte_field_notes = low_offset_byte_fields(body, params, global_types, shared, entry, inventory)
+    notes.extend(byte_field_notes)
+    for symbol, kind in sorted(global_types.items()):
+        known = shared.get(int(symbol[-8:], 16))
+        if known and known['kind'] == kind:
+            if known['forward'] and known['forward'] not in declarations:
+                declarations.append(known['forward'])
+            declarations.append('// %s pointer type from %s; raw field offsets remain explicit.' % (symbol, known['header']))
+    for symbol in sorted(set(DATA.findall(code_view(body))) - labels):
+        kind = global_types.get(symbol) or (pointer_global_type(body, symbol) if 'PTR_' in symbol else 'char' if symbol.startswith('LAB_') else 'undefined4')
+        global_types[symbol] = kind
+        if kind == 'undefined4' and byte_global(body, symbol):
+            # Ghidra compares or assigns it as a character: a byte global.
+            global_types[symbol] = 'char'
+            declarations.append('extern "C" char %s;' % symbol); continue
+        declarations.append('extern "C" %s %s%s;' % (kind, symbol, '[]' if kind == 'char' else ''))
+    for symbol in sorted(set(STRING.findall(code_view(body)))):
+        declarations.append('extern "C" %s %s[];' % ('wchar16' if symbol.startswith('u_') else 'char', symbol))
+    body = cast_void_global_offsets(body, global_types)
+    body = pointer_equality_boundaries(body, params, global_types)
+    body = unsigned_pointer_ordering(body, params, global_types)
+    body = primitive_pointer_ordering(body, params, global_types)
+    body = cast_storage_boundaries(body, params, global_types)
+    body = function_address_arithmetic(address_stores(cast_assignments(body, params)), params)
+    body = return_boundaries(body, ret)
+    if conv == '__thiscall' and params:
+        this_type, this_name = param_parts(params[0])
+        owner = 'Owner_%08x' % entry
+        local = '' if this_name == 'this' else '    %s %s = (%s)this;\n' % (this_type, this_name, this_type)
+        definition = ('struct %s { %s %s(%s); };\n\n%s %s::%s(%s)\n{\n%s%s' % (
+            owner, ret, name, ', '.join(params[1:]), ret, owner, name, ', '.join(params[1:]),
+            local, body.lstrip('{').lstrip('\n')))
+    else:
+        definition = '%s %s %s(%s)\n%s' % (ret, conv, name, ', '.join(params) or 'void', body)
+    # A private namespace per seed lets accepted seeds share one compiler
+    # translation unit without clashing declarations or cross-seed inlining;
+    # every mangled name still carries the FUN_ address.
+    preamble = sdk_preamble(body+'\n'+'\n'.join(declarations), params, ret)
+    if alias_imports:
+        try:
+            check_generated_import_names(declarations + [preamble], alias_declarations)
+        except AliasRefusal:
+            return seed(entry, inventory, accepted, _import_aliases=False, _typed=_typed)
+    result = '\n'.join(documentation(entry, inventory, text[start:end].strip(), notes) +
+                     [MARKER, INCLUDE, ''] + (sorted(abi_forwards)+[''] if abi_forwards else []) + ['namespace seed_%08x {' % entry, '',
+                      preamble, ''] +
+                     (declarations + [''] if declarations else []) +
+                     [definition.rstrip(), '', '}  // namespace seed_%08x' % entry, ''])
+
+    if typed:
+        owner,schema,static=typed
+        variables=variable_types(text[end:],params)
+        result,_=adapt_seed(result,text,entry,owner,schema,variables,
+                            lambda body:cast_assignments(body,params),placeholder_types(inventory.passes,entry),static)
+    if entry not in accepted:
+        from seed_bullet_ai import optional_bullet_ai
+        result = optional_bullet_ai(result, entry, inventory, REPOSITORY, accepted)
+    return result
+
+
+_OWNERS = []
+
+
+def _owners():
+    if not _OWNERS:
+        from class_owners import ClassOwners
+        _OWNERS.append(ClassOwners())
+    return _OWNERS[0]
+
+
+def documentation(entry, inventory, prototype, callee_notes):
+    """Header comment: what is known about the function, without guessing."""
+    _, row = inventory.function(entry)
+    lines = ['// 0x%08x: function not yet identified' % entry, '//']
+    owner = _owners().owner(entry)
+    if owner:
+        lines.append('// Owner: %s, %s (from RTTI/vtables).' % owner)
+    if row:
+        lines.append('// Body: %d bytes (frozen inventory bound).' % sum(r['length'] for r in row['ranges']))
+        refs = row.get('entry_references') or []
+        kinds = sorted({r['type'].lower().replace('_', ' ') for r in refs})
+        lines.append('// Referenced from %d site%s%s.' % (len(refs), '' if len(refs) == 1 else 's',
+                                                       ' (' + ', '.join(kinds) + ')' if kinds else ''))
+    lines.append('// Ghidra prototype: ' + ' '.join(prototype.split()))
+    if callee_notes:
+        lines += ['// Callees with accepted source:'] + callee_notes
+    lines += ['//', '// Types and names are Ghidra placeholders (see shared/ghidra_types.hpp);',
+              '// rename and retype as the purpose becomes known.', '//']
+    return lines
+
+
+def compile_seed_text(entry, text, directory, config):
+    """Compile one scratch payload with the existing bounded batch backend."""
+    from sweep_seeds import compile_batch
+    from diff_candidate import OPTIONS
+    from coff import Coff
+    import hashlib
+    directory=Path(directory).resolve();directory.mkdir(parents=True,exist_ok=True)
+    source=directory/('%08x.cpp'%entry)
+    with open(source,'w',encoding='utf-8',newline='\n') as stream: stream.write(text)
+    hung=compile_batch(config,[entry],directory,OPTIONS[0])
+    obj=source.with_suffix('.obj');log=source.with_suffix('.log')
+    diagnostic=log.read_text(errors='replace') if log.exists() else ''
+    compiled=entry not in hung and obj.is_file() and not re.search(r'error C\d+:',diagnostic)
+    receipt=directory/('sweep-%08x-command.json'%entry)
+    if config.get('wine_kind')=='native' and receipt.exists():
+        units=json.loads(receipt.read_bytes())['units']
+        compiled=compiled and len(units)==1 and units[0]['returncode']==0
+    if compiled:
+        try:Coff(obj.read_bytes())
+        except ValueError:compiled=False
+    return dict(compiled=bool(compiled),source_path=source.as_posix(),object_path=obj.as_posix(),
+                log_path=log.as_posix(),timed_out=entry in hung,
+                source_sha256=hashlib.sha256(source.read_bytes()).hexdigest())
+
+
+def seed_config_path(explicit=None):
+    if explicit is not None:return Path(explicit)
+    native=REPOSITORY/'private/original-target.win.json'
+    if sys.platform=='win32' and native.is_file():return native
+    return REPOSITORY/'private/original-target.local.json'
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('entries', nargs='+', help='original entry addresses (hex)')
+    parser.add_argument('--output', type=Path, default=REPOSITORY / 'build/candidates')
+    parser.add_argument('--force', action='store_true', help='overwrite an existing scratch seed')
+    parser.add_argument('--config', type=Path, help='compiler configuration; validates the seed and enables pass5 fallback')
+    parser.add_argument('--no-compile-check', action='store_true', help='generate preferred source only, for diagnosing a typed export')
+    parser.add_argument('--even-accepted', action='store_true', help='seed an accepted entry too (rebuild trial: a fresh start from the decompiler output)')
+    args = parser.parse_args()
+    from inventory import Inventory
+    inventory = Inventory()
+    from seed_fallback import frozen_inventory,has_fallback,choose_seed
+    baseline=frozen_inventory();failed=False
+    accepted = accepted_sources(catalog_io.load(catalog_io.locate(REPOSITORY), references=False))
+    for item in args.entries:
+        entry = int(item, 16)
+        if entry in accepted and not args.even_accepted:
+            print('%08x already accepted: %s' % (entry, accepted[entry])); continue
+        path = args.output / ('%08x' % entry) / 'candidate.cpp'
+        if path.exists() and not args.force:
+            print('%08x exists: %s (use --force)' % (entry, path)); continue
+        path.parent.mkdir(parents=True, exist_ok=True)
+        validate=not args.no_compile_check and (args.config is not None or has_fallback(entry,inventory,baseline))
+        if validate:
+            config_path=seed_config_path(args.config)
+            if not config_path.is_file():parser.error('Typed seed compile validation needs --config pointing to an existing compiler configuration')
+            config=json.loads(config_path.read_bytes())
+        try:
+            if validate:
+                choice=choose_seed(entry,inventory,accepted,seed,
+                    lambda text,mode:compile_seed_text(entry,text,path.parent/('check-'+mode),config),baseline)
+                text=choice.pop('source')
+            else:
+                text=seed(entry,inventory,accepted)
+        except ValueError as error:
+            print('%08x refused: %s' % (entry, error), file=sys.stderr)
+            failed=True
+            continue
+        if validate:
+            with open((path.parent/'seed-choice.json'),'w',encoding='utf-8',newline='\n') as stream: stream.write(json.dumps(choice,indent=2)+'\n')
+            failed=failed or not choice['compiled']
+        with open(path,'w',encoding='utf-8',newline='\n') as stream: stream.write(text)
+        print(path)
+    return int(failed)
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

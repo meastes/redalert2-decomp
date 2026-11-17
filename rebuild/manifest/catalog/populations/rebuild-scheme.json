@@ -1,0 +1,1201 @@
+{
+  "id": "rebuild-scheme",
+  "population": {
+    "id": "rebuild-scheme",
+    "inventory_sha256": "79abd7d65a9f573e0f540cc2e111b8dfae7106228eaffce9321b4c146dbdc8b8",
+    "gaps_sha256": "d551f48cc2d73474105325a369ee561c0e6da231055dd4c8178202666aed3466",
+    "historical_population_sha256": "d4b416a71777afdc03b5221f8ea0873f4ab6db525313f9502a4f6dccd481ffa3",
+    "historical_acceptance_sha256": "a7fe8c48c0568607cb9da4155df5137874ddbee98fab33732f143d46f2b91e1e"
+  },
+  "references": {
+    "_$E4": 6698576,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "??_7?$DynamicVectorClass@PAVColorScheme@@@@6B@": 8027032,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVColorScheme@@@@6B@": 8027064,
+    "??3@YAXPAX@Z": 7871803,
+    "??4PaletteClass@@QAEAAV0@ABV0@@Z": 6303872,
+    "__real@8@3ffba6ce934058661000": 8032840,
+    "__real@8@3ffdb2b8c2573a243800": 8032832,
+    "__real@8@3ffabea2f16e1be26000": 8032824,
+    "__real@8@3ffedf66f2ed08ad4800": 8032816,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "__ftol": 7860496,
+    "?cos@fastmath@@YANN@Z": 4957392,
+    "??BHSVClass@@QBE?AVRGBClass@@XZ": 5238864,
+    "??2@YAPAXI@Z": 7872535,
+    "??0LightConvertClass@@QAE@ABVPaletteClass@@0ABVSurface@@HHH_NPA_NH@Z": 5474400,
+    "??0ConvertClass@@QAE@ABVPaletteClass@@0ABVSurface@@H_N@Z": 4732496,
+    "_strdup": 7919638,
+    "?_indexes@@3PA_NA": 8332876,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "?Build_Light_Converter@@YIPAVConvertClass@@AAVHSVClass@@ABVPaletteClass@@1PAV3@ABVSurface@@HHHHPA_N@Z": 6698640,
+    "_free": 7874024,
+    "_stricmp": 7872288,
+    "??0ColorScheme@@QAE@PBDAAVHSVClass@@ABVPaletteClass@@2H_N@Z": 6699504,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E6": 6698512,
+    "??_G?$DynamicVectorClass@PAVColorScheme@@@@UAEPAXI@Z": 6313456,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVColorScheme@@@@UAEPAXI@Z": 6313376,
+    "?Build_Converter@@YIPAVConvertClass@@AAVHSVClass@@ABVPaletteClass@@1ABVSurface@@PAV3@@Z": 6698976,
+    "??0ColorScheme@@QAE@XZ": 6699312,
+    "?Build_Light_Converters@ColorScheme@@QAEXABVPaletteClass@@0HHH@Z": 6699840,
+    "??1ColorScheme@@QAE@XZ": 6699952,
+    "??8ColorScheme@@QAE_NABV0@@Z": 6700096,
+    "??9ColorScheme@@QAE_NABV0@@Z": 6700144,
+    "?Find_Or_Make@ColorScheme@@SIHPBDAAVHSVClass@@ABVPaletteClass@@2H@Z": 6700192,
+    "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z": 6700336,
+    "?Fetch_Scheme_Index_By_Name@@YIHPBDH@Z": 6700432,
+    "?Clear@?$DynamicVectorClass@PAVColorScheme@@@@UAEXXZ": 6311120,
+    "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z": 6311168,
+    "?GetItem@?$VectorClass@PAVColorScheme@@@@UBEPAVColorScheme@@H@Z": 6311200,
+    "??8?$VectorClass@PAVColorScheme@@@@UBE_NABV0@@Z": 6311360,
+    "?Resize@?$VectorClass@PAVColorScheme@@@@UAE_NHPBQAVColorScheme@@@Z": 6311424,
+    "?Clear@?$VectorClass@PAVColorScheme@@@@UAEXXZ": 6311600,
+    "?ID@?$VectorClass@PAVColorScheme@@@@UAEHABQAVColorScheme@@@Z": 6311648,
+    "?ID@?$VectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z": 6311712,
+    "?Resize@?$DynamicVectorClass@PAVColorScheme@@@@UAE_NHPBQAVColorScheme@@@Z": 6311744,
+    "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHABQAVColorScheme@@@Z": 6311920
+  },
+  "regions": [
+    {
+      "entry": 6698512,
+      "method": "00663610",
+      "body_bytes": 61,
+      "body_sha256": "acffdbcb6c245cd0a8268568a25d069d9b2f62d7d0936dc8b57500df752d442e",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e1eb02682ec84534d1e2c28dd7806ce3f356a40e2a3d0dabfa919ccc92e3f62b",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E6",
+      "symbol_prefix": "_$E6",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E4",
+          "target": 6698576,
+          "addend": 0,
+          "resolved": 6698576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 8,
+          "resolved": 11235072
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 12,
+          "resolved": 11235076
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 13,
+          "resolved": 11235077
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 0,
+          "resolved": 11235064
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVColorScheme@@@@6B@",
+          "target": 8027032,
+          "addend": 0,
+          "resolved": 8027032
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 20,
+          "resolved": 11235084
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1176383
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6698512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6698576,
+      "method": "00663650",
+      "body_bytes": 59,
+      "body_sha256": "58f4ed41a1f7ff2d5f5a62146fd475e1b499a7a7056ddb896e8309f69d02f51c",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d84c558c4f987c178802ec8a2aee3e3e1bdea4dd1758576ce24db63aec69b8f6",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E4",
+      "symbol_prefix": "_$E4",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 0,
+          "resolved": 11235064
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVColorScheme@@@@6B@",
+          "target": 8027064,
+          "addend": 0,
+          "resolved": 8027064
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 13,
+          "resolved": 11235077
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1173191
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 13,
+          "resolved": 11235077
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 8,
+          "resolved": 11235072
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6698576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6698640,
+      "method": "00663690",
+      "body_bytes": 331,
+      "body_sha256": "0716bcaba04b9f4f75b2df6ad1785d0e277530b02ddec09ea9998d63f11d33c8",
+      "padding_bytes": 5,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "73ac1d913073e43deca5ab965904aada630742297b6e382ab52698d9d0572021",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Build_Light_Converter@@YIPAVConvertClass@@AAVHSVClass@@ABVPaletteClass@@1PAV3@ABVSurface@@HHHHPA_N@Z",
+      "symbol_prefix": "?Build_Light_Converter@@YIPAVConvertClass@@AAVHSVClass@@ABVPaletteClass@@1PAV3@ABVSurface@@HHHHPA_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "??4PaletteClass@@QAEAAV0@ABV0@@Z",
+          "target": 6303872,
+          "addend": 0,
+          "resolved": 4294572483
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "__real@8@3ffba6ce934058661000",
+          "target": 8032840,
+          "addend": 0,
+          "resolved": 8032840
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "__real@8@3ffdb2b8c2573a243800",
+          "target": 8032832,
+          "addend": 0,
+          "resolved": 8032832
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "__real@8@3ffabea2f16e1be26000",
+          "target": 8032824,
+          "addend": 0,
+          "resolved": 8032824
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "__real@8@3ffedf66f2ed08ad4800",
+          "target": 8032816,
+          "addend": 0,
+          "resolved": 8032816
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293225828
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1161707
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293225876
+        },
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1161672
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 4293507318
+        },
+        {
+          "offset": 259,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1173632
+        },
+        {
+          "offset": 307,
+          "kind": 20,
+          "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0ABVSurface@@HHH_NPA_NH@Z",
+          "target": 5474400,
+          "addend": 0,
+          "resolved": 4293742745
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6698640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6698976,
+      "method": "006637e0",
+      "body_bytes": 335,
+      "body_sha256": "747876aa074705a590fee61b3709317729a7498bc7f00fdc2446e7ed46b50ab9",
+      "padding_bytes": 1,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "8b140500c4692800f16cdcc85d15221ab33558cc09014846fca54fc9668c2c7b",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Build_Converter@@YIPAVConvertClass@@AAVHSVClass@@ABVPaletteClass@@1ABVSurface@@PAV3@@Z",
+      "symbol_prefix": "?Build_Converter@@YIPAVConvertClass@@AAVHSVClass@@ABVPaletteClass@@1ABVSurface@@PAV3@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "__real@8@3ffba6ce934058661000",
+          "target": 8032840,
+          "addend": 0,
+          "resolved": 8032840
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "__real@8@3ffdb2b8c2573a243800",
+          "target": 8032832,
+          "addend": 0,
+          "resolved": 8032832
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "__real@8@3ffabea2f16e1be26000",
+          "target": 8032824,
+          "addend": 0,
+          "resolved": 8032824
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "__real@8@3ffedf66f2ed08ad4800",
+          "target": 8032816,
+          "addend": 0,
+          "resolved": 8032816
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293225487
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1161366
+        },
+        {
+          "offset": 173,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293225535
+        },
+        {
+          "offset": 185,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1161331
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 4293506977
+        },
+        {
+          "offset": 270,
+          "kind": 20,
+          "symbol": "??4PaletteClass@@QAEAAV0@ABV0@@Z",
+          "target": 6303872,
+          "addend": 0,
+          "resolved": 4294571918
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1173275
+        },
+        {
+          "offset": 311,
+          "kind": 20,
+          "symbol": "??0ConvertClass@@QAE@ABVPaletteClass@@0ABVSurface@@H_N@Z",
+          "target": 4732496,
+          "addend": 0,
+          "resolved": 4293000501
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6698976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6699312,
+      "method": "00663930",
+      "body_bytes": 177,
+      "body_sha256": "0686a2532f79e42c01c4bb9f395e5a0f706d3eb5b942d3540929027878833ea1",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "49746a4c48176064d25e4a7c1718c26cfbaa93cd4acf2586f13d8975ff01b84e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0ColorScheme@@QAE@XZ",
+      "symbol_prefix": "??0ColorScheme@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 8,
+          "resolved": 11235072
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 13,
+          "resolved": 11235077
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 20,
+          "resolved": 11235084
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 0,
+          "resolved": 11235064
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 0,
+          "resolved": 11235064
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6699312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6699504,
+      "method": "006639f0",
+      "body_bytes": 335,
+      "body_sha256": "9ace281cb39fa1eb6a13b414168df810d7642123dbd479011c443503cac67ad4",
+      "padding_bytes": 1,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "8eafb59a9103d92bbd5c52610883f7bd4ec2ff9a27a0d102db5d8ca38b72527f",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0ColorScheme@@QAE@PBDAAVHSVClass@@ABVPaletteClass@@2H_N@Z",
+      "symbol_prefix": "??0ColorScheme@@QAE@PBDAAVHSVClass@@ABVPaletteClass@@2H_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "_strdup",
+          "target": 7919638,
+          "addend": 0,
+          "resolved": 1220092
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?_indexes@@3PA_NA",
+          "target": 8332876,
+          "addend": 0,
+          "resolved": 8332876
+        },
+        {
+          "offset": 206,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "?Build_Light_Converter@@YIPAVConvertClass@@AAVHSVClass@@ABVPaletteClass@@1PAV3@ABVSurface@@HHHHPA_N@Z",
+          "target": 6698640,
+          "addend": 0,
+          "resolved": 4294966210
+        },
+        {
+          "offset": 238,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 8,
+          "resolved": 11235072
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 13,
+          "resolved": 11235077
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 20,
+          "resolved": 11235084
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 0,
+          "resolved": 11235064
+        },
+        {
+          "offset": 284,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 0,
+          "resolved": 11235064
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 306,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 312,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6699504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6699840,
+      "method": "00663b40",
+      "body_bytes": 97,
+      "body_sha256": "708eb16d1a272e0260b0bb1c5a44168bc7abf1082cd292a120170d9bf71bcf62",
+      "padding_bytes": 15,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "9da8e9ef2e1fd5b0c7ef3d242d9b664ee095085963cd5a5216a29b76a1095643",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Build_Light_Converters@ColorScheme@@QAEXABVPaletteClass@@0HHH@Z",
+      "symbol_prefix": "?Build_Light_Converters@ColorScheme@@QAEXABVPaletteClass@@0HHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?_indexes@@3PA_NA",
+          "target": 8332876,
+          "addend": 0,
+          "resolved": 8332876
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?Build_Light_Converter@@YIPAVConvertClass@@AAVHSVClass@@ABVPaletteClass@@1PAV3@ABVSurface@@HHHHPA_N@Z",
+          "target": 6698640,
+          "addend": 0,
+          "resolved": 4294966009
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6699840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6699952,
+      "method": "00663bb0",
+      "body_bytes": 135,
+      "body_sha256": "71fbfc1e47e511b07b385410dcb1394b5a3d9896d91c78038bff0d7be30619f6",
+      "padding_bytes": 9,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "b24180cb27b65f71dcddda99586a0438d7e9d471d1151b7f4e1fbf839b6d2858",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1ColorScheme@@QAE@XZ",
+      "symbol_prefix": "??1ColorScheme@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "_free",
+          "target": 7874024,
+          "addend": 0,
+          "resolved": 1174052
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 0,
+          "resolved": 11235064
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 0,
+          "resolved": 11235064
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6699952,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1647"
+    },
+    {
+      "entry": 6700096,
+      "method": "00663c40",
+      "body_bytes": 34,
+      "body_sha256": "8b6599ae97ea2940e8e553f60f6c1161069353a93ec969458c78bee0babab9e2",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1a704d8ada4d9026add6e52f5c3854420b31a16ac37a298812b923722bdca329",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8ColorScheme@@QAE_NABV0@@Z",
+      "symbol_prefix": "??8ColorScheme@@QAE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 1172169
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6700096,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 6700144,
+      "method": "00663c70",
+      "body_bytes": 35,
+      "body_sha256": "ffa7b427fa9e1ad715875985cab257231e3921b1f240e0a98c539f1e2e3ed55b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "2b0f5b6f12cddc4e669dc7b472997d3210f97899637e6f5fcd8d4292fe34292f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??9ColorScheme@@QAE_NABV0@@Z",
+      "symbol_prefix": "??9ColorScheme@@QAE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 1172121
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6700144,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 6700192,
+      "method": "00663ca0",
+      "body_bytes": 136,
+      "body_sha256": "60120ab3bb24ddec045647b473c1ddd8d2ede7ef2ed859536a585bc14b05d12d",
+      "padding_bytes": 8,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "836f25c1f5f1d5aa6344a9352e56cb1bcf88c42742864d2fc7621c7360aeb63d",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Find_Or_Make@ColorScheme@@SIHPBDAAVHSVClass@@ABVPaletteClass@@2H@Z",
+      "symbol_prefix": "?Find_Or_Make@ColorScheme@@SIHPBDAAVHSVClass@@ABVPaletteClass@@2H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 1172045
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1172248
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "??0ColorScheme@@QAE@PBDAAVHSVClass@@ABVPaletteClass@@2H_N@Z",
+          "target": 6699504,
+          "addend": 0,
+          "resolved": 4294966484
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6700192,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3353"
+    },
+    {
+      "entry": 6700336,
+      "method": "00663d30",
+      "body_bytes": 90,
+      "body_sha256": "a5a59a6727f53a15c133cd12a70fc3ae24ad7a32eab9a1c86c55bffef6a93ead",
+      "padding_bytes": 6,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "c290b7a6adbb33423cae021917dea068694985bcd44a4df4022176619fa7eab8",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
+      "symbol_prefix": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 1171913
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6700336,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3357"
+    },
+    {
+      "entry": 6700432,
+      "method": "00663d90",
+      "body_bytes": 86,
+      "body_sha256": "9b23e2dda394eda62639d510930a7fff379cbdad851996f9280ecac6807a2129",
+      "padding_bytes": 10,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "bfd6a96f15550333018339e18fbd2ec5b7a5e0d079893edce35a6440625adf49",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Scheme_Index_By_Name@@YIHPBDH@Z",
+      "symbol_prefix": "?Fetch_Scheme_Index_By_Name@@YIHPBDH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 1171817
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        }
+      ],
+      "source_sha256": "9148fec4a912cf683bf92f6919ced834d0edfd33b249d6fd74bf45b46fa3d6a1",
+      "source": "rebuild/src/scheme.cpp",
+      "population": "rebuild-scheme",
+      "source_order": 6700432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3357"
+    }
+  ]
+}

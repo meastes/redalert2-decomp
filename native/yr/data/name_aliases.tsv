@@ -1,0 +1,80 @@
+# YR functions the tree defines under one name and calls under another (one address each, data/manifest.csv).
+# yr_aliases.py adds these rows to aliases.tsv (ld64 -alias_list). alias<TAB>target (Mach-O symbols).
+alias	target
+__Z26FileSystem_LoadWholeFileExPKcRb	__ZN10FileSystem15LoadWholeFileExEPKcRb
+__ZN12SidebarClass17Toggle_Cameo_TextEb	__ZN12SidebarClass14Set_Cameo_TextEb
+__ZN15ObjectTypeClass8One_TimeEv	__Z12FUN_005F76B0v
+__Z12FUN_0053D330v	__ZN13IonBlastClass8One_TimeEv
+__ZN13IonStormClass19Is_Ion_Storm_ActiveEv	__Z12FUN_0053A100v
+__Z13Vox_From_NamePKc	__Z12FUN_00753250PKc
+__Z17Fill_Surface_RectP8BSurfaceP5TRectIiEi	__Z17Fill_Surface_RectP7SurfacePK5TRectIiEb
+__ZN9OwnerDraw22Dialog_Message_HandlerEv	__ZN2UI7UpdatedEv
+__ZN15BulletTypeClass12Find_Or_MakeEPKc	__ZN15BulletTypeClass14FindOrAllocateEPKc
+__Z21House_From_HousesType10HousesType	__ZN10HouseClass18FindByCountryIndexEi
+__ZN11TechnoClass21Create_Planning_TokenEv	__Z12FUN_00638A80P11TechnoClass
+__ZNK10HouseClass15Is_Human_PlayerEv	__ZNK10HouseClass12FUN_0050B730Ev
+__ZN10HouseClass19Tracking_Active_AddEP11TechnoClassb	__ZN10HouseClass12RegisterGainEP11TechnoClassb
+__ZN10HouseClass22Tracking_Active_RemoveEP11TechnoClassb	__ZN10HouseClass12RegisterLossEP11TechnoClassb
+__ZN8MapClass20Update_Pathfinding_1Ev	__ZN8MapClass10Zone_ResetEv
+__ZN17InputManagerClass5CheckEv	__ZNK15WWKeyboardClass5CheckEv
+__ZN17InputManagerClass3GetEv	__ZN15WWKeyboardClass3GetEv
+_Draw_Voxel_Regular_Normals_ASM	__Z26Draw_Voxel_Regular_NormalsP23VoxelFuncArgumentStruct
+_Draw_Voxel_Reverse_Normals_ASM	__Z26Draw_Voxel_Reverse_NormalsP23VoxelFuncArgumentStruct
+_Draw_Voxel_Regular_Lighting_Normals_ASM	__Z35Draw_Voxel_Regular_Normals_LightingP23VoxelFuncArgumentStruct
+_Draw_Voxel_Reverse_Lighting_Normals_ASM	__Z35Draw_Voxel_Reverse_Normals_LightingP23VoxelFuncArgumentStruct
+_Draw_Voxel_Regular_ASM	__Z18Draw_Voxel_RegularP23VoxelFuncArgumentStruct
+_Draw_Voxel_Reverse_ASM	__Z18Draw_Voxel_ReverseP23VoxelFuncArgumentStruct
+__ZN9OwnerDraw12Begin_DialogEiPFiP6HWND__jyxEx	__ZN2UI11BeginDialogEiPFiP6HWND__jyxEi
+__ZN9OwnerDraw10End_DialogEP6HWND__	__ZN2UI9EndDialogEP6HWND__
+__ZN9OwnerDraw19Default_Dialog_ProcEP6HWND__jyx	__ZN2UI15StandardWndProcEP6HWND__jyx
+__Z18AudioLevelWaitFadePv	__Z18AudioLevelWaitFadeP10AudioLevel
+__ZN10HouseClass14Get_Base_CoordEv	__ZNK10HouseClass12FUN_0050DF30Ev
+# TechnoClass's virtual slots 0x3D0 and 0x3E0-0x3EC (lane Y4): gamemd.exe's TechnoClass, FootClass,
+# InfantryClass, UnitClass, BuildingClass and AircraftClass vtables all point them at these addresses.
+__ZNK11TechnoClass16IsNotSprayAttackEv	__ZNK11TechnoClass12FUN_0070DD70Ev
+__ZNK11TechnoClass23GetSecondaryWeaponIndexEv	__ZNK11TechnoClass12FUN_0070DD90Ev
+__ZNK11TechnoClass17IsNotSprayAttack2Ev	__ZNK11TechnoClass12FUN_0070DDA0Ev
+__ZNK11TechnoClass10IsAreaFireEv	__ZNK11TechnoClass12FUN_0070DD50Ev
+__ZN11TechnoClass5GuardEv	__ZN11TechnoClass12FUN_0070F850Ev
+__ZNK11TechnoClass24GetFireErrorWithoutRangeEP13AbstractClassi	__ZNK11TechnoClass12FUN_006FC090EP13AbstractClassi
+# TibSun's ObjectClass::Direction is the tree's AbstractClass::GetTargetDirection (0x005F3DB0, one body; lane Y4).
+__ZNK11ObjectClass9DirectionEPK13AbstractClass	__ZNK13AbstractClass18GetTargetDirectionEPKS_
+# SidebarClass::Add is the tree's SidebarClass::AddCameo (0x006A6300; lane Y4).
+__ZN12SidebarClass3AddE8RTTITypei	__ZN12SidebarClass8AddCameoE8RTTITypei
+# UnselectAll is the tree's Unselect_All (0x0048DC90; lane Y4).
+__Z11UnselectAllv	__Z12Unselect_Allv
+# The area damage, 0x00489280, under its three names (lane Y4): combat_native.inc defines Explosion_Damage.
+__Z12FUN_00489280RK5CoordiP11TechnoClassPK16WarheadTypeClassbP10HouseClass	__Z16Explosion_DamageRK5CoordiP11TechnoClassPK16WarheadTypeClassbP10HouseClass
+__ZN8MapClass10DamageAreaERK5CoordiP11TechnoClassPK16WarheadTypeClassbP10HouseClass	__Z16Explosion_DamageRK5CoordiP11TechnoClassPK16WarheadTypeClassbP10HouseClass
+__ZNK13BuildingClass18Fetch_Super_WeaponEv	__ZNK13BuildingClass16FirstActiveSWIdxEv
+__ZNK13BuildingClass19Fetch_Super_Weapon2Ev	__ZNK13BuildingClass17SecondActiveSWIdxEv
+# The sound system master's pointer, 0x00816514 (lane Y7): audio.cpp passes DAT_00816514 to AudioLoadSystem;
+# drv_dsnd.cpp defines it as AudioSystemDSD (gamemd.exe: 0x00816514 holds 0x00816358, the master named
+# "Direct Sound Driver V2.0" whose load is audioLoad 0x00409470). Before, the copy from gamemd.exe held 32-bit addresses.
+_DAT_00816514	_AudioSystemDSD
+# TechnoClass::ScanForTiberium (vtable slot 0x338) is the tree's TechnoClass::FUN_0070F8F0 (lane Y7: gamemd.exe's
+# BuildingClass vtable holds 0x0070F8F0 there; a deployed slave miner's manager scans with it; the second parameter is unused).
+__ZN11TechnoClass15ScanForTiberiumEib	__ZN11TechnoClass12FUN_0070F8F0Eij
+# Is_Speaking (vox.h; Select_Game waits on it at Exit Game with sound on) is the tree's FUN_007529E0 (lane Y8: gamemd.exe 0x007529E0
+# services the speech queue and answers whether the EVA stream plays or a speech waits, as the RA2 twin 0x00715E20).
+__Z11Is_Speakingv	__Z12FUN_007529E0v
+# ShapeSet::Get_Color is SHPStruct::GetColor (lane Y8: gamemd.exe calls 0x0069E860 for it, which resolves an SHPReference
+# to the file behind it; lane Y3's TibSun-text draft read the reference object's own bytes as frame records: wrong radar colours
+# of overlays and reads past the reference, found by guard malloc).
+__ZNK8ShapeSet9Get_ColorEi	__ZNK9SHPStruct8GetColorEi
+# ShapeSet's other frame methods are SHPStruct's too (lane Y8; hdr/shapeset.h fixup: gamemd.exe calls these where the tree has inlines).
+__ZNK8ShapeSet8Get_DataEi	__ZNK9SHPStruct9GetPixelsEi
+__ZNK8ShapeSet8Get_RectEi	__ZNK9SHPStruct14GetFrameBoundsEi
+__ZNK8ShapeSet14Is_TransparentEi	__ZNK9SHPStruct15HasTransparencyEi
+__ZNK8ShapeSet17Is_RLE_CompressedEi	__ZNK9SHPStruct14HasCompressionEi
+# TechnoClass::Destroy (ObjectClass vtable slot 0x170) is the tree's TechnoClass::FUN_00710460 (lane Y11: gamemd.exe's TechnoClass,
+# FootClass, BuildingClass, InfantryClass and AircraftClass vtables hold 0x00710460 there, UnitClass::Destroy calls it; it frees
+# the mind-controlled units. A unit dying while mind-controlling reached the trap in a long skirmish under ctest -j4).
+__ZN11TechnoClass7DestroyEv	__ZN11TechnoClass12FUN_00710460Ev
+# HouseClass::Is_Build_Limited is the tree's HouseClass::FUN_0050B370 (lane Y11b: FactoryClass::Set 0x004C9C70 calls 0x0050B370
+# where the tree calls Is_Build_Limited; a second unit queued in a factory reached the trap).
+__ZNK10HouseClass16Is_Build_LimitedEPK15TechnoTypeClass	__ZN10HouseClass12FUN_0050B370EPK15TechnoTypeClass
+# HouseClass::MindControlBuildings and RelinquishBuildings are the tree's FUN_0050D290 and FUN_0050D2D0 (lane Y11b: the trigger
+# actions 0x006E0CA0 and 0x006E0D00 call them where the tree has those names).
+__ZN10HouseClass20MindControlBuildingsEPS_	__ZN10HouseClass12FUN_0050D290EPS_
+__ZN10HouseClass19RelinquishBuildingsEPS_	__ZN10HouseClass12FUN_0050D2D0EPS_

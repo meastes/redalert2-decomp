@@ -1,0 +1,134 @@
+{
+  "id": "rebuild-xstraw",
+  "population": {
+    "id": "rebuild-xstraw",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "ffa2ca99874fb145377befcbee34bf5764eee7b8c4a76dfcb34405de9be3d864",
+    "historical_acceptance_sha256": "d494378cf2d5f65fb8523f604acbe32b830579f13c2ead5da6481d946a968683"
+  },
+  "references": {
+    "_memmove": 7877264,
+    "??_7FileStraw@@6B@": 7985580,
+    "??1Straw@@UAE@XZ": 6926352,
+    "?Get@BufferStraw@@UAEHPAXH@Z": 7813184,
+    "?Get@FileStraw@@UAEHPAXH@Z": 7813280,
+    "??1FileStraw@@UAE@XZ": 7813376,
+    "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
+    "??_GFileStraw@@UAEPAXI@Z": 4639664,
+    "??_R0?AVStraw@@@8": 8199872,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVFileStraw@@@8": 8199896,
+    "??3@YAXPAX@Z": 7871803
+  },
+  "regions": [
+    {
+      "entry": 7813184,
+      "method": "00773840",
+      "body_bytes": 88,
+      "body_sha256": "dcb96fc4bd5e8d9606a1aea9ca4fa904395070260075e2f19ebcef15164caa42",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "cbc37cedf39fc0a3ba6be705642bc1ba2076a421b57b7444af1b8ac65490a37d",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get@BufferStraw@@UAEHPAXH@Z",
+      "symbol_prefix": "?Get@BufferStraw@@UAEHPAXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 64011
+        }
+      ],
+      "source_sha256": "04ac281f04a57727d644b9097ecdde076b32864ff7f3b276aaecfd52cfbb292d",
+      "source": "rebuild/src/xstraw.cpp",
+      "population": "rebuild-xstraw",
+      "source_order": 7813184,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1991"
+    },
+    {
+      "entry": 7813280,
+      "method": "007738a0",
+      "body_bytes": 93,
+      "body_sha256": "13454e5aa70128b46643b3360dbb9178eec6097bfa8187f27eae7a153b023582",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "4697272fdbaaebee9e74bb11e8d5f64cd86c9062d5af833ae6f3a9ebe306a654",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get@FileStraw@@UAEHPAXH@Z",
+      "symbol_prefix": "?Get@FileStraw@@UAEHPAXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "04ac281f04a57727d644b9097ecdde076b32864ff7f3b276aaecfd52cfbb292d",
+      "source": "rebuild/src/xstraw.cpp",
+      "population": "rebuild-xstraw",
+      "source_order": 7813280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7813376,
+      "method": "00773900",
+      "body_bytes": 48,
+      "body_sha256": "c07fadd5d4c1f3ab8689f0ba181a9e5663bcda3b6f184b7c3fb0030ad745fff4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c07fadd5d4c1f3ab8689f0ba181a9e5663bcda3b6f184b7c3fb0030ad745fff4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1FileStraw@@UAE@XZ",
+      "symbol_prefix": "??1FileStraw@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7FileStraw@@6B@",
+          "target": 7985580,
+          "addend": 0,
+          "resolved": 7985580
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??1Straw@@UAE@XZ",
+          "target": 6926352,
+          "addend": 0,
+          "resolved": 4294080226
+        }
+      ],
+      "source_sha256": "04ac281f04a57727d644b9097ecdde076b32864ff7f3b276aaecfd52cfbb292d",
+      "source": "rebuild/src/xstraw.cpp",
+      "population": "rebuild-xstraw",
+      "source_order": 7813376,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

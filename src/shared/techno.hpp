@@ -1,0 +1,873 @@
+// TechnoClass: RadioClass with an owner, weapons, facings and the
+// technology-level behaviour of every unit, infantry, aircraft and building
+// (Techno.cpp, 0x006C0A50-0x006D9950; RTTI vtables 0x007ACB80 primary (280
+// slots), 0x007ACB64 IRTTITypeInfo at +4, 0x007ACB5C INoticeSink,
+// 0x007ACB54 INoticeSource). Abstract: slots 11, 12 and 216 are pure.
+//
+// Layout (constructor 0x006C0CD0, NoInitClass constructor 0x006C1F10,
+// destructor 0x006C20B0, Load 0x006D6850; names are hypotheses unless
+// they follow from the code):
+//   +0x0D8 FlasherClass base; +0x0E0 StageClass base (original RTTI)
+//   +0x114  int (the owner's +0x130 when constructed with an owner)
+//   +0x118  VeterancyClass (two cleared words, out-of-line ctor/dtor)
+//   +0x120, +0x128  double 1.0
+//   +0x130..+0x19C  frame timers (+0x148 starts at 45)
+//   +0x1B4  HouseClass *House   the constructor argument (Owning_House)
+//   +0x1BC  UnknownStage (value, timer, step 1; constructed by both
+//           constructors)
+//   +0x1E8, +0x21C  CoordStruct (the unit's zero coordinate)
+//   +0x208, +0x230, +0x238  owned objects deleted by the destructor
+//   +0x25C  ObjectClass *unknown_25c[8]   cleared, swizzled
+//   +0x294  StorageClass, +0x2A8 DelayTimerClass (out-of-line constructors)
+//   +0x2C8, +0x2E0, +0x2F8  FacingClass (the first with rate 3)
+//   +0x320  short: a random value from the scenario when constructed
+//   +0x330, +0x350  RecoilData (constructed by both constructors)
+//   +0x390  DynamicVectorClass<int>, +0x3A8/+0x3C0 DynamicVectorClass<
+//           AbstractClass *> (constructed by both constructors)
+//   +0x3D8  UnknownAudioController
+//   +0x408  owned object (0x006130B0 releases it), size 0x418
+// Every techno is added to Technos (0x00A40C20) and to the list at
+// 0x00AC0D08, and removed from those and 0x00AC0BF8 when destroyed.
+#ifndef RA2_SHARED_TECHNO_HPP
+#define RA2_SHARED_TECHNO_HPP
+
+#include "shared/unknown_globals.hpp"
+#include "shared/rect.hpp"
+#include "shared/storage_class.hpp"
+#include "shared/sound_play.hpp"
+#include "shared/stage.hpp"
+#include "shared/flasher.hpp"
+#include "shared/techno_type.hpp"
+#include "shared/house.hpp"
+#include "shared/radio.hpp"
+#include "shared/crt_memory.hpp"
+#include "shared/random.hpp"
+#include "shared/rgb_class.hpp"
+#include "shared/system_timer.hpp"
+
+class Matrix3D;
+struct SurfaceRegion;
+class LaserDrawClass;
+class BulletClass;
+class EBolt;
+class TechnoClass;
+class FootClass;
+class InfantryClass;
+
+#include "shared/techno_pair.hpp"
+
+// UnknownStage: shared/stage.hpp.
+
+// A timer whose NoInitClass constructor is out of line (0x00423F60).
+class UnknownTimer423F60 {
+public:
+    UnknownTimer423F60(NoInitClass const &noinit);  // 0x00423F60
+    UnknownTimer423F60(long set) : Started(Timer), DelayTime(set) {}
+    long Started;
+    FrameTimerClass Timer;
+    long DelayTime;
+};
+
+// INTEG RESOLUTION CANDIDATE: codex1 r38's 16-byte duration timer (DelayTimerClass +0x08),
+// the 12-byte UnknownTimer423F60 plus the initial duration.
+class UnknownDurationTimer423F60 : public UnknownTimer423F60 {
+public:
+    UnknownDurationTimer423F60() : UnknownTimer423F60(0L), TotalTime(0) {}
+    UnknownDurationTimer423F60(long set) : UnknownTimer423F60(set), TotalTime(set) {}
+    UnknownDurationTimer423F60(NoInitClass const &noinit) : UnknownTimer423F60(noinit) {}
+    long Value() const
+    {
+        long remain = DelayTime;
+        if (Started != -1) {
+            long elapsed = Timer - Started;
+            if (elapsed < remain) return remain - elapsed;
+            return 0;
+        }
+        return remain;
+    }
+    double Percentage() const
+    {
+        if (!TotalTime) return 1.0;
+        return (double)(TotalTime - Value()) / TotalTime;
+    }
+    void Reverse() { DelayTime = TotalTime - Value(); }
+    long TotalTime;
+};
+
+// 0x20 bytes around a timer at +0x08 (constructor 0x00496A70 is out of line). TibSun delay.h's DelayTimerClass
+// (mischa85 delay.h and names.csv agree at every address).
+class DelayTimerClass {
+public:
+    bool Has_Ended() const;
+    void Reverse();
+    double Percent_Complete() const;
+    DelayTimerClass();                      // 0x00496A70
+    DelayTimerClass(NoInitClass const &noinit) : Timer(noinit) {}
+    bool Is_Count_Up_Active() const;        // 0x00496A90 (+0x18 and +0x19 set)
+    bool Is_Count_Down_Active() const;      // 0x00496AB0 (+0x18 set, +0x19 clear)
+    bool Is_Count_Up_Complete() const;      // 0x00496B30 (+0x18 set, or +0x19 is 1)
+    bool Is_Count_Down_Complete() const;    // 0x00496B50 (neither +0x18 nor +0x19 set)
+    void Count_Down(double duration);           // 0x00496BC0 (starts a timed change; UnitClass slot 145 passes DeployTime)
+    void Count_Up(double duration);             // 0x00496B70 (the reverse timed change; AircraftClass slot 95 passes DeployTime)
+    double Duration;                        // +00 duration scaled to frames
+    UnknownDurationTimer423F60 Timer;       // +0x08,16bytes including TotalTime at+14
+    bool IsActive;
+    bool IsToCountUp;
+    int unknown_1c;
+};
+
+#include "shared/facing.hpp"
+
+// 0x20 bytes constructed by both constructors (2, 1, 1, 1, -, 0, 0).
+// 0x006D8BC0 steps it: a value that rises over +0x0C frames (state 1),
+// holds, then falls over +0x08 frames (state 2 -> 3) back to 0.
+struct RecoilData {
+    RecoilData() :
+        unknown_00(2), unknown_04(1), unknown_08(1), unknown_0c(1),
+        TravelSoFar(0), unknown_18(0) {}
+    void unknown_6d8b90();              // 0x006D8B90
+    void unknown_6d8bc0();              // 0x006D8BC0
+    int unknown_00;                     // +0x00 amount
+    int unknown_04;
+    int unknown_08;                     // +0x08 frames to fall
+    int unknown_0c;                     // +0x0C frames to hold
+    float unknown_10;                   // +0x10 step per frame
+    float TravelSoFar;                   // +0x14 current value
+    int unknown_18;                     // +0x18 state (0 idle)
+    int unknown_1c;                     // +0x1C frames left in the state
+};
+
+// A packed 5-byte object reference (hypothesis: Westwood's TargetClass, an
+// ID and an RTTI byte; the byte is nonzero when set).
+#pragma pack(push, 1)
+struct UnknownTarget {
+    AbstractClass *Unknown_006B5810() const;    // 0x006B5810 (the referenced object; hypothesis)
+    int unknown_0;                      // +0x00
+    char unknown_4;                     // +0x04
+};
+
+// The argument of slot 268 (hypothesis: an event record; +0x0C its kind,
+// +0x0E and +0x13 two references).
+struct UnknownSlot268Arg {
+    char unknown_00[0x0C];
+    char unknown_0c;                    // +0x0C (sign-extended)
+    char unknown_0d;
+    UnknownTarget unknown_0e;           // +0x0E
+    UnknownTarget unknown_13;           // +0x13
+};
+#pragma pack(pop)
+
+// The passengers (hypothesis: Westwood's CargoClass): a count and a chain of
+// objects linked through ObjectClass +0x30.
+class CargoClass {
+public:
+    CargoClass() : Count(0), Object(0) {}
+    CargoClass(NoInitClass const &noinit) {}
+    ObjectClass *Attached_Object() const;   // 0x00468A10 (the first passenger)
+    int GetTotalSize() const; // 0x00468A20; existing Scope12 ABI hypothesis
+#ifdef RA2_TEAM_AI_HANDLERS
+    int How_Many() const { return Count; } // Cargo passenger count; original inline reads +0.
+#endif
+    ObjectClass *Detach_Object();           // 0x004689F0 (detaches the first passenger)
+    void Attach(FootClass *object);              // 0x00468960 (adds a passenger; InfantryClass slot 93)
+    void Detach(FootClass *object);              // 0x00468A70 (removes a given passenger; FootClass 0x004CCF20)
+    int Count;                              // +0x00
+    ObjectClass *Object;                    // +0x04
+};
+
+// A passenger's team (stand-in for the team member TechnoClass 0x006D3040
+// uses; proposal: TeamClass in shared/team.hpp) and the foot member that
+// holds it.
+class UnknownPassengerTeam {
+public:
+    void unknown_6b8fb0(ObjectClass *object, int arg2, bool arg3);  // 0x006B8FB0 (removes object)
+};
+struct UnknownPassengerView {
+    char unknown_000[0x4C4];
+    UnknownPassengerTeam *Team;             // +0x4C4 (FootClass)
+};
+
+// The owned object at +0x208.
+class UnknownTechno208 : public AbstractClass {
+public:
+    void LetGo();              // 0x006E2500 (UnitClass slot 281, when +0x28 is set)
+    void Unknown_006E24C0(AbstractClass *target);   // 0x006E24C0 (TechnoClass::Detach)
+    void Unknown_006E27B0(TechnoClass *target);     // 0x006E27B0 (a Temporal warhead hits target; BulletClass 0x00462110)
+    int unknown_24;
+    int unknown_28;                     // +0x28 (slot 113 tests it)
+};
+
+// A map cell (only the members used here).
+class BuildingClass;
+
+// A tube (Westwood's TubeClass: the entry cell's tube, 0x0047A130; layout
+// from FootClass slot 77, hypothesis): the exit cell and the exit facing.
+struct UnknownTube47A130 {
+    char unknown_00[0x24];
+    Cell unknown_24;              // +0x24 (the entry cell; InfantryClass slot 101 compares it with the exit)
+    Cell unknown_28;              // +0x28 (the exit cell; hypothesis)
+    int unknown_2c;                     // +0x2C (the exit facing; hypothesis)
+};
+// A cell's occupation flags (Westwood's OccupyStruct: bits and the byte).
+union UnknownCellOccupy {
+    struct {
+        unsigned Center : 1;
+        unsigned NW : 1;
+        unsigned NE : 1;
+        unsigned SW : 1;
+        unsigned SE : 1;
+        unsigned Vehicle : 1;
+        unsigned Monolith : 1;
+        unsigned Building : 1;
+    } Occupy;
+    unsigned char Composite;
+};
+// An entry of a cell's +0x28 list (TechnoClass slot 27; meaning not recovered).
+struct UnknownCellEntryType {
+    char unknown_000[0x201];
+    bool unknown_201;                   // +0x201 (attackable)
+};
+struct UnknownCellEntry28 {
+    char unknown_00[0x24];
+    int unknown_24;                     // +0x24 (an overlay type index when +0x30 is 0x14)
+    HouseClass *unknown_28;             // +0x28 (an owner)
+    char unknown_2c[0x30 - 0x2C];
+    int unknown_30;                     // +0x30 (a kind: 0x14, 6)
+    char unknown_34[0x74 - 0x34];
+    bool unknown_74;                    // +0x74 (active)
+};
+// The entry's first type (0x004C2030: the first of the vector at +0x5C when its count, +0x6C, is positive).
+UnknownCellEntryType *__fastcall Unknown_004C2030(UnknownCellEntry28 *entry);
+
+class UnknownCellClass {
+public:
+    UnknownCellClass *Unknown_00476AC0(int facing);  // 0x00476AC0 (the adjacent cell toward a facing)
+    int Unknown_0047CE70();             // 0x0047CE70 (the tiberium damage of the cell; FootClass::AI)
+    bool Is_Cloaked(int house) const;   // 0x0047C2C0 (CellClass::Is_House_Bit; TechnoClass slot 161)
+    CoordStruct unknown_475d60() const;     // 0x00475D60 (CellClass: the centre at the middle's height; TechnoClass 0x006CA340)
+    bool Is_Sensed(int house);     // 0x0047C2E0
+    bool unknown_47c300(int house);     // 0x0047C300 (FootClass slot 26: the house's index)
+    void Trigger_Veins();               // 0x0047BB30 (TechnoClass slot 93)
+    void Adjust_Threat(int house, int value);  // 0x00476B20 (TechnoClass 0x006D95A0/0x006D95D0)
+    bool Unknown_0047C200();            // 0x0047C200 (FootClass 0x004C3000)
+    bool Unknown_0047CDD0();            // 0x0047CDD0 (the land allows standing here; FootClass 0x004C4C30)
+    bool Unknown_0047BB10();            // 0x0047BB10 (FootClass 0x004C4C30)
+    bool Unknown_00479CF0();            // 0x00479CF0 (InfantryClass 0x00508DD0)
+    int GetLevel() const;       // 0x0047CF10 (the height level: +0x11B plus 4 when flag 0x80 is set)
+    TechnoClass *Unknown_00471660(Point2D const &offset, bool alt, ObjectClass *except) const;   // 0x00471660 (an object in the cell; FootClass slot 309)
+    bool Unknown_00478760(int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);   // 0x00478760 (FootClass slot 309)
+    int Unknown_0047A230();             // 0x0047A230 (a docking score; FootClass 0x004CB8F0)
+    void Unknown_0047C360(int house);   // 0x0047C360 (FootClass slot 285)
+    void Unknown_0047C370(int house);   // 0x0047C370 (FootClass slot 286)
+    void Unknown_0047C380(int house);   // 0x0047C380 (BuildingClass slot 290)
+    void Unknown_0047C390(int house);   // 0x0047C390 (BuildingClass slot 291)
+    UnknownTube47A130 *Get_Tunnel();  // 0x0047A130 (the cell's tube: index +0x116 into 0x008661CC)
+    BuildingClass *Unknown_004717B0();  // 0x004717B0 (the building in the cell)
+    CoordStruct Unknown_004764B0(CoordStruct const &coord, int alternate, bool arg3);  // 0x004764B0 (a free spot near coord; InfantryClass slot 53)
+
+    FootClass *Unknown_00473E30(bool alt);  // 0x00473E30 (the unit in the cell; Cell_Unit)
+    FootClass *Unknown_00473E80(bool alt);  // 0x00473E80 (the aircraft in the cell; Cell_Aircraft)
+    void Unknown_00476920(CoordStruct const *coord, bool arg2, bool arg3, bool alt);  // 0x00476920 (scatters the occupants)
+
+    char unknown_000[0x24];
+    Cell unknown_24;              // +0x024 (the cell's coordinates)
+    DynamicVectorClass<struct UnknownCellEntry28 *> *unknown_28;   // +0x028 (owned entries; TechnoClass slot 27 scans them)
+    char unknown_02c[0x38 - 0x2C];
+    int unknown_38;                     // +0x038 (the iso tile index; InfantryClass slot 93 tests the bridge tiles)
+    TagClass *unknown_3c;               // +0x03C (the cell's tag; FootClass slot 93 springs it)
+    char unknown_040[0x44 - 0x40];
+    int unknown_44;                     // +0x044 (the overlay, -1 none)
+    char unknown_048[0x50 - 0x48];
+    int unknown_50;                     // +0x050 (a house index: the overlay's owner; InfantryClass slot 101)
+    int unknown_54;                     // +0x054 (a house index: the occupying owner, -1 none)
+    int unknown_58;                     // +0x058 (the same on the bridge level)
+    char unknown_05c[0xE4 - 0x5C];
+    ObjectClass *unknown_e4;            // +0x0E4 (the first object in the cell; ObjectClass +0x30 links the rest)
+    ObjectClass *unknown_e8;            // +0x0E8 (the first object on the bridge level)
+    int unknown_ec;                     // +0x0EC (a land type)
+    char unknown_0f0[0x10A - 0xF0];
+    short unknown_10a;                  // +0x10A (ObjectClass slot 56 copies it into the placed animation's +0xE4)
+    char unknown_10c[0x11B - 0x10C];
+    char unknown_11b;                   // +0x11B (the height level)
+    unsigned char unknown_11c;          // +0x11C (the ramp type; FootClass slot 102)
+    char unknown_11d;
+    unsigned char unknown_11e;          // +0x11E
+    char unknown_11f[0x122 - 0x11F];
+    char unknown_122;                   // +0x122 (a count of units around; FootClass slot 52 decrements it)
+    char unknown_123[0x124 - 0x123];
+    UnknownCellOccupy unknown_124;      // +0x124 (occupation: 0x1C the three spots; InfantryClass slots 93, 101)
+    UnknownCellOccupy unknown_128;      // +0x128 (the same on the bridge level)
+    unsigned int unknown_12c;           // +0x12C flags (bit 4: TechnoClass slot 93 reveals to the player)
+    char unknown_130[0x140 - 0x130];
+    unsigned int Flags;                 // +0x140 (0x100: a bridge cell)
+};
+
+// Map_Cell (the cell object at a coordinate): shared/techno_map.hpp (it
+// needs Map, and Techno.cpp includes gscreen.hpp after this header).
+
+// 0x006D8F60 (fastcall; the kind in ECX, EDX and one stack word unused): maps kind 1 to 0x3E and kind 5 to 0x3F when 0x006F6670 holds.
+int __fastcall Unknown_006D8F60(int kind, int unused_edx, int unused_stack);
+
+// 0x006D7C80 (fastcall; many callers): every techno and team drops the target.
+void __fastcall Unknown_006D7C80(AbstractClass *target);
+
+// Sound effects: enabled flag (0x007D88D6), the effect generator
+// (0x00839218); the play call 0x00713DB0 is shared/sound_play.hpp.
+extern bool AllowVoice;
+extern Random2Class NonCriticalRandomNumber;
+
+// A double constant 0.0 (0x0079B610; slot 165 returns it).
+extern double const unknown_double_79b610;
+extern bool TechnoClass_ActionLines;        // 0x007F7110
+// unknown_timer_ac0178 (0x00AC0178): shared/cd_timer.hpp.
+// The talk-bubble timer (0x00AC0168; a system-clock timer), techno
+// (0x00AC01C4) and value (0x00AC01C8) that TechnoClass 0x006D8FD0 sets.
+extern CDTimerClass<SystemTimerClass> unknown_timer_ac0168;    // 0x00AC0168
+extern TechnoClass *unknown_talk_techno_ac01c4;                 // 0x00AC01C4
+extern int unknown_talk_value_ac01c8;                           // 0x00AC01C8
+
+// The owned object at +0x230 (only +0x24 is read here).
+class UnknownTechno230 : public AbstractClass {
+public:
+    void Unknown_004681E0();            // 0x004681E0 (FootClass slot 60)
+    void Unknown_00468120(AbstractClass *target);   // 0x00468120 (TechnoClass::Detach)
+    int unknown_24;                     // +0x24
+};
+
+class SpawnManagerClass;               // the owned spawn manager at +0x238 (shared/spawn_manager.hpp)
+
+// The object at +0x408 (released by 0x006130B0).
+class UnknownTechno408 {
+public:
+    void unknown_6130b0();              // 0x006130B0
+    int unknown_613b60();               // 0x00613B60
+};
+
+
+class InfantryTypeClass;
+
+class TechnoClass : public RadioClass, public FlasherClass, public StageClass {
+public:
+    int Unknown_006C22A0(); // 0x006C22A0 (production time used by factories; hypothesis)
+    CoordStruct Railgun_Beam_Damage(CoordStruct const &coord, AbstractClass *abstract, WeaponTypeClass *weapon); // 0x006D6ED0
+
+    TechnoClass(HouseClass *house);                             // 0x006C0CD0
+    TechnoClass(NoInitClass const &noinit);                     // 0x006C1F10
+    virtual ~TechnoClass();                                     // 0x006C20B0
+
+    // Called by AircraftClass's destructor with 0 (0x006D3040; purpose unknown).
+    void Kill_Cargo(TechnoClass *techno);
+
+    virtual HRESULT __stdcall Load(IStream *stream);            // slot 5 0x006D6850
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // slot 6 0x006D6A80
+    virtual void Init();                                        // slot 9 0x006C1C50
+    bool Has_Ability(int ability);                           // 0x006D7910 (a veteran/elite ability of the type; Merge4c)
+    void unknown_6d3400(TechnoClass *source);                   // 0x006D3400 (FootClass slot 86: a Whiner team member calls for help; hypothesis)
+    void Set_Current_Weapon(int index);                             // 0x006D83F0 (a weapon index 0..14; UnitClass constructor for Gunner types)
+    virtual void Detach(AbstractClass *target, bool all = true);    // slot 10 0x006D2D10
+    virtual void Compute_CRC(WWCRCEngine &crc) const;           // slot 13 0x006D6AA0
+    virtual int Owner() const;                                  // slot 14 0x006C7420
+    virtual HouseClass *Owning_House() const;                   // slot 15 0x006C7430
+    virtual void AI();                                          // slot 23 0x006C74C0
+    virtual bool Is_Players_Army();                              // slot 24 0x006C1320
+    virtual int unknown_slot25(bool arg1, int arg2);             // slot 25 0x006CF3C0
+    virtual int What_Action(Cell const *cell, bool arg2, bool arg3);   // slot 27 0x006CCCE0
+    virtual int unknown_slot28(ObjectClass *object, bool arg2);             // slot 28 0x006CC5D0
+    virtual TechnoTypeClass *Techno_Type_Class();                  // slot 32 0x006C12C0 (Class_Of as a techno type)
+    virtual int Get_Ownable();                               // slot 34 0x006D3E40
+    virtual bool Can_Repair();                              // slot 36 0x006CD690
+    virtual bool Can_Player_Fire();                              // slot 38 0x006CD630
+    virtual bool Can_Player_Move();                              // slot 39 0x006CD290
+    virtual CoordStruct unknown_slot43(int arg1);             // slot 43 0x006C1830
+    virtual bool unknown_slot48() { return Disguised; }       // slot 48 kept copy 0x0041B410
+    virtual bool IsDisguisedAs(HouseClass *house) { return Disguised; }   // slot 49 kept copy 0x0041B420
+    virtual bool Limbo();                               // slot 52 0x006C4480
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);             // slot 53 0x006C4610
+    virtual void Record_The_Kill(TechnoClass *techno);                      // slot 55 0x006CED90
+    virtual void Do_Shimmer();                              // slot 61 0x006CF3B0
+    virtual int Exit_Object(TechnoClass *techno);                       // slot 62 0x006D4880
+    virtual void unknown_slot65(int arg1, int arg2);            // slot 65 0x006C3B30
+    virtual void unknown_slot66(Point2D const &point, Rect const &window);            // slot 66 0x006C2C40
+    virtual void Hidden();                              // slot 69 0x006C2520
+    virtual void Look(bool arg1, bool arg2);            // slot 70 0x006D5AA0
+    virtual bool Mark(int arg1);                      // slot 71 0x006C2550
+    virtual void Clicked_As_Target(int arg1);                      // slot 79 0x006C7440
+    virtual bool unknown_slot80();                              // slot 80 0x006C91C0
+    virtual void IronCurtain(int arg1);                      // slot 82 0x006D86B0
+    virtual bool In_Range(CoordStruct const &coord, int weapon);  // slot 84 0x006C5240
+    virtual int Weapon_Range(int arg1);                       // slot 85 0x006CD810
+    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6); // slot 86 0x006CDC40
+    virtual int Value();                               // slot 90 0x006D3150
+    virtual void unknown_slot93(int arg1);                      // slot 93 0x006C2B40
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);   // slot 95 0x006C2590
+    virtual bool Revealed(HouseClass *house);             // slot 96 0x006C2440
+    virtual bool unknown_slot111();                             // slot 111 0x006D6DF0
+    virtual bool unknown_slot112();                             // slot 112 0x006D6E00
+    virtual bool unknown_slot113();                             // slot 113 0x006D6E10
+    virtual bool unknown_slot114();                             // slot 114 0x006D6E30
+    virtual ConvertClass *unknown_slot115();                              // slot 115 0x006D1480
+    virtual void Override_Mission(int mission, AbstractClass *target, AbstractClass *destination);  // slot 119 0x006CD840
+    virtual bool Restore_Mission();                             // slot 120 0x006CD880
+
+    // New virtuals (slots 153-279); names, return types and parameters are
+    // placeholders from the bodies (ret N) unless refined.
+    virtual bool unknown_slot153();                                 // slot 153 (+0x264) 0x0041B360 (kept copy elsewhere)
+    virtual bool unknown_slot154();                             // slot 154 (+0x268) 0x006D6DE0
+    virtual bool unknown_slot155();                             // slot 155 (+0x26C) 0x006C12D0
+    virtual bool unknown_slot156();                                 // slot 156 (+0x270) 0x00453B50 (kept copy elsewhere)
+    virtual bool unknown_slot157();                                 // slot 157 (+0x274) 0x006D6780
+    virtual bool unknown_slot158();                                 // slot 158 (+0x278) 0x006C7480
+    virtual bool Is_Ready_To_Move() { return true; }                 // slot 159 (+0x27C) kept copy 0x0041B370
+    virtual bool unknown_slot160();                                  // slot 160 (+0x280) 0x006C9020
+    virtual bool unknown_slot161();                                  // slot 161 (+0x284) 0x006C8EF0
+    virtual UnknownFacingDir Turret_Facing();                       // slot 162 (+0x288) 0x004CDDF0 (kept copy elsewhere)
+    virtual bool unknown_slot163();                                   // slot 163 (+0x28C) 0x006CD670
+    virtual int unknown_slot164();                                  // slot 164 (+0x290) 0x006D6E60 (returns in eax; Foot6 reads al in FootClass::AI)
+    virtual double unknown_slot165();                           // slot 165 (+0x294) 0x006D3EA0
+    virtual int unknown_slot166();                                  // slot 166 (+0x298) 0x006D3ED0
+    virtual int unknown_slot167();                                  // slot 167 (+0x29C) 0x006D5850
+    virtual int unknown_slot168();                              // slot 168 (+0x2A0) 0x006D3E50
+    virtual bool unknown_slot169(AbstractClass *target);                         // slot 169 (+0x2A4) 0x00453B60 (kept copy elsewhere)
+    virtual UnknownFacingDir unknown_slot170(AbstractClass *target);                // slot 170 (+0x2A8) 0x006CA540
+    virtual bool unknown_slot171(CoordStruct const &coord);                          // slot 171 (+0x2AC) 0x006D32E0
+    virtual int unknown_slot172();                              // slot 172 (+0x2B0) 0x006C16D0
+    virtual void unknown_slot173();                             // slot 173 (+0x2B4) 0x006D8110
+    virtual int What_Weapon_Should_I_Use(AbstractClass *target);                      // slot 174 (+0x2B8) 0x006C1380
+    virtual int unknown_slot175(ObjectClass *target);               // slot 175 (+0x2BC) 0x006C15D0
+    virtual int unknown_slot176();                                  // slot 176 (+0x2C0) 0x006CFEA0
+    virtual int unknown_slot177();                                  // slot 177 (+0x2C4) 0x00453B70 (kept copy elsewhere)
+    virtual Cell unknown_slot178() { return unknown_geometry_k; }   // slot 178 (+0x2C8) kept copy 0x00453B80
+    virtual void unknown_slot179(Cell cell) {}            // slot 179 (+0x2CC) kept copy 0x00453B90
+    virtual Cell unknown_slot180(int arg1);               // slot 180 (+0x2D0) 0x006D5800
+    virtual CoordStruct Turret_Coord(int arg1);                // slot 181 (+0x2D4) 0x006C1A70
+    virtual int Desired_Load_Dir(AbstractClass *object, Cell *cell);    // slot 182 (+0x2D8) 0x006D3EB0
+    virtual UnknownFacingDir Fire_Direction();                   // slot 183 (+0x2DC) 0x006D3F80
+    virtual InfantryTypeClass *Crew_Type();                   // slot 184 (+0x2E0) 0x006D30B0 the crew type a crewed techno leaves
+    virtual bool unknown_slot185();                                  // slot 185 (+0x2E4) 0x006CD300
+    virtual bool unknown_slot186();                                 // slot 186 (+0x2E8) 0x006CD340 (returns al: xor al,al / sete al / mov al,1)
+    virtual int unknown_slot187(int arg1);                          // slot 187 (+0x2EC) 0x006C9C00
+    virtual int unknown_slot188(int arg1);                          // slot 188 (+0x2F0) 0x006D31E0
+    virtual bool unknown_slot189();                                 // slot 189 (+0x2F4) 0x00453BA0 (kept copy elsewhere)
+    virtual bool unknown_slot190(int *out_kind);                          // slot 190 (+0x2F8) 0x006D7A10
+    virtual bool unknown_slot191();                             // slot 191 (+0x2FC) 0x006D7C00
+    virtual bool unknown_slot192(HouseClass *house);            // slot 192 (+0x300) 0x006D7C40
+    virtual bool Is_Renovator();                                 // slot 193 (+0x304) 0x0041B380 (kept copy elsewhere)
+    virtual void unknown_slot194();                                 // slot 194 (+0x308) 0x00453BB0 (kept copy elsewhere)
+    virtual bool unknown_slot195();                                 // slot 195 (+0x30C) 0x006CD6E0
+    virtual void unknown_slot196();                             // slot 196 (+0x310) 0x006D3FA0
+    virtual void unknown_slot197();                             // slot 197 (+0x314) 0x006D4000
+    virtual void unknown_slot198();                             // slot 198 (+0x318) 0x006D4060
+    virtual bool unknown_slot199(int type);                         // slot 199 (+0x31C) 0x006CC510
+    virtual bool Player_Assign_Mission(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4); // slot 200 (+0x320) 0x006CC2A0
+    virtual bool unknown_slot201() { return StunDuration > 0; } // slot 201 (+0x324) 0x006D8E80
+    virtual bool unknown_slot202();                             // slot 202 (+0x328) 0x00453BC0 (kept copy elsewhere)
+    virtual bool unknown_slot203() { return IronCurtainTimer.Value() > 0; }  // slot 203 (+0x32C) kept copy 0x0041B390 (the +0x154 timer still runs)
+    virtual bool CanCheer();                                 // slot 204 (+0x330) 0x0041B3D0 (kept copy elsewhere)
+    virtual void Cheer();                                 // slot 205 (+0x334) 0x0041B3E0 (kept copy elsewhere)
+    virtual int unknown_slot206() { TechnoTypeClass *type = Techno_Type_Class(); if (type) { return type->Speed; } return 0; } // slot 206 (+0x338) 0x006D8E90
+    virtual void Reduce_Ammunition();                             // slot 207 (+0x33C) 0x006D7E00
+    virtual bool unknown_slot208(ObjectClass *target);              // slot 208 (+0x340) 0x006D8DB0
+    virtual bool unknown_slot209(CoordStruct const *coord, int arg2);   // slot 209 (+0x344) 0x006D46D0
+    virtual void unknown_slot210();                             // slot 210 (+0x348) 0x006C9A90
+    virtual bool unknown_slot211(ObjectClass *target);              // slot 211 (+0x34C) 0x006C4F50
+    virtual bool unknown_slot212(AbstractClass *target, int weapon);           // slot 212 (+0x350) 0x006C50A0
+    virtual bool unknown_slot213(AbstractClass *target);                   // slot 213 (+0x354) 0x006C5070
+    virtual bool unknown_slot214(CoordStruct const &coord);     // slot 214 (+0x358) 0x006C5200
+    virtual bool unknown_slot215(AbstractClass *target);                        // slot 215 (+0x35C) 0x006C51A0
+    virtual void unknown_slot216(int arg1) = 0;                                  // slot 216 (+0x360) 0x004B8960
+    virtual int unknown_slot217(AbstractClass *target, int weapon);                // slot 217 (+0x364) 0x006C9240
+    virtual int unknown_slot218(AbstractClass *target, int weapon, bool check_range);      // slot 218 (+0x368) 0x006C9260
+    virtual AbstractClass *unknown_slot219(int arg1, CoordStruct const *coord, bool arg3);      // slot 219 (+0x36C) 0x006C6530
+    virtual void unknown_slot220(AbstractClass *target);                     // slot 220 (+0x370) 0x006C9AF0
+    virtual BulletClass *Fire_At(AbstractClass *target, int arg2);                // slot 221 (+0x374) 0x006CA890
+    virtual bool Captured(HouseClass *house, int arg2);                // slot 222 (+0x378) 0x006CD940
+    virtual void unknown_slot223(CoordStruct const &coord, float force); // slot 223 (+0x37C) 0x006D5F40 (rock from a nearby impact)
+    virtual bool unknown_slot224(int arg1);                         // slot 224 (+0x380) 0x00453BD0 (kept copy elsewhere)
+    virtual bool unknown_slot225();                             // slot 225 (+0x384) 0x006D84D0
+    virtual int unknown_slot226();                              // slot 226 (+0x388) 0x006D84F0
+    virtual int unknown_slot227();                              // slot 227 (+0x38C) 0x006D8500
+    virtual int unknown_slot228();                              // slot 228 (+0x390) 0x006D8510
+    virtual WeaponStruct *unknown_slot229();               // slot 229 (+0x394) 0x006D8520
+    virtual WeaponStruct *unknown_slot230();               // slot 230 (+0x398) 0x006D85A0
+    virtual WeaponStruct *unknown_slot231(int index);      // slot 231 (+0x39C) 0x006D8540
+    virtual bool unknown_slot232();                                 // slot 232 (+0x3A0) 0x0041B3F0 (kept copy elsewhere)
+    virtual void unknown_slot233();                                 // slot 233 (+0x3A4) 0x006CD8B0
+    virtual void Cloaking_AI(int arg1);                         // slot 234 (+0x3A8) 0x006C89C0
+    virtual void unknown_slot235();                                  // slot 235 (+0x3AC) 0x006C83F0
+    virtual void unknown_slot236();                                  // slot 236 (+0x3B0) 0x006C86F0
+    virtual void unknown_slot237();                                 // slot 237 (+0x3B4) 0x006D6230
+    virtual void unknown_slot238();                                  // slot 238 (+0x3B8) 0x006C2990
+    virtual void Reload();                                 // slot 239 (+0x3BC) 0x006C8290
+    virtual void unknown_slot240();                                 // slot 240 (+0x3C0) 0x0041B400 (kept copy elsewhere)
+    virtual CoordStruct unknown_slot241();                      // slot 241 (+0x3C4) 0x006D13B0
+    virtual bool IsNotWarpingIn();                             // slot 242 (+0x3C8) 0x006D1460
+    virtual void unknown_slot243(bool arg1, int arg2);               // slot 243 (+0x3CC) 0x00453BE0 (kept copy elsewhere)
+    virtual int unknown_slot244(int arg1);                          // slot 244 (+0x3D0) 0x006D8C30
+    virtual bool unknown_slot245(HouseClass *house);                // slot 245 (+0x3D4) 0x006D8CE0
+    virtual void unknown_slot246(UnknownObjectPair const &voxel, int frame, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, int brightness, unsigned flags); // slot 246 (+0x3D8) 0x006D1D00
+    virtual void unknown_slot247(int arg1, int arg2);           // slot 247 (+0x3DC) 0x006C3B20
+    virtual void unknown_slot248(Point2D const &point, Rect const &window, bool arg3);   // slot 248 (+0x3E0) 0x006C3F00 (draws the health bar and pips)
+    virtual void unknown_slot249(Point2D const &point, Point2D const &center, Rect const &window);   // slot 249 (+0x3E4) 0x006D4920 (draws the pips)
+    virtual void unknown_slot250(Point2D const &point, Rect const &window);  // slot 250 (+0x3E8) 0x006D5440
+    virtual void unknown_slot251(Point2D const &point, Point2D const &center, Rect const &window); // slot 251 (+0x3EC) 0x006D5510 (draw text overlays)
+    virtual void unknown_slot252(bool quiet);                   // slot 252 (+0x3F0) 0x006CF250
+    virtual void unknown_slot253(bool quiet);                       // slot 253 (+0x3F4) 0x006CF300
+    virtual int unknown_slot254(int arg1);                      // slot 254 (+0x3F8) 0x006D79D0
+    virtual void DisguiseAs(TechnoClass *techno);                     // slot 255 (+0x3FC) 0x006D8680
+    virtual void ClearDisguise();                             // slot 256 (+0x400) 0x0041B430 (kept copy elsewhere)
+    virtual bool Is_Ready_To_Random_Animate();                             // slot 257 (+0x404) 0x006D4890
+    virtual bool unknown_slot258();                                 // slot 258 (+0x408) 0x0041B440 (kept copy elsewhere)
+    virtual void unknown_slot259(int arg1);                         // slot 259 (+0x40C) 0x006D48D0
+    virtual void Assign_Destination(AbstractClass *target, bool immediate);               // slot 260 (+0x410) 0x006D48E0
+    virtual bool unknown_slot261(bool arg1, bool arg2);           // slot 261 (+0x414) 0x006D48F0
+    virtual void unknown_slot262(bool arg1, bool arg2, bool arg3, HouseClass *house); // slot 262 (+0x418) 0x006D5C30 (the counterpart of slot 263: byte flags and a house, DisplayClass 0x0049DE00)
+    virtual void unknown_slot263(bool arg1, bool arg2, bool arg3, HouseClass *house); // slot 263 (+0x41C) 0x006D5E90
+    virtual void unknown_slot264();                             // slot 264 (+0x420) 0x006D74D0
+    virtual void unknown_slot265();                             // slot 265 (+0x424) 0x006D7500
+    virtual void unknown_slot266();                             // slot 266 (+0x428) 0x006D7530
+    virtual void unknown_slot267(bool arg1);                        // slot 267 (+0x42C) 0x006D8120
+    virtual int unknown_slot268(UnknownSlot268Arg const *arg) { return arg->unknown_0c; } // slot 268 (+0x430) 0x006D8EB0
+    virtual void unknown_slot269() {}                          // slot 269 (+0x434) 0x006D8EC0
+    virtual bool unknown_slot270() { return false; }           // slot 270 (+0x438) 0x006D8ED0
+    virtual bool unknown_slot271() { return false; }           // slot 271 (+0x43C) 0x006D8EE0
+    virtual int unknown_slot272() { return -1; }               // slot 272 (+0x440) 0x006D8EF0
+    virtual CoordStruct unknown_slot273() { return CoordStruct(-1, -1, -1); } // slot 273 (+0x444) 0x006D8F00
+    virtual bool CanUseWaypoint();  // slot 274 (+0x448) 0x006D8F20
+    virtual bool CanAttackOnTheMove();  // slot 275 (+0x44C) 0x006D8F40
+    virtual bool unknown_slot276() { return false; }           // slot 276 (+0x450) 0x006D8F90
+    virtual bool unknown_slot277() { return false; }           // slot 277 (+0x454) 0x006D8FA0
+    virtual void unknown_slot278() {}                          // slot 278 (+0x458) 0x006D8FB0
+    virtual bool unknown_slot279() { return false; }           // slot 279 (+0x45C) 0x006D8FC0
+
+    void Set_Planning_Token(UnknownTechno408 *value);              // 0x006D1420
+    void unknown_6d9670(long delay);                            // 0x006D9670 (restarts the +0x148 timer)
+    UnknownTechno408 *Get_Planning_Token() const;                   // 0x006D1430
+    void Assign_Archive_Target(AbstractClass *value);                  // 0x006D6E50
+    void unknown_6d0990(CoordStruct from, CoordStruct to, RGBClass color);   // 0x006D0990 (draws a line; CaptureManagerClass 0x00468150)
+    // Guarded like the static timers below: Techno.CPP only. One more member declaration here shifts
+    // VC6's per-unit counters of Print_CRCs 0x0062A360, 0x00589AC0 and 0x004F1190 (Scout633 fragile_probe).
+#ifdef RA2_TECHNO_STATIC_TIMERS
+    void unknown_6d0dc0(CoordStruct from, CoordStruct to, RGBClass color, bool shadow);   // 0x006D0DC0 (a 64-step line shaded from BlackColor to color; never called)
+#endif
+    void UpdateThreatInCell(AbstractClass *cell);                 // 0x006D9610 (InfantryClass slot 93: an occupied building, its cell)
+    bool Enter_Object_Nearby();                                      // 0x006D7F70 (FootClass::AI, after the movement; the result is unused there)
+    int FireDeathWeapon(int extra);                              // 0x006D7E20 (fires the death weapon at itself; returns the damage)
+    void Unknown_006D21E0(UnknownObjectPair const &voxel, int layer, int key, UnknownBuffer *cache, Rect const &cliprect, Point2D const &draw_point, Matrix3D const &transform, bool force_cache, Surface *mask, unsigned unknown_2, unsigned unknown_3);  // 0x006D21E0 (the shadow draw; FootClass 0x004C9A40)
+    int Get_Predator_Offset();                                       // 0x006D6750
+    bool Has_Turret_Tooltips();                                      // 0x006D83D0
+    bool unknown_6d83e0();                                      // 0x006D83E0
+    bool Has_Current_Turret() const;                                // 0x006D8460
+    int Get_Current_Turret_Number() const;                                 // 0x006D8470
+    int Get_Current_Weapon_Number();                                       // 0x006D84A0
+    bool TryNextPlanningTokenNode();                                      // 0x00615360 (out of this unit; returns al)
+    static void __fastcall Set_Action_Lines(bool value);          // 0x006D79C0
+    SurfaceRegion Render_Voxel_Object_006d24e0(UnknownObjectPair const &voxel, Matrix3D const &transform, Point2D const &point, Rect const &cliprect, int frame, unsigned flags, int brightness);
+    SurfaceRegion Render_Voxel_Shadow_006d2810(UnknownObjectPair const &voxel, Matrix3D const &transform, Point2D const &point, Rect const &cliprect, int layer, unsigned flags, bool cached, Surface *mask, unsigned unknown_2, unsigned unknown_3);
+    void Blit_Voxel_006d29d0(void const *entry, Point2D const &point, Rect const &cliprect, unsigned flags, int brightness);
+    static void Reset_Action_Line_Timer();                               // 0x006D7990 (restarts unknown_timer_ac0178 at 25)
+    // TibSun TechnoClass::ActionLineTimer / TalkBubbleTimer: Techno.CPP defines them
+    // (initializers 0x006C0C40 / 0x006C0C80, guarded atexit destructors 0x006C0C60 /
+    // 0x006C0CB0, guard byte 0x00AC0128). Other units still reach them through the
+    // unknown_timer_ac0178 / unknown_timer_ac0168 globals until a rename merges the names.
+    // Guarded: each static data member declaration of this type shifts VC6's _$E/_$S
+    // numbering in every unit that includes this header (Object.CPP, Foot.CPP, ...), so
+    // only Techno.CPP (HeaderStatics_empty_rect_init_006c0a50.cpp) defines the macro.
+#ifdef RA2_TECHNO_STATIC_TIMERS
+    static CDTimerClass<FrameTimerClass> ActionLineTimer;       // 0x00AC0178
+    static CDTimerClass<SystemTimerClass> TalkBubbleTimer;      // 0x00AC0168
+#endif
+    static void __fastcall Set_Talker(TechnoClass *techno, int value);   // 0x006D8FD0 (sets the talk-bubble techno and restarts its timer)
+    void Select_Planning_Members();                                      // 0x006145E0 (out of this unit)
+    bool Unknown_006D8640(WeaponStruct *weapon);                // 0x006D8640 (InfantryClass slot 137)
+    void StartReloading();                                      // 0x006C8300
+    void Remove_Damage_Particle();                                      // 0x006D7F30
+    // Draws a shape frame (0x006D1510; ret 0x3C, fifteen argument words; names
+    // hypotheses; BuildingClass slot 68). Words 13 and 14 are a Point2D passed
+    // on by value as CC_Draw_Shape's last argument.
+    void Techno_Draw_Object(void const *shape, int drawer, Point2D const *point, Rect const *bounds, int arg5, int arg6,
+                        int z, int arg8, int arg9, int height, ShapeFileStruct const *arg11, int arg12, Point2D offset, int arg15);
+    int GetInvulnerabilityTintIntensity(int value);                              // 0x006D86F0 (adjusts the slot 254 value when slot 203 holds; BuildingClass slot 79)
+    void unknown_6cdc00(HouseClass *house);                     // 0x006CDC00 (sets House; +0x372 when it is the player's)
+    void unknown_6d95a0(UnknownCellClass *cell);                // 0x006D95A0
+    void unknown_6d95d0(UnknownCellClass *cell);                // 0x006D95D0
+    void Calculate_Sinking_Offset(int x, int y);                           // 0x006D2CA0 (sets the draw depth +0x322; never called)
+    int Is_Not_Guard_Or_Sticky(int mission);                            // 0x006D46B0 (mission neither 5 nor 6; never called)
+    EBolt *CreateEBolt(AbstractClass *target, WeaponTypeClass *weapon, CoordStruct const &source);   // 0x006CA020 (a new electric bolt from source to target)
+    EBolt *Electric_Zap(AbstractClass *target);               // 0x006CA130 (fires an electric bolt; never called)
+    void Rad_Zap(AbstractClass *target, int chrono);     // 0x006CA1D0 (draws a rad or chrono beam to the target)
+    int Estimate_Damage(TechnoClass *target, WeaponTypeClass *weapon);   // 0x006CA6C0 (the damage a weapon would do to target)
+    void CreateRadBeams(int spread);                            // 0x006CA340 (rad beams to the eight cells around at a spread)
+    void Distribute_Fire();                                      // 0x006D4400 (DistributedFire target spreading; TechnoClass slot 209)
+    bool Should_Use_High_Arc(int weapon);                            // 0x006D7D20 (TechnoClass slot 170)
+    void unknown_6155e0();                                      // 0x006155E0 (out of this unit; TechnoClass slot 222)
+    int Elevation_Bonus();                                       // 0x006CD6F0 (the height bonus above the map's lowest level; never called)
+    int Evaluate_Just_Cell(Cell const *cell);                       // 0x006C6350 (the threat of a wall cell to break; TechnoClass slot 219)
+    bool Evaluate_Object(int method, int arg2, int arg3, ObjectClass *object, int *value, int arg6, CoordStruct const *coord);   // 0x006C5570 (rates an object as a target; TechnoClass slot 219)
+    bool Evaluate_Cell(int method, int arg2, Cell const *cell, int arg4, ObjectClass **object, int *value, int zone);   // 0x006C6130 (the best target in a cell; TechnoClass slot 219)
+    LaserDrawClass *unknown_6c9df0(AbstractClass *target, int weapon_index, WeaponTypeClass *weapon, CoordStruct const &source);   // 0x006C9DF0 (draws the weapon's laser)
+    bool unknown_6d9710() const;                                // 0x006D9710 (the +0x148 timer has run out)
+    void Draw_Target_Laser(); // 006CC020: draw the targeting laser
+    CoordStruct Predict_Target_Coord();                               // 0x006D65B0 (FootClass slot 243: the far end of a line to draw)
+    void unknown_6d0510(CoordStruct from, CoordStruct to, RGBClass color, int arg8, int arg9);   // 0x006D0510 (draws a line between two points)
+    bool Has_Planning_Nodes();                                      // 0x006D1440 (+0x408 set and its 0x00613B60 positive)
+    int Turret_Changed();                                       // 0x006D8480 (copies +0x100 into +0x104; whether it changed)
+    bool Next_Planning_Node();                                      // 0x006D1470 (0x00615360's result; Fly 0x004BF1F0 tests al)
+    void unknown_6d96a0();                                      // 0x006D96A0 (restarts the +0x148 timer at 4-8 when over 10)
+    int Is_Valid_Weapon_Index(int index);                              // 0x006D85E0 (a valid weapon index)
+    int Get_Z_Fudge_Column();                                       // 0x006CF9D0 (FootClass slot 176: times ZFudgeColumn)
+    int Get_Z_Fudge_Tunnel();                                       // 0x006CFB60 (times ZFudgeTunnel)
+    int Get_Z_Fudge_Cliff();                                       // 0x006CFDA0 (times ZFudgeCliff)
+    int Elevation_Range_Bonus(ObjectClass *other);                     // 0x006C4A70
+#ifdef RA2_NON_MATCHING
+    double unknown_6c5270(Cell const &cell);                    // 0x006C5270 (non-exact draft; caller 0x006C5570)
+#endif
+    int Elevation_Distance(ObjectClass *other);                     // 0x006C48F0
+    void unknown_6d9080(Point2D const &center, void const *unused); // 0x006D9080, RET8; unused pointee type unknown
+    bool Is_Z_Fudge_Bridge();                                      // 0x006CF670 (ZFudgeBridge applies)
+    bool Was_Z_Fudge_Bridge();                                      // 0x006CF820
+    bool Should_Scan_For_Target();                                      // 0x006D4180
+    bool Scan_For_Target();                                      // 0x006D4310
+    int Anti_Air();                                       // 0x006D5870 (anti-air strength of the secondary weapon / 50)
+    Cell unknown_6cf130(AbstractClass *target);           // 0x006CF130
+    bool Move_To_Object_Nearby();                                      // 0x006D8080
+    bool Can_Scan_For_Target();                                      // 0x006D40C0 (may look for a target now)
+    int unknown_6c16f0(int weapon);                             // 0x006C16F0 (+0x98 plus +0xA4 of a weapon, or their average)
+    bool unknown_6d3b60(TechnoClass *source, int arg2);         // 0x006D3B60 (whether to answer an attack by source; arg2 unused)
+    double Target_Threat(ObjectClass *target, CoordStruct const &coord);   // 0x006D7550 (a threat value of the target; hypothesis)
+    void Update_Iron_Tint();                                      // 0x006D8820 (steps the +0x16C state on the +0x160 timer while slot 203 holds; TechnoClass::AI)
+    bool unknown_6c4bb0(CoordStruct const *coord, AbstractClass *target, WeaponTypeClass *weapon);   // 0x006C4BB0 (in range; hypothesis)
+    int Anti_Armor();                                       // 0x006D5900 (ground strength of the secondary weapon, Verses[4])
+    int Anti_Infantry();                                       // 0x006D59D0 (the same with Verses[0])
+
+    CargoClass Cargo;                       // +0x0F8 (count, first object; swizzled)
+    int CurrentTurretNumber;                        // +0x100 (-1)
+    int LastTurretNumber;                        // +0x104 (-1)
+    ObjectClass *BehindAnim;               // +0x108 (swizzled; listed in 0x00AC0BF8)
+    int CurrentWeaponNumber;                        // +0x10C
+    int CurrentRanking;                        // +0x110 (-1)
+    int ActLike;                        // +0x114 (-1)
+    VeterancyClass Veterancy;          // +0x118
+    double ArmorBias;                     // +0x120 (1.0)
+    double FirepowerBias;                     // +0x128 (1.0)
+    CDTimerClass<FrameTimerClass> IdleTimer;  // +0x130
+    CDTimerClass<FrameTimerClass> RadarFlashTimer;  // +0x13C
+    CDTimerClass<FrameTimerClass> TargetingTimer;  // +0x148 (45)
+    CDTimerClass<FrameTimerClass> IronCurtainTimer;  // +0x154
+    CDTimerClass<FrameTimerClass> IronTintTimer;  // +0x160
+    int IronTintStage;                        // +0x16C
+    bool Disguised;                       // +0x170
+    int DisguiseCreationFrame;                        // +0x174
+    CDTimerClass<FrameTimerClass> InfantryBlinkTimer;  // +0x178
+    CDTimerClass<FrameTimerClass> DisguiseBlinkTimer;  // +0x184
+    bool UnlimboingInfantry;                       // +0x190
+    CDTimerClass<FrameTimerClass> ReloadTimer;  // +0x194
+    Point2D RadarPos;                    // +0x1A0 the point the radar tracks (slots 264-266)
+    int SpiedBy;                        // +0x1A8
+    int Group;                        // +0x1AC (-1)
+    AbstractClass *ArchivedTarget;             // +0x1B0 (swizzled)
+    HouseClass *House;                      // +0x1B4
+    int Cloak;                        // +0x1B8
+    UnknownStage CloakingDevice;               // +0x1BC
+    CDTimerClass<FrameTimerClass> CloakDelay;  // +0x1D4
+    float PredatorOffset;                      // +0x1E0
+    bool IsSightRevealed;                       // +0x1E4
+    CoordStruct LastSightCoords;                // +0x1E8
+    int LastSightRange;                        // +0x1F4
+    int LastSightHeight;                        // +0x1F8
+    bool GapSuperCharged;                       // +0x1FC
+    bool GeneratingGap;                       // +0x1FD
+    int GapRadius;                        // +0x200
+    bool BeingWarpedOut;                       // +0x204
+    bool WarpingOut;                       // +0x205
+    bool unknown_206;                       // +0x206
+    UnknownTechno208 *TemporalImUsing;          // +0x208 (owned; swizzled)
+    AbstractClass *TemporalTargetingMe;             // +0x20C (swizzled)
+    bool IsImmobilized;                       // +0x210
+    int TeleportState;                        // +0x214
+    int ChronoLockRemaining;                        // +0x218
+    CoordStruct ChronoDestCoords;                // +0x21C
+    AbstractClass *TarCom;             // +0x228 (swizzled)
+    AbstractClass *SuspendedTarCom;             // +0x22C (swizzled)
+    AbstractClass *CaptureManager;             // +0x230 (owned; swizzled)
+    AbstractClass *MindControlledBy;             // +0x234 (swizzled)
+    SpawnManagerClass *SpawnManager;          // +0x238 (owned; swizzled)
+    AbstractClass *SpawnOwner;             // +0x23C (swizzled)
+    float PitchAngle;                      // +0x240 (float: TechnoClass::Compute_CRC hashes it as one)
+    CDTimerClass<FrameTimerClass> Arm;  // +0x244
+    int ChargeTurretDelay;                        // +0x250
+    int Ammo;                        // +0x254 (-1)
+    int PurchasePrice;                        // +0x258
+    ObjectClass *unknown_25c[8];            // +0x25C (swizzled; [3] gets slot 60 in 0x006D7F30)
+    AbstractClass *Wave;             // +0x27C (swizzled)
+    float AngleRotatedSideways;                      // +0x280 (float: Compute_CRC)
+    float AngleRotatedForwards;                      // +0x284 (float: Compute_CRC)
+    float RockingSidewaysPerFrame;                      // +0x288 (a spin rate set when the unit dies; FootClass slot 224)
+    float RockingForwardsPerFrame;                      // +0x28C (a second rate; FootClass slot 224)
+    int EnteredByInfType;                        // +0x290 (-1)
+    StorageClass unknown_294;               // +0x294
+    int unknown_2a4;                        // +0x2A4
+    DelayTimerClass Door;               // +0x2A8
+    FacingClass BarrelPitch;                // +0x2C8 (rate 3)
+    FacingClass PrimaryFacing;                // +0x2E0
+    FacingClass SecondaryFacing;                // +0x2F8
+    int BurstIndex;                        // +0x310
+    CDTimerClass<FrameTimerClass> TargetingLaserTimer;  // +0x314
+    short SoundRandomSeed;                      // +0x320 (random when constructed)
+    short SinkingYOffset;                      // +0x322
+    bool CountedAsOwned;                       // +0x324
+    bool IsSinking;                       // +0x325
+    bool WasSinkingAlready;                       // +0x326
+    bool IsNeedingRescue;                       // +0x327
+    bool IsUseless;                       // +0x328
+    bool IsTickedOff;                       // +0x329
+    bool IsCloakable;                       // +0x32A
+    bool IsLeader;                       // +0x32B
+    bool IsALoaner;                       // +0x32C
+    bool IsLocked;                       // +0x32D
+    RecoilData TurretRecoil;         // +0x330
+    RecoilData BarrelRecoil;         // +0x350
+    bool IsTethered;                       // +0x370
+    bool IsAlternativeTether;                       // +0x371
+    bool IsOwnedByPlayer;                       // +0x372
+    bool IsDiscoveredByPlayer;                       // +0x373
+    bool IsDiscoveredByComputer;                       // +0x374
+    bool IsALemon;                       // +0x375
+    unsigned char Cooldown;              // +0x376 (a countdown; slot 23 decrements it)
+    bool unknown_377;                       // +0x377
+    char SightIncrease;                       // +0x378 (signed: the height level last revealed from; TechnoClass slot 70)
+    bool IsTeamRecruitable;                       // +0x379 (true)
+    bool IsAutocreateRecruitable;                       // +0x37A (true)
+    bool IsRadarTracked;                       // +0x37B
+    bool IsInTransport;                       // +0x37C
+    bool IsRocking;                       // +0x37D
+    bool WasCrashingAlready;                       // +0x37E
+    bool IsOnPatrol;                       // +0x37F
+    bool IsMouseHovering;                       // +0x380
+    bool ShouldBeReselectOnUnlimbo;                       // +0x381
+    AbstractClass *OldTeam;             // +0x384 (swizzled)
+    bool IsOnWaypointPatrol;                       // +0x388
+    int RadialFireSegment;                        // +0x38C
+    DynamicVectorClass<int> CurrentTargetThreatValues;    // +0x390
+    DynamicVectorClass<AbstractClass *> CurrentTargets;    // +0x3A8
+    DynamicVectorClass<AbstractClass *> unknown_3c0;    // +0x3C0
+    UnknownAudioController TurretRotateSoundController;     // +0x3D8
+    int IsTurretRotateSoundPlaying;                        // +0x3EC (1)
+    int TurretIsRotating;                        // +0x3F0
+    int LastTargetScanFrame;                        // +0x3F4 (the frame when constructed)
+    AbstractClass *QueueUpToEnter;             // +0x3F8 (swizzled)
+    int StunDuration;                        // +0x3FC
+    int ThreatPosed;                        // +0x400
+    bool ShouldLoseTargetNow;                       // +0x404 (TechnoClass 0x006D4310 sets it)
+    UnknownTechno408 *PlanningToken;          // +0x408 (released by the destructor)
+    ObjectTypeClass *Disguise;           // +0x40C (swizzled; a type: the disguise, InfantryClass slots 50/255/256)
+    HouseClass *DisguisedAsHouse;                // +0x410 (swizzled; a house: the disguise's, InfantryClass slots 51/256)
+    int unknown_414;                        // +0x414
+};
+
+// BuildingClass: shared/building.hpp (Building.CPP).
+// A building (only the member used here; Building.cpp).
+// The building type flag TechnoClass 0x006D40C0 reads (stand-in).
+class UnknownTechnoBuildingType {
+public:
+    char unknown_0000[0x121E];
+    bool unknown_121e;                  // +0x121E
+};
+// A building: only the members other units use. shared/building.hpp has the
+// full class (Building.CPP) and defines RA2_BUILDING_FULL before including
+// this header, so a unit that needs both includes building.hpp first.
+#ifndef RA2_BUILDING_FULL
+class BuildingClass : public TechnoClass {
+public:
+    BuildingClass(BuildingTypeClass *type, HouseClass *house);         // 0x00438CE0 (UnitClass 0x006FDFC0 deploys into one)
+    // The overrides of the pure virtuals (so `new BuildingClass` compiles; the
+    // full class in shared/building_class.hpp defines them).
+    virtual HRESULT __stdcall GetClassID(GUID *clsid);                // slot 3 0x00453C00
+    virtual int Kind_Of() const;                                      // slot 11 0x00453C40
+    virtual int Size_Of() const;                                      // slot 12 0x00453BF0
+    virtual void unknown_slot216(int arg1);                           // slot 216 0x00449170
+    int GetOccupantCount();               // 0x004532F0
+    void PlayNthAnim(int index, bool damaged, bool garrisoned, int arg4); // 0x0044C920 (as shared/building_class.hpp)
+    void DestroyNthAnim(int index);     // 0x0044CFD0 (as shared/building_class.hpp)
+    bool Is_Gate_Open();              // 0x0044D880 (as shared/building_class.hpp)
+    bool Cell_Is_Impassable_Row_00453af0(CellClass const *cell);    // 0x00453AF0 (as shared/building_class.hpp)
+    bool Can_Upgrade(BuildingTypeClass const *upgrade, HouseClass *house);   // 0x0044D900 (as shared/building_class.hpp: the upgrade may power up this building)
+    void unknown_450950();              // 0x00450950 (a firestorm wall building switches its state; HouseClass 0x004EE8F0/0x004EEA40)
+    bool CanBeOccupiedBy(TechnoClass *techno);     // 0x00452EB0 (whether techno may enter; InfantryClass slot 132)
+    void KillOccupants(InfantryClass *infantry);     // 0x004536D0 (an Assaulter enters; InfantryClass 0x005094B0)
+    BuildingTypeClass *Type;            // +0x418 (AircraftClass slots 28/101)
+    void Set_Anim_Damage_State(int damaged);   // 0x0044D070 (TechnoClass slot 233: health at or below the rules' +0x1368)
+    int unknown_449dd0();               // 0x00449DD0 (the power the building drains; as shared/building_class.hpp)
+    char unknown_41c[0x434 - 0x41C];
+    int WhoLastHurtMe;                    // +0x434 (TechnoClass slot 55; the full class names it in shared/building.hpp)
+    char unknown_438[0x454 - 0x438];
+    AbstractClass *unknown_454[18];     // +0x454 (as shared/building_class.hpp)
+    char unknown_49c[0x4C0 - 0x49C];
+    TechnoTypeClass *unknown_4c0[3];    // +0x4C0 the upgrades (as shared/building_class.hpp; BaseClass::Get_Building)
+    char unknown_4cc[0x4EC - 0x4CC];
+    int LaserFenceFrame;                    // +0x4EC (a laser fence's state; FootClass slot 93: below 8 it hurts)
+    char unknown_4f0[0x530 - 0x4F0];
+    bool IsOn;                   // +0x530 (HouseClass 0x004F2E50: a radar building counts only with it)
+    bool IsOverpowered;                   // +0x531 (TechnoClass slot 174: always the secondary weapon)
+    char unknown_532[0x554 - 0x532];
+    DynamicVectorClass<InfantryClass *> unknown_554;    // +0x554 (the occupants; InfantryClass 0x005094B0)
+    char unknown_56c[0x59A - 0x56C];
+    bool IsToRebuild;                   // +0x59A (as shared/building_class.hpp)
+    bool IsToRepair;                   // +0x59B
+    char unknown_59c[0x5AD - 0x59C];
+    bool IsReadyToCommence;                   // +0x5AD (as shared/building_class.hpp; slot 122 tests it)
+#ifdef RA2_BUILDING_LIGHT_DISTANCE_TO
+    // Guarded to the BuildingLight unit: one more member here shifts VC6's per-unit counters (Scout633 fragile_probe).
+    char unknown_5ae[0x5B7 - 0x5AE];
+    bool IsFogged;                   // +0x5B7 (BuildingLightClass slot 67 draws no beam while it is set)
+    char unknown_5b8[0x5BD - 0x5B8];
+#else
+    char unknown_5ae[0x5BD - 0x5AE];
+#endif
+    char TranslucencyLevel;                   // +0x5BD (as shared/building_class.hpp; HouseClass 0x004F3E00 tests 15)
+    char unknown_5be[0x5C6 - 0x5BE];
+    char UpgradeLevel;                   // +0x5C6 (as shared/building_class.hpp: the upgrades in unknown_4c0)
+    char unknown_5c7[0x5E0 - 0x5C7];    // size 0x5E0 (operator new in UnitClass 0x006FDFC0)
+};
+#else
+class BuildingClass;
+#endif
+// Every building (0x00A40AF8; TeamClass 0x006BCF70 scans it beside the full class).
+extern DynamicVectorClass<BuildingClass *> unknown_BuildingClass_list_00a40af8;
+// Every infantry (0x00A35E48; the global-list unit's name; TeamClass 0x006B91C0 scans it).
+extern DynamicVectorClass<InfantryClass *> Infantry;
+
+// Every techno (0x00A40C20) and two other lists it joins (0x00AC0D08) or
+// may join (0x00AC0BF8, while unknown_108 is set).
+extern DynamicVectorClass<TechnoClass *> Technos;                       // 0x00A40C20
+
+
+// The tactical view's member TechnoClass slot 164 calls (proposal: declare
+// it on shared/gscreen.hpp's Tactical).
+class UnknownTacticalView {
+public:
+    Cell Unknown_006A6A50(CoordStruct const &coord);      // 0x006A6A50 (the cell a coordinate shows in)
+};
+
+// Voc_Play_At (0x00713E60): shared/sound_play.hpp.
+// The cell 0x006CF130 returns when there is none (0x00AC0148).
+extern Cell unknown_cell_ac0148;
+// The object at 0x008322E0 whose 0x004366D0 TechnoClass slot 52 calls for a
+// type with BombSight (+0x540; meaning not recovered).
+class UnknownList8322E0 {
+public:
+    void Unknown_00436680(TechnoClass *techno);     // 0x00436680 (TechnoClass slot 53: joins)
+    void Unknown_004366D0(TechnoClass *techno);     // 0x004366D0
+    void Add_Bomb(TechnoClass *owner, ObjectClass *target);   // 0x00436470 (BombListClass::Add_Bomb; BulletClass 0x00462110 plants an IvanBomb)
+};
+extern UnknownList8322E0 unknown_list_8322e0;
+
+extern unsigned int TargetScanDelay;     // 0x00AC01CC (frames between target scans; TechnoClass 0x006D40C0)
+
+// The overlay types (UnknownOverlayType, 0x00A35DE8): shared/overlay_view.hpp.
+#include "shared/overlay_view.hpp"
+struct UnknownTechnoCellView {
+    char unknown_00[0x44];
+    int Overlay;                            // +0x44 (-1 none)
+};
+
+#endif

@@ -1,0 +1,41 @@
+// LightConvertClass: a ConvertClass whose remap is tinted by a light colour
+// (RTTI vtable 0x007A55DC, base ConvertClass, size 0x1B4; constructor
+// 0x00538860, scalar deleting destructor 0x00538F30). Field names are
+// hypotheses from the constructor.
+#ifndef RA2_SHARED_LIGHT_CONVERT_HPP
+#define RA2_SHARED_LIGHT_CONVERT_HPP
+
+#include "shared/convert.hpp"
+#include "shared/vector_class_decl.hpp"
+
+class LightConvertClass : public ConvertClass {
+public:
+    LightConvertClass(PaletteClass const &artpalette, PaletteClass const &screenpalette, Surface *typicalsurface,
+                      int red_tint, int green_tint, int blue_tint, bool blitters_created, unsigned char const *tint_mask,
+                      int intensity_levels);                      // 0x00538860
+    virtual ~LightConvertClass();                                     // slot 0 (??_G 0x00538F30)
+
+    // Rebuilds the tinted tables from the colour (0x00538AA0).
+    // Vtable slot 1 (0x007A55DC); Ion.cpp's lighting 0x00520B00 calls it through the vtable.
+    virtual void Set_Tint(int red, int green, int blue, bool unknown4);
+
+    PaletteClass const *ArtPalette;                                   // +0x188
+    PaletteClass const *ScreenPalette;                                // +0x18C
+    unsigned char const *unknown_190;                                 // +0x190 remap, default 0x007DF768
+    int ReferenceCount;                                                  // +0x194
+    int Red;                                                          // +0x198
+    int Green;                                                        // +0x19C
+    int Blue;                                                         // +0x1A0
+    int StoredRed;                                                    // +0x1A4
+    int StoredGreen;                                                  // +0x1A8
+    int StoredBlue;                                                   // +0x1AC
+    bool UseIonLighting;                                                 // +0x1B0
+};
+
+// Limits each tint to 0..1000 (0x005385A0; Westwood's Clamp_Tile_RGB, LIGHTCALC).
+void __fastcall Clamp_Tile_RGB(int &red, int &green, int &blue);
+// Every light converter (0x00832398; hypothesis: the tile drawers; moved from
+// shared/isometric_tile_type.hpp for Ion.cpp's lighting 0x00520B00).
+extern DynamicVectorClass<LightConvertClass *> TileDrawers;
+
+#endif

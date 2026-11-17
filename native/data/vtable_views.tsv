@@ -1,0 +1,47 @@
+# native/tools/vtable_views.py: plain-virtual views and the real classes they stand for (Scout1288).
+# header: includes for the real class, comma separated (define:NAME defines a macro first).
+# verdict: of <real> (native entries checked against the real class), dead (no other object references the file's functions), unused-header (no source includes the header), iunknown-calls (only QueryInterface/AddRef/Release), interface, open (a known mismatch, reported).
+path	class	verdict	real	header	evidence
+native/link/behaviour_scenario.cpp	type_info	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/awaiting_join/member_views/0058eff0.cpp	Append_58eff0	dead			seed call view: no other object references the functions its file defines
+src/recovered/unidentified/seed_views/005cd880.cpp	Append_5cd880	dead			seed call view: no other object references the functions its file defines
+src/recovered/awaiting_join/member_views/006a17b0.cpp	Call_6a17b0_0	dead			seed call view: no other object references the functions its file defines
+src/recovered/house.cpp	UnknownEnumConnectionPoints	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/recovered/house.cpp	UnknownA3D29CView	of	MultiplayerGameMode	shared/multiplayer_game_mode.hpp	0x00A3D29C is the session Mode, a MultiplayerGameMode (r36)
+src/recovered/ovrlight.cpp	UnknownSpotLightObject_a731e0	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/tracker.cpp	type_info	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Free_Art_Flagged.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Free_Score_Palette.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Free_FS_Screen_Palette.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2.cpp	UnknownOwnedObject	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Load_Art_Flagged.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Load_Art_Once.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Load_Interface_Art.cpp	UnknownOwnedObject	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Release_Shell_Palettes.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Release_Reload_Art_Pairs.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/Unknown_Release_Shapes.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/recovered/txtlabel2/unknown_free_art.cpp	UnknownArtData_006f2390	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/shared/anim.hpp	UnknownPaletteSource	of	DynamicVectorClass<ColorScheme *>	shared/anim.hpp	AnimClass::Load 0x00422C30 calls slot 6 (Fetch) on PaletteName::Load 0x00603380's DynamicVectorClass<ColorScheme *> (r37)
+src/shared/blowfish_engine.hpp	IBlowfish	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/cell_class.hpp	UnknownCellOwned	dtor-only			its only virtual is the destructor: native entries 0 and 1 on both sides, as the real class's slot 0
+src/shared/direct3d.hpp	IDirect3DViewport2	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/direct3d.hpp	IDirect3DDevice2	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/direct3d.hpp	IDirect3D	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/direct3d.hpp	IDirect3D2	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/directdraw.hpp	IDirectDrawClipper	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/directdraw.hpp	IDirectDrawSurface	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/directdraw.hpp	IDirectDraw	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/fly_locomotion.hpp	UnknownFlyInterface	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/multiplayer_game_mode.hpp	MultiplayerSiege	of	MultiplayerGameMode	shared/multiplayer_game_mode.hpp	a game mode subclass: its objects are game modes; checked against MultiplayerGameMode for every slot called through it
+src/shared/multiplayer_game_mode.hpp	Megawealth	of	MultiplayerGameMode	shared/multiplayer_game_mode.hpp	a game mode subclass: its objects are game modes; checked against MultiplayerGameMode for every slot called through it
+src/shared/palette_state.hpp	IDirectDrawPalette	interface			COM interface: the port implements it with the same entries (no destructor, no secondary bases)
+src/shared/parasite.hpp	ParasiteVictim	of	FootClass	shared/foot.hpp	ParasiteClass's victim is a FootClass (the parasite rides infantry and vehicles); checked against FootClass
+src/shared/planning.hpp	UnknownPlanningSink	interface			the sink is the INoticeSink pointer 0x00613E00 stores (behaviour_startup.cpp); its slot 0 is INoticeSink_Unknown, entry 0 of the secondary INoticeSink vtable natively too
+src/shared/radsite.hpp	RadSiteCell	of	CellClass	shared/cell_class.hpp	RadSiteClass Get_Rad_Level_At 0x006379B0 casts Map[cell] (a CellClass) to it and calls Center_Coord, slot 18
+src/shared/unknown_assignable_base.hpp	UnknownBase539000	unused-header			a LinkClass view (0x00539000 is LinkClass::operator=) that no source includes
+src/shared/unknown_globals.hpp	UnknownSessionA3D29C	of	MultiplayerGameMode	shared/multiplayer_game_mode.hpp	0x00A3D29C is the session Mode, a MultiplayerGameMode (r36)
+src/shared/wdt_game_options.hpp	PlayerCountGameOption	of	GameOption	shared/wdt_game_options.hpp	a World Domination Tour game option: checked against its base GameOption for the slots called through it
+src/recovered/startup.cpp	FlyLocomotionClass	iunknown-calls			factory view (CreateInstance 0x00696CB0) that calls only QueryInterface; fly_locomotion.hpp does not compile outside its units for a real-class dump
+src/shared/notice.hpp	INoticeSink	interface			AbstractClass's notice interface (pure, no destructor): its entries are the same on both ABIs; a view only in builds that emit no vtable of it
+src/shared/notice.hpp	INoticeSource	interface			AbstractClass's notice interface (pure, no destructor): its entries are the same on both ABIs; a view only in builds that emit no vtable of it

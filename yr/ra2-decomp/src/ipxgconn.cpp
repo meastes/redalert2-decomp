@@ -1,0 +1,474 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#include "always.h"
+#include "ipxgconn.h"
+#include "ipxmgr.h"
+#include "coord.h"
+#include "rect.h"
+#include "dbgprint.h"
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+#include "_timer.h"
+#include "globals.h"
+#include "session.h"
+#include "geometry.h"
+#include "wsproto.h"
+
+// SYNTHETIC: GAMEMD 0x0053F880 SYMBOL
+// _$E13
+
+void __cdecl FUN_004068E0(char const * format, ...);
+extern int DAT_00841F3C;
+extern WinsockInterfaceClass * DAT_00887628;
+#include "ownertalk.h"
+// SYNTHETIC: GAMEMD 0x0053F8A0 SYMBOL
+// _$E40
+// SYNTHETIC: GAMEMD 0x0053F8D0 SYMBOL
+// _$E43
+// SYNTHETIC: GAMEMD 0x0053F8F0 SYMBOL
+// _$E46
+// SYNTHETIC: GAMEMD 0x0053F910 SYMBOL
+// _$E49
+// SYNTHETIC: GAMEMD 0x0053F930 SYMBOL
+// _$E52
+// SYNTHETIC: GAMEMD 0x0053F950 SYMBOL
+// _$E55
+// SYNTHETIC: GAMEMD 0x0053F970 SYMBOL
+// _$E58
+// SYNTHETIC: GAMEMD 0x0053F9B0 SYMBOL
+// _$E61
+// SYNTHETIC: GAMEMD 0x0053F9E0 SYMBOL
+// _$E64
+// SYNTHETIC: GAMEMD 0x0053FA10 SYMBOL
+// _$E67
+// SYNTHETIC: GAMEMD 0x0053FA40 SYMBOL
+// _$E70
+// SYNTHETIC: GAMEMD 0x0053FA50 SYMBOL
+// _$E73
+// SYNTHETIC: GAMEMD 0x0053FA70 SYMBOL
+// _$E76
+
+// FUNCTION: GAMEMD 0x0053FA90
+IPXGlobalConnClass::IPXGlobalConnClass (int numsend, int numreceive, int maxlen,
+	unsigned short product_id, unsigned short magicnum) :
+	BASECLASS (numsend, numreceive, maxlen + 2, magicnum, NULL, 0, L"", sizeof (IPXAddressClass))
+{
+	ProductID = product_id;
+	IsBridge = 0;
+	FieldC8 = true;
+	MaxRXIndex = numreceive;
+	LastPacketID = new unsigned int[MaxRXIndex];
+	LastAddress = new IPXAddressClass[MaxRXIndex];
+
+	for (int i = 0; i < MaxRXIndex; i++) {
+		LastPacketID[i] = 0xffffffff;
+	}
+
+	LastRXIndex = 0;
+}
+
+// FUNCTION: GAMEMD 0x0053FB70
+// FUNCTION: GAMEMD 0x00540670
+IPXGlobalConnClass::~IPXGlobalConnClass(void)
+{
+	if (LastPacketID) {
+		delete [] LastPacketID;
+		LastPacketID = NULL;
+	}
+	if (LastAddress) {
+		delete [] LastAddress;
+		LastAddress = NULL;
+	}
+}
+
+// FUNCTION: GAMEMD 0x0053FBD0
+int IPXGlobalConnClass::Send_Packet (void * buf, int buflen,
+	IPXAddressClass *address, int ack_req, unsigned short port, int packet_id)
+{
+	IPXAddressClass dest_addr;
+
+	((GlobalHeaderType *)PacketBuf)->Field8 = 0;
+	((GlobalHeaderType *)PacketBuf)->FieldC = 0;
+	((GlobalHeaderType *)PacketBuf)->MagicNumber = MagicNum;
+
+	if (ack_req && address != NULL) {
+		((GlobalHeaderType *)PacketBuf)->Code = PACKET_DATA_ACK;
+	}
+	else {
+		((GlobalHeaderType *)PacketBuf)->Code = PACKET_DATA_NOACK;
+	}
+
+	((GlobalHeaderType *)PacketBuf)->PacketID = Queue->Send_Total();
+	if (packet_id != 0) {
+		((GlobalHeaderType *)PacketBuf)->PacketID = packet_id;
+	}
+
+	((GlobalHeaderType *)PacketBuf)->ProductID = ProductID;
+	((GlobalHeaderType *)PacketBuf)->Field3 = 0;
+
+	if (address != NULL) {
+		dest_addr = (*address);
+	}
+
+	memcpy(PacketBuf + sizeof(GlobalHeaderType), buf, buflen);
+
+	return(Queue->Queue_Send(PacketBuf, buflen + sizeof(GlobalHeaderType),
+		&dest_addr, sizeof (IPXAddressClass), port));
+}
+
+// FUNCTION: GAMEMD 0x0053FCB0
+int IPXGlobalConnClass::Receive_Packet(void * buf, int buflen, IPXAddressClass * address, unsigned short port)
+{
+	GlobalHeaderType * packet;
+	SendQueueType * send_entry;
+	GlobalHeaderType * entry_data;
+	GlobalHeaderType ackpacket;
+	int i;
+	int resend;
+
+	packet = (GlobalHeaderType *)buf;
+	if (packet->MagicNumber != MagicNum)
+		return (0);
+
+	switch (packet->Code) {
+	case PACKET_DATA_ACK: {
+		IPXAddressClass source = *address;
+		if (port)
+			source.Set_Port(port);
+
+		resend = 0;
+		for (i = 0; i < MaxRXIndex; i++) {
+			if ((unsigned)i >= Queue->Receive_Total())
+				break;
+			if (source == LastAddress[i] && packet->PacketID == LastPacketID[i]) {
+				resend = 1;
+				break;
+			}
+		}
+
+		if (!resend) {
+			if (Queue->Queue_Receive(buf, buflen, &source, sizeof(IPXAddressClass))) {
+				LastAddress[LastRXIndex] = source;
+				LastPacketID[LastRXIndex] = packet->PacketID;
+				LastRXIndex++;
+				if (LastRXIndex >= MaxRXIndex)
+					LastRXIndex = 0;
+			} else {
+				FUN_004068E0("Failed to queue incoming packet. Ack not sent\n");
+				break;
+			}
+		}
+
+		ackpacket.MagicNumber = MagicNum;
+		ackpacket.Code = PACKET_ACK;
+		ackpacket.PacketID = packet->PacketID;
+		ackpacket.ProductID = ProductID;
+		ackpacket.Field3 = 0;
+		FUN_004068E0("Sending global ack packet to port %d\n", port);
+		ConnectionClass * global_channel = Ipx.LobbyChannel;
+		if (!Send((char *)&ackpacket, sizeof(GlobalHeaderType), address, sizeof(IPXAddressClass),
+				  this == global_channel, port)) {
+			FUN_004068E0("Failed to ack global packet\n");
+		}
+		break;
+	}
+
+	case PACKET_DATA_NOACK: {
+		IPXAddressClass source = *address;
+		if (port)
+			source.Set_Port(port);
+		Queue->Queue_Receive(buf, buflen, &source, sizeof(IPXAddressClass));
+		break;
+	}
+
+	case PACKET_ACK:
+		for (i = 0; i < Queue->Num_Send(); i++) {
+			send_entry = Queue->Get_Send(i);
+			entry_data = (GlobalHeaderType *)send_entry->Buffer;
+			if (packet->PacketID == entry_data->PacketID && entry_data->Code == PACKET_DATA_ACK) {
+				send_entry->IsACK = 1;
+				break;
+			}
+		}
+		break;
+	default:
+		break;
+	}
+	return (1);
+}
+
+// FUNCTION: GAMEMD 0x0053FF10
+int IPXGlobalConnClass::Get_Packet (void * buf, int *buflen,
+	IPXAddressClass *address, unsigned short *product_id)
+{
+	ReceiveQueueType *rec_entry;
+	GlobalHeaderType *packet;
+	int packetlen;
+
+	if (Queue->Num_Receive() == 0) {
+		return(0);
+	}
+
+	rec_entry = Queue->Get_Receive(0);
+
+	if (rec_entry != NULL && rec_entry->IsRead == 0) {
+		rec_entry->IsRead = 1;
+
+		packet = (GlobalHeaderType *)(rec_entry->Buffer);
+		packetlen = rec_entry->BufLen - sizeof(GlobalHeaderType);
+		if (packetlen > 0) {
+			memcpy(buf, rec_entry->Buffer + sizeof(GlobalHeaderType), packetlen);
+		}
+		(*buflen) = packetlen;
+		(*product_id) = packet->ProductID;
+		(*address) = (*((IPXAddressClass *)(rec_entry->ExtraBuffer)));
+
+		return(1);
+	}
+
+	return(0);
+}
+
+// FUNCTION: GAMEMD 0x0053FFA0
+int IPXGlobalConnClass::vt_entry_38(int index, int buf, int buflen, int address, int product_id, int packet_id)
+{
+	ReceiveQueueType *rec_entry;
+	GlobalHeaderType *packet;
+	int packetlen;
+
+	if (Queue->Num_Receive() >= index) {
+		rec_entry = Queue->Get_Receive(index);
+
+		if (rec_entry != NULL && rec_entry->IsRead == 0) {
+			packet = (GlobalHeaderType *)(rec_entry->Buffer);
+			packetlen = rec_entry->BufLen - sizeof(GlobalHeaderType);
+			if (packetlen > 0) {
+				memcpy((void *)buf, rec_entry->Buffer + sizeof(GlobalHeaderType), packetlen);
+			}
+			*(int *)buflen = packetlen;
+			*(unsigned short *)product_id = packet->ProductID;
+			*(IPXAddressClass *)address = *((IPXAddressClass *)(rec_entry->ExtraBuffer));
+			if (packet_id != 0) {
+				*(unsigned int *)packet_id = packet->PacketID;
+			}
+			return(1);
+		}
+	}
+
+	return(0);
+}
+
+// FUNCTION: GAMEMD 0x00540030
+void IPXGlobalConnClass::vt_entry_3C(int index)
+{
+	if (index < Queue->Num_Receive()) {
+		Queue->Get_Receive(index)->IsRead = 1;
+	}
+}
+
+// FUNCTION: GAMEMD 0x00540050
+int IPXGlobalConnClass::Send(char *buf, int buflen, void *extrabuf, int extralen, bool flag, unsigned short port)
+{
+	IPXAddressClass *addr = (IPXAddressClass *)extrabuf;
+
+	if (addr->Is_Broadcast()) {
+		return(Broadcast (buf, buflen));
+	}
+
+	if (Session.Type == GAME_IPX && IsBridge && !memcmp (addr, BridgeNet, 4)) {
+		return(Send_To (buf, buflen, addr, BridgeNode, flag, 0));
+	}
+	return(Send_To (buf, buflen, addr, NULL, flag, port));
+}
+
+// FUNCTION: GAMEMD 0x005400D0
+int IPXGlobalConnClass::Service_Receive_Queue (void)
+{
+	int i;
+	ReceiveQueueType *rec_entry;
+
+	for (i = 0; i < Queue->Num_Receive(); i++) {
+		rec_entry = Queue->Get_Receive(i);
+
+		if (rec_entry->IsRead) {
+			Queue->UnQueue_Receive(NULL,NULL,i,NULL,NULL);
+			i--;
+		}
+	}
+
+	return(1);
+}
+
+// FUNCTION: GAMEMD 0x00540110
+void IPXGlobalConnClass::vt_entry_44(unsigned age)
+{
+	FUN_004068E0("Stripping queue entries older than %d seconds. Num receive = %d\n", age / 60, Queue->Num_Receive());
+
+	for (int i = 0; i < Queue->Num_Receive(); i++) {
+		ReceiveQueueType *entry = Queue->Get_Receive(i);
+
+		FUN_004068E0("i = %d\n", i);
+		if (entry != NULL) {
+			FUN_004068E0("Checking packet %d\n", i);
+
+			if ((int)(entry->ReceiveTime + age) < (int)TickCount) {
+				FUN_004068E0("Stripping global packet due to age of %d seconds\n",
+					((int)TickCount - (int)entry->ReceiveTime) / 60);
+
+				unsigned int id = ((GlobalHeaderType *)entry->Buffer)->PacketID;
+				for (int j = 0; j < MaxRXIndex; j++) {
+					if (LastPacketID[j] == id) {
+						LastPacketID[j] = 0xffffffff;
+						break;
+					}
+				}
+				Queue->UnQueue_Receive(NULL, NULL, i, NULL, NULL);
+				i--;
+			}
+			else {
+				FUN_004068E0("Leaving global packet due to age of %d seconds\n",
+					((int)TickCount - (int)entry->ReceiveTime) / 60);
+			}
+		}
+	}
+
+	FUN_004068E0("Done stripping. Num receive = %d\n", Queue->Num_Receive());
+}
+
+// FUNCTION: GAMEMD 0x005402B0
+void IPXGlobalConnClass::Set_Bridge(NetNumType bridge)
+{
+	if (Configured) {
+		IsBridge = 0;
+	}
+}
+
+// FUNCTION: GAMEMD 0x005402D0
+int IPXGlobalConnClass::Discard_Undeliverable_Packets(void)
+{
+	int num = 0;
+
+	for (int i = 0; i < Queue->Num_Send(); i++) {
+		SendQueueType *send_entry = Queue->Get_Send(i);
+
+		if (send_entry->IsUndeliverable && !send_entry->IsACK) {
+			IPXAddressClass address;
+			char buf[1024];
+			int buflen;
+			int address_size = sizeof(address);
+
+			Queue->UnQueue_Send(buf, &buflen, i, &address, &address_size, NULL);
+			i--;
+			num++;
+		}
+	}
+
+	return(num);
+}
+
+// FUNCTION: GAMEMD 0x00540340
+int IPXGlobalConnClass::vt_entry_40(IPXAddressClass *address, unsigned short port)
+{
+	int num = 0;
+
+	for (int i = 0; i < Queue->Num_Send(); i++) {
+		SendQueueType *send_entry = Queue->Get_Send(i);
+
+		if (!send_entry->IsACK && send_entry->ExtraLen &&
+			((IPXAddressClass *)send_entry->ExtraBuffer)->FUN_0053EF30(*address) &&
+			send_entry->Port == port) {
+			IPXAddressClass dest;
+			char buf[1024];
+			int buflen;
+			int address_size = sizeof(dest);
+
+			Queue->UnQueue_Send(buf, &buflen, i, &dest, &address_size, NULL);
+			i--;
+			num++;
+		}
+	}
+
+	return(num);
+}
+
+// FUNCTION: GAMEMD 0x005403F0
+int IPXGlobalConnClass::Send_To(char *buf, int buflen, IPXAddressClass *address,
+	NetNodeType immed, bool flag, unsigned short port)
+{
+	NetNumType net;
+	NetNodeType node;
+	IPXAddressClass dest;
+	unsigned short dest_port;
+
+	dest = *address;
+	if (immed) {
+		address->Get_Address(net, node);
+		memcpy(net, immed, 4);
+		dest.Set_Address(net, node, 0);
+	}
+
+	if (Session.Type == GAME_INTERNET && !flag && Session.ViaPacketRouter && FieldC8) {
+		if (!((GlobalHeaderType *)buf)->Field3) {
+			IPXAddressClass target = dest;
+
+			target.Get_Address(net, node);
+			target.Set_Address(net, node, port);
+			int id = -1;
+			for (int i = 0; i < Session.Players.Count(); i++) {
+				if (Session.Players[i]->Address == target) {
+					id = Session.Players[i]->Player.ID;
+					break;
+				}
+			}
+			unsigned char result = OwnerTalk.Mask_From_ID(id);
+			if (!result) {
+				result = 1;
+			}
+			((GlobalHeaderType *)buf)->Field3 = result;
+		}
+
+		dest = Session.PacketRouterAddress;
+		dest_port = DAT_00841F3C;
+		if (Session.unknown_2978 == Session.Players[0]->Address && dest.FUN_0053EF30(Session.Players[0]->Address)) {
+			((GlobalHeaderType *)buf)->FieldC = 0;
+			memset(&((GlobalHeaderType *)buf)->Field8, 0, 4);
+		}
+		else {
+			dest_port = Session.PacketRouterPort;
+			((GlobalHeaderType *)buf)->FieldC = DAT_00841F3C;
+			memset(&((GlobalHeaderType *)buf)->Field8, 0, 4);
+		}
+	}
+	else {
+		((GlobalHeaderType *)buf)->FieldC = 0;
+		memset(&((GlobalHeaderType *)buf)->Field8, 0, 4);
+		dest_port = port;
+	}
+
+	if (DAT_00887628) {
+		DAT_00887628->WriteTo(buf, buflen, &dest, sizeof(dest), flag, FieldC8 == 0, dest_port);
+	}
+	return(1);
+}
+
+// FUNCTION: GAMEMD 0x00540610
+int IPXGlobalConnClass::Send_Packet (void * buf, int buflen, int ack_req, int extra)
+{
+	return BASECLASS::Send_Packet(buf, buflen, ack_req, extra);
+}
+
+// FUNCTION: GAMEMD 0x00540630
+int IPXGlobalConnClass::Receive_Packet (void * buf, int buflen)
+{
+	return BASECLASS::Receive_Packet(buf, buflen);
+}
+
+// FUNCTION: GAMEMD 0x00540650
+int IPXGlobalConnClass::Get_Packet (void * buf, int * buflen)
+{
+	return BASECLASS::Get_Packet(buf, buflen);
+}

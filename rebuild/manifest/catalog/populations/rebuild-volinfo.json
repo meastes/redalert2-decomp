@@ -1,0 +1,186 @@
+{
+  "id": "rebuild-volinfo",
+  "population": {
+    "id": "rebuild-volinfo",
+    "inventory_sha256": "e1847c8cdcb01e981a7c631cf0ebe3ec8a5e1ad9b8deb768c97cf6f2286690b3",
+    "gaps_sha256": "65519fb74b9ffe3f7c7553df67d8e5d2945e5a1d5fae81cd5c3bc15fdbf611a8",
+    "historical_population_sha256": "590714892519c5e60321f7a6c7a5fd4ae2c39f53805801787ef2e53e86fcfc76",
+    "historical_acceptance_sha256": "b62e95a4dbdb5c3364571974ad9d9d89847908bcf0479e5caec5ac5aa42d2475"
+  },
+  "references": {
+    "__imp__GetLogicalDriveStringsA@8": 7971148,
+    "__imp__GetDriveTypeA@4": 7971404,
+    "__imp__GetDiskFreeSpaceA@20": 7971396,
+    "??_C@_0BP@MGCA@GetDiskFreeSpace?$CI?$CJ?5failed?3?5?$CFs?6?$AA@": 8362924,
+    "__imp__GetVolumeInformationA@32": 7971340,
+    "??_C@_0CF@MONL@GetVolumeInformation?$CI?$CJ?5?9?5failed?3@": 8362884,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "??_C@_0CD@KBGG@VolumeCheck?$CI?$CJ?5?9?5GetVolInfo?5faile@": 8362848,
+    "??_C@_04FIJC@RA?$CFd?$AA@": 8215656,
+    "_sprintf": 7872756,
+    "_stricmp": 7872288,
+    "?RequiredCD@CD@@0W4DiskID@@A": 8200416,
+    "??_7CD@@6B@": 7985256,
+    "?VolumeCheck@@YI_NXZ": 7426192,
+    "?Swap@CD@@UAE_NW4DiskID@@@Z": 4646736,
+    "?Request_Disk@CD@@UAE_NW4DiskID@@@Z": 4646176,
+    "?Force_Available@CD@@UAE_NW4DiskID@@@Z": 4646128,
+    "?GetVolInfo@@YI_NPBDPAUVolInfo@@@Z": 7426608,
+    "?CountFiles@@YIXPBDAAI11@Z": 7426816,
+    "__imp__FindClose@4": 7971576,
+    "__imp__FindNextFileA@8": 7971328,
+    "??_C@_02HMIE@?2?$CK?$AA@": 8362956,
+    "??_C@_02OOND@?4?4?$AA@": 8362960,
+    "??_C@_01PJCK@?4?$AA@": 8240708,
+    "__imp__FindFirstFileA@8": 7971324
+  },
+  "regions": [
+    {
+      "entry": 7426192,
+      "method": "00715090",
+      "body_bytes": 407,
+      "body_sha256": "62f6aa8827e0e34a225989de7816989ec35bca5bcb60388e38130e72080bc9e0",
+      "padding_bytes": 9,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "2efdddd0cda84e15c098f0dffd59351d91421b529b86780ee87783b3045920ec",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VolumeCheck@@YI_NXZ",
+      "symbol_prefix": "?VolumeCheck@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "__imp__GetLogicalDriveStringsA@8",
+          "target": 7971148,
+          "addend": 0,
+          "resolved": 7971148
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "__imp__GetDriveTypeA@4",
+          "target": 7971404,
+          "addend": 0,
+          "resolved": 7971404
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "__imp__GetDiskFreeSpaceA@20",
+          "target": 7971396,
+          "addend": 0,
+          "resolved": 7971396
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "??_C@_0BP@MGCA@GetDiskFreeSpace?$CI?$CJ?5failed?3?5?$CFs?6?$AA@",
+          "target": 8362924,
+          "addend": 0,
+          "resolved": 8362924
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "__imp__GetVolumeInformationA@32",
+          "target": 7971340,
+          "addend": 0,
+          "resolved": 7971340
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "??_C@_0CF@MONL@GetVolumeInformation?$CI?$CJ?5?9?5failed?3@",
+          "target": 8362884,
+          "addend": 0,
+          "resolved": 8362884
+        },
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291762019
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "??_C@_0CD@KBGG@VolumeCheck?$CI?$CJ?5?9?5GetVolInfo?5faile@",
+          "target": 8362848,
+          "addend": 0,
+          "resolved": 8362848
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291762006
+        },
+        {
+          "offset": 282,
+          "kind": 6,
+          "symbol": "??_C@_04FIJC@RA?$CFd?$AA@",
+          "target": 8215656,
+          "addend": 0,
+          "resolved": 8215656
+        },
+        {
+          "offset": 288,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 446272
+        },
+        {
+          "offset": 303,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 445789
+        },
+        {
+          "offset": 355,
+          "kind": 6,
+          "symbol": "?RequiredCD@CD@@0W4DiskID@@A",
+          "target": 8200416,
+          "addend": 0,
+          "resolved": 8200416
+        },
+        {
+          "offset": 368,
+          "kind": 6,
+          "symbol": "??_7CD@@6B@",
+          "target": 7985256,
+          "addend": 0,
+          "resolved": 7985256
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "??_7CD@@6B@",
+          "target": 7985256,
+          "addend": 0,
+          "resolved": 7985256
+        }
+      ],
+      "source_sha256": "93d510355d7d433ceeb67cd31022376317dbb44c4c5818b12b8db0bda5a3f054",
+      "source": "rebuild/src/volinfo.cpp",
+      "population": "rebuild-volinfo",
+      "source_order": 7426192,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

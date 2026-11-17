@@ -1,0 +1,719 @@
+{
+  "id": "rebuild-subtitle",
+  "population": {
+    "id": "rebuild-subtitle",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "f4f5d122b0434e62723aa0028d3e14db937dcf80e471240dc19dbf6cf62621d0",
+    "historical_acceptance_sha256": "0dbee521381a57504625643fdc40d839ca1a63b2a18fd56158d638021960e2db"
+  },
+  "references": {
+    "_RECT_NONE": 11261760,
+    "??2@YAPAXI@Z": 7872535,
+    "__splitpath": 7882867,
+    "?Load_Sub_Titles@MovieSubtitles@@QAE_NPBD@Z": 6927104,
+    "??_7XSurface@@6B@": 7974796,
+    "??0Buffer@@QAE@PAXH@Z": 4424384,
+    "??_7BSurface@@6B@": 7974648,
+    "??1SubTitle@@QAE@XZ": 6926576,
+    "??3@YAXPAX@Z": 7871803,
+    "??_C@_0N@NIJK@subtitle?4txt?$AA@": 8348380,
+    "??0CCFileClass@@QAE@PBD@Z": 4624208,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "??_7FileStraw@@6B@": 7985580,
+    "??0SubTitleParserClass@@QAE@AAVStraw@@@Z": 6928000,
+    "?Get_Sub_Titles@SubTitleParserClass@@QAEPAV?$DynamicVectorClass@PAVSubTitle@@@@PBD@Z": 6928080,
+    "??1SubTitleParserClass@@QAE@XZ": 6928064,
+    "??1FileStraw@@UAE@XZ": 7813376,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "?Draw_Sub_Title@MovieSubtitles@@QAEXPAVSubTitle@@@Z": 6927616,
+    "?Instance@BitFont@@2PAV1@A": 8710632,
+    "?GreenLeft@DSurface@@2HA": 8728524,
+    "?GreenRight@DSurface@@2HA": 8728520,
+    "?RedLeft@DSurface@@2HA": 8728508,
+    "?RedRight@DSurface@@2HA": 8728504,
+    "?BlueLeft@DSurface@@2HA": 8728516,
+    "?BlueRight@DSurface@@2HA": 8728512,
+    "?Set_Color@BitFont@@QAEGG@Z": 4396080,
+    "?Set_Bounds@BitFont@@QAEXPAULTRBStruct@@@Z": 4396128,
+    "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z": 4396208,
+    "?Instance@BitText@@2PAV1@A": 8710608,
+    "?Draw_Text@BitText@@QAE_NPAVBitFont@@PAVSurface@@PBGHHHHHHH@Z": 4400272,
+    "_$E2": 6926704,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "?Subtitles_Open@@YIPAVMovieSubtitles@@PBD@Z": 6926736,
+    "__purecall": 4950368,
+    "??_GXSurface@@UAEPAXI@Z": 4264736,
+    "?Get_Pixel_Clip@XSurface@@UBEHABVPoint2D@@ABV?$TRect@H@@@Z": 7815808,
+    "?Put_Pixel_Clip@XSurface@@UAE_NABVPoint2D@@HABV?$TRect@H@@@Z": 7815936,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7815424,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7815472,
+    "?Draw_Masked_Line@XSurface@@UAE_NABVPoint2D@@0I_N@Z": 7814832,
+    "?Draw_Masked_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH_N@Z": 7814816,
+    "?Draw_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH@Z": 7814192,
+    "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1AAVRGBClass@@HH_N333M@Z": 7814880,
+    "?Draw_Depth_Glow_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1HHH_N@Z": 7814864,
+    "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1IHH_N@Z": 7814848,
+    "?Draw_Line@XSurface@@UAE_NABVPoint2D@@0H@Z": 7813456,
+    "?Draw_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1H@Z": 7813504,
+    "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z": 7815632,
+    "?Put_Pixel@XSurface@@UAE_NABVPoint2D@@H@Z": 7815712,
+    "?Fill_Rect_Trans@XSurface@@UAE_NABV?$TRect@H@@ABVRGBClass@@I@Z": 7816880,
+    "?Fill@XSurface@@UAE_NH@Z": 7818784,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7816080,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7816128,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@0ABVSurface@@00_N2@Z": 7819360,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 7819008,
+    "?Blit_From@XSurface@@UAE_NABVSurface@@_N1@Z": 7818848,
+    "??_GBSurface@@UAEPAXI@Z": 4264912,
+    "?Can_Lock@Surface@@UBE_NHH@Z": 4264560,
+    "?entry_64@Surface@@UBE_NVPoint2D@@@Z": 4264576,
+    "?Get_Rect@Surface@@UBE?AV?$TRect@H@@XZ": 4264592,
+    "?Get_Width@Surface@@UBEHXZ": 4264640,
+    "?Get_Height@Surface@@UBEHXZ": 4264656,
+    "?Lock@XSurface@@UBEPAXVPoint2D@@@Z": 4264672,
+    "?Unlock@XSurface@@UBE_NXZ": 4264688,
+    "?Is_Locked@XSurface@@UBE_NXZ": 4264704,
+    "?Is_Direct_Draw@XSurface@@UBE_NXZ": 4264720,
+    "??_GSurface@@UAEPAXI@Z": 4264784,
+    "??_7Surface@@6B@": 7974944,
+    "?Is_Direct_Draw@Surface@@UBE_NXZ": 4264768,
+    "?Lock@BSurface@@UBEPAXVPoint2D@@@Z": 4264816,
+    "?Bytes_Per_Pixel@BSurface@@UBEHXZ": 4264880,
+    "?Stride@BSurface@@UBEHXZ": 4264896,
+    "??0MovieSubtitles@@QAE@XZ": 6926976,
+    "??1MovieSubtitles@@QAE@XZ": 6927008,
+    "?Get@FileStraw@@UAEHPAXH@Z": 7813280,
+    "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
+    "??_GFileStraw@@UAEPAXI@Z": 4639664,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "?Process@MovieSubtitles@@QAE_NK@Z": 6927392,
+    "?Reset@MovieSubtitles@@QAEXXZ": 6927584,
+    "?SetCallback@MovieSubtitles@@QAEXP6IXPAX@Z@Z": 6927600
+  },
+  "regions": [
+    {
+      "entry": 6926704,
+      "method": "0069b170",
+      "body_bytes": 23,
+      "body_sha256": "5c234a3d5f091fa773c04ccf1dded38d24a70367c3b1507b70136a737185df7c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f4f4d1a0e831d05c2a2625ce6b179c0e646d7e54137366ecf726d0f0632ba3b5",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261760,
+          "addend": 0,
+          "resolved": 11261760
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261760,
+          "addend": 4,
+          "resolved": 11261764
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261760,
+          "addend": 8,
+          "resolved": 11261768
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261760,
+          "addend": 12,
+          "resolved": 11261772
+        }
+      ],
+      "source_sha256": "52cf8d0c97ce3eb5d98fe1b1e6ca0b62bdbe06e4508746705e7c7fa41b59a21d",
+      "source": "rebuild/src/subtitle.cpp",
+      "population": "rebuild-subtitle",
+      "source_order": 6926704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6926736,
+      "method": "0069b190",
+      "body_bytes": 236,
+      "body_sha256": "b3dffb803a67bc5ac3f1af60e35457f964aa16720d0b98153716fa2798b31fd6",
+      "padding_bytes": 4,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "3bd3b6599cdc66503610c1a728736af55c08921d656c99ec0236b936ee7315cc",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Subtitles_Open@@YIPAVMovieSubtitles@@PBD@Z",
+      "symbol_prefix": "?Subtitles_Open@@YIPAVMovieSubtitles@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 945752
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "__splitpath",
+          "target": 7882867,
+          "addend": 0,
+          "resolved": 956031
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "?Load_Sub_Titles@MovieSubtitles@@QAE_NPBD@Z",
+          "target": 6927104,
+          "addend": 0,
+          "resolved": 253
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 945673
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        },
+        {
+          "offset": 175,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4292464765
+        },
+        {
+          "offset": 181,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        }
+      ],
+      "source_sha256": "52cf8d0c97ce3eb5d98fe1b1e6ca0b62bdbe06e4508746705e7c7fa41b59a21d",
+      "source": "rebuild/src/subtitle.cpp",
+      "population": "rebuild-subtitle",
+      "source_order": 6926736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6926976,
+      "method": "0069b280",
+      "body_bytes": 31,
+      "body_sha256": "1bb6e19541316f9dbda3bd12d78aec4e4d01fede8f94a576e0e00050abede78f",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c26c26485b0529292fb6675b4492610488dd936874b1ea3a0d717c1a553740d3",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MovieSubtitles@@QAE@XZ",
+      "symbol_prefix": "??0MovieSubtitles@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "52cf8d0c97ce3eb5d98fe1b1e6ca0b62bdbe06e4508746705e7c7fa41b59a21d",
+      "source": "rebuild/src/subtitle.cpp",
+      "population": "rebuild-subtitle",
+      "source_order": 6926976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6927008,
+      "method": "0069b2a0",
+      "body_bytes": 83,
+      "body_sha256": "35da3f6c50312146c77d02ffc26e63b94a1653a044e0008a4446fbf0d0a20052",
+      "padding_bytes": 13,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "b591c4216d67c4045247868a852758414b13dcfe2b4a14df8d5901511911b003",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1MovieSubtitles@@QAE@XZ",
+      "symbol_prefix": "??1MovieSubtitles@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "??1SubTitle@@QAE@XZ",
+          "target": 6926576,
+          "addend": 0,
+          "resolved": 4294966827
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 944752
+        }
+      ],
+      "source_sha256": "52cf8d0c97ce3eb5d98fe1b1e6ca0b62bdbe06e4508746705e7c7fa41b59a21d",
+      "source": "rebuild/src/subtitle.cpp",
+      "population": "rebuild-subtitle",
+      "source_order": 6927008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6927104,
+      "method": "0069b300",
+      "body_bytes": 286,
+      "body_sha256": "324860cb319180830a181bd61ab921f4c974ba654ba1ae003864fcad8848ccfe",
+      "padding_bytes": 2,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "f3210c73f9a12317cacd5900adff35ec8d818fc9b0820c6e91fe93e6d96cad04",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load_Sub_Titles@MovieSubtitles@@QAE_NPBD@Z",
+      "symbol_prefix": "?Load_Sub_Titles@MovieSubtitles@@QAE_NPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "??_C@_0N@NIJK@subtitle?4txt?$AA@",
+          "target": 8348380,
+          "addend": 0,
+          "resolved": 8348380
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 4292664338
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+          "target": 4624800,
+          "addend": 0,
+          "resolved": 4292664920
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "??_7FileStraw@@6B@",
+          "target": 7985580,
+          "addend": 0,
+          "resolved": 7985580
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "??0SubTitleParserClass@@QAE@AAVStraw@@@Z",
+          "target": 6928000,
+          "addend": 0,
+          "resolved": 775
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "?Get_Sub_Titles@SubTitleParserClass@@QAEPAV?$DynamicVectorClass@PAVSubTitle@@@@PBD@Z",
+          "target": 6928080,
+          "addend": 0,
+          "resolved": 842
+        },
+        {
+          "offset": 149,
+          "kind": 20,
+          "symbol": "??1SubTitleParserClass@@QAE@XZ",
+          "target": 6928064,
+          "addend": 0,
+          "resolved": 807
+        },
+        {
+          "offset": 158,
+          "kind": 20,
+          "symbol": "??1FileStraw@@UAE@XZ",
+          "target": 7813376,
+          "addend": 0,
+          "resolved": 886110
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4292464726
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 199,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4292427653
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "??1SubTitleParserClass@@QAE@XZ",
+          "target": 6928064,
+          "addend": 0,
+          "resolved": 738
+        },
+        {
+          "offset": 227,
+          "kind": 20,
+          "symbol": "??1FileStraw@@UAE@XZ",
+          "target": 7813376,
+          "addend": 0,
+          "resolved": 886041
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 251,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4292464657
+        },
+        {
+          "offset": 263,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 268,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4292427584
+        }
+      ],
+      "source_sha256": "52cf8d0c97ce3eb5d98fe1b1e6ca0b62bdbe06e4508746705e7c7fa41b59a21d",
+      "source": "rebuild/src/subtitle.cpp",
+      "population": "rebuild-subtitle",
+      "source_order": 6927104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6927392,
+      "method": "0069b420",
+      "body_bytes": 179,
+      "body_sha256": "646098b893e7bd99253d1820ca52affbb8dfe79bdb7a73164905dc33d4507b93",
+      "padding_bytes": 13,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "1698151b27af7e3144b8aeda617095b19b1a0c853d198ad831cc1de1b68a0adb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process@MovieSubtitles@@QAE_NK@Z",
+      "symbol_prefix": "?Process@MovieSubtitles@@QAE_NK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "?Draw_Sub_Title@MovieSubtitles@@QAEXPAVSubTitle@@@Z",
+          "target": 6927616,
+          "addend": 0,
+          "resolved": 151
+        }
+      ],
+      "source_sha256": "52cf8d0c97ce3eb5d98fe1b1e6ca0b62bdbe06e4508746705e7c7fa41b59a21d",
+      "source": "rebuild/src/subtitle.cpp",
+      "population": "rebuild-subtitle",
+      "source_order": 6927392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6927584,
+      "method": "0069b4e0",
+      "body_bytes": 9,
+      "body_sha256": "c6544a09bff3f96cf3e6a0896ca06f2135c2decda6b222e78cfb28cc909422bb",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "379d41d7e3394bfa8a9552cc10a74a9590b93855542efc010d9bc7274cfe9602",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reset@MovieSubtitles@@QAEXXZ",
+      "symbol_prefix": "?Reset@MovieSubtitles@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "52cf8d0c97ce3eb5d98fe1b1e6ca0b62bdbe06e4508746705e7c7fa41b59a21d",
+      "source": "rebuild/src/subtitle.cpp",
+      "population": "rebuild-subtitle",
+      "source_order": 6927584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6927600,
+      "method": "0069b4f0",
+      "body_bytes": 10,
+      "body_sha256": "0a5b1a6d212e0caedbf2d98dea5a75fa8dba9f19919dae6658f37365af35e72f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "47a1944ca89c8e8fd44367adb3106cf4a2614f00eb1175e870d630a9c6d84c7a",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetCallback@MovieSubtitles@@QAEXP6IXPAX@Z@Z",
+      "symbol_prefix": "?SetCallback@MovieSubtitles@@QAEXP6IXPAX@Z@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "52cf8d0c97ce3eb5d98fe1b1e6ca0b62bdbe06e4508746705e7c7fa41b59a21d",
+      "source": "rebuild/src/subtitle.cpp",
+      "population": "rebuild-subtitle",
+      "source_order": 6927600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6927616,
+      "method": "0069b500",
+      "body_bytes": 378,
+      "body_sha256": "3c1bf6220be013a95dfdff456e2ff7053157508abb67481a864178e1298f350b",
+      "padding_bytes": 6,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "807276f27ab36cf75401308a3520d9bce216dbd9aaac0da7392dd9e0e1803b3e",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Sub_Title@MovieSubtitles@@QAEXPAVSubTitle@@@Z",
+      "symbol_prefix": "?Draw_Sub_Title@MovieSubtitles@@QAEXPAVSubTitle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?Instance@BitFont@@2PAV1@A",
+          "target": 8710632,
+          "addend": 0,
+          "resolved": 8710632
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "?Set_Color@BitFont@@QAEGG@Z",
+          "target": 4396080,
+          "addend": 0,
+          "resolved": 4292435633
+        },
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "?Set_Bounds@BitFont@@QAEXPAULTRBStruct@@@Z",
+          "target": 4396128,
+          "addend": 0,
+          "resolved": 4292435624
+        },
+        {
+          "offset": 210,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 4292435674
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "?Instance@BitText@@2PAV1@A",
+          "target": 8710608,
+          "addend": 0,
+          "resolved": 8710608
+        },
+        {
+          "offset": 313,
+          "kind": 20,
+          "symbol": "?Draw_Text@BitText@@QAE_NPAVBitFont@@PAVSurface@@PBGHHHHHHH@Z",
+          "target": 4400272,
+          "addend": 0,
+          "resolved": 4292439635
+        }
+      ],
+      "source_sha256": "52cf8d0c97ce3eb5d98fe1b1e6ca0b62bdbe06e4508746705e7c7fa41b59a21d",
+      "source": "rebuild/src/subtitle.cpp",
+      "population": "rebuild-subtitle",
+      "source_order": 6927616,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

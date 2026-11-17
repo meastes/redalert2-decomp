@@ -1,0 +1,42 @@
+{
+  "id": "rebuild-lzo1x-d",
+  "population": {
+    "id": "rebuild-lzo1x-d",
+    "inventory_sha256": "c5ae35ce4de43269971a581083393ef5a62a6c8a6b69577f8356f8814580580f",
+    "gaps_sha256": "e5951fb1909c05477bc49b46b2673ff0385c971684057e4abc4a0cee047aedb5",
+    "historical_population_sha256": "226f310d865e8f2ec050be56107d8dfd31eb66810a72788c66556e301adbcc48",
+    "historical_acceptance_sha256": "4ab4c6130b750544be554352b205871af7f18f3d6b775a8b10c47774b32b1449"
+  },
+  "references": {
+    "?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z": 5499248
+  },
+  "regions": [
+    {
+      "entry": 5499248,
+      "method": "0053e970",
+      "body_bytes": 457,
+      "body_sha256": "44b6423c4ae0c0fdecbde97600950fc0fbc190b3f4047c7b2a03b39c5d006c09",
+      "padding_bytes": 7,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "29bdd17bcfd2f43f581039d001584dfe52de1ed3e4c9d8130c4bd0557aeeb65a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z",
+      "symbol_prefix": "?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bb05527bb534ed4444a2a0052bdcc95d7c5f27b4cd5c277834db528b6568a1c2",
+      "source": "rebuild/src/lzo1x_d.cpp",
+      "population": "rebuild-lzo1x-d",
+      "source_order": 5499248,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

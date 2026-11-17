@@ -1,0 +1,666 @@
+{
+ "module": "lightcon",
+ "source": "src/recovered/lightcon.cpp",
+ "header": null,
+ "population": "population-2907",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy",
+  "/GR"
+ ],
+ "compile_group": 559,
+ "code": [
+  {
+   "symbol": "_$E2",
+   "entry": "00538670",
+   "body_bytes": 23,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E5",
+   "entry": "00538690",
+   "body_bytes": 40,
+   "padding_bytes": 8
+  },
+  {
+   "symbol": "_$E8",
+   "entry": "005386c0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E11",
+   "entry": "005386e0",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E14",
+   "entry": "00538700",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E17",
+   "entry": "00538720",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E20",
+   "entry": "00538740",
+   "body_bytes": 19,
+   "padding_bytes": 13
+  },
+  {
+   "symbol": "_$E23",
+   "entry": "00538760",
+   "body_bytes": 49,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E26",
+   "entry": "005387a0",
+   "body_bytes": 33,
+   "padding_bytes": 15
+  },
+  {
+   "symbol": "_$E29",
+   "entry": "005387d0",
+   "body_bytes": 44,
+   "padding_bytes": 4
+  },
+  {
+   "symbol": "_$E32",
+   "entry": "00538800",
+   "body_bytes": 39,
+   "padding_bytes": 9
+  },
+  {
+   "symbol": "_$E35",
+   "entry": "00538830",
+   "body_bytes": 15,
+   "padding_bytes": 1
+  },
+  {
+   "symbol": "_$E38",
+   "entry": "00538840",
+   "body_bytes": 18,
+   "padding_bytes": 14
+  },
+  {
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "entry": "00538860",
+   "body_bytes": 573,
+   "padding_bytes": 3
+  },
+  {
+   "symbol": "?Set_Tint@LightConvertClass@@UAEXHHH_N@Z",
+   "entry": "00538aa0",
+   "body_bytes": 1152,
+   "padding_bytes": 0
+  },
+  {
+   "symbol": "??1LightConvertClass@@UAE@XZ",
+   "entry": "00538f20",
+   "body_bytes": 11,
+   "padding_bytes": 5
+  },
+  {
+   "symbol": "?LightConvertClass_Scalar_Deleting_Destructor_00538f30@Owner_00538f30@seed_00538f30@@QAEPAIE@Z",
+   "entry": "00538f30",
+   "body_bytes": 36,
+   "padding_bytes": 12
+  }
+ ],
+ "code_bytes": 2288,
+ "data": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 8
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table",
+   "section": 9
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table",
+   "section": 14
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table",
+   "section": 17
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table",
+   "section": 20
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table",
+   "section": 23
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table",
+   "section": 26
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table",
+   "section": 29
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a55c8",
+   "bytes": 16,
+   "kind": "table",
+   "section": 3
+  },
+  {
+   "symbol": "??_7LightConvertClass@@6B@",
+   "address": "007a55d8",
+   "bytes": 12,
+   "kind": "vtable",
+   "section": 47
+  },
+  {
+   "symbol": "__real@8@3ffb8637bd05af6c6800",
+   "address": "007a55e8",
+   "bytes": 8,
+   "kind": "table",
+   "section": 52
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ConvertClass@@8",
+   "address": "007b5228",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 41
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LightConvertClass@@8",
+   "address": "007bd000",
+   "bytes": 24,
+   "kind": "rtti",
+   "section": 42
+  },
+  {
+   "symbol": "??_R2LightConvertClass@@8",
+   "address": "007bd018",
+   "bytes": 9,
+   "kind": "rtti",
+   "section": 43
+  },
+  {
+   "symbol": "??_R3LightConvertClass@@8",
+   "address": "007bd028",
+   "bytes": 16,
+   "kind": "rtti",
+   "section": 44
+  },
+  {
+   "symbol": "??_R4LightConvertClass@@6B@",
+   "address": "007bd038",
+   "bytes": 20,
+   "kind": "rtti",
+   "section": 46
+  },
+  {
+   "symbol": "??_R0?AVConvertClass@@@8",
+   "address": "007d3ae8",
+   "bytes": 27,
+   "kind": "rtti",
+   "section": 40
+  },
+  {
+   "symbol": "??_R0?AVLightConvertClass@@@8",
+   "address": "007df870",
+   "bytes": 32,
+   "kind": "rtti",
+   "section": 45
+  }
+ ],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [
+  {
+   "symbol": "__real@8@40008000000000000000",
+   "address": "0079a6f8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@40078000000000000000",
+   "address": "0079a700",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3fff8000000000000000",
+   "address": "0079a708",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004b400000000000000",
+   "address": "0079a710",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4004f000000000000000",
+   "address": "0079a718",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@4005b400000000000000",
+   "address": "0079a720",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ffe8000000000000000",
+   "address": "0079a728",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "__real@8@3ff78000000000000000",
+   "address": "0079a730",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "_unknown_geometry_sixty",
+   "address": "007a55c8",
+   "bytes": 16,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_7LightConvertClass@@6B@",
+   "address": "007a55d8",
+   "bytes": 12,
+   "kind": "vtable"
+  },
+  {
+   "symbol": "__real@8@3ffb8637bd05af6c6800",
+   "address": "007a55e8",
+   "bytes": 8,
+   "kind": "table"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@ConvertClass@@8",
+   "address": "007b5228",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R1A@?0A@A@LightConvertClass@@8",
+   "address": "007bd000",
+   "bytes": 24,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R2LightConvertClass@@8",
+   "address": "007bd018",
+   "bytes": 9,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R3LightConvertClass@@8",
+   "address": "007bd028",
+   "bytes": 16,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R4LightConvertClass@@6B@",
+   "address": "007bd038",
+   "bytes": 20,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVConvertClass@@@8",
+   "address": "007d3ae8",
+   "bytes": 27,
+   "kind": "rtti"
+  },
+  {
+   "symbol": "??_R0?AVLightConvertClass@@@8",
+   "address": "007df870",
+   "bytes": 32,
+   "kind": "rtti"
+  }
+ ],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "00529590",
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "target": "00538860",
+   "function_entry": true
+  },
+  {
+   "site": "00529720",
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "target": "00538860",
+   "function_entry": true
+  },
+  {
+   "site": "00663690",
+   "symbol": "??0LightConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@HHH_NPBEH@Z",
+   "target": "00538860",
+   "function_entry": true
+  }
+ ],
+ "references_out": [
+  {
+   "symbol": "??0ConvertClass@@QAE@ABVPaletteClass@@0PAVSurface@@H_N@Z",
+   "address": "00483650"
+  },
+  {
+   "symbol": "??1ConvertClass@@UAE@XZ",
+   "address": "00485310"
+  },
+  {
+   "symbol": "??3@YAXPAX@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "??_7type_info@@6B@",
+   "address": "007b15e4"
+  },
+  {
+   "symbol": "??_GLightConvertClass@@UAEPAXI@Z",
+   "address": "00538f30"
+  },
+  {
+   "symbol": "?ConvertClass_Destructor_00485310@seed_00538f30@@YIXXZ",
+   "address": "00485310"
+  },
+  {
+   "symbol": "?DSurface_BlueLeft@@3HA",
+   "address": "00852fc4"
+  },
+  {
+   "symbol": "?DSurface_BlueRight@@3HA",
+   "address": "00852fc0"
+  },
+  {
+   "symbol": "?DSurface_GreenLeft@@3HA",
+   "address": "00852fcc"
+  },
+  {
+   "symbol": "?DSurface_GreenRight@@3HA",
+   "address": "00852fc8"
+  },
+  {
+   "symbol": "?DSurface_RedLeft@@3HA",
+   "address": "00852fbc"
+  },
+  {
+   "symbol": "?DSurface_RedRight@@3HA",
+   "address": "00852fb8"
+  },
+  {
+   "symbol": "?Get_Unknown_7d6290@@YIHXZ",
+   "address": "004abb90"
+  },
+  {
+   "symbol": "?Initialize_Blitters_00483B00@ConvertClass@@QAEXXZ",
+   "address": "00483b00"
+  },
+  {
+   "symbol": "?IonStormClass_Is_Ion_Storm_Active@@YA_NXZ",
+   "address": "0051fc50"
+  },
+  {
+   "symbol": "?NukeFlash_IsFadingIn@@YA_NXZ",
+   "address": "0051fc60"
+  },
+  {
+   "symbol": "?Scen@@3PAVScenarioClass@@A",
+   "address": "00a3d290"
+  },
+  {
+   "symbol": "?operator_delete_00781d3b@seed_00538f30@@YAXI@Z",
+   "address": "00781d3b"
+  },
+  {
+   "symbol": "?unknown_build_tint_table_00797440@@YAXPBVPaletteClass@@PAGHHHHPBE@Z",
+   "address": "00797440"
+  },
+  {
+   "symbol": "?unknown_build_tint_table_0079777a@@YAXPBVPaletteClass@@PAGHHHHPBE@Z",
+   "address": "0079777a"
+  },
+  {
+   "symbol": "?unknown_build_tint_table_00797aba@@YAXPBVPaletteClass@@PAGHHHHPBE@Z",
+   "address": "00797aba"
+  },
+  {
+   "symbol": "?unknown_build_tint_table_00797dfa@@YAXPBVPaletteClass@@PAGHHHHPBE@Z",
+   "address": "00797dfa"
+  },
+  {
+   "symbol": "?unknown_math_4ba520@@YANN@Z",
+   "address": "004ba520"
+  },
+  {
+   "symbol": "?unknown_math_4ba5b0@@YANN@Z",
+   "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_sqrt_4ba410@@YANN@Z",
+   "address": "004ba410"
+  },
+  {
+   "symbol": "_LightConvertClass_VTable_007a55dc",
+   "address": "007a55dc"
+  },
+  {
+   "symbol": "_PrimaryColorMode",
+   "address": "007df868"
+  },
+  {
+   "symbol": "__CIpow",
+   "address": "007821b0"
+  },
+  {
+   "symbol": "__fltused",
+   "address": null
+  },
+  {
+   "symbol": "__ftol",
+   "address": "0077f110"
+  },
+  {
+   "symbol": "_unknown_default_tint_mask_007df768",
+   "address": "007df768"
+  }
+ ],
+ "route": "A",
+ "unit": "lightcon.cpp",
+ "form": "one include block",
+ "switches": [],
+ "include_blocks": [
+  {
+   "before": "00538860",
+   "lines": 3
+  }
+ ],
+ "held_rows": [],
+ "joined": [
+  {
+   "entry": "00538f30",
+   "bytes": 36,
+   "population": "population-66",
+   "bound": "own frozen bound (population-66)",
+   "options": "joined under the unit's /GR (frozen without it)"
+  },
+  {
+   "entry": "00538670",
+   "bytes": 23,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "00538690",
+   "bytes": 40,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "005386c0",
+   "bytes": 19,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "005386e0",
+   "bytes": 19,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "00538700",
+   "bytes": 19,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "00538720",
+   "bytes": 19,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "00538740",
+   "bytes": 19,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "00538760",
+   "bytes": 49,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "005387a0",
+   "bytes": 33,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "005387d0",
+   "bytes": 44,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "00538800",
+   "bytes": 39,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "00538830",
+   "bytes": 15,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  },
+  {
+   "entry": "00538840",
+   "bytes": 18,
+   "population": "population-256",
+   "bound": "own frozen bound (population-256)",
+   "options": "joined under the unit's /GR (frozen without it)",
+   "placed": "address",
+   "unit_evidence": "xcu-prefix+map"
+  }
+ ],
+ "residuals": [],
+ "unit_functions": 18,
+ "data_unproven": [
+  {
+   "symbol": "_$S3",
+   "reason": "no original address bound"
+  }
+ ],
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
+ "residual_split": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_flipped": {
+  "rows": 0,
+  "bytes": 0
+ },
+ "residual_kept": {
+  "rows": 0,
+  "bytes": 0
+ }
+}

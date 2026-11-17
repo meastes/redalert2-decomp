@@ -1,0 +1,687 @@
+address,name,symbol,evidence
+0x00A83D10,Theme,,0x006EDEF0 TeamClass::TMission_PLAY_MUSIC matched with TibSun source
+0x00886080,CCPalette,?CCPalette@@3VPaletteClass@@A,CCPalette static initializer 0x0040D8A0 in _palette.cpp constructs the PaletteClass at this address
+0x00B05584,StillUpdating,?StillUpdating@@3_NA,Animate_Score_Objs at 0x00690360 clears this byte and ScorePrintClass::Update at 0x00690D60 sets it
+0x00A9FFC8,BlastSurfaces,?BlastSurfaces@@3PAPAVBSurface@@A,Existing matched IonBlastClass::Clear_All at 0x0053D550 deletes and clears the 80 BSurface pointers at this base; relocations at +0x2 and +0x1D.
+0x00A9FAE8,SpiralIndexToSurfaceLUT,?SpiralIndexToSurfaceLUT@@3PAHA,"Existing matched Calculate_Index_To_Surface_LUT at 0x0053D9F0 initializes this 289-entry int array; references at +0x5, +0x1E and +0x40."
+0x007D5408,strdup,_strdup,YRpp CRT.h strdup and the name duplication in SfxEntry::SfxEntry at 0x00690EF0
+0x00691160,DynamicVectorClass<ScoreAnimClass *>::Add,?Add@?$DynamicVectorClass@PAVScoreAnimClass@@@@QAE_NABQAVScoreAnimClass@@@Z,All 80 bytes of this specialization are identical to the matched SfxEntry pointer specialization at this address and contain no relocations
+0x00720B20,ThemeClass::Queue_Song,,0x006EDEF0 TeamClass::TMission_PLAY_MUSIC matched with TibSun source
+0x007E7B28,DriveLocomotionClass::TrackControl,?TrackControl@DriveLocomotionClass@@0QBUTurnTrackType@1@B,The matched Drive Mark_Track and Will_Jump_Tracks use this table to select the track and its flags.
+0x00578460,MapClass::In_Local_Radar,?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z,"called by 0x00578390 MapClass::In_Local_Radar(Rect const &, bool), matched with TibSun source"
+0x007C8E17,operator new,??2@YAPAXI@Z,YRpp CRT.h _new; the call target of operator new in matched 0x0043C0D0 and 0x00733E10
+0x007C8B3D,operator delete,??3@YAXPAX@Z,YRpp CRT.h _delete; the call target of operator delete in matched 0x0063EE30
+0x005F7090,ObjectTypeClass::ObjectTypeClass,??0ObjectTypeClass@@QAE@PBD@Z,YRpp ObjectTypeClass.h ObjectTypeClass(const char*); passes its argument to AbstractTypeClass(char const *) at matched 0x00410800
+0x005F7320,ObjectTypeClass::ObjectTypeClass,??0ObjectTypeClass@@QAE@ABVNoInitClass@@@Z,passes its argument to AbstractTypeClass(NoInitClass const &) at matched 0x00410960; the call target of new (this) VoxelAnimTypeClass(NoInitClass()) in matched 0x0074B810
+0x0060B000,FUN_0060B000,?FUN_0060B000@@YIXPAUHWND__@@ABVPoint2D@@@Z,Aligns a sidebar button with the button strip
+0x0060B1D0,FUN_0060B1D0,?FUN_0060B1D0@@YIXPAUHWND__@@ABVPoint2D@@@Z,Positions a sidebar control using its dialog margin
+0x0050B6F0,HouseClass::Is_Player_Control,,byte-identical to TibSun's body; called by 0x007404B0 UnitClass::What_Action
+0x004ADFF0,DisplayClass::All_To_Look,?All_To_Look@DisplayClass@@QAEX_N0@Z,TibSun All_To_Look body; Encroach_Shadow at 0x004ACAC0+0xDC and Encroach_Fog at 0x004ACBC0+0x3E call the matched FUN_004ADFF0 implementation
+0x00A83D4C,PlayerPtr,,YRpp HouseClass::CurrentPlayer; TibSun's PlayerPtr in 0x007404B0 and earlier matches
+0x008B4150,AnimTypes,,YRpp AnimTypeClass::Array; TibSun's AnimTypes in 0x00422B20 AnimTypeClass lookup
+0x00481180,CellClass::Closest_Free_Spot,,YRpp FindInfantrySubposition; TibSun's argument use, ret 0x14
+0x00703590,TechnoClass::Nearby_Location,,TibSun's body; called by 0x00739CD0 UnitClass undeploy
+0x0070BCB0,TechnoClass::Predict_Target_Coord,?Predict_Target_Coord@TechnoClass@@QBE?AVCoord@@XZ,TechnoClass::Barrel_Pitch at 0x006FDA00 and TechnoClass::Draw_Target_Laser at 0x006FF960 both call this target for the predicted coordinate.
+0x0087F7E8,Map,,YRpp MapClass::Instance (TibSun's MouseClass global Map)
+0x00A8B238,Session,,YRpp SessionClass::Instance
+0x00816EE0,RTTIs,,"name table of 0x0040DCB0 Name_From_RTTI and 0x0040DCE0 RTTI_From_Name: 74 (name, RTTIType) pairs, <none> to DiskLaser, ending at ""Unknown"" 0x00817130"
+0x0081BA88,_mzones,,"name table of 0x00474E40 CCINIClass::Get_MZoneType: 13 names, Normal to CrusherAll"
+0x0081B958,_pips,,"name table of 0x004748A0 CCINIClass::Get_PipEnum: 11 (name, PipEnum) pairs, green to personpurple"
+0x004F42F0,GScreenClass::Flag_To_Redraw,,"YRpp MapClass::RedrawSidebar; GScreenClass vtable slot 14, body is TibSun's Flag_To_Redraw (TacticalMap redraw flag, DrawFlags, Map.Increment_Redraw_Counter)"
+0x00B0CE28,TacticalDimensions,,every reference in src/tactical.cpp implies this base (refaudit)
+0x00A8B218,AircraftTypes,,YRpp AircraftTypeClass::Array
+0x00A83C68,BuildingTypes,,YRpp BuildingTypeClass::Array
+0x00510F60,HouseClass::Index_IsMP,,YRpp HouseClass.h binds Index_IsMP to this address; matched FUN_00510F60 recognizes exactly the Player @ A through H identifiers 0x117B through 0x1182
+0x00A83C80,BulletTypes,,YRpp BulletTypeClass::Array
+0x00A83C98,HouseTypes,,YRpp HouseTypeClass::Array
+0x00A8E348,InfantryTypes,,YRpp InfantryTypeClass::Array
+0x00A8E3A8,MissionControl,,YRpp MissionControlClass::Array
+0x00A83D80,OverlayTypes,,YRpp OverlayTypeClass::Array
+0x00A83D68,ParticleSystemTypes,,YRpp ParticleSystemTypeClass::Array
+0x00A83D98,ParticleTypes,,YRpp ParticleTypeClass::Array
+0x00A8EC18,SmudgeTypes,,YRpp SmudgeTypeClass::Array
+0x00A8E330,SuperWeaponTypes,,YRpp SuperWeaponTypeClass::Array
+0x00A8E318,TerrainTypes,,YRpp TerrainTypeClass::Array
+0x00A83CE0,UnitTypes,,YRpp UnitTypeClass::Array
+0x00A8EB28,VoxelAnimTypes,,YRpp VoxelAnimTypeClass::Array
+0x008874C0,Warheads,,YRpp WarheadTypeClass::Array
+0x00887568,Weapons,,YRpp WeaponTypeClass::Array
+0x00887180,ArtINI,,YRpp CCINIClass::INI_Art
+0x005B3760,MissionControlClass::Read_INI,,YRpp MissionControlClass::LoadFromINI
+0x00721210,ThemeClass::From_Name,,YRpp ThemeClass::FindIndex
+0x00721270,ThemeClass::GetID,,YRpp ThemeClass::GetID
+0x0065ADC0,RadioClass::HasFreeLink,?HasFreeLink@RadioClass@@QBE_NXZ,no-argument overload; checked in the disassembly by the batch 8 header merge
+0x0065ADF0,RadioClass::HasFreeLink,?HasFreeLink@RadioClass@@QBE_NPBVTechnoClass@@@Z,TechnoClass overload; checked in the disassembly by the batch 8 header merge
+0x00B04BD0,RadSites,,YRpp RadSiteClass::Array; its initialiser and atexit stub are 0x0065B160 and 0x0065B1A0
+0x007E98C0,CLSID_RadSiteClass,,read by RadSiteClass::GetClassID at 0x0065B480
+0x007258D0,Detach_This_From_All,,YRpp AbstractClass::AnnounceExpiredPointer; fastcall with the object in ecx and the bool in dl
+0x004739F0,CCFileClass::CCFileClass,??0CCFileClass@@QAE@PBD@Z,YRpp CCFileClass::CCFileClass; the char const * overload
+0x00473A30,CCFileClass::CCFileClass,??0CCFileClass@@QAE@ABVWstring@@@Z,same body as 0x004739F0 after passing its argument through Wstring's accessor 0x007B5440; called by 0x005CB590
+0x004C66C0,EventClass::EventClass,??0EventClass@@QAE@HE@Z,constructor taking (index, type) called by 0x00730F30
+0x006D8700,Tactical::Cell_Shadow,,0x00567DA0 MapClass::RevealArea3 matched with TS name; returns int (movsx eax)
+0x006DA7D0,Tactical::Flag_Cell,,0x00567DA0 MapClass::RevealArea3 matched with TS name
+0x00A8EB40,Buildings,,global building vector (YRpp BuildingClass::Array); 0x004FAD20 HouseClass::Special_Weapon_AI matched
+0x00A8EB60,Options,,GameOptionsClass instance (YRpp GameOptionsClass::Instance); 0x00484180 CellClass::Init_Light reads DetailLevel at +0x18
+0x00ABCA10,LightSources,,LightSourceClass vector (YRpp LightSourceClass::Array); 0x00484180 CellClass::Init_Light matched
+0x00ABDFD8,RandomMapGen,,MapGeneratorClass instance (YRpp MapSeedClass::Instance); $E185 0x0058B740 constructs it with mov ecx,0xABDFD8
+0x00517590,HSVClass::operator!=,??9HSVClass@@QBE_NABV0@@Z,thiscall ret 4 in the hsv module; called by 0x006281F0 VectorClass<HSVClass>::operator==
+0x005175D0,operator==,??8@YI_NABVHSVClass@@0@Z,free HSVClass operator== (ECX/EDX); called by 0x00628410 VectorClass<HSVClass>::ID
+0x007E9AB0,CLSID_ShipLocomotion,,read by ShipLocomotionClass at 0x006A3E60 and its COM entry points
+0x004F4CE0,HashString::operator==,??8HashString@@QAE_NABV0@@Z,non-const member; called by palette's HashObject compares (0x006288A0)
+0x004F4D80,operator==,??8@YI_NABVHashString@@0@Z,free fastcall HashString operator== (jmp to itself); called by 0x004F4D90
+0x004F4D90,operator!=,??9@YI_NABVHashString@@0@Z,free fastcall HashString operator!=; called by palette 0x006288A0
+0x00AA0E28,IsometricTileTypeClass::BridgeSet,,theater init 0x00545150 stores BridgeSet here; CellClass::Is_Tile_Bridge 0x00486750 reads it
+0x00ABAD1C,IsometricTileTypeClass::TrainBridgeSet,,YR WoodBridgeSet; theater init stores it; CellClass::Is_Tile_Train_Bridge 0x00486770 reads it
+0x00577BB0,MapClass::Shroud_The_Map,,TibSun body; called by TeamClass::TMission_RESHROUD 0x006EE1B0
+0x00558790,LoadOptionsClass::~LoadOptionsClass,??1LoadOptionsClass@@UAE@XZ,plain destructor (vptr store, then the Files vector); 0x0055A0D0 is the deleting destructor that calls it
+0x0075EBE0,WaveClass::WaveClass,??0WaveClass@@QAE@XZ,no-argument constructor; called by TClassFactory<WaveClass>::CreateInstance 0x006BF090
+0x008B41F8,DoList,,EventClass queue of 0x4000 entries (YRpp EventClass::DoList); Queue_AI 0x00647260 adds to it
+0x00A802C8,OutList,,EventClass queue of 128 entries (YRpp EventClass::OutList)
+0x00B0CCB0,CommandBarStatics::ButtonA,,first initialiser $E96 0x006CFC00 constructs it; TabClass::Init_IO stores ID 0xF0 into it
+0x00B0CC40,CommandBarStatics::ButtonB,,constructed by initialiser 0x006CFC40
+0x0071BB90,TerrainClass::TerrainClass,??0TerrainClass@@QAE@PBVTerrainTypeClass@@ABVCell@@@Z,YRpp TerrainClass(TerrainTypeClass*; CellStruct*); the (type; cell) overload with ret 8
+0x0071BDF0,TerrainClass::TerrainClass,??0TerrainClass@@QAE@XZ,no-argument constructor (calls ObjectClass default 0x005F3900); called by TClassFactory<TerrainClass>::CreateInstance 0x006BF390
+0x0087E8B8,Search,,TS global (_astar.h); 0x00746000 and 0x005221D0 match calling Search.Test_Cell_Walk
+0x0042D170,AStarClass::Test_Cell_Walk,,TS name (astar.h); six arguments and ret 0x18 as called by 0x00746000 and 0x005221D0
+0x00481A00,CellClass::Goodie_Check,,TS name (cell.h); returns bool in al with ret 4 as called by 0x0054C550
+0x00B0CEC8,Tactical::SelectableObjects,,TS name (tactical.h); the selectable-object array 0x006DC430 walks
+0x0057A0C0,MapClass::Build_All_Shores,?Build_All_Shores@MapClass@@QAE_NH_N@Z,TibSun Build_All_Shores water-mask and two-pass shoreline generation; YR adds flat_height as a second argument (ret 8); Seed_Land at 0x0059A6C0 calls this target
+0x0057BCF0,MapClass::Damage_Low_Bridge_EW,?Damage_Low_Bridge_EW@MapClass@@AAE_NABVCell@@@Z,East-west damage branch of MapClass::Damage_Low_Bridge
+0x0057C2B0,MapClass::Damage_Low_Bridge_NS,?Damage_Low_Bridge_NS@MapClass@@AAE_NABVCell@@@Z,North-south damage branch of MapClass::Damage_Low_Bridge
+0x0057CF60,MapClass::FUN_0057CF60,?FUN_0057CF60@MapClass@@QAE_NABVCell@@@Z,East-west damage branch of the second low-bridge overlay family
+0x0054F530,WWKeyboardClass::FUN_0054F530,,keyboard thiscall (ret 4) that ScoreClass::Input_Name 0x0068FBB0 calls on the key from Get; distinct from To_ASCII 0x0054F450
+0x0069DCF0,ShapeButtonClass::ShapeButtonClass,??0ShapeButtonClass@@QAE@XZ,no-argument constructor (plain ret); YRpp ShapeButtonClass.h JMP_THIS(0x69DCF0)
+0x0069DD30,ShapeButtonClass::ShapeButtonClass,??0ShapeButtonClass@@QAE@IPBVShapeSet@@HHHH_N@Z,seven-argument constructor (ret 0x1C); called by DropListClass::DropListClass 0x004B4E10
+0x004A60D0,Font_From_TPF,?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z,TibSun dialog Font_From_TPF; returns BitFont::Instance; called by DropListClass::DropListClass 0x004B4E10
+0x0046C840,BulletTypeClass::SetScaledSpawnDelay,,YRpp name; stores its argument to +0x2E8 (ScaledSpawnDelay) with ret 4; called by BulletClass::InitScalable 0x0046B280
+0x00886FB0,VisibleRect,,0x006842F0 Toggle_Display_Mode and 0x00683AB0 Start_Scenario compare Width/Height at +8/+0xC with Options.ScreenWidth (TibSun Toggle_Display_Mode)
+0x00560BF0,Change_Display_Mode,,0x006842F0 Toggle_Display_Mode matched with TibSun source (fastcall width,height)
+0x008A38E0,Environment,,0x00684C30 Fill_In_Data reads Globals[0]; 0x006863E0 Do_Restart calls Restore on it (TibSun Environment)
+0x004C6210,EnvironmentClass::Restore,,0x006863E0 Do_Restart matched with TibSun source; thiscall loops Globals[50] into Scen
+0x0087F778,Logic,,0x006851F0 Clear_Scenario Logic.Init() (LayerClass::Init inline calls Clear through vtable slot 3)
+0x00887324,TacticalMap,,0x006851F0 Clear_Scenario delete/new Tactical matched with TibSun source
+0x00829AE4,LightSourceClass::Recalc,,0x006851F0 Clear_Scenario clears it around object deletion; matched with TibSun source
+0x00887888,AircraftTracker,,0x006851F0 Clear_Scenario AircraftTracker.Clear(); YRpp AircraftTrackerClass::Instance
+0x00822CF4,BuildLevel,,0x00687F10 Assign_Houses sets the tech level from it; matched with TibSun source; YRpp Game::TechLevel
+0x007A41C0,CChatEventSink::OnServerList,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 3 (+0x0C); IChatEvent::OnServerList in wolapi.h; stdcall return pops 12 bytes including this
+0x007A4C10,CChatEventSink::OnUpdateList,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 4 (+0x10); IChatEvent::OnUpdateList in wolapi.h; stdcall return pops 12 bytes including this
+0x007A5240,CChatEventSink::OnServerError,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 5 (+0x14); IChatEvent::OnServerError in wolapi.h; stdcall return pops 12 bytes including this
+0x007A5290,CChatEventSink::OnConnection,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 6 (+0x18); IChatEvent::OnConnection in wolapi.h; stdcall return pops 12 bytes including this
+0x007A55F0,CChatEventSink::OnMessageOfTheDay,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 7 (+0x1C); IChatEvent::OnMessageOfTheDay in wolapi.h; stdcall return pops 12 bytes including this
+0x007AA870,CChatEventSink::OnChannelList,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 8 (+0x20); IChatEvent::OnChannelList in wolapi.h; stdcall return pops 12 bytes including this
+0x007A5690,CChatEventSink::OnChannelCreate,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 9 (+0x24); IChatEvent::OnChannelCreate in wolapi.h; stdcall return pops 12 bytes including this
+0x007A5890,CChatEventSink::OnChannelJoin,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 10 (+0x28); IChatEvent::OnChannelJoin in wolapi.h; stdcall return pops 16 bytes including this
+0x007A70E0,CChatEventSink::OnChannelLeave,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 11 (+0x2C); IChatEvent::OnChannelLeave in wolapi.h; stdcall return pops 16 bytes including this
+0x007AB330,CChatEventSink::OnChannelTopic,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 12 (+0x30); IChatEvent::OnChannelTopic in wolapi.h; stdcall return pops 16 bytes including this
+0x007AAFB0,CChatEventSink::OnPrivateAction,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 13 (+0x34); IChatEvent::OnPrivateAction in wolapi.h; stdcall return pops 16 bytes including this
+0x007AB170,CChatEventSink::OnPublicAction,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 14 (+0x38); IChatEvent::OnPublicAction in wolapi.h; stdcall return pops 20 bytes including this
+0x007A7110,CChatEventSink::OnUserList,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 15 (+0x3C); IChatEvent::OnUserList in wolapi.h; stdcall return pops 16 bytes including this
+0x007A8DA0,CChatEventSink::OnPublicMessage,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 16 (+0x40); IChatEvent::OnPublicMessage in wolapi.h; stdcall return pops 20 bytes including this
+0x007A8FC0,CChatEventSink::OnPrivateMessage,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 17 (+0x44); IChatEvent::OnPrivateMessage in wolapi.h; stdcall return pops 16 bytes including this
+0x007AA6A0,CChatEventSink::OnSystemMessage,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 18 (+0x48); IChatEvent::OnSystemMessage in wolapi.h; stdcall return pops 12 bytes including this
+0x007AA6D0,CChatEventSink::OnNetStatus,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 19 (+0x4C); IChatEvent::OnNetStatus in wolapi.h; stdcall return pops 8 bytes including this
+0x007A5220,CChatEventSink::OnLogout,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 20 (+0x50); IChatEvent::OnLogout in wolapi.h; stdcall return pops 12 bytes including this
+0x007A8260,CChatEventSink::OnPrivateGameOptions,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 21 (+0x54); IChatEvent::OnPrivateGameOptions in wolapi.h; stdcall return pops 16 bytes including this
+0x007A7EA0,CChatEventSink::OnPublicGameOptions,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 22 (+0x58); IChatEvent::OnPublicGameOptions in wolapi.h; stdcall return pops 20 bytes including this
+0x007A7B60,CChatEventSink::OnGameStart,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 23 (+0x5C); IChatEvent::OnGameStart in wolapi.h; stdcall return pops 20 bytes including this
+0x007AB670,CChatEventSink::OnUserKick,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 24 (+0x60); IChatEvent::OnUserKick in wolapi.h; stdcall return pops 20 bytes including this
+0x007AB340,CChatEventSink::OnUserIP,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 25 (+0x64); IChatEvent::OnUserIP in wolapi.h; stdcall return pops 12 bytes including this
+0x007A9800,CChatEventSink::OnPageSend,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 27 (+0x6C); IChatEvent::OnPageSend in wolapi.h; stdcall return pops 8 bytes including this
+0x007A9200,CChatEventSink::OnPaged,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 28 (+0x70); IChatEvent::OnPaged in wolapi.h; stdcall return pops 16 bytes including this
+0x007AB350,CChatEventSink::OnServerBannedYou,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 29 (+0x74); IChatEvent::OnServerBannedYou in wolapi.h; stdcall return pops 12 bytes including this
+0x007AB440,CChatEventSink::OnUserFlags,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 30 (+0x78); IChatEvent::OnUserFlags in wolapi.h; stdcall return pops 20 bytes including this
+0x007AB3C0,CChatEventSink::OnChannelBan,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 31 (+0x7C); IChatEvent::OnChannelBan in wolapi.h; stdcall return pops 16 bytes including this
+0x007A4EC0,CChatEventSink::OnSquadInfo,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 32 (+0x80); IChatEvent::OnSquadInfo in wolapi.h; stdcall return pops 16 bytes including this
+0x007AB8E0,CChatEventSink::OnUserLocale,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 33 (+0x84); IChatEvent::OnUserLocale in wolapi.h; stdcall return pops 12 bytes including this
+0x007ABD40,CChatEventSink::OnUserTeam,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 34 (+0x88); IChatEvent::OnUserTeam in wolapi.h; stdcall return pops 12 bytes including this
+0x007ABAF0,CChatEventSink::OnSetLocale,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 35 (+0x8C); IChatEvent::OnSetLocale in wolapi.h; stdcall return pops 12 bytes including this
+0x007ABFA0,CChatEventSink::OnSetTeam,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 36 (+0x90); IChatEvent::OnSetTeam in wolapi.h; stdcall return pops 12 bytes including this
+0x007AC220,CChatEventSink::OnBuddyList,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 37 (+0x94); IChatEvent::OnBuddyList in wolapi.h; stdcall return pops 12 bytes including this
+0x007AC4A0,CChatEventSink::OnBuddyAdd,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 38 (+0x98); IChatEvent::OnBuddyAdd in wolapi.h; stdcall return pops 12 bytes including this
+0x007AC4B0,CChatEventSink::OnBuddyDelete,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 39 (+0x9C); IChatEvent::OnBuddyDelete in wolapi.h; stdcall return pops 12 bytes including this
+0x007A8ED0,CChatEventSink::OnPublicUnicodeMessage,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 40 (+0xA0); IChatEvent::OnPublicUnicodeMessage in wolapi.h; stdcall return pops 20 bytes including this
+0x007A9110,CChatEventSink::OnPrivateUnicodeMessage,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 41 (+0xA4); IChatEvent::OnPrivateUnicodeMessage in wolapi.h; stdcall return pops 16 bytes including this
+0x007AB0A0,CChatEventSink::OnPrivateUnicodeAction,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 42 (+0xA8); IChatEvent::OnPrivateUnicodeAction in wolapi.h; stdcall return pops 16 bytes including this
+0x007AB260,CChatEventSink::OnPublicUnicodeAction,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 43 (+0xAC); IChatEvent::OnPublicUnicodeAction in wolapi.h; stdcall return pops 20 bytes including this
+0x007A9550,CChatEventSink::OnPagedUnicode,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 44 (+0xB0); IChatEvent::OnPagedUnicode in wolapi.h; stdcall return pops 16 bytes including this
+0x007AC4C0,CChatEventSink::OnServerTime,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 45 (+0xB4); IChatEvent::OnServerTime in wolapi.h; stdcall return pops 12 bytes including this
+0x007AC4D0,CChatEventSink::OnInsiderStatus,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 46 (+0xB8); IChatEvent::OnInsiderStatus in wolapi.h; stdcall return pops 12 bytes including this
+0x007AC4E0,CChatEventSink::OnSetLocalIP,,RTTI CChatEventSink vtable 0x007F77A4 and ATL CComObject<CChatEventSink> vtable 0x007F76B4 slot 47 (+0xBC); IChatEvent::OnSetLocalIP in wolapi.h; stdcall return pops 12 bytes including this
+0x005BDF50,MouseClass::Init_Clear,,0x006851F0 Clear_Scenario Map.Init_Clear() matched with TibSun source; module mouse
+0x005BDA80,MouseClass::Set_Default_Mouse,,0x006863E0 Do_Restart and 0x00686570 Do_Abort Map.Set_Default_Mouse(MOUSE_NORMAL; false) matched with TibSun source
+0x0062E650,ParticleSystemClass::Clear_System,,0x006851F0 Clear_Scenario GasSystem->Clear_System() matched with TibSun source
+0x0056D6E0,MapClass::Compute_Zone_Connections,,0x00684C30 Fill_In_Data matched with TibSun source
+0x00581F50,MapClass::Reset_All_Subzones,,0x00684C30 Fill_In_Data; body matches TibSun Reset_All_Subzones
+0x00586BF0,MapClass::Set_WasUnderBridge_Flags,,0x00684C30 Fill_In_Data matched with TibSun source
+0x006886B0,Create_Units,,0x00686890 Multiplayer_Last_Minute_Fixups matched with TibSun source
+0x0071CB90,TerrainClass::Write_INI,,0x00687CE0 Write_Scenario_INI matched with TibSun source
+0x006B4DD0,SmudgeClass::Write_INI,,0x00687CE0 Write_Scenario_INI matched with TibSun source
+0x00728280,TubeClass::Write_INI,,0x00687CE0 Write_Scenario_INI matched with TibSun source
+0x00730AF0,FUN_00730AF0,?FUN_00730AF0@@YIXXZ,Deploy command called by the keyboard and tab dispatchers
+0x004C9220,FacingClass::Set_Desired,,TS name (facing.h); compares the new direction with the desired one first as TS does; distinct from FacingClass::Set 0x004C9300, which walk Do_Turn calls
+0x0065D430,rc_ptr_base::rc_ptr_base,,stores vtable 0x007F094C whose RTTI (COL 0x008087C0) is .?AVrc_ptr_base@@; called by 0x007B0110 for rc_ptr<WDTState>
+0x0065D460,rc_ptr_base::~rc_ptr_base,,stores vtable 0x007F094C (RTTI rc_ptr_base) then releases Ptr; tail of 0x007B0130 for rc_ptr<WDTState>
+0x0065D4D0,rc_ptr_base::`scalar deleting destructor',??_Grc_ptr_base@@UAEPAXI@Z,slot 0 of vtable 0x007F094C (RTTI rc_ptr_base)
+0x00A8E360,Objects,,ObjectClass::ObjectClass 0x005F3900 adds this to it with an inline DynamicVectorClass Add (fields +4 to +0x14); the destructor 0x005F3B80 removes it
+0x00A8EC78,Technos,,YRpp TechnoClass::Array; read by 0x00567230 and 0x0070D4A0
+0x0071A450,TemporalClass::TemporalClass,??0TemporalClass@@QAE@XZ,no-argument constructor (plain ret); called by TClassFactory<TemporalClass>::CreateInstance 0x006C0710
+0x0071A4E0,TemporalClass::TemporalClass,??0TemporalClass@@QAE@PAVTechnoClass@@@Z,YRpp TemporalClass(TechnoClass*); the owner overload
+0x00AC1678,SpotLights,,YRpp SpotlightClass::Array; SpotLightClass's constructor 0x005FF250 adds itself through it (vtable call, Count at 0xAC1688)
+0x00473500,CargoClass::IndexOf,?IndexOf@CargoClass@@QBEHPBVObjectClass@@@Z,YRpp PassengersClass::IndexOf (TS CargoClass); called by InfantryClass::Fire_Coord 0x00523250
+0x008871E0,Rule,,YRpp RulesClass::Instance; read by 0x006AE2C0 (TibSun Skirmish_Mode_Dialog)
+0x00887048,RuleINI,,YRpp CCINIClass::INI_Rules; read by 0x006AE2C0 (TibSun Skirmish_Mode_Dialog)
+0x00AC1154,MultiplayerMapPreview,,deleted through MapPreviewClass::~MapPreviewClass 0x006406F0 in 0x006AE2C0 (TibSun Skirmish_Mode_Dialog)
+0x0041D300,AirstrikeClass::AirstrikeClass,??0AirstrikeClass@@QAE@XZ,"no-argument constructor (plain ret, this only, stores vtable 0x7E29A8 and adds itself to Array); called by TClassFactory<AirstrikeClass>::CreateInstance 0x006C0890"
+0x0041D380,AirstrikeClass::AirstrikeClass,??0AirstrikeClass@@QAE@PAVTechnoClass@@@Z,YRpp AirstrikeClass(TechnoClass* pOwner); the owner overload
+0x006B6EA0,SpawnManagerClass::SpawnManagerClass,??0SpawnManagerClass@@QAE@XZ,"no-argument constructor (plain ret, stores vtable 0x7F3650 and adds itself to Array); called by TClassFactory<SpawnManagerClass>::CreateInstance 0x006C0A10"
+0x006B6C90,SpawnManagerClass::SpawnManagerClass,??0SpawnManagerClass@@QAE@PAVTechnoClass@@PAVAircraftTypeClass@@HHH@Z,"YRpp SpawnManagerClass(TechnoClass* pOwner, AircraftTypeClass* pSpawnType, int nMaxNodes, int RegenRate, int ReloadRate); the owner overload"
+0x005581A0,GaugeClass::GaugeClass,??0GaugeClass@@QAE@ABV0@@Z,copy constructor: stores vtable 0x7E9384 (RTTI .?AVGaugeClass@@) and copies ControlClass and +0x2C..+0x38 with ret 4; YRpp calls it SliderClass::SliderClass
+0x006B1B20,SliderClass::SliderClass,??0SliderClass@@QAE@IHHHHH@Z,stores SliderClass vtable 0x007ED21C and ends ret 0x18; 0x00557230 ListClass::ListClass matched with TibSun source
+0x00887640,MouseCursor,?MouseCursor@@3PAVMouse@@A,_xmouse.h's MouseCursor; WWKeyboardClass::Message_Handler 0x0054F790 calls its +0x44 Convert_Coordinate; YRpp WWMouseClass::Instance
+0x00A8ED9C,UserInputLocked,,YRpp Unsorted::UserInputLocked; read by WWKeyboardClass Put_Mouse_Message and Put_Wheel_Message
+0x006AF360,SlaveManagerClass::SlaveManagerClass,??0SlaveManagerClass@@QAE@XZ,no-argument constructor (plain ret); called by TClassFactory<SlaveManagerClass>::CreateInstance 0x006C0B90
+0x00471890,CaptureManagerClass::CaptureManagerClass,??0CaptureManagerClass@@QAE@XZ,no-argument constructor (plain ret); called by TClassFactory<CaptureManagerClass>::CreateInstance 0x006C0D10
+0x006AF1A0,SlaveManagerClass::SlaveManagerClass,??0SlaveManagerClass@@QAE@PAVTechnoClass@@PAVInfantryTypeClass@@HHH@Z,YRpp SlaveManagerClass(owner; type; number; regen; reload) with ret 0x14; called by TechnoClass::Init 0x006F3F40
+0x004717D0,CaptureManagerClass::CaptureManagerClass,??0CaptureManagerClass@@QAE@PAVTechnoClass@@H_N@Z,YRpp CaptureManagerClass(owner; damage; infinite) with ret 0xC; called by TechnoClass::Init 0x006F3F40
+0x0047E040,CellClass::Set_Under_Bridge,,TS name; byte-identical twin of Set_Under_Rail_Bridge 0x0047E470; the road-bridge destroy paths in map.cpp call this one
+0x0047E470,CellClass::Set_Under_Rail_Bridge,,byte-identical twin of Set_Under_Bridge 0x0047E040; called from the train-bridge destroy paths 0x0056EF50 and 0x0056F2F0
+0x0063D9C0,PlanningNodeClass::~PlanningNodeClass,??_GPlanningNodeClass@@QAEPAXI@Z,scalar deleting destructor; delete in the inlined Remove_Member calls it
+0x0063DFD0,?$DynamicVectorClass@PAVPlanningMemberClass@@::Delete,?Delete@?$DynamicVectorClass@PAVPlanningMemberClass@@@@QAE_NABQAVPlanningMemberClass@@@Z,called on node+0 (vtable 0x007EFEE4 RTTI)
+0x0063E900,?$DynamicVectorClass@PAVTechnoClass@@::Delete,?Delete@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z,called on 0x00AC4C40 whose initialiser stores vtable 0x007E17AC (RTTI DynamicVectorClass<TechnoClass*>)
+0x0063EBD0,?$DynamicVectorClass@PAVPlanningTokenClass@@::Delete,?Delete@?$DynamicVectorClass@PAVPlanningTokenClass@@@@QAE_NABQAVPlanningTokenClass@@@Z,called on PlanningTokenClass::Array in 0x006370B0
+0x0063E5D0,?$DynamicVectorClass@PAVPlanningNodeClass@@::Delete,?Delete@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NABQAVPlanningNodeClass@@@Z,Unknown1/Unknown2 in Remove_Member
+0x0063E590,?$DynamicVectorClass@PAVPlanningNodeClass@@::Delete_Index,?Delete_Index@?$DynamicVectorClass@PAVPlanningNodeClass@@@@QAE_NH@Z,Unknown3 in ~PlanningNodeClass
+0x0063EF70,?$DynamicVectorClass@PAVPlanningMemberClass@@::Delete_Index,?Delete_Index@?$DynamicVectorClass@PAVPlanningMemberClass@@@@QAE_NH@Z,members in Cancel_Owner
+0x0063F000,?$DynamicVectorClass@PAVTechnoClass@@::Delete_Index,?Delete_Index@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NH@Z,0x00AC4C40 in Pop_Front
+0x0063F040,?$DynamicVectorClass@PAVPlanningTokenClass@@::Delete_Index,?Delete_Index@?$DynamicVectorClass@PAVPlanningTokenClass@@@@QAE_NH@Z,Array in Destroy
+0x0063DE30,?$VectorClass@PAVPlanningMemberClass@@::Clear,?Clear@?$VectorClass@PAVPlanningMemberClass@@@@UAEXXZ,vtable 0x007EFF04 slot 3
+0x0063E140,?$VectorClass@PAVPlanningBranchClass@@::Clear,?Clear@?$VectorClass@PAVPlanningBranchClass@@@@UAEXXZ,vtable 0x007EFF24 slot 3
+0x00AC4B48,PlanningTokenClass::Events,,class static (guarded atexit 0x00633620); name invented
+0x00AC4C40,PlanningTokenClass::Technos,,class static (guarded atexit 0x00633760); name invented
+0x00A80228,Houses,,YRpp HouseClass::Array; Node_Color reads [slot]->RemapColorRGB
+0x0082D028,MouseClass::MouseControl,,mouse.cpp 0x005BDB90 Get_Mouse_Start_Frame indexes the 28-byte cursor table; symbols.csv calls it MouseCursor::Cursors
+0x00ABF294,MouseClass::MouseShapes,,mouse.cpp 0x005BDF30 One_Time stores the loaded MOUSE.SHA
+0x00ABF2A0,MouseClass::Timer,,mouse.cpp 0x005BDDC0 AI animation timer; static initialiser 0x005BD9F0
+0x00ABF2DC,MouseShapesLoaded,,mouse.cpp 0x005BDF30 One_Time out flag for LoadWholeFileEx
+0x004A38D0,FileSystem_LoadWholeFileEx,,mouse.cpp 0x005BDF30 One_Time loads MOUSE.SHA
+0x007B0390,FUN_007B0390,?FUN_007B0390@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z,returns rc_ptr<WDTTerritory> (stores vtable 0x007EBFA4 RTTI .?AV?$rc_ptr@VWDTTerritory@@@@); called by netshare DisplayGameopts and mapgen Do_Random_Map
+0x0087F658,AllCommands,,DynamicVectorClass<CommandClass const *>; Init_Commands 0x00532150 adds every command through its inline Add (+4..+0x14)
+0x0087F680,HotkeyCommands,,IndexClass<int, CommandClass const *>; Init_Commands calls Is_Present/Remove_Index/Add_Index on it
+0x00629210,ParasiteClass::ParasiteClass,??0ParasiteClass@@QAE@XZ,no-argument constructor ending in plain ret; the call target of new ParasiteClass in TClassFactory<ParasiteClass>::CreateInstance 0x006C1010
+0x006292B0,ParasiteClass::ParasiteClass,??0ParasiteClass@@QAE@PAVFootClass@@@Z,constructor taking the owner FootClass * (ret 4); called by TechnoClass::Init 0x006F3F40
+0x0053EE70,IPXAddressClass::operator==,??8IPXAddressClass@@QAE_NAAV0@@Z,TibSun full address compare; called by IPXGlobalConnClass::Send_To 0x005403F0 at +0x107 and +0x174
+0x008872B0,Scripts,,DynamicVectorClass<ScriptClass *>: its initialiser stores vtable 0x007E1B24 (RTTI .?AV?$DynamicVectorClass@PAVScriptClass@@@@); TibSun _script.cpp
+0x00887310,AlternateSurface,,TibSun _surface.h AlternateSurface; YRpp DSurface::Alternate; GraphicMenu::Presentation clears this surface and takes its rectangle
+0x0088730C,HiddenSurface,,TibSun HiddenSurface (gscreen.h, _surface.h); YRpp DSurface::Hidden; read by 0x00642A60 and 0x00554400
+0x00643E90,ProgressScreenClass::Get_Current_Progress,,thiscall ret 4: PlayerProgress[i]/MainProgress, or MainProgress when index >= PlayerCount; called by SessionClass::Update_Progress 0x0069AE90
+0x00B077B0,SHPHead,,head of the SHPReference list: the constructor 0x0069E430 links each new reference here; 0x0069E500/0x0069E180/0x0069E930 read it
+0x00B077B4,SHPCache,,"0x0069E210 tests, deletes (inline ~SHPStruct) and zeroes it"
+0x00B077B8,SHPCacheSize,,0x0069E210 zeroes it with the cache
+0x00B077BC,SHPCacheIndex,,0x0069E210 zeroes it with the cache
+0x0083F870,SHPReferenceCount,,0x0069E430 copies it into Index (+0x14) then increments it; .data initial value 1
+0x007C8D20,stricmp,,"CRT stricmp, called by the wonline functions"
+0x00775700,WS_Create_Dialog,,"windlg WS_Create_Dialog (TibSun windlg.h), called by wonline"
+0x00887628,PacketTransport,,YRpp WinsockInterfaceClass::Instance (UDPInterfaceClass); wonline and ipxgconn Send_To use it
+0x0053F0E0,IPXAddressClass::As_String,,called by wonline; not yet defined in src/ipxaddr.cpp
+0x007E841C,Dropship_Screen::_loadout_slot_ys,_?_loadout_slot_ys@?1??Dropship_Screen@@YIXXZ@4QAY124$$CBHA,Complete 180-byte literal table equals original .rdata; SHA-256 ca19e5e09e594cc59c7be5fd0fd723dc630ac4f31c3b48968f11aa27b93974d7.
+0x007E84D0,Dropship_Screen::_green_light_ys,_?_green_light_ys@?1??Dropship_Screen@@YIXXZ@4QBHB,Complete 16-byte literal table equals original .rdata; SHA-256 c48fe75b2d30b0504b1711fd307431f1235d6c2bf6cde0baf9d825c33dd6e141.
+0x007E840C,Dropship_Screen::_pilot_chance,_?_pilot_chance@?1??Dropship_Screen@@YIXXZ@4MB,Complete 4-byte float equals original .rdata; SHA-256 8b35fe1a9b331dc0217e0419be35288af59676e9c57022a334110ab0e4799df4.
+0x00820328,Dropship_Screen::_drop_btn_names,_?_drop_btn_names@?1??Dropship_Screen@@YIXXZ@4PAPBDA,All three original pointer-table entries independently resolve to the corresponding compiled filename literals in order.
+0x00820334,Dropship_Screen::_green_btn_names,_?_green_btn_names@?1??Dropship_Screen@@YIXXZ@4PAPBDA,All four original pointer-table entries independently resolve to the corresponding compiled filename literals in order.
+0x0087E8A4,AlphaBuffer,?AlphaBuffer@@3PAVABuffer@@A,YRpp Drawing.h ABuffer::Instance at 0x87E8A4; data/symbols.csv agrees; existing real ABuffer type constructor and Fill contracts
+0x00887644,DepthBuffer,?DepthBuffer@@3PAVZBuffer@@A,YRpp Drawing.h ZBuffer::Instance at 0x887644; data/symbols.csv agrees; existing real ZBuffer type
+0x00887314,LogicalSurface,?LogicalSurface@@3PAVSurface@@A,YRpp Surface.h DSurface::Temp at 0x887314; independently matched GScreenClass::Input 0x004F4320 saves/restores LogicalSurface around Buttons->Input
+0x008A00A0,SurfacesRestored,?SurfacesRestored@@3_NA,Independent matched MSEngine::Restore_And_Advance 0x005D1E50 stores byte 1 at 0x008A00A0; matched Title_Screen_Restore 0x00532100 tests and clears same byte; same source global SurfacesRestored
+0x0069E740,SHPStruct::GetPixels,?GetPixels@SHPStruct@@QBEPAEH@Z,Independently matched complete 152-byte SHPStruct::GetPixels body and all 14 shapipe annotations with the YRpp unsigned-byte pointer return contract; existing layout and calling convention unchanged.
+0x00887300,SidebarSurface,,TibSun SidebarSurface (_surface.h); YRpp DSurface::Sidebar; read by 0x0069DEB0
+0x008469E0,VoxelNormalTables,,five table pointers {0, 0x846A08, 0x846AC8, 0x846C78, 0x846F78}: TibSun voxlib NULL plus VoxelNormals1..4
+0x008469F4,VoxelNormalTableEntryCount,,{0, 16, 36, 64, 245}: entries per normal table, matching the 12-byte table spacing
+0x00A8E9C0,Ipx,,TibSun globals.h IPXManagerClass Ipx; YRpp IPXManagerClass::Instance; beacon Send_Global_Message reads it
+0x0056D230,MapClass::Get_Cell_Zone,?Get_Cell_Zone@MapClass@@QAEHPBVCell@@W4MZoneType@@_N@Z,Matched 362-byte pointer API; bridge walk selects a connection endpoint; all 83 source calls retain exact bytes.
+0x00586AC0,MapClass::Closest_Edge_Cell,?Closest_Edge_Cell@MapClass@@QAE?AVCell@@ABV2@_N@Z,Matched 292-byte closest local-rectangle edge cell.
+0x0056C510,MapClass::Zone_Reset,?Zone_Reset@MapClass@@QAEHXZ,The low-bridge damage routines call the pathfinding zone reset after a span collapses
+0x00887368,ToolTips,,TibSun _tooltip.cpp CCToolTip * ToolTips; YRpp CCToolTip::Instance; read by matched 0x005D4D50
+0x00ABFC90,_ModelessDialogs,,initialiser 0x005D4C50 stores vtable 0x007EEC8C (DynamicVectorClass<HWND__ *>); 4-byte dialog loop in 0x005D4D50
+0x00ABFCB8,_Accelerators,,initialiser 0x005D4CD0 stores vtable 0x007EECCC (DynamicVectorClass<AcceleratorTracker>); 8-byte loop in 0x005D4D50
+0x00ABFD34,Message_Intercept_Handler,,TibSun msgloop.cpp; 0x005D4D50 calls through it with ECX = &msg
+0x00ABC5F8,KamikazeInstance,,YRpp Kamikaze::Instance; constructed by _$E74 0x0054E260, destroyed by _$E72 0x0054E2D0 with no $S guard, so a plain global
+0x00889FB8,Airstrikes,,YRpp AirstrikeClass::Array; AirstrikeClass's constructors and destructor add and remove themselves through it
+0x007E98E0,CLSID_AirstrikeClass,,read by AirstrikeClass::GetClassID
+0x00AA1020,IsometricTileTypeClass::CliffSet,?CliffSet@IsometricTileTypeClass@@2W4IsometricTileType@@A,Retail Read_Control_File at 0x00545150 reads General/CliffSet at 0x00545725; its result is stored in normal-frame slot 0xF8 at 0x00545739; setid is compared to that slot at 0x00545DF0; and heap ID is stored at 0x00AA1020 by 0x00545DF9. Existing native src/isotype.cpp and include/isotype.h corroborate the static member.
+0x007DCFC4,strupr,_strupr,Independent YRpp CRT.h declares CRT::strupr as cdecl(char*) and jumps to 0x007DCFC4; VC6 legacy C runtime spelling emits _strupr.
+0x00A8EA70,NullModem,?NullModem@@3VNullModemClass@@A,"Matched globals static initializer 0x004E8060 constructs NullModemClass(16,16,0xEC,0x1234) at 0x00A8EA70; matched destructor 0x004E8090 uses same object."
+0x007EAF7C,InfantryClass::MasterDoControls,,Existing matched Scatter 0x0051D0D0 and Ready_To_Next_Mission 0x00521B60 index Interrupt at stride 4; Do_Action 0x0051D6F0 indexes Interrupt at this base and Rate at base+3; first nine DoStruct entries equal the TibSun Infantry array
+0x007E9AC0,CLSID_JumpjetLocomotion,,Exact 16-byte CLSID from reference/tibsun/code/ilocos_i.c; independently named Jumpjet by YRpp LocomotionClass.h; matched JumpjetLocomotionClass::GetClassID 0x0054B710 copies its four words
+0x004068E0,DebugString,,Archive release cdecl vararg no-op; existing matched Send_FrameSync 0064A000 and Dump_Packet_Too_Late_Stuff 00652070 call this same RET with original trace strings
+0x00A8E7A8,ScenarioCRC,,Archive Send_FrameSync stores ScenarioCRC into FrameInfo.CRC; matched YR Send_FrameSync 0064A000 reads this global at operand offset 0x72
+0x00A8ED74,Debug_Print_Events,,Existing matched Destroy_Connection at 0x005DA750 byte read at 0x005DA765 guards archive diagnostic with same house/name arguments
+0x008208EC,EventClass::EventLength,,Independent retail decoder 0x0064BDD0 reads this unsigned-byte array for payload memcpy size; archive EventLength and packed EventClass payload sizes corroborate its entries
+0x00734E60,StringTable::LoadStringA,?LoadStringA@StringTable@@SIPBGPBDPAPAD0H@Z,Windows LoadString macro spelling of existing StringTable::LoadString; independent matched SessionClass::Load_Call_Wait_Strings call at 0x006977DC targets 0x00734E60
+0x0083ECFC,SessionClass::DialMethodCheck,?DialMethodCheck@SessionClass@@2PAPBDA,Existing matched Write_MultiPlayer_Settings reads table at offsets +0x1D8 and +0x329; actual T/P strings match TibSun DialMethodCheck declaration
+0x007C9BFD,atoi,_atoi,YRpp CRT::atoi and existing MultiMission CD-list parser call at 0x0069A5B5 agree; retail routine calls known atol at 0x007C9B72
+0x00ABDFB8,RMGGaussian,?RMGGaussian@@3VNormalDistribution@@A,"Matched initializer 0x0058B780 establishes HasSpare, Spare and Random_Fraction callback at 0x00ABDFB8+0/8/12/16"
+0x00AA0738,IsometricTileTypeClass::WaterSet,?WaterSet@IsometricTileTypeClass@@2W4IsometricTileType@@A,Existing matched Seed_Land 0x0059A6C0 uses WaterSet at offsets 0x21 and0x7b independently of new Seed_Lake
+0x00B04A60,RadBeamArray,?RadBeamArray@@3V?$DynamicVectorClass@PAVRadBeam@@@@A,Existing canonical static initializer 0x00659090 and Allocate0x00659110 independently identify this array and its member offsets
+0x0082AF78,MapRegionClass::Build_East_Ramp::heights,_?heights@?1??Build_East_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z@4PAHA,Complete original and compiled lookup tables agree with archived Build_East_Ramp; end-pointer relocations retain their 20-byte addends.
+0x0082AF8C,MapRegionClass::Build_East_Ramp::ramps,_?ramps@?1??Build_East_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z@4PAHA,Complete original and compiled lookup tables agree with archived Build_East_Ramp; end-pointer relocations retain their 20-byte addends.
+0x0082AF3C,MapRegionClass::Build_South_Ramp::heights,_?heights@?1??Build_South_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z@4PAHA,Complete original and compiled lookup tables agree with archived Build_South_Ramp; end-pointer relocations retain their 20-byte addends.
+0x0082AF50,MapRegionClass::Build_South_Ramp::ramps,_?ramps@?1??Build_South_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z@4PAHA,Complete original and compiled lookup tables agree with archived Build_South_Ramp; end-pointer relocations retain their 20-byte addends.
+0x007ED768,MapGeneratorClass::Get_Spread_Score::_random_range,_?_random_range@?1??Get_Spread_Score@MapGeneratorClass@@QBENABVCell@@0H@Z@4MB,Existing matched Get_Spread_Score at 0x0059D480 references this exact float constant; binding is restricted to its decorated local symbol.
+0x007ED764,MapGeneratorClass::Get_Spread_Score::scale,_?scale@?1??Get_Spread_Score@MapGeneratorClass@@QBENABVCell@@0H@Z@4MB,Existing matched Get_Spread_Score at 0x0059D480 references this exact float constant; binding is restricted to its decorated local symbol.
+0x007ED76C,MapGeneratorClass::Get_Spread_Score::_step_weight,_?_step_weight@?1??Get_Spread_Score@MapGeneratorClass@@QBENABVCell@@0H@Z@4MB,Existing matched Get_Spread_Score at 0x0059D480 references this exact float constant; binding is restricted to its decorated local symbol.
+0x007E3A98,BuildingLightClass::Detection_Radius::_scale,_?_scale@?1??Detection_Radius@BuildingLightClass@@QBEHXZ@4NB,Existing matched Detection_Radius at 0x00436DA0 references this exact double at offset 0xC5.
+0x00842930,Tactical::Draw_Rally_Points::_pattern,_?_pattern@?1??Draw_Rally_Points@Tactical@@QAEX_N@Z@4PA_NA,Complete original and compiled 16-byte rally-point dash pattern agree; separate from WaypointLinePattern at 0x00842940.
+0x0089C668,Bombs,,DynamicVectorClass<BombClass *> built by _$E150 0x00438550; separate from BombListClass's instance at 0x0087F5D8
+0x00B0B5F0,SlaveManagers,,YRpp SlaveManagerClass::Array; _$E80 0x006AF120 builds it with vtable 0x007F315C (DynamicVectorClass<SlaveManagerClass *>)
+0x00B0EC60,Temporals,,YRpp TemporalClass::Array; TemporalClass's constructors and destructor add and remove themselves through it
+0x007E98D0,CLSID_TemporalClass,,read by TemporalClass::GetClassID
+0x00AC4910,Parasites,,YRpp ParasiteClass::Array; initialiser _$E25 0x00629190, atexit stub _$E23 0x006291D0
+0x007E98A0,CLSID_ParasiteClass,,read by ParasiteClass::GetClassID
+0x00B0B880,SpawnManagers,,YRpp SpawnManagerClass::Array; initialiser _$E36 0x006B6C10 and atexit stub 0x006B6C50
+0x007E98B0,CLSID_BombClass,,read by BombClass::GetClassID
+0x00B72760,WorldDominationTour::WDTGameOptionList,,read by Conflict::Init_Game_Options 0x007660F0 (Clear, then Add of each game option)
+0x004381D0,BlowPipe::Key,,"called for BF.Key in 0x00632DC0 PKPipe::Put, matched with TibSun source; byte-identical to 0x00438300 BlowStraw::Key"
+0x0043AD00,Buffer::Buffer,??0Buffer@@QAE@PAXH@Z,"builds BSurface's Buff(buffer, size) in 0x00410CE0 ABuffer::ABuffer, matched; first of TibSun's constructors before 0x0043ADC0 Buffer(int)"
+0x0043AE50,Buffer::~Buffer,??1Buffer@@QAE@XZ,"destroys BSurface's Buff in 0x00411650 BSurface's scalar deleting destructor, matched"
+0x004A17C0,CrateClass::Create_Crate,,"called by 0x0056BD40 MapClass::Place_Random_Crate, matched with TibSun source"
+0x004A1AA0,CrateClass::Get_Crate,,"called by 0x004A1750 CrateClass::Remove_It, matched with TibSun source"
+0x00489280,Explosion_Damage,?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_NPAVHouseClass@@@Z,"YRpp MapClass::DamageArea at 0x00489280 takes the explosion coordinates, damage, attacker, warhead, chain-reaction flag and source house. Goodie_Check calls it for gas, explosives and napalm."
+0x00505310,HouseClass::Get_First_Ownable,?Get_First_Ownable@HouseClass@@QBEPBVUnitTypeClass@@ABV?$DynamicVectorClass@PBVUnitTypeClass@@@@@Z,The unit-type overload compiles to the same 79 bytes as the matched building-type overload at 0x00505310. Goodie_Check passes the BaseUnit and HarvesterUnit vectors.
+0x004A2600,CreditClass::AI,,"called for Credits.AI(false) in 0x006D0680 TabClass::AI, matched"
+0x00551E50,LCW_Comp,,"called for LCW_Comp in 0x005522D0 LCWPipe::Flush and 0x00552490 LCWStraw::Get, matched with TibSun source"
+0x0055C0E0,lzo1x_decompress,,"called by 0x0055C350 LZOPipe::Put and 0x0055C7C0 LZOStraw::Get, matched with TibSun source"
+0x005D5820,MSSfx::MSSfx,,"called for new MSSfx(name, file_name) in 0x005D25D0 MSEngine::Add_Sound_Effect, matched"
+0x005D5850,MSSfx::~MSSfx,,"called for delete Sounds[index] in 0x005D1B30 MSEngine::~MSEngine, matched"
+0x005D5860,MSSfx::Play,,"called for sfx->Play in 0x005D2650 MSEngine::Play_Sound_Effect, matched"
+0x0065CA00,RawFileClass::~RawFileClass,??1RawFileClass@@UAE@XZ,"base destructor called by 0x00431B80 BufferIOFileClass::~BufferIOFileClass, matched; stores RawFileClass's then FileClass's RTTI vtable"
+0x00661590,RLEEngine::Line_Compress,,"called for rle.Line_Compress in 0x006C89E0 StaticBufferClass::Add, matched"
+0x0069E9E0,SHAPipe::Result,,"called for sha.Result(Digest) in 0x00476E20 CCINIClass::Calculate_Message_Digest, matched"
+0x006C9740,StorageClass::operator+=,,"called for Tiberium += bptr->Storage in 0x00502A80 HouseClass::RegisterGain, matched"
+0x006C97E0,StorageClass::operator-=,,"called for Tiberium -= bptr->Storage in 0x005025F0 HouseClass::RegisterLoss, matched"
+0x006C9820,StorageClass::First_Used_Slot,,"called by 0x005025F0 HouseClass::RegisterLoss and 0x004415F0 BuildingClass::Do_Destruction, matched"
+0x007483B0,UnVQ2_4x4_Table,,"passed to VQA_SetUnVQ in 0x00759940 VQAClass::Play_VQA, matched"
+0x00748750,UnVQ2_4x2_Table,,"passed to VQA_SetUnVQ in 0x00759940 VQAClass::Play_VQA, matched"
+0x00748AF0,UnVQ1_4x4_Table,,"passed to VQA_SetUnVQ in 0x00759940 VQAClass::Play_VQA, matched"
+0x00748C30,UnVQ1_4x2_Table,,"passed to VQA_SetUnVQ in 0x00759940 VQAClass::Play_VQA, matched"
+0x00B0F720,ObjectPtrTracker,,"TibSun tracker.cpp global; walked first-to-last by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F670,AbstractTypePtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F618,TagPtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F708,TriggerPtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F5B8,AnimPtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F640,FactoryPtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F658,EventActionPtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F5F0,WaypointPathPtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F5D8,TeamPtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F6C8,HousePtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00B0F6F0,NeuronPtrTracker,,"TibSun tracker.cpp global; walked by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x00A83CB8,SuperWeapons,,"TibSun globals.cpp vector; built by initialiser 0x004E78E0 with atexit stub 0x004E7920 as a plain global, matched; SuperClass ctor 0x006CAF90 adds to it"
+0x00A83D50,ShowTimers,,"plain global vector built by initialiser 0x004E7960 with atexit stub 0x004E79A0, matched in globals.cpp"
+0x008A0208,DiskLasers,,"YRpp DiskLaserClass::Array; walked by 0x007258D0 Detach_This_From_All, matched"
+0x00A8ED78,GasSystem,,"TibSun globals.cpp ParticleSystemClass pointer; cleared by 0x007258D0 Detach_This_From_All, matched with TibSun source"
+0x007CB9B8,wcstol,,"LIBCMT wcstol.obj: calls _wcstoxl 0x007CB9CF with flags 0; called by 0x007B7D80, matched"
+0x007CBB76,wcstoul,,"LIBCMT wcstol.obj: calls _wcstoxl 0x007CB9CF with flags 1; called by 0x006CA5A0, matched"
+0x0087F5D8,BombListInstance,,BombListClass global (YRpp BombListClass::Instance); built by _$E43 0x0040B540 and destroyed by _$E41 0x0040B5C0 with no $S guard
+0x00887308,VisibleSurface,,TibSun _surface.h VisibleSurface (YRpp DSurface::Primary); its neighbours sit at TibSun's surface offsets
+0x00ABCB78,LineTrailArray,,DynamicVectorClass<LineTrail *> (YRpp LineTrail::Array); walked by LineTrail::Process_All
+0x00ABFEC8,FirewallHelper,,FirewallHelperClass global (Renegade nat.cpp FirewallHelper); built by $E44 0x005D8F90 and Clear()ed by MainOpt 0x00560480
+0x00B052D0,OwnerTalk,,OwnerTalkClass global (rocket2.cpp); built by its initialiser 0x00663800 and called with mov ecx 0xB052D0 from IPXManagerClass::Service
+0x00ABC2B8,IsometricTileTypeClass::RoughTile,,stored from the RoughTile lookup result in 0x00545150 (isotype.h static)
+0x00ABB104,IsometricTileTypeClass::SandTile,,stored from the SandTile lookup result in 0x00545150 (isotype.h static)
+0x00AA0E18,IsometricTileTypeClass::GreenTile,,stored from the GreenTile lookup result in 0x00545150 (isotype.h static)
+0x00AA1090,IsometricTileTypeClass::WaterBridge,?WaterBridge@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/WaterBridge and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x00ABAD28,IsometricTileTypeClass::ShorePieces,?ShorePieces@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/ShorePieces and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x00AA1134,IsometricTileTypeClass::ClearToRoughLat,?ClearToRoughLat@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/ClearToRoughLat and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x00AA0E24,IsometricTileTypeClass::ClearToSandLat,?ClearToSandLat@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/ClearToSandLat and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x00AA0748,IsometricTileTypeClass::ClearToGreenLat,?ClearToGreenLat@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/ClearToGreenLat and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x00AA10A8,IsometricTileTypeClass::ClearToPaveLat,?ClearToPaveLat@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/ClearToPaveLat and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x00ABBEC8,IsometricTileTypeClass::PavedRoads,?PavedRoads@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/PavedRoads and assigns the matching set's heap ID; Fixup_LAT reads that tile base; CellClass::Is_Tile_Paved_Road reads the base at 0x004866D0
+0x00AA0E20,IsometricTileTypeClass::Medians,?Medians@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/Medians and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x00AA1058,IsometricTileTypeClass::RampSmooth,?RampSmooth@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/RampSmooth and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x00ABC1D8,IsometricTileTypeClass::RampStart,?RampStart@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/RampBase and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x00ABC2B0,IsometricTileTypeClass::PaveTile,?PaveTile@IsometricTileTypeClass@@2W4IsometricTileType@@A,Read_Control_File (0x00545150) loads General/PaveTile and assigns the matching set's heap ID; Fixup_LAT reads that tile base.
+0x008B4138,Tubes,,0x00727FD0 TubeClass::TubeClass adds this to the vector at 0x008B4138 (mov ecx and call through [0x8b4138])
+0x00B1CFC0,UnitCompositeDirtyRect,,0x0073B470 UnitClass::Unit_Draw_Voxel reads and writes it at +0/+4/+8/+C
+0x00816328,_AUD_driver,,"drv_dsnd static AudioDriver: NULL then the 11 driver entry points 0x0040A260-0x0040A790; held by _AUD_system_master"
+0x00816358,_AUD_system_master,,"drv_dsnd static AudioSystemMaster {""Direct Sound Driver V2.0"",0,0,0,'AUDm',load,unload,open,close,&_AUD_driver}; layout equals EA WPAudio AUD_DSoundDriver.cpp"
+0x00816380,AUD_log_table,,"drv_dsnd static int[101] {-10000,-6644,...,0}, EA AUD_DSoundDriver.cpp's table; read by audioUpdate 0x0040A6D0"
+0x00815E98,audioData,,"auddev static AudioData * initialised to &audioDataStruct (0x0087DD88); read by AudioSetUp 0x00402940"
+0x0087DD88,audioDataStruct,,"auddev static AudioData; only 0x00815E98 holds its address"
+0x0087DE2C,audioInitialized,,AudioSetUp at 0x00402940 sets this flag and AudioCloseDown at 0x00402990 clears it after unloading all devices and systems
+0x0087DE28,audioExclusiveSystemLoaded,,AudioLoadSystem at 0x00402AF0 sets this flag for an exclusive system and AudioUnloadSystem at 0x00402B80 clears it
+0x00402990,AudioCloseDown,,The final call from audio shutdown at 0x00406D40 destroys all devices and unloads all systems
+0x00816108,eventsOn,,AudioEventTurnOff 0x00406730 clears this flag; AudioEventTurnOn 0x00406740 sets it and AudioEventOn 0x00406750 returns it
+0x0087E8A8,AlphaLightingRemapInit,,"TibSun _alpha.cpp global; static initialiser 0x0040AD60 builds it and registers its atexit 0x0040AD80"
+0x0087E294,AudioIDXData::Instance,,"YRpp AudioIDXData::Instance; set by AudioIDXData::Create in audevent.cpp"
+0x00822D80,FPU_FLAG,_FPU_FLAG,set_control_word and _ftol share the archive FPU flag initialized to 0xE7F
+0x0084E860,UseCMOV,_UseCMOV,detproc.asm stores the conditional move enable flag at CPUType minus three
+0x0084E861,HasCMOV,_HasCMOV,detproc.asm stores the conditional move capability at CPUType minus two
+0x0084E863,CPUType,_CPUType,Get_CPU_Type at 0x004E6150 reads the processor type set in detproc.asm
+0x008758C4,wCODECIndexTab,,General_sosCODECDecompressData indexes the 210-byte archive data section starting here
+0x008758E4,wCODECStepTab,,olsosdec.asm step table follows its index table at offset 0x20
+0x008759A4,DeformPointWidth,_DeformPointWidth,0x006B24A0 and Asm_Ripple_Deform_Points use this grid stride
+0x00B0B6EC,DeformPoints,_DeformPoints,0x006B24A0 and Asm_Ripple_Deform_Points index this deform point grid
+0x008759B4,dwDiffTable,,soscodec.asm difference table at offset 4 in its verified 9060-byte data section
+0x00876FF4,wIndexTable,,soscodec.asm index table at offset 0x1644 in its codec data section
+0x00877B14,bNybbleTableLow,,soscodec.asm low nibble table at offset 0x2164 in its codec data section
+0x00877C14,bNybbleTableHigh,,soscodec.asm high nibble table at offset 0x2264 in its codec data section
+0x00B1D14C,HicolorTable,_HicolorTable,0x00748360 allocates the color table used by both ASM_UnVQ1_C1_TABLE variants
+0x00879B30,VQA_dwDiffTable,,vqa_sos.asm difference table at the start of its verified 9056-byte codec data section
+0x0087B170,VQA_wIndexTable,,vqa_sos.asm index table at offset 0x1640 of its verified 9056-byte codec data section
+0x0087BC90,VQA_bNybbleTableLow,,vqa_sos.asm low nibble table at offset 0x2160 of its verified 9056-byte codec data section
+0x0087BD90,VQA_bNybbleTableHigh,,vqa_sos.asm high nibble table at offset 0x2260 of its verified 9056-byte codec data section
+0x0054D0F0,JumpjetLocomotionClass::Movement_AI,?Movement_AI@JumpjetLocomotionClass@@QAEXXZ,Called by matched Process at 0x0054AEF0; retail accelerates and updates wobble and flight height as in TibSun Movement_AI
+0x0054BD30,JumpjetLocomotionClass::Process_Hover,?Process_Hover@JumpjetLocomotionClass@@QAEXXZ,HOVERING switch entry in matched Process calls 0x0054BD30; retail compares HeadToCoord with position before descent or cruise as in TibSun Process_Hover
+0x00A8B230,Scen,,YRpp ScenarioClass.h ScenarioClass::Instance; ScenarioClass pointer read by matched JumpjetLocomotionClass::Process for Special.IsFogOfWar
+0x007C5F00,_ftol,,YRpp Unsorted.h Game::F2I64; x87 conversion helper called by matched JumpjetLocomotionClass::Movement_AI and its geometry initializers
+0x0056DC20,MapClass::Nearby_Location,,YRpp MapClass::NearByLocation; matched Recalc_Center calls with the proven map.h signature and default arguments
+0x00A83DE8,Infantry,,reference/YRpp/InfantryClass.h:17 Array; Recruit uses Items+4 and Count+16
+0x00A8E390,Aircraft,,reference/YRpp/AircraftClass.h:18 Array; Recruit uses Items+4 and Count+16
+0x008B4108,Units,,reference/YRpp/UnitClass.h:20 Array; Recruit uses Items+4 and Count+16
+0x00A8ED84,Frame,?Frame@@3HA,YRpp Unsorted::CurrentFrame; canonical StageClass::Set_Rate reads this timer in matched sidebar cameo insertion 0x006A8710
+0x007EFF24,VectorClass<PlanningBranchClass *>::vftable,??_7?$VectorClass@PAVPlanningBranchClass@@@@6B@,Unique primary RTTI table for this exact vector type; destructor store in matched PlanningTokenClass::FUN_00636B50 at 0x00636B50
+0x007EFF04,VectorClass<PlanningMemberClass *>::vftable,??_7?$VectorClass@PAVPlanningMemberClass@@@@6B@,Unique primary RTTI table for this exact vector type; destructor store in matched PlanningTokenClass::FUN_00636B50 at 0x00636B50
+0x00ABC1F8,IsometricTileTypeClass::SlopeSetPieces,,0x00547230 tests HeapID in this base through base+10; TibSun Draw_Shadow_Caster slope-set selection
+0x00AA1098,IsometricTileTypeClass::SlopeSetPieces2,,0x00547230 tests the alternate slope base through base+10; TibSun Draw_Shadow_Caster slope-set selection
+0x00ABC210,ShadowCasterSlopeInfo,,0x00547230 indexes 10 records of Frame/Index/XOffset/YOffset at 16-byte stride; canonical isotype table and its initializer 0x00544690
+0x00AA102C,IsometricTileTypeClass::ShadowCasterTiles,,0x00547230 scans five consecutive cliff tile bases ending before 0x00AA1040; TibSun Draw_Shadow_Caster and canonical five-element array
+0x00ABC2D0,ShadowCasterCliffInfo,,0x00547230 indexes 40 records of Frame/Index/XOffset/YOffset at 16-byte stride; canonical isotype table and initializer 0x00543F10
+0x00ABC554,IsometricTileTypeClass::CellShadowShapes,,0x00547230 passes this SHP storage to Draw_Shape; TibSun CellShadowShapes and theater C_SHADOW.SHP loading
+0x0087F698,TileDrawers,,0x00547230 dereferences Items at base+4 and its first LightConvertClass pointer; canonical dynamic vector and matched Get_Light_Convert
+0x00480350,CellClass::Draw_It,?Draw_It@CellClass@@QBEXABVPoint2D@@ABV?$TRect@H@@_N@Z,"The clipped tile loop calls this method at 0x006D77FF with the pixel, clip rectangle and object flag. It initializes the cell drawer at 0x00480384 and draws the isometric tile at 0x00480499, as in TibSun CellClass::Draw_It."
+0x00A8ECB8,CurrentObject,,"YRpp ObjectClass.h CurrentObjects; canonical DynamicVectorClass<ObjectClass*> selection vector, Count/Items in matched 0x006DA770 and 0x006DA740"
+0x008A0360,DisplayClass::Layer,?Layer@DisplayClass@@2PAVLayerClass@@A,YRpp MapClass::ObjectsInLayers at 0x008A0360 is the five-element LayerClass array. Goodie_Check reads the ground layer count and object list.
+0x00B0EA80,TechnoClass::ActionLineTimer,,Matched Reset_Action_Line_Timer 0x0070D150 writes current Frame and duration25 at base/base+8; TibSun TechnoClass::ActionLineTimer and actual frame timer initializer0x006F2AB0
+0x006D7C00,"Tactical::Draw_Tile_Shadows(Rect const &, Rect const &)",?Draw_Tile_Shadows@Tactical@@QAEXABV?$TRect@H@@0@Z,0x006D3040 four thiscall sites push two Rect references; retail callee ret8 walks shadow-casting map cells; TibSun matching two-Rect overload. Exact symbol avoids conflating int overload.
+0x00B0CE78,Tactical::DirtyAreas,?DirtyAreas@Tactical@@2V?$DynamicVectorClass@UDirtyAreaStruct@@@@A,YRpp Drawing.h DirtyAreas alias at0x00B0CE78; canonical DynamicVectorClass count+0x10/items+4 and 20-byte DirtyAreaStruct records in matched0x006D3040
+0x00886FA0,TacticalRect,,YRpp Surface.h ViewBounds; TibSun _rect.h TacticalRect; matched CCToolTip::Reset 0x00478DB0 uses the same X/Width fields
+0x00421350,AlphaShapeClass::Draw_All,,TibSun AlphaShapeClass::Draw_All; the callee iterates the AlphaShapes vector at 0x0088A0F0 and clips each DrawRect at +0x28 to the rectangle passed by Draw_Shroud.
+0x00ABE890,RMGRandom,,0x005A78D0 Generate_Urban_Pavement passes this Random2Class to both Random calls; TibSun mapgen.cpp Pick_Random_UInt names this generator
+0x00AA10A4,IsometricTileTypeClass::MiscPaveTile,,0x005A78D0 adds this tile base plus 8 to its random pavement choice; TibSun Generate_Urban_Pavement and the MiscPaveTile theater INI binding
+0x00ABED14,MapRegionClass::TotalCount,,MapRegionClass constructor assigns the current count to ID and increments it; Delete_All_Regions resets it
+0x0089C2DC,MapCellStride,,0x0058C2A0 MapRegionClass::Get_Cell_Data(Cell) and 0x0058C270 MapRegionClass::CellData::Clear_Inviolates use this global as the grid stride
+0x00ABED10,RMGCellData,,0x0058C2A0 and 0x0058C2C0 MapRegionClass::Get_Cell_Data overloads index the CellData array pointer at this address with sizeof(CellData)=80
+0x007E3890,DynamicVectorClass<Cell>::vftable,??_7?$DynamicVectorClass@VCell@@@@6B@,Raw original COL at 0x7fbe60 -> type descriptor 0x818960 names .?AV?$DynamicVectorClass@VCell@@@@; target 0x00594F40+0xA5 relocation stores this table into actual 24-byte DynamicVectorClass<Cell> after VectorClass<Cell> ctor 0x0042FCB0
+0x007E5C04,VectorClass<DynamicVectorClass<char *> *>::vftable,??_7?$VectorClass@PAV?$DynamicVectorClass@PAD@@@@6B@,Unique primary RTTI table for VectorClass<DynamicVectorClass<char *> *>; both references in generated CoopCampEntry array destructor 0x0049E7C0
+0x007E1AF4,CCINIClass::vftable,??_7CCINIClass@@6B@,Unique primary CCINIClass RTTI table; stored by campaign persistence 0x0049C5A0
+0x007E16B0,CCFileClass::vftable,??_7CCFileClass@@6B@,Unique primary CCFileClass RTTI table; stored by campaign persistence 0x0049C5A0
+0x007E1668,CDFileClass::vftable,??_7CDFileClass@@6B@,Unique primary CDFileClass RTTI table; stored by campaign persistence 0x0049C5A0
+0x006C8C40,SystemTimerClass::operator(),??RSystemTimerClass@@QBEHXZ,Alias of matched SystemTimer::GetTime; timeGetTime shifted right four as in YRpp Timer.h
+0x00887338,TickCount,,Initializer 0x0040EBD0 and matched Concat_Message 0x005D3FC0 identify the count-up timer and its Started/Regulator/Accumulated fields
+0x007CC2AC,mbstowcs,,YRpp CRT.h CRT::mbstowcs; retail wrapper calls library __mbstowcs_lk at 0x007CC309
+0x00B0B408,SidebarClass::Waypoint,,Static constructor 0x006A4D80 loads this address; Init_IO assigns ID 200 and R-UP.SHP
+0x00B0B328,SidebarClass::Upgrade,,Static constructor 0x006A4D40 loads this address; Init_IO assigns ID 201 and R-DN.SHP
+0x00886F90,SidebarRect,,YRpp Surface.h SidebarBounds; TibSun _rect.h SidebarRect; matched CCToolTip::Reset 0x00478DB0 uses the same X/Width fields
+0x0088731C,CompositeSurface,,YRpp Surface.h Composite; TibSun _surface.h CompositeSurface; CCToolTip::Draw 0x00478E30
+0x00A9FA9C,DAT_00A9FA9C_Surface,?DAT_00A9FA9C_Surface@@3PAVDSurface@@A,Matched setup 0x0053BAF0 stores its newly constructed DSurface here; matched teardown 0x0053BB80 deletes and clears the same pointer
+0x00B0B518,SidebarClass::IsToBlitSidebar,,"Matched Blit_Sidebar 0x006A70E0 reads at 0x006A7143, clears at 0x006A7166 and sets at 0x006A723A; TibSun sidebar.cpp static flag"
+0x00AC48B8,ODMasks,?ODMasks@@3UODComponentMasks@@A,YRpp OwnerDraw.h ColorShiftRed/Green at +0/+2; existing matched ODInitMasks 0x0061F190 independently confirms both component references
+0x00AC48BC,ODBComponentMask,?ODBComponentMask@@3GA,YRpp OwnerDraw.h ColorShiftBlue; existing matched ODInitMasks 0x0061F190 +0x4A/+0x62/+0x71
+0x00B78834,OD_Blend_Color::blend_color_alpha,?blend_color_alpha@?1??OD_Blend_Color@@YIGGGE@Z@4IA,Existing matched OwnerDraw::BlendGradientRect 0x006217E0 +0x11D/+0x13F/+0x158/+0x174 store and use alpha in the shared inline blender
+0x00B78838,OD_Blend_Color::blend_pixel_alpha,?blend_pixel_alpha@?1??OD_Blend_Color@@YIGGGE@Z@4IA,Existing matched OwnerDraw::BlendGradientRect 0x006217E0 +0x12A stores 255-alpha in the shared inline blender
+0x008A0DDC,DSurface::BlueLeft,,YRpp Drawing.h BlueShiftRight; TibSun and canonical Build_Hicolor_Pixel shift right by *Left and left by *Right; verified in 0x00478E30
+0x008A0DD8,DSurface::BlueRight,,YRpp Drawing.h BlueShiftLeft; TibSun and canonical Build_Hicolor_Pixel shift right by *Left and left by *Right; verified in 0x00478E30
+0x008A0DE4,DSurface::GreenLeft,,YRpp Drawing.h GreenShiftRight; TibSun and canonical Build_Hicolor_Pixel shift right by *Left and left by *Right; verified in 0x00478E30
+0x008A0DE0,DSurface::GreenRight,,YRpp Drawing.h GreenShiftLeft; TibSun and canonical Build_Hicolor_Pixel shift right by *Left and left by *Right; verified in 0x00478E30
+0x008A0DD4,DSurface::RedLeft,,YRpp Drawing.h RedShiftRight; TibSun and canonical Build_Hicolor_Pixel shift right by *Left and left by *Right; verified in 0x00478E30
+0x008A0DD0,DSurface::RedRight,,YRpp Drawing.h RedShiftLeft; TibSun and canonical Build_Hicolor_Pixel shift right by *Left and left by *Right; verified in 0x00478E30
+0x0087F770,Keyboard,?Keyboard@@3PAUKeyboardClass@@A,"YRpp InputManagerClass::Instance; Custom_Message_Box_Proc passes it to matched WWKeyboardClass::Put (0x0054F1C0), Mouse_Left_Release queries its left Shift state, and the Wonline modal loop clears it (WWKeyboardClass::Clear, 0x0054F720) before and after"
+0x006D6070,Tactical::Set_Tactical_Position(Coord const &),?Set_Tactical_Position@Tactical@@QAEXABVCoord@@@Z,YRpp TacticalClass::SetTacticalPosition takes a CoordStruct reference; DisplayClass::Compute_Start_Pos at 0x004AC64D passes the coordinate to this overload
+0x0087E880,thread_access,,DirectSound audioLoad passes this critical section to InitializeCriticalSection at 0x0040947A and AUD_service_thread enters and leaves it at 0x004095F0 and 0x00409823
+0x00ABDC50,InvalidCell,,YRpp MapClass::InvalidCell; returned by 0x005657A0 for invalid cells
+0x00A8ED28,IsometricTileTypes,,YRpp IsometricTileTypeClass::Array; tile vector used by Recalc_Attributes
+0x0047CA80,CellClass::Fixup_LAT,,YRpp CellClass::SetupLAT; the land-transition fixup called by Recalc_Attributes
+0x00421EA0,AnimClass::AnimClass,??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H_N@Z,"YRpp AnimClass constructor with animation type, location, timing, flags, z adjustment and reverse flag"
+0x00AA1054,IsometricTileTypeClass::Tunnels,,The General/Tunnels tile-set index in 0x00545150 selects the heap ID stored at 0x00545E71
+0x00ABB108,IsometricTileTypeClass::TrackTunnels,,The General/TrackTunnels tile-set index in 0x00545150 selects the heap ID stored at 0x00545E80
+0x00AA10B4,IsometricTileTypeClass::DirtTunnels,,The General/DirtTunnels tile-set index in 0x00545150 selects the heap ID stored at 0x00545E53
+0x00ABAD2C,IsometricTileTypeClass::DirtTrackTunnels,,The General/DirtTrackTunnels tile-set index in 0x00545150 selects the heap ID stored at 0x00545E62
+0x0047EC90,CellClass::Draw_Placement_Cursor,,TibSun tactical.cpp and call sites in 0x006D5030. Both footprint loops call this method after checking the map cell and project its coordinates into TacticalRect.
+0x006D5730,Tactical::Draw_Fence_Placement,,TibSun tactical.cpp and call sites in 0x006D5030. Called for the IsLaserFencePost branch in Draw_Placement.
+0x006D59D0,Tactical::Draw_Firestorm_Wall_Placement,,TibSun tactical.cpp and call sites in 0x006D5030. Called for the IsFirestormWall branch in Draw_Placement.
+0x006D5C50,Tactical::Draw_Wall_Placement,,TibSun tactical.cpp and call sites in 0x006D5030. Called for the ToOverlay IsWall branch in Draw_Placement.
+0x0087E180,audioEvents,,Global event list initialized by AudioEventSetUp and iterated in all four passes of AudioServiceAllEvents
+0x0087E28C,AudioEventsCount,,Zeroed by AudioEventSetUp; decremented when AudioServiceAllEvents destroys an event
+0x0087E2A8,audioEventPool,,AudioEventSetUp stores the MemoryPoolCreate result; AudioEventCloseDown destroys this pool
+0x0087E250,audioEventClasses,,Class list initialized by AudioEventSetUp; AudioEventCloseDown removes and deletes each class
+0x0087E298,audioCache,,Cache created by AudioEventSetUp and passed to AudioCacheDestroy at 0x00404101
+0x0087E2A4,eventsOK,,AudioEventSetUp marks the event subsystem ready; AudioEventCloseDown clears the flag at 0x00404122
+0x0087E2AC,frameStamp,,AudioServiceAllEvents advances the stamp and copies it to VocClass::lastFrame
+0x0087E2B0,bucketStamp,,Incremented after the priority and volume buckets are cleared in AudioServiceAllEvents
+0x0087E2B4,service_in,,AudioServiceAllEvents reentrancy guard checked on entry and cleared on return
+0x0087DE38,eClassBucket,,Seven by ten array of list heads cleared by AudioServiceAllEvents and scanned by bucketGetWeaker
+0x0087E1B8,audioCompressionAttribs,,Initialized by AudioEventSetUp; AudioServiceAllEvents adjusts and updates its volume level
+0x004055C0,AudioEventService,,Second event pass in AudioServiceAllEvents calls the per-event state machine
+0x0081CD4C,CellClass::Bounce_Direction::facing_lookup,_?facing_lookup@?1??Bounce_Direction@CellClass@@QBE?AW4FacingType@@ABVCoord@@@Z@4QBW43@B,Nine FacingType values identical in the object and gamemd.exe; lookup at 0x004848EE indexes from the center at 0x0081CD5C
+0x0081CC30,CellClass::Draw_Overlay::_bridge_variation,_?_bridge_variation@?BB@??Draw_Overlay@CellClass@@QAEXABVPoint2D@@ABV?$TRect@H@@@Z@4PAHA,Draw_Overlay 0x0047F6A0 indexes this four-by-four bridge frame table. All 16 dwords match the original data.
+0x00AA1060,SlopeZShapes,?SlopeZShapes@@3PAPAVShapeSet@@A,IsometricTileTypeClass::Clear_Z_Shapes 0x00549B30 clears all four consecutive shape pointers. Draw_Overlay indexes the same array by ramp.
+0x00B054D0,ColorSchemes,?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A,YRpp ColorScheme::Array. Draw_Overlay indexes the vector by the player color scheme and reads its converter.
+0x00B0F4E8,Tiberiums,?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A,YRpp TiberiumClass::Array. Draw_Overlay indexes the vector with the result of Which_Tiberium_Type.
+0x005AFB80,Matrix3D * Vector3,??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z,YRpp Matrix3D::MatrixApply; multiplies a three-row affine matrix by a Vector3 in matched Tactical::Pixel_To_Lepton and Draw_Tile_Shadows
+0x006DC4C0,Point2D::operator-=,??ZPoint2D@@QAEABV0@ABV0@@Z,The derived and base TPoint2D<int> subtraction operators both independently match these 30 bytes; Draw_Tile_Shadows calls the derived alias
+0x00A8E9A0,GameActive,?GameActive@@3_NA,YRpp Game::IsActive. The Cell_Object search reads this flag before traversing an active cell.
+0x0047C620,CellClass::Is_Clear_To_Build,?Is_Clear_To_Build@CellClass@@QBE_NW4SpeedType@@PAVBuildingTypeClass@@PAVHouseClass@@@Z,"YRpp CellClass::CanThisExistHere. Draw_Placement_Cursor passes the locomotion speed, pending building type and player house."
+0x008A03FC,DisplayClass::PlacementShapes,?PlacementShapes@DisplayClass@@0PBXB,Matched DisplayClass::One_Time 0x004A8850 stores PLACE.SHP here. Draw_Placement_Cursor draws its placement frames.
+0x0081CC70,CellClass::Wall_Update::_offsets,_?_offsets@?1??Wall_Update@CellClass@@QAEX_N@Z@4PAW4FacingType@@A,All five facing entries match the table addressed by both loops in CellClass::Wall_Update at 0x00480630
+0x0089F688,AdjacentCell,?AdjacentCell@@3QBVCell@@B,YRpp Unsorted.h AdjacentCell array; TibSun coord.cpp supplies the eight Cell offsets indexed in CellClass::Wall_Update at 0x00480630
+0x0081CC20,CellClass::Recalc_Attributes::_facings,_?_facings@?FK@??Recalc_Attributes@CellClass@@QAEXH@Z@4QBW4FacingType@@B,Recalc_Attributes indexes this four-entry tunnel-facing table at 0x0047D935. Its dwords 2/4/6/0 match FACING_E/S/W/N in the object and executable.
+0x00B0CD48,ZPixelsPerLepton,,YRpp TacticalClass::AdjustForZ and the height factor used by 0x006D20E0 and 0x006DB095
+0x00842940,WaypointLinePattern,,16-byte five-on three-off pattern passed to Draw_Masked_Dashed_Line at 0x006DB155
+0x00B0E644,Tactical::Draw_Waypoints::mouseshapes,_?mouseshapes@?4??Draw_Waypoints@Tactical@@QAEX_N@Z@4PBVShapeSet@@B,Only referenced by the MOUSE.SHA lazy-load check and assignment and by its Draw_Shape call in 0x006DAD60
+0x00B0CD80,Tactical::Draw_Waypoints::buffer,_?buffer@?BC@??Draw_Waypoints@Tactical@@QAEX_N@Z@4PAGA,Only referenced by swprintf and Simple_Text_Print_Wide in 0x006DAD60. Four wchar_t units precede RAD_60 at 0x00B0CD88
+0x00A8ED5C,ScenarioActive,?ScenarioActive@@3_NA,YRpp Unsorted::ScenarioStarted. Mouse_Left_Release checks this flag before querying an object's visual character.
+0x00817F98,TechnoTypeClass RTTI type descriptor,??_R0?AVTechnoTypeClass@@@8,The retail type descriptor contains .?AVTechnoTypeClass@@ at offset 8 and is the target type of the placement cast.
+0x00817F78,ObjectTypeClass RTTI type descriptor,??_R0?AVObjectTypeClass@@@8,The retail type descriptor contains .?AVObjectTypeClass@@ at offset 8 and is the source type of the placement cast.
+0x0089C3B0,BeaconManager,?BeaconManager@@3VBeaconManagerClass@@A,YRpp BeaconManagerClass::Instance. Mouse_Left_Release selects and places beacons on this singleton.
+0x00430F70,BeaconManagerClass::SelectBeacon,?SelectBeacon@BeaconManagerClass@@QAE_NVCoord@@@Z,Mouse_Left_Release passes the coordinate by value. SelectBeacon receives its three components in consecutive stack slots.
+0x00430BA0,BeaconManagerClass::PlaceBeacon,?PlaceBeacon@BeaconManagerClass@@QAEXHVCoord@@H@Z,YRpp BeaconManagerClass::PlaceBeacon. Mouse_Left_Release passes a house ID followed by the coordinate and beacon ID.
+0x0043A0B0,"Vector3::Vector3(float, float, float)",??0Vector3@@QAE@MMM@Z,The three-float constructor emitted by Draw_Tile_Shadows matches all 25 bytes at this address. Both calls in the 0x006D7C00 overload resolve here.
+0x008391FC,DiplomacyNameIDs,_DiplomacyNameIDs,0x00657DA0 indexes these eight diplomacy dialog control IDs by player slot
+0x0083921C,DiplomacyKillsIDs,_DiplomacyKillsIDs,0x00657DA0 indexes these eight diplomacy dialog control IDs by player slot
+0x0083923C,DiplomacyAllianceIDs,_DiplomacyAllianceIDs,0x00657DA0 indexes these eight diplomacy dialog control IDs by player slot
+0x0083925C,DiplomacyChatIDs,_DiplomacyChatIDs,0x00657DA0 indexes these eight diplomacy dialog control IDs by player slot
+0x00ABBEC4,IsometricTileTypeClass::PavedRoadEnds,,CellClass::Is_Tile_Paved_Road_End reads the base at 0x004866F0 and theater initialization stores the PavedRoadEnds set here
+0x00B73550,MainWindow,?MainWindow@@3PAUHWND__@@A,Matched ScrollClass::Message_Handler (0x006930A0) passes this HWND to SetCapture and YRpp identifies Game::hWnd at this address
+0x00B0C110,Swizzler,?Swizzler@@3VSwizzleManagerClass@@A,SwizzleManagerClass::Instance in YRpp; 340 references across 74 translation units agree on this base
+0x00A8E7AC,ScenarioInit,?ScenarioInit@@3HA,Unsorted::ScenarioInit in YRpp; 208 references across 30 translation units agree on this base
+0x007F0C7C,AUDIOVISUAL,_AUDIOVISUAL,RulesClass::Audio_Visual_Rules reads this section pointer at 0x006691E0. It points to the AudioVisual string at 0x00839EA8.
+0x0089F75C,LauncherMessage,_LauncherMessage,NotifyLauncher and DispatchLauncherMessage store the mapped view here and ShutDown unmaps it.
+0x007F6BB4,WaveLengthFactor,_WaveLengthFactor,Indexed by WaveType for both endpoints in 0x00761640 and 0x00762070 with four image values 1.0 1.05 1.05 1.0
+0x00B45DA8,WaveClass::Draw_NonMagnetic::WaveSize,_?WaveSize@?1??Draw_NonMagnetic@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A,0x00761640 initializes sixteen local Vector3 corners and indexes four corners per wave type
+0x00B45CA0,WaveClass::Draw_Magnetic::WaveSize,_?WaveSize@?1??Draw_Magnetic@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A,0x00762070 initializes sixteen local Vector3 corners and indexes four corners per wave type
+0x0048DED0,Shake_The_Screen,?Shake_The_Screen@@YIXH@Z,Called by matched BuildingClass::Do_Destruction at 0x00441C34 and UnitClass::Explode at 0x007387FC
+0x004A80D0,DiskSwap::Get_Disk_ID,?Get_Disk_ID@DiskSwap@@SI?AW4DiskID@@HH@Z,"TibSun diskswap.cpp disc query; recovered 406-byte body uses YR1 and YR1.dsk, with drive and timeout in ECX and EDX."
+0x00751C30,VolumeCheck,?VolumeCheck@@YI_NXZ,TibSun volinfo.cpp volume scan; recovered 407-byte body checks RA1 through RA8 and calls CD::Force_Available.
+0x00751DD0,GetVolInfo,?GetVolInfo@@YI_NPBDPAUVolInfo@@@Z,"TibSun volinfo.cpp and VolInfo layout; preserved 201-byte body, also inlined in VolumeCheck."
+0x0081C1D0,CD::RequiredCD,?RequiredCD@CD@@0W4DiskID@@A,CD::Set_Required_Disk at 0x004790B0 stores DISK_LOCAL or the requested disc here; VolumeCheck passes it to CD::Force_Available.
+0x007BF470,VQA_LoadFrame,?VQA_LoadFrame@@YIJPAU_VQAHandleP@@J@Z,TibSun vqalib/loader.cpp loop-cache wrapper; recovered 706-byte body calls VQA_LoadFrame_Internal at 0x007BF740.
+0x007BF740,VQA_LoadFrame_Internal,?VQA_LoadFrame_Internal@@YIJPAU_VQAHandleP@@J@Z,TibSun vqalib/loader.cpp frame-chunk loader; recovered 3397-byte body and its call from VQA_LoadFrame.
+0x007C39C0,UnVQ2_C1_4x4,?UnVQ2_C1_4x4@@YAXPAE00KKK@Z,TibSun vqalib/unvq.cpp 4x4 C1 decoder; recovered 918-byte body with the original cdecl signature.
+0x00B78198,VQA_LoadFrame_Internal::iffsize,_?iffsize@?1??VQA_LoadFrame_Internal@@YIJPAU_VQAHandleP@@J@Z@4KA,All 25 DIR32 references to the function-local static iffsize in recovered VQA_LoadFrame_Internal resolve to this original address.
+0x00819088,_GUID_92fea800_a184_11d1_b70a_00a024ddafd1,__GUID_92fea800_a184_11d1_b70a_00a024ddafd1,"0x0045AF20 IPiggyback _QueryInterface exact emitted template; 16 bytes at 0x00819088 encode IID 92FEA800-A184-11D1-B70A-00A024DDAFD1, confirmed by pinned TibSun ipiggy.h/ipiggy_i.c and YRpp Interfaces.h"
+0x00ABED04,MapRegionClass::MapStartDiagonal,?MapStartDiagonal@MapRegionClass@@2HA,0x005AC230 My_In_Radar exact archived inline; agrees with 64 independently rechecked existing src/mapgen.cpp inline-reference sites including MapRegionClass::Flatten_Area
+0x00ABED08,MapRegionClass::MapEndDiagonal,?MapEndDiagonal@MapRegionClass@@2HA,0x005AC230 My_In_Radar exact archived inline; agrees with 54 independently rechecked existing src/mapgen.cpp inline-reference sites including MapRegionClass::Flatten_Area
+0x007CA090,memmove,_memmove,The pinned VC6 SP3 LIBCMT.LIB memmove.obj matches all 821 bytes after its 46 internal relocations; also named CRT::_memmove in functions.csv.
+0x004FB9B0,HouseClass::Detach,?Detach@HouseClass@@UAEXPBVAbstractClass@@_N@Z,HouseClass vtable slot 10; matched function
+0x008249E8,TagClass RTTI type descriptor,??_R0?AVTagClass@@@8,retail type descriptor contains .?AVTagClass@@; referenced by HouseClass::Detach
+0x008177C8,AbstractClass RTTI type descriptor,??_R0?AVAbstractClass@@@8,retail type descriptor contains .?AVAbstractClass@@; referenced by HouseClass::Detach
+0x006FC0B0,TechnoClass::Can_Fire,?Can_Fire@TechnoClass@@UBE?AW4FireErrorType@@PAVAbstractClass@@H_N@Z,TechnoClass vtable slot 240; matched function
+0x007DC720,_com_issue_error,?_com_issue_error@@YGXJ@Z,COM error helper forwards HRESULT and null IErrorInfo; referenced by TechnoClass::Can_Fire
+0x00AC4F58,Progress,?Progress@@3VProgressScreenClass@@A,Matched static initializer at 0x00642980 passes 0x00AC4F58 to ProgressScreenClass::ProgressScreenClass; the destructor at 0x006429A0 uses the same object.
+0x0060A330,OwnerDraw::ClassifyLayoutBand,?ClassifyLayoutBand@OwnerDraw@@YGHPAUHWND__@@J@Z,EnumChildWindows callback at 0x0060A5A0 that assigns the control layout band
+0x0060AAB0,OwnerDraw::InitCompactDialogControlsProc,?InitCompactDialogControlsProc@OwnerDraw@@YGHPAUHWND__@@J@Z,EnumChildWindows callback at 0x0060AF40 that sets the sidebar margin and control alpha
+0x0060F9A0,OwnerDraw::RegisterChildControlProc,?RegisterChildControlProc@OwnerDraw@@YGHPAUHWND__@@J@Z,YRpp OwnerDraw.h identifies this callback; called by UI::RegisterWindow and OwnerDraw::PrepareDialogChildControls
+0x00AC4848,SurfaceCache,?SurfaceCache@@3VSurfaceCacheClass@@A,YRpp PCX.h Instance; the matched SurfaceCacheClass::GetSurface 0x006BA140 is called on it from wonline and the score and lobby dialogs
+0x006BA580,SurfaceCacheClass::DrawTrans,?DrawTrans@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1F@Z,YRpp PCX.h BlitToSurface; TibSun srfcache.h DrawTrans signature; called on SurfaceCache by ProgressScreenClass::Draw_Flag 0x006435B0
+0x00584550,MapClass::Update_Cell_Subzones,?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z,body matches TibSun MapClass::Update_Cell_Subzones (map.cpp); YRpp names it RecalculateSubZones
+0x007534E0,Set_EVA_Index,?Set_EVA_Index@@YIXH@Z,0x00534FA0 passes the side index and the setter writes VoxClass::EVAIndex
+0x005D36A0,Message_Box_Proc,,"same function as Red Alert 2 1.006 0x005B48C0 (compiled from src/msgbox.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x005D3760,Message_Box_On_WM_COMMAND,,"same function as Red Alert 2 1.006 0x005B4980 (compiled from src/msgbox.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x0065F710,Restate_Mission_Dialog_Proc,,"same function as Red Alert 2 1.006 0x0063B270 (compiled from src/restate.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00B04CA0,RestateText,,"same global as Red Alert 2 1.006 0x00AB66E8 (inferred: referenced by matched src/restate.cpp (2 reference), which RedAlert2 rebuilds byte for byte"
+0x00839710,MissionININame,,"same global as Red Alert 2 1.006 0x007EE578 (inferred: referenced by matched src/restate.cpp (1 reference), which RedAlert2 rebuilds byte for byte"
+0x00839714,BriefingKey,,"same global as Red Alert 2 1.006 0x007EE57C (inferred: referenced by matched src/restate.cpp (2 reference), which RedAlert2 rebuilds byte for byte"
+0x007C89EC,GetFileVersionInfoSizeA,,"same function as Red Alert 2 1.006 0x00781BF0 (inferred: referenced by matched src/version.cpp (1 reference), which RedAlert2 rebuilds byte for byte"
+0x007C89E6,GetFileVersionInfoA,,"same function as Red Alert 2 1.006 0x00781BEA (inferred: referenced by matched src/version.cpp (1 reference), which RedAlert2 rebuilds byte for byte"
+0x007C89E0,VerQueryValueA,,"same function as Red Alert 2 1.006 0x00781BE4 (inferred: referenced by matched src/version.cpp (2 reference), which RedAlert2 rebuilds byte for byte"
+0x00608070,WS_Save_Dialog_Values,,"same function as Red Alert 2 1.006 0x005E5FC0 (inferred: referenced by matched src/windlg.cpp (1 reference)), which RedAlert2 rebuilds byte for byte"
+0x00433EF0,BitFont::Bold_String_Pixel_Width,,"same function as Red Alert 2 1.006 0x004316B0 (compiled from src/bitfont.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x004340A0,BitFont::Bold_Text_Dimensions,,"same function as Red Alert 2 1.006 0x00431860 (compiled from src/bitfont.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00434100,BitFont::Set_Tab_Width,,"same function as Red Alert 2 1.006 0x004318C0 (compiled from src/bitfont.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00434110,BitFont::Set_Tab_Origin,,"same function as Red Alert 2 1.006 0x004318D0 (compiled from src/bitfont.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00434700,BitFont::Make_Missing_Char,,"same function as Red Alert 2 1.006 0x00431EC0 (compiled from src/bitfont.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00434790,BitFont::Missing_Char,,"same function as Red Alert 2 1.006 0x00431F50 (compiled from src/bitfont.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x004347B0,BitFont::Widen_Space,,"same function as Red Alert 2 1.006 0x00431F70 (compiled from src/bitfont.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x004347E0,BitFont::Set_Wide_Space,,"same function as Red Alert 2 1.006 0x00431FA0 (compiled from src/bitfont.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00434840,BitFont::Clip_Rect,,"same function as Red Alert 2 1.006 0x00432000 (compiled from src/bitfont.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00432BF0,BinkHandle::Frame_Time,,"same function as Red Alert 2 1.006 0x004303C0 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00432C10,BinkHandle::Set_Subtitle_Callback,,"same function as Red Alert 2 1.006 0x004303E0 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00433020,BinkHandle::Check_Frame_Ready,,"same function as Red Alert 2 1.006 0x004307E0 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00433040,BinkHandle::Render_Frame,,"same function as Red Alert 2 1.006 0x00430800 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00433180,BinkHandle::Redraw_Frame,,"same function as Red Alert 2 1.006 0x00430940 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x004331F0,BinkHandle::Copy_Frame,,"same function as Red Alert 2 1.006 0x004309B0 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00433270,BinkHandle::Draw_Subtitle,,"same function as Red Alert 2 1.006 0x00430A30 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00433330,BinkHandle::Erase_Subtitle,,"same function as Red Alert 2 1.006 0x00430AF0 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x004333E0,BinkHandle::Current_Time,,"same function as Red Alert 2 1.006 0x00430BA0 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x004333F0,BinkHandle::Update_Focus,,"same function as Red Alert 2 1.006 0x00430BB0 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x004335E0,Bit_Stuff,,"same function as Red Alert 2 1.006 0x00430DA0 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x004336C0,Bit_Unstuff,,"same function as Red Alert 2 1.006 0x00430E80 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00433770,Bit_Unstuff_String,,"same function as Red Alert 2 1.006 0x00430F30 (compiled from src/bfiofile2.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x0089C490,BinkVolume,,"same global as Red Alert 2 1.006 0x0084E9A8 (inferred: referenced by matched src/bfiofile2.cpp (5 referen), which RedAlert2 rebuilds byte for byte"
+0x00AA0430,MessageLoopCount,,"same global as Red Alert 2 1.006 0x00A52298 (inferred: referenced by matched src/msgloop.cpp (10 referenc), which RedAlert2 rebuilds byte for byte"
+0x0053E770,Peek_Windows_Message,,"same function as Red Alert 2 1.006 0x00522ED0 (inferred: referenced by matched src/msgloop.cpp (7 reference), which RedAlert2 rebuilds byte for byte"
+0x0053E730,Get_Windows_Message,,"same function as Red Alert 2 1.006 0x00522E90 (inferred: referenced by matched src/msgloop.cpp (4 reference), which RedAlert2 rebuilds byte for byte"
+0x006578F0,RadarClass::Update_Transmission,,"same function as Red Alert 2 1.006 0x00633C40 (compiled from src/radar.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00B048F9,IsBriefingButtonShapeLoaded,,"same global as Red Alert 2 1.006 0x00AB6369 (inferred: referenced by matched src/radar.cpp (3 references)), which RedAlert2 rebuilds byte for byte"
+0x00B048E0,BriefingButtonShape,,"same global as Red Alert 2 1.006 0x00AB6350 (inferred: referenced by matched src/radar.cpp (5 references)), which RedAlert2 rebuilds byte for byte"
+0x00B048F8,IsOptionsButtonShapeLoaded,,"same global as Red Alert 2 1.006 0x00AB6368 (inferred: referenced by matched src/radar.cpp (3 references)), which RedAlert2 rebuilds byte for byte"
+0x00B048AC,OptionsButtonShape,,"same global as Red Alert 2 1.006 0x00AB6318 (inferred: referenced by matched src/radar.cpp (4 references)), which RedAlert2 rebuilds byte for byte"
+0x007F5BF8,SidebarWidth,,"same global as Red Alert 2 1.006 0x007ADD80 (inferred: referenced by matched src/radar.cpp (5 references)), which RedAlert2 rebuilds byte for byte"
+0x00B04A00,BriefingButtonRect,,"same global as Red Alert 2 1.006 0x00AB6468 (inferred: referenced by matched src/radar.cpp (28 references), which RedAlert2 rebuilds byte for byte"
+0x00B048C8,OptionsButtonRect,,"same global as Red Alert 2 1.006 0x00AB6338 (inferred: referenced by matched src/radar.cpp (24 references), which RedAlert2 rebuilds byte for byte"
+0x008391F4,BriefingButtonShapeName,,"same global as Red Alert 2 1.006 0x007EE064 (inferred: referenced by matched src/radar.cpp (1 reference);), which RedAlert2 rebuilds byte for byte"
+0x008391F8,OptionsButtonShapeName,,"same global as Red Alert 2 1.006 0x007EE068 (inferred: referenced by matched src/radar.cpp (1 reference);), which RedAlert2 rebuilds byte for byte"
+0x00B0FA68,RadarAnimShape,,"same global as Red Alert 2 1.006 0x00AC1070 (inferred: referenced by matched src/radar.cpp (1 reference);), which RedAlert2 rebuilds byte for byte"
+0x00B0F9E0,RadarFrameShape,,"same global as Red Alert 2 1.006 0x00AC0FF0 (inferred: referenced by matched src/radar.cpp (1 reference);), which RedAlert2 rebuilds byte for byte"
+0x00753580,Remove_Speech_Hold,?Remove_Speech_Hold@@YIXXZ,Matched 33-byte speech hold decrement; volatile counter accesses verified across vox.
+0x00753620,FUN_00753620,?FUN_00753620@@YIXXZ,Matched 48-byte speech resume and counter decrement.
+0x005353D0,Best_Selected_Object,,"same function as Red Alert 2 1.006 0x0051A690 (inferred: referenced by matched src/scroll.cpp (2 references), which RedAlert2 rebuilds byte for byte"
+0x0055AF40,Set_Frame_Rate_Limit,,"same function as Red Alert 2 1.006 0x0053D820 (inferred: referenced by matched src/radar.cpp (3 references)), which RedAlert2 rebuilds byte for byte"
+0x00753570,Add_Speech_Hold,,"same function as Red Alert 2 1.006 0x00716940 (inferred: referenced by matched src/radar.cpp (1 reference);), which RedAlert2 rebuilds byte for byte"
+0x007532A0,Is_Speech_Finished,,"same function as Red Alert 2 1.006 0x00716690 (inferred: referenced by matched src/radar.cpp (1 reference);), which RedAlert2 rebuilds byte for byte"
+0x00777E40,IME_Get_Candidate_Text,,"same function as Red Alert 2 1.006 0x00737DD0 (compiled from src/winstub.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00777F90,IME_Send_Result,,"same function as Red Alert 2 1.006 0x00737F20 (compiled from src/winstub.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00778130,IME_Close,,"same function as Red Alert 2 1.006 0x007380C0 (compiled from src/winstub.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00778150,IME_Close_Alt,,"same function as Red Alert 2 1.006 0x007380E0 (compiled from src/winstub.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00B73570,IMEResult,,"same global as Red Alert 2 1.006 0x00B263F8 (inferred: referenced by matched src/winstub.cpp (3 reference), which RedAlert2 rebuilds byte for byte"
+0x00B73561,_MouseWheel,,"same global as Red Alert 2 1.006 0x00B263E9 (inferred: referenced by matched src/winstub.cpp (3 reference), which RedAlert2 rebuilds byte for byte"
+0x00B7354C,ProgramIcon,,"same global as Red Alert 2 1.006 0x00B263D4 (inferred: referenced by matched src/winstub.cpp (2 reference), which RedAlert2 rebuilds byte for byte"
+0x00B73548,ProgramCursor,,"same global as Red Alert 2 1.006 0x00B263D0 (inferred: referenced by matched src/winstub.cpp (1 reference), which RedAlert2 rebuilds byte for byte"
+0x00B73544,ShowCommand,,"same global as Red Alert 2 1.006 0x00B263CC (inferred: referenced by matched src/winstub.cpp (1 reference), which RedAlert2 rebuilds byte for byte"
+0x00B73518,IMECompositionTerminator,,"same global as Red Alert 2 1.006 0x00B263A8 (inferred: referenced by matched src/winstub.cpp (1 reference), which RedAlert2 rebuilds byte for byte"
+0x007F5BE8,WideScreenThreshold,,"same global as Red Alert 2 1.006 0x007ADD70 (inferred: referenced by matched src/winstub.cpp (1 reference), which RedAlert2 rebuilds byte for byte"
+0x0072E820,Fill_Surface_Rect,,"same function as Red Alert 2 1.006 0x006F3A20 (inferred: referenced by matched src/winstub.cpp (1 reference), which RedAlert2 rebuilds byte for byte"
+0x0072AD20,Get_Title_Screen_Area,,"same function as Red Alert 2 1.006 0x006F1F30 (inferred: referenced by matched src/winstub.cpp (1 reference), which RedAlert2 rebuilds byte for byte"
+0x00406D40,Audio_Shutdown,,"same function as Red Alert 2 1.006 0x00406C80 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00406DE0,Audio_Open_Device,,"same function as Red Alert 2 1.006 0x00406D20 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00406E60,Audio_Close_Device,,"same function as Red Alert 2 1.006 0x00406DA0 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00406E80,Audio_Stop_Events,,"same function as Red Alert 2 1.006 0x00406DC0 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00406EA0,Audio_Pause_Channels,,"same function as Red Alert 2 1.006 0x00406DE0 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00406EC0,Audio_Resume_Channels,,"same function as Red Alert 2 1.006 0x00406E00 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00406EE0,Audio_Stop_All,,"same function as Red Alert 2 1.006 0x00406E20 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00407020,Audio_Focus_Lose,,"same function as Red Alert 2 1.006 0x00406F50 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00407040,Audio_Focus_Regain,,"same function as Red Alert 2 1.006 0x00406F70 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00407090,AudioLevelIsFading,,"same function as Red Alert 2 1.006 0x00406FC0 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x004070B0,AudioLevelWaitFade,,"same function as Red Alert 2 1.006 0x00406FE0 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00407010,AudioGetDevice,,"same function as Red Alert 2 1.006 0x00406F40 (compiled from src/audio.cpp), which RedAlert2 rebuilds byte for byte; YR/RA2 instruction similarity 1.00"
+0x00752B40,Theme_Suspend,,"same function as Red Alert 2 1.006 0x00716980 (inferred: referenced by matched src/movie.cpp (5 references)), which RedAlert2 rebuilds byte for byte"
+0x00753500,Theme_Resume,,"same function as Red Alert 2 1.006 0x007169F0 (inferred: referenced by matched src/movie.cpp (6 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E724,AudioIDX,,"same global as Red Alert 2 1.006 0x00831434 (inferred: referenced by matched src/audio.cpp (4 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E728,AudioMainDevice,,"same global as Red Alert 2 1.006 0x00831438 (inferred: referenced by matched src/audio.cpp (18 references), which RedAlert2 rebuilds byte for byte"
+0x0087E72C,AudioEnabled,,"same global as Red Alert 2 1.006 0x0083143C (inferred: referenced by matched src/audio.cpp (1 reference);), which RedAlert2 rebuilds byte for byte"
+0x0087E730,AudioFocusLocks,,"same global as Red Alert 2 1.006 0x00831440 (inferred: referenced by matched src/audio.cpp (4 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E734,AudioMix,,"same global as Red Alert 2 1.006 0x00831444 (inferred: referenced by matched src/audio.cpp (4 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E740,AudioVoiceAttribs,,"same global as Red Alert 2 1.006 0x00831450 (inferred: referenced by matched src/drv_dsnd.cpp (5 referenc), which RedAlert2 rebuilds byte for byte"
+0x0087E744,AudioScoreAttribs,,"same global as Red Alert 2 1.006 0x00831454 (inferred: referenced by matched src/drv_dsnd.cpp (5 referenc), which RedAlert2 rebuilds byte for byte"
+0x0087E748,AudioSoundAttribs,,"same global as Red Alert 2 1.006 0x00831458 (inferred: referenced by matched src/drv_dsnd.cpp (5 referenc), which RedAlert2 rebuilds byte for byte"
+0x0087E750,AudioGroupAttribs2,,"same global as Red Alert 2 1.006 0x00831460 (inferred: referenced by matched src/movie.cpp (14 references), which RedAlert2 rebuilds byte for byte"
+0x0087E754,AudioFadeAttribs,,"same global as Red Alert 2 1.006 0x00831464 (inferred: referenced by matched src/drv_dsnd.cpp (5 referenc), which RedAlert2 rebuilds byte for byte"
+0x0087E758,AudioGroupAttribs1,,"same global as Red Alert 2 1.006 0x00831468 (inferred: referenced by matched src/movie.cpp (14 references), which RedAlert2 rebuilds byte for byte"
+0x0087E75C,AudioServiceBusy,,"same global as Red Alert 2 1.006 0x0083146C (inferred: referenced by matched src/audio.cpp (3 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E760,AudioServiceLast,,"same global as Red Alert 2 1.006 0x00831470 (inferred: referenced by matched src/audio.cpp (4 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E2C0,AudioMasterData,,"same global as Red Alert 2 1.006 0x00830FD8 (inferred: referenced by matched src/audio.cpp (2 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E4E0,AudioScoreData,,"same global as Red Alert 2 1.006 0x008311F8 (inferred: referenced by matched src/audio.cpp (2 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E578,AudioVoiceData,,"same global as Red Alert 2 1.006 0x00831290 (inferred: referenced by matched src/audio.cpp (2 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E450,AudioSoundData,,"same global as Red Alert 2 1.006 0x00831168 (inferred: referenced by matched src/audio.cpp (2 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E340,AudioCompData,,"same global as Red Alert 2 1.006 0x00831058 (inferred: referenced by matched src/audio.cpp (2 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E6A0,AudioFadeData,,"same global as Red Alert 2 1.006 0x008313B0 (inferred: referenced by matched src/audio.cpp (2 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E5F8,AudioGroupData2,,"same global as Red Alert 2 1.006 0x00831310 (inferred: referenced by matched src/audio.cpp (2 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E3C0,AudioGroupData1,,"same global as Red Alert 2 1.006 0x008310D8 (inferred: referenced by matched src/audio.cpp (2 references)), which RedAlert2 rebuilds byte for byte"
+0x0087E738,ScoresMix,,"same global as Red Alert 2 1.006 0x00831448 (inferred: referenced by matched src/cd.cpp (7 references); a), which RedAlert2 rebuilds byte for byte"
+0x00AC116C,g_pChat,?g_pChat@@3PAUIChat@@A,"WOLAPI IChat interface pointer (TibSun netshare.h name); every IChat method call in wonline, netshare and conquer goes through it"
+0x00AC1170,g_pNetUtil,?g_pNetUtil@@3PAUINetUtil@@A,"WOLAPI INetUtil interface pointer (TibSun netshare.h name); ladder, ping and gameres requests in wonline, queue and stats go through it"
+0x00AC1174,g_pDownload,?g_pDownload@@3PAUIDownload@@A,"WOLAPI IDownload interface pointer (TibSun netshare.h name), next to g_pChat and g_pNetUtil; the patch download code calls through it"
+0x0087D620,__lconv,___lconv,Pinned LIBCMT initmon.obj and initnum.obj references in __init_monetary and __init_numeric independently resolve this locale-convention pointer
+0x0087C584,__sbh_threshold,___sbh_threshold,Pinned LIBCMT calloc.obj malloc.obj realloc.obj and sbheap.obj independently resolve this small-block-heap threshold
+0x00B782C8,_pnhHeap,?_pnhHeap@@3P6AHI@ZA,Pinned LIBCMT handler.obj references in _set_new_handler and _callnewh independently resolve the allocation failure handler
+0x00B7856C,pOldExceptFilter,_pOldExceptFilter,Pinned LIBCMT unhandld.obj unique handler and restore routines independently resolve the previous exception filter
+0x0087CB14,_tmpoff,__tmpoff,Named reference in the complete independently located tmpfile.obj block; initialized data corroborated by the rmtmp.obj definition
+0x00A8F91C,PaletteInterpolationTable,_PaletteInterpolationTable,Unchanged archived winasm.asm independently unique interpolation procedures agree on this relocation target; already-matched src/interpal.cpp corroborates the global
+0x00879124,LineBuffer,LineBuffer,Unchanged archived winasm.asm independently unique interpolation procedures agree on this relocation target
+0x00877D20,TopLine,TopLine,Unchanged archived winasm.asm independently unique interpolation procedures agree on this relocation target
+0x00878720,BottomLine,BottomLine,Unchanged archived winasm.asm independently unique interpolation procedures agree on this relocation target
+0x00A8F918,InterpolationPalette,_InterpolationPalette,Unchanged archived winasm.asm independently unique interpolation procedures agree on this relocation target; already-matched src/interpal.cpp corroborates the global
+0x00B45590,VoxelPixelDeltaTable,_VoxelPixelDeltaTable,Independently matched Draw_Voxel_Regular_Normals and Draw_Voxel_Reverse_Normals agree on this external data reference
+0x00B2FF78,VoxelDrawBuffer,_VoxelDrawBuffer,Independently matched Draw_Voxel_Regular_Normals and Draw_Voxel_Reverse_Normals agree on this external data reference
+0x0084E862,UseMMX,_UseMMX,Archived processor detector sets the MMX flag; all four uniquely placed Adjust_Color procedures test the same byte
+0x00A8ED6B,Debug_Map,?Debug_Map@@3_NA,TibSun declaration and consistent relocations in existing matched src/building.cpp functions
+0x00887418,UseVoxelCache,?UseVoxelCache@@3_NA,TibSun declaration and consistent relocations in existing matched src/unit.cpp functions
+0x00705E00,TechnoClass::Techno_Draw_Object,?Techno_Draw_Object@TechnoClass@@QBEXPBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4Dir256@@HHW4ZGradientType@@_NHG0HV3@W4ShapeFlags_Type@@@Z,TibSun declaration and consistent relocations in existing matched src/building.cpp functions
+0x00818CB4,BuildingClass::Draw_Extras::_make_visible,_?_make_visible@?GI@??Draw_Extras@BuildingClass@@UAEXAAVPoint2D@@AAV?$TRect@H@@@Z@4_NA,Function-local static in matched Draw_Extras; original initialized value agrees with the archived declaration
+0x00818CB0,BuildingClass::Draw_Extras::_dir_adjust,_?_dir_adjust@?GI@??Draw_Extras@BuildingClass@@UAEXAAVPoint2D@@AAV?$TRect@H@@@Z@4HA,Function-local static in matched Draw_Extras; original initialized value agrees with the archived declaration
+0x006F79A0,TechnoClass::Area_Modify,?Area_Modify@TechnoClass@@QBENABVCell@@@Z,TibSun area-scan multiplier; YR caller consumes an x87 double after the four-edge area scan
+0x00ABAD30,IsometricTileTypeClass::BridgeMiddle1,?BridgeMiddle1@IsometricTileTypeClass@@2W4IsometricTileType@@A,TibSun declaration and consistent relocations in existing matched src/map.cpp functions
+0x00AA1028,IsometricTileTypeClass::BridgeMiddle2,?BridgeMiddle2@IsometricTileTypeClass@@2W4IsometricTileType@@A,TibSun declaration and consistent relocations in existing matched src/map.cpp functions
+0x00A83CD9,BlackColor,?BlackColor@@3VRGBClass@@B,"TibSun rgb.cpp defines RGBClass const BlackColor(0,0,0); independently matched PaletteClass::Adjust 0x006260F0 and Partial_Adjust 0x00626170 both reference this RGB; matched globals initializer 0x004E8120 initializes all three bytes to zero."
+0x00886B88,NonCriticalRandomNumber,?NonCriticalRandomNumber@@3VRandom2Class@@A,YRpp Randomizer::Global; independently matched Game::InitRandom 0x0052FC20 seeds this global and CellClass::Clear_Icon 0x004814F0 draws from it.
+0x00886980,FastKey,?FastKey@@3VPKey@@A,Independent matched _palette.cpp PKey initializer _$E35 at 0x0040D9C0 constructs Modulus at 0x00886980 and Exponent at +0x100 and initializes BitPrecision at +0x200
+0x00A8EC74,ScoresPresent,?ScoresPresent@@3_NA,Independent matched ThemeClass::Scan at 0x007207F0 begins by reading this bool; native source uses ScoresPresent
+0x00625560,"DNode<HWND, OwnerDraw::WinData>::scalar deleting destructor",??_G?$DNode@PAUHWND__@@UWinData@OwnerDraw@@@@QAEPAXI@Z,Matched 138-byte compiler-generated deleting destructor from explicit DNode instantiation.
+0x0082AFF0,MapRegionClass::Build_West_Ramp::_heights,_?_heights@?BF@??Build_West_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z@4PAHA,Complete 20-byte lookup table equals original data; SHA-256 f96702bafafa0bd042cbeadfa4b5c92a07eebeb322d605140560d31023401b45
+0x0082B004,MapRegionClass::Build_West_Ramp::_ramps,_?_ramps@?BF@??Build_West_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z@4PAHA,Complete 40-byte lookup table equals original data; SHA-256 0d818a59ee3c06c142a50082be2045aa287ed54c1303a14444fdcb7f40489cee
+0x00A8ECE0,VerNum,?VerNum@@3VVersionClass@@A,Matched initializer 0x004E7DC0 constructs VerNum at this address via VersionClass::VersionClass 0x0074F730; YRpp VersionClass::Instance independently agrees
+0x00ABCF60,MapClass::OcclusionOffset,?OcclusionOffset@MapClass@@1QBVCell@@B,Matched initializer at 0x005638D0 writes 309 consecutive Cells at this base.
+0x00822724,GadgetClass::CurrentColorScheme,?CurrentColorScheme@GadgetClass@@2PBDB,Matched GadgetClass::Get_Color_Scheme at 0x004E12D0 reads this pointer to the default Grey scheme.
+0x008A3770,EgoList,?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A,Matched EgoList initializer at 0x004C3C50 and destructor at 0x004C3C10 access the same vector at thirteen sites.
+0x0089F978,WindowedMode,?WindowedMode@@3_NA,YRpp GameOptionsClass.h identifies WindowedMode here. Matched display and window routines use the global bool declaration.
+0x0076C290,WorldDominationTour::Selection::Selection,??0Selection@WorldDominationTour@@QAE@ABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z,Matched presentation entry 0x0076ECD0 constructs a Selection here. This routine calls the MSEngine constructor and installs the Selection vtable at 0x007F72B4.
+0x0076C6E0,WorldDominationTour::Selection::~Selection,??1Selection@WorldDominationTour@@UAE@XZ,Called by the matched presentation entry at 0x0076ECD0 and the deleting destructor in the Selection vtable at 0x007F72B4. Releases five rc_ptr members and calls the MSEngine destructor.
+0x007EA790,wall_step_facings,_wall_step_facings,TibSun HouseClass::AI_Build_Wall facing table. All four 32-bit FacingType entries agree with retail at this address.
+0x007EA7A0,wall_adjacent_facings,_wall_adjacent_facings,TibSun HouseClass::AI_Build_Wall facing table. All four 32-bit FacingType entries agree with retail at this address.
+0x0089F6D8,AdjacentPoint,?AdjacentPoint@@3QBVPoint2D@@B,"=_$E95 at 0x0049F3A0 matches independently and references this object at 0x9, 0xF, 0x14, 0x21, 0x26, 0x2B, 0x32, 0x3A, 0x40, 0x46, 0x4B, 0x58, 0x5F, 0x64, 0x69, 0x6F"
+0x0089EA40,Ground,?Ground@@3PAUGroundType@@A,"RulesClass::Land_Types at 0x00674000 matches independently and references this object at 0xD, 0x226"
+0x007F2A40,ShipLocomotionClass::TrackControl,?TrackControl@ShipLocomotionClass@@0QBUTurnTrackType@1@B,ShipLocomotionClass::Mark_Track at 0x006A01A0 matches independently and references this object at 0x56
+0x00B76E40,g_UserInfo,?g_UserInfo@@3PAUChannelUserInfo@@A,"Native TibSun wonline.cpp g_UserInfo array; YR matched OnChannelCreate at 0x007A5690 clears 0x940 bytes at this base and writes Name +0x0, Color +0x14, House +0x18 and Accepted +0x20; OnChannelJoin has six consistent base relocations and uses 0x94-byte records for insertion and accept reset."
+0x005E3D10,DecodePubGameopt,?DecodePubGameopt@@YI_NPAD0@Z,"TibSun netshare.cpp DecodePubGameopt: duplicates options, recognizes A accept status with player name, disables users control and parses comma-separated game options; YR body at 0x005E3D10 has this same sequence after RA2-only Z/N preview handling, and the OnChannelJoin options callback calls it with char* options and null char* name."
+0x007CAF30,strchr,_strchr,YRpp CRT.h names CRT::strchr at 0x007CAF30; this entry zero-extends its character argument before falling through into the prebuilt LIBCMT strchr.obj body at 0x007CAF36. Standard cdecl _strchr references use the same entry.
+0x0089C900,BuildingTypeClass::OccupyLists,?OccupyLists@BuildingTypeClass@@0QAY0BO@$$CBVCell@@A,Independently matched 4389-byte initializer 0x0045B1C0 writes OccupyLists; every array relocation resolves to base 0x0089C900. Read_INI uses same table base.
+0x0089D368,BuildingTypeClass::ExitLists,?ExitLists@BuildingTypeClass@@0QAY0BO@$$CBVCell@@A,Independently matched initializer 0x0045C300 writes ExitLists; every array relocation resolves to base 0x0089D368. Read_INI uses same table base.
+0x0056D100,MapClass::Is_Same_Cell_Zone,?Is_Same_Cell_Zone@MapClass@@QAE_NABVCell@@0W4MZoneType@@_N22@Z,"FootClass::Is_In_Same_Zone at 0x004D3810 calls this method at +0xFB. UnitClass::Plan_Route at 0x007447B0 calls it at +0x2C4. Both match the retail executable."
+0x00A8ED80,GameInFocus,,Known Unsorted::GameInFocus alias; existing Sync_Delay operand 0055E206
+0x00A8ED72,Debug_Trap_Check_Heap,,Source-derived identity: native TS bool definition and Main_Loop Session.TrapCheckHeap conditional; matching RA2 counterpart; retail write 0055D3E8. No independent second code reference.
+0x00A8E378,TacticalActive,,Known Unsorted::TacticalActive alias; existing Play_Movie operand 005BF277
+0x00887348,FrameTimer,,Existing Sync_Delay operand 0055E162; exact SystemTimer initializer 0040EB50 and concrete _script.cpp global
+0x00887328,NetFrameTimer,,Existing Sync_Delay operand 0055E1C3; exact MillisecondSystemTimer initializer 0040EB90 and concrete _script.cpp global
+0x00A8EDA0,SpecialDialog,,Known Game::SpecialDialog alias; existing Sync_Delay operand 0055E1FA
+0x00A8ED9D,drag_select_aborted,,Existing DisplayClass::Abort_Drag_Select sets this bool at 004AEAF0; native radar uses the named flag to suppress left release
+0x00ABCDFC,TeamEvent,,Existing Main_Game initializes the playback pair at operand 0048CE23; native Do_Record_Playback writes and clears TeamEvent before TeamNumber
+0x00ABCE00,TeamNumber,,Existing Main_Game initializes the playback pair at operand 0048CE29; native Do_Record_Playback writes and clears TeamNumber after TeamEvent
+0x00822CF2,AllowVoice,,Known Unsorted::MoveFeedback alias; existing Tactical::Select_These bool store operand 006DA5C8
+0x0067CEF0,Save_Game,,Known ScenarioClass::SaveGame alias; existing LoadOptionsClass::Save_File call 00559E85
+0x00A83D49,PlayerWins,,Existing matched end-game handler FUN_0055CFD0 tests PlayerWins first at operand 0055D05A
+0x00A8ECD0,PlayerLoses,,Existing matched end-game handler FUN_0055CFD0 tests PlayerLoses second at operand 0055D066
+0x008B41C0,PlayerRestarts,,Existing matched end-game handler FUN_0055CFD0 tests PlayerRestarts third at operand 0055D06E
+0x00A83D48,PlayerAborts,,Existing matched end-game handler FUN_0055CFD0 tests PlayerAborts fourth at operand 0055D076
+0x0087F6C4,NormalDrawer,?NormalDrawer@@3PAVConvertClass@@A,YRpp FileSystem::PALETTE_PAL and the drawer declared in the archived _convert.cpp
+0x00B1D13C,EightBitSurface,?EightBitSurface@@3PAVSurface@@A,Existing matched Unit_Draw_Voxel 0x0073B470 assigns this surface to DSurface::Temp for compositing; the external Surface pointer declaration agrees with UnitTypeClass::One_Time 0x007473E0 creating the 256-by-256 8-bit surface.
+0x006FDD50,TechnoClass::Fire_At,?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z,Unmodified TechnoClass headercheck probe places Fire_At at primary vtable slot 243; pairing the 309-slot primary table with the original TechnoClass RTTI resolves this slot to 0x006FDD50.
+0x00AA10B0,IsometricTileTypeClass::ClearTile,?ClearTile@IsometricTileTypeClass@@2W4IsometricTileType@@A,"Three agreeing references in independently matched Read_Control_File (0x00545150) and Load_Tiles (0x00546DA0), actual shared static member"

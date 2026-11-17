@@ -1,0 +1,3601 @@
+{
+  "id": "rebuild-spawnmanager",
+  "population": {
+    "id": "rebuild-spawnmanager",
+    "inventory_sha256": "e9427ee195f4b7818d59f75e3baeaafd0d3e5bb288d7ac6337a4da82c4139595",
+    "gaps_sha256": "8a402390be28360d1c36face73aa8a2a8c584ba0743c9287cdca6e48aa330dbe",
+    "historical_population_sha256": "20ba945271cf4c0ea385e4f95fa327aa43cb7024c41fa4c444671defe0d4ac8c",
+    "historical_acceptance_sha256": "bedb1969e96cd74a62b0925fc6f1f3659ffb73a3a2e429d00be2b612841794e2"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11259864,
+    "_ISO_TILE_SIZE": 8042568,
+    "_LEPTONS_PER_PIXEL": 11259936,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11259920,
+    "_ONE_RAD": 8042576,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11259912,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11259872,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11259832,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11259968,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11259880,
+    "_CELL_DIAG_SLOPE_ANGLE": 11259904,
+    "_BRIDGE_LEPTON_HEIGHT": 11259928,
+    "_CELL_NONE": 11259856,
+    "_COORD_NONE": 11259888,
+    "_RECT_NONE": 11259840,
+    "_$E147": 6854352,
+    "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A": 11259944,
+    "??_7?$DynamicVectorClass@PAVSpawnManagerClass@@@@6B@": 8042588,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVSpawnManagerClass@@@@6B@": 8042620,
+    "??3@YAXPAX@Z": 7871803,
+    "??0AbstractClass@@QAE@XZ": 4259600,
+    "??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z": 6861024,
+    "??_7?$DynamicVectorClass@PAUSpawnControl@@@@6B@": 8042796,
+    "?Frame@@3HA": 10751276,
+    "??_7SpawnManagerClass@@6BIPersistStream@@@": 8042696,
+    "??_7SpawnManagerClass@@6BIRTTITypeInfo@@@": 8042668,
+    "??_7SpawnManagerClass@@6BINoticeSink@@@": 8042660,
+    "??_7SpawnManagerClass@@6BINoticeSource@@@": 8042652,
+    "??2@YAPAXI@Z": 7872535,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "??0AbstractClass@@QAE@ABVNoInitClass@@@Z": 4259680,
+    "?GameActive@@3_NA": 10750296,
+    "?KillNodes@SpawnManagerClass@@QAEXXZ": 6855536,
+    "??_7?$VectorClass@PAUSpawnControl@@@@6B@": 8042828,
+    "??1AbstractClass@@UAE@XZ": 4259728,
+    "?Kamikazes@@3VKamikazeClass@@A": 10937384,
+    "?Remove@KamikazeClass@@QAEXPAVAbstractClass@@@Z": 5445760,
+    "?Add@KamikazeClass@@QAEXPAVAircraftClass@@PAVAbstractClass@@@Z": 5445280,
+    "?UnlinkPointer@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z": 6858080,
+    "?ResetTarget@SpawnManagerClass@@QAEXXZ": 6857904,
+    "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z": 4260272,
+    "??RCRCEngine@@QAEXH@Z": 4800304,
+    "_CLSID_SpawnManagerClass": 8003024,
+    "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
+    "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z": 4603776,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "??1SpawnManagerClass@@UAE@XZ": 6855296,
+    "_$E2": 6853792,
+    "_$E5": 6853840,
+    "_$E8": 6853872,
+    "_$E11": 6853904,
+    "_$E14": 6853936,
+    "_$E17": 6853968,
+    "_$E20": 6854000,
+    "_$E23": 6854064,
+    "_$E26": 6854112,
+    "_$E29": 6854160,
+    "_$E32": 6854208,
+    "_$E35": 6854224,
+    "_$E38": 6854256,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E149": 6854288,
+    "??_G?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEPAXI@Z": 6860944,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVSpawnManagerClass@@@@UAEPAXI@Z": 6860864,
+    "??0SpawnManagerClass@@QAE@PAVTechnoClass@@PAVAircraftTypeClass@@HHH@Z": 6854416,
+    "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
+    "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
+    "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
+    "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
+    "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
+    "?AI@SpawnManagerClass@@UAEXXZ": 6855824,
+    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
+    "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
+    "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
+    "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260448,
+    "?Is_Inactive@AbstractClass@@UBE_NXZ": 4260320,
+    "?Fetch_Heap_ID@AbstractClass@@UBEHXZ": 4260432,
+    "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
+    "?Owner@AbstractClass@@UBE?AW4HousesType@@XZ": 4260400,
+    "?Detach@AbstractClass@@UAEXPBV1@_N@Z": 4260384,
+    "?Init@AbstractClass@@UAEXXZ": 4260368,
+    "??_GSpawnManagerClass@@UAEPAXI@Z": 6859264,
+    "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "??_R0?AVINoticeSource@@@8": 8184264,
+    "??_R0?AVINoticeSink@@@8": 8181272,
+    "??_R0?AUIRTTITypeInfo@@@8": 8184296,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVAbstractClass@@@8": 8184384,
+    "??_R0?AVSpawnManagerClass@@@8": 8340328,
+    "??_G?$DynamicVectorClass@PAUSpawnControl@@@@UAEPAXI@Z": 6860784,
+    "??0SpawnManagerClass@@QAE@XZ": 6854928,
+    "??0SpawnManagerClass@@QAE@ABVNoInitClass@@@Z": 6855184,
+    "??_G?$VectorClass@PAUSpawnControl@@@@UAEPAXI@Z": 6860704,
+    "?SetTarget@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z": 6857872,
+    "?UpdateTarget@SpawnManagerClass@@QAE_NXZ": 6858048,
+    "?CountAliveSpawns@SpawnManagerClass@@QAEHXZ": 6858288,
+    "?CountDockedSpawns@SpawnManagerClass@@QAEHXZ": 6858320,
+    "?CountLaunchingSpawns@SpawnManagerClass@@QAEHXZ": 6858368,
+    "?Compute_CRC@SpawnManagerClass@@UBEXAAVCRCEngine@@@Z": 6858400,
+    "?GetClassID@SpawnManagerClass@@UAGJPAU_GUID@@@Z": 6858640,
+    "?Load@SpawnManagerClass@@UAGJPAUIStream@@@Z": 6858704,
+    "?Save@SpawnManagerClass@@UAGJPAUIStream@@H@Z": 6859120,
+    "?Fetch_Object_Size@SpawnManagerClass@@UBEHXZ": 6859232,
+    "?Fetch_RTTI@SpawnManagerClass@@UBE?AW4RTTIType@@XZ": 6859248,
+    "?Clear@?$DynamicVectorClass@PAUSpawnControl@@@@UAEXXZ": 6859296,
+    "?ID@?$DynamicVectorClass@PAUSpawnControl@@@@UAEHPBQAUSpawnControl@@@Z": 6859344,
+    "?GetItem@?$VectorClass@PAUSpawnControl@@@@UBEPAUSpawnControl@@H@Z": 6859376,
+    "?Clear@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEXXZ": 6859392,
+    "?ID@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEHPBQAVSpawnManagerClass@@@Z": 6859440,
+    "?GetItem@?$VectorClass@PAVSpawnManagerClass@@@@UBEPAVSpawnManagerClass@@H@Z": 6859472,
+    "??8?$VectorClass@PAUSpawnControl@@@@UBE_NABV0@@Z": 6859488,
+    "?Resize@?$VectorClass@PAUSpawnControl@@@@UAE_NHPBQAUSpawnControl@@@Z": 6859552,
+    "?Clear@?$VectorClass@PAUSpawnControl@@@@UAEXXZ": 6859728,
+    "?ID@?$VectorClass@PAUSpawnControl@@@@UAEHABQAUSpawnControl@@@Z": 6859776,
+    "?ID@?$VectorClass@PAUSpawnControl@@@@UAEHPBQAUSpawnControl@@@Z": 6859840,
+    "?Resize@?$DynamicVectorClass@PAUSpawnControl@@@@UAE_NHPBQAUSpawnControl@@@Z": 6859872,
+    "?ID@?$DynamicVectorClass@PAUSpawnControl@@@@UAEHABQAUSpawnControl@@@Z": 6860048,
+    "??8?$VectorClass@PAVSpawnManagerClass@@@@UBE_NABV0@@Z": 6860096,
+    "?Resize@?$VectorClass@PAVSpawnManagerClass@@@@UAE_NHPBQAVSpawnManagerClass@@@Z": 6860160,
+    "?Clear@?$VectorClass@PAVSpawnManagerClass@@@@UAEXXZ": 6860336,
+    "?ID@?$VectorClass@PAVSpawnManagerClass@@@@UAEHABQAVSpawnManagerClass@@@Z": 6860384,
+    "?ID@?$VectorClass@PAVSpawnManagerClass@@@@UAEHPBQAVSpawnManagerClass@@@Z": 6860448,
+    "?Resize@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAE_NHPBQAVSpawnManagerClass@@@Z": 6860480,
+    "?ID@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEHABQAVSpawnManagerClass@@@Z": 6860656,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
+    "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
+    "?Release@AbstractClass@@W3AGKXZ": 4260768
+  },
+  "regions": [
+    {
+      "entry": 6853792,
+      "method": "006894a0",
+      "body_bytes": 40,
+      "body_sha256": "9995edda40b4ebadc41ae2691316f11f9e6984794364ee510729b05e21e3f86b",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "24a7f395e1cec80f5688b221ac1fb523ce33bb37efe355a4863cfaed04a3469c",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1019135
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293070674
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259864,
+          "addend": 0,
+          "resolved": 11259864
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6853792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6853840,
+      "method": "006894d0",
+      "body_bytes": 19,
+      "body_sha256": "5d5e02ff41d19f4372f381a47eb1370e601caa1f157e39e6ad4f8d0a5324cb5f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cfb1e121bcf675f01f545ec30e902bc6c132747fa62d26dedbd6061a258b782c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259864,
+          "addend": 0,
+          "resolved": 11259864
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8042568,
+          "addend": 0,
+          "resolved": 8042568
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11259936,
+          "addend": 0,
+          "resolved": 11259936
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6853840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6853872,
+      "method": "006894f0",
+      "body_bytes": 19,
+      "body_sha256": "4a01412aa609b0bd2d4419920fc234e24cc7686f91dac366be9ce6cf0f05e13e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bac4a683a9b106ffb67ec29fcb62e6b8e20de41a537cf4113de321e8a9dd2ad6",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11259936,
+          "addend": 0,
+          "resolved": 11259936
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11259920,
+          "addend": 0,
+          "resolved": 11259920
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6853872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6853904,
+      "method": "00689510",
+      "body_bytes": 19,
+      "body_sha256": "90b846188b815d50e5c260c7ea8e3ecb5dc32af812b51e23dde0da4f23332ffc",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1b6e8b4bbd04fda5c90656ba5ca3d9535855a23f84720aca815e5af52bce8e45",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8042576,
+          "addend": 0,
+          "resolved": 8042576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11259912,
+          "addend": 0,
+          "resolved": 11259912
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6853904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6853936,
+      "method": "00689530",
+      "body_bytes": 19,
+      "body_sha256": "c0c05dc6f3ccbdd5343daca742edddbfa586f6774c824aad2019ba3ca379e098",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c091b9c78b02311435e1410aeabe394632fda05482a6995a3679dbd0a798792e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8042576,
+          "addend": 0,
+          "resolved": 8042576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11259872,
+          "addend": 0,
+          "resolved": 11259872
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6853936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6853968,
+      "method": "00689550",
+      "body_bytes": 19,
+      "body_sha256": "8e3095c97fae8a1845998a8f46dc2890229b0d827e54a6d137f5dc8a335b2001",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6913a3965de08ac6d54c25e42760108f662fffc44e973ce4abcc8425ac63f0c7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8042576,
+          "addend": 0,
+          "resolved": 8042576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11259832,
+          "addend": 0,
+          "resolved": 11259832
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6853968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854000,
+      "method": "00689570",
+      "body_bytes": 49,
+      "body_sha256": "7b7af05e73b06e5286591a0c5887bc8b9ab40b9a187dad75d33af04d1c5dd1e3",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "bdf02fd4c13e4d68c77fc5ea96d6a742231882641f949b3641b3d89335142cce",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11259832,
+          "addend": 0,
+          "resolved": 11259832
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11259872,
+          "addend": 0,
+          "resolved": 11259872
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293070745
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259864,
+          "addend": 0,
+          "resolved": 11259864
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1006453
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259968,
+          "addend": 0,
+          "resolved": 11259968
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854064,
+      "method": "006895b0",
+      "body_bytes": 33,
+      "body_sha256": "aff438a1a5b49bccc6ab2812f0ba4e03fbe07a7c7fd06f4bf7909dc3cd1b0697",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f05cd1c4db0184e2e55d4c774ec57fb71c8c018ebcfda3d2d816f12128228828",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259968,
+          "addend": 0,
+          "resolved": 11259968
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293070825
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11259880,
+          "addend": 0,
+          "resolved": 11259880
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854112,
+      "method": "006895e0",
+      "body_bytes": 44,
+      "body_sha256": "05c3a97da19689135924051e2fe7df7c294c4b35e98744db9c6c58040869e4b8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "19813ca9ba3638bfac0e537e6ef1db219b92bac1e478e86ea8e63cad3c14e1d4",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259968,
+          "addend": 0,
+          "resolved": 11259968
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259864,
+          "addend": 0,
+          "resolved": 11259864
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293070766
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11259904,
+          "addend": 0,
+          "resolved": 11259904
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854160,
+      "method": "00689610",
+      "body_bytes": 39,
+      "body_sha256": "fa8e0d631dc2df23ac9f9621fe525ca5e60ca02d21680e5f24b204fa38e6820a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e426300d1b197b7c5c7d467be81d8dfa4cc113f1494543452504a0066af10e9b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259968,
+          "addend": 0,
+          "resolved": 11259968
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1006304
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11259928,
+          "addend": 0,
+          "resolved": 11259928
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854208,
+      "method": "00689640",
+      "body_bytes": 15,
+      "body_sha256": "85645699e70639e3314c004070f3c7e053d85381abfc24d86b037febda227b49",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "59a99d7e8df8b7f6b8b1b1e2dea81170bf22062b57698b0146b6007f5ca42853",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11259856,
+          "addend": 0,
+          "resolved": 11259856
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11259856,
+          "addend": 2,
+          "resolved": 11259858
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854224,
+      "method": "00689650",
+      "body_bytes": 18,
+      "body_sha256": "ffc1dd8d281e35842d8942011b6401683dc2ca07a819efdd29d2cadb5f414db3",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bde3e6df05ac4e591ab8ff37598eb66db1bfbe6992d58f630585d90f781067ee",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259888,
+          "addend": 0,
+          "resolved": 11259888
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259888,
+          "addend": 4,
+          "resolved": 11259892
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259888,
+          "addend": 8,
+          "resolved": 11259896
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854256,
+      "method": "00689670",
+      "body_bytes": 23,
+      "body_sha256": "675002d9b352652d67291d3582dca6d9d00d7098913be290845f244e6e9ba60b",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8400913c35253d1f107bc2991e1c8a8ceae6a99c572886c34c88a0ef2226d94c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259840,
+          "addend": 0,
+          "resolved": 11259840
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259840,
+          "addend": 4,
+          "resolved": 11259844
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259840,
+          "addend": 8,
+          "resolved": 11259848
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259840,
+          "addend": 12,
+          "resolved": 11259852
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854288,
+      "method": "00689690",
+      "body_bytes": 61,
+      "body_sha256": "1080670f1fd1a57e7ea0b1f5118c18d14872d09351d04211b778c9dc3ba71138",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c9beca767fe81178f703ce2a8cb5273afd6fd52bfdbd6443857bd017d006c731",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E149",
+      "symbol_prefix": "_$E149",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E147",
+          "target": 6854352,
+          "addend": 0,
+          "resolved": 6854352
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 4,
+          "resolved": 11259948
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 8,
+          "resolved": 11259952
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 12,
+          "resolved": 11259956
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 13,
+          "resolved": 11259957
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 0,
+          "resolved": 11259944
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVSpawnManagerClass@@@@6B@",
+          "target": 8042588,
+          "addend": 0,
+          "resolved": 8042588
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 20,
+          "resolved": 11259964
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1020607
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854352,
+      "method": "006896d0",
+      "body_bytes": 59,
+      "body_sha256": "810d9cab6a39c55ddfd21b38f9cea8d052ac0c079e140dfcf1a36caa5534982b",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f21d6a234ad52306d4a0b23d9501421057bec3ca1a2194f8a08b7f6a78f8f60a",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E147",
+      "symbol_prefix": "_$E147",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 4,
+          "resolved": 11259948
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 0,
+          "resolved": 11259944
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVSpawnManagerClass@@@@6B@",
+          "target": 8042620,
+          "addend": 0,
+          "resolved": 8042620
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 13,
+          "resolved": 11259957
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1017415
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 4,
+          "resolved": 11259948
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 13,
+          "resolved": 11259957
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 8,
+          "resolved": 11259952
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854416,
+      "method": "00689710",
+      "body_bytes": 508,
+      "body_sha256": "76cf0a211fb58d449bf050d6a393cb00b8ecf3e581557c8f496b3d161c7dc465",
+      "padding_bytes": 4,
+      "full_extent_bytes": 512,
+      "full_extent_sha256": "3f6944fff0e97ae72fae6629b15551d1e36afe00e23a1d0f34bcafdf7e62ac2e",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0SpawnManagerClass@@QAE@PAVTechnoClass@@PAVAircraftTypeClass@@HHH@Z",
+      "symbol_prefix": "??0SpawnManagerClass@@QAE@PAVTechnoClass@@PAVAircraftTypeClass@@HHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4292372466
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z",
+          "target": 6861024,
+          "addend": 0,
+          "resolved": 6580
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAUSpawnControl@@@@6B@",
+          "target": 8042796,
+          "addend": 0,
+          "resolved": 8042796
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIPersistStream@@@",
+          "target": 8042696,
+          "addend": 0,
+          "resolved": 8042696
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIRTTITypeInfo@@@",
+          "target": 8042668,
+          "addend": 0,
+          "resolved": 8042668
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSink@@@",
+          "target": 8042660,
+          "addend": 0,
+          "resolved": 8042660
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSource@@@",
+          "target": 8042652,
+          "addend": 0,
+          "resolved": 8042652
+        },
+        {
+          "offset": 144,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1017971
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 275,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 365,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 401,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 417,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 8,
+          "resolved": 11259952
+        },
+        {
+          "offset": 423,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 431,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 13,
+          "resolved": 11259957
+        },
+        {
+          "offset": 443,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 20,
+          "resolved": 11259964
+        },
+        {
+          "offset": 454,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 0,
+          "resolved": 11259944
+        },
+        {
+          "offset": 461,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 0,
+          "resolved": 11259944
+        },
+        {
+          "offset": 474,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 483,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 4,
+          "resolved": 11259948
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6854928,
+      "method": "00689910",
+      "body_bytes": 241,
+      "body_sha256": "f036fffadb641927b228d1a91c682da02f777e3c9e7b2edfc458a386de86e22e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "a0294fc39aa32a9335f9d1bc0890b92abcd6d5019f7cc8ca15eea571acbfda1e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0SpawnManagerClass@@QAE@XZ",
+      "symbol_prefix": "??0SpawnManagerClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4292371955
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z",
+          "target": 6861024,
+          "addend": 0,
+          "resolved": 6069
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAUSpawnControl@@@@6B@",
+          "target": 8042796,
+          "addend": 0,
+          "resolved": 8042796
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIPersistStream@@@",
+          "target": 8042696,
+          "addend": 0,
+          "resolved": 8042696
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIRTTITypeInfo@@@",
+          "target": 8042668,
+          "addend": 0,
+          "resolved": 8042668
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSink@@@",
+          "target": 8042660,
+          "addend": 0,
+          "resolved": 8042660
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSource@@@",
+          "target": 8042652,
+          "addend": 0,
+          "resolved": 8042652
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 8,
+          "resolved": 11259952
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 13,
+          "resolved": 11259957
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 20,
+          "resolved": 11259964
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 0,
+          "resolved": 11259944
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 0,
+          "resolved": 11259944
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 225,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 4,
+          "resolved": 11259948
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6854928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6855184,
+      "method": "00689a10",
+      "body_bytes": 102,
+      "body_sha256": "cec7f6650692de10582891c393bc66f520b94a706f18fcd6b29242cb2ad96dcc",
+      "padding_bytes": 10,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "1cf53bbf467b91c4cdf81fb9f46485071338926090e6206ecaa3e135dedf910f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0SpawnManagerClass@@QAE@ABVNoInitClass@@@Z",
+      "symbol_prefix": "??0SpawnManagerClass@@QAE@ABVNoInitClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4292371779
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAUSpawnControl@@@@6B@",
+          "target": 8042796,
+          "addend": 0,
+          "resolved": 8042796
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIPersistStream@@@",
+          "target": 8042696,
+          "addend": 0,
+          "resolved": 8042696
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIRTTITypeInfo@@@",
+          "target": 8042668,
+          "addend": 0,
+          "resolved": 8042668
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSink@@@",
+          "target": 8042660,
+          "addend": 0,
+          "resolved": 8042660
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSource@@@",
+          "target": 8042652,
+          "addend": 0,
+          "resolved": 8042652
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6855184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6855296,
+      "method": "00689a80",
+      "body_bytes": 231,
+      "body_sha256": "eadc903a2c844e286fb01e0b98f152aa9f9bf691ecf294eba0ba05e0034c578c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "ce37cedc6423aae24474ce4ea0fdc62afda498dd3b65c2c365bed8ac25a2fd2f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1SpawnManagerClass@@UAE@XZ",
+      "symbol_prefix": "??1SpawnManagerClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIPersistStream@@@",
+          "target": 8042696,
+          "addend": 0,
+          "resolved": 8042696
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIRTTITypeInfo@@@",
+          "target": 8042668,
+          "addend": 0,
+          "resolved": 8042668
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSink@@@",
+          "target": 8042660,
+          "addend": 0,
+          "resolved": 8042660
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSource@@@",
+          "target": 8042652,
+          "addend": 0,
+          "resolved": 8042652
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?GameActive@@3_NA",
+          "target": 10750296,
+          "addend": 0,
+          "resolved": 10750296
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "?KillNodes@SpawnManagerClass@@QAEXXZ",
+          "target": 6855536,
+          "addend": 0,
+          "resolved": 194
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1016439
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 0,
+          "resolved": 11259944
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 0,
+          "resolved": 11259944
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 4,
+          "resolved": 11259948
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "?SpawnManagers@@3V?$DynamicVectorClass@PAVSpawnManagerClass@@@@A",
+          "target": 11259944,
+          "addend": 16,
+          "resolved": 11259960
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUSpawnControl@@@@6B@",
+          "target": 8042828,
+          "addend": 0,
+          "resolved": 8042828
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1016308
+        },
+        {
+          "offset": 223,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4292371501
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6855296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6855536,
+      "method": "00689b70",
+      "body_bytes": 279,
+      "body_sha256": "1d7ba4aa303a73bc48b8054f03bf3ec18989ce1879bda5eafbbf4f40594d8c57",
+      "padding_bytes": 9,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "6e77ffff841b1fdb7160d353886e83b39504cc378ddb3ea5d50aaa31338d6863",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?KillNodes@SpawnManagerClass@@QAEXXZ",
+      "symbol_prefix": "?KillNodes@SpawnManagerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 0,
+          "resolved": 10937384
+        },
+        {
+          "offset": 76,
+          "kind": 20,
+          "symbol": "?Remove@KamikazeClass@@QAEXPAVAbstractClass@@@Z",
+          "target": 5445760,
+          "addend": 0,
+          "resolved": 4293557440
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 0,
+          "resolved": 10937384
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "?Add@KamikazeClass@@QAEXPAVAircraftClass@@PAVAbstractClass@@@Z",
+          "target": 5445280,
+          "addend": 0,
+          "resolved": 4293556873
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6855536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6857872,
+      "method": "0068a490",
+      "body_bytes": 17,
+      "body_sha256": "d358d9d85ad34540b0987385ce400fa9f831338f7f9f82b9b79923de55f459b5",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "54bd634821aa450f8933b715c33ed9fe4a92f0ebc68cebdb935e75237c446304",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetTarget@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z",
+      "symbol_prefix": "?SetTarget@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6857872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6857904,
+      "method": "0068a4b0",
+      "body_bytes": 133,
+      "body_sha256": "9d975dfb598a3e517b853d4eae34a8963d1b5e020a73421082d598012e21f74c",
+      "padding_bytes": 11,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "9baf02f8f12aefa6167ed096c9d7b0363342c1a8112929a7f5bf6c7f774d731d",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ResetTarget@SpawnManagerClass@@QAEXXZ",
+      "symbol_prefix": "?ResetTarget@SpawnManagerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 0,
+          "resolved": 10937384
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Add@KamikazeClass@@QAEXPAVAircraftClass@@PAVAbstractClass@@@Z",
+          "target": 5445280,
+          "addend": 0,
+          "resolved": 4293554608
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 0,
+          "resolved": 10937384
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 4,
+          "resolved": 10937388
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 8,
+          "resolved": 10937392
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "?UnlinkPointer@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z",
+          "target": 6858080,
+          "addend": 0,
+          "resolved": 69
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6857904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6858048,
+      "method": "0068a540",
+      "body_bytes": 23,
+      "body_sha256": "6f40d59a01f3da36486ea42fccfae241be2cb4cbb83a04d887895d33c9cc195a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "dc3df521732c94e925407631270a26b26508f5c0ad776d7a026328c4a080b8e6",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?UpdateTarget@SpawnManagerClass@@QAE_NXZ",
+      "symbol_prefix": "?UpdateTarget@SpawnManagerClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6858048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6858080,
+      "method": "0068a560",
+      "body_bytes": 206,
+      "body_sha256": "324a63ce1598fc0dce1cbcf930da61e420442c0353a395fea5dd5b3383fc72ba",
+      "padding_bytes": 2,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "5e50771984b5df77306b04f939e872b258cd20a8aeb47ac64140a4a7aa5aa1f0",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?UnlinkPointer@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z",
+      "symbol_prefix": "?UnlinkPointer@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "?ResetTarget@SpawnManagerClass@@QAEXXZ",
+          "target": 6857904,
+          "addend": 0,
+          "resolved": 4294967084
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?KillNodes@SpawnManagerClass@@QAEXXZ",
+          "target": 6855536,
+          "addend": 0,
+          "resolved": 4294964648
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "?ResetTarget@SpawnManagerClass@@QAEXXZ",
+          "target": 6857904,
+          "addend": 0,
+          "resolved": 4294967009
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6858080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6858288,
+      "method": "0068a630",
+      "body_bytes": 30,
+      "body_sha256": "204cc2d7169d6677f53c1defa04a9e0b562150760f1c1d5571d7b509885a5a4f",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b689923155aea94486474f58c0247301a01aaef64e685b8ae47c5d4d85656fb5",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?CountAliveSpawns@SpawnManagerClass@@QAEHXZ",
+      "symbol_prefix": "?CountAliveSpawns@SpawnManagerClass@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6858288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6858320,
+      "method": "0068a650",
+      "body_bytes": 36,
+      "body_sha256": "aadd97431bbc9a33d7a7e40da7039f1afab8dc0c3b1fd3200f3f20973bf8da66",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "044805a25951451779d6dc62fa7a66d31d7773c470d8b2b3d42f9b6242480756",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?CountDockedSpawns@SpawnManagerClass@@QAEHXZ",
+      "symbol_prefix": "?CountDockedSpawns@SpawnManagerClass@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6858320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6858368,
+      "method": "0068a680",
+      "body_bytes": 30,
+      "body_sha256": "02df5d756b7b84dd9d3c0cab0f83f74fef8bc2e88c50bf02a553d080aa6630d9",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ce8c24eeb8527140f0617673bb0b32d67a4760e19d202e585d1a2b18bb4e7720",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?CountLaunchingSpawns@SpawnManagerClass@@QAEHXZ",
+      "symbol_prefix": "?CountLaunchingSpawns@SpawnManagerClass@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6858368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6858400,
+      "method": "0068a6a0",
+      "body_bytes": 226,
+      "body_sha256": "7cbe2c6dbf89f03e7557eeed1453c9ddd0170d7b09eb9b403db852141863c834",
+      "padding_bytes": 14,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "35af0241f3a405c001bb6e9d634e741503efe5b88f43eb4f738953139fdcd246",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_CRC@SpawnManagerClass@@UBEXAAVCRCEngine@@@Z",
+      "symbol_prefix": "?Compute_CRC@SpawnManagerClass@@UBEXAAVCRCEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z",
+          "target": 4260272,
+          "addend": 0,
+          "resolved": 4292369154
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292909175
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292909150
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292909125
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292909088
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292909051
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292909040
+        },
+        {
+          "offset": 167,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292909029
+        },
+        {
+          "offset": 192,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292909004
+        },
+        {
+          "offset": 217,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292908979
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6858400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6858640,
+      "method": "0068a790",
+      "body_bytes": 56,
+      "body_sha256": "f020a5be504368d83c5928d49f5f9eae213414bd804c47428781ec9deae4ff1c",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "45d66f38cb89387e4d7857b981b8630fac8c4d9575bb4b2253e8bc8a54e5da22",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@SpawnManagerClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@SpawnManagerClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_SpawnManagerClass",
+          "target": 8003024,
+          "addend": 0,
+          "resolved": 8003024
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_SpawnManagerClass",
+          "target": 8003024,
+          "addend": 4,
+          "resolved": 8003028
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_SpawnManagerClass",
+          "target": 8003024,
+          "addend": 8,
+          "resolved": 8003032
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_SpawnManagerClass",
+          "target": 8003024,
+          "addend": 12,
+          "resolved": 8003036
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6858640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6858704,
+      "method": "0068a7d0",
+      "body_bytes": 412,
+      "body_sha256": "a06652645faa05fa3502e56ae8d80f6e2defbc5caaf504306190d6b0fa5c19ad",
+      "padding_bytes": 4,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "f27eafc0b673e1c6b1bcd1352d666a8e630eb7e2f5fc0e6625fa42523022b188",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@SpawnManagerClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@SpawnManagerClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+          "target": 4260128,
+          "addend": 0,
+          "resolved": 4292368700
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4292368224
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z",
+          "target": 6861024,
+          "addend": 0,
+          "resolved": 2260
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAUSpawnControl@@@@6B@",
+          "target": 8042796,
+          "addend": 0,
+          "resolved": 8042796
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z",
+          "target": 4603776,
+          "addend": 0,
+          "resolved": 4292712283
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z",
+          "target": 4603776,
+          "addend": 0,
+          "resolved": 4292712274
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIPersistStream@@@",
+          "target": 8042696,
+          "addend": 0,
+          "resolved": 8042696
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BIRTTITypeInfo@@@",
+          "target": 8042668,
+          "addend": 0,
+          "resolved": 8042668
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSink@@@",
+          "target": 8042660,
+          "addend": 0,
+          "resolved": 8042660
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "??_7SpawnManagerClass@@6BINoticeSource@@@",
+          "target": 8042652,
+          "addend": 0,
+          "resolved": 8042652
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z",
+          "target": 6861024,
+          "addend": 0,
+          "resolved": 2154
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAUSpawnControl@@@@6B@",
+          "target": 8042796,
+          "addend": 0,
+          "resolved": 8042796
+        },
+        {
+          "offset": 205,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1013622
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 86598
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 356,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 86504
+        },
+        {
+          "offset": 365,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 370,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 86490
+        },
+        {
+          "offset": 379,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 384,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 86476
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 398,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 86462
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6858704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6859120,
+      "method": "0068a970",
+      "body_bytes": 99,
+      "body_sha256": "1871eceba976c5ab90c11c241deb8ede1513cc1db0ac21e48e7f9b61e3adf692",
+      "padding_bytes": 13,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "7a3bea9121de9fee956b6182e669e13168510d0e4683acbb8104752caef722cb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@SpawnManagerClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@SpawnManagerClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+          "target": 4260032,
+          "addend": 0,
+          "resolved": 4292368185
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6859232,
+      "method": "0068a9e0",
+      "body_bytes": 6,
+      "body_sha256": "b1bca9e58fa6b023b05907067a760af006d9149c0cb2640787611d4e6d0a09c1",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b30b4d1bcf9bd83a253e60abe10ccbd81d11b62e5af81a2ea7e3b411a9bfff8b",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@SpawnManagerClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@SpawnManagerClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6859248,
+      "method": "0068a9f0",
+      "body_bytes": 6,
+      "body_sha256": "55cc56eb37b472e4d577825219c044101197a70005fb83827aeb6bf26e5bc0bc",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "39bf9b0c0f84fba46b3903bd6873a665d0b233054ffe552ee556e1bb343b4bf1",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@SpawnManagerClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@SpawnManagerClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6859264,
+      "method": "0068aa00",
+      "body_bytes": 30,
+      "body_sha256": "dc31fa8f47e937ce2267d833eda4c4ad95ccbe5402f131503f07e15efcdbc44d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "825e18284bd77a984c1cf1deedc16995fdc9a05978f6214224924bcd3bdca887",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GSpawnManagerClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GSpawnManagerClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1SpawnManagerClass@@UAE@XZ",
+          "target": 6855296,
+          "addend": 0,
+          "resolved": 4294963320
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1012518
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6859296,
+      "method": "0068aa20",
+      "body_bytes": 42,
+      "body_sha256": "a0103da660151ce5b0ec1afc238b4f317e49fbb5f0e21f4298538e3f8a106994",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "40cfef9a471a2a85a3ea13a16cf8d1f27a3a723350104f9f313703feb8689bfe",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAUSpawnControl@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAUSpawnControl@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1012480
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859344,
+      "method": "0068aa50",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAUSpawnControl@@@@UAEHPBQAUSpawnControl@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUSpawnControl@@@@UAEHPBQAUSpawnControl@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859344,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859376,
+      "method": "0068aa70",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAUSpawnControl@@@@UBEPAUSpawnControl@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAUSpawnControl@@@@UBEPAUSpawnControl@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859392,
+      "method": "0068aa80",
+      "body_bytes": 42,
+      "body_sha256": "fb7d25d8fa9143746525e85bdae15c2cbd2a144e3736220e5465fd61e598c372",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "11203b3dbba331234142de5d6492f7b74a5c74870513e98ea3aa478b192019c4",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1012384
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859392,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859440,
+      "method": "0068aab0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEHPBQAVSpawnManagerClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEHPBQAVSpawnManagerClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859440,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859472,
+      "method": "0068aad0",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVSpawnManagerClass@@@@UBEPAVSpawnManagerClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVSpawnManagerClass@@@@UBEPAVSpawnManagerClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859488,
+      "method": "0068aae0",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAUSpawnControl@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAUSpawnControl@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859488,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859552,
+      "method": "0068ab20",
+      "body_bytes": 174,
+      "body_sha256": "5068195b05c1608de2643a4ce9ba8ecbbcfafc3adf381ac7c2998c8df6c529da",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "a82efbe28ac15919f226990d63e2319bccd5f50e2e63abc448b7380a625b47e0",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAUSpawnControl@@@@UAE_NHPBQAUSpawnControl@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAUSpawnControl@@@@UAE_NHPBQAUSpawnControl@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1012940
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1012128
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859552,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859728,
+      "method": "0068abd0",
+      "body_bytes": 39,
+      "body_sha256": "f8331bdaf14c0b6409ecfe6cae1446096dc81501830fc236f5885e1a765dc5c3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1a207a3026b8907ed190a38dd7b47fcafc94963c6afe13c170f98c81dbd2da52",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAUSpawnControl@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAUSpawnControl@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1012051
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859728,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859776,
+      "method": "0068ac00",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUSpawnControl@@@@UAEHABQAUSpawnControl@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUSpawnControl@@@@UAEHABQAUSpawnControl@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859776,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859840,
+      "method": "0068ac40",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUSpawnControl@@@@UAEHPBQAUSpawnControl@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUSpawnControl@@@@UAEHPBQAUSpawnControl@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859840,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6859872,
+      "method": "0068ac60",
+      "body_bytes": 176,
+      "body_sha256": "7648c0ac414825eaa18dbdd0a904ddb91f8303f915c0a43d6a5f7e119273d012",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "7648c0ac414825eaa18dbdd0a904ddb91f8303f915c0a43d6a5f7e119273d012",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAUSpawnControl@@@@UAE_NHPBQAUSpawnControl@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAUSpawnControl@@@@UAE_NHPBQAUSpawnControl@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1012624
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1011821
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6859872,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6860048,
+      "method": "0068ad10",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAUSpawnControl@@@@UAEHABQAUSpawnControl@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUSpawnControl@@@@UAEHABQAUSpawnControl@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860048,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6860096,
+      "method": "0068ad40",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVSpawnManagerClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVSpawnManagerClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860096,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6860160,
+      "method": "0068ad80",
+      "body_bytes": 174,
+      "body_sha256": "e8e08c1a579ffea3ca0c02efbd9a0c9181195c2a1385ef8b94e709ae5f6b09a2",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "334b9472754144dd01a5c6fe1b9808a028f6fcf32f9ba72c731fa0e4d58d4489",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVSpawnManagerClass@@@@UAE_NHPBQAVSpawnManagerClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVSpawnManagerClass@@@@UAE_NHPBQAVSpawnManagerClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1012332
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1011520
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860160,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6860336,
+      "method": "0068ae30",
+      "body_bytes": 39,
+      "body_sha256": "f61b3d458777d1a4a0511820ace2d566c0eb18cd6127d665ceba0df87b4ae2a0",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1aefa3fffe8e0cf7922f39b1a2b3a6b040465138f164bb70061276937b797b0b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVSpawnManagerClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVSpawnManagerClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1011443
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860336,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6860384,
+      "method": "0068ae60",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVSpawnManagerClass@@@@UAEHABQAVSpawnManagerClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVSpawnManagerClass@@@@UAEHABQAVSpawnManagerClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860384,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6860448,
+      "method": "0068aea0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVSpawnManagerClass@@@@UAEHPBQAVSpawnManagerClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVSpawnManagerClass@@@@UAEHPBQAVSpawnManagerClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6860480,
+      "method": "0068aec0",
+      "body_bytes": 176,
+      "body_sha256": "4022ca6a1f32454f249c60d664e127eb28229f016cb761e7649d0f1d01f6459b",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "4022ca6a1f32454f249c60d664e127eb28229f016cb761e7649d0f1d01f6459b",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAE_NHPBQAVSpawnManagerClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAE_NHPBQAVSpawnManagerClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1012016
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1011213
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860480,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6860656,
+      "method": "0068af70",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEHABQAVSpawnManagerClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEHABQAVSpawnManagerClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6860704,
+      "method": "68afa0",
+      "body_bytes": 73,
+      "body_sha256": "73631ffb56d02a72549edfb49fb386aabb688c74aabd056d01dec7666ef892f5",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "0248ada77f9a70e6408ed0a108c836e5f889e913d99438092550856383d36496",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAUSpawnControl@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAUSpawnControl@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUSpawnControl@@@@6B@",
+          "target": 8042828,
+          "addend": 0,
+          "resolved": 8042828
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1011070
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1011035
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860704,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6860784,
+      "method": "68aff0",
+      "body_bytes": 73,
+      "body_sha256": "4fb844c8285f529bd3a610e6ff553e90a519344ad408c764384a40c32ec7c901",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ae1ee0ebf5072a0cf5badea040b1fb653ec904779789ebf0c048f8974c634134",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAUSpawnControl@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAUSpawnControl@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUSpawnControl@@@@6B@",
+          "target": 8042828,
+          "addend": 0,
+          "resolved": 8042828
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1010990
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1010955
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860784,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6860864,
+      "method": "68b040",
+      "body_bytes": 73,
+      "body_sha256": "44055a66651ab45fbb0f014d1c72a067d6dfceac4a7d951689b34e03ccfad559",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "8ad9bf174673316b3d7fb90cc6e9a38fa09254c0fcd415dd43fa5bf699cbd583",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVSpawnManagerClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVSpawnManagerClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVSpawnManagerClass@@@@6B@",
+          "target": 8042620,
+          "addend": 0,
+          "resolved": 8042620
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1010910
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1010875
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860864,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6860944,
+      "method": "68b090",
+      "body_bytes": 73,
+      "body_sha256": "45c41fc08c4ced83e49de5e871c4d7cf1c4b73c42fe17f038d28ff13db33838b",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "4c0b987966987a6a300707b867a149f201ead06ed6ffd62a05c85dc57da93a08",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVSpawnManagerClass@@@@6B@",
+          "target": 8042620,
+          "addend": 0,
+          "resolved": 8042620
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1010830
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1010795
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6860944,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6861024,
+      "method": "68b0e0",
+      "body_bytes": 74,
+      "body_sha256": "0e7e1bfcb70ced0557b2f2bf7f884c14dc864528c58287ab1eaa9eb8c0df8394",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "7b4eb1da717ab54e5075f4f7478927fb16e6b37b23dd694d18c59df2a7cbe4c0",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUSpawnControl@@@@6B@",
+          "target": 8042828,
+          "addend": 0,
+          "resolved": 8042828
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1011453
+        }
+      ],
+      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6861024,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-16"
+    }
+  ]
+}

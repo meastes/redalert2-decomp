@@ -1,0 +1,402 @@
+// The multiplayer game modes (RTTI MultiplayerGameMode, vtable 0x007A71B8,
+// 45 slots; subclasses MultiplayerBattle, MultiplayerManBattle,
+// MultiplayerSiege, FreeForAll, Megawealth, UnholyAlliance, MPCooperative)
+// and their teams (RTTI MultiplayerTeam, vtable 0x007A7314, and subclasses).
+// Base code is in 0x005B6CD0-0x005B9C40; each mode has its own unit.
+//
+// Slots are numbered from the vtables; names are unknown_slotN except where
+// the bodies say more. The base class's inline virtuals are emitted (and
+// kept) in the MultiplayerBattle unit (0x005A2380-0x005A24F0): their bodies
+// and stack sizes come from there. Out-of-line slots are declared with no
+// parameters until their bodies are recovered (their manglings are bound
+// by address only).
+#ifndef RA2_SHARED_MULTIPLAYER_GAME_MODE_HPP
+#define RA2_SHARED_MULTIPLAYER_GAME_MODE_HPP
+
+#include "shared/network_tests.hpp"
+#include "shared/vector_class.hpp"
+#include "shared/wide_string.hpp"
+#include "shared/win32_api.hpp"
+#include "shared/wstring.hpp"
+
+class CCINIClass;
+class CoopCampaignClass;
+class HouseClass;
+class CoopCampListClass;
+class MultiMission;
+class MPlayerScoreType;
+class Cell;
+class CampaignScoreClass;
+
+#include "shared/unknown_player_entry.hpp"
+#include "shared/session_blocks.hpp"
+// The multiplayer lobby dialog window, 0 when none (0x005C2C40; hypothesis).
+HWND Get_Lobby_Dialog_005c2c40();
+// Text buffer of the lobby description box (0x00839D4C; bss).
+extern char unknown_text_839d4c[];
+// The number of player rows of the setup dialogs (0x00A3DB1C; hypothesis).
+extern int unknown_int_a3db1c;   // 0x00A3DB1C
+// Refreshes the first count player rows of a setup dialog (0x005CB170).
+void __fastcall Unknown_005cb170(HWND dialog, int count);   // 0x005CB170
+
+// A team of a game mode: a vptr, the team name and its number.
+class MultiplayerTeam {
+public:
+    MultiplayerTeam(WideString const &title, int index);     // 0x005B9B20
+    virtual ~MultiplayerTeam();                               // 0x005B9B50 (scalar deleting 0x005B9C20)
+    // Slot 1: true for a valid player list index.
+    virtual bool IsTeamIncluded(int index);                  // 0x005B9B60
+    // Slot 2: puts a valid player on this team.
+    virtual bool SetPlayerTeam(int player);                   // 0x005B9B80
+    // The number of players on this team.
+    int CountMembers() const;                                 // 0x005B9BB0
+    // Adds the team name to a combo box with the team number as item data;
+    // returns the new item's index.
+    int AddToList(HWND list);                                // 0x005B9BE0
+
+    WideString Name;                                          // +0x04
+    int Number;                                               // +0x08
+};
+
+
+// Empties a combo box (0x006007F0).
+void __fastcall Clear_ComboBox(HWND combo);
+
+// The team number as wide text (0x007710C0; swprintf "%d").
+WideString __fastcall unknown_number_text_7710c0(int number);
+
+
+class MultiplayerGameMode {
+public:
+    MultiplayerGameMode(WideString const &name, WideString const &description, Wstring const &ini_name,
+        Wstring const &unknown_4, bool unknown_5, int id);                       // 0x005B6CD0
+    virtual ~MultiplayerGameMode();                           // 0x005B6E20 (scalar deleting 0x005B8E10)
+    virtual bool unknown_slot1() { return false; }               // 1 0x005A2380
+    virtual bool unknown_slot2() { return false; }               // 2 0x005A2390
+    // Lobby 0x005C6CAC passes its constructed WideString address; pointer spelling is a hypothesis.
+    virtual bool unknown_slot3(WideString *message) { return true; } // 3 0x005A23A0
+    virtual bool AssignTeams();                                    // 4 0x005B7350
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005B73A0
+    virtual bool AssignTeamsAtStart();                             // 6 0x005B73D0
+    virtual bool unknown_slot7(int unknown);                       // 7 0x005B7830 (true)
+    virtual void unknown_slot8() {}                              // 8 0x005A23B0
+    virtual void unknown_slot9() {}                              // 9 0x005A23C0
+    virtual int unknown_slot10();                                  // 10 0x005B6EB0 (-2)
+    virtual bool IsAIAllowed();                                    // 11 0x005B73E0 (unknown_34)
+    virtual bool unknown_slot12();                                 // 12 0x005B73F0
+    // Slot 13: the index of the first multiplayer map this mode can play
+    // (unknown_5b7470), or -1.
+    virtual int FirstValidMapIndex();                              // 13 0x005B7400
+    virtual void PopulateTeamDropdown(HWND combo, DynamicVectorClass<int> const *items, int selected);                         // 14 0x005B74E0
+    virtual void DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission *> const *maps, MultiMission *selected);                             // 15 0x005B7550
+    virtual void PopulateTeamDropdownForPlayer(HWND combo, int team);                 // 16 0x005B75D0
+    virtual bool unknown_slot17(int unknown_1, DynamicVectorClass<int> unknown_list) { return false; } // 17 0x005A23F0
+    virtual bool unknown_slot18(int index, DynamicVectorClass<int> choices, char const *second_name, char const *first_name) { return false; } // 18 0x005A23D0
+    virtual bool unknown_slot19(int index, int time, MPlayerScoreType *scores) { return true; } // 19 0x005A2410
+    virtual bool unknown_slot20();                                 // 20 0x005B73B0 (true)
+    virtual bool unknown_slot21();                                 // 21 0x005B73C0 (true)
+    virtual bool unknown_slot22() { return true; }               // 22 0x005A2420
+    virtual int RandomHumanCountryIndex();                        // 23 0x005B74C0 (the session's 0x00672940)
+    virtual int RandomAICountryIndex();                           // 24 0x005B74D0 (slot 23)
+    virtual void unknown_slot25(int kind, char *text) {} // 25 0x005A2430
+    virtual bool UnfixAlliances();                                 // 26 0x005B7820
+    virtual bool StartingPositionsToHouseBaseCells(bool official); // 27 0x005B7C00
+    virtual bool unknown_slot28();                                 // 28 0x005B8420 (true)
+    virtual bool unknown_slot29();                                 // 29 0x005B8470 (true)
+    virtual void unknown_slot30() {}                             // 30 0x005A2440
+    virtual void unknown_slot31() {}                             // 31 0x005A2450
+    virtual int unknown_slot32() { return -1; }                  // 32 0x005A2460
+    virtual void unknown_slot33() {}                             // 33 0x005A2470
+    virtual void unknown_slot34(bool unknown) {}                 // 34 0x005A2480
+    virtual void unknown_slot35(bool unknown) {}                 // 35 0x005A2490
+    virtual bool unknown_slot36() { return false; }              // 36 0x005A24A0
+    virtual void unknown_slot37() {}                             // 37 0x005A24B0
+    virtual void unknown_slot38() {}                             // 38 0x005A24C0
+    virtual bool unknown_slot39(DynamicVectorClass<int> unknown_list, int *unknown_result) { return false; } // 39 0x005A24D0
+    virtual bool unknown_slot40() { return true; }               // 40 0x005A24F0
+    virtual void CreateMPTeams(DynamicVectorClass<MultiplayerTeam *> *teams);                                // 41 0x005B7720
+    virtual Cell AssignStartingPositionsToHouse(int house, DynamicVectorClass<Cell> &cells, bool *taken); // 42 0x005B7920
+    // Slots 43 and 44 (ret 8): place a house's starting objects (0x005B7CE0 calls both with the house and its
+    // remaining starting money); false when one cannot be placed.
+    virtual bool SpawnBaseUnits(HouseClass *house, int *money);    // 43 0x005B7F90 (the base unit at BaseCenter)
+    virtual bool GenerateStartingUnits(HouseClass *house, int *money); // 44 0x005B8060
+
+#ifdef RA2_MPGAME_START_OBJECTS
+    bool Create_Starting_Objects_005b7ce0(); // 0x005B7CE0, existing no-argument thiscall entry
+#endif
+
+    MultiplayerTeam *GetTeam(int number);                    // 0x005B76B0
+    void unknown_clear_teams_5b77e0();                       // 0x005B77E0
+    int unknown_team_of_5b8430(int id);                      // 0x005B8430
+    CCINIClass *GetINI();                        // 0x005B7840: the mode's INI, read on first use
+    // Whether this mode can play the multiplayer map (0x005B7470).
+    bool unknown_5b7470(MultiMission *map);
+    // The registered game modes (a function-local static, 0x005B6C30).
+    static DynamicVectorClass<MultiplayerGameMode *> &unknown_modes_5b6c30();
+    // The first registered mode, or none (0x005B6EC0).
+    static MultiplayerGameMode *First_Game_Mode();
+    // The number of registered modes (0x005B6F80).
+    static int unknown_mode_count_5b6f80();
+    // The registered mode whose unknown_28 is the id, or none (0x005B6FE0).
+    static MultiplayerGameMode *__fastcall unknown_find_mode_5b6fe0(int id);
+    // Fills a combo box (reset by 0x006007F0) with the modes' names, each
+    // mode as item data, and selects the mode with the id; in game mode 5 only
+    // modes whose slot 12 agrees are listed (0x005B70B0).
+    static void __fastcall unknown_fill_combo_5b70b0(HWND combo, int id);
+    // Fills a list box the same way (LB_RESETCONTENT first); modes that need a
+    // network session test (unknown_3c clear, game mode 4 and 0x0073C370) and,
+    // before the lobby is set up with the first slot's team -1, modes whose slot
+    // 40 refuses are left out (0x005B71E0).
+    static void __fastcall unknown_fill_list_5b71e0(HWND list, int id);
+
+    // Creates a game mode of one class (RTTI MultiplayerGameMode::
+    // InitializerBase, vtable 0x007A72B0, and Initializer<T>).
+    class InitializerBase {
+    public:
+#ifdef RA2_MPG_INITIALIZER_BASE_CONSTRUCTOR
+        InitializerBase();
+#endif
+        virtual ~InitializerBase() {}                                     // scalar deleting 0x005B8EC0
+        virtual MultiplayerGameMode *Create(WideString const &name, WideString const &description, Wstring const &ini_name,
+        Wstring const &unknown_4, bool unknown_5, int id) = 0;
+    };
+    template <class T>
+    class Initializer : public InitializerBase {
+    public:
+        virtual MultiplayerGameMode *Create(WideString const &name, WideString const &description, Wstring const &ini_name,
+        Wstring const &unknown_4, bool unknown_5, int id)
+        {
+            return new T(name, description, ini_name, unknown_4, unknown_5, id);
+        }
+    };
+    // Reads the [section] modes of MPModes.ini and registers them through the initializer
+    // (0x005B8490; ra2-decomp Read_Game_Modes).
+    static void __fastcall Read_Game_Modes_5b8490(Wstring const &section, InitializerBase &initializer);
+    // Recreates the mode list: deletes the old modes and registers the six
+    // modes (0x005B8BD0).
+    static void __fastcall unknown_init_modes_5b8bd0();
+    // Deletes the registered modes (0x005B8D40).
+    static void unknown_delete_modes_5b8d40();
+
+    // The name and the id as inline accessors (the fill-combo functions 0x005B70B0 and
+    // 0x005B71E0 read the members through them; names are hypotheses).
+    WideString const &Get_Name() const { return unknown_name_20; }
+    int Get_ID() const { return unknown_28; }
+
+    bool unknown_04;                                        // +0x04
+    DynamicVectorClass<MultiplayerTeam *> Teams;            // +0x08
+    WideString unknown_name_20;                             // +0x20
+    WideString unknown_name_24;                             // +0x24
+    int unknown_28;                                         // +0x28
+    Wstring INIFilename;                                     // +0x2C
+    Wstring unknown_30;                                     // +0x30
+    bool AIAllowed;                                        // +0x34 (slot 11 returns it)
+    CCINIClass *unknown_ini_38;                             // +0x38 (made by the constructor)
+    int wolTourney;                                         // +0x3C (1, or read from the INI)
+};
+
+// vtable 0x007A66B4 (scalar deleting destructor 0x005A2500)
+class MultiplayerBattle : public MultiplayerGameMode {
+public:
+    MultiplayerBattle(WideString const &name, WideString const &description, Wstring const &ini_name,
+        Wstring const &unknown_4, bool unknown_5, int id);
+    virtual ~MultiplayerBattle();
+    virtual bool unknown_slot12();                                 // 12 0x005A2370
+};
+
+// vtable 0x007A69DC (scalar deleting destructor 0x005A7500)
+class MultiplayerManBattle : public MultiplayerGameMode {
+public:
+    MultiplayerManBattle(WideString const &name, WideString const &description, Wstring const &ini_name,
+        Wstring const &unknown_4, bool unknown_5, int id);
+    virtual ~MultiplayerManBattle();
+};
+
+// vtable 0x007A6B8C (scalar deleting destructor 0x005ABBA0)
+class MultiplayerSiege : public MultiplayerGameMode {
+public:
+    MultiplayerSiege(WideString const &name, WideString const &description, Wstring const &ini_name,
+        Wstring const &unknown_4, bool unknown_5, int id);
+    virtual ~MultiplayerSiege();
+    virtual bool AssignTeams();                                    // 4 0x005AB5F0
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005AB640
+    virtual bool AssignTeamsAtStart();                             // 6 0x005AB740
+    virtual bool IsAIAllowed();                                    // 11 0x005AB750 (false)
+    virtual bool UnfixAlliances();                                 // 26 0x005AB760
+    virtual bool StartingPositionsToHouseBaseCells(bool official); // 27 0x005AB770
+    virtual void CreateMPTeams(DynamicVectorClass<MultiplayerTeam *> *teams);                                // 41 0x005AB970
+    virtual bool SpawnBaseUnits(HouseClass *house, int *money);    // 43 0x005ABA80
+};
+
+// vtable 0x007A6914 (scalar deleting destructor 0x005A71C0)
+class FreeForAll : public MultiplayerGameMode {
+public:
+    FreeForAll(WideString const &title, WideString const &tooltip, Wstring const &inifile,
+        Wstring const &mapfilter, bool aiallowed, int modeindex);
+    virtual ~FreeForAll();
+    virtual bool AssignTeams();                                    // 4 0x005A70B0
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005A70C0
+    virtual bool AssignTeamsAtStart();                             // 6 0x005A7110
+    virtual bool unknown_slot12();                                 // 12 0x005A71B0
+    virtual void PopulateTeamDropdownForPlayer(HWND hwnd, int index);                 // 16 0x005A7150
+};
+
+// vtable 0x007A6AA4 (scalar deleting destructor 0x005AA780)
+class Megawealth : public MultiplayerGameMode {
+public:
+    Megawealth(WideString const &name, WideString const &description, Wstring const &ini_name,
+        Wstring const &unknown_4, bool unknown_5, int id);
+    virtual ~Megawealth();
+    virtual bool unknown_slot29();                                 // 29 0x005AA770
+};
+
+// vtable 0x007A6C84 (scalar deleting destructor 0x005AC510)
+class UnholyAlliance : public MultiplayerGameMode {
+public:
+    UnholyAlliance(WideString const &name, WideString const &description, Wstring const &ini_name,
+        Wstring const &unknown_4, bool unknown_5, int id);
+    virtual ~UnholyAlliance();
+    virtual bool AssignTeams();                                    // 4 0x005AC380
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005AC390
+    virtual bool AssignTeamsAtStart();                             // 6 0x005AC3C0
+    virtual bool SpawnBaseUnits(HouseClass *house, int *money);    // 43 0x005AC3D0
+};
+
+// vtable 0x007A678C (scalar deleting destructor 0x005A62B0)
+class MPCooperative : public MultiplayerGameMode {
+public:
+    MPCooperative(WideString const &name, WideString const &description, Wstring const &ini_name,
+        Wstring const &unknown_4, bool unknown_5, int id);
+    virtual ~MPCooperative();
+    virtual bool unknown_slot1();                                  // 1 0x005A6280
+    virtual bool unknown_slot2();                                  // 2 0x005A6290
+    virtual bool AssignTeams();                                    // 4 0x005A2D70
+    virtual bool CheckStartConditions(WideString *message);                         // 5 0x005A32E0
+    virtual bool AssignTeamsAtStart();                             // 6 0x005A3320
+    virtual bool unknown_slot7(int unknown);                       // 7 0x005A2CD0
+    virtual void unknown_slot8();                                  // 8 0x005A2EF0
+    virtual void unknown_slot9();                                  // 9 0x005A31F0
+    virtual int unknown_slot10();                                  // 10 0x005A34B0
+    virtual bool IsAIAllowed();                                    // 11 0x005A46B0
+    virtual int FirstValidMapIndex();                              // 13 0x005A3200
+    virtual void DrawTeamDropdown(HWND list, DynamicVectorClass<MultiMission *> const *maps, MultiMission *selected);                             // 15 0x005A4B70
+    virtual void PopulateTeamDropdownForPlayer(HWND combo, int team);                 // 16 0x005A3F70
+    virtual bool unknown_slot18(int index, DynamicVectorClass<int> choices, char const *second_name, char const *first_name); // 18 0x005A3500
+    virtual bool unknown_slot19(int index, int time, MPlayerScoreType *scores); // 19 0x005A35D0
+    virtual bool unknown_slot20();                                 // 20 0x005A38D0
+    virtual bool unknown_slot21();                                 // 21 0x005A3960
+    // Fills the session colours (0x00A71118): -2, then each session player's colour (0x005A3920;
+    // expanded in slot 21, no callers).
+    static void unknown_player_colors_5a3920();
+    virtual bool unknown_slot22();                                 // 22 0x005A4250
+    virtual int RandomHumanCountryIndex();                        // 23 0x005A4540
+    virtual int RandomAICountryIndex();                           // 24 0x005A45F0
+    virtual void unknown_slot25(int kind, char *text);     // 25 0x005A3CA0
+    virtual bool UnfixAlliances();                                 // 26 0x005A3EE0
+    virtual bool StartingPositionsToHouseBaseCells(bool official); // 27 0x005A4170
+    virtual bool unknown_slot28();                                 // 28 0x005A43C0
+    virtual bool unknown_slot29();                                 // 29 0x005A46A0
+    virtual void unknown_slot30();                                 // 30 0x005A5000
+    virtual void unknown_slot31();                                 // 31 0x005A5190
+    virtual int unknown_slot32();                                  // 32 0x005A5340
+    virtual void unknown_slot33();                                 // 33 0x005A4F90
+    virtual void unknown_slot34(bool unknown);                     // 34 0x005A46C0
+    virtual void unknown_slot35(bool unknown);                     // 35 0x005A5570
+    virtual bool unknown_slot36();                                 // 36 0x005A5350
+    virtual void unknown_slot37();                                 // 37 0x005A5720
+    virtual void unknown_slot38();                                 // 38 0x005A6040
+    virtual bool unknown_slot39(DynamicVectorClass<int> unknown_list, int *unknown_result); // 39 0x005A6230
+    virtual bool unknown_slot40();                                 // 40 0x005A62A0
+    virtual Cell AssignStartingPositionsToHouse(int house, DynamicVectorClass<Cell> &cells, bool *taken); // 42 0x005A3F90
+
+    int Unknown_005A2E50();                                       // 0x005A2E50
+    void Unknown_005A3650(HWND dialog, int id);                   // 0x005A3650
+    void Unknown_005A3760(HWND dialog);                           // 0x005A3760
+    bool Unknown_005A4F20();                                       // 0x005A4F20 (replaces the campaign with a fresh one, named after two players)
+
+    CoopCampListClass *unknown_campaigns_40;         // +0x40 the cooperative campaign records
+    CoopCampaignClass *unknown_campaign_44;                        // +0x44 the selected campaign
+    int unknown_48;                                                // +0x48 (0 from the constructor)
+    bool SavedCampaignChosen;                                               // +0x4C (set when the saved campaign is chosen)
+    bool SaveListed;                                               // +0x4D (slot 30 removes the lobby list's last row while set)
+    int LoadedRecord;                                                // +0x50 the campaign list row last loaded
+    CampaignScoreClass *unknown_score_54;                          // +0x54 the score screen (made by slot 36)
+    int LocalPlayer;                                                // +0x58 (slot 34: the session row whose address is the local one)
+    DynamicVectorClass<NodeNameType *> unknown_players_5c;   // +0x5C the players saved by slot 34 (copied back by slot 38); the destructor 0x5A2B50
+                                                                   // stores the VectorClass<NodeNameType *> vptr: NodeNameType is probably NodeNameType
+    // +0x74..+0x1A8: the session settings slot 34 saves and slot 37 restores (session offsets in brackets).
+    int SavedField74;                                                // +0x74 [+0x124]
+    unsigned short unknown_host_name_78[20];                       // +0x78 [+0x2380] the host's name
+    int unknown_a0;                                                // +0xA0 [+0x3AA4]
+    int TechLevel;                                                // +0xA4 (BuildLevel)
+    int unknown_units_a8;                                          // +0xA8 [+0x38] the start units
+    int unknown_credits_ac;                                        // +0xAC [+0x24]
+    bool unknown_fog_b0;                                           // +0xB0 [+0xA7]
+    bool BridgeDestruction;                                               // +0xB1 [+0x28]
+    bool unknown_crates_b2;                                        // +0xB2 [+0x29]
+    bool MCVRedeploy;                                               // +0xB3 [+0xA8]
+    bool AlliesAllowed;                                               // +0xB4 [+0xA4]
+    bool HarvTruce;                                               // +0xB5 [+0xA5]
+    bool unknown_bases_b6;                                         // +0xB6 [+0x20]
+    bool CTF;                                               // +0xB7 [+0xA6]
+    int unknown_ai_count_b8;                                       // +0xB8 [+0x3C]
+    int unknown_difficulty_bc;                                     // +0xBC [+0x40]
+    bool ShortGame;                                               // +0xC0 [+0x2A]
+    bool SWAllowed;                                               // +0xC1 [+0x2B]
+    bool BuildOffAlly;                                               // +0xC2 [+0x2C]
+    bool CrapEngineers;                                               // +0xC3 [+0x34]
+    int unknown_game_speed_c4;                                     // +0xC4 [+0x30]
+    UnknownSessionBlock_293C Addresses;                           // +0xC8 [+0x293C]
+    UnknownSessionBlock_299C PlayerStates;                          // +0x128 [+0x299C]
+    UnknownSessionBlock_299C PlayerPortBases;                          // +0x148 [+0x2FA0]
+    unsigned short unknown_master_name_168[21];                    // +0x168 [+0x2FC8] MasterPlayerName
+    int unknown_master_id_194;                                     // +0x194 [+0x301C] MasterPlayerID
+    UnknownSessionBlock_3022 PlayerPorts;                          // +0x198 [+0x3022]
+    DynamicVectorClass<int> HouseChoices[8];                        // +0x1A8 (slot 25: one list per player, read from the campaign AI settings)
+    DynamicVectorClass<int> ColorChoices[8];                        // +0x268 (slot 25: a second list per player)
+    DynamicVectorClass<CoopCampaignClass *> unknown_campaigns_328; // +0x328 one CoopCampaignClass per campaign record
+    int CampaignIndex;                                               // +0x340 the selected campaign's record index
+    bool PlayersChanged;                                              // +0x344
+};
+
+// The number of players of a map file: its [Waypoints] 0-7 that are set, else [RandomMap]
+// NumPlayers; 0 without a name or an INI (0x005A2800, MPCoop.cpp).
+int __fastcall Map_Player_Count_005a2800(char const *filename);
+
+// MultiplayerGameMode slot 42 0x005B7920: an observer took a random first cell (0x00A71A3C), and the
+// next house was given that cell (0x00A71A3D).
+extern bool unknown_flag_a71a3c;
+extern bool unknown_flag_a71a3d;
+
+// The colours taken while MPCooperative slot 21 picks a map's computer colours (0x00A71118).
+extern int unknown_colors_a71118[8];
+
+// vtable 0x007A676C (scalar deleting destructor 0x005A25F0)
+class MultiplayerBattleTeam : public MultiplayerTeam {
+public:
+    MultiplayerBattleTeam(WideString const &name, int number);   // 0x005A2530
+    virtual bool IsTeamIncluded(int unknown);                 // 0x005A25B0
+    virtual bool SetPlayerTeam(int unknown);                  // 0x005A25D0
+};
+
+// vtable 0x007A6B5C (scalar deleting destructor 0x005AA810)
+class MultiplayerObserverTeam : public MultiplayerTeam {
+public:
+    MultiplayerObserverTeam();
+    virtual bool IsTeamIncluded(int unknown);                 // 0x005AA800
+};
+
+// vtable 0x007A6C54 (scalar deleting destructor 0x005ABEC0)
+class MultiplayerSiegeDefenderTeam : public MultiplayerTeam {
+public:
+    MultiplayerSiegeDefenderTeam();
+    virtual bool IsTeamIncluded(int unknown);                 // 0x005ABE20
+};
+
+// vtable 0x007A6C64 (scalar deleting destructor 0x005ABEF0)
+class MultiplayerSiegeAttackerTeam : public MultiplayerTeam {
+public:
+    MultiplayerSiegeAttackerTeam();
+};
+
+#endif

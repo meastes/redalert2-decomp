@@ -1,0 +1,400 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#define INCLUDE_COM
+#include "always.h"
+#include "geometry.h"
+#include "vanim.h"
+#include "_convert.h"
+#include "_rect.h"
+#include "_rules.h"
+#include "_surface.h"
+#include "_tactica.h"
+#include "_vanim.h"
+#include "anim.h"
+#include "cell.h"
+#include "combat.h"
+#include "crc.h"
+#include "draw.h"
+#include "house.h"
+#include "inline.h"
+#include "lightcon.h"
+#include "notify.h"
+#include "overlay.h"
+#include "overtype.h"
+#include "partsys.h"
+#include "rect.h"
+#include "rules.h"
+#include "scheme.h"
+#include "sun.h"
+#include "swizzle.h"
+#include "tactical.h"
+#include "techno.h"
+#include "tiberium.h"
+#include "tracker.h"
+#include "vanimtype.h"
+#include "voc.h"
+#include "voxdrsys.h"
+#include "_voxel.h"
+
+#include <math.h>
+
+// SYNTHETIC: GAMEMD 0x007491A0 SYMBOL
+// _$E2
+// SYNTHETIC: GAMEMD 0x007491D0 SYMBOL
+// _$E5
+// SYNTHETIC: GAMEMD 0x007491F0 SYMBOL
+// _$E8
+// SYNTHETIC: GAMEMD 0x00749210 SYMBOL
+// _$E11
+// SYNTHETIC: GAMEMD 0x00749230 SYMBOL
+// _$E14
+// SYNTHETIC: GAMEMD 0x00749250 SYMBOL
+// _$E17
+// SYNTHETIC: GAMEMD 0x00749270 SYMBOL
+// _$E20
+// SYNTHETIC: GAMEMD 0x007492B0 SYMBOL
+// _$E23
+// SYNTHETIC: GAMEMD 0x007492E0 SYMBOL
+// _$E26
+// SYNTHETIC: GAMEMD 0x00749310 SYMBOL
+// _$E29
+// SYNTHETIC: GAMEMD 0x00749340 SYMBOL
+// _$E32
+// SYNTHETIC: GAMEMD 0x00749350 SYMBOL
+// _$E35
+// SYNTHETIC: GAMEMD 0x00749370 SYMBOL
+// _$E38
+// SYNTHETIC: GAMEMD 0x00749390 SYMBOL
+// _$E47
+
+// FUNCTION: GAMEMD 0x007498D0
+VoxelAnimClass::VoxelAnimClass(void) :
+	BASECLASS(),
+	Class(NULL),
+	Unused1(-1),
+	AttachedParticleSys(NULL),
+	House(NULL),
+	IsToDie(false),
+	IsInvisible(false),
+	ECCounter(0)
+{
+	Create_ID();
+	Audio3.FUN_00405BE0();
+	Audio4.FUN_00405BE0();
+	VoxelAnims.Add(this);
+}
+
+// FUNCTION: GAMEMD 0x007499F0
+VoxelAnimClass::~VoxelAnimClass(void)
+{
+	Detach_This_From_All(this);
+	VoxelAnims.Delete(this);
+	if (AttachedParticleSys != NULL) {
+		AttachedParticleSys->Delete_Me();
+		AttachedParticleSys = NULL;
+	}
+	if (GameActive) {
+		Limbo();
+	}
+	Audio3.EndLooping();
+	Audio4.EndLooping();
+	Audio3.FUN_00405C00();
+	Audio4.FUN_00405C00();
+	PointerExpiredNotification::NotifyInvalidType.Delete(this);
+	Class = NULL;
+}
+
+// FUNCTION: GAMEMD 0x00749B20
+bool VoxelAnimClass::Render(Rect &cliprect, bool forced, bool extras_only) const
+{
+	if (Map[Center_Coord()].IsVisible) {
+		IsToDisplay = true;
+	}
+	return(BASECLASS::Render(cliprect, forced, false));
+}
+
+// FUNCTION: GAMEMD 0x00749B70
+void VoxelAnimClass::Draw_It(Point2D const & xpoint, Rect const & cliprect) const
+{
+	int x, y;
+	Coord pos;
+	int z;
+	Point2D pixel;
+	Rect fromrect;
+	Matrix3D matrix;
+
+	if (Scen->Special.IsFogOfWar && Map.IsLocationFogged(Coord(Position))) {
+		return;
+	}
+
+	Point2D point = xpoint;
+	pos = Position;
+	pos.Z = Map.Get_Height_GL(pos);
+
+	if (Map[pos].IsUnderBridge && Coord(Position).Z >= pos.Z + BRIDGE_LEPTON_HEIGHT) {
+		z = pos.Z + BRIDGE_LEPTON_HEIGHT;
+		Coord coord = pos + Coord(0, 0, BRIDGE_LEPTON_HEIGHT + 1);
+		TacticalMap->Coord_To_Pixel(coord, pixel);
+	} else {
+		z = pos.Z;
+		TacticalMap->Coord_To_Pixel(pos, pixel);
+	}
+
+	if (IsInvisible) {
+		return;
+	}
+	VoxelLibrary * voxlib = Class->Voxel.VoxLib;
+	if (voxlib == NULL) {
+		return;
+	}
+
+	matrix = BounceClass::Get_Matrix();
+	VoxelDrawSystem::Reset();
+	VoxelDrawSystem::Prep_For_Shadow(voxlib, Class->VoxelIndex, 0, VoxelCameraMatrix, matrix, VoxelShadowLightVector);
+
+	VoxelDrawSystem::Render(fromrect, x, y);
+
+	{
+		Point2D drawpoint;
+		drawpoint.X = pixel.X + x;
+		drawpoint.Y = y + pixel.Y;
+
+		Blit_Block(*LogicalSurface, *VoxelDrawer, *VoxelDrawSystem::Get_Surface(), fromrect, drawpoint, cliprect, 0, VoxelDrawer->Blitter_From_Flags(ShapeFlags_Type(SHAPE_DARKEN|SHAPE_ZGRAD)), -4 - TacticalMap->Z_Lepton_To_Pixel(z));
+	}
+
+	matrix = BounceClass::Get_Matrix();
+	VoxelDrawSystem::Precalculate_Light(voxlib, 0, 0, matrix, VoxelLightSource);
+	VoxelDrawSystem::Reset();
+	VoxelDrawSystem::Prep_For_Object(voxlib, Class->VoxelIndex, 0, VoxelCameraMatrix * matrix);
+
+	VoxelDrawSystem::Render(fromrect, x, y);
+
+	ShapeFlags_Type flags = ShapeFlags_Type(SHAPE_ALPHA|SHAPE_ZGRAD);
+	if (Class->IsTranslucent) {
+		flags = ShapeFlags_Type(SHAPE_TRANSLUCENT50|SHAPE_ALPHA|SHAPE_ZGRAD);
+	}
+
+	int brightness = Map[Coord(Position)].Brightness;
+
+	ConvertClass * drawer;
+	if (House != NULL) {
+		drawer = ColorSchemes[House->Scheme]->Converter;
+	} else if (Class->IsTiberium) {
+		drawer = TiberiumDrawer;
+	} else {
+		drawer = VoxelDrawer;
+		brightness = NORMAL_LIGHT;
+	}
+
+	{
+		Point2D drawpoint;
+		drawpoint.X = point.X + x;
+		drawpoint.Y = y + point.Y;
+
+		Blit_Block(*LogicalSurface, *drawer, *VoxelDrawSystem::Get_Surface(), fromrect, drawpoint, cliprect, 0, drawer->Blitter_From_Flags(flags), -2 - TacticalMap->Z_Lepton_To_Pixel(Height), ZGRAD_GROUND, brightness);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00749F00
+void VoxelAnimClass::Init_Clear(void)
+{
+	while (VoxelAnims.Count()) {
+		delete VoxelAnims[0];
+	}
+}
+
+AudioEvent * __fastcall FUN_00750D40(Coord const & coord, AudioController * controller);
+
+// FUNCTION: GAMEMD 0x00749F30
+void VoxelAnimClass::AI(void)
+{
+	if (Class->StartSound != -1) {
+		FUN_00750D40(Center_Coord(), &Audio3);
+	}
+	if (IsToDie) {
+		Delete_Me();
+		return;
+	}
+	if (ECCounter != 0) {
+		ECCounter--;
+	}
+	if (ECCounter <= 0) {
+		bool water = Map[Coord(Position)].Land_Type() == LAND_WATER;
+		bool bridge = Coord(Position).Z >= Map.Get_Height_GL(Coord(Position)) + BRIDGE_LEPTON_HEIGHT;
+		if (water && !bridge) {
+			if (Class->IsMeteor) {
+				new AnimClass(Rule->SplashList[Rule->SplashList.Count() - 1], Coord(Position) + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
+			} else {
+				new AnimClass(Rule->Wake, Coord(Position), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
+				new AnimClass(Rule->SplashList[0], Coord(Position) + Coord(0, 0, 10), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
+			}
+		} else if (Class->ExpireAnim != 0) {
+			new AnimClass(Class->ExpireAnim,
+				Coord((int)MyCoord.X, (int)MyCoord.Y, (int)MyCoord.Z),
+				0, 1, ShapeFlags_Type(SHAPE_ZGRAD|SHAPE_WIN_REL|SHAPE_CENTER), -30);
+			Explosion_Damage(Get_Bounce_Coord(), Class->Damage, 0, Class->Warhead, 1);
+			Combat_Lighting(Get_Bounce_Coord(), Class->Damage, Class->Warhead, 0, 0);
+		}
+		if (!water || bridge) {
+			Rect dirty(0, 0, 0, 0);
+			if (Class->IsMeteor) {
+				Coord center = Get_Bounce_Coord();
+				if (Class->Spawns != 0 && Class->SpawnCount > 0) {
+					int count = Random_Pick(0, Class->SpawnCount) + Random_Pick(0, Class->SpawnCount);
+					for (int index = 0; index < count; index++) {
+						new VoxelAnimClass(Class->Spawns, center, 0);
+					}
+				}
+				if (Class->IsTiberium && !bridge) {
+					for (int facing = 0; facing < 8; facing++) {
+						CellClass &cell = Map[Adjacent_Cell(Cell(center), (FacingType)facing)];
+						if (cell.Can_Tiberium_Germinate(0)) {
+							TiberiumClass *tiberium = Tiberiums[Which_Tiberium_Type(OVERLAY_TIBERIUM2_01)];
+							if (cell.Ramp != 0) {
+								new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + cell.Ramp * 2 + tiberium->Variety + Random_Pick(0, 1) - 2], Cell(cell.CellID), HOUSE_NONE);
+							} else {
+								new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + Random_Pick(0, 11)], Cell(cell.CellID), HOUSE_NONE);
+							}
+							tiberium->Queue_Growth(cell.CellID);
+							cell.OverlayData = 0;
+							Rect rect = cell.Overlay_Render_Rect();
+							rect.Y -= TacticalRect.Y;
+							dirty = Union(dirty, rect);
+							Map.Radar_Background(cell.CellID);
+						}
+					}
+					TacticalMap->Register_Dirty_Area(dirty, 0);
+				}
+			} else if (Class->IsTiberium && !bridge) {
+				CellClass &cell = Map[Get_Bounce_Coord()];
+				if (cell.Can_Tiberium_Germinate(0)) {
+					TiberiumClass *tiberium = Tiberiums[Which_Tiberium_Type(OVERLAY_TIBERIUM2_01)];
+					if (cell.Ramp != 0) {
+						new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + cell.Ramp * 2 + tiberium->Variety + Random_Pick(0, 1) - 2], Cell(cell.CellID), HOUSE_NONE);
+					} else {
+						new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + Random_Pick(0, 11)], Cell(cell.CellID), HOUSE_NONE);
+					}
+					tiberium->Queue_Growth(cell.CellID);
+					cell.OverlayData = 0;
+					dirty = cell.Overlay_Render_Rect();
+					Map.Radar_Background(cell.CellID);
+				}
+			}
+		}
+		Delete_Me();
+		return;
+	}
+	if (Class->TrailerAnim != 0 && Frame % 2 == 0) {
+		new AnimClass(Class->TrailerAnim,
+			Coord((int)MyCoord.X, (int)MyCoord.Y,
+						(int)(MyCoord.Z * CELL_LEPTON_DIAG * 0.019245008972988385 + 0.5)),
+			1, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
+	}
+	int result = BounceClass::AI();
+	if (Class->IsMeteor) {
+		Velocity.Z += Gravity;
+	}
+	switch (result) {
+		case 1:
+			if (Map[Coord(Position)].Land_Type() == LAND_WATER) {
+				ECCounter = 0;
+			} else {
+				if (Class->BounceAnim != 0) {
+					new AnimClass(Class->BounceAnim, Coord(Position), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
+				}
+				for (ObjectClass *object = Map[Get_Bounce_Coord()].Cell_Occupier(); object; object = object->Next) {
+					Coord delta = Get_Bounce_Coord() - Coord(object->Position);
+					int distance = abs(delta.Y) + abs(delta.X);
+					if (distance <= Class->DamageRadius) {
+						object->Take_Damage(Class->Damage, Tactical::Z_Lepton_To_Pixel(distance), Class->Warhead, 0, 0, 0);
+					}
+				}
+			}
+			break;
+		case 2:
+			ECCounter = 0;
+			break;
+	}
+	Set_Coord(Get_Bounce_Coord());
+}
+
+// FUNCTION: GAMEMD 0x0074A960
+LayerType VoxelAnimClass::In_Which_Layer(void) const
+{
+	return(LAYER_AIR);
+}
+
+// FUNCTION: GAMEMD 0x0074A970
+HRESULT STDMETHODCALLTYPE VoxelAnimClass::Load(IStream * stream)
+{
+	HRESULT result = BASECLASS::Load(stream);
+	if (SUCCEEDED(result)) {
+		new (this) VoxelAnimClass(NoInitClass());
+		Audio3.FUN_00405BE0();
+		Audio4.FUN_00405BE0();
+
+		Swizzle_Pointer(&Class);
+		Swizzle_Pointer(&AttachedParticleSys);
+		Swizzle_Pointer(&House);
+	}
+	return(result);
+}
+
+// FUNCTION: GAMEMD 0x0074AA10
+HRESULT STDMETHODCALLTYPE VoxelAnimClass::Save(IStream * stream, BOOL cleardirty)
+{
+	return(BASECLASS::Save(stream, cleardirty));
+}
+
+// FUNCTION: GAMEMD 0x0074AA30
+void VoxelAnimClass::Compute_CRC(CRCEngine & crc) const
+{
+	BASECLASS::Compute_CRC(crc);
+	crc(Unused1);
+	crc(Class->Fetch_ID());
+	if (AttachedParticleSys != NULL) {
+		crc(AttachedParticleSys->Fetch_ID());
+	}
+	crc(House->Fetch_ID());
+	crc(IsToDie);
+	crc(IsInvisible);
+	crc(ECCounter);
+}
+
+// FUNCTION: GAMEMD 0x0074AAD0
+HRESULT STDMETHODCALLTYPE VoxelAnimClass::GetClassID(CLSID * retval)
+{
+	if (retval == NULL) return(E_POINTER);
+	*retval = CLSID_VoxelAnimClass;
+	return(S_OK);
+}
+
+// FUNCTION: GAMEMD 0x0074AB10
+int VoxelAnimClass::Fetch_Object_Size(void) const
+{
+	return(sizeof(*this));
+}
+
+// FUNCTION: GAMEMD 0x0074AB20
+RTTIType VoxelAnimClass::Fetch_RTTI(void) const
+{
+	return(RTTI_VOXELANIM);
+}
+
+// FUNCTION: GAMEMD 0x0074AB30
+ObjectTypeClass const * VoxelAnimClass::Class_Of(void) const
+{
+	return(Class);
+}
+
+// FUNCTION: GAMEMD 0x0074AB40
+Cell const * VoxelAnimClass::Occupy_List(bool placement) const
+{
+	return(NULL);
+}
+
+// SYNTHETIC: GAMEMD 0x0074AB50
+// ??_GVoxelAnimClass@@UAEPAXI@Z

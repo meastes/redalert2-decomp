@@ -1,0 +1,348 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+"""Coverage runs for the behaviour rewrites (lane C21; after lane C16's scratch scripts).
+
+A coverage build of ra2-native writes the functions a run executed:
+
+  cmake -S native -B build/native-cov \\
+      -DCMAKE_C_FLAGS='-fsanitize-coverage=func,trace-pc-guard -fno-inline' \\
+      -DCMAKE_CXX_FLAGS='-fsanitize-coverage=func,trace-pc-guard -fno-inline' \\
+      -DCMAKE_EXE_LINKER_FLAGS=-fsanitize=undefined
+  ninja -C build/native-cov ra2-native
+
+(-fno-inline keeps the small leaves as functions of their own: with inlining a leaf called
+directly is folded into its caller and never shows as reached.) The run summary dumps the
+coverage (port/src/run_progress.cpp) when UBSAN_OPTIONS=coverage=1:coverage_dir=<dir>.
+
+  coverage_runs.py run --binary B --data-dir D --game-exe E --out DIR [SCENARIO...]
+      plays the named scenarios (default: all) one after another, each into DIR/<name>/
+      (run.log, cov/*.sancov, w/ for its writes); several at once with --jobs N.
+  coverage_runs.py report --binary B --out DIR [--json FILE] [--rows unchecked|all]
+      maps each run's PCs to the binary's functions and lists every native/behaviour_rewrites.json
+      row with the runs that reached it.
+  coverage_runs.py list
+      the scenarios.
+
+Scenarios are test scaffolding over the harness switches the README documents
+(--skirmish, RA2_NATIVE_ORDERS, RA2_NATIVE_FORCE_END, RA2_NATIVE_SAVE_AT, --load-save,
+input scripts through the menus). Every launch goes through game_process. Game files are
+read in place; writes go to DIR/<name>/w.
+"""
+import argparse
+import bisect
+import collections
+import glob
+import json
+import os
+import re
+import struct
+import subprocess
+import sys
+import time
+from concurrent.futures import ThreadPoolExecutor
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import game_process  # noqa: E402
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(os.path.dirname(HERE))
+ROWS = os.path.join(REPO, 'native', 'behaviour_rewrites.json')
+
+NOAUDIO = '--game-args=-noaudio -CD.'
+AUDIO = '--game-args=-CD.'
+
+# Menu points at 1024x768 (campaign_chain.py, controls_input.py, the README's menu examples).
+SINGLE_PLAYER = 'click 829 302'
+NEW_CAMPAIGN = 'click 831 305'
+SKIRMISH = 'click 834 388'
+START_GAME = 'click 834 346'
+
+
+def skirmish(name, frames, order='all', extra=(), env=None, seconds=None, audio=False, movies=False, map_='#5'):
+    seconds = seconds or max(120, frames // 15 + 60)
+    return dict(name=name, args=['--skirmish=' + map_, '--skirmish-frames=%d' % frames, '--skirmish-order=' + order,
+                                 '--run-to=frames', '--run-seconds=%d' % seconds, AUDIO if audio else NOAUDIO] + list(extra),
+                env=env or {}, seconds=seconds + 60, movies=movies)
+
+
+def menus(name, script, seconds, env=None, audio=False, movies=False, extra=()):
+    return dict(name=name, args=['--run-to=seconds', '--run-seconds=%d' % seconds, AUDIO if audio else NOAUDIO] + list(extra),
+                env=env or {}, seconds=seconds + 60, script=script, movies=movies)
+
+
+# Each super weapon on an enemy, then a save while their effects (bombs, pulses, the
+# iron curtain, radiation) are on the map, then the load of that save.
+SUPERS = '; '.join('%d super %d enemy' % (300 + 150 * k, k) for k in range(7))
+# The harness's build order puts up the barracks by about frame 1,300 and the war factory by
+# about 2,800 (GAPOWR, GAPILE, GAREFN, GAWEAP); each order is repeated in case its factory is late.
+SPECIALS = ('1400 train SPY; 1450 train E1; 1500 train E1; 1700 train SPY; 1750 train ENGINEER; '
+            '3000 train FV; 3300 train FV; 3700 board E1 FV; 4100 unload FV; 4300 board E1 FV; 4700 hunt')
+
+SCENARIOS = [
+    # Audio on (SDL's dummy device) and the movies played: the start-up audio, the audio thread,
+    # the VQA player's drawers.
+    menus('audio-menu', ['# the intro movie, then the main menu'], 40, audio=True, movies=True),
+    skirmish('audio-skirmish', 1500, audio=True, movies=True,
+             env=dict(RA2_NATIVE_ORDERS='600 super 0 enemy; 900 super 2 enemy; 1100 wave')),
+    # Super weapons, then a save holding their effects, then the game left (SAVE_LEAVE).
+    skirmish('supers-save', 1800, order='win', env=dict(RA2_NATIVE_ORDERS=SUPERS, RA2_NATIVE_SAVE_AT='1500,SUPERS.SAV'),
+             seconds=400),
+    # The Allied specials: spy, IFV with a gunner, engineers.
+    skirmish('specials', 5000, order='win', seconds=700, env=dict(
+        RA2_NATIVE_ORDERS=SPECIALS, RA2_NATIVE_BUILD_LIST='GAPOWR,GAPILE,GAREFN,GAWEAP,GAPOWR')),
+    # Seven computer opponents on a four-player map, longer: their specials and super weapons.
+    skirmish('ai-crowd', 9000, order='all', map_='#10', seconds=900,
+             env=dict(RA2_NATIVE_SKIRMISH_AI='3', RA2_NATIVE_SKIRMISH_AI_LEVEL='2')),
+    # The shell's option pages (controls at 1024x768, RA2_NATIVE_MSG_LOG): the Options page's
+    # check boxes, sliders and resolution combo (opened and closed), Keyboard (its category
+    # combo, a command), Network (Cancel), back to the main menu; Movies and Credits: Sneak
+    # Peeks, Play Movies, View Credits.
+    menus('options', [
+        's1+1000 click 834 472',
+        's2+800 click 235 437', 's2+1200 click 235 413', 's2+1600 click 235 461',
+        's2+2000 click 300 228', 's2+2400 click 600 440', 's2+2800 click 380 334',
+        's2+3200 click 300 563', 's2+3600 click 450 563', 's2+4000 click 600 563',
+        's2+4400 click 620 228', 's2+5400 click 620 228',
+        's2+6000 click 834 304',
+        's3+1000 click 404 236', 's3+2000 click 300 270', 's3+3000 click 500 260', 's3+3500 click 500 280',
+        's3+4500 click 834 640',
+        's4+1000 click 834 346', 's5+1500 click 834 640',
+        's6+1000 click 834 640',
+        's7+1000 click 834 430', 's8+1000 click 834 304', 's9+1500 click 834 640',
+        's10+1000 click 834 346', 's11+1500 click 300 240', 's11+2500 click 834 640',
+        's12+1000 click 834 388',
+    ], 150),
+    # Choose Map's game types, each row clicked in turn, then the third used for a skirmish that
+    # a forced win ends (the score screen).
+    menus('modes', ['s1+1000 click 834 304', 's2+1000 click 834 388', 's3+1500 click 834 388'] +
+          ['s4+%d click 300 %d' % (1000 + 700 * k, 280 + 18 * k) for k in range(14)] +
+          ['s4+11000 click 300 316', 's4+11800 click 500 290', 's4+12600 click 834 304', 's5+1500 click 834 346',
+           'd6+3000 click 831 640'],
+          240, env=dict(RA2_NATIVE_FORCE_END='800')),
+    # The in-game shell: right button, team keys, waypoint mode, chat, cheer, beacon and sidebar
+    # tab keys, then the in-game menu's Save (a typed description), Load and Delete.
+    dict(name='ingame-ui', args=['--skirmish=#5', '--skirmish-frames=2400', '--skirmish-order=both', '--run-to=frames',
+                                 '--run-seconds=300', NOAUDIO], env={}, seconds=360, script=[
+        '60 drag 200 200 700 600', '70 keydown LCtrl', '71 key 1', '72 keyup LCtrl', '80 key 1',
+        '90 rdown 500 400', '96 rup 500 400', '100 rclick 450 380',
+        '110 key Z', '115 click 300 300', '120 click 350 320', '125 click 400 300', '130 key Z',
+        '140 key Return', '145 key H', '146 key I', '150 key Return',
+        '160 keydown LCtrl', '161 key C', '162 keyup LCtrl', '170 key C',
+        '180 key B', '185 click 420 420', '190 key Q', '195 key W', '200 key E', '205 key R',
+        '210 key Tab', '215 key Home', '220 key P', '225 key Delete', '230 key F1', '235 key F2',
+        '400 key Escape', 'd1+1500 click 940 239', 'd2+1500 click 834 640',
+        '600 key Escape', 's3+1500 click 940 289', 's4+1000 click 400 520', 's4+1500 key A', 's4+1700 key B',
+        's4+2000 key Left', 's4+2200 key Delete', 's4+2400 key C', 's4+2800 click 940 239', 's7+1000 click 660 517',
+        '1200 key Escape', 's8+1500 click 940 264', 's9+1500 click 400 240', 's9+2500 click 940 239',
+    ]),
+    # The in-game commands with audio on: a band selection, Ctrl+1 then 1 twice (team, reselect),
+    # T (type select), G (guard), Ctrl+Shift click (attack move), the right button, waypoint mode,
+    # chat, cheer, beacon, the diplomacy screen (Tab) and its Return, a cameo built, held and
+    # cancelled (right clicks), the window losing and regaining the focus.
+    dict(name='ingame-keys', args=['--skirmish=#5', '--skirmish-frames=1200', '--skirmish-order=both', '--run-to=frames',
+                                   '--run-seconds=420', AUDIO], env={}, seconds=480, movies=True, script=[
+        '60 drag 150 150 750 650', '70 keydown Left_Ctrl', '71 key 1', '72 keyup Left_Ctrl', '80 key 1', '85 key 1',
+        '90 key T', '95 key T', '100 key G',
+        '110 drag 150 150 750 650', '120 keydown Left_Ctrl', '121 keydown Left_Shift', '123 click 500 420',
+        '127 keyup Left_Shift', '128 keyup Left_Ctrl',
+        '135 rdown 500 400', '141 rup 500 400', '145 rclick 450 380',
+        '150 key Z', '155 click 300 300', '160 click 350 320', '165 click 400 300', '170 key Z', '172 key Return',
+        '180 keydown Left_Ctrl', '181 key C', '182 keyup Left_Ctrl', '185 key C', '190 key B', '193 click 420 420',
+        '200 key Tab', 'd1+2500 click 940 714',
+        '300 click 908 252', '330 rclick 908 252', '360 click 908 252', '390 rclick 908 252', '392 rclick 908 252',
+        '420 blur', '440 focus', '460 key Return', '462 key H', '463 key I', '466 key Return',
+        '480 key Delete', '490 key Home', '500 key Space', '510 key F5', '520 key F6', '530 key F7', '540 key F8',
+    ]),
+    # The main menu's Exit Game and its confirmation: the game's own end (Prog_End).
+    menus('exit-game', ['s1+1000 click 834 640', 'd2+1500 click 660 485'], 60),
+    # A LAN game of two instances on this Mac (lan_pair.py): the lobby, the host and join screens,
+    # the game's network frames (CRC, events), the in-game menus of a network game.
+    dict(name='lanpair', harness='lan_pair.py', args=['--binary', '{binary}', '--data-dir', '{data}', '--game-exe', '{exe}',
+                                                      '--work', '{work}', '--frames', '4000'], env={}, seconds=900),
+    # The game binary's own self tests (test scaffolding, not a game path): the VQA player's
+    # reset around a mod's .VQA movie and the drawing checks.
+    dict(name='vqa-selftest', args=[], env=dict(RA2_NATIVE_VQA_SELFTEST='1'), seconds=120),
+    dict(name='draw-selftest', args=[], env=dict(RA2_NATIVE_DRAW_SELFTEST='1'), seconds=120),
+]
+# The original game's saves in the installation (lane C16's load runs).
+for save in ('ALL01T.sav', 'ALL02S.sav', 'ALL03U.sav', 'SAVE397A.SAV', 'SAVE4FBD.SAV'):
+    SCENARIOS.append(dict(name='load-' + save.split('.')[0], args=['--load-save=' + save, '--run-to=frames', '--frames=1500',
+                                                                 '--run-seconds=300', NOAUDIO], env={}, seconds=360))
+# Each side's campaign through the menus, every mission won by a forced end (campaign_chain.py).
+for side, emblem in (('allied', '433 179'), ('soviet', '429 448')):
+    SCENARIOS.append(menus('camp-' + side, ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + NEW_CAMPAIGN, 's3+2000 click ' + emblem] +
+                           ['d%d+3000 click 831 640' % (4 + k) for k in range(12)], 580,
+                           env=dict(RA2_NATIVE_FORCE_END=','.join(str(300 + 600 * k) for k in range(12)))))
+BY_NAME = {s['name']: s for s in SCENARIOS}
+
+
+def play(s, a):
+    d = os.path.join(a.out, s['name'])
+    for sub in ('cov', 'w'):
+        os.makedirs(os.path.join(d, sub), exist_ok=True)
+    for f in glob.glob(os.path.join(d, 'cov', '*.sancov')):
+        os.remove(f)
+    env = dict(os.environ)
+    env.update(RA2_GAME_EXE=a.game_exe, RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_DIALOG_LOG='1',
+               UBSAN_OPTIONS='coverage=1:coverage_dir=' + os.path.join(d, 'cov'))
+    if not s.get('movies'):
+        env['RA2_NATIVE_MOVIE_SKIP'] = '1'
+    env.update(s['env'])
+    cmd = [a.binary, '--data-dir', a.data_dir, '--write-dir=' + os.path.join(d, 'w')] + s['args']
+    if 'harness' in s:      # another test harness that starts the games itself (its children inherit UBSAN_OPTIONS)
+        cmd = [sys.executable, '-B', os.path.join(HERE, s['harness'])] + [
+            x.format(binary=a.binary, data=a.data_dir, exe=a.game_exe, work=os.path.join(d, 'w')) for x in s['args']]
+    if 'script' in s:
+        path = os.path.join(d, 'input.script')
+        with open(path, 'w') as f:
+            f.write('\n'.join(s['script']) + '\n')
+        cmd.append('--input-script=' + path)
+    for k, v in s.get('cmd_env', {}).items():
+        env[k] = v
+    t0 = time.monotonic()
+    # The binary's functions as this run has them: a rebuilt binary moves every address, so the
+    # report maps this run's counters with this table, not the binary's later one.
+    with open(os.path.join(d, 'functions.txt'), 'w') as f:
+        f.write(subprocess.run(['nm', '-n', '-U', a.binary], capture_output=True, text=True).stdout)
+    with open(os.path.join(d, 'run.log'), 'w') as log:
+        log.write('# ' + ' '.join(cmd) + '\n# env ' + ' '.join('%s=%s' % kv for kv in s['env'].items()) + '\n')
+        log.flush()
+        try:
+            p = game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=s['seconds'])
+            code = p.returncode
+        except subprocess.TimeoutExpired:
+            code = 'timeout'
+    text = open(os.path.join(d, 'run.log'), errors='replace').read()
+    dumps = len(glob.glob(os.path.join(d, 'cov', '*.sancov')))
+    stop = (re.findall(r'run-to: .*stopped.*', text) or [''])[0][:100]
+    return '%s: exit %s, %d s, %d unrecovered, %d dumps %s' % (
+        s['name'], code, time.monotonic() - t0, text.count('unrecovered'), dumps, stop)
+
+
+def functions(binary=None, table=None):
+    nm = (open(table).read() if table else
+          subprocess.run(['nm', '-n', '-U', binary], capture_output=True, text=True).stdout).splitlines()
+    syms = []
+    for line in nm:
+        p = line.split(None, 2)
+        if len(p) == 3 and p[1] in 'tT':
+            syms.append((int(p[0], 16), p[2]))
+    return syms
+
+
+def reached(binary, out):
+    """(the binary's functions, {function: runs}): each run's counters mapped with the function
+    table saved with it (a run without one is left out: its binary may have been rebuilt)."""
+    syms = functions(binary)
+    runs = collections.defaultdict(set)
+    tables = {}
+    for f in sorted(glob.glob(os.path.join(out, '*', 'cov', '*.sancov'))):
+        run = f.split(os.sep)[-3]
+        table = os.path.join(out, run, 'functions.txt')
+        if not os.path.isfile(table):
+            print('report: %s left out (no functions.txt: run it again)' % run, file=sys.stderr)
+            continue
+        if run not in tables:
+            t = functions(table=table)
+            tables[run] = (t, [x for x, _ in t])
+        t, addrs = tables[run]
+        b = open(f, 'rb').read()
+        for pc in set(struct.unpack_from('<%dQ' % ((len(b) - 8) // 8), b, 8)):
+            i = bisect.bisect_right(addrs, pc) - 1
+            if i >= 0:
+                runs[t[i][1]].add(run)
+    return syms, runs
+
+
+def row_symbols(rows, syms):
+    """Each row's candidate mangled symbols: its `symbol`, else the demangled base name, else a
+    function whose name carries the row's address."""
+    mangled = sorted({m for _, m in syms})
+    dem = subprocess.run(['c++filt'], input='\n'.join(mangled), capture_output=True, text=True).stdout.split('\n')
+    base_of = collections.defaultdict(set)
+    addr_of = collections.defaultdict(set)
+    for m, d in zip(mangled, dem):
+        base_of[d.split('(')[0].strip()].add(m)
+        for h in re.findall(r'(?<![0-9a-fA-F])0{0,2}([0-9a-fA-F]{6})(?![0-9a-fA-F])', d):
+            addr_of[h.lower()].add(m)
+    have = set(mangled)
+    out = []
+    for r in rows:
+        got = set()
+        if r.get('symbol'):
+            got = {r['symbol']} & have or {'_' + r['symbol']} & have
+        if not got:
+            for part in re.split(r'\s*/\s*', r['name']):
+                n = re.sub(r'\s*\(.*$', '', part).strip()
+                got |= base_of.get(n, set())
+        e = r.get('entry')
+        if not got and isinstance(e, str) and e.startswith('0x'):
+            got = set(addr_of.get('%06x' % int(e, 16), set()))
+        out.append(got)
+    return out
+
+
+def report(a):
+    rows = json.load(open(ROWS))['rows']
+    syms, runs = reached(a.binary, a.out)
+    cand = row_symbols(rows, syms)
+    result = []
+    earlier = collections.defaultdict(set)
+    for path in a.merge:
+        for r in json.load(open(path)):
+            earlier[(r['entry'], r['name'])].update(r['reached'])
+    for r, c in zip(rows, cand):
+        hit = sorted({x for s in c for x in runs.get(s, ())} | earlier.get((r.get('entry'), r['name']), set()))
+        unchecked = not r.get('behaviour_verdict') and not r.get('test')
+        if a.rows == 'unchecked' and not unchecked:
+            continue
+        result.append(dict(entry=r.get('entry'), name=r['name'], file=r['file'], symbols=sorted(c), reached=hit,
+                           verdict=r.get('behaviour_verdict', '')[:60]))
+    n_hit = sum(1 for x in result if x['reached'])
+    for x in result:
+        if x['reached'] or a.all:
+            print('%-12s %-60s %s' % (x['entry'], x['name'][:60], ','.join(x['reached']) or '-'))
+    print('%d rows, %d reached, %d not reached, %d without a symbol' % (
+        len(result), n_hit, len(result) - n_hit, sum(1 for x in result if not x['symbols'])), file=sys.stderr)
+    if a.json:
+        json.dump(result, open(a.json, 'w'), indent=1)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = ap.add_subparsers(dest='cmd', required=True)
+    r = sub.add_parser('run')
+    r.add_argument('--binary', required=True)
+    r.add_argument('--data-dir', default=os.environ.get('RA2_NATIVE_CENSUS_DATA_DIR', ''))
+    r.add_argument('--game-exe', default=os.environ.get('RA2_NATIVE_CENSUS_GAME_EXE', ''))
+    r.add_argument('--out', required=True)
+    r.add_argument('--jobs', type=int, default=1)
+    r.add_argument('scenarios', nargs='*')
+    p = sub.add_parser('report')
+    p.add_argument('--binary', required=True)
+    p.add_argument('--out', required=True)
+    p.add_argument('--json', default='')
+    p.add_argument('--rows', choices=('unchecked', 'all'), default='unchecked')
+    p.add_argument('--all', action='store_true', help='list the rows not reached too')
+    p.add_argument('--merge', action='append', default=[], help='an earlier report (--json) whose runs are added')
+    sub.add_parser('list')
+    a = ap.parse_args()
+    if a.cmd == 'list':
+        for s in SCENARIOS:
+            print('%-16s %s %s' % (s['name'], ' '.join(s['args']), ' '.join('%s=%s' % kv for kv in s['env'].items())))
+        return 0
+    if a.cmd == 'report':
+        report(a)
+        return 0
+    names = a.scenarios or [s['name'] for s in SCENARIOS]
+    bad = [n for n in names if n not in BY_NAME]
+    if bad:
+        ap.error('unknown scenario(s): ' + ', '.join(bad))
+    with ThreadPoolExecutor(max_workers=max(1, a.jobs)) as pool:
+        for line in pool.map(lambda n: play(BY_NAME[n], a), names):
+            print(line, flush=True)
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

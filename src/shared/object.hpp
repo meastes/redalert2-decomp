@@ -1,0 +1,394 @@
+// ObjectClass: the base of every map object (Object.cpp, 0x005D22E0-
+// 0x005D555B; RTTI vtables 0x007A7498 primary (116 slots), 0x007A747C
+// IRTTITypeInfo at +4, 0x007A7474 INoticeSink, 0x007A746C INoticeSource).
+//
+// Layout (from the constructor 0x005D22E0, destructor 0x005D2530 and Load
+// 0x005D4760; names are hypotheses unless stated):
+//   +0x00  AbstractClass (0x24; its +0x18 is a pointer swizzled by Load)
+//   +0x24  int unknown_24, +0x28 int unknown_28, +0x2C int unknown_2c   0
+//   +0x30  ObjectClass *unknown_30 (swizzled; cleared by the destructor)
+//   +0x34  void *unknown_34, +0x38 void *unknown_38   (swizzled)
+//   +0x3C  UnknownAudioController unknown_3c   (0x14 bytes)
+//   +0x50  UnknownAudioController unknown_50
+//   +0x64  int unknown_64      -1 (0x005D5520 sets it; -1 resets unknown_50)
+//   +0x68  bool unknown_68
+//   +0x6C  int Strength (health), +0x70 int unknown_70   0xFF
+//   +0x74  bool unknown_74 ("on map"? slots 20/21 test it), +0x75 bool
+//   +0x76  bool unknown_76     true
+//   +0x77..+0x7C  bool         false
+//   +0x7D  bool unknown_7d     true; slot 17 returns !unknown_7d
+//   +0x80  int unknown_80      -1
+//   +0x84  bool unknown_84, +0x85 bool unknown_85 (true)
+//   +0x88  CoordStruct Coord   slot 18 (Center_Coord) returns it
+//   +0x94  LineTrail *unknown_94   released by the destructor
+//   size 0x98
+// Every object is added to four global object lists (0x00A40368, 0x00AC0D60,
+// 0x00AC0CB0, 0x00AC0C58) and removed from those and 0x00AC0CD8 when
+// destroyed.
+#ifndef RA2_SHARED_OBJECT_HPP
+#define RA2_SHARED_OBJECT_HPP
+
+#include "shared/unknown_globals.hpp"
+#include "shared/abstract_type.hpp"
+#include "shared/rgb_class.hpp"
+class HouseClass;
+class BuildingClass;
+
+class ObjectClass;
+class ObjectTypeClass;
+class WarheadTypeClass;
+class TechnoTypeClass;
+class Rect;
+class AircraftTypeClass;
+class BuildingTypeClass;
+class RadioClass;
+class AnimTypeClass;
+struct Point2D;
+class WarheadTypeClass;
+class ParticleSystemTypeClass;
+class CellClass;
+struct UnknownFacingDir;
+
+// The 0x14-byte sound handle of the game objects, UnknownAudioController:
+// shared/sound_play.hpp.
+#include "shared/sound_play.hpp"
+
+// The object at +0x34: TagClass (shared/tag.hpp).
+#include "shared/tag.hpp"
+
+// Three words cleared together when an object is constructed.
+struct UnknownTriple {
+    UnknownTriple() : unknown_00(0), unknown_04(0), unknown_08(0) {}
+    UnknownTriple(NoInitClass const &noinit) {}
+    int unknown_00;
+    int unknown_04;
+    int unknown_08;
+};
+
+// The object at +0x38: a bomb planted on the object (Bomb.cpp, unit 0x00435970:
+// BombClass 0x00435BE0-0x004361EF and BombListClass; RTTI vtables 0x0079CA08
+// primary (24 slots), 0x0079C9EC IRTTITypeInfo, 0x0079C9E4, 0x0079C9DC).
+// Every bomb is in the unit's list 0x0084EB78. Field names are hypotheses.
+class TechnoClass;
+extern "C" GUID const CLSID_BombClass;          // 0x007A1E00
+class BombClass : public AbstractClass {
+public:
+    BombClass();                                                        // 0x00435BE0
+    BombClass(NoInitClass const &noinit);                               // 0x00435D00
+    virtual ~BombClass();                                               // 0x00435C80
+
+    void Unknown_00435D30();            // 0x00435D30 (sets the bomb off at once: DETONATE events)
+    void Disarm();            // 0x00435FB0 (disarms: lets go of the target, the owner and the sound)
+    int Get_Current_Flicker_Frame() const;       // 0x00436000 (the flicker frame, 0..11; 12 for a type 1 bomb)
+    int Unknown_00435FF0() const;       // 0x00435FF0 (the bomb type, +0x30; TechnoClass slot 28)
+    bool Time_To_Explode() const;      // 0x00436070 (a timed bomb, type 0, whose delay has passed)
+
+    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x00436100 slot 3
+    virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00436140 slot 5
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x004361D0 slot 6
+    virtual int Kind_Of() const { return 0x44; }                        // 0x004369E0 slot 11 (inline)
+    virtual int Size_Of() const { return sizeof(BombClass); }           // 0x004369D0 slot 12 (inline)
+    virtual void Compute_CRC(WWCRCEngine &crc) const;                   // 0x00436090 slot 13
+
+    TechnoClass *Owner;                 // +0x24 (the planting unit)
+    HouseClass *unknown_28;             // +0x28 (the planting house; BuildingClass slot 78)
+    ObjectClass *Target;                // +0x2C (the object the bomb sits on; its +0x38)
+    int Type;                           // +0x30 (0 a timed bomb)
+    int PlantingFrame;                     // +0x34 (the frame it was planted; the flicker counts from it)
+    int unknown_38;                     // +0x38 (the frame it goes off)
+    UnknownAudioController unknown_3c;  // +0x3C (the ticking sound)
+    int TickSound;                     // +0x50 (Rules BombTickingSound)
+    int ShouldPlayTickingSound;                     // +0x54
+    bool Harmless;                    // +0x58 (disarmed or gone off)
+};
+
+// Every bomb (0x0084EB78; defined by the Bomb unit).
+extern DynamicVectorClass<BombClass *> unknown_BombClass_list_0084eb78;
+
+// The planted bombs and the units whose type has BombSight (the object at
+// 0x008322E0; TechnoClass slots 52 and 53 leave and join the second list).
+class BombListClass {
+public:
+#ifdef BOMB_LIST_DECLARE_LIFETIME
+    // Only BombList's definition (0x0040B450 / 0x0040B4D0) builds or destroys a list.
+    BombListClass() : unknown_30(100) {}
+    ~BombListClass() { Clear(); }
+#endif
+    void Unknown_004361F0();                                    // 0x004361F0 (the per-frame update; not recovered)
+    void Add_Bomb(TechnoClass *owner, ObjectClass *target);     // 0x00436470 (an infantry plants a timed bomb on target)
+    void Unknown_00436630(BombClass *bomb);                     // 0x00436630 (Bombs.Add)
+    void Unknown_00436680(TechnoClass *techno);                 // 0x00436680 (joins the BombSight list)
+    void Unknown_004366D0(TechnoClass *techno);                 // 0x004366D0 (leaves it)
+    void Clear();                                               // 0x00436710 (both lists emptied at their size; +0x30 = 45)
+    void Detach(AbstractClass *target);                         // 0x00436750 (drops the bomb, or the owner from every bomb)
+    HRESULT Save(IStream *stream);                              // 0x004367C0 (both lists as a count and pointers)
+#ifdef BOMB_LIST_DECLARE_LOAD
+    HRESULT Load(IStream *stream);                              // 0x00436860 (reads what Save writes)
+#endif
+
+    DynamicVectorClass<BombClass *> Bombs;                      // +0x00
+    DynamicVectorClass<TechnoClass *> unknown_18;               // +0x18 (BombSight units)
+    int unknown_30;                                             // +0x30 (45 when cleared, 1 when a bomb is planted)
+};
+
+// The trail at +0x94: shared/line_trail.hpp.
+#include "shared/line_trail.hpp"
+
+// Object.cpp's copies of the geometry header statics: the zero coordinate
+// unknown_geometry_l (0x00A72F00), unknown_geometry_g (0x00A72F40) and
+// unknown_geometry_j (0x00A72F30).
+
+// The rules object (0x00839848) is `Rules`, a RulesClass: shared/rules.hpp.
+#include "shared/rules.hpp"
+
+// A game-mode value (0x00A3D298); Compute_CRC adds two flags for 0 and 5.
+// Slot 76 passes the player's house (PlayerPtr, shared/house.hpp)
+// to slot 49.
+
+// The type of ObjectClass::unknown_slot64's function-local static: a cell
+// with a user-declared destructor (its first use registers an exit thunk,
+// 0x005D44F0, which the geometry header's Cell statics do not; name
+// hypothesis).
+struct UnknownStaticCell {
+    // Uninitialized lists (IsometricTileTypeClass slot 36's 129 cells).
+    UnknownStaticCell() {}
+    UnknownStaticCell(Cell const &cell) : Cell(cell) {}
+    ~UnknownStaticCell() {}
+    ::Cell Cell;
+};
+
+// The cell containing a coordinate (256 leptons per cell).
+inline Cell Coord_Cell(CoordStruct const &coord)
+{
+    Cell cell;
+    cell.X = (short)(coord.X / 256);
+    cell.Y = (short)(coord.Y / 256);
+    return cell;
+}
+
+// A cell as the placement tests read it (view of CellClass at Map[cell]).
+class UnknownPlacementCellView {
+public:
+    // Whether the cell can be entered (0x00478760; hypothesis: Is_Clear_To_Move).
+    bool Unknown_00478760(int speed, bool arg2, bool arg3, int arg4, int arg5, int arg6, bool arg7);
+    // Whether a building of the type may be placed in the cell for the house
+    // (0x004718B0; hypothesis).
+    bool Unknown_004718B0(int speed, class TechnoTypeClass const *type, HouseClass *house);
+    // The nearest free infantry spot in the cell around a coordinate, or the
+    // invalid coordinate (0x00A41170) when the cell is full (0x004764B0;
+    // hypothesis: Closest_Free_Spot; argument names hypotheses).
+    CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any = false, bool alt = false) const;
+};
+
+// The map (0x008324E0) is `Map`, a MouseClass: shared/map_view.hpp.
+
+class UnknownCellClass;
+
+class ObjectClass : public AbstractClass {
+public:
+    ObjectClass();                                                         // 0x005D22E0
+    ObjectClass(NoInitClass const &noinit);                                // 0x005D2500
+    virtual ~ObjectClass();                                                // 0x005D2530
+#ifdef RA2_OBJECT_IS_FOOT
+    // ra2-decomp's ObjectClass::Is_Foot (YR include/object.h; GPL-3.0-or-later,
+    // Copyright 2026 ra2-decomp contributors, THIRD_PARTY.md): the flag is read
+    // into a named byte (SuperClass::Place 0x0069D850 keeps its store at [esp+0x43]).
+    bool Is_Foot() const
+    {
+        if (this == 0) {
+            return false;
+        }
+        unsigned char flag = AbstractFlags.IsFoot;
+        return flag != 0;
+    }
+#endif
+
+    // The direction from this object toward target (0x005D2730; hypothesis).
+    UnknownFacingDir Direction_To(AbstractClass const *target) const;
+    // The distance from this object to target (0x005D4CE0; hypothesis).
+    int Planar_Distance(AbstractClass const *target) const; // 005D4CE0: ignores Z, adjusts building radius
+#if defined(RA2_SHIP_SOM) || defined(RA2_BUILDING_LIGHT_DISTANCE)
+    // Ship SOM and BuildingLightClass::AI 0x00433970 (whose unit defines RA2_BUILDING_LIGHT_DISTANCE in its first row).
+    int Distance(CoordStruct const &coord) const { return Center_Coord().Distance_To(coord); }
+    int Distance_YZX(CoordStruct const &coord) const { return Center_Coord().Distance_YZX(coord); }
+#endif
+#ifdef RA2_BUILDING_LIGHT_DISTANCE_TO
+    // TibSun object.h ObjectClass::Distance_To (OpenTS; GPL-3.0-or-later): the distance to an object's centre.
+    int Distance_To(AbstractClass const * obj) const {return(Distance(obj->Center_Coord()));}
+#endif
+#ifdef RA2_POINT3D_TIBSUN
+    // TibSun object.h (OpenTS; SPDX-License-Identifier: GPL-3.0-or-later; Copyright 2025 Electronic Arts Inc.;
+    // Copyright 2026 OpenTS contributors; derived from EA source, EA's GPLv3 Section 7 terms apply):
+    // the distance to a coordinate or an object through TPoint3D::Distance_To (shared/coord.hpp).
+    // Guarded: the Building unit defines RA2_POINT3D_TIBSUN in its first row (0x00438500).
+    int Distance(CoordStruct const & coord) const {return(Center_Coord().Distance_To(coord));}
+    int Distance_To(AbstractClass const * obj) const {return(Distance(obj->Center_Coord()));}
+#elif defined(RA2_BUILDING_SPATIAL_DISTANCE)
+    int Distance(CoordStruct const &coord) const;
+    int Distance_To(AbstractClass const *target) const;
+#endif
+
+    virtual HRESULT __stdcall Load(IStream *stream);                       // 0x005D4760
+    virtual void Detach(AbstractClass *target, bool all = true);           // 0x005D3BD0
+    virtual void Compute_CRC(WWCRCEngine &crc) const;                      // 0x005D4B10
+    virtual bool Is_Inactive() const;                                   // 0x005D4F10
+    virtual CoordStruct Center_Coord() const;                              // 0x005D4E40
+    virtual bool On_Ground() const;                                   // 0x005D53E0
+    virtual bool In_Air() const;                                   // 0x005D5410
+    virtual void AI();                                                     // 0x005D27F0
+
+    virtual bool Is_Players_Army();                                         // slot 24 (+0x60) 0x423d10
+    virtual int unknown_slot25(bool arg1, int arg2);                        // slot 25 (+0x64) 0x423d20
+    virtual void *Get_Image_Data();                                        // slot 26 (+0x68) 0x5d27b0
+    virtual int What_Action(Cell const *cell, bool arg2, bool arg3);              // slot 27 (+0x6C) 0x5d2bb0
+    virtual int unknown_slot28(ObjectClass *object, bool arg2);                        // slot 28 (+0x70) 0x5d2ba0
+    virtual int In_Which_Layer() const;                                    // slot 29 (+0x74) 0x5d2bc0
+    virtual bool Not_Underground() const;                                   // slot 30 (+0x78) 0x5d5490
+    virtual bool Considered_Vehicle();                                         // slot 31 (+0x7C) 0x423d30
+    virtual TechnoTypeClass *Techno_Type_Class();                             // slot 32 (+0x80) 0x5d5440 (the techno type; 0 here)
+    virtual ObjectTypeClass *Class_Of() const;                             // slot 33 (+0x84) 0x4cddd0
+    virtual int Get_Ownable();                                          // slot 34 (+0x88) 0x5d2c00
+    virtual wchar_t const *unknown_slot35();                                          // slot 35 (+0x8C) 0x423d40
+    virtual bool Can_Repair();                                         // slot 36 (+0x90) 0x5d2c10
+    virtual bool Can_Demolish();                                         // slot 37 (+0x94) 0x5d2c20
+    virtual bool Can_Player_Fire();                                         // slot 38 (+0x98) 0x5d2c30
+    virtual bool Can_Player_Move();                                         // slot 39 (+0x9C) 0x5d2c40
+    virtual CoordStruct unknown_slot40();                                  // slot 40 (+0xA0) 0x41b240
+    virtual CoordStruct unknown_slot41(int arg1) const;                    // slot 41 (+0xA4) 0x5d54f0
+    virtual CoordStruct unknown_slot42() const;                            // slot 42 (+0xA8) 0x41b270
+    virtual CoordStruct unknown_slot43(int arg1);                        // slot 43 (+0xAC) 0x423d50
+    virtual CoordStruct unknown_slot44(int arg1);                          // slot 44 (+0xB0) 0x41b2a0 (the center; ret 8)
+    virtual int Sort_Y() const;                                    // slot 45 (+0xB4) 0x5d5450
+    virtual bool Is_Moving_Onto_Bridge(TechnoClass *techno);                       // slot 46 (+0xB8) 0x5d52f0
+    virtual bool unknown_slot47();                                         // slot 47 (+0xBC) 0x423d90
+    virtual bool unknown_slot48();                                         // slot 48 (+0xC0) 0x423da0
+    virtual bool IsDisguisedAs(HouseClass *house);                                 // slot 49 (+0xC4) 0x423db0
+    virtual ObjectTypeClass *GetDisguise(bool arg1);                                  // slot 50 (+0xC8) 0x41b2d0
+    virtual HouseClass *GetDisguiseHouse(bool arg1);                                  // slot 51 (+0xCC) 0x41b2e0
+    virtual bool Limbo();                                          // slot 52 (+0xD0) 0x5d3700
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);                        // slot 53 (+0xD4) 0x5d3890
+    virtual void unknown_slot54(bool arg1);                                  // slot 54 (+0xD8) 0x5d3c10
+    virtual void Record_The_Kill(TechnoClass *techno);                                 // slot 55 (+0xDC) 0x5d2c50
+    virtual bool unknown_slot56(CoordStruct const &coord);                                  // slot 56 (+0xE0) 0x5d4240
+    virtual void Fall_From_Height();                                         // slot 57 (+0xE4) 0x5d2ac0
+    virtual void Set_Occupy_Bit(CoordStruct const &coord);                                  // slot 58 (+0xE8) 0x5d4960
+    virtual void Clear_Occupy_Bit(CoordStruct const &coord);                                  // slot 59 (+0xEC) 0x5d49e0
+    virtual void Delete_Me();                                         // slot 60 (+0xF0) 0x5d4e90
+    virtual void Do_Shimmer();                                         // slot 61 (+0xF4) 0x5d2c60
+    virtual int Exit_Object(TechnoClass *techno);                                  // slot 62 (+0xF8) 0x5d2c70
+    virtual bool Render(Rect *bounds, bool arg2, bool arg3);       // slot 63 (+0xFC) 0x5d34e0 (draws into bounds; hypothesis)
+    virtual Cell const *Occupy_List(int arg1);                                // slot 64 (+0x100) 0x5d4470
+    virtual void unknown_slot65(int arg1, int arg2);                       // slot 65 (+0x104) 0x423dc0
+    virtual void unknown_slot66(Point2D const &point, Rect const &window);                       // slot 66 (+0x108) 0x423dd0
+    virtual void Draw_It(Point2D const &point, Rect const &window) {}                     // slot 67 (+0x10C) kept copy 0x595120 (Mission.cpp)
+    virtual void Editor_Draw_It(Point2D const &point, Rect const &window);                       // slot 68 (+0x110) 0x5d4e70
+    virtual void Hidden();                                         // slot 69 (+0x114) 0x5d2c80
+    virtual void Look(bool arg1, bool arg2);                       // slot 70 (+0x118) 0x5d2c90
+    virtual bool Mark(int arg1);                                 // slot 71 (+0x11C) 0x5d4160 (callers test al: TechnoClass 0x006C2550, BulletClass 0x0045F6F0)
+    virtual Rect Get_Visual_Rect();                                         // slot 72 (+0x120) 0x5d3060 (the drawn area without the view offset; ret 4: the Rect comes back through the hidden pointer)
+    virtual Rect Get_Render_Rect();                                         // slot 73 (+0x124) 0x5d31c0 (the drawn area; ret 4)
+    virtual void unknown_slot74(int arg1);                                 // slot 74 (+0x128) 0x41b2f0
+    virtual void Mark_For_Redraw();                                         // slot 75 (+0x12C) 0x5d36e0
+    virtual bool CanBeSelected();                                         // slot 76 (+0x130) 0x5d54b0
+    virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);   // slot 77 (+0x134) 0x5d2cb0
+    virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);             // slot 78 (+0x138) 0x5d2ca0
+    virtual void Clicked_As_Target(int arg1);                                 // slot 79 (+0x13C) 0x5d2cc0
+    virtual bool unknown_slot80();                                         // slot 80 (+0x140) 0x5d2e70
+    virtual void Unselect();                                         // slot 81 (+0x144) 0x5d2df0
+    virtual void IronCurtain(int arg1);                                 // slot 82 (+0x148) 0x423de0
+    virtual bool unknown_slot83();                                         // slot 83 (+0x14C) 0x41b300
+    virtual bool In_Range(CoordStruct const &coord, int weapon);     // slot 84 (+0x150) 0x5d2cd0
+    virtual int Weapon_Range(int arg1);                                  // slot 85 (+0x154) 0x5d2ce0
+    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6); // slot 86 (+0x158) 0x5d3d20
+    virtual void Scatter(CoordStruct const &source, bool forced, bool nokidding);             // slot 87 (+0x15C) 0x5d2cf0
+    virtual bool Catch_Fire();                                         // slot 88 (+0x160) 0x5d2d00
+    virtual void Fire_Out();                                         // slot 89 (+0x164) 0x5d2d10
+    virtual int Value();                                          // slot 90 (+0x168) 0x5d2d20
+    virtual int Get_Mission();                                          // slot 91 (+0x16C) 0x5d2d30
+    virtual void unknown_slot92(int arg1);                                 // slot 92 (+0x170) 0x41b310
+    virtual void unknown_slot93(int arg1);                                 // slot 93 (+0x174) 0x423df0
+    virtual BuildingClass *Who_Can_Build_Me(bool in_theory, bool legal);   // slot 94 (+0x178) 0x5d4500 (RA1 name)
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);              // slot 95 (+0x17C) 0x5d3cb0
+    virtual bool Revealed(HouseClass *house);                       // slot 96 (+0x180) 0x5d4230
+    virtual void Repair(int arg1);                                 // slot 97 (+0x184) 0x5d2d40
+    virtual void Sell_Back(int arg1);                                 // slot 98 (+0x188) 0x5d2d50
+    virtual void Set_Waypoint_Path(int path, char waypoint);                       // slot 99 (+0x18C) 0x5d53d0
+    virtual void Move(int facing);                              // slot 100 (+0x190) 0x5d2d60
+    virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5); // slot 101 (+0x194) 0x423e00
+    virtual int unknown_slot102(UnknownCellClass *from, int facing, int *level, bool *ramp, UnknownCellClass *to); // slot 102 (+0x198) 0x423e10
+    virtual void Set_Coord(CoordStruct const &coord);                // slot 103 (+0x19C) 0x5d51c0
+    virtual Cell Get_Cell() const;                                 // slot 104 (+0x1A0) 0x41b320
+    virtual AbstractClass *Get_Cell_Ptr();                                        // slot 105 (+0x1A4) 0x5d51e0
+    virtual Cell Get_Target_Cell() const;                                 // slot 106 (+0x1A8) 0x5d5240
+    virtual CellClass *Get_Target_Cell_Ptr() const;                                   // slot 107 (+0x1AC) 0x5d5290
+    virtual int Get_Height_AGL() const;                                   // slot 108 (+0x1B0) 0x5d4810
+    virtual void Set_Height_AGL(int arg1);                                // slot 109 (+0x1B4) 0x5d4860
+    virtual int Get_Height() const;                                   // slot 110 (+0x1B8) 0x5d4800
+    virtual bool unknown_slot111();                                        // slot 111 (+0x1BC) 0x423e20
+    virtual bool unknown_slot112();                                        // slot 112 (+0x1C0) 0x423e30
+    virtual bool unknown_slot113();                                        // slot 113 (+0x1C4) 0x423e40
+    virtual bool unknown_slot114();                                        // slot 114 (+0x1C8) 0x423e50
+    virtual ConvertClass *unknown_slot115();                                         // slot 115 (+0x1CC) 0x423e60
+
+    void unknown_func_5d2710();                                            // 0x005D2710
+    bool Attach_Tag(TagClass *tag);                                        // 0x005D4430 (name hypothesis)
+    bool operator<(ObjectClass const &other) const;                        // 0x005D4AB0 (by slot 45)
+    bool operator>(ObjectClass const &other) const;                        // 0x005D4AE0 (by slot 45)
+    bool unknown_func_5d27d0(char const *name) const;                       // 0x005D27D0 (type ID compare)
+    int Unknown_005D47D0() const;                                          // 0x005D47D0 (a height level)
+    int Distance_Squared(ObjectClass const *other) const;                  // 0x005D4DA0 (x/y; name hypothesis)
+    int Distance_Squared(CoordStruct const &coord) const;                  // 0x005D4E00
+    void Set_Height(int z);                                       // 0x005D4920
+    int unknown_5d47d0();                                                  // 0x005D47D0 (the cell level, +4 on a bridge)
+    int unknown_5d4c00(AbstractClass *target);                             // 0x005D4C00 (a distance to target; UnitClass slot 304)
+    double Health_Ratio() const;                                           // 0x005D4540
+    void Set_Health_Ratio(double ratio);                                   // 0x005D4560
+    int Is_Red_HP() const;                                       // 0x005D45B0
+    int Is_Yellow_HP() const;                                       // 0x005D4600
+    int Is_Green_HP() const;                                       // 0x005D4670
+    int GetHealthStatus() const;                                       // 0x005D46B0 (0, 1 or 2)
+    void Set_Ambient_Sound(int value);                                   // 0x005D5520
+
+    UnknownTriple Riser;               // +0x24
+    ObjectClass *unknown_30;                // +0x30
+    TagClass *Tag;                   // +0x34 (tag hypothesis: Attach_Tag counts on +0x2C)
+    BombClass *unknown_38;                  // +0x38
+    UnknownAudioController AmbientSoundController;      // +0x3C
+    UnknownAudioController CustomSoundController;      // +0x50
+    int CustomSound;                         // +0x64
+    bool BombVisible;                        // +0x68
+    int Strength;                           // +0x6C health (0xFF when constructed; hypothesis)
+    int unknown_70;                         // +0x70
+    bool IsDown;                        // +0x74
+    bool IsToDisplay;                        // +0x75
+    bool IsInLimbo;                        // +0x76
+    bool IsSelected;                        // +0x77
+    bool IsAnimAttached;                        // +0x78
+    bool IsOnBridge;                        // +0x79
+    bool IsFalling;                        // +0x7A
+    bool IsABomb;                        // +0x7B
+    bool IsToExplode;                        // +0x7C
+    bool IsActive;                        // +0x7D
+    int Layer;                         // +0x80
+    bool IsSubmittedToLayer;                        // +0x84
+    bool IsVisible;                        // +0x85
+    // Unadjusted position copy at004F3F5A; nonvirtual dispatch is an inline-only hypothesis.
+    CoordStruct Position_Coord_004f3f40() const { return Coord; }
+    CoordStruct Coord;                      // +0x88
+    LineTrail *LineTrailer;                  // +0x94
+};
+
+// Global object lists: shared/object_lists.hpp.
+#include "shared/object_lists.hpp"
+// Skipped in their defining unit (0x006EC3A0): VC6 emits a second dynamic initializer for an
+// extern redeclaration that follows the definition.
+#ifndef RA2_TRACKER_LISTS_DEFINED
+extern DynamicVectorClass<AbstractClass *> AnimPtrTracker;   // 0x00AC0BF8 (TechnoClass +0x108 holders, bullets)
+extern DynamicVectorClass<AbstractClass *> HousePtrTracker;   // 0x00AC0D08 (technos, supers)
+extern DynamicVectorClass<AbstractClass *> TagPtrTracker; // 0x00AC0C58 (AbstractClass * by its vtable 0x007A177C)
+extern DynamicVectorClass<AbstractClass *> ObjectsToDelete; // 0x00AC0CD8 (AbstractClass * by its vtable 0x007A177C)
+#endif
+extern DynamicVectorClass<ObjectClass *> CurrentObject;   // 0x00A40C60 (objects with unknown_77 set)
+
+
+#endif

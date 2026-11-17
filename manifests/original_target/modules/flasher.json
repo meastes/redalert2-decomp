@@ -1,0 +1,37 @@
+{
+ "module": "flasher",
+ "source": "src/recovered/flasher.cpp",
+ "header": "src/shared/flasher.hpp",
+ "population": "population-1918",
+ "options": [
+  "/O2",
+  "/Ob2",
+  "/G5",
+  "/Gy"
+ ],
+ "compile_group": 379,
+ "code": [
+  {
+   "symbol": "?Process@FlasherClass@@QAE_NXZ",
+   "entry": "004bbf00",
+   "body_bytes": 27,
+   "padding_bytes": 5
+  }
+ ],
+ "code_bytes": 32,
+ "data": [],
+ "data_ranges": [],
+ "data_bytes_proven": 0,
+ "data_complete": true,
+ "kept_elsewhere": [],
+ "failures": [],
+ "references_in": [
+  {
+   "site": "006c74c0",
+   "symbol": "?Process@FlasherClass@@QAE_NXZ",
+   "target": "004bbf00",
+   "function_entry": true
+  }
+ ],
+ "references_out": []
+}

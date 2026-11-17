@@ -1,0 +1,1126 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#include "always.h"
+
+#include "ipxmgr.h"
+
+#include "_surface.h"
+#include "dbgprint.h"
+#include "dialog.h"
+#include "globals.h"
+#include "house.h"
+#include "queue.h"
+#include "scheme.h"
+#include "session.h"
+#include "geometry.h"
+#include "stimer.h"
+#include "stringtable.h"
+#include "surface.h"
+#include "vector.h"
+#include "wspipx.h"
+#include "wsproto.h"
+
+// SYNTHETIC: GAMEMD 0x005406E0 SYMBOL
+// _$E40
+// SYNTHETIC: GAMEMD 0x00540710 SYMBOL
+// _$E43
+// SYNTHETIC: GAMEMD 0x00540730 SYMBOL
+// _$E46
+// SYNTHETIC: GAMEMD 0x00540750 SYMBOL
+// _$E49
+// SYNTHETIC: GAMEMD 0x00540770 SYMBOL
+// _$E52
+// SYNTHETIC: GAMEMD 0x00540790 SYMBOL
+// _$E55
+// SYNTHETIC: GAMEMD 0x005407B0 SYMBOL
+// _$E58
+// SYNTHETIC: GAMEMD 0x005407F0 SYMBOL
+// _$E61
+// SYNTHETIC: GAMEMD 0x00540820 SYMBOL
+// _$E64
+// SYNTHETIC: GAMEMD 0x00540850 SYMBOL
+// _$E67
+// SYNTHETIC: GAMEMD 0x00540880 SYMBOL
+// _$E70
+// SYNTHETIC: GAMEMD 0x00540890 SYMBOL
+// _$E73
+// SYNTHETIC: GAMEMD 0x005408B0 SYMBOL
+// _$E76
+// SYNTHETIC: GAMEMD 0x005408D0 SYMBOL
+// _$E13
+
+struct IPXAddressRaw { int a, b, c; };
+
+namespace OwnerDraw {
+char * __fastcall WideToCharString(char * dest, wchar_t const * src, int count);
+}
+void __cdecl FUN_004068E0(char const * format, ...);
+
+#include "ownertalk.h"
+
+extern int DAT_00841F3C;
+
+// FUNCTION: GAMEMD 0x005408F0
+IPXManagerClass::IPXManagerClass (int glb_maxlen, int pvt_maxlen,
+	int glb_num_packets, int pvt_num_packets, unsigned short socket,
+	unsigned short product_id)
+{
+	int i;
+
+	if ( PacketTransport ) {
+		delete  PacketTransport;
+		PacketTransport = NULL;
+	}
+	PacketTransport = new IPXInterfaceClass;
+
+	if ( PacketTransport->Init() ){
+		IPXStatus = 1;
+	}else{
+		IPXStatus = 0;
+	}
+	delete PacketTransport;
+	PacketTransport = NULL;
+
+	Listening = 0;
+
+	Glb_MaxPacketLen = glb_maxlen;
+	Glb_NumPackets = glb_num_packets;
+	Pvt_MaxPacketLen = pvt_maxlen;
+	Pvt_NumPackets = pvt_num_packets;
+	Lobby_MaxPacketLen = glb_maxlen;
+	Lobby_NumPackets = pvt_num_packets;
+
+	ProductID = product_id;
+
+	Socket = (unsigned short)( (((unsigned int)socket & 0x00ff) << 8) |
+		(((unsigned int)socket & 0xff00) >> 8));
+
+	ConnectionNum = 0;
+
+	NumConnections = 0;
+	CurConnection = 0;
+	for (i = 0; i < CONNECT_MAX; i++) {
+		Connection[i] = 0;
+	}
+	GlobalChannel = 0;
+	LobbyChannel = 0;
+	MulticastChannel = 0;
+
+	SendOverflows = 0;
+	ReceiveOverflows = 0;
+	BadConnection = CONNECTION_NONE;
+
+	RetryDelta = 2;
+	MaxRetries = -1;
+	Timeout = 60;
+}
+
+// FUNCTION: GAMEMD 0x005409F0
+IPXManagerClass::~IPXManagerClass(void)
+{
+	int i;
+
+	if (Listening) {
+		IPXConnClass::Stop_Listening();
+		Listening = 0;
+	}
+
+	if (GlobalChannel) {
+		delete GlobalChannel;
+		GlobalChannel = 0;
+	}
+	if (LobbyChannel) {
+		delete LobbyChannel;
+		LobbyChannel = 0;
+	}
+	if (MulticastChannel) {
+		delete MulticastChannel;
+		MulticastChannel = 0;
+	}
+	for (i = 0; i < NumConnections; i++) {
+		delete Connection[i];
+		Connection[i] = 0;
+	}
+	NumConnections = 0;
+}
+
+// FUNCTION: GAMEMD 0x00540A80
+int IPXManagerClass::Init(void)
+{
+	int i;
+
+	DebugString("**** IPXManagerClass::Init ***\n");
+	if (PacketTransport) {
+		PacketTransport->Discard_In_Buffers();
+		PacketTransport->Discard_Out_Buffers();
+	}
+
+	if (Session.Type != GAME_INTERNET) {
+		if (!IPXStatus) {
+			return(0);
+		}
+		if (Listening) {
+			IPXConnClass::Stop_Listening();
+			Listening = 0;
+		}
+	} else {
+		IPXStatus = 1;
+	}
+
+	if (GlobalChannel) {
+		delete GlobalChannel;
+		GlobalChannel = 0;
+	}
+	if (LobbyChannel) {
+		delete LobbyChannel;
+		LobbyChannel = 0;
+	}
+	if (MulticastChannel) {
+		delete MulticastChannel;
+		MulticastChannel = 0;
+	}
+	for (i = 0; i < NumConnections; i++) {
+		delete Connection[i];
+		Connection[i] = 0;
+	}
+	NumConnections = 0;
+
+	GlobalChannel = new IPXGlobalConnClass (Glb_NumPackets, Glb_NumPackets * 2,
+		Glb_MaxPacketLen, ProductID, 0x1236);
+	if (!GlobalChannel) {
+		return(0);
+	}
+	GlobalChannel->Init();
+	GlobalChannel->Set_Retry_Delta (RetryDelta);
+	GlobalChannel->Set_Max_Retries (MaxRetries);
+	GlobalChannel->Set_TimeOut (Timeout);
+
+	LobbyChannel = new IPXGlobalConnClass (Lobby_NumPackets, Lobby_NumPackets * 2,
+		Lobby_MaxPacketLen, ProductID, 0xCDEF);
+	if (!LobbyChannel) {
+		return(0);
+	}
+	LobbyChannel->Init();
+	LobbyChannel->Set_Retry_Delta (RetryDelta);
+	LobbyChannel->Set_Max_Retries (MaxRetries);
+	LobbyChannel->Set_TimeOut (Timeout);
+
+	IPXConnClass::Configure(Socket, ConnectionNum,
+		FirstHeaderBuf, SendHeader, FirstDataBuf, SendBuf, PacketLen);
+
+	if (PacketTransport == NULL) {
+		return(0);
+	}
+
+	if (Session.Type != GAME_INTERNET) {
+		if (!IPXConnClass::Start_Listening()) return(0);
+	}
+	Listening = 1;
+
+	return(1);
+}
+
+// FUNCTION: GAMEMD 0x00540C50
+int IPXManagerClass::Is_IPX(void)
+{
+	return(IPXStatus);
+}
+
+// FUNCTION: GAMEMD 0x00540C60
+void IPXManagerClass::Set_Timing (unsigned int retrydelta,
+	unsigned int maxretries, unsigned int timeout, bool set_external)
+{
+	int i;
+
+	RetryDelta = retrydelta;
+	MaxRetries = maxretries;
+	Timeout = timeout;
+
+	DebugString("IPX Manager: RetryDelta = %d\n", retrydelta);
+	DebugString("MaxAhead is %d\n", Session.MaxAhead);
+
+	if (set_external) {
+		Set_External_Timing(RetryDelta, MaxRetries, Timeout);
+	}
+
+	for (i = 0; i < NumConnections; i++) {
+		Connection[i]->Set_Retry_Delta (RetryDelta);
+		Connection[i]->Set_Max_Retries (MaxRetries);
+		Connection[i]->Set_TimeOut (Timeout);
+	}
+
+	if (MulticastChannel) {
+		MulticastChannel->Set_Retry_Delta (RetryDelta);
+		MulticastChannel->Set_Max_Retries (MaxRetries);
+		MulticastChannel->Set_TimeOut (Timeout);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00540D10
+void IPXManagerClass::Set_External_Timing (unsigned int retrydelta,
+	unsigned int maxretries, unsigned int timeout)
+{
+	if (GlobalChannel) {
+		GlobalChannel->Set_Retry_Delta (retrydelta);
+		GlobalChannel->Set_Max_Retries (maxretries);
+		GlobalChannel->Set_TimeOut (timeout);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00540D40
+void IPXManagerClass::Save_Timing(void)
+{
+	if (GlobalChannel) {
+		SavedRetryDelta = GlobalChannel->Retry_Delta();
+		SavedMaxRetries = GlobalChannel->Max_Retries();
+		SavedTimeout = GlobalChannel->Time_Out();
+	}
+}
+
+// FUNCTION: GAMEMD 0x00540D60
+void IPXManagerClass::Restore_Timing(void)
+{
+	if (GlobalChannel) {
+		GlobalChannel->Set_Retry_Delta (SavedRetryDelta);
+		GlobalChannel->Set_Max_Retries (SavedMaxRetries);
+		GlobalChannel->Set_TimeOut (SavedTimeout);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00540D80
+void IPXManagerClass::Set_Lobby_Timing(unsigned int retrydelta,
+	unsigned int maxretries, unsigned int timeout)
+{
+	if (LobbyChannel) {
+		LobbyChannel->Set_Retry_Delta (retrydelta);
+		LobbyChannel->Set_Max_Retries (maxretries);
+		LobbyChannel->Set_TimeOut (timeout);
+	}
+	if (MulticastChannel) {
+		MulticastChannel->Set_Retry_Delta (retrydelta);
+		MulticastChannel->Set_Max_Retries (maxretries);
+		MulticastChannel->Set_TimeOut (timeout);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00540DC0
+int IPXManagerClass::Create_Connection(int id, wchar_t *name,
+	IPXAddressClass *address)
+{
+	if (!IPXStatus) {
+		return(0);
+	}
+
+	if (NumConnections==CONNECT_MAX) {
+		return(0);
+	}
+
+	Connection[NumConnections] = new IPXConnClass(Pvt_NumPackets,
+		Pvt_NumPackets, Pvt_MaxPacketLen, ProductID, address, id, name, 0);
+	if (!Connection[NumConnections]) {
+		return(0);
+	}
+
+	Connection[NumConnections]->Init ();
+	Connection[NumConnections]->Set_Retry_Delta (RetryDelta);
+	Connection[NumConnections]->Set_Max_Retries (MaxRetries);
+	Connection[NumConnections]->Set_TimeOut (Timeout);
+
+	NumConnections++;
+
+	return(1);
+}
+
+// FUNCTION: GAMEMD 0x00540E70
+int IPXManagerClass::Create_Multicast_Connection(void)
+{
+	if (!IPXStatus) {
+		return(0);
+	}
+
+	MulticastChannel = new IPXConnClass(Pvt_NumPackets,
+		Pvt_NumPackets, Pvt_MaxPacketLen, ProductID,
+		&Session.Players[0]->Address, -1, FUN_00735120("Multicast"));
+	if (!MulticastChannel) {
+		return(0);
+	}
+
+	MulticastChannel->Init ();
+	MulticastChannel->Set_Retry_Delta (RetryDelta);
+	MulticastChannel->Set_Max_Retries (MaxRetries);
+	MulticastChannel->Set_TimeOut (Timeout);
+	return(1);
+}
+
+// FUNCTION: GAMEMD 0x00540F00
+int IPXManagerClass::Delete_Connection(int id)
+{
+	int i,j;
+
+	if (!IPXStatus) {
+		return(0);
+	}
+
+	if (NumConnections==0) {
+		return(0);
+	}
+
+	for (i = 0; i < NumConnections; i++) {
+		if (Connection[i]->ID==id) {
+			delete Connection[i];
+
+			for (j = i; j < NumConnections - 1; j++) {
+				Connection[j] = Connection[j+1];
+			}
+
+			NumConnections--;
+			if (CurConnection >= NumConnections)
+				CurConnection = 0;
+			return(1);
+		}
+	}
+
+	return(0);
+}
+
+// FUNCTION: GAMEMD 0x00540F90
+int IPXManagerClass::Num_Connections(void)
+{
+	return NumConnections;
+}
+
+// FUNCTION: GAMEMD 0x00540FA0
+int IPXManagerClass::Connection_ID(int index)
+{
+	if (index >= 0 && index < NumConnections) {
+		return Connection[index]->ID;
+	}
+	return CONNECTION_NONE;
+}
+
+// FUNCTION: GAMEMD 0x00540FC0
+wchar_t *IPXManagerClass::Connection_Name(int id)
+{
+	int i;
+
+	for (i = 0; i < NumConnections; i++) {
+		if (Connection[i]->ID == id) {
+			return Connection[i]->Name;
+		}
+	}
+	return NULL;
+}
+
+// FUNCTION: GAMEMD 0x00541000
+IPXAddressClass * IPXManagerClass::Connection_Address(int id)
+{
+	int i;
+
+	for (i = 0; i < NumConnections; i++) {
+		if (Connection[i]->ID == id) {
+			return &Connection[i]->Address;
+		}
+	}
+	return NULL;
+}
+
+// FUNCTION: GAMEMD 0x00541040
+int IPXManagerClass::Connection_Index(int id)
+{
+	int i;
+
+	for (i = 0; i < NumConnections; i++) {
+		if (Connection[i]->ID == id) {
+			return i;
+		}
+	}
+	return CONNECTION_NONE;
+}
+
+// FUNCTION: GAMEMD 0x00541070
+int IPXManagerClass::FUN_00541070(IPXConnClass * connection)
+{
+	int i;
+
+	for (i = 0; i < NumConnections; i++) {
+		if (Connection[i] == connection) {
+			return i;
+		}
+	}
+	if (connection == MulticastChannel) {
+		return -4;
+	}
+	if (connection == LobbyChannel) {
+		return -3;
+	}
+	if (connection == GlobalChannel) {
+		return -2;
+	}
+	return CONNECTION_NONE;
+}
+
+// FUNCTION: GAMEMD 0x005410C0
+void IPXManagerClass::Set_Connection_Parms(int index, int id, wchar_t *name)
+{
+	if (index >= NumConnections)
+		return;
+
+	Connection[index]->ID = id;
+	wcscpy(Connection[index]->Name, name);
+}
+
+// FUNCTION: GAMEMD 0x005410F0
+int IPXManagerClass::Send_Global_Message(void *buf, int buflen, int ack_req,
+	IPXAddressClass *address, unsigned short port, int packet_id)
+{
+	int rc;
+
+	if (!IPXStatus || !Listening) return 0;
+
+	if (ack_req != 0 && (address == NULL || address->Is_Broadcast())) {
+		ack_req = 0;
+	}
+
+	rc = GlobalChannel->Send_Packet(buf, buflen, address, ack_req, port, packet_id);
+	if (!rc) {
+		SendOverflows++;
+		FUN_004068E0("Send overflow %d\n", SendOverflows);
+	}
+	return rc;
+}
+
+// FUNCTION: GAMEMD 0x00541170
+int IPXManagerClass::Send_Global_Message_To_Player(void *buf, int buflen, int ack_req, int id)
+{
+	int i;
+	unsigned short port;
+	IPXAddressRaw address;
+	int count = Session.Players.Count();
+	NodeNameType **players = &Session.Players[0];
+
+	if (count && players[0]->Player.ID == id) return 0;
+	for (i = 1; i < count; i++) {
+		if (players[i]->Player.ID == id) {
+			address = *(IPXAddressRaw *)&players[i]->Address;
+			port = Session.PlayerPorts[i];
+
+			return Send_Global_Message(buf, buflen, ack_req, (IPXAddressClass *)&address, port, 0);
+		}
+	}
+	return 0;
+}
+
+// FUNCTION: GAMEMD 0x00541260
+int IPXManagerClass::Send_Global_Message_To_Name(void *buf, int buflen, int ack_req, wchar_t *name)
+{
+	int i;
+	unsigned short port;
+	IPXAddressRaw address;
+
+	if (Session.Players.Count() && wcsicmp(Session.Players[0]->Name, name) == 0) return 0;
+	for (i = 1; i < Session.Players.Count(); i++) {
+		if (wcsicmp(Session.Players[i]->Name, name) == 0) {
+			address = *(IPXAddressRaw *)&Session.Players[i]->Address;
+			port = Session.PlayerPorts[i];
+
+			return Send_Global_Message(buf, buflen, ack_req, (IPXAddressClass *)&address, port, 0);
+		}
+	}
+	return 0;
+}
+
+// FUNCTION: GAMEMD 0x00541370
+int IPXManagerClass::Get_Global_Message(void *buf, int *buflen,
+	IPXAddressClass *address, unsigned short *product_id)
+{
+	if (!IPXStatus || !Listening) return 0;
+
+	return GlobalChannel->Get_Packet(buf, buflen, address, product_id);
+}
+
+// FUNCTION: GAMEMD 0x005413B0
+int IPXManagerClass::Global_Channel_Op(int a1, int a2, int a3, int a4, int a5, int a6)
+{
+	if (!IPXStatus || !Listening) return 0;
+
+	return GlobalChannel->vt_entry_38(a1, a2, a3, a4, a5, a6);
+}
+
+// FUNCTION: GAMEMD 0x005413F0
+void IPXManagerClass::Global_Channel_Op_3C(int a1)
+{
+	if (!IPXStatus || !Listening) return;
+
+	GlobalChannel->vt_entry_3C(a1);
+}
+
+// FUNCTION: GAMEMD 0x00541410
+int IPXManagerClass::Send_Lobby_Message(void *buf, int buflen, bool ack_req)
+{
+	int rc;
+
+	if (!IPXStatus || !Listening || !LobbyChannel) return 0;
+
+	rc = LobbyChannel->Send_Packet(buf, buflen, &LobbyChannel->Address, ack_req, 0, 0);
+	if (!rc) {
+		SendOverflows++;
+		FUN_004068E0("Send overflow %d\n", SendOverflows);
+	}
+	return rc;
+}
+
+// FUNCTION: GAMEMD 0x00541480
+int IPXManagerClass::Get_Lobby_Message(void *buf, int *buflen,
+	IPXAddressClass *address, unsigned short *product_id)
+{
+	if (!IPXStatus || !Listening) return 0;
+
+	return LobbyChannel->Get_Packet(buf, buflen, address, product_id);
+}
+
+// FUNCTION: GAMEMD 0x005414C0
+int IPXManagerClass::Send_Private_Message(void *buf, int buflen, int ack_req,
+	int conn_id)
+{
+	int i;
+	int connect_idx;
+
+	if (!IPXStatus || !Listening || (NumConnections == 0)) {
+		return 0;
+	}
+
+	if (conn_id == CONNECTION_NONE) {
+		if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) {
+			if (MulticastChannel->Queue->Num_Send() >= MulticastChannel->Queue->Max_Send()) {
+				{ SendOverflows++; return 0; }
+			}
+			return MulticastChannel->Send_Packet(buf, buflen, ack_req, 0xff);
+		}
+
+		for (i = 0; i < NumConnections; i++) {
+			if (Connection[i]->Queue->Num_Send() == Connection[i]->Queue->Max_Send()) {
+				{ SendOverflows++; return 0; }
+			}
+		}
+
+		for (i = 0; i < NumConnections; i++) {
+			Connection[i]->Send_Packet(buf, buflen, ack_req, 0);
+		}
+		return 1;
+	}
+
+	connect_idx = Connection_Index(conn_id);
+	if (connect_idx == CONNECTION_NONE) {
+		{ SendOverflows++; return 0; }
+	}
+	if (Connection[connect_idx]->Queue->Num_Send() == Connection[connect_idx]->Queue->Max_Send()) {
+		{ SendOverflows++; return 0; }
+	}
+	Connection[connect_idx]->Send_Packet(buf, buflen, ack_req, 0);
+	return 1;
+}
+
+// FUNCTION: GAMEMD 0x005415F0
+int IPXManagerClass::Get_Private_Message(void *buf, int *buflen, int *conn_id)
+{
+	int i;
+	int rc;
+	int c_id;
+
+	if (!IPXStatus || !Listening || (NumConnections == 0)) {
+		return 0;
+	}
+
+	if (CurConnection >= NumConnections) {
+		CurConnection = 0;
+	}
+
+	for (i = 0; i < NumConnections; i++) {
+		rc = Connection[CurConnection]->Get_Packet(buf, buflen);
+		c_id = Connection[CurConnection]->ID;
+
+		CurConnection++;
+		if (CurConnection >= NumConnections) {
+			CurConnection = 0;
+		}
+
+		if (rc) {
+			(*conn_id) = c_id;
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+// FUNCTION: GAMEMD 0x00541680
+bool IPXManagerClass::FUN_00541680(CommHeaderType *packet, void *buf, int buflen,
+	char *from, unsigned short port)
+{
+	static unsigned long loopback[2] = {0, htonl(0x7F000001)};
+
+	if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter && OwnerTalk.RouterProcess) {
+		if (packet->FieldC == DAT_00841F3C) {
+			packet->FieldC = port;
+			memcpy(&packet->Field8, from + 4, 4);
+			FUN_004068E0("Forwarding packet from %s ; %d to forwarder\n", ((IPXAddressClass *)from)->As_String(0), port);
+			PacketTransport->WriteTo(buf, buflen, loopback, 12, false, true, DAT_00841F3C);
+			return true;
+		}
+		if (packet->FieldC) {
+			NetNodeType node;
+			Session.Players[0]->Address.Get_Node(node);
+			if (memcmp(node, &packet->Field8, 4) == 0 && Session.PlayerPorts[0] == packet->FieldC) {
+				FUN_004068E0("Packet is supposed to be forwarded to us - just adding it to our queue\n");
+				return false;
+			}
+			if (packet->Field8) {
+				unsigned short oldport = packet->FieldC;
+				IPXAddressClass address;
+				NetNodeType dest;
+				memcpy(dest, &packet->Field8, 4);
+				address.Set_Node(dest);
+				address.Set_Port(oldport);
+				packet->FieldC = 0;
+				memset(&packet->Field8, 0, 4);
+				FUN_004068E0("Forwarding packet from router to %s\n", address.As_String(0));
+				PacketTransport->WriteTo(buf, buflen, &address, 12, false, true, oldport);
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+// FUNCTION: GAMEMD 0x00542280
+void IPXManagerClass::Set_Connection_Address(int id, IPXAddressClass *address)
+{
+	int index = Connection_Index(id);
+
+	if (index != CONNECTION_NONE && index < NumConnections) {
+		Connection[index]->Address = *address;
+	}
+}
+
+// FUNCTION: GAMEMD 0x005422C0
+int IPXManagerClass::Get_Bad_Connection(void)
+{
+	return BadConnection;
+}
+
+// FUNCTION: GAMEMD 0x005422D0
+int IPXManagerClass::Global_Num_Send(void)
+{
+	if (!IPXStatus || !Listening) return 0;
+
+	return GlobalChannel->Queue->Num_Send();
+}
+
+// FUNCTION: GAMEMD 0x005422F0
+int IPXManagerClass::Global_Num_Receive(void)
+{
+	if (!IPXStatus || !Listening) return 0;
+
+	return GlobalChannel->Queue->Num_Receive();
+}
+
+// FUNCTION: GAMEMD 0x00542310
+int IPXManagerClass::Lobby_Num_Send(void)
+{
+	if (!IPXStatus || !Listening || !LobbyChannel) return 0;
+
+	return LobbyChannel->Queue->Num_Send();
+}
+
+// FUNCTION: GAMEMD 0x00542330
+int IPXManagerClass::Lobby_Num_Receive(void)
+{
+	if (!IPXStatus || !Listening || !LobbyChannel) return 0;
+
+	return LobbyChannel->Queue->Num_Receive();
+}
+
+// FUNCTION: GAMEMD 0x00542350
+int IPXManagerClass::Private_Num_Send(int id)
+{
+	int i;
+	int maxnum;
+
+	if (!IPXStatus || !Listening || (NumConnections==0)) {
+		return(0);
+	}
+
+	if (id != CONNECTION_NONE) {
+		i = Connection_Index(id);
+		if (i != CONNECTION_NONE) {
+			return(Connection[i]->Queue->Num_Send());
+		}
+		else {
+			return(0);
+		}
+	}
+	else {
+		maxnum = 0;
+		for (i = 0; i < NumConnections; i++) {
+			if (Connection[i]->Queue->Num_Send() > maxnum) {
+				maxnum = Connection[i]->Queue->Num_Send();
+			}
+		}
+		return(maxnum);
+	}
+}
+
+// FUNCTION: GAMEMD 0x005423C0
+int IPXManagerClass::Private_Num_Receive(int id)
+{
+	int i;
+	int maxnum;
+
+	if (!IPXStatus || !Listening || (NumConnections==0)) {
+		return(0);
+	}
+
+	if (id != CONNECTION_NONE) {
+		i = Connection_Index(id);
+		if (i != CONNECTION_NONE) {
+			return(Connection[i]->Queue->Num_Receive());
+		}
+		else {
+			return(0);
+		}
+	}
+	else {
+		maxnum = 0;
+		for (i = 0; i < NumConnections; i++) {
+			if (Connection[i]->Queue->Num_Receive() > maxnum) {
+				maxnum = Connection[i]->Queue->Num_Receive();
+			}
+		}
+		return(maxnum);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00542430
+void IPXManagerClass::Set_Socket(unsigned short socket)
+{
+	Socket = (unsigned short)( (((unsigned int)socket & 0x00ff) << 8) |
+		(((unsigned int)socket & 0xff00) >> 8));
+}
+
+// FUNCTION: GAMEMD 0x00542450
+unsigned int IPXManagerClass::Response_Time(void)
+{
+	unsigned int resp;
+	unsigned int maxresp = 0;
+	int i;
+
+	for (i = 0; i < NumConnections; i++) {
+		resp = Connection[i]->Queue->Avg_Response_Time();
+		if (resp > maxresp) {
+			maxresp = resp;
+		}
+	}
+
+	if (MulticastChannel) {
+		resp = MulticastChannel->Queue->Avg_Response_Time();
+		if (resp > maxresp) {
+			maxresp = resp;
+		}
+	}
+
+	return(maxresp);
+}
+
+// FUNCTION: GAMEMD 0x005424A0
+unsigned int IPXManagerClass::Avg_Response_Time(int index)
+{
+	return(Connection[index]->Queue->Avg_Response_Time());
+}
+
+// FUNCTION: GAMEMD 0x005424C0
+unsigned int IPXManagerClass::Global_Response_Time(void)
+{
+	if (GlobalChannel) {
+		return(GlobalChannel->Queue->Avg_Response_Time());
+	}
+	else {
+		return(0);
+	}
+}
+
+// FUNCTION: GAMEMD 0x005424E0
+unsigned int IPXManagerClass::Lobby_Response_Time(void)
+{
+	if (LobbyChannel) {
+		return(LobbyChannel->Queue->Avg_Response_Time());
+	}
+	else {
+		return(0);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00542500
+unsigned int IPXManagerClass::Multicast_Response_Time(void)
+{
+	if (MulticastChannel) {
+		return(MulticastChannel->Queue->Avg_Response_Time());
+	}
+	else {
+		return(0);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00542520
+void IPXManagerClass::Store_Stats(void)
+{
+	for (int i = 0; i < NumConnections; i++) {
+		HouseClass * house = Houses[Connection[i]->ID];
+
+		if (house != NULL && house != PlayerPtr) {
+			MPStatsType & stats = Session.ConnectionStats[i];
+			if (stats.Name[0] == '\0') {
+				OwnerDraw::WideToCharString(stats.Name, Connection[i]->Name, -1);
+				stats.Address = Connection[i]->Address;
+			}
+
+			int maxtime = Connection[i]->Queue->Max_Response_Time();
+			stats.MaxRoundTrip = MAX(Session.ConnectionStats[i].MaxRoundTrip, 1000 * maxtime / TIMER_SECOND);
+
+			unsigned int avgtime = Connection[i]->Queue->Avg_Response_Time();
+			stats.MaxAvgRoundTrip = MAX(int(1000 * avgtime / TIMER_SECOND), Session.ConnectionStats[i].MaxAvgRoundTrip);
+
+			stats.Resends = Connection[i]->Num_Resends();
+			stats.Lost = Connection[i]->Num_Lost();
+			stats.PercentLost = Connection[i]->Percent_Lost();
+		}
+	}
+}
+
+#include "dsurface.h"
+
+extern unsigned int DAT_00AC5210[];
+
+static inline Point2D * Scratch(Point2D const & p) { return (Point2D *)&p; }
+
+// FUNCTION: GAMEMD 0x00542620
+void IPXManagerClass::Multiplayer_Debug_Print(void)
+{
+	wchar_t buffer[256];
+	Surface * surface = DSurface::Composite;
+
+	swprintf(buffer, L"Rtry delta: %d", 1000 * RetryDelta / TIMER_SECOND);
+	Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(0, 402), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19));
+
+	swprintf(buffer, L"Rtry timeout: %d", 1000 * Timeout / TIMER_SECOND);
+	Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(0, 412), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19));
+
+	swprintf(buffer, L"Lat Fudge : %d", Session.LatencyFudge);
+	Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(0, 422), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19));
+
+	if (SentFrameSyncTimer / TIMER_SECOND) {
+		swprintf(buffer, L"FSPS : %d", SentFrameSyncCount / (SentFrameSyncTimer / TIMER_SECOND));
+		Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(0, 432), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19));
+		if ((Frame & 0x7F) == 0x7F) {
+			SentFrameSyncTimer = 0;
+			SentFrameSyncCount = 0;
+		}
+	}
+
+	if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) {
+		swprintf(buffer, L"MC resp: %d", 1000 * Ipx.Multicast_Response_Time() / TIMER_SECOND);
+		Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(0, 442), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19));
+	}
+
+	for (int i = 0; i < NumConnections; i++) {
+		HouseClass * house = Houses[Connection[i]->ID];
+		if (house != NULL && house != PlayerPtr) {
+			int scheme = house->Scheme;
+			int x = (i + 1) * 100;
+			wchar_t name[200];
+
+			swprintf(name, L"%s", Connection[i]->Name);
+			Fancy_Text_Print_Wide(Scratch(Point2D()), name, surface, &surface->Get_Rect(), &Point2D(x, 302), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			int avg = Connection[i]->Queue->Avg_Response_Time();
+			swprintf(buffer, L"Average  : %d", 1000 * avg / TIMER_SECOND);
+			Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 311), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			int max = Connection[i]->Queue->Max_Response_Time();
+			swprintf(buffer, L"Max      : %d", 1000 * max / TIMER_SECOND);
+			Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 319), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			int resends = Connection[i]->Num_Resends();
+			swprintf(buffer, L"Resends  : %d", resends);
+			Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 327), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			int numlost = MAX(0, Connection[i]->Num_Lost());
+			swprintf(buffer, L"Num lost : %d", numlost);
+			Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 335), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			int pcnt_lost = Connection[i]->Percent_Lost();
+			swprintf(buffer, L"Pcnt lost: %d", pcnt_lost);
+			Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 343), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			int process_time = 0;
+			for (int j = 0; j < Session.Players.Count(); ++j) {
+				if (Connection[i]->ID == Session.Players[j]->Player.ID) {
+					process_time = Session.Players[j]->Player.ProcessTime;
+					break;
+				}
+			}
+			swprintf(buffer, L"Process : %d", process_time);
+			Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 351), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			swprintf(buffer, L"Frame   : %d", -Session.PlayerLatency[i]);
+			Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 359), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			swprintf(buffer, L"Queue s/r: %d/%d", Connection[i]->Queue->Num_Send(), Connection[i]->Queue->Num_Receive());
+			Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 367), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			swprintf(buffer, L"Missed o/m: %d/%d", Connection[i]->Missed_Overall(), Connection[i]->Missed_Magic());
+			Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 375), ColorSchemes[scheme], 0, TextPrintType(0x19));
+
+			if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) {
+				swprintf(buffer, L"Rout resp: %d", 1000 * DAT_00AC5210[i] / TIMER_SECOND);
+				Fancy_Text_Print_Wide(Scratch(Point2D()), buffer, surface, &surface->Get_Rect(), &Point2D(x, 383), ColorSchemes[scheme], 0, TextPrintType(0x19));
+			}
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x00542EC0
+void IPXManagerClass::Reset_Response_Time(bool zero)
+{
+	int i;
+
+	for (i = 0; i < NumConnections; i++) {
+		Connection[i]->Queue->Reset_Response_Time(zero);
+	}
+
+	if (GlobalChannel) {
+		GlobalChannel->Queue->Reset_Response_Time(true);
+	}
+	if (LobbyChannel) {
+		LobbyChannel->Queue->Reset_Response_Time(true);
+	}
+	if (MulticastChannel) {
+		MulticastChannel->Queue->Reset_Response_Time(true);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00542F30
+void * IPXManagerClass::Oldest_Send(void)
+{
+	int i,j;
+	unsigned int time;
+	unsigned int mintime = 0xffffffff;
+	SendQueueType *send_entry;
+	CommHeaderType *packet;
+	void *buf = NULL;
+
+	for (i = 0; i < NumConnections; i++) {
+
+		send_entry = NULL;
+
+		for (j = 0; j < Connection[i]->Queue->Num_Send(); j++) {
+			send_entry = Connection[i]->Queue->Get_Send(j);
+			if (send_entry) {
+				packet = (CommHeaderType *)send_entry->Buffer;
+				if (packet->Code == ConnectionClass::PACKET_DATA_ACK &&
+					send_entry->IsACK == 0) {
+					break;
+				}
+				else {
+					send_entry = NULL;
+				}
+			}
+		}
+
+		if (send_entry!=NULL) {
+
+			time = send_entry->FirstTime;
+
+			if (time < mintime) {
+				mintime = time;
+				buf = send_entry->Buffer;
+			}
+		}
+	}
+
+	return(buf);
+}
+
+// FUNCTION: GAMEMD 0x00542FC0
+void IPXManagerClass::Set_Bridge(NetNumType bridge)
+{
+	if (GlobalChannel) {
+		GlobalChannel->Set_Bridge(bridge);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00542FE0
+void IPXManagerClass::Configure_Debug(int index, int type_offset, int type_size,
+	char **names, int namestart, int namecount)
+{
+	if (index == CONNECTION_NONE) {
+		GlobalChannel->Queue->Configure_Debug(type_offset, type_size, names,
+			namestart, namecount);
+	} else if (Connection[index]) {
+		Connection[index]->Queue->Configure_Debug(type_offset, type_size, names,
+			namestart, namecount);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00543040
+void IPXManagerClass::Mono_Debug_Print(int, int)
+{
+}
+
+// FUNCTION: GAMEMD 0x00543050
+void IPXManagerClass::FUN_00543050(IPXAddressClass *address)
+{
+	if (LobbyChannel) {
+		*(IPXAddressRaw *)((char *)LobbyChannel + 0x4c) = *(IPXAddressRaw *)address;
+	}
+}
+
+// FUNCTION: GAMEMD 0x00543080
+void IPXManagerClass::Global_Channel_Clear_FieldC8(void)
+{
+	if (GlobalChannel) {
+		GlobalChannel->FieldC8 = false;
+	}
+}
+
+// FUNCTION: GAMEMD 0x00543090
+void IPXManagerClass::Global_Channel_Set_FieldC8(void)
+{
+	if (GlobalChannel) {
+		GlobalChannel->FieldC8 = true;
+	}
+}
+
+// FUNCTION: GAMEMD 0x005430A0
+void IPXManagerClass::Global_Channel_Op_40(IPXAddressClass *address, unsigned short port)
+{
+	if (GlobalChannel) {
+		GlobalChannel->vt_entry_40(address, port);
+	}
+}
+
+// FUNCTION: GAMEMD 0x005430C0
+void IPXManagerClass::Global_Channel_Op_44(unsigned a1)
+{
+	if (GlobalChannel) {
+		GlobalChannel->vt_entry_44(a1);
+	}
+}
+
+// SYNTHETIC: GAMEMD 0x005430E0
+// ??_GIPXManagerClass@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x00543100
+// ??_GConnManClass@@UAEPAXI@Z

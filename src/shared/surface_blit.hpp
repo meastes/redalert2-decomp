@@ -1,0 +1,9 @@
+// Shared surface blitter declaration extracted unchanged from wwmouse.hpp.
+// Keeps the voxel unit independent of shape_file.hpp header statics.
+#ifndef RA2_SHARED_SURFACE_BLIT_HPP
+#define RA2_SHARED_SURFACE_BLIT_HPP
+#include "shared/surface.hpp"
+void __fastcall Blit_Block(Surface &dest, void *convert, Surface &source, Rect const &sourcerect,
+                                    RectPoint2D const &destpoint, Rect const &destclip, unsigned char const *unknown1, class Blitter const *unknown2,
+                                    int unknown3, int unknown4, int unknown5, int unknown6);
+#endif

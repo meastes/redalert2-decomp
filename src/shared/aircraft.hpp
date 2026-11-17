@@ -1,0 +1,228 @@
+// AircraftClass: an aircraft (Aircraft.cpp, 0x00413800-0x0041BA9F; RTTI
+// vtables 0x0079B12C primary (310 slots, FootClass's count), 0x0079B110
+// IRTTITypeInfo at +4, 0x0079B108 INoticeSink, 0x0079B100 INoticeSource,
+// 0x0079B0D8 IFlyControl at +0x5A8).
+//
+// Layout (constructor 0x00413A40, Load 0x0041AB80, Compute_CRC 0x0041AD60,
+// Detach 0x0041ADB0; Size_Of returns 0x5C0). Names are hypotheses:
+//   +0x000  FootClass (0x5A8)
+//   +0x5A8  IFlyControl vtable pointer
+//   +0x5AC  AircraftTypeClass *Type    the constructor's first argument (swizzled)
+//   +0x5B0..+0x5B2  bools (false)
+//   +0x5B4  AbstractClass *            swizzled, cleared by Detach
+//   +0x5B8..+0x5BA  bools (false; +0x5BA is IFlyControl::Is_Locked)
+//   +0x5BB  signed char (5)
+//   +0x5BC, +0x5BD  bools (true)
+//
+// The IFlyControl methods are AircraftClass members whose `this` is the
+// IFlyControl part (fields at -0x5A8); the adjustor thunks 0x0041BA40-
+// 0x0041BA9F belong to the vtables.
+#ifndef RA2_SHARED_AIRCRAFT_HPP
+#define RA2_SHARED_AIRCRAFT_HPP
+
+#include "shared/unknown_globals.hpp"
+#include "shared/foot.hpp"
+#include "shared/aircraft_type.hpp"
+#include "shared/techno_index.hpp"
+#include "shared/weapon_type.hpp"
+
+// The building fields AircraftClass::Landing_Altitude reads (stand-ins for
+// shared/building.hpp and shared/building_type.hpp, skipped when those are
+// included): the type at +0x418 and two of its flags.
+#ifndef RA2_SHARED_BUILDING_TYPE_HPP
+class BuildingTypeClass : public TechnoTypeClass {
+public:
+    int Flush_For_Placement(Cell const &origin, HouseClass *house) const;   // 0x00458B10 (as shared/building_type_class.hpp; TeamClass 0x006BB8B0)
+
+    int ArrayIndex;                     // +0xB90 index in BuildingTypes (TechnoClass slot 55)
+    char unknown_b94[0x1215 - 0xB94];
+    bool Wall;                          // +0x1215 (TechnoClass 0x006C22A0)
+    bool Capturable;                    // +0x1216 (TechnoClass slot 28)
+    char unknown_1217[0x1218 - 0x1217];
+    bool Overpowerable;                 // +0x1218 (TechnoClass slot 174)
+    bool Spyable;                       // +0x1219 (TechnoClass slot 28)
+    bool CanC4;                         // +0x121A (TechnoClass slot 28)
+    char unknown_121b[0x1349 - 0x121B];
+    bool IsCanUnitRepair;                  // +0x1349 (UnitRepair)
+    bool IsCanUnitReload;                  // +0x134A (UnitReload; AircraftClass slot 129)
+    char unknown_134b[0x1357 - 0x134B];
+    bool IsWeaponsFactory;                  // +0x1357 (WeaponsFactory; AircraftClass slot 28)
+    char unknown_1358[0x1364 - 0x1358];
+    bool Artillary;                     // +0x1364 (TechnoClass 0x006D3B60)
+    bool IsHelipad;                  // +0x1365 (Helipad)
+};
+#endif
+class BuildingClass;
+#ifndef RA2_SHARED_CELL_HPP
+// A map cell, as far as AircraftClass slot 101 reads it (stand-in for
+// shared/cell.hpp): the object standing in it and a passability test.
+class CellClass : public AbstractClass {
+public:
+    // Approved private scope 0c6c96fe: canonical declarations; no partial-layout bodies.
+    virtual HRESULT __stdcall GetClassID(GUID *clsid);
+    virtual HRESULT __stdcall Load(IStream *stream);
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);
+    virtual int Kind_Of() const;
+    virtual int Size_Of() const;
+    ObjectClass *Cell_Techno(Point2D const &spot, bool alt, ObjectClass *except) const;
+    bool Unknown_00478760(int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7);   // 0x00478760
+    BuildingClass *Unknown_004717B0();  // 0x004717B0 (the building in the cell; hypothesis)
+    CellClass &Adjacent_Cell(unsigned facing);  // 0x00476AC0 (as shared/cell.hpp; SpawnManagerClass::AI)
+    void Incoming(void const *arg1, bool arg2, bool arg3, bool alt);  // 0x00476920 (as shared/cell.hpp; AircraftClass slot 126)
+    char unknown_024[0xE4 - 0x24];
+    TechnoClass *Occupier;              // +0xE4 (hypothesis)
+};
+#endif
+
+// BuildingClass: the stand-in in shared/techno.hpp.
+
+// Flight control the locomotors query (IID 0x007A2080; method names follow
+// the IFlyControl interface of RA2's locomotion COM objects; hypotheses).
+struct __declspec(novtable) IFlyControl : public IUnknown {
+    virtual int __stdcall Landing_Altitude() = 0;          // slot 3
+    virtual int __stdcall Landing_Direction() = 0;         // slot 4
+    virtual long __stdcall Is_Loaded() = 0;                // slot 5
+    virtual long __stdcall Is_Strafe() = 0;                // slot 6
+    virtual long __stdcall Is_Fighter() = 0;               // slot 7
+    virtual long __stdcall Is_Locked() = 0;                // slot 8
+};
+extern "C" GUID const IID_IFlyControl;     // 0x007A2080
+
+extern "C" GUID const CLSID_AircraftClass; // 0x007A1BD0
+
+class AircraftClass : public FootClass, public IFlyControl {
+public:
+    unsigned int Pose_Dir() const;
+    AircraftClass(AircraftTypeClass *type, HouseClass *house);        // 0x00413A40
+    AircraftClass(NoInitClass const &noinit) : FootClass(noinit) {}   // inline (Load)
+    virtual ~AircraftClass();                                         // 0x00413DA0
+
+    // IUnknown (both bases)
+    virtual HRESULT __stdcall QueryInterface(GUID const &iid, void **object);   // slot 0 0x00413FA0
+    virtual unsigned long __stdcall AddRef();                         // slot 1 0x00414000
+    virtual unsigned long __stdcall Release();                        // slot 2 0x00414010
+
+    virtual HRESULT __stdcall GetClassID(GUID *clsid)                 // slot 3 0x0041B590 (inline)
+    {
+        if (clsid == 0) {
+            return E_POINTER;
+        }
+        *clsid = CLSID_AircraftClass;
+        return S_OK;
+    }
+    virtual HRESULT __stdcall Load(IStream *stream);                  // slot 5 0x0041AB80
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);    // slot 6 0x0041AD10
+    virtual void Init();                                              // slot 9 0x00413CA0
+    virtual void Detach(AbstractClass *target, bool all = true);      // slot 10 0x0041ADB0
+    virtual int Kind_Of() const { return 2; }                         // slot 11 0x0041B580 (inline)
+    virtual int Size_Of() const { return sizeof(AircraftClass); }     // slot 12 0x0041B570 (inline)
+    virtual void Compute_CRC(WWCRCEngine &crc) const;                 // slot 13 0x0041AD60
+    virtual bool On_Ground() const;                              // slot 20 0x0041B0B0
+    virtual bool In_Air() const;                              // slot 21 0x0041B050
+    virtual void AI();                                                // slot 23 0x004147F0
+    virtual int What_Action(Cell const *cell, bool arg2, bool arg3);         // slot 27 0x00417840
+    virtual int unknown_slot28(ObjectClass *object, bool arg2);                 // slot 28 0x004175A0
+    virtual int In_Which_Layer() const;                               // slot 29 0x0041A500
+    virtual bool Considered_Vehicle();                                    // slot 31 0x0041B040
+    virtual ObjectTypeClass *Class_Of() const;                        // slot 33 0x0041B600
+    virtual wchar_t const *unknown_slot35();                          // slot 35 0x0041B5D0 (the type's UIName)
+    virtual bool Unlimbo(CoordStruct const *coord, int dir);                   // slot 53 0x00414020
+    virtual int Exit_Object(TechnoClass *techno);                           // slot 62 0x004153C0
+    virtual void Draw_It(Point2D const &point, Rect const &window);                  // slot 67 0x004141C0
+    virtual void Look(bool arg1, bool arg2);                  // slot 70 0x0041A530
+    virtual bool unknown_slot77(int arg1, Cell const *arg2, Cell const *arg3, bool arg4);  // slot 77 0x00417560
+    virtual bool unknown_slot78(int arg1, ObjectClass *arg2, bool arg3);        // slot 78 0x004174B0
+    virtual int Take_Damage(int *damage, int distance, WarheadTypeClass *warhead, TechnoClass *source, bool forced, int arg6);  // slot 86 0x00415E70
+    virtual void Scatter(CoordStruct const &source, bool forced, bool nokidding);        // slot 87 0x00419CD0
+    virtual int Receive_Message(RadioClass *radio, int message, AbstractClass *&param);         // slot 95 0x00418840
+    virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5);   // slot 101 0x00418E00
+    virtual void QueueMission(int mission, bool commence);         // slot 116 0x0041B160
+    virtual bool Commence();                                   // slot 117 0x0041AFC0
+    virtual void Set_Mission(int mission);                        // slot 118 0x0041B120
+    virtual void Override_Mission(int mission, AbstractClass *target, AbstractClass *destination);   // slot 119 0x0041B1A0
+    virtual bool Ready_To_Commence();                                   // slot 122 0x0041AD30
+    virtual int Do_MISSION_ATTACK();                                    // slot 126 0x004178A0
+    virtual int Do_MISSION_GUARD();                                    // slot 129 0x00419D00
+    virtual int Do_MISSION_GUARD_AREA();                                    // slot 130 0x0041A080
+    virtual int Do_MISSION_HUNT();                                    // slot 132 0x004146C0
+    virtual int Do_MISSION_MOVE();                                    // slot 133 0x00415FF0
+    virtual int Do_MISSION_RETREAT();                                    // slot 134 0x00415300
+    virtual int Do_MISSION_UNLOAD();                                    // slot 137 0x00414D90
+    virtual int Do_MISSION_ENTER();                                    // slot 138 0x004193D0
+    virtual int Do_MISSION_PATROL();                                    // slot 145 0x00416C20
+    virtual int Do_MISSION_PARADROP_APPROACH();                                    // slot 146 0x00415190
+    virtual int Do_MISSION_PARADROP_OVERFLY();                                    // slot 147 0x00415210
+    virtual UnknownFacingDir Turret_Facing();                               // slot 162 0x0041B5E0
+    virtual int Desired_Load_Dir(AbstractClass *object, Cell *cell);          // slot 182 0x00418CF0
+    virtual UnknownFacingDir Fire_Direction();                               // slot 183 0x00419CB0
+    virtual bool Player_Assign_Mission(int arg1, AbstractClass *arg2, AbstractClass *arg3, AbstractClass *arg4);  // slot 200 0x00417580
+    virtual void Reduce_Ammunition();                                   // slot 207 0x0041B030 (nothing)
+    virtual int unknown_slot218(AbstractClass *target, int weapon, bool check_range);        // slot 218 0x0041A120
+    virtual BulletClass *Fire_At(AbstractClass *target, int arg2);                  // slot 221 0x00415790
+    virtual bool IsNotWarpingIn();                                   // slot 242 0x0041B110
+    virtual void Assign_Destination(AbstractClass *target, bool immediate);                 // slot 260 0x0041A1C0
+    virtual bool unknown_slot261(bool arg1, bool arg2);                 // slot 261 0x00417010
+    virtual bool unknown_slot282();                                   // slot 282 0x0041AFD0
+    virtual TechnoClass *unknown_slot299(DynamicVectorClass<TechnoTypeClass *> const *types, int arg2, int arg3);    // slot 299 0x0041B1E0
+
+    static void __fastcall Read_INI_0041A840(CCINIClass &ini); // Aircraft section reader; source identity hypothesis
+    static void __fastcall Write_INI_0041A6C0(CCINIClass &ini); // Aircraft section writer; source identity hypothesis
+
+    int Do_MISSION_MOVE_Normal(); // private own normal-unload helper00416010; ECX/RET0/int ABI hypothesis
+    int Do_MISSION_MOVE_Carryall(); // private own carryall-move helper00416670; ECX/RET0/int ABI hypothesis
+    bool Cell_Seems_Ok(Cell const &cell, bool allow_self); // AL0/1, RET8; identity hypothesis
+    AbstractClass *New_LZ(AbstractClass *desired); // approved private source identity hypothesis
+    AbstractClass *Good_Fire_Location(AbstractClass *desired);                  // 0x00418F10
+    void Drop_Off_Cargo(); // evidenced own ECX receiver/RET0 cargo operation; declaration only
+    int Paradrop_Cargo();                                            // 0x00415510 (slot 147, over the target)
+
+    // IFlyControl
+    virtual int __stdcall Landing_Altitude();                         // 0x0041ADF0
+    virtual int __stdcall Landing_Direction();                        // 0x0041AEB0
+    virtual long __stdcall Is_Loaded();                               // 0x0041AF20
+    virtual long __stdcall Is_Strafe();                               // 0x0041AF40
+    virtual long __stdcall Is_Fighter();                              // 0x0041AF90
+    virtual long __stdcall Is_Locked();                               // 0x0041AFB0
+
+    AircraftTypeClass *Type;                // +0x5AC
+    bool IsToSpendAmmo;                       // +0x5B0
+    bool Passenger;                       // +0x5B1
+    bool IsKamikaze;                       // +0x5B2
+    TechnoClass *DockNowHeadingTo;               // +0x5B4 (swizzled; a radio contact, hypothesis)
+    bool unknown_5b8;                       // +0x5B8
+    bool unknown_5b9;                       // +0x5B9
+    bool IsLockedStraight;                       // +0x5BA (Is_Locked)
+    signed char NumParadropsLeft;                // +0x5BB (5)
+    bool IsCarryallNotLanding;                       // +0x5BC (true)
+    bool IsReturningFromAttackRun;                       // +0x5BD (true)
+    AbstractClass *Good_LZ();                                  // 0x004198B0 (where to land; AircraftClass slot 95)
+};
+
+// The cell offsets of the eight facings (0x00851A70; Westwood's
+// AdjacentCell) and the order slot 62 tries them in (0x007CE4A8).
+extern int const unknown_facings_7ce4a8[8];
+extern int const unknown_facings_7ce4c8[8];  // 0x007CE4C8 (slot 182)
+
+// The cell next to `cell` toward an 8-way facing.
+#ifndef RA2_ADJACENT_CELL
+#define RA2_ADJACENT_CELL
+#include "shared/adjacent_cell.hpp"
+
+inline Cell Adjacent_Cell(Cell const &cell, int facing)
+{
+    Cell const &offset = AdjacentCell[facing & 7];
+    return Cell(cell.X + offset.X, cell.Y + offset.Y);
+}
+#endif
+
+// The cell under the coordinate a target offers a techno (AbstractClass slot 19): the landing
+// cell the move and patrol missions (0x00416010, 0x00416C20) check.
+inline Cell Destination_Cell(AbstractClass *target, TechnoClass *techno)
+{
+    return Coord_Cell(target->Destination_Coord(techno));
+}
+
+// Every aircraft (0x00A40398).
+extern DynamicVectorClass<AircraftClass *> Aircraft;
+
+#endif

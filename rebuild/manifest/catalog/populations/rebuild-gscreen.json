@@ -1,0 +1,2172 @@
+{
+  "id": "rebuild-gscreen",
+  "population": {
+    "id": "rebuild-gscreen",
+    "inventory_sha256": "31a287778a1711b1b922bec2102bbd08ce3fbd92555c3559bf3ae73ff2ac2a65",
+    "gaps_sha256": "640459b5d6fcc79d78771a65e5936f588e188f7a050a7d5302b5267b602843db",
+    "historical_population_sha256": "eb59e939e2d59516607f7146fc10312ca1ce0d2e3ead9fe601eb991acbf49449",
+    "historical_acceptance_sha256": "6468eced330e32c941b865c15eaf7bb74e2480113b1d83d02d10cfe9e2c1dd07"
+  },
+  "references": {
+    "_RECT_NONE": 10751616,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10751640,
+    "_ISO_TILE_SIZE": 8006680,
+    "_LEPTONS_PER_PIXEL": 10751712,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10751696,
+    "_ONE_RAD": 8006688,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10751688,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10751648,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10751608,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10751720,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10751656,
+    "_CELL_DIAG_SLOPE_ANGLE": 10751680,
+    "_BRIDGE_LEPTON_HEIGHT": 10751704,
+    "_CELL_NONE": 10751632,
+    "_COORD_NONE": 10751664,
+    "??_7GScreenClass@@6B@": 8006716,
+    "_IID_IUnknown": 8060128,
+    "_IID_IGameMap": 8006696,
+    "?Buttons@GScreenClass@@2PAVGadgetClass@@A": 10751724,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Increment_Redraw_Counter@MapClass@@QAEXXZ": 5614784,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?Keyboard@@3PAUKeyboardClass@@A": 8594536,
+    "?Check@WWKeyboardClass@@QBEGXZ": 5448400,
+    "?Get@WWKeyboardClass@@QAEGXZ": 5448480,
+    "?CompositeSurface@@3PAVSurface@@A": 8624484,
+    "?Render@Tactical@@QAEXAAVSurface@@_NH@Z": 6964640,
+    "?IsToEraseSidebarMouse@SidebarClass@@2_NA": 11259269,
+    "?Debug_Map@@3_NA": 10751251,
+    "?SidebarSurface@@3PAVSurface@@A": 8624456,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?Draw@MessageListClass@@QAEXXZ": 5987120,
+    "?ToolTips@@3PAVCCToolTip@@A": 8624560,
+    "?Draw_Multiplayer_Debug@@YIX_N@Z": 5511648,
+    "?UseDirect3D@@3_NA": 8728535,
+    "?Direct3DDevice@@3PAUIDirect3DDevice2@@A": 8728544,
+    "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z": 5115024,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "__imp__GetClientRect@8": 7972024,
+    "__imp__ClientToScreen@8": 7972012,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "?VisibleRect@@3V?$TRect@H@@A": 8623680,
+    "?TacticalActive@@3_NA": 10748800,
+    "?IsToolTipShowing@ToolTipManager@@QAE_NXZ": 7257824,
+    "?TabBarRect@@3PAV?$TRect@H@@A": 11276796,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "?_dialog_count@@3HA": 10751284,
+    "__imp__Sleep@4": 7971300,
+    "?Frame@@3HA": 10751276,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 5113568,
+    "_$E5": 5113600,
+    "_$E8": 5113648,
+    "_$E11": 5113680,
+    "_$E14": 5113712,
+    "_$E17": 5113744,
+    "_$E20": 5113776,
+    "_$E23": 5113808,
+    "_$E26": 5113872,
+    "_$E29": 5113920,
+    "_$E32": 5113968,
+    "_$E35": 5114016,
+    "_$E38": 5114032,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??0GScreenClass@@QAE@XZ": 5114064,
+    "??_GGScreenClass@@UAEPAXI@Z": 5116176,
+    "__purecall": 4950368,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIGameMap@@@8": 8181328,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVGScreenClass@@@8": 8181352,
+    "?AddRef@GScreenClass@@UAGKXZ": 4247808,
+    "?Release@GScreenClass@@UAGKXZ": 4247824,
+    "?Draw_It@GScreenClass@@UAEX_N@Z": 4844800,
+    "?QueryInterface@GScreenClass@@UAGJABU_GUID@@PAPAX@Z": 5114096,
+    "?One_Time@GScreenClass@@UAEXXZ": 5114192,
+    "?Init@GScreenClass@@UAEXW4TheaterType@@@Z": 5114208,
+    "?Init_Clear@GScreenClass@@UAEXXZ": 5114240,
+    "?Init_IO@GScreenClass@@UAEXXZ": 5114256,
+    "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z": 5114272,
+    "?Input@GScreenClass@@UAEXAAW4KeyNumType@@AAH1@Z": 5114320,
+    "?SetButtons@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114528,
+    "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114560,
+    "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114624,
+    "?Render@GScreenClass@@UAEXXZ": 5114672,
+    "?Blit_Display@GScreenClass@@UAEXXZ": 5114960,
+    "?AI@GScreenClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 5116096,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024
+  },
+  "regions": [
+    {
+      "entry": 5113568,
+      "method": "004e06e0",
+      "body_bytes": 23,
+      "body_sha256": "f2836c008e1ee8c3b07c825e0a97fbb6a7cc5590bca15a0c39126bb03edf695d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cc81c9405b1d450e3117d7c1c35dd6a0c42c96fea5e8630d004973fee20c484b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751616,
+          "addend": 0,
+          "resolved": 10751616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751616,
+          "addend": 4,
+          "resolved": 10751620
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751616,
+          "addend": 8,
+          "resolved": 10751624
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751616,
+          "addend": 12,
+          "resolved": 10751628
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113600,
+      "method": "004e0700",
+      "body_bytes": 40,
+      "body_sha256": "df475509a14524b7045e755c3d94805bf0db96adc4082e0cffb09e6ee5038120",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ee93f575a5448436704743646833901bbb9c87adcba96f9e192a26e5e6d0086e",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2759327
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294810866
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10751640,
+          "addend": 0,
+          "resolved": 10751640
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113648,
+      "method": "004e0730",
+      "body_bytes": 19,
+      "body_sha256": "72ef14553f0f1e912decb579cb4d068b72a728c0b742b1440c82f88577dc5778",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "90ed7bcca8a41d76e985053942930733956bb6f9a20fc83eae70044a49cae1bf",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10751640,
+          "addend": 0,
+          "resolved": 10751640
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8006680,
+          "addend": 0,
+          "resolved": 8006680
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10751712,
+          "addend": 0,
+          "resolved": 10751712
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113680,
+      "method": "004e0750",
+      "body_bytes": 19,
+      "body_sha256": "b22fb1a158d4f988e9ac10faa9abb175264f6c807069cd7474ccc12d49bd5f40",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "42da77cbdef577f201d6bc144028e9fe2c9498674521569d4e733f72f966d3db",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10751712,
+          "addend": 0,
+          "resolved": 10751712
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10751696,
+          "addend": 0,
+          "resolved": 10751696
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113712,
+      "method": "004e0770",
+      "body_bytes": 19,
+      "body_sha256": "e9b275195fbeb90e6240e5019cfe61ce6103857f36b6dc17ac9cc0dfa16165d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e442016e38ed62e93b48b9c8a7211aa74f76338b35af9d242586c3de143e5f6c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8006688,
+          "addend": 0,
+          "resolved": 8006688
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10751688,
+          "addend": 0,
+          "resolved": 10751688
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113744,
+      "method": "004e0790",
+      "body_bytes": 19,
+      "body_sha256": "c055b12bf90f4cc1bb1c03efc8fdc34ae949ed65995b72c3cb64f326f41a1ec8",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2cfb65c4a98d4eb4648c7ba4dde46a8e66ecee0c0b3affe4a61e43026fc86b43",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8006688,
+          "addend": 0,
+          "resolved": 8006688
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10751648,
+          "addend": 0,
+          "resolved": 10751648
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113776,
+      "method": "004e07b0",
+      "body_bytes": 19,
+      "body_sha256": "58e3fb614f6fc6325e1f3c997b6ca348aa523bb90eaa273441c1dbb2ba3e31a9",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e9fc921e87da1235a6874a27a47e9341a384e836727263bcc046128b37d96085",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8006688,
+          "addend": 0,
+          "resolved": 8006688
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10751608,
+          "addend": 0,
+          "resolved": 10751608
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113808,
+      "method": "004e07d0",
+      "body_bytes": 49,
+      "body_sha256": "04f96f7786881bc41bc41eea0a436dcfa86dcd1de3e782824d59f988830e78ad",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "21e3c9c59174f7b87cb145a0082eb3da60aacaccc49294508521d9ea2899c060",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10751608,
+          "addend": 0,
+          "resolved": 10751608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10751648,
+          "addend": 0,
+          "resolved": 10751648
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294810937
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10751640,
+          "addend": 0,
+          "resolved": 10751640
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2746645
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10751720,
+          "addend": 0,
+          "resolved": 10751720
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113872,
+      "method": "004e0810",
+      "body_bytes": 33,
+      "body_sha256": "213b784b26f8b23f35f90fa11dfe91c7a82bd2efd1071da9963a42fde809735c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "dc245638fdcfce9b4fa0f6bd24b8d095ecfe3d0a6ef187ccb261bd69d7cea295",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10751720,
+          "addend": 0,
+          "resolved": 10751720
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294811017
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10751656,
+          "addend": 0,
+          "resolved": 10751656
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113920,
+      "method": "004e0840",
+      "body_bytes": 44,
+      "body_sha256": "d9285177f1c1820df774ff4018fcbdf7602a57ac296c56dedbadb4d86768ae35",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1fab524cac37dc7cdabcb8c343d7e4641d2fb2e2feb75bfeeedc4460d75e586a",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10751720,
+          "addend": 0,
+          "resolved": 10751720
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10751640,
+          "addend": 0,
+          "resolved": 10751640
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294810958
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10751680,
+          "addend": 0,
+          "resolved": 10751680
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5113968,
+      "method": "004e0870",
+      "body_bytes": 39,
+      "body_sha256": "effbc046bad200406ca01df5a719d07190c55272bbeb9738dcc1ac2f989b3f66",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6005c482a6992569ec123584eb75bb1fe061de4752aac751af189180ed32e32e",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10751720,
+          "addend": 0,
+          "resolved": 10751720
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2746496
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10751704,
+          "addend": 0,
+          "resolved": 10751704
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5113968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114016,
+      "method": "004e08a0",
+      "body_bytes": 15,
+      "body_sha256": "25d83dd81a781404fc4e6280e80afa0584c08fbe2baa119e533f49fab1729d5e",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "fddfe02d6f78a51a2120c5a3ba7e456b9318cf0b93c1ad88d262ebf6fc956266",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10751632,
+          "addend": 0,
+          "resolved": 10751632
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10751632,
+          "addend": 2,
+          "resolved": 10751634
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114032,
+      "method": "004e08b0",
+      "body_bytes": 18,
+      "body_sha256": "1a3e35349d4a3b13673966932d04d2bcbf81c74c1b869aaf1f1b843ec880dea9",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0fb6ceca7e24b76bdd712d0bbafa619871bdc91d5157a0f0e9dc9e9f7aa0cadc",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10751664,
+          "addend": 0,
+          "resolved": 10751664
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10751664,
+          "addend": 4,
+          "resolved": 10751668
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10751664,
+          "addend": 8,
+          "resolved": 10751672
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114064,
+      "method": "004e08d0",
+      "body_bytes": 24,
+      "body_sha256": "b8db4afe2a316cc506db1b8e2714e74507ca399c8b2d9d0f2459d97328193e00",
+      "padding_bytes": 8,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "477025dc312bd5ab0fbca25c142bf0172761299bb0cf1920e43bea9a728e5eb3",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0GScreenClass@@QAE@XZ",
+      "symbol_prefix": "??0GScreenClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7GScreenClass@@6B@",
+          "target": 8006716,
+          "addend": 0,
+          "resolved": 8006716
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114096,
+      "method": "004e08f0",
+      "body_bytes": 91,
+      "body_sha256": "e3153f81e6a5f899c80fbb33e1099b0b0614eacc2ac4410f83d9e54bae939109",
+      "padding_bytes": 5,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "e8e021add815ec70cdf7de7ef7a7d21c433555f556ac386bb9830efa6e82c9b7",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@GScreenClass@@UAGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@GScreenClass@@UAGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "_IID_IUnknown",
+          "target": 8060128,
+          "addend": 0,
+          "resolved": 8060128
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "_IID_IGameMap",
+          "target": 8006696,
+          "addend": 0,
+          "resolved": 8006696
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114192,
+      "method": "004e0950",
+      "body_bytes": 11,
+      "body_sha256": "f1291a1cab654122cbabf81510048f94a68bbb0367309c08cdf7256892565e63",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "afe9fa3e3b3ed7988fa540cdbd93340c1c19a42abd114982f2df85a6b3cbe799",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?One_Time@GScreenClass@@UAEXXZ",
+      "symbol_prefix": "?One_Time@GScreenClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Buttons@GScreenClass@@2PAVGadgetClass@@A",
+          "target": 10751724,
+          "addend": 0,
+          "resolved": 10751724
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114208,
+      "method": "004e0960",
+      "body_bytes": 19,
+      "body_sha256": "78c3c407033cdfb6bc8e6ea85a8956737bf5c41d6418f06b6df3e2f460d3aba6",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8ffa814d31969da4fd286c69054f97aad7b99b0919afb9c6ec95336637108277",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@GScreenClass@@UAEXW4TheaterType@@@Z",
+      "symbol_prefix": "?Init@GScreenClass@@UAEXW4TheaterType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114240,
+      "method": "004e0980",
+      "body_bytes": 8,
+      "body_sha256": "ee894b1e34370cffb87cf57a02a3f54e3a0aaafd8a183de25dcd4d3e55145378",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9e66439ec86dcf06837225130e8dc8a463d9c6f9c92368e6f93fca84c8427078",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Clear@GScreenClass@@UAEXXZ",
+      "symbol_prefix": "?Init_Clear@GScreenClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114256,
+      "method": "004e0990",
+      "body_bytes": 11,
+      "body_sha256": "f1291a1cab654122cbabf81510048f94a68bbb0367309c08cdf7256892565e63",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "afe9fa3e3b3ed7988fa540cdbd93340c1c19a42abd114982f2df85a6b3cbe799",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_IO@GScreenClass@@UAEXXZ",
+      "symbol_prefix": "?Init_IO@GScreenClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Buttons@GScreenClass@@2PAVGadgetClass@@A",
+          "target": 10751724,
+          "addend": 0,
+          "resolved": 10751724
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114272,
+      "method": "004e09a0",
+      "body_bytes": 46,
+      "body_sha256": "e0ebb065f243eec3ba4ed1dfade2a4a2acbdeb71eb2048a27c45812f577c7c4e",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e97b92342d2ca394fba9ad77107b366c7dd180591f5c010a472b2eda277d88e3",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+      "symbol_prefix": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?Increment_Redraw_Counter@MapClass@@QAEXXZ",
+          "target": 5614784,
+          "addend": 0,
+          "resolved": 500469
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114320,
+      "method": "004e09d0",
+      "body_bytes": 197,
+      "body_sha256": "7bdae99ae812168e50e2862417c4c3e982eb0d8c9dc4a2b501a356155650ba6b",
+      "padding_bytes": 11,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "c721f729defb64ef72eaa62cf5323c49064fba7a795e08afa83a71beb6a7d273",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Input@GScreenClass@@UAEXAAW4KeyNumType@@AAH1@Z",
+      "symbol_prefix": "?Input@GScreenClass@@UAEXAAW4KeyNumType@@AAH1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?Buttons@GScreenClass@@2PAVGadgetClass@@A",
+          "target": 10751724,
+          "addend": 0,
+          "resolved": 10751724
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?Buttons@GScreenClass@@2PAVGadgetClass@@A",
+          "target": 10751724,
+          "addend": 0,
+          "resolved": 10751724
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "?Check@WWKeyboardClass@@QBEGXZ",
+          "target": 5448400,
+          "addend": 0,
+          "resolved": 333953
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 147,
+          "kind": 20,
+          "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+          "target": 5448480,
+          "addend": 0,
+          "resolved": 334009
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114528,
+      "method": "004e0aa0",
+      "body_bytes": 27,
+      "body_sha256": "21f83e7d45867a7956cb0a6550576a11e6b5adc30f740d39c2b1340cde07878c",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "54e6d0bcec704fb4298d4307afe3d62f644cbe310565a6a0e930edb92e6c79ad",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetButtons@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+      "symbol_prefix": "?SetButtons@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?Buttons@GScreenClass@@2PAVGadgetClass@@A",
+          "target": 10751724,
+          "addend": 0,
+          "resolved": 10751724
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114560,
+      "method": "004e0ac0",
+      "body_bytes": 56,
+      "body_sha256": "1dba89fb843de610f44890d59d7522cd2f6a84d8fa65435fc32b5b761f76ac3c",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "5ffce7de59266b5ab5fe0367ed5e1e12aeb973d43552181cf8969a591fd51718",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+      "symbol_prefix": "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?Buttons@GScreenClass@@2PAVGadgetClass@@A",
+          "target": 10751724,
+          "addend": 0,
+          "resolved": 10751724
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?Buttons@GScreenClass@@2PAVGadgetClass@@A",
+          "target": 10751724,
+          "addend": 0,
+          "resolved": 10751724
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114624,
+      "method": "004e0b00",
+      "body_bytes": 37,
+      "body_sha256": "927f270bec9de14dab62b59ac6c4b83ae032a38ddcfb943550416d9356ff8000",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1dd8c5cdb8f4e5824bb37aa8b496b2eddf249adca122f5f3bc8e57db88ddcec6",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+      "symbol_prefix": "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?Buttons@GScreenClass@@2PAVGadgetClass@@A",
+          "target": 10751724,
+          "addend": 0,
+          "resolved": 10751724
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114672,
+      "method": "004e0b30",
+      "body_bytes": 288,
+      "body_sha256": "7e13a6bd5b35ed3e71fda9248902b9124204bb807b191ede0981fa5c65d7ba42",
+      "padding_bytes": 0,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "7e13a6bd5b35ed3e71fda9248902b9124204bb807b191ede0981fa5c65d7ba42",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Render@GScreenClass@@UAEXXZ",
+      "symbol_prefix": "?Render@GScreenClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Render@Tactical@@QAEXAAVSurface@@_NH@Z",
+          "target": 6964640,
+          "addend": 0,
+          "resolved": 1849877
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "?Render@Tactical@@QAEXAAVSurface@@_NH@Z",
+          "target": 6964640,
+          "addend": 0,
+          "resolved": 1849856
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "?Render@Tactical@@QAEXAAVSurface@@_NH@Z",
+          "target": 6964640,
+          "addend": 0,
+          "resolved": 1849823
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "?IsToEraseSidebarMouse@SidebarClass@@2_NA",
+          "target": 11259269,
+          "addend": 0,
+          "resolved": 11259269
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "?Debug_Map@@3_NA",
+          "target": 10751251,
+          "addend": 0,
+          "resolved": 10751251
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "?IsToEraseSidebarMouse@SidebarClass@@2_NA",
+          "target": 11259269,
+          "addend": 0,
+          "resolved": 11259269
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "?Buttons@GScreenClass@@2PAVGadgetClass@@A",
+          "target": 10751724,
+          "addend": 0,
+          "resolved": 10751724
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 212,
+          "kind": 20,
+          "symbol": "?Draw@MessageListClass@@QAEXXZ",
+          "target": 5987120,
+          "addend": 0,
+          "resolved": 872232
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 1580,
+          "resolved": 10737860
+        },
+        {
+          "offset": 245,
+          "kind": 20,
+          "symbol": "?Draw_Multiplayer_Debug@@YIX_N@Z",
+          "target": 5511648,
+          "addend": 0,
+          "resolved": 396727
+        },
+        {
+          "offset": 251,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 278,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5114960,
+      "method": "004e0c50",
+      "body_bytes": 51,
+      "body_sha256": "5a009f385301718932752f14ef421911cd74f205390c10e3fb6951fd12f41652",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1777f7f66c843daf0a4547db5b68a3e8c6e0ee24afea024c186eb22a909df587",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Blit_Display@GScreenClass@@UAEXXZ",
+      "symbol_prefix": "?Blit_Display@GScreenClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?UseDirect3D@@3_NA",
+          "target": 8728535,
+          "addend": 0,
+          "resolved": 8728535
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Direct3DDevice@@3PAUIDirect3DDevice2@@A",
+          "target": 8728544,
+          "addend": 0,
+          "resolved": 8728544
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?Direct3DDevice@@3PAUIDirect3DDevice2@@A",
+          "target": 8728544,
+          "addend": 0,
+          "resolved": 8728544
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z",
+          "target": 5115024,
+          "addend": 0,
+          "resolved": 14
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5114960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5115024,
+      "method": "004e0c90",
+      "body_bytes": 1067,
+      "body_sha256": "527babc1f450ba02d34f95725746e7f5c7fca389a27d7a7269d6f3ccfea5df25",
+      "padding_bytes": 5,
+      "full_extent_bytes": 1072,
+      "full_extent_sha256": "5faa02db43e964084fccbfc6942d5a6787e8b4c8c98b2aa7dedde4c56c679999",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z",
+      "symbol_prefix": "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "__imp__GetClientRect@8",
+          "target": 7972024,
+          "addend": 0,
+          "resolved": 7972024
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "__imp__ClientToScreen@8",
+          "target": 7972012,
+          "addend": 0,
+          "resolved": 7972012
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4,
+          "resolved": 8594660
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 8,
+          "resolved": 8594664
+        },
+        {
+          "offset": 247,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 24,
+          "resolved": 10750768
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "?Debug_Map@@3_NA",
+          "target": 10751251,
+          "addend": 0,
+          "resolved": 10751251
+        },
+        {
+          "offset": 267,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 8,
+          "resolved": 8623688
+        },
+        {
+          "offset": 290,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 8,
+          "resolved": 8623688
+        },
+        {
+          "offset": 319,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 336,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 8,
+          "resolved": 8594664
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 469,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 495,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 500,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2744968
+        },
+        {
+          "offset": 528,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 533,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2744935
+        },
+        {
+          "offset": 544,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2744924
+        },
+        {
+          "offset": 555,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2744913
+        },
+        {
+          "offset": 561,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 8,
+          "resolved": 8594664
+        },
+        {
+          "offset": 618,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4,
+          "resolved": 8594660
+        },
+        {
+          "offset": 633,
+          "kind": 6,
+          "symbol": "?TacticalActive@@3_NA",
+          "target": 10748800,
+          "addend": 0,
+          "resolved": 10748800
+        },
+        {
+          "offset": 643,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 652,
+          "kind": 20,
+          "symbol": "?IsToolTipShowing@ToolTipManager@@QAE_NXZ",
+          "target": 7257824,
+          "addend": 0,
+          "resolved": 2142144
+        },
+        {
+          "offset": 662,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 8,
+          "resolved": 8594664
+        },
+        {
+          "offset": 672,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 8,
+          "resolved": 8594664
+        },
+        {
+          "offset": 680,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 20246,
+          "resolved": 8614902
+        },
+        {
+          "offset": 697,
+          "kind": 6,
+          "symbol": "?TabBarRect@@3PAV?$TRect@H@@A",
+          "target": 11276796,
+          "addend": 0,
+          "resolved": 11276796
+        },
+        {
+          "offset": 728,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4,
+          "resolved": 8594660
+        },
+        {
+          "offset": 748,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4,
+          "resolved": 8594660
+        },
+        {
+          "offset": 755,
+          "kind": 6,
+          "symbol": "?TabBarRect@@3PAV?$TRect@H@@A",
+          "target": 11276796,
+          "addend": 0,
+          "resolved": 11276796
+        },
+        {
+          "offset": 819,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 842,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 852,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 8,
+          "resolved": 8594664
+        },
+        {
+          "offset": 885,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 8,
+          "resolved": 8594664
+        },
+        {
+          "offset": 929,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 952,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 970,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 988,
+          "kind": 6,
+          "symbol": "?_dialog_count@@3HA",
+          "target": 10751284,
+          "addend": 0,
+          "resolved": 10751284
+        },
+        {
+          "offset": 994,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 1030,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 1042,
+          "kind": 6,
+          "symbol": "__imp__Sleep@4",
+          "target": 7971300,
+          "addend": 0,
+          "resolved": 7971300
+        },
+        {
+          "offset": 1048,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5115024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5116096,
+      "method": "004e10c0",
+      "body_bytes": 66,
+      "body_sha256": "87ab4f1a8344582c62a0c830dc514439d1ffb2c9618b001e5f63c887367b8e85",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ae59614c68201c78d426599d0494436244743c72d7c45b43867d7636260d1d99",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AI@GScreenClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+      "symbol_prefix": "?AI@GScreenClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5116176,
+      "method": "004e1110",
+      "body_bytes": 32,
+      "body_sha256": "57e35124a8db722fed31dd18aeb69b7b0b5996099e64eec0e5d073a3eda903f3",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "57e35124a8db722fed31dd18aeb69b7b0b5996099e64eec0e5d073a3eda903f3",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GGScreenClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GGScreenClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7GScreenClass@@6B@",
+          "target": 8006716,
+          "addend": 0,
+          "resolved": 8006716
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2755604
+        }
+      ],
+      "source_sha256": "0873853ff1f27d05bb0d8915aacda8686f0f384a8a0cf3acee028f8efbd212ea",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116176,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

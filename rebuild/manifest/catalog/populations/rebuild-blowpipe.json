@@ -1,0 +1,221 @@
+{
+  "id": "rebuild-blowpipe",
+  "population": {
+    "id": "rebuild-blowpipe",
+    "inventory_sha256": "4232d2dda98e295f61803dbc4fcbb292ea3d9f7538d3e795187a5a6002131795",
+    "gaps_sha256": "822c18f53e7523905e56188baff31fb4ad04d8e9d13148cc461972c1cdae9d60",
+    "historical_population_sha256": "69c6f06be1eeaf3b8c9852d1aa83ff937753397f92bb3c3098c3d2dcd76554fa",
+    "historical_acceptance_sha256": "698b701ac479d9139c967f86cba004933662aacdb8f41206c1978f807dd22953"
+  },
+  "references": {
+    "?Put@Pipe@@UAEHPBXH@Z": 6351600,
+    "?Flush@Pipe@@UAEHXZ": 6351632,
+    "_memmove": 7877264,
+    "?Decrypt@BlowfishEngine@@QAEHPBXHPAX@Z": 4413024,
+    "?Encrypt@BlowfishEngine@@QAEHPBXHPAX@Z": 4412976,
+    "??2@YAPAXI@Z": 7872535,
+    "??0BlowfishEngine@@QAE@XZ": 4412800,
+    "?Submit_Key@BlowfishEngine@@QAEXPBXH@Z": 4412928,
+    "?Flush@BlowPipe@@UAEHXZ": 4413072,
+    "?Put@BlowPipe@@UAEHPBXH@Z": 4413136,
+    "?Key@BlowPipe@@QAEXPBXH@Z": 4413440
+  },
+  "regions": [
+    {
+      "entry": 4413072,
+      "method": "00435690",
+      "body_bytes": 53,
+      "body_sha256": "a207b6e70cf728e31f34d120803161455624d1df972bcbc41c56bdf6af2098de",
+      "padding_bytes": 11,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "967155c594d970fa8f768899ae0bf46f0dca67499d9ba55f36ba12703787d4a4",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Flush@BlowPipe@@UAEHXZ",
+      "symbol_prefix": "?Flush@BlowPipe@@UAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+          "target": 6351600,
+          "addend": 0,
+          "resolved": 1938496
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?Flush@Pipe@@UAEHXZ",
+          "target": 6351632,
+          "addend": 0,
+          "resolved": 1938512
+        }
+      ],
+      "source_sha256": "24196165c6f82052b03b5ed0dd121adf6e59e4e9225dac45733f076027fcce30",
+      "source": "rebuild/src/blowpipe.cpp",
+      "population": "rebuild-blowpipe",
+      "source_order": 4413072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4413136,
+      "method": "004356d0",
+      "body_bytes": 291,
+      "body_sha256": "0872bb401adfea6a40eabfafd4771ef60f2fee74580ac1055554b91651a45f4e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "99d5e7123a14e7bace80d4f2cbe39d911701bce9b2b0dc05d5702fa73af7b877",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put@BlowPipe@@UAEHPBXH@Z",
+      "symbol_prefix": "?Put@BlowPipe@@UAEHPBXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 3464043
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "?Decrypt@BlowfishEngine@@QAEHPBXHPAX@Z",
+          "target": 4413024,
+          "addend": 0,
+          "resolved": 4294967051
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "?Encrypt@BlowfishEngine@@QAEHPBXHPAX@Z",
+          "target": 4412976,
+          "addend": 0,
+          "resolved": 4294966996
+        },
+        {
+          "offset": 146,
+          "kind": 20,
+          "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+          "target": 6351600,
+          "addend": 0,
+          "resolved": 1938314
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "?Decrypt@BlowfishEngine@@QAEHPBXHPAX@Z",
+          "target": 4413024,
+          "addend": 0,
+          "resolved": 4294966977
+        },
+        {
+          "offset": 210,
+          "kind": 20,
+          "symbol": "?Encrypt@BlowfishEngine@@QAEHPBXHPAX@Z",
+          "target": 4412976,
+          "addend": 0,
+          "resolved": 4294966922
+        },
+        {
+          "offset": 220,
+          "kind": 20,
+          "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+          "target": 6351600,
+          "addend": 0,
+          "resolved": 1938240
+        },
+        {
+          "offset": 256,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 3463868
+        },
+        {
+          "offset": 281,
+          "kind": 20,
+          "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+          "target": 6351600,
+          "addend": 0,
+          "resolved": 1938179
+        }
+      ],
+      "source_sha256": "24196165c6f82052b03b5ed0dd121adf6e59e4e9225dac45733f076027fcce30",
+      "source": "rebuild/src/blowpipe.cpp",
+      "population": "rebuild-blowpipe",
+      "source_order": 4413136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4413440,
+      "method": "00435800",
+      "body_bytes": 64,
+      "body_sha256": "fa7713ddea8ffd52fbfad6b9eca27dac9ee1dde4e3df373bf496c2af10fbe8ff",
+      "padding_bytes": 0,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "fa7713ddea8ffd52fbfad6b9eca27dac9ee1dde4e3df373bf496c2af10fbe8ff",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Key@BlowPipe@@QAEXPBXH@Z",
+      "symbol_prefix": "?Key@BlowPipe@@QAEXPBXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3459078
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "??0BlowfishEngine@@QAE@XZ",
+          "target": 4412800,
+          "addend": 0,
+          "resolved": 4294966625
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "?Submit_Key@BlowfishEngine@@QAEXPBXH@Z",
+          "target": 4412928,
+          "addend": 0,
+          "resolved": 4294966723
+        }
+      ],
+      "source_sha256": "24196165c6f82052b03b5ed0dd121adf6e59e4e9225dac45733f076027fcce30",
+      "source": "rebuild/src/blowpipe.cpp",
+      "population": "rebuild-blowpipe",
+      "source_order": 4413440,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

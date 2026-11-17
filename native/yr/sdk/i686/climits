@@ -1,0 +1,5 @@
+// Layout dumps only (native/tools/original_layouts.py --game yr, lane Y10): the i686-msvc dump has
+// no C++ library; this stands in for <climits> as far as the YR tree uses it.
+#pragma once
+#include <limits.h>
+namespace std {}

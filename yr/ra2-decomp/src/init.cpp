@@ -1,0 +1,5484 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#define NDEBUG
+
+#include "always.h"
+#include "init.h"
+#include "_bench.h"
+#include "_command.h"
+#include "_convert.h"
+#include "_font.h"
+#include "_keyboar.h"
+#include "_logic.h"
+#include "_map.h"
+#include "_mixfile.h"
+#include "_mono.h"
+#include "_palette.h"
+#include "_pk.h"
+#include "_rand.h"
+#include "_rect.h"
+#include "_rules.h"
+#include "_script.h"
+#include "_surface.h"
+#include "_tactica.h"
+#include "_theater.h"
+#include "_timer.h"
+#include "_tooltip.h"
+#include "_voxel.h"
+#include "abstract.h"
+#include "addon.h"
+#include "aircraft.h"
+#include "airctype.h"
+#include "alphashp.h"
+#include "anim.h"
+#include "bench.h"
+#include "blight.h"
+#include "building.h"
+#include "builtype.h"
+#include "bullet.h"
+#include "bullettype.h"
+#include "campaign.h"
+#include "ccfile.h"
+#include "cctooltip.h"
+#include "cd.h"
+#include "cdcntrl.h"
+#include "cell.h"
+#include "command.h"
+#include "conquer.h"
+#include "data.h"
+#include "dbgprint.h"
+#include "dialog.h"
+#include "dsaudio.h"
+#include "dsurface.h"
+#include "egos.h"
+#include "empulse.h"
+#include "enviro.h"
+#include "expand.h"
+#include "factory.h"
+#include "fog.h"
+#include "gamedlg.h"
+#include "getcpu.h"
+#include "geometry.h"
+#include "globals.h"
+#include "houstype.h"
+#include "incdec.h"
+#include "infatype.h"
+#include "ionblast.h"
+#include "ipxmgr.h"
+#include "keyboard.h"
+#include "language\language.h"
+#include "laser.h"
+#include "light.h"
+#include "lightcon.h"
+#include "loaddlg.h"
+#include "logic.h"
+#include "mainopt.h"
+#include "mixfile.h"
+#include "modemgst.h"
+#include "modemhst.h"
+#include "mono.h"
+#include "movie.h"
+#include "mplayer.h"
+#include "msgbox.h"
+#include "netdlg.h"
+#include "netdlg2.h"
+#include "newmenu.h"
+#include "nulldlg.h"
+#include "nullmgr.h"
+#include "obscure.h"
+#include "overlay.h"
+#include "overtype.h"
+#include "ovrlight.h"
+#include "ownrdraw.h"
+#include "partsys.h"
+#include "pcx.h"
+#include "queue.h"
+#include "ramfile.h"
+#include "revent.h"
+#include "rndstraw.h"
+#include "rules.h"
+#include "scenario.h"
+#include "scheme.h"
+#include "script.h"
+#include "side.h"
+#include "skirmish.h"
+#include "smudtype.h"
+#include "stimer.h"
+#include "stringtable.h"
+#include "tactical.h"
+#include "tag.h"
+#include "team.h"
+#include "techno.h"
+#include "terrain.h"
+#include "theme.h"
+#include "timer.h"
+#include "tracker.h"
+#include "trigger.h"
+#include "tube.h"
+#include "unit.h"
+#include "unittype.h"
+#include "vein.h"
+#include "voc.h"
+#include "volinfo.h"
+#include "vox.h"
+#include "vqoption.h"
+#include "wave.h"
+#include "waypoint.h"
+#include "winstub.h"
+#include "wonline.h"
+#include "worlddom.h"
+#include "wspipx.h"
+#include "wsproto.h"
+#include "wspudp.h"
+#include "wwfont.h"
+#include "bench.hh"
+#include "scrnsel.hh"
+#include <conio.h>
+#include <ctime>
+#include <dos.h>
+
+// SYNTHETIC: GAMEMD 0x0052B7A0 SYMBOL
+// _$E2
+// SYNTHETIC: GAMEMD 0x0052B7C0 SYMBOL
+// _$E112
+// SYNTHETIC: GAMEMD 0x0052B7F0 SYMBOL
+// _$E115
+// SYNTHETIC: GAMEMD 0x0052B810 SYMBOL
+// _$E118
+// SYNTHETIC: GAMEMD 0x0052B830 SYMBOL
+// _$E121
+// SYNTHETIC: GAMEMD 0x0052B850 SYMBOL
+// _$E124
+// SYNTHETIC: GAMEMD 0x0052B870 SYMBOL
+// _$E127
+// SYNTHETIC: GAMEMD 0x0052B890 SYMBOL
+// _$E130
+// SYNTHETIC: GAMEMD 0x0052B8D0 SYMBOL
+// _$E133
+// SYNTHETIC: GAMEMD 0x0052B900 SYMBOL
+// _$E136
+// SYNTHETIC: GAMEMD 0x0052B930 SYMBOL
+// _$E139
+// SYNTHETIC: GAMEMD 0x0052B960 SYMBOL
+// _$E142
+// SYNTHETIC: GAMEMD 0x0052B970 SYMBOL
+// _$E145
+
+extern int DAT_00A8F768;
+extern int DAT_00A8F76C;
+extern int DAT_00A8F770;
+
+// FUNCTION: GAMEMD 0x0052B990
+void FUN_0052B990(void)
+{
+	DAT_00A8F770 = 0;
+	DAT_00A8F768 = 128;
+	DAT_00A8F76C = 128;
+}
+
+struct Drawing {
+	static int RenderWidth;
+	static int RenderHeight;
+};
+
+// FUNCTION: GAMEMD 0x0052B9B0
+void __fastcall FUN_0052B9B0(HWND dialog)
+{
+	HWND control = GetDlgItem(dialog, 0x71A);
+	if (control) {
+		int x = (Drawing::RenderWidth <= 800) ? 0 : (Drawing::RenderWidth - 800) / 2;
+		int y = (Drawing::RenderHeight <= 600) ? 0 : (Drawing::RenderHeight - 600) / 2;
+		SetWindowPos(control, NULL, x, y, -1, -1, SWP_NOSIZE | SWP_NOZORDER | SWP_NOREDRAW);
+		SendMessage(control, 0x4E3, 1, 0);
+		if (Drawing::RenderWidth == 640) {
+			SendMessage(control, 0x4E4, 0, (LPARAM)"Ra2ts_s");
+		} else {
+			SendMessage(control, 0x4E4, 0, (LPARAM)"Ra2ts_l");
+		}
+	}
+}
+
+void __cdecl FUN_004068E0(char const * format, ...);
+extern unsigned char DAT_00A8E960;
+void __fastcall FUN_0052FEC0(Surface * surface, bool flag);
+void __fastcall FUN_0046CE10(CCINIClass * ini);
+struct Game {
+	static void __fastcall PlayMovie(const char * name, int theme, int a, int b, int c, int d);
+	static bool __cdecl CallBack(void);
+	static int TechLevel;
+	static int Seed;
+	static unsigned char RecordingFlag;
+	static void InitRandom(void);
+	static HWND hWnd;
+	static HINSTANCE hInstance;
+	static unsigned __int64 __fastcall AudioGetTime(void);
+	static int ObserverMode;
+};
+
+// FUNCTION: GAMEMD 0x0052CB50
+bool FUN_0052CB50(void)
+{
+	if (DAT_00A8E960 & 4) {
+		Game::PlayMovie("A00_F00E", -1, 1, 1, 1, 0);
+	}
+	FUN_0052FEC0(NULL, true);
+	return Game::CallBack();
+}
+
+// FUNCTION: GAMEMD 0x0052CB80
+void FUN_0052CB80(void)
+{
+}
+
+// FUNCTION: GAMEMD 0x0052CB90
+void FUN_0052CB90(void)
+{
+	bool found = false;
+	WIN32_FIND_DATA fd;
+	HANDLE handle = FindFirstFile("BATTLEMD*.INI", &fd);
+
+	while (handle != INVALID_HANDLE_VALUE) {
+		if ((fd.dwFileAttributes & (FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM | FILE_ATTRIBUTE_DIRECTORY | FILE_ATTRIBUTE_TEMPORARY)) == 0) {
+			const char * name = &fd.cAlternateFileName[0];
+			if (strlen(name) == 0) {
+				name = &fd.cFileName[0];
+			}
+
+			CCFileClass file(name);
+			CCINIClass * ini = new CCINIClass;
+			ini->ReadCCFile(file, false, false);
+
+			if (stricmp(name, "BATTLEMD.INI") == 0) {
+				found = true;
+			}
+
+			FUN_0046CE10(ini);
+			delete ini;
+		}
+
+		if (FindNextFile(handle, &fd) == 0) {
+			break;
+		}
+	}
+
+	if (handle != INVALID_HANDLE_VALUE) {
+		FindClose(handle);
+	}
+
+	if (!found) {
+		CCFileClass file("BATTLEMD.INI");
+		CCINIClass * ini = new CCINIClass;
+
+		if (ini != NULL) {
+			ini->ReadCCFile(file, false, false);
+			FUN_0046CE10(ini);
+			delete ini;
+		}
+	}
+}
+
+BOOL CALLBACK Rules_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+
+// FUNCTION: GAMEMD 0x0052CD70
+bool FUN_0052CD70(void)
+{
+	DynamicVectorClass<CCINIClass *> Rules;
+
+	bool found = false;
+	WIN32_FIND_DATA fd;
+	HANDLE handle = FindFirstFile("RULEMD*.INI", &fd);
+
+	while (handle != INVALID_HANDLE_VALUE) {
+		if ((fd.dwFileAttributes & (FILE_ATTRIBUTE_DIRECTORY | FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM | FILE_ATTRIBUTE_TEMPORARY)) == 0) {
+			const char * name = &fd.cAlternateFileName[0];
+			if (*name == '\0') {
+				name = &fd.cFileName[0];
+			}
+
+			CCFileClass file(name);
+			CCINIClass * rule = new CCINIClass;
+			rule->ReadCCFile(file, false, false);
+
+			if (stricmp(name, "RULESMD.INI") == 0) {
+				found = true;
+				Rules.Add_Head(rule);
+			} else {
+				Rules.Add(rule);
+			}
+		}
+
+		if (FindNextFile(handle, &fd) == 0) {
+			break;
+		}
+	}
+
+	if (handle != INVALID_HANDLE_VALUE) {
+		FindClose(handle);
+	}
+
+	if (!found) {
+		CCFileClass file("RULESMD.INI");
+		CCINIClass * rule = new CCINIClass;
+		rule->ReadCCFile(file, false, false);
+		Rules.Add_Head(rule);
+	}
+
+	if (Rules.Count() <= 0) {
+		return false;
+	}
+
+	CCFileClass art_file("ARTMD.INI");
+	if (!ArtINI.ReadCCFile(art_file, false, false)) {
+		FUN_004068E0("Failed to load ARTMD.INI!\n");
+		return false;
+	}
+
+	if (Rules.Count() == 1) {
+		RuleINI = Rules[0];
+	} else {
+		int rules_choice = DialogBoxParam(Game::hInstance, MAKEINTRESOURCE(147), Game::hWnd, (DLGPROC)Rules_Choice_Dialog_Proc, (LPARAM)&Rules);
+		if (rules_choice == -1) {
+			rules_choice = 0;
+		}
+		RuleINI = Rules[rules_choice];
+	}
+
+	Rule->Color_Schemes(*RuleINI);
+	Rule->Read_ColorAdd(*RuleINI);
+	Rule->Do_Movies(ArtINI);
+	Rule->Audio_Visual_Rules(*RuleINI);
+	Rule->MPlayer(*RuleINI);
+
+	Session.Options.Credits = Rule->MPMoney;
+	Session.Options.UnitCount = Rule->MPUnitCount;
+	BuildLevel = Rule->MPBuildLevel;
+	Session.Options.GameSpeed = Rule->GameSpeed;
+	Session.Options.AIDifficulty = (DiffType)Rule->AIDifficultyStruct;
+	Session.Options.AIPlayers = Rule->AIPlayers;
+	Session.Options.BridgeDestruction = Rule->IsMPBridgeDestruction;
+	Session.Options.Bases = Rule->IsMPBasesOn;
+	Session.Options.Goodies = Rule->IsMPCrates;
+	Session.Options.CTF = Rule->IsMPCaptureTheFlag;
+	Session.Options.HarvTruce = Rule->HarvesterTruce;
+	Session.Options.CrapEngineers = Rule->MultiEngineer;
+	Session.Options.AlliesAllowed = Rule->AlliesAllowed;
+	Session.Options.ShortGame = Rule->ShortGame;
+	Session.Options.SWAllowed = Rule->SuperWeaponsAllowed;
+	Session.Options.BuildOffAlly = Rule->BuildOffAlly;
+	Session.Options.FogOfWar = Rule->FogOfWar;
+	Session.Options.MCVRedeploy = Rule->MCVRedeploys;
+
+	CCFileClass lang_file("LANGRULE.INI");
+	if (lang_file.Is_Available() == true) {
+		CCINIClass lang_ini;
+		if (lang_ini.ReadCCFile(lang_file, true, false) > 1) {
+			return false;
+		}
+		Rule->Addition(lang_ini);
+	}
+
+	for (int index = 0; index < Rules.Count(); index++) {
+		if (Rules[index] != RuleINI) {
+			delete Rules[index];
+		}
+	}
+
+	CCFileClass ai_file("AIMD.INI");
+	AIINI.ReadCCFile(ai_file, true, false);
+
+	return true;
+}
+
+// FUNCTION: GAMEMD 0x0052D430
+BOOL CALLBACK Rules_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	char buffer[128];
+
+	switch (message) {
+		case WM_INITDIALOG: {
+			Center_Window_Within_Window(window);
+
+			DynamicVectorClass<CCINIClass *> * rules;
+			rules = (DynamicVectorClass<CCINIClass *> *)lparam;
+
+			HWND list = GetDlgItem(window, IDC_RULES_LIST);
+
+			for (int index = 0; index < rules->Count(); index++) {
+				(*rules)[index]->Get_String("General", "Name", "", buffer, sizeof(buffer));
+				ListBox_AddString(list, buffer);
+			}
+			ListBox_SetCurSel(list, 0);
+		}
+		break;
+
+		case WM_HELP:
+			On_WM_HELP(lparam);
+			break;
+
+		case WM_CONTEXTMENU:
+			On_WM_CONTEXTMENU(wparam);
+			break;
+
+		case WM_MOVING:
+			return(On_WM_MOVING(window, wparam, lparam));
+
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case IDCANCEL:
+				case IDC_RULES_OK:
+					if (HIWORD(wparam) == BN_CLICKED) {
+						HWND list = GetDlgItem(window, IDC_RULES_LIST);
+						EndDialog(window, ListBox_GetCurSel(list));
+						DestroyWindow(window);
+					}
+					break;
+			}
+			break;
+	}
+
+	return(0);
+}
+
+// FUNCTION: GAMEMD 0x0052D5B0
+BOOL CALLBACK Pick_Protocol_Dialog(HWND window, UINT message, WPARAM wparam, LPARAM           )
+{
+	switch (message) {
+		case WM_COMMAND:
+			switch ((int)wparam) {
+				case IDCANCEL:
+					EndDialog(window, 0);
+					break;
+
+				case IDC_PROTOCOL_IPX:
+					EndDialog(window, 1);
+					break;
+
+				case IDC_PROTOCOL_UDP:
+					EndDialog(window, 2);
+					break;
+			}
+			break;
+	}
+	return(FALSE);
+}
+
+// FUNCTION: GAMEMD 0x0052D610
+void FUN_0052D610(void)
+{
+}
+
+// FUNCTION: GAMEMD 0x0052D620
+void FUN_0052D620(void)
+{
+}
+
+// FUNCTION: GAMEMD 0x0052D630
+void FUN_0052D630(void)
+{
+}
+
+namespace UI {
+	int __fastcall StandardWndProc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+}
+
+// FUNCTION: GAMEMD 0x0052D640
+BOOL CALLBACK FUN_0052D640(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	int rc = UI::StandardWndProc(window, message, wparam, lparam);
+	if (rc) {
+		return rc;
+	}
+
+	int * result = (int *)GetWindowLong(window, 8);
+	switch (message) {
+		case WM_PAINT:
+			{
+				HWND item = GetDlgItem(window, 0x71A);
+				SendMessage(item, 0x4F0, 0, 0);
+			}
+			break;
+
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case 0x686:
+					*result = 0x12;
+					return(0);
+
+				case 0x579:
+					*result = 0xB;
+					return(0);
+
+				case 0x688:
+					*result = 8;
+					return(0);
+
+				case 0x689:
+					*result = 9;
+					return(0);
+
+				case 0x68A:
+					*result = 10;
+					return(0);
+			}
+			break;
+
+		case 0x497: {
+			HWND item = GetDlgItem(window, 0x689);
+			if (item) {
+				bool present = LoadOptionsClass().Files_Present();
+				EnableWindow(item, present);
+			}
+			return(0);
+		}
+	}
+	return(0);
+}
+
+// FUNCTION: GAMEMD 0x0052D790
+BOOL CALLBACK FUN_0052D790(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	int rc = UI::StandardWndProc(window, message, wparam, lparam);
+	if (rc) {
+		return rc;
+	}
+
+	{
+		int * result = (int *)GetWindowLong(window, 8);
+		switch (message) {
+			case WM_PAINT:
+				{
+					HWND item = GetDlgItem(window, 0x71A);
+					SendMessage(item, 0x4F0, 0, 0);
+				}
+				break;
+
+			case WM_COMMAND:
+				switch (LOWORD(wparam)) {
+					case 0x68D:
+						*result = 0xD;
+						break;
+
+					case 0x68E:
+						*result = 0xE;
+						break;
+
+					case 0x68F:
+						*result = 0xF;
+						break;
+
+					case 0x686:
+						*result = 0x12;
+						break;
+				}
+				break;
+		}
+	}
+	return(0);
+}
+
+extern int DAT_00825C80;
+
+// FUNCTION: GAMEMD 0x0052D870
+BOOL CALLBACK FUN_0052D870(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	bool changed = false;
+	HWND list = GetDlgItem(window, 0x744);
+	int rc = UI::StandardWndProc(window, message, wparam, lparam);
+	if (rc) {
+		return rc;
+	}
+
+	int * result = (int *)GetWindowLong(window, 8);
+	switch (message) {
+		case 0x497:
+			if (list) {
+				Options.FUN_005FC000(list);
+				if (SendMessage(list, LB_SETCURSEL, DAT_00825C80, 0) == -1) {
+					SendMessage(list, LB_SETCURSEL, 0, 0);
+				}
+			} else if (result) {
+				*result = -1;
+				return(0);
+			}
+			break;
+
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case 0x686:
+					if (result) {
+						*result = -1;
+					}
+					break;
+
+				case 0x744:
+					if (HIWORD(wparam) == 0) {
+						changed = true;
+					}
+					break;
+
+				case 0x745:
+					changed = true;
+					break;
+			}
+			break;
+	}
+
+	if (list && changed) {
+		int sel = SendMessage(list, LB_GETCURSEL, 0, 0);
+		DAT_00825C80 = sel;
+		if (sel != -1) {
+			int data = SendMessage(list, LB_GETITEMDATA, sel, 0);
+			if (data && result) {
+				*result = data;
+			}
+		}
+	}
+	return(0);
+}
+
+struct CampaignPick {
+	int Choice;
+	bool Done;
+};
+
+extern const char * DAT_00822774[];
+extern int DAT_00A8F7A8;
+extern HWND DAT_00A8F7B0;
+extern unsigned __int64 DAT_00A8F7A0;
+extern int DAT_00825C20;
+extern int DAT_00825C74;
+extern int DAT_00825C78;
+extern int DAT_00825C7C;
+extern const char * DAT_00825C68;
+extern const char * DAT_00825C6C;
+extern const char * DAT_00825C70;
+extern unsigned char DAT_00A8F7AD;
+extern AudioController DAT_00A8F300;
+extern unsigned char DAT_00ABCE08;
+
+#include "ownertalk.h"
+
+extern ConnectionClass * DAT_00A8EA0C;
+bool Load_Recording_Values(CCFileClass & file);
+bool Save_Recording_Values(CCFileClass & file);
+
+struct CheatEntryStruct {
+	bool * State;
+	const char * CheatString;
+	const char * VersionSuffix;
+	bool IsAllowedInMP;
+};
+
+extern CheatEntryStruct OriginalCheats[4];
+
+#include "movieunlock.h"
+
+namespace UI {
+	HWND __fastcall BeginDialog(int id, DLGPROC proc, int extra);
+	void __fastcall EndDialog(HWND window);
+	bool __fastcall Updated(void);
+}
+
+BOOL CALLBACK FUN_0052EC00(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+int Main_Menu(unsigned int timeout);
+bool FUN_0052F3F0(void);
+int __fastcall FUN_0077B2A0(bool returning);
+void FUN_0072D9A0(void);
+void FUN_0072DAA0(void);
+int __fastcall FUN_0060D380(int resource, DLGPROC proc, bool focus);
+void __fastcall FUN_0053F1F0(int value);
+bool FUN_006AE2C0(void);
+void __fastcall FUN_0078ABF0(bool a, wchar_t const * text);
+void FUN_006370B0(void);
+void FUN_004C3E30(void);
+extern unsigned char DAT_008A00A0;
+extern int DAT_00825C84;
+
+static void Cheat_Disable(void)
+{
+	for (int c = 0; c < 4; c++) {
+		if (!OriginalCheats[c].IsAllowedInMP) {
+			*OriginalCheats[c].State = false;
+		}
+	}
+}
+
+static CampaignType Choose_Campaign(void)
+{
+	CampaignPick pick;
+	pick.Done = false;
+	pick.Choice = -1;
+
+	if (Campaigns.Count() == 0) {
+		FUN_0052CB90();
+		if (Campaigns.Count() == 0) {
+			return(CAMPAIGN_NONE);
+		}
+	}
+
+	FUN_0072D9A0();
+	DAT_00A8F300.FUN_00405BE0();
+	DAT_00A8F7A0 = 0;
+	DAT_00A8F7A8 = 0;
+	HWND dialog = UI::BeginDialog(0x94, FUN_0052EC00, 0);
+	if (dialog != NULL) {
+		SetWindowLong(dialog, DWL_USER, (LONG)&pick);
+		Center_Window_Within_Window(dialog, Game::hWnd);
+		OwnerDraw::Display_Dialog(dialog);
+		while (!pick.Done && UI::Updated() != true) {
+			if (DAT_00825C20 != -1 && DAT_00A8F7A0 < Game::AudioGetTime()) {
+				DAT_00A8F300.Stop();
+				VocClass::PlayGlobal(DAT_00825C20, 1.0f, 0x2000, &DAT_00A8F300);
+				DAT_00825C20 = -1;
+			}
+			if (DAT_008A00A0) {
+				DAT_008A00A0 = 0;
+				FUN_0052FEC0(NULL, true);
+				Update_Visible_Surface(false, HiddenSurface);
+			}
+		}
+		UI::EndDialog(dialog);
+	}
+
+	DAT_00A8F7A0 = Game::AudioGetTime() + 3000;
+	while (DAT_00A8F300.GetEvent() && DAT_00A8F7A0 > Game::AudioGetTime()) {
+		Call_Back();
+	}
+	FUN_0072DAA0();
+	return((CampaignType)pick.Choice);
+}
+
+// FUNCTION: GAMEMD 0x0052D9A0
+bool Select_Game(bool )
+{
+	bool gameloaded;
+	int selection;
+	bool process;
+
+	Theme.Play_Song(Theme.From_Name("INTRO"));
+
+restart:
+	gameloaded = false;
+	process = true;
+
+	GameActive = true;
+	PlayerPtr = NULL;
+	DoList.Init();
+	OutList.Init();
+	Frame = 0;
+	Scen->MissionTimer = 0;
+	Scen->MissionTimer.Stop();
+	Scen->CDifficulty = DIFF_NORMAL;
+	Scen->Difficulty = DIFF_NORMAL;
+	PlayerWins = false;
+	PlayerLoses = false;
+	PlayerRestarts = false;
+	PlayerAborts = false;
+	Session.MultiplayerObserver = false;
+	Map.SetActiveFoundation(NULL);
+	Map.PendingObjectPtr = 0;
+	Map.PendingObject = 0;
+	Map.PendingHouse = HOUSE_NONE;
+
+	Session.ProcessTicks = 0;
+	Session.ProcessFrames = 0;
+	Session.DesiredFrameRate = 30;
+	NewMaxAheadFrame1 = 0;
+	NewMaxAheadFrame2 = 0;
+
+	for (int i = 0; i < MAX_MULTI_GAMES; i++) {
+		Session.Score[i].Kills[Session.CurGame] = -1;
+	}
+
+	Map.Set_Default_Mouse(MOUSE_NORMAL, false);
+
+	if (ToolTips != NULL) {
+		ToolTips->Activate(false);
+	}
+
+	if (Session.Type == GAME_NORMAL) {
+		selection = 0x12;
+	} else if (Session.Type == GAME_INTERNET) {
+		selection = 0x11;
+	} else {
+		selection = 0x10;
+	}
+
+	if (!Debug_Map) {
+
+		if (Session.Play && Session.RecordFile.Is_Available()) {
+			if (Session.RecordFile.Open(FileClass::READ)) {
+				Load_Recording_Values(Session.RecordFile);
+				process = false;
+				Theme.Stop(true);
+			} else {
+				Session.Play = false;
+			}
+		}
+
+		while (process) {
+
+			if (PacketTransport != NULL) {
+				if (Session.ViaPacketRouter) {
+					if (DAT_00A8EA0C) {
+						OwnerTalk.Send_Shutdown();
+					}
+					Session.ViaPacketRouter = false;
+				}
+				delete PacketTransport;
+				PacketTransport = NULL;
+				FUN_0052F3F0();
+			}
+
+			if (selection == 0x12 && !Debug_ForceScenario) {
+				selection = Main_Menu(3600);
+			}
+
+			if (Debug_ForceScenario) {
+				selection = 8;
+			}
+
+			if (selection != 7) {
+				Theme.Play_Song(Theme.From_Name("INTRO"));
+			}
+
+			Call_Back();
+
+			switch (selection) {
+
+				case -1:
+					if (Session.Attract && Session.RecordFile.Is_Available()) {
+						Session.Play = true;
+
+						if (Session.RecordFile.Open(FileClass::READ)) {
+							Load_Recording_Values(Session.RecordFile);
+							process = false;
+							Theme.Stop(true);
+						} else {
+							Session.Play = false;
+							selection = 0x12;
+						}
+					} else {
+						selection = 0x12;
+					}
+					break;
+
+				case 1:
+					Game::ObserverMode = false;
+					selection = FUN_0060D380(0x100, FUN_0052D640, true);
+					break;
+
+				case 2:
+					selection = 0x10;
+					Session.Type = GAME_INTERNET;
+					FUN_0053F1F0(2);
+					break;
+
+				case 3:
+					selection = 0x10;
+					Session.Type = GAME_IPX;
+					FUN_0053F1F0(1);
+					break;
+
+				case 4:
+					selection = FUN_0060D380(0x101, FUN_0052D790, true);
+					break;
+
+				case 5:
+					selection = 0x12;
+					Main_Options_Dialog();
+					break;
+
+				case 6: {
+					wchar_t const * text = StringTable::LoadString("GUI:ExitAreYouSure", NULL, "D:\\ra2mdpost\\Init.CPP", 0x9C6);
+					wchar_t const * ok = StringTable::LoadString("TXT_OK", NULL, "D:\\ra2mdpost\\Init.CPP", 0x9C7);
+					wchar_t const * cancel = StringTable::LoadString("GUI:Cancel", NULL, "D:\\ra2mdpost\\Init.CPP", 0x9C8);
+					FUN_0052FEC0(NULL, true);
+					if (WWMessageBox().Process(text, ok, cancel, NULL) == 0) {
+						selection = 7;
+						Options.Save_Settings();
+					} else {
+						FUN_0052FEC0(NULL, true);
+						selection = 0x12;
+					}
+					break;
+				}
+
+				case 13:
+					selection = 4;
+					Game::PlayMovie("RENEGADE.BIK", -1, 1, 1, 1, 0);
+					FUN_0052FEC0(NULL, true);
+					break;
+
+				case 14: {
+					MovieUnlockableInfo * movie = (MovieUnlockableInfo *)FUN_0060D380(0x129, FUN_0052D870, true);
+					if (movie != (MovieUnlockableInfo *)-1 && movie != NULL) {
+						if (CD().Force_Available((DiskID)movie->DiskRequired)) {
+							Game::PlayMovie(movie->Filename, -1, 1, 1, 1, 0);
+							FUN_0052FEC0(NULL, true);
+						}
+					} else {
+						selection = 4;
+					}
+					break;
+				}
+
+				case 15:
+					selection = 4;
+					FUN_004C3E30();
+					Theme.Queue_Song(Theme.From_Name("INTRO"));
+					FUN_0052FEC0(NULL, true);
+					break;
+
+				case 7: {
+					Theme.Stop(true);
+
+					int timeout = (TickCount + 50 * TIMER_SECOND);
+
+					while (Theme.Still_Playing() && Is_Speaking() && (timeout > TickCount)) {
+						Call_Back();
+					}
+
+					Theme.Stop();
+
+					if (!HicolorFlag) {
+						Set_Palette(BlackPalette, FADE_PALETTE_SLOW);
+					}
+
+					return(false);
+				}
+
+				case 8:
+					new (&Environment) EnvironmentClass;
+
+					Scen->Campaign = Choose_Campaign();
+					if (Scen->Campaign == CAMPAIGN_NONE) {
+						process = true;
+						selection = 1;
+						break;
+					}
+
+					switch (Options.Difficulty) {
+						case 0:
+							Scen->CDifficulty = DIFF_HARD;
+							Scen->Difficulty = DIFF_EASY;
+							break;
+
+						case 1:
+							Scen->CDifficulty = DIFF_HARD;
+							Scen->Difficulty = DIFF_NORMAL;
+							break;
+
+						case 2:
+							Scen->CDifficulty = DIFF_NORMAL;
+							Scen->Difficulty = DIFF_NORMAL;
+							break;
+
+						case 3:
+							Scen->CDifficulty = DIFF_EASY;
+							Scen->Difficulty = DIFF_NORMAL;
+							break;
+
+						case 4:
+							Scen->CDifficulty = DIFF_EASY;
+							Scen->Difficulty = DIFF_HARD;
+							break;
+					}
+
+					Session.Type = GAME_NORMAL;
+					process = false;
+					break;
+
+				case 9:
+					ScenarioInit++;
+					FUN_0052CB90();
+					ScenarioInit--;
+					if (LoadOptionsClass().Load()) {
+						process = false;
+						gameloaded = true;
+					} else {
+						selection = 1;
+					}
+					break;
+
+				case 10:
+					selection = 1;
+					break;
+
+				case 11:
+					Session.Type = GAME_SKIRMISH;
+
+				case 0x10:
+				case 0x11: {
+					Session.Read_MultiPlayer_Settings();
+
+					for (int house = 0; house < HouseTypes.Count(); house++) {
+						HouseTypes[house]->Read_INI(*RuleINI);
+					}
+
+					Session.Suspended = 0;
+
+					switch (Session.Type) {
+						case GAME_NORMAL:
+							selection = 0x12;
+							continue;
+
+						case GAME_SKIRMISH:
+							if (!FUN_006AE2C0()) {
+								Session.Type = GAME_NORMAL;
+								selection = 1;
+							}
+							break;
+
+						case GAME_NULL_MODEM:
+						case GAME_MODEM:
+							Cheat_Disable();
+							Session.NetOpen = true;
+
+							if (NullModem.Num_Connections()) {
+								NullModem.Init_Send_Queue();
+
+								if ((Session.Type == GAME_NULL_MODEM && Session.ModemType == MODEM_NULL_HOST) || (Session.Type == GAME_MODEM && Session.ModemType == MODEM_DIALER)) {
+									if (!ModemHost().Dialog()) {
+										Session.Type = GAME_NORMAL;
+										selection = 0x12;
+									}
+								} else {
+									if (ModemGuest().Dialog() == false) {
+										Session.Type = GAME_NORMAL;
+										selection = 0x12;
+									}
+								}
+							} else {
+								selection = 0x12;
+								Session.Type = GAME_NORMAL;
+								continue;
+							}
+							break;
+
+						case GAME_INTERNET: {
+							Cheat_Disable();
+							FUN_004068E0("Init.cpp - GAME_INTERNET\n");
+							memset(Session.unknown_29F4, 0, sizeof(Session.unknown_29F4));
+							Session.unknown_3070 = 0;
+							bool success = FUN_0052F3F0();
+							int res = FUN_0077B2A0(selection == 0x11);
+							selection = 0x10;
+							Session.NetOpen = false;
+
+							switch (res) {
+								case -1:
+									Theme.Stop(true);
+
+									if (!HicolorFlag) {
+										Set_Palette(BlackPalette, FADE_PALETTE_SLOW);
+									}
+
+									if (PacketTransport != NULL) {
+										delete PacketTransport;
+									}
+
+									PacketTransport = NULL;
+									return(false);
+
+								case -2:
+								case 0:
+									if (PacketTransport != NULL) {
+										delete PacketTransport;
+									}
+
+									PacketTransport = NULL;
+									selection = 0x12;
+									Session.Type = GAME_NORMAL;
+									Theme.Play_Song(Theme.From_Name("INTRO"));
+									break;
+
+								case 1:
+									FUN_004068E0("Return from WOL to play a %d player game\n", Session.Players.Count());
+									if (success) {
+										process = false;
+										DAT_00825C84 = 2;
+									} else {
+										Session.Type = GAME_NORMAL;
+										selection = 0x12;
+
+										if (PacketTransport != NULL) {
+											delete PacketTransport;
+										}
+
+										PacketTransport = NULL;
+										DAT_00825C84 = -1;
+									}
+									break;
+
+								case 2:
+									if (PacketTransport != NULL) {
+										delete PacketTransport;
+									}
+
+									PacketTransport = NULL;
+									Session.Type = GAME_NORMAL;
+									selection = 0xB;
+									break;
+							}
+							break;
+						}
+					}
+
+					switch (Session.Type) {
+						case GAME_MODEM:
+						case GAME_NULL_MODEM:
+						case GAME_INTERNET:
+						case GAME_SKIRMISH:
+							process = false;
+							break;
+
+						case GAME_IPX:
+							Cheat_Disable();
+							Session.Read_MultiPlayer_Settings();
+
+							if (PacketTransport != NULL) {
+								delete PacketTransport;
+								PacketTransport = NULL;
+							}
+
+							for (int house = 0; house < HouseTypes.Count(); house++) {
+								HouseTypes[house]->Read_INI(*RuleINI);
+							}
+
+							Session.Type = GAME_IPX;
+							Session.CommProtocol = COMM_PROTOCOL_MULTI_E_COMP;
+
+							if (PacketTransport == NULL) {
+								PacketTransport = new IPXInterfaceClass;
+								PacketTransport->Init();
+
+								FUN_0052FEC0(NULL, true);
+
+								if (Net2Init_Network() && Net2Remote_Connect()) {
+									process = false;
+								} else {
+									Session.Type = GAME_NORMAL;
+									selection = 0x12;
+
+									if (PacketTransport != NULL) {
+										delete PacketTransport;
+									}
+
+									PacketTransport = NULL;
+								}
+							}
+							break;
+					}
+					break;
+				}
+
+				default:
+					break;
+			}
+		}
+	}
+
+	if (Session.Type == GAME_INTERNET) {
+		FUN_0078ABF0(true, StringTable::LoadString("TXT_AWAY_LOADING", NULL, "D:\\ra2mdpost\\Init.CPP", 0xBB1));
+	}
+
+	Keyboard->Clear();
+
+	Game::InitRandom();
+	FUN_006370B0();
+
+	if (!gameloaded && !Session.LoadGame) {
+		FUN_004068E0("About to load a %d player game.\n", Session.Players.Count());
+
+		Hide_Mouse();
+
+		if (selection != 8) {
+			if (!HicolorFlag) {
+				Set_Palette(BlackPalette, FADE_PALETTE_MEDIUM, Call_Back);
+			}
+
+			HiddenSurface->Fill(0);
+			Update_Visible_Surface(true, HiddenSurface);
+		}
+
+		Show_Mouse();
+
+		if (Session.Type == GAME_INTERNET) {
+			for (int i = 0; i < MAX_PLAYERS; i++) {
+				Session.unknown_304C[i] = TickCount;
+			}
+		}
+
+		if (Session.Type != GAME_NORMAL || Debug_ForceScenario || Session.Play) {
+			if (!Start_Scenario(Scen->ScenarioName, true, CAMPAIGN_NONE)) {
+				if (Debug_Map) {
+					FUN_0078ABF0(false, L"");
+					return(false);
+				} else {
+					goto restart;
+				}
+			}
+		} else {
+			if (!Start_Scenario(Campaigns[Scen->Campaign]->ScenarioName, true, Scen->Campaign)) {
+				if (Debug_Map) {
+					FUN_0078ABF0(false, L"");
+					return(false);
+				} else {
+					goto restart;
+				}
+			}
+		}
+
+		if (Session.Record) {
+			if (Session.RecordFile.Open(FileClass::WRITE)) {
+				Save_Recording_Values(Session.RecordFile);
+			} else {
+				Session.Record = false;
+			}
+		}
+
+		Special.IsFromInstall = false;
+	}
+
+	FUN_004068E0("IsTGrowth = %d\n", Special.IsTGrowth);
+	FUN_004068E0("IsTSpread = %d\n", Special.IsTSpread);
+
+	if (Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH && !Session.Play) {
+		Session.Create_Connections();
+
+		if (Session.Type == GAME_IPX) {
+			Ipx.Set_Timing(MAX(TIMER_SECOND / 4, Ipx.Global_Response_Time() + 2), (unsigned int) -1, 10 * TIMER_SECOND, true);
+
+			Ipx.Set_External_Timing(MAX(TIMER_SECOND, Ipx.Global_Response_Time() + 2), (unsigned int) -1, 10 * TIMER_SECOND);
+		} else {
+			if (Session.Type == GAME_INTERNET && Session.PrecalcDesiredFrameRate == 0) {
+				Ipx.Set_Timing(MAX(TIMER_SECOND, Ipx.Global_Response_Time() + 2), (unsigned int) -1, 10 * TIMER_SECOND, true);
+			}
+		}
+	}
+
+	Call_Back();
+	Hide_Mouse();
+
+	if (!HicolorFlag) {
+		Set_Palette(BlackPalette, FADE_PALETTE_MEDIUM, Call_Back);
+	}
+
+	HiddenSurface->Fill(0);
+	Update_Visible_Surface(true, HiddenSurface);
+	Show_Mouse();
+	LogicalSurface = HiddenSurface;
+	Map.Override_Mouse_Shape(MOUSE_NO_MOVE);
+	Map.Revert_Mouse_Shape();
+
+	if (!Debug_Map) {
+		Map.Activate(1);
+	}
+
+	Map.Flag_To_Redraw();
+	Call_Back();
+
+	Hide_Mouse();
+	FUN_0078ABF0(false, L"");
+
+	return(true);
+}
+
+static inline HWND Child_At(HWND window, LPARAM lparam)
+{
+	POINT pt = { LOWORD(lparam), HIWORD(lparam) };
+	RECT rect;
+	GetWindowRect(window, &rect);
+	pt.x -= rect.left;
+	pt.y -= rect.top;
+	return ChildWindowFromPointEx(window, pt, CWP_SKIPINVISIBLE);
+}
+
+// FUNCTION: GAMEMD 0x0052EC00
+BOOL CALLBACK FUN_0052EC00(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	int rc = UI::StandardWndProc(window, message, wparam, lparam);
+	if (rc) {
+		return rc;
+	}
+
+	switch (message) {
+		case WM_HSCROLL:
+			if ((HWND)lparam == GetDlgItem(window, 0x50F)) {
+				const char * label = DAT_00822774[HIWORD(wparam)];
+				HWND item = GetDlgItem(window, 0x670);
+				SendMessage(item, 0x4B2, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\ra2mdpost\\Init.CPP", 0x4E5));
+				return(0);
+			}
+			break;
+
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case 0x686: {
+					CampaignPick * pick = (CampaignPick *)GetWindowLong(window, 8);
+					if (pick) {
+						pick->Choice = -1;
+						pick->Done = true;
+						return(0);
+					}
+					break;
+				}
+
+				case 0x40E:
+					if (HIWORD(wparam) == 0) {
+						CampaignPick * pick = (CampaignPick *)GetWindowLong(window, 8);
+						if (pick) {
+							HWND list = GetDlgItem(window, 0x455);
+							if (list) {
+								pick->Choice = SendMessage(list, LB_GETCURSEL, 0, 0);
+								pick->Done = true;
+							}
+						}
+						HWND item = GetDlgItem(window, 0x50F);
+						if (item) {
+							Options.Difficulty = SendMessage(item, 0x400, 0, 0);
+							return(0);
+						}
+					}
+					break;
+			}
+			break;
+
+		case WM_NCHITTEST:
+			if (DAT_00A8F7B0 == NULL) {
+				HWND child = Child_At(window, lparam);
+				if (child) {
+					int id = GetDlgCtrlID(child);
+					if (DAT_00A8F7A8 != id) {
+						SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D5, 0, 0);
+						SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D4, 0, 0);
+						DAT_00A8F7A0 = Game::AudioGetTime() + 500;
+						DAT_00825C20 = -1;
+						DAT_00A8F7A8 = 0;
+					}
+					if (id == 0x6EA) {
+						if (DAT_00A8F7A8 != id) {
+							DAT_00825C20 = DAT_00825C78;
+							SendDlgItemMessage(window, id, 0x4D3, 0, 0);
+							DAT_00A8F7A8 = id;
+						}
+					} else if (id == 0x6EC) {
+						if (DAT_00A8F7A8 != id) {
+							DAT_00825C20 = DAT_00825C74;
+							SendDlgItemMessage(window, id, 0x4D3, 0, 0);
+							DAT_00A8F7A8 = id;
+						}
+					} else if (id == 0x6EB) {
+						if (DAT_00A8F7A8 != id) {
+							DAT_00825C20 = DAT_00825C7C;
+						}
+						SendDlgItemMessage(window, 0x6EB, 0x4D3, 0, 0);
+						DAT_00A8F7A8 = 0x6EB;
+					}
+				} else if (DAT_00A8F7A8) {
+					SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D5, 0, 0);
+					SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D4, 0, 0);
+				}
+			}
+			break;
+
+		case WM_LBUTTONDOWN: {
+			HWND child = Child_At(window, lparam);
+			if (child) {
+				int id = GetDlgCtrlID(child);
+				if (id == 0x6EA || id == 0x6EC || id == 0x6EB) {
+					VocClass::PlayGlobal(Rule->GUIMainButtonSound, 1.0f, 0x2000);
+					DAT_00A8F7B0 = child;
+					SetCapture(window);
+				}
+			}
+			break;
+		}
+
+		case WM_LBUTTONUP: {
+			HWND child = Child_At(window, lparam);
+			if (child) {
+				int id = GetDlgCtrlID(child);
+				if (child == DAT_00A8F7B0) {
+					CampaignPick * pick = (CampaignPick *)GetWindowLong(window, 8);
+					if (pick) {
+						if (id == 0x6EA) {
+							pick->Choice = CampaignClass::From_Name(DAT_00825C68);
+							pick->Done = true;
+						} else if (id == 0x6EC) {
+							pick->Choice = CampaignClass::From_Name(DAT_00825C6C);
+							pick->Done = true;
+						} else if (id == 0x6EB) {
+							pick->Choice = CampaignClass::From_Name(DAT_00825C70);
+							pick->Done = true;
+						}
+						if (pick->Done) {
+							DAT_00ABCE08 = 0;
+							SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D5, 0, 0);
+							SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D4, 0, 0);
+							HWND item = GetDlgItem(window, 0x50F);
+							if (item) {
+								Options.Difficulty = SendMessage(item, 0x400, 0, 0);
+							}
+							if (DAT_00825C20 != -1) {
+								DAT_00A8F300.Stop();
+								VocClass::PlayGlobal(DAT_00825C20, 1.0f, 0x2000, &DAT_00A8F300);
+								DAT_00825C20 = -1;
+							}
+						}
+					}
+				} else if (id == 0x6EA || id == 0x6EC || id == 0x6EB) {
+					if (DAT_00A8F7A8) {
+						SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D5, 0, 0);
+						SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D4, 0, 0);
+					}
+					SendDlgItemMessage(window, id, 0x4D5, 0, 0);
+					SendDlgItemMessage(window, id, 0x4D3, 0, 0);
+					DAT_00A8F7A8 = id;
+				} else if (DAT_00A8F7A8) {
+					SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D5, 0, 0);
+					SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D4, 0, 0);
+					DAT_00A8F7A8 = 0;
+				}
+			} else if (DAT_00A8F7A8) {
+				SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D5, 0, 0);
+				SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D4, 0, 0);
+				DAT_00A8F7A8 = 0;
+			}
+			if (GetCapture() == window) {
+				ReleaseCapture();
+			}
+			DAT_00A8F7B0 = NULL;
+			break;
+		}
+
+		case 0x497: {
+			DAT_00825C74 = VocClass::FindIndex("SovietCampaignSelect");
+			DAT_00825C78 = VocClass::FindIndex("AlliedCampaignSelect");
+			DAT_00825C7C = VocClass::FindIndex("BootCampSelect");
+
+			HWND list = GetDlgItem(window, 0x455);
+			if (DAT_00A8F7AD) {
+				if (list) {
+					for (int index = 0; index < Campaigns.Count(); index++) {
+						SendMessage(list, 0x4CD, 0, (LPARAM)Campaigns[index]->Description);
+					}
+					SendMessage(list, LB_SETCURSEL, 0, 0);
+				}
+			} else {
+				ShowWindow(list, SW_HIDE);
+				HWND ok = GetDlgItem(window, 0x40E);
+				ShowWindow(ok, SW_HIDE);
+				EnableWindow(ok, FALSE);
+			}
+
+			HWND icon = GetDlgItem(window, 0x7A7);
+			if (icon) {
+				SendMessage(icon, 0x4B2, 0, (LPARAM)StringTable::LoadString("STT:AlliedCampaignIcon", NULL, "D:\\ra2mdpost\\Init.CPP", 0x4A6));
+			}
+			icon = GetDlgItem(window, 0x7A8);
+			if (icon) {
+				SendMessage(icon, 0x4B2, 0, (LPARAM)StringTable::LoadString("STT:SovietCampaignIcon", NULL, "D:\\ra2mdpost\\Init.CPP", 0x4AB));
+			}
+
+			HWND item = GetDlgItem(window, 0x50F);
+			if (item) {
+				PostMessage(item, 0x4AC, 0, 0);
+				PostMessage(item, 0x406, 1, 0x20000);
+				PostMessage(item, 0x405, 1, Options.Difficulty);
+			}
+
+			SendDlgItemMessage(window, 0x6EA, 0x4D5, 0, 0);
+			SendDlgItemMessage(window, 0x6EA, 0x4D4, 0, 0);
+			SendDlgItemMessage(window, 0x6EC, 0x4D5, 0, 0);
+			SendDlgItemMessage(window, 0x6EC, 0x4D4, 0, 0);
+			SendDlgItemMessage(window, 0x6EB, 0x4D5, 0, 0);
+			SendDlgItemMessage(window, 0x6EB, 0x4D4, 0, 0);
+
+			item = GetDlgItem(window, 0x6EA);
+			if (item) {
+				PostMessage(item, 0x4D7, 0, (LPARAM)window);
+			}
+			item = GetDlgItem(window, 0x6EC);
+			if (item) {
+				PostMessage(item, 0x4D7, 0, (LPARAM)window);
+				return(0);
+			}
+			break;
+		}
+
+		case 0x4D8:
+			if (wparam == 0) {
+				SendDlgItemMessage(window, DAT_00A8F7A8, 0x4D4, 0, 0);
+				return(0);
+			}
+			break;
+	}
+	return(0);
+}
+
+extern CCINIClass DAT_008870C0;
+extern int DAT_00ABFED8;
+
+// FUNCTION: GAMEMD 0x0052F3F0
+bool FUN_0052F3F0(void)
+{
+	if (PacketTransport != NULL) {
+		delete PacketTransport;
+		PacketTransport = NULL;
+	}
+
+	for (int house = 0; house < HouseTypes.Count(); house++) {
+		HouseTypes[house]->Read_INI(*RuleINI);
+	}
+
+	if (PacketTransport == NULL) {
+		PacketTransport = new UDPInterfaceClass;
+	}
+
+	Session.CommProtocol = COMM_PROTOCOL_MULTI_E_COMP;
+	PacketTransport->Open_Socket(0);
+	Ipx.Set_Timing(30, (unsigned int)-1, 600, true);
+	FUN_004068E0("About to initialise the network code\n");
+	bool success = Init_Network();
+	PacketTransport->Start_Listening();
+
+	memset(Session.PlayerPorts, 0, sizeof(Session.PlayerPorts));
+	Session.unknown_3078 = false;
+	Session.unknown_306C = false;
+	Session.PacketRouterPort = 0;
+	Session.unknown_306E = 0;
+	Session.unknown_308C = 0;
+	Session.unknown_3094 = -1;
+	Session.unknown_309C = 20;
+	Session.unknown_30A0 = 0;
+	Session.unknown_30A4 = 0;
+	Session.unknown_30A8 = -1;
+	memset(Session.unknown_2A14, 0, sizeof(Session.unknown_2A14));
+	memset(Session.ConnectionResults, -1, sizeof(Session.ConnectionResults));
+	memset(Session.unknown_2E18, 0, sizeof(Session.unknown_2E18));
+	memset(Session.unknown_2FF8, 0, sizeof(Session.unknown_2FF8));
+	Session.unknown_2E14 = 0;
+
+	if (Session.ForcePortBase) {
+		Session.PortBase = Session.ForcePortBase;
+	} else if (Session.unknown_3018) {
+		Session.PortBase += 7;
+		if (Session.PortBase >= 1950) {
+			Session.PortBase = 1250;
+		}
+		Session.unknown_3018 = false;
+	}
+
+	RawFileClass file("RA2MD.INI");
+	DAT_008870C0.Put_Int("MultiPlayer", "PortBase", Session.PortBase, 0);
+	DAT_008870C0.Put_Int("MultiPlayer", "PortPool", DAT_00ABFED8, 0);
+	DAT_008870C0.Save(file, false);
+	OwnerTalk.Reset();
+	Session.NetOpen = true;
+	return(success);
+}
+
+// FUNCTION: GAMEMD 0x0052F610
+void Anim_Init(void)
+{
+	Initialize_Options();
+	Set_Option(OPTION_PLAY_FROM_MIXFILE);
+}
+
+extern unsigned char DAT_00A8ED6B;
+extern int DAT_00840A70;
+extern int DAT_00A8F784;
+extern unsigned char DAT_0089E3A0;
+extern unsigned char DAT_00B04880;
+extern unsigned char DAT_00A8EDDC;
+extern int DAT_00B77E18;
+extern unsigned char DAT_008175B0;
+extern unsigned char DAT_0089F978;
+extern unsigned char DAT_00A8ED64;
+void __fastcall FUN_00734F50(int value);
+void __fastcall FUN_00734F80(int value);
+void __fastcall FUN_007B2720(int value);
+
+// FUNCTION: GAMEMD 0x0052F620
+bool Parse_Command_Line(int argc, char * argv[])
+{
+	Special.Init();
+	DAT_00A8ED6B = false;
+
+	for (int index = 1; index < argc; index++) {
+		char * string = strupr(argv[index]);
+
+		if (stricmp("-jabber", string) == 0) {
+			FUN_00734F50(1);
+			continue;
+		}
+		if (stricmp("-str", string) == 0) {
+			FUN_00734F80(1);
+			continue;
+		}
+		if (stricmp("-nostr", string) == 0) {
+			FUN_00734F80(0);
+			continue;
+		}
+		if (stricmp("-noaudio", string) == 0) {
+			DAT_00840A70 = 0;
+			continue;
+		}
+		if (stricmp("-record", string) == 0) {
+			DAT_00A8F784 = 1;
+			continue;
+		}
+		if (stricmp("-play", string) == 0) {
+			DAT_00A8F784 = 2;
+			continue;
+		}
+
+		if (stricmp("/?", string) == 0 || stricmp("-?", string) == 0 || stricmp("-h", string) == 0 || stricmp("/h", string) == 0) {
+			_putws(StringTable::LoadString("TXT_OPTION_HELP_01", NULL, "D:\\ra2mdpost\\Init.CPP", 0xD56));
+			_putws(StringTable::LoadString("TXT_OPTION_HELP_02", NULL, "D:\\ra2mdpost\\Init.CPP", 0xD57));
+			_putws(StringTable::LoadString("TXT_OPTION_HELP_03", NULL, "D:\\ra2mdpost\\Init.CPP", 0xD58));
+			_putws(StringTable::LoadString("TXT_OPTION_HELP_04", NULL, "D:\\ra2mdpost\\Init.CPP", 0xD59));
+			_putws(StringTable::LoadString("TXT_OPTION_HELP_05", NULL, "D:\\ra2mdpost\\Init.CPP", 0xD5A));
+			_putws(StringTable::LoadString("TXT_OPTION_HELP_06", NULL, "D:\\ra2mdpost\\Init.CPP", 0xD5B));
+			return(false);
+		}
+
+		if (Obfuscate(string) == 0xD95C68A2) {
+			Special.IsFromInstall = true;
+			continue;
+		}
+
+		if (strstr(string, "-CD")) {
+			DAT_0089E3A0 = 1;
+			CDFileClass::Set_Search_Drives(&string[3]);
+			continue;
+		}
+
+		if (strstr(string, "-DESTNET")) {
+			NetNumType net;
+			NetNodeType node;
+
+			int i = 0;
+			char * p = strtok(string + 8, ".");
+			while (p) {
+				int x;
+				sscanf(p, "%x", &x);
+				if (i < 4) {
+					net[i] = (char)x;
+				} else {
+					node[i-4] = (char)x;
+				}
+				i++;
+				p = strtok(NULL, ".");
+			}
+
+			if (i >= 4) {
+				Session.IsBridge = 1;
+				memset(node, 0xff, 6);
+				Session.BridgeNet = IPXAddressClass(net, node, 0);
+			}
+			continue;
+		}
+
+		if (strstr(string, "-SOCKET")) {
+			unsigned short socket;
+			socket = (unsigned short)(atoi(string + strlen("SOCKET")));
+			socket += (unsigned short)0x4000;
+			if (socket >= 0x4000 && socket < 0x8000) {
+				Ipx.Set_Socket(socket);
+			}
+			continue;
+		}
+
+		FUN_007B2720(0);
+
+		if (strstr(string, "-MPDEBUG")) {
+			DAT_00B04880 = true;
+			Session.EnableMultiplayerDebug = true;
+		}
+
+		if (strstr(string, "-DROP=")) {
+			FUN_007B2720((unsigned short)atoi(string + strlen("-DROP=")));
+			continue;
+		}
+
+		if (strstr(string, "-SPEEDCONTROL")) {
+			DAT_00A8EDDC = true;
+		}
+		if (strstr(string, "-DLINK1")) {
+			DAT_00B77E18 = 1;
+		}
+		if (strstr(string, "-NETGEAR")) {
+			DAT_00B77E18 = 2;
+		}
+		if (strstr(string, "-NOROUTER")) {
+			Session.unknown_3090 = false;
+		}
+
+		if (strstr(string, "-STEALTH")) {
+			Session.NetStealth = true;
+			continue;
+		}
+		if (strstr(string, "-MESSAGES")) {
+			Session.NetProtect = false;
+			continue;
+		}
+		if (strstr(string, "-ATTRACT")) {
+			Session.Attract = true;
+			continue;
+		}
+
+		if (isdigit(string[1])) {
+			sscanf(string, "-%dX%d", &Options.ScreenWidth, &Options.ScreenHeight);
+			continue;
+		}
+		if (strcmp(string, "-480") == 0) {
+			Options.ScreenHeight = 480;
+			continue;
+		}
+		if (strcmp(string, "-16") == 0) {
+			DAT_008175B0 = true;
+			continue;
+		}
+		if (stricmp(string, "-WIN") == 0) {
+			DAT_0089F978 = true;
+			continue;
+		}
+
+		if (strnicmp(string, "-X", strlen("-O")) == 0) {
+			string += strlen("-X");
+			while (*string) {
+				char code = *string++;
+				switch (toupper(code)) {
+					case 'Q':
+						DAT_00A8ED64 = true;
+						break;
+					default:
+						_putws(StringTable::LoadString("TXT_INVALID", NULL, "D:\\ra2mdpost\\Init.CPP", 0xE94));
+						return(false);
+				}
+			}
+			continue;
+		}
+	}
+	return(true);
+}
+
+void __fastcall Fill_Surface_Rect(BSurface * image, Rect * rect, int flag);
+
+extern int DAT_00A8ED98;
+extern RandomStraw CryptRandom;
+int __cdecl FUN_0053E720(void);
+
+// FUNCTION: GAMEMD 0x0052FC20
+void Game::InitRandom(void)
+{
+	FUN_004068E0("Init random number\n");
+	if (Session.LoadGame || (RecordingFlag & 2) || FUN_0053E720()) {
+		Scen->RandomNumber = Seed;
+		NonCriticalRandomNumber = Seed;
+		FUN_004068E0("Seed is %08x\n", Seed);
+		return;
+	}
+
+	if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
+		SYSTEMTIME t;
+		GetSystemTime(&t);
+		CryptRandom.Seed_Byte(t.wMilliseconds);
+		CryptRandom.Seed_Bit(t.wSecond);
+		CryptRandom.Seed_Bit(t.wSecond>>1);
+		CryptRandom.Seed_Bit(t.wSecond>>2);
+		CryptRandom.Seed_Bit(t.wSecond>>3);
+		CryptRandom.Seed_Bit(t.wSecond>>4);
+		CryptRandom.Seed_Bit(t.wMinute);
+		CryptRandom.Seed_Bit(t.wMinute>>1);
+		CryptRandom.Seed_Bit(t.wMinute>>2);
+		CryptRandom.Seed_Bit(t.wMinute>>3);
+		CryptRandom.Seed_Bit(t.wMinute>>4);
+		CryptRandom.Seed_Bit(t.wHour);
+		CryptRandom.Seed_Bit(t.wDay);
+		CryptRandom.Seed_Bit(t.wDayOfWeek);
+		CryptRandom.Seed_Bit(t.wMonth);
+		CryptRandom.Seed_Bit(t.wYear);
+
+		if (DAT_00A8ED98 != 0) {
+			Seed = DAT_00A8ED98;
+		} else {
+			CryptRandom.Get(&Seed, sizeof(Seed));
+			Seed = GetTickCount();
+		}
+	}
+
+	FUN_004068E0("Seed is %08x\n", Seed);
+	Scen->RandomNumber = Seed;
+	NonCriticalRandomNumber = Seed;
+}
+
+// FUNCTION: GAMEMD 0x0052FEC0
+void __fastcall FUN_0052FEC0(Surface * surface, bool flag)
+{
+	if (surface == NULL) {
+		surface = HiddenSurface;
+	}
+	surface->Fill(0);
+	int width = surface->Get_Width();
+	int height = surface->Get_Height();
+	Rect rect(0, 0, width, height);
+	BSurface * image = new BSurface(width, height, 2);
+	Fill_Surface_Rect(image, &rect, 0);
+	surface->Blit_From(*image, false, true);
+	delete image;
+	if (flag) {
+		Update_Visible_Surface(false, surface);
+	}
+}
+
+// FUNCTION: GAMEMD 0x0052FF90
+void Load_Title_Page(const char * name, bool visible)
+{
+	HiddenSurface->Fill(0);
+	Load_Title_Screen(name, HiddenSurface, &CCPalette);
+	if (visible)
+		Update_Visible_Surface(true, HiddenSurface);
+}
+
+// FUNCTION: GAMEMD 0x0052FFD0
+void Blank_Hidden_Surface(bool visible)
+{
+	HiddenSurface->Fill(0);
+	if (visible)
+		Update_Visible_Surface(true, HiddenSurface);
+}
+
+// FUNCTION: GAMEMD 0x00530000
+bool Init_Expansion_Files(void)
+{
+	HANDLE handle;
+	WIN32_FIND_DATA ff;
+	MFCD * ptr;
+
+	handle = FindFirstFile("ECACHE*.MIX", &ff);
+	while (handle != INVALID_HANDLE_VALUE) {
+		if ((ff.dwFileAttributes & (FILE_ATTRIBUTE_DIRECTORY | FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM | FILE_ATTRIBUTE_TEMPORARY)) == 0) {
+			ptr = new MFCD(ff.cFileName, &FastKey);
+			if (ptr != NULL) {
+				ExpandMix.Add(ptr);
+				ptr->Cache();
+			}
+		}
+		if (FindNextFile(handle, &ff) == false) {
+			break;
+		}
+	}
+	if (handle != INVALID_HANDLE_VALUE) {
+		FindClose(handle);
+	}
+
+	handle = FindFirstFile("ELOCAL*.MIX", &ff);
+	while (handle != INVALID_HANDLE_VALUE) {
+		if ((ff.dwFileAttributes & (FILE_ATTRIBUTE_DIRECTORY | FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM | FILE_ATTRIBUTE_TEMPORARY)) == 0) {
+			ptr = new MFCD(ff.cFileName, &FastKey);
+			if (ptr != NULL) {
+				ExpandMix.Add(ptr);
+			}
+		}
+		if (FindNextFile(handle, &ff) == false) {
+			break;
+		}
+	}
+	if (handle != INVALID_HANDLE_VALUE) {
+		FindClose(handle);
+	}
+	return(true);
+}
+
+extern MFCD * DAT_00884DF8;
+extern MFCD * DAT_00884DFC;
+extern MFCD * DAT_00884E48;
+extern MFCD * DAT_00884E4C;
+extern MFCD * DAT_00884E50;
+extern MFCD * DAT_00884E54;
+
+// FUNCTION: GAMEMD 0x005301A0
+bool Init_Bootstrap_Mixfiles(void)
+{
+	int index;
+	char name[64];
+	MFCD * expand;
+	DiskID temp;
+
+	temp = CD::Get_Required_Disk();
+	CD::Set_Required_Disk(DISK_LOCAL);
+
+	for (index = 99; index >= 0; index--) {
+		sprintf(name, "EXPANDMD%02d.MIX", index);
+		if (RawFileClass(name).Is_Available()) {
+			expand = new MFCD(name, &FastKey);
+			if (expand != NULL) {
+				ExpandMix.Add(expand);
+				DebugStringNoPrefix(" %s", name);
+			}
+		}
+	}
+
+	DAT_00884DF8 = new MFCD("RA2MD.MIX", &FastKey);
+	if (DAT_00884DF8 == NULL) {
+		return(false);
+	}
+	DAT_00884DFC = new MFCD("RA2.MIX", &FastKey);
+	if (DAT_00884DFC == NULL) {
+		return(false);
+	}
+
+	DebugStringNoPrefix(" CACHE.MIX");
+	DAT_00884E48 = new MFCD("CACHEMD.MIX", &FastKey);
+	if ((DAT_00884E48 == NULL) || (MFCD::Cache("CACHEMD.MIX") == false)) {
+		return(false);
+	}
+
+	DebugStringNoPrefix(" CACHE.MIX");
+	DAT_00884E4C = new MFCD("CACHE.MIX", &FastKey);
+	if ((DAT_00884E4C == NULL) || (MFCD::Cache("CACHE.MIX") == false)) {
+		return(false);
+	}
+
+	DebugStringNoPrefix(" CACHE.MIX");
+	DAT_00884E50 = new MFCD("LOCALMD.MIX", &FastKey);
+	if (DAT_00884E50 == NULL) {
+		return(false);
+	}
+	DAT_00884E54 = new MFCD("LOCAL.MIX", &FastKey);
+	if (DAT_00884E54 == NULL) {
+		return(false);
+	}
+
+	DebugStringNoPrefix(" LOCAL.MIX");
+	CD::Set_Required_Disk(temp);
+	return(true);
+}
+
+extern MFCD * DAT_00884E38;
+extern MFCD * DAT_00884E3C;
+extern MFCD * DAT_00884E40;
+extern MFCD * DAT_00884E44;
+extern MFCD * DAT_00884E18;
+extern MFCD * DAT_00884E14;
+extern MFCD * DAT_00884E28;
+extern MFCD * DAT_00884E24;
+extern MFCD * DAT_00884E60;
+extern MFCD * DAT_00884E64;
+extern MFCD * DAT_00884DD8;
+extern MFCD * DAT_0087E738;
+extern MFCD * DAT_00884E2C;
+extern DynamicVectorClass<MFCD *> DAT_00884DA8;
+extern DynamicVectorClass<MFCD *> DAT_00884DE0;
+
+// FUNCTION: GAMEMD 0x00530460
+bool Init_Secondary_Mixfiles(void)
+{
+	if (CCFileClass("CONQMD.MIX").Is_Available()) {
+		DAT_00884E38 = new MFCD("CONQMD.MIX", &FastKey);
+	}
+	DebugStringNoPrefix(" CONQMD.MIX");
+	if (DAT_00884E38 == NULL) return false;
+
+	if (DAT_00884E18 != NULL) {
+		delete DAT_00884E18;
+	}
+	DAT_00884E18 = new MFCD("GENERMD.MIX", &FastKey);
+	DAT_00884E18->Cache();
+	if (DAT_00884E14 != NULL) {
+		delete DAT_00884E14;
+	}
+	DAT_00884E14 = new MFCD("GENERIC.MIX", &FastKey);
+	DAT_00884E14->Cache();
+	if (DAT_00884E28 != NULL) {
+		delete DAT_00884E28;
+	}
+	DAT_00884E28 = new MFCD("ISOGENMD.MIX", &FastKey);
+	if (DAT_00884E24 != NULL) {
+		delete DAT_00884E24;
+	}
+	DAT_00884E24 = new MFCD("ISOGEN.MIX", &FastKey);
+
+	if (CCFileClass("CONQUER.MIX").Is_Available()) {
+		DAT_00884E3C = new MFCD("CONQUER.MIX", &FastKey);
+	}
+	DebugStringNoPrefix(" CONQUER.MIX");
+	if (DAT_00884E3C == NULL) return false;
+	if (CCFileClass("CAMEOMD.MIX").Is_Available()) {
+		DAT_00884E40 = new MFCD("CAMEOMD.MIX", &FastKey);
+	}
+	DebugStringNoPrefix(" CAMEOMD.MIX");
+	if (DAT_00884E40 == NULL) return false;
+	if (CCFileClass("CAMEO.MIX").Is_Available()) {
+		DAT_00884E44 = new MFCD("CAMEO.MIX", &FastKey);
+	}
+	DebugStringNoPrefix(" CAMEO.MIX");
+	if (DAT_00884E44 == NULL) return false;
+
+	int cd = CD::Get_Current_Disk(60) + 1;
+	char name[260];
+	if (DAT_0089E3A0 == true) {
+		strcpy(name, "MAPSMD*.MIX");
+		if (CDFileClass::Find_First_File(name) == true) {
+			DebugStringNoPrefix(" %s", name);
+			DAT_00884E60 = new MFCD(name, &FastKey);
+			while (CDFileClass::Find_Next_File(name) == true) {
+				DebugStringNoPrefix(" %s", name);
+				MFCD * mix = new MFCD(name, &FastKey);
+				if (mix != NULL) {
+					DAT_00884DA8.Add(mix);
+				}
+			}
+			CDFileClass::Find_Close();
+		} else {
+			strcpy(name, "MAPS*.MIX");
+			if (CDFileClass::Find_First_File(name) == true) {
+				DebugStringNoPrefix(" %s", name);
+				DAT_00884E64 = new MFCD(name, &FastKey);
+				while (CDFileClass::Find_Next_File(name) == true) {
+					DebugStringNoPrefix(" %s", name);
+					MFCD * mix = new MFCD(name, &FastKey);
+					if (mix != NULL) {
+						DAT_00884DA8.Add(mix);
+					}
+				}
+				CDFileClass::Find_Close();
+			}
+		}
+	} else {
+		sprintf(name, "MAPSMD%02d.MIX", cd);
+		if (CCFileClass(name).Is_Available()) {
+			DAT_00884E60 = new MFCD(name, &FastKey);
+		}
+		DebugStringNoPrefix(" %s", name);
+		sprintf(name, "MAPS%02d.MIX", cd);
+		if (CCFileClass(name).Is_Available()) {
+			DAT_00884E64 = new MFCD(name, &FastKey);
+		}
+		DebugStringNoPrefix(" %s", name);
+	}
+	if (DAT_00884E60 == NULL) return false;
+
+	if (CCFileClass("MULTIMD.MIX").Is_Available()) {
+		DAT_00884DD8 = new MFCD("MULTIMD.MIX", &FastKey);
+	}
+	DebugStringNoPrefix(" MULTIMD.MIX");
+	if (DAT_00884DD8 == NULL) return false;
+
+	if (CCFileClass("THEMEMD.MIX").Is_Available()) {
+		FUN_004068E0("     Initializing ThemesMD.MIX\n");
+		DAT_0087E738 = new MFCD("THEMEMD.MIX", &FastKey);
+	} else if (CCFileClass("THEME.MIX").Is_Available()) {
+		FUN_004068E0("     Initializing Themes.MIX\n");
+		DAT_0087E738 = new MFCD("THEME.MIX", &FastKey);
+	}
+	DebugStringNoPrefix(" THEME.MIX");
+	ScoresPresent = true;
+	Theme.Scan();
+
+	if (DAT_0089E3A0 == true) {
+		strcpy(name, "MOVMD*.MIX");
+		if (RawFileClass("MOVIES01.MIX").Is_Available()) {
+			strcpy(name, "MOVIES*.MIX");
+		}
+		if (RawFileClass("MIXFILES\\MOVIES01.MIX").Is_Available()) {
+			strcpy(name, "MIXFILES\\MOVIES*.MIX");
+		}
+		if (RawFileClass("MOVMD01.MIX").Is_Available()) {
+			strcpy(name, "MOVMD*.MIX");
+		}
+		if (RawFileClass("MIXFILES\\MOVMD01.MIX").Is_Available()) {
+			strcpy(name, "MIXFILES\\MOVMD*.MIX");
+		}
+		if (RawFileClass("MOVMD03.MIX").Is_Available()) {
+			strcpy(name, "MOVMD*.MIX");
+		}
+		if (RawFileClass("MIXFILES\\MOVMD03.MIX").Is_Available()) {
+			strcpy(name, "MIXFILES\\MOVMD*.MIX");
+		}
+		if (CDFileClass::Find_First_File(name) == true) {
+			DebugStringNoPrefix(" %s", name);
+			DAT_00884E2C = new MFCD(name, &FastKey);
+			while (CDFileClass::Find_Next_File(name) == true) {
+				DebugStringNoPrefix(" %s", name);
+				MFCD * mix = new MFCD(name, &FastKey);
+				if (mix != NULL) {
+					DAT_00884DE0.Add(mix);
+				}
+			}
+			CDFileClass::Find_Close();
+		} else {
+			strcpy(name, "MOVIES*.MIX");
+			DebugStringNoPrefix(" %s", name);
+			DAT_00884E2C = new MFCD(name, &FastKey);
+			while (CDFileClass::Find_Next_File(name) == true) {
+				DebugStringNoPrefix(" %s", name);
+				MFCD * mix = new MFCD(name, &FastKey);
+				if (mix != NULL) {
+					DAT_00884DE0.Add(mix);
+				}
+			}
+			CDFileClass::Find_Close();
+		}
+	} else {
+		sprintf(name, "MOVMD%02d.MIX", cd);
+		if (CCFileClass(name).Is_Available()) {
+			DAT_00884E2C = new MFCD(name, &FastKey);
+		} else {
+			sprintf(name, "MOVIES%02d.MIX", cd);
+			if (CCFileClass(name).Is_Available()) {
+				DAT_00884E2C = new MFCD(name, &FastKey);
+			}
+		}
+		DebugStringNoPrefix(" %s", name);
+	}
+	return DAT_00884E2C ? true : false;
+}
+
+void FUN_005FF420(void);
+void FUN_0053D330(void);
+
+struct DropPodVoxelStruct {
+	VoxelLibrary * VoxLib;
+	MotionLibrary * MotLib;
+};
+extern DropPodVoxelStruct DAT_00A8ECD8;
+
+static bool Init_One_Time_Systems(void)
+{
+	Game::CallBack();
+
+	Map.One_Time();
+	Options.One_Time();
+	Session.One_Time();
+	ObjectTypeClass::One_Time();
+	BuildingTypeClass::One_Time();
+	ObjectTypeClass::One_Time();
+	ObjectTypeClass::One_Time();
+	ObjectTypeClass::One_Time();
+	UnitTypeClass::One_Time();
+	ObjectTypeClass::One_Time();
+	ObjectTypeClass::One_Time();
+	AircraftTypeClass::One_Time();
+	HouseClass::One_Time();
+	FUN_005FF420();
+	FUN_0053D330();
+
+	CCFileClass dropvxl("DPOD.VXL");
+	DAT_00A8ECD8.VoxLib = new VoxelLibrary(dropvxl);
+	if (DAT_00A8ECD8.VoxLib == NULL) {
+		FUN_004068E0("Failed to create VoxLib!\n");
+		return(false);
+	}
+
+	CCFileClass dropmot("DPOD.HVA");
+	DAT_00A8ECD8.MotLib = new MotionLibrary(dropmot);
+	if (DAT_00A8ECD8.MotLib == NULL) {
+		FUN_004068E0("Failed to create MotLib!\n");
+		return(false);
+	}
+
+	return(true);
+}
+
+#include "bitfont.h"
+#include "draw.h"
+
+struct FileSystem
+{
+	static void const * LoadFile(char const * name, bool flag);
+	static char TEMPERAT_PAL[];
+};
+extern unsigned __int64 DAT_00A8F788;
+
+// FUNCTION: GAMEMD 0x005312A0
+void FUN_005312A0(void)
+{
+	CCFileClass file("GLSMD.PAL");
+	PaletteClass * pal = NULL;
+	SHPStruct * shp = NULL;
+	ConvertClass * convert = NULL;
+
+	if (file.Is_Available()) {
+		pal = (PaletteClass *)Load_Alloc_Data(file);
+		file.Close();
+		for (int index = 0; index < 256; index++) {
+			(*pal)[index] = RGBClass(
+				(unsigned char)((*pal)[index].Get_Red() << 2),
+				(unsigned char)((*pal)[index].Get_Green() << 2),
+				(unsigned char)((*pal)[index].Get_Blue() << 2));
+		}
+		if (pal != NULL) {
+			convert = new ConvertClass(*pal, *(PaletteClass *)FileSystem::TEMPERAT_PAL, *VisibleSurface, 1, false);
+			if (convert != NULL) {
+				shp = (SHPStruct *)FileSystem::LoadFile(Drawing::RenderWidth == 640 ? "GLSSMD.SHP" : "GLSLMD.SHP", false);
+			}
+		}
+	}
+
+	RECT client;
+	GetClientRect(Game::hWnd, &client);
+	Rect bounds(0, 0, client.right - client.left, client.bottom - client.top);
+	if (shp != NULL) {
+		Point2D pt((bounds.Width - shp->Get_Width()) / 2, (bounds.Height - shp->Get_Height()) / 2);
+		Draw_Shape(*HiddenSurface, *convert, (ShapeSet *)shp, 0, pt, bounds);
+	}
+
+	Point2D textpt;
+	wchar_t const * text = StringTable::LoadString("TXT_COPYRIGHT", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1342);
+	BitFont * font = Font_From_TPF((TextPrintType)0x16);
+	textpt.X = 0;
+	textpt.Y = bounds.Height - 40;
+	if (font) {
+		textpt.X = bounds.Width - font->FUN_00433ED0(text, 0) - 10;
+	}
+	{
+		Point2D ret;
+		Fancy_Text_Print_Wide(&ret, text, HiddenSurface, &bounds, &textpt, 0xFFFF, 0, (TextPrintType)0x16);
+	}
+
+	text = StringTable::LoadString("GUI:WWBrand", NULL, "D:\\ra2mdpost\\Init.CPP", 0x134D);
+	if (font) {
+		textpt.X = bounds.Width - font->FUN_00433ED0(text, 0) - 10;
+		textpt.Y = textpt.Y + font->field_1C + 3;
+	}
+	{
+		Point2D ret;
+		Fancy_Text_Print_Wide(&ret, text, HiddenSurface, &bounds, &textpt, 0xFFFF, 0, (TextPrintType)0x16);
+	}
+
+	text = StringTable::LoadString("GUI:LoadingEx", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1357);
+	textpt.X = 10;
+	textpt.Y = 10;
+	{
+		Point2D ret;
+		Fancy_Text_Print_Wide(&ret, text, HiddenSurface, &bounds, &textpt, 0xFFFF, 0, (TextPrintType)0x16);
+	}
+
+	text = StringTable::LoadString("GUI:TradeMarkTop", NULL, "D:\\ra2mdpost\\Init.CPP", 0x135E);
+	textpt.X = 10;
+	textpt.Y = bounds.Height - 40;
+	{
+		Point2D ret;
+		Fancy_Text_Print_Wide(&ret, text, HiddenSurface, &bounds, &textpt, 0xFFFF, 0, (TextPrintType)0x16);
+	}
+
+	text = StringTable::LoadString("GUI:TradeMarkBottom", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1365);
+	textpt.X = 10;
+	textpt.Y = textpt.Y + font->field_1C + 3;
+	{
+		Point2D ret;
+		Fancy_Text_Print_Wide(&ret, text, HiddenSurface, &bounds, &textpt, 0xFFFF, 0, (TextPrintType)0x16);
+	}
+
+	Update_Visible_Surface(true, HiddenSurface);
+	DAT_00A8F788 = Game::AudioGetTime() + 5000;
+
+	if (pal != NULL) {
+		delete pal;
+	}
+	if (shp != NULL) {
+		delete shp;
+	}
+	if (convert != NULL) {
+		delete convert;
+	}
+}
+
+// FUNCTION: GAMEMD 0x00531680
+bool Init_Bulk_Data(void)
+{
+	if (DAT_00884E38 == NULL || !DAT_00884E38->Cache()) {
+		return(false);
+	}
+	if (DAT_00884E3C == NULL || !DAT_00884E3C->Cache()) {
+		return(false);
+	}
+	if (DAT_00884E40 == NULL || !DAT_00884E40->Cache()) {
+		return(false);
+	}
+	if (DAT_00884E44 == NULL || !DAT_00884E44->Cache()) {
+		return(false);
+	}
+
+	Game::CallBack();
+	return(Init_One_Time_Systems());
+}
+
+extern int DAT_00A8EC90;
+
+// FUNCTION: GAMEMD 0x005318C0
+bool Save_Recording_Values(CCFileClass & file)
+{
+	FUN_004068E0("Saving recording values for scenario : %s\n", Scen->ScenarioName);
+	file.Write(&Game::TechLevel, sizeof(Game::TechLevel));
+	file.Write(&Game::Seed, sizeof(Game::Seed));
+	file.Write(&Scen->Scenario, sizeof(Scen->Scenario));
+	file.Write(Scen->ScenarioName, sizeof(Scen->ScenarioName));
+	file.Write(&DAT_00A8EC90, sizeof(DAT_00A8EC90));
+	file.Write(&DAT_00A8E960, 4);
+	file.Write(&Options, sizeof(OptionsClass));
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x00531960
+bool Load_Recording_Values(CCFileClass & file)
+{
+	file.Read(&Game::TechLevel, sizeof(Game::TechLevel));
+	file.Read(&Game::Seed, sizeof(Game::Seed));
+	file.Read(&Scen->Scenario, sizeof(Scen->Scenario));
+	file.Read(Scen->ScenarioName, sizeof(Scen->ScenarioName));
+	file.Read(&DAT_00A8EC90, sizeof(DAT_00A8EC90));
+	file.Read(&DAT_00A8E960, 4);
+	file.Read(&Options, sizeof(OptionsClass));
+	FUN_004068E0("Loaded recording values for scenario : %s\n", Scen->ScenarioName);
+	return(true);
+}
+
+extern char DAT_00A8F314[];
+extern char DAT_00A8F4A0[];
+extern char DAT_00A8F420[];
+extern char DAT_00A8F520[];
+extern char DAT_00A8F394[];
+
+// FUNCTION: GAMEMD 0x00531A00
+BOOL CALLBACK Version_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	HWND handle;
+	int * res;
+	char buffer[256];
+	char build_date[128];
+	char build_number[128];
+	char build_by[128];
+	int cpu_type;
+	bool mmx;
+
+	int rc = UI::StandardWndProc(window, message, wparam, lparam);
+	if (rc) {
+		return rc;
+	}
+
+	res = (int *)GetWindowLong(window, 8);
+
+	switch (message) {
+		case 0x497:
+			handle = GetDlgItem(window, 0x5B5);
+			SendMessage(handle, 0x4CD, 0, (LPARAM)StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1630));
+
+			sprintf(buffer, "Version %s", Version_Name());
+			SendMessage(handle, 0x4C8, 0, (LPARAM)buffer);
+
+			sprintf(buffer, "Internal Version %s", VerNum.Version_Name());
+			SendMessage(handle, 0x4C8, 0, (LPARAM)buffer);
+
+			build_date[0] = 0;
+			Build_Date_String(build_date, sizeof(build_date));
+			sprintf(buffer, "Release Build: %s by %s - %s", Build_Number_String(build_number, sizeof(build_number)), Build_By_String(build_by, sizeof(build_by)), build_date);
+			SendMessage(handle, 0x4C8, 0, (LPARAM)buffer);
+
+			cpu_type = 5;
+			mmx = false;
+			SendMessage(handle, 0x4C8, 0, (LPARAM)DAT_00A8F314);
+			SendMessage(handle, 0x4C8, 0, (LPARAM)DAT_00A8F4A0);
+			SendMessage(handle, 0x4C8, 0, (LPARAM)DAT_00A8F420);
+			SendMessage(handle, 0x4C8, 0, (LPARAM)DAT_00A8F520);
+			SendMessage(handle, 0x4C8, 0, (LPARAM)DAT_00A8F394);
+			Get_CPU_Type(cpu_type, mmx, NULL, 0);
+			sprintf(buffer, "MMX %s, Vendor: %s", mmx ? "Yes" : "No", "Not available");
+			SendMessage(handle, 0x4C8, 0, (LPARAM)buffer);
+
+			Get_Language_Version(buffer);
+			SendMessage(handle, 0x4C8, 0, (LPARAM)buffer);
+			break;
+
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case IDCANCEL:
+				case IDOK:
+					*res = LOWORD(wparam);
+					break;
+			}
+			break;
+	}
+	return(FALSE);
+}
+
+
+namespace UI {
+	HWND __fastcall BeginDialog(int id, DLGPROC proc, int extra);
+	void __fastcall EndDialog(HWND window);
+}
+
+// FUNCTION: GAMEMD 0x00531C30
+void Version_Dialog(void)
+{
+	HWND dialog;
+	int res = 0;
+
+	dialog = UI::BeginDialog(0xD4, (DLGPROC)Version_Dialog_Proc, 0);
+	if (dialog != NULL) {
+		SetWindowLong(dialog, DWL_USER, (LONG)&res);
+		OwnerDraw::Display_Dialog(dialog);
+
+		while (res == 0) {
+			if (OwnerDraw::Dialog_Message_Handler() == true) {
+				break;
+			}
+			Title_Screen_Restore();
+		}
+		UI::EndDialog(dialog);
+	}
+}
+
+extern char DAT_00A8F7B8[32];
+void __fastcall FUN_004790B0(int disk);
+void __cdecl FUN_004A4AC0(const char * text);
+void __fastcall FUN_0052B9B0(HWND dialog);
+
+static bool Cheat_Key_Process(char chr)
+{
+	if (!isalnum(chr) || chr == '~') {
+		memset(DAT_00A8F7B8, 0, sizeof(DAT_00A8F7B8));
+		return(false);
+	}
+
+	char tmp[2];
+	tmp[0] = chr;
+	tmp[1] = 0;
+	FUN_004A4AC0(tmp);
+
+	int len = strlen(DAT_00A8F7B8);
+	if (len >= (int)sizeof(DAT_00A8F7B8) - 1) {
+		len = 0;
+		DAT_00A8F7B8[0] = 0;
+	}
+	DAT_00A8F7B8[len] = toupper(chr);
+
+	for (int c = 0; c < 4; c++) {
+		if (strstr(DAT_00A8F7B8, OriginalCheats[c].CheatString) != NULL) {
+			*OriginalCheats[c].State = !(*OriginalCheats[c].State);
+			memset(DAT_00A8F7B8, 0, sizeof(DAT_00A8F7B8));
+			return(true);
+		}
+	}
+	return(false);
+}
+
+BOOL CALLBACK Main_Menu_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+
+// FUNCTION: GAMEMD 0x00531CC0
+int Main_Menu(unsigned int timeout)
+{
+	HWND dialog;
+	int retval = 0x12;
+
+	FUN_004790B0(-1);
+
+	dialog = UI::BeginDialog(0xE2, (DLGPROC)Main_Menu_Dialog_Proc, 0);
+	if (dialog != NULL) {
+		SetWindowLong(dialog, DWL_USER, (LONG)&retval);
+		Center_Window_Within_Window(dialog, MainWindow);
+		OwnerDraw::Display_Dialog(dialog);
+		SetFocus(MainWindow);
+
+		FUN_0052B9B0(dialog);
+
+		do {
+			if (OwnerDraw::Dialog_Message_Handler()) {
+				retval = 7;
+			}
+			Title_Screen_Restore();
+
+			if (Keyboard->Check()) {
+				int input = Keyboard->Get();
+				if ((input & 0x800) == 0) {
+					if (Cheat_Key_Process((char)input) == true) {
+						VocClass::PlayGlobal(Rule->OptionsChanged, 1.0f, 0x2000);
+						Title_Screen_Restore(true);
+					}
+				}
+			}
+		} while (retval == 0x12);
+
+		UI::EndDialog(dialog);
+
+		SYSTEMTIME t;
+		GetSystemTime(&t);
+		CryptRandom.Seed_Byte(t.wMilliseconds);
+	} else {
+		retval = 7;
+	}
+
+	SetFocus(MainWindow);
+	return(retval);
+}
+
+// FUNCTION: GAMEMD 0x00531F60
+BOOL CALLBACK Main_Menu_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	int * res;
+
+	int rc = UI::StandardWndProc(window, message, wparam, lparam);
+	if (rc) {
+		return(rc);
+	}
+
+	res = (int *)GetWindowLong(window, DWL_USER);
+
+	switch (message) {
+		case 0x497: {
+			HWND control = GetDlgItem(window, 0x71D);
+			wchar_t text[128];
+			swprintf(text, L"%s %s", StringTable::LoadString("GUI:Version", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1757), FUN_00735120(VerNum.Version_Name()));
+			SendMessage(control, 0x4B2, 0, (LPARAM)text);
+		}
+		break;
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case 0x683: *res = 1; break;
+				case 0x684: *res = 2; break;
+				case 0x578: *res = 3; break;
+				case 0x686: *res = 4; break;
+				case 0x55C: *res = 5; break;
+				case 0x3EE: *res = 6; break;
+			}
+			break;
+		case WM_PAINT:
+			HWND item = GetDlgItem(window, 0x71A);
+			SendMessage(item, 0x4F0, 0, 0);
+			break;
+	}
+	return(FALSE);
+}
+
+// FUNCTION: GAMEMD 0x00532100
+void Title_Screen_Restore(bool force)
+{
+	if (SurfacesRestored || force) {
+		SurfacesRestored = false;
+		FUN_0052FEC0(NULL, true);
+		Update_Visible_Surface(false, HiddenSurface);
+	}
+}
+
+// FUNCTION: GAMEMD 0x00532130
+void FUN_00532130(void)
+{
+}
+
+// FUNCTION: GAMEMD 0x00532140
+void FUN_00532140(void)
+{
+}
+
+extern char DAT_00A8F5B4[];
+extern wchar_t DAT_00A8F654[];
+extern unsigned char DAT_00A8F7D8;
+void __fastcall FUN_00731060(int group);
+void __fastcall FUN_007311C0(int group);
+void __fastcall FUN_007313A0(int group);
+void __fastcall FUN_007314C0(int group);
+void FUN_00730AF0(void);
+void FUN_00730D60(void);
+void FUN_00730EA0(void);
+void FUN_00730F30(void);
+void FUN_00730FE0(void);
+void FUN_007315A0(void);
+void FUN_007318F0(void);
+void FUN_00731A10(void);
+void FUN_00731A30(void);
+void __fastcall FUN_00731A50(bool flag);
+void __fastcall FUN_00731A70(bool flag);
+void __fastcall FUN_00732280(bool flag);
+void FUN_00732CA0(void);
+void FUN_00732CC0(void);
+void __fastcall FUN_00733380(bool redraw);
+void __fastcall FUN_007336C0(bool redraw);
+void FUN_00734120(void);
+BuildingClass * FUN_007342A0(void);
+BuildingClass * FUN_007342B0(void);
+void __fastcall FUN_00752B70(unsigned char code);
+unsigned int __fastcall FUN_005DAC00(wchar_t const * name);
+extern int DAT_00825C88;
+namespace Unsorted { extern int MuteSWLaunches; }
+
+
+class CreateTeamCommandClass : public CommandClass
+{
+	public:
+		CreateTeamCommandClass(int team) : Team(team) {}
+
+		virtual char const * Get_Unique_Name(void) const
+		{
+			sprintf(DAT_00A8F5B4, "TeamCreate_%d", Team);
+			return DAT_00A8F5B4;
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_CREATE_TEAM", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1815), Team);
+			return DAT_00A8F654;
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_TEAM", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1817);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_CREATE_TEAM_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1819), Team);
+			return DAT_00A8F654;
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00731060(Team);
+		}
+
+	private:
+		int Team;
+};
+
+class SetStructureTabCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "StructureTab";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_STRUCTURE_TAB", NULL, "D:\\ra2mdpost\\Init.CPP", 0x182A);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x182C);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_STRUCTURE_TAB_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x182E);
+		}
+		virtual void Execute(int key) const
+		{
+			if (Map.Column[0].FUN_006ABAC0()) {
+				Map.SetTab(0);
+				BuildingClass * building = FUN_007342A0();
+				if (building != NULL) {
+					PlayerPtr->Manual_Place(building->Who_Can_Build_Me(false, false), building);
+				}
+			}
+		}
+};
+
+class SetDefenseTabCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "DefenseTab";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_DEFENSE_TAB", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1844);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1846);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_DEFENSE_TAB_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1848);
+		}
+		virtual void Execute(int key) const
+		{
+			if (Map.Column[1].FUN_006ABAC0()) {
+				Map.SetTab(1);
+				BuildingClass * building = FUN_007342B0();
+				if (building != NULL) {
+					PlayerPtr->Manual_Place(building->Who_Can_Build_Me(false, false), building);
+				}
+			}
+		}
+};
+
+class SetInfantryTabCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "InfantryTab";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_INFANTRY_TAB", NULL, "D:\\ra2mdpost\\Init.CPP", 0x185E);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1860);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_INFANTRY_TAB_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1862);
+		}
+		virtual void Execute(int key) const
+		{
+			if (Map.Column[2].FUN_006ABAC0()) {
+				Map.SetTab(2);
+			}
+		}
+};
+
+class SetUnitTabCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "UnitTab";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_UNIT_TAB", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1873);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1875);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_UNIT_TAB_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1877);
+		}
+		virtual void Execute(int key) const
+		{
+			if (Map.Column[3].FUN_006ABAC0()) {
+				Map.SetTab(3);
+			}
+		}
+};
+
+class SelectTeamCommandClass : public CommandClass
+{
+	public:
+		SelectTeamCommandClass(int team) : Team(team) {}
+
+		virtual char const * Get_Unique_Name(void) const
+		{
+			sprintf(DAT_00A8F5B4, "TeamSelect_%d", Team);
+			return DAT_00A8F5B4;
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_SELECT_TEAM", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1894), Team);
+			return DAT_00A8F654;
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_TEAM", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1896);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_SELECT_TEAM_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1898), Team);
+			return DAT_00A8F654;
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_007311C0(Team);
+		}
+
+	private:
+		int Team;
+};
+
+class AddTeamCommandClass : public CommandClass
+{
+	public:
+		AddTeamCommandClass(int team) : Team(team) {}
+
+		virtual char const * Get_Unique_Name(void) const
+		{
+			sprintf(DAT_00A8F5B4, "TeamAddSelect_%d", Team);
+			return DAT_00A8F5B4;
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_ADD_SELECT_TEAM", NULL, "D:\\ra2mdpost\\Init.CPP", 0x18B6), Team);
+			return DAT_00A8F654;
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_TEAM", NULL, "D:\\ra2mdpost\\Init.CPP", 0x18B8);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_ADD_SELECT_TEAM_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x18BA), Team);
+			return DAT_00A8F654;
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_007314C0(Team);
+		}
+
+	private:
+		int Team;
+};
+
+class CenterTeamCommandClass : public CommandClass
+{
+	public:
+		CenterTeamCommandClass(int team) : Team(team) {}
+
+		virtual char const * Get_Unique_Name(void) const
+		{
+			sprintf(DAT_00A8F5B4, "TeamCenter_%d", Team);
+			return DAT_00A8F5B4;
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_CENTER_TEAM", NULL, "D:\\ra2mdpost\\Init.CPP", 0x18D9), Team);
+			return DAT_00A8F654;
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_TEAM", NULL, "D:\\ra2mdpost\\Init.CPP", 0x18DB);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_CENTER_TEAM_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x18DD), Team);
+			return DAT_00A8F654;
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_007313A0(Team);
+		}
+
+	private:
+		int Team;
+};
+
+class TauntCommandClass : public CommandClass
+{
+	public:
+		TauntCommandClass(int team) : Team(team) {}
+
+		virtual char const * Get_Unique_Name(void) const
+		{
+			sprintf(DAT_00A8F5B4, "Taunt_%d", Team);
+			return DAT_00A8F5B4;
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_TAUNT_NUMBER", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1900), Team);
+			return DAT_00A8F654;
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_TAUNT", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1905);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			swprintf(DAT_00A8F654, StringTable::LoadString("TXT_TAUNT_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1909), Team);
+			return DAT_00A8F654;
+		}
+		virtual void Execute(int key) const
+		{
+			if (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) {
+				if (!Unsorted::MuteSWLaunches) {
+					int now = timeGetTime();
+					if (DAT_00825C88 == -1 || now - DAT_00825C88 > 5000) {
+						if ((Session.LANTaunts && Session.Type == GAME_IPX) || (Session.WOLTaunts && Session.Type == GAME_INTERNET)) {
+							DAT_00825C88 = now;
+
+							GlobalPacketType packet;
+							packet.Command = NetCommandType(0x1D);
+							strcpy(packet.Name, FUN_007350C0(Session.Players[0]->Name));
+							packet.Taunt.Color = Session.PrefColor;
+							packet.Taunt.NameCRC = FUN_005DAC00(Session.GameName);
+							unsigned char house = Session.Players[0]->Player.House << 4;
+							packet.Taunt.ID = house ^ ((house ^ Team) & 0x0F);
+							FUN_00752B70(packet.Taunt.ID);
+
+							packet.Taunt.Recipients = 0;
+							int house_count = Houses.Count();
+							for (int i = 0; i < house_count; i++) {
+								HouseClass * house = Houses[i];
+								if (house != NULL && house->Class->IsMultiplay && Session.PlayerChatEnabled[i]) {
+									int count = Ipx.Num_Connections();
+									for (int j = 0; j < count; j++) {
+										int id = Ipx.Connection_ID(j);
+										if (wcscmp(house->UIName, Ipx.Connection_Name(id)) == 0) {
+											IPXAddressClass * address = Ipx.Connection_Address(id);
+											if (Session.ViaPacketRouter) {
+												packet.Taunt.Recipients |= OwnerTalk.Mask_From_ID(id);
+											} else {
+												Ipx.Send_Global_Message(&packet, sizeof(packet), 1, address);
+												Ipx.Service();
+											}
+										}
+									}
+								}
+							}
+
+							if (Session.ViaPacketRouter && packet.Taunt.Recipients) {
+								Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[0]->Address);
+								Ipx.Service();
+							}
+						}
+					}
+				}
+			}
+		}
+
+	private:
+		int Team;
+};
+
+class NextObjectCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "NextObject";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_NEXT_OBJECT", NULL, "D:\\ra2mdpost\\Init.CPP", 0x197E);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_SELECTION", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1980);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_NEXT_OBJECT_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1982);
+		}
+		virtual void Execute(int key) const
+		{
+			Map.Power_Mode_Control(0);
+			Map.Waypoint_Mode_Control(0, false);
+			Map.Repair_Mode_Control(0);
+			Map.Sell_Mode_Control(0);
+			ObjectClass * obj = Map.Next_Object(CurrentObject.Count() ? CurrentObject[0] : NULL);
+			if (obj != NULL) {
+				Unselect_All();
+				obj->Select();
+				Map.Center_Map();
+				Map.Flag_To_Redraw(GS_REDRAW_TACTICAL);
+			}
+		}
+};
+
+class PlanningModeCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "PlanningMode";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("Cmnd:PlanningMode", NULL, "D:\\ra2mdpost\\Init.CPP", 0x19B4);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_CONTROL", NULL, "D:\\ra2mdpost\\Init.CPP", 0x19B6);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("Cmnd:PlanningModeDesc", NULL, "D:\\ra2mdpost\\Init.CPP", 0x19B8);
+		}
+		virtual bool PreventCombinationOverride(int key) const
+		{
+			return (key & WWKEY_SHIFT_BIT) || (key & WWKEY_CTRL_BIT) || (key & WWKEY_ALT_BIT);
+		}
+		virtual bool ExtraTriggerCondition(int key) const
+		{
+			return true;
+		}
+		virtual bool Unknown1C(int key) const
+		{
+			return !(key & WWKEY_RLS_BIT);
+		}
+		virtual void Execute(int key) const
+		{
+			if (key & WWKEY_RLS_BIT) {
+				FUN_00731A70(false);
+			} else {
+				FUN_00731A50(false);
+			}
+		}
+};
+
+class CombatantSelectCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "CombatantSelect";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("Cmnd:CombatantSelect", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A08);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_SELECTION", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A0A);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("Cmnd:CombatantSelectDesc", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A0C);
+		}
+		virtual bool PreventCombinationOverride(int key) const
+		{
+			return (key & WWKEY_SHIFT_BIT) != 0;
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00732280((key & WWKEY_SHIFT_BIT) == 0);
+		}
+};
+
+class TypeSelectCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "TypeSelect";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("Cmnd:TypeSelect", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A22);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_SELECTION", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A24);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("Cmnd:TypeSelectDesc", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A26);
+		}
+		virtual bool PreventCombinationOverride(int key) const
+		{
+			return (key & WWKEY_SHIFT_BIT) != 0;
+		}
+		virtual bool ExtraTriggerCondition(int key) const
+		{
+			return true;
+		}
+		virtual bool Unknown1C(int key) const
+		{
+			return !(key & WWKEY_RLS_BIT);
+		}
+		virtual void Execute(int key) const
+		{
+			if (key & WWKEY_RLS_BIT) {
+				FUN_00732CC0();
+			} else {
+				FUN_00732CA0();
+			}
+		}
+};
+
+class HealthNavCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "HealthNav";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("Cmnd:HealthNavigation", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A48);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_SELECTION", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A4A);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("Cmnd:HealthNavigationDesc", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A4C);
+		}
+		virtual bool PreventCombinationOverride(int key) const
+		{
+			return (key & WWKEY_SHIFT_BIT) != 0;
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00733380((key & WWKEY_SHIFT_BIT) == 0);
+		}
+};
+
+class VeterancyNavCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "VeterancyNav";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("Cmnd:VetNavigation", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A62);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_SELECTION", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A64);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("Cmnd:VetNavigationDesc", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1A66);
+		}
+		virtual bool PreventCombinationOverride(int key) const
+		{
+			return (key & WWKEY_SHIFT_BIT) != 0;
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_007336C0((key & WWKEY_SHIFT_BIT) == 0);
+		}
+};
+
+class PrevObjectCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "PreviousObject";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_PREV_OBJECT", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1AA1);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_SELECTION", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1AA3);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_PREV_OBJECT_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1AA5);
+		}
+		virtual void Execute(int key) const
+		{
+			Map.Power_Mode_Control(0);
+			Map.Waypoint_Mode_Control(0, false);
+			Map.Repair_Mode_Control(0);
+			Map.Sell_Mode_Control(0);
+			ObjectClass * obj = Map.Prev_Object(CurrentObject.Count() ? CurrentObject[0] : NULL);
+			if (obj != NULL) {
+				Unselect_All();
+				obj->Select();
+				Map.Center_Map();
+				Map.Flag_To_Redraw(GS_REDRAW_TACTICAL);
+			}
+		}
+};
+
+class StopCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "StopObject";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_STOP_OBJECT", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1ACA);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_CONTROL", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1ACC);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_STOP_OBJECT_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1ACE);
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00730EA0();
+		}
+};
+
+class AllToCheerCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "AllToCheer";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("Cmnd:AllCheer", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1ADC);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_CONTROL", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1ADE);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("Cmnd:AllCheerDesc", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1AE0);
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00730F30();
+		}
+};
+
+class DeployCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "DeployObject";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_DEPLOY_OBJECT", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1AF7);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_CONTROL", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1AF9);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_DEPLOY_OBJECT_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1AFB);
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00730AF0();
+		}
+};
+
+class GuardCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "GuardObject";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_GUARD", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B13);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_CONTROL", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B15);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_GUARD_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B17);
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00730D60();
+		}
+};
+
+class ScatterCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "ScatterObject";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_SCATTER", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B30);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_CONTROL", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B32);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_SCATTER_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B34);
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00730FE0();
+		}
+};
+
+class CenterViewCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "CenterView";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_CENTER_VIEW", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B4B);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_SELECTION", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B4D);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_CENTER_VIEW_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B4F);
+		}
+		virtual void Execute(int key) const
+		{
+			if (CurrentObject.Count() > 0) {
+				Map.Center_Map();
+				Map.Flag_To_Redraw(GS_REDRAW_TACTICAL);
+			}
+		}
+};
+
+class CenterBaseCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "CenterBase";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_CENTER_BASE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B6A);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_SELECTION", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B6C);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_CENTER_BASE_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B6E);
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_007315A0();
+		}
+};
+
+class AllianceCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "ToggleAlliance";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_ALLIANCE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B85);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_CONTROL", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B87);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_ALLIANCE_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1B89);
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_007318F0();
+		}
+};
+
+class ToggleRepairCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "ToggleRepair";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_REPAIR_MODE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1BBF);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1BC1);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_REPAIR_MODE_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1BC3);
+		}
+		virtual void Execute(int key) const
+		{
+			Map.Repair_Mode_Control(-1);
+		}
+};
+
+class ToggleSellCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "ToggleSell";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_SELL_MODE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1BD9);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1BDB);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_SELL_MODE_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1BDD);
+		}
+		virtual void Execute(int key) const
+		{
+			Map.Sell_Mode_Control(-1);
+		}
+};
+
+class BeaconPlacementCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "PlaceBeacon";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_PLACE_BEACON", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1C04);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1C06);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_PLACE_BEACON_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1C08);
+		}
+		virtual void Execute(int key) const
+		{
+			if (Session.Type != GAME_NORMAL && Session.Type != 5) {
+				FUN_00731A30();
+			}
+		}
+};
+
+class CenterREventCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "CenterOnRadarEvent";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_RADAR_EVENT", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1C1B);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1C1D);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_RADAR_EVENT_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1C1F);
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00734120();
+		}
+};
+
+class SidebarUpCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "SidebarUp";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_SIDEBAR_UP", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1C51);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1C53);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_SIDEBAR_UP_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1C55);
+		}
+		virtual void Execute(int key) const
+		{
+			Map.Scroll(true, -1);
+		}
+};
+
+class SidebarDownCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "SidebarDown";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_SIDEBAR_DOWN", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1CDD);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1CDF);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_SIDEBAR_DOWN_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1CE1);
+		}
+		virtual void Execute(int key) const
+		{
+			Map.Scroll(false, -1);
+		}
+};
+
+class OptionsCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "Options";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_OPTIONS", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1D6A);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1D6C);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_OPTIONS_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1D6E);
+		}
+		virtual void Execute(int key) const
+		{
+			Queue_Options();
+		}
+};
+
+class View1CommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "View1";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_VIEW_BOOKMARK1", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E1B);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E1D);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_VIEW_BOOKMARK1_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E1F);
+		}
+		virtual void Execute(int key) const
+		{
+			Coord coord(Scen->Views[0]);
+			coord.Z = Map.Get_Height_GL(coord);
+			TacticalMap->Set_Tactical_Position(coord);
+			if (Map.PendingObject) {
+				Map.Set_Cursor_Pos();
+			}
+		}
+};
+
+class View2CommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "View2";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_VIEW_BOOKMARK2", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E3F);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E41);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_VIEW_BOOKMARK2_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E43);
+		}
+		virtual void Execute(int key) const
+		{
+			Coord coord(Scen->Views[1]);
+			coord.Z = Map.Get_Height_GL(coord);
+			TacticalMap->Set_Tactical_Position(coord);
+			if (Map.PendingObject) {
+				Map.Set_Cursor_Pos();
+			}
+		}
+};
+
+class View3CommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "View3";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_VIEW_BOOKMARK3", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E63);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E65);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_VIEW_BOOKMARK3_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E67);
+		}
+		virtual void Execute(int key) const
+		{
+			Coord coord(Scen->Views[2]);
+			coord.Z = Map.Get_Height_GL(coord);
+			TacticalMap->Set_Tactical_Position(coord);
+			if (Map.PendingObject) {
+				Map.Set_Cursor_Pos();
+			}
+		}
+};
+
+class View4CommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "View4";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_VIEW_BOOKMARK4", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E87);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E89);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_VIEW_BOOKMARK4_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1E8B);
+		}
+		virtual void Execute(int key) const
+		{
+			Coord coord(Scen->Views[3]);
+			coord.Z = Map.Get_Height_GL(coord);
+			TacticalMap->Set_Tactical_Position(coord);
+			if (Map.PendingObject) {
+				Map.Set_Cursor_Pos();
+			}
+		}
+};
+
+class SetView1CommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "SetView1";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_SET_BOOKMARK1", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EAB);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EAD);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_SET_BOOKMARK1_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EAF);
+		}
+		virtual void Execute(int key) const
+		{
+			Point2D pixel = TacticalMap->Get_Relative_Tactical_Position();
+			Scen->Views[0] = TacticalMap->Pixel_To_Cell(pixel);
+		}
+};
+
+class SetView2CommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "SetView2";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_SET_BOOKMARK2", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EC6);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EC8);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_SET_BOOKMARK2_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1ECA);
+		}
+		virtual void Execute(int key) const
+		{
+			Point2D pixel = TacticalMap->Get_Relative_Tactical_Position();
+			Scen->Views[1] = TacticalMap->Pixel_To_Cell(pixel);
+		}
+};
+
+class SetView3CommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "SetView3";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_SET_BOOKMARK3", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EE1);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EE3);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_SET_BOOKMARK3_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EE5);
+		}
+		virtual void Execute(int key) const
+		{
+			Point2D pixel = TacticalMap->Get_Relative_Tactical_Position();
+			Scen->Views[2] = TacticalMap->Pixel_To_Cell(pixel);
+		}
+};
+
+class SetView4CommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "SetView4";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_SET_BOOKMARK4", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EFC);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1EFE);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_SET_BOOKMARK4_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1F00);
+		}
+		virtual void Execute(int key) const
+		{
+			Point2D pixel = TacticalMap->Get_Relative_Tactical_Position();
+			Scen->Views[3] = TacticalMap->Pixel_To_Cell(pixel);
+		}
+};
+
+class FollowCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "Follow";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_FOLLOW", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1F17);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1F19);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_FOLLOW_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1F1B);
+		}
+		virtual void Execute(int key) const
+		{
+			if (CurrentObject.Count() != 0 && Map.Object_To_Follow() == NULL) {
+				Map.Set_To_Follow(CurrentObject[0]);
+			} else {
+				Map.Break_Follow_Mode();
+			}
+		}
+};
+
+class MultiplayerDebugCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "MultiplayerDebug";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return L"Multiplayer debug info";
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return L"Debug";
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return L"Turns multiplayer debug on or off.";
+		}
+		virtual void Execute(int key) const
+		{
+			if (Session.EnableMultiplayerDebug) {
+				Session.DrawMPDebugStats = !Session.DrawMPDebugStats;
+			}
+		}
+};
+
+class MultiplayerSyncCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "ExtraSyncChecking";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return L"Game sync logging";
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return L"Debug";
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return L"Turns extra game sync logging on or off.";
+		}
+		virtual void Execute(int key) const
+		{
+			DAT_00B04880 = !DAT_00B04880;
+			if (DAT_00B04880) {
+				Session.Messages.Add_Message(NULL, 0, FUN_00735120("Extra sync info ON"), 3, TextPrintType(0x4046), 0x96, false);
+			} else {
+				Session.Messages.Add_Message(NULL, 0, FUN_00735120("Extra sync info OFF"), 3, TextPrintType(0x4046), 0x96, false);
+			}
+		}
+};
+
+class ScreenCaptureCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "ScreenCapture";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_SCRNCAP", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1F88);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1F87);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_SCRNCAP_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1F89);
+		}
+		virtual void Execute(int key) const
+		{
+			RECT win_rect;
+			
+			if (GetClientRect(MainWindow, &win_rect)) {
+			
+				POINT upper_left;
+				upper_left.x = win_rect.left;
+				upper_left.y = win_rect.top;
+			
+				if (!ClientToScreen(MainWindow, &upper_left)) {
+					return;
+				}
+			
+				POINT lower_right;
+				lower_right.x = win_rect.right;
+				lower_right.y = win_rect.bottom;
+			
+				if (!ClientToScreen(MainWindow, &lower_right)) {
+					return;
+				}
+			
+				Rect dest_rect(upper_left.x, upper_left.y, win_rect.right + 1, win_rect.bottom + 1);
+				dest_rect.Width = MIN(dest_rect.Width, HiddenSurface->Get_Width());
+				dest_rect.Height = MIN(dest_rect.Height, HiddenSurface->Get_Height());
+			
+				Hide_Mouse();
+			
+				HiddenSurface->Blit_From(Rect(0, 0, HiddenSurface->Get_Width(), HiddenSurface->Get_Height()),
+					*VisibleSurface, dest_rect);
+			
+				Show_Mouse();
+			
+				char fname[128];
+				int index = -1;
+			
+				do {
+					index++;
+					sprintf(fname, "SCRN%04d.pcx", index);
+				} while (CCFileClass(fname).Is_Available());
+			
+				CCFileClass file(fname);
+				Write_PCX_File(file, *HiddenSurface, &GamePalette);
+			}
+		}
+};
+
+class PageUserCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "PageUser";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("TXT_PAGEUSER", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1D8B);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1D8D);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("TXT_PAGEUSER_DESC", NULL, "D:\\ra2mdpost\\Init.CPP", 0x1D8F);
+		}
+		virtual void Execute(int key) const
+		{
+			if (Session.Type == 4) {
+				Queue_PageUser();
+			}
+		}
+};
+
+class CursorPositionCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "CursorCheat";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("GUI:CursorCheat", NULL, "D:\\ra2mdpost\\Init.CPP", 0x2027);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("GUI:Debug", NULL, "D:\\ra2mdpost\\Init.CPP", 0x2028);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("DESC:CursorCheat", NULL, "D:\\ra2mdpost\\Init.CPP", 0x2029);
+		}
+		virtual void Execute(int key) const
+		{
+			DAT_00A8F7D8 = !DAT_00A8F7D8;
+		}
+};
+
+class DeleteCommandClass : public CommandClass
+{
+	public:
+		virtual char const * Get_Unique_Name(void) const
+		{
+			return "Delete";
+		}
+		virtual wchar_t const * Get_Display_Name(void) const
+		{
+			return StringTable::LoadString("Cmnd:Delete", NULL, "D:\\ra2mdpost\\Init.CPP", 0x199F);
+		}
+		virtual wchar_t const * Get_Category(void) const
+		{
+			return StringTable::LoadString("TXT_INTERFACE", NULL, "D:\\ra2mdpost\\Init.CPP", 0x19A1);
+		}
+		virtual wchar_t const * Get_Description(void) const
+		{
+			return StringTable::LoadString("Cmnd:DeleteDesc", NULL, "D:\\ra2mdpost\\Init.CPP", 0x19A3);
+		}
+		virtual void Execute(int key) const
+		{
+			FUN_00731A10();
+		}
+};
+
+// FUNCTION: GAMEMD 0x00532150
+void Init_Commands(void)
+{
+	if (Session.EnableMultiplayerDebug) {
+		AllCommands.Add(new MultiplayerDebugCommandClass);
+		AllCommands.Add(new MultiplayerSyncCommandClass);
+	}
+
+	AllCommands.Add(new FollowCommandClass);
+
+	AllCommands.Add(new View1CommandClass);
+	AllCommands.Add(new View2CommandClass);
+	AllCommands.Add(new View3CommandClass);
+	AllCommands.Add(new View4CommandClass);
+
+	AllCommands.Add(new SetView1CommandClass);
+	AllCommands.Add(new SetView2CommandClass);
+	AllCommands.Add(new SetView3CommandClass);
+	AllCommands.Add(new SetView4CommandClass);
+
+	const CommandClass * optcmd = new OptionsCommandClass;
+	AllCommands.Add(optcmd);
+
+	AllCommands.Add(new SidebarUpCommandClass);
+	AllCommands.Add(new SidebarDownCommandClass);
+
+	const CommandClass * reventcmd = new CenterREventCommandClass;
+	AllCommands.Add(reventcmd);
+
+	AllCommands.Add(new BeaconPlacementCommandClass);
+	AllCommands.Add(new ToggleSellCommandClass);
+	AllCommands.Add(new ToggleRepairCommandClass);
+	AllCommands.Add(new AllianceCommandClass);
+	AllCommands.Add(new CenterBaseCommandClass);
+	AllCommands.Add(new CenterViewCommandClass);
+	AllCommands.Add(new ScatterCommandClass);
+	AllCommands.Add(new GuardCommandClass);
+	AllCommands.Add(new StopCommandClass);
+	AllCommands.Add(new AllToCheerCommandClass);
+	AllCommands.Add(new DeployCommandClass);
+	AllCommands.Add(new PrevObjectCommandClass);
+	AllCommands.Add(new NextObjectCommandClass);
+	AllCommands.Add(new PlanningModeCommandClass);
+	AllCommands.Add(new CombatantSelectCommandClass);
+	AllCommands.Add(new TypeSelectCommandClass);
+	AllCommands.Add(new HealthNavCommandClass);
+	AllCommands.Add(new VeterancyNavCommandClass);
+	AllCommands.Add(new SetStructureTabCommandClass);
+	AllCommands.Add(new SetDefenseTabCommandClass);
+	AllCommands.Add(new SetUnitTabCommandClass);
+	AllCommands.Add(new SetInfantryTabCommandClass);
+
+	AllCommands.Add(new CreateTeamCommandClass(1));
+	AllCommands.Add(new CreateTeamCommandClass(2));
+	AllCommands.Add(new CreateTeamCommandClass(3));
+	AllCommands.Add(new CreateTeamCommandClass(4));
+	AllCommands.Add(new CreateTeamCommandClass(5));
+	AllCommands.Add(new CreateTeamCommandClass(6));
+	AllCommands.Add(new CreateTeamCommandClass(7));
+	AllCommands.Add(new CreateTeamCommandClass(8));
+	AllCommands.Add(new CreateTeamCommandClass(9));
+	AllCommands.Add(new CreateTeamCommandClass(10));
+
+	AllCommands.Add(new SelectTeamCommandClass(1));
+	AllCommands.Add(new SelectTeamCommandClass(2));
+	AllCommands.Add(new SelectTeamCommandClass(3));
+	AllCommands.Add(new SelectTeamCommandClass(4));
+	AllCommands.Add(new SelectTeamCommandClass(5));
+	AllCommands.Add(new SelectTeamCommandClass(6));
+	AllCommands.Add(new SelectTeamCommandClass(7));
+	AllCommands.Add(new SelectTeamCommandClass(8));
+	AllCommands.Add(new SelectTeamCommandClass(9));
+	AllCommands.Add(new SelectTeamCommandClass(10));
+
+	AllCommands.Add(new AddTeamCommandClass(1));
+	AllCommands.Add(new AddTeamCommandClass(2));
+	AllCommands.Add(new AddTeamCommandClass(3));
+	AllCommands.Add(new AddTeamCommandClass(4));
+	AllCommands.Add(new AddTeamCommandClass(5));
+	AllCommands.Add(new AddTeamCommandClass(6));
+	AllCommands.Add(new AddTeamCommandClass(7));
+	AllCommands.Add(new AddTeamCommandClass(8));
+	AllCommands.Add(new AddTeamCommandClass(9));
+	AllCommands.Add(new AddTeamCommandClass(10));
+
+	AllCommands.Add(new CenterTeamCommandClass(1));
+	AllCommands.Add(new CenterTeamCommandClass(2));
+	AllCommands.Add(new CenterTeamCommandClass(3));
+	AllCommands.Add(new CenterTeamCommandClass(4));
+	AllCommands.Add(new CenterTeamCommandClass(5));
+	AllCommands.Add(new CenterTeamCommandClass(6));
+	AllCommands.Add(new CenterTeamCommandClass(7));
+	AllCommands.Add(new CenterTeamCommandClass(8));
+	AllCommands.Add(new CenterTeamCommandClass(9));
+	AllCommands.Add(new CenterTeamCommandClass(10));
+
+	AllCommands.Add(new TauntCommandClass(1));
+	AllCommands.Add(new TauntCommandClass(2));
+	AllCommands.Add(new TauntCommandClass(3));
+	AllCommands.Add(new TauntCommandClass(4));
+	AllCommands.Add(new TauntCommandClass(5));
+	AllCommands.Add(new TauntCommandClass(6));
+	AllCommands.Add(new TauntCommandClass(7));
+	AllCommands.Add(new TauntCommandClass(8));
+
+	AllCommands.Add(new ScreenCaptureCommandClass);
+	AllCommands.Add(new PageUserCommandClass);
+	AllCommands.Add(new CursorPositionCommandClass);
+
+	const CommandClass * delcmd = new DeleteCommandClass;
+	AllCommands.Add(delcmd);
+
+	Init_Hotkeys();
+
+	if (HotkeyCommands.Is_Present(KN_DELETE)) {
+		HotkeyCommands.Remove_Index(KN_DELETE);
+	}
+	HotkeyCommands.Add_Index(KN_DELETE, delcmd);
+
+	if (HotkeyCommands.Is_Present(KN_ESC)) {
+		HotkeyCommands.Remove_Index(KN_ESC);
+	}
+	HotkeyCommands.Add_Index(KN_ESC, optcmd);
+
+	if (HotkeyCommands.Is_Present(KN_SPACE)) {
+		HotkeyCommands.Remove_Index(KN_SPACE);
+	}
+	HotkeyCommands.Add_Index(KN_SPACE, reventcmd);
+}
+
+// FUNCTION: GAMEMD 0x00533D20
+bool Init_Hotkeys(void)
+{
+	CCINIClass ini;
+	CCFileClass file("KEYBOARDMD.INI");
+
+	if (ini.Load(file, false)) {
+
+		HotkeyCommands.Clear();
+
+		for (int index = 0; index < ini.Entry_Count("Hotkey"); index++) {
+			const char *entry = ini.Get_Entry("Hotkey", index);
+			int id = ini.Get_Int("Hotkey", entry, 0);
+			const CommandClass *command = NULL;
+
+			for (int cindex = 0; cindex < AllCommands.Count(); cindex++) {
+				if (strcmp(AllCommands[cindex]->Get_Unique_Name(), entry) == 0) {
+					command = AllCommands[cindex];
+					break;
+				}
+			}
+
+			if ((command != NULL) && (id != 0)) {
+				HotkeyCommands.Add_Index(id, command);
+			}
+		}
+
+		return(true);
+	}
+
+	DebugString("Unable to load KEYBOARDMD.INI\n");
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x00533F50
+void Execute_Command(char const * name)
+{
+	for (int command = 0; command < AllCommands.Count(); command++) {
+		if (strcmp(AllCommands[command]->Get_Unique_Name(), name) == 0) {
+			AllCommands[command]->Execute(0);
+			break;
+		}
+	}
+}
+
+void __fastcall FUN_0069E210(void);
+void __fastcall FUN_004C29E0(void);
+void __fastcall FUN_00550000(void);
+void __fastcall FUN_00565B00(void * map);
+void __fastcall FUN_00430980(void * beacon);
+int __cdecl FUN_0041C610(const void * a, const void * b);
+extern int DAT_00A8E7AC;
+extern DynamicVectorClass<AbstractClass *> DAT_00B0F698;
+struct TargetEntryStruct {
+	int ID;
+	AbstractClass * Data;
+};
+extern TargetEntryStruct * DAT_00B0E840;
+extern int DAT_00B0E844;
+extern bool DAT_00B0E84C;
+extern int DAT_00B0E850;
+extern char DAT_0089C3B0[];
+void __fastcall FUN_00725C70(void);
+void __fastcall FUN_00556DF0(void);
+class SpotlightClass {
+	public:
+		~SpotlightClass(void);
+};
+extern DynamicVectorClass<AbstractClass *> DAT_00A8ED40;
+extern DynamicVectorClass<AbstractClass *> DAT_00A8E360;
+extern DynamicVectorClass<AbstractClass *> DAT_00B0E720;
+extern DynamicVectorClass<AbstractClass *> DAT_00A8EAE8;
+extern DynamicVectorClass<AbstractClass *> DAT_008B4138;
+extern DynamicVectorClass<AbstractClass *> DAT_008B4190;
+extern DynamicVectorClass<AbstractClass *> DAT_00A8EC50;
+extern DynamicVectorClass<AbstractClass *> DAT_00A80208;
+extern DynamicVectorClass<AbstractClass *> DAT_00A8EC38;
+extern DynamicVectorClass<AbstractClass *> DAT_00A83E30;
+extern DynamicVectorClass<AbstractClass *> DAT_008B4120;
+extern DynamicVectorClass<AbstractClass *> DAT_008B40E8;
+extern DynamicVectorClass<AbstractClass *> DAT_00A80228;
+extern DynamicVectorClass<AbstractClass *> DAT_00A8E9A8;
+extern DynamicVectorClass<AbstractClass *> DAT_00B04BD0;
+extern DynamicVectorClass<AbstractClass *> DAT_00ABCA10;
+extern DynamicVectorClass<AbstractClass *> DAT_008A3870;
+extern DynamicVectorClass<AbstractClass *> DAT_0089E0F0;
+extern DynamicVectorClass<AbstractClass *> DAT_008A0208;
+extern DynamicVectorClass<AbstractClass *> DAT_00AC4910;
+extern DynamicVectorClass<AbstractClass *> DAT_00B0EC60;
+extern DynamicVectorClass<AbstractClass *> DAT_00889FB8;
+extern DynamicVectorClass<AbstractClass *> DAT_00B0B880;
+extern DynamicVectorClass<AbstractClass *> DAT_0089C668;
+extern DynamicVectorClass<AbstractClass *> DAT_008B3D10;
+extern DynamicVectorClass<AbstractClass *> DAT_0088A0F0;
+extern DynamicVectorClass<AbstractClass *> DAT_00A8E988;
+extern DynamicVectorClass<AbstractClass *> DAT_00A8E968;
+extern DynamicVectorClass<SpotlightClass *> DAT_00AC1678;
+
+// FUNCTION: GAMEMD 0x00534450
+void Delete_All_Objects(void)
+{
+	DAT_00A8E7AC++;
+	DAT_00B0F698.Reset_Active();
+	DAT_00B0F698.Clear();
+	FUN_0069E210();
+	while (DAT_00B0E844) {
+		if (!DAT_00B0E84C) {
+			qsort(DAT_00B0E840, DAT_00B0E844, 8, FUN_0041C610);
+			DAT_00B0E850 = 0;
+			DAT_00B0E84C = true;
+		}
+		delete DAT_00B0E840[0].Data;
+	}
+	FUN_00725C70();
+	while (DAT_00A8ED40.Count()) {
+		DAT_00A8ED40[0]->Release();
+	}
+	FUN_00725C70();
+	while (DAT_00A8E360.Count()) {
+		delete DAT_00A8E360[0];
+	}
+	FUN_00725C70();
+	while (DAT_00B0E720.Count()) {
+		delete DAT_00B0E720[0];
+	}
+	FUN_00725C70();
+	while (DAT_00A8EAE8.Count()) {
+		delete DAT_00A8EAE8[0];
+	}
+	FUN_00725C70();
+	while (DAT_008B4138.Count()) {
+		delete DAT_008B4138[0];
+	}
+	FUN_00725C70();
+	while (DAT_008B4190.Count()) {
+		delete DAT_008B4190[0];
+	}
+	FUN_00725C70();
+	while (DAT_00A8EC50.Count()) {
+		delete DAT_00A8EC50[0];
+	}
+	FUN_00725C70();
+	while (DAT_00A80208.Count()) {
+		delete DAT_00A80208[0];
+	}
+	FUN_00725C70();
+	while (DAT_00A8EC38.Count()) {
+		delete DAT_00A8EC38[0];
+	}
+	FUN_00725C70();
+	while (DAT_00A83E30.Count()) {
+		delete DAT_00A83E30[0];
+	}
+	FUN_00725C70();
+	while (DAT_008B4120.Count()) {
+		delete DAT_008B4120[0];
+	}
+	FUN_00725C70();
+	while (DAT_008B40E8.Count()) {
+		delete DAT_008B40E8[0];
+	}
+	FUN_00725C70();
+	while (DAT_00A80228.Count()) {
+		delete DAT_00A80228[0];
+	}
+	FUN_00725C70();
+	while (DAT_00A8E9A8.Count()) {
+		delete DAT_00A8E9A8[0];
+	}
+	FUN_00725C70();
+	while (Scripts.Count()) {
+		delete Scripts[0];
+	}
+	FUN_00725C70();
+	while (DAT_00B04BD0.Count()) {
+		delete DAT_00B04BD0[0];
+	}
+	FUN_00725C70();
+	while (DAT_00ABCA10.Count()) {
+		delete DAT_00ABCA10[0];
+	}
+	FUN_00725C70();
+	while (DAT_008A3870.Count()) {
+		delete DAT_008A3870[0];
+	}
+	FUN_00725C70();
+	while (DAT_0089E0F0.Count()) {
+		delete DAT_0089E0F0[0];
+	}
+	FUN_00725C70();
+	while (DAT_008A0208.Count()) {
+		delete DAT_008A0208[0];
+	}
+	FUN_00725C70();
+	while (DAT_00AC4910.Count()) {
+		delete DAT_00AC4910[0];
+	}
+	FUN_00725C70();
+	while (DAT_00B0EC60.Count()) {
+		delete DAT_00B0EC60[0];
+	}
+	FUN_00725C70();
+	while (DAT_00889FB8.Count()) {
+		delete DAT_00889FB8[0];
+	}
+	FUN_00725C70();
+	while (DAT_00B0B880.Count()) {
+		delete DAT_00B0B880[0];
+	}
+	FUN_00725C70();
+	while (DAT_0089C668.Count()) {
+		delete DAT_0089C668[0];
+	}
+	FUN_00725C70();
+	while (DAT_00AC1678.Count()) {
+		delete DAT_00AC1678[0];
+	}
+	FUN_00725C70();
+	while (DAT_008B3D10.Count()) {
+		delete DAT_008B3D10[0];
+	}
+	FUN_00725C70();
+	while (DAT_0088A0F0.Count()) {
+		delete DAT_0088A0F0[0];
+	}
+	FUN_00725C70();
+	while (DAT_00A8E988.Count()) {
+		delete DAT_00A8E988[0];
+	}
+	FUN_00725C70();
+	FUN_004C29E0();
+	FUN_00556DF0();
+	FUN_00550000();
+	while (DAT_00A8E968.Count()) {
+		delete DAT_00A8E968[0];
+	}
+	FUN_00725C70();
+	delete TacticalMap;
+	TacticalMap = NULL;
+	FUN_00565B00(&Map);
+	FUN_00725C70();
+	FUN_00430980(&DAT_0089C3B0);
+	DAT_00A8E7AC--;
+}
+
+extern MFCD * DAT_00884E0C;
+extern MFCD * DAT_00884E08;
+extern MFCD * DAT_00884E10;
+extern MFCD * DAT_00884E20;
+extern MFCD * DAT_00884E1C;
+extern PaletteClass DAT_00885A80;
+extern PaletteClass DAT_00886380;
+void const * __fastcall FUN_005B40B0(char const * name, bool flag);
+void __fastcall FUN_006267A0(TheaterType theater);
+void __fastcall FUN_00717840(void);
+
+// FUNCTION: GAMEMD 0x005349C0
+void __fastcall Init_Theater(TheaterType theater)
+{
+	struct {
+		char fullname[16];
+		char rootmd[16];
+		char shortname[16];
+		char palmd[16];
+		char isofullname[16];
+	} n;
+
+	wsprintf(n.fullname, "%s.MIX", Theaters[theater].Root);
+	wsprintf(n.isofullname, "%s.MIX", Theaters[theater].IsoRoot);
+	wsprintf(n.shortname, "%s.MIX", Theaters[theater].Suffix);
+	wsprintf(n.palmd, "%sMD.MIX", Theaters[theater].PaletteFileName);
+	wsprintf(n.rootmd, "%sMD.MIX", Theaters[theater].Root);
+
+	FUN_004068E0("Init theater %s\n", Theaters[theater].Name);
+
+	Scen->Theater = theater;
+	Session.Update_Progress(8);
+
+	if (Scen->Theater != LastTheater) {
+		if (DAT_00884E0C != NULL) {
+			delete DAT_00884E0C;
+		}
+		DAT_00884E0C = NULL;
+		if (Scen->Theater == THEATER_SNOW) {
+			DAT_00884E0C = new MFCD(n.rootmd, &FastKey);
+			DAT_00884E0C->Cache((Buffer const *)NULL);
+		}
+
+		if (DAT_00884E08 != NULL) {
+			delete DAT_00884E08;
+		}
+		DAT_00884E08 = new MFCD(n.fullname, &FastKey);
+
+		if (DAT_00884E10 != NULL) {
+			delete DAT_00884E10;
+		}
+		DAT_00884E10 = new MFCD(n.shortname, &FastKey);
+		DAT_00884E10->Cache((Buffer const *)NULL);
+
+		DAT_00884E08->Cache((Buffer const *)NULL);
+		Session.Update_Progress(6);
+
+		if (DAT_00884E20 != NULL) {
+			delete DAT_00884E20;
+		}
+		DAT_00884E20 = new MFCD(n.palmd, &FastKey);
+
+		if (DAT_00884E1C != NULL) {
+			delete DAT_00884E1C;
+		}
+		DAT_00884E1C = new MFCD(n.isofullname, &FastKey);
+
+		Session.Update_Progress(12);
+
+		wsprintf(n.fullname, "%s.PAL", Theaters[theater].Root);
+
+		unsigned char * ptr = (unsigned char *)FUN_005B40B0(n.fullname, false);
+		if (ptr != NULL) {
+			for (int color = 0; color < 256; color++) {
+				unsigned char r = (unsigned char)((*ptr++)<<2);
+				unsigned char g = (unsigned char)((*ptr++)<<2);
+				unsigned char b = (unsigned char)((*ptr++)<<2);
+				GamePalette[color] = RGBClass(r, g, b);
+			}
+		} else {
+			for (int color = 0; color < 256; color++) {
+				GamePalette[color] = RGBClass(color, 255 - color, ((color << 2) & 0xff));
+			}
+		}
+
+		DAT_00885A80 = GamePalette;
+
+		wsprintf(n.fullname, "UNIT%s.PAL", Theaters[theater].Suffix);
+		PaletteClass * unitpal = (PaletteClass *)FUN_005B40B0(n.fullname, false);
+
+		Game::CallBack();
+
+		if (unitpal != NULL) {
+			DAT_00886380 = *unitpal;
+		}
+
+		for (int index = 0; index < 256; index++) {
+			DAT_00886380[index] = RGBClass(
+				(unsigned char)(DAT_00886380[index].Get_Red()<<2),
+				(unsigned char)(DAT_00886380[index].Get_Green()<<2),
+				(unsigned char)(DAT_00886380[index].Get_Blue()<<2));
+		}
+
+		int last_percent = 12;
+		int prog_step = ColorSchemes.Count() / (25 - 12);
+		for (int s = 0; s < ColorSchemes.Count(); s++) {
+			ColorSchemes[s]->Build_Light_Converters(DAT_00886380, GamePalette);
+			int percent = (min(12 + (s / prog_step), 25));
+			if (percent != last_percent) {
+				Session.Update_Progress(percent);
+				last_percent = percent;
+			}
+			Game::CallBack();
+		}
+
+		FUN_006267A0(theater);
+		FUN_00717840();
+		Session.Update_Progress(25);
+	}
+}
+
+extern MFCD * DAT_00884E5C;
+extern MFCD * DAT_00884E58;
+
+// FUNCTION: GAMEMD 0x00534DE0
+bool FUN_00534DE0(void)
+{
+	if (DAT_00884E5C != NULL) {
+		FUN_004068E0("     Releasing %s\n", DAT_00884E5C->Filename);
+		delete DAT_00884E5C;
+		DAT_00884E5C = NULL;
+	}
+	if (DAT_00884E58 != NULL) {
+		FUN_004068E0("     Releasing %s\n", DAT_00884E58->Filename);
+		delete DAT_00884E58;
+		DAT_00884E58 = NULL;
+	}
+	return(true);
+}
+
+extern MFCD * DAT_00884E68;
+extern MFCD * DAT_00884E70;
+extern MFCD * DAT_00884E74;
+extern MFCD * DAT_00884E78;
+extern int DAT_0089E414;
+extern CCINIClass DAT_00887208;
+void Set_EVA_Index(int index);
+void FUN_0072F350(void);
+void __fastcall FUN_0072F440(int side);
+void __fastcall FUN_006D02B0(void * map);
+int __fastcall FUN_004A80D0(int drive, int arg);
+
+// FUNCTION: GAMEMD 0x00534FA0
+bool __fastcall FUN_00534FA0(int side)
+{
+	char name[64];
+
+	Set_EVA_Index(side);
+	if (side == 2) {
+		side = 1;
+	}
+	int disk = side;
+	if (side == -1) {
+		int cd = FUN_004A80D0(DAT_0089E414, 0x3C);
+		if (cd != 0 && cd != 1) {
+			FUN_004068E0("     FAILED!  This was not disk one or two!!!\n");
+			return(false);
+		}
+		disk = cd;
+	}
+	FUN_004068E0("Preparing Mixfiles for Side %02d.\n", disk);
+
+	if (DAT_00884E68 != NULL) {
+		FUN_004068E0("     Releasing %s\n", DAT_00884E68->Filename);
+		delete DAT_00884E68;
+		DAT_00884E68 = NULL;
+	}
+	if (DAT_00884E74 != NULL) {
+		FUN_004068E0("     Releasing %s\n", DAT_00884E74->Filename);
+		delete DAT_00884E74;
+		DAT_00884E74 = NULL;
+	}
+	if (DAT_00884E70 != NULL) {
+		FUN_004068E0("     Releasing %s\n", DAT_00884E70->Filename);
+		delete DAT_00884E70;
+		DAT_00884E70 = NULL;
+	}
+	if (DAT_00884E78 != NULL) {
+		FUN_004068E0("     Releasing %s\n", DAT_00884E78->Filename);
+		delete DAT_00884E78;
+		DAT_00884E78 = NULL;
+	}
+
+	sprintf(name, "SIDEC%02dMD.MIX", disk + 1);
+	FUN_004068E0("     Initilizing %s\n", name);
+	if (CCFileClass(name).Is_Available()) {
+		DAT_00884E70 = new MFCD(name, &FastKey);
+	}
+	DAT_00884E70->Cache();
+
+	sprintf(name, "SIDEC%02d.MIX", disk + 1);
+	FUN_004068E0("     Initilizing %s\n", name);
+	if (CCFileClass(name).Is_Available()) {
+		DAT_00884E74 = new MFCD(name, &FastKey);
+		if (DAT_00884E74 == NULL) {
+			FUN_004068E0("     FAILED!\n");
+			return(false);
+		}
+	}
+	if (DAT_00884E74 == NULL) {
+		FUN_004068E0("     FAILED!\n");
+		return(false);
+	}
+	DAT_00884E74->Cache();
+
+	sprintf(name, "SIDENC%02d.MIX", disk + 1);
+	FUN_004068E0("     Initilizing %s\n", name);
+	if (CCFileClass(name).Is_Available()) {
+		DAT_00884E78 = new MFCD(name, &FastKey);
+	}
+
+	FUN_0072F350();
+	FUN_0072F440(disk);
+
+	CCFileClass uimd("UIMD.INI");
+	if (DAT_00887208.ReadCCFile(uimd, false, false)) {
+		Rule->Read_AdvancedCommandBar(DAT_00887208, Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH);
+		FUN_006D02B0(&Map);
+		return(true);
+	}
+	FUN_004068E0("Failed to load UIMD.INI!\n");
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x005353D0
+ObjectClass * __fastcall Best_Selected_Object(Cell const * cell, ObjectClass const * target)
+{
+	ObjectClass * best_obj = NULL;
+	int best_value = -1;
+	int best_distance = 0x7FFFFFFF;
+
+	if (CurrentObject.Count() > 0) {
+		for (int index = 0; index < CurrentObject.Count(); index++) {
+			ObjectClass * obj = CurrentObject[index];
+			int value = 0;
+
+			if (obj->Is_Techno()) {
+				value = 2;
+				TechnoClass * tech = (TechnoClass *)obj;
+				if (tech->Berzerk) {
+					value = 0;
+				} else if (tech->IsUnderEMP()) {
+					value = 1;
+				} else if (tech->Is_Weapon_Equipped()) {
+					value = 3;
+					if (tech->RTTI != RTTI_BUILDING) {
+						value = 4;
+						if (tech->Combat_Damage() > 0) {
+							value = 5;
+						}
+					}
+				}
+			}
+
+			if (value >= best_value) {
+				int distance = 0x7FFFFFFF;
+				bool has_cell = cell != NULL;
+				if (has_cell || target != NULL) {
+					Coord here = obj->Center_Coord();
+					Coord there;
+					if (has_cell) {
+						there = cell->As_Coord(0);
+					} else {
+						there = target->Center_Coord();
+					}
+					distance = here.Distance_To(there);
+				}
+				if (value > best_value) {
+					best_value = value;
+					best_obj = obj;
+					best_distance = distance;
+				} else if (distance < best_distance) {
+					best_obj = obj;
+					best_distance = distance;
+				}
+			}
+		}
+	}
+	return(best_obj);
+}
+
+// FUNCTION: GAMEMD 0x005355C0
+ThemeType FUN_005355C0(void)
+{
+	return(Theme.From_Name("INTRO"));
+}
+
+extern char DAT_00A8F394[];
+extern char DAT_00A8F314[];
+extern char DAT_00A8F4A0[];
+extern char DAT_00A8F420[];
+extern char DAT_00A8F520[];
+extern IDirectDraw * DAT_008A0094;
+int DAT_00825C8C = -1;
+int FUN_004E6190(void);
+int FUN_005CAFC0(void);
+char const * FUN_004E62B0(void);
+
+// FUNCTION: GAMEMD 0x005355D0
+int FUN_005355D0(void)
+{
+	if (DAT_00825C8C == -1) {
+		DAT_00A8F394[0] = 0;
+		DAT_00A8F314[0] = 0;
+		DAT_00A8F4A0[0] = 0;
+		DAT_00A8F420[0] = 0;
+		DAT_00A8F520[0] = 0;
+
+		int cpu_type = FUN_004E6190();
+		int mhz = FUN_005CAFC0();
+		int cpu_rating;
+		int ram_rating;
+		int vram_rating;
+		cpu_rating = 5;
+		switch (cpu_type) {
+			case -1:
+				break;
+			case 3:
+			case 5:
+				cpu_rating = mhz / 100 + 1;
+				break;
+			case 4:
+			case 7:
+				cpu_rating = mhz / 100 + 2;
+				break;
+			case 6:
+				cpu_rating = mhz / 100 + 3;
+				break;
+			default:
+				cpu_rating = 1;
+				break;
+		}
+		FUN_004068E0("Profile: CPU:%d (%dMhz %s)\n", cpu_rating, mhz, FUN_004E62B0());
+		sprintf(DAT_00A8F314, "CPU: %d Mhz %s", mhz, FUN_004E62B0());
+
+		MEMORYSTATUS memory;
+		memory.dwLength = sizeof(memory);
+		GlobalMemoryStatus(&memory);
+		unsigned int ram = (memory.dwTotalPhys + 0xA0000) >> 20;
+		ram_rating = 2;
+		if (ram >= 64) {
+			ram_rating = 5;
+		}
+		if (ram >= 128) {
+			ram_rating += 2;
+		}
+		if (ram == 256) {
+			ram_rating += 2;
+		} else if (ram > 256) {
+			ram_rating = 10;
+		}
+		FUN_004068E0("Profile: RAM:%d (%dMb)\n", ram_rating, ram);
+		sprintf(DAT_00A8F4A0, "RAM reported: %d Mb", ram);
+
+		unsigned int vram = 4;
+		vram_rating = 5;
+		if (DAT_008A0094 != NULL) {
+			DDCAPS_DX3 caps;
+			caps.dwSize = 0x13C;
+			if (DAT_008A0094->GetCaps((LPDDCAPS)&caps, NULL) == 0) {
+				DWORD total = caps.dwVidMemTotal;
+				if (total <= caps.dwVidMemFree) {
+					total = caps.dwVidMemFree;
+				}
+				vram = (total + 0xFFFFF) >> 20;
+			}
+		}
+		if (vram >= 32) {
+			vram_rating = 10;
+		} else if (vram >= 16) {
+			vram_rating = 9;
+		} else if (vram >= 8) {
+			vram_rating = 7;
+		} else if (vram >= 4) {
+			vram_rating = 5;
+		} else if (vram <= 2) {
+			vram_rating = 3;
+		}
+		FUN_004068E0("Profile: VRAM:%d (%dMb)\n", vram_rating, vram);
+		sprintf(DAT_00A8F420, "VRAM reported: %d Mb", vram);
+
+		int blits = 0;
+		int speed_rating = 5;
+		if (TileSurface != NULL && ((DSurface *)TileSurface)->In_Video_Ram() && !((DSurface *)AlternateSurface)->In_Video_Ram()) {
+			Rect area = TileSurface->Get_Rect();
+			Rect other = AlternateSurface->Get_Rect();
+			if (area.Width >= other.Width) {
+				area.Width = other.Width;
+			}
+			if (area.Height >= other.Height) {
+				area.Height = other.Height;
+			}
+			if (area.Width >= 480) {
+				area.Width = 480;
+			}
+			if (area.Height >= 400) {
+				area.Height = 400;
+			}
+			for (int pass = 0; pass < 4; pass++) {
+				TileSurface->Blit_From(area, *AlternateSurface, area);
+				AlternateSurface->Blit_From(area, *TileSurface, area);
+				Sleep(0);
+			}
+			DWORD start = timeGetTime();
+			if ((start & 0xFF000000) != 0xFF) {
+				TileSurface->Blit_From(area, *AlternateSurface, area);
+				AlternateSurface->Blit_From(area, *TileSurface, area);
+				blits = 1;
+				while (timeGetTime() - start <= 1000 && blits <= 5000) {
+					TileSurface->Blit_From(area, *AlternateSurface, area);
+					AlternateSurface->Blit_From(area, *TileSurface, area);
+					blits++;
+				}
+				speed_rating = MAX(1, blits / 4);
+			}
+		}
+		FUN_004068E0("Profile: VRAM speed:%d (%d blits per second)\n", speed_rating, blits * 2);
+		sprintf(DAT_00A8F520, "%d blits per second\n", blits * 2);
+
+		DAT_00825C8C = cpu_rating;
+		if (DAT_00825C8C >= ram_rating) {
+			DAT_00825C8C = ram_rating;
+		}
+		if (DAT_00825C8C >= vram_rating) {
+			DAT_00825C8C = vram_rating;
+		}
+		if (DAT_00825C8C >= speed_rating) {
+			DAT_00825C8C = speed_rating;
+		}
+		FUN_004068E0("Overall performance profile = %d\n", DAT_00825C8C);
+		sprintf(DAT_00A8F394, "Profile: %d\n", DAT_00825C8C);
+	}
+	return(DAT_00825C8C);
+}
+
+// FUNCTION: GAMEMD 0x00535AA0
+// INIClass::INIClass
+
+// FUNCTION: GAMEMD 0x00535BD0
+// CommandClass::PreventCombinationOverride
+// FUNCTION: GAMEMD 0x00535BE0
+// CommandClass::ExtraTriggerCondition
+// FUNCTION: GAMEMD 0x00535BF0
+// CommandClass::Unknown1C
+// FUNCTION: GAMEMD 0x00535C00
+// CreateTeamCommandClass::CreateTeamCommandClass
+// FUNCTION: GAMEMD 0x00535C20
+// CreateTeamCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00535C40
+// CreateTeamCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00535C70
+// CreateTeamCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00535C90
+// CreateTeamCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00535CC0
+// CreateTeamCommandClass::Execute
+// SYNTHETIC: GAMEMD 0x00535CD0
+// ??_GCreateTeamCommandClass@@UAEPAXI@Z
+// FUNCTION: GAMEMD 0x00535CF0
+// CommandClass::Get_Display_Name
+// SYNTHETIC: GAMEMD 0x00535D00
+// ??_GCommandClass@@UAEPAXI@Z
+// FUNCTION: GAMEMD 0x00535D20
+// SetStructureTabCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00535D30
+// SetStructureTabCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00535D50
+// SetStructureTabCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00535D70
+// SetStructureTabCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00535D90
+// SetStructureTabCommandClass::Execute
+// FUNCTION: GAMEMD 0x00535DE0
+// SetDefenseTabCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00535DF0
+// SetDefenseTabCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00535E10
+// SetDefenseTabCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00535E30
+// SetDefenseTabCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00535E50
+// SetDefenseTabCommandClass::Execute
+// FUNCTION: GAMEMD 0x00535EA0
+// SetInfantryTabCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00535EB0
+// SetInfantryTabCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00535ED0
+// SetInfantryTabCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00535EF0
+// SetInfantryTabCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00535F10
+// SetInfantryTabCommandClass::Execute
+// FUNCTION: GAMEMD 0x00535F30
+// SetUnitTabCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00535F40
+// SetUnitTabCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00535F60
+// SetUnitTabCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00535F80
+// SetUnitTabCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00535FA0
+// SetUnitTabCommandClass::Execute
+// FUNCTION: GAMEMD 0x00535FC0
+// SelectTeamCommandClass::SelectTeamCommandClass
+// FUNCTION: GAMEMD 0x00535FE0
+// SelectTeamCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536000
+// SelectTeamCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536030
+// SelectTeamCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536050
+// SelectTeamCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536080
+// SelectTeamCommandClass::Execute
+// SYNTHETIC: GAMEMD 0x00536090
+// ??_GSelectTeamCommandClass@@UAEPAXI@Z
+// FUNCTION: GAMEMD 0x005360B0
+// AddTeamCommandClass::AddTeamCommandClass
+// FUNCTION: GAMEMD 0x005360D0
+// AddTeamCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005360F0
+// AddTeamCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536120
+// AddTeamCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536140
+// AddTeamCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536170
+// AddTeamCommandClass::Execute
+// SYNTHETIC: GAMEMD 0x00536180
+// ??_GAddTeamCommandClass@@UAEPAXI@Z
+// FUNCTION: GAMEMD 0x005361A0
+// CenterTeamCommandClass::CenterTeamCommandClass
+// FUNCTION: GAMEMD 0x005361C0
+// CenterTeamCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005361E0
+// CenterTeamCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536210
+// CenterTeamCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536230
+// CenterTeamCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536260
+// CenterTeamCommandClass::Execute
+// SYNTHETIC: GAMEMD 0x00536270
+// ??_GCenterTeamCommandClass@@UAEPAXI@Z
+// FUNCTION: GAMEMD 0x00536290
+// TauntCommandClass::TauntCommandClass
+// FUNCTION: GAMEMD 0x005362B0
+// TauntCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005362D0
+// TauntCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536300
+// TauntCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536320
+// TauntCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536350
+// TauntCommandClass::Execute
+// SYNTHETIC: GAMEMD 0x00536580
+// ??_GTauntCommandClass@@UAEPAXI@Z
+// FUNCTION: GAMEMD 0x005365A0
+// NextObjectCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005365B0
+// NextObjectCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x005365D0
+// NextObjectCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x005365F0
+// NextObjectCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536610
+// NextObjectCommandClass::Execute
+// FUNCTION: GAMEMD 0x005366A0
+// PlanningModeCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005366B0
+// PlanningModeCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x005366D0
+// PlanningModeCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x005366F0
+// PlanningModeCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536710
+// PlanningModeCommandClass::PreventCombinationOverride
+// FUNCTION: GAMEMD 0x00536730
+// PlanningModeCommandClass::ExtraTriggerCondition
+// FUNCTION: GAMEMD 0x00536740
+// PlanningModeCommandClass::Unknown1C
+// FUNCTION: GAMEMD 0x00536750
+// PlanningModeCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536770
+// CombatantSelectCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536780
+// CombatantSelectCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x005367A0
+// CombatantSelectCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x005367C0
+// CombatantSelectCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x005367E0
+// CombatantSelectCommandClass::PreventCombinationOverride
+// FUNCTION: GAMEMD 0x005367F0
+// CombatantSelectCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536810
+// TypeSelectCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536820
+// TypeSelectCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536840
+// TypeSelectCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536860
+// TypeSelectCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536880
+// TypeSelectCommandClass::PreventCombinationOverride
+// FUNCTION: GAMEMD 0x00536890
+// TypeSelectCommandClass::ExtraTriggerCondition
+// FUNCTION: GAMEMD 0x005368A0
+// TypeSelectCommandClass::Unknown1C
+// FUNCTION: GAMEMD 0x005368B0
+// TypeSelectCommandClass::Execute
+// FUNCTION: GAMEMD 0x005368D0
+// HealthNavCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005368E0
+// HealthNavCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536900
+// HealthNavCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536920
+// HealthNavCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536940
+// HealthNavCommandClass::PreventCombinationOverride
+// FUNCTION: GAMEMD 0x00536950
+// HealthNavCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536970
+// VeterancyNavCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536980
+// VeterancyNavCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x005369A0
+// VeterancyNavCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x005369C0
+// VeterancyNavCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x005369E0
+// VeterancyNavCommandClass::PreventCombinationOverride
+// FUNCTION: GAMEMD 0x005369F0
+// VeterancyNavCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536A10
+// PrevObjectCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536A20
+// PrevObjectCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536A40
+// PrevObjectCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536A60
+// PrevObjectCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536A80
+// PrevObjectCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536B10
+// StopCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536B20
+// StopCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536B40
+// StopCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536B60
+// StopCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536B80
+// StopCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536B90
+// AllToCheerCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536BA0
+// AllToCheerCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536BC0
+// AllToCheerCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536BE0
+// AllToCheerCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536C00
+// AllToCheerCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536C10
+// DeployCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536C20
+// DeployCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536C40
+// DeployCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536C60
+// DeployCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536C80
+// DeployCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536C90
+// GuardCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536CA0
+// GuardCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536CC0
+// GuardCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536CE0
+// GuardCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536D00
+// GuardCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536D10
+// ScatterCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536D20
+// ScatterCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536D40
+// ScatterCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536D60
+// ScatterCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536D80
+// ScatterCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536D90
+// CenterViewCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536DA0
+// CenterViewCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536DC0
+// CenterViewCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536DE0
+// CenterViewCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536E00
+// CenterViewCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536E30
+// CenterBaseCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536E40
+// CenterBaseCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536E60
+// CenterBaseCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536E80
+// CenterBaseCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536EA0
+// CenterBaseCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536EB0
+// AllianceCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536EC0
+// AllianceCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536EE0
+// AllianceCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536F00
+// AllianceCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536F20
+// AllianceCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536F30
+// ToggleRepairCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536F40
+// ToggleRepairCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536F60
+// ToggleRepairCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00536F80
+// ToggleRepairCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00536FA0
+// ToggleRepairCommandClass::Execute
+// FUNCTION: GAMEMD 0x00536FB0
+// ToggleSellCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00536FC0
+// ToggleSellCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00536FE0
+// ToggleSellCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537000
+// ToggleSellCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537020
+// ToggleSellCommandClass::Execute
+// FUNCTION: GAMEMD 0x00537030
+// BeaconPlacementCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537040
+// BeaconPlacementCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537060
+// BeaconPlacementCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537080
+// BeaconPlacementCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x005370A0
+// BeaconPlacementCommandClass::Execute
+// FUNCTION: GAMEMD 0x005370C0
+// CenterREventCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005370D0
+// CenterREventCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x005370F0
+// CenterREventCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537110
+// CenterREventCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537130
+// CenterREventCommandClass::Execute
+// FUNCTION: GAMEMD 0x00537140
+// SidebarUpCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537150
+// SidebarUpCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537170
+// SidebarUpCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537190
+// SidebarUpCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x005371B0
+// SidebarUpCommandClass::Execute
+// FUNCTION: GAMEMD 0x005371D0
+// SidebarDownCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005371E0
+// SidebarDownCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537200
+// SidebarDownCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537220
+// SidebarDownCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537240
+// SidebarDownCommandClass::Execute
+// FUNCTION: GAMEMD 0x00537260
+// OptionsCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537270
+// OptionsCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537290
+// OptionsCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x005372B0
+// OptionsCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x005372D0
+// OptionsCommandClass::Execute
+// FUNCTION: GAMEMD 0x005372E0
+// View1CommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005372F0
+// View1CommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537310
+// View1CommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537330
+// View1CommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537350
+// View1CommandClass::Execute
+// FUNCTION: GAMEMD 0x005373D0
+// View2CommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005373E0
+// View2CommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537400
+// View2CommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537420
+// View2CommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537440
+// View2CommandClass::Execute
+// FUNCTION: GAMEMD 0x005374C0
+// View3CommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005374D0
+// View3CommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x005374F0
+// View3CommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537510
+// View3CommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537530
+// View3CommandClass::Execute
+// FUNCTION: GAMEMD 0x005375B0
+// View4CommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005375C0
+// View4CommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x005375E0
+// View4CommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537600
+// View4CommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537620
+// View4CommandClass::Execute
+// FUNCTION: GAMEMD 0x005376A0
+// SetView1CommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005376B0
+// SetView1CommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x005376D0
+// SetView1CommandClass::Get_Category
+// FUNCTION: GAMEMD 0x005376F0
+// SetView1CommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537710
+// SetView1CommandClass::Execute
+// FUNCTION: GAMEMD 0x00537760
+// SetView2CommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537770
+// SetView2CommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537790
+// SetView2CommandClass::Get_Category
+// FUNCTION: GAMEMD 0x005377B0
+// SetView2CommandClass::Get_Description
+// FUNCTION: GAMEMD 0x005377D0
+// SetView2CommandClass::Execute
+// FUNCTION: GAMEMD 0x00537820
+// SetView3CommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537830
+// SetView3CommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537850
+// SetView3CommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537870
+// SetView3CommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537890
+// SetView3CommandClass::Execute
+// FUNCTION: GAMEMD 0x005378E0
+// SetView4CommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005378F0
+// SetView4CommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537910
+// SetView4CommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537930
+// SetView4CommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537950
+// SetView4CommandClass::Execute
+// FUNCTION: GAMEMD 0x005379A0
+// FollowCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x005379B0
+// FollowCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x005379D0
+// FollowCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x005379F0
+// FollowCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537A10
+// FollowCommandClass::Execute
+// FUNCTION: GAMEMD 0x00537A50
+// MultiplayerDebugCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537A60
+// MultiplayerDebugCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537A70
+// MultiplayerDebugCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537A80
+// MultiplayerDebugCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537A90
+// MultiplayerDebugCommandClass::Execute
+// FUNCTION: GAMEMD 0x00537AB0
+// MultiplayerSyncCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537AC0
+// MultiplayerSyncCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537AD0
+// MultiplayerSyncCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537AE0
+// MultiplayerSyncCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537AF0
+// MultiplayerSyncCommandClass::Execute
+// FUNCTION: GAMEMD 0x00537B40
+// ScreenCaptureCommandClass::ScreenCaptureCommandClass
+// FUNCTION: GAMEMD 0x00537B50
+// ScreenCaptureCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537B60
+// ScreenCaptureCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537B80
+// ScreenCaptureCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537BA0
+// ScreenCaptureCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537BC0
+// ScreenCaptureCommandClass::Execute
+// FUNCTION: GAMEMD 0x00537DD0
+// PageUserCommandClass::PageUserCommandClass
+// FUNCTION: GAMEMD 0x00537DE0
+// PageUserCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537DF0
+// PageUserCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537E10
+// PageUserCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537E30
+// PageUserCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537E50
+// PageUserCommandClass::Execute
+// FUNCTION: GAMEMD 0x00537E70
+// CursorPositionCommandClass::CursorPositionCommandClass
+// FUNCTION: GAMEMD 0x00537E80
+// CursorPositionCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537E90
+// CursorPositionCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537EB0
+// CursorPositionCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537ED0
+// CursorPositionCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537EF0
+// CursorPositionCommandClass::Execute
+// FUNCTION: GAMEMD 0x00537F10
+// DeleteCommandClass::DeleteCommandClass
+// FUNCTION: GAMEMD 0x00537F20
+// DeleteCommandClass::Get_Unique_Name
+// FUNCTION: GAMEMD 0x00537F30
+// DeleteCommandClass::Get_Display_Name
+// FUNCTION: GAMEMD 0x00537F50
+// DeleteCommandClass::Get_Category
+// FUNCTION: GAMEMD 0x00537F70
+// DeleteCommandClass::Get_Description
+// FUNCTION: GAMEMD 0x00537F90
+// DeleteCommandClass::Execute
+// SYNTHETIC: GAMEMD 0x00537FA0
+// ??_GMultiplayerDebugCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00537FC0
+// ??_GMultiplayerSyncCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00537FE0
+// ??_GFollowCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538000
+// ??_GView1CommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538020
+// ??_GView2CommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538040
+// ??_GView3CommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538060
+// ??_GView4CommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538080
+// ??_GSetView1CommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005380A0
+// ??_GSetView2CommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005380C0
+// ??_GSetView3CommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005380E0
+// ??_GSetView4CommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538100
+// ??_GOptionsCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538120
+// ??_GSidebarUpCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538140
+// ??_GSidebarDownCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538160
+// ??_GCenterREventCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538180
+// ??_GBeaconPlacementCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005381A0
+// ??_GToggleSellCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005381C0
+// ??_GToggleRepairCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005381E0
+// ??_GAllianceCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538200
+// ??_GCenterBaseCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538220
+// ??_GCenterViewCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538240
+// ??_GScatterCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538260
+// ??_GGuardCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538280
+// ??_GStopCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005382A0
+// ??_GAllToCheerCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005382C0
+// ??_GDeployCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005382E0
+// ??_GPrevObjectCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538300
+// ??_GNextObjectCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538320
+// ??_GPlanningModeCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538340
+// ??_GCombatantSelectCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538360
+// ??_GTypeSelectCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538380
+// ??_GHealthNavCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005383A0
+// ??_GVeterancyNavCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005383C0
+// ??_GSetStructureTabCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005383E0
+// ??_GSetDefenseTabCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538400
+// ??_GSetUnitTabCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538420
+// ??_GSetInfantryTabCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538440
+// ??_GScreenCaptureCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538460
+// ??_GPageUserCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538480
+// ??_GCursorPositionCommandClass@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005384A0
+// ??_GDeleteCommandClass@@UAEPAXI@Z
+
+// TEMPLATE: GAMEMD 0x005384C0
+// ?Clear@?$DynamicVectorClass@PAVCCINIClass@@@@UAEXXZ
+template class DynamicVectorClass<CCINIClass *>;
+
+// TEMPLATE: GAMEMD 0x005384F0
+// ?ID@?$DynamicVectorClass@PAVCCINIClass@@@@UAEHPBQAVCCINIClass@@@Z
+// TEMPLATE: GAMEMD 0x00538510
+// ?GetItem@?$VectorClass@PAVCCINIClass@@@@UBEPAVCCINIClass@@H@Z
+// TEMPLATE: GAMEMD 0x00538520
+// ??8?$VectorClass@PAVCCINIClass@@@@UBE_NABV0@@Z
+// TEMPLATE: GAMEMD 0x00538560
+// ?Resize@?$VectorClass@PAVCCINIClass@@@@UAE_NHPBQAVCCINIClass@@@Z
+// TEMPLATE: GAMEMD 0x00538610
+// ?Clear@?$VectorClass@PAVCCINIClass@@@@UAEXXZ
+// TEMPLATE: GAMEMD 0x00538640
+// ?ID@?$VectorClass@PAVCCINIClass@@@@UAEHABQAVCCINIClass@@@Z
+// TEMPLATE: GAMEMD 0x00538680
+// ?ID@?$VectorClass@PAVCCINIClass@@@@UAEHPBQAVCCINIClass@@@Z
+// TEMPLATE: GAMEMD 0x005386A0
+// ?Resize@?$DynamicVectorClass@PAVCCINIClass@@@@UAE_NHPBQAVCCINIClass@@@Z
+// TEMPLATE: GAMEMD 0x00538750
+// ?ID@?$DynamicVectorClass@PAVCCINIClass@@@@UAEHABQAVCCINIClass@@@Z
+// TEMPLATE: GAMEMD 0x00538780
+// ?Add@?$DynamicVectorClass@PBVCommandClass@@@@QAE_NABQBVCommandClass@@@Z
+template class DynamicVectorClass<CommandClass const *>;
+template class VectorClass<CommandClass const *>;
+
+// TEMPLATE: GAMEMD 0x005387D0
+// ?Add_Index@?$IndexClass@HPBVCommandClass@@@@QAE_NABHABQBVCommandClass@@@Z
+// TEMPLATE: GAMEMD 0x005388A0
+// ?Remove_Index@?$IndexClass@HPBVCommandClass@@@@QAE_NABH@Z
+// TEMPLATE: GAMEMD 0x00538980
+// ?Is_Present@?$IndexClass@HPBVCommandClass@@@@QBE_NABH@Z
+// SYNTHETIC: GAMEMD 0x00538A20
+// ??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538A90
+// ??_G?$VectorClass@PAVCCINIClass@@@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x00538AE0
+// ??_G?$DynamicVectorClass@PAVCCINIClass@@@@UAEPAXI@Z
+// TEMPLATE: GAMEMD 0x00538B30
+// ??0?$VectorClass@PAVCCINIClass@@@@QAE@HPBQAVCCINIClass@@@Z
+// TEMPLATE: GAMEMD 0x00538B80
+// ?Increase_Table_Size@?$IndexClass@HPBVCommandClass@@@@AAE_NH@Z
+template class IndexClass<int, CommandClass const *>;
+
+extern unsigned long DAT_00A8F7F8[64];
+void __fastcall XMP_Init(unsigned long * number, unsigned long value, int precision);
+
+// FUNCTION: GAMEMD 0x00538C10
+void FUN_00538C10(void)
+{
+	XMP_Init(DAT_00A8F7F8, 0, 64);
+}

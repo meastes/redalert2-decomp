@@ -1,0 +1,1452 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#define NDEBUG
+#include "always.h"
+#include "ini.h"
+#include "b64pipe.h"
+#include "b64straw.h"
+#include "cstraw.h"
+#include "pk.h"
+#include "readline.h"
+#include "rect.h"
+#undef LoadString
+#include "stringtable.h"
+#include "trim.h"
+#include "xpipe.h"
+#include "wstring.h"
+#include "widewstring.h"
+#include "xstraw.h"
+#include <cctype>
+#include <cstddef>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+
+// SYNTHETIC: GAMEMD 0x005256D0 SYMBOL
+// _$E7
+
+// FUNCTION: GAMEMD 0x005256F0
+INIClass::~INIClass(void)
+{
+	Clear();
+}
+
+// FUNCTION: GAMEMD 0x005257C0
+bool INIClass::Clear(char const * section, char const * entry)
+{
+	Reset();
+	if (section == NULL) {
+		SectionList.Delete();
+		SectionIndex.Clear();
+
+		while (TailComment != NULL) {
+			free(TailComment->Comment);
+			INIComment * next = TailComment->Next;
+			delete TailComment;
+			TailComment = next;
+		}
+
+	} else {
+		INISection * secptr = Find_Section(section);
+		if (secptr != NULL) {
+			if (entry != NULL) {
+				INIEntry * entptr = secptr->Find_Entry(entry);
+				if (entptr != NULL) {
+					secptr->EntryIndex.Remove_Index(entptr->Index_ID());
+					delete entptr;
+				}
+			} else {
+				SectionIndex.Remove_Index(secptr->Index_ID());
+				delete secptr;
+			}
+		}
+	}
+
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x00525A10
+int INIClass::Load(FileClass & file, bool keepcomments)
+{
+	Reset();
+	FileStraw fs(file);
+	return(Load(fs, keepcomments));
+}
+
+// FUNCTION: GAMEMD 0x00525A60
+int INIClass::Load(Straw & ffile, bool keepcomments)
+{
+	Reset();
+
+	bool end_of_file = false;
+	char buffer[MAX_LINE_LENGTH];
+
+	INIComment * rootcomment = NULL;
+	INIComment * currentcomment = NULL;
+	INIComment * nextcomment = NULL;
+
+	bool merge = false;
+	if (Section_Count() > 0) {
+		merge = true;
+		keepcomments = false;
+	}
+
+	CacheStraw file;
+	file.Get_From(ffile);
+
+	while (!end_of_file) {
+		Read_Line(file, buffer, sizeof(buffer), end_of_file);
+		if (end_of_file) {
+			if (keepcomments) {
+				TailComment = rootcomment;
+				return(true);
+			}
+
+			while (rootcomment != NULL) {
+				free(rootcomment->Comment);
+				INIComment * next = rootcomment->Next;
+				delete rootcomment;
+				rootcomment = next;
+			}
+			return(false);
+		}
+		if (Is_A_Section(buffer)) break;
+
+		if (keepcomments) {
+			nextcomment = new INIComment;
+			if (nextcomment == NULL) {
+				keepcomments = false;
+			}
+		}
+
+		if (keepcomments) {
+			if (currentcomment) {
+				currentcomment->Next = nextcomment;
+				currentcomment = nextcomment;
+			} else {
+				currentcomment = nextcomment;
+				rootcomment = nextcomment;
+			}
+			currentcomment->Comment = strdup(buffer);
+		}
+	}
+
+	if (merge) {
+
+		while (!end_of_file) {
+
+			char section[MAX_LINE_LENGTH];
+			section[0] = '\0';
+			strtrim(buffer);
+
+			if (buffer[0] == '[') {
+				char * ptr = strchr(buffer, ']');
+				if (ptr != NULL) *ptr = '\0';
+				strcpy(section, buffer + 1);
+			}
+
+			while (!end_of_file) {
+
+				int len = Read_Line(file, buffer, sizeof(buffer), end_of_file);
+				if (Is_A_Section(buffer)) break;
+
+				Strip_Comments(buffer);
+				if (len == 0 || buffer[0] == ';' || buffer[0] == '=') continue;
+
+				char * divider = strchr(buffer, '=');
+				if (!divider) continue;
+
+				*divider++ = '\0';
+				strtrim(buffer);
+				if (!strlen(buffer)) continue;
+
+				strtrim(divider);
+				if (!strlen(divider)) continue;
+
+				if (Put_String(section, buffer, divider) == false) {
+					return(false);
+				}
+			}
+		}
+
+	} else {
+
+		while (TailComment != NULL) {
+			free(TailComment->Comment);
+			INIComment * next = TailComment->Next;
+			delete TailComment;
+			TailComment = next;
+		};
+
+		while (!end_of_file) {
+
+			strtrim(buffer);
+			if (buffer[0] == '[') {
+				char * ptr = strchr(buffer, ']');
+				if (ptr != NULL) *ptr = '\0';
+			} else {
+				buffer[0] = '\0';
+				buffer[1] = '\0';
+			}
+
+			INISection * secptr = new INISection(strdup(buffer + 1), rootcomment);
+
+			if (secptr == NULL) {
+				while (rootcomment != NULL) {
+					free(rootcomment->Comment);
+					INIComment * next = rootcomment->Next;
+					delete rootcomment;
+					rootcomment = next;
+				};
+				currentcomment = NULL;
+
+				Clear();
+				return(false);
+			}
+
+			currentcomment = NULL;
+			rootcomment = NULL;
+
+			while (!end_of_file) {
+
+				int len = Read_Line(file, buffer, sizeof(buffer), end_of_file);
+				if (end_of_file) break;
+				if (Is_A_Section(buffer)) break;
+
+				if (keepcomments) {
+					nextcomment = new INIComment;
+					if (nextcomment == NULL) {
+						keepcomments = false;
+					}
+				}
+
+				if (keepcomments) {
+					if (currentcomment) {
+						currentcomment->Next = nextcomment;
+						currentcomment = nextcomment;
+					} else {
+						currentcomment = nextcomment;
+						rootcomment = nextcomment;
+					}
+
+					currentcomment->Comment = strdup(buffer);
+				}
+
+				int assign_col = 0;
+				int value_col = 0;
+				int comment_col = 0;
+				char *line_comment = NULL;
+
+				if (keepcomments) {
+					line_comment = Scan_Line_For_Columns(buffer, assign_col, value_col, comment_col);
+					if (line_comment != NULL) {
+						line_comment = strdup(line_comment);
+					}
+				}
+
+				Strip_Comments(buffer);
+				if (len == 0 || buffer[0] == ';' || buffer[0] == '=') {
+					free(line_comment);
+					continue;
+				}
+
+				char * divider = strchr(buffer, '=');
+				if (!divider) {
+					free(line_comment);
+					continue;
+				}
+
+				*divider++ = '\0';
+				strtrim(buffer);
+				if (!strlen(buffer)) {
+					free(line_comment);
+					continue;
+				}
+
+				strtrim(divider);
+				if (!strlen(divider)) {
+					free(line_comment);
+					continue;
+				}
+
+				if (keepcomments && (currentcomment != NULL) && (currentcomment->Comment != NULL)) {
+					free(currentcomment->Comment);
+					currentcomment->Comment = NULL;
+				}
+
+				INIEntry * entryptr = new INIEntry(strdup(buffer), strdup(divider), rootcomment, line_comment, comment_col, assign_col, value_col);
+
+				if (entryptr == NULL) {
+					free(line_comment);
+					while (rootcomment != NULL) {
+						free(rootcomment->Comment);
+						INIComment * next = rootcomment->Next;
+						delete rootcomment;
+						rootcomment = next;
+					};
+					currentcomment = NULL;
+
+					delete secptr;
+					Clear();
+					return(false);
+				}
+
+				currentcomment = NULL;
+				rootcomment = NULL;
+
+				secptr->EntryIndex.Add_Index(entryptr->Index_ID(), entryptr);
+				secptr->EntryList.Add_Tail(entryptr);
+			}
+
+			if (!keepcomments && secptr->EntryList.Is_Empty()) {
+				while (rootcomment != NULL) {
+					free(rootcomment->Comment);
+					INIComment * next = rootcomment->Next;
+					delete rootcomment;
+					rootcomment = next;
+				};
+				currentcomment = NULL;
+
+				delete secptr;
+			} else {
+				SectionIndex.Add_Index(secptr->Index_ID(), secptr);
+				SectionList.Add_Tail(secptr);
+			}
+		}
+	}
+
+	TailComment = rootcomment;
+
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x00526420
+int INIClass::Save(FileClass & file) const
+{
+	const_cast<INIClass *>(this)->Reset();
+	FilePipe fp(file);
+	return(Save(fp));
+}
+
+// FUNCTION: GAMEMD 0x00526470
+int INIClass::Save(Pipe & pipe) const
+{
+	const_cast<INIClass *>(this)->Reset();
+	int total = 0;
+	char spacebuffer[MAX_LINE_LENGTH];
+
+	memset(spacebuffer, ' ', sizeof(spacebuffer));
+	spacebuffer[MAX_LINE_LENGTH - 1] = '\0';
+
+	INISection * secptr = SectionList.First();
+	while (secptr && secptr->Is_Valid()) {
+
+		if (total > 0 && secptr->PrefixComment == NULL) {
+			total += pipe.Put("\r\n", strlen("\r\n"));
+		}
+
+		INIComment * cmtptr = secptr->PrefixComment;
+		while (cmtptr != NULL) {
+			if (cmtptr->Comment != NULL) {
+				total += pipe.Put(cmtptr->Comment, strlen(cmtptr->Comment));
+				total += pipe.Put("\r\n", strlen("\r\n"));
+			}
+			cmtptr = cmtptr->Next;
+		}
+
+		total += pipe.Put("[", 1);
+		total += pipe.Put(secptr->Section, strlen(secptr->Section));
+		total += pipe.Put("]", 1);
+		total += pipe.Put("\r\n", strlen("\r\n"));
+
+		INIEntry * entryptr = secptr->EntryList.First();
+		while (entryptr && entryptr->Is_Valid()) {
+
+			INIComment * cmtptr = entryptr->PrefixComment;
+			while (cmtptr != NULL) {
+				if (cmtptr->Comment != NULL) {
+					total += pipe.Put(cmtptr->Comment, strlen(cmtptr->Comment));
+					total += pipe.Put("\r\n", strlen("\r\n"));
+				}
+				cmtptr = cmtptr->Next;
+			}
+
+			int entrylen = strlen(entryptr->Entry);
+			int valuelen = strlen(entryptr->Value);
+			int spacepad = entryptr->AssignColumn - (entrylen);
+			int totalspacepad = 0;
+			spacepad = MIN(MAX_LINE_LENGTH / 2, spacepad);
+
+			total += pipe.Put(entryptr->Entry, entrylen);
+			if (spacepad > 0) {
+				total += pipe.Put(spacebuffer, spacepad);
+				totalspacepad += spacepad;
+			}
+
+			total += pipe.Put("=", 1);
+
+			spacepad = entryptr->ValueColumn - (entrylen + totalspacepad + 1);
+			spacepad = MIN(MAX_LINE_LENGTH / 2, spacepad);
+
+			if (spacepad > 0) {
+				total += pipe.Put(spacebuffer, spacepad);
+				totalspacepad += spacepad;
+			}
+
+			total += pipe.Put(entryptr->Value, valuelen);
+
+			if (entryptr->LineComment != NULL) {
+				spacepad = entryptr->CommentColumn - (entrylen + valuelen + totalspacepad + 1);
+				spacepad = MIN(MAX_LINE_LENGTH / 2, spacepad);
+
+				if (spacepad > 0) {
+					total += pipe.Put(spacebuffer, spacepad);
+				}
+
+				total += pipe.Put(";", 1);
+				total += pipe.Put(entryptr->LineComment, strlen(entryptr->LineComment));
+			}
+
+			total += pipe.Put("\r\n", strlen("\r\n"));
+
+			entryptr = entryptr->Next();
+		}
+
+		secptr = secptr->Next();
+	}
+
+	INIComment * cmtptr = TailComment;
+	while (cmtptr != NULL) {
+		if (cmtptr->Comment != NULL) {
+			total += pipe.Put(cmtptr->Comment, strlen(cmtptr->Comment));
+			total += pipe.Put("\r\n", strlen("\r\n"));
+		}
+		cmtptr = cmtptr->Next;
+	}
+
+	total += pipe.End();
+
+	return(total);
+}
+
+// FUNCTION: GAMEMD 0x00526810
+INIClass::INISection * INIClass::Find_Section(char const * section) const
+{
+	if (section != NULL) {
+		long crc = CRCEngine()(section, strlen(section));
+
+		if (SectionIndex.Is_Present(crc)) {
+			return(SectionIndex[crc]);
+		}
+	}
+	return(NULL);
+}
+
+// FUNCTION: GAMEMD 0x00526950
+int INIClass::Section_Count(void) const
+{
+	return(SectionIndex.Count());
+}
+
+// FUNCTION: GAMEMD 0x00526960
+int INIClass::Entry_Count(char const * section) const
+{
+	INISection * secptr = Find_Section(section);
+	if (secptr != NULL) {
+		return(secptr->EntryIndex.Count());
+	}
+	return(0);
+}
+
+// FUNCTION: GAMEMD 0x00526A30
+int INIClass::Entry_Count(Wstring const & section) const
+{
+	return(Entry_Count(section.text()));
+}
+
+// FUNCTION: GAMEMD 0x00526B00
+void INIClass::Reset(void)
+{
+	CurrentSectionName = NULL;
+	CurrentSection = NULL;
+}
+
+// FUNCTION: GAMEMD 0x00526B10
+INIClass::INIEntry * INIClass::Find_Entry(char const * section, char const * entry) const
+{
+	INISection * secptr;
+	if (section == CurrentSectionName) {
+		secptr = CurrentSection;
+	} else {
+		secptr = Find_Section(section);
+		if (secptr != NULL) {
+			CurrentSection = secptr;
+			CurrentSectionName = section;
+		} else {
+			const_cast<INIClass *>(this)->Reset();
+		}
+	}
+
+	if (secptr != NULL) {
+		return(secptr->Find_Entry(entry));
+	}
+	return(NULL);
+}
+
+// FUNCTION: GAMEMD 0x00526CC0
+char const * INIClass::Get_Entry(char const * section, int index) const
+{
+	INISection * secptr = Find_Section(section);
+
+	if (secptr != NULL && index < secptr->EntryIndex.Count()) {
+		INIEntry * entryptr = secptr->EntryList.First();
+
+		while (entryptr != NULL && entryptr->Is_Valid()) {
+			if (index == 0) return(entryptr->Entry);
+			index--;
+			entryptr = entryptr->Next();
+		}
+	}
+	return(NULL);
+}
+
+// FUNCTION: GAMEMD 0x00526D90
+Wstring INIClass::Get_Entry(Wstring const & section, int index) const
+{
+	return Wstring(Get_Entry(section.text(), index));
+}
+
+// FUNCTION: GAMEMD 0x00526E80
+bool INIClass::Put_UUBlock(char const * section, void const * block, int len)
+{
+	if (section == NULL || block == NULL || len < 1) return(false);
+
+	Clear(section);
+
+	BufferStraw straw(block, len);
+	Base64Straw bstraw(Base64Straw::ENCODE);
+	bstraw.Get_From(straw);
+
+	int counter = 1;
+
+	for (;;) {
+		char buffer[71];
+		char sbuffer[32];
+
+		int length = bstraw.Get(buffer, sizeof(buffer)-1);
+		buffer[length] = '\0';
+		if (length == 0) break;
+
+		sprintf(sbuffer, "%d", counter);
+		Put_String(section, sbuffer, buffer);
+		counter++;
+	}
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x00526FB0
+int INIClass::Get_UUBlock(char const * section, void * block, int len) const
+{
+	if (section == NULL) return(0);
+
+	Base64Pipe b64pipe(Base64Pipe::DECODE);
+	BufferPipe bpipe(block, len);
+
+	b64pipe.Put_To(&bpipe);
+
+	int total = 0;
+	int counter = Entry_Count(section);
+	for (int index = 0; index < counter; index++) {
+		char buffer[128];
+
+		int length = Get_String(section, Get_Entry(section, index), "=", buffer, sizeof(buffer));
+		int outcount = b64pipe.Put(buffer, length);
+		total += outcount;
+	}
+	total += b64pipe.End();
+	return(total);
+}
+
+// FUNCTION: GAMEMD 0x005271C0
+bool INIClass::Put_TextBlock(char const * section, char const * text)
+{
+	if (section == NULL) return(false);
+
+	Clear(section);
+
+	int index = 1;
+	while (text != NULL && *text != '\0') {
+
+		char buffer[128];
+
+		strncpy(buffer, text, 75);
+		buffer[75] = '\0';
+
+		char b[32];
+		sprintf(b, "%d", index);
+
+		int count = strlen(buffer);
+		if (count > 0) {
+			if (count >= 75) {
+				while (count) {
+					char c = buffer[count];
+					if (c != 0 && (unsigned char)c <= ' ') break;
+					count--;
+				}
+
+				if (count == 0) {
+					break;
+				} else {
+					buffer[count] = '\0';
+				}
+			}
+
+			strtrim(buffer);
+			Put_String(section, b, buffer);
+			index++;
+			text = ((char  *)text) + count;
+		} else {
+			break;
+		}
+	}
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005272B0
+int INIClass::Get_TextBlock(char const * section, char * buffer, int len) const
+{
+	if (len <= 0) return(0);
+
+	buffer[0] = '\0';
+	if (len <= 1) return(0);
+
+	int elen = Entry_Count(section);
+	int total = 0;
+	for (int index = 0; index < elen; index++) {
+		if (index > 0) {
+			*buffer++ = ' ';
+			len--;
+			total++;
+		}
+
+		Get_String(section, Get_Entry(section, index), "", buffer, len);
+
+		int partial = strlen(buffer);
+		total += partial;
+		buffer += partial;
+		len -= partial;
+		if (len <= 1) break;
+	}
+	return(total);
+}
+
+// FUNCTION: GAMEMD 0x005275C0
+bool INIClass::Put_Int(char const * section, char const * entry, int number, int format)
+{
+	char buffer[MAX_LINE_LENGTH];
+
+	switch (format) {
+		default:
+		case 0:
+			sprintf(buffer, "%d", number);
+			break;
+
+		case 1:
+			sprintf(buffer, "%Xh", number);
+			break;
+
+		case 2:
+			sprintf(buffer, "$%X", number);
+			break;
+	}
+	return(Put_String(section, entry, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00527640
+bool INIClass::Put_Int(Wstring const & section, Wstring const & entry, int number, int format)
+{
+	char buffer[MAX_LINE_LENGTH];
+	char * entrystr = entry.text();
+	char * sectionstr = section.text();
+
+	switch (format) {
+		default:
+		case 0:
+			sprintf(buffer, "%d", number);
+			break;
+
+		case 1:
+			sprintf(buffer, "%Xh", number);
+			break;
+
+		case 2:
+			sprintf(buffer, "$%X", number);
+			break;
+	}
+	return(Put_String(sectionstr, entrystr, buffer));
+}
+
+// FUNCTION: GAMEMD 0x005276D0
+int INIClass::Get_Int(char const * section, char const * entry, int defvalue) const
+{
+	if (section == NULL || entry == NULL) return(defvalue);
+
+	INIEntry * entryptr = Find_Entry(section, entry);
+	if (entryptr != NULL && entryptr->Value != NULL) {
+		if (*entryptr->Value == '$') {
+			sscanf(entryptr->Value, "$%x", &defvalue);
+		} else {
+			if (tolower(entryptr->Value[strlen(entryptr->Value)-1]) == 'h') {
+				sscanf(entryptr->Value, "%xh", &defvalue);
+			} else {
+				defvalue = atoi(entryptr->Value);
+			}
+		}
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x005278F0
+int INIClass::Get_Int(Wstring const & section, Wstring const & entry, int defvalue) const
+{
+	return(Get_Int(section.text(), entry.text(), defvalue));
+}
+
+// FUNCTION: GAMEMD 0x00527920
+CLSID const INIClass::Get_CLSID(char const * section, char const * entry, CLSID defvalue) const
+{
+	char buffer[128];
+
+	if (Get_String(section, entry, "", buffer, sizeof(buffer))) {
+		wchar_t olestr[128];
+		MultiByteToWideChar(CP_ACP, MB_PRECOMPOSED, buffer, -1, olestr, sizeof(olestr) / sizeof(olestr[0]));
+		CLSID clsid;
+		if (SUCCEEDED(CLSIDFromString(olestr, &clsid))) {
+			return(clsid);
+		}
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x00527B90
+bool INIClass::Put_CLSID(char const * section, char const * entry, CLSID const & value)
+{
+	char buffer[128];
+	LPOLESTR olestr = NULL;
+
+	StringFromCLSID(value, &olestr);
+	if (WideCharToMultiByte(CP_ACP, 0, olestr, -1, buffer, sizeof(buffer), NULL, NULL) == 0) {
+		GetLastError();
+	}
+	SysFreeString(olestr);
+	return(Put_String(section, entry, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00527C10
+bool INIClass::Put_Rect(char const * section, char const * entry, Rect const & value)
+{
+	char buffer[64];
+
+	sprintf(buffer, "%d,%d,%d,%d", value.X, value.Y, value.Width, value.Height);
+	return(Put_String(section, entry, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00527C60
+bool INIClass::Put_Rect(Wstring const & section, Wstring const & entry, Rect const & value)
+{
+	char buffer[64];
+	char * entrystr = entry.text();
+	char * sectionstr = section.text();
+
+	sprintf(buffer, "%d,%d,%d,%d", value.X, value.Y, value.Width, value.Height);
+	return(Put_String(sectionstr, entrystr, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00527CC0
+Rect const INIClass::Get_Rect(char const * section, char const * entry, Rect const & defvalue) const
+{
+	char buffer[64];
+
+	if (Get_String(section, entry, "0,0,0,0", buffer, sizeof(buffer))) {
+		Rect retval = defvalue;
+		sscanf(buffer, "%d,%d,%d,%d", &retval.X, &retval.Y, &retval.Width, &retval.Height);
+		return(retval);
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x00527F20
+Rect const INIClass::Get_Rect(Wstring const & section, Wstring const & entry, Rect const & defvalue) const
+{
+	return(Get_Rect(section.text(), entry.text(), defvalue));
+}
+
+// FUNCTION: GAMEMD 0x00528170
+bool INIClass::Put_Hex(char const * section, char const * entry, int number)
+{
+	char buffer[MAX_LINE_LENGTH];
+
+	sprintf(buffer, "%X", number);
+	return(Put_String(section, entry, buffer));
+}
+
+// FUNCTION: GAMEMD 0x005281C0
+bool INIClass::Put_Hex(Wstring const & section, Wstring const & entry, int number)
+{
+	char buffer[MAX_LINE_LENGTH];
+	char * entrystr = entry.text();
+	char * sectionstr = section.text();
+
+	sprintf(buffer, "%X", number);
+	return(Put_String(sectionstr, entrystr, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00528220
+int INIClass::Get_Hex(char const * section, char const * entry, int defvalue) const
+{
+	if (section == NULL || entry == NULL) return(defvalue);
+
+	INIEntry * entryptr = Find_Entry(section, entry);
+	if (entryptr != NULL && entryptr->Value != NULL) {
+		sscanf(entryptr->Value, "%x", &defvalue);
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x005283D0
+double INIClass::Get_Float(char const * section, char const * entry, double defvalue) const
+{
+	if (section == NULL || entry == NULL) return(defvalue);
+
+	INIEntry * entryptr = Find_Entry(section, entry);
+	if (entryptr != NULL && entryptr->Value != NULL) {
+		float val;
+		sscanf(entryptr->Value, "%f", &val);
+		defvalue = val;
+		if (strchr(entryptr->Value, '%%') != NULL) {
+			defvalue /= 100.0;
+		}
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x005285B0
+bool INIClass::Put_Float(char const * section, char const * entry, double number)
+{
+	char buffer[MAX_LINE_LENGTH];
+
+	sprintf(buffer, "%f", (float)number);
+	return(Put_String(section, entry, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00528600
+bool INIClass::Put_Float(Wstring const & section, Wstring const & entry, double number)
+{
+	char buffer[MAX_LINE_LENGTH];
+	char * entrystr = entry.text();
+	char * sectionstr = section.text();
+
+	sprintf(buffer, "%f", (double)(float)number);
+	return(Put_String(sectionstr, entrystr, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00528660
+bool INIClass::Put_String(char const * section, char const * entry, char const * string)
+{
+	if (section == NULL || entry == NULL) return(false);
+
+	INISection * secptr = Find_Section(section);
+
+	if (secptr == NULL) {
+		secptr = new INISection(strdup(section));
+		if (secptr == NULL) return(false);
+		SectionList.Add_Tail(secptr);
+		SectionIndex.Add_Index(secptr->Index_ID(), secptr);
+	}
+
+	INIComment * cmtptr = NULL;
+	char * line_comment = NULL;
+	int comment_col = 0;
+	int assign_col = 0;
+	int value_col = 0;
+	INIEntry * entryptr = secptr->Find_Entry(entry);
+	if (entryptr != NULL) {
+		cmtptr = entryptr->PrefixComment;
+		line_comment = entryptr->LineComment;
+		comment_col = entryptr->CommentColumn;
+		assign_col = entryptr->AssignColumn;
+		value_col = entryptr->ValueColumn;
+		entryptr->PrefixComment = NULL;
+		entryptr->LineComment = NULL;
+
+		secptr->EntryIndex.Remove_Index(entryptr->Index_ID());
+		delete entryptr;
+	}
+
+	if (string != NULL && strlen(string) > 0) {
+		entryptr = new INIEntry(strdup(entry), strdup(string), cmtptr, line_comment, comment_col, assign_col, value_col);
+
+		if (entryptr == NULL) {
+			free(line_comment);
+
+			while (cmtptr != NULL) {
+				free(cmtptr->Comment);
+				INIComment * next = cmtptr->Next;
+				delete cmtptr;
+				cmtptr = next;
+			}
+
+			return(false);
+		}
+		secptr->EntryList.Add_Tail(entryptr);
+		secptr->EntryIndex.Add_Index(entryptr->Index_ID(), entryptr);
+	}
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005289E0
+bool INIClass::Put_String(Wstring const & section, Wstring const & entry, Wstring const & string)
+{
+	return(Put_String(section.text(), entry.text(), string.text()));
+}
+
+// FUNCTION: GAMEMD 0x00528A10
+int INIClass::Get_String(char const * section, char const * entry, char const * defvalue, char * buffer, int size) const
+{
+	if (buffer == NULL || size < 2 || section == NULL || entry == NULL) return(0);
+
+	INIEntry * entryptr = Find_Entry(section, entry);
+	if (entryptr != NULL && entryptr->Value != NULL) {
+		defvalue = entryptr->Value;
+	}
+
+	if (defvalue == NULL) {
+		buffer[0] = '\0';
+		return(0);
+	} else {
+		strncpy(buffer, defvalue, size);
+		buffer[size-1] = '\0';
+		strtrim(buffer);
+		return(strlen(buffer));
+	}
+}
+
+// FUNCTION: GAMEMD 0x00528C00
+int INIClass::Get_String(Wstring const & section, Wstring const & entry, Wstring const & defvalue, Wstring & result) const
+{
+	char buffer[1024];
+	int count = Get_String(section.text(), entry.text(), defvalue.text(), buffer, sizeof(buffer) - 1);
+	result = buffer;
+	return(count);
+}
+
+// FUNCTION: GAMEMD 0x00528E00
+bool INIClass::Put_UnicodeString(char const * section, char const * entry, wchar_t const * string)
+{
+	bool result;
+
+	result = false;
+	if (string != NULL) {
+		int size = wcslen(string) * 8;
+		char * buffer = new char[size + 1];
+		if (buffer != NULL) {
+			char * ptr = buffer;
+			*ptr = 0;
+			while (*string != 0) {
+				itoa(*string, ptr, 16);
+				strcat(ptr, ",");
+				ptr = buffer + strlen(buffer);
+				string++;
+			}
+			result = Put_String(section, entry, buffer);
+			delete buffer;
+		}
+	}
+	return(result);
+}
+
+// FUNCTION: GAMEMD 0x00528ED0
+bool INIClass::Put_UnicodeString(Wstring const & section, Wstring const & entry, WideWstring const & string)
+{
+	return(Put_UnicodeString(section.text(), entry.text(), string.text()));
+}
+
+// FUNCTION: GAMEMD 0x00528F00
+int INIClass::Get_UnicodeString(char const * section, char const * entry, wchar_t const * defvalue, wchar_t * buffer, int size) const
+{
+	char text[20480];
+	int length = Get_String(section, entry, NULL, text, sizeof(text));
+	if (length == 0) {
+		wcsncpy(buffer, defvalue, size);
+		return(wcslen(buffer));
+	}
+
+	char * token = strtok(text, ",");
+	wchar_t * out = buffer;
+	while (token != NULL && size != 0) {
+		unsigned int code;
+		sscanf(token, "%x", &code);
+		*out++ = (wchar_t)code;
+		token = strtok(NULL, ",");
+		--size;
+	}
+	*out = L'\0';
+	return(wcslen(buffer));
+}
+
+// FUNCTION: GAMEMD 0x00529160
+int INIClass::ReadStringtableEntry(char const * section, char const * entry, wchar_t * buffer, int size) const
+{
+	char text[1024];
+	Get_String(section, entry, NULL, text, sizeof(text));
+	wcsncpy(buffer, StringTable::LoadString(text, NULL, "D:\\ra2mdpost\\Ini.CPP", 1858), size);
+	buffer[size - 1] = L'\0';
+	return(wcslen(buffer));
+}
+
+// FUNCTION: GAMEMD 0x00529350
+int INIClass::ReadStringtableEntry(char const * section, char const * entry, wchar_t * buffer, char const * deflabel, int size) const
+{
+	char text[1024];
+	Get_String(section, entry, NULL, text, sizeof(text));
+	if (strlen(text) == 0) {
+		wcsncpy(buffer, StringTable::LoadString(deflabel, NULL, "D:\\ra2mdpost\\Ini.CPP", 1872), size);
+	} else {
+		wcsncpy(buffer, StringTable::LoadString(text, NULL, "D:\\ra2mdpost\\Ini.CPP", 1874), size);
+	}
+	buffer[size - 1] = L'\0';
+	return(wcslen(buffer));
+}
+
+// FUNCTION: GAMEMD 0x00529560
+bool INIClass::Put_Bool(char const * section, char const * entry, bool value)
+{
+	if (value) {
+		return(Put_String(section, entry, "yes"));
+	} else {
+		return(Put_String(section, entry, "no"));
+	}
+}
+
+// FUNCTION: GAMEMD 0x005295A0
+bool INIClass::Put_Bool(Wstring const & section, Wstring const & entry, bool value)
+{
+	char * entrystr = entry.text();
+	char * sectionstr = section.text();
+
+	if (value) {
+		return(Put_String(sectionstr, entrystr, "yes"));
+	} else {
+		return(Put_String(sectionstr, entrystr, "no"));
+	}
+}
+
+// FUNCTION: GAMEMD 0x005295F0
+bool INIClass::Get_Bool(char const * section, char const * entry, bool defvalue) const
+{
+	if (section == NULL || entry == NULL) return(defvalue);
+
+	INIEntry * entryptr = Find_Entry(section, entry);
+	if (entryptr != NULL && entryptr->Value != NULL) {
+		switch (toupper(*entryptr->Value)) {
+			case 'Y':
+			case 'T':
+			case '1':
+				return(true);
+
+			case 'N':
+			case 'F':
+			case '0':
+				return(false);
+		}
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x005297E0
+bool INIClass::Put_Point(char const * section, char const * entry, TPoint2D<int> const & value)
+{
+	char buffer[54];
+	sprintf(buffer, "%d,%d", value.X, value.Y);
+	return(Put_String(section, entry, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00529820
+bool INIClass::Put_Point(Wstring const & section, Wstring const & entry, TPoint2D<int> const & value)
+{
+	char buffer[54];
+	char * entrystr = entry.text();
+	char * sectionstr = section.text();
+
+	sprintf(buffer, "%d,%d", value.X, value.Y);
+	return(Put_String(sectionstr, entrystr, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00529880
+TPoint2D<int> const INIClass::Get_Point(char const * section, char const * entry, TPoint2D<int> const & defvalue) const
+{
+	char buffer[64];
+	if (Get_String(section, entry, "", buffer, sizeof(buffer))) {
+		int x,y;
+		sscanf(buffer, "%d,%d", &x, &y);
+		return(TPoint2D<int>(x, y));
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x00529A30
+TPoint2D<int> const INIClass::Get_Point(Wstring const & section, Wstring const & entry, TPoint2D<int> const & defvalue) const
+{
+	return(Get_Point(section.text(), entry.text(), defvalue));
+}
+
+// FUNCTION: GAMEMD 0x00529BF0
+bool INIClass::Put_Point(char const * section, char const * entry, TPoint3D<int> const & value)
+{
+	char buffer[54];
+	sprintf(buffer, "%d,%d,%d", value.X, value.Y, value.Z);
+	return(Put_String(section, entry, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00529C40
+bool INIClass::Put_Point(Wstring const & section, Wstring const & entry, TPoint3D<int> const & value)
+{
+	char buffer[54];
+	char * entrystr = entry.text();
+	char * sectionstr = section.text();
+
+	sprintf(buffer, "%d,%d,%d", value.X, value.Y, value.Z);
+	return(Put_String(sectionstr, entrystr, buffer));
+}
+
+// FUNCTION: GAMEMD 0x00529CA0
+TPoint3D<int> const INIClass::Get_Point(char const * section, char const * entry, TPoint3D<int> const & defvalue) const
+{
+	char buffer[64];
+	if (Get_String(section, entry, "", buffer, sizeof(buffer))) {
+		int x,y,z;
+		sscanf(buffer, "%d,%d,%d", &x, &y, &z);
+		return(TPoint3D<int>(x, y, z));
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x00529E70
+TPoint3D<int> const INIClass::Get_Point(Wstring const & section, Wstring const & entry, TPoint3D<int> const & defvalue) const
+{
+	return(Get_Point(section.text(), entry.text(), defvalue));
+}
+
+// FUNCTION: GAMEMD 0x0052A040
+bool INIClass::Put_Point(char const * section, char const * entry, TPoint3D<float> const & value)
+{
+	char buffer[54];
+	sprintf(buffer, "%f,%f,%f", (float)value.X, (float)value.Y, (float)value.Z);
+	return(Put_String(section, entry, buffer));
+}
+
+// FUNCTION: GAMEMD 0x0052A0A0
+bool INIClass::Put_Point(Wstring const & section, Wstring const & entry, TPoint3D<float> const & value)
+{
+	char buffer[54];
+	char * entrystr = entry.text();
+	char * sectionstr = section.text();
+
+	sprintf(buffer, "%f,%f,%f", (float)value.X, (float)value.Y, (float)value.Z);
+	return(Put_String(sectionstr, entrystr, buffer));
+}
+
+// FUNCTION: GAMEMD 0x0052A110
+TPoint3D<float> const INIClass::Get_Point(char const * section, char const * entry, TPoint3D<float> const & defvalue) const
+{
+	char buffer[64];
+	if (Get_String(section, entry, "", buffer, sizeof(buffer))) {
+		float x,y,z;
+		sscanf(buffer, "%f,%f,%f", &x, &y, &z);
+		return(TPoint3D<float>(x, y, z));
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x0052A2F0
+TPoint3D<float> const INIClass::Get_Point(Wstring const & section, Wstring const & entry, TPoint3D<float> const & defvalue) const
+{
+	return(Get_Point(section.text(), entry.text(), defvalue));
+}
+
+// FUNCTION: GAMEMD 0x0052A4D0
+INIClass::INIEntry * INIClass::INISection::Find_Entry(char const * entry) const
+{
+	if (entry != NULL) {
+		int crc = CRCEngine()(entry, strlen(entry));
+		if (EntryIndex.Is_Present(crc)) {
+			return(EntryIndex[crc]);
+		}
+	}
+	return(NULL);
+}
+
+// FUNCTION: GAMEMD 0x0052A610
+bool INIClass::Put_PKey(PKey const & key)
+{
+	char buffer[MAX_LINE_LENGTH];
+
+	int len = key.Encode_Modulus(buffer);
+	Put_UUBlock("PublicKey", buffer, len);
+
+	len = key.Encode_Exponent(buffer);
+	Put_UUBlock("PrivateKey", buffer, len);
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x0052A670
+PKey INIClass::Get_PKey(bool fast) const
+{
+	PKey key;
+	char buffer[MAX_LINE_LENGTH];
+
+	if (fast) {
+		BigInt exp = PKey::Fast_Exponent();
+		exp.DEREncode((unsigned char *)buffer);
+		key.Decode_Exponent(buffer);
+	} else {
+		Get_UUBlock("PrivateKey", buffer, sizeof(buffer));
+		key.Decode_Exponent(buffer);
+	}
+
+	Get_UUBlock("PublicKey", buffer, sizeof(buffer));
+	key.Decode_Modulus(buffer);
+
+	return(key);
+}
+
+// FUNCTION: GAMEMD 0x0052A760
+int INIClass::ReadTime(char const * section, char const * entry, int defvalue) const
+{
+	if (section == NULL || entry == NULL) return(defvalue);
+	INIEntry * entptr = Find_Entry(section, entry);
+	if (entptr != NULL && entptr->Value != NULL) {
+		int hours = 0;
+		int minutes = 0;
+		int seconds = 0;
+		sscanf(entptr->Value, "%02d:%02d:%02d", &hours, &minutes, &seconds);
+		return(((hours * 60 + minutes) * 60 + seconds) * 60);
+	}
+	return(defvalue);
+}
+
+// FUNCTION: GAMEMD 0x0052A940
+bool INIClass::WriteTime(char const * section, char const * entry, int value)
+{
+	char buffer[32];
+	int seconds = value / 60;
+	int minutes = seconds / 60;
+	int hours = minutes / 60;
+	sprintf(buffer, "%02d:%02d:%02d", hours, minutes - hours * 60, seconds - minutes * 60);
+	return(Put_String(section, entry, buffer));
+}
+
+// FUNCTION: GAMEMD 0x0052A9E0
+char * INIClass::Scan_Line_For_Columns(char * buffer, int & assign_col, int & value_col, int & comment_col)
+{
+	char * line_comment = NULL;
+	assign_col = -1;
+	value_col = -1;
+	comment_col = -1;
+
+	int col = 0;
+
+	while (*buffer != '\0') {
+		if (assign_col >= 0 && value_col < 0) {
+			if ((unsigned char)*buffer > _CONTROL) {
+				value_col = col;
+			}
+		}
+
+		if (*buffer == ';') {
+			comment_col = col;
+			line_comment = buffer + 1;
+			break;
+		}
+
+		switch (*buffer) {
+			case '=' :
+				if (assign_col < 0) {
+					assign_col = col;
+				}
+				col++;
+				break;
+
+			case '\t' :
+				col = (col & -8) + 8;
+				break;
+
+			default:
+				col++;
+				break;
+		}
+
+		buffer++;
+	};
+
+	assign_col = MAX(0, assign_col);
+	value_col = MAX(0, value_col);
+	comment_col = MAX(0, comment_col);
+
+	return(line_comment);
+}
+
+// FUNCTION: GAMEMD 0x0052AA90
+void INIClass::Strip_Comments(char * buffer)
+{
+	if (buffer != NULL) {
+		char * comment = strchr(buffer, ';');
+		if (comment) {
+			*comment = '\0';
+			strtrim(buffer);
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x0052AAC0
+bool INIClass::Is_A_Section(char * buffer)
+{
+	if (buffer == NULL) {
+		return(false);
+	}
+
+	while ((*buffer != 0) && ((unsigned char)*buffer <= _CONTROL)) {
+		buffer++;
+	}
+
+	if (buffer[0] == '[' && strchr(buffer, ']') != NULL) {
+		return(true);
+	}
+
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x0052AAF0
+INIClass::INIEntry::~INIEntry(void)
+{
+	free(Entry);
+	Entry = NULL;
+	free(Value);
+	Value = NULL;
+
+	while (PrefixComment != NULL) {
+		free(PrefixComment->Comment);
+		INIComment * next = PrefixComment->Next;
+		delete PrefixComment;
+		PrefixComment = next;
+	};
+
+	free(LineComment);
+	LineComment = NULL;
+}
+
+// FUNCTION: GAMEMD 0x0052AB80
+INIClass::INISection::~INISection(void)
+{
+	free(Section);
+	Section = 0;
+	EntryList.Delete();
+	EntryIndex.Clear();
+
+	while (PrefixComment != NULL) {
+		free(PrefixComment->Comment);
+		INIComment * next = PrefixComment->Next;
+		delete PrefixComment;
+		PrefixComment = next;
+	}
+}
+
+// FUNCTION: GAMEMD 0x0052ACE0
+// GenericList::GenericList
+
+// SYNTHETIC: GAMEMD 0x0052AD50
+// ??_GINIEntry@INIClass@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x0052AE00
+// ??_GINISection@INIClass@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x0052AE20
+// ??_G?$Node@PAUINISection@INIClass@@@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x0052AE70
+// ??_GCacheStraw@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x0052AEA0
+// ??_GBase64Straw@@UAEPAXI@Z
+
+// FUNCTION: GAMEMD 0x0052AEC0
+// CRCEngine::CRCEngine
+
+// SYNTHETIC: GAMEMD 0x0052AEE0
+// ??_GBase64Pipe@@UAEPAXI@Z
+
+// FUNCTION: GAMEMD 0x0052AF00
+// INIClass::INIEntry::INIEntry
+
+// TEMPLATE: GAMEMD 0x0052AF50
+// ??0?$List@PAUINIEntry@INIClass@@@@QAE@XZ
+
+// SYNTHETIC: GAMEMD 0x0052AFC0
+// ??_G?$List@PAUINIEntry@INIClass@@@@UAEPAXI@Z
+
+// TEMPLATE: GAMEMD 0x0052B080
+// ??0?$IndexClass@HPAUINIEntry@INIClass@@@@QAE@XZ
+
+// TEMPLATE: GAMEMD 0x0052B0A0
+// ?Add_Index@?$IndexClass@HPAUINIEntry@INIClass@@@@QAE_NABHABQAUINIEntry@INIClass@@@Z
+
+// TEMPLATE: GAMEMD 0x0052B170
+// ?Is_Present@?$IndexClass@HPAUINIEntry@INIClass@@@@QBE_NABH@Z
+
+// TEMPLATE: GAMEMD 0x0052B210
+// ??A?$IndexClass@HPAUINIEntry@INIClass@@@@QBEABQAUINIEntry@INIClass@@ABH@Z
+
+// TEMPLATE: GAMEMD 0x0052B2B0
+// ?Remove_Index@?$IndexClass@HPAUINISection@INIClass@@@@QAE_NABH@Z
+
+// TEMPLATE: GAMEMD 0x0052B390
+// ?Is_Present@?$IndexClass@HPAUINISection@INIClass@@@@QBE_NABH@Z
+
+// TEMPLATE: GAMEMD 0x0052B430
+// ??A?$IndexClass@HPAUINISection@INIClass@@@@QBEABQAUINISection@INIClass@@ABH@Z
+
+// TEMPLATE: GAMEMD 0x0052B4D0
+// ?Is_Archive_Same@?$IndexClass@HPAUINIEntry@INIClass@@@@ABE_NABH@Z
+
+// TEMPLATE: GAMEMD 0x0052B4F0
+// ?Search_For_Node@?$IndexClass@HPAUINIEntry@INIClass@@@@ABEPBUNodeElement@1@ABH@Z
+
+// TEMPLATE: GAMEMD 0x0052B570
+// ?Increase_Table_Size@?$IndexClass@HPAUINIEntry@INIClass@@@@AAE_NH@Z
+
+// TEMPLATE: GAMEMD 0x0052B600
+// ?Is_Archive_Same@?$IndexClass@HPAUINISection@INIClass@@@@ABE_NABH@Z
+
+// TEMPLATE: GAMEMD 0x0052B620
+// ?Search_For_Node@?$IndexClass@HPAUINISection@INIClass@@@@ABEPBUNodeElement@1@ABH@Z
+
+// TEMPLATE: GAMEMD 0x0052B6A0
+// ?search_compfunc@?$IndexClass@HPAUINIEntry@INIClass@@@@CAHPBX0@Z
+
+// TEMPLATE: GAMEMD 0x0052B6D0
+// ?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAUINIEntry@INIClass@@@@PAU12@HABU12@@Z
+template IndexClass<int, INIClass::INIEntry *>::NodeElement * Binary_Search(IndexClass<int, INIClass::INIEntry *>::NodeElement *, int, IndexClass<int, INIClass::INIEntry *>::NodeElement const &);
+
+// TEMPLATE: GAMEMD 0x0052B720
+// ?search_compfunc@?$IndexClass@HPAUINISection@INIClass@@@@CAHPBX0@Z
+
+// TEMPLATE: GAMEMD 0x0052B750
+// ?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAUINISection@INIClass@@@@PAU12@HABU12@@Z
+template IndexClass<int, INIClass::INISection *>::NodeElement * Binary_Search(IndexClass<int, INIClass::INISection *>::NodeElement *, int, IndexClass<int, INIClass::INISection *>::NodeElement const &);
+
+template class List<INIClass::INIEntry *>;
+template class IndexClass<int, INIClass::INIEntry *>;
+template class IndexClass<int, INIClass::INISection *>;

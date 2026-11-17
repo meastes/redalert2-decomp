@@ -1,0 +1,314 @@
+# Source and dependency provenance
+
+Authored project tools and the native port use the repository
+GPL-3.0-or-later license; retain LICENSE and all dependency notices. Canonical
+recovered C/C++ in root `src/` is reconstructed from the supplied original target.
+This migration makes no new grant of rights in the original game or compiler,
+and authorizes no publication. Original executables/assets, instruction-byte
+scaffolding, disassembly and proprietary tools remain ignored private inputs.
+
+The historical native provenance record below describes the earlier native
+reconstruction under `historical/native-reconstruction/` (its own THIRD_PARTY.md, the
+OpenRA format-reader adaptations with their notices and LICENSE). That folder was
+removed on 2026-11-17 at the user's request, recoverable from git history at tag `historical-final`; the record is kept as provenance for that history, and its links name
+files at that tag. No current build uses that code. Capstone and pefile are active local
+inspection tools; VC6 and CrossOver are legitimate user-supplied local build tools.
+
+## Public references inspected
+
+- **OpenRA**, commit `e7e9e4ad270221d7fb9725b348c75504d48c1ebd`:
+  https://github.com/OpenRA/OpenRA/tree/e7e9e4ad270221d7fb9725b348c75504d48c1ebd
+  GPL-3.0-or-later, Copyright The OpenRA Developers and Contributors.
+  `MixFile.cs`, `PackageEntry.cs`, `BlowfishKeyProvider.cs`, `VxlReader.cs`,
+  `HvaReader.cs`, `TmpTSLoader.cs`, `LCWCompression.cs`, `ImportGen2MapCommand.cs`
+  informed the new bounded C++ readers and format interpretation. `Voxel.cs`
+  informed HVA translation scaling and axis interpretation. Treat these portions
+  as GPL-covered adaptations; preserve this attribution and LICENSE. No OpenRA
+  simulation or mod is linked. Its rendering/movement behavior is not an oracle.
+  Milestone 15 additionally used `OpenRA.Mods.Common/SpriteLoaders/ShpTSLoader.cs`
+  and `OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs` for the bounded
+  format-3 SHP reader in `src/assets/Shp.cpp/.hpp`, under the same GPL attribution.
+  Milestone 17 extends that adaptation to the same source's raw format-1 branch.
+  Exact cropped sizes are retained; no OpenRA export padding or renderer is used.
+  The public MIX RSA modulus is format metadata, not a private cryptographic key.
+- **Phobos-developers/YRpp**, commit
+  `b22f1860dd7b100cad57123d4ca5d459b9020d88`:
+  https://github.com/Phobos-developers/YRpp/tree/b22f1860dd7b100cad57123d4ca5d459b9020d88
+  No license file was found in this snapshot. No headers or code were incorporated.
+  `Facing.h`/`Dir.h`, locomotion declarations and Unit/Foot/Techno declarations
+  supplied search vocabulary and structure hypotheses only.
+  Milestone 5 additionally inspected Drawing/Convert/ColorScheme/IsometricTile
+  declarations for naming and type hypotheses. Their headers/implementations were
+  not incorporated; lighting, palette and depth primitives were located and
+  verified independently in the fingerprinted base binary.
+  Milestone 6 used VXL.h only as a runtime-layout lead; the base VXL loader and
+  raster routines verified that layout. No YR headers or implementation were copied.
+  Milestone 7 additionally inspected Tactical/Surface/BlitterFlags names and
+  declarations as leads. Projection, depth, clipping and alpha behavior came from
+  the pinned base routines; no reference implementation was incorporated.
+  All implemented facing behavior was re-established from the base RA2 executable;
+  a material division-order difference was found. No YR addresses are used.
+  Milestone 8 used ColorScheme/Techno/TechnoType/UnitType declarations for shadow
+  and palette naming leads only; the base binary and isolated oracles establish
+  implemented behavior. No headers or implementation were incorporated.
+- **Outpost 2 native**, user's sibling checkout: read-only design reference, not a
+  code/library dependency. No source from it was copied into this project.
+- **sp00nznet/redalert2-recomp**, commit
+  `eebcf725ef99f942a8f9a5e0437a8a6154d7d439`:
+  https://github.com/sp00nznet/redalert2-recomp/tree/eebcf725ef99f942a8f9a5e0437a8a6154d7d439
+  MIT for its own work, Copyright (c) 2026 sp00nz; generated lifted game code is
+  explicitly excluded. LICENSE's explanatory scope text retains stale references
+  to The Movies; README identifies RA2/YR. Build/runtime, analysis, voxel and test
+  sources were inspected as leads. No code was incorporated or builds/tests run.
+  Its Steam/EA RA2 1.006 and YR 1.001 addresses are not our disc build's addresses.
+  Milestone 8 consulted `docs/voxels.md`, `src/runtime/hdvox.c` and `run_lift.py`
+  for shadow/render call-chain hypotheses. Stock behavior was independently
+  recovered from our disc executable; no HD/remaster or generated code was reused.
+- **sp00nznet/pcrecomp**, commit
+  `8f4aa77aaf9e70f486a0fbc6b39a7ee14ae4fda1`:
+  https://github.com/sp00nznet/pcrecomp/tree/8f4aa77aaf9e70f486a0fbc6b39a7ee14ae4fda1
+  MIT for its authored tools/runtime, Copyright (c) 2026 sp00nz; its grant does not
+  cover the input game or generated lifted code. License, tool inventory and
+  32-bit Win32/SDL runtime sources were inspected. No code was incorporated,
+  tooling installed or builds/tests run. Neither reference is a new dependency.
+  See docs/REFERENCES.md (`historical-final:historical/native-reconstruction/docs/REFERENCES.md`) for the use and verification procedure.
+
+- **Electronic Arts Westwood source releases** (read-only shape references,
+  see [docs/WESTWOOD_SOURCES.md](docs/WESTWOOD_SOURCES.md)):
+  `electronicarts/CnC_Red_Alert` commit `0dc09bb1d6188d1ec79ab4765b22a48b75ffee32`,
+  `electronicarts/CnC_Renegade` commit `3e00c3a1b97381bb28be89a35b856375e0629a08`,
+  `electronicarts/CnC_Tiberian_Dawn` commit `e0d372dc582c053a699114942b984dad0457f9b3`.
+  GPL-3.0 with EA's additional terms (section 7 of each LICENSE.md: no EA trademarks,
+  modified versions marked, notice retained), Copyright Electronic Arts Inc. Cloned
+  under the ignored `private/reference/`. No header, implementation or data was
+  incorporated; they supply naming, member-order and idiom hypotheses that are
+  verified on the base executable like every other reference.
+  Exception (user decision, 2026-11-09): Renegade text may be adopted into `src/` with
+  attribution, like TibSun, ra2-decomp and mischa85: an adopted file keeps the SPDX and
+  copyright lines and the EA notice, is marked modified, and the commit subject says
+  "from Renegade <file>". First use: the Westwood Online API headers `Code/wolapi/`
+  (WOLAPI.h, WOLAPI_i.c, chatdefs.h, netutildefs.h, downloaddefs.h; text files only,
+  not the DLLs), fetched into the ignored `private/reference/renegade-wolapi-3e00c3a/`.
+  Acceptance is unchanged.
+
+- **TibSun reconstruction** (`OpenTS-Developers/TibSun` commit `dbfbfbfaac40364ce7e1cd8fad7bcade5c6fb0d4`,
+  `code/` only; read-only shape reference, see [docs/WESTWOOD_SOURCES.md](docs/WESTWOOD_SOURCES.md)): a community
+  source reconstruction of Tiberian Sun GAME.EXE 2.03, not Westwood text. GPL-3.0-or-later plus EA's section 7 terms
+  for the parts derived from the Red Alert release. Cloned under the ignored `private/reference/TibSun`. Since 2026-11-06 (user decision) its text may be adopted into
+  `src/` as candidates, adapted to our shared headers; an adopted file keeps the source's SPDX and copyright lines
+  (including the EA line where present) and the commit subject says "from TibSun <file>". Acceptance is unchanged.
+
+- **Native Yuri's Revenge port (lane Y1, user decision 2026-11-15)**: `yr/ra2-decomp` is a pinned copy of
+  ra2-decomp at `8719494727dd9d5db16f92087e3cc13ea99f4dd3` (moved from `f8d8d53` by lane Y3) (`src/`, `include/`, `COPYING.md`, `LICENSE`, `README.md`
+  and the `data/` function map, manifest, names, library and module tables), GPL-3.0-or-later with Electronic Arts'
+  section 7 terms on files carrying an EA or OpenTS copyright line; `data/` and the tooling text are MIT. `yr/tibsun`
+  is a pinned copy of the OpenTS TibSun archive's headers (`code/**/*.h`, `LICENSE.md`, `README.md`) at
+  `dbfbfbfaac40364ce7e1cd8fad7bcade5c6fb0d4`, GPL-3.0-or-later with EA's section 7 terms. Both are copied unchanged
+  with every notice kept (`yr/README.md`); the native build reads generated copies with `native/yr/fixups.json`
+  applied and never edits them. The Win32/DirectX headers the native YR build compiles against are the mingw-w64
+  headers of the local llvm-mingw toolchain, rewritten into `build/` at configure time and never copied into the
+  repository (mingw-w64 headers: public domain / ZPL, Wine-derived DirectX headers LGPL-2.1-or-later).
+  Lane Y7 adopted two functions from a newer ra2-decomp commit (`0bafad686c6ac1f7cf29777cb291d6002ebbcfd7`,
+  2026-11-16) that the pin lacks: SidebarClass::StripClass::SelectClass::Action (0x006AAD00, src/sidebar.cpp) and
+  SuperClass::Impatient_Click (0x006CC070, src/super.cpp), appended as text to the generated units through
+  `native/yr/glue/sidebar_native.inc` and `super_native.inc` with their origin noted there (GPL-3.0-or-later).
+- **ra2-decomp** (`gibbo101/ra2-decomp` commit `6e6f6a1a3430ae9e2b743fe4fe176da2b5ccf661`, 2026-11-07; earlier pins ca9b8ad, 4453ab030): a matching
+  decompilation of Yuri's Revenge gamemd.exe 1.001 built with the same VC6 SP3. Game source in `src/` and `include/`
+  GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors, with Electronic Arts' section 7 terms on files carrying an
+  EA copyright line (COPYING.md); tooling and data MIT. The maintainer, Luke Gibson (gibbo101), gave the user explicit
+  permission to reuse it and contributed 39 twin leads (pull request 1, 2026-11-06; closed 2026-11-09 with 37 accepted).
+  Cloned read-only under the ignored `private/reference/ra2-decomp`. Since 2026-11-06 (user decision) functions whose
+  RA2 body matches a YR twin may be adopted into `src/` adapted to our headers (their names follow YRpp and must be
+  mapped to ours); an adopted file keeps their SPDX and copyright lines and the commit subject says
+  "from ra2-decomp <YR address>". Acceptance is unchanged: strict audit and exact whole-file build.
+  Adopted 2026-11-11 (Scout1266, owner ruling under DECISIONS row 24): the member AbstractClass::Is_Techno from
+  include/abstract.h:92 (header inline in src/shared/abstract_class.hpp; its COMDAT 0x006F8A70 is emitted by
+  UICmnds.cpp); the body is respelled to the out-of-line bytes.
+  Adopted 2026-11-14 (lane T1): Next_Key, PaletteSchemeIterator and FUN_00626DA0 from src/palette.cpp at c10706e
+  (GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors), adapted to our names as Unknown_00603D50 in
+  src/recovered/palette.cpp (RA2 0x00603D50, YR twin 0x00626DA0).
+
+- **mischa85/RedAlert2** (`github.com/mischa85/RedAlert2` commit `5a79accc`, 2026-11-09): a matching decompilation
+  of the same RA2 1.006 game.exe (config/ra2-1.006/game.sha256 equals our target), VC6, built on the TibSun archive
+  and ra2-decomp. Source GPL-3.0-or-later with Electronic Arts' section 7 terms on files carrying an EA copyright line
+  (LICENSE.md); its files carry ra2-decomp and OpenTS copyright lines. Cloned read-only under the ignored
+  `private/reference/mischa85-RedAlert2`. Since 2026-11-09 (user decision) its text may be adopted into `src/` with
+  attribution: an adopted file keeps its SPDX and copyright lines plus a provenance line naming the commit, and the
+  commit subject says "from mischa85 <address>". Acceptance is unchanged: strict audit and exact whole-file build; an
+  `__asm` block still needs the TibSun archive citation under the evidenced-inline-asm rule.
+  Adopted 2026-11-14 (lane M1, names and comments only, no shape change): from src/credits.cpp at 392e904 the
+  CreditClass member names (Credits, Current, IsToRedraw, IsUp, IsAudible, Countdown, AI, Graphic_Logic),
+  TabClass::Credits/Draw_Credits_Tab, SidebarClass::IsToRedrawCredits, the globals SidebarSurface and TooltipColor
+  (names.csv) and the Westwood comment blocks, in src/recovered/credits.cpp.
+  Adopted 2026-11-14 (lane M1, names and comments only): from src/tracker.cpp at 392e904 the twelve tracker list
+  names (ObjectPtrTracker ... NeuronPtrTracker, ObjectsToDelete), Detach_From_Command_List, GasSystem,
+  AircraftTracker (and its Detach), TacticalMap (names.csv) and the comment blocks, in src/recovered/tracker.cpp.
+  Adopted 2026-11-14 (lane M1, names and comments only): from src/winfix.cpp at 392e904 (Renegade/TibSun
+  WinFix.CPP) the function, global and parameter names (TreeView_*, read/write_view(s)_*_ini, On_WM_CONTEXTMENU,
+  On_WM_MOVING, Make_Identifier, ComboBox_Find_Item_Data, Capture_Or_Release_Mouse, noop,
+  WindowsVersionInfo::Version_String, Center_Window_Within_Window (two-window form), Prefetch_Audio_Buffer,
+  item_data, VideoModeWidth/Height) and the comment blocks, in src/recovered/winfix.cpp and src/recovered/winfix/.
+  Adopted 2026-11-14 (lane M1): from src/movie.cpp at 392e904 (ra2-decomp and OpenTS copyright lines) the
+  function, global, parameter and local names (IngameVQ, Movies, Play_Ingame_Movie, Ingame_Movie_Subtitle,
+  Stop_Ingame_Movie, Has_Ingame_Movies, Movie_Audio_Resume/Suspend, MovieAudioSuspended, Movie_Create,
+  Play_Movie_Simple, SidebarMovieX/Y, HiddenSurface, AlternateSurface, TacticalActive; names.csv) and
+  Stop_Ingame_Movie's call of Movie_Audio_Resume in place of its inline copy, in src/recovered/movie.cpp.
+  Adopted 2026-11-14 (lane M1, names and comments only): from src/tag.cpp at 392e904 (OpenTS copyright line) the
+  globals LogicTags, MapTags, LogicTriggerID (merging the second spelling of 0x00A35D44), MapTriggerID,
+  GameActive and ScenarioActive (names.csv) and the function comment blocks, in src/recovered/tag.cpp.
+  Adopted 2026-11-15 (lane M1 batch b12, names only): 80 function and global names for placeholder-named
+  identifiers, from ra2-decomp's names of byte-identical twins (build/ra2decomp/twins.json) where they exist and
+  agree in scope, otherwise from mischa85 config/ra2-1.006/names.csv at 392e904; list in the commit message.
+  Adopted 2026-11-15 (lane CB batch g1, names only): about 350 function, global, member and four struct names for
+  placeholder-named identifiers in units m-z, from ra2-decomp's names of byte-identical twins (build/ra2decomp/twins.json)
+  where they agree in scope, otherwise from mischa85 config/ra2-1.006/names.csv at ec08666 (namespaced names taken without
+  the namespace, C names without the leading underscore); the voxel struct and field names from mischa85 include/voxlib.h
+  and include/voxdrsys.h (VoxelRenderStruct also TibSun's), Surface slot 16 from include/surface.h; list in the commit message.
+  Adopted 2026-11-15 (lane M1 batch b3, comments only): the function comment blocks of src/<unit>.cpp at 392e904
+  for radar, msanim, vein, bfiofile2, tiberium, factory, wspudp, msengine, light, gscreen, overlay, scroll,
+  dropship, isotile and ipxconn, each file carrying the mischa85 file's licence block and a provenance line.
+  Adopted 2026-11-15 (lane M1 batch b4, comments only): the same for droppod, power, nullmgr, ionblast, trigtype,
+  trigger, aitrig, smudge, infatype, smudtype, ipxgconn, ccini, dialog, laser, bounce, wspipx, crate, msfont,
+  scheme and ddraw.
+  Adopted 2026-11-15 (lane M1 batch b5, names only): HouseClass::Blockage and BorrowedTime from src/tag.cpp at 392e904
+  (TibSun house.h), by apply_rename member_renames.
+  Adopted 2026-11-15 (lane M1 batch b6, comments only): the same for the remaining 119 mischa85 fully matched units
+  whose files carry function comments (list in the batch commit message).
+  Adopted 2026-11-15 (lane M1 batch u1, names only): parameter names of functions both files define, for 34
+  units (list in the commit message), each file carrying a provenance line.
+  Adopted 2026-11-15 (lane M1 batch u2, names only): the same for 76 further units.
+  Adopted 2026-11-15 (lane M1 batch l1, names only): local-variable names of functions that declare the same
+  sequence of local types in both files, for 56 units (list in the commit message).
+  Adopted 2026-11-15 (lane M1 batch l2, names only): the same where the local types differ only in spelling
+  (typedef against its base type), for 11 units.
+  Adopted 2026-11-15 (lane M1 batch p2, names only): 492 function and global names for address-named placeholders
+  across 324 units, from ra2-decomp's names of byte-identical twins (scope agreeing) or else mischa85 names.csv.
+  Adopted 2026-11-15 (lane M1 batch p3, names only): 18 function names from ra2-decomp's byte-identical twins in units
+  without a TibSun/mischa85 counterpart, each name also present in the TibSun archive or mischa85 (YRpp-only names left out).
+
+## Rebuild trial tree (`rebuild/`, branch `rebuild-trial`)
+
+The rebuild trial (user decision 2026-11-17) is a fresh tree with one source per original unit. Most of its text
+is adopted whole-file from **mischa85/RedAlert2** (`github.com/mischa85/RedAlert2`; commits 32ed14c and 6dee74a, as
+recorded per file). That project builds on the **TibSun reconstruction** (OpenTS-Developers/TibSun, Electronic Arts
+source code released under the GPL), **ra2-decomp** (gibbo101/ra2-decomp) and, for the Westwood Online headers,
+**electronicarts/CnC_Renegade**. The licence is GPL-3.0-or-later. Electronic Arts' GPL section 7 additional terms
+apply to the files that carry an Electronic Arts copyright line.
+
+- `rebuild/manifest/adopted.csv` indexes every adopted file: origin, origin commit, origin path and the SHA-256
+  of the file as adopted.
+- Each adopted file keeps its own SPDX and copyright lines. A file whose origin had no notice got one line naming
+  its origin (`rebuild/src/mono.cpp`).
+- `rebuild/LICENSE.md` is mischa85's LICENSE.md, copied unchanged: the GPL text plus Electronic Arts' section 7
+  terms that the adopted files refer to.
+- `rebuild/manifest/provenance.csv` gives the source of each accepted function's text: a (adopted), b (reshaped
+  from this repository's main tree) or c (written fresh from the seed and the class layout).
+- Acceptance is the main tree's exact standard: every accepted row is checked against the original bytes, and the
+  rebuild tree must pass the whole-file exact build.
+
+## Native linked libraries (tested development versions)
+
+| Library | Version | License | Use |
+| --- | --- | --- | --- |
+| SDL3 | 3.4.2 | zlib | Window, input, texture upload, debug text |
+| OpenSSL | 3.6.1 | Apache-2.0 | MIX RSA/Blowfish decoding and original-data SHA-256 |
+| LZO | 2.10 | GPL-2.0-or-later | Safe LZO1X map decompression; compatible GPLv3 distribution |
+| zlib | SDK 1.2.12 interface | zlib | MIX CRC-32 filename IDs |
+
+Licenses were inspected from the installed Homebrew packages (SDL3 LICENSE.txt,
+OpenSSL LICENSE.txt, LZO share/doc/lzo/COPYING) and public OpenRA COPYING. These
+libraries are discovered by CMake, not copied into Git. The Blowfish API is the
+legacy OpenSSL block API because MIX requires that historical cipher; this is
+archive interoperability, not a choice of cipher for new security functionality.
+
+## Local tooling only
+
+CMake 4.4.4 (BSD-3-Clause), Unicorn 2.1.4 (GPL-2.0, plus dependency notices),
+Capstone 5.0.9 (BSD), pefile 2024.8.26 (MIT) and macOS bsdtar/libarchive (BSD)
+are build/import/research tools, not linked into the application. Python and its
+virtual environment remain local. The temporary research probe used PyCryptodome
+3.24.0; it is not required by the checked-in workflow or native reader.
+
+No game content was downloaded. Network downloads comprise public references,
+Python build/test packages and the separately recorded Windows research-host
+cnc-ddraw release below. Nothing has been published externally.
+
+Milestone 9 also consulted that pinned redalert2-recomp snapshot's `docs/voxels.md`,
+`docs/testing.md` and `run_lift.py` for indexed staging and cache dispatch leads.
+Its MIT license and generated-game-code exclusion were rechecked. No code was
+incorporated. The readable C++ and differential fixtures were authored here from
+our independently inspected hash-pinned executable; see STAGING.md (`historical-final:historical/native-reconstruction/docs/STAGING.md`).
+
+Milestone 10 consulted the same snapshot's `docs/voxels.md`, `src/runtime/hdvox.c`
+header and `docs/testing.md` for the final light-input boundary. No verified map-light
+formula/source creation lead was available there. Ordinary light arithmetic and
+alpha initialization were independently recovered and tested against our base
+binary. The license/generated-code boundary was rechecked; no code was incorporated.
+See MAP_LIGHTING.md (`historical-final:historical/native-reconstruction/docs/MAP_LIGHTING.md`).
+Milestone 11 consulted the same redalert2-recomp commit's LICENSE, `docs/voxels.md`
+and `src/runtime/hdvox.c` header. YRpp at the previously pinned
+`b22f1860dd7b100cad57123d4ca5d459b9020d88` supplied naming/layout leads from
+`LightSourceClass.h`, `GameOptionsClass.h`, `BuildingClass.h`, `BuildingTypeClass.h`.
+The existing license/no-incorporation boundaries apply: no upstream authored or
+generated code was reused, and no YR behavior was assumed to be base behavior.
+Source operations and terrain decisions were independently recovered against
+our hash-pinned disc executable; see STATIC_LIGHT.md (`historical-final:historical/native-reconstruction/docs/STATIC_LIGHT.md`).
+
+Milestones 13/14 consulted the same pinned redalert2-recomp `docs/voxels.md`
+and LICENSE for lit/shadow cache leads. YRpp supplied type/key/interface naming
+from Techno/Foot/ObjectType/Locomotion/Drawing/GeneralDefinitions declarations.
+No upstream authored/generated or unlicensed header code was incorporated; exact
+base-binary oracles established implemented behavior. See
+VOXEL_CACHE.md (`historical-final:historical/native-reconstruction/docs/VOXEL_CACHE.md`) and SHADOW_KEYS.md (`historical-final:historical/native-reconstruction/docs/SHADOW_KEYS.md`).
+
+Milestone 15 consulted pinned YRpp `TerrainClass.h`, `TerrainTypeClass.h`,
+`ObjectClass.h`, `ObjectTypeClass.h`, `FileFormats/SHP.h` and `Surface.h` for naming,
+layout and signature leads only. No unlicensed header or generated game code was
+incorporated. Drawing operations were independently recovered and verified against
+the exact base binary; the separately attributed OpenRA format adaptation is listed
+above. See SCENERY.md (`historical-final:historical/native-reconstruction/docs/SCENERY.md`).
+
+Milestone 16 revisited those pinned OpenRA ShpTSLoader/COPYING and YRpp
+TerrainTypeClass leads. No additional upstream code was incorporated. Terrain
+strength/image decisions and all supplied ordinary tree draws were independently
+verified against the exact base binary; see TREE_TYPES.md (`historical-final:historical/native-reconstruction/docs/TREE_TYPES.md`).
+
+Milestone 17 revisited those pinned OpenRA format/license and YRpp TerrainClass/
+TerrainTypeClass leads. Only the separately attributed GPL SHP format adaptation
+was extended. Original raw/compressed drawing operations and all ordinary prop
+images were independently verified against the exact base binary; see
+PROPS.md (`historical-final:historical/native-reconstruction/docs/PROPS.md`). No unlicensed header, generated output or original game
+code was incorporated.
+
+Milestone 18 consulted the same pinned YRpp Object/ObjectType/TerrainType/Cell
+declarations for occupation, foundation and Mark vocabulary. No header, upstream
+generated output or original code was incorporated. Readable C++ and scoped
+original-routine tests were authored here; OCCUPATION.md (`historical-final:historical/native-reconstruction/docs/OCCUPATION.md`)
+records the exact-base verification and host boundaries. No new dependency added.
+
+Milestone 19 consulted the same pinned YRpp Object/ObjectType/Terrain/Display
+declarations for lifecycle/layer hypotheses. Exact-base routines independently
+establish the readable C++ operations and differential evidence in
+LIFECYCLE.md (`historical-final:historical/native-reconstruction/docs/LIFECYCLE.md`). No header code, generated output or original
+game code was incorporated; no new dependency was added.
+
+October 14 patched-baseline preparation inspects user-supplied RTPatch packages
+as private inputs only. Pocket Soft's embedded engine and EA's deltas remain
+proprietary research material; no code was incorporated or redistributed. The
+inspector uses the existing research-only pefile dependency. The successful private
+virtual materialization executes that supplied DLL in research-only Unicorn; no
+proprietary engine code, resources or disassembly are tracked or redistributed.
+BASELINE_1006.md (`historical-final:historical/native-reconstruction/docs/BASELINE_1006.md`) records exact inputs/output and fixture
+boundaries. Authored Facing mapping/test code uses the existing pefile/Capstone/
+Unicorn tooling; no upstream code was copied or runtime dependency added.
+DRIVE_1006.md (`historical-final:historical/native-reconstruction/docs/DRIVE_1006.md`) extends those authored research tools to bounded
+Drive/curves/timing/targeting profiles. Pinned testing/interface references supply
+hypotheses only; no upstream, YRpp header or generated game code was incorporated.
+
+**FunkyFr3sh/cnc-ddraw v7.1.0.0**, MIT license, is used only in a private Windows
+original-game observation copy, not linked or bundled with the native game.
+https://github.com/FunkyFr3sh/cnc-ddraw/releases/tag/v7.1.0.0
+The Windows task downloaded the release archive, preserved its license and tested
+base menu/minimize/restore presentation; output is altered host presentation, not
+an original pixel oracle. WINDOWS_TESTING.md (`historical-final:historical/native-reconstruction/docs/WINDOWS_TESTING.md`) records
+archive/DLL hashes, configuration and private provenance. No code was incorporated.

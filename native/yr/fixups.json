@@ -1,0 +1,1350 @@
+{
+ "about": "Native-only text substitutions for the pinned YR tree (yr/ra2-decomp, yr/tibsun headers; lane Y1), applied by native/yr/tools/yr_units.py before the port rewrites, where clang rejects VC6 dialect. 'file' is a path under the tree's header directory ('hdr/<name>') or its sources ('src/<path>'), or '*' for every file; 'old' is literal text (every occurrence; a fixup that matches nothing fails the generation), or with 'regex': true a Python regular expression. Each keeps the original behaviour; 'why' says how. Like native/port/fixups.json for the RA2 tree, it never edits yr/. A row with 'cut' instead of 'old' removes the function whose marker (// FUNCTION: GAMEMD <address>) it names, up to the next marker or the end of the file; native/yr/glue supplies the native version. A row with 'skip_unit' leaves that source out of the native build (its functions are link-closure traps until native/yr/glue or a later stage supplies them).",
+ "fixups": [
+  {
+   "file": "hdr/int.h",
+   "old": "friend Int<PRECISION> Generate_Prime(Straw & rng, int pbits, Int<PRECISION> const * = 0);",
+   "new": "friend Int<PRECISION> Generate_Prime(Straw & rng, int pbits, Int<PRECISION> const *);",
+   "why": "clang: a friend declaration with a default argument must be a definition. The default (a null third argument) stays on the namespace-scope declaration of Generate_Prime; the RA2 tree's int.hpp declares it the same way."
+  },
+  {
+   "file": "*",
+   "old": "\\bTagClass::Init\\b",
+   "regex": true,
+   "new": "TagClass::Init_All",
+   "why": "clang: a static member function named Init cannot hide the virtual AbstractClass::Init. Renamed with its one caller (ScenarioClass, scenario.cpp), as the RA2 tree renames its own (Init_Static_0041beb0)."
+  },
+  {
+   "file": "hdr/tag.h",
+   "old": "static void Init(void);",
+   "new": "static void Init_All(void);",
+   "why": "The declaration of the rename above."
+  },
+  {
+   "file": "hdr/typelist.h",
+   "old": "return(*this)[rand((unsigned)0, (unsigned)Count()-1)];",
+   "new": "return(*this)[(rand)((unsigned)0, (unsigned)Count()-1)];",
+   "why": "TypeList::Random_Pick(Random2Class &rand) calls its parameter, rand(lo, hi). The RA2 tree's port rewrite sends every call spelled rand( to the VC6 rand (ra2_rand); parenthesised, the call stays the parameter's operator()."
+  },
+  {
+   "file": "hdr/wolapi/wolapi.h",
+   "old": "typedef long time_t;",
+   "new": "/* native: time_t is the host's */",
+   "why": "The Westwood Online interface header redefines time_t as long; the host's <time.h> has it already. WOL is not part of the native build (Internet play), so its interface methods' time_t width does not matter."
+  },
+  {
+   "file": "src/lcw.cpp",
+   "cut": "0x00551E50",
+   "why": "LCW_Comp is TibSun's inline assembly (LCWCOMP.ASM); native/yr/glue/yr_asm.cpp has the RA2 native tree's C++ transliteration of the same register program."
+  },
+  {
+   "file": "src/mpu.cpp",
+   "cut": "0x005CAFB0",
+   "why": "RDTSC reads the x86 time-stamp counter (inline assembly); native/yr/glue/yr_asm.cpp reads the port's game clock, as the RA2 native tree does."
+  },
+  {
+   "file": "src/mpu.cpp",
+   "cut": "0x005CAFC0",
+   "why": "Get_RDTSC_CPU_Speed measures the x86 time-stamp counter (inline assembly); natively the counter is a virtual 1 GHz clock and the glue returns its rate, 1000, as the RA2 native tree does."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "old": "\t__asm {\n\t\tmov ExceptionReturnStack, esp\n\t\tmov ExceptionReturnFrame, ebp\n\t\tlea eax, ret_addr\n\t\tmov ExceptionReturnAddress, eax\n\t}\n\nret_addr:\n",
+   "new": "\t/* native: the x86 return stack and address the crash handler resumed at are not taken */\n",
+   "why": "Main_Game records esp/ebp and a code address for its x86 crash handler (Exception_Handler) to resume at; natively the port's own fault handler reports and ends (the RA2 native tree drops the same block)."
+  },
+  {
+   "file": "src/xsurface.cpp",
+   "regex": true,
+   "old": "static void \\*surface_quick_fill\\(void \\*buf, int count, int color\\)\\n\\{\\n\\t_asm \\{[\\s\\S]*?\\n\\t\\}\\n\\}",
+   "new": "static void *surface_quick_fill(void *buf, int count, int color)\n{\n\tunsigned int *p = (unsigned int *)buf;\n\tfor (int i = 0; i < count; i++) *p++ = (unsigned int)color;\n\treturn p;\n}",
+   "why": "surface_quick_fill is rep stosd (inline assembly): count dwords of color from buf, returning the end; the same writes in C++."
+  },
+  {
+   "file": "hdr/except.h",
+   "old": "#ifdef _MSC_VER",
+   "new": "#if 1 /* native: the declarations are the same for clang */",
+   "why": "except.h declares the crash handler and its globals only for MSVC; startup.cpp and conquer.cpp use them."
+  },
+  {
+   "file": "src/facing.cpp",
+   "cut": "0x004C85E0",
+   "why": "Dump_Exception_Info formats the x86 CONTEXT (Eip, Esp, segment registers) into except.txt; natively the port's fault handler writes the report (native/yr/glue/yr_glue.cpp keeps an empty one for Exception_Handler)."
+  },
+  {
+   "file": "src/hover.cpp",
+   "old": "Move_To((CoordStruct const &)(Coord)cell);",
+   "new": "Move_To((CoordStruct)(Coord)cell);",
+   "why": "A cast of the converted cell to a const reference, which the RA2 tree's port rewrites turn into an lvalue helper that cannot take this spelling; Move_To takes the CoordStruct by value, so a value cast passes the same coordinate."
+  },
+  {
+   "file": "src/map.cpp",
+   "old": "bool HashTableClass<unsigned int, SubzoneConnectionStruct>::Add_Object(int bucket_index, ObjectType const & object)",
+   "new": "template<> bool HashTableClass<unsigned int, SubzoneConnectionStruct>::Add_Object(int bucket_index, ObjectType const & object)",
+   "why": "An explicit specialisation of a class template's member needs template<> in ISO C++; VC6 took it without."
+  },
+  {
+   "file": "src/version.cpp",
+   "regex": true,
+   "old": "extern \"C\" \\{\\nDWORD __stdcall GetFileVersionInfoSizeA\\(LPSTR filename, LPDWORD handle\\);\\nBOOL __stdcall GetFileVersionInfoA\\(LPSTR filename, DWORD handle, DWORD size, LPVOID block\\);\\nBOOL __stdcall VerQueryValueA\\(LPVOID block, LPSTR sub, LPVOID \\* buffer, UINT \\* len\\);\\n\\}",
+   "new": "/* native: winver.h declares GetFileVersionInfoSizeA, GetFileVersionInfoA and VerQueryValueA (const strings) */",
+   "why": "version.cpp declares the three version-resource calls itself with non-const string parameters; the Win32 headers' const declarations are the same functions."
+  },
+  {
+   "file": "src/house.cpp",
+   "regex": true,
+   "old": "MAX\\(BorrowedTime, \\(int\\)Session\\.MaxAhead\\)",
+   "new": "MAX((int)BorrowedTime, (int)Session.MaxAhead)",
+   "why": "BorrowedTime is a CDTimerClass; in MAX's conditional clang finds both conversions (timer to int, int to timer) and refuses. VC6 compared and returned the timer's int value; the cast names that conversion."
+  },
+  {
+   "file": "src/teleport.cpp",
+   "old": "bool bridge = cptr->Is_Bridge_Here;",
+   "new": "bool bridge = true; /* native: VC6 took the bare member name as true (no call in gamemd.exe) */",
+   "why": "The text names CellClass::Is_Bridge_Here without calling it; ISO C++ refuses. Checked against gamemd.exe 1.001 (lane Y2): the matched TeleportLocomotionClass function 0x00718260 makes no call to Is_Bridge_Here (0x00483610), so VC6 compiled the bare name as a true constant; natively the flag is true, as there."
+  },
+  {
+   "file": "src/animtype.cpp",
+   "old": "*GraphicName != '\\0' ? Graphic_Name() : IniName",
+   "new": "*GraphicName != '\\0' ? Graphic_Name() : (const char *)IniName",
+   "why": "The conditional's arms are a const char * and a TStringID that converts both ways; clang refuses the ambiguity. VC6 took the string (the result goes to _makepath's const char *)."
+  },
+  {
+   "file": "src/cdcntrl.cpp",
+   "old": "_stprintf\\(([a-z_]+), _TEXT\\((\"[^\"]*\")\\)",
+   "new": "sprintf(\\1, \\2",
+   "why": "_stprintf is sprintf in an ANSI build (mingw's tchar.h maps it to its own printf); the port's VC6 sprintf takes the call.",
+   "regex": true
+  },
+  {
+   "file": "src/ahandle.cpp",
+   "old": "void CALLBACK AudioCallback(UINT uTimerID, UINT, DWORD dwUser, DWORD, DWORD);",
+   "new": "void CALLBACK AudioCallback(UINT uTimerID, UINT, DWORD_PTR dwUser, DWORD_PTR, DWORD_PTR);",
+   "why": "The multimedia-timer callback's user value carries the VQA handle pointer: pointer-sized natively (Win64 DWORD_PTR), as LPTIMECALLBACK declares it."
+  },
+  {
+   "file": "src/ahandle.cpp",
+   "old": "void CALLBACK AudioCallback ( UINT uTimerID, UINT, DWORD dwUser, DWORD, DWORD )",
+   "new": "void CALLBACK AudioCallback ( UINT uTimerID, UINT, DWORD_PTR dwUser, DWORD_PTR, DWORD_PTR )",
+   "why": "The definition of the declaration above."
+  },
+  {
+   "file": "src/ahandle.cpp",
+   "old": "timeSetEvent ( 1000/VQA_TIMETICKS , 1 , AudioCallback , (DWORD)vqap , TIME_PERIODIC)",
+   "new": "timeSetEvent ( 1000/VQA_TIMETICKS , 1 , AudioCallback , (DWORD_PTR)vqap , TIME_PERIODIC)",
+   "why": "The handle pointer passed whole (DWORD would cut it to 32 bits natively)."
+  },
+  {
+   "file": "src/wonline.cpp",
+   "skip_unit": true,
+   "why": "Westwood Online (Internet play): not in the native build; the Internet button says so (the RA2 tree's WOL code is link-closure traps the same way)."
+  },
+  {
+   "file": "src/wolpersonainformation.cpp",
+   "skip_unit": true,
+   "why": "Westwood Online persona data (Internet play), as above."
+  },
+  {
+   "file": "src/wolpersonainformation2.cpp",
+   "skip_unit": true,
+   "why": "Westwood Online persona data (Internet play; also needs ATL), as above."
+  },
+  {
+   "file": "src/teleport.cpp",
+   "old": "Timer = (Timer > Rule->ChronoMinimumDelay) ? Timer : Rule->ChronoMinimumDelay;",
+   "new": "Timer = ((int)Timer > Rule->ChronoMinimumDelay) ? (int)Timer : Rule->ChronoMinimumDelay;",
+   "why": "Timer is a CDTimerClass; its conditional with an int converts both ways and clang refuses. VC6 compared and kept the timer's int value."
+  },
+  {
+   "file": "src/cell.cpp",
+   "old": "for the building %s\\n\", obj->Class->IniName);",
+   "new": "for the building %s\\n\", (const char *)obj->Class->IniName);",
+   "why": "A TStringID object passed through a debug print's varargs: VC6 copied its bytes onto the stack, so %s read its first four bytes as a pointer; clang refuses a class through varargs (and would trap). The name's text is what the message wants; the print is the debug output (FUN_004068E0)."
+  },
+  {
+   "file": "src/worlddom.cpp",
+   "old": "sprintf(buffer, \"TheaterChoice%sMenu\", *WorldDominationTour::FUN_007AF2A0(side));",
+   "new": "sprintf(buffer, \"TheaterChoice%sMenu\", (*WorldDominationTour::FUN_007AF2A0(side)).get());",
+   "why": "A Wstring object passed to %s: VC6 pushed the object's bytes and the format read the first four as its value, which is the Wstring's text pointer (its first member). clang refuses a class through varargs; get() passes that pointer."
+  },
+  {
+   "file": "src/mainloop.cpp",
+   "old": "swprintf(buffer, L\"NFT : %d\", NetFrameTimer);",
+   "new": "swprintf(buffer, L\"NFT : %d\", *(int const *)&NetFrameTimer);",
+   "why": "A timer object passed to %d: VC6 pushed the object's bytes and the format read the first four as its value (the timer's first field); the cast reads the same four bytes."
+  },
+  {
+   "file": "src/overlay.cpp",
+   "old": "DebugString(\"Overlay %s not really tiberium\\n\", otype->GivenName);",
+   "new": "DebugString(\"Overlay %s not really tiberium\\n\", (const char *)otype->GivenName);",
+   "why": "A TStringID object passed to a debug print's %s: VC6 pushed the object's bytes and the format read the first four as its value as a pointer (the name's first characters); the debug text names the overlay instead."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": ", ElapsedTimer);",
+   "new": ", *(int const *)&ElapsedTimer);",
+   "why": "A timer object passed to a debug print's %ld (save and load): VC6 pushed the object's bytes and the format read the first four as its value (the timer's first field); the cast reads the same four bytes."
+  },
+  {
+   "file": "src/startup.cpp",
+   "append": "startup_winmain.inc",
+   "why": "WinMain (0x006BB9A0) is unmatched in the YR tree; a native draft from the RA2 tree's WinMain and gamemd.exe's code (lane Y2), appended to the startup unit."
+  },
+  {
+   "file": "src/wwmous.cpp",
+   "append": "wwmous_native.inc",
+   "why": "WinMain's mouse: made and hidden where gamemd.exe's WWMouseClass is in scope (the startup unit sees TibSun's)."
+  },
+  {
+   "file": "src/uicmnds2.cpp",
+   "append": "uicmnds2_native.inc",
+   "why": "StringTable::LoadString: uicmnds2.cpp defines it after #undef LoadString; units that include windows.h call it as LoadStringA (the Win32 macro). One definition, both spellings (an assembler alias)."
+  },
+  {
+   "file": "src/base64.cpp",
+   "old": "#ifdef BIG_ENDIAN",
+   "new": "#if defined(BIG_ENDIAN) && defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN",
+   "why": "Darwin's headers define BIG_ENDIAN (4321) on every machine (machine/endian.h, with LITTLE_ENDIAN and BYTE_ORDER); the packet union's byte order is chosen by the machine's actual order, little-endian on arm64 as on x86. Without this the base64 decoder swapped bytes and the encryption keys (Init_Keys) decoded to nothing."
+  },
+  {
+   "file": "src/init.cpp",
+   "append": "init_native.inc",
+   "why": "Allocate_Surfaces (0x00533FD0) is unmatched in the YR tree; a native draft from the RA2 tree's and gamemd.exe's code (lane Y2)."
+  },
+  {
+   "file": "src/ccini.cpp",
+   "append": "ccini_native.inc",
+   "why": "CCINIClass::ReadCCFile (0x004741F0) is the function ccini.h also declares as Load(FileClass &, bool, bool); both names bound to the one definition."
+  },
+  {
+   "file": "src/init.cpp",
+   "append": "init_game_native.inc",
+   "why": "Init_Game (0x0052BA60) is unmatched in the YR tree; a native draft from the RA2 tree's and gamemd.exe's code (lane Y2)."
+  },
+  {
+   "file": "src/voxel.cpp",
+   "append": "voxel_native.inc",
+   "why": "FUN_00754CB0 (TibSun Init_Voxel_Matrices) is unmatched in the YR tree; a native draft from the RA2 twin Unknown_00718060 (src/recovered/voxel.cpp) mapped to this unit's tables (lane Y3)."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "append": "conquer_native.inc",
+   "why": "Game::CallBack (0x0048D080) is the tree's Call_Back under a second name and a bool return; one definition calls the other and returns what gamemd.exe leaves in eax (lane Y3)."
+  },
+  {
+   "file": "src/movie.cpp",
+   "append": "movie_native.inc",
+   "why": "Game::PlayMovie (0x005BED40) and FUN_005BF260 (0x005BF260) are the tree's matched Play_Movie overloads under other names and argument types; each forwards to the definition at its address (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audmpool.cpp",
+   "old": "(unsigned)pool + (unsigned)sizeof",
+   "new": "(uintptr_t)pool + (uintptr_t)sizeof",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audmpool.cpp",
+   "old": "(MemoryItem *)((unsigned)item + (unsigned)(sizeof",
+   "new": "(MemoryItem *)((uintptr_t)item + (uintptr_t)(sizeof",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audmpool.cpp",
+   "old": "(void *)((unsigned)item + (unsigned)sizeof",
+   "new": "(void *)((uintptr_t)item + (uintptr_t)sizeof",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audmpool.cpp",
+   "old": "(MemoryItem *)((unsigned)item - (unsigned)sizeof",
+   "new": "(MemoryItem *)((uintptr_t)item - (uintptr_t)sizeof",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audevent.cpp",
+   "old": "(VocClass *)((unsigned)event - ((unsigned)&event->nodeVol - (unsigned)event))",
+   "new": "(VocClass *)((uintptr_t)event - ((uintptr_t)&event->nodeVol - (uintptr_t)event))",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audcache.cpp",
+   "old": "(void *)((unsigned)frame + sizeof(AudioFrame))",
+   "new": "(void *)((uintptr_t)frame + sizeof(AudioFrame))",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "src/wpaudio/audstrm.cpp",
+   "old": "(unsigned char *)(((unsigned)buf->buffer_memory + (1 << align) - 1) & (-1 << align))",
+   "new": "(unsigned char *)(((uintptr_t)buf->buffer_memory + (1 << align) - 1) & ((uintptr_t)-1 << align))",
+   "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
+  },
+  {
+   "file": "hdr/tooltip.h",
+   "old": "\tint Text;\n\n\tbool Flag;",
+   "new": "\tintptr_t Text; /* native: holds a string pointer (the label's name), pointer-sized */\n\n\tbool Flag;",
+   "why": "ToolTip::Text holds either 0 or the label's char pointer (tooltip.cpp passes it to StringTable::LoadString); a 32-bit int cuts the pointer natively, intptr_t keeps it (lane Y3)."
+  },
+  {
+   "file": "hdr/isotype.h",
+   "old": "\t\tIsoTileRecord *Tiles[1];",
+   "new": "\t\tstruct TileRef {   // NATIVE: the file's 4-byte record slot (ra2port::IsoTileRef), read as a pointer\n\t\t\tra2port::IsoTileRef Ref;\n\t\t\toperator IsoTileRecord *() const { return (IsoTileRecord *)Ref.get(); }\n\t\t\tIsoTileRecord * operator->() const { return (IsoTileRecord *)Ref.get(); }\n\t\t\tvoid Resolve(void const * base) { Ref.Resolve(base); }\n\t\t} Tiles[1];",
+   "why": "An .tem/.sno/.urb tile set holds 4-byte record offsets the game converts in place to pointers; natively each slot keeps the record's distance from the slot (ra2port::IsoTileRef, as ra2-native's IsoTileSet) and reads back as a pointer (lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "void Set(unsigned int dst,",
+   "new": "void Set(uintptr_t dst,",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int Get_Buffer_Offset(Point2D position);",
+   "new": "uintptr_t Get_Buffer_Offset(Point2D position);",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int Wrap_Overflow(unsigned int position) const;",
+   "new": "uintptr_t Wrap_Overflow(uintptr_t position) const;",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int Wrap_Underflow(unsigned int position) const;",
+   "new": "uintptr_t Wrap_Underflow(uintptr_t position) const;",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int Get_Buffer_End(void) const",
+   "new": "uintptr_t Get_Buffer_End(void) const",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "unsigned int BufferStart;\n\t\tunsigned int BufferEnd;",
+   "new": "uintptr_t BufferStart;\n\t\tuintptr_t BufferEnd;",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "inline unsigned int ABuffer::Wrap_Overflow(unsigned int position) const",
+   "new": "inline uintptr_t ABuffer::Wrap_Overflow(uintptr_t position) const",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/abuffer.h",
+   "old": "inline unsigned int ABuffer::Wrap_Underflow(unsigned int position) const",
+   "new": "inline uintptr_t ABuffer::Wrap_Underflow(uintptr_t position) const",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "void Set(unsigned int dst,",
+   "new": "void Set(uintptr_t dst,",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int Get_Buffer_Offset(Point2D position);",
+   "new": "uintptr_t Get_Buffer_Offset(Point2D position);",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int Wrap_Overflow(unsigned int position) const;",
+   "new": "uintptr_t Wrap_Overflow(uintptr_t position) const;",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int Wrap_Underflow(unsigned int position) const;",
+   "new": "uintptr_t Wrap_Underflow(uintptr_t position) const;",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int Get_Buffer_End(void) const",
+   "new": "uintptr_t Get_Buffer_End(void) const",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "unsigned int BufferStart;\n\t\tunsigned int BufferEnd;",
+   "new": "uintptr_t BufferStart;\n\t\tuintptr_t BufferEnd;",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "inline unsigned int ZBuffer::Wrap_Overflow(unsigned int position) const",
+   "new": "inline uintptr_t ZBuffer::Wrap_Overflow(uintptr_t position) const",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "hdr/zbuffer.h",
+   "old": "inline unsigned int ZBuffer::Wrap_Underflow(unsigned int position) const",
+   "new": "inline uintptr_t ZBuffer::Wrap_Underflow(uintptr_t position) const",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "tip.Text = (int)\"",
+   "new": "tip.Text = (intptr_t)\"",
+   "why": "The tooltip label's pointer stored whole (ToolTip::Text is intptr_t natively; lane Y3)."
+  },
+  {
+   "file": "src/tab.cpp",
+   "old": "tip.Text = (int)text;",
+   "new": "tip.Text = (intptr_t)text;",
+   "why": "The tooltip label's pointer stored whole (ToolTip::Text is intptr_t natively; lane Y3)."
+  },
+  {
+   "file": "src/tab.cpp",
+   "old": "int p = (int)CommandBarStatics::Buttons; for(; p < (int)(CommandBarStatics::Buttons + 25);",
+   "new": "intptr_t p = (intptr_t)CommandBarStatics::Buttons; for(; p < (intptr_t)(CommandBarStatics::Buttons + 25);",
+   "why": "The command-bar button walk steps a whole pointer (a 32-bit int cuts it natively; lane Y3)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "extern MouseSlots * DAT_00887640;",
+   "new": "#include \"wwmous.h\"\nextern WWMouseClass * DAT_00887640;",
+   "why": "Blit_Sidebar reaches the mouse (DAT_00887640, gamemd.exe's WWMouseClass) through a stand-in class whose 16th virtual slot is Draw_Mouse in the MSVC layout (one destructor slot). The Itanium layout gives the destructor two slots, so natively that slot is Set_Mouse_Point: every sidebar blit moved the mouse to (the surface pointer's low half, 1), the edge scroll ran north-west for good and the cursor jumped. Natively the mouse is declared as the WWMouseClass it is (winstub.cpp declares it so), the same Draw_Mouse call (lane Y4)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "append": "sidebar_native.inc",
+   "why": "SidebarClass::Reposition_Sidebar (0x006ABD30) is unmatched in the YR tree; a native draft from the RA2 twin (src/recovered/sidebar.cpp 0x006819A0) and gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/ionblast.cpp",
+   "append": "ionblast_native.inc",
+   "why": "IonBlastClass::One_Time (0x0053D330) is unmatched in the YR tree; a native draft from the RA2 tree's draft (0x00521A90, TibSun's text) with gamemd.exe's surface sizes (lane Y3)."
+  },
+  {
+   "file": "src/techtype.cpp",
+   "append": "techtype_native.inc",
+   "why": "TechnoTypeClass::TechnoTypeClass(char const *, SpeedType) (0x00710AF0) is unmatched in the YR tree; a native draft from gamemd.exe's stores mapped to the tree's field offsets (lane Y3)."
+  },
+  {
+   "file": "src/multiplayer.cpp",
+   "append": "multiplayer_native.inc",
+   "why": "The game-mode initialisers' Allocate members (gamemd.exe's vtable slots hold the tree's __stdcall Allocate_MP* functions) call those functions (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "append": "ownrdraw_native.inc",
+   "why": "UI::StandardWndProc (0x00622B50) and the other unmatched owner-draw functions the menus reach; native drafts from gamemd.exe's code and the RA2 tree's counterparts (lane Y3)."
+  },
+  {
+   "file": "src/srfcache.cpp",
+   "append": "pcx_native.inc",
+   "why": "Read_PCX_File (0x00630310) is unmatched in the YR tree; TibSun's text (gamemd.exe repeats it), adopted with attribution (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "// FUNCTION: GAMEMD 0x0060C4E0\nint __fastcall FUN_0060C4E0(HWND dialog)",
+   "new": "// NATIVE (lane Y11): the backdrop art's three pointers, kept by dialog window at pointer width\n// (a small table: the shell has a few dialogs open at once; a reused window gets its slot back).\nstruct Yr_Dialog_Art { HWND Window; intptr_t Convert; intptr_t Shape800; intptr_t Shape; };\nstatic Yr_Dialog_Art &Yr_Dialog_Art_Of(HWND dialog)\n{\n\tstatic Yr_Dialog_Art art[64];\n\tstatic int next = 0;\n\tfor (int i = 0; i < 64; ++i) {\n\t\tif (art[i].Window == dialog) return art[i];\n\t}\n\tYr_Dialog_Art &slot = art[next];\n\tnext = (next + 1) % 64;\n\tslot.Window = dialog;\n\tslot.Convert = slot.Shape800 = slot.Shape = 0;\n\treturn slot;\n}\n\n// FUNCTION: GAMEMD 0x0060C4E0\nintptr_t __fastcall FUN_0060C4E0(HWND dialog)",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. The three pointers are kept by window at pointer width (a small side table, as the RA2 tree's rewrite keeps the control records' pointers)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "return *(int *)((char *)data + 0x74);",
+   "new": "return Yr_Dialog_Art_Of(dialog).Convert;",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Read back at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "int __fastcall FUN_0060CE40(HWND dialog)\n{",
+   "new": "intptr_t __fastcall FUN_0060CE40(HWND dialog)\n{",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Returned at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "return *(int *)((char *)data + 0xe0);",
+   "new": "return Yr_Dialog_Art_Of(dialog).Shape800;",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Read back at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "int __fastcall FUN_0060CEA0(HWND dialog)\n{",
+   "new": "intptr_t __fastcall FUN_0060CEA0(HWND dialog)\n{",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Returned at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "return *(int *)((char *)data + 0xe4);",
+   "new": "return Yr_Dialog_Art_Of(dialog).Shape;",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Read back at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "int __cdecl (FUN_0072[B-D][0-9A-F]{3})\\(void\\);",
+   "regex": true,
+   "new": "intptr_t __cdecl \\1(void);",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. The palette converters FUN_0060CF00 stores return ConvertClass pointers (txtlabel2.cpp); declared at pointer width here."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\nint (FUN_0072E280|FUN_0072D450)\\(void\\);",
+   "regex": true,
+   "new": "\nintptr_t \\1(void);",
+   "why": "Lane Y11: FUN_0072E280 and FUN_0072D450 return ConvertClass pointers (txtlabel2.cpp); the unit's earlier int declarations truncated them where FUN_0060CF00 stores them as the dialog's backdrop converter."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "extern int (DAT_00B0F9E8|DAT_00B0FA04|DAT_00B0FA18|DAT_00B0FA30|DAT_00B0FA4C|DAT_00B0FA60|DAT_00B0FA64|DAT_00B0FA6C|DAT_00B0FA98|DAT_00B0FA9C|DAT_00B0FAAC|DAT_00B0FAB8|DAT_00B0FB0C|DAT_00B0FB1C|DAT_00B0FB2C|DAT_00B0FB34|DAT_00B0FB50|DAT_00B0FB54);",
+   "regex": true,
+   "new": "extern intptr_t \\1;",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. These are the SHPStruct pointers txtlabel2.cpp loads; read at pointer width here."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\tchar *p = (char *)data;\n\tint type = *(int *)(p + 0x6c);",
+   "new": "\tchar *p = (char *)&data->Dialog - 0x28;\n\tint type = *(int *)(p + 0x6c);\n\tYr_Dialog_Art &art = Yr_Dialog_Art_Of(dialog);",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. The dialog id is read through the Dialog view, as FUN_0060D2C0 stores it."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\\*\\(int \\*\\)\\(p \\+ 0x74\\) = ",
+   "regex": true,
+   "new": "art.Convert = (intptr_t)",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Stored at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\\*\\(int \\*\\)\\(p \\+ 0xe0\\) = ",
+   "regex": true,
+   "new": "art.Shape800 = (intptr_t)",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Stored at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\\*\\(int \\*\\)\\(p \\+ 0xe4\\) = ",
+   "regex": true,
+   "new": "art.Shape = (intptr_t)",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Stored at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "void __fastcall FUN_0072E730(Surface * surface, Rect * rect, int a, int b, int c);",
+   "new": "class ConvertClass;\nstruct SHPStruct;\nvoid __fastcall FUN_0072E730(Surface * surface, Rect const * area, ConvertClass * convert, SHPStruct * shape800, SHPStruct * shape);",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Declared as txtlabel2.cpp defines it, so the pointers pass at full width (the int declaration reached it through an alias with the upper halves undefined)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\t\t\t\tint a = FUN_0060C4E0(window);\n\t\t\t\tint b = FUN_0060CE40(window);\n\t\t\t\tint c = FUN_0060CEA0(window);",
+   "new": "\t\t\t\tConvertClass * a = (ConvertClass *)FUN_0060C4E0(window);\n\t\t\t\tSHPStruct * b = (SHPStruct *)FUN_0060CE40(window);\n\t\t\t\tSHPStruct * c = (SHPStruct *)FUN_0060CEA0(window);",
+   "why": "Lane Y11: the dialog's backdrop art (FUN_0060CF00 sets, FUN_0060C4E0/FUN_0060CE40/FUN_0060CEA0 read, OwnerDraw::Paint draws through FUN_0072E730) is a ConvertClass and two SHPStruct pointers the unit keeps as ints at the record's 32-bit offsets 0x74, 0xE0 and 0xE4. Natively those were truncated to 32 bits (and FUN_0060CF00 read the dialog id from the record start, not the Dialog view), so the YR Options and Enhancements backdrop drew from garbage pointers: black on iOS, noise on the Mac. Passed at pointer width."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "FUN_0072E730(surf, &rFull, a, b, c);",
+   "new": "if (a != NULL && (Drawing::RenderWidth == 0x280 ? b : c) != NULL) FUN_0072E730(surf, &rFull, a, b, c);",
+   "why": "Lane Y11: a dialog opened before the shell art is loaded (the first main menu) stored null art at WM_INITDIALOG, as gamemd.exe does; there the original's Draw_Shape draws nothing for the null shape, but the native Draw_Shape takes the null converter first. The draw is skipped when the art is null, which draws what the original draws."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "(char *)data + 0x",
+   "new": "((char *)&data->Dialog - 0x28) + 0x",
+   "why": "The unit reaches some WinData fields at their 32-bit offsets ((char *)data + 0x6c, 0xbc, ...), others by name. Natively the record's leading pointers are 8 bytes, so a raw offset from the record start lands elsewhere; taken from the union's pointer-free Dialog view (which starts at 32-bit offset 0x28) the raw and named accesses agree again (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "*(BitFont **)((char *)this + 0x64) = BitFont::Instance;",
+   "new": "Wide.font = BitFont::Instance;",
+   "why": "The record constructor sets the font at its 32-bit offset 0x64, which is Wide.font: natively a pointer member placed after 8-byte pointers, so it is set by name (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "*(int *)((char *)this + 0x40) = 0;",
+   "new": "Wide.caretIndex = 0;",
+   "why": "32-bit offset 0x40 is Wide.caretIndex; set by name natively (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "(char *)this + 0x",
+   "new": "((char *)&this->Dialog - 0x28) + 0x",
+   "why": "The record constructor's other raw 32-bit offsets, taken through the pointer-free Dialog view as for (char *)data (lane Y3)."
+  },
+  {
+   "file": "src/globals.cpp",
+   "old": "DynamicVectorClass<SideClass *> Sides;",
+   "new": "/* native: Sides is SideClass::Array's storage (one address), bound by yr_aliases.py */",
+   "why": "gamemd.exe has one vector at this address, which the tree defines twice (Sides here, SideClass::Array in its class unit); natively two definitions were two vectors (rules filled one, the skirmish dialog read the other), so this name becomes an alias of the class array (lane Y3)."
+  },
+  {
+   "file": "src/globals.cpp",
+   "old": "DynamicVectorClass<HouseTypeClass *> HouseTypes;",
+   "new": "/* native: HouseTypes is HouseTypeClass::Array's storage (one address), bound by yr_aliases.py */",
+   "why": "gamemd.exe has one vector at this address, which the tree defines twice (HouseTypes here, HouseTypeClass::Array in its class unit); natively two definitions were two vectors (rules filled one, the skirmish dialog read the other), so this name becomes an alias of the class array (lane Y3)."
+  },
+  {
+   "file": "src/globals.cpp",
+   "old": "DynamicVectorClass<TeamTypeClass *> TeamTypes;",
+   "new": "/* native: TeamTypes is TeamTypeClass::Array's storage (one address), bound by yr_aliases.py */",
+   "why": "gamemd.exe has one vector at this address, which the tree defines twice (TeamTypes here, TeamTypeClass::Array in its class unit); natively two definitions were two vectors (rules filled one, the skirmish dialog read the other), so this name becomes an alias of the class array (lane Y3)."
+  },
+  {
+   "file": "src/globals.cpp",
+   "old": "DynamicVectorClass<TechnoTypeClass *> TechnoTypes;",
+   "new": "/* native: TechnoTypes is TechnoTypeClass::Array's storage (one address), bound by yr_aliases.py */",
+   "why": "gamemd.exe has one vector at this address, which the tree defines twice (TechnoTypes here, TechnoTypeClass::Array in its class unit); natively two definitions were two vectors (rules filled one, the skirmish dialog read the other), so this name becomes an alias of the class array (lane Y3)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "append": "ownrdraw_combo_native.inc",
+   "why": "OwnerDraw::ComboBoxHandler (0x00617250) and the ComboDropWin procedure FUN_0060D540 (0x0060D540), unmatched in the YR tree; native drafts from the RA2 tree's rewrite and matched twin with gamemd.exe's globals (lane Y3)."
+  },
+  {
+   "file": "src/srfcache.cpp",
+   "append": "srfcache_native.inc",
+   "why": "SurfaceCacheClass::Draw (0x006BA3E0) and DrawMasked, unmatched in the YR tree; TibSun's text, adopted with attribution (lane Y3)."
+  },
+  {
+   "file": "src/map.cpp",
+   "append": "map_native.inc",
+   "why": "MapClass::Set_Map_Dimensions (0x00565C10) is unmatched in the YR tree; TibSun's text, adopted with attribution (lane Y3)."
+  },
+  {
+   "file": "src/map.cpp",
+   "append": "map_zones_native.inc",
+   "why": "MapClass's zone and pathfinding functions, Place_Down/Pick_Up, threat, bridge repair and fog tests, unmatched in the YR tree; TibSun's text, adopted with attribution (lane Y3)."
+  },
+  {
+   "file": "src/ldprgmgr.cpp",
+   "append": "ldprgmgr_native.inc",
+   "why": "LoadProgressManager::Draw (0x00552D60) is unmatched in the YR tree and has no RA2 twin; a partial behaviour draft (the skirmish loading picture) from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/progress2.cpp",
+   "append": "progress_native.inc",
+   "why": "ProgressScreenClass::Draw_Player (0x00643720) is unmatched in the YR tree; a native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/palette.cpp",
+   "append": "palette_native.inc",
+   "why": "FUN_006267A0 (0x006267A0, the scheme library's theater change) is unmatched in the YR tree; a native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/isotype.cpp",
+   "old": "\t\t\t\t\t\tIsoTileRecord ** record = &mixfile_set->Tiles[j];\n\t\t\t\t\t\tif (*record != 0 && (unsigned int)*record < (unsigned int)mixfile_set) {\n\t\t\t\t\t\t\t*record = (IsoTileRecord *)((unsigned int)mixfile_set + (unsigned int)*record);\n\t\t\t\t\t\t}",
+   "new": "\t\t\t\t\t\tmixfile_set->Tiles[j].Resolve(mixfile_set);   // NATIVE: offset -> record reference (the original's 'not yet a pointer' test is Resolve's)",
+   "why": "The tile set's record offsets resolved through the native slot (lane Y3)."
+  },
+  {
+   "file": "src/isotype.cpp",
+   "old": "\t\tif (tileset->Tiles[i] != NULL) {\n\t\t\tunsigned char * ptr = (unsigned char *)ImageData;\n\t\t\t// Only fix up pointers that have not been converted already. The file\n\t\t\t// has just been read fresh, so none of them ever have been.\n\t\t\tif ((void *)tileset->Tiles[i] < ptr) {\n\t\t\t\ttileset->Tiles[i] = (IsoTileRecord *)(ptr + (unsigned int)tileset->Tiles[i]);\n\t\t\t}",
+   "new": "\t\tif (tileset->Tiles[i].Ref != 0) {   // NATIVE: the raw slot (an unresolved offset reads back as no record)\n\t\t\tunsigned char * ptr = (unsigned char *)ImageData;\n\t\t\t// Only fix up pointers that have not been converted already. The file\n\t\t\t// has just been read fresh, so none of them ever have been.\n\t\t\ttileset->Tiles[i].Resolve(ptr);   // NATIVE: offset -> record reference",
+   "why": "The tile set's record offsets resolved through the native slot (lane Y3)."
+  },
+  {
+   "file": "src/power.cpp",
+   "old": "extern int DAT_00886F90;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F90 (SidebarRect.X)",
+   "why": "DAT_00886F90 is SidebarRect.X (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/power.cpp",
+   "old": "extern int DAT_00886F94;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F94 (SidebarRect.Y)",
+   "why": "DAT_00886F94 is SidebarRect.Y (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "extern int DAT_00886F94;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F94 (SidebarRect.Y)",
+   "why": "DAT_00886F94 is SidebarRect.Y (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "extern int DAT_00886F98;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F98 (SidebarRect.Width)",
+   "why": "DAT_00886F98 is SidebarRect.Width (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "extern int DAT_00886F9C;",
+   "new": "extern Rect SidebarRect;\n#define DAT_00886F9C (SidebarRect.Height)",
+   "why": "DAT_00886F9C is SidebarRect.Height (gamemd.exe's SidebarRect at 0x00886F90): natively the name reads the unit's SidebarRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "extern int DAT_00886FA8;",
+   "new": "extern Rect TacticalRect;\n#define DAT_00886FA8 (TacticalRect.Width)",
+   "why": "DAT_00886FA8 is TacticalRect.Width (gamemd.exe's TacticalRect at 0x00886FA0): natively the name reads the unit's TacticalRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/tab.cpp",
+   "old": "extern int DAT_00886FA8;",
+   "new": "extern Rect TacticalRect;\n#define DAT_00886FA8 (TacticalRect.Width)",
+   "why": "DAT_00886FA8 is TacticalRect.Width (gamemd.exe's TacticalRect at 0x00886FA0): natively the name reads the unit's TacticalRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/wwmous.cpp",
+   "old": "extern int DAT_00886FB8;",
+   "new": "extern Rect VisibleRect;\n#define DAT_00886FB8 (VisibleRect.Width)",
+   "why": "DAT_00886FB8 is VisibleRect.Width (gamemd.exe's VisibleRect at 0x00886FB0): natively the name reads the unit's VisibleRect, not a separate zero-filled store the link closure would make (lane Y4)."
+  },
+  {
+   "file": "src/mpscore.cpp",
+   "regex": true,
+   "old": "qsort\\(DAT_00ABF958, ([^,]+), 4, FUN_005C9AE0\\)",
+   "new": "qsort(DAT_00ABF958, \\1, sizeof(DAT_00ABF958[0]), FUN_005C9AE0)",
+   "why": "The score screen sorts its table of score pointers with an element size of 4 (a 32-bit pointer); natively a pointer is 8 bytes, so the size is the element's (lane Y4)."
+  },
+  {
+   "file": "src/combat.cpp",
+   "append": "combat_native.inc",
+   "why": "The area damage (0x00489280) is unmatched in the YR tree; TibSun's Explosion_Damage text (lane Y4)."
+  },
+  {
+   "file": "src/bounce.cpp",
+   "append": "bounce_native.inc",
+   "why": "BounceClass::AI is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/xsurface.cpp",
+   "append": "xsurface_native.inc",
+   "why": "XSurface::Plot_Line is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/building.cpp",
+   "append": "building_native.inc",
+   "why": "BuildingClass::Exit_Object is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/astar.cpp",
+   "append": "astar_native.inc",
+   "why": "AStarClass::Find_Path_Regular is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/walk.cpp",
+   "append": "walk_native.inc",
+   "why": "WalkLocomotionClass::Movement_AI is unmatched in the YR tree; TibSun's text (lane Y4)."
+  },
+  {
+   "file": "src/foot.cpp",
+   "append": "foot_native.inc",
+   "why": "FootClass::Active_Click_With(ActionType, ObjectClass *, bool) is unmatched in the YR tree; TibSun's text with gamemd.exe's cases (lane Y4)."
+  },
+  {
+   "file": "src/infantry.cpp",
+   "append": "infantry_native.inc",
+   "why": "InfantryClass::Assign_Destination is unmatched in the YR tree; TibSun's text with gamemd.exe's changes (lane Y4)."
+  },
+  {
+   "file": "src/ahandle2.cpp",
+   "append": "ahandle2_native.inc",
+   "why": "AircraftTrackerClass::FillCurrentVector, unmatched in the YR tree; written from gamemd.exe's code (lane Y6)."
+  },
+  {
+   "file": "src/super.cpp",
+   "append": "super_native.inc",
+   "why": "SuperClass::Launch, unmatched in the YR tree; the RA2 twin's Place text with YR's super weapons read from gamemd.exe (lane Y6)."
+  },
+  {
+   "file": "src/slavemanager.cpp",
+   "append": "slavemanager_native.inc",
+   "why": "The slave miner's two state machines (SlaveManagerClass FUN_006AF6C0, FUN_006AFD60), unmatched in the YR tree; written from gamemd.exe's code (lane Y6)."
+  },
+  {
+   "file": "src/partsys.cpp",
+   "append": "partsys_native.inc",
+   "why": "ParticleSystemClass::Smoke_AI and Spark_AI, unmatched in the YR tree; the RA2 twins' text checked against gamemd.exe (lane Y6)."
+  },
+  {
+   "file": "src/particle.cpp",
+   "append": "particle_native.inc",
+   "why": "ParticleClass::Spark_Behavior_AI (0x0062C6E0) is unmatched in the YR tree; a native draft from Red Alert 2's text checked against gamemd.exe (lane Y11b)."
+  },
+  {
+   "file": "src/unit.cpp",
+   "append": "unit_native.inc",
+   "why": "UnitClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/cell.cpp",
+   "append": "cell_native.inc",
+   "why": "CellClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/taction.cpp",
+   "append": "taction_native.inc",
+   "why": "Attaches_To(TActionType) is unmatched in the YR tree; TibSun's text with gamemd.exe's case list (lane Y3)."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "append": "scenario_native.inc",
+   "why": "Wait_For_Players_To_Load is unmatched in the YR tree; a partial native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/tactical.cpp",
+   "append": "tactical_native.inc",
+   "why": "Tactical functions unmatched in the YR tree; TibSun's text adjusted to gamemd.exe as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/builtype.cpp",
+   "append": "builtype_native.inc",
+   "why": "BuildingTypeClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/alphashp.cpp",
+   "append": "alphashp_native.inc",
+   "why": "AlphaShapeClass::Draw_All is unmatched in the YR tree; TibSun's text as a native draft (lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "BufferStart = (unsigned int)(SurfacePtr->Lock());",
+   "new": "BufferStart = (uintptr_t)(SurfacePtr->Lock());",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "void ABuffer::Set(unsigned int dst,",
+   "new": "void ABuffer::Set(uintptr_t dst,",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "dst = (unsigned int)((unsigned short *)dst + 1);",
+   "new": "dst = (uintptr_t)((unsigned short *)dst + 1);",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "unsigned int new_offset = Wrap_Underflow(SurfaceOffset + BufferStart);",
+   "new": "uintptr_t new_offset = Wrap_Underflow(SurfaceOffset + BufferStart);",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "unsigned int buffptr = Get_Buffer_Offset(Point2D(rect.X, rect.Y));",
+   "new": "uintptr_t buffptr = Get_Buffer_Offset(Point2D(rect.X, rect.Y));",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/abuffer.cpp",
+   "old": "unsigned int ABuffer::Get_Buffer_Offset(Point2D pos)\n{\n\tunsigned int buffptr = (unsigned int)SurfacePtr->Lock(pos);",
+   "new": "uintptr_t ABuffer::Get_Buffer_Offset(Point2D pos)\n{\n\tuintptr_t buffptr = (uintptr_t)SurfacePtr->Lock(pos);",
+   "why": "The ABuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "BufferStart = (unsigned int)(SurfacePtr->Lock());",
+   "new": "BufferStart = (uintptr_t)(SurfacePtr->Lock());",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "void ZBuffer::Set(unsigned int dst,",
+   "new": "void ZBuffer::Set(uintptr_t dst,",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "dst = (unsigned int)((unsigned short *)dst + 1);",
+   "new": "dst = (uintptr_t)((unsigned short *)dst + 1);",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "unsigned int new_offset = Wrap_Underflow(SurfaceOffset + BufferStart);",
+   "new": "uintptr_t new_offset = Wrap_Underflow(SurfaceOffset + BufferStart);",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "unsigned int buffptr = Get_Buffer_Offset(Point2D(rect.X, rect.Y));",
+   "new": "uintptr_t buffptr = Get_Buffer_Offset(Point2D(rect.X, rect.Y));",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/zbuffer.cpp",
+   "old": "unsigned int ZBuffer::Get_Buffer_Offset(Point2D pos)\n{\n\tunsigned int buffptr = (unsigned int)SurfacePtr->Lock(pos);",
+   "new": "uintptr_t ZBuffer::Get_Buffer_Offset(Point2D pos)\n{\n\tuintptr_t buffptr = (uintptr_t)SurfacePtr->Lock(pos);",
+   "why": "The ZBuffer ring folds raw addresses held in 32-bit unsigned ints (BufferStart/BufferEnd, Get_Buffer_Offset, Wrap_Overflow, Set's destination); natively they are pointer-width (uintptr_t) with the same arithmetic, as ra2-native's ABuffer/ZBuffer (native/port/fixups.json; lane Y3)."
+  },
+  {
+   "file": "src/isotype.cpp",
+   "append": "isotype_native.inc",
+   "why": "IsometricTileTypeClass::Draw_Tile is unmatched in the YR tree; the RA2 tree's native draft of its twin with YR names (lane Y3)."
+  },
+  {
+   "file": "src/blowfish.cpp",
+   "old": "int zbuffer_offset = 0;\n\tint abuffer_offset = 0;",
+   "new": "intptr_t zbuffer_offset = 0;\n\tintptr_t abuffer_offset = 0;",
+   "why": "RLE_Blit and Buffer_To_Surface_With_Z keep the depth and alpha buffer positions (addresses from Get_Buffer_Offset) in ints; pointer-width natively (lane Y3)."
+  },
+  {
+   "file": "src/techno.cpp",
+   "append": "techno_native.inc",
+   "why": "TechnoClass functions unmatched in the YR tree; TibSun's text adjusted to gamemd.exe as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/techno.cpp",
+   "append": "fire_at_native.inc",
+   "why": "TechnoClass::Fire_At (0x006FDD50) is unmatched in the YR tree (the first shot of a long game reached its trap); a native draft from Red Alert 2's text and gamemd.exe's YR changes (lane Y11b)."
+  },
+  {
+   "file": "src/bullet.cpp",
+   "append": "bullet_native.inc",
+   "why": "BulletClass::Unlimbo (0x00468670), BulletClass::AI (0x004666E0), BulletClass::Shrapnel (0x0046A310) and Projectile_Motion (0x005B20F0) are unmatched in the YR tree; native drafts from the RA2 twins and TibSun's text with gamemd.exe's YR changes (lane Y11)."
+  },
+  {
+   "file": "src/team.cpp",
+   "append": "team_native.inc",
+   "why": "TeamClass::AI (0x006E9140) is unmatched in the YR tree; a native draft from gamemd.exe's code and the RA2 twin, appended to the team unit so it reaches the unit's TMission_* handlers (lane Y11)."
+  },
+  {
+   "file": "src/credits.cpp",
+   "append": "credits_native.inc",
+   "why": "CreditClass::Graphic_Logic is unmatched in the YR tree; a native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "extern int DAT_00B04A38;",
+   "new": "extern intptr_t DAT_00B04A38;",
+   "why": "The radar's animation shape pointer kept in an int global (DAT_00B04A38 = RadarAnimShape); pointer-width natively (lane Y3)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "\tDAT_00B04A38 = RadarAnimShape;",
+   "new": "\tDAT_00B04A38 = (intptr_t)RadarAnimShape;",
+   "why": "As above (lane Y3)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "extern int RadarAnimShape;",
+   "new": "extern class SHPStruct * RadarAnimShape;",
+   "why": "radar.cpp declares the radar animation shape (an SHPStruct * that txtlabel2.cpp loads) as int; natively the int read takes only the pointer's low half (lane Y3)."
+  },
+  {
+   "file": "src/drive.cpp",
+   "append": "drive_native.inc",
+   "why": "DriveLocomotionClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/voc.cpp",
+   "old": "DAT_00B1D3A4 = FUN_004074D0(200, 60);",
+   "new": "DAT_00B1D3A4 = FUN_004074D0(200, sizeof(SoundNode));   // NATIVE: 60 is VC6's sizeof(SoundNode)",
+   "why": "The positional-sound pool's item size is the 32-bit SoundNode's 60 bytes; the native SoundNode is larger and overran its neighbours' links (lane Y3)."
+  },
+  {
+   "file": "src/house.cpp",
+   "append": "house_native.inc",
+   "why": "HouseClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/queue.cpp",
+   "append": "queue_native.inc",
+   "why": "Execute_DoList (FUN_0064C380) is unmatched in the YR tree; TibSun's text as a native draft (lane Y3)."
+  },
+  {
+   "file": "src/planmgr.cpp",
+   "append": "planmgr_native.inc",
+   "why": "FUN_0063AB60 (planning-mode test) is unmatched in the YR tree; a partial native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/display.cpp",
+   "append": "display_native.inc",
+   "why": "DisplayClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/vox.cpp",
+   "append": "vox_native.inc",
+   "why": "FUN_00752760 (the EVA speech service) is unmatched in the YR tree; a native draft from gamemd.exe's code (lane Y3)."
+  },
+  {
+   "file": "src/voxlib.cpp",
+   "regex": true,
+   "old": "short\\((float\\(.*?\\)(?: / [a-z_]+)? \\* 256)\\);",
+   "new": "(short)ra2port::x87_ftol(\\1);",
+   "why": "VC6 converts the voxel span steps (8.8 fixed point) to short through _ftol, which wraps a value past 32767 into the 16-bit step the drawers expect; arm64's float-to-short conversion saturates instead, so the voxel bodies drew nowhere. ra2port::x87_ftol keeps the x87 result (lane Y3)."
+  },
+  {
+   "file": "src/txtlabel2.cpp",
+   "regex": true,
+   "old": "delete \\[\\] (DAT_00B0FB(?:70|68|60|78));",
+   "new": "delete \\1;",
+   "why": "NATIVE (lane Y5): FUN_0072B230 (the menu palettes' release at exit) calls the four drawers' deleting destructor with the vector flag (gamemd.exe 0x0072B257 push 3), though FUN_0072ADE0 makes each with a plain new; Windows' heap let the bad free pass at exit, the native heap aborts (the combined app ends YR through Exit Game at every swap). Scalar delete, as the objects were made."
+  },
+  {
+   "file": "*",
+   "regex": true,
+   "old": "RadioMessageType message, int &",
+   "new": "RadioMessageType message, intptr_t &",
+   "why": "The radio's message parameter carries an object pointer for RADIO_MOVE_HERE and RADIO_NEED_TO_MOVE (param = (int)this; object = (ObjectClass *)param): an int on VC6, where a pointer fits; natively the int cut the 64-bit address and the receiver faulted (a harvester docking at a refinery, lane Y6). Pointer-sized natively, as the RA2 tree has it (shared/radio.hpp: AbstractClass *&param); every value is the same."
+  },
+  {
+   "file": "*",
+   "regex": true,
+   "old": "\\bparam = \\(int\\)",
+   "new": "param = (intptr_t)",
+   "why": "The pointer stores into the radio parameter above (BuildingClass, UnitClass, AircraftClass, FootClass Receive_Message): kept whole natively."
+  },
+  {
+   "file": "hdr/globals.h",
+   "old": "extern int LParam;",
+   "new": "extern intptr_t LParam;",
+   "why": "The radio's default parameter (Transmit_Message(message, LParam, to)) is passed by reference as the parameter above; pointer-sized natively, defined in native/yr/glue/yr_globals.cpp (zero, as in gamemd.exe's .bss)."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "old": "\t\tfor (;;) {\n\t\t\tif (Main_Loop()) {",
+   "new": "\t\tbool yr_native_main_loop(void);\n\t\tfor (;;) {\n\t\t\tif (yr_native_main_loop()) {",
+   "why": "lane Y7: the host learns that the game is in play, as the RA2 game's Main_Loop seam tells it (link/harness_skirmish.cpp, Native_Map_Zoom_Frame): yr_native_main_loop (glue/yr_app_hooks.cpp) marks play (ra2_enh_in_play, the touch toolbar's condition), calls Main_Loop and returns its result unchanged."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "old": "\t\tFUN_0072DFB0();\n\t\tSession.Pause();",
+   "new": "\t\tvoid yr_native_play_over(void);\n\t\tyr_native_play_over();\n\t\tFUN_0072DFB0();\n\t\tSession.Pause();",
+   "why": "lane Y7: the game loop is over (won, lost or aborted): the host's in-play mark is cleared (glue/yr_app_hooks.cpp), so the touch toolbar leaves with the game; nothing else changes."
+  },
+  {
+   "file": "src/fly.cpp",
+   "append": "fly_native.inc",
+   "why": "FlyLocomotionClass::Nearing_Target (0x004CEFB0) is unmatched in the YR tree; a native draft from the RA2 tree's twin and gamemd.exe's code (lane Y7), appended to the fly unit."
+  },
+  {
+   "file": "src/house.cpp",
+   "old": "\tif (this == PlayerPtr && !DAT_00880990 && builder && object) {",
+   "new": "\tif (this == PlayerPtr && !Map.PendingObject && builder && object) {",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/house.cpp",
+   "old": "\t\tDAT_0088099A = false;\n\t\tDAT_0088099B = false;\n\t\tDAT_0088099C = false;\n\t\tCurrentSWType = -1;\n\t\tDAT_00880990 = (int)object->Class;\n\t\tDAT_0088098C.Ptr = (int)object;\n\t\tDAT_00880994 = HeapID;",
+   "new": "\t\tMap.IsPowerMode = false;\n\t\tMap.IsWaypointMode = false;\n\t\tMap.PlaceBeaconMode = false;\n\t\tMap.IsTargettingMode = SuperWeaponType(-1);\n\t\tMap.PendingObject = object->Class;\n\t\tMap.PendingObjectPtr = object;\n\t\tMap.PendingHouse = HousesType(HeapID);",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/taction.cpp",
+   "old": "\tDAT_0088098C.Ptr = 0;\n\tDAT_0088098C.Type = 0;\n\tDAT_0088098C.House = -1;",
+   "new": "\tMap.PendingObjectPtr = 0;\n\tMap.PendingObject = 0;\n\tMap.PendingHouse = HousesType(-1);",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/taction.cpp",
+   "old": "\tDAT_0088099A = false;\n\tDAT_0088099B = false;\n\tDAT_0088099C = false;\n\tFUN_00684240();",
+   "new": "\tMap.IsPowerMode = false;\n\tMap.IsWaypointMode = false;\n\tMap.PlaceBeaconMode = false;\n\tFUN_00684240();",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/uicmnds.cpp",
+   "old": "\tif (DAT_00880990) {\n\t\tMap.Set_Cursor_Pos(DAT_00B0FDF0);",
+   "new": "\tif (Map.PendingObject) {\n\t\tMap.Set_Cursor_Pos(DAT_00B0FDF0);",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/mpcoop.cpp",
+   "old": "\tDAT_0088098C = 0;\n\tDAT_00880990 = 0;\n\tDAT_00880994 = -1;",
+   "new": "\tMap.PendingObjectPtr = 0;\n\tMap.PendingObject = 0;\n\tMap.PendingHouse = HousesType(-1);",
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+  },
+  {
+   "file": "src/super.cpp",
+   "old": "extern int DAT_008809A0;",
+   "new": "#define DAT_008809A0 (*(int *)&Map.IsTargettingMode)",
+   "why": "lane Y7: Map's own members at these addresses (Map 0x0087F7E8: +0x11B8 IsTargettingMode = 0x008809A0; +0x1190 CurrentBuildingCopy, +0x1194 CurrentBuildingTypeCopy, +0x1198 CurrentBuildingOwnerArrayIndexCopy = 0x00880978..0x00880980; display.h), which the tree declares as separate globals; natively those are other storage than Map's, so the super weapon targeting mode and the placement copy were never the ones the interface reads. Each name now stands for the member."
+  },
+  {
+   "file": "src/tactical.cpp",
+   "old": "extern ObjectClass const * DAT_00880978;\nextern int DAT_0088097C;\nextern int DAT_00880980;",
+   "new": "#define DAT_00880978 Map.CurrentBuildingCopy\n#define DAT_0088097C (*(ObjectTypeClass const **)&Map.CurrentBuildingTypeCopy)\n#define DAT_00880980 (*(int *)&Map.CurrentBuildingOwnerArrayIndexCopy)",
+   "why": "lane Y7: Map's own members at these addresses (Map 0x0087F7E8: +0x11B8 IsTargettingMode = 0x008809A0; +0x1190 CurrentBuildingCopy, +0x1194 CurrentBuildingTypeCopy, +0x1198 CurrentBuildingOwnerArrayIndexCopy = 0x00880978..0x00880980; display.h), which the tree declares as separate globals; natively those are other storage than Map's, so the super weapon targeting mode and the placement copy were never the ones the interface reads. Each name now stands for the member."
+  },
+  {
+   "file": "src/scroll.cpp",
+   "old": "\t\t\t\tMap.Mouse_Left_Release(coord, cell, object, What_Action(cell, object, false));\n",
+   "new": "\t\t\t\tActionType Yr_Modern_Left_Up(ObjectClass *&object, ActionType action, bool band);\n\t\t\t\tvoid Yr_Modern_Left_Done();\n\t\t\t\tMap.Mouse_Left_Release(coord, cell, object, Yr_Modern_Left_Up(object, What_Action(cell, object, false), IsRubberBand));\n\t\t\t\tYr_Modern_Left_Done();\n",
+   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: ScrollClass::Message_Handler 0x006930A0, WM_LBUTTONUP: the action Mouse_Left_Release performs (Modern: select, deselect on open ground, Shift toggles, a double click selects the type)."
+  },
+  {
+   "file": "src/scroll.cpp",
+   "old": "\t\t\tif (IsMouseDown) {\n\t\t\t\tMap.Mouse_Right_Release(point);\n\t\t\t\tBASECLASS::Abort_Drag_Select();\n",
+   "new": "\t\t\tif (IsMouseDown) {\n\t\t\t\tbool Yr_Modern_Right_Order(bool scrolled);\n\t\t\t\tActionType Yr_Modern_Right_Action(ActionType action);\n\t\t\t\tif (Yr_Modern_Right_Order(IsDragOperation)) {\n\t\t\t\t\tResolve_Point(pos, cell, coord, object, fog, shadow);\n\t\t\t\t\tActionType action = Yr_Modern_Right_Action(What_Action(cell, object, false));\n\t\t\t\t\tif (action != ACTION_NONE) Map.Mouse_Left_Release(coord, cell, object, action);\n\t\t\t\t} else {\n\t\t\t\t\tMap.Mouse_Right_Release(point);\n\t\t\t\t}\n\t\t\t\tBASECLASS::Abort_Drag_Select();\n",
+   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: ScrollClass::Message_Handler 0x006930A0, WM_RBUTTONUP: Modern takes a right click (no scroll ran, no mode on) as the order the original's left click would give there, never a selection; Classic, a scroll or a mode: Mouse_Right_Release as before."
+  },
+  {
+   "file": "src/display.cpp",
+   "old": "\t\tTacticalMap->Select_Rubber_Band(Bandbox_Selection_Callback);\n",
+   "new": "\t\tvoid (*Yr_Modern_Band_Walk(void (*select)(ObjectClass *)))(ObjectClass *);\n\t\tTacticalMap->Select_Rubber_Band(Yr_Modern_Band_Walk(Bandbox_Selection_Callback));\n",
+   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: DisplayClass::Mouse_Left_Release 0x004AB9B0, the band's walk: Modern with Shift over objects all selected already unselects them (otherwise Bandbox_Selection_Callback, the original's)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "int RadarClass::RTacticalClass::Action(unsigned flags, KeyNumType & key, int modifier)\n{\n",
+   "new": "unsigned Yr_Modern_Radar_Flags(unsigned flags);\nint RadarClass::RTacticalClass::Action(unsigned flags, KeyNumType & key, int modifier)\n{\n\tflags = Yr_Modern_Radar_Flags(flags);\n",
+   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: RadarClass::RTacticalClass::Action 0x006539D0: Modern swaps the radar's buttons (left centres the view, right orders)."
+  },
+  {
+   "file": "src/mainopt.cpp",
+   "append": "mainopt_native.inc",
+   "why": "The shell Options dialog's procedure FUN_0055FDB0 (0x0055FDB0) is unmatched in the YR tree (a trap: the main menu's Options crashed); a native draft from gamemd.exe's code with the RA2 twin's behaviour row as the text, and the native Enhancements page behind the port's ENHANCEMENTS button (lane Y8)."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\tif (type == 0xd5) {\n\t\treturn id == 0x5ce ||\n\t\t\tid == 0x5cd;\n\t}\n",
+   "new": "\tif (type == 0xd5) {\n\t\treturn id == 0x5ce ||\n\t\t\tid == 0x5cd ||\n\t\t\tid == 0x7f80 ||\t// NATIVE (lane Y8): the Enhancements button\n\t\t\tid == 0x7f02 || id == 0x7f00 || id == 0x7f01;\t// NATIVE: the Enhancements page's Ok, Original, Enhanced\n\t}\n",
+   "why": "lane Y8, the Enhancements button and page in YR (native additions, not original behaviour; RA2's port/fixups.json row for 0x005E6860): this test lists, per dialog kind, the buttons of the right-hand column; for 0xD5 Keyboard 0x5CE and Network 0x5CD. The port appends the button 0x7F80 to 0xD5 and the page (created under 0xD5) has Ok, Original, Enhanced 0x7F02/0x7F00/0x7F01. No original id is affected."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\t\ttype == 0x10e) {\n\t\treturn id == 0x686;\n",
+   "new": "\t\ttype == 0x10e) {\n\t\treturn id == 0x686 || (type == 0xd5 && id == 0x7f03);\t// NATIVE (lane Y8): the Enhancements page's Cancel\n",
+   "why": "lane Y8 (native addition): the bottom slot of the right-hand column per dialog kind (RA2's 0x005E72C0 row); the Enhancements page, created under 0xD5, has its Cancel 0x7F03 there beside the Options dialog's Main Menu 0x686. No original dialog has a control 0x7F03."
+  },
+  {
+   "file": "hdr/auddsnd.h",
+   "old": "struct AudioSample\n{\n\tunsigned gap0[5];\n\tAudioFormat * Format;\n};\n\nstruct AudioChannel;\nstruct AudioDevice;\n\nstruct AudioServiceInfo\n{\n\tunsigned data[26];\n};\n\nstruct AudioSearch\n{\n\tunsigned data[2];\n};\n\nstruct AudioLock\n{\n\tvolatile int count;\n};\n\nstruct AudioDevice\n{\n\tunsigned gap0[17];\n\tAudioFormat DefaultFormat;\n\tunsigned gap1[36];\n\tint maxChannels;\n\tunsigned gap2[3];\n\tAudioLock channelAccess;\n\tunsigned gap3[26];\n\tAudioServiceInfo mixerUpdate;\n\tint frames;\n\tint over_sample;\n\tint frame_lag;\n};\n\ntypedef void(__fastcall AudioChannelCB)(AudioChannel * chan);\n\nstruct AudioChannel\n{\n\tunsigned gap0[41];\n\tvolatile unsigned Status;\n\tunsigned gap1;\n\tAudioDevice * Device;\n\tunsigned gap2[10];\n\tAudioAttribs attribs;\n\tunsigned gap3[2];\n\tstruct AudioDriverChannel * drvData;\n\tAudioChannelCB * drvCBNextFrame;\n\tAudioChannelCB * drvCBNextSample;\n\tAudioChannelCB * drvCBSampleDone;\n\tAudioSample * sample;\n\tunsigned gap4;\n\tvoid * frameData;\n\tint bytesInFrame;\n\tunsigned gap5;\n\tAudioFormat current_format;\n\tunsigned gap6;\n\tint drv_format_changed;\n\tunsigned gap7;\n\tTimeStamp time_min_frame;\n\tTimeStamp time_buffer;\n};\n\nstruct AudioSystem\n{\n\tunsigned gap0[6];\n\tint numUnits;\n};\n\n",
+   "new": "// NATIVE (lane Y8): the driver's views of auddev.h's AudioDevice and AudioSystem, audchan.h's\n// AudioChannel and audsrc.h's AudioSample, AudioServiceInfo (audsvc.h) and AudioSearch spelled\n// their other members as 32-bit gaps; natively the gaps are the real members at their native\n// widths (pointers, ListNode, TimeStamp), so every field the driver uses sits where the rest of\n// wpaudio has it. The driver's names are kept.\n#include \"audlist.h\"\n\nstruct AudioSample\n{\n\tchar * Data;\n\tint Bytes;\n\tListHead Frames;\n\tAudioFormat * Format;\n\tAudioAttribs * Attribs;\n\tint Reserved;\n};\n\nstruct AudioChannel;\nstruct AudioDevice;\nstruct AudioSystem;\nstruct AudioChannelDriver;\n\nstruct AudioServiceInfo\n{\n\tvolatile TimeStamp Interval;\n\tvolatile TimeStamp MustServiceInterval;\n\tvolatile TimeStamp Delay;\n\tvolatile TimeStamp MaxDelay;\n\tvolatile TimeStamp ResetInterval;\n\tvolatile TimeStamp LastTime;\n\tvolatile TimeStamp PeakDelay;\n\tvolatile TimeStamp PeakTime;\n\tvolatile TimeStamp PeakWindow;\n\tvolatile int Count;\n\tvolatile int Missed;\n\tvolatile int LastCount;\n\tint Anim;\n};\n\nstruct AudioSearch\n{\n\tvoid * item;\n\tunsigned stamp;\n};\n\nstruct AudioLock\n{\n\tvolatile int count;\n};\n\nstruct AudioDevice\n{\n\tListNode nd;\n\tunsigned flags;\n\tAudioLock lock;\n\tunsigned Reserved1;\n\tAudioSystem * system;\n\tint systemUnit;\n\tunsigned Reserved2;\n\tAudioFormat Format;\n\tAudioFormat DefaultFormat;\n\tunsigned Reserved3;\n\tAudioAttribs Attribs;\n\tunsigned Reserved4[2];\n\tAudioAttribs * GroupAttribs;\n\tint Unit;\n\tint channels;\n\tint maxChannels;\n\tListHead channelList;\n\tAudioLock channelAccess;\n\tunsigned Reserved8;\n\tvoid * deviceHandler;\n\tAudioServiceInfo attribsUpdate;\n\tunsigned Reserved5[2];\n\tAudioServiceInfo mixerUpdate;\n\tunsigned Reserved9[2];\n\tAudioChannelDriver * driver;\n\tunsigned Reserved6;\n\tint frames;\n\tint over_sample;\n\tint frame_lag;\n\tunsigned Reserved7;\n};\n\ntypedef void(__fastcall AudioChannelCB)(AudioChannel * chan);\n\nstruct AudioChannel\n{\n\tListNode nd;\n\tint Type;\n\tAudioAttribs ChannelAttribs;\n\tchar pad88[8];\n\tAudioAttribs * SfxAttribs;\n\tAudioAttribs * GroupAttribs;\n\tAudioAttribs * CompAttribs;\n\tAudioAttribs * FadeAttribs;\n\tint ControlPriority;\t\t\t// audchan.h's AudioControl Control\n\tvolatile unsigned Status;\n\tvolatile int ControlLoopCount;\n\tAudioDevice * Device;\n\tvoid * CB_NextFrame;\n\tvoid * CB_NextSample;\n\tvoid * CB_SampleDone;\n\tvoid * CB_Stop;\n\tvoid * Data;\n\tchar padC4[0x10];\n\tAudioChannelDriver * driver;\n\tAudioAttribs attribs;\n\tunsigned pad150[2];\n\tstruct AudioDriverChannel * drvData;\n\tAudioChannelCB * drvCBNextFrame;\n\tAudioChannelCB * drvCBNextSample;\n\tAudioChannelCB * drvCBSampleDone;\n\tAudioSample * sample;\n\tvoid * frame;\n\tvoid * frameData;\n\tint bytesInFrame;\n\tint bytesRemaining;\n\tAudioFormat current_format;\n\tint format_changed;\n\tint drv_format_changed;\n\tunsigned pad1A4;\n\tTimeStamp time_min_frame;\n\tTimeStamp time_buffer;\n\tchar pad1B8[8];\n};\n\nstruct AudioSystem\n{\n\tListNode nd;\n\tvoid * master;\n\tAudioLock lock;\n\tunsigned Reserved;\n\tint numUnits;\n};\n\n",
+   "why": "lane Y8: drv_dsnd.cpp's views of wpaudio's structures as their real members at native widths (see native/yr/README.md lane Y8)."
+  },
+  {
+   "file": "hdr/audchan.h",
+   "old": "\tchar pad150[0xc];\n",
+   "new": "\tunsigned pad150[2];\n\tstruct AudioDriverChannel * drvData;\t// NATIVE (lane Y8): drv_dsnd.cpp's member inside the padding\n",
+   "why": "lane Y8: the members drv_dsnd.cpp keeps inside AudioChannel's padding, named so that natively they have their own widths."
+  },
+  {
+   "file": "hdr/audchan.h",
+   "old": "\tchar pad1A4[0x1c];\n",
+   "new": "\tunsigned pad1A4;\n\tTimeStamp time_min_frame;\t// NATIVE (lane Y8): drv_dsnd.cpp's members inside the padding\n\tTimeStamp time_buffer;\n\tchar pad1B8[8];\n",
+   "why": "lane Y8: the members drv_dsnd.cpp keeps inside AudioChannel's padding, named so that natively they have their own widths."
+  },
+  {
+   "file": "src/wpaudio/audplay.cpp",
+   "old": "struct AudioChannel\n{\n\tListNode nd;\n\tint Type;\n\tAudioAttribs ChannelAttribs;\n\tchar pad88[8];\n\tAudioAttribs * SfxAttribs;\n\tAudioAttribs * GroupAttribs;\n\tAudioAttribs * CompAttribs;\n\tAudioAttribs * FadeAttribs;\n\tchar padA0[0x10];\n\tint (__fastcall * CB_NextFrame)(AudioChannel * chan);\n\tchar padB4[4];\n\tint (__fastcall * CB_SampleDone)(AudioChannel * chan);\n\tint (__fastcall * CB_Stop)(AudioChannel * chan);\n\tvoid * Data;\n\tchar padC4[0xac];\n\tchar * frameData;\n\tint bytesInFrame;\n\tint bytesRemaining;\n\tchar pad17C[0x2c];\n\tTimeStamp frameTime;\n\tTimeStamp bufferTime;\n};\n\n",
+   "new": "struct AudioChannel\t\t// NATIVE (lane Y8): audchan.h's AudioChannel at native widths, this unit's names\n{\n\tListNode nd;\n\tint Type;\n\tAudioAttribs ChannelAttribs;\n\tchar pad88[8];\n\tAudioAttribs * SfxAttribs;\n\tAudioAttribs * GroupAttribs;\n\tAudioAttribs * CompAttribs;\n\tAudioAttribs * FadeAttribs;\n\tint ControlPriority;\n\tvolatile unsigned ControlStatus;\n\tvolatile int ControlLoopCount;\n\tvoid * Device;\n\tint (__fastcall * CB_NextFrame)(AudioChannel * chan);\n\tvoid * CB_NextSample;\n\tint (__fastcall * CB_SampleDone)(AudioChannel * chan);\n\tint (__fastcall * CB_Stop)(AudioChannel * chan);\n\tvoid * Data;\n\tchar padC4[0x10];\n\tvoid * driver;\n\tAudioAttribs attribs;\n\tunsigned pad150[2];\n\tvoid * drvData;\n\tvoid * drvCBNextFrame;\n\tvoid * drvCBNextSample;\n\tvoid * drvCBSampleDone;\n\tvoid * sample;\n\tvoid * frame;\n\tchar * frameData;\n\tint bytesInFrame;\n\tint bytesRemaining;\n\tAudioFormat current_format;\n\tint format_changed;\n\tint drv_format_changed;\n\tunsigned pad1A4;\n\tTimeStamp frameTime;\n\tTimeStamp bufferTime;\n\tchar pad1B8[8];\n};\n\n",
+   "why": "lane Y8: audplay.cpp's own view of AudioChannel spelled the members it does not use as 32-bit byte pads, so natively its CB_Stop, Data and the frame fields sat at other offsets than audchan.h's (AudioChannelStop called a heap address once the device opened). Spelled as audchan.h's members at native widths with this unit's names."
+  },
+  {
+   "file": "src/theme.cpp",
+   "old": "extern void __fastcall FUN_00407B40(AudioStream * stream, int value);",
+   "new": "extern void __fastcall FUN_00407B40(AudioStream * stream, intptr_t value);",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/theme.cpp",
+   "old": "extern void __fastcall FUN_00407B50(AudioStream * stream, int value);",
+   "new": "extern void __fastcall FUN_00407B50(AudioStream * stream, intptr_t value);",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/theme.cpp",
+   "old": "extern int AudioScoreAttribs;",
+   "new": "extern intptr_t AudioScoreAttribs;",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/theme.cpp",
+   "old": "extern int AudioFadeAttribs;",
+   "new": "extern intptr_t AudioFadeAttribs;",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "extern void __fastcall FUN_00407B40(AudioStream * stream, int value);",
+   "new": "extern void __fastcall FUN_00407B40(AudioStream * stream, intptr_t value);",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "extern void __fastcall FUN_00407B50(AudioStream * stream, int value);",
+   "new": "extern void __fastcall FUN_00407B50(AudioStream * stream, intptr_t value);",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "extern int AudioVoiceAttribs;",
+   "new": "extern intptr_t AudioVoiceAttribs;",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "extern int AudioGroupAttribs2;",
+   "new": "extern intptr_t AudioGroupAttribs2;",
+   "why": "lane Y8: the streamer's attribute setters (AudioStreamerSetAttribs / SetFadeAttribs, gamemd.exe 0x00407B40 / 0x00407B50) take an AudioAttribs pointer, and the attribute globals hold pointers (wpaudio/audio.cpp FUN_00406B10 points them at its AudioAttribs data); this unit declared both as int, so natively the music and EVA streams got their attributes cut to 32 bits (AudioAttribsApply faulted at 0x01800C7E once wpaudio's device opened). Pointer-sized."
+  },
+  {
+   "file": "hdr/shapeset.h",
+   "old": "inline void * ShapeSet::Get_Data(int shape) const\n{\n\tShapeRecord const * record = Fetch_Record_Pointer(shape);\n\tif (record != NULL && record->Data != 0) return(((char *)this) + record->Data);\n\treturn(NULL);\n}\n\ninline Rect ShapeSet::Get_Rect(int shape) const\n{\n\tShapeRecord const * record = Fetch_Record_Pointer(shape);\n\tif (record != NULL) {\n\t\treturn(Rect(record->X, record->Y, record->Width, record->Height));\n\t}\n\treturn(RECT_NONE);\n}\n\ninline bool ShapeSet::Is_Transparent(int shape) const\n{\n\tShapeRecord const * record = Fetch_Record_Pointer(shape);\n\tif (record != NULL) {\n\t\treturn(record->Is_Transparent());\n\t}\n\treturn(false);\n}\n\ninline bool ShapeSet::Is_RLE_Compressed(int shape) const\n{\n\tShapeRecord const * record = Fetch_Record_Pointer(shape);\n\tif (record != NULL) {\n\t\treturn(record->Is_RLE_Compressed());\n\t}\n\treturn(false);\n}\n",
+   "new": "// NATIVE (lane Y8): Get_Data, Get_Rect, Is_Transparent and Is_RLE_Compressed are SHPStruct's\n// GetPixels, GetFrameBounds, HasTransparency and HasCompression (gamemd.exe 0x0069E740, 0x0069E7E0,\n// 0x0069E8D0, 0x0069E900: yr/data/name_aliases.tsv), which resolve an SHPReference (what\n// FileSystem::LoadFile returns for a .SHP name) to the file behind it; the record reads that were\n// here read the reference object's own bytes as frame records.\n",
+   "why": "lane Y8: YR's shape calls are SHPStruct's methods (gamemd.exe calls 0x0069E740/0x0069E7E0/0x0069E860/0x0069E8D0/0x0069E900 where TibSun's text has ShapeSet's inline record reads); natively the inlines read an SHPReference's own fields and the heap past it as frame records (the shroud SIGBUS, wrong overlay radar colours, out-of-bounds reads found by guard malloc in BuildingTypeClass::Get_Draw_Rect). The inline bodies go; name_aliases.tsv binds the four methods to SHPStruct's."
+  },
+  {
+   "file": "src/vox.cpp",
+   "old": "\tVoxNode * node = (VoxNode *)operator new(0x20);\n",
+   "new": "\tVoxNode * node = (VoxNode *)operator new(sizeof(VoxNode));\t// NATIVE (lane Y8): 0x20 is the 32-bit size\n",
+   "why": "lane Y8: the speech queue's node (VoxNode: a SoundLink, the VoxClass pointer and four ints) was allocated with its 32-bit size 0x20; natively it is larger and FUN_00752590's stores ran past the block (guard malloc, once the EVA stream existed: wpaudio's device opens since this lane)."
+  },
+  {
+   "file": "src/coopcamp.cpp",
+   "old": "\tItems = (void **)operator new(entry->MapCount << 2);\n",
+   "new": "\tItems = (void **)operator new(entry->MapCount * sizeof(void *));\t// NATIVE (lane Y8): << 2 is the 32-bit pointer size\n",
+   "why": "lane Y8: the co-op campaign's map-name table holds one pointer per map; allocated with MapCount << 2 (32-bit pointers) its stores ran past the block natively. Found while auditing fixed 32-bit allocation sizes (the speech queue's VoxNode); not on the skirmish path."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "SwizzlePointerClass(LONG id = 0, void *pointer = NULL) : ID(id), Pointer(pointer) {}",
+   "new": "SwizzlePointerClass(intptr_t id = 0, void *pointer = NULL) : ID(id), Pointer(pointer) {}",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "\t\tLONG ID;",
+   "new": "\t\tintptr_t ID;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "Fetch_Swizzle_ID(void *pointer, LONG *id) override;",
+   "new": "Fetch_Swizzle_ID(void *pointer, intptr_t *id) override;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "Here_I_Am(LONG id, void *pointer) override;",
+   "new": "Here_I_Am(intptr_t id, void *pointer) override;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "inline void Swizzle_Here_I_Am(LONG id, T *ptr)",
+   "new": "inline void Swizzle_Here_I_Am(intptr_t id, T *ptr)",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/iswizzle.h",
+   "old": "Fetch_Swizzle_ID(void *pointer, LONG *id) = 0;",
+   "new": "Fetch_Swizzle_ID(void *pointer, intptr_t *id) = 0;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/iswizzle.h",
+   "old": "Here_I_Am(LONG id, void *pointer) = 0;",
+   "new": "Here_I_Am(intptr_t id, void *pointer) = 0;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\tLONG id = LONG(*pointer);",
+   "new": "\tintptr_t id = intptr_t(*pointer);",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "HRESULT STDMETHODCALLTYPE SwizzleManagerClass::Here_I_Am(LONG id, void *pointer)\n{",
+   "new": "extern \"C\" void ra2port_original_note_id(intptr_t id, void *pointer);   // native: port/src/original_save.cpp\nHRESULT STDMETHODCALLTYPE SwizzleManagerClass::Here_I_Am(intptr_t id, void *pointer)\n{",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp). Declares the helper the next fixup calls."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\tPointerTable.Add(pair);\n\n\treturn(S_OK);",
+   "new": "\tPointerTable.Add(pair);\n\tra2port_original_note_id(id, pointer);   // NATIVE (Y10): the id, for writing gamemd.exe's format\n\n\treturn(S_OK);",
+   "why": "lane Y10, as the RA2 tree's Here_I_Am (port/fixups.json, lane C17): while a save in gamemd.exe's format is read, each object's id is kept, so a save written after loading one gives the object the same id again. Otherwise a no-op."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\t\t\tLONG req_id = request_entry->ID;\n\t\t\tLONG ptr_id = pointer_entry->ID;\n\n\t\t\tif (req_id == ptr_id) {\n\t\t\t\tLONG *ptr = (LONG *)request_entry->Pointer;\n\t\t\t\t*ptr = (LONG)pointer_entry->Pointer;\n\n\t\t\t\trequest_entry++;\n\t\t\t\trequest_count--;\n\t\t\t\tcontinue;\n\t\t\t}\n\n\t\t\twhile (req_id > ptr_id) {\n\t\t\t\tpointer_entry++;\n\t\t\t\tpointer_count--;\n\t\t\t\tptr_id = pointer_entry->ID;\n\t\t\t}\n\n\t\t\tptr_id = pointer_entry->ID;\n\n\t\t\tif (req_id != ptr_id) {\n\t\t\t\tvolatile int div_zero = 0;\n\t\t\t\tdiv_zero = 1 / div_zero;\n\t\t\t}",
+   "new": "\t\t\tintptr_t req_id = request_entry->ID;\n\t\t\tintptr_t ptr_id = pointer_entry->ID;\n\n\t\t\tif (req_id == ptr_id) {\n\t\t\t\tvoid **ptr = (void **)request_entry->Pointer;\n\t\t\t\t*ptr = pointer_entry->Pointer;\n\n\t\t\t\trequest_entry++;\n\t\t\t\trequest_count--;\n\t\t\t\tcontinue;\n\t\t\t}\n\n\t\t\t// native: a bounded walk (the original's runs to its deliberate 1 / 0, which arm64 does not trap)\n\t\t\twhile (pointer_count > 1 && req_id > ptr_id) {\n\t\t\t\tpointer_entry++;\n\t\t\t\tpointer_count--;\n\t\t\t\tptr_id = pointer_entry->ID;\n\t\t\t}\n\n\t\t\tptr_id = pointer_entry->ID;\n\n\t\t\tif (req_id != ptr_id) {\n\t\t\t\tra2port_swizzle_unmatched(req_id, request_entry->Pointer, &PointerTable[0], PointerTable.Count());\n\t\t\t\t*(void **)request_entry->Pointer = NULL;\n\t\t\t\trequest_entry++;\n\t\t\t\trequest_count--;\n\t\t\t}",
+   "why": "lane Y10: the matched pointer is stored whole (8 bytes natively; the original stores a 4-byte LONG over the 4-byte field) and the walk is bounded: the original faults on its deliberate 1 / 0 when a loaded pointer's object never announced itself; arm64 integer division returns 0, so the walk would run off the table and spin. As the RA2 tree's (port/fixups.json, Scout1133): the unmatched field is reported (run_progress.cpp ra2port_swizzle_unmatched) and, after the table, ra2port_swizzle_done stops the run (SIGFPE, the original's fault) unless RA2_NATIVE_SWIZZLE_CONTINUE=1."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\t\tRequestTable.Clear();\n\t\tPointerTable.Clear();",
+   "new": "\t\tRequestTable.Clear();\n\t\tPointerTable.Clear();\n\t\tra2port_swizzle_done();",
+   "why": "lane Y10: see the walk above."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "SwizzleManagerClass Swizzler;",
+   "new": "extern \"C\" void ra2port_swizzle_unmatched(intptr_t id, void *field, void const *swizzled, int count);   // native diagnostics\nextern \"C\" void ra2port_swizzle_done(void);\nextern \"C\" void ra2port_swizzle_note(void *field, void *caller);\n\nSwizzleManagerClass Swizzler;",
+   "why": "lane Y10: declares the port's swizzle diagnostics (port/src/run_progress.cpp) the bounded walk calls."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "Fetch_Swizzle_ID(void *pointer, LONG *id)\n",
+   "new": "Fetch_Swizzle_ID(void *pointer, intptr_t *id)\n",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\t\t*id = (LONG)pointer;",
+   "new": "\t\t*id = (intptr_t)pointer;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "src/abstract.cpp",
+   "old": "\tULONG id = (ULONG)this;",
+   "new": "\tconst void *id = this;",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/abstract.cpp",
+   "old": "\tULONG id;\n",
+   "new": "\tintptr_t id;\n",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/loco.cpp",
+   "old": "\tULONG id = (ULONG)(this);",
+   "new": "\tconst void *id = this;",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/loco.cpp",
+   "old": "\tULONG id;\n",
+   "new": "\tintptr_t id;\n",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/vein.cpp",
+   "old": "\t\tLONG id = (LONG)VeinholeMonsters[i];",
+   "new": "\t\tconst void *id = VeinholeMonsters[i];",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/vein.cpp",
+   "old": "\t\tLONG id;\n\t\tif (FAILED(stream->Read(&id, sizeof(id), NULL))) {",
+   "new": "\t\tintptr_t id;\n\t\tif (FAILED(stream->Read(&id, sizeof(id), NULL))) {",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/house.cpp",
+   "old": "result = stream->Write(unit, sizeof(unit->Type), NULL);",
+   "new": "result = stream->Write(&unit->Type, sizeof(unit->Type), NULL);",
+   "why": "lane Y10 (saves in gamemd.exe's format): the starting unit's Type pointer, its first member, written through the struct's address (the same address); natively the typed Write must see a pointer to write a 4-byte swizzle id, as HouseClass::Load reads it back (&type)."
+  },
+  {
+   "file": "src/loaddlg.cpp",
+   "old": "bool LoadOptionsClass::Load(void)\n{\n\tStyle = LOAD;\n\tDescription = NULL;\n\treturn(Dialog());\n}",
+   "new": "extern \"C\" const char *ra2port_take_resume(void);   // native: port/src/port_core.cpp\nbool LoadOptionsClass::Load(void)\n{\n\tStyle = LOAD;\n\tDescription = NULL;\n\t// NATIVE (lane Y10, as the RA2 game's Load_Dialog, link/behaviour_m15.cpp): the host asked for a file to be\n\t// loaded (--load-save=<file>, a test run's, or a checkpoint's resume): the list's own Load_File with that\n\t// row; a failed load shows the dialog as usual.\n\tif (char const *file = ra2port_take_resume()) {\n\t\tbool loaded = Load_File(file);\n\t\tfprintf(stderr, \"resume: %s %s\\n\", loaded ? \"loaded\" : \"could not load\", file);\n\t\tif (loaded) {\n\t\t\treturn(true);\n\t\t}\n\t}\n\treturn(Dialog());\n}",
+   "why": "lane Y10: Resume at start for Yuri's Revenge (the RA2 game's lane I hook): the port presses Single Player and Load Saved Game (the same dialog ids, 0xE2/0x683 and 0x100/0x689, port/src/user32.cpp) and this loads the requested file as the dialog's list would (Load_File), so a test run can load a save from the menus (--load-save) and a checkpoint can be resumed. Without a request nothing changes."
+  },
+  {
+   "file": "src/lzo1x_c.cpp",
+   "old": "\tconst lzo_bytepp const dict = (const lzo_bytepp) wrkmem;",
+   "new": "\t// native: the dictionary keeps 32-bit offsets from in (lane Y10; the RA2 tree's fixup, Scout1125).\n\tstruct Native_Dict_Ref {\n\t\tunsigned int *slot;\n\t\tconst lzo_byte *base;\n\t\toperator const lzo_byte *() const { return base + (int)*slot; }\n\t\tNative_Dict_Ref &operator=(const lzo_byte *p) { *slot = (unsigned int)(p - base); return *this; }\n\t};\n\tstruct Native_Dict {\n\t\tunsigned int *slots;\n\t\tconst lzo_byte *base;\n\t\tNative_Dict_Ref operator[](lzo_uint i) const { Native_Dict_Ref r = {slots + i, base}; return r; }\n\t};\n\tNative_Dict const dict = {(unsigned int *)wrkmem, in};",
+   "why": "lane Y10 (saves): LZO1X-1's dictionary is 16,384 byte pointers in the caller's 64 KB work memory (CStreamClass's LZODictionary, LZOPipe/LZOStraw's; 4-byte pointers on VC6). Native 8-byte pointers ran 64 KB past the buffer, over the stream's own buffers: the CONTENTS stream of a YR save could not be decompressed (garbage block headers). As the RA2 tree's fixup (native/port/fixups.json, Scout1125): each slot holds the 32-bit offset of its byte from in; a stale slot still decodes to some pointer, which the original's own m_pos < in / offset range tests reject before any read."
+  },
+  {
+   "file": "src/loco.cpp",
+   "old": "result = stream->Read((void *)this, Fetch_Object_Size(), NULL);",
+   "new": "result = stream->Read(this, Fetch_Object_Size(), NULL);",
+   "why": "lane Y10 (saves in gamemd.exe's format): the locomotor's image is read through its own type, as LocomotionClass::Save writes it (stream->Write(this, ...)) and as AbstractClass::Load reads its object, so the typed Read converts it from the i686 layout (field maps, the most derived locomotor's from its vtable); through void * the i686 bytes were laid over the arm64 object as they are. The same call in VC6 (the cast only selects the overload natively)."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\tSwizzlePointerClass pair(id, pointer);\n\tRequestTable.Add(pair);\n\n\t*pointer = NULL;",
+   "new": "\tSwizzlePointerClass pair(id, pointer);\n\tRequestTable.Add(pair);\n\n\tra2port_swizzle_note(pointer, __builtin_return_address(0));   // native diagnostics\n\t*pointer = NULL;",
+   "why": "lane Y10, diagnostic as the RA2 tree's (Scout1133): with RA2_NATIVE_SWIZZLE_TRACE=1 each recorded field remembers its caller (the Load that asked), which the unmatched report prints. No behaviour change."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\t\tif (FUN_00609BC0(parent, window)) {\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
+   "new": "\t\tif (FUN_00609BC0(parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\t// NATIVE (lane C23, Y11): the one-game toggle\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
+   "why": "Native addition: the one-game app's toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) is drawn and animated as the main menu's sidebar buttons (WinData +0xB0 = 1, as FUN_00609BC0 gives Exit Game), as RA2's twin 0x005E7EB0 gives it (port/fixups.json). FUN_00609BC0 knows only the listed dialogs' ids. Lane Y11 (user request 2026-11-17, adopted by the owner): the toggle is a regular main-menu sidebar button in the slot directly above Exit Game, so it takes the sidebar buttons' kind as Exit Game does (record +0xB0 = 1) instead of the dialogs' push buttons' (3)."
+  }
+ ]
+}

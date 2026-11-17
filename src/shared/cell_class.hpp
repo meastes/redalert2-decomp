@@ -1,0 +1,627 @@
+// CellClass: one map cell (Cell.cpp, 0x00470490 unit: members 0x00470680-
+// 0x0047D08F; RTTI vtables 0x0079DB04 primary (24 slots, AbstractClass's
+// plus overrides), 0x0079DAE8 IRTTITypeInfo at +4, 0x0079DAE0 INoticeSink,
+// 0x0079DAD8 INoticeSource). Moved out of shared/map.hpp, where a stand-in
+// with placeholder slots stood for it.
+//
+// Layout (complete, 0x148 bytes): offsets and widths from the constructor
+// 0x00470F10, the NoInitClass constructor 0x00470680, the destructor
+// 0x00470E80, Load 0x00478CB0, Save 0x00478ED0 and the implicit operator=
+// that Set_Map_Dimensions 0x005484E0 expands (it copies every member one by
+// one, the +0x12C/+0x140 flags bit by bit, +0x0AC as 24 shorts and not
+// +0x144). The member order is TibSun cell.h's; every offset up to +0x144
+// equals the YR twin's (ra2-decomp include/cell.h). Names in [] are the
+// TibSun/YR names; members keep their unknown_ names until a rename lands.
+//   +0x000  AbstractClass (0x24)
+//   +0x024  Cell MapCoords               [CellID] the zero cell when constructed
+//   +0x028  FoggedObjects                [FoggedObjects] owned list, saved as a count and pointers
+//   +0x02C  CellClass *unknown_2c        [BridgeDeckCell] swizzled
+//   +0x030  void *unknown_30             [UnusedCell] swizzled
+//   +0x034  LightConvertClass *unknown_34 [Drawer] counted at its +0x194 (Init_Drawer 0x004790F0)
+//   +0x038  int IsoTileIndex             [ITType] 0xFFFF when constructed
+//   +0x03C  TagClass *unknown_3c         [Tag] swizzled; tagged cells listed at 0x00833638
+//   +0x040  void *unknown_40             [YR Rubble: BuildingTypeClass *] swizzled
+//   +0x044  int OverlayIndex             [Overlay] -1
+//   +0x048  int SmudgeIndex              [Smudge] -1
+//   +0x04C  int unknown_4c               [Passability] (Recalc_Passability 0x00478F40)
+//   +0x050  int unknown_50               [Owner] the wall owner's house (0x004724A0) -1
+//   +0x054  int unknown_54               [InfType] -1
+//   +0x058  int unknown_58               [BridgeInfType] -1
+//   +0x05C  int unknown_5c               [LastRedrawFrame] -1
+//   +0x060  int unknown_60               [LastUnknownDrawFrame] -1
+//   +0x064  int unknown_64               [LastBridgeDrawFrame] -1
+//   +0x068  Rect unknown_68              [LastBridgeDrawRect] 0
+//   +0x078  unsigned int unknown_78      [CloakedBy] per-house bits
+//   +0x07C  short unknown_7c[24]         [YR SensorsOfHouses; TibSun SensedBy bits] Is_Sensed 0x0047C2E0 tests > 0
+//   +0x0AC  int unknown_ac[12]           [YR DisguiseSensorsOfHouses: unsigned short [24]] the operator= copy is 24 shorts
+//   +0x0DC  int unknown_dc               [OccupiedBy] per-house bits (Is_House_Bit 0x0047C2C0)
+//   +0x0E0  void *unknown_e0             [YR Jumpjet: FootClass *] swizzled (Set_unknown_e0 0x0047CF30)
+//   +0x0E4  ObjectClass *OccupierPtr     [OccupierPtr] swizzled; chained through ObjectClass +0x30
+//   +0x0E8  ObjectClass *AltOccupierPtr  [BridgeOccupierPtr] swizzled
+//   +0x0EC  int unknown_ec               [Land] index into Ground 0x00850EA0
+//   +0x0F0  double unknown_f0            [YR RadLevel] (Reduce_f0 0x0047CEC0, RadLevelMax 0x0047CE70)
+//   +0x0F8  void *unknown_f8             [YR RadSite] swizzled
+//   +0x0FC  UnknownCellOwned *unknown_fc [YR PixelFX] owned (deleted by the destructor)
+//   +0x100  int unknown_100              [YR OccupyHeightsCoveringMe] counted by the buildings that hide the cell
+//   +0x104  int unknown_104              [Intensity] 0x10000
+//   +0x108  short unknown_108            [Ambient]
+//   +0x10A..+0x114  short                [Brightness, TileBrightness, AltBrightness, RedTint, GreenTint, BlueTint] 1000
+//   +0x116  short unknown_116            [Tube] -1
+//   +0x118  unsigned char unknown_118    [LastBridgeDrawRedraws] 0xFF
+//   +0x119  char unknown_119             [IsIceGrowthAllowed]
+//   +0x11A  char unknown_11a             [SubTile]
+//   +0x11B  char unknown_11b             [Height] signed
+//   +0x11C  unsigned char unknown_11c    [Ramp] (blocks smudges; Force_New_Slope argument)
+//   +0x11D  char unknown_11d             [Elevation]
+//   +0x11E  unsigned char OverlayData    [OverlayData]
+//   +0x11F  unsigned char SmudgeData     [SmudgeData]
+//   +0x120  char unknown_120             [ShadowFrame] -2 (map_cell.hpp reads it unsigned)
+//   +0x121  char unknown_121             [FogFrame] -2 (likewise)
+//   +0x122  char unknown_122             [AdjacentObjectCount]
+//   +0x124  occupation flags             [Flag: Occupy bits / Composite byte]
+//   +0x128  the same for the bridge      [BridgeFlag]
+//   +0x12C  5 flag bits                  [YR IsPlot, IsCursorHere, IsFoundationCopyHere, IsMapped, IsVisible]
+//   +0x130  int unknown_130              [YR ShroudCounter] 1 (0x0047C840/0x0047C8A0)
+//   +0x134  int unknown_134              [YR GapsCoveringThisCell]
+//   +0x138  bool unknown_138             [YR VisibilityChanged]
+//   +0x13C  int unknown_13c              [YR unknown_13C]
+//   +0x140  23 flag bits                 [IsFogVisible .. IsFogged, TibSun/YR order; names below]
+//   +0x144  int unknown_144              not in the YR twin; the implicit operator= does not copy it
+//   size 0x148 (Size_Of 0x0047CF90)
+#ifndef RA2_SHARED_CELL_CLASS_HPP
+#define RA2_SHARED_CELL_CLASS_HPP
+
+#ifdef RA2_SDK_HEADERS
+// The original's cell.h:36 includes _map.h, which includes mouse.h (_map.h:22): the whole screen chain is
+// declared before CellClass. RA2_SDK_HEADERS units only (docs/DECISIONS.md), the same for every converted unit.
+#include "shared/mouse_class.hpp"
+#endif
+
+#ifndef RA2_SHARED_CELL_HPP
+#define RA2_SHARED_CELL_HPP
+#endif
+
+#include "shared/abstract_class.hpp"
+template<class T> class DynamicVectorClass;
+#include "shared/rect.hpp"
+
+// The occupation bits of a cell (Westwood's OccupyFlagsType): the five sub-cell spots (centre,
+// north-west, north-east, south-west, south-east), a vehicle, a building ("monolith") and a
+// building owner bit.
+struct CellOccupyFlags {
+    unsigned Center:1;
+    unsigned NW:1;
+    unsigned NE:1;
+    unsigned SW:1;
+    unsigned SE:1;
+    unsigned Vehicle:1;
+    unsigned Monolith:1;
+    unsigned Building:1;
+};
+class CellClass;
+class ObjectClass;
+class TechnoClass;
+class TagClass;
+class FoggedObjectClass;
+class LightConvertClass;
+class TiberiumClass;
+
+extern "C" GUID const CLSID_CellClass;          // 0x007A1E70
+
+// Isometric tile set start indices: shared/tileset_index.hpp.
+#include "shared/tileset_index.hpp"
+
+// The offsets of the eight neighbouring cells by facing (0x00851A70).
+#include "shared/adjacent_cell.hpp"
+
+// The land types (Ground, 0x00850EA0) that CellClass +0xEC indexes.
+#include "shared/ground_type.hpp"
+
+// The map's list of tagged cells (MapClass +0x1158,
+// DynamicVectorClass<Cell> at 0x00833638).
+extern DynamicVectorClass<Cell> unknown_map_tagged_cells_833638;
+
+// Looked up by cell (0x007101B0, __fastcall; hypothesis: a tube or bridge
+// object) and told about the cell (0x00712300).
+class UnknownCellLookup {
+public:
+    void Unknown_00712300(CellClass *cell);
+};
+UnknownCellLookup *__fastcall Unknown_007101B0(Cell const &cell);
+
+
+// The ore stage by the count of neighbours with the same tiberium (0x007D2C10;
+// Westwood's _adj in Tiberium_Adjust: 0, 1, 3, 4, 6, 7, 8, 10, 11).
+extern int unknown_tiberium_stage_7d2c10[9];
+
+// The map's cell table (MapClass +0x134 VectorClass<CellClass *>; this is
+// its element storage pointer at 0x00832618, x + y * 512).
+extern CellClass **unknown_map_cells_832618;
+
+// Member-wise cell sum: shared/coord.hpp's operator+ (the multi-cell loops
+// of SmudgeTypeClass copy its result into a local).
+
+// Cell equality and comparison: shared/house.hpp defines operator== and
+// operator!= for Cell (merge debt: Cell.cpp's copies differ in !=).
+
+// The object owned at +0xFC (deleted through its first virtual slot; type
+// unknown).
+class UnknownCellOwned {
+public:
+    virtual ~UnknownCellOwned();
+};
+
+// Four words at +0x68 cleared together (type unknown).
+struct UnknownCell68 {
+    UnknownCell68(int a = 0, int b = 0, int c = 0, int d = 0) : unknown_00(a), unknown_04(b), unknown_08(c), unknown_0c(d) {}
+    UnknownCell68(NoInitClass const &noinit) {}
+    int unknown_00;
+    int unknown_04;
+    int unknown_08;
+    int unknown_0c;
+};
+
+#ifdef RA2_CELL_GOODIE_CHECK
+#include "shared/dir_type.hpp"
+class FootClass;
+// The coordinate of a cell's centre at height 0, built in place (CellClass::Ground_Coord).
+struct UnknownCellCoord : CoordStruct {
+    UnknownCellCoord(Cell cell) : CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0) {}
+};
+// TibSun's post-increment for enums (Goodie_Check's gas loop).
+template<class T> inline T operator ++(T & a, int) { T aa = a; a = (T)((int)a + (int)1); return(aa); }
+#endif
+
+class CellClass : public AbstractClass {
+public:
+#ifdef RA2_CELL_DECLARE_BRIDGE_ADJUSTED_HEIGHT
+    int Bridge_Adjusted_Height_0047CF10() const; // signed +0x11B plus four for flag 0x80; original owner evidenced by Get_Obstacle.
+#endif
+#ifdef RA2_SHIP_CELL_ACCESSORS
+    // Native ShipProcess retains the address of MapCoords through the comparison.
+    Cell const &Fetch_CellID() const { return MapCoords; }
+    int Land_Type() const { return Land; }
+#else
+    Cell Fetch_CellID() const { return MapCoords; }
+#endif
+
+    int Reduce_Wall(int damage); // 00475FE0: wall mutation, full EAX/RET4; hypothesis
+    CellClass();                                                        // 0x00470F10
+    CellClass(NoInitClass const &noinit);                               // 0x00470680
+    virtual ~CellClass();                                               // 0x00470E80
+
+    virtual HRESULT __stdcall GetClassID(GUID *clsid);                  // 0x0047A410 slot 3
+    virtual HRESULT __stdcall Load(IStream *stream);                    // 0x00478CB0 slot 5
+    virtual HRESULT __stdcall Save(IStream *stream, BOOL clear_dirty);  // 0x00478ED0 slot 6
+    virtual int __stdcall What_Am_I() { return 0x0B; }                  // 0x0047CF70 (IRTTITypeInfo slot 3; inline)
+    virtual int Kind_Of() const { return 0x0B; }                        // 0x0047CF80 slot 11 (inline)
+    virtual int Size_Of() const { return sizeof(CellClass); }           // 0x0047CF90 slot 12 (inline)
+    virtual CoordStruct Center_Coord() const;                           // 0x0047BA50 slot 18
+    virtual bool On_Ground() const;                                // 0x0047B9F0
+    virtual CoordStruct unknown_slot22() const;                         // 0x0047BAA0
+
+    // Occupants.
+    ObjectClass *Cell_Techno(Point2D const &spot, bool alt, ObjectClass *except) const;   // 0x00471660 (nearest flagged occupant to a sub-cell spot)
+    ObjectClass *Find_Object(int kind, bool alt = false) const;         // 0x00471760
+#if defined(RA2_CELL_CLEAR_TO_BUILD) && !defined(RA2_SHIP_CELL_ACCESSORS)
+    int Land_Type() const { return Land; }   // TibSun cell.h; Is_Clear_To_Build 0x004718B0 reads Ground[Land_Type()]
+#endif
+    ObjectClass *Cell_Object(Point2D const &spot, bool alt);         // 0x00471830 (an aircraft over the cell when the flag at 0x00A40958 is set, else the occupant nearest the spot; TeamClass 0x006BB260)
+    ObjectClass *Cell_Building() const;                                // 0x004717B0 (the building; kind 6)
+    ObjectClass *Cell_Terrain(bool alt = false) const;                  // 0x004717E0 (kind 0x24)
+    ObjectClass *Cell_Unit(bool alt = false) const;                     // 0x00473E30 (kind 1)
+    ObjectClass *Cell_Aircraft(bool alt = false) const;                 // 0x00473E80 (kind 2)
+    ObjectClass *Cell_Infantry(bool alt = false) const;                 // 0x00473ED0 (kind 0x0F)
+
+    // Tile kinds (IsoTileIndex ranges).
+    bool Goodie_Check(ObjectClass *object);   // 0x00476CC0 (the object may stand here; MechLocomotionClass 0x00592F70)
+#ifdef RA2_CELL_GOODIE_CHECK
+    // Westwood's Cell_Coord: the centre at the height of its middle (inline; Goodie_Check).
+    CoordStruct Ground_Coord() const { UnknownCellCoord coord(Fetch_CellID()); coord.Z = unknown_4706c0(Point2D(128, 128)); return coord; }
+#endif
+    bool Is_Tile_Clear() const;                // 0x0047B590 (no tile: 0 or 0xFFFF)
+    bool Is_Tile_Ramp() const;                // 0x0047B5B0
+    bool unknown_47b5e0() const;                // 0x0047B5E0 (Westwood's Is_Tile_Cliff: a cliff, waterfall, ramp, cave or bridge tile)
+    int Occupation_Mask(int house);              // 0x0047BFA0 (-1 unless unknown_dc has the house bit, else the facings whose neighbour has it; BuildingClass 0x004512C6/0x004515A9)
+    bool Is_Tile_Shore() const;                // 0x0047B7C0
+    bool Is_Tile_With_Water() const;                // 0x0047B7E0
+    bool Is_Tile_Misc_Pavement() const;                // 0x0047B860
+    bool Is_Tile_Pavement() const;                // 0x0047B880
+    bool Is_Tile_Dirt_Road() const;                // 0x0047B8A0
+    bool Is_Tile_Paved_Road() const;                // 0x0047B8E0
+    bool Is_Tile_Paved_Road_End() const;                // 0x0047B900
+    bool Is_Tile_Paved_Road_Slope() const;                // 0x0047B920
+    bool Is_Tile_Road_Median() const;                // 0x0047B940
+    bool Is_Tile_Bridge() const;                // 0x0047B960
+    bool Is_Tile_Train_Bridge() const;                // 0x0047B980
+    bool Is_Tile_Clear_To_Sand_LAT() const;                // 0x0047B9A0
+    bool Is_Tile_Clear_To_Green_LAT() const;                // 0x0047B9C0
+    bool Is_Tile_Destroyable_Cliff() const;     // 0x0047BB10
+
+    // Per-house bits.
+    bool Is_House_Bit(int house) const;         // 0x0047C2C0
+    bool unknown_47c300(int house) const;       // 0x0047C300 (a second per-house bit test; UnitClass slot 49)
+    bool Is_Sensed(int house) const;       // 0x0047C2E0 (overlay)
+    void Incoming(void const *arg1, bool arg2, bool arg3, bool alt);  // 0x00476920 (scatters the occupants; alt picks AltOccupierPtr; UnitClass slot 302)
+    bool Has_Tunnel() const;                // 0x00479CC0 (Westwood's Has_Tunnel: a valid tube index and LAND_TUNNEL; UnitClass slot 27)
+    // TibSun names. Not const in RA2: they reach Adjacent_Cell 0x00476AC0 directly, not
+    // through the const wrapper (Is_Near_Tunnel_ES's inline expansions show the depth).
+    bool Is_Near_Tunnel_NW();                   // 0x00479CF0
+    bool Is_Near_Tunnel_ES();                   // 0x00479F70
+    bool Can_Enter_Tunnel(TechnoClass *techno) const;   // 0x0047A120 (UnitClass slot 27)
+    void Set_House_Bit(int house);              // 0x0047C320
+    void Clear_House_Bit(int house);            // 0x0047C340
+
+    bool Should_Draw_As_Cloaked(int house) const;      // 0x0047BA10 (visible to the player's house; hypothesis)
+    bool Can_Build_Here() const;                // 0x0047CDD0 (land allows ...; no building, not blocked)
+    Point2D unknown_475440() const;             // 0x00475440 (the overlay image offset in the cell; hypothesis)
+    void unknown_4754b0(Point2D const &point, Rect const &rect);   // 0x004754B0 (draws IsoTileTypes[0] at point; Tactical 0x006A3641)
+    void Draw_Overlay_Shadow(Point2D const &point, Rect const &clip);   // 0x00474830 (Westwood's Draw_Overlay_Shadow: the overlay's shadow frame, or a rubble building's)
+    void Draw_Overlay(Point2D const &point, Rect const &clip);   // 0x004749C0 (Westwood's Draw_Overlay: the overlay image at point within clip; not recovered; Tactical Draw_Overlays 0x006A7350)
+    void Draw_Shroud_Or_Fog_Shape(Point2D const &point, Rect const &clip, int frame);  // 0x00474260 (TibSun name: SHROUD.SHP, or FOG.SHP with fog of war, into the depth buffer; its ebp frame and fast loop (cmp eax, [0x0079DAD0]) look like an __asm block, hypothesis)
+    void Draw_Fog_Shape(Point2D const &point, Rect const &clip, int frame);  // 0x00474510 (TibSun name: FOG.SHP blended into the depth buffer)
+    void Draw_Shroud_And_Fog(Point2D const &point, Rect const &clip);  // 0x00475520 (TibSun name; updates and draws the cell's shroud and fog frames; Tactical 0x006A3FA6)
+    void Set_Wall_Owner();                      // 0x004724A0 (a wall overlay: +0x50 = owner of the nearest building of a WallOwner house)
+    bool Is_Tile_Water() const;                 // 0x0047A270 (TibSun name hypothesis)
+    int Occupier_Height() const;                 // 0x0047A290 (the height of the top of the cell: ground plus a building's height or 0x55 for an object at the spot)
+    void Force_New_Slope_For_Occupiers();                      // 0x0047A160 (slot 109 on up to ten occupants; units and aircraft get Force_New_Slope(+0x11C))
+    void Adjust_Threat(int house, int value);  // 0x00476B20 (every other house that is not an ally (or fails 0x004F52F0) gets unknown_func_4e5dc0(the cell's map block, value); TechnoClass 0x006D95A0/0x006D95D0)
+    void Register_As_Dirty();                      // 0x0047A4E0 (redraws the cell's 60x30 screen area; BuildingClass 0x0043C1F0)
+    int Get_Vein_Frame();                       // 0x0047A5A0 (bit per cardinal neighbour holding veins: an IsVeins overlay, or overlay 0x7E with data from 48)
+    bool Has_Wall_Or_Gate(int overlay, int facing) const;   // 0x00475840 (whether a wall of overlay type joins this cell toward facing: the same wall, or a gate or wall tower; hypothesis)
+    bool Can_Tiberium_Germinate(TiberiumClass *tiberium);   // 0x00478BA0 (TibSun name; tiberium unused: Spread_Tiberium 0x00478A40 passes its type, other callers 0; constness unknown)
+    void Occupy_Up(ObjectClass *object, bool alt);   // 0x00473D20 (unlinks object from the occupier list; MapClass 0x0054B04D)
+    Rect Cell_Render_Rect() const;                // 0x004752B0 (a screen rectangle of the cell's contents; hypothesis)
+    Rect Overlay_Render_Rect() const;                // 0x00474EB0 (another; hypothesis)
+    Rect Overlay_Shadow_Render_Rect() const;                // 0x00475100 (another; hypothesis)
+    bool Is_Bridge_Here() const;                // 0x004788D0 (TibSun/YR Is_Bridge_Here: the under-bridge flag, bit 8 of +0x140; TeleportLocomotionClass 0x006DFF00 reads its address, not its value)
+    bool Can_Tiberium_Grow() const;                // 0x004788E0 (the ore may grow here: scenario +0x222A, ore below its last stage; hypothesis)
+    bool Can_Tiberium_Spread() const;                // 0x00478950 (the ore may spread from here; hypothesis)
+    bool Grow_Tiberium();                      // 0x004789D0 (grows the ore through Place_Tiberium; hypothesis)
+    bool Place_Tiberium(int tiberium, int data);    // 0x0047C3A0 (not recovered; TibSun Place_Tiberium(tib, data): Spread_Tiberium 0x00478A40 passes 3)
+    int GetRadLevel() const;                 // 0x0047CE70 (+0xF0 limited to Rules RadLevelMax, as an int)
+    bool Can_Burrow_Here();                      // 0x0047C200 (the map allows the cell, its tile type does not refuse it, it is not blocked and holds no building or terrain object)
+    void Fog_Cell();                      // 0x0047BC80 (Westwood's Fog_Cell: fogs the diagonal cells, keeping fogged copies of their buildings)
+    void Unfog_Cell();                      // 0x0047BE00 (diagonal pass over the cells ahead)
+    void Remove_Fogged_Objects();                      // 0x0047BE60
+
+    void unknown_47a340(AbstractClass *target);   // 0x0047A340 (forgets a target)
+    void Attach_Tag(TagClass *tag);         // 0x0047A460
+
+    // Tiberium (OverlayClass::To_Tiberium of the overlay).
+    wchar_t const *unknown_47a200() const;      // 0x0047A200 (the tiberium's UI name)
+    int Tiberium_Type_Here() const;              // 0x0047A220
+    int Get_Tiberium_Value() const;             // 0x0047A230
+
+    bool unknown_47cb50();                      // 0x0047CB50 (map call at the cell centre)
+    void unknown_47cbb0();                      // 0x0047CBB0
+    int Reduce_Tiberium(int amount);             // 0x00475DB0 (takes up to amount of tiberium; answers what it took; hypothesis)
+    int Reduce_Weed();                       // 0x0047C040
+    void Redraw_Veins();                      // 0x0047A7A0
+
+    // Counters and scalars.
+    void ReduceShroudCounter();                      // 0x0047C840 (decrements +0x130)
+    void IncreaseShroudCounter();                      // 0x0047C8A0 (increments +0x130 up to +0x134)
+    // Westwood's Init_Drawer: takes the drawer given, or finds or makes one for the cell's light (+0x34), and keeps the light values.
+    // arg1 is the drawer (a LightConvertClass *; retyping it is a rename of the accepted callers' binding).
+    void Init_Drawer(LightConvertClass *drawer, int intensity, int ambient, int brightness, int tile_brightness, int alt_brightness);   // 0x004790F0 (TerrainClass slots 67/68, DisplayClass 0x0049E570 pass no drawer)
+#ifdef CELL_DECLARE_PREVIEW_CELL_COLOR
+    // The cell's two preview pixel colours packed low << 16 | high (0x004710D0; TibSun
+    // Preview_Cell_Color; declared only for the map preview unit 0x0061D240).
+    unsigned int Preview_Cell_Color(unsigned char &unknown, bool flag);
+#endif
+#ifdef CELL_DECLARE_CLEAR_ICON
+    // A variation index for a tile set of `count` variations, picked from the cell's position
+    // (0x004767A0; TibSun Clear_Icon; declared only for IsometricTileTypeClass::Load_Tiles,
+    // as this header is in Refresh_Wonline_Players 0x0073FEE0's closure).
+    int Clear_Icon(int type, int count) const;
+#endif
+#ifdef CELL_DECLARE_DRAW_IT
+    void On_Bridge_Collapse();                      // 0x0047C930 (TibSun On_Bridge_Collapse)
+    void Kill_Illegal_Occupiers();                      // 0x0047CC10 (TibSun Kill_Illegal_Occupiers)
+    // The cell's tile and smudge at the screen point, unless `objects` (0x00475680; TibSun Draw_It).
+    void Occupy_Down(ObjectClass *object, bool alt);   // 0x00473B30 (TibSun Occupy_Down: links object into the occupier list)
+    void Draw_It(Point2D const &point, Rect const &clip, bool objects);
+    // The cell tile's cast shadow (0x004755D0; TibSun Draw_Shadow_Cast).
+    void Draw_Shadow_Cast(Point2D const &point, Rect const &clip);
+    inline void Fetch_Icon(class IsometricTileTypeClass *&ittype, int &subtile, int *icon, bool doicon) const;
+#endif
+#ifdef CELL_DECLARE_CELL_COLOR
+    // The cell's low and high radar colours (0x004712C0; TibSun Cell_Color; guarded: this header is
+    // in Refresh_Wonline_Players 0x0073FEE0's closure).
+    void Cell_Color(class RGBClass &lowcolor, class RGBClass &highcolor) const;
+#endif
+    class BuildingClass *Get_Gate() const;   // Westwood's Get_Gate: the gate building in the cell, or 0 (inline in the Cell unit)
+    CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any = false, bool alt = false) const;   // 0x004764B0 (the free sub-cell spot nearest coord, alt on the bridge; any: the nearest spot even if taken)
+    void Recalc_Passability();                      // 0x00478F40 (Westwood's Recalc_Passability: sets unknown_4c from the overlay, land and occupiers)
+    void Trigger_Veins();                       // 0x0047BB30 (veins attack the occupants; hypothesis)
+    int Bounce_Direction(CoordStruct const &origin) const;   // 0x00479AC0 (Westwood's Bounce_Direction: the facing to bounce toward from origin's cell)
+    void Inc_Drawer_Ref_Count(LightConvertClass *drawer) const;   // 0x00479C90
+    void Dec_Drawer_Ref_Count(LightConvertClass *drawer) const;   // 0x00479CA0
+    // Westwood's Pick_Drawer and Init_Light (TibSun CELL.CPP order).
+    void Pick_Drawer(LightConvertClass *&drawer, int &intensity, int &ambient, int &brightness, int &tile_brightness, int &alt_brightness) const;   // 0x00479310
+    void Recalc_Light();                      // 0x004798F0 (Westwood's Recalc_Light: the brightness values from the scenario light; DisplayClass 0x0049E5E0)
+    void Init_Light(int &intensity, int &ambient, int &brightness, int &tile_brightness, int &alt_brightness, int &red, int &green, int &blue) const;   // 0x00479440
+    int IsRadiated() const;                 // 0x0047CE50 (+0xF0 above 1.0)
+    void Reduce_f0(double amount);              // 0x0047CEC0
+    bool Set_unknown_e0(void *value);           // 0x0047CF30
+
+    static Cell __fastcall Adjacent_Cell(Cell const &cell, int facing);   // 0x0047CFC0
+#ifdef RA2_CELL_GOODIE_CHECK
+    // TibSun's FacingType form, over the const wrapper: the extra inline level
+    // is what leaves the static 0x0047CFC0 out of line in Goodie_Check.
+    CellClass const &Adjacent_Cell(FacingType facing) { return ((CellClass const *)this)->Adjacent_Cell((unsigned)facing); }
+#endif
+    CellClass &Adjacent_Cell(unsigned facing);  // 0x00476AC0 (this cell for facings past 7)
+    // The const form (as in Westwood's CELL.H: casts away const and calls the above).
+    CellClass const &Adjacent_Cell(unsigned facing) const { return ((CellClass *)this)->Adjacent_Cell(facing); }
+    CoordStruct unknown_475d60() const;         // 0x00475D60 (centre at the middle's height)
+    bool Is_Spot_Free(int facing, bool alt) const;   // 0x00476460 (+0x124/+0x128 bit clear)
+    ObjectClass *unknown_476750() const;        // 0x00476750 (the building, if its type's +0x1351 flag is set)
+    bool Flag_Place(int value);             // 0x004786D0
+    bool unknown_478720();                      // 0x00478720
+    void Shimmer();                      // 0x00478740 (occupants' ObjectClass slot 61)
+    // Whether an object of speed type speed may enter (zone and level -1: any;
+    // arg2/arg3 ignore some blocked directions; hypothesis).
+    bool Is_Clear_To_Move(int speed, bool arg2, bool arg3, int zone, int zone_type, int level, bool alt);   // 0x00478760
+
+    // Members other units call (not recovered yet).
+    void Register_For_Redraw();                      // 0x0047C080 (after the smudge changes; redraw hypothesis)
+    bool Can_Place_Veins() const;                // 0x0047A670 (Overlay.cpp wall pass; hypothesis)
+    void Place_Veins();                      // 0x0047AD00
+    bool Spread_Tiberium(bool forced);          // 0x00478A40 (TibSun name; TerrainClass::AI forces it, TiberiumClass::Process_Spread does not)
+    void Set_Under_Bridge(unsigned facing, bool state);                  // 0x004732D0 (TibSun name: marks the cells one high-bridge deck piece covers; OverlayClass slot 71)
+    void Set_Under_Rail_Bridge(unsigned facing, bool state);             // 0x00473700 (TibSun name: the train bridge counterpart; OverlayClass slot 71)
+    void Destroy_Bridge();                                               // 0x00473000 (TibSun name hypothesis: called when a bridge flag is cleared)
+    // Whether a building of the type may be placed in the cell for the house (0x004718B0;
+    // TibSun Is_Clear_To_Build).
+    bool Is_Clear_To_Build(int speed, class BuildingTypeClass const *type, class HouseClass *house);
+#ifdef RA2_TACTICAL_PLACEMENT
+    bool Draw_Placement_Cursor(Point2D const &pixel, Rect const &rect, bool drawtrans);   // 0x00473F20 (TibSun name)
+#endif
+    void Wall_Update(bool arg1);                                      // 0x00475960
+    int Tiberium_Adjust(bool pregame);                                    // 0x00476BA0 (Westwood's Tiberium_Adjust: the ore stage from its neighbours; answers the value)
+#ifdef RA2_CELL_LAT_BOOL
+    // TibSun Fixup_LAT: the original returns whether the tile changed (Commit_Deform_Grid tests it).
+    bool Fixup_LAT();                      // 0x00471D10
+#else
+    void Fixup_LAT();                      // 0x00471D10 (IsometricTileClass slot 71: after the tile changes; hypothesis)
+#endif
+    void Recalc_Attributes(int value);           // 0x00472540 (clears an overlay with -1: AnimClass 0x004226D0, TerrainClass slot 52)
+    int unknown_4706c0(Point2D const &point) const;       // 0x004706C0 (height at a lepton position in the cell; hypothesis)
+#if defined(RA2_CELL_SET_CELLID) || (defined(RA2_CELL_MAP_VIEW) && defined(RA2_CELL_FULL_ASSIGN))
+    // Guarded: the Cell unit defines RA2_CELL_SET_CELLID in its first row; one more declaration in every
+    // cell_class.hpp user moves Print_CRCs 0x0062A360 (a fragile row).
+    void Set_CellID(Cell const &cell);  // 0x0047A450 (TibSun Set_CellID)
+#endif
+#ifdef RA2_CELL_MAP_VIEW
+    // The Map units' declarations (shared/map_cell.hpp; the manglings their accepted rows call).
+    // Several are the members above under other names or parameter types; one declaration each
+    // waits for a rename round.
+    void unknown_473000();          // 0x00473000 (Destroy_Bridge above)
+    bool unknown_47a270();          // 0x0047A270 (Is_Tile_Water above, declared non-const here)
+    void On_Bridge_Collapse();          // 0x0047C930 (TibSun On_Bridge_Collapse)
+    void Unshroud();          // 0x0047C900 (maps the cell for the player; MapClass 0x00549C50)
+    void Occupy_Down(ObjectClass *object, bool alt);   // 0x00473B30 (TibSun Occupy_Down)
+#ifdef RA2_MAP_BRIDGE_PIECES
+#ifndef CELL_DECLARE_DRAW_IT
+    void Kill_Illegal_Occupiers();  // 0x0047CC10 (TibSun Kill_Illegal_Occupiers; the CELL_DECLARE_DRAW_IT units declare it above)
+#endif
+    class TubeClass *Get_Tunnel();   // 0x0047A130 (the cell's tube; TibSun Get_Tunnel)
+#endif
+    bool Unknown_00478760(int speed, bool arg2, bool arg3, int arg4, int arg5, int arg6, bool arg7);   // 0x00478760 (Is_Clear_To_Move above)
+    ObjectClass *Unknown_00471660(Point2D const &point, bool alt, ObjectClass *except) const;   // 0x00471660 (Cell_Techno above)
+    CoordStruct Closest_Free_Spot(CoordStruct const &coord, bool any, int alt) const;   // 0x004764B0 (int alt)
+    void Unknown_004712c0(class RGBClass *first, class RGBClass *second);   // 0x004712C0 (Cell_Color)
+#ifdef RA2_MAP_CLOSE_OBJECT
+    ObjectClass *Cell_Occupier() const { return OccupierPtr; } // (TibSun Cell_Occupier; MapClass 0x0054E8D0)
+#endif
+#ifdef RA2_CELL_OCCUPIER_BRIDGE
+    // TibSun cell.h / mischa85 cell.h declare `Cell_Occupier(bool bridge=false)`; the if-form body is what
+    // Explosion_Damage 0x0047E2C0 binds (the ternary body emits one instruction more there).
+    ObjectClass *Cell_Occupier(bool bridge) const
+    {
+        if (bridge) {
+            return AltOccupierPtr;
+        }
+        return OccupierPtr;
+    }
+#endif
+    // The cell of the bridge deck piece over this cell (TibSun Get_Bridge_Deck_Cell).
+    Cell Get_Bridge_Deck_Cell() const
+    {
+        if (IsBridgeDeck) {
+            return Fetch_CellID();
+        } else {
+            return BridgeDeckCell->Fetch_CellID();
+        }
+    }
+#endif
+
+    Cell MapCoords;                       // +0x024
+    DynamicVectorClass<FoggedObjectClass *> *FoggedObjects;   // +0x028
+    CellClass *BridgeDeckCell;                      // +0x02C
+    void *unknown_30;                           // +0x030
+    LightConvertClass *Drawer;              // +0x034 the tile drawer (Westwood's Drawer)
+    int IsoTileIndex;                           // +0x038
+    TagClass *Tag;                       // +0x03C
+    void *Rubble;                           // +0x040
+    int OverlayIndex;                           // +0x044
+    int SmudgeIndex;                            // +0x048
+    int Passability;                             // +0x04C
+    int unknown_50;                             // +0x050
+    int InfType;                             // +0x054
+    int BridgeInfType;                             // +0x058
+    int LastRedrawFrame;                             // +0x05C
+    int LastUnknownDrawFrame;                             // +0x060
+    int LastBridgeDrawFrame;                             // +0x064
+    Rect LastBridgeDrawRect;                            // +0x068 (Westwood's LastBridgeDrawRect)
+    unsigned int CloakedBy;                    // +0x078
+    short SensorsOfHouses[24];                       // +0x07C
+#ifdef RA2_CELL_FULL_ASSIGN
+    unsigned short DisguiseSensorsOfHouses[24];              // +0x0AC [YR DisguiseSensorsOfHouses]
+#else
+    int DisguiseSensorsOfHouses[12];                         // +0x0AC
+#endif
+    int OccupiedBy;                             // +0x0DC
+    void *Jumpjet;                           // +0x0E0
+    ObjectClass *OccupierPtr;                   // +0x0E4
+    ObjectClass *AltOccupierPtr;                // +0x0E8
+#ifdef RA2_CELL_OCCUPIER
+    // TibSun cell.h Cell_Occupier (OpenTS; SPDX-License-Identifier: GPL-3.0-or-later; see THIRD_PARTY.md):
+    // the first object in the cell, or on its bridge. Guarded: BuildingLightClass's unit defines the macro in its first row.
+    ObjectClass * Cell_Occupier(bool bridge=false) const {return(bridge ? AltOccupierPtr : OccupierPtr);}
+#endif
+    int Land;                             // +0x0EC
+    double RadLevel;                          // +0x0F0
+    void *RadSite;                           // +0x0F8
+    UnknownCellOwned *PixelFX;               // +0x0FC
+    int OccupyHeightsCoveringMe;                            // +0x100
+    int Intensity;                            // +0x104
+    short Ambient;                          // +0x108
+    short Brightness;                          // +0x10A
+    short TileBrightness;                          // +0x10C
+    short AltBrightness;                          // +0x10E
+    short RedTint;                          // +0x110
+    short GreenTint;                          // +0x112
+    short BlueTint;                          // +0x114
+    short Tube;                          // +0x116
+    unsigned char LastBridgeDrawRedraws;                  // +0x118
+    char IsIceGrowthAllowed;                           // +0x119
+    char SubTile;                           // +0x11A
+    char Height;                           // +0x11B
+    unsigned char Ramp;                  // +0x11C
+    char Elevation;                           // +0x11D
+    unsigned char OverlayData;                  // +0x11E
+    unsigned char SmudgeData;                   // +0x11F
+    char ShadowFrame;                           // +0x120
+    char FogFrame;                           // +0x121
+    char AdjacentObjectCount;                           // +0x122
+#ifndef RA2_CELL_FULL_ASSIGN
+    char unknown_123;
+#endif
+#ifdef RA2_CELL_FULL_ASSIGN
+    // The Westwood form (TibSun cell.h / YR): plain bit fields, so the implicit operator=
+    // (Set_Map_Dimensions 0x005484E0) copies them one by one.
+    CellOccupyFlags Occupy_124;                 // +0x124 [Flag]
+    CellOccupyFlags Occupy_128;                 // +0x128 [BridgeFlag]
+    unsigned IsPlot:1;                          // +0x12C bit 0
+    unsigned IsCursorHere:1;                    // bit 1
+    unsigned IsFoundationCopyHere:1;            // bit 2
+    unsigned IsMapped:1;                        // bit 3 (IGameMap::Is_Visible reads it)
+    unsigned IsVisible:1;                       // bit 4
+    int ShroudCounter;                            // +0x130
+    int GapsCoveringThisCell;                            // +0x134
+    bool unknown_138;                           // +0x138
+    int AlliedGapsCoveringThisCell;                            // +0x13C
+    unsigned IsFogVisible:1;                    // +0x140 bit 0 (set when layer 1 is fully shrouded)
+    unsigned IsFogMapped:1;                     // bit 1
+    unsigned IsWaypoint:1;                      // bit 2
+    unsigned IsRadarCursor:1;                   // bit 3
+    unsigned IsFlagged:1;                       // bit 4
+    unsigned IsToShroud:1;                      // bit 5
+    unsigned IsToFog:1;                         // bit 6
+    unsigned IsBridgeDeck:1;                    // bit 7
+    unsigned IsUnderBridge:1;                   // bit 8
+    unsigned IsBridgeTraversable:1;             // bit 9
+    unsigned WasUnderBridge:1;                  // bit 10
+    unsigned IsBridgeEastWest:1;                // bit 11
+    unsigned IsBridgeSurface:1;                 // bit 12
+    unsigned IsBridgeDamaged:1;                 // bit 13
+    unsigned IsToGrowIce:1;                     // bit 14
+    unsigned IsToGrowVeins:1;                   // bit 15
+    unsigned IsOvershadowed:1;                  // bit 16
+    unsigned IsAnimAttached:1;                  // bit 17
+    unsigned IsPredictedPath:1;                 // bit 18
+    unsigned IsAffectedByEMP:1;                 // bit 19
+    unsigned IsHorizontalLine:1;                // bit 20
+    unsigned IsVerticalLine:1;                  // bit 21
+    unsigned IsFogged:1;                        // bit 22
+    unsigned :32;                               // +0x144 (RA2 only; the implicit operator= does not copy it)
+};
+#else
+    // +0x124 occupation flags (Westwood's Flag: the five sub-cell spots, then Vehicle, Monolith,
+    // Building); +0x128 the same for the bridge (BridgeFlag). unknown_124/unknown_128 read them as a
+    // byte (Westwood's Composite), Occupy_124/Occupy_128 bit by bit (Closest_Free_Spot 0x004764B0).
+    union {
+        unsigned char unknown_124;
+        CellOccupyFlags Occupy_124;
+    };
+    union {
+        unsigned char unknown_128;
+        CellOccupyFlags Occupy_128;
+    };
+    union {                                     // +0x12C flags; bit 3 answers IGameMap::Is_Visible
+        unsigned int unknown_12c;
+        struct {
+            unsigned Flags_12c:5;
+        };
+#ifdef RA2_CELL_FLAG_NAMES
+        // The YR names (ra2-decomp include/cell.h). Guarded: any added member, named or not, moves
+        // AI_Build_Defense 0x004F1190 (declaration-count fragile row); units that use them define the macro.
+        struct {
+            unsigned IsPlot:1;                  // bit 0
+            unsigned IsCursorHere:1;            // bit 1
+            unsigned IsFoundationCopyHere:1;    // bit 2
+            unsigned IsMapped:1;                // bit 3 (IGameMap::Is_Visible reads it)
+            unsigned IsVisible:1;               // bit 4
+        };
+#endif
+    };
+    int ShroudCounter;                            // +0x130
+    int GapsCoveringThisCell;                            // +0x134
+    bool unknown_138;                           // +0x138
+    int AlliedGapsCoveringThisCell;                            // +0x13C
+    union {                                     // +0x140 flags
+        unsigned int unknown_140;
+        struct {
+            unsigned Flags_140:23;
+        };
+#ifdef RA2_CELL_FLAG_NAMES
+        struct {                                // TibSun cell.h / YR names and order; bits 7-12 and 16 from Set_Under_Bridge 0x004732D0
+            unsigned IsFogVisible:1;            // bit 0 (set when layer 1 is fully shrouded)
+            unsigned IsFogMapped:1;             // bit 1
+            unsigned IsWaypoint:1;              // bit 2
+            unsigned IsRadarCursor:1;           // bit 3
+            unsigned IsFlagged:1;               // bit 4
+            unsigned IsToShroud:1;              // bit 5
+            unsigned IsToFog:1;                 // bit 6
+            unsigned IsBridgeDeck:1;            // bit 7
+            unsigned IsUnderBridge:1;           // bit 8
+            unsigned IsBridgeTraversable:1;     // bit 9
+            unsigned WasUnderBridge:1;          // bit 10
+            unsigned IsBridgeEastWest:1;        // bit 11
+            unsigned IsBridgeSurface:1;         // bit 12
+            unsigned IsBridgeDamaged:1;         // bit 13
+            unsigned IsToGrowIce:1;             // bit 14
+            unsigned IsToGrowVeins:1;           // bit 15
+            unsigned IsOvershadowed:1;          // bit 16
+            unsigned IsAnimAttached:1;          // bit 17 (Recalc_Attributes 0x00472540)
+            unsigned IsPredictedPath:1;         // bit 18
+            unsigned IsAffectedByEMP:1;         // bit 19
+            unsigned IsHorizontalLine:1;        // bit 20
+            unsigned IsVerticalLine:1;          // bit 21
+            unsigned IsFogged:1;                // bit 22
+        };
+#else
+        struct {                                // TibSun names, from Set_Under_Bridge 0x004732D0
+            unsigned :7;
+            unsigned IsBridgeDeck:1;            // bit 7
+            unsigned IsUnderBridge:1;           // bit 8
+            unsigned IsBridgeTraversable:1;     // bit 9
+            unsigned WasUnderBridge:1;          // bit 10
+            unsigned IsBridgeEastWest:1;        // bit 11
+            unsigned IsBridgeSurface:1;         // bit 12
+            unsigned :3;
+            unsigned IsOvershadowed:1;          // bit 16
+#ifdef RA2_CELL_RECALC_ATTRIBUTES
+            unsigned IsAnimAttached:1;          // bit 17 (TibSun name; Recalc_Attributes 0x00472540)
+#endif
+        };
+#endif
+    };
+    int unknown_144;                            // +0x144 (not in the YR twin)
+};
+#endif
+
+#endif

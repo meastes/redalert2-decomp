@@ -1,0 +1,1060 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
+// Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
+
+#include "always.h"
+#include "geometry.h"
+#include "multiplayer.h"
+#include "ccini.h"
+#include "ccfile.h"
+#include "session.h"
+#include "scenario.h"
+#include "house.h"
+#include "houstype.h"
+#include "unittype.h"
+#include "unit.h"
+#include "techno.h"
+#include "team.h"
+#include "infatype.h"
+#include "rules.h"
+#include "_rules.h"
+#include <wchar.h>
+#include <windows.h>
+#undef LoadString
+#include "stringtable.h"
+#include "mpsiege.h"
+
+// SYNTHETIC: GAMEMD 0x005D58B0 SYMBOL
+// _$E2
+// SYNTHETIC: GAMEMD 0x005D58E0 SYMBOL
+// _$E5
+// SYNTHETIC: GAMEMD 0x005D5900 SYMBOL
+// _$E8
+// SYNTHETIC: GAMEMD 0x005D5920 SYMBOL
+// _$E11
+// SYNTHETIC: GAMEMD 0x005D5940 SYMBOL
+// _$E14
+// SYNTHETIC: GAMEMD 0x005D5960 SYMBOL
+// _$E17
+// SYNTHETIC: GAMEMD 0x005D5980 SYMBOL
+// _$E20
+// SYNTHETIC: GAMEMD 0x005D59C0 SYMBOL
+// _$E23
+// SYNTHETIC: GAMEMD 0x005D59F0 SYMBOL
+// _$E26
+// SYNTHETIC: GAMEMD 0x005D5A20 SYMBOL
+// _$E29
+// SYNTHETIC: GAMEMD 0x005D5A50 SYMBOL
+// _$E32
+// SYNTHETIC: GAMEMD 0x005D5A60 SYMBOL
+// _$E35
+// SYNTHETIC: GAMEMD 0x005D5A80 SYMBOL
+// _$E38
+// SYNTHETIC: GAMEMD 0x005D5AA0 SYMBOL
+// _$E41
+
+extern char const * DAT_007EED18;
+extern char DAT_00889F64[];
+
+bool __cdecl FUN_0077D940(void);
+int __fastcall FUN_00623840(HWND hwnd);
+int __fastcall FUN_0069B670(SessionClass * session);
+MultiplayerTeam * __fastcall FUN_005C1030(int index);
+extern int DAT_00822CF4;
+extern bool DAT_00ABFDD4;
+extern bool DAT_00ABFDD5;
+void __cdecl FUN_004068E0(char const * format, ...);
+double __cdecl FUN_004CAC40(double);
+DynamicVectorClass<Cell> __fastcall FUN_00688380(char arg);
+
+
+// FUNCTION: GAMEMD 0x005D5AC0
+DynamicVectorClass<MultiplayerGameMode *> & Game_Modes(void)
+{
+	static DynamicVectorClass<MultiplayerGameMode *> modes;
+	return(modes);
+}
+
+// SYNTHETIC: GAMEMD 0x005D5B20 SYMBOL
+// _$E135
+
+static int Game_Mode_Count(void)
+{
+	return(Game_Modes().Count());
+}
+
+static inline bool Has_Section(CCINIClass * ini)
+{
+	if (ini == NULL) {
+		return(false);
+	}
+	return(ini->GetSection(DAT_007EED18) != NULL);
+}
+
+static inline CCINIClass * New_INI(void)
+{
+	return(new CCINIClass);
+}
+
+static inline bool Must_Ally_Without_Allies(bool must, bool allies)
+{
+	return(must && !allies);
+}
+
+// FUNCTION: GAMEMD 0x005D5B60
+MultiplayerGameMode::MultiplayerGameMode(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex) :
+	MPTeams(),
+	UIName(title),
+	CSFTooltip(tooltip),
+	MPModeIndex(modeindex),
+	INIFilename(inifile),
+	MapFilter(mapfilter),
+	AIAllowed(aiallowed),
+	INI(NULL)
+{
+	unknown_4 = false;
+	wolTourney = true;
+	wolClanTourney = true;
+	AlliesAllowed = true;
+	MustAlly = false;
+	INI = New_INI();
+	{
+		CCFileClass file(INIFilename);
+		if (file.Is_Available(false)) {
+			INI->ReadCCFile(file, false, false);
+		}
+	}
+	if (Has_Section(INI)) {
+		wolTourney = INI->Get_Bool(DAT_007EED18, "WonlineTournamentAllowed", wolTourney);
+		wolClanTourney = INI->Get_Bool(DAT_007EED18, "WonlineClanTournamentAllowed", wolClanTourney);
+		AlliesAllowed = INI->Get_Bool(DAT_007EED18, "AlliesAllowed", AlliesAllowed);
+		MustAlly = INI->Get_Bool(DAT_007EED18, "MustAlly", MustAlly);
+		if (Must_Ally_Without_Allies(MustAlly, AlliesAllowed)) {
+			MustAlly = false;
+		}
+	}
+}
+
+static inline void Delete_Teams(MultiplayerGameMode * mode)
+{
+	for (int i = 0; i < mode->MPTeams.Count(); i++) {
+		delete mode->MPTeams[i];
+	}
+}
+
+// FUNCTION: GAMEMD 0x005D5D20
+MultiplayerGameMode::~MultiplayerGameMode(void)
+{
+	Delete_Teams(this);
+	MPTeams.Clear();
+	delete INI;
+}
+
+// FUNCTION: GAMEMD 0x005D5DB0
+int MultiplayerGameMode::vt_entry_28(void)
+{
+	return(-2);
+}
+
+// FUNCTION: GAMEMD 0x005D5DC0
+int MultiplayerGameMode::vt_entry_2C(void)
+{
+	return(MustAlly ? 0 : -2);
+}
+
+// FUNCTION: GAMEMD 0x005D5DD0
+int MultiplayerGameMode::vt_entry_30(void)
+{
+	return(AlliesAllowed ? 3 : -2);
+}
+
+// FUNCTION: GAMEMD 0x005D5DE0
+bool MultiplayerGameMode::CanAllyWith(int index)
+{
+	if (MustAlly && index == -2) {
+		return(false);
+	}
+	return(index >= 0 && index <= 3 ? 1 : 0);
+}
+
+// FUNCTION: GAMEMD 0x005D5E10
+MultiplayerGameMode * First_Game_Mode(void)
+{
+	if (Game_Modes().Count() == 0) {
+		return(NULL);
+	}
+	return(Game_Modes()[0]);
+}
+
+// FUNCTION: GAMEMD 0x005D5ED0
+int Game_Mode_Total(void)
+{
+	return(Game_Mode_Count());
+}
+
+// FUNCTION: GAMEMD 0x005D5F30
+MultiplayerGameMode * __fastcall MultiplayerGameMode::Get(int index)
+{
+	for (int i = 0; i < Game_Mode_Count(); i++) {
+		MultiplayerGameMode * mode = Game_Modes()[i];
+		if (mode->MPModeIndex == index) {
+			return(mode);
+		}
+	}
+	return(NULL);
+}
+
+static inline WideWstring const & Game_Mode_Name(MultiplayerGameMode const & mode)
+{
+	return mode.UIName;
+}
+
+static inline int Game_Mode_ID(MultiplayerGameMode const & mode)
+{
+	return mode.MPModeIndex;
+}
+
+// FUNCTION: GAMEMD 0x005D6000
+void __fastcall Fill_Game_Mode_List(HWND combo, int id)
+{
+	FUN_00623840(combo);
+	bool listed = Session.Type == 5;
+	for (int i = 0; i < Game_Mode_Count(); i++) {
+		MultiplayerGameMode *mode = Game_Modes()[i];
+		if (!listed || mode->vt_entry_40()) {
+			int item = SendMessage(combo, CB_ADDSTRING, 0, (LPARAM)Game_Mode_Name(*mode).text());
+			if (Game_Mode_ID(*mode) == id)
+				SendMessage(combo, CB_SETCURSEL, item, 0);
+			SendMessage(combo, CB_SETITEMDATA, item, (LPARAM)mode);
+		}
+	}
+}
+
+bool __cdecl FUN_0077D970(void);
+extern int DAT_008316A4;
+
+// FUNCTION: GAMEMD 0x005D6130
+void __fastcall FUN_005D6130(HWND list, int id)
+{
+	SendMessage(list, LB_RESETCONTENT, 0, 0);
+	bool listed = Session.Type == 5;
+	for (int i = 0; i < Game_Mode_Count(); i++) {
+		MultiplayerGameMode *mode = Game_Modes()[i];
+		if (!mode->wolTourney && Session.Type == GAME_INTERNET && FUN_0077D940())
+			continue;
+		if (!mode->wolClanTourney && Session.Type == GAME_INTERNET && FUN_0077D970())
+			continue;
+		if (DAT_008316A4 == 0 && Session.Slots[0]->Slot.SpectatorFlag == -1 && !mode->vt_entry_BC())
+			continue;
+		if (!listed || mode->vt_entry_40()) {
+			int item = SendMessage(list, 0x4CD, 0, (LPARAM)Game_Mode_Name(*mode).text());
+			if (Game_Mode_ID(*mode) == id)
+				SendMessage(list, LB_SETCURSEL, item, 0);
+			SendMessage(list, LB_SETITEMDATA, item, (LPARAM)mode);
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x005D62C0
+bool MultiplayerGameMode::vt_entry_10(void)
+{
+	for (int i = 0; i < Session.Players.Count(); i++) {
+		if (Session.Players[i]->Get_Country() == -3) {
+			Session.Players[i]->Slot.SpectatorFlag = -1;
+		} else {
+			Session.Players[i]->Slot.SpectatorFlag = i;
+		}
+	}
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D6310
+bool MultiplayerGameMode::vt_entry_14(WideWstring * message)
+{
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D6320
+bool MultiplayerGameMode::vt_entry_04(void)
+{
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D6330
+bool MultiplayerGameMode::vt_entry_08(void)
+{
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D6340
+bool MultiplayerGameMode::vt_entry_18(void)
+{
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D6350
+bool MultiplayerGameMode::IsAIAllowed(void)
+{
+	return(AIAllowed);
+}
+
+// FUNCTION: GAMEMD 0x005D6360
+bool MultiplayerGameMode::vt_entry_40(void)
+{
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x005D6370
+int MultiplayerGameMode::FirstValidMapIndex(void)
+{
+	int count = Session.Scenarios.Count();
+	for (int i = 0; i < count; i++) {
+		MultiMission * map = Session.Scenarios[i];
+		bool valid;
+		if (map->Is_Random_Map()) {
+			valid = IsAIAllowed();
+		} else {
+			if (!map->Get_Official() && FUN_0077D940()) {
+				continue;
+			}
+			valid = map->Supports_Game_Mode(MapFilter);
+		}
+		if (valid) {
+			return(i);
+		}
+	}
+	return(-1);
+}
+
+// FUNCTION: GAMEMD 0x005D63E0
+bool MultiplayerGameMode::FUN_005D63E0(MultiMission const * map)
+{
+	if (map->Is_Random_Map()) {
+		return(IsAIAllowed());
+	}
+	if (!map->Get_Official() && FUN_0077D940()) {
+		return(false);
+	}
+	return(map->Supports_Game_Mode(MapFilter));
+}
+
+// FUNCTION: GAMEMD 0x005D6430
+int MultiplayerGameMode::RandomHumanCountryIndex(void)
+{
+	return(FUN_0069B670(&Session));
+}
+
+// FUNCTION: GAMEMD 0x005D6440
+int MultiplayerGameMode::RandomAICountryIndex(void)
+{
+	return(RandomHumanCountryIndex());
+}
+
+// FUNCTION: GAMEMD 0x005D6450
+void MultiplayerGameMode::PopulateTeamDropdown(HWND hwnd, DynamicVectorClass<MultiplayerTeam *> * teams, MultiplayerTeam * team)
+{
+	FUN_00623840(hwnd);
+	for (int i = 0; i < teams->Count(); i++) {
+		MultiplayerTeam * entry = (*teams)[i];
+		int item = SendMessage(hwnd, CB_ADDSTRING, 0, (LPARAM)entry);
+		if (entry == team) {
+			SendMessage(hwnd, CB_SETCURSEL, item, 0);
+		}
+		SendMessage(hwnd, CB_SETITEMDATA, item, (LPARAM)entry);
+	}
+}
+
+// FUNCTION: GAMEMD 0x005D64C0
+void MultiplayerGameMode::DrawTeamDropdown(HWND hwnd, DynamicVectorClass<MultiMission const *> * maps, MultiMission const * map)
+{
+	SendMessage(hwnd, LB_RESETCONTENT, 0, 0);
+	for (int i = 0; i < maps->Count(); i++) {
+		MultiMission const * entry = (*maps)[i];
+		int item = SendMessage(hwnd, 0x4CD, 0, (LPARAM)entry);
+		if (entry == map) {
+			SendMessage(hwnd, LB_SETCURSEL, item, 0);
+		}
+		SendMessage(hwnd, LB_SETITEMDATA, item, (LPARAM)entry);
+	}
+}
+
+// FUNCTION: GAMEMD 0x005D6540
+void MultiplayerGameMode::PopulateTeamDropdownForPlayer(HWND hwnd, int index)
+{
+	FUN_00623840(hwnd);
+	for (int i = 0; i < MPTeams.Count(); i++) {
+		delete MPTeams[i];
+	}
+	MPTeams.Clear();
+	CreateMPTeams(&MPTeams);
+	if (index >= 0 && index < Session.Players.Count()) {
+		int slot = Session.Players[index]->Slot.SpectatorFlag;
+		for (int i = 0; i < MPTeams.Count(); i++) {
+			MultiplayerTeam * entry = MPTeams[i];
+			int item = SendMessage(hwnd, CB_ADDSTRING, 0, (LPARAM)entry->Title.text());
+			if (entry->Index == slot) {
+				SendMessage(hwnd, CB_SETCURSEL, item, 0);
+			}
+			SendMessage(hwnd, CB_SETITEMDATA, item, (LPARAM)entry);
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x005D6620
+MultiplayerTeam * MultiplayerGameMode::FUN_005D6620(int index)
+{
+	if (MPTeams.Count() < 3) {
+		for (int i = 0; i < MPTeams.Count(); i++) {
+			delete MPTeams[i];
+		}
+		MPTeams.Clear();
+		CreateMPTeams(&MPTeams);
+	}
+	for (int i = 0; i < MPTeams.Count(); i++) {
+		MultiplayerTeam * team = MPTeams[i];
+		if (team && team->Index == index) {
+			return(team);
+		}
+	}
+	return(NULL);
+}
+
+// FUNCTION: GAMEMD 0x005D6690
+void MultiplayerGameMode::CreateMPTeams(DynamicVectorClass<MultiplayerTeam *> * teams)
+{
+	teams->Add(new MultiplayerObserverTeam);
+	for (int i = 1; i <= Session.MaxPlayers; i++) {
+		teams->Add(FUN_005C1030(i));
+	}
+}
+
+// FUNCTION: GAMEMD 0x005D6750
+void MultiplayerGameMode::FUN_005D6750(void)
+{
+	for (int i = 0; i < MPTeams.Count(); i++) {
+		delete MPTeams[i];
+	}
+	MPTeams.Clear();
+}
+
+// FUNCTION: GAMEMD 0x005D6790
+bool MultiplayerGameMode::UnfixAlliances(void)
+{
+	Scen->Special.IsAllianceFixed = false;
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D67A0
+bool MultiplayerGameMode::vt_entry_1C(unsigned a)
+{
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D67B0
+CCINIClass * MultiplayerGameMode::FUN_005D67B0(void)
+{
+	if (INI == NULL) {
+		INI = New_INI();
+		CCFileClass file(INIFilename);
+		if (file.Is_Available(false)) {
+			INI->ReadCCFile(file, false, false);
+		}
+	}
+	return(INI);
+}
+
+// best 90.8% against include/, no overlay; scan index takes EBX (exe ESI) and best/pick stack slots are swapped
+static inline bool Is_Observer(HouseClass * house)
+{
+	if (house != NULL) {
+		for (int k = 0; k < Session.Players.Count(); k++) {
+			if (house->FUN_0050B730() && wcscmp(house->UIName, Session.Players[k]->Name) == 0) {
+				return(Session.Players[k]->Slot.SpectatorFlag == -1);
+			}
+		}
+	}
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x005D6890
+Cell * MultiplayerGameMode::AssignStartingPositionsToHouse(Cell * result, int house, DynamicVectorClass<Cell> * coords, unsigned char * satisfied)
+{
+	int i = 0;
+	while (i < coords->Count() && Scen->HouseIndices[i] == -1) {
+		i++;
+	}
+	if (i == coords->Count()) {
+		DAT_00ABFDD4 = false;
+		DAT_00ABFDD5 = false;
+		if (Is_Observer(Houses[house])) {
+			i = Scen->RandomNumber(0, coords->Count() - 1);
+			satisfied[i] = 1;
+			Scen->HouseIndices[i] = house;
+			DAT_00ABFDD4 = true;
+			FUN_004068E0("Observer observing random cell: %d (%d,%d)\n", i, (*coords)[i].X, (*coords)[i].Y);
+			*result = (*coords)[i];
+			return(result);
+		}
+		i = Scen->RandomNumber(0, coords->Count() - 1);
+		FUN_004068E0("First cell taken: %d (%d,%d)\n", i, (*coords)[i].X, (*coords)[i].Y);
+		satisfied[i] = 1;
+		Scen->HouseIndices[i] = house;
+		*result = (*coords)[i];
+		return(result);
+	}
+	if (DAT_00ABFDD4 && !DAT_00ABFDD5) {
+		DAT_00ABFDD5 = true;
+		Scen->HouseIndices[i] = house;
+		*result = (*coords)[i];
+		return(result);
+	}
+	if (Is_Observer(Houses[house])) {
+		DAT_00ABFDD5 = true;
+		DAT_00ABFDD4 = true;
+		FUN_004068E0("Observer Observing cell: %d (%d,%d)\n", i, (*coords)[i].X, (*coords)[i].Y);
+		*result = (*coords)[i];
+		return(result);
+	}
+	int best_sum = -1;
+	int best = -1;
+	for (int b = 0; b < coords->Count(); b++) {
+		if (!satisfied[b]) {
+			int sum = 0;
+			for (int c = 0; c < coords->Count(); c++) {
+				if (satisfied[c]) {
+					sum += (*coords)[b].Distance_To((*coords)[c]);
+				}
+			}
+			if (sum > best_sum) {
+				best_sum = sum;
+				best = b;
+			}
+		}
+	}
+	satisfied[best] = 1;
+	Scen->HouseIndices[best] = house;
+	FUN_004068E0("Starting cell taken: %d (%d,%d)\n", best, (*coords)[best].X, (*coords)[best].Y);
+	*result = (*coords)[best];
+	return(result);
+}
+
+// FUNCTION: GAMEMD 0x005D6BE0
+bool MultiplayerGameMode::StartingPositionsToHouseBaseCells(char unused)
+{
+	DynamicVectorClass<Cell> cells = FUN_00688380(unused);
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * house = Houses[i];
+		if (!house->Class->IsMultiplayPassive) {
+			int point = house->StartingPoint;
+			if (point != -2) {
+				house->Set_Base_Spawn_Cell(cells[point]);
+				Scen->HouseIndices[point] = i;
+			}
+		}
+	}
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D6C70
+bool MultiplayerGameMode::StartingPositionsToHouseBaseCells2(bool arg)
+{
+	DynamicVectorClass<Cell> cells = FUN_00688380(arg);
+	unsigned char used[16];
+	for (int slot = 0; slot < 16; slot++) {
+		if (Scen->HouseIndices[slot] == -1) {
+			used[slot] = 0;
+		} else {
+			used[slot] = 1;
+		}
+	}
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * house = Houses[i];
+		HouseTypeClass * type = house->Class;
+		if (!type->IsMultiplayPassive) {
+			bool found = false;
+			int point = -1;
+			for (int j = 0; j < 16; j++) {
+				if (Scen->HouseIndices[j] == i) {
+					found = true;
+					point = j;
+				}
+			}
+			if (!found) {
+				FUN_004068E0("Assigning Starting Points for house %d (%s)\n", i, type->Name());
+				Cell cell;
+				Cell chosen = *AssignStartingPositionsToHouse(&cell, i, &cells, used);
+				house->Set_Base_Spawn_Cell(chosen);
+			} else {
+				house->Set_Base_Spawn_Cell(cells[point]);
+			}
+		}
+	}
+	return(true);
+}
+
+static inline void Player_Owner_Mask(int & mask)
+{
+	for (int h = 0; h < Houses.Count(); h++) {
+		HouseTypeClass * type = Houses[h]->Class;
+		if (!type->IsMultiplayPassive) {
+			mask |= 1 << Houses[h]->Class->HeapID;
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x005D6D80
+bool MultiplayerGameMode::FUN_005D6D80(void)
+{
+	int credits = 0;
+	int amount;
+	if (Session.Options.UnitCount > 0) {
+		amount = 0;
+		Player_Owner_Mask(amount);
+		int total = 0;
+		int count = 0;
+		for (int u = 0; u < UnitTypes.Count(); u++) {
+			UnitTypeClass * type = UnitTypes[u];
+			if (type->IsAllowedToStartInMultiplayer && (amount & type->Ownable) && type->Level <= DAT_00822CF4) {
+				bool excluded = false;
+				for (int j = 0; j < Rule->BaseUnit.Count(); j++) {
+					if (Rule->BaseUnit[j] == type) {
+						excluded = true;
+						break;
+					}
+				}
+				if (!excluded) {
+					count++;
+					total += type->Raw_Cost();
+				}
+			}
+		}
+		for (int n = 0; n < InfantryTypes.Count(); n++) {
+			InfantryTypeClass * type = InfantryTypes[n];
+			if (type->IsAllowedToStartInMultiplayer && (amount & type->Ownable) && type->Level <= DAT_00822CF4) {
+				count++;
+				total += type->Raw_Cost();
+			}
+		}
+		if (count == 0) {
+			count = 1;
+		}
+		credits = (total + count / 2) / count * Session.Options.UnitCount;
+	}
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * house = Houses[i];
+		if (!house->Class->IsMultiplayPassive) {
+			if (!Is_Observer(house)) {
+				amount = credits;
+				if (!SpawnBaseUnits(house, (unsigned)&amount)) {
+					return(false);
+				}
+				if (!GenerateStartingUnits(house, amount)) {
+					return(false);
+				}
+				if (amount > 0) {
+					house->Refund_Money(amount);
+				}
+				house->PBQuantity.Clear();
+				house->PAQuantity.Clear();
+				house->PIQuantity.Clear();
+				house->PUQuantity.Clear();
+			}
+		}
+	}
+	FUN_004068E0("Finished unit generation. Random number is %d\n", Scen->RandomNumber(0, 0xFFFF));
+	return(true);
+}
+
+int __fastcall FUN_00688ED0(ObjectClass * object, Cell const & cell, int flag);
+
+// FUNCTION: GAMEMD 0x005D7030
+bool MultiplayerGameMode::SpawnBaseUnits(HouseClass * house, unsigned unused)
+{
+	if (!Session.Options.Bases) {
+		return(true);
+	}
+	UnitTypeClass const * type = house->Get_First_Ownable(Rule->BaseUnit);
+	if (type != NULL) {
+		UnitClass * unit = new UnitClass(type, house);
+		if (unit != NULL) {
+			if (unit->Unlimbo(house->FUN_0050DF30())) {
+				return(true);
+			}
+			if (FUN_00688ED0(unit, house->Get_Base_Center(), 1)) {
+				return(true);
+			}
+			delete unit;
+		}
+	}
+	return(false);
+}
+
+// FUNCTION: GAMEMD 0x005D70F0
+bool MultiplayerGameMode::GenerateStartingUnits(HouseClass * house, int & amount)
+{
+	if (amount > 0) {
+		int total = amount;
+		DynamicVectorClass<UnitTypeClass *> units;
+		DynamicVectorClass<InfantryTypeClass *> infantry;
+		int owner = 1 << house->Class->HeapID;
+		for (int i = 0; i < UnitTypes.Count(); i++) {
+			UnitTypeClass * type = UnitTypes[i];
+			if (type->IsAllowedToStartInMultiplayer && (type->Ownable & owner) && type->Level <= house->Control.TechLevel) {
+				bool excluded = false;
+				for (int j = 0; j < Rule->BaseUnit.Count(); j++) {
+					if (Rule->BaseUnit[j] == type) {
+						excluded = true;
+						break;
+					}
+				}
+				if (!excluded) {
+					units.Add(type);
+				}
+			}
+		}
+		for (int n = 0; n < InfantryTypes.Count(); n++) {
+			InfantryTypeClass * type = InfantryTypes[n];
+			if (type->IsAllowedToStartInMultiplayer && (type->Ownable & owner) && type->Level <= house->Control.TechLevel) {
+				infantry.Add(type);
+			}
+		}
+		if (units.Count() == 0 && infantry.Count() == 0) {
+			return(false);
+		}
+		int tries = 20;
+		while (amount > 0 && tries > 0) {
+			TechnoTypeClass * type;
+			if (amount > total / 3 && units.Count() != 0) {
+				type = units[Scen->RandomNumber(0, units.Count() - 1)];
+			} else {
+				type = infantry[Scen->RandomNumber(0, infantry.Count() - 1)];
+			}
+			ObjectClass * object = type->Create_One_Of(house);
+			TechnoClass * techno = dynamic_cast<TechnoClass *>(object);
+			if (!FUN_00688ED0(techno, house->Get_Base_Center(), 4)) {
+				delete techno;
+				tries--;
+			} else {
+				amount -= type->Raw_Cost();
+				if (Scen->Special.IsInitialVeteran) {
+					techno->Veterancy.Set_Elite(true);
+				}
+				if (house->FUN_0050B730()) {
+					techno->Set_Mission(MISSION_GUARD);
+				} else {
+					techno->Set_Mission(MISSION_GUARD_AREA);
+				}
+			}
+		}
+	}
+	return(true);
+}
+
+int __stdcall House_Team(int index);
+
+// FUNCTION: GAMEMD 0x005D74A0
+bool MultiplayerGameMode::AllyTeams(void)
+{
+	for (int i = 0; i < Houses.Count(); i++) {
+		HouseClass * house = Houses[i];
+		if (!house->Class->IsMultiplayPassive) {
+			if (House_Team(i) != -2 && House_Team(i) != -1) {
+				for (int j = i + 1; j < Houses.Count(); j++) {
+					HouseClass * other = Houses[j];
+					if (!other->Class->IsMultiplayPassive && House_Team(i) == House_Team(j)) {
+						house->Make_Ally(other, false);
+						other->Make_Ally(house, false);
+					}
+				}
+			}
+		}
+	}
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D7550
+int __stdcall House_Team(int index)
+{
+	return(Houses[index]->StartingAllies);
+}
+
+// FUNCTION: GAMEMD 0x005D7570
+bool MultiplayerGameMode::vt_entry_8C(void)
+{
+	return(true);
+}
+
+// FUNCTION: GAMEMD 0x005D7580
+MultiplayerGameMode::InitializerBase::InitializerBase(void)
+{
+}
+
+static inline void Trim_Trailing(Wstring & string)
+{
+	string.trimTrailing(" ");
+}
+
+// FUNCTION: GAMEMD 0x005D7590
+void __fastcall Read_Game_Modes(Wstring const & section, MultiplayerGameMode::InitializerBase & init)
+{
+	CCFileClass file("MPModesMD.ini");
+	if (file.Is_Available(false)) {
+		INIClass ini;
+		if (ini.Load(file, false) > 0) {
+			int count = ini.Entry_Count(section);
+			for (int i = 0; i < count; i++) {
+				Wstring entry = ini.Get_Entry(section, i);
+				int index = entry.toInt();
+				Wstring value;
+				int length = ini.Get_String(section, entry, DAT_00889F64, value);
+				if (length <= 0) continue;
+
+				Wstring name;
+				int pos = value.getToken(0, ",", name);
+				if (!name.length()) continue;
+				name.trimLeading(" ");
+				Trim_Trailing(name);
+#line 1030 "D:\\ra2mdpost\\Multiplayer.cpp"
+				WideWstring title(StringTable::LoadString(name.get(), NULL, __FILE__, __LINE__));
+
+				Wstring tip;
+				pos = value.getToken(pos, ",", tip);
+				if (!tip.length()) continue;
+				tip.trimLeading(" ");
+				Trim_Trailing(tip);
+#line 1041 "D:\\ra2mdpost\\Multiplayer.cpp"
+				WideWstring tooltip(StringTable::LoadString(tip.get(), NULL, __FILE__, __LINE__));
+
+				Wstring inifile;
+				pos = value.getToken(pos, ",", inifile);
+				if (!inifile.length()) continue;
+				inifile.trimLeading(" ");
+				Trim_Trailing(inifile);
+
+				Wstring mapfilter;
+				pos = value.getToken(pos, ",", mapfilter);
+				mapfilter.trimLeading(" ");
+				Trim_Trailing(mapfilter);
+
+				Wstring ai;
+				value.getToken(pos, ",", ai);
+				ai.trimLeading(" ");
+				Trim_Trailing(ai);
+				bool aiallowed = true;
+				if (ai.length() > 0) {
+					aiallowed = stricmp(ai.get(), "false") != 0;
+				}
+
+				if (title.length() <= 0 || inifile.length() <= 0 || mapfilter.length() <= 0) continue;
+
+				MultiplayerGameMode * mode = init.Allocate(title, tooltip, inifile, mapfilter, aiallowed, index);
+				int at;
+				for (at = 0; at < Game_Modes().Count(); at++) {
+					if (Game_Modes()[at]->MPModeIndex > mode->MPModeIndex) {
+						break;
+					}
+				}
+				if (at == 0) {
+					Game_Modes().Add_Head(mode);
+				} else {
+					Game_Modes().Insert_After(at - 1, mode);
+				}
+			}
+		}
+	}
+}
+
+// FUNCTION: GAMEMD 0x005D7CD0
+MultiplayerGameMode::InitializerBase::~InitializerBase(void)
+{
+}
+
+class MPBattleInit : public MultiplayerGameMode::InitializerBase
+{
+	public:
+		MPBattleInit(void);
+		virtual MultiplayerGameMode * Allocate(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex);
+};
+
+MPBattleInit::MPBattleInit(void)
+{
+}
+
+#define MP_INIT_CLASS(name) \
+class name : public MultiplayerGameMode::InitializerBase \
+{ \
+	public: \
+		name(void); \
+		virtual MultiplayerGameMode * Allocate(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex); \
+}; \
+name::name(void) \
+{ \
+}
+
+MP_INIT_CLASS(MPManBattleInit)
+MP_INIT_CLASS(MPSiegeInit)
+MP_INIT_CLASS(MPUnholyAllianceInit)
+MP_INIT_CLASS(MPFreeForAllInit)
+MP_INIT_CLASS(MPMegawealthInit)
+
+void Free_Game_Modes(void);
+
+// FUNCTION: GAMEMD 0x005D7CE0
+void Init_Game_Modes(void)
+{
+	Free_Game_Modes();
+	MPBattleInit battle;
+	Read_Game_Modes("Battle", battle);
+	MPManBattleInit manbattle;
+	Read_Game_Modes("ManBattle", manbattle);
+	MPSiegeInit siege;
+	Read_Game_Modes("Siege", siege);
+	MPUnholyAllianceInit unholy;
+	Read_Game_Modes("Unholy", unholy);
+	MPFreeForAllInit freeforall;
+	Read_Game_Modes("FreeForAll", freeforall);
+	MPMegawealthInit cooperative;
+	Read_Game_Modes("Cooperative", cooperative);
+}
+
+// FUNCTION: GAMEMD 0x005D7E50
+void Free_Game_Modes(void)
+{
+	for (int i = 0; i < Game_Modes().Count(); i++) {
+		delete Game_Modes()[i];
+	}
+}
+
+// SYNTHETIC: GAMEMD 0x005D7F20
+// ??_GMultiplayerGameMode@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x005D7FD0
+// ??_GInitializerBase@MultiplayerGameMode@@UAEPAXI@Z
+
+// SYNTHETIC: GAMEMD 0x005D7FF0
+// ??_GMPBattleInit@@UAEPAXI@Z
+
+
+// SYNTHETIC: GAMEMD 0x005D8010
+// ??_GMPManBattleInit@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005D8030
+// ??_GMPSiegeInit@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005D8050
+// ??_GMPUnholyAllianceInit@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005D8070
+// ??_GMPFreeForAllInit@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005D8090
+// ??_GMPMegawealthInit@@UAEPAXI@Z
+
+// TEMPLATE: GAMEMD 0x005D80B0
+// ?Clear@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEXXZ
+// TEMPLATE: GAMEMD 0x005D80E0
+// ?ID@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEHPBQAVMultiplayerTeam@@@Z
+// TEMPLATE: GAMEMD 0x005D8100
+// ?GetItem@?$VectorClass@PAVMultiplayerTeam@@@@UBEPAVMultiplayerTeam@@H@Z
+// TEMPLATE: GAMEMD 0x005D8110
+// ?Clear@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEXXZ
+// TEMPLATE: GAMEMD 0x005D8140
+// ?ID@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEHPBQAVMultiplayerGameMode@@@Z
+// TEMPLATE: GAMEMD 0x005D8160
+// ?GetItem@?$VectorClass@PAVMultiplayerGameMode@@@@UBEPAVMultiplayerGameMode@@H@Z
+template class DynamicVectorClass<MultiplayerGameMode *>;
+
+#include "mpmanbattle.h"
+#include "mpunholyalliance.h"
+#include "mpfreeforall.h"
+#include "mpcoop.h"
+
+#include "mpbattle.h"
+
+// FUNCTION: GAMEMD 0x005D8170
+MultiplayerBattle * __stdcall Allocate_MPBattle(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex)
+{
+	return(new MultiplayerBattle(title, tooltip, inifile, mapfilter, aiallowed, modeindex));
+}
+
+// FUNCTION: GAMEMD 0x005D81B0
+MultiplayerManBattle * __stdcall Allocate_MPManBattle(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex)
+{
+	return(new MultiplayerManBattle(title, tooltip, inifile, mapfilter, aiallowed, modeindex));
+}
+
+// FUNCTION: GAMEMD 0x005D81F0
+MultiplayerSiege * __stdcall Allocate_MPSiege(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex)
+{
+	return(new MultiplayerSiege(title, tooltip, inifile, mapfilter, aiallowed, modeindex));
+}
+
+// FUNCTION: GAMEMD 0x005D8230
+UnholyAlliance * __stdcall Allocate_MPUnholyAlliance(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex)
+{
+	return(new UnholyAlliance(title, tooltip, inifile, mapfilter, aiallowed, modeindex));
+}
+
+// FUNCTION: GAMEMD 0x005D8270
+FreeForAll * __stdcall Allocate_MPFreeForAll(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex)
+{
+	return(new FreeForAll(title, tooltip, inifile, mapfilter, aiallowed, modeindex));
+}
+
+// FUNCTION: GAMEMD 0x005D82B0
+MPCooperative * __stdcall Allocate_MPCoop(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex)
+{
+	return(new MPCooperative(title, tooltip, inifile, mapfilter, aiallowed, modeindex));
+}
+
+// TEMPLATE: GAMEMD 0x005D82F0
+// ??8?$VectorClass@PAVMultiplayerTeam@@@@UBE_NABV0@@Z
+// TEMPLATE: GAMEMD 0x005D8330
+// ?Resize@?$VectorClass@PAVMultiplayerTeam@@@@UAE_NHPBQAVMultiplayerTeam@@@Z
+// TEMPLATE: GAMEMD 0x005D83E0
+// ?Clear@?$VectorClass@PAVMultiplayerTeam@@@@UAEXXZ
+// TEMPLATE: GAMEMD 0x005D8410
+// ?ID@?$VectorClass@PAVMultiplayerTeam@@@@UAEHABQAVMultiplayerTeam@@@Z
+// TEMPLATE: GAMEMD 0x005D8450
+// ?ID@?$VectorClass@PAVMultiplayerTeam@@@@UAEHPBQAVMultiplayerTeam@@@Z
+// TEMPLATE: GAMEMD 0x005D8470
+// ?Resize@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAE_NHPBQAVMultiplayerTeam@@@Z
+// TEMPLATE: GAMEMD 0x005D8520
+// ?ID@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEHABQAVMultiplayerTeam@@@Z
+template class DynamicVectorClass<MultiplayerTeam *>;
+
+// TEMPLATE: GAMEMD 0x005D8550
+// ??8?$VectorClass@PAVMultiplayerGameMode@@@@UBE_NABV0@@Z
+// TEMPLATE: GAMEMD 0x005D8590
+// ?Resize@?$VectorClass@PAVMultiplayerGameMode@@@@UAE_NHPBQAVMultiplayerGameMode@@@Z
+// TEMPLATE: GAMEMD 0x005D8640
+// ?Clear@?$VectorClass@PAVMultiplayerGameMode@@@@UAEXXZ
+// TEMPLATE: GAMEMD 0x005D8670
+// ?ID@?$VectorClass@PAVMultiplayerGameMode@@@@UAEHABQAVMultiplayerGameMode@@@Z
+// TEMPLATE: GAMEMD 0x005D86B0
+// ?ID@?$VectorClass@PAVMultiplayerGameMode@@@@UAEHPBQAVMultiplayerGameMode@@@Z
+// TEMPLATE: GAMEMD 0x005D86D0
+// ??0?$DynamicVectorClass@PAVMultiplayerGameMode@@@@QAE@IPBQAVMultiplayerGameMode@@@Z
+// TEMPLATE: GAMEMD 0x005D8730
+// ?Resize@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAE_NHPBQAVMultiplayerGameMode@@@Z
+// TEMPLATE: GAMEMD 0x005D87E0
+// ?ID@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEHABQAVMultiplayerGameMode@@@Z
+// SYNTHETIC: GAMEMD 0x005D8810
+// ??_G?$VectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005D8860
+// ??_G?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005D88B0
+// ??_G?$VectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z
+// SYNTHETIC: GAMEMD 0x005D8900
+// ??_G?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z
+template class DynamicVectorClass<MultiplayerGameMode *>;
+template class DynamicVectorClass<MultiplayerTeam *>;
+
+// TEMPLATE: GAMEMD 0x005D8950
+// ??0?$VectorClass@PAVUnitTypeClass@@@@QAE@HPBQAVUnitTypeClass@@@Z
+template class VectorClass<UnitTypeClass *>;
+
+// TEMPLATE: GAMEMD 0x005D89A0
+// ??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@HPBQAVInfantryTypeClass@@@Z
+template class VectorClass<InfantryTypeClass *>;
+
+// TEMPLATE: GAMEMD 0x005D89F0
+// ??0?$VectorClass@PAVMultiplayerGameMode@@@@QAE@HPBQAVMultiplayerGameMode@@@Z
+template class VectorClass<MultiplayerGameMode *>;

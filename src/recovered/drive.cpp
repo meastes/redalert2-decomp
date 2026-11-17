@@ -1,0 +1,1966 @@
+// drive.cpp: the original translation unit re-filed as one source (Route A): the accepted
+// bodies of its canonical compile group in address order, under the unit's own header
+// state (its switches and includes in their original order). The module map
+// manifests/original_target/modules/drive.json carries the addresses and the rows that
+// stay in their own files.
+
+
+#define RA2_SHIP_SOM
+#define RA2_COORD_POINT_Z
+#define RA2_TPOINT3D_DIFFERENCE
+#define RA2_COORD_TPOINT3D
+#define RA2_COORD_CELL_BASE_INIT
+#define RA2_COORD_AS_CELL
+#define RA2_CELL_AS_COORD
+#define RA2_COORD_FROM_CELL_INLINE
+#define RA2_TRACK_POINT_STRUCT
+#define RA2_SHIP_MOVE_TO_VALUE
+#define RA2_SHIP_CELL_ACCESSORS
+#include "shared/unknown_geometry.hpp"
+#include "shared/unknown_static_rect.hpp"
+#include "shared/drive_locomotion.hpp"
+#include "shared/com_ptr.hpp"
+#include "shared/matrix3d.hpp"
+#define Min(a, b) ((a) < (b) ? (a) : (b))
+#include "shared/crt_math.hpp"
+#include "shared/cell.hpp"
+#include "shared/anim.hpp"
+#include "shared/rules.hpp"
+#include "shared/overlay_type.hpp"
+#include "shared/tube.hpp"
+#include "shared/adjacent_cell.hpp"
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#include "shared/house.hpp"
+#include "shared/team.hpp"
+#include "shared/spawn_manager.hpp"
+#include "shared/sound_play.hpp"
+#include "shared/unknown_vector3.hpp"
+#include "shared/ground_type.hpp"
+#include "shared/techno_type.hpp"
+#include "shared/facing.hpp"
+#include "shared/crt_memory.hpp"
+#include "shared/vector_class.hpp"
+
+
+// Header-static dynamic initializers of the unit at 0x0049F450:  the
+// shared/unknown_geometry.hpp constants and unknown_static_rect.hpp
+// (0x0049F450-0x0049F636); the other
+// drafts of this plan are emitted by these includes.
+
+
+// Dynamic initializer (0x0049F480, _$E) of b from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F4A0, _$E) of c from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F4C0, _$E) of angle45 from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F4E0, _$E) of angle60 from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F500, _$E) of angle90 from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F520, _$E) of g from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F560, _$E) of h from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F590, _$E) of i from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F5C0, _$E) of j from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F5F0, _$E) of k from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F600, _$E) of l from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// Dynamic initializer (0x0049F620, _$E) of static_rect from the header(s) included
+// by HeaderStatics_diagonal_init_0049f450.cpp; no source of its own.
+
+
+// DriveLocomotionClass::DriveLocomotionClass() (0x0049F640)
+// No ramps, a fresh slope timer, the destination and head-to coordinate at
+// the unit's zero, no track (-1), unlocked (+0x65), no piggybacker.
+
+DriveLocomotionClass::DriveLocomotionClass() :
+    unknown_1c(0),
+    unknown_20(0),
+    DestinationCoord(unknown_geometry_l),
+    unknown_40(unknown_geometry_l),
+    SpeedAccum(0),
+    TargetSpeed(0),
+    TrackNumber(-1),
+    TrackIndex(-1),
+    IsOnShortTrack(false),
+    IsTurretLockedDown(false),
+    IsRotating(false),
+    IsDriving(false),
+    IsRocking(false),
+    IsLocomotorUnlocked(true)
+{
+}
+
+
+// DriveLocomotionClass::~DriveLocomotionClass() (0x0049F6E0)
+// Releases the carried locomotor.
+
+DriveLocomotionClass::~DriveLocomotionClass()
+{
+}
+
+
+// HRESULT __stdcall DriveLocomotionClass::Piggyback_CLSID(GUID *classid) (0x0049F710, IPiggyback 6)
+// The class ID of the carried locomotor, or this locomotor's own when none is
+// carried; each is queried for IPersist (TibSun Drive.cpp Piggyback_CLSID).
+
+HRESULT __stdcall DriveLocomotionClass::Piggyback_CLSID(GUID *classid)
+{
+    if (classid == 0) {
+        return E_POINTER;
+    }
+    if (Piggybacker) {
+        UnknownComPtr<IPersist, &unknown_uuid_IPersist_7cf208> persist(Piggybacker);
+        if (persist == 0) {
+            return E_FAIL;
+        }
+        return persist->GetClassID(classid);
+    }
+    UnknownHeldComPtr<IPersist, &unknown_uuid_IPersist_7cf208> persist(static_cast<IPersistStream *>(this));
+    if (persist == 0) {
+        return E_FAIL;
+    }
+    return persist->GetClassID(classid);
+}
+
+
+// HRESULT __stdcall DriveLocomotionClass::QueryInterface(GUID const &iid, void **object) (0x0049F820)
+// The base interfaces, then IPiggyback.
+
+HRESULT __stdcall DriveLocomotionClass::QueryInterface(GUID const &iid, void **object)
+{
+    HRESULT result = LocomotionClass::QueryInterface(iid, object);
+    if (result == E_NOINTERFACE) {
+        if (iid == IID_IPiggyback) {
+            *object = static_cast<IPiggyback *>(this);
+        }
+        if (*object == 0) {
+            return E_NOINTERFACE;
+        }
+        AddRef();
+        result = S_OK;
+    }
+    return result;
+}
+
+
+// HRESULT __stdcall DriveLocomotionClass::Load(IStream *stream) (0x0049F880)
+// LocomotionClass::Load, rebuilt in place; then a flag and, when set, the
+// carried locomotor (OleLoadFromStream).
+
+HRESULT __stdcall DriveLocomotionClass::Load(IStream *stream)
+{
+    HRESULT result = LocomotionClass::Load(stream);
+    if (SUCCEEDED(result)) {
+        new (this) DriveLocomotionClass(NoInitClass());
+        bool piggybacking;
+        stream->Read(&piggybacking, sizeof(piggybacking), 0);
+        if (piggybacking) {
+            result = OleLoadFromStream(stream, IID_ILocomotion, (void **)&Piggybacker);
+        }
+    }
+    return result;
+}
+
+
+// HRESULT __stdcall DriveLocomotionClass::Save(IStream *stream, BOOL clear_dirty) (0x0049F900)
+// LocomotionClass::Save, then whether a locomotor is carried and, if so,
+// that locomotor (OleSaveToStream through its IPersistStream).
+
+HRESULT __stdcall DriveLocomotionClass::Save(IStream *stream, BOOL clear_dirty)
+{
+    HRESULT result = LocomotionClass::Save(stream, clear_dirty);
+    if (FAILED(result)) {
+        return result;
+    }
+    bool piggybacking;
+    if (Piggybacker != 0) {
+        piggybacking = true;
+        stream->Write(&piggybacking, sizeof(piggybacking), 0);
+        UnknownComPtr<IPersistStream, &unknown_uuid_IPersistStream_7d5f38> persist(static_cast<ILocomotion *>(Piggybacker));
+        return OleSaveToStream(persist, stream);
+    }
+    piggybacking = false;
+    stream->Write(&piggybacking, sizeof(piggybacking), 0);
+    return result;
+}
+
+
+// HRESULT __stdcall DriveLocomotionClass::Begin_Piggyback(ILocomotion *pointer) (0x0049F9E0, IPiggyback 3)
+// Carries the locomotor unless one is already carried.
+
+HRESULT __stdcall DriveLocomotionClass::Begin_Piggyback(ILocomotion *pointer)
+{
+    if (pointer == 0) {
+        return E_POINTER;
+    }
+    if (Piggybacker == 0) {
+        Piggybacker = pointer;
+        return S_OK;
+    }
+    return E_FAIL;
+}
+
+
+// HRESULT __stdcall DriveLocomotionClass::End_Piggyback(ILocomotion **pointer) (0x0049FA30, IPiggyback 4)
+// Hands the carried locomotor (and its reference) back.
+
+HRESULT __stdcall DriveLocomotionClass::End_Piggyback(ILocomotion **pointer)
+{
+    if (pointer == 0) {
+        return E_POINTER;
+    }
+    if (Piggybacker != 0) {
+        *pointer = Piggybacker.Pointer;
+        Piggybacker.Pointer = 0;
+        return S_OK;
+    }
+    return S_FALSE;
+}
+
+
+// bool __stdcall DriveLocomotionClass::Is_Ok_To_End() (0x0049FA70, IPiggyback 5)
+// Once stopped while unlocked and carrying a locomotor.
+
+bool __stdcall DriveLocomotionClass::Is_Ok_To_End()
+{
+    if (!Is_Moving() && Piggybacker != 0 && IsLocomotorUnlocked) {
+        return true;
+    }
+    return false;
+}
+
+
+// Matrix3D *DriveLocomotionClass::unknown_49faa0(Matrix3D *matrix) (0x0049FAA0)
+// The slope tilt matrix: while a slope change runs, the blend from the old
+// ramp (unknown_20) to the new one by Slope_Ratio; otherwise the new ramp's
+// matrix, or identity when level. Draw_Matrix expands it; this copy is
+// unreferenced.
+
+Matrix3D *DriveLocomotionClass::unknown_49faa0(Matrix3D *matrix)
+{
+    Matrix3D tilt;
+    tilt.Make_Identity();
+    if (!RampTimer.Has_Completed2()) {
+        Matrix3D blend;
+        double ratio = Slope_Ratio();
+        tilt = *Get_Slope_Transition_Matrix(&blend, unknown_20, unknown_1c, ratio);
+    } else if (unknown_1c != 0) {
+        Matrix3D ramp;
+        tilt = *Get_Slope_Matrix(&ramp, unknown_1c);
+    }
+    *matrix = tilt;
+    return matrix;
+}
+
+
+// double DriveLocomotionClass::Slope_Ratio() (0x0049FB90)
+// How far the slope change has run (1.0 when it has no duration).
+
+double DriveLocomotionClass::Slope_Ratio()
+{
+    return RampTimer.Progress();
+}
+
+
+// void DriveLocomotionClass::Set_Slope(int ramp) (0x0049FBF0)
+// A different ramp starts a three-frame change from the current one.
+
+void DriveLocomotionClass::Set_Slope(int ramp)
+{
+    if (ramp != unknown_1c) {
+        unknown_20 = unknown_1c;
+        unknown_1c = ramp;
+        RampTimer = UnknownSlopeTimer(3);
+    }
+}
+
+
+// void __stdcall DriveLocomotionClass::Force_New_Slope(int ramp) (0x0049FC30, ILocomotion 31)
+// Both ramps become ramp and the slope timer restarts.
+
+void __stdcall DriveLocomotionClass::Force_New_Slope(int ramp)
+{
+    unknown_20 = ramp;
+    unknown_1c = ramp;
+    RampTimer = UnknownSlopeTimer();
+}
+
+
+// bool __stdcall DriveLocomotionClass::Is_Moving() (0x0049FC70, ILocomotion 4)
+// A destination is set, or a head-to coordinate other than where the
+// object stands (X and Y).
+
+bool __stdcall DriveLocomotionClass::Is_Moving()
+{
+    if (DestinationCoord != unknown_geometry_l) {
+        return true;
+    }
+    if (unknown_40 != unknown_geometry_l) {
+        if (unknown_40.X != Object_Coord(LinkedTo).X || unknown_40.Y != Object_Coord(LinkedTo).Y) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+// bool __stdcall DriveLocomotionClass::Is_Moving_Now() (0x0049FD10, ILocomotion 32)
+// Turning, or moving toward a head-to coordinate with speed (slot 303).
+
+bool __stdcall DriveLocomotionClass::Is_Moving_Now()
+{
+    if (LinkedTo->PrimaryFacing.Is_Rotating()) {
+        return true;
+    }
+    if (Is_Moving() && unknown_40 != unknown_geometry_l && LinkedTo->Current_Speed() > 0) {
+        return true;
+    }
+    return false;
+}
+
+
+// CoordStruct __stdcall DriveLocomotionClass::Destination() (0x0049FD80, ILocomotion 5)
+
+CoordStruct __stdcall DriveLocomotionClass::Destination()
+{
+    return CoordStruct(DestinationCoord.X, DestinationCoord.Y, DestinationCoord.Z);
+}
+
+
+// CoordStruct __stdcall DriveLocomotionClass::Head_To_Coord() (0x0049FDB0, ILocomotion 6)
+// The head-to coordinate when set, otherwise where the linked object is.
+
+CoordStruct __stdcall DriveLocomotionClass::Head_To_Coord()
+{
+    if (unknown_40 != unknown_geometry_l) {
+        return CoordStruct(unknown_40.X, unknown_40.Y, unknown_40.Z);
+    }
+    CoordStruct coord = LinkedTo->Coord;
+    return coord;
+}
+
+
+// void __stdcall DriveLocomotionClass::Move_To(COMCoordStruct to) (0x0049FE30, ILocomotion 17)
+// Unless the linked object is busy (slots 201, 202, 111, 112), heads for
+// the coordinate (raised by the bridge height on flagged cells).
+
+void __stdcall DriveLocomotionClass::Move_To(COMCoordStruct to)
+{
+    if (!LinkedTo->unknown_slot201() && !LinkedTo->unknown_slot202() && !LinkedTo->unknown_slot111() && !LinkedTo->unknown_slot112()) {
+        DestinationCoord = CoordStruct(to.X, to.Y, to.Z);
+        if (to != unknown_geometry_l) {
+            to = CoordStruct(to.X, to.Y, to.Z);
+            if (Loco_Cell(to)->Flags & 0x100) {
+                DestinationCoord.Z += unknown_geometry_j;
+            }
+        }
+    }
+}
+
+
+// void __stdcall DriveLocomotionClass::Stop_Moving() (0x0049FEF0, ILocomotion 18)
+// With a head-to coordinate, a train's locomotive also stops the cars
+// coupled behind it. The speed fraction drops to at most 0.3 and the
+// destination is cleared.
+
+
+void __stdcall DriveLocomotionClass::Stop_Moving()
+{
+    if (unknown_40 != unknown_geometry_l && LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->IsFollowing) {
+        for (UnitClass *car = (UnitClass *)((UnitClass *)LinkedTo)->FollowingMe; car != 0; ) {
+            car->Locomotor.Checked()->Stop_Moving();
+            car = (UnitClass *)car->FollowingMe;
+            if (car == 0 || car == car->FollowingMe) {
+                break;
+            }
+        }
+    }
+    TargetSpeed = Min(TargetSpeed, 0.3f);
+    DestinationCoord = unknown_geometry_l;
+}
+
+
+// int DriveLocomotionClass::Is_Level() (0x0049FFC0)
+// The slope change has finished and the hull is level (both tilt angles
+// under 0.005).
+
+int DriveLocomotionClass::Is_Level()
+{
+    float ratio = Slope_Ratio();
+    if (ratio == 1.0 && fabs(LinkedTo->AngleRotatedSideways) < 0.005 && fabs(LinkedTo->AngleRotatedForwards) < 0.005) {
+        return true;
+    }
+    return false;
+}
+
+
+// Not exact (RA2_NON_MATCHING): DriveLocomotionClass::Draw_Matrix at 0x004A0050, best score 77.17, 2026-11-13; differs: 342 instructions in the original, 337 in the draft (shape 94.55)
+#ifdef RA2_NON_MATCHING
+#include "shared/fast_math.hpp"
+
+// TibSun Get_Slope_Matrix: the slope tilt matrix (0x0049FAA0 here; Draw_Matrix expands it).
+static inline Matrix3D Slope_Tilt(DriveLocomotionClass *locomotor)
+{
+    Matrix3D tilt;
+    return *locomotor->unknown_49faa0(&tilt);
+}
+
+Matrix3D * __stdcall DriveLocomotionClass::Draw_Matrix(Matrix3D *matrix, int *key)
+{
+    Matrix3D transform;
+    if (!Is_Level()) {
+        Matrix3D rotation;
+        transform.Make_Identity();
+        rotation.Make_Identity();
+        float length = LinkedTo->Techno_Type_Class()->VoxelCenterY;
+        float width = LinkedTo->Techno_Type_Class()->VoxelCenterX;
+        float roll_cos = Fast_Cos(LinkedTo->AngleRotatedForwards);
+        float roll_sin = Fast_Sin(LinkedTo->AngleRotatedForwards);
+        float pitch_cos = Fast_Cos(LinkedTo->AngleRotatedSideways);
+        float pitch_sin = Fast_Sin(LinkedTo->AngleRotatedSideways);
+        int lift = fabs(pitch_sin) * length + fabs(roll_sin) * width;
+        int y_shift = (int)(width - (float)(int)(roll_cos * width));
+        int y_offset = y_shift;
+        int x_shift = (int)(length - (float)(int)(pitch_cos * length));
+        if (LinkedTo->AngleRotatedForwards < 0.0f) {
+            y_offset = -y_shift;
+        }
+        if (LinkedTo->AngleRotatedSideways > 0.0f) {
+            x_shift = -x_shift;
+        }
+        transform.Translate_Z((float)lift);
+        rotation.Translate_X((float)y_offset);
+        rotation.Translate_Y((float)x_shift);
+        rotation.Rotate_X(LinkedTo->AngleRotatedSideways);
+        rotation.Rotate_Y(LinkedTo->AngleRotatedForwards);
+        if (key != 0) {
+            *key = -1;
+        }
+        Matrix3D temp;
+        Matrix3D basemtx(*LocomotionClass::Draw_Matrix(&temp, key));
+        transform = transform * Slope_Tilt(this) * basemtx * rotation;
+    } else {
+        if (key != 0) {
+            if (*key != -1) {
+                int keybase = *key << 6;
+                *key = keybase;
+                *key += unknown_1c;
+            }
+        }
+        Matrix3D temp;
+        Matrix3D basemtx(*LocomotionClass::Draw_Matrix(&temp, key));
+        transform = Slope_Tilt(this) * basemtx;
+    }
+    *matrix = transform;
+    return matrix;
+}
+#endif
+
+// Matrix3D * __stdcall DriveLocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *key) (0x004A0500, ILocomotion 10)
+// The base shadow transform; the key is -1 (not cached) unless the unit is
+// level.
+
+Matrix3D * __stdcall DriveLocomotionClass::Shadow_Matrix(Matrix3D *matrix, int *key)
+{
+    if (!Is_Level() && key != 0) {
+        *key = -1;
+    }
+    Matrix3D shadow;
+    *matrix = *LocomotionClass::Shadow_Matrix(&shadow, key);
+    return matrix;
+}
+
+
+// void __stdcall DriveLocomotionClass::Unlimbo() (0x004A05C0, ILocomotion 20)
+// Takes the ramp of the cell the object is placed in.
+
+void __stdcall DriveLocomotionClass::Unlimbo()
+{
+    Force_New_Slope(((CellClass *)LinkedTo->Get_Cell_Ptr())->Ramp);
+}
+
+
+// bool __stdcall DriveLocomotionClass::Process() (0x004A05F0, ILocomotion 16)
+// TibSun drive.cpp Process; ShipLocomotionClass::Process 0x006765B0 is the twin. RA2 adds
+// the move to a moving navigation target (kind 15) for units, the dust anim every 10
+// frames on land type 2 cells and the speed reset once both coordinates are clear.
+
+bool __stdcall DriveLocomotionClass::Process()
+{
+    Set_Slope(static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Ramp);
+    if (TrackNumber != -1 && IsDriving) {
+        if (While_Moving(false)) {
+            return false;
+        }
+        if (!LinkedTo->IsActive) {
+            return false;
+        }
+        if (TrackNumber == -1 && (Is_Moving() || LinkedTo->unknown_4d0 != -1)
+            && (LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->IsDumping)) {
+            bool stop = false;
+            if (LinkedTo->Kind_Of() == 1 && LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 15) {
+                CoordStruct coord = LinkedTo->NavCom->Destination_Coord(LinkedTo);
+                if (coord != DestinationCoord) {
+                    Move_To(coord);
+                }
+            }
+            Start_Of_Move(stop, true, false);
+            if (stop) {
+                return false;
+            }
+            if (!LinkedTo->IsActive) {
+                return false;
+            }
+            While_Moving(true);
+            if (!LinkedTo->IsActive) {
+                return false;
+            }
+        }
+    } else {
+        if (LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 11) {
+            CellClass *cell = (CellClass *)LinkedTo->NavCom;
+            if (LinkedTo->Get_Cell() == cell->Fetch_CellID()) {
+                Abandon_Navigation();
+                return false;
+            }
+        }
+        if (LinkedTo->Mission == 5 && !IsDriving && DestinationCoord != unknown_geometry_l && Object_Coord(LinkedTo) == DestinationCoord) {
+            Abandon_Navigation();
+            return false;
+        }
+        if (LinkedTo->PrimaryFacing.Is_Rotating()) {
+            IsRotating = true;
+        } else {
+            if (IsRotating) {
+                IsRotating = false;
+                LinkedTo->unknown_slot93(0);
+                if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
+                    return false;
+                }
+            }
+            if ((LinkedTo->Get_Mission() != 5 || Is_Moving()) && LinkedTo->Get_Mission() != 16) {
+                if (Is_Moving() || LinkedTo->unknown_4d0 != -1) {
+                    if (LinkedTo->IsLocked && LinkedTo->Get_Mission() != 7 && Is_Moving() && !LinkedTo->unknown_slot171(DestinationCoord)) {
+                        Stop_Driver();
+                        if (Abandon_Navigation()) {
+                            return false;
+                        }
+                    } else {
+                        bool stop = false;
+                        Start_Of_Move(stop, true, false);
+                        if (stop) {
+                            return false;
+                        }
+                        if (!LinkedTo->IsActive) {
+                            return false;
+                        }
+                        While_Moving(false);
+                        if (!LinkedTo->IsActive) {
+                            return false;
+                        }
+                    }
+                } else if (LinkedTo->IsSinking) {
+                    Stop_Driver();
+                    TargetSpeed = 0;
+                } else if (LinkedTo->NavCom != 0) {
+                    Move_To(LinkedTo->NavCom->Destination_Coord(LinkedTo));
+                }
+            }
+        }
+    }
+    if (Is_Moving_Now() && Frame % 10 == 0 && !LinkedTo->IsOnBridge
+        && static_cast<CellClass *>(LinkedTo->Get_Cell_Ptr())->Land_Type() == 2 && Rules->Wake != 0) {
+        new AnimClass(Rules->Wake, Object_Coord(LinkedTo), 0, 1, 0x600, 0);
+    }
+    if (DestinationCoord == unknown_geometry_l && unknown_40 == unknown_geometry_l && LinkedTo->unknown_4d0 == -1 && LinkedTo->Speed > 0.0) {
+        LinkedTo->unknown_slot306(0.0);
+    }
+    return Is_Moving();
+}
+
+
+// void DriveLocomotionClass::unknown_4a0bc0(CoordStruct const &headto, int mark) (0x004A0BC0)
+// Marks (slot 58) or clears (slot 59, mark 0) the cell ahead on the current
+// track and the head-to coordinate (Westwood's DriveClass::Mark_Track).
+
+void DriveLocomotionClass::unknown_4a0bc0(CoordStruct const &headto, int mark)
+{
+    if (headto == unknown_geometry_l) {
+        return;
+    }
+    if (!IsOnShortTrack && TrackNumber != -1) {
+        int track = DriveTrackControl[TrackNumber].Track;
+        if (track) {
+            TrackType const *points = DriveRawTracks[track - 1].Track;
+            int cell = DriveRawTracks[track - 1].Cell;
+            if (cell > -1) {
+                int facing = points[cell].Facing;
+                if (TrackIndex < cell) {
+                    Point2D offset = points[cell].Offset;
+                    Point2D point = Smooth_Turn(offset, facing);
+                    if (mark == 0) {
+                        CoordStruct coord(point.X, point.Y, LinkedTo->Get_Height());
+                        LinkedTo->Clear_Occupy_Bit(coord);
+                    } else if (mark == 1 || mark == 3) {
+                        CoordStruct coord(point.X, point.Y, LinkedTo->Get_Height());
+                        LinkedTo->Set_Occupy_Bit(coord);
+                    }
+                }
+            }
+        }
+    }
+    if (mark == 0) {
+        LinkedTo->Clear_Occupy_Bit(headto);
+    } else if (mark == 1 || mark == 3) {
+        LinkedTo->Set_Occupy_Bit(headto);
+    }
+}
+
+
+// void __stdcall DriveLocomotionClass::Force_Track(int track, CoordStruct coord) (0x004A0D30, ILocomotion 27)
+// Puts the unit on a track at its start; with a coordinate it heads there
+// (Start_Driver) and, when that succeeds, it is the destination at full speed.
+
+void __stdcall DriveLocomotionClass::Force_Track(int track, CoordStruct coord)
+{
+    TrackNumber = track;
+    TrackIndex = 0;
+    if (coord != unknown_geometry_l) {
+        if (Start_Driver(CoordStruct(coord.X, coord.Y, coord.Z))) {
+            DestinationCoord = coord;
+            TargetSpeed = 1.0;
+        }
+    }
+}
+
+
+// bool DriveLocomotionClass::Stop_Driver() (0x004A0E90)
+// Clears the head-to coordinate (Westwood's DriveClass::Stop_Driver).
+// Expanded where it is used; this out-of-line copy is never called.
+
+bool DriveLocomotionClass::Stop_Driver()
+{
+    if (unknown_40 != unknown_geometry_l) {
+        unknown_40 = unknown_geometry_l;
+        IsDriving = false;
+        return true;
+    }
+    return false;
+}
+
+
+// bool DriveLocomotionClass::Start_Driver(CoordStruct const &headto) (0x004A0EE0)
+// Heads for a coordinate: taken (and its track marked) when the object may
+// stand in its cell; otherwise dropped again when +0x7D is set (Westwood's
+// DriveClass::Start_Driver). Expanded where it is used; this out-of-line
+// copy is never called.
+
+bool DriveLocomotionClass::Start_Driver(CoordStruct const &headto)
+{
+    Stop_Driver();
+    if (headto != unknown_geometry_l) {
+        unknown_40 = headto;
+        IsDriving = true;
+        if (Map[headto].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
+            unknown_4a0bc0(headto, 1);
+            return true;
+        }
+        if (LinkedTo->IsActive) {
+            unknown_40 = unknown_geometry_l;
+            IsDriving = false;
+        }
+    }
+    return false;
+}
+
+
+// void __stdcall DriveLocomotionClass::Do_Turn(UnknownFacingDir dir) (0x004A0FD0, ILocomotion 19)
+
+void __stdcall DriveLocomotionClass::Do_Turn(UnknownFacingDir dir)
+{
+    LinkedTo->PrimaryFacing.Set_Desired(UnknownFacingDir(dir));
+}
+
+
+// bool DriveLocomotionClass::While_Moving(bool just_started) (0x004A1000)
+// TibSun DriveClass::While_Moving: accelerates or slows the unit, then moves
+// it along its track by the accumulated speed, handling tunnels, crushing,
+// track jumps at turns and arrival at the head-to coordinate.
+
+extern Point2D const AdjacentPoint[8];
+CoordStruct __fastcall Lerp(CoordStruct const &from, CoordStruct const &to, float t);
+
+static const double _deaccel = 0.3f;
+static const double _sinking = 0.1f;
+static const double _sinking_scale = 0.0015f;
+
+#ifndef RA2_ADJACENT_CELL
+#define RA2_ADJACENT_CELL
+inline Cell Adjacent_Cell(Cell cell, int facing)
+{
+    Cell const &offset = AdjacentCell[facing & 7];
+    return Cell(cell.X + offset.X, cell.Y + offset.Y);
+}
+#endif
+
+// TibSun Adjacent_Cell(Coord const &, FacingType): the coordinate one cell away (Coord + AdjacentPoint).
+inline CoordStruct Adjacent_Coord(CoordStruct const &coord, int facing)
+{
+    Point2D const &offset = AdjacentPoint[facing & 7];
+    return CoordStruct(coord.X + offset.X, coord.Y + offset.Y, coord.Z);
+}
+
+// TibSun TPoint2D - TPoint3D (the coordinate taken as its TPoint2D base).
+inline Point2D Point_Difference(Point2D const &point, CoordStruct const &coord)
+{
+    return Point2D(point.X - coord.X, point.Y - coord.Y);
+}
+
+// TibSun Coord(TPoint2D, z): a track point at a height.
+inline CoordStruct Point_Coord(Point2D const &point, int z)
+{
+    return CoordStruct(point.X, point.Y, z);
+}
+
+inline CoordStruct::CoordStruct(Point2D const &point, int z) : BASECLASS(point.X, point.Y, z) {}
+
+
+bool DriveLocomotionClass::While_Moving(bool just_started)
+{
+    if ((!IsDriving || TrackNumber == -1) && LinkedTo->Path[0] != 8 || (IsRotating && !LinkedTo->Techno_Type_Class()->Turret)) {
+        SpeedAccum = 0;
+        return false;
+    }
+    if (LinkedTo->Techno_Type_Class()->Accelerates) {
+        bool not_passive = LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->Type->Passive;
+        if (TrackNumber < 0x40 && not_passive) {
+            CoordStruct dest_coord = DestinationCoord;
+            dest_coord.Z = Map.Get_Height_GL(dest_coord) + (Map[dest_coord].IsUnderBridge ? unknown_geometry_j : 0);
+            int distance = (Object_Coord(LinkedTo) - CoordStruct(dest_coord)).Length();
+
+            bool forced_speed = false;
+            double speed = LinkedTo->Speed;
+
+            TechnoTypeClass const *tclass = LinkedTo->Techno_Type_Class();
+            int maxspeed = LinkedTo->unknown_slot206();
+
+            if (distance < tclass->SlowdownDistance) {
+                forced_speed = true;
+                speed = MAX(_deaccel, speed - maxspeed * tclass->DeaccelerationFactor);
+            } else if (LinkedTo->IsSinking) {
+                speed = MAX(_sinking, speed - maxspeed * _sinking_scale);
+                forced_speed = true;
+            }
+
+            if (LinkedTo->IsCrushing) {
+                TargetSpeed = MIN(TargetSpeed, 0.2);
+                LinkedTo->unknown_slot306(TargetSpeed);
+            } else if (forced_speed) {
+                LinkedTo->unknown_slot306(speed);
+            } else if (LinkedTo->Speed < TargetSpeed) {
+                LinkedTo->unknown_slot306(MIN(TargetSpeed, LinkedTo->Speed + tclass->AccelerationFactor));
+            } else if (LinkedTo->Speed > TargetSpeed) {
+                LinkedTo->unknown_slot306(MAX(TargetSpeed, LinkedTo->Speed - maxspeed * tclass->DeaccelerationFactor));
+            }
+
+            if (LinkedTo->Kind_Of() == 1) {
+                UnitClass *unit = (UnitClass *)LinkedTo;
+                UnitClass *following = (UnitClass *)unit->FollowingMe;
+                if (following != 0) {
+                    do {
+                        following->unknown_slot306(LinkedTo->Speed);
+                        following = (UnitClass *)following->FollowingMe;
+                    } while (following && following != following->FollowingMe);
+                }
+            }
+        }
+    } else {
+        LinkedTo->unknown_slot306(TargetSpeed);
+    }
+
+    int current_speed = LinkedTo->Current_Speed();
+
+    int actual;
+    actual = SpeedAccum + (just_started ? 0 : current_speed);
+
+    int nextface;
+    nextface = LinkedTo->Path[0];
+
+    if (nextface == 8 && TrackNumber == -1) {
+        LinkedTo->Mark(0);
+        Stop_Driver();
+
+        CellClass *cell = (CellClass *)LinkedTo->Get_Cell_Ptr();
+        int tubenum = cell->Tube;
+        if (tubenum >= 0 && tubenum < Tubes.Count()) {
+            TubeClass *tube = Tubes[tubenum];
+            Cell c = tube->ExitCell;
+            unknown_40 = c.As_Coord();
+            memcpy((char *)&LinkedTo->Path, (char *)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
+            LinkedTo->Path[23] = -1;
+            LinkedTo->CurrentTube = tubenum;
+            TPoint2D<short> const &enter = tube->EnterCell;
+            LinkedTo->CurrentTubeDir = 0;
+            LinkedTo->unknown_45c = Map[Adjacent_Cell(Cell(enter), tube->Directions[0])].unknown_475d60();
+            int current_height = Map.Get_Height_GL(Object_Coord(LinkedTo));
+            Cell exit = tube->ExitCell;
+            int count = tube->unknown_1c0;
+            LinkedTo->unknown_45c.Z = current_height + (Map.Get_Height_GL(exit) - current_height) / count;
+            IsDriving = true;
+            TrackNumber = -1;
+        } else {
+            LinkedTo->Path[0] = -1;
+            TrackNumber = -1;
+            unknown_40 = unknown_geometry_l;
+            Stop_Driver();
+        }
+        return false;
+    }
+
+    if (actual > 7) {
+        TrackControlStruct const *track;
+        TrackType const *ptr;
+        int tracknum;
+        bool adj;
+
+        track = &DriveTrackControl[TrackNumber];
+        if (IsOnShortTrack) {
+            tracknum = track->StartTrack;
+        } else {
+            tracknum = track->Track;
+        }
+        ptr = DriveRawTracks[tracknum - 1].Track;
+
+        if (nextface < -1 || nextface > 8) {
+            LinkedTo->Path[0] = -1;
+            return false;
+        }
+
+        adj = false;
+        if (nextface != 8 && nextface != -1 && Dir_To_8(UnknownFacingDir((unsigned short)((unsigned char)track->Facing << 8))) != nextface) {
+            adj = true;
+        }
+
+        while (actual > 7) {
+            Point2D offset;
+            int dir;
+
+            actual -= 7;
+
+            offset = ptr[TrackIndex].Offset;
+            if (offset != Point2D(0, 0) || !TrackIndex) {
+                if (LinkedTo->unknown_slot47()) {
+                    LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
+                    LinkedTo->IsOccupyingCell = false;
+                    LinkedTo->IsToPathAroundBlockage = false;
+                }
+
+                Cell oldcell;
+                if (!TrackIndex) {
+                    oldcell = LinkedTo->Get_Cell();
+                } else {
+                    dir = ptr[TrackIndex - 1].Facing;
+                    Point2D prevoffset = ptr[TrackIndex - 1].Offset;
+                    oldcell = CoordStruct(Smooth_Turn(prevoffset, dir), 0).As_Cell();
+                }
+
+                dir = ptr[TrackIndex].Facing;
+                CoordStruct newcoord = Point_Coord(Smooth_Turn(offset, dir), 0);
+                Cell newcoord_cell = newcoord.As_Cell();
+                Cell linked_coord_cell = Object_Coord(LinkedTo).As_Cell();
+                Cell newcell = newcoord.As_Cell();
+
+                if (newcoord_cell != linked_coord_cell) {
+                    LinkedTo->Mark(0);
+                    LinkedTo->Set_Coord(newcoord);
+                    CellClass *oldcellptr = &Map[oldcell];
+                    CellClass *newcellptr = &Map[newcell];
+                    if (newcellptr->Height == oldcellptr->Height - 4 && newcellptr->IsUnderBridge) {
+                        LinkedTo->IsOnBridge = true;
+                    }
+                    if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
+                        LinkedTo->IsOnBridge = false;
+                    }
+                    if (LinkedTo->Techno_Type_Class()->IsTrain && !((UnitClass *)LinkedTo)->IsFollowing) {
+                        FootClass *train = LinkedTo;
+                        bool is_bridge = train->IsOnBridge || (Object_Coord(LinkedTo).Z >= (Map.Get_Height_GL(Object_Coord(LinkedTo)) + unknown_geometry_j));
+                        ObjectClass *object = is_bridge ? Map[newcell].AltOccupierPtr : Map[newcell].OccupierPtr;
+                        ObjectClass *&ref = object;
+                        ObjectClass *occupier = ref;
+                        while (occupier != 0) {
+                            ObjectClass *next = occupier->unknown_30;
+                            if (!occupier->Class_Of()->IsCrushable) {
+                                int strength = 10000;
+                                occupier->Take_Damage(&strength, 0, Rules->C4Warhead, 0, true, true);
+                                strength = 20;
+                                train->Take_Damage(&strength, 0, Rules->C4Warhead, 0, true, false);
+                            }
+                            occupier = next;
+                        }
+                    }
+                    if (!LinkedTo->IsActive) return false;
+                    LinkedTo->Mark(1);
+
+                    if (newcellptr->OverlayIndex != -1) {
+                        OverlayTypeClass *otype = OverlayTypes[newcellptr->OverlayIndex];
+                        if (IsRocking && (LinkedTo->Techno_Type_Class()->Crusher || LinkedTo->Has_Ability(0x11)) && otype->ArrayIndex == 0) {
+                            LinkedTo->IsCrushing = true;
+                            TechnoTypeClass const *ttype = LinkedTo->Techno_Type_Class();
+                            if (ttype->TiltsWhenCrushes) {
+                                LinkedTo->RockingForwardsPerFrame = -0.02f;
+                            }
+                        }
+                    }
+                } else {
+                    bool down = LinkedTo->IsDown;
+                    LinkedTo->IsDown = false;
+                    LinkedTo->Set_Coord(newcoord);
+                    LinkedTo->IsDown = down;
+                }
+
+                if (!LinkedTo->IsActive) {
+                    return false;
+                }
+
+                bool down = LinkedTo->IsDown;
+                LinkedTo->IsDown = false;
+                LinkedTo->Set_Height_AGL(0);
+                LinkedTo->IsDown = down;
+
+                LinkedTo->PrimaryFacing.Set(UnknownFacingDir((unsigned short)((unsigned char)dir << 8)));
+
+                if (TrackIndex && DriveRawTracks[tracknum - 1].Cell == TrackIndex) {
+                    LinkedTo->Clear_Occupy_Bit(Object_Coord(LinkedTo));
+                }
+
+                if (nextface != 8 && nextface != -1 && adj && DriveRawTracks[tracknum - 1].Jump == TrackIndex && TrackIndex) {
+                    TrackControlStruct const *newtrack;
+                    int tnum;
+
+                    tnum = Dir_To_8(UnknownFacingDir((unsigned short)((unsigned char)track->Facing << 8))) * 8 + nextface;
+                    newtrack = &DriveTrackControl[tnum];
+                    if (newtrack->Track && DriveRawTracks[newtrack->Track - 1].Entry) {
+                        double oldspeed = LinkedTo->Speed;
+
+                        CoordStruct c = Adjacent_Coord(unknown_40, nextface);
+
+                        switch (LinkedTo->Can_Enter_Cell(&Map[c.As_Cell()], nextface, LinkedTo->unknown_5d47d0(), 0, true)) {
+                            case 0:
+                            case 2:
+                                if (LinkedTo->Kind_Of() == 1 && !((UnitClass *)LinkedTo)->Type->Passive) break;
+                                IsOnShortTrack = false;
+                                TrackNumber = tnum;
+                                track = newtrack;
+
+                                tracknum = track->Track;
+                                TrackIndex = DriveRawTracks[tracknum - 1].Entry - 1;
+                                ptr = DriveRawTracks[tracknum - 1].Track;
+                                adj = false;
+
+                                Stop_Driver();
+                                IsDriving = true;
+                                LinkedTo->unknown_slot93(2);
+                                IsDriving = false;
+                                if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return false;
+                                if (Start_Driver(c)) {
+                                    LinkedTo->unknown_slot306(oldspeed);
+                                    memcpy((char *)&LinkedTo->Path, (char *)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
+                                    LinkedTo->Path[23] = -1;
+                                }
+                                break;
+
+                            case 1:
+                                Map[c].Shimmer();
+                                break;
+
+                            case 3:
+                                {
+                                    Cell gate = c.As_Cell();
+                                    Map.Try_Open_Gate(LinkedTo, gate);
+                                }
+                                break;
+
+                            case 6: {
+                                    bool bridge;
+                                    if (!Map[c].IsUnderBridge || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[c].Height) <= 2) {
+                                        bridge = false;
+                                    } else {
+                                        bridge = true;
+                                    }
+                                    Map[unknown_40].Incoming(&unknown_geometry_l, true, true, bridge);
+                                }
+                                break;
+                        }
+                    }
+                }
+                TrackIndex++;
+
+            } else {
+                CoordStruct dc = unknown_40 - Object_Coord(LinkedTo);
+                int d = abs(dc.X) + abs(dc.Y);
+                actual += (int)((1.0 - (double)d / 11.0) * 7.0);
+                LinkedTo->IsOccupyingCell = true;
+                LinkedTo->IsToPathAroundBlockage = false;
+
+                Cell here = Object_Coord(LinkedTo).As_Cell();
+                if (here != unknown_40.As_Cell()) {
+                    LinkedTo->Mark(0);
+                    LinkedTo->Set_Coord(unknown_40);
+                    LinkedTo->Set_Height_AGL(0);
+                    LinkedTo->Mark(1);
+                } else {
+                    bool down = LinkedTo->IsDown;
+                    LinkedTo->IsDown = false;
+                    LinkedTo->Set_Coord(unknown_40);
+                    LinkedTo->Set_Height_AGL(0);
+                    LinkedTo->IsDown = down;
+                }
+
+                Stop_Driver();
+                TrackNumber = -1;
+                TrackIndex = 0;
+
+                bool arrived = false;
+                if (LinkedTo->NavCom != 0 && LinkedTo->Get_Cell() == LinkedTo->NavCom->Destination_Coord(LinkedTo).As_Cell()) {
+                    if (abs(LinkedTo->Destination_Coord(LinkedTo).Z - DestinationCoord.Z) < 2 * unknown_geometry_g) {
+                        arrived = true;
+                        DestinationCoord = unknown_geometry_l;
+                        Stop_Driver();
+                        IsDriving = false;
+                    }
+                }
+
+                LinkedTo->unknown_slot93(2);
+                if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return true;
+
+                if (arrived) {
+                    LinkedTo->Abort_Motion();
+                    LinkedTo->Path[0] = -1;
+                    if (LinkedTo->Get_Mission() == 2 && LinkedTo->unknown_slot261(false, true)) {
+                        return true;
+                    }
+                }
+
+                if (LinkedTo->unknown_slot292()) {
+                    return true;
+                }
+
+                if (!LinkedTo->IsActive) return false;
+
+                break;
+            }
+        }
+    }
+
+    SpeedAccum = actual;
+
+    if (actual > 0 && TrackNumber > -1) {
+        TrackControlStruct const *track;
+        TrackType const *ptr;
+        int tracknum;
+
+        track = &DriveTrackControl[TrackNumber];
+        if (IsOnShortTrack) {
+            tracknum = track->StartTrack;
+        } else {
+            tracknum = track->Track;
+        }
+        ptr = DriveRawTracks[tracknum - 1].Track;
+
+        int dir;
+        Point2D offset = ptr[TrackIndex].Offset;
+        if (offset != Point2D(0, 0) || !TrackIndex) {
+
+            CoordStruct oldcoord = Object_Coord(LinkedTo);
+
+            dir = ptr[TrackIndex].Facing;
+            CoordStruct movement(Point_Difference(Smooth_Turn(offset, dir), Object_Coord(LinkedTo)), 0);
+            CoordStruct stepcoord = movement + Object_Coord(LinkedTo);
+            CellClass *stepcellptr = &Map[stepcoord];
+
+            CoordStruct partial(0, 0, 0);
+            movement = Lerp(partial, movement, SpeedAccum / 7.0);
+            CoordStruct partialcoord = oldcoord + movement;
+
+            CellClass *oldcellptr = &Map[oldcoord];
+            CellClass *partialcellptr = &Map[partialcoord];
+
+            CoordStruct coord = Object_Coord(LinkedTo);
+
+            if (partialcellptr != stepcellptr && partialcellptr != oldcellptr) {
+                if (SpeedAccum > 3) {
+                    coord = stepcoord;
+                }
+            } else {
+                coord = partialcoord;
+            }
+
+            CellClass *newcellptr = &Map[CoordStruct(coord)];
+
+            if (coord.As_Cell() != Object_Coord(LinkedTo).As_Cell()) {
+                LinkedTo->Mark(0);
+                LinkedTo->Set_Coord(coord);
+                if (newcellptr->Height == oldcellptr->Height - 4 && newcellptr->IsUnderBridge) {
+                    LinkedTo->IsOnBridge = true;
+                }
+                if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
+                    LinkedTo->IsOnBridge = false;
+                }
+                LinkedTo->Mark(1);
+            } else {
+                bool down = LinkedTo->IsDown;
+                LinkedTo->IsDown = false;
+                LinkedTo->Set_Coord(coord);
+                LinkedTo->IsDown = down;
+            }
+        }
+    }
+
+    return false;
+}
+
+
+// bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool force_straight) (0x004A2670)
+// TibSun DriveClass::Start_Of_Move: prepares the path and picks the next
+// track, handling blockages at the next cell.
+
+extern Point2D const AdjacentPoint[8];
+
+#ifndef RA2_ADJACENT_CELL
+#define RA2_ADJACENT_CELL
+inline Cell Adjacent_Cell(Cell cell, int facing)
+{
+    Cell const &offset = AdjacentCell[facing & 7];
+    return Cell(cell.X + offset.X, cell.Y + offset.Y);
+}
+#endif
+
+inline TPoint3D<int> const operator+(CoordStruct const &coord, Point2D const &point)
+{
+    return TPoint3D<int>(coord.X + point.X, coord.Y + point.Y, coord.Z);
+}
+
+inline CoordStruct Adjacent_Coord_SOM(CoordStruct const &coord, int facing)
+{
+    return coord + AdjacentPoint[facing & 7];
+}
+
+bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool force_straight)
+{
+    int facing = LinkedTo->Path[0];
+
+    if (!Is_Moving() && facing == -1) {
+        IsTurretLockedDown = false;
+        Stop_Driver();
+        if (LinkedTo->Get_Mission() == 2) {
+            stop_processing = LinkedTo->unknown_slot261(false, true);
+        }
+        return false;
+    }
+
+    if (!(DestinationCoord != unknown_geometry_l)) return false;
+
+    if (LinkedTo->unknown_slot111() || LinkedTo->unknown_slot112()) return false;
+    if (LinkedTo->SpawnManager != 0 && LinkedTo->SpawnManager->Launching_Count() != 0) return true;
+    if (LinkedTo->unknown_slot201() || LinkedTo->unknown_slot202()) return true;
+
+    if (facing != -1) {
+        if (LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 1 || LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 15) {
+            int dist = LinkedTo->Distance(DestinationCoord) / 256;
+            if (dist < 24) {
+                LinkedTo->Path[dist] = -1;
+                facing = LinkedTo->Path[0];
+            }
+        }
+    }
+
+    if (facing == -1) {
+        if (LinkedTo->PathDelay != 0) {
+            return false;
+        }
+        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
+
+        if (!LinkedTo->unknown_4c3000((DestinationCoord).As_Cell(), 0, 0)) {
+            if (LinkedTo == 0) {
+                stop_processing = true;
+                return false;
+            }
+            if (!LinkedTo->unknown_slot171(DestinationCoord)) {
+                LinkedTo->Assign_Destination(0, true);
+                return false;
+            }
+
+                if (DestinationCoord == unknown_geometry_l) return false;
+
+                if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(DestinationCoord) < Rules->CloseEnoughDistance && (LinkedTo->Get_Mission() == 2 || LinkedTo->Get_Mission() == 11)) {
+                    Stop_Driver();
+                    if (Abandon_Navigation()) return true;
+                    if (!LinkedTo->IsActive) return false;
+                } else {
+                    Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), Dir_To_8(LinkedTo->PrimaryFacing.Current()));
+                    if (Map.In_Local_Radar(cell, true)) {
+                        int ok = LinkedTo->Can_Enter_Cell(&Map[cell], Dir_To_8(LinkedTo->PrimaryFacing.Current()), LinkedTo->unknown_5d47d0(), 0, true);
+                        if (ok == 3) {
+                            unknown_4a47c0(cell);
+                        } else if (ok == 6) {
+                            CellClass *cellptr = &Map[cell];
+                            TechnoClass *blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0)) + 2 * unknown_geometry_g, 0);
+                            if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
+                                if (LinkedTo->Distance(DestinationCoord) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
+                                    if (abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
+                                        if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
+                                            Stop_Driver();
+                                            if (Abandon_Navigation()) return true; return false;
+                                        }
+                                    }
+                                }
+                                bool is_bridge;
+                                if (!(cellptr->unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr->Height) <= 2) {
+                                    is_bridge = false;
+                                } else {
+                                    is_bridge = true;
+                                }
+                                cellptr->Incoming(&unknown_geometry_l, true, true, is_bridge);
+                            }
+                        }
+                    }
+
+                    if (LinkedTo->unknown_53c > 0) {
+                        LinkedTo->unknown_53c--;
+                    } else {
+                        Stop_Driver();
+                        if (Abandon_Navigation()) return true;
+                        if (!LinkedTo->IsActive) return false;
+                        if (LinkedTo->IsNewNavCom) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
+                        LinkedTo->IsNewNavCom = false;
+                    }
+                }
+
+                if (!Is_Moving() && LinkedTo->TarCom != 0 && !LinkedTo->unknown_slot213(LinkedTo->TarCom)) {
+                    LinkedTo->IsScanLimited = true;
+                    if (LinkedTo->Team != 0) LinkedTo->Team->Scan_Limit();
+                    LinkedTo->unknown_slot220(0);
+                }
+
+                Stop_Driver();
+                TrackNumber = -1;
+                IsTurretLockedDown = false;
+                return false;
+            
+        }
+
+        if (LinkedTo->Path[0] == 8) {
+            return false;
+        }
+
+        Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), LinkedTo->Path[0]);
+        if (Map.In_Local_Radar(cell, true)) {
+            int ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->Path[0], LinkedTo->unknown_5d47d0(), 0, true);
+            if (ok == 3) {
+                unknown_4a47c0(cell);
+            } else if (ok == 6) {
+                CellClass *cellptr = &Map[cell];
+                TechnoClass *blockage;
+                {
+                    CoordStruct center(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
+                    blockage = (TechnoClass *)cellptr->Cell_Techno(Point2D(0, 0), Object_Coord(LinkedTo).Z > Map.Get_Height_GL(center) + 2 * unknown_geometry_g, 0);
+                }
+                if (blockage != 0 && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->Techno_Type_Class()->IsTrain) {
+                    if (LinkedTo->Distance(DestinationCoord) < Rules->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
+                        if (abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) < 2 * unknown_geometry_g) {
+                            if (Map[Object_Coord(LinkedTo)].Land_Type() != 10) {
+                                Stop_Driver();
+                                return Abandon_Navigation();
+                            }
+                        }
+                    }
+                    bool is_bridge;
+                    if (!(cellptr->unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr->Height) <= 2) {
+                        is_bridge = false;
+                    } else {
+                        is_bridge = true;
+                    }
+                    cellptr->Incoming(&unknown_geometry_l, true, true, is_bridge);
+                }
+            }
+        }
+
+        LinkedTo->unknown_53c = 10;
+        facing = LinkedTo->Path[0];
+    }
+
+    if (facing == 8) {
+        return false;
+    }
+
+    CoordStruct dest = Adjacent_Coord_SOM(Object_Coord(LinkedTo), facing);
+
+    CellClass const &here = Map[Object_Coord(LinkedTo)];
+    int cell_height = here.Height + (LinkedTo->IsOnBridge ? 4 : 0);
+
+    CellClass const &next = Map[Adjacent_Coord_SOM(Object_Coord(LinkedTo), facing)];
+    if (LinkedTo->IsOnBridge ^ next.IsUnderBridge) {
+        LinkedTo->IsPlanningToLook = true;
+    }
+    if (!LinkedTo->Is_Ready_To_Move()) {
+        return true;
+    }
+    if (!unknown_4a47c0((dest).As_Cell())) {
+        return true;
+    }
+
+    if (UnknownFacingDir(DIR_MIN) < (LinkedTo->PrimaryFacing.Current() - UnknownFacingDir((FacingType)facing))) {
+        Do_Turn(UnknownFacingDir((FacingType)facing));
+        return true;
+    } else {
+        Cell destcell = (dest).As_Cell();
+        CellClass *destptr = &Map[destcell];
+        bool crushable_dest = false;
+        LinkedTo->Mark(0);
+        int cando = LinkedTo->Can_Enter_Cell(destptr, facing, cell_height, 0, true);
+        LinkedTo->Mark(1);
+
+        if (cando < 7 && LinkedTo->Techno_Type_Class()->IsTrain) {
+            cando = 0;
+        } else if ((cando == 5 || cando == 4) && LinkedTo->Techno_Type_Class()->Crusher && destptr->OverlayIndex == 0) {
+            cando = 0;
+        }
+
+        int overlay = destptr->OverlayIndex;
+        if (overlay != -1 && cando == 0 && OverlayTypes[overlay]->IsCrushable) {
+            crushable_dest = true;
+        }
+
+        if (cando != 0) {
+            if (cando == 3) {
+                unknown_4a47c0(destcell);
+            } else if (cando == 6) {
+                if (!LinkedTo->Techno_Type_Class()->IsTrain) {
+                    FootClass *unit = LinkedTo;
+                    if (retry) {
+                        unit->Path[0] = -1;
+                        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+                        return Start_Of_Move(stop_processing, false, false);
+                    }
+                    int dist = unit->Distance(DestinationCoord);
+                    if (dist >= Rules->CloseEnoughDistance
+                        || abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
+                        || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
+                        bool is_bridge;
+                        if (!(Map[destcell].unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - Map[destcell].Height) <= 2) {
+                            is_bridge = false;
+                        } else {
+                            is_bridge = true;
+                        }
+                        Map[destcell].Incoming(&unknown_geometry_l, true, true, is_bridge);
+                    } else {
+                        Stop_Driver();
+                        if (Abandon_Navigation()) {
+                            return true;
+                        }
+                    }
+                }
+            } else if (cando == 1) {
+                Map[destcell].Shimmer();
+                if (retry) {
+                    LinkedTo->Path[0] = -1;
+                    return Start_Of_Move(stop_processing, false, false);
+                }
+                Stop_Driver();
+                return Abandon_Navigation();
+            }
+
+            Stop_Driver();
+            if (cando == 2) {
+                if (!LinkedTo->IsToPathAroundBlockage) {
+                    LinkedTo->IsToPathAroundBlockage = true;
+                    LinkedTo->BlockagePathDelay = CDTimerClass<FrameTimerClass>(Rules->BlockagePathDelay);
+                }
+                if (LinkedTo->PathDelay == 0) {
+                    bool around_blockage = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
+                    bool ok = LinkedTo->unknown_4c3000((DestinationCoord).As_Cell(), 0, (around_blockage != 0) + 1);
+                    if (LinkedTo == 0) {
+                        stop_processing = true;
+                        return false;
+                    }
+                    if (ok || LinkedTo->unknown_slot171(DestinationCoord)) {
+                        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay * 900.0));
+                        return true;
+                    }
+                    LinkedTo->Assign_Destination(0, true);
+                    return false;
+                }
+            }
+
+            if (cando == 5 || cando == 4) {
+                if (retry) {
+                    LinkedTo->Path[0] = -1;
+                    LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+                    return Start_Of_Move(stop_processing, false, false);
+                }
+                if (Map[destcell].Cell_Object(Point2D(0, 0), 0)) {
+                    if (!LinkedTo->House->Is_Ally((TechnoClass *)Map[destcell].Cell_Object(Point2D(0, 0), 0))) {
+                        LinkedTo->Override_Mission(1, Map[destcell].Cell_Object(Point2D(0, 0), 0), 0);
+                    }
+                } else {
+                    if (Map[destcell].OverlayIndex != -1 && OverlayTypes[Map[destcell].OverlayIndex]->Wall) {
+                        LinkedTo->Override_Mission(1, &Map[destcell], 0);
+                    }
+                }
+            } else {
+                if (LinkedTo->IsNewNavCom) Voc_Play(Rules->ScoldSound, 1.0f, 0x2000, 0);
+            }
+
+            if (cando == 7 && retry) {
+                LinkedTo->Path[0] = -1;
+                LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+                return Start_Of_Move(stop_processing, false, false);
+            } else if (cando == 7 && !retry) {
+                Stop_Driver();
+                return Abandon_Navigation();
+            }
+
+            LinkedTo->IsNewNavCom = false;
+            TrackNumber = -1;
+            return true;
+        }
+
+        int height;
+        int ground;
+        if (abs(cell_height - Map[destcell].Height) < 2) {
+            height = Map[destcell].Height;
+            ground = Map[destcell].Land_Type();
+        } else {
+            height = cell_height;
+            ground = 1;
+        }
+
+        TechnoTypeClass *ttype = LinkedTo->Techno_Type_Class();
+        double speed = Ground[ground].Cost[ttype->SpeedType];
+        if (speed > 1.0) speed = 1.0;
+
+        int destheight = Map.Get_Height_GL(Map[destcell].unknown_475d60());
+        int unitheight = Map.Get_Height_GL(Object_Coord(LinkedTo));
+        if (destheight > unitheight && LinkedTo->Kind_Of() == 1) {
+            if (LinkedTo->Techno_Type_Class()->SpeedType == 1) {
+                speed *= Rules->TrackedUphill;
+            } else {
+                speed *= Rules->WheeledUphill;
+            }
+        } else if (destheight < unitheight && LinkedTo->Kind_Of() == 1) {
+            if (LinkedTo->Techno_Type_Class()->SpeedType == 1) {
+                speed *= Rules->TrackedDownhill;
+            } else {
+                speed *= Rules->WheeledDownhill;
+            }
+        }
+        if (speed == 0.0) speed = 0.5;
+
+        if (LinkedTo->Health_Ratio() <= Rules->ConditionYellow) {
+            speed *= 0.75;
+        }
+        if (TrackNumber < 0x40) {
+            TargetSpeed = speed;
+        } else {
+            if (speed != LinkedTo->Speed) {
+                LinkedTo->unknown_slot306(speed);
+            }
+        }
+
+        
+        LinkedTo->Overrun_Square(dest.As_Cell(), true);
+
+        int nextface = LinkedTo->Path[1];
+        if (nextface == -1) {
+            if (LinkedTo->Distance(DestinationCoord) > 0x200) {
+                int patharg = LinkedTo->Techno_Type_Class()->IsTrain ? 1 : 0;
+                bool found = LinkedTo->unknown_4c3000((DestinationCoord).As_Cell(), patharg, 0);
+                bool &result = found;
+                if (!result) {
+                    if (LinkedTo == 0) {
+                        stop_processing = true;
+                        return found;
+                    }
+                    if (!LinkedTo->unknown_slot171(DestinationCoord)) {
+                        LinkedTo->Assign_Destination(0, true);
+                    }
+                }
+                nextface = LinkedTo->Path[1];
+            }
+        }
+        if (nextface == 8) nextface = facing;
+        if (nextface == -1 || force_straight) {
+            nextface = facing;
+        }
+
+        CellClass const *adjcell;
+        if (nextface != -1 && (adjcell = &((CellClass const *)destptr)->Adjacent_Cell(nextface)) != 0 && adjcell->OverlayIndex != -1 && OverlayTypes[adjcell->OverlayIndex]->IsCrushable || crushable_dest) {
+            nextface = facing;
+            IsRocking = true;
+        } else {
+            IsRocking = false;
+        }
+
+        IsOnShortTrack = false;
+        TrackNumber = facing * 8 + nextface;
+        if (DriveTrackControl[TrackNumber].Track == 0) {
+            TrackNumber = facing * 8 + facing;
+        }
+
+        if (DriveTrackControl[TrackNumber].Flag & 8) {
+            int nextcando;
+            if (!Map[destcell].Goodie_Check(LinkedTo) && !LinkedTo->IsInLimbo) {
+                nextcando = 7;
+                if (!LinkedTo->IsActive) return false;
+            } else {
+                if (!LinkedTo->IsActive) return false;
+                dest = Adjacent_Coord_SOM(dest, nextface);
+                destcell = (dest).As_Cell();
+                nextcando = LinkedTo->Can_Enter_Cell(&Map[destcell], nextface, height, 0, true);
+                if (nextcando < 7 && LinkedTo->Techno_Type_Class()->IsTrain) {
+                    nextcando = 0;
+                } else if ((nextcando == 4 || nextcando == 5) && LinkedTo->Techno_Type_Class()->Crusher && Map[destcell].OverlayIndex == 0) {
+                    nextcando = 0;
+                }
+            }
+            if (!LinkedTo->IsActive) return false;
+
+            if (nextcando != 0) {
+                if (nextcando == 3) {
+                    unknown_4a47c0(destcell);
+                } else if (nextcando == 2) {
+                    return Start_Of_Move(stop_processing, retry, true);
+                } else if (nextcando == 6) {
+                    if (!LinkedTo->Techno_Type_Class()->IsTrain) {
+                        if (retry) {
+                            LinkedTo->Path[0] = -1;
+                            LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+                            return Start_Of_Move(stop_processing, false, false);
+                        }
+                        if (LinkedTo->Distance_YZX(DestinationCoord) >= Rules->CloseEnoughDistance
+                            || abs(DestinationCoord.Z - Object_Coord(LinkedTo).Z) >= 2 * unknown_geometry_g
+                            || Map[Object_Coord(LinkedTo)].Land_Type() == 10) {
+                            CellClass *cellptr = &Map[destcell];
+                            bool is_bridge;
+                            if (!(cellptr->unknown_140 & 0x100) || abs(Object_Coord(LinkedTo).Z / unknown_geometry_g - cellptr->Height) <= 2) {
+                                is_bridge = false;
+                            } else {
+                                is_bridge = true;
+                            }
+                            cellptr->Incoming(&unknown_geometry_l, true, true, is_bridge);
+                        } else {
+                            Stop_Driver();
+                            if (Abandon_Navigation()) {
+                                return true;
+                            }
+                        }
+                    }
+                } else if (nextcando == 1) {
+                    Map[destcell].Shimmer();
+                    if (retry) {
+                        LinkedTo->Path[0] = -1;
+                        return Start_Of_Move(stop_processing, false, false);
+                    }
+                    Stop_Driver();
+                    return Abandon_Navigation();
+                } else if (nextcando == 7) {
+                    if (retry) {
+                        LinkedTo->Path[0] = -1;
+                        LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0);
+                        return Start_Of_Move(stop_processing, false, false);
+                    }
+                    Stop_Driver();
+                    return Abandon_Navigation();
+                }
+
+                LinkedTo->Path[0] = -1;
+                TrackNumber = -1;
+                dest = unknown_geometry_l;
+                if (nextcando == 5 || nextcando == 4) {
+                    return Start_Of_Move(stop_processing, retry, true);
+                }
+            } else {
+                memcpy(&LinkedTo->Path[0], &LinkedTo->Path[2], sizeof(LinkedTo->Path[0]) * 22);
+                LinkedTo->Path[22] = -1;
+                LinkedTo->IsPlanningToLook = true;
+            }
+        } else {
+            memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * 23);
+        }
+
+        LinkedTo->Path[23] = -1;
+        LinkedTo->LastPathingCell = (dest).As_Cell();
+        LinkedTo->IsNewNavCom = false;
+        TrackIndex = 0;
+        if (!Start_Driver(dest)) {
+            TrackNumber = -1;
+            LinkedTo->Path[0] = -1;
+            LinkedTo->unknown_slot306(0);
+        }
+        return false;
+    }
+    return false;
+}
+
+
+// DriveLocomotionClass_Lay_Track (0x004A4730): name from mischa85 names.csv
+
+void  DriveLocomotionClass_Lay_Track(void)
+{
+    return;
+}
+
+
+
+// Point2D DriveLocomotionClass::Smooth_Turn(Point2D const &offset, int &facing) (0x004A4740)
+// A track point and facing turned by the current track's flags (swap,
+// mirror X, mirror Y), the point placed relative to the head-to coordinate
+// (Westwood's DriveClass::Smooth_Turn).
+
+Point2D DriveLocomotionClass::Smooth_Turn(Point2D const &offset, int &facing)
+{
+    int workdir = facing;
+    int flags = DriveTrackControl[TrackNumber].Flag;
+    int x = offset.X;
+    int y = offset.Y;
+    if (flags & 1) {
+        int temp = x;
+        x = y;
+        y = temp;
+        workdir = (-64 - workdir) & 0xFF;
+    }
+    if (flags & 2) {
+        x = -x;
+        workdir = -workdir & 0xFF;
+    }
+    if (flags & 4) {
+        y = -y;
+        workdir = (-128 - workdir) & 0xFF;
+    }
+    facing = workdir;
+    return Point2D(unknown_40.X + x, unknown_40.Y + y);
+}
+
+
+// bool DriveLocomotionClass::unknown_4a47c0(Cell cell) (0x004A47C0)
+// Whether the unit may enter the cell (MapClass 0x0055ACD0). Unreferenced.
+
+bool DriveLocomotionClass::unknown_4a47c0(Cell cell)
+{
+    return Map.Try_Open_Gate(LinkedTo, cell);
+}
+
+
+// int __stdcall DriveLocomotionClass::Layer() (0x004A47E0, ILocomotion 29)
+
+int __stdcall DriveLocomotionClass::Layer()
+{
+    return 2;
+}
+
+
+// HRESULT __stdcall DriveLocomotionClass::GetClassID(GUID *clsid) (0x004A47F0)
+
+HRESULT __stdcall DriveLocomotionClass::GetClassID(GUID *clsid)
+{
+    if (clsid == 0) {
+        return E_POINTER;
+    }
+    *clsid = CLSID_DriveLocomotionClass;
+    return S_OK;
+}
+
+
+// int __stdcall DriveLocomotionClass::Z_Adjust() (0x004A4830, ILocomotion 14)
+
+int __stdcall DriveLocomotionClass::Z_Adjust()
+{
+    return 0;
+}
+
+
+// int __stdcall DriveLocomotionClass::Z_Gradient() (0x004A4840, ILocomotion 15)
+
+int __stdcall DriveLocomotionClass::Z_Gradient()
+{
+    return LocomotionClass::Z_Gradient();
+}
+
+
+// bool DriveLocomotionClass::Abandon_Navigation() (0x004A4850)
+// With nothing in the unit's 0x478 list: slot 260 (0, 1) and false; else
+// 0x004CD9B0 and slot 261 (false, true). Unreferenced.
+
+bool DriveLocomotionClass::Abandon_Navigation()
+{
+    if (LinkedTo->unknown_478.Count() == 0) {
+        LinkedTo->Assign_Destination(0, true);
+        return false;
+    }
+    LinkedTo->Abort_Motion();
+    return LinkedTo->unknown_slot261(false, true);
+}
+
+
+// void __stdcall DriveLocomotionClass::Mark_All_Occupation_Bits(int mark) (0x004A4890, ILocomotion 39)
+// Marks the cells toward the head-to coordinate when one is set.
+
+void __stdcall DriveLocomotionClass::Mark_All_Occupation_Bits(int mark)
+{
+    if (unknown_40 != unknown_geometry_l) {
+        unknown_4a0bc0(unknown_40, mark);
+    }
+}
+
+
+// bool __stdcall DriveLocomotionClass::Is_Moving_Here(CoordStruct to) (0x004A48E0, ILocomotion 40)
+// Whether the unit is headed for the coordinate's cell (within the height
+// tolerance): the marked point ahead on its track, else the head-to coordinate.
+
+bool __stdcall DriveLocomotionClass::Is_Moving_Here(CoordStruct to)
+{
+    UnknownCoord434820 head = Head_To_Coord();
+    if (head == unknown_geometry_l) {
+        return false;
+    }
+    if (!IsOnShortTrack && TrackNumber != -1) {
+        int track = DriveTrackControl[TrackNumber].Track;
+        if (track) {
+            TrackType const *points = DriveRawTracks[track - 1].Track;
+            int cell = DriveRawTracks[track - 1].Cell;
+            if (cell > -1) {
+                int facing = points[cell].Facing;
+                if (TrackIndex < cell) {
+                    Point2D offset = points[cell].Offset;
+                    Point2D point = Smooth_Turn(offset, facing);
+                    CoordStruct coord(point.X, point.Y, Object_Coord(LinkedTo).Z);
+                    if (Coord_Cell(coord) == Coord_Cell(to) && abs(coord.Z - to.Z) <= unknown_geometry_g) {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    if (Coord_Cell(head) == Coord_Cell(to) && abs(head.Z - to.Z) <= unknown_geometry_g) {
+        return true;
+    }
+    return false;
+}
+
+
+bool __stdcall DriveLocomotionClass::Will_Jump_Tracks()
+{
+    int next_face=LinkedTo->Path[0];
+    if (next_face>=-1 && next_face<=8) {
+        TrackControlStruct const *track=&DriveTrackControl[TrackNumber];
+        int track_number;
+        if (IsOnShortTrack) track_number=track->StartTrack;
+        else track_number=track->Track;
+        bool turn=false;
+        if (next_face!=8 && next_face!=-1 && Dir_To_8(UnknownFacingDir((unsigned short)((unsigned char)track->Facing<<8)))!=next_face) turn=true;
+        if (next_face!=8 && next_face!=-1 && turn && DriveRawTracks[track_number-1].Jump==TrackIndex && TrackIndex) {
+            int next_track=Dir_To_8(UnknownFacingDir((unsigned short)((unsigned char)track->Facing<<8)))*8+next_face;
+            TrackControlStruct const *jump=&DriveTrackControl[next_track];
+            if (jump->Track && DriveRawTracks[jump->Track-1].Entry) return true;
+        }
+    }
+    return false;
+}
+
+
+// void __stdcall DriveLocomotionClass::Lock() (0x004A4BA0, ILocomotion 44)
+
+void __stdcall DriveLocomotionClass::Lock()
+{
+    IsLocomotorUnlocked = false;
+}
+
+
+// void __stdcall DriveLocomotionClass::Unlock() (0x004A4BB0, ILocomotion 45)
+
+void __stdcall DriveLocomotionClass::Unlock()
+{
+    IsLocomotorUnlocked = true;
+}
+
+
+// int __stdcall DriveLocomotionClass::Get_Track_Number() (0x004A4BC0, ILocomotion)
+
+int __stdcall DriveLocomotionClass::Get_Track_Number()
+{
+    return TrackNumber;
+}
+
+
+// int __stdcall DriveLocomotionClass::Get_Track_Index() (0x004A4BD0, ILocomotion)
+
+int __stdcall DriveLocomotionClass::Get_Track_Index()
+{
+    return TrackIndex;
+}
+
+
+// int __stdcall DriveLocomotionClass::Get_Speed_Accum() (0x004A4BE0, ILocomotion)
+
+int __stdcall DriveLocomotionClass::Get_Speed_Accum()
+{
+    return SpeedAccum;
+}
+
+
+// LocomotionClass::IsDirty (0x004A4BF0): inline in shared/locomotion.hpp; this unit's copy is the one the linker kept. No source of its own.
+
+
+// LocomotionClass::Is_Really_Moving_Now (0x004A4C10): inline in shared/locomotion.hpp; this unit's copy is the one the linker kept. No source of its own.
+
+
+// LocomotionClass::Get_Status (0x004A4C20): inline in shared/locomotion.hpp; this unit's copy is the one the linker kept. No source of its own.
+
+
+// LocomotionClass::Acquire_Hunter_Seeker_Target (0x004A4C30): inline in shared/locomotion.hpp; this unit's copy is the one the linker kept. No source of its own.
+
+
+// LocomotionClass::Is_Surfacing (0x004A4C40): inline in shared/locomotion.hpp; this unit's copy is the one the linker kept. No source of its own.
+
+
+// LocomotionClass::Stop_Movement_Animation (0x004A4C50): inline in shared/locomotion.hpp; this unit's copy is the one the linker kept. No source of its own.
+
+
+// unsigned long __stdcall DriveLocomotionClass::AddRef() (0x004A4C60)
+
+unsigned long __stdcall DriveLocomotionClass::AddRef()
+{
+    return LocomotionClass::AddRef();
+}
+
+
+// unsigned long __stdcall DriveLocomotionClass::Release() (0x004A4C70)
+
+unsigned long __stdcall DriveLocomotionClass::Release()
+{
+    return LocomotionClass::Release();
+}
+
+
+// bool __stdcall DriveLocomotionClass::Is_Piggybacking() (0x004A4C80, IPiggyback 7)
+
+bool __stdcall DriveLocomotionClass::Is_Piggybacking()
+{
+    return Piggybacker != 0;
+}
+
+
+// int DriveLocomotionClass::Size() (0x004A4CA0): inline in shared/drive_locomotion.hpp, emitted with the vtable; no source of its own.
+
+
+// void *DriveLocomotionClass::`scalar deleting destructor'(unsigned int flags) (0x004A4CB0)
+// Compiler-generated with the vtable (the destructor inlined). No source of its own.
+
+
+// UnknownComPtr<IPersist>::Release_Held at0x004a4d00.
+// Existing authored shared template member emitted by the Drive Piggyback_CLSID/Save bodies.
+
+// Original Drive callers retain every Release_Held call out of line; these
+// independently bounded copies are never expanded in this unit.
+#pragma auto_inline(off)
+template <>
+void UnknownComPtr<IPersist, &unknown_uuid_IPersist_7cf208>::Release_Held()
+{
+    if (Pointer != 0) {
+        Pointer->Release();
+    }
+}
+
+#pragma auto_inline(on)
+
+
+// UnknownComPtr<IPersistStream>::Release_Held at0x004a4d10.
+// Existing authored shared template member emitted by the Drive Piggyback_CLSID/Save bodies.
+
+// Original Drive callers retain every Release_Held call out of line; these
+// independently bounded copies are never expanded in this unit.
+#pragma auto_inline(off)
+template <>
+void UnknownComPtr<IPersistStream, &unknown_uuid_IPersistStream_7d5f38>::Release_Held()
+{
+    if (Pointer != 0) {
+        Pointer->Release();
+    }
+}
+
+#pragma auto_inline(on)
+
+
+// CDTimerClass_FrameTimerClass_Value_004a4d20 (0x004A4D20)
+
+extern "C" unsigned int Frame_00a40d2c;
+
+int __fastcall CDTimerClass_FrameTimerClass_Value_004a4d20(int *timer_words)
+{
+    int remaining;
+    int elapsed;
+
+    remaining = (int)(timer_words[2]);
+    if (*timer_words != -1) {
+        elapsed = (int)(Frame_00a40d2c - *timer_words);
+        if (elapsed < remaining) {
+            return remaining - elapsed;
+        }
+        remaining = (int)(0);
+    }
+    return remaining;
+}
+
+
+
+// DriveLocomotionClass::QueryInterface adjustor thunk for ILocomotion (0x004A4D40)
+// Compiler generated (this adjusted, then QueryInterface). No source of its own.
+
+
+// DriveLocomotionClass::AddRef adjustor thunk for ILocomotion (0x004A4D50)
+// Compiler generated (this adjusted, then AddRef). No source of its own.
+
+
+// DriveLocomotionClass::Release adjustor thunk for ILocomotion (0x004A4D60)
+// Compiler generated (this adjusted, then Release). No source of its own.
+
+
+// DriveLocomotionClass::QueryInterface adjustor thunk for IPiggyback (0x004A4D70)
+// Compiler generated (this adjusted, then QueryInterface). No source of its own.
+
+
+// DriveLocomotionClass::AddRef adjustor thunk for IPiggyback (0x004A4D80)
+// Compiler generated (this adjusted, then AddRef). No source of its own.
+
+
+// DriveLocomotionClass::Release adjustor thunk for IPiggyback (0x004A4D90)
+// Compiler generated (this adjusted, then Release). No source of its own.

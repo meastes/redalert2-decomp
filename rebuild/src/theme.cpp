@@ -1,0 +1,776 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+
+/* $Header: /CounterStrike/THEME.CPP 3     3/11/97 4:03p Joe_bostic $ */
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                    File Name : THEME.CPP                                                    *
+ *                                                                                             *
+ *                   Programmer : Joe L. Bostic                                                *
+ *                                                                                             *
+ *                   Start Date : August 14, 1994                                              *
+ *                                                                                             *
+ *                  Last Update : August 12, 1996 [JLB]                                        *
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   ThemeClass::AI -- Process the theme engine and restart songs.                             *
+ *   ThemeClass::Base_Name -- Fetches the base filename for the theme specified.               *
+ *   ThemeClass::From_Name -- Determines theme number from specified name.                     *
+ *   ThemeClass::Full_Name -- Retrieves the full score name.                                   *
+ *   ThemeClass::Is_Allowed -- Checks to see if the specified theme is legal.                  *
+ *   ThemeClass::Next_Song -- Calculates the next song number to play.                         *
+ *   ThemeClass::Play_Song -- Starts the specified song play NOW.                              *
+ *   ThemeClass::Queue_Song -- Queues the song to the play queue.                              *
+ *   ThemeClass::Scan -- Scans all scores for availability.                                    *
+ *   ThemeClass::Set_Theme_Data -- Set the theme data for scenario and owner.                  *
+ *   ThemeClass::Still_Playing -- Determines if music is still playing.                        *
+ *   ThemeClass::Stop -- Stops the current theme from playing.                                 *
+ *   ThemeClass::ThemeClass -- Default constructor for the theme manager class.                *
+ *   ThemeClass::Theme_File_Name -- Constructs a filename for the specified theme.             *
+ *   ThemeClass::Track_Length -- Calculates the length of the song (in seconds).               *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#include "always.h"
+#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "rect.h"
+
+#include "theme.h"
+#include "audio.h" // RA2
+#include "audplay.h" // RA2
+#include "audsrc.h" // RA2: AudioFormat for Scan (auddsnd.h declares the same struct differently)
+#include "goptions.h" // RA2
+#include "cd.h" // RA2: Play_Song asks CD for the current disk
+
+int __fastcall AudioDeviceAvailable(void); // RA2: 0x00406F30
+AudioDevice * __fastcall AudioGetDevice(void); // RA2: 0x00406F40, as auddsnd.h declares it
+
+#include "ccfile.h"
+#include "ccini.h"
+#include "ccrand.h"
+#include "dbgprint.h"
+#include "dsaudio.h"
+#include "globals.h"
+#include "houstype.h"
+#include "incdec.h"
+#include "session.h"
+#include "vector.h"
+#include "auddsnd.h"
+
+
+/// <summary>
+/// Constructs a nameless and unavailable theme control.
+/// The control is a blank slate until Fill_In supplies the real settings from the rules
+/// database, so it belongs to no side and will not be considered for play.
+/// </summary>
+ThemeControl::ThemeControl(void) :
+	Scenario(0),
+	Duration(0),
+	Normal(true),
+	Repeat(false),
+	Available(false),
+	Owner(-1)
+{
+	Name[0] = '\0';
+	Sound[0] = '\0'; // RA2: Init_Themes 0x6E7890 clears +0x100 as well
+	Fullname[0] = '\0';
+
+}
+
+
+/// <summary>
+/// Fetches this score's settings from the INI database.
+/// This routine is used by Init_Themes to flesh out a theme control from the section
+/// that bears its name. Any setting the section leaves out keeps the value it had.
+/// </summary>
+/// <param name="ini">The INI database to fetch the settings from.</param>
+/// <returns>bool; Was a section for this score found?</returns>
+bool ThemeControl::Fill_In(CCINIClass const & ini)
+{
+	if (ini.Is_Present(Name)) {
+		ini.Get_String(Name, "Sound", "", Sound, sizeof(Sound)); // RA2: the sound file
+		char * sound = Sound; // RA2: as above
+		while (*sound == '$' || *sound == '#') { // RA2: as above
+			sound++; // RA2: Fill_In at 0x6E7780 matches only so
+		}
+		strcpy(Sound, sound); // RA2: as above
+		Scenario = ini.Get_Int(Name, "Scenario", Scenario);
+		Normal = ini.Get_Bool(Name, "Normal", Normal); // RA2: no Length
+		Repeat = ini.Get_Bool(Name, "Repeat", Repeat);
+		Owner = ini.Get_Side(Name, "Side", (SideType)Owner);
+		if (Normal) { // RA2: a normal theme's name from the string table (0x6E7780)
+			ini.ReadStringtableEntry(Name, "Name", Fullname, ARRAY_SIZE(Fullname)); // RA2: as above
+		}
+		return(true);
+	}
+	return(false);
+}
+
+
+/// <summary>
+/// Builds the theme list from the INI database.
+/// This routine is used when the rules are read. A theme that is already known is
+/// updated rather than duplicated, so a later rules file may amend the scores that an
+/// earlier one declared as well as add scores of its own.
+/// </summary>
+/// <param name="ini">The INI database to fetch the theme list from.</param>
+void ThemeClass::Init_Themes(CCINIClass const & ini)
+{
+	ThemeControl *ctrl;
+	int count = ini.Entry_Count("Themes");
+	for (int i = 0; i < count; i++) {
+		char name[32];
+		if (ini.Get_String("Themes", ini.Get_Entry("Themes", i), "", name, sizeof(name))) {
+
+			ThemeType theme = From_Name(name);
+			if (theme == THEME_NONE) {
+				ctrl = new ThemeControl;
+				strcpy(ctrl->Name, name);
+				Themes.Add(ctrl);
+			} else {
+				ctrl = Themes[theme];
+			}
+
+			ctrl->Fill_In(ini);
+		}
+	}
+	if (AudioGetDevice() != 0) { // RA2: the music stream is created here (0x6E7A14)
+		Stream = AudioStreamerCreate(AudioGetDevice(), 20000); // RA2: as above
+		if (Stream != 0) { // RA2: as above
+			AudioStreamerSetName(Stream, "Music Stream"); // RA2: as above
+			AudioStreamerSetAttribs(Stream, AudioScoreAttribs); // RA2: as above
+			AudioStreamerSetFadeAttribs(Stream, AudioFadeAttribs); // RA2: as above
+		}
+	}
+}
+
+
+
+/// <summary>
+/// Frees the list of theme controls.
+/// This routine is used before the rules are read afresh, and on the way out of the
+/// game, so that the controls created by Init_Themes do not accumulate.
+/// </summary>
+void ThemeClass::Free_Themes(void)
+{
+	while (Themes.Count() > 0) {
+		delete Themes[0];
+		Themes.Delete_Index(0);
+	}
+	if (Stream != 0) { // RA2: RA2's form
+		AudioStreamerFadeOut(Stream); // RA2: as above
+		AudioStreamerWaitForFade(Stream); // RA2: as above
+		AudioStreamerStop(Stream); // RA2: as above
+		AudioStreamerDestroy(Stream); // RA2: as above
+		Stream = 0; // RA2: as above
+	}
+}
+
+
+
+/***********************************************************************************************
+ * ThemeClass::Scan -- Scans all scores for availability.                                      *
+ *                                                                                             *
+ *    This routine should be called whenever a score mixfile is registered. It will scan       *
+ *    to see if any score is unavailable. If this is the case, then the score will be so       *
+ *    flagged in order not to appear on the play list. This condition is likely to occur       *
+ *    when expansion mission disks contain a different score mix than the release version.     *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/04/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+void ThemeClass::Scan(void)
+{
+	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) { // RA2: RA2's form
+		for (int theme = 0; theme < Themes.Count(); theme++) { // RA2: as above
+			char name[_MAX_FNAME+_MAX_EXT]; // RA2: as above
+			_makepath(name, NULL, NULL, Themes[theme]->Sound, ".WAV"); // RA2: the score's sound file, .WAV
+			CCFileClass file(name); // RA2: Scan at 0x6E7AF0 keeps the file open to read its length
+			Themes[theme]->Available = file.Is_Available(); // RA2: as above
+			if (Themes[theme]->Available) { // RA2: as above
+				AudioFormat format; // RA2: as above
+				AudioFormatInit(&format); // RA2: as above
+				file.Open(1); // RA2: as above
+				int size; // RA2: as above
+				if (AudioFormatReadWaveFile(&file, &format, &size)) { // RA2: as above
+					Themes[theme]->Duration = (int)(AudioFormatTime(&format, size) / 1000); // RA2: the length in seconds
+				}
+			}
+		}
+	}
+}
+
+
+
+/***********************************************************************************************
+ * ThemeClass::Base_Name -- Fetches the base filename for the theme specified.                 *
+ *                                                                                             *
+ *    This routine is used to retrieve a pointer to the base filename for the theme            *
+ *    specified.                                                                               *
+ *                                                                                             *
+ * INPUT:   theme -- The theme number to convert into a base filename.                         *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the base filename for the theme specified. If the        *
+ *          theme number is invalid, then a pointer to "No Theme" is returned instead.         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/29/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+char const * ThemeClass::Base_Name(ThemeType theme) const
+{
+	if ((unsigned)theme < (unsigned)Themes.Count()) {
+		return(Themes[theme]->Name);
+	}
+	return("No theme");
+}
+
+
+/***********************************************************************************************
+ * ThemeClass::ThemeClass -- Default constructor for the theme manager class.                  *
+ *                                                                                             *
+ *    This is the default constructor for the theme class object.                              *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+ThemeClass::ThemeClass(void) :
+	Current(-1),
+	Score(THEME_NONE),
+	Pending(THEME_NONE),
+	Volume(255),
+	IsRepeat(false),
+	IsFading(false), // RA2: ThemeClass at 0x6E7C60 matches only so
+	IsShuffle(false), // RA2: as above
+	Stream(NULL) // RA2: as above
+{
+}
+
+
+/***********************************************************************************************
+ * ThemeClass::Full_Name -- Retrieves the full score name.                                     *
+ *                                                                                             *
+ *    This routine will fetch and return with a pointer to the full name of the theme          *
+ *    specified.                                                                               *
+ *                                                                                             *
+ * INPUT:   theme -- The theme to fetch the full name for.                                     *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the full name for this score. This pointer may point to  *
+ *          EMS memory.                                                                        *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+wchar_t const * ThemeClass::Full_Name(ThemeType theme) const // RA2: wide
+{
+	if ((unsigned)theme < (unsigned)Themes.Count()) {
+		return(Themes[theme]->Fullname);
+	}
+	return(NULL);
+}
+
+
+/***********************************************************************************************
+ * ThemeClass::AI -- Process the theme engine and restart songs.                               *
+ *                                                                                             *
+ *    This is a maintenance function that will restart an appropriate theme if the current one *
+ *    has finished. This routine should be called frequently.                                  *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/08/1994 JLB : Created.                                                                 *
+ *   01/23/1995 JLB : Picks new song just as it is about to play it.                           *
+ *=============================================================================================*/
+void ThemeClass::AI(void)
+{
+	if (AudioDeviceAvailable() && !Debug_Quiet && ScoresPresent && Volume > 0) { // RA2: RA2's form
+		bool ready = false; // RA2: as above
+		if (Stream != 0) { // RA2: as above
+			if (IsFading && !AudioStreamerIsFading(Stream)) { // RA2: as above
+				AudioStreamerStop(Stream); // RA2: as above
+			}
+			ready = AudioStreamerIsPlaying(Stream); // RA2: as above
+		}
+		if (ready) { // RA2: as above
+			return; // RA2: as above
+		}
+		ThemeType theme = Pending; // RA2: as above
+		if (theme != THEME_NONE && theme != THEME_QUIET && ScenarioInit == 0) { // RA2: as above
+			if (theme == THEME_PICK_ANOTHER) { // RA2: as above
+				Pending = Next_Song(Score); // RA2: as above
+				DebugString("Theme::AI(Next song = %d)\n", Pending); // RA2: as above
+			}
+
+			/* // RA2: as above
+			**	Start the song playing and then flag it so that a new song will // RA2: as above
+			**	be picked when this one ends. // RA2: as above
+			*/ // RA2: as above
+			Play_Song(Pending); // RA2: as above
+			Pending = THEME_PICK_ANOTHER; // RA2: as above
+		}
+	}
+}
+
+
+
+/***********************************************************************************************
+ * ThemeClass::Next_Song -- Calculates the next song number to play.                           *
+ *                                                                                             *
+ *    use this routine to figure out what song number to play. It examines the option settings *
+ *    for repeat and shuffle so that it can return the correct value.                          *
+ *                                                                                             *
+ * INPUT:   theme -- The origin (last) index. The new value is related to this for all but     *
+ *                   the shuffling method of play.                                             *
+ *                                                                                             *
+ * OUTPUT:  Returns with the song number for the next song to play.                            *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *   01/19/1995 JLB : Will not play the same song twice when in shuffle mode.                  *
+ *=============================================================================================*/
+ThemeType ThemeClass::Next_Song(ThemeType theme) const
+{
+	int i;
+
+	if (theme > THEME_NONE && (!Themes[theme]->Repeat && !IsRepeat) || theme < THEME_FIRST) {
+		if (IsShuffle == true) {
+			ThemeType newtheme;
+			i = 0;
+			do {
+				newtheme = (ThemeType)NonCriticalRandomNumber(THEME_FIRST, Themes.Count() - 1);
+				i++;
+			} while (i < 1000 && (newtheme == theme || !Is_Allowed(newtheme)));
+			if (i == 1000) {
+				newtheme = THEME_FIRST;
+			}
+			return(newtheme);
+
+		} else {
+			i = Themes.Count();
+			i++;
+			do {
+				theme = ThemeType(theme + 1); // RA2: Next_Song at 0x6E7D80 matches only so
+				if (theme >= Themes.Count()) {
+					theme = THEME_FIRST;
+				}
+				i--;
+				if (i == 0) {
+					return(THEME_FIRST);
+				}
+			} while (!Is_Allowed(theme));
+		}
+	}
+	return(theme);
+}
+
+
+/***********************************************************************************************
+ * ThemeClass::Queue_Song -- Queues the song to the play queue.                                *
+ *                                                                                             *
+ *    This routine will cause the current song to fade and the specified song to start. This   *
+ *    is the normal and friendly method of changing the current song.                          *
+ *                                                                                             *
+ * INPUT:   theme -- The song to start playing. If -1 is passed in, then just the current song.*
+ *                   is faded.                                                                 *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+void ThemeClass::Queue_Song(ThemeType theme)
+{
+	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) { // RA2: RA2's form
+		Pending = theme;
+		if (theme != -1 && theme != -2 && theme != Score) { // RA2: as above
+			DebugString("Theme::QueueSong(%d)\n", theme); // RA2: as above
+			if (Still_Playing() == true) { // RA2: as above
+				if (Stream != 0) { // RA2: as above
+					AudioStreamerFadeOut(Stream); // RA2: as above
+				}
+				IsFading = true; // RA2: as above
+			}
+		}
+	}
+}
+
+
+
+/***********************************************************************************************
+ * ThemeClass::Play_Song -- Starts the specified song play NOW.                                *
+ *                                                                                             *
+ *    This routine is used to start the specified theme playing right now. If there is already *
+ *    a theme playing, it is cut short so that this one may start.                             *
+ *                                                                                             *
+ * INPUT:   theme -- The theme number to start playing.                                        *
+ *                                                                                             *
+ * OUTPUT:  Returns with the sample play handle.                                               *
+ *                                                                                             *
+ * WARNINGS:   This cuts off any current song in a abrupt manner. Only use this routine when   *
+ *             necessary.                                                                      *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+int ThemeClass::Play_Song(ThemeType theme)
+{
+	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) { // RA2: RA2's form (0x6E7EB0)
+		if (Still_Playing() && Score == theme) { // RA2: a score that already plays is left alone
+			return(Current); // RA2: as above
+		}
+		Stop(false); // RA2: Stop is expanded in place
+		IsFading = false; // RA2: the new score does not fade
+		if (theme != THEME_NONE && theme != THEME_QUIET) {
+			if (theme > THEME_NONE && Volume > 0) {
+				Score = theme;
+				int disk = CD::Is_Override_Swap() ? 0 : CD::Get_Current_Disk(0); // RA2: the disk that holds the score
+				if (Stream != 0 && disk > -1) { // RA2: as above
+					AudioStreamerPlayWAV(Stream, Theme_File_Name(theme), true); // RA2: the streamer plays the file
+					Current = theme; // RA2: the handle is the score number
+				} else { // RA2: as above
+					Current = THEME_NONE; // RA2: as above
+					if (Stream != 0 && disk <= -1 && Pending == THEME_NONE) { // RA2: no disk, so the score waits
+						Theme.Queue_Song(theme); // RA2: as above
+					}
+				}
+				DebugString("Theme::PlaySong(%d) - %s\n", Score, IsRepeat == true || Themes[theme]->Repeat == true ? "Repeating" : "Playing");
+				if (IsRepeat == true || Themes[theme]->Repeat == true) {
+					Pending = theme;
+				}
+			} else {
+				Pending = theme;
+			}
+		}
+	}
+	return(Current); // RA2: the handle, not return(expr)
+}
+
+
+
+/***********************************************************************************************
+ * ThemeClass::Theme_File_Name -- Constructs a filename for the specified theme.               *
+ *                                                                                             *
+ *    This routine will construct (into a static buffer) a filename that matches the theme     *
+ *    number specified. This constructed filename is returned as a pointer. The filename will  *
+ *    remain valid until the next call to this routine.                                        *
+ *                                                                                             *
+ * INPUT:   theme -- The theme number to convert to a filename.                                *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the constructed filename for the specified theme number. *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *   05/09/1995 JLB : Theme variation support.                                                 *
+ *=============================================================================================*/
+char const * ThemeClass::Theme_File_Name(ThemeType theme)
+{
+	static char name[256 + 256]; // RA2: RA2's form
+
+	if ((unsigned)theme < (unsigned)Themes.Count()) {
+		_makepath(name, 0, 0, Themes[theme]->Sound, ".WAV"); // RA2: as above
+		return name; // RA2: as above
+	}
+	return ""; // RA2: as above
+}
+
+
+
+/***********************************************************************************************
+ * ThemeClass::Track_Length -- Calculates the length of the song (in seconds).                 *
+ *                                                                                             *
+ *    Use this routine to calculate the length of the song. The length is determined by        *
+ *    reading the header of the song and dividing the sample rate into the sample length.      *
+ *                                                                                             *
+ * INPUT:   theme -- The song number to examine to find its length.                            *
+ *                                                                                             *
+ * OUTPUT:  Returns with the length of the specified theme. This length is in the form of      *
+ *          seconds.                                                                           *
+ *                                                                                             *
+ * WARNINGS:   This routine goes to disk to fetch this information. Don't call frivolously.    *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   01/16/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+int ThemeClass::Track_Length(ThemeType theme) const
+{
+	if ((unsigned)theme < (unsigned)Themes.Count()) {
+		return (int)Themes[theme]->Duration; // RA2: Track_Length at 0x6E8150 matches only so
+	}
+	return 0; // RA2: as above
+}
+
+
+/// <summary>
+/// RA2: fades the score being played out.
+/// </summary>
+void ThemeClass::Fade_Stream(void) // RA2: at 0x6E8180
+{
+	if (Stream) {
+		AudioStreamerFadeOut(Stream);
+	}
+	IsFading = true;
+}
+
+
+
+
+
+/***********************************************************************************************
+ * ThemeClass::Stop -- Stops the current theme from playing.                                   *
+ *                                                                                             *
+ *    Use this routine to stop the current theme. After this routine is called, no more music  *
+ *    will play until the Start() function is called.                                          *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/08/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+void ThemeClass::Stop(bool fade)
+{
+	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet && Current != -1) { // RA2: the audio device
+
+		if (fade && Still_Playing() == true) {
+			DebugString("Theme::Stop(%d) - Fading\n", Score);
+			Fade_Stream(); // RA2: the streamer fades
+		} else {
+			DebugString("Theme::Stop(%d)\n", Score);
+			if (Stream) AudioStreamerStop(Stream); // RA2: the streamer stops
+		}
+		Current = -1;
+		Score = THEME_NONE;
+		Pending = THEME_NONE;
+	}
+}
+
+
+/// <summary>
+/// Suspends the score that is currently playing.
+/// Unlike Stop(), this routine remembers the score it silenced by leaving it pending, so
+/// the next AI() pass will start the same track over again.
+/// </summary>
+void ThemeClass::Suspend(void)
+{
+	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet && Current != -1) { // RA2: the audio device
+		DebugString("Theme::Suspend(%d)\n", Score);
+		if (Stream) AudioStreamerStop(Stream); // RA2: the streamer stops
+		Current = -1;
+		Pending = Score;
+		Score = THEME_NONE;
+	}
+}
+
+
+/***********************************************************************************************
+ * ThemeClass::Still_Playing -- Determines if music is still playing.                          *
+ *                                                                                             *
+ *    Use this routine to determine if music is still playing.                                 *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  bool; Is the music still audible?                                                  *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   12/20/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+bool ThemeClass::Still_Playing(void) const
+{
+	if (Stream) { // RA2: the streamer, at 0x6E82D0
+		if (IsFading && !AudioStreamerIsFading(Stream)) { // RA2: a finished fade stops it
+			AudioStreamerStop(Stream); // RA2: as above
+		}
+		return(AudioStreamerIsPlaying(Stream) != 0); // RA2: as above
+	}
+	return(false);
+}
+
+
+/// <summary>
+/// RA2: writes the playing and the pending score to a save game.
+/// </summary>
+long ThemeClass::Save(IStream * stream) // RA2: at 0x6E8310; returns the result of the last write
+{
+	HRESULT result = stream->Write(&Score, sizeof(Score), NULL); // RA2: as above
+	if (SUCCEEDED(result)) { // RA2: as above
+		result = stream->Write(&Pending, sizeof(Pending), NULL); // RA2: as above
+	}
+	return(result); // RA2: as above
+}
+
+
+/// <summary>
+/// RA2: reads the playing and the pending score from a save game and, with in-game music on, plays them again.
+/// </summary>
+long ThemeClass::Load(IStream * stream) // RA2: at 0x6E8340
+{
+	ThemeType score;
+	ThemeType pending;
+	HRESULT hr = stream->Read(&score, sizeof(score), NULL);
+	if (SUCCEEDED(hr)) {
+		hr = stream->Read(&pending, sizeof(pending), NULL);
+		if (SUCCEEDED(hr) && Options.IsInGameMusic) {
+			Theme.Play_Song(score);
+			Theme.Queue_Song(pending);
+		}
+	}
+	return(hr);
+}
+
+
+
+
+
+
+
+
+/***********************************************************************************************
+ * ThemeClass::Is_Allowed -- Checks to see if the specified theme is legal.                    *
+ *                                                                                             *
+ *    Use this routine to determine if a theme is allowed to be played. A theme is not allowed *
+ *    if the scenario is too early for that score, or the score only is allowed in special     *
+ *    cases.                                                                                   *
+ *                                                                                             *
+ * INPUT:   index -- The score the check to see if it is allowed to play.                      *
+ *                                                                                             *
+ * OUTPUT:  Is the specified score allowed to play in the normal score playlist?               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/09/1995 JLB : Created.                                                                 *
+ *   07/04/1996 JLB : Handles alternate playlist checking.                                     *
+ *=============================================================================================*/
+bool ThemeClass::Is_Allowed(ThemeType index) const
+{
+	if (index == THEME_QUIET || index == THEME_PICK_ANOTHER) return true; // RA2: Is_Allowed at 0x6E8440 matches only so
+	if ((unsigned)index >= (unsigned)Themes.Count()) return false; // RA2: as above
+	if (!Themes[index]->Available) return false; // RA2: as above
+	if (!Themes[index]->Normal) return false; // RA2: as above
+	if (PlayerPtr != NULL && Themes[index]->Owner != -1 && PlayerPtr->Class->Side != Themes[index]->Owner) return false; // RA2: as above
+	if (Session.Type == GAME_NORMAL && Scen->Scenario < Themes[index]->Scenario) return false; // RA2: as above
+	return true; // RA2: as above
+}
+
+
+/// <summary>
+/// RA2: is the theme one of the normal ones (picked in the regular rotation)?
+/// </summary>
+bool ThemeClass::Is_Normal(ThemeType index) const // RA2: at 0x6E84E0 (YR's IsNormal)
+{
+	if (index != THEME_QUIET && index != THEME_PICK_ANOTHER && (unsigned)index < (unsigned)Themes.Count()) {
+		if (Themes[index]->Normal) return true;
+		return false;
+	}
+	return false;
+}
+
+
+
+
+
+/***********************************************************************************************
+ * ThemeClass::From_Name -- Determines theme number from specified name.                       *
+ *                                                                                             *
+ *    Use this routine to convert a name (either the base filename of the theme, or a partial  *
+ *    substring of the full name) into the matching ThemeType value. Typical use of this is    *
+ *    when parsing the INI file for theme control values.                                      *
+ *                                                                                             *
+ * INPUT:   name  -- Pointer to base filename of theme or a partial substring of the full      *
+ *                   theme name.                                                               *
+ *                                                                                             *
+ * OUTPUT:  Returns with the matching theme number. If no match could be found, then           *
+ *          THEME_NONE is returned.                                                            *
+ *                                                                                             *
+ * WARNINGS:   If a filename is specified the comparison is case insensitive. When scanning    *
+ *             the full theme name, the comparison is case sensitive.                          *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   05/29/1995 JLB : Created.                                                                 *
+ *=============================================================================================*/
+ThemeType ThemeClass::From_Name(char const * name) const
+{
+	if (name && strlen(name) > 0) {
+		ThemeType theme;
+		for (theme = THEME_FIRST; theme < Themes.Count(); theme = ThemeType(theme + 1)) {
+			if (stricmp(Themes[theme]->Name, name) == 0) {
+				return(theme);
+			}
+		}
+	} // RA2: From_Name at 0x6E8510 has no Themes, Count, ThemeType and 1 more
+	return(THEME_NONE);
+}
+
+
+/// <summary>
+/// RA2: the theme's INI name ("none" for one out of range).
+/// </summary>
+char const * ThemeClass::INI_Name(ThemeType index) const // RA2: at 0x6E8570 (YR's GetID)
+{
+	if (index >= 0 && index < Themes.Count()) {
+		return Themes[index]->Name;
+	}
+	return "none";
+}
+
+
+
+
+
+/// <summary>
+/// Sets the volume that the music is played at.
+/// This routine is used by the options screen. Any score that happens to be playing has
+/// its volume adjusted right away rather than waiting for the next track to start.
+/// </summary>
+/// <param name="volume">The volume to play the music at. Anything louder than maximum
+/// volume is quietly clipped.</param>
+void ThemeClass::Set_Volume(int volume)
+{
+	Volume = MIN(volume, 255);
+} // RA2: Set_Volume at 0x6E8590 has no Current, Audio, Volume
+
