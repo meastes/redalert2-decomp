@@ -42,7 +42,7 @@
 #include "shared/string_table.hpp"
 #include "shared/uicmnds.hpp"
 #include "shared/target.hpp"
-#include "shared/unknown_list_832470.hpp"
+#include "shared/unknown_object_list.hpp"
 #include "shared/factory_class.hpp"
 #include "shared/id_source.hpp"
 #include "shared/overlay_type.hpp"

@@ -16,7 +16,7 @@ inline void DebugString(char const *string) {}
 HRESULT __fastcall Save_Misc_Values(IStream *stream);
 HRESULT __fastcall Load_Misc_Values(IStream *stream);
 
-// Red Alert's Logic (shared/logic.hpp; shared/unknown_list_832470.hpp declares the same object
+// Red Alert's Logic (shared/logic.hpp; shared/unknown_object_list.hpp declares the same object
 // without the base).
 #include "shared/logic.hpp"
 

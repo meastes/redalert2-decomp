@@ -77,7 +77,7 @@
 #include "shared/fast_math.hpp"
 #include "shared/coord_distance.hpp"
 #include "shared/layer.hpp"
-#include "shared/unknown_list_832470.hpp"
+#include "shared/unknown_object_list.hpp"
 #include "shared/super.hpp"
 #include "shared/super_weapon_type.hpp"
 #include "shared/ini_enums.hpp"

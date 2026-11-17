@@ -45,7 +45,15 @@ Placeholder names (counted separately; allowed only when no real name can be est
   identifiers starting unknown_ or Unknown followed by a capital, digit or underscore
   (unknown_0x24, Unknown_004F52F0, UnknownSessionA3D29C), and the address-named view and seed scopes
   (Leaf_/Call_/Cleanup_/Target_/Append_/Thunk_/View_/Owner_<hex>, seed_<hex>).
-Address-named files: rename_files.address_named (a 6-8 digit hex address token in the file stem).
+Address-named paths (lane CN2, 2026-11-16): a path is address-named when its file stem or any folder
+on it carries a 6-8 digit hex address token (rename_files.ADDRESS_TOKEN), so a file inside
+header_statics/<address>/ counts like a file named <address>.cpp. The tree line below the five
+counts every tracked file under src/ that is address-named and every folder under src/ whose own
+name is, which is what a reader of the tree sees. Files under src/recovered/unidentified/
+(accepted sources with no evidenced name, each group's reason in its README; lane CN2) are shown
+separately, and so are files under src/recovered/awaiting_join/ (accepted views with an evidenced
+name that waits on a join, a layout or a population policy; reason per group in its README): the
+end point allows address-named files in those two folders and nowhere else.
 
 The five lines:
   1. Counterpart units reading as ordinary source: done = no decompiler-style token, no placeholder
@@ -71,6 +79,7 @@ The five lines:
      taken from the original = STATUS's file-backed non-code bytes minus the proven bytes, the
      unproven typed bytes and the generated data modules (shown separately, not source).
   5. Non-exact drafts: count and bytes of manifests/original_target/non_exact.json.
+  Tree line (not numbered): address-named files and folders under src/ (see Address-named paths).
 """
 import argparse
 from collections import Counter, defaultdict
@@ -99,7 +108,39 @@ LEXEME = re.compile(r'//[^\n]*|/\*.*?\*/|"(?:\\.|[^"\\\n])*"|\'(?:\\.|[^\'\\\n])
 ASM = re.compile(r'\b_?_asm\b\s*(?:\{[^}]*\}|[^\n]*)')
 COMPILER_NUMBERED = re.compile(r'^_?\$[ES]\d+$')
 HEADER_STATICS = 'src/recovered/header_statics/'
-from rename_files import address_named
+UNIDENTIFIED = 'src/recovered/unidentified/'
+AWAITING_JOIN = 'src/recovered/awaiting_join/'
+from rename_files import ADDRESS_TOKEN
+
+
+def address_named(path):
+    """True when the file stem or any folder on the path carries an address token."""
+    parts = Path(path).parts
+    return any(ADDRESS_TOKEN.search(Path(part).stem if i == len(parts) - 1 else part) for i, part in enumerate(parts))
+
+
+def address_named_tree(paths):
+    """{'files': [...], 'directories': [...]} of the address-named files of PATHS and the folders
+    on them whose own name carries an address token."""
+    files = sorted(p for p in paths if address_named(p))
+    directories = set()
+    for p in paths:
+        parts = Path(p).parts[:-1]
+        for i, part in enumerate(parts):
+            if ADDRESS_TOKEN.search(part):
+                directories.add(Path(*parts[:i + 1]).as_posix())
+    return dict(files=files, directories=sorted(directories))
+
+
+def tracked_sources(repository):
+    """Tracked files under src/ (git ls-files; every file under src/ when git is unavailable)."""
+    import subprocess
+    repository = Path(repository)
+    try:
+        out = subprocess.run(['git', 'ls-files', 'src'], cwd=repository, capture_output=True, text=True, check=True)
+        return [p for p in out.stdout.split('\n') if p]
+    except (OSError, subprocess.CalledProcessError):
+        return sorted(p.relative_to(repository).as_posix() for p in (repository / 'src').rglob('*') if p.is_file())
 
 
 def code_only(text):
@@ -193,7 +234,7 @@ def load_inputs(repository=REPOSITORY):
     generated = repository / 'manifests/original_target/generated_data.json'
     generated = json.loads(generated.read_text()).get('modules', []) if generated.exists() else []
     return dict(unit_map=unit_map, modules=modules, declared=declared, regions=catalog['regions'],
-                drafts=drafts, generated=generated)
+                drafts=drafts, generated=generated, tree=tracked_sources(repository))
 
 
 def reader(repository):
@@ -324,6 +365,12 @@ def census(inputs, read, stems, file_backed_non_code=None, ra2decomp=None):
     generated = sum(int(g['range'][1], 16) - int(g['range'][0], 16) for g in inputs['generated'])
     untyped = file_backed_non_code - proven - unproven_range_bytes - generated
 
+    if 'tree' in inputs:
+        tree = inputs['tree']
+    else:                                         # no tree listing: the files the inputs name
+        tree = sorted({p for fs in files.values() for p in fs} | {r['source'] for r in inputs['regions']})
+    named_tree = address_named_tree(tree)
+
     with_cp = [u for u in units if u['counterpart'] == 'yes']
     without = [u for u in units if u['counterpart'] == 'no']
     unknown = [u for u in units if u['counterpart'] == 'unknown']
@@ -343,11 +390,15 @@ def census(inputs, read, stems, file_backed_non_code=None, ra2decomp=None):
                   unproven_range_bytes=unproven_range_bytes, unproven_items=unproven_items,
                   generated=generated, file_backed=file_backed_non_code, untyped_from_original=untyped),
         drafts=dict(count=len(inputs['drafts']), bytes=sum(int(d['bytes']) for d in inputs['drafts'])),
+        address_named=dict(files=len(named_tree['files']), directories=len(named_tree['directories']),
+                           unidentified=sum(p.startswith(UNIDENTIFIED) for p in named_tree['files']),
+                           awaiting_join=sum(p.startswith(AWAITING_JOIN) for p in named_tree['files']),
+                           file_list=named_tree['files'], directory_list=named_tree['directories']),
     )
 
 
 def block(result):
-    """The five-line Clean-up end point block."""
+    """The five-line Clean-up end point block and the address-named tree line."""
     cp, other, unk = result['counterpart_units'], result['other_units'], result['unknown_counterpart_units']
     f, d, n = result['functions'], result['data'], result['drafts']
     unknown_note = ''
@@ -375,6 +426,13 @@ def block(result):
             d['proven'], d['typed_total'], d['unproven_items'], d['untyped_from_original'], d['file_backed'],
             d['generated']),
         '5. Non-exact drafts: {:,} functions, {:,} bytes'.format(n['count'], n['bytes']),
+        'Address-named paths under src/ (an address token in a file stem or a folder name): {:,} files, '
+        '{:,} directories; {:,} of the files in src/recovered/unidentified/, {:,} in src/recovered/awaiting_join/, '
+        '{:,} elsewhere'.format(
+            result['address_named']['files'], result['address_named']['directories'],
+            result['address_named']['unidentified'], result['address_named']['awaiting_join'],
+            result['address_named']['files'] - result['address_named']['unidentified']
+            - result['address_named']['awaiting_join']),
     ])
 
 

@@ -22,10 +22,10 @@
 #define SL_MIN(a, b) ((a) < (b) ? (a) : (b))
 
 
-// Dynamic initializer (0x005DD510, _$E) emitted by header_statics/005dd320/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x005DD510, _$E) emitted by header_statics/ovrlight/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x005DD550, _$E) emitted by header_statics/005dd320/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x005DD550, _$E) emitted by header_statics/ovrlight/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
 // SpotLightClass::SpotLightClass(CoordStruct coord, int size) (0x005DD590)

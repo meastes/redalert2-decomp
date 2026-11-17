@@ -171,8 +171,8 @@ body bytes.
 | theme | 006e8270 | `src/recovered/classes/ThemeClass/Suspend.cpp` | class `ThemeClass` | 85 |
 | theme | 006e8310 | `src/recovered/classes/ThemeClass/Save.cpp` | class `ThemeClass` | 45 |
 | theme | 006e84e0 | `src/recovered/classes/ThemeClass/unknown_is_flagged.cpp` | struct `ThemeControl` | 44 |
-| wdtmap | 0072a6d0 | `src/recovered/unowned/UnknownToggle_Set_Unknown_74_0072a6d0.cpp` | class `MSEngine` | 69 |
-| wdtmap | 0072a720 | `src/recovered/unowned/UnknownToggle_Set_Unknown_68_0072a720.cpp` | class `UnknownShape_72a6d0` | 69 |
+| wdtmap | 0072a6d0 | `src/recovered/awaiting_join/nested_class_members/UnknownToggle_Set_Unknown_74_0072a6d0.cpp` | class `MSEngine` | 69 |
+| wdtmap | 0072a720 | `src/recovered/awaiting_join/nested_class_members/UnknownToggle_Set_Unknown_68_0072a720.cpp` | class `UnknownShape_72a6d0` | 69 |
 | wonline | 0073c0b0 | `src/recovered/wonline/unknown_can_send_chat.cpp` | class `WideString` | 97 |
 
 30 rows, 2,830 B.

@@ -34,7 +34,7 @@ double __cdecl unknown_cos_4ba4d0(double angle);    // 0x004BA4D0
 class BuildingLightClass;
 extern DynamicVectorClass<BuildingLightClass *> BuildingLights;    // 0x00866220
 
-#include "shared/unknown_list_832470.hpp"
+#include "shared/unknown_object_list.hpp"
 
 class BuildingLightClass : public ObjectClass {
 public:

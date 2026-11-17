@@ -91,7 +91,7 @@ int __fastcall Init_Game(int argc, char *argv[])
 void __cdecl DebugStringNoPrefix(char const *format, ...) {}
 
 // 0x005EAC10: an empty function in this build (the row's leaf is a bare
-// return, src/recovered/005eac10.cpp); Init_Game calls it.
+// return, src/recovered/awaiting_join/member_views/005eac10.cpp); Init_Game calls it.
 void Unknown_005EAC10() {}
 
 // The accepted WinMain 0x0068E280 (b10418049) names two of the calls above by

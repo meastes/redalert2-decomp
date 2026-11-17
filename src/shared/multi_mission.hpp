@@ -8,14 +8,9 @@
 #include "shared/type_list.hpp"
 
 #include "shared/wstring.hpp"
+#include "shared/diskid.hpp"
 
-// A CD the map needs (RTTI: TypeList<DiskID>, an enum; -1 any disk, -2 the map file
-// itself is present).
 class INIClass;
-
-enum DiskID {
-    DISK_ANY_UNKNOWN = -1
-};
 
 class MultiMission {
 public:

@@ -2802,7 +2802,7 @@
    "verified": false
   },
   {
-   "source": "src/recovered/unowned/OwnerDraw_Control_Test_005e6860.cpp",
+   "source": "src/recovered/unidentified/uncalled_copies/OwnerDraw_Control_Test_005e6860.cpp",
    "old": "    if (kind == 0xd5) {\n        return id == 0x5ce || id == 0x5cd;\n    }\n",
    "new": "    if (kind == 0xd5) {\n        return id == 0x5ce || id == 0x5cd || id == 0x7f80   // NATIVE (C3): the Enhancements button\n            || id == 0x7f02 || id == 0x7f00 || id == 0x7f01;   // NATIVE (C7): the Enhancements page's Ok, Original, Enhanced\n    }\n",
    "why": "Native addition (C3, enhancements menu; not original behaviour): the shell Options dialog 0xD5 gains an ENHANCEMENTS button (id 0x7F80, appended to the template by port/src/native_dialogs.cpp). 0x005E6860 lists, per dialog kind, the buttons that belong in the right-hand button column (moved there by 0x005E8E20 and drawn as column buttons); for 0xD5 they are Keyboard 0x5CE and Network 0x5CD. Listing 0x7F80 with them puts the new button in the next slot of the column, like the original buttons. No original id is affected.",

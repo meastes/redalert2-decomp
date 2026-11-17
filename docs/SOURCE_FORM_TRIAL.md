@@ -253,7 +253,7 @@ build/gate-UNIT`, `refile_unit.py maps build/gate-UNIT`, the native configure, b
   own-bound join brings only its relocation names, never the donor population's whole table; a joined row below
   the module's source order takes a fresh order behind every row; an emptied donor population keeps its record.
   STATUS shows the rows bound this way (count, bytes, donor populations).
-- **First landing.** globals (`--into header_statics/004d2ba0`, the file that defines its lists: 338 rows,
+- **First landing.** globals (`--into header_statics/globals`, the file that defines its lists: 338 rows,
   24,669 B, 298 of the 302 flips), house (40 rows, 3,049 B), planmgr (55 rows, 3,624 B). The other 64 units follow
   as their own landing.
 - **Second landing.** `join-template-batch` over the other units with container member residuals: 64 units, 707

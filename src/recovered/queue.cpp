@@ -2876,7 +2876,7 @@ void __fastcall Queue_Record()
 
 // void __fastcall Compute_Game_CRC() (0x00629FA0; Red Alert's Compute_Game_CRC).
 #include "shared/infantry.hpp"
-#include "shared/unknown_list_832470.hpp"
+#include "shared/unknown_object_list.hpp"
 #include "shared/winsock_interface.hpp"
 
 // A coordinate folded into one CRC word: X / 10 low, Y / 10 shifted up 16.

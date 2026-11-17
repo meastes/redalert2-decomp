@@ -127,6 +127,7 @@ class Census(unittest.TestCase):
         self.assertEqual(units['alpha']['placeholders'], 2)
         self.assertFalse(units['alpha']['done'])                 # counterpart unit: placeholders count
         self.assertEqual(units['beta']['address_named_files'], 1)
+        self.assertEqual(units['alpha']['address_named_files'], 1)   # header_statics/00401100/init.cpp: its folder
         self.assertEqual(result['counterpart_units'], dict(done=0, total=2))
         f = result['functions']
         self.assertEqual((f['outside_rows'], f['outside_bytes']), (3, 52))
@@ -138,7 +139,8 @@ class Census(unittest.TestCase):
         self.assertEqual(d['untyped_from_original'], 1000 - 16 - 4 - 256)
         self.assertEqual(result['drafts'], dict(count=1, bytes=50))
         block = cleanup_census.block(result).splitlines()
-        self.assertEqual(len(block), 5)
+        self.assertEqual(len(block), 6)
+        self.assertIn('3 files, 1 directories', block[5])   # 00402000.cpp, 00403000.cpp, header_statics/00401100/init.cpp
         self.assertIn('0 / 2', block[0])
         self.assertIn('3 rows, 52 bytes / 1 rows, 12 bytes', block[2])
         work = cleanup_census.unit_lines(result).splitlines()
@@ -153,8 +155,33 @@ class Census(unittest.TestCase):
         self.assertEqual((f['unassigned_rows'], f['unassigned_bytes']), (0, 0))     # both joined rows now owned
         self.assertEqual((f['outside_rows'], f['outside_bytes']), (4, 59))          # 0x403000 sits outside alpha.cpp
 
+    def test_address_named_tree(self):
+        tree = cleanup_census.address_named_tree([
+            'src/recovered/header_statics/0040b280/a.cpp', 'src/recovered/header_statics/0040b280/b.cpp',
+            'src/recovered/header_statics/bomb/c.cpp', 'src/recovered/0056d620.cpp', 'src/recovered/x_0056d620.cpp',
+            'src/recovered/classes/DynamicVectorClass_DDSURFACEDESC_ptr/Add.cpp', 'src/recovered/facade.cpp',
+            'src/shared/unknown_base_539000.hpp', 'src/recovered/0x00401000_dir/deep/f.cpp'])
+        self.assertEqual(tree['directories'], ['src/recovered/0x00401000_dir', 'src/recovered/header_statics/0040b280'])
+        self.assertEqual(tree['files'], ['src/recovered/0056d620.cpp', 'src/recovered/0x00401000_dir/deep/f.cpp',
+                                         'src/recovered/header_statics/0040b280/a.cpp',
+                                         'src/recovered/header_statics/0040b280/b.cpp',
+                                         'src/recovered/x_0056d620.cpp', 'src/shared/unknown_base_539000.hpp'])
+        inputs, read = self.inputs()
+        inputs['tree'] = ['src/recovered/alpha.cpp', 'src/recovered/header_statics/00401100/init.cpp']
+        result = cleanup_census.census(inputs, read, dict(tibsun=set(), mischa85=set()), file_backed_non_code=1000)
+        self.assertEqual((result['address_named']['files'], result['address_named']['directories']), (1, 1))
+        inputs['tree'].append('src/recovered/unidentified/seed_views/0040bc60.cpp')
+        result = cleanup_census.census(inputs, read, dict(tibsun=set(), mischa85=set()), file_backed_non_code=1000)
+        self.assertEqual(result['address_named']['unidentified'], 1)
+        inputs['tree'].append('src/recovered/awaiting_join/member_views/0040d1d0.cpp')
+        result = cleanup_census.census(inputs, read, dict(tibsun=set(), mischa85=set()), file_backed_non_code=1000)
+        self.assertEqual(result['address_named']['awaiting_join'], 1)
+        self.assertIn('3 files, 1 directories; 1 of the files in src/recovered/unidentified/, '
+                      '1 in src/recovered/awaiting_join/, 1 elsewhere', cleanup_census.block(result).splitlines()[5])
+
     def test_clean_unit_without_counterpart_allows_placeholders(self):
         inputs, read = self.inputs()
+        inputs['regions'][1]['source'] = 'src/recovered/header_statics/alpha/init.cpp'
         result = cleanup_census.census(inputs, read, dict(tibsun=set(), mischa85=set()), file_backed_non_code=1000)
         units = {u['unit']: u for u in result['units']}
         self.assertTrue(units['alpha']['done'])

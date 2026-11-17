@@ -172,7 +172,7 @@ cause.
   VQA_MOVIE_COMPANION_UNIT, movie.hpp, file_straw.hpp, text_print.hpp, hicolor.hpp; the include
   block would be six directives, not one statics include: a re-roll candidate like coopcamp),
   globals (136 files whose rows sit in one emitter file of 339 rows,
-  header_statics/004d2ba0/HeaderStatics_diagonal_init_004d2ba0.cpp: a file of several rows does
+  header_statics/globals/HeaderStatics_diagonal_init_004d2ba0.cpp: a file of several rows does
   not join; it needs a split first), txtlabel2 (its emitter 0x006F1810 is one of the 4 rows the
   unit map gives to the other candidate).
 

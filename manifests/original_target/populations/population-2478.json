@@ -4,8 +4,8 @@
     "id": "population-2478",
     "inventory_sha256": "caed048a9cc397d6a20a6d052fd52103d6fcc75507a598f015552757621c8f95",
     "gaps_sha256": "57b0a112a6d7a707dd791edc5cd13960150db3212d8574eceb61b59ff6e5e167",
-    "historical_population_sha256": "7bea9057a0da804e3059afd14c2b5a7b8acda12b2b388dbb43132b599de7c6a5",
-    "historical_acceptance_sha256": "39bae75d33d5a12f539afc55d226e6e9214a20fd3d19580059822e006a8d92e3"
+    "historical_population_sha256": "f60f7af1a4dfdaf409ab0bf0006b693de9162405c91ca13787ee06e6d9ed32f0",
+    "historical_acceptance_sha256": "7e8d148ae2fbdc0e23591c930b9167cb8f0bbe357e465483723d38fb465677e5"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -9630,7 +9630,8 @@
     "?Get_Time@GameTimeClass@@QBEHXZ": 5046352,
     "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
     "?text@WideString@@QBEPBGXZ": 7799856,
-    "?Regions@MapRegionClass@@2V?$DynamicVectorClass@PAVMapRegionClass@@@@A": 10943784
+    "?Regions@MapRegionClass@@2V?$DynamicVectorClass@PAVMapRegionClass@@@@A": 10943784,
+    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344
   },
   "regions": [
     {
@@ -9685,7 +9686,7 @@
         }
       ],
       "source_sha256": "5b3f378d7e8895e5a522aaed8b346fbf1b094d085d38fb03f0460a3232ee7def",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_empty_rect_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_empty_rect_init.cpp",
       "population": "population-2478",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9753,7 +9754,7 @@
         }
       ],
       "source_sha256": "255bc98ae42d3f002ee3929ba44be260b8bb9b0d0461a53546cc40e04ad4e9b4",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_diagonal_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_diagonal_init.cpp",
       "population": "population-2478",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9805,7 +9806,7 @@
         }
       ],
       "source_sha256": "b13813272cc07571fcabae200fe3c9373fbfccb3efd3bf27c6e880fc6f630a6c",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_b_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_b_init.cpp",
       "population": "population-2478",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9857,7 +9858,7 @@
         }
       ],
       "source_sha256": "884b3844dd0679524c5a0527d9df5bc37a5b738869f9fa91370ad957d5e9682c",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_c_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_c_init.cpp",
       "population": "population-2478",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9909,7 +9910,7 @@
         }
       ],
       "source_sha256": "1b580ca9b0a3773fa4180733116aa3663b5c56d5338b8f49cee4680a5fadd51c",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_angle45_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_angle45_init.cpp",
       "population": "population-2478",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -9961,7 +9962,7 @@
         }
       ],
       "source_sha256": "f2cedd811cd4e0ef115fc0a8c0a4e49e0f804bfa9cc5b5970567fc7484664528",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_angle60_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_angle60_init.cpp",
       "population": "population-2478",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10013,7 +10014,7 @@
         }
       ],
       "source_sha256": "d4472411b542fb78d0ffcdfd50a8c0cc9d173b134237ec3db2882f51d626e113",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_angle90_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_angle90_init.cpp",
       "population": "population-2478",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10097,7 +10098,7 @@
         }
       ],
       "source_sha256": "e95aed6d90549f2c66078641b4cdb9e33f788e1b71f795e3942e6d6cd4d1a87b",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_g_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_g_init.cpp",
       "population": "population-2478",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10157,7 +10158,7 @@
         }
       ],
       "source_sha256": "6bfc522fcd5e1e9cc1c48253bea01e95f24ace6e00dfdaeeeede2d90a2546a5e",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_h_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_h_init.cpp",
       "population": "population-2478",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10217,7 +10218,7 @@
         }
       ],
       "source_sha256": "632af0f1ea75bc63f2449ed5d5afe8a5cbc0f734fc9591cc130fd8f4060137b3",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_i_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_i_init.cpp",
       "population": "population-2478",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10277,7 +10278,7 @@
         }
       ],
       "source_sha256": "41fc6117c910f5cefc00ea57c977da17e9796175a5fb9d33ca58a80b82874367",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_j_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_j_init.cpp",
       "population": "population-2478",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10321,7 +10322,7 @@
         }
       ],
       "source_sha256": "a3bcebb1191a57cde8892bd15254bc424da727a54ee6d9e8d8c3c8245afadbc2",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_k_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_k_init.cpp",
       "population": "population-2478",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -10373,7 +10374,7 @@
         }
       ],
       "source_sha256": "8fba7c2fe6f835767749aca86993959b655e7b1927f23de8017775f4b3cc28af",
-      "source": "src/recovered/header_statics/0041c3d0/HeaderStatics_l_init.cpp",
+      "source": "src/recovered/header_statics/aitrig/HeaderStatics_l_init.cpp",
       "population": "population-2478",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",

@@ -4,46 +4,46 @@
 // manifests/original_target/modules/radbeam.json carries the addresses and the rows that
 // stay in their own files.
 
-// Dynamic initializer (0x006351E0, _$E5) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x006351E0, _$E5) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00635200, _$E8) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x00635200, _$E8) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00635220, _$E11) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x00635220, _$E11) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00635240, _$E14) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x00635240, _$E14) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00635260, _$E17) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x00635260, _$E17) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00635280, _$E20) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x00635280, _$E20) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006352C0, _$E23) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x006352C0, _$E23) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006352F0, _$E26) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x006352F0, _$E26) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00635320, _$E29) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x00635320, _$E29) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00635350, _$E32) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x00635350, _$E32) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00635360, _$E35) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x00635360, _$E35) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x00635380, _$E38) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x00635380, _$E38) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// Dynamic initializer (0x006353A0, _$E45) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// Dynamic initializer (0x006353A0, _$E45) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
-// atexit destructor (0x006353E0, _$E42) emitted by header_statics/006351b0/HeaderStatics_diagonal_init.cpp; no source of its own.
+// atexit destructor (0x006353E0, _$E42) emitted by header_statics/radbeam/HeaderStatics_diagonal_init.cpp; no source of its own.
 
 
 

@@ -1,12 +1,12 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 201,
+ "total": 202,
  "by_class": {
   "c-address": 13,
   "c-data": 1,
   "c-function": 3,
   "cxx-data": 3,
-  "cxx-function": 181
+  "cxx-function": 182
  },
  "symbols": [
   {
@@ -192,6 +192,11 @@
   {
    "symbol": "__ZN11Leaf_7667c07cleanupEv",
    "name": "Leaf_7667c0::cleanup()",
+   "cls": "cxx-function"
+  },
+  {
+   "symbol": "__ZN11VectorClassIPN21WinsockInterfaceClass17WinsockBufferTypeEED2Ev",
+   "name": "VectorClass<WinsockInterfaceClass::WinsockBufferType*>::~VectorClass()",
    "cls": "cxx-function"
   },
   {

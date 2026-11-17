@@ -85,8 +85,8 @@ char const *__fastcall Warhead_Name(int warhead)
 
 
 // ??_G?$VectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z (0x0040F680): compiler generated with the vtable unknown_WarheadTypeClass_list_00839b00 stores
-// (VectorClass<WarheadTypeClass *>, shared/vector_class.hpp); emitted by this unit's header_statics/0040f0a0. No source of its own.
+// (VectorClass<WarheadTypeClass *>, shared/vector_class.hpp); emitted by this unit's header_statics/_warhead. No source of its own.
 
 
 // ??_G?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z (0x0040F6D0): compiler generated with the vtable unknown_WarheadTypeClass_list_00839b00 stores
-// (DynamicVectorClass<WarheadTypeClass *>, shared/vector_class.hpp); emitted by this unit's header_statics/0040f0a0. No source of its own.
+// (DynamicVectorClass<WarheadTypeClass *>, shared/vector_class.hpp); emitted by this unit's header_statics/_warhead. No source of its own.

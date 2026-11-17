@@ -30,7 +30,7 @@
 #include "shared/shape_file.hpp"
 #include "shared/building_type.hpp"
 #include "shared/rect_intersect.hpp"
-#include "shared/unknown_list_832470.hpp"
+#include "shared/unknown_object_list.hpp"
 #include "shared/terrain_type.hpp"
 #include "shared/alpha_shape.hpp"
 #include "shared/infantry_type.hpp"

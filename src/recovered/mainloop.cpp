@@ -40,7 +40,7 @@
 #include "shared/target.hpp"
 #include "shared/object.hpp"
 #include "shared/layer.hpp"
-#include "shared/unknown_list_832470.hpp"
+#include "shared/unknown_object_list.hpp"
 #include "shared/fogged_object.hpp"
 #include "shared/keyboard.hpp"
 #include "shared/load_dlg.hpp"

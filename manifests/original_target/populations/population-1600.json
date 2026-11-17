@@ -4,8 +4,8 @@
     "id": "population-1600",
     "inventory_sha256": "262e39118f125bcd7bdeb8e6afb7c0e9f9174a6ec78ab03de1e154881b525b18",
     "gaps_sha256": "52fc8a09bcf9ed25d91f0c7d101c70b25841478273479120b242772c4af96058",
-    "historical_population_sha256": "53fa87026983067698d54952682481b5e9109435d7918e68b6c2ee517a0f00f1",
-    "historical_acceptance_sha256": "3a5a41356330175c7aae980271be68a0857d7bc5f6fda1bf92a552cc75d64e7d"
+    "historical_population_sha256": "3bcd57b2119d6feee4532bb8816b99e99f2c78c999d8e51da19fc6394a8363a8",
+    "historical_acceptance_sha256": "a6831e420e4c13e895671e1f917768193dbdd133e8e5ca259264d54c020d7ee5"
   },
   "references": {
     "??3@YAXPAX@Z": 7871803,
@@ -3737,7 +3737,38 @@
     "??_E?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEPAXI@Z": 5473104,
     "??_E?$VectorClass@PAVFileEntryClass@@@@UAEPAXI@Z": 5492016,
     "??_E?$DynamicVectorClass@PAVFileEntryClass@@@@UAEPAXI@Z": 5492096,
-    "??_E?$DynamicVectorClass@PBVTeamTypeClass@@@@UAEPAXI@Z": 5205952
+    "??_E?$DynamicVectorClass@PBVTeamTypeClass@@@@UAEPAXI@Z": 5205952,
+    "?ID@?$DynamicVectorClass@G@@UAEHPBG@Z": 4370064,
+    "?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z": 4537872,
+    "?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHABQAVReestablish@@@Z": 4540128,
+    "?ID@?$DynamicVectorClass@PAUDDSURFACEDESC@@@@UAEHPBQAUDDSURFACEDESC@@@Z": 4809888,
+    "?ID@?$DynamicVectorClass@PAUDDSURFACEDESC@@@@UAEHABQAUDDSURFACEDESC@@@Z": 4810496,
+    "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z": 4889392,
+    "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z": 4889488,
+    "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z": 4890096,
+    "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z": 4890704,
+    "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z": 4936928,
+    "?Fetch@?$VectorClass@PAVEMPulseClass@@@@UBEPAVEMPulseClass@@H@Z": 4936960,
+    "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z": 4937264,
+    "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z": 4937328,
+    "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z": 4937536,
+    "?ID@?$VectorClass@PAVSideClass@@@@UAEHPBQAVSideClass@@@Z": 5082576,
+    "?ID@?$DynamicVectorClass@PAVCCINIClass@@@@UAEHPBQAVCCINIClass@@@Z": 5365968,
+    "?ID@?$DynamicVectorClass@PAVCCINIClass@@@@UAEHABQAVCCINIClass@@@Z": 5366576,
+    "?ID@?$DynamicVectorClass@PAUWIN32_FIND_DATA@@@@UAEHPBQAUWIN32_FIND_DATA@@@Z": 5823840,
+    "?ID@?$DynamicVectorClass@VRect@@@@UAEHPBVRect@@@Z": 5823936,
+    "?ID@?$DynamicVectorClass@PAUWIN32_FIND_DATA@@@@UAEHABQAUWIN32_FIND_DATA@@@Z": 5825792,
+    "?ID@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@UAEHPBQAUUnknownGlobalPacket@@@Z": 6764896,
+    "?ID@?$DynamicVectorClass@PAVPhoneEntryClass@@@@UAEHPBQAVPhoneEntryClass@@@Z": 6764992,
+    "?ID@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@UAEHABQAUUnknownGlobalPacket@@@Z": 6767872,
+    "?ID@?$DynamicVectorClass@PAVPhoneEntryClass@@@@UAEHABQAVPhoneEntryClass@@@Z": 6768480,
+    "?ID@?$DynamicVectorClass@PAVtConnInfoStruct@@@@UAEHPBQAVtConnInfoStruct@@@Z": 7757360,
+    "?ID@?$DynamicVectorClass@PAVtConnInfoStruct@@@@UAEHABQAVtConnInfoStruct@@@Z": 7759696,
+    "?ID@?$DynamicVectorClass@PAE@@UAEHPBQAE@Z": 7788000,
+    "?ID@?$DynamicVectorClass@PAE@@UAEHABQAE@Z": 7788608,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856,
+    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344
   },
   "regions": [
     {
@@ -3791,7 +3822,7 @@
         }
       ],
       "source_sha256": "1a5b86f8fa259e5443806830764863775bf8e387e4155e68a2a759d31bc9a108",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_empty_rect_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_empty_rect_init.cpp",
       "population": "population-1600",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -3858,7 +3889,7 @@
         }
       ],
       "source_sha256": "6977b0ec98975521ff331558d00f9589ddad6c73f96f251d4c4ac66003aa1f7f",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_diagonal_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_diagonal_init.cpp",
       "population": "population-1600",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -3909,7 +3940,7 @@
         }
       ],
       "source_sha256": "de7c66c284c0473fa6176f901e64e16a8a5a8db543e3c1a14e45d84773709e16",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_b_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_b_init.cpp",
       "population": "population-1600",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -3960,7 +3991,7 @@
         }
       ],
       "source_sha256": "4f5951ad63c619f3b46689901223bf7c6a77a55db067fb51e601408b150987aa",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_c_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_c_init.cpp",
       "population": "population-1600",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4011,7 +4042,7 @@
         }
       ],
       "source_sha256": "0a5da40a501194dca726bc0d73d084ed3d3e41c169968106fbe2a829d68af59b",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_angle45_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_angle45_init.cpp",
       "population": "population-1600",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4062,7 +4093,7 @@
         }
       ],
       "source_sha256": "d1af13ab17a2cbff877b4eb112cada76a0c81e6ea3f9cdb363cfd970ae9569cc",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_angle60_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_angle60_init.cpp",
       "population": "population-1600",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4113,7 +4144,7 @@
         }
       ],
       "source_sha256": "4870658fcc4dfc2db7d8ebf8af248c4b64e98971bfa1ff5d6d531d9d3f5f1171",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_angle90_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_angle90_init.cpp",
       "population": "population-1600",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4196,7 +4227,7 @@
         }
       ],
       "source_sha256": "35b42620379f760c5249af0b29bf46936d2d1038d8d89323df2d6ae532de2b53",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_g_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_g_init.cpp",
       "population": "population-1600",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4255,7 +4286,7 @@
         }
       ],
       "source_sha256": "61c8b6f60fd38de4efa7c4ce482a8cbc032fea12fbe76410fede60ea4ba551ef",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_h_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_h_init.cpp",
       "population": "population-1600",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4314,7 +4345,7 @@
         }
       ],
       "source_sha256": "f89fd674922ff66aacf86386f16dc6ff1357859e8fa7ea8788e7cfba65bb00b9",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_i_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_i_init.cpp",
       "population": "population-1600",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4373,7 +4404,7 @@
         }
       ],
       "source_sha256": "0f2c1392c436f7a63d92835a198788f3f0f541fb0991cb3e331f4c7b10662ba5",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_j_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_j_init.cpp",
       "population": "population-1600",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4416,7 +4447,7 @@
         }
       ],
       "source_sha256": "e04e137c4e8e94fba0db93b933479092397816156807ff5f94e21766e9223ffd",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_k_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_k_init.cpp",
       "population": "population-1600",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4467,7 +4498,7 @@
         }
       ],
       "source_sha256": "3b49f9917e4eb5ca22750cab9d1d40b5e3b3f651ce61c36a3134cc5d039f46bc",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_l_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_l_init.cpp",
       "population": "population-1600",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4526,7 +4557,7 @@
         }
       ],
       "source_sha256": "aebdaa7dc621b823ef56b0d7f8d51b1c97d6246c3df1873ed9366644babd0d6b",
-      "source": "src/recovered/header_statics/0040ea30/HeaderStatics_static_rect_init.cpp",
+      "source": "src/recovered/header_statics/_voxel/HeaderStatics_static_rect_init.cpp",
       "population": "population-1600",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -4632,7 +4663,7 @@
           "resolved": 3620111
         }
       ],
-      "source_sha256": "ee8fc8d3391b3ea9debec7619177c843f3df36e31d2ebf757a23457cd5f0657e",
+      "source_sha256": "29cb5605b51675bfbc1ccfd5b76be1e24e60d1813e48917ae60f1e30cd112e8b",
       "source": "src/recovered/classes/VoxelAnimClass/VoxelAnimClass_list_init.cpp",
       "population": "population-1600",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -4723,7 +4754,7 @@
           "resolved": 8624600
         }
       ],
-      "source_sha256": "4c455ac87bc302e5482d4254a6085c4bc65ca077333032c558382341c6de2b3b",
+      "source_sha256": "e1e191cea0d77fa46d8961ce9c482e8fcc1fa3ef03f1f095cb33d4ce8f64e78f",
       "source": "src/recovered/classes/VoxelAnimClass/VoxelAnimClass_list_atexit_destructor.cpp",
       "population": "population-1600",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

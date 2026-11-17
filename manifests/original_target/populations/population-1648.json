@@ -4,8 +4,8 @@
     "id": "population-1648",
     "inventory_sha256": "23dd071b6d36944599e3a6fa9db74160810e1b9d35c547615f8e684496d0ad1a",
     "gaps_sha256": "124924948b5aa736ae3044ec9c9208fe68d3a95b5396b111dbe13f52c244f716",
-    "historical_population_sha256": "523c41518ff3624419ba2a6238fad670e0f6cf5f008dc15f67a6774de680a3ee",
-    "historical_acceptance_sha256": "dc1959023eb02bb315a607207b102261302d67998520d1ff5a7afbee0bcdc4b6",
+    "historical_population_sha256": "27823bbdd9b16efdfffdf9ad3ba29f1eb3d85bb903e2e860d47d4b98651aafeb",
+    "historical_acceptance_sha256": "9d4937c765bc85d04c3e73090e90a441ca36cd666cc4f23863b9f1e129754a15",
     "separate_units": true
   },
   "references": {
@@ -3638,7 +3638,13 @@
     "??_E?$DynamicVectorClass@PAVIsometricTileClass@@@@UAEPAXI@Z": 4246048,
     "??_E?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249376,
     "??_E?$DynamicVectorClass@PAVWarheadTypeClass@@@@UAEPAXI@Z": 4257488,
-    "??_E?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312
+    "??_E?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312,
+    "?Redraw@BinkClass@@QAEXXZ": 4392992,
+    "?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z": 7780256,
+    "?Broadcast@UDPInterfaceClass@@UAEXPAXH_N@Z": 7784896,
+    "?Set_Unknown_68@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z": 7513888,
+    "?Redraw@ProgressBarClass@@QBEXXZ": 4373120,
+    "?Set_Unknown_74@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z": 7513808
   },
   "regions": [
     {
@@ -3735,7 +3741,7 @@
         }
       ],
       "source_sha256": "bddcdee1afb8d3b232c33a1e56957ec5cf8517a6d972c2a5c48b1fe6f2797a67",
-      "source": "src/recovered/unowned/UnknownToggle_Set_Unknown_68_0072a720.cpp",
+      "source": "src/recovered/awaiting_join/nested_class_members/UnknownToggle_Set_Unknown_68_0072a720.cpp",
       "population": "population-1648",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
@@ -3786,7 +3792,7 @@
         }
       ],
       "source_sha256": "51a57a5024d71c70e09a9b7cdf9b8a41bb2195a271d8ac327a81a854f5e16856",
-      "source": "src/recovered/unowned/UnknownToggle_Set_Unknown_74_0072a6d0.cpp",
+      "source": "src/recovered/awaiting_join/nested_class_members/UnknownToggle_Set_Unknown_74_0072a6d0.cpp",
       "population": "population-1648",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",

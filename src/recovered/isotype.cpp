@@ -5,47 +5,47 @@
 // stay in their own files.
 
 // Dynamic initializer (0x005283D0, _$E) of b from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x005283F0, _$E) of c from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x00528410, _$E) of angle45 from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x00528430, _$E) of angle60 from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x00528450, _$E) of angle90 from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x00528470, _$E) of g from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x005284B0, _$E) of h from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x005284E0, _$E) of i from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x00528510, _$E) of j from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x00528540, _$E) of k from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 // Dynamic initializer (0x00528550, _$E) of l from the header(s) included
-// by header_statics/00528380/HeaderStatics_empty_rect_init.cpp; no source of its own.
+// by header_statics/isotype/HeaderStatics_empty_rect_init.cpp; no source of its own.
 
 
 #define ISOMETRIC_TILE_TYPE_DECLARE_STATICS

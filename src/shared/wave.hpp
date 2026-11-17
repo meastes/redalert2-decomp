@@ -15,7 +15,7 @@
 
 #include "shared/unknown_globals.hpp"
 #include "shared/object.hpp"
-#include "shared/unknown_list_832470.hpp"
+#include "shared/unknown_object_list.hpp"
 #include "shared/map_view.hpp"
 #include "shared/techno.hpp"
 

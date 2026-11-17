@@ -1,7 +1,7 @@
 // Behaviour rows (Scout1281 r32; NOT EXACT, native/behaviour_rewrites.json): MapSeedClass's
 // LoadOptionsClass slots, which the random map dialog's Load Map, Save Map and Delete Map
 // (Map_Seed_Dialog_Proc 0x00577BD0 -> LoadOptionsClass::Dialog 0x0053B770) call. The accepted
-// rows at these addresses are seed scaffolding (src/recovered/classes/MapSeedClass/005794d0.cpp,
+// rows at these addresses are seed scaffolding (src/recovered/unidentified/seed_views/MapSeedClass_005794d0.cpp,
 // 005796f0.cpp ...), so the virtual slots were link-closure traps.
 #include "shared/map_seed.hpp"
 #include "shared/string_table.hpp"
