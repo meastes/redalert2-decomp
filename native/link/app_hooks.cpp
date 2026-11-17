@@ -34,3 +34,13 @@ extern "C" int ra2port_game_redraw_pending(void)
 {
     return SurfacesRestored ? 1 : 0;
 }
+
+// port/src/user32.cpp's cursor stress (RA2_NATIVE_TEST_CURSOR_JITTER, lane C23's ctest
+// native-cursor-stress): the mouse thread's delay between turns (MouseThreadInfo +0x10, 16 ms as
+// Start_Mouse_Thread 0x007717E0 sets it) shortened, so its cursor blits meet the main thread's
+// drawing far more often.
+#include "shared/wwmouse.hpp"
+extern "C" void ra2_native_test_mouse_delay(int ms)
+{
+    MouseThreadInfo.Delay = ms;
+}

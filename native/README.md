@@ -1019,6 +1019,27 @@ mean 5.3 ms and 95th percentile 7.6 ms (2x: 3.4 and 5.4), the same 21 frames a s
 the budget, so the phone keeps 3x. The Windows build under Wine at -O0 takes 23-30 ms at 3x (2x:
 10 ms), so with the default budget it drops to 2x there; the ctests pass under Wine with the budget off.
 
+The mouse thread and the primary surface (lane C23, lane C22's LAN crash: SIGSEGV in Bit_Blit's row
+call from Mouse_Thread -> WWMouseClass::Low_Show_Mouse/Low_Hide_Mouse -> XSurface::Copy_From). The
+mouse thread (0x00771900, under MouseMutex) saves, draws and restores the cursor on the primary
+surface (VisibleSurface) while the main thread copies its frames to it; natively that copy takes the
+software path, so the main thread holds the primary locked often and long (with HD vehicles longer
+still: the 2x layer's copies lock it again). DSurface::Lock 0x004AAC80 skips the DirectDraw lock when
+LockLevel is already set and uses BufferPtr as it is; the main thread's last DSurface::Unlock
+0x004AAE40 set BufferPtr to null between the two, and the cursor was blitted through a null-based
+pointer (fault addresses 0x96320, 0x4B1C8: rows and columns of the cursor's rectangle; an
+instrumented build logged "Lock returns no buffer at lock level 2" just before). In the original the
+primary's lock is DirectDraw's, which keeps the two threads apart. Natively a primary surface's Lock
+and Unlock run under MouseMutex (port/fixups.json; the mutex is recursive, so the mouse thread's own
+nested locks pass), so the count and the pointer change together; and the HD layer work is the game
+thread's only (the cursor's copies need none: the 2x groups under a drawn cursor stop counting by
+their stamps and count again when the background is restored). ctest `native-cursor-stress`
+(`tests/cursor_stress.py`): a skirmish with HD vehicles 2x and Map zoom 1.5x, the cursor redrawn on
+every turn of the mouse thread (`RA2_NATIVE_TEST_CURSOR_JITTER=1`: GetCursorPos alternates by a pixel
+and the thread's delay is 1 ms instead of 16, link/app_hooks.cpp), the view scrolling, two
+backgrounds; before the fix 2 of 3 such runs crashed. `native-lan-background` runs with HD vehicles
+again.
+
 ### Mods (C16, levels 1 to 3)
 
 A mod is a folder of the game's own kinds of files: loose `rules.ini`, `art.ini`, string tables,
@@ -1145,7 +1166,7 @@ logs each conversion; a type read without a map is reported once on stderr
 (`original-save: no layout for ...`). `RA2_NATIVE_STG_LOG=1` logs the open of each
 original. All five of the user's saves (Allied 1, 2 twice, 3 twice) load from the
 menu and play on; saving then writes an original-format save that loads in a fresh process.
-Not supported: Yuri's Revenge, multiplayer saves, other internal versions.
+Not supported: multiplayer saves, other internal versions. Yuri's Revenge's saves (gamemd.exe's format, lane Y10) use the same machinery with `--game yr` maps and vtables found by RTTI name at run time: native/yr/README.md "Saves in gamemd.exe's format".
 
 **Writing the original's format (lane C17; the only format written since C20).** A save is
 written as the original game writes it, for the installed game to load: StgCreateDocfile's storage becomes a compound file (version 3,

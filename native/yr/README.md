@@ -423,18 +423,29 @@ are unchanged.
 ### The toggle
 
 `ra2port::set_game_toggle` (port/src/user32.cpp): the main menu (the dialog with Exit Game,
-0x3EE "GUI:ExitGame", the same in both games) gets a clone of its version line (0x71D), clickable
-(SS_NOTIFY), labelled "Play Yuri's Revenge" / "Play Red Alert 2" and placed, once the game has laid
-the menu out, at the left end of the menu's bottom bar (the tool-tip line 0x695, which starts that
-much further right). The game's own static code draws it, in its menu font and colour; the deeper
-menus are simply the running game's. The selection is the settings' `game=` line (the thin host
+0x3EE "GUI:ExitGame", the same in both games) gets a clone of its Exit Game button (id 0x7F5E),
+labelled "Play Yuri's Revenge" / "Play Red Alert 2" and placed, once the game has laid the menu out,
+at Exit Game's size just above the left end of the menu's bottom bar (the tool-tip line 0x695), away
+from the right-hand column. Lane C23 (user request 2026-11-16: the version-line clone of lane Y5
+read as help text) made it a red menu button: the game's own owner-draw button code paints it with
+the menu buttons' art (SDBTNANM: normal, lit and pressed frames, the click sound), because the id
+is given the menu buttons' kind (WinData +0xB0 = 1) beside the column's listed ids: RA2 in
+port/fixups.json (unknown_5e7eb0 0x005E7EB0), YR in yr/fixups.json (ClassifyLayoutBand, its twin).
+It stands over the menu's movie (the TV screen), whose frames draw on the surface under it, so the
+movie's timer has it drawn again after each frame (both games' static procedures). YR's button
+paint also takes the button's BST_PUSHED as pressed, as RA2's does (the port sends no WM_DRAWITEM),
+so both games' menu buttons show their press. The deeper menus are simply the running game's. The selection is the settings' `game=` line (the thin host
 writes it at every start and swap); the next start runs that game with its start-up movies.
 
 ctest `one-game-toggle` (yr/tests/one_game_toggle.py, needs RA2_NATIVE_YR_DATA_DIR and
 RA2_NATIVE_CENSUS_GAME_EXE): RA2 menu -> toggle -> YR menu (no start-up movie) -> toggle -> RA2
 menu -> a skirmish in RA2; the game chosen last (RA2) -> YR -> a skirmish in YR; then YR, chosen
 last, starts with its movies. Checks the engine order, the skipped movies, the toggle in each
-menu, game frames in both skirmishes, the settings and that no process of the run is left.
+menu, game frames in both skirmishes, the settings and that no process of the run is left. The
+toggle is clicked by its id (input script `@ctl=32606`), and window dumps before and during the
+press check that it is a red menu button (at least 15% of its rectangle red: 27-28% measured, the
+old version-line clone 0%) that changes
+while held (lane C23).
 
 Fixed on the way: YR's exit freed the menu drawers with the vector deleting destructor
 (gamemd.exe 0x0072B230, harmless at exit on Windows, an abort natively; fixups.json).
@@ -564,8 +575,8 @@ and must be released per swap) and the executable's size (YR.app's is 14 MB, 7 M
   calls the engine that started last: `toolbar_create`, `skip_button_create`,
   `keys_button_create` and `watch_audio_interruptions` rebind their callbacks when the toolbar or
   observer already exists.
-* **Saves.** Red Alert 2's saves work in the one-game app as in RA2.app. Yuri's Revenge cannot save
-  yet: the port writes saves only in the original's compound format, from the field maps of Red
+* **Saves.** Red Alert 2's saves work in the one-game app as in RA2.app. (Since lane Y10 Yuri's Revenge
+  saves in gamemd.exe's format: "Saves in gamemd.exe's format" below.) Until then Yuri's Revenge could not save: the port writes saves only in the original's compound format, from the field maps of Red
   Alert 2's classes (gen/original_layouts.cpp), and the YR build has none, so YR's Save_Game fails
   cleanly ("stg: ... no field maps"). With the port's own container (the test hook
   RA2_NATIVE_TEST_PORT_SAVE=1) YR's Put_All writes a 762 KB save on the Mac without a trap; loading
@@ -575,6 +586,56 @@ and must be released per swap) and the executable's size (YR.app's is 14 MB, 7 M
   the carry-over route (a Red Alert 2 import only -> an RA2 skirmish and save -> the toggle, YR's
   files added, a YR skirmish and save attempt -> YR chosen last -> RA2 -> YR again, a reset -> a YR
   skirmish -> RA2 loads its save) and `--fresh` (one import of both games, then the toggle).
+
+### Saves in gamemd.exe's format (lane Y10, 2026-11-16)
+
+Owner ruling (lane Y9's open item): Yuri's Revenge saves only in the original's format, gamemd.exe's, as
+Red Alert 2 does game.exe's (native/README.md "Original saves"): a compound file whose CONTENTS stream
+holds the i686 object images, pointers as 4-byte swizzle ids, vtables as gamemd.exe's.
+
+* **Field maps.** `tools/original_layouts.py --game yr` (a build step: `gen-yr/original_layouts.cpp`,
+  linked with `yr_data_obj`) lays out the YR units for i686-pc-windows-msvc and for arm64 and pairs them
+  member by member, for the types in `yr/data/original_save_types.txt` (95 rows; each size is gamemd.exe
+  1.001's: Fetch_Object_Size, vtable slot 12, a locomotor's slot 9, or the push before a sizeof read) and
+  every record of the units that read streams: 3,000 maps, 0 problems. The i686 dump has no C++ library
+  and no host headers: `yr/sdk/i686` stands in for the few C++ headers the tree includes, and the tool
+  makes i686 preludes in the build (ra2port/prelude.hpp with RA2_LONG as long, the YR prelude without the
+  host's C types and _WIN64, mingw's `__LONG32` as long). ctest `yr-native-original-layouts` checks it.
+* **Vtables at run time.** There is no gamemd.exe manifest, so a vtable pointer becomes a VPTR_NAMED
+  operation naming its class by its MSVC RTTI type descriptor (`.?AVUnitClass@@`,
+  `.?AV?$DynamicVectorClass@PBVAircraftTypeClass@@@@`; the tool mangles the names, 853 of them); the port
+  finds that class's vtable at that offset among the complete-object locators of the user's gamemd.exe
+  (`original_vtable_named`, port/src/original_image.cpp: vtables in data sections whose first slot is
+  code). Every type of the save list resolves in gamemd.exe 1.001.
+* **The streams.** The Win64 headers' ISequentialStream gets the RA2 tree's typed Read/Write overloads
+  (`tools/yr_sdk.py`, objidlbase.h/objidl.h, in an extern "C++" block).
+* **Fixes in the YR units** (`fixups.json`, lane Y10): swizzle ids are intptr_t (the tree's LONG truncated
+  addresses; the Win64 LONG_PTR is long long, which the typed reads would take as 8 bytes) and an object's
+  own id is written as its address, a pointer, so it gets the id every pointer to it gets; the swizzle
+  walk is bounded and reports unmatched fields as the RA2 tree's does; LZO1X-1's dictionary keeps 32-bit
+  offsets (8-byte pointers ran 64 KB past CStreamClass's buffer: the CONTENTS stream would not
+  decompress); LocomotionClass::Load reads its image through its type, not void *; HouseClass's starting
+  units write their Type through the member. In the port a pointer written with VC6's size 4
+  (LayerClass::Save's sizeof(int)) is written as its id. Draft: FUN_004E02C0 (the ILocomotion pointer's
+  _Release, glue/foot_native.inc).
+* **Loading for tests.** `--load-save=<file>` works in yr-native too (LoadOptionsClass::Load takes the
+  host's resume request and runs the load dialog's steps with that row); `--run-to=frames --frames=N`
+  ends N frames into the game (glue/yr_app_hooks.cpp).
+
+ctest `yr-native-save` (yr/tests/yr_save_roundtrip.py): a skirmish saved at frame 500, loaded from the
+menus and played 300 frames, saved again at frame 50 (a save written after a load keeps the ids) and that
+loaded and played 300 frames; a save of the user's installed Yuri's Revenge is loaded too when the data
+folder holds one (by its internal version, 178328; read in place, never copied). The data folder here
+has none (its saves are Red Alert 2's), so that part is reported as skipped; the user can make one on
+Windows. ctest `one-game-saves` / `one-exe-saves` (yr/tests/one_game_saves.py): in the one-game app each
+game saves after the toggle (RA2 -> YR, YR -> RA2) and each save loads back in its game.
+
+iOS: the one-game app's Simulator route (`yr/tests/ios_sim_one_game.py`, "RA2 Duo Validation") now
+expects Yuri's Revenge's save in Documents/Game/YR after the toggle and loads it (step 3b): all checks
+pass (the save at frame 900, the loaded game at 62 frames a second; the iOS maps: 2,999).
+
+Not checked yet: the installed gamemd.exe loading a save the port wrote (needs Windows). A loaded game
+redraws its command bar only once the mouse passes over it.
 
 ## Next
 
@@ -587,7 +648,7 @@ and must be released per swap) and the executable's size (YR.app's is 14 MB, 7 M
    variables, union views with pointer members read at the same offsets.
 3. Init_Game's CD search when no search path is set (not drafted: the host always passes -CD.).
 4. Variant* and the other Win32 imports the port does not yet supply (the run lists them).
-5. (lane Y9) Yuri's Revenge's saves: field maps for YR's classes (the original's format), or an
-   owner ruling to let YR use the port's own container; then YR's Load.
+5. (lane Y10) Yuri's Revenge's saves: the installed gamemd.exe on Windows loading a save the port wrote,
+   and the port loading one the installed game wrote (yr-native-save picks it up from the data folder).
 6. (lane Y8) Map zoom, Zoom gestures, Game interface size and HD vehicles for Yuri's Revenge: a YR
    copy of each native/link module and its fixups in the YR units (lane Y8 section: why).

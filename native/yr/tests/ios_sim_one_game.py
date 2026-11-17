@@ -20,6 +20,7 @@ Route "carry-over" (the default; a player who had the Red Alert 2 app):
   3. the next start is Yuri's Revenge (chosen last) -> toggle -> Red Alert 2 -> toggle -> Yuri's
      Revenge again (the second start of its engine in the process: its data reset in place after its
      threads were stopped) -> a skirmish -> play;
+  3b. Yuri's Revenge loads the save of step 2 (gamemd.exe's format, lane Y10) and plays;
   4. Red Alert 2 loads the save of step 1 (--load-save: the Load dialog's path) and plays.
 Route "fresh" (--fresh): the app installed afresh (its data removed first), one import of both games
 from --data-dir at the first start (Red Alert 2), then the toggle: Yuri's Revenge starts without an
@@ -154,8 +155,9 @@ def frames_after(text, marker):
 
 
 def toggle_script(play_w):
-    x = (play_w - 800) // 2 + 85
-    return ['s1+2500 tdown %d 588' % x, 's1+2580 tup %d 588' % x]
+    # The toggle by its control id (0x7F5E, port/src/user32.cpp; a red menu button above the bottom
+    # bar's left end since lane C23), wherever the menu lays it out on the wider surface.
+    return ['s1+2500 tdown @ctl=32606', 's1+2580 tup @ctl=32606']
 
 
 def is_save(path):
@@ -284,15 +286,9 @@ def main():
             common(check, 'step 2 (Yuri\'s Revenge)', text, ['MainMenu', 'MainMenu', 'SinglePlayerMenu', 'SkirmishGame'])
             yr_save = os.path.join(writes, 'YR', 'Y9YR.SAV')
             hs = re.search(r'harness-save: .*', text)
-            if 'no field maps for the original\'s save format' in text:
-                # Known gap (lane Y9): the port writes saves in the original's format only, from the
-                # field maps of Red Alert 2's classes; Yuri's Revenge has none yet, so its Save fails
-                # cleanly (no file, no fault).
-                check(not os.path.exists(yr_save) and hs is not None and 'save failed' in hs.group(0),
-                      'step 2: Yuri\'s Revenge\'s save refused cleanly (KNOWN GAP: no field maps for its classes)')
-                print('known gap: Yuri\'s Revenge cannot save yet (%s)' % hs.group(0))
-            else:
-                check(is_save(yr_save), 'step 2: Yuri\'s Revenge\'s save in Documents/Game/YR (%s)' % (hs.group(0) if hs else 'no harness line'))
+            # Since lane Y10 Yuri's Revenge saves in gamemd.exe's format (its own field maps).
+            check(is_save(yr_save) and 'no field maps' not in text,
+                  'step 2: Yuri\'s Revenge\'s save in Documents/Game/YR (%s)' % (hs.group(0) if hs else 'no harness line'))
             check(is_save(os.path.join(writes, 'Y9RA2.SAV')) and not os.path.exists(os.path.join(writes, 'YR', 'Y9RA2.SAV')),
                   'step 2: Red Alert 2\'s save kept in its own folder through the toggle')
             # 3. Yuri's Revenge chosen last -> Red Alert 2 -> Yuri's Revenge again (a reset) -> a skirmish.
@@ -304,6 +300,14 @@ def main():
             check(len(left) == 2 and all(n == '0' for n in left), 'step 3: no game thread left running at either swap %s' % left)
             common(check, 'step 3 (Yuri\'s Revenge after a reset)', text,
                    ['MainMenu', 'MainMenu', 'MainMenu', 'SinglePlayerMenu', 'SkirmishGame'])
+            # 3b (lane Y10). Yuri's Revenge loads step 2's save (gamemd.exe's format) and plays.
+            text = launch(a, 'carry-3b-yr-load', ['--game=yr', '--load-save=Y9YR.SAV'], [], 60, import_dir=False)
+            check(re.search(r'resume: loaded Y9YR.SAV', text) is not None, 'step 3b: Yuri\'s Revenge loaded its save (%s)' % (
+                re.search(r'resume: .*', text).group(0) if re.search(r'resume: .*', text) else 'no resume line'))
+            check('swizzle: ' not in text and 'no layout for' not in text and 'unrecovered ' not in text and 'crash: signal' not in text,
+                  'step 3b: no swizzle failure, unmapped type, trap or crash in the loaded game')
+            rates = frames_after(text, '')
+            check(bool(rates) and max(rates) >= 20, 'step 3b: game frames in the loaded game %s' % rates[-3:])
             # 4. Red Alert 2 loads step 1's save.
             text = launch(a, 'carry-4-ra2-load', ['--game=ra2', '--load-save=Y9RA2.SAV'], [], 60, import_dir=False)
             check(re.search(r'resume: loaded', text) is not None, 'step 4: Red Alert 2 loaded its save (%s)' % (

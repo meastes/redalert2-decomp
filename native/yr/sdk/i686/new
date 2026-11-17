@@ -1,0 +1,8 @@
+// Layout dumps only (native/tools/original_layouts.py --game yr, lane Y10): the i686-msvc dump has
+// no C++ library; this stands in for <new> as far as the YR tree uses it.
+#pragma once
+namespace std { struct nothrow_t {}; extern const nothrow_t nothrow; }
+inline void *operator new(unsigned int, void *p) { return p; }
+inline void *operator new[](unsigned int, void *p) { return p; }
+void *operator new(unsigned int, const std::nothrow_t &) noexcept;
+void *operator new[](unsigned int, const std::nothrow_t &) noexcept;

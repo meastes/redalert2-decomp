@@ -494,6 +494,9 @@ LRESULT __stdcall unknown_static_proc_5f2b50(HWND window, UINT message, WPARAM w
                 static int traced = 0;
                 if (traced++ < 3 && getenv("RA2_NATIVE_PERF_LOG")) dprintf(2, "perf: t%u static movie frame\n", (unsigned)GetTickCount());
                 InvalidateRect(window, 0, FALSE);
+                // NATIVE (lane C23): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E) stands over
+                // the main menu's movie, which draws each frame on the surface under it: drawn again after it.
+                if (HWND toggle = GetDlgItem(GetParent(window), 0x7F5E)) InvalidateRect(toggle, 0, FALSE);
             }
             if (!extra.movie->Is_Finished()) return 0;
             if (record->unknown_5c) {

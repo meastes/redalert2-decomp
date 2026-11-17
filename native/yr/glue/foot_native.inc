@@ -170,3 +170,17 @@ bool FootClass::Active_Click_With(ActionType action, ObjectClass * object, bool 
 	}
 	return(false);
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y10), YR 0x004E02C0 (13 bytes, unmatched in ra2-decomp): the
+// ILocomotion smart pointer's _Release, which FootClass::Load calls on its Locomotion before the
+// saved locomotor is loaded: the interface's Release when it holds one (gamemd.exe: mov eax,[ecx];
+// test; call [vtable+8]). Behaviour code for the native build only.
+// ---------------------------------------------------------------------------------------------
+void __fastcall FUN_004E02C0(void * loco)
+{
+	IUnknown * pointer = *(IUnknown **)loco;
+	if (pointer != NULL) {
+		pointer->Release();
+	}
+}

@@ -29,6 +29,7 @@
 extern "C" void ra2_enh_in_play(int on);   // platform/sdl/enhancements.cpp
 extern "C" void ra2port_frame(int frame);  // port/src/run_progress.cpp
 extern "C" void ra2port_progress(const char *milestone, const char *detail);   // port/src/run_progress.cpp
+extern "C" int ra2port_skirmish_frames(void);                                   // the same: --frames=N
 
 extern "C" int ra2_native_scroll_map(int, int, int dx, int dy)
 {
@@ -76,6 +77,13 @@ bool yr_native_main_loop(void)
     if (over) ra2_enh_in_play(0);
     ra2port_frame(++frames);
     yr_native_harness_save(frames);
+    // --run-to=frames --frames=N (lane Y10, as the RA2 game's Main_Loop seam): N frames of a game
+    // started from the menus, or loaded (--load-save: the count starts with the loaded game).
+    if (frames == ra2port_skirmish_frames()) {
+        char detail[16];
+        snprintf(detail, sizeof detail, "%d", frames);
+        ra2port_progress("frames", detail);
+    }
     return over;
 }
 

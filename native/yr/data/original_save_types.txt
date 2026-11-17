@@ -1,0 +1,95 @@
+# Yuri's Revenge: types read from gamemd.exe's saves as whole objects (lane Y10;
+# native/tools/original_layouts.py --game yr). The format of native/data/original_save_types.txt:
+# the type's name, then optionally the member function that reads it and size=<n>, the original's
+# object size (from gamemd.exe 1.001: the immediate of Fetch_Object_Size, vtable slot 12, or of a
+# locomotor's Size, slot 9). The i686 layouts come from the YR tree's headers; the vtables from the
+# user's gamemd.exe at run time.
+#
+# AbstractClass::Load reads Fetch_Object_Size() bytes (the most derived type):
+AITriggerTypeClass size=272
+AircraftClass size=1752
+AircraftTypeClass size=3600
+AirstrikeClass size=96
+AlphaShapeClass size=64
+AnimClass size=456
+AnimTypeClass size=888
+BombClass size=92
+BuildingClass size=1824
+BuildingLightClass size=232
+BuildingTypeClass size=6040
+BulletClass size=352
+BulletTypeClass size=760
+CampaignClass size=928
+CaptureManagerClass size=80
+CellClass size=328
+DiskLaserClass size=64
+EMPulseClass size=52
+FactoryClass size=116
+FoggedObjectClass size=120
+HouseClass size=90296
+HouseTypeClass size=432
+InfantryClass size=1776
+InfantryTypeClass size=3792
+IsometricTileClass size=176
+IsometricTileTypeClass size=780
+LightSourceClass size=76
+NeuronClass size=56
+OverlayClass size=176
+OverlayTypeClass size=700
+ParasiteClass size=88
+ParticleClass size=312
+ParticleSystemClass size=256
+ParticleSystemTypeClass size=784
+ParticleTypeClass size=792
+RadSiteClass size=116
+ScriptClass size=48
+ScriptTypeClass size=564
+SideClass size=180
+SlaveManagerClass size=100
+SmudgeClass size=176
+SmudgeTypeClass size=676
+SpawnManagerClass size=116
+SuperClass size=128
+SuperWeaponTypeClass size=256
+TActionClass size=148
+TEventClass size=88
+Tactical size=3608
+TagClass size=56
+TagTypeClass size=164
+TaskForceClass size=212
+TeamClass size=160
+TeamTypeClass size=248
+TemporalClass size=80
+TerrainClass size=224
+TerrainTypeClass size=700
+TiberiumClass size=296
+TriggerClass size=72
+TriggerTypeClass size=180
+TubeClass size=452
+UnitClass size=2280
+UnitTypeClass size=3704
+VeinholeMonsterClass Load_All size=264    # Load_All reads each monster over raw memory
+VoxelAnimClass size=328
+VoxelAnimTypeClass size=776
+WarheadTypeClass size=464
+WaveClass size=576
+WaypointPathClass size=64
+WeaponTypeClass size=352
+# LocomotionClass::Load reads Size() bytes (slot 9):
+TeleportLocomotionClass size=76
+WalkLocomotionClass size=60
+DriveLocomotionClass size=112
+JumpjetLocomotionClass size=152
+FlyLocomotionClass size=96
+HoverLocomotionClass size=120
+DropPodLocomotionClass size=48
+MechLocomotionClass size=52
+ShipLocomotionClass size=112
+RocketLocomotionClass size=96
+TunnelLocomotionClass size=60
+# Read with sizeof(*this) (or a size the save gives) by their own loads (the sizes: their pushes in gamemd.exe):
+ScenarioClass size=14144
+EnvironmentClass size=68
+MouseClass size=21868
+BaseClass size=120
+GameOptionsType size=300

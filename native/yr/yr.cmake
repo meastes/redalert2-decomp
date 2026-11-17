@@ -84,7 +84,20 @@ add_custom_command(
           "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/globals.tsv" "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
           $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs>
   COMMAND_EXPAND_LISTS VERBATIM)
-add_library(yr_data_obj OBJECT "${RA2_NATIVE_YR_GEN}/yr_original_data.cpp")
+# Field maps for saves in gamemd.exe's format (lane Y10; README "Saves in gamemd.exe's format"): the i686
+# and arm64 record layouts of the YR units for the types in yr/data/original_save_types.txt
+# (tools/original_layouts.py --game yr); the vtables come from the user's gamemd.exe at run time.
+file(GLOB ra2_yr_i686_shims "${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk/i686/*")
+add_custom_command(
+  OUTPUT "${RA2_NATIVE_YR_GEN}/original_layouts.cpp"
+  COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py" --game yr
+          --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${RA2_NATIVE_YR_GEN}/original_layouts.cpp"
+          --report "${RA2_NATIVE_YR_GEN}/original_layouts.json"
+  DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py" "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/original_save_types.txt"
+          "${CMAKE_CURRENT_SOURCE_DIR}/port/include/ra2port/prelude.hpp" "${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk/yr_prelude.h"
+          ${ra2_yr_i686_shims} "${RA2_NATIVE_YR_GEN}/units.cmake" ${YR_NATIVE_UNITS}
+  VERBATIM)
+add_library(yr_data_obj OBJECT "${RA2_NATIVE_YR_GEN}/yr_original_data.cpp" "${RA2_NATIVE_YR_GEN}/original_layouts.cpp")
 file(GENERATE OUTPUT "${RA2_NATIVE_YR_GEN}/closure_inputs.txt"
      CONTENT "$<JOIN:$<TARGET_OBJECTS:yr_units_objs>;$<TARGET_OBJECTS:yr_data_obj>;$<TARGET_FILE:ra2_port>,\n>\n")
 add_custom_command(
@@ -147,6 +160,20 @@ add_test(NAME yr-native-skirmish-long COMMAND "${Python3_EXECUTABLE}" -B "${CMAK
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-long" --seconds 600 --opponents 3 --difficulty hard)
 set_tests_properties(yr-native-skirmish-long PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+
+# ctest yr-native-original-layouts (lane Y10): every type in yr/data/original_save_types.txt has an i686
+# layout of gamemd.exe's size whose members all pair with the arm64 layout, and every vtable owner's name
+# could be mangled (tools/original_layouts.py --game yr --check).
+add_test(NAME yr-native-original-layouts COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py"
+         --game yr --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${CMAKE_CURRENT_BINARY_DIR}/yr_original_layouts_check.cpp" --check)
+
+# ctest yr-native-save (lane Y10): a skirmish saved in gamemd.exe's format at frame 500, loaded from the
+# menus and played 300 frames, saved again after the load and that loaded and played; a save of the
+# user's installed Yuri's Revenge loaded too when the data folder has one (yr/tests/yr_save_roundtrip.py).
+add_test(NAME yr-native-save COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_save_roundtrip.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-save")
+set_tests_properties(yr-native-save PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 700)
 
 # ctest yr-native-controls (lane Y8): Controls Classic / Modern and Queue five with Shift in a
 # skirmish (glue/yr_enhancements.cpp), one run with each setting

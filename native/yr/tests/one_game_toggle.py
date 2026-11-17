@@ -13,7 +13,7 @@ process through the main menu's toggle, with scripted input (one script per engi
 
 Checks: each run's engines start in that order, on one window, and each swap's engine skips the
 start-up movies and reaches its menu sooner than a first start; the toggle is placed in both main
-menus; the skirmishes run game frames; the settings file holds the game chosen last; no trap, no
+menus as a red menu button that shows its press (window dumps, lane C23); the skirmishes run game frames; the settings file holds the game chosen last; no trap, no
 fault; no process of the run is left (native/tests/game_process.py ends the group; checked).
 Skipped (77) without the installed game (RA2 with Yuri's Revenge in --data-dir, game.exe given).
 
@@ -31,11 +31,13 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 import game_process  # noqa: E402  (native/tests: the game's process group, lane C19)
 
 # Both games at 800x600 (RA2: the write folder's RA2.INI; YR: its installed RA2MD.INI, as the
-# yr-native tests run it): the toggle at the left end of
-# the bottom bar (10,578 150x21), Single Player, Skirmish (the single-player menu's third button)
-# and Start Game (the setup's second slot) in the right-hand column. Each menu click waits for its
-# dialog to settle ("s<k>", host.cpp; k counts that engine's dialogs).
-TOGGLE = 's1+1500 click 85 588\n'
+# yr-native tests run it): Single Player, Skirmish (the single-player menu's third button) and Start
+# Game (the setup's second slot) in the right-hand column. Each menu click waits for its dialog to
+# settle ("s<k>", host.cpp; k counts that engine's dialogs). The toggle (lane C23: a red menu button
+# above the bottom bar's left end) is clicked by its control id (0x7F5E, "@ctl="), with a window dump
+# before the press and one while it is held (the screenshot check, toggle_look).
+TOGGLE_ID = 0x7F5E
+TOGGLE = ('s1+1500 dump\ns1+1700 ldown @ctl=%d\ns1+1900 dump\ns1+2300 lup @ctl=%d\n' % (TOGGLE_ID, TOGGLE_ID))
 SKIRMISH = 's1+1500 click 720 220\ns2+1000 click 720 304\ns3+2500 click 720 262\n'
 INI = '[Video]\nScreenWidth=800\nScreenHeight=600\n'
 
@@ -67,6 +69,67 @@ def run(a, name, scripts, game, seconds, run_to='never'):
     ps = subprocess.run(['ps', '-axo', 'pid=,command='], capture_output=True, text=True).stdout
     left = [l for l in ps.splitlines() if a.writes in l and 'one_game_toggle.py' not in l]
     return text, p.returncode, left, work
+
+
+def read_bmp(path):
+    """(width, height, rows of (r, g, b)) of an uncompressed 24/32-bit BMP (SDL_SaveBMP), top row first."""
+    data = open(path, 'rb').read()
+    offset, width, height, bpp = (int.from_bytes(data[10:14], 'little'), int.from_bytes(data[18:22], 'little', signed=True),
+                                  int.from_bytes(data[22:26], 'little', signed=True), int.from_bytes(data[28:30], 'little'))
+    step = bpp // 8
+    stride = (width * step + 3) & ~3
+    rows = []
+    for y in range(abs(height)):
+        base = offset + (abs(height) - 1 - y if height > 0 else y) * stride
+        rows.append([(data[base + x * step + 2], data[base + x * step + 1], data[base + x * step]) for x in range(width)])
+    return width, abs(height), rows
+
+
+def toggle_look(text, work, name, failures):
+    """The screenshot check: in each engine's main menu the toggle is a red menu button (red art over
+    most of its rectangle, as the menu buttons' SDBTNANM frames are; the version-line clone it
+    replaced had almost none) and looks different while pressed (the pressed frame)."""
+    engine = None
+    shots = {}
+    placed = {}
+    for line in text.splitlines():
+        m = re.match(r'^one-game: engine (\d+):', line)
+        if m:
+            engine = int(m.group(1))
+        m = re.match(r'^port: game toggle "[^"]+" at (-?\d+),(-?\d+) (\d+)x(\d+) in the main menu', line)
+        if m and engine is not None and engine not in placed:
+            placed[engine] = tuple(int(g) for g in m.groups())
+        m = re.match(r'^host: window dump (\d+)', line)
+        if m and engine is not None:
+            shots.setdefault(engine, []).append(int(m.group(1)))
+    for e in (0, 1):
+        if e not in placed or len(shots.get(e, [])) < 2:
+            failures.append('%s: engine %d: no toggle placement or no dumps around its press (%s, %s)'
+                            % (name, e, placed.get(e), shots.get(e)))
+            continue
+        x, y, w, h = placed[e]
+        looks = []
+        for n in shots[e][:2]:
+            path = os.path.join(work, 'shots', 'w-e%d.%d.bmp' % (e, n))
+            if not os.path.exists(path):
+                failures.append('%s: engine %d: no dump %s' % (name, e, path))
+                break
+            width, height, rows = read_bmp(path)
+            sx, sy = width / 800.0, height / 600.0
+            box = [rows[int((y + j + 0.5) * sy)][int((x + i + 0.5) * sx)] for j in range(h) for i in range(w)
+                   if 0 <= int((y + j + 0.5) * sy) < height and 0 <= int((x + i + 0.5) * sx) < width]
+            red = sum(1 for r, g, b in box if r >= 80 and r > 1.5 * g and r > 1.5 * b)
+            looks.append((box, red / max(1, len(box))))
+        if len(looks) < 2:
+            continue
+        share = looks[0][1]
+        changed = sum(1 for p, q in zip(looks[0][0], looks[1][0]) if p != q) / max(1, len(looks[0][0]))
+        print('%s: engine %d: toggle at %d,%d %dx%d: %.0f%% red, %.0f%% changed while pressed'
+              % (name, e, x, y, w, h, share * 100, changed * 100))
+        if share < 0.15:   # the button 27-28%, its frame and text the rest; the version-line clone 0%
+            failures.append('%s: engine %d: the toggle is not a red menu button (%.0f%% red in its rectangle)' % (name, e, share * 100))
+        if changed < 0.05:
+            failures.append('%s: engine %d: the toggle shows no press (%.0f%% of it changed)' % (name, e, changed * 100))
 
 
 def engines(text):
@@ -118,6 +181,7 @@ def main():
     toggles = re.findall(r'^port: game toggle "(Play [^"]+)" at', text, re.M)
     if toggles[:3] != ["Play Yuri's Revenge", 'Play Red Alert 2', "Play Yuri's Revenge"]:
         failures.append('run 1: the toggle was not placed in each main menu: %s' % toggles)
+    toggle_look(text, work, 'run 1', failures)
     t = menu_times(text)
     if len(t) < 3 or not (t[1] < t[0] and t[2] < t[0]):
         failures.append('run 1: the swapped engines did not reach their menus sooner than the first start: %s ms' % t)

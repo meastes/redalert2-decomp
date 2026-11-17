@@ -44,6 +44,7 @@ extern "C" char __ImageBase;   // the linker's: the exe's IMAGE_DOS_HEADER
 extern "C" __attribute__((weak)) const OriginalLayoutOp ra2port_original_ops[1] = {};
 extern "C" __attribute__((weak)) const OriginalLayout ra2port_original_layouts[1] = {};
 extern "C" __attribute__((weak)) const unsigned ra2port_original_layout_count = 0;
+extern "C" __attribute__((weak)) const char *const ra2port_original_vtable_names[1] = {nullptr};
 
 typedef int32_t (*ra2port_stream_read_fn)(void *stream, void *buffer, uint32_t size, uint32_t *read);
 typedef int32_t (*ra2port_stream_write_fn)(void *stream, void const *buffer, uint32_t size, uint32_t *written);
@@ -350,6 +351,7 @@ extern "C" int ra2port_original_write_mode = 0;
 namespace ra2port {
 uint32_t original_address_of(const void *p);                        // original_image.cpp
 uint32_t original_vtable(uint32_t primary, uint32_t object_offset);
+uint32_t original_vtable_named(const char *type_descriptor_name, uint32_t object_offset);
 }
 
 namespace {
@@ -424,6 +426,14 @@ void convert_back(uint8_t *out, const uint8_t *in, OriginalLayout const &l)
             store_unit(out + o.src, 4, va);
             break;
         }
+        case ORIGINAL_OP_VPTR_NAMED: {
+            const char *td = ra2port_original_vtable_names[o.n];
+            uint32_t va = td ? ra2port::original_vtable_named(td, o.dst) : 0;
+            if (!va) report_once(std::string("write: no original vtable for ") + l.name + " +" + std::to_string(o.src) +
+                                 " (" + (td ? td : "?") + " +" + std::to_string(o.dst) + ")");
+            store_unit(out + o.src, 4, va);
+            break;
+        }
         default:
             break;
         }
@@ -482,6 +492,14 @@ extern "C" int32_t ra2port_original_write(ra2port_stream_write_fn stream_write, 
     case SIGNED_WIDE:
         if (size && size % 8 == 0) {
             return write_narrowed(stream_write, stream, buffer, size, written, kind == POINTER, kind == SIGNED_WIDE);
+        }
+        if (size == 4) {
+            // One value written with VC6's 4-byte size (Yuri's Revenge's LayerClass::Save writes each
+            // object pointer with sizeof(int)): its 4-byte form, as the read takes size 4 (lane Y10).
+            uint32_t got = 0;
+            int32_t r = write_narrowed(stream_write, stream, buffer, 8, &got, kind == POINTER, kind == SIGNED_WIDE);
+            if (written) *written = got == 8 ? 4 : got;
+            return r;
         }
         break;
     case OBJECT: {

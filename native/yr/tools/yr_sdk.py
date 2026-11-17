@@ -41,6 +41,62 @@ PREPEND = {name: '#undef htonl\n#undef htons\n#undef ntohl\n#undef ntohs\n' for 
 #   __uuidof is clang's own (-fms-extensions), as under MSVC: the YR tree declares its interfaces
 #   with MIDL_INTERFACE("...") and takes __uuidof of them, and comdef.h's smart-pointer typedefs
 #   (comdefsp.h) are only made where __uuidof is real.
+# - objidlbase.h, objidl.h (lane Y10, saves in gamemd.exe's format): ISequentialStream gains the RA2
+#   tree's typed Read and Write overloads (native/port/fixups.json, lanes C6 and C17) beside the virtual
+#   ones: while a save in the original's format is read or written, the buffer's type decides how its
+#   i686 image is converted (pointers as 4-byte swizzle ids, objects through the field maps of
+#   gen-yr/original_layouts.cpp; port/src/original_save.cpp). Calls with a void * buffer take the
+#   virtual Read/Write, so every other stream is unchanged.
+# The header sits in extern "C": the interface is wrapped in extern "C++" for its member templates.
+STREAM_HEAD = 'MIDL_INTERFACE("0c733a30-2a1c-11ce-ade5-00aa0044773d")\nISequentialStream : public IUnknown\n'
+STREAM_HEAD_CXX = 'extern "C++" {\n' + STREAM_HEAD
+STREAM_DECL = """        const void *pv,
+        ULONG cb,
+        ULONG *pcbWritten) = 0;
+
+};
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISequentialStream,"""
+STREAM_DECL_TYPED = """        const void *pv,
+        ULONG cb,
+        ULONG *pcbWritten) = 0;
+
+#if defined(__LP64__)
+    template <class T> HRESULT Read(T *buffer, ULONG size, ULONG *read)
+    {
+        typedef __remove_cv(__remove_all_extents(T)) Element;
+        if (ra2port_original_save_mode == 0) {
+            return Read((void *)buffer, size, read);
+        }
+        return ra2port_original_read(&Original_Stream_Read, this, (void *)buffer, size, (uint32_t *)read,
+                                     ra2port::original_read_kind<Element>::value,
+                                     ra2port::original_vptr<Element>::get((Element const *)buffer),
+                                     ra2port::original_type_name<Element>());
+    }
+    static int32_t Original_Stream_Read(void *stream, void *buffer, uint32_t size, uint32_t *read)
+    {
+        return ((ISequentialStream *)stream)->Read(buffer, size, (ULONG *)read);
+    }
+    template <class T> HRESULT Write(T const *buffer, ULONG size, ULONG *written)
+    {
+        typedef __remove_cv(__remove_all_extents(T)) Element;
+        if (ra2port_original_write_mode == 0) {
+            return Write((void const *)buffer, size, written);
+        }
+        return ra2port_original_write(&Original_Stream_Write, this, (void const *)buffer, size, (uint32_t *)written,
+                                      ra2port::original_read_kind<Element>::value,
+                                      ra2port::original_vptr<Element>::get((Element const *)buffer),
+                                      ra2port::original_type_name<Element>());
+    }
+    static int32_t Original_Stream_Write(void *stream, void const *buffer, uint32_t size, uint32_t *written)
+    {
+        return ((ISequentialStream *)stream)->Write(buffer, size, (ULONG *)written);
+    }
+#endif
+};
+}
+#ifdef __CRT_UUID_DECL
+__CRT_UUID_DECL(ISequentialStream,"""
 POST = {
     '_mingw.h': [('#ifdef _MSC_VER\n#define USE___UUIDOF\t1', '#if defined(_MSC_VER) || defined(__clang__)\n#define USE___UUIDOF\t1')],
     'rpcndr.h': [('#define MIDL_INTERFACE(x) struct\n', '#define MIDL_INTERFACE(x) struct __declspec(uuid(x)) __declspec(novtable)\n')],
@@ -54,6 +110,8 @@ POST = {
                 ('  _com_ptr_t(int null) : m_pInterface(NULL) {',
                  '  _com_ptr_t(__typeof__(0L) null) : m_pInterface(NULL) { if(null!=0) { _com_issue_error(E_POINTER); } }\n'
                  '  _com_ptr_t(int null) : m_pInterface(NULL) {')],
+    'objidlbase.h': [(STREAM_HEAD, STREAM_HEAD_CXX), (STREAM_DECL, STREAM_DECL_TYPED)],
+    'objidl.h': [(STREAM_HEAD, STREAM_HEAD_CXX), (STREAM_DECL, STREAM_DECL_TYPED)],
     'winuser.h': [('typedef INT_PTR (CALLBACK *DLGPROC) (HWND, UINT, WPARAM, LPARAM);',
                    'typedef BOOL (CALLBACK *DLGPROC) (HWND, UINT, WPARAM, LPARAM);')],
 }

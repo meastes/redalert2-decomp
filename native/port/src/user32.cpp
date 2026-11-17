@@ -5,6 +5,7 @@
 // they are logged failures (CreateDialog* return NULL, DialogBox* return -1).
 #include "ra2port/win32_port.hpp"
 
+#include <atomic>
 #include <chrono>
 #include <deque>
 #include <map>
@@ -1034,7 +1035,25 @@ extern "C" {
 
 short GetAsyncKeyState(int vk) { return (vk >= 0 && vk < 256 && key_state[vk]) ? (short)0x8000 : 0; }
 short GetKeyState(int vk) { return (vk >= 0 && vk < 256 && key_state[vk]) ? (short)0x8000 : 0; }
-BOOL GetCursorPos(POINT *p) { if (p) *p = cursor; return 1; }
+// RA2_NATIVE_TEST_CURSOR_JITTER=1 (test scaffolding, lane C23's cursor stress): every read is one
+// pixel right of the last, then back, so the mouse thread (Process_Mouse 0x00773400) moves and
+// redraws the software cursor on each of its turns, and its turns come every millisecond instead
+// of every 16 (link/app_hooks.cpp sets MouseThreadInfo's delay; weak default: nothing).
+extern "C" __attribute__((weak)) void ra2_native_test_mouse_delay(int) {}
+static const bool cursor_jitter = getenv("RA2_NATIVE_TEST_CURSOR_JITTER") != nullptr;
+static std::atomic<int> cursor_jitter_reads{0};
+BOOL GetCursorPos(POINT *p)
+{
+    if (p) {
+        *p = cursor;
+        if (cursor_jitter) {
+            int k = cursor_jitter_reads.fetch_add(1);
+            if (k % 64 == 0) ra2_native_test_mouse_delay(1);   // again now and then: Start_Mouse_Thread sets 16
+            p->x += k & 1;
+        }
+    }
+    return 1;
+}
 BOOL SetCursorPos(int x, int y) { cursor = {x, y}; return 1; }
 int ShowCursor(BOOL show)
 {
@@ -1603,12 +1622,18 @@ WNDPROC predefined_proc(const std::string &cls)
 // The dialog manager's procedure (DefDlgProc): the dialog procedure first,
 // then the default handling of text messages.
 // The combined app's game toggle (lane Y5; win32_port.hpp set_game_toggle): in the main menu (the
-// dialog with Exit Game, 0x3EE "GUI:ExitGame") a clone of its version line (0x71D, drawn by the
-// game's own static code in its menu font) at the left end of its bottom bar (0x695, the tool
-// tip line, which gives up that much room), with the other game's name. Its WM_COMMAND never reaches the game's procedure (it has no such
-// control); a click ends the game through Exit Game and the question's OK (0x5AE in the
-// message box with the text 0x5B0, WWMessageBox::Process 0x005B46B0), pressed by the port.
-constexpr LONG kExitGameId = 0x3EE, kVersionId = 0x71D, kBottomBarId = 0x695, kToggleId = 0x7F5E;
+// dialog with Exit Game, 0x3EE "GUI:ExitGame") a clone of its Exit Game button, with the other
+// game's name, above the left end of its bottom bar (0x695, the tool tip line). Since lane C23 (user
+// request 2026-11-16: the version-line clone of lane Y5 read as help text) it is a red menu button:
+// the game's own owner-draw button code paints it with the menu buttons' art and press feedback,
+// told so by the id kToggleId (RA2: port/fixups.json, unknown_5e7eb0 0x005E7EB0; YR: yr/fixups.json,
+// ClassifyLayoutBand) and drawn again over each frame of the menu's movie (the statics' movie timer,
+// link/behaviour_m14_ownerdraw.cpp and yr/glue/ownrdraw_native.inc), at Exit Game's size after the
+// game has laid the menu out. Its WM_COMMAND
+// never reaches the game's procedure (it has no such control); a click ends the game through Exit
+// Game and the question's OK (0x5AE in the message box with the text 0x5B0, WWMessageBox::Process
+// 0x005B46B0), pressed by the port.
+constexpr LONG kExitGameId = 0x3EE, kBottomBarId = 0x695, kToggleId = 0x7F5E;   // kToggleId: also in the game-side hooks
 std::string toggle_label;
 void (*toggle_clicked)() = nullptr;
 HWND toggle_menu = nullptr;          // the main menu that has the toggle
@@ -1622,18 +1647,17 @@ Window *child_with(Window *dlg, LONG id)
     return nullptr;
 }
 // The toggle's place: once the game has laid the menu out (it moves its controls for the screen
-// size before showing the dialog), the left end of the bottom bar, which starts that much later.
+// size before showing the dialog, and sizes the menu buttons to their art), Exit Game's size, just
+// above the left end of the bottom bar.
 void place_toggle(HWND menu)
 {
     Window *dlg = win(menu);
     if (!dlg) return;
-    Window *t = child_with(dlg, kToggleId), *bar = child_with(dlg, kBottomBarId);
-    if (!t || !bar) return;
-    int h = bar->rect.bottom - bar->rect.top;
-    int w = 150;
-    if (bar->rect.right - bar->rect.left < 2 * w) return;
-    t->rect = {bar->rect.left, bar->rect.top, bar->rect.left + w, bar->rect.bottom};
-    bar->rect.left += w + 6;
+    Window *t = child_with(dlg, kToggleId), *bar = child_with(dlg, kBottomBarId), *exit_button = child_with(dlg, kExitGameId);
+    if (!t || !bar || !exit_button) return;
+    int w = exit_button->rect.right - exit_button->rect.left, h = exit_button->rect.bottom - exit_button->rect.top;
+    if (w <= 0 || h <= 0 || bar->rect.top < h) return;
+    t->rect = {bar->rect.left, bar->rect.top - h - 2, bar->rect.left + w, bar->rect.top - 2};
     invalidate(menu);
     fprintf(stderr, "port: game toggle \"%s\" at %d,%d %dx%d in the main menu\n", toggle_label.c_str(), (int)t->rect.left,
             (int)t->rect.top, w, h);
@@ -1760,25 +1784,25 @@ HWND build_dialog(const void *templ, unsigned id, HWND parent, DLGPROC proc, LPA
         dlg->children.push_back(hc);
         if (c->proc) c->proc(hc, 0x0001, 0, 0);     // WM_CREATE
     }
-    // The game toggle (lane Y5): the main menu's version line cloned, clickable (SS_NOTIFY), and
-    // placed at the left end of the menu's bottom bar when the dialog is shown (place_toggle).
+    // The game toggle (lane Y5; a menu button since C23): the main menu's Exit Game button cloned
+    // (the same owner-drawn button class and style) and placed above the left end of the menu's
+    // bottom bar when the dialog is shown (place_toggle).
     HWND toggle = nullptr;
     Window *exit_button = child_with(dlg, kExitGameId);
-    Window *version = child_with(dlg, kVersionId);
     bool main_menu = exit_button && exit_button->title == "GUI:ExitGame";
-    if (main_menu && version && !toggle_label.empty()) {
+    if (main_menu && !toggle_label.empty()) {
         Window *c = new Window;
         c->kind = H_WINDOW;
-        c->cls = version->cls;
-        c->title = version->title;
-        c->style = version->style | 0x100;          // SS_NOTIFY: a click is STN_CLICKED
-        c->exstyle = version->exstyle;
+        c->cls = exit_button->cls;
+        c->title = toggle_label;
+        c->style = exit_button->style;
+        c->exstyle = exit_button->exstyle;
         c->id = kToggleId;
         c->parent = hdlg;
-        c->visible = version->visible;
+        c->visible = exit_button->visible;
         c->enabled = true;
-        c->proc = version->proc;
-        c->rect = version->rect;
+        c->proc = exit_button->proc;
+        c->rect = exit_button->rect;
         toggle = handle_new(c);
         dlg->children.push_back(toggle);
         if (c->proc) c->proc(toggle, 0x0001, 0, 0);     // WM_CREATE

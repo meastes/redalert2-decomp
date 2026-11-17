@@ -815,6 +815,10 @@ LRESULT CALLBACK OwnerDraw::OwnerDrawButtonHandler(HWND window, UINT message, WP
 		return CallWindowProc(proc, window, message, wparam, lparam);
 	}
 	int state = data->DrawItem.itemState;
+	// NATIVE (lane C23, as RA2's Paint_Button, link/behaviour_m14_ownerdraw.cpp): the port's Win32 layer
+	// sends no WM_DRAWITEM, so a held button is also the button's own BST_PUSHED (BM_GETSTATE bit 2):
+	// the menu buttons' pressed frame, the one-game toggle's among them.
+	if (message == WM_PAINT && (CallWindowProc(proc, window, BM_GETSTATE, 0, 0) & BST_PUSHED)) state |= 1;
 	LONG style = GetWindowLong(window, GWL_STYLE);
 
 	switch (message) {
@@ -1220,6 +1224,8 @@ LRESULT CALLBACK OwnerDraw::StaticHandler(HWND window, UINT message, WPARAM wpar
 			}
 			if (extra.Movie->AdvanceFrame()) {
 				InvalidateRect(window, NULL, FALSE);
+				// NATIVE (lane C23): the one-game toggle (id 0x7F5E) over the main menu's movie, drawn again after each frame.
+				if (HWND toggle = GetDlgItem(GetParent(window), 0x7F5E)) InvalidateRect(toggle, NULL, FALSE);
 			}
 			if (!extra.Movie->FramesLeft()) {
 				return 0;

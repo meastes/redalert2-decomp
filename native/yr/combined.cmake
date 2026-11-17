@@ -67,6 +67,12 @@ add_test(NAME one-game-toggle COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURREN
          --binary $<TARGET_FILE:ra2yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/one-game-toggle")
 set_tests_properties(one-game-toggle PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+# ctest one-game-saves (lane Y10): each game saves in its original's format after the toggle (RA2 -> YR,
+# YR -> RA2) and each save loads back in its game (yr/tests/one_game_saves.py); the same conditions.
+add_test(NAME one-game-saves COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/one_game_saves.py"
+         --binary $<TARGET_FILE:ra2yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/one-game-saves")
+set_tests_properties(one-game-saves PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 700)
 
 endif()
 
@@ -156,4 +162,9 @@ if(RA2_NATIVE_ONE_EXECUTABLE AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
            --binary $<TARGET_FILE:ra2yr-one> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
            --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/one-exe-toggle")
   set_tests_properties(one-exe-toggle PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+  # ctest one-exe-saves (lane Y10): the one-game-saves route on ra2yr-one.
+  add_test(NAME one-exe-saves COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/one_game_saves.py"
+           --binary $<TARGET_FILE:ra2yr-one> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+           --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/one-exe-saves")
+  set_tests_properties(one-exe-saves PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 700)
 endif()

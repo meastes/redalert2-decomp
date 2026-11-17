@@ -23,6 +23,12 @@ with their NoInit constructors anyway), nor are members only one layout has
 
 The x86_64 Windows build (lane C15) pairs the i686 layouts with its own (LLP64: long is
 4 bytes as on VC6; pointers and the pointer-width rewrites, long long there, 8).
+
+--game yr (lane Y10): the same for Yuri's Revenge (gamemd.exe's saves): the YR units
+(build/gen-yr/units, native/yr/data/original_save_types.txt) with the YR build's flags; for
+i686 the rewritten mingw-w64 headers take VC6's long (yr_i686_support). The classes' vtables
+are not known here (no gamemd.exe manifest): VPTR_NAMED operations name each owning class by
+its MSVC RTTI type descriptor name and the port finds the vtable in gamemd.exe at run time.
 """
 import argparse
 import difflib
@@ -112,6 +118,8 @@ def parse(text):
             elif re.search(r'\((primary |virtual )?base\)$', body):
                 t = re.sub(r'\s*\((primary |virtual )?base\)$', '', body)
                 node = Node(int(m.group(1)), None, 'base', t, 'base:' + canonical(t))
+            elif bits and re.fullmatch(r'(?:(?:un)?signed\s+)?(?:char|short|int|long|long long|_Bool|bool)', body.strip()):
+                continue                # an unnamed bit-field (VC6 padding: `unsigned char : 8`)
             elif '(anonymous at ' in body and body.rstrip().endswith(')'):
                 node = Node(int(m.group(1)), bits, 'field', body, '')
             else:
@@ -191,7 +199,7 @@ class Flattener:
                     out.append(self.union_leaf(path, off, t, child))
                 else:
                     # A member object laid out inline: its own complete object (vtable pointers).
-                    mtype = canonical(re.sub(r'\b(const|volatile)\b', '', t).strip())
+                    mtype = raw_name(t)
                     self.leaves(child, base, path + '.', out, mtype, off)
                 continue
             if child.bits:
@@ -257,13 +265,21 @@ class Flattener:
             return
         for k in range(n):
             self.leaves(rec.root, off + k * rec.size, path + ('[%d].' % k if array else '.'), out,
-                        rec.name, off + k * rec.size)
+                        raw_name(rec.root.type), off + k * rec.size)
+
+
+def raw_name(t):
+    """A record's name as the dump spells it, without its keyword, outer cv or '(empty)': the
+    vtable owner's name (spaces kept, for MSVC mangling: 'DynamicVectorClass<const char *>')."""
+    t = re.sub(r'\s*\(empty\)$', '', t.strip())
+    t = re.sub(r'^(?:(?:const|volatile)\s+)*', '', t)
+    return KEYWORDS.sub('', t, count=1) if re.match(r'(class|struct|union|enum)\s', t) else t
 
 
 def flatten(recs, name, triple, problems):
     rec = recs[name]
     out = []
-    Flattener(recs, triple, problems).leaves(rec.root, 0, '', out, name, 0)
+    Flattener(recs, triple, problems).leaves(rec.root, 0, '', out, raw_name(rec.root.type), 0)
     out.sort(key=lambda l: l.offset)
     # Sizes the type does not give (enums): up to the next leaf or the record's end, at most 4.
     for i, l in enumerate(out):
@@ -288,6 +304,14 @@ def ops_for(recs_i, recs_a, name, problems):
             # the pointer's offset in that object. The port finds the vtable for that offset
             # from the primary one's RTTI type descriptor in game.exe at run time (the
             # manifest lists only some secondary vtables, e.g. not INoticeSink/INoticeSource).
+            if GAME == 'yr':
+                td = msvc_type_descriptor(l.type, recs_i)
+                if td is None:
+                    MISSING_VTABLES.add('%s+%d' % (l.type, l.unit))
+                    ops.append(('VPTR', l.offset, l.unit, 0, 0, 0, 0, 0, 0))
+                else:
+                    ops.append(('VPTR_NAMED', l.offset, l.unit, vtable_name_index(td), 0, 0, 0, 0, 0))
+                continue
             va = rtti_vtable(l.type, 0, name)
             if not va:
                 MISSING_VTABLES.add('%s+%d' % (l.type, l.unit))
@@ -348,7 +372,10 @@ def dump(build, unit, triple, cache):
     out = cache / ('%s.%s.txt' % (unit.stem, triple))
     if out.exists() and out.stat().st_mtime >= unit.stat().st_mtime:
         return out.read_text(errors='replace')
-    args = [CXX[triple]] + TRIPLES[triple] + DIALECT + ['-I', str(build / 'gen/overlay'), '-include', str(PRELUDE), str(unit)]
+    if GAME == 'yr':
+        args = yr_args(build, unit, triple, cache)
+    else:
+        args = [CXX[triple]] + TRIPLES[triple] + DIALECT + ['-I', str(build / 'gen/overlay'), '-include', str(PRELUDE), str(unit)]
     p = subprocess.run(args, capture_output=True, text=True)
     out.write_text(p.stdout)
     return p.stdout
@@ -375,6 +402,8 @@ def read_types(path):
 
 
 def rtti_names():
+    if GAME == 'yr':
+        return []
     path = ROOT / 'manifests/rtti_classes.json'
     try:
         return sorted({v['class_name'] for v in json.loads(path.read_text())['vtables']})
@@ -415,7 +444,7 @@ def find_unit(build, name, hint, units_text):
     return None
 
 
-KIND_CODE = {'COPY': 0, 'WIDEN': 1, 'WIDEN_S': 2, 'BITS': 3, 'POINTER': 4, 'VPTR': 5}
+KIND_CODE = {'COPY': 0, 'WIDEN': 1, 'WIDEN_S': 2, 'BITS': 3, 'POINTER': 4, 'VPTR': 5, 'VPTR_NAMED': 6}
 
 # The original's vtables (manifests/rtti_classes.json, from the executable's RTTI: class,
 # vtable address, the vtable pointer's offset in the complete object).
@@ -456,6 +485,206 @@ def rtti_vtable(cls, offset, outer=''):
     return found[0][0]
 
 
+# ---- Yuri's Revenge (--game yr, lane Y10) ----
+GAME = 'ra2'
+YR_TYPES = ROOT / 'native/yr/data/original_save_types.txt'
+YR_SDK = ROOT / 'native/yr/sdk'
+YR_DEFINES = ['-DRA2_NATIVE_YR=1', '-DWIN32', '-D_WIN32', '-D__GNUC_MINOR__=2', '-D__GNUC__=4', '-DNDEBUG']
+YR_WARNINGS = ['-Wno-error=address-of-temporary', '-Wno-register', '-Wno-c++11-narrowing']
+
+
+def yr_i686_support(build, cache):
+    """The i686 dump's own preludes, made from the YR build's: ra2port/prelude.hpp with VC6's
+    long (RA2_LONG is long, 4 bytes on i686, so the rewritten mingw-w64 headers' RA2_LONG and
+    the compiler's MS builtins agree), the YR prelude without the host's C types and _WIN64,
+    and _mingw.h's __LONG32 as long. The C++ headers the tree includes come from
+    native/yr/sdk/i686 (the i686-msvc dump has no C++ library)."""
+    d = cache / 'i686'
+    (d / 'ov').mkdir(parents=True, exist_ok=True)
+
+    def put(path, text):
+        if not path.exists() or path.read_text() != text:
+            path.write_text(text)
+    pre = PRELUDE.read_text()
+    for a, b in (('typedef int32_t RA2_LONG;', 'typedef long RA2_LONG;'),
+                 ('typedef uint32_t RA2_ULONG;', 'typedef unsigned long RA2_ULONG;')):
+        if a not in pre:
+            raise SystemExit('original_layouts: prelude.hpp has no %r' % a)
+        pre = pre.replace(a, b)
+    put(d / 'prelude_i686.hpp', pre)
+    yr = (YR_SDK / 'yr_prelude.h').read_text()
+    a = yr.index('// The C runtime types are the host')
+    end = 'typedef va_list __gnuc_va_list;\n'
+    yr = yr[:a] + yr[yr.index(end) + len(end):]
+    yr = yr.replace('#ifndef _WIN64\n#define _WIN64 1\n#endif\n', '')
+    yr = yr.replace('#include "yr_crt.h"', '#include "%s"' % (YR_SDK / 'yr_crt.h'))
+    put(d / 'yr_prelude_i686.h', yr)
+    mingw = (build / 'gen-yr/mingw/_mingw.h').read_text(encoding='latin-1')
+    if '#define __LONG32 RA2_LONG\n' not in mingw:
+        raise SystemExit('original_layouts: gen-yr/mingw/_mingw.h has no __LONG32 RA2_LONG')
+    put(d / 'ov/_mingw.h', mingw.replace('#define __LONG32 RA2_LONG\n', '#define __LONG32 long\n'))
+    return d
+
+
+def yr_args(build, unit, triple, cache):
+    gen = build / 'gen-yr'
+    inc = ['-I', str(YR_SDK), '-I', str(gen / 'hdr'), '-I', str(gen / 'hdr/vqalib')]
+    if triple == 'i686':
+        d = yr_i686_support(build, cache)
+        return (['clang++', '-target', 'i686-pc-windows-msvc', '-ffreestanding', '-U_MSC_VER', '-D_X86_=1',
+                 '-DRA2PORT_ALLOW_HOST'] + YR_DEFINES + ['-I', str(YR_SDK / 'i686')] + inc + DIALECT + YR_WARNINGS +
+                ['-include', str(d / 'prelude_i686.hpp'), '-include', str(d / 'yr_prelude_i686.h'),
+                 '-idirafter', str(d / 'ov'), '-idirafter', str(gen / 'mingw'), str(unit)])
+    return ([CXX[triple]] + TRIPLES[triple] + YR_DEFINES + inc + DIALECT + YR_WARNINGS +
+            ['-include', str(PRELUDE), '-include', str(YR_SDK / 'yr_prelude.h'), '-idirafter', str(gen / 'mingw'), str(unit)])
+
+
+VTABLE_NAMES = []
+
+
+def vtable_name_index(td):
+    if td not in VTABLE_NAMES:
+        VTABLE_NAMES.append(td)
+    return VTABLE_NAMES.index(td)
+
+
+MSVC_BUILTIN = {'char': 'D', 'signed char': 'C', 'unsigned char': 'E', 'short': 'F', 'unsigned short': 'G',
+                'int': 'H', 'unsigned int': 'I', 'long': 'J', 'unsigned long': 'K', 'float': 'M', 'double': 'N',
+                'bool': '_N', '_Bool': '_N', 'long long': '_J', 'unsigned long long': '_K', 'wchar_t': 'G',
+                'void': 'X'}
+
+
+def split_args(s):
+    out, depth, cur = [], 0, ''
+    for ch in s:
+        if ch == '<':
+            depth += 1
+        elif ch == '>':
+            depth -= 1
+        if ch == ',' and depth == 0:
+            out.append(cur.strip())
+            cur = ''
+        else:
+            cur += ch
+    if cur.strip():
+        out.append(cur.strip())
+    return out
+
+
+def split_scope(name):
+    parts, depth, cur, i = [], 0, '', 0
+    while i < len(name):
+        if name[i] == '<':
+            depth += 1
+        elif name[i] == '>':
+            depth -= 1
+        if depth == 0 and name.startswith('::', i):
+            parts.append(cur)
+            cur = ''
+            i += 2
+            continue
+        cur += name[i]
+        i += 1
+    parts.append(cur)
+    return parts
+
+
+class Mangler:
+    """MSVC's mangling of a class name for its RTTI type descriptor (".?AV" name "@@"), for the
+    shapes the saved YR classes have: plain and nested names, templates whose arguments are
+    builtins, pointers to records, records, enums and integers; back-references of names."""
+
+    def __init__(self, recs):
+        self.recs = recs
+
+    def kind(self, name):
+        rec = self.recs.get(canonical(name))
+        if rec is None:
+            return None
+        return {'class': 'V', 'struct': 'U', 'union': 'T'}[rec.kind]
+
+    def qualified(self, name, names):
+        out = ''
+        for part in reversed(split_scope(name)):
+            out += self.simple(part, names)
+        return out + '@'
+
+    def simple(self, part, names):
+        if '<' in part:
+            base = part[:part.index('<')]
+            args = split_args(part[part.index('<') + 1:part.rindex('>')])
+            inner = []          # template argument lists have their own back-references
+            text = '?$' + base + '@' + ''.join(self.arg(a, inner) for a in args) + '@'
+            return text
+        if part in names:
+            return str(names.index(part))
+        if len(names) < 10:
+            names.append(part)
+        return part + '@'
+
+    def arg(self, a, names):
+        a = a.strip()
+        if a.endswith('*'):
+            target = a[:-1].strip()
+            cv = 'A'
+            if re.match(r'const\b', target) or re.search(r'\bconst$', target):
+                cv = 'B'
+                target = re.sub(r'^const\s+|\s+const$', '', target).strip()
+            return 'P' + cv + self.type(target, names)
+        a = re.sub(r'\bconst\s+', '', a).strip()
+        if re.fullmatch(r'-?\d+', a):
+            v = int(a)
+            neg = v < 0
+            v = abs(v)
+            if 1 <= v <= 10:
+                enc = str(v - 1)
+            else:
+                enc = ''.join(chr(ord('A') + int(c, 16)) for c in ('%X' % v)) + '@' if v else 'A@'
+            return '$0' + ('?' if neg else '') + enc
+        if a.endswith('*'):
+            target = a[:-1].strip()
+            cv = 'A'
+            if target.startswith('const '):
+                cv, target = 'B', target[6:].strip()
+            return 'P' + cv + self.type(target, names)
+        return self.type(a, names)
+
+    def type(self, t, names):
+        t = t.strip()
+        km = re.match(r'(class|struct|union|enum)\s+', t)
+        if km:
+            t = t[km.end():]
+            return {'class': 'V', 'struct': 'U', 'union': 'T', 'enum': 'W4'}[km.group(1)] + self.qualified(t, names)
+        if t in MSVC_BUILTIN:
+            return MSVC_BUILTIN[t]
+        k = self.kind(t)
+        if k is None:
+            if self.is_enum(t):
+                return 'W4' + self.qualified(t, names)
+            raise KeyError(t)
+        return k + self.qualified(t, names)
+
+    def is_enum(self, t):
+        return t in ENUMS
+
+
+ENUMS = set()
+
+
+def msvc_type_descriptor(cls, recs):
+    """".?AV<mangled>@" for a class (None when a name cannot be mangled here)."""
+    m = Mangler(recs)
+    try:
+        k = m.kind(cls) or 'V'
+        return '.?A' + k + m.qualified(cls, [])
+    except (KeyError, ValueError) as e:
+        MANGLE_FAILURES.add('%s (%s)' % (cls, e))
+        return None
+
+
+MANGLE_FAILURES = set()
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--build', required=True, type=Path)
@@ -470,21 +699,27 @@ def main():
     ap.add_argument('--target', choices=('arm64', 'windows'), default='arm64',
                     help='the native layouts: the arm64 game (default) or the x86_64 Windows one (LLP64)')
     ap.add_argument('--cxx', help='the native compiler (--target windows: the build\'s x86_64-w64-mingw32-clang++)')
+    ap.add_argument('--game', choices=('ra2', 'yr'), default='ra2',
+                    help='the game: Red Alert 2 (default) or Yuri\'s Revenge (the YR units of a -DRA2_NATIVE_YR=ON build)')
     args = ap.parse_args()
-    global NATIVE
+    global NATIVE, GAME
+    GAME = args.game
+    if GAME == 'yr' and args.types == TYPES:
+        args.types = YR_TYPES
     if args.target == 'windows':
         NATIVE = 'win64'
         if not args.cxx:
             ap.error('--target windows needs --cxx (the build\'s llvm-mingw clang++)')
         CXX['win64'] = args.cxx
     build = args.build.resolve()
-    cache = build / 'gen/original_layouts'
+    gen = build / ('gen-yr' if GAME == 'yr' else 'gen')
+    cache = gen / 'original_layouts'
     cache.mkdir(parents=True, exist_ok=True)
     rows, sizes, loads = read_types(args.types)
     # The build's units (gen/units.cmake): gen/units keeps files of earlier configures
     # whose groups the catalog has since renumbered or renamed.
-    listed = re.findall(r'units/([^"/\s]+\.cpp)', (build / 'gen/units.cmake').read_text())
-    units = sorted(build / 'gen/units' / n for n in listed)
+    listed = re.findall(r'units/([^"/\s]+\.cpp)', (gen / 'units.cmake').read_text())
+    units = sorted(gen / 'units' / n for n in listed)
     units_text = [(u, u.read_text(errors='replace')) for u in units]
     where = {}
     problems = []
@@ -517,8 +752,9 @@ def main():
         ops, unmatched = ops_for(ri, ra, key, problems)
         for o in ops:
             if o[0] == 'VPTR' and not o[3]:
-                problems.append('%s: no original vtable (manifests/rtti_classes.json) for its vtable pointer at +%d'
-                                % (name, o[1]))
+                problems.append('%s: no original vtable (%s) for its vtable pointer at +%d'
+                                % (name, 'its owner\'s RTTI name was not mangled' if GAME == 'yr'
+                                   else 'manifests/rtti_classes.json', o[1]))
         if name in sizes and sizes[name] != ri[key].size:
             problems.append('%s: i686 layout %d bytes in %s, the original\'s object %d' % (name, ri[key].size, where[name].name, sizes[name]))
         for u in unmatched:
@@ -552,6 +788,7 @@ def main():
             member_recs.setdefault(key, ri)
     tables.extend(others[k] for k in sorted(others))
     report_others = {'records': len(others), 'conflicting names left out': sorted(conflicts),
+                     'names not mangled': sorted(MANGLE_FAILURES),
                      'vtable pointers without an original vtable': sorted(MISSING_VTABLES)}
     lines = ['// generated by native/tools/original_layouts.py from data/original_save_types.txt: do not edit.',
              '// i686 (VC6) to %s field maps of the types read from the original game\'s saves (lane C6).'
@@ -573,6 +810,10 @@ def main():
         lines.append('    {"%s", %d, %d, %d, %d},' % (key, si, sa, f, n))
     lines.append('};')
     lines.append('extern "C" const unsigned ra2port_original_layout_count = %d;' % len(index))
+    if VTABLE_NAMES:
+        lines.append('extern "C" const char *const ra2port_original_vtable_names[] = {')
+        lines.extend('    "%s",' % n for n in VTABLE_NAMES)
+        lines.append('};')
     text = '\n'.join(lines) + '\n'
     if not args.out.exists() or args.out.read_text() != text:
         args.out.write_text(text)

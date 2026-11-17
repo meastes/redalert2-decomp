@@ -1061,6 +1061,168 @@
    "old": "\tItems = (void **)operator new(entry->MapCount << 2);\n",
    "new": "\tItems = (void **)operator new(entry->MapCount * sizeof(void *));\t// NATIVE (lane Y8): << 2 is the 32-bit pointer size\n",
    "why": "lane Y8: the co-op campaign's map-name table holds one pointer per map; allocated with MapCount << 2 (32-bit pointers) its stores ran past the block natively. Found while auditing fixed 32-bit allocation sizes (the speech queue's VoxNode); not on the skirmish path."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "SwizzlePointerClass(LONG id = 0, void *pointer = NULL) : ID(id), Pointer(pointer) {}",
+   "new": "SwizzlePointerClass(intptr_t id = 0, void *pointer = NULL) : ID(id), Pointer(pointer) {}",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "\t\tLONG ID;",
+   "new": "\t\tintptr_t ID;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "Fetch_Swizzle_ID(void *pointer, LONG *id) override;",
+   "new": "Fetch_Swizzle_ID(void *pointer, intptr_t *id) override;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "Here_I_Am(LONG id, void *pointer) override;",
+   "new": "Here_I_Am(intptr_t id, void *pointer) override;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/swizzle.h",
+   "old": "inline void Swizzle_Here_I_Am(LONG id, T *ptr)",
+   "new": "inline void Swizzle_Here_I_Am(intptr_t id, T *ptr)",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/iswizzle.h",
+   "old": "Fetch_Swizzle_ID(void *pointer, LONG *id) = 0;",
+   "new": "Fetch_Swizzle_ID(void *pointer, intptr_t *id) = 0;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "hdr/iswizzle.h",
+   "old": "Here_I_Am(LONG id, void *pointer) = 0;",
+   "new": "Here_I_Am(intptr_t id, void *pointer) = 0;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\tLONG id = LONG(*pointer);",
+   "new": "\tintptr_t id = intptr_t(*pointer);",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "HRESULT STDMETHODCALLTYPE SwizzleManagerClass::Here_I_Am(LONG id, void *pointer)\n{",
+   "new": "extern \"C\" void ra2port_original_note_id(intptr_t id, void *pointer);   // native: port/src/original_save.cpp\nHRESULT STDMETHODCALLTYPE SwizzleManagerClass::Here_I_Am(intptr_t id, void *pointer)\n{",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp). Declares the helper the next fixup calls."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\tPointerTable.Add(pair);\n\n\treturn(S_OK);",
+   "new": "\tPointerTable.Add(pair);\n\tra2port_original_note_id(id, pointer);   // NATIVE (Y10): the id, for writing gamemd.exe's format\n\n\treturn(S_OK);",
+   "why": "lane Y10, as the RA2 tree's Here_I_Am (port/fixups.json, lane C17): while a save in gamemd.exe's format is read, each object's id is kept, so a save written after loading one gives the object the same id again. Otherwise a no-op."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\t\t\tLONG req_id = request_entry->ID;\n\t\t\tLONG ptr_id = pointer_entry->ID;\n\n\t\t\tif (req_id == ptr_id) {\n\t\t\t\tLONG *ptr = (LONG *)request_entry->Pointer;\n\t\t\t\t*ptr = (LONG)pointer_entry->Pointer;\n\n\t\t\t\trequest_entry++;\n\t\t\t\trequest_count--;\n\t\t\t\tcontinue;\n\t\t\t}\n\n\t\t\twhile (req_id > ptr_id) {\n\t\t\t\tpointer_entry++;\n\t\t\t\tpointer_count--;\n\t\t\t\tptr_id = pointer_entry->ID;\n\t\t\t}\n\n\t\t\tptr_id = pointer_entry->ID;\n\n\t\t\tif (req_id != ptr_id) {\n\t\t\t\tvolatile int div_zero = 0;\n\t\t\t\tdiv_zero = 1 / div_zero;\n\t\t\t}",
+   "new": "\t\t\tintptr_t req_id = request_entry->ID;\n\t\t\tintptr_t ptr_id = pointer_entry->ID;\n\n\t\t\tif (req_id == ptr_id) {\n\t\t\t\tvoid **ptr = (void **)request_entry->Pointer;\n\t\t\t\t*ptr = pointer_entry->Pointer;\n\n\t\t\t\trequest_entry++;\n\t\t\t\trequest_count--;\n\t\t\t\tcontinue;\n\t\t\t}\n\n\t\t\t// native: a bounded walk (the original's runs to its deliberate 1 / 0, which arm64 does not trap)\n\t\t\twhile (pointer_count > 1 && req_id > ptr_id) {\n\t\t\t\tpointer_entry++;\n\t\t\t\tpointer_count--;\n\t\t\t\tptr_id = pointer_entry->ID;\n\t\t\t}\n\n\t\t\tptr_id = pointer_entry->ID;\n\n\t\t\tif (req_id != ptr_id) {\n\t\t\t\tra2port_swizzle_unmatched(req_id, request_entry->Pointer, &PointerTable[0], PointerTable.Count());\n\t\t\t\t*(void **)request_entry->Pointer = NULL;\n\t\t\t\trequest_entry++;\n\t\t\t\trequest_count--;\n\t\t\t}",
+   "why": "lane Y10: the matched pointer is stored whole (8 bytes natively; the original stores a 4-byte LONG over the 4-byte field) and the walk is bounded: the original faults on its deliberate 1 / 0 when a loaded pointer's object never announced itself; arm64 integer division returns 0, so the walk would run off the table and spin. As the RA2 tree's (port/fixups.json, Scout1133): the unmatched field is reported (run_progress.cpp ra2port_swizzle_unmatched) and, after the table, ra2port_swizzle_done stops the run (SIGFPE, the original's fault) unless RA2_NATIVE_SWIZZLE_CONTINUE=1."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\t\tRequestTable.Clear();\n\t\tPointerTable.Clear();",
+   "new": "\t\tRequestTable.Clear();\n\t\tPointerTable.Clear();\n\t\tra2port_swizzle_done();",
+   "why": "lane Y10: see the walk above."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "SwizzleManagerClass Swizzler;",
+   "new": "extern \"C\" void ra2port_swizzle_unmatched(intptr_t id, void *field, void const *swizzled, int count);   // native diagnostics\nextern \"C\" void ra2port_swizzle_done(void);\nextern \"C\" void ra2port_swizzle_note(void *field, void *caller);\n\nSwizzleManagerClass Swizzler;",
+   "why": "lane Y10: declares the port's swizzle diagnostics (port/src/run_progress.cpp) the bounded walk calls."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "Fetch_Swizzle_ID(void *pointer, LONG *id)\n",
+   "new": "Fetch_Swizzle_ID(void *pointer, intptr_t *id)\n",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\t\t*id = (LONG)pointer;",
+   "new": "\t\t*id = (intptr_t)pointer;",
+   "why": "lane Y10 (saves in gamemd.exe's format): a swizzle id is the address an object had when it was saved; natively addresses are 8 bytes, so the swizzle manager keys its tables on intptr_t (the RA2 tree's LONG_PTR; the Win64 headers' LONG_PTR is long long, which the typed stream reads would take as 8 bytes), as the RA2 tree's SwizzleManagerClass does (src/recovered/swizzle.cpp). In a save the ids stay 4 bytes: the typed stream Read/Write (native/yr/tools/yr_sdk.py) reads an intptr_t as 4 bytes widened and writes a pointer as its 4-byte swizzle id (port/src/original_save.cpp)."
+  },
+  {
+   "file": "src/abstract.cpp",
+   "old": "\tULONG id = (ULONG)this;",
+   "new": "\tconst void *id = this;",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/abstract.cpp",
+   "old": "\tULONG id;\n",
+   "new": "\tintptr_t id;\n",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/loco.cpp",
+   "old": "\tULONG id = (ULONG)(this);",
+   "new": "\tconst void *id = this;",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/loco.cpp",
+   "old": "\tULONG id;\n",
+   "new": "\tintptr_t id;\n",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/vein.cpp",
+   "old": "\t\tLONG id = (LONG)VeinholeMonsters[i];",
+   "new": "\t\tconst void *id = VeinholeMonsters[i];",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/vein.cpp",
+   "old": "\t\tLONG id;\n\t\tif (FAILED(stream->Read(&id, sizeof(id), NULL))) {",
+   "new": "\t\tintptr_t id;\n\t\tif (FAILED(stream->Read(&id, sizeof(id), NULL))) {",
+   "why": "lane Y10: the object's own swizzle id is written as its address, a pointer (`this`), so the typed Write gives it the same 4-byte id every pointer to it gets (port/src/original_save.cpp pointer_id); the original's (ULONG)this is that address on i686. Read back as intptr_t (4 bytes widened), as the RA2 tree's AbstractClass::Load reads its LONG_PTR id."
+  },
+  {
+   "file": "src/house.cpp",
+   "old": "result = stream->Write(unit, sizeof(unit->Type), NULL);",
+   "new": "result = stream->Write(&unit->Type, sizeof(unit->Type), NULL);",
+   "why": "lane Y10 (saves in gamemd.exe's format): the starting unit's Type pointer, its first member, written through the struct's address (the same address); natively the typed Write must see a pointer to write a 4-byte swizzle id, as HouseClass::Load reads it back (&type)."
+  },
+  {
+   "file": "src/loaddlg.cpp",
+   "old": "bool LoadOptionsClass::Load(void)\n{\n\tStyle = LOAD;\n\tDescription = NULL;\n\treturn(Dialog());\n}",
+   "new": "extern \"C\" const char *ra2port_take_resume(void);   // native: port/src/port_core.cpp\nbool LoadOptionsClass::Load(void)\n{\n\tStyle = LOAD;\n\tDescription = NULL;\n\t// NATIVE (lane Y10, as the RA2 game's Load_Dialog, link/behaviour_m15.cpp): the host asked for a file to be\n\t// loaded (--load-save=<file>, a test run's, or a checkpoint's resume): the list's own Load_File with that\n\t// row; a failed load shows the dialog as usual.\n\tif (char const *file = ra2port_take_resume()) {\n\t\tbool loaded = Load_File(file);\n\t\tfprintf(stderr, \"resume: %s %s\\n\", loaded ? \"loaded\" : \"could not load\", file);\n\t\tif (loaded) {\n\t\t\treturn(true);\n\t\t}\n\t}\n\treturn(Dialog());\n}",
+   "why": "lane Y10: Resume at start for Yuri's Revenge (the RA2 game's lane I hook): the port presses Single Player and Load Saved Game (the same dialog ids, 0xE2/0x683 and 0x100/0x689, port/src/user32.cpp) and this loads the requested file as the dialog's list would (Load_File), so a test run can load a save from the menus (--load-save) and a checkpoint can be resumed. Without a request nothing changes."
+  },
+  {
+   "file": "src/lzo1x_c.cpp",
+   "old": "\tconst lzo_bytepp const dict = (const lzo_bytepp) wrkmem;",
+   "new": "\t// native: the dictionary keeps 32-bit offsets from in (lane Y10; the RA2 tree's fixup, Scout1125).\n\tstruct Native_Dict_Ref {\n\t\tunsigned int *slot;\n\t\tconst lzo_byte *base;\n\t\toperator const lzo_byte *() const { return base + (int)*slot; }\n\t\tNative_Dict_Ref &operator=(const lzo_byte *p) { *slot = (unsigned int)(p - base); return *this; }\n\t};\n\tstruct Native_Dict {\n\t\tunsigned int *slots;\n\t\tconst lzo_byte *base;\n\t\tNative_Dict_Ref operator[](lzo_uint i) const { Native_Dict_Ref r = {slots + i, base}; return r; }\n\t};\n\tNative_Dict const dict = {(unsigned int *)wrkmem, in};",
+   "why": "lane Y10 (saves): LZO1X-1's dictionary is 16,384 byte pointers in the caller's 64 KB work memory (CStreamClass's LZODictionary, LZOPipe/LZOStraw's; 4-byte pointers on VC6). Native 8-byte pointers ran 64 KB past the buffer, over the stream's own buffers: the CONTENTS stream of a YR save could not be decompressed (garbage block headers). As the RA2 tree's fixup (native/port/fixups.json, Scout1125): each slot holds the 32-bit offset of its byte from in; a stale slot still decodes to some pointer, which the original's own m_pos < in / offset range tests reject before any read."
+  },
+  {
+   "file": "src/loco.cpp",
+   "old": "result = stream->Read((void *)this, Fetch_Object_Size(), NULL);",
+   "new": "result = stream->Read(this, Fetch_Object_Size(), NULL);",
+   "why": "lane Y10 (saves in gamemd.exe's format): the locomotor's image is read through its own type, as LocomotionClass::Save writes it (stream->Write(this, ...)) and as AbstractClass::Load reads its object, so the typed Read converts it from the i686 layout (field maps, the most derived locomotor's from its vtable); through void * the i686 bytes were laid over the arm64 object as they are. The same call in VC6 (the cast only selects the overload natively)."
+  },
+  {
+   "file": "src/swizzle.cpp",
+   "old": "\tSwizzlePointerClass pair(id, pointer);\n\tRequestTable.Add(pair);\n\n\t*pointer = NULL;",
+   "new": "\tSwizzlePointerClass pair(id, pointer);\n\tRequestTable.Add(pair);\n\n\tra2port_swizzle_note(pointer, __builtin_return_address(0));   // native diagnostics\n\t*pointer = NULL;",
+   "why": "lane Y10, diagnostic as the RA2 tree's (Scout1133): with RA2_NATIVE_SWIZZLE_TRACE=1 each recorded field remembers its caller (the Load that asked), which the unmatched report prints. No behaviour change."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "old": "\t\tif (FUN_00609BC0(parent, window)) {\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
+   "new": "\t\tif (FUN_00609BC0(parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\t// NATIVE (lane C23): the one-game toggle\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
+   "why": "lane C23 (user request 2026-11-16: the one-game toggle looked like help text): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) takes the main menu buttons' art (WinData +0xB0 = 1: the button shape's normal, lit and pressed frames), as RA2's twin 0x005E7EB0 gives it (link/behaviour_launch.cpp). FUN_00609BC0 knows only the menu column's ids."
   }
  ]
 }

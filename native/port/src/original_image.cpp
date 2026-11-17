@@ -214,6 +214,45 @@ uint32_t original_vtable(uint32_t primary, uint32_t object_offset)
     return it == vtables->end() ? 0 : it->second;
 }
 
+// The original's vtable for the vtable pointer at object_offset of the class whose RTTI type
+// descriptor is named type_descriptor_name (".?AVUnitClass@@"; Yuri's Revenge, lane Y10: its field
+// maps name the classes, the vtables come from the user's gamemd.exe at run time): the complete-object
+// locator before each vtable in a data section gives its type descriptor and offset. 0 when none.
+uint32_t original_vtable_named(const char *type_descriptor_name, uint32_t object_offset)
+{
+    Image &img = image();
+    if (!img.loaded || !type_descriptor_name) return 0;
+    static std::map<std::pair<std::string, uint32_t>, uint32_t> *vtables = nullptr;   // (name, offset) -> vtable
+    if (!vtables) {
+        vtables = new std::map<std::pair<std::string, uint32_t>, uint32_t>;
+        auto in_image = [&](uint32_t va) { return va >= img.base && va - img.base + 20 <= img.size; };
+        auto section = [&](uint32_t va) -> const Image::Range * {
+            for (const Image::Range &r : img.sections)
+                if (va >= r.start && va < r.raw_end) return &r;
+            return nullptr;
+        };
+        for (const Image::Range &r : img.sections) {
+            if (r.exec) continue;                                  // vtables are data (.rdata)
+            for (uint32_t va = (r.start + 4 + 3) & ~3u; va + 4 <= r.raw_end; va += 4) {
+                uint32_t col = rd32(img.mem.data() + (va - img.base) - 4);
+                if (!in_image(col)) continue;
+                const unsigned char *c = img.mem.data() + (col - img.base);
+                uint32_t td = rd32(c + 12), chd = rd32(c + 16);
+                if (rd32(c) != 0 || rd32(c + 8) != 0 || rd32(c + 4) > 0x10000 || !in_image(td) || !in_image(chd)) continue;
+                const unsigned char *t = img.mem.data() + (td - img.base);
+                if (t[8] != '.' || t[9] != '?' || t[10] != 'A') continue;
+                const Image::Range *first = section(rd32(img.mem.data() + (va - img.base)));
+                if (!first || !first->exec) continue;              // its first slot is code
+                const char *name = (const char *)t + 8;
+                size_t len = strnlen(name, img.size - (td - img.base) - 8);
+                vtables->emplace(std::make_pair(std::string(name, len), rd32(c + 4)), va);
+            }
+        }
+    }
+    auto it = vtables->find(std::make_pair(std::string(type_descriptor_name), object_offset));
+    return it == vtables->end() ? 0 : it->second;
+}
+
 // A resource the original stores (PE resource directory, data directory 2):
 // type and name are integer ids (MAKEINTRESOURCE) or names (case-insensitive,
 // as FindResource matches them); the first language. Returns the data in the

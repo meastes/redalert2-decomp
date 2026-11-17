@@ -14,6 +14,9 @@ enum OriginalLayoutOpKind {
     ORIGINAL_OP_POINTER = 4,   // n pointers: read as WIDEN; written as swizzle ids or the original's addresses (C17)
     ORIGINAL_OP_VPTR = 5,      // a vtable pointer at src: not read (the object keeps its own); written as the
                                // original's vtable for offset dst of the class whose primary vtable is n (C17)
+    ORIGINAL_OP_VPTR_NAMED = 6,  // the same, the class named by its RTTI type descriptor name
+                                 // ra2port_original_vtable_names[n] (".?AVUnitClass@@"): the vtables are found
+                                 // in the executable at run time (Yuri's Revenge, lane Y10: gamemd.exe)
 };
 
 struct OriginalLayoutOp {
@@ -30,5 +33,7 @@ struct OriginalLayout {
 extern "C" const OriginalLayoutOp ra2port_original_ops[];
 extern "C" const OriginalLayout ra2port_original_layouts[];
 extern "C" const unsigned ra2port_original_layout_count;
+// ORIGINAL_OP_VPTR_NAMED's type descriptor names (weak and empty when a build has none).
+extern "C" const char *const ra2port_original_vtable_names[];
 
 #endif

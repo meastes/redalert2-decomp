@@ -617,9 +617,10 @@ if(RA2_NATIVE_SDL)
           # A LAN game with Bravo as the iOS app plays it (C22, the user's LAN report of 2026-11-16):
           # no broadcasts, a resign active and a short background that must not hold the game, then a
           # background whose time runs out: Bravo leaves (EXIT) before it holds and Alpha plays on with
-          # no reconnect dialog (tests/lan_pair.py --background; HD vehicles off here, the cap is native-lan-pair's).
+          # no reconnect dialog (tests/lan_pair.py --background; HD vehicles 3x chosen, 2x in the network
+          # game: back on since C23 fixed the mouse thread's cursor blit race, native-cursor-stress).
           add_test(NAME native-lan-background COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/lan_pair.py"
-                   --background --hd 0 --frames 9000 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --background --frames 9000 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/lan-background")
           set_tests_properties(native-lan-background PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1800 RUN_SERIAL TRUE)
           # The LAN lobby (C20, the user's reports of 2026-11-16): chat lines sent with Return
@@ -667,6 +668,16 @@ if(RA2_NATIVE_SDL)
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-hd-vehicles-zoom2.log"
                  ${ra2_wine_args_hdvox})
         set_tests_properties(native-hd-vehicles-zoom2 PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+        # 12c''. The mouse thread's cursor against the main thread's drawing (C23, lane C22's LAN crash: the
+        #      primary surface's lock count and buffer pointer changed under the cursor blit): a skirmish with
+        #      HD vehicles 2x and Map zoom 1.5x, the cursor redrawn every millisecond, the view scrolling, two
+        #      backgrounds; before the fix 2 of 3 such runs crashed, most within 20 s (tests/cursor_stress.py).
+        if(NOT WIN32)
+          add_test(NAME native-cursor-stress COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/cursor_stress.py"
+                   --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-cursor-stress.log")
+          set_tests_properties(native-cursor-stress PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 420)
+        endif()
         # 12b''. Tank damage (C22, the user's LAN report of 2026-11-16: tanks never damaged each other):
         #      a Grizzly fires on another and the target's strength drops (tests/tank_damage.py; the
         #      RadiusCount table's native view, native_units.py).

@@ -38,6 +38,7 @@
 #include "shared/vector3.hpp"
 #include "shared/voxel_draw_system.hpp"
 #include "shared/voxel_render_record.hpp"
+#include "shared/win32_api.hpp"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -55,6 +56,7 @@ extern int VoxelRenderDataCount;               // 0x00AE0CB0 objects queued for 
 extern int VoxelShadowRenderDataCount;               // 0x00AE3000 shadows queued for the draw
 
 extern "C" int ra2port_last_frame(void);                   // port: the last Main_Loop frame
+WIN32_IMPORT DWORD WINAPI GetCurrentThreadId();
 
 // The setting (platform/sdl/enhancements.cpp): 0 off, 2 for 2x, 3 for 3x. Weak default: off.
 extern "C" __attribute__((weak)) int ra2_enh_hd_vehicles(void) { return 0; }
@@ -87,6 +89,13 @@ struct Buf {
 };
 
 bool active = false;             // taken when a game starts or loads
+// The thread that draws the game (the one that starts it). The 2x work is that thread's only (lane
+// C23): the mouse thread's cursor copies (WWMouseClass Save/Restore_Background, Draw_Cursor) run
+// beside it and would change the layers under it. They need none: the cursor drawn over the
+// screen's 2x pixels changes the 1x pixels, so those 2x groups stop counting (their stamps), and
+// the background put back restores the 1x values they were stamped with.
+DWORD game_thread = 0;
+bool off_game_thread() { return GetCurrentThreadId() != game_thread; }
 int S = 2;                       // the scale, 2 or 3 (taken with it)
 const bool stats = getenv("RA2_NATIVE_HD_STATS") != nullptr;
 struct Stats { long renders, blits, pixels, shown, mismatched, drops, filled; } counts = {0, 0, 0, 0, 0, 0, 0};
@@ -454,6 +463,7 @@ void Native_Hd_Vehicles_Start()
     if (on != active || (on && scale != S)) fprintf(stderr, "hd-vehicles: %s for this game\n", on ? (scale == 3 ? "3x" : "2x") : "off");
     active = on;
     S = scale;
+    game_thread = GetCurrentThreadId();
     Native_Hd_Budget_Reset();
     for (int i = 0; i < layer_count; ++i) layers[i]->clear_box();
 }
@@ -538,8 +548,9 @@ bool __fastcall Bit_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
                          Rect const &sourcewindow, Rect const &sourcearea, Blitter const &blitter,
                          int depth, int ramp_index, int alpha, int unknown)
 {
-    Layer *sl = active ? live(&source) : nullptr;
-    Layer *dl0 = active ? live(&dest) : nullptr;
+    bool hd = active && !off_game_thread();
+    Layer *sl = hd ? live(&source) : nullptr;
+    Layer *dl0 = hd ? live(&dest) : nullptr;
     if (!sl && !dl0)
         return Bit_Blit_Core_Native(dest, destwindow, destarea, source, sourcewindow, sourcearea, blitter, depth, ramp_index,
                                     alpha, unknown);
@@ -708,7 +719,7 @@ bool __fastcall Bit_Blit(Surface &dest, Rect const &destwindow, Rect const &dest
 // DSurface::Copy_From's DirectDraw copy (native fixup): the 2x pixels follow the 1x ones.
 void Native_Hd_Copied(Surface &dest, Rect const &destrect, Surface &source, Rect const &sourcerect)
 {
-    if (!active) return;
+    if (!active || off_game_thread()) return;
     int w = destrect.Width < sourcerect.Width ? destrect.Width : sourcerect.Width;
     int h = destrect.Height < sourcerect.Height ? destrect.Height : sourcerect.Height;
     copy_layer(dest, destrect.X, destrect.Y, source, sourcerect.X, sourcerect.Y, w, h);
