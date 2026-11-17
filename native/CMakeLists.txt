@@ -674,6 +674,13 @@ if(RA2_NATIVE_SDL)
                  --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                  --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-tank-damage.log")
         set_tests_properties(native-tank-damage PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
+        # 12b'''. The basics (lane P2, fast tier): one uncapped skirmish, each check its own line:
+        #      a tank's shell damages a tank, the target dies and is removed, a scout lifts the
+        #      shroud, the barracks trains GIs, the refinery's harvester delivers (tests/basics.py).
+        add_test(NAME native-basics COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/basics.py"
+                 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-basics.log")
+        set_tests_properties(native-basics PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
         # 12c'. HD vehicles 3x (C17): the same skirmish at 3x (the 1x colour fill in the gaps the thirds
         #      leave), and the air-base case at 2x and 3x: a Patriot's voxel turret and two paradrops'
         #      cargo plane on screen, each kind shown at Nx (tests/hd_vehicles.py --case air-base).
@@ -734,3 +741,43 @@ if(RA2_NATIVE_SDL)
     message(STATUS "SDL3 not found: ra2-native host skipped")
   endif()
 endif()
+
+# Gate tiers (lane P2, 2026-11-16): every test carries one tier label, and the slow ones an area
+# label, so the native gate (tools/original_target/native_gate.py --tier) and gate_scope.py choose:
+#   static   no game play: unit checks, layouts, link closure, view and name audits (always run);
+#   fast     played checks under ~100 s each (every native change);
+#   slow     the long played checks (once per landing batch, before any build for the user's
+#            devices, and whenever a change touches their area).
+# area:<name> ties a slow test to the paths that send it into a fast run (gate_scope.py AREAS).
+set(ra2_static_tests native-core-check native-mod-layers native-asm-check native-view-audit
+    native-original-layouts native-enhancements-settings native-vtable-views native-link-closure
+    native-link-closure-selftest native-name-rules native-draw-selftest native-vqa-selftest)
+set(ra2_slow_tests native-lan-pair network native-lan-lobby network native-lan-background network
+    native-campaign-allied campaign native-campaign-soviet campaign
+    native-original-save-write saves native-hd-air-base hd-aircraft native-hd-air-base-3x hd-aircraft
+    native-widescreen widescreen)
+get_property(ra2_all_tests DIRECTORY PROPERTY TESTS)
+set(ra2_tiered "")
+foreach(ra2_test IN LISTS ra2_static_tests)
+  if(TEST ${ra2_test})
+    set_property(TEST ${ra2_test} APPEND PROPERTY LABELS static)
+    list(APPEND ra2_tiered ${ra2_test})
+  endif()
+endforeach()
+set(ra2_slow_index 0)
+list(LENGTH ra2_slow_tests ra2_slow_count)
+while(ra2_slow_index LESS ra2_slow_count)
+  list(GET ra2_slow_tests ${ra2_slow_index} ra2_test)
+  math(EXPR ra2_slow_index "${ra2_slow_index} + 1")
+  list(GET ra2_slow_tests ${ra2_slow_index} ra2_area)
+  math(EXPR ra2_slow_index "${ra2_slow_index} + 1")
+  if(TEST ${ra2_test})
+    set_property(TEST ${ra2_test} APPEND PROPERTY LABELS slow "area:${ra2_area}")
+    list(APPEND ra2_tiered ${ra2_test})
+  endif()
+endwhile()
+foreach(ra2_test IN LISTS ra2_all_tests)
+  if(NOT ra2_test IN_LIST ra2_tiered)
+    set_property(TEST ${ra2_test} APPEND PROPERTY LABELS fast)
+  endif()
+endforeach()

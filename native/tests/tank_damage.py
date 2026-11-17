@@ -25,8 +25,8 @@ import tempfile
 import game_process
 
 SKIP = 77
-HEALTH = re.compile(r'^harness-health h(\d+) (\S+) k\d+ s(-?\d+) @\S+ #(\d+)$', re.M)
-SHOOT = re.compile(r'^harness-shoot #(\d+) #(\d+)$', re.M)
+HEALTH = re.compile(r'^harness-health h(\d+) (\S+) k\d+ s(-?\d+) @\S+ #\d+ &(\S+)$', re.M)
+SHOOT = re.compile(r'^harness-shoot #(\d+) #(\d+) &\S+ &(\S+)$', re.M)
 BAD = re.compile(r'unrecovered|\btrap\b|signal \d+|SIG(SEGV|BUS|ILL|ABRT|FPE)|crash:', re.I)
 
 
@@ -40,7 +40,7 @@ def strengths(out, frame_marks):
         # the order's lines come before its harness-order note: take the block just before it
         start = out.rfind('harness-order', 0, m.start())
         chunk = out[start if start >= 0 else 0:m.start()]
-        blocks[frame] = {int(i): int(s) for _, _, s, i in HEALTH.findall(chunk)}
+        blocks[frame] = {i: int(s) for _, _, s, i in HEALTH.findall(chunk)}   # by the object's address
     return blocks
 
 
@@ -61,7 +61,7 @@ def main():
         for k in ('RA2_NATIVE_ENHANCEMENTS', 'RA2_NATIVE_ORDERS', 'RA2_DATA_DIR'):
             env.pop(k, None)
         env.update({'HOME': os.path.join(work, 'home'), 'RA2_GAME_EXE': a.game_exe, 'RA2_NATIVE_LOG_STDERR': '1',
-                    'RA2_NATIVE_IGNORE_FOCUS': '1', 'RA2_NATIVE_ORDERS': '20 health; 30 shoot MTNK; 200 health'})
+                    'RA2_NATIVE_IGNORE_FOCUS': '1', 'RA2_NATIVE_MOVIE_SKIP': '1', 'RA2_NATIVE_ORDERS': '20 health; 30 shoot MTNK; 200 health'})
         cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=frames', '--run-seconds=240',
                '--write-dir=' + os.path.join(work, 'write'), '--game-args=-noaudio -CD.', '--skirmish=#5',
                '--skirmish-frames=220']
@@ -87,10 +87,11 @@ def main():
     elif 20 not in blocks or 200 not in blocks:
         problems.append('health lines missing (frames %s)' % sorted(blocks))
     else:
-        target = int(shot.group(2))
+        # the target by its address (Technos indexes move as objects come and go)
+        target = shot.group(3)
         before, after = blocks[20].get(target), blocks[200].get(target)
-        print('tank-damage: Grizzly #%s fired on #%d: strength %s at frame 20, %s at frame 200'
-              % (shot.group(1), target, before, after))
+        print('tank-damage: Grizzly #%s fired on #%s (%s): strength %s at frame 20, %s at frame 200'
+              % (shot.group(1), shot.group(2), target, before, after))
         if before != 300:
             problems.append('the target started at %s, not 300' % before)
         elif after is not None and after >= before:

@@ -139,8 +139,100 @@ int Scripted_Order(char const *command)
             if (kind != 1 && kind != 15) continue;
             TechnoTypeClass *type = techno->Techno_Type_Class();
             Cell cell = techno->Center_Coord().As_Cell();
-            fprintf(stderr, "harness-health h%d %s k%d s%d @%d,%d #%d\n", techno->House ? techno->House->ArrayIndex : -1,
-                    type ? type->ID.Buffer : "?", kind, techno->Strength, cell.X, cell.Y, i);
+            fprintf(stderr, "harness-health h%d %s k%d s%d @%d,%d #%d &%p\n", techno->House ? techno->House->ArrayIndex : -1,
+                    type ? type->ID.Buffer : "?", kind, techno->Strength, cell.X, cell.Y, i, (void *)techno);
+            ++listed;
+        }
+        return listed;
+    }
+    if (Same(word[1], "money", 6)) {
+        // `money` (lane P2, test scaffolding): logs `harness-money <credits>`, the player's
+        // Available_Money (a harvester's delivery raises it; ctest native-basics).
+        if (PlayerPtr == 0) return -1;
+        fprintf(stderr, "harness-money %ld\n", (long)PlayerPtr->Available_Money());
+        return 1;
+    }
+    if ((Same(word[1], "scout", 6) && words >= 5) || Same(word[1], "mapped", 7)) {
+        // `scout <ID> <dx> <dy>` (lane P2, test scaffolding): up to three of the player's units of
+        // type ID are sent max(|dx|, |dy|) cells away (the move a click queues), each in another of
+        // the eight directions, the ones whose destination's 7x7 cells are all on the map
+        // (MapClass::In_Radar) and least mapped first; the player's mapped cells (CellClass +0x12C
+        // bit 3, which Unshroud sets) around each start are kept. `mapped` logs, for each scout,
+        // `harness-mapped s<n> moved <cells> now <mapped>/<cells> before <mapped>`: the 7x7 cells
+        // around where it stands now, mapped now and when it was sent (ctest native-basics: a unit
+        // that moves lifts the shroud around it).
+        enum { R = 20, W = 2 * R + 1, SCOUTS = 3 };
+        static TechnoClass *scout[SCOUTS];
+        static Cell origin[SCOUTS];
+        static unsigned char before[SCOUTS][W][W];
+        static int scouts = 0;
+        if (Same(word[1], "scout", 6)) {
+            int reach = abs(atoi(word[3])) > abs(atoi(word[4])) ? abs(atoi(word[3])) : abs(atoi(word[4]));
+            static int const dirs[8][2] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {-1, 1}, {-1, -1}, {1, -1}};
+            bool used[8] = {};
+            for (int i = 0; i < Technos.Count() && scouts < SCOUTS; ++i) {
+                TechnoClass *techno = Technos[i];
+                if (techno == 0 || techno->House != PlayerPtr || techno->Techno_Type_Class() == 0) continue;
+                if (!Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[2])) continue;
+                Cell at = techno->Center_Coord().As_Cell();
+                int best = -1, best_mapped = 0;
+                for (int d = 0; d < 8; ++d) {
+                    if (used[d]) continue;
+                    int mapped = 0;
+                    bool inside = true;
+                    for (int dy = -3; dy <= 3 && inside; ++dy) {
+                        for (int dx = -3; dx <= 3 && inside; ++dx) {
+                            Cell cell;
+                            cell.X = (short)(at.X + dirs[d][0] * reach + dx);
+                            cell.Y = (short)(at.Y + dirs[d][1] * reach + dy);
+                            if (!Map.In_Radar(cell)) inside = false;
+                            else if (Map[cell].unknown_12c & 0x8) ++mapped;
+                        }
+                    }
+                    if (inside && (best < 0 || mapped < best_mapped)) best = d, best_mapped = mapped;
+                }
+                if (best < 0) continue;
+                used[best] = true;
+                for (int y = 0; y < W; ++y) {
+                    for (int x = 0; x < W; ++x) {
+                        Cell cell;
+                        cell.X = (short)(at.X - R + x);
+                        cell.Y = (short)(at.Y - R + y);
+                        before[scouts][y][x] = Map.In_Radar(cell) && (Map[cell].unknown_12c & 0x8) ? 1 : 0;
+                    }
+                }
+                Cell to;
+                to.X = (short)(at.X + dirs[best][0] * reach);
+                to.Y = (short)(at.Y + dirs[best][1] * reach);
+                Queue_Mission(TargetClass(techno), 2, TargetClass(), TargetClass(to));
+                fprintf(stderr, "harness-scout s%d #%d @%d,%d -> @%d,%d (%d of 49 mapped)\n", scouts, i, at.X, at.Y,
+                        to.X, to.Y, best_mapped);
+                scout[scouts] = techno;
+                origin[scouts++] = at;
+            }
+            return scouts ? scouts : -1;
+        }
+        int listed = 0;
+        for (int s = 0; s < scouts; ++s) {
+            bool alive = false;     // still in Technos (it may have died)
+            for (int i = 0; i < Technos.Count() && !alive; ++i) alive = Technos[i] == scout[s];
+            if (!alive) continue;
+            Cell at = scout[s]->Center_Coord().As_Cell();
+            int moved = abs(at.X - origin[s].X) > abs(at.Y - origin[s].Y) ? abs(at.X - origin[s].X) : abs(at.Y - origin[s].Y);
+            int now = 0, was = 0, cells = 0;
+            for (int dy = -3; dy <= 3; ++dy) {
+                for (int dx = -3; dx <= 3; ++dx) {
+                    Cell cell;
+                    cell.X = (short)(at.X + dx);
+                    cell.Y = (short)(at.Y + dy);
+                    if (!Map.In_Radar(cell)) continue;
+                    ++cells;
+                    if (Map[cell].unknown_12c & 0x8) ++now;
+                    int x = cell.X - origin[s].X + R, y = cell.Y - origin[s].Y + R;
+                    if (x >= 0 && x < W && y >= 0 && y < W) was += before[s][y][x];
+                }
+            }
+            fprintf(stderr, "harness-mapped s%d moved %d now %d/%d before %d\n", s, moved, now, cells, was);
             ++listed;
         }
         return listed;
@@ -160,7 +252,7 @@ int Scripted_Order(char const *command)
         }
         if (second < 0) return -1;
         Queue_Mission(TargetClass(Technos[first]), 1, TargetClass(Technos[second]), TargetClass());
-        fprintf(stderr, "harness-shoot #%d #%d\n", first, second);
+        fprintf(stderr, "harness-shoot #%d #%d &%p &%p\n", first, second, (void *)Technos[first], (void *)Technos[second]);
         return 1;
     }
     // `amove <ID|*> <x> <y>` (C3): an attack-move, the MEGAMISSION 0x1D a Ctrl+Shift ground

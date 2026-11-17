@@ -249,6 +249,83 @@ frame-timing flakes; native-zoom-steps failed once at -j4 and passed alone) and 
 in the receipt. On this Mac about 11 GB is in use before any heavy job; a whole-file build peaks
 near 2.9 GB, a cold native compile near 1.2 GB of clang, one ctest game near 0.25 GB.
 
+## Native test tiers and the identical-build rule (lane P2, 2026-11-16)
+
+**Tiers.** Every native test carries one ctest label (end of native/CMakeLists.txt): `static` (no
+game play: unit checks, layouts, view and vtable audits, link closure, name rules; always run),
+`fast` (played checks under about 100 s each) or `slow` with an `area:<name>` label:
+
+| Slow test | Area | Seconds (2026-11-16, -j4 under load) |
+|---|---|---:|
+| native-lan-pair | network | 645 |
+| native-campaign-soviet, native-campaign-allied | campaign | 428, 416 |
+| native-lan-background | network | 270 |
+| native-original-save-write | saves | 190 |
+| native-widescreen | widescreen | 181 |
+| native-hd-air-base-3x, native-hd-air-base | hd-aircraft | 123, 123 |
+| native-lan-lobby | network | 118 |
+
+`native_gate.py --tier fast` runs `static` + `fast` + the slow tests of the areas the change
+touches (gate_scope.py AREAS: path patterns, and each slow test's own script); `--tier full` runs
+every test; `--tier auto` (the default with `--base`, and join_gate.py's) is fast unless the
+native gate history holds no full pass from the last 12 hours. The full set still runs once per
+landing batch (`--tier full`) and before any build goes to the user's devices: the owner's
+land_ios.sh runs native_main.sh, whose bare `ctest -j4` runs every test (keep it that way, or call
+`native_gate.py --tier full`). The receipt's `tier`, `areas` and `slow_tests_run` say what ran.
+
+**Identical-build rule.** After the native compile the gate records the build's identity
+(`tools/original_target/native_identity.py`, its docstring is the definition) and compares it with
+the builds whose played tests passed (build/owner-watch/native-gate/history.jsonl in the main
+checkout, with each run's identity and receipt; any worktree's passing run counts). Two builds are
+*identical* when every section of ra2-native outside __LINKEDIT has the same bytes at the same
+address and the same dylibs load; *equivalent* when the image differs but the link is the same up
+to names: same link flags, same inputs in the same order, and every input object has the same
+sections, bytes and relocations once each symbol is replaced by the place that defines it (input,
+section, atom, offset), with the symbol table compared as the set of defined places. Bytes that
+carry a name are compared by kind, and only these: RTTI type names (`__ZTS`), the link closure's
+traps and placeholders (by kind, size and first referencing place), the source folder's path in
+strings, an unnamed type's line and column, and the type in `original_type_name<T>`'s text. An
+identical or equivalent build with the same test scripts and ctest registrations runs the static
+checks only; the receipt's `played_skipped` names the passing receipt it rests on and its tier.
+`--names-only` (native_gate.py, join_gate.py) declares a names-only landing: a build that is
+neither fails the gate (`names-only build differs`, with the differing inputs) until
+`--explained TEXT`, which then runs the full set and keeps the text in the receipt.
+
+Proof against the 2026-11-15 tank-damage regression (0d65d9378, names only, whose rename slipped
+past native_units.py's RadiusCount rule): 0d65d9378 against its parent a1ab41e69 compares
+*different*, and the differing inputs are exactly the three units whose functions read the table
+(Explosion_Damage; MapClass::Sight_From, RevealArea1 and 0x0054A550; TActionClass's
+iron-curtain-at-waypoint action); everything else in the 574-file rename (trap renames, an
+unnamed struct's moved line, 140 type names) compares equal. 0d65d9378 with only C22's rule fix
+(de761bc78's native_units.py) against a1ab41e69 compares *equivalent*. The CA2 h1 landing
+(60724cdd3, 16 global names) builds an image identical to its parent's.
+
+Measured 2026-11-16 on the 10-core Mac with other lanes' ctest runs alongside (seconds, slot
+waits left out; receipts in lane P2's build/p2):
+
+| Native gate | configure | compile | identity | ctest | total |
+|---|---:|---:|---:|---:|---:|
+| before: every test (60), old gate | 11.6 | 39.3 | | 1,769 | 1,820 |
+| full tier (61, with native-basics) | 12.2 | 12.9 | 1.0 | 1,939 | 1,965 |
+| names-only landing (reverse of 60724cdd3): identical, static only (12) | 12.6 | 23.2 | 1.0 | 64.2 | 101 |
+| names-only declared, build differs (one string): fails at once | 12.9 | 17.5 | 1.5 | | 32 |
+| native-only change (a log line): fast tier (52) | 14.2 | 21.7 | 1.2 | 351 | 389 |
+
+The static-only run is bound by native-vtable-views (64 s). The full set's wall time is bound by
+the three RUN_SERIAL LAN tests, which run with nothing beside them (lan-pair alone took 645-829 s
+under load); a shared RESOURCE_LOCK among the three instead of RUN_SERIAL would let other tests run
+beside them, if their frame timing allows it (not changed here).
+
+**Shared launches (not done).** A launch costs about 8 s before the first frame with the movies'
+test pace (init 5.6 s, scenario load 2.5 s; a test without RA2_NATIVE_MOVIE_SKIP also plays the
+intro at full length, about 13 s: native-tank-damage now sets it). The 23 launches of the touch,
+zoom, controls and HD-vehicle families would save about 180 s summed, about 45 s at -j4, but their
+cases differ in settings (controls, scales, budgets) and end states (score, abort), so sharing a
+launch needs the harness to start further skirmishes in one process with other settings. Larger
+wins for later: frames uncapped (RA2_NATIVE_UNCAPPED, game speed 0) for checks that measure no
+time: native-basics runs 6,000 frames in about 12 s that way, while the played tests run at game
+speed (about 21 frames a second).
+
 ## Fixed compile folder (build environment, 2026-11-13)
 
 Every compile runs at one path layout (`build.compile_units`, all tools that compile):

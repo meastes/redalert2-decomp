@@ -14,7 +14,10 @@
    reused: it carries the machine's census paths), with the link closure at its baseline
    (native_gate.py).
 A native-only change (gate_scope.py, or --scope native) runs step 4 alone and records the exact
-whole-file receipt it rests on. build.py takes the full-build lock for step 1 only, so a wrapper
+whole-file receipt it rests on. Step 4 runs the native test tier gate_scope.tier picks (--tier;
+lane P2): fast, or full once the history has no recent full pass; a native build identical or
+equivalent to a passing one runs the static checks only (native_gate.py, native_identity.py), and
+--names-only fails a names-only landing whose native build differs until --explained says why. build.py takes the full-build lock for step 1 only, so a wrapper
 should not hold it around the whole gate. Writes OUTPUT/join-gate.json (with stage timings) and
 exits 1 on any failure. No join lands without it.
 """
@@ -82,6 +85,11 @@ def main():
     parser.add_argument('--native-build', type=Path, default=REPOSITORY / 'build/native-play')
     parser.add_argument('--ctest-jobs', type=int, default=4, help='parallel ctest jobs (failures rerun one at a time)')
     parser.add_argument('--output', type=Path, default=REPOSITORY / 'build/join-gate')
+    parser.add_argument('--tier', choices=['auto', 'fast', 'full'], default='auto',
+                        help='native tests by label (native_gate.py --tier; auto: gate_scope.tier on BASE..HEAD)')
+    parser.add_argument('--names-only', action='store_true',
+                        help='a names-only landing: a native build that differs from the last passing one fails')
+    parser.add_argument('--explained', default=None, help='why a names-only native build differs (the full set runs)')
     parser.add_argument('--scope', choices=['auto', 'exact', 'native'], default='auto',
                         help='auto (gate_scope.py on BASE..HEAD): a native-only change skips steps 1-3')
     args = parser.parse_args()
@@ -137,7 +145,10 @@ def main():
         receipt['checks']['module_check'] = dict(ok=code == 0)
         ok &= code == 0
     # 4. native configure, build, ctest, link closure (heavy-job slots, never the full-build lock)
-    native = native_gate.gate(args.native_build, out.parent, stages=stages, ctest_jobs=args.ctest_jobs)
+    tier, areas, tier_info = native_gate.tier_for(args.base, args.tier)
+    receipt['native_tier'] = tier_info
+    native = native_gate.gate(args.native_build, out.parent, stages=stages, ctest_jobs=args.ctest_jobs, tier=tier,
+                              areas=areas, names_only=args.names_only, explained=args.explained)
     receipt['checks']['native'] = dict(ok=native['ok'], **{k: v for k, v in native.items() if k not in ('ok', 'stages')})
     ok &= native['ok']
     receipt['ok'] = bool(ok)
