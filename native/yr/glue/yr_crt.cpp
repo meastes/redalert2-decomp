@@ -18,6 +18,7 @@ char *strlwr(char *s) { return _strlwr(s); }
 int strnicmp(const char *a, const char *b, size_t n) { return _strnicmp(a, b, n); }
 char *strrev(char *s) { return _strrev(s); }
 char *itoa(int value, char *out, int radix) { return _itoa(value, out, radix); }
+#ifndef __MINGW32__   // (Windows: the C library's own, inline in its headers; lane Y13)
 int sprintf_s(char *dst, size_t cap, const char *fmt, ...)
 {
     va_list ap;
@@ -36,6 +37,7 @@ int swprintf_s(unsigned short *dst, size_t cap, const unsigned short *fmt, ...)
     if (cap) dst[cap - 1] = 0;
     return n;
 }
+#endif
 }
 
 extern "C" {

@@ -15,9 +15,20 @@ set(RA2_NATIVE_YR_MINGW "${ra2_yr_mingw_first}" CACHE PATH "mingw-w64 headers (l
 if(NOT IS_DIRECTORY "${RA2_NATIVE_YR_MINGW}")
   message(FATAL_ERROR "RA2_NATIVE_YR: set RA2_NATIVE_YR_MINGW to llvm-mingw's generic-w64-mingw32/include")
 endif()
+# The x86_64 Windows build (lane Y13): the toolchain's own headers are the system headers, so the
+# rewritten Win32 headers are searched ahead of them (-isystem) and leave out every header the Mac's
+# SDK has (the C library's: the toolchain's own are used, as the Mac uses its SDK's).
+set(ra2_yr_sdk_args "")
+if(WIN32)
+  execute_process(COMMAND xcrun --sdk macosx --show-sdk-path OUTPUT_VARIABLE ra2_yr_mac_sdk OUTPUT_STRIP_TRAILING_WHITESPACE)
+  if(NOT IS_DIRECTORY "${ra2_yr_mac_sdk}/usr/include")
+    message(FATAL_ERROR "RA2_NATIVE_YR (Windows): the macOS SDK (xcrun --sdk macosx) names the C library headers to leave out")
+  endif()
+  set(ra2_yr_sdk_args --host-headers "${ra2_yr_mac_sdk}/usr/include")
+endif()
 execute_process(
   COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_sdk.py"
-          --mingw "${RA2_NATIVE_YR_MINGW}" --out "${RA2_NATIVE_YR_GEN}/mingw"
+          --mingw "${RA2_NATIVE_YR_MINGW}" --out "${RA2_NATIVE_YR_GEN}/mingw" ${ra2_yr_sdk_args}
   RESULT_VARIABLE ra2_yr_rc)
 if(ra2_yr_rc)
   message(FATAL_ERROR "yr_sdk.py failed")
@@ -34,6 +45,21 @@ set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${ra2_yr_appends}
   "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_sdk.py")
 include("${RA2_NATIVE_YR_GEN}/units.cmake")
 file(GLOB ra2_yr_glue CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/yr/glue/*.cpp")
+set(ra2_yr_headers "SHELL:-idirafter ${RA2_NATIVE_YR_GEN}/mingw")
+if(WIN32)
+  # COFF spellings of the Mach-O assembler labels in the units and the glue (cmake/windows.cmake).
+  execute_process(
+    COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_coff.py"
+            --gen "${RA2_NATIVE_YR_GEN}" --out "${RA2_NATIVE_YR_GEN}/coff_units.cmake"
+    RESULT_VARIABLE ra2_yr_rc)
+  if(ra2_yr_rc)
+    message(FATAL_ERROR "yr_coff.py failed")
+  endif()
+  include("${RA2_NATIVE_YR_GEN}/coff_units.cmake")
+  ra2_windows_coff_sources(ra2_yr_glue ${ra2_yr_glue})
+  set(ra2_yr_glue_dir "${CMAKE_CURRENT_SOURCE_DIR}/yr/glue")   # the copies' "" includes
+  set(ra2_yr_headers "SHELL:-isystem ${RA2_NATIVE_YR_GEN}/mingw")
+endif()
 
 # The YR units: the RA2 tree's VC6 dialect options (ra2_dialect), the YR prelude, the generated
 # header directory and the rewritten Win32 headers after the host's own.
@@ -41,33 +67,44 @@ get_target_property(ra2_yr_dialect_options ra2_dialect INTERFACE_COMPILE_OPTIONS
 add_library(yr_units_objs OBJECT ${YR_NATIVE_UNITS} ${ra2_yr_glue})
 target_compile_options(yr_units_objs PRIVATE ${ra2_yr_dialect_options}
   "SHELL:-include ${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk/yr_prelude.h"
-  "SHELL:-idirafter ${RA2_NATIVE_YR_GEN}/mingw"
+  ${ra2_yr_headers}
   # Header constants defined in every unit (geometry.h's CELL_NONE, COORD_NONE, ...; VC6 emitted a
   # copy per unit): zero-filled storage cannot carry the weak definitions weaken_duplicates.py
   # gives the repeats, so it goes in __DATA, where ld64 keeps the first.
   -fno-zero-initialized-in-bss)
 target_compile_definitions(yr_units_objs PRIVATE WIN32 _WIN32 __GNUC__=4 __GNUC_MINOR__=2 RA2_NATIVE_YR=1)
-if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
-  # The iOS build has no build type (build-ios.command): the tree's asserts stay out, as in
+if(WIN32)
+  target_compile_options(yr_units_objs BEFORE PRIVATE "SHELL:-include ${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk/yr_win_first.h")
+endif()
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS" OR WIN32)
+  # The iOS build (and the Windows build, lane Y13) has no build type (build-ios.command): the tree's asserts stay out, as in
   # gamemd.exe (a release build) and the Mac Release build the skirmish tests run (lane Y7; with
   # them, Assert_Failure was one more trap).
   target_compile_definitions(yr_units_objs PRIVATE NDEBUG)
 endif()
 target_include_directories(yr_units_objs BEFORE PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk"
-  "${RA2_NATIVE_YR_GEN}/hdr" "${RA2_NATIVE_YR_GEN}/hdr/vqalib")
+  "${RA2_NATIVE_YR_GEN}/hdr" "${RA2_NATIVE_YR_GEN}/hdr/vqalib" ${ra2_yr_glue_dir})
 
 # The host (native/platform/sdl), compiled again for this game.
 add_library(yr_host_objs OBJECT ${ra2_host_sources})
 target_link_libraries(yr_host_objs PRIVATE SDL3::SDL3 ra2_port)
 target_compile_definitions(yr_host_objs PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1)
 
+# How the link tools read the objects (lane Y13: COFF on Windows, read in the Mach-O spelling).
+if(WIN32)
+  set(ra2_yr_obj_args --target windows "--nm=${CMAKE_NM}")
+  set(ra2_yr_sys_args --target windows "--nm=${CMAKE_NM}" "--sysroot=${RA2_LLVM_MINGW}/x86_64-w64-mingw32")
+else()
+  set(ra2_yr_obj_args "")
+  set(ra2_yr_sys_args "--sdk=${CMAKE_OSX_SYSROOT}" --frameworks ${ra2_closure_frameworks})
+endif()
 file(GENERATE OUTPUT "${RA2_NATIVE_YR_GEN}/link_inputs.txt"
      CONTENT "$<JOIN:$<TARGET_OBJECTS:yr_units_objs>;$<TARGET_FILE:ra2_port>,\n>\n")
 # The tree's address names bound to the definitions at those addresses (yr_aliases.py; ld64 aliases).
 add_custom_command(
   OUTPUT "${RA2_NATIVE_YR_GEN}/aliases.tsv"
   COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_aliases.py"
-          --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --out "${RA2_NATIVE_YR_GEN}/aliases.tsv"
+          --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --out "${RA2_NATIVE_YR_GEN}/aliases.tsv" ${ra2_yr_obj_args}
   DEPENDS yr_units_objs "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_aliases.py" "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/globals.tsv" "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/name_aliases.tsv"
           $<TARGET_OBJECTS:yr_units_objs>
   COMMAND_EXPAND_LISTS VERBATIM)
@@ -79,7 +116,7 @@ add_custom_command(
           --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --host $<TARGET_OBJECTS:yr_host_objs>
           --gen "${RA2_NATIVE_YR_GEN}" --out "${RA2_NATIVE_YR_GEN}/yr_original_data.cpp"
           --aliases "${RA2_NATIVE_YR_GEN}/aliases.tsv"
-          "--sdk=${CMAKE_OSX_SYSROOT}" --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS} --frameworks ${ra2_closure_frameworks}
+          ${ra2_yr_sys_args} --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS}
   DEPENDS yr_units_objs ra2_port yr_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_data.py" "${RA2_NATIVE_YR_GEN}/aliases.tsv"
           "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/globals.tsv" "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
           $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs>
@@ -91,7 +128,7 @@ file(GLOB ra2_yr_i686_shims "${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk/i686/*")
 add_custom_command(
   OUTPUT "${RA2_NATIVE_YR_GEN}/original_layouts.cpp"
   COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py" --game yr
-          --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${RA2_NATIVE_YR_GEN}/original_layouts.cpp"
+          --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${RA2_NATIVE_YR_GEN}/original_layouts.cpp" ${ra2_original_layouts_target}
           --report "${RA2_NATIVE_YR_GEN}/original_layouts.json"
   DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py" "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/original_save_types.txt"
           "${CMAKE_CURRENT_SOURCE_DIR}/port/include/ra2port/prelude.hpp" "${CMAKE_CURRENT_SOURCE_DIR}/yr/sdk/yr_prelude.h"
@@ -105,7 +142,7 @@ add_custom_command(
   COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
           --inputs "${RA2_NATIVE_YR_GEN}/closure_inputs.txt" --host $<TARGET_OBJECTS:yr_host_objs>
           --out "${RA2_NATIVE_YR_GEN}/link_closure.c" --system-libs ${RA2_NATIVE_CLOSURE_SYSTEM_LIBS}
-          "--sdk=${CMAKE_OSX_SYSROOT}" --frameworks ${ra2_closure_frameworks} --data-from 0x7E1000
+          ${ra2_yr_sys_args} --data-from 0x7E1000
           --aliases "${RA2_NATIVE_YR_GEN}/aliases.tsv" --alias-list "${RA2_NATIVE_YR_GEN}/alias_list.txt"
   DEPENDS yr_units_objs yr_data_obj ra2_port yr_host_objs "${CMAKE_CURRENT_SOURCE_DIR}/tools/link_closure.py"
           $<TARGET_FILE:ra2_port> $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs> $<TARGET_OBJECTS:yr_data_obj>
@@ -113,9 +150,41 @@ add_custom_command(
 add_executable(yr-native $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs> $<TARGET_OBJECTS:yr_data_obj>
                "${RA2_NATIVE_YR_GEN}/link_closure.c")
 target_link_libraries(yr-native PRIVATE SDL3::SDL3 ra2_port ${ra2_host_frameworks})
+target_compile_definitions(yr-native PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1)
+if(WIN32)
+  # The x86_64 Windows build (lane Y13; cmake/windows.cmake as the RA2 game's): repeated definitions
+  # select-any (--allow-multiple-definition), the 8 MiB stack, the initialisers in link order, the
+  # icon; the address aliases are -alternatename directives in link_closure.c. The units' initialisers
+  # move to .yrini$m (defer_initializers.py), run by yr_host_glue.cpp once the data is loaded; the
+  # glue's too (their header constants call fastmath::atan on gamemd.exe's tables: before the load
+  # the tables are zero, and x86-64's conversion of the NaN gives an index far outside the table).
+  ra2_windows_game_link(yr-native)
+  set_target_properties(yr-native PROPERTIES OUTPUT_NAME yr-native)
+  add_custom_command(TARGET yr-native PRE_LINK
+    COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/defer_initializers.py"
+            --inputs "${RA2_NATIVE_YR_GEN}/link_inputs.txt" --only /yr_units_objs.dir/
+    VERBATIM)
+  # YRNative.exe: the players' GUI-subsystem build of the same objects (as RA2Native.exe).
+  if(RA2_WINDOWS_GUI)
+    add_executable(YRNative WIN32 $<TARGET_OBJECTS:yr_host_objs> $<TARGET_OBJECTS:yr_units_objs> $<TARGET_OBJECTS:yr_data_obj>
+                   "${RA2_NATIVE_YR_GEN}/link_closure.c")
+    target_link_libraries(YRNative PRIVATE SDL3::SDL3 ra2_port)
+    target_compile_definitions(YRNative PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1)
+    ra2_windows_game_link(YRNative)
+    add_dependencies(YRNative yr-native)   # after yr-native's PRE_LINK has moved the initialisers
+  endif()
+  # ctest yr-native-skirmish-smoke on the Windows build: the same route, yr-native.exe under Wine in a
+  # fresh prefix (cmake/windows.cmake RA2_NATIVE_WINE; skipped without Wine or the installed game).
+  set(RA2_NATIVE_YR_DATA_DIR "$ENV{RA2_NATIVE_YR_DATA_DIR}" CACHE PATH "Installed RA2 + Yuri's Revenge folder for the yr-native tests (read only)")
+  add_test(NAME yr-native-skirmish-smoke COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_skirmish_smoke.py"
+           --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+           --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-smoke"
+           --wine-prefix "${CMAKE_CURRENT_BINARY_DIR}/wine/yr-smoke" --wine "${RA2_NATIVE_WINE}")
+  set_tests_properties(yr-native-skirmish-smoke PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 420)
+  return()   # the other ctests below run the Mac build
+endif()
 target_link_options(yr-native PRIVATE "LINKER:-alias_list,${RA2_NATIVE_YR_GEN}/alias_list.txt")
 set_property(TARGET yr-native APPEND PROPERTY LINK_DEPENDS "${RA2_NATIVE_YR_GEN}/alias_list.txt")
-target_compile_definitions(yr-native PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1)
 # Repeated definitions across units (explicit template instantiations in several units, as VC6's
 # COMDATs) get select-any semantics, as in the RA2 game (tools/weaken_duplicates.py).
 # The units' static initialisers run after the original data is in place (defer_initializers.py).

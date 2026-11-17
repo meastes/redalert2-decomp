@@ -3,6 +3,13 @@
 // (build/yr-native/mingw, native/yr/tools/yr_sdk.py) take them instead of declaring their own.
 #ifndef YR_NATIVE_PRELUDE_H
 #define YR_NATIVE_PRELUDE_H
+#ifdef __MINGW32__
+// The x86_64 Windows build (lane Y13): LLP64's long is 32 bits, VC6's width, and the Win32 headers,
+// the C library and clang's MS intrinsics all say long; the YR units' RA2_LONG (the port rewrites'
+// long) is spelt long there too, so their types are the headers' (yr_sdk.py keeps long).
+#define RA2_LONG long
+#define RA2_ULONG unsigned long
+#endif
 #include <stddef.h>
 #include <stdint.h>
 #include <stdarg.h>
@@ -23,7 +30,9 @@ typedef size_t rsize_t;
 #define _OFF64_T_DEFINED
 typedef long long _off64_t;
 typedef long long off64_t;
-typedef int _off_t;
+#ifndef __MINGW32__
+typedef int _off_t;   // (Windows: the toolchain's own, a 32-bit long)
+#endif
 #define _VA_LIST_DEFINED
 // No inline C-runtime helpers from the mingw headers (stralign.h, ...): they call its own CRT.
 #define __CRT__NO_INLINE 1

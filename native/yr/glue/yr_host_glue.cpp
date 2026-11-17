@@ -2,8 +2,10 @@
 // native/port/src/user32.cpp), for yr-native (lanes Y1, Y2). The YR globals' table is generated
 // (native/yr/tools/yr_data.py); there are no RA2 self-tests here.
 #include <stdint.h>
+#ifndef __MINGW32__
 #include <mach-o/getsect.h>
 #include <dlfcn.h>
+#endif
 #include <stdio.h>
 extern "C" {
 // The game this process runs, for the port (original_image.cpp: gamemd.exe and its build check).
@@ -23,6 +25,29 @@ extern const char launcher_expected_message_007d52b8[] = "UIDATA,3DDATA,MAPS";
 // (the units' order), as the original's _initterm ran them with its data in place.
 void yr_construct_globals();   // yr_globals.cpp
 
+#ifdef __MINGW32__
+// The x86_64 Windows build (lane Y13): defer_initializers.py renamed the units' .ctors sections
+// .yrini$m; lld groups them in link order between these two markers.
+typedef void (*YrInitialiser)(void);
+__attribute__((section(".yrini$a"), used)) static YrInitialiser yr_init_first = 0;
+__attribute__((section(".yrini$z"), used)) static YrInitialiser yr_init_last = 0;
+
+void ra2_native_original_records()
+{
+    yr_construct_globals();
+    unsigned long count = 0;
+    // The bounds through volatile pointers: the compiler may not reason about two objects' order.
+    YrInitialiser *volatile first = &yr_init_first;
+    YrInitialiser *volatile last = &yr_init_last;
+    for (YrInitialiser *p = first + 1; p < last; ++p) {
+        if (*p) {
+            (*p)();
+            ++count;
+        }
+    }
+    fprintf(stderr, "yr-native: %lu static initialisers run after the original data\n", count);
+}
+#else
 void ra2_native_original_records()
 {
     yr_construct_globals();
@@ -38,3 +63,4 @@ void ra2_native_original_records()
     for (unsigned long i = 0; i < count; ++i) list[i]();
     fprintf(stderr, "yr-native: %lu static initialisers run after the original data\n", count);
 }
+#endif

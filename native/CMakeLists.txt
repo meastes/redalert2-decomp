@@ -743,7 +743,7 @@ if(RA2_NATIVE_SDL)
       # The native Yuri's Revenge game (lane Y1, -DRA2_NATIVE_YR=ON, Mac; lane Y7: also iOS,
       # build-ios.command --yr): native/yr/yr.cmake.
       option(RA2_NATIVE_YR "Also build yr-native, the Yuri's Revenge game from the pinned ra2-decomp tree (yr/)" OFF)
-      if(RA2_NATIVE_YR AND APPLE)
+      if(RA2_NATIVE_YR AND (APPLE OR WIN32))
         include("${CMAKE_CURRENT_SOURCE_DIR}/yr/yr.cmake")
       endif()
     else()

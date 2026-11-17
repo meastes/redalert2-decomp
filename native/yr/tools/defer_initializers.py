@@ -23,8 +23,32 @@ LC_SEGMENT_64 = 0x19
 S_MOD_INIT_FUNC_POINTERS = 0x9
 
 
+IMAGE_FILE_MACHINE_AMD64 = 0x8664
+COFF_SECTION = b'.yrini$m'
+
+
+def defer_coff(path, data):
+    """The x86_64 Windows build (lane Y13): each COFF object's .ctors section (the mingw-w64
+    runtime's initialiser list) is renamed .yrini$m: the runtime no longer runs the pointers, lld
+    keeps them in link order, grouped between yr_host_glue.cpp's .yrini$a and .yrini$z markers
+    (lld sorts grouped sections by the part after the $), relocations and all."""
+    nsects = struct.unpack_from('<H', data, 2)[0]
+    optsize = struct.unpack_from('<H', data, 16)[0]
+    changed = 0
+    for i in range(nsects):
+        s = 20 + optsize + 40 * i
+        if bytes(data[s:s + 8]).rstrip(b'\0') == b'.ctors':
+            data[s:s + 8] = COFF_SECTION
+            changed += 1
+    if changed:
+        path.write_bytes(bytes(data))
+    return changed
+
+
 def defer(path, section=b'__yr_init_func'):
     data = bytearray(path.read_bytes())
+    if len(data) >= 20 and struct.unpack_from('<H', data, 0)[0] == IMAGE_FILE_MACHINE_AMD64:
+        return defer_coff(path, data)
     if struct.unpack_from('<I', data, 0)[0] != MH_MAGIC_64:
         return 0
     ncmds = struct.unpack_from('<I', data, 16)[0]

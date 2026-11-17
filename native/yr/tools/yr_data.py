@@ -47,8 +47,11 @@ DATA = (0x812000, 0x87E000, 0xB79BE4)     # start, end of the file-backed part, 
 CAP = 0x10000
 POD_STRUCTS = {'GUID', 'IID', 'CLSID', '_GUID', 'RECT', 'POINT', 'tagRECT', 'tagPOINT',
                'TheaterDataType',   # theater.h: chars, floats and ints only (lane Y3)
-               'VoxelRenderOrientation'}   # voxdrsys.h: nine ints (lane Y3)
-POD_SIZES = {'TheaterDataType': 0x70, 'VoxelRenderOrientation': 36}
+               'VoxelRenderOrientation',   # voxdrsys.h: nine ints (lane Y3)
+               'ZGradStruct',   # _zbuffer.h: five ints and a bool (lane Y13: Bit_Blit's z steps divided by zero)
+               'MouseStruct',   # mouse.h: seven ints, the cursors' frames (lane Y13: Draw_Waypoints divided by zero)
+               'DoStruct'}      # _infantr.h: four bytes, the infantry actions' rates and flags (lane Y13)
+POD_SIZES = {'TheaterDataType': 0x70, 'VoxelRenderOrientation': 36, 'ZGradStruct': 24, 'MouseStruct': 28, 'DoStruct': 4}
 ADDRESS = re.compile(r'_([0-9A-Fa-f]{8})$')
 
 
@@ -135,10 +138,19 @@ def main():
     ap.add_argument('--system-libs', nargs='*', default=[])
     ap.add_argument('--frameworks', nargs='*', default=[])
     ap.add_argument('--sdk', default='', help="the SDK whose system libraries count (the iOS build's; lane Y7)")
+    ap.add_argument('--target', choices=('apple', 'windows'), default='apple', help='object format (lane Y13: x86_64 Windows)')
+    ap.add_argument('--nm', default='nm', help="nm for the objects (Windows: the toolchain's llvm-nm)")
+    ap.add_argument('--sysroot', default='', help='Windows: the mingw-w64 sysroot')
     a = ap.parse_args()
+    if a.target == 'windows':
+        link_closure.NM, link_closure.PREFIX = a.nm, '_'
+
     paths = [l.strip() for l in a.inputs.read_text().splitlines() if l.strip()] + [str(p) for p in a.host]
     paths = [p for p in paths if not p.endswith(a.out.with_suffix('.cpp.o').name)]
-    system = link_closure.system_exports(a.sdk, frameworks=a.frameworks, libs=a.system_libs)
+    if a.target == 'windows':
+        system = link_closure.windows_system_exports(a.sysroot, a.system_libs)
+    else:
+        system = link_closure.system_exports(a.sdk, frameworks=a.frameworks, libs=a.system_libs)
     link_closure.DATA_FROM = RDATA[0]
     missing, _ = link_closure.missing_symbols(paths, system=system)
     rows = link_closure.classify(missing)
@@ -265,7 +277,11 @@ def main():
             'extern const ra2_original_place ra2_original_storage[] = {'] + [
             '    {0x%08X, %d, %s, %d},' % p for p in sorted(places)] + ['    {0, 0, 0, 0}};', '}', '']
     a.out.parent.mkdir(parents=True, exist_ok=True)
-    a.out.write_text('\n'.join(text))
+    body = '\n'.join(text)
+    if a.target == 'windows':
+        import coff_asm_labels   # the COFF spellings of the labels (no leading underscore)
+        body = coff_asm_labels.coff_text(body)
+    a.out.write_text(body)
     a.out.with_suffix('.json').write_text(json.dumps({k: sorted(v) for k, v in report.items()}, indent=1) + '\n')
     print('yr_data: %d globals defined (%d loaded from gamemd.exe, %d .bss, %d zero)' % (
         len(wanted), len(report['loaded']), len(report['bss']), len(report['zero'])))

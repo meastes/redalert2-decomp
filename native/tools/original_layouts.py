@@ -520,6 +520,8 @@ def yr_i686_support(build, cache):
     yr = yr.replace('#include "yr_crt.h"', '#include "%s"' % (YR_SDK / 'yr_crt.h'))
     put(d / 'yr_prelude_i686.h', yr)
     mingw = (build / 'gen-yr/mingw/_mingw.h').read_text(encoding='latin-1')
+    if NATIVE == 'win64' and '#define __LONG32 long\n' in mingw:
+        mingw = mingw.replace('#define __LONG32 long\n', '#define __LONG32 RA2_LONG\n', 1)   # (Windows: long kept; lane Y13)
     if '#define __LONG32 RA2_LONG\n' not in mingw:
         raise SystemExit('original_layouts: gen-yr/mingw/_mingw.h has no __LONG32 RA2_LONG')
     put(d / 'ov/_mingw.h', mingw.replace('#define __LONG32 RA2_LONG\n', '#define __LONG32 long\n'))
@@ -535,6 +537,12 @@ def yr_args(build, unit, triple, cache):
                  '-DRA2PORT_ALLOW_HOST'] + YR_DEFINES + ['-I', str(YR_SDK / 'i686')] + inc + DIALECT + YR_WARNINGS +
                 ['-include', str(d / 'prelude_i686.hpp'), '-include', str(d / 'yr_prelude_i686.h'),
                  '-idirafter', str(d / 'ov'), '-idirafter', str(gen / 'mingw'), str(unit)])
+    if triple == 'win64':
+        # The x86_64 Windows build's YR units (native/yr/yr.cmake, lane Y13): yr_win_first.h before the
+        # dialect header, the rewritten Win32 headers ahead of the toolchain's (-isystem).
+        return ([CXX[triple], '-include', str(YR_SDK / 'yr_win_first.h')] + TRIPLES[triple] + YR_DEFINES + inc + DIALECT +
+                YR_WARNINGS + ['-include', str(PRELUDE), '-include', str(YR_SDK / 'yr_prelude.h'),
+                               '-isystem', str(gen / 'mingw'), str(unit)])
     return ([CXX[triple]] + TRIPLES[triple] + YR_DEFINES + inc + DIALECT + YR_WARNINGS +
             ['-include', str(PRELUDE), '-include', str(YR_SDK / 'yr_prelude.h'), '-idirafter', str(gen / 'mingw'), str(unit)])
 

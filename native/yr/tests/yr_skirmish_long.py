@@ -54,8 +54,10 @@ LOAD_SECONDS = 40      # menus and the skirmish load before play starts
 FOUR_PLAYER_SCEN = 30
 
 
-def settings(opponents, difficulty):
-    slots = ''.join('Slot%02d=%d,-2,-2\n' % (i, SLOT_TYPE[difficulty] if i <= opponents else 1) for i in range(1, 8))
+def settings(opponents, difficulty, countries=()):
+    def country(i):
+        return countries[i - 1] if i <= len(countries) else -2
+    slots = ''.join('Slot%02d=%d,%d,-2\n' % (i, SLOT_TYPE[difficulty] if i <= opponents else 1, country(i)) for i in range(1, 8))
     scen = FOUR_PLAYER_SCEN if opponents > 1 else 0
     return ('[Intro]\nPlay=no\n\n[Skirmish]\nGameMode=1\nScenIndex=%d\nGameSpeed=1\nCredits=10000\nUnitCount=10\n' % scen +
             'ShortGame=yes\nSuperWeaponsAllowed=yes\nBuildOffAlly=yes\nMCVRepacks=yes\nCratesAppear=yes\n' + slots)
@@ -70,6 +72,8 @@ def main():
     ap.add_argument('--opponents', type=int, default=3, choices=range(1, 8))
     ap.add_argument('--difficulty', default='hard', choices=sorted(SLOT_TYPE))
     ap.add_argument('--dump-ms', type=int, default=10000)
+    ap.add_argument('--countries', default='', help="the opponents' countries in slot order, comma-separated "
+                    "(the setup's indexes: 0 America .. 8 Russia, 9 Yuri; default random), e.g. 8,8,9 for rockets and Yuri's weapons")
     a = ap.parse_args()
     if not a.data_dir or not os.path.exists(os.path.join(a.data_dir, 'gamemd.exe')):
         print('skipped: no Yuri\'s Revenge install (gamemd.exe) in --data-dir')
@@ -78,7 +82,7 @@ def main():
     os.makedirs(os.path.join(a.work, 'w'))
     os.makedirs(os.path.join(a.work, 'shots'))
     with open(os.path.join(a.work, 'w', 'RA2MD.INI'), 'w') as f:
-        f.write(settings(a.opponents, a.difficulty))
+        f.write(settings(a.opponents, a.difficulty, [int(c) for c in a.countries.split(",") if c.strip()]))
     script = os.path.join(a.work, 'long.script')
     with open(script, 'w') as f:
         f.write(SCRIPT)

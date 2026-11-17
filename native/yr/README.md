@@ -456,7 +456,45 @@ until the press: at most 2 changes (measured 2 in 310 presents; the after-the-fr
 Fixed on the way: YR's exit freed the menu drawers with the vector deleting destructor
 (gamemd.exe 0x0072B230, harmless at exit on Windows, an abort natively; fixups.json).
 
-### Next: iOS and Windows
+### Lane Y13 (2026-11-17): Yuri's Revenge for Windows, data the x86-64 traps found, the rocket
+
+* **The Windows build** (llvm-mingw cross-build on the Mac, as Red Alert 2's: `cmake -S native -B build/yr-win -G Ninja
+  -DCMAKE_TOOLCHAIN_FILE=native/cmake/llvm-mingw-x86_64.cmake -DRA2_NATIVE_SDL_SOURCE=<SDL 3.4.2> -DRA2_NATIVE_SUBSYSTEM=all
+  -DRA2_NATIVE_LINK_CLOSURE=ON -DRA2_NATIVE_YR=ON -DRA2_NATIVE_YR_MINGW=<llvm-mingw>/generic-w64-mingw32/include`, then
+  `ninja -C build/yr-win YRNative`): `YRNative.exe` (GUI subsystem, for players) and `yr-native.exe` (console, the tests),
+  self-contained (system DLLs and the UCRT only). What differs from the Mac build (yr.cmake `if(WIN32)` branches):
+  - headers: the rewritten Win32 headers are searched ahead of the toolchain's (`-isystem`), leaving out every header
+    the macOS SDK has (`yr_sdk.py --host-headers`), so the C library is the toolchain's as the Mac's is its SDK's;
+    `long` stays `long` (32 bits on Win64, VC6's width, the type clang's MS intrinsics use): `sdk/yr_win_first.h` reads
+    `_mingw.h` before `dialect_win.hpp` defines `__LP64__`, and `yr_prelude.h` spells the units' `RA2_LONG` as `long`;
+  - COFF spellings of the units' and glue's assembler labels (`tools/yr_coff.py`, also the multi-literal `.globl`
+    aliases), `yr_aliases.py`/`yr_data.py --target windows`, the link closure's `-alternatename` directives;
+  - the units' and glue's static initialisers move from `.ctors` to `.yrini$m` (`defer_initializers.py`, COFF) and
+    `yr_host_glue.cpp` runs them between its `.yrini$a`/`.yrini$z` markers after the original data is loaded;
+  - Red Alert 2's link options (`ra2_windows_game_link`: select-any, 8 MiB stack, icon).
+  Link closure 179 on Windows (the Mac's 184 less a few Win32 calls the system supplies; plus `XMP_Init` and two
+  `UnVQ` tables, mangled with `unsigned long`: Westwood Online and VQA only). ctest `yr-native-skirmish-smoke` runs
+  `yr-native.exe` under Wine (the Mac route: menus, a skirmish, Abort, the setup again): passes. Not tried on a real PC.
+* **Data the Windows build's divide traps found** (x86-64 faults on an integer division by zero; arm64 quietly gives 0,
+  so each was a silent fault on the Mac and iPhone too):
+  - `ZGradients` (Bit_Blit's depth steps), `MouseClass::MouseControl` (every cursor's frames) and
+    `InfantryClass::MasterDoControls` (the infantry actions' rates and flags) were never loaded from gamemd.exe (their
+    structures were not on yr_data.py's list of pointer-free structures); now they are;
+  - `DAT_00ABDE88` in the map unit is that unit's copy of geometry.h's `LEVEL_LEPTON_H` (gamemd.exe's initialiser
+    0x005617E0); nothing set it, so `Is_Shrouded` and the cell-height reads used 0 (fixups.json);
+  - the TechnoTypeClass constructor draft stored 1 in `IdleRate`; gamemd.exe stores it in `WalkRate` (+0x294). With
+    `WalkRate` 0 the walk frames never advanced and with `IdleRate` 1 every unit ran its idle animation each frame:
+    a likely cause of the user's unit animation glitches (to be checked by the user).
+  The Mac window dumps' black tactical view (lane Y12) is not seen in the fixed build's smoke run.
+* **NON-EXACT** `RocketLocomotionClass::Process` (gamemd.exe 0x006622C0; glue/rocket_native.inc): Red Alert 2's text
+  with gamemd.exe's cruise missile (CMisl), its launch state 6, the layer re-submit and the legal-cell move.
+  Link closure (Mac) 186 -> 184.
+* **Long game**: 45 minutes against three hard opponents (Russia, Russia, Yuri; `yr_skirmish_long.py --countries 8,8,9`,
+  new) on map 30: no trap, no fault.
+* **LAN, first look**: the main menu's Network button reaches `IPXManagerClass::Service` (a trap) and then a fault in
+  `Select_Game`; YR's LAN also needs the `MultiplayerGameMode` entries the closure lists (about 40). Not started.
+
+## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both
   games must be linked into the one executable. The design and its size: "iOS in one executable"
@@ -763,6 +801,10 @@ redraws its command bar only once the mouse passes over it.
   `MISSING:''` on its right end. The rocket locomotor's Process (0x006622C0) is still a trap (not reached by the chains).
 
 ## Next
+
+0. (lane Y13) LAN: `IPXManagerClass` (the RA2 tree has its twin) and the `MultiplayerGameMode` entries, then a
+   two-instance ctest as Red Alert 2's native-lan-pair; the Windows build on a real PC; the combined (one-game) app on
+   Windows (engines as DLLs).
 
 1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu
    will stop at its unmatched handlers (ListBoxHandler 14.7 KB, ComboBoxHandler 6.9 KB,

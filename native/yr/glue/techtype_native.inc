@@ -21,7 +21,7 @@ TechnoTypeClass::TechnoTypeClass(char const * ininame, SpeedType speed) :
 	BarrelAnimData(2, 1, 1, 1)
 {
 	Locomotor = CLSID_TeleportLocomotion;
-	IdleRate = 1;
+	WalkRate = 1;   // gamemd.exe 0x00710B02 stores 1 at +0x294, WalkRate (IdleRate, +0x298, stays 0; lane Y13)
 	SpecialThreatValue = 0.0;
 	MyEffectivenessCoefficient = 0.0;
 	TargetEffectivenessCoefficient = 0.0;

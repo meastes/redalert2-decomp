@@ -1418,6 +1418,17 @@
    "file": "src/vanim.cpp",
    "append": "vanim_native.inc",
    "why": "VoxelAnimClass's main constructor (0x007493B0) is unmatched in the YR tree; TibSun's text with gamemd.exe's audio and particle changes (lane Y12)."
+  },
+  {
+   "file": "src/rocket.cpp",
+   "append": "rocket_native.inc",
+   "why": "RocketLocomotionClass::Process (gamemd.exe 0x006622C0) is unmatched in the YR tree: Red Alert 2's text with gamemd.exe's YR changes (lane Y13)."
+  },
+  {
+   "file": "src/map.cpp",
+   "old": "extern int DAT_00ABDE88;\n",
+   "new": "#define DAT_00ABDE88 LEVEL_LEPTON_H   // the map unit's own copy of geometry.h's LEVEL_LEPTON_H (gamemd.exe 0x00ABDE88, set by its initialiser 0x005617E0)\n",
+   "why": "DAT_00ABDE88 is the map unit's copy of geometry.h's LEVEL_LEPTON_H (gamemd.exe's initialiser 0x005617E0 stores (int)(tan(RAD_90 - RAD_60) * CELL_LEPTON_DIAG * 0.5) there). Natively nothing set it: Is_Shrouded and the cell-height reads divided by zero (0 on arm64, a fault on x86-64; lane Y13)."
   }
  ]
 }

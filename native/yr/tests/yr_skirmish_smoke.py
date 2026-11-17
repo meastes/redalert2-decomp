@@ -15,6 +15,10 @@ score screen; the score screen needs a won or lost game (not scripted yet).
 Skipped (77) without the installed game (RA2 with Yuri's Revenge: gamemd.exe in --data-dir).
 
   yr_skirmish_smoke.py --binary <yr-native> --data-dir <game folder> --work <dir>
+                       [--wine-prefix <dir> [--wine <wine>]]
+
+The Windows build (lane Y13): --wine-prefix runs yr-native.exe under Wine in that fresh prefix (Wine
+is a local test host, native/tests/wine.py); skipped (77) when no Wine is found.
 """
 import argparse
 import glob
@@ -25,6 +29,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'tests'))
 import game_process  # noqa: E402  (native/tests: the game's process group, lane C19)
+import wine as winehost  # noqa: E402
 
 # The menus at 800x600 (RA2_NATIVE_MSG_LOG): Single Player (the main menu's first button), Skirmish
 # (Single Player's third), Start Game (the setup's first); in the game Escape opens Game Options,
@@ -51,6 +56,8 @@ def main():
     ap.add_argument('--data-dir', default='')
     ap.add_argument('--work', required=True)
     ap.add_argument('--seconds', type=int, default=75)
+    ap.add_argument('--wine-prefix', default='', help='run the Windows .exe under Wine in this fresh prefix')
+    ap.add_argument('--wine', default='')
     a = ap.parse_args()
     if not a.data_dir or not os.path.exists(os.path.join(a.data_dir, 'gamemd.exe')):
         print('skipped: no Yuri\'s Revenge install (gamemd.exe) in --data-dir')
@@ -65,8 +72,20 @@ def main():
                RA2_NATIVE_MOVIE_SKIP='1', RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_DIALOG_LOG='1')
     cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=never', '--run-seconds=%d' % a.seconds,
            '--write-dir=' + os.path.join(a.work, 'w'), '--input-script=' + script, '--game-args=-noaudio -CD.']
-    with open(os.path.join(a.work, 'run.log'), 'w') as log:
-        game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + 120)
+    prefix = None
+    if a.wine_prefix:
+        wine = winehost.find_wine(a.wine)
+        if not wine:
+            print('skipped: no Wine for the Windows build')
+            return 77
+        prefix = winehost.Prefix(wine, a.wine_prefix)
+        cmd, env = prefix.command(cmd), prefix.env(env)
+    try:
+        with open(os.path.join(a.work, 'run.log'), 'w') as log:
+            game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + 180)
+    finally:
+        if prefix:
+            prefix.close()
     text = open(os.path.join(a.work, 'run.log'), errors='replace').read()
     failures = []
     stop = [l for l in text.splitlines() if 'stopped:' in l]

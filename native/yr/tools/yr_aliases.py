@@ -60,16 +60,20 @@ def demangle(names):
     return dict(zip(names, out))
 
 
+NM = 'nm'
+PREFIX = ''   # '_' on Windows (lane Y13): COFF names are read in the Mach-O spelling, as link_closure.py does
+
+
 def nm(paths):
     defined, undefined = set(), set()
     for i in range(0, len(paths), 400):
-        text = subprocess.run(['nm', '-g'] + paths[i:i + 400], capture_output=True, text=True).stdout
+        text = subprocess.run([NM, '-g'] + paths[i:i + 400], capture_output=True, text=True).stdout
         for line in text.splitlines():
             parts = line.split()
             if len(parts) == 2 and parts[0] == 'U':
-                undefined.add(parts[1])
+                undefined.add(PREFIX + parts[1])
             elif len(parts) == 3:
-                defined.add(parts[2])
+                defined.add(PREFIX + parts[2])
     return defined, undefined - defined
 
 
@@ -92,7 +96,13 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--inputs', type=Path, required=True)
     ap.add_argument('--out', type=Path, required=True)
+    ap.add_argument('--target', choices=('apple', 'windows'), default='apple')
+    ap.add_argument('--nm', default='nm', help="nm for the objects (Windows: the toolchain's llvm-nm)")
     a = ap.parse_args()
+    global NM, PREFIX
+    NM = a.nm
+    if a.target == 'windows':
+        PREFIX = '_'
     paths = [l.strip() for l in a.inputs.read_text().splitlines() if l.strip()]
     defined, undefined = nm(paths)
     dem_undefined = demangle(sorted(undefined))

@@ -9,6 +9,7 @@ pieces that would clash with the host's C library replaced by the host's own (na
 holds those replacements, searched first). The C library itself is the host's.
 
     python3 native/yr/tools/yr_sdk.py --mingw <llvm-mingw>/generic-w64-mingw32/include --out build/yr-native/mingw
+           [--host-headers <macOS SDK>/usr/include]   (the Windows build: searched first, -isystem)
 """
 import argparse
 import re
@@ -117,6 +118,9 @@ POST = {
 }
 
 
+KEEP_ALL_LONG = False   # the Windows build (--host-headers): LLP64's long is VC6's (yr_prelude.h)
+
+
 def rewrite(text, name=''):
     for rx, rep in TOKENS:
         text = rx.sub(rep, text)
@@ -129,6 +133,8 @@ def rewrite(text, name=''):
         # Win64 headers withdraw the Win32 window-data names (DWL_USER, GWL_USERDATA, ...): the YR
         # tree uses them and the port rewrites send those calls to pointer-sized storage.
         text = re.sub(r'^[ \t]*#[ \t]*undef[ \t]+(?:DWL|GWL)_\w+[ \t]*$', '', text, flags=re.M)
+    if KEEP_ALL_LONG:
+        return text
     if name in KEEP_LONG:
         # its __LONG32 overloads are unsigned int on LP64, the same as the int ones beside them
         return text.replace('__LONG32', 'long')
@@ -141,11 +147,20 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--mingw', required=True)
     ap.add_argument('--out', required=True)
+    ap.add_argument('--host-headers', default='',
+                    help="the x86_64 Windows build (lane Y13): a header folder (the macOS SDK's usr/include) whose "
+                         "headers are left out, so the YR units see the rewritten Win32 headers ahead of the "
+                         "toolchain's and the toolchain's own C library headers, as the Mac build does")
     a = ap.parse_args()
     src, out = Path(a.mingw), Path(a.out)
+    host = Path(a.host_headers) if a.host_headers else None
+    global KEEP_ALL_LONG
+    KEEP_ALL_LONG = host is not None   # long stays long (32 bits on Win64, as VC6's)
     n = 0
     for f in src.rglob('*'):
         if not f.is_file():
+            continue
+        if host is not None and (host / f.relative_to(src)).exists():
             continue
         target = out / f.relative_to(src)
         text = rewrite(f.read_text(encoding='latin-1'), f.relative_to(src).as_posix())
