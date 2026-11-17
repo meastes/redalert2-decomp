@@ -113,6 +113,12 @@ platform layer. It earns no exact-match credit.
   (2026-11-17) labelled each from game.exe's callers: 110 reachable in the base game but on paths no
   test takes yet (each statically checked), 6 unreachable in the base game, 8 unreachable in the port
   (Westwood Online only, or a branch the port never takes); `native/behaviour_rewrites.json` `reach`.
+  Every one of the 311 rewrite rows now carries a behaviour verdict against the original (lane N2,
+  2026-11-17: the last 31, the hand-written-assembly ones among them, checked statically): 299 the
+  same (some apart from named, harmless edge cases), 4 fixed, 1 different by design, 3 kept (the
+  original loops forever there), 2 partly fixed (two menu-control procedures: the combo box's paint and
+  some rarely used edit-control messages), 2 not fixed (an unreachable tab control; LCW_Comp on 0-1
+  bytes, where the original reads past its data).
 - No signed or notarised builds: no TestFlight, no Mac notarisation, no Windows code signing.
   Gatekeeper and SmartScreen will warn.
 

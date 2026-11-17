@@ -31,6 +31,7 @@ import sys
 import tempfile
 
 import game_process
+import wine as winehost
 
 SKIP = 77
 FRAMES = 6000
@@ -145,10 +146,23 @@ def main():
     ap.add_argument('--data-dir', default='')
     ap.add_argument('--game-exe', default='')
     ap.add_argument('--log', default='')
+    ap.add_argument('--wine-prefix', default='')
+    ap.add_argument('--wine', default='')
     a = ap.parse_args()
     if not a.data_dir or not os.path.isdir(a.data_dir) or not a.game_exe or not os.path.isfile(a.game_exe):
         print('basics: no installed game given; skipped')
         return SKIP
+    prefix = None
+    if a.binary.lower().endswith('.exe'):
+        # The Windows build runs under Wine, in a prefix of its own (tests/wine.py).
+        if not a.wine_prefix:
+            print('basics: skipped (a Windows build without a Wine prefix)')
+            return SKIP
+        wine = winehost.find_wine(a.wine)
+        if not wine:
+            print('basics: Windows build and no Wine (set RA2_NATIVE_WINE); skipped')
+            return SKIP
+        prefix = winehost.Prefix(wine, a.wine_prefix)
     with tempfile.TemporaryDirectory(prefix='ra2-basics-') as work:
         os.makedirs(os.path.join(work, 'home'))
         os.makedirs(os.path.join(work, 'write'))
@@ -162,13 +176,25 @@ def main():
                '--write-dir=' + os.path.join(work, 'write'), '--game-args=-noaudio -CD.', '--skirmish=#5',
                '--skirmish-frames=%d' % FRAMES, '--skirmish-order=build']
         try:
-            p = game_process.run(cmd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                                 errors='replace', timeout=180)
-            out, code = p.stdout, p.returncode
-        except subprocess.TimeoutExpired as e:
-            out, code = (e.output or ''), 'timeout'
-            if isinstance(out, bytes):
-                out = out.decode(errors='replace')
+            for attempt in range(winehost.HOST_RETRIES + 1):
+                run_env, run_cmd = env, cmd
+                if prefix:
+                    run_cmd, run_env = prefix.command(cmd), prefix.env(env)
+                try:
+                    p = game_process.run(run_cmd, env=run_env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                         text=True, errors='replace', timeout=180 * (3 if prefix else 1))
+                    out, code = p.stdout, p.returncode
+                except subprocess.TimeoutExpired as e:
+                    out, code = (e.output or ''), 'timeout'
+                    if isinstance(out, bytes):
+                        out = out.decode(errors='replace')
+                why = winehost.host_failure(out, code == 'timeout', code if isinstance(code, int) else 0) if prefix else ''
+                if not why or attempt == winehost.HOST_RETRIES:
+                    break
+                print('basics: %s; running again' % why)
+        finally:
+            if prefix:
+                prefix.close()
     if a.log:
         with open(a.log, 'w') as f:
             f.write(out)

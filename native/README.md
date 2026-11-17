@@ -75,6 +75,11 @@ the player's own `game.exe` at run time. The Mac apps and the Simulator app are 
 (this Mac only); nothing is notarised or code-signed for distribution, so Gatekeeper and
 SmartScreen warn on other machines.
 
+The Windows tests run under Wine on the Mac: `native/build.sh windows` also builds the console
+build `ra2-native.exe` they launch; configure with `-DRA2_NATIVE_CENSUS_DATA_DIR=<game folder>` and
+`-DRA2_NATIVE_CENSUS_GAME_EXE=<game.exe>` (extra arguments), run `cmake --build build/release-win`
+for the test helpers, then `ctest --test-dir build/release-win -j2`.
+
 Extra arguments after the platform go to CMake's configure step (for example
 `native/build.sh mac -DRA2_NATIVE_DRAFTS=ON`), and `RA2_BUILD_DIR` picks another build folder.
 The Mac one-game app is `packaging/make_app.sh --one-game build/<dir>/ra2yr-native`: the thin host

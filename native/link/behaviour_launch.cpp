@@ -71,7 +71,10 @@ void Detect_CMOV_Availability()
 // remap[i] is nonzero, else all three by level (16.16 fixed point: the channel
 // is (byte * scale) >> 16, saturated to 255), and packs
 // (r & 0xF8) << 7 | (g & 0xF8) << 2 | b >> 3. The original has three paths
-// (MMX pmulhw, CMOV and plain) giving the same table; this is the plain one.
+// (MMX pmulhw, CMOV and plain); this is the plain one, the path taken with the
+// port's CPU flags (MMX byte 0x008015A2 and CMOV byte 0x008015A0 both 0). The CMOV
+// path gives the same table; the MMX one does not quite (pmulhw on scale >> 4
+// drops the low four bits and saturates above 8.0; packuswb clamps negatives).
 class PaletteClass;
 void __cdecl unknown_build_tint_table_0079777a(PaletteClass const *palette, unsigned short *table, int red, int green, int blue,
                           int level, unsigned char const *remap)

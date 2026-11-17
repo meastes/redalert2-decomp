@@ -13,8 +13,10 @@
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "returns the source bytes read (the asm's incount), not the output size",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same (returns the source bytes read, as the asm's mov eax,[incount]; the src/ header comment's 'uncompressed bytes' is wrong)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against vqa_uncomp.asm AudioUnzap and its delta tables"
   },
   {
    "entry": "0x007813EB",
@@ -27,8 +29,10 @@
    "source": "src/recovered/asm/vqa_uncomp.asm VQA_LCW_Uncompress",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against vqa_uncomp.asm VQA_LCW_Uncompress, normal and relative loops"
   },
   {
    "entry": "0x00780560",
@@ -41,8 +45,10 @@
    "source": "src/recovered/asm/vqa_sos.asm VQA_sosCODECInitStream",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against vqa_sos.asm sosCODECInitStream (VQASOS packed 12 bytes as sCompInfo)"
   },
   {
    "entry": "0x00780581",
@@ -56,8 +62,10 @@
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "tables generated (IMA ADPCM); the test compares all 1,424 entries of each with the .inc text",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from no return value (the asm leaves wBytes in eax for 16-bit mono/stereo; declared void, callers ignore it); a corrupt saved index with bit 0 set (never produced) would read the table off-alignment in the asm",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against vqa_sos.asm sosCODECDecompressData: dispatch, mono loop with its alignment/tail entries, stereo; generated tables equal difftb.inc/indextb.inc"
   },
   {
    "entry": "0x0077FF50",
@@ -70,8 +78,10 @@
    "source": "src/recovered/asm/unvq_asm.asm ASM_UnVQ_4x2",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from blocksperrow or numrows of 0 returning at once (the asm's loop runs at least once and its counter wraps)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against unvq_asm.asm UnVQ_4x2"
   },
   {
    "entry": "0x0077FFE6",
@@ -84,8 +94,10 @@
    "source": "src/recovered/asm/unvq_asm.asm ASM_UnVQ_4x4",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from blocksperrow or numrows of 0 returning at once (the asm's loop runs at least once and its counter wraps)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against unvq_asm.asm UnVQ_4x4"
   },
   {
    "entry": "0x007800A4",
@@ -98,8 +110,10 @@
    "source": "src/recovered/asm/unvq_asm.asm ASM_UnVQ_4x4_HALF",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from blocksperrow or numrows of 0 returning at once (the asm's loop runs at least once and its counter wraps)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against unvq_asm.asm UnVQ_4x4_HALF"
   },
   {
    "entry": "0x007801D8",
@@ -112,8 +126,10 @@
    "source": "src/recovered/asm/unvq_asm.asm ASM_UnVQ1_C1_4x4",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from blocksperrow or numrows of 0 returning at once (the asm's loop runs at least once and its counter wraps)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against unvq_asm.asm UnVQ1_C1_4x4"
   },
   {
    "entry": "0x0079813A",
@@ -126,8 +142,10 @@
    "source": "src/recovered/asm/winasm.asm BRIGHTEN_COLOR (rgb565)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from a width or height of 0 returning at once (the asm's dec/jnz counters wrap)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm BRIGHTEN_COLOR macro (saturation min(255, c + (c*s>>8)), masks, pitches)"
   },
   {
    "entry": "0x00798217",
@@ -140,8 +158,10 @@
    "source": "src/recovered/asm/winasm.asm BRIGHTEN_COLOR (rgb655)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from a width or height of 0 returning at once (the asm's dec/jnz counters wrap)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm BRIGHTEN_COLOR macro (saturation min(255, c + (c*s>>8)), masks, pitches)"
   },
   {
    "entry": "0x007982F4",
@@ -154,8 +174,10 @@
    "source": "src/recovered/asm/winasm.asm BRIGHTEN_COLOR (rgb556)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from a width or height of 0 returning at once (the asm's dec/jnz counters wrap)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm BRIGHTEN_COLOR macro (saturation min(255, c + (c*s>>8)), masks, pitches)"
   },
   {
    "entry": "0x007983D1",
@@ -168,8 +190,10 @@
    "source": "src/recovered/asm/winasm.asm BRIGHTEN_COLOR (rgb555)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from a width or height of 0 returning at once (the asm's dec/jnz counters wrap)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm BRIGHTEN_COLOR macro (saturation min(255, c + (c*s>>8)), masks, pitches)"
   },
   {
    "entry": "0x007984C0",
@@ -182,8 +206,10 @@
    "source": "src/recovered/asm/winasm.asm MMX_BRIGHTEN_COLOR (rgb565)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from a width or height of 0 returning at once (the asm's dec/jnz counters wrap)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm MMX_BRIGHTEN_COLOR macro (unpack, pmullw, psrlw, paddusb, per-format masks)"
   },
   {
    "entry": "0x00798602",
@@ -196,8 +222,10 @@
    "source": "src/recovered/asm/winasm.asm MMX_BRIGHTEN_COLOR (rgb555)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from a width or height of 0 returning at once (the asm's dec/jnz counters wrap)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm MMX_BRIGHTEN_COLOR macro (unpack, pmullw, psrlw, paddusb, per-format masks)"
   },
   {
    "entry": "0x00798740",
@@ -211,8 +239,10 @@
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "packs G with six bits at bit 6 (its top bit lands on R bit 11), as the archive constants do",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from a width or height of 0 returning at once (the asm's dec/jnz counters wrap)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm MMX_BRIGHTEN_COLOR macro (unpack, pmullw, psrlw, paddusb, per-format masks)"
   },
   {
    "entry": "0x00798880",
@@ -226,8 +256,10 @@
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "masks G << 4 with 0x423A0A60 (the archive constant), R unmasked",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from a width or height of 0 returning at once (the asm's dec/jnz counters wrap)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm MMX_BRIGHTEN_COLOR macro (unpack, pmullw, psrlw, paddusb, per-format masks)"
   },
   {
    "entry": "0x00799241",
@@ -240,8 +272,10 @@
    "source": "src/recovered/asm/winasm.asm Asm_Interpolate",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from a line count of 0 or source_width < 4 not looping (the asm's dec/jnz wraps)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm Asm_Interpolate"
   },
   {
    "entry": "0x007992E6",
@@ -254,8 +288,10 @@
    "source": "src/recovered/asm/winasm.asm Asm_Interpolate_Line_Double",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from the same zero-count guards as Asm_Interpolate",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm Asm_Interpolate_Line_Double"
   },
   {
    "entry": "0x0079943B",
@@ -269,8 +305,10 @@
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "the last output line interpolates the source line after the last one (the original reads it); kept",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from degenerate counts (lines <= 1 or source_width < 4: no iterations, where the asm runs its body once and wraps)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against winasm.asm Asm_Interpolate_Line_Interpolate with Interpolate_Single_Line/Interpolate_Between_Lines"
   },
   {
    "entry": "0x0077F274",
@@ -284,8 +322,10 @@
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "virtual 1 GHz TSC (monotonic nanoseconds)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from the virtual TSC (the port's nanosecond game clock instead of rdtsc)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against detproc.asm Get_CPU_Clock"
   },
   {
    "entry": "0x00534D40",
@@ -299,8 +339,10 @@
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "register-program transliteration; the out-of-range esi[64] read is skipped (cannot change the output)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "differs, not fixed: datasize <= 1 (the original reads past the data: for 1 byte it emits 82 b0 b1 80, or a bogus fill code, where the native emits 81 b0 80; readers use the stored uncompressed count, so round trips are unaffected; copying it would read out of bounds); every datasize >= 2 path matches",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against the evidenced __asm in src/recovered/lcw/LCW_Comp.cpp and the exe's byte-sized length test at 0x00534E88"
   },
   {
    "entry": "0x004861C0",
@@ -313,8 +355,10 @@
    "source": "src/recovered/classes/BlitTransXlat_unsigned_short/BlitForward.cpp (evidenced __asm, TibSun blitblit.h)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from len <= 0 drawing nothing (the original's counter wraps for a negative len)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against the evidenced __asm in src/recovered/classes/BlitTransXlat_unsigned_short/BlitForward.cpp"
   },
   {
    "entry": "0x005ABF60",
@@ -328,8 +372,10 @@
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "unreferenced natively; defines TSC_Low/TSC_High (0x00A71780/0x00A7177C) itself",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from the virtual TSC",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against the evidenced __asm in src/recovered/mpu.cpp RDTSC"
   },
   {
    "entry": "0x005ABF70",
@@ -343,8 +389,10 @@
    "test": "native/tests/asm_check.cpp (native-asm-check)",
    "notes": "returns 1000 (the virtual TSC rate in MHz) instead of measuring it",
    "reach": "reached by a test",
-   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
-   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; static verdict: behaviour_verdict, N2 2026-11-17)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp",
+   "behaviour_verdict": "same apart from the virtual TSC and performance counter (measures about 1000 MHz) and two divide-by-zero guards; it spins on the game clock, so it must not run while the host pause holds it (start-up only)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against src/recovered/mpu.cpp Get_RDTSC_CPU_Speed line by line"
   },
   {
    "entry": "0x00481BF0",
@@ -410,7 +458,9 @@
    "notes": "5:5:5 light table; the plain path",
    "reach": "unreachable in the port",
    "reach_reason": "LightConvertClass::Apply_Tint calls it (0x00538D08) only on the 5:5:5 branch of its PrimaryColorMode dispatch (0x00538CE5); the port's DirectDraw stand-in reports RGB565 (port/src/ddraw_dsound.cpp, red mask 0xF800)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv",
+   "behaviour_verdict": "same apart from implementing only the plain path, the one the original takes with the port's CPU flags (MMX 0x008015A2 and CMOV 0x008015A0 bytes 0); the CMOV path gives the same table, the MMX path differs slightly (comment corrected)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against the exe's instructions 0x0079777A-0x00797A41"
   },
   {
    "entry": "0x00797440",
@@ -3326,7 +3376,9 @@
    "exact": false,
    "file": "native/link/behaviour_m22_release.cpp",
    "source": "pass-6a decompiles: each calls free 0x00781D3B or operator new",
-   "notes": "Scout1177 M22 seed vector destructors' CRT callees (generated list)"
+   "notes": "Scout1177 M22 seed vector destructors' CRT callees (generated list)",
+   "behaviour_verdict": "same: each of the 356 distinct names (137 release_buffer_, 137 release_object_, 29 release_, 43 storage_, 10 allocate_storage_) is at an address whose original function calls free 0x00781D3B (release kinds) or operator new 0x00782017 (storage kinds)",
+   "behaviour_checked_by": "N2 2026-11-17: scripted scan of each named address's instructions in game.exe"
   },
   {
    "entry": "0x00493DF0",
@@ -3436,7 +3488,9 @@
    "notes": "rewritten over current headers (local velocity, EMP bullet null guard); Scout1208 (M26)",
    "reach": "reviewed",
    "reach_reason": "BuildingClass vtable slot 142 (Mission_Missile): a building in the missile mission (a super weapon building launching); behaviour verdict still open (rewritten from the 99.77 parked draft over current headers)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv",
+   "behaviour_verdict": "same apart from the documented native guard (no recorded super weapon ends the launch instead of reading SuperWeaponTypes[-1]) and a null check before the bullet's Release (the original calls it unchecked)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against the exe's instructions 0x00448400-0x00448FB4 and both jump tables (silo states 0-4, EM pulse states 0-3); Create_Animation_At_Object 0x00438B80 is the original's inlined PSIWARN sequence"
   },
   {
    "entry": "0x007225B0",
@@ -4181,7 +4235,9 @@
    "exact": false,
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/unvq_asm.asm",
-   "notes": "C16: portable rewrite of the adopted TibSun procedure (the one-colour block is HicolorTable[p & 0x7FFF]); VQAClass::Play_VQA installs it for a colour mode 1 movie. native-asm-check."
+   "notes": "C16: portable rewrite of the adopted TibSun procedure (the one-colour block is HicolorTable[p & 0x7FFF]); VQAClass::Play_VQA installs it for a colour mode 1 movie. native-asm-check.",
+   "behaviour_verdict": "same apart from blocksperrow or numrows of 0 returning at once (the asm's loop runs at least once and its counter wraps)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against unvq_asm.asm UnVQ1_C1_TABLE"
   },
   {
    "entry": "0x0077FE89",
@@ -4192,7 +4248,9 @@
    "exact": false,
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/unvq_asm.asm",
-   "notes": "C16: as 0x0077FD80, drawing the block's rows 0 and 2 only; installed only with VQA option 11, which nothing sets. native-asm-check."
+   "notes": "C16: as 0x0077FD80, drawing the block's rows 0 and 2 only; installed only with VQA option 11, which nothing sets. native-asm-check.",
+   "behaviour_verdict": "same apart from blocksperrow or numrows of 0 returning at once (the asm's loop runs at least once and its counter wraps)",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against unvq_asm.asm UnVQ1_C1_TABLE_ALT and the exe's 0x0077FE89-0x0077FF48"
   },
   {
    "entry": "0x0070BBC0",
@@ -4203,7 +4261,9 @@
    "exact": false,
    "file": "native/link/behaviour_c16_vqa.cpp",
    "source": "src/recovered/unvqtblc.cpp",
-   "notes": "C16 (owner item 1, 2026-11-15): Written from the original's instructions (UnVQ2_4x4_Table 0x0070B820's commands, two lines per block: rows 0 and 2). native-vqa-selftest."
+   "notes": "C16 (owner item 1, 2026-11-15): Written from the original's instructions (UnVQ2_4x4_Table 0x0070B820's commands, two lines per block: rows 0 and 2). native-vqa-selftest.",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against the exe's instructions 0x0070BBC0-0x0070BF59"
   },
   {
    "entry": "0x0070C0A0",
@@ -4214,7 +4274,9 @@
    "exact": false,
    "file": "native/link/behaviour_c16_vqa.cpp",
    "source": "src/recovered/unvqtblc.cpp",
-   "notes": "C16 (owner item 1, 2026-11-15): The parked draft (src/recovered/unvqtblc.cpp RA2_NON_MATCHING, 75.55) checked against the original's instructions and carried natively. native-vqa-selftest."
+   "notes": "C16 (owner item 1, 2026-11-15): The parked draft (src/recovered/unvqtblc.cpp RA2_NON_MATCHING, 75.55) checked against the original's instructions and carried natively. native-vqa-selftest.",
+   "behaviour_verdict": "same",
+   "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against the exe's instructions 0x0070C0A0-0x0070C43A"
   },
   {
    "entry": "0x007746C0",
@@ -4242,8 +4304,8 @@
    "file": "native/link/behaviour_m23_surface.cpp",
    "source": "the original's code (pass-6a decompile broken), M25 Scout1202",
    "notes": "listed by lane N1 (the rewrite had no row); its header comment lists what it keeps and its one known difference (the weight clamped to 0..256: the original indexes past the falloff table for an intensity above 1).",
-   "behaviour_verdict": "cannot tell: not checked instruction by instruction (lane N1 ran out of time box); the laser beam draws as the original in the harness order laser (d/laser.png, M25)",
-   "behaviour_checked_by": "N1 2026-11-17: listed, not statically checked",
+   "behaviour_verdict": "same apart from the weight clamped to 0..256 (the original indexes past the falloff table for an intensity above 1) and a null AlphaBuffer (0x008315B4) returning false (the original checks only DepthBuffer 0x00839C6C and would fault); abuf/zbuf names are swapped against their classes but each reads the right buffer",
+   "behaviour_checked_by": "N2 2026-11-17: static check against the original's instructions 0x004AC650-0x004ADDFD (falloff table, clip, sort, clipped-end depths, buffer setup, all four bodies, per-pixel test, blend and write_depth); callees matched by address only",
    "reach": "reviewed",
    "reach_reason": "DSurface vtable slot 15; LaserDrawClass::Draw_It 0x005334F0 (Prism towers, laser weapons) draws with it; the harness order laser reached it in M25",
    "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"

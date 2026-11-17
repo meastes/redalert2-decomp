@@ -114,7 +114,7 @@ build_windows() {
   RA2_LLVM_MINGW="$mingw" cmake -S native -B "$b" -G Ninja \
         -DCMAKE_TOOLCHAIN_FILE="$root/native/cmake/llvm-mingw-x86_64.cmake" -DRA2_LLVM_MINGW="$mingw" \
         -DRA2_NATIVE_SDL_SOURCE="$sdl" -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON "$@"
-  cmake --build "$b" --target RA2Native
+  cmake --build "$b" --target RA2Native ra2-native   # ra2-native.exe: the console build the Wine tests run
   echo "Built: $b/RA2Native.exe (self-contained: copy it to the Windows PC on its own)"
 }
 

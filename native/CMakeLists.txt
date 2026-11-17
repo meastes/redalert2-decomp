@@ -683,15 +683,17 @@ if(RA2_NATIVE_SDL)
         #      RadiusCount table's native view, native_units.py).
         add_test(NAME native-tank-damage COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/tank_damage.py"
                  --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
-                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-tank-damage.log")
-        set_tests_properties(native-tank-damage PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-tank-damage.log"
+                 ${ra2_wine_args_tankdamage})
+        set_tests_properties(native-tank-damage PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1000)
         # 12b'''. The basics (lane P2, fast tier): one uncapped skirmish, each check its own line:
         #      a tank's shell damages a tank, the target dies and is removed, a scout lifts the
         #      shroud, the barracks trains GIs, the refinery's harvester delivers (tests/basics.py).
         add_test(NAME native-basics COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/basics.py"
                  --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
-                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-basics.log")
-        set_tests_properties(native-basics PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
+                 --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-basics.log"
+                 ${ra2_wine_args_basics})
+        set_tests_properties(native-basics PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
         # 12c'. HD vehicles 3x (C17): the same skirmish at 3x (the 1x colour fill in the gaps the thirds
         #      leave), and the air-base case at 2x and 3x: a Patriot's voxel turret and two paradrops'
         #      cargo plane on screen, each kind shown at Nx (tests/hd_vehicles.py --case air-base).

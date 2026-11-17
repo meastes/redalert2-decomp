@@ -28,7 +28,8 @@
 //   - Otherwise every earlier position (from the start of the data) holding
 //     the current byte is tried: the candidate is compared only if it also
 //     matches at offset count-1 (the best length so far); the longest match
-//     wins, the first one on ties.
+//     wins, the later one on ties (the original keeps a match unless it is
+//     shorter: jb searchloop).
 //   - Length <= 2: the byte is appended to the open literal (80+n), opening a
 //     new one when none is open or it holds 63 bytes. 3..10 with a distance
 //     <= 0xFFF: 0LLLdddd dddddddd (relative). Up to 64: 11LLLLLL abs16.
