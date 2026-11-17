@@ -5,6 +5,15 @@ Current state only (2026-11-05 05:09Z). Numbers: [STATUS.md](STATUS.md). Workflo
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
+## Owner state (2026-11-17 ~15:00Z)
+
+- historical/ removed at the user's request (confirmed 2026-11-17) in c479eed52; local tag `historical-final` = 78b1b11f9, public tag `historical-final` = the public snapshot that still holds it.
+- README rewritten for first-time readers (review read it as an outsider); PORTS_FACTS current as of 2026-11-17.
+- Ruling: rename landings must also build Yuri's Revenge (RA2_NATIVE_YR=ON). The owner native gate does not, and CB s2's native_rekey renamed a YR glue draft (fixed in 3eb2eb164).
+- Running: Y11 (YR iOS polish: menu scale per the original plus a "Scale to fit" Menu fill choice, the loading screen, Fire_At). No other lanes: memory guard (swap over 8 GB at times).
+- Open for the user: YR keyboard on the Duo; steps for the loading-screen Skip button and unit animation glitches; YR save check on Windows; review asks whether the README names the AI-agent method.
+- Follow-up: about 43 files still mention FUN_ names in comments (code is clean); CA2/R1 field tail prep in lane-ca build/r1/f; reference hits left: 0x577010, 0x673090 (91.55), 0x716780 (needs a bounds pass), 0x73A680 (class unknown).
+
 ## After a compaction (owner checklist)
 
 0. Run `private/tools/owner_checks.sh` (Windows deliveries/status, mirror HEAD, disks, reference pull) and `private/tools/pull_references.sh` before the first status; paste the Windows line with its check time.
