@@ -878,7 +878,7 @@ void __fastcall Fill_In_Data_0065cdd0()
     if (!Debug_Map) {
         Map.unknown_slot54(1);
         if (unknown_game_mode_a3d298 == 0) {
-            Cell cell = Scen->Waypoints[unknown_scenario_checkpoint_00855a90.Variables[0] ? Scen->AltHomeCell : Scen->HomeCell];
+            Cell cell = Scen->Waypoints[Environment.Variables[0] ? Scen->AltHomeCell : Scen->HomeCell];
             Scen->Views[0] = Scen->Views[1] =
                 Scen->Views[2] = Scen->Views[3] = cell;
             CoordStruct coord = Cell_Center(cell);
@@ -1231,7 +1231,7 @@ void __fastcall Do_Win_0065d7f0()
         WWKeyboard->Clear();
     }
     WWMouse->Show_Mouse();
-    unknown_scenario_checkpoint_00855a90.Capture_004B5AB0();
+    Environment.Capture_004B5AB0();
     Scen->TechLevel++;
     if ((unknown_game_mode_a3d298 == 3 || unknown_game_mode_a3d298 == 4) && unknown_session_a3d29c != 0
         && unknown_session_a3d29c->unknown_slot2()) {
@@ -1281,7 +1281,7 @@ void __fastcall Do_Win_0065d7f0()
             Ipx.Set_Timing(Max(Ipx.Global_Response_Time() + 2, 60), -1, 600, true);
         }
     }
-    unknown_scenario_checkpoint_00855a90.Restore_004B5B40();
+    Environment.Restore_004B5B40();
     if (ToolTips != 0) {
         ToolTips->Enable(unknown_tooltips_enabled_a40b34);
     }
@@ -1410,7 +1410,7 @@ void __fastcall Do_Lose_0065dec0()
                 Ipx.Set_Timing(Max(Ipx.Global_Response_Time() + 2, 60), -1, 600, true);
             }
         }
-        unknown_scenario_checkpoint_00855a90.Restore_004B5B40();
+        Environment.Restore_004B5B40();
         if (ToolTips != 0) {
             ToolTips->Enable(unknown_tooltips_enabled_a40b34);
         }
@@ -1448,7 +1448,7 @@ void __fastcall Do_Restart_0065e440()
     Map.Set_Default_Mouse(0, false);
     WWKeyboard->Clear();
     Start_Scenario_0065bc70(Scen->FileName, false, Scen->Campaign);
-    unknown_scenario_checkpoint_00855a90.Restore_004B5B40();
+    Environment.Restore_004B5B40();
     while (timer.Value() > 0) {
         Service_Game_IO_00481fb0();
     }

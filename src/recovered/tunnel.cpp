@@ -178,7 +178,7 @@ void __stdcall TunnelLocomotionClass::Stop_Moving()
     case 4: {
         CoordStruct pos = LinkedTo->Coord;
         if (Point_Length(Point2D(pos.X, pos.Y) - Point2D(DestinationCoord.X, DestinationCoord.Y)) > unknown_geometry_diagonal) {
-            Cell cell = LinkedTo->unknown_slot104();
+            Cell cell = LinkedTo->Get_Cell();
             Cell nearby = Map.Nearby_Location(cell, 1, Map.Zone(cell, 0, false), 0, false, Point2D(1, 1), 0, 0, 1, 1, Cell(0, 0), 0);
             if (nearby == unknown_geometry_k) {
                 nearby = Map.Nearby_Location(cell, 1, -1, 0, false, Point2D(1, 1), 0, 0, 1, 1, Cell(0, 0), 0);
@@ -368,9 +368,9 @@ void TunnelLocomotionClass::Process_Tunneling()
   coord=DestinationCoord;
   coord.Z=-256;
   if(LinkedTo->Can_Enter_Cell(&Map[CoordStruct(LinkedTo->Coord)],-1,-1,0,true) && Map.Unknown_0055A7F0(CoordStruct(LinkedTo->Coord))) {
-   Cell cell=LinkedTo->unknown_slot104();
+   Cell cell=LinkedTo->Get_Cell();
    cell=Map.Nearby_Location(cell,1,Map.Zone(cell,0,false),0,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
-   if(cell==unknown_geometry_k) cell=Map.Nearby_Location(LinkedTo->unknown_slot104(),1,-1,6,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
+   if(cell==unknown_geometry_k) cell=Map.Nearby_Location(LinkedTo->Get_Cell(),1,-1,6,false,Point2D(1,1),false,false,true,true,Cell(0,0),0);
    if(cell==unknown_geometry_k) {
     LinkedTo->Take_Damage(&LinkedTo->Strength,0,Rules->C4Warhead,0,true,true);
     return;

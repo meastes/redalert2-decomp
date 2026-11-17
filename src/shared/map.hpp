@@ -152,7 +152,7 @@ public:
     MapClass();                                                                 // 0x00547960
     MapClass(NoInitClass const &noinit);                                        // 0x00547A60
     // A cell test with a flag (0x0055A660; radar 0x00630340 passes true).
-    bool Unknown_0055A660(Cell const &cell, bool flag);
+    bool In_Local_Radar(Cell const &cell, bool flag);
     void Area_Reduce_Tiberium(Cell const &cell);      // 0x0055D990
     void Unknown_00562F50(CellClass *cell); // 00562F50: observed thiscall/RET4; unused return hypothesis
     CellClass *Find_Nearby_Shroud(AbstractClass *object);                         // 0x005629D0 (the cell under an object; hypothesis)

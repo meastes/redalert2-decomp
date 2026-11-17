@@ -88,24 +88,13 @@ class Leaf_40d110 { public: unsigned int get(unsigned int unused_argument); };
 unsigned int Leaf_40d110::get(unsigned int unused_argument) { unsigned int unused_this_address = (unsigned int)this; unsigned int return_value; unsigned int unused_value; return_value = 1; return return_value; }
 
 
-// 0x0040d130: function not yet identified
-//
-// Body: 1 bytes (frozen inventory bound).
-// Referenced from 5 sites (data).
-// Ghidra prototype: void FUN_0040d130(void)
-//
-// Types and names are Ghidra placeholders;
-// rename and retype as the purpose becomes known.
-//
+// unknown_empty_0040d130 (0x0040D130): no name evidence; an empty body referenced from five data sites
 
-namespace seed_0040d130 {
-
-void  FUN_0040d130(void)
+void  unknown_empty_0040d130(void)
 {
     return;
 }
 
-}  // namespace seed_0040d130
 
 
 // ScrollClass::Init_IO (0x0040D140)

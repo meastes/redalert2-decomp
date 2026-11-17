@@ -133,7 +133,7 @@
    "padding_bytes": 7
   },
   {
-   "symbol": "?unknown_slot24@TechnoClass@@UAE_NXZ",
+   "symbol": "?Is_Players_Army@TechnoClass@@UAE_NXZ",
    "entry": "006c1320",
    "body_bytes": 89,
    "padding_bytes": 7
@@ -1878,7 +1878,7 @@
    "address": "007b2640",
    "bytes": 24,
    "kind": "rtti",
-   "section": 184
+   "section": 193
   },
   {
    "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PAVTechnoClass@@@@8",
@@ -1913,21 +1913,21 @@
    "address": "007b270c",
    "bytes": 5,
    "kind": "rtti",
-   "section": 185
+   "section": 194
   },
   {
    "symbol": "??_R3?$VectorClass@PAVTechnoClass@@@@8",
    "address": "007b2718",
    "bytes": 16,
    "kind": "rtti",
-   "section": 186
+   "section": 195
   },
   {
    "symbol": "??_R4?$VectorClass@PAVTechnoClass@@@@6B@",
    "address": "007b2728",
    "bytes": 20,
    "kind": "rtti",
-   "section": 188
+   "section": 197
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@PAVObjectClass@@@@8",
@@ -2207,21 +2207,21 @@
    "address": "007b4c04",
    "bytes": 5,
    "kind": "rtti",
-   "section": 195
+   "section": 190
   },
   {
    "symbol": "??_R3?$VectorClass@H@@8",
    "address": "007b4c10",
    "bytes": 16,
    "kind": "rtti",
-   "section": 196
+   "section": 191
   },
   {
    "symbol": "??_R4?$VectorClass@H@@6B@",
    "address": "007b4c20",
    "bytes": 20,
    "kind": "rtti",
-   "section": 197
+   "section": 192
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@H@@8",
@@ -2383,42 +2383,42 @@
    "address": "007c0450",
    "bytes": 20,
    "kind": "rtti",
-   "section": 189
+   "section": 184
   },
   {
    "symbol": "??_R4RadioClass@@6BINoticeSink@@@",
    "address": "007c0468",
    "bytes": 20,
    "kind": "rtti",
-   "section": 190
+   "section": 185
   },
   {
    "symbol": "??_R4RadioClass@@6BIRTTITypeInfo@@@",
    "address": "007c0480",
    "bytes": 20,
    "kind": "rtti",
-   "section": 191
+   "section": 186
   },
   {
    "symbol": "??_R2RadioClass@@8",
    "address": "007c0498",
    "bytes": 45,
    "kind": "rtti",
-   "section": 192
+   "section": 187
   },
   {
    "symbol": "??_R3RadioClass@@8",
    "address": "007c04c8",
    "bytes": 16,
    "kind": "rtti",
-   "section": 193
+   "section": 188
   },
   {
    "symbol": "??_R4RadioClass@@6BIPersistStream@@@",
    "address": "007c04d8",
    "bytes": 20,
    "kind": "rtti",
-   "section": 194
+   "section": 189
   },
   {
    "symbol": "??_R4TechnoClass@@6BINoticeSource@@@",
@@ -2467,7 +2467,7 @@
    "address": "007cd348",
    "bytes": 45,
    "kind": "rtti",
-   "section": 187
+   "section": 196
   },
   {
    "symbol": "??_R0?AV?$DynamicVectorClass@PAVTechnoClass@@@@@8",
@@ -6399,6 +6399,10 @@
    "address": "005d4e90"
   },
   {
+   "symbol": "?Destination_Coord@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
    "symbol": "?Detach@CargoClass@@QAEXPAVFootClass@@@Z",
    "address": "00468a70"
   },
@@ -6723,6 +6727,10 @@
    "address": "0069ae40"
   },
   {
+   "symbol": "?Get_Cell@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "0041b320"
+  },
+  {
    "symbol": "?Get_Cell_Ptr@ObjectClass@@UAEPAVAbstractClass@@XZ",
    "address": "005d51e0"
   },
@@ -6859,6 +6867,10 @@
    "address": "005d5410"
   },
   {
+   "symbol": "?In_Local_Radar@MapClass@@QAE_NABVCell@@_N@Z",
+   "address": "0055a660"
+  },
+  {
    "symbol": "?In_Radar@MapClass@@QAE_NABVCell@@@Z",
    "address": "0054aab0"
   },
@@ -6961,6 +6973,10 @@
   {
    "symbol": "?Is_Player_Names@RadarClass@@QAE_NXZ",
    "address": "006331a0"
+  },
+  {
+   "symbol": "?Is_Players_Army@ObjectClass@@UAE_NXZ",
+   "address": null
   },
   {
    "symbol": "?Is_Projectile_Trajectory_Valid@@YI_NHHHN@Z",
@@ -7595,10 +7611,6 @@
    "address": "0054f7c0"
   },
   {
-   "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
-   "address": "0055a660"
-  },
-  {
    "symbol": "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z",
    "address": "0055a740"
   },
@@ -7859,10 +7871,6 @@
    "address": null
   },
   {
-   "symbol": "?unknown_slot104@ObjectClass@@UBE?AVCell@@XZ",
-   "address": "0041b320"
-  },
-  {
    "symbol": "?unknown_slot111@ObjectClass@@UAE_NXZ",
    "address": null
   },
@@ -7927,10 +7935,6 @@
    "address": null
   },
   {
-   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
-   "address": "00410290"
-  },
-  {
    "symbol": "?unknown_slot202@TechnoClass@@UAE_NXZ",
    "address": null
   },
@@ -7960,10 +7964,6 @@
   },
   {
    "symbol": "?unknown_slot248@TechnoClass@@UAEXABUPoint2D@@ABVRect@@_N@Z",
-   "address": null
-  },
-  {
-   "symbol": "?unknown_slot24@ObjectClass@@UAE_NXZ",
    "address": null
   },
   {
@@ -8358,11 +8358,11 @@
   },
   {
    "symbol": "??_7MissionClass@@6BIPersistStream@@@",
-   "reason": "relocation target unbound: ?unknown_slot24@ObjectClass@@UAE_NXZ"
+   "reason": "relocation target unbound: ?Is_Players_Army@ObjectClass@@UAE_NXZ"
   },
   {
    "symbol": "??_7RadioClass@@6BIPersistStream@@@",
-   "reason": "relocation target unbound: ?unknown_slot24@ObjectClass@@UAE_NXZ"
+   "reason": "relocation target unbound: ?Is_Players_Army@ObjectClass@@UAE_NXZ"
   },
   {
    "symbol": "??_7BSurface@@6B@",

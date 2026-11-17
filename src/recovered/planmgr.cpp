@@ -879,7 +879,7 @@ void PlanningNodeClass::Dump() const
             if (member->BranchIndex == b) {
                 TechnoClass *techno = member->Owner;
                 char const *name = techno->Class_Of()->ID;
-                Cell cell = techno->unknown_slot104();
+                Cell cell = techno->Get_Cell();
                 Debug_Printf("  Member [%s];  Cell location[%d, %d]\n", name, cell.X, cell.Y);
             }
         }
@@ -895,7 +895,7 @@ void PlanningNodeClass::Dump() const
             if (member->Active) {
                 TechnoClass *techno = member->Owner;
                 char const *name = techno->Class_Of()->ID;
-                Cell cell = techno->unknown_slot104();
+                Cell cell = techno->Get_Cell();
                 Debug_Printf("  Member [%s];  Cell location[%d, %d]\n", name, cell.X, cell.Y);
             }
         }
@@ -2633,15 +2633,15 @@ bool __fastcall Planning_Order_Stays_Put(TechnoClass *techno, int mission, Targe
             return true;
         }
         if (techno != 0) {
-            Cell here = techno->unknown_slot104();
-            Cell cell = techno->unknown_slot104();
+            Cell here = techno->Get_Cell();
+            Cell cell = techno->Get_Cell();
             CellClass *target_cell = target.As_Cell();
             if (target_cell != 0) {
                 cell = target_cell->MapCoords;
             } else {
                 TechnoClass *target_techno = target.As_Techno();
                 if (target_techno != 0) {
-                    cell = target_techno->unknown_slot104();
+                    cell = target_techno->Get_Cell();
                 }
             }
             if (here == cell) {

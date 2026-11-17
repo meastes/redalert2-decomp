@@ -239,7 +239,8 @@ def member_plans(spec, catalog, renames, overloads):
     member_rename.prime([i['old'] for i in items], [i['new'] for i in items])
     for item in items:
         klass, old, new = item['class'], item['old'], item['new']
-        result = member_rename.plan(klass, old, new, item.get('mangled'), allow_hiding=bool(item.get('allow_hiding')))
+        result = member_rename.plan(klass, old, new, item.get('mangled'), allow_hiding=bool(item.get('allow_hiding')),
+                                    family=bool(item.get('family')))
         for path, offsets in result['edits'].items():
             edits.setdefault(path, []).extend((o, old, new) for o in offsets)
         if item.get('mangled') or result['overload']:
@@ -249,12 +250,14 @@ def member_plans(spec, catalog, renames, overloads):
                 # prefix keys bound at the row's address become the full new name (overload_renames)
                 overloads[full] = (renamed, by_symbol[full])
         else:
-            # every decorated name of the member, full or prefix: `?OLD@X@` -> `?NEW@X@`
-            head = '?%s@%s@' % (old, klass)
-            for name in sorted(n for n in names if n.startswith(head)):
-                renamed = '?%s@%s@' % (new, klass) + name[len(head):]
-                if renames.setdefault(name, renamed) != renamed:
-                    raise SystemExit('member_renames: conflicting renames for %s' % name)
+            # every decorated name of the member, full or prefix: `?OLD@X@` -> `?NEW@X@` (with `family`,
+            # for every class whose override is renamed)
+            for owner in result.get('owners') or [klass]:
+                head = '?%s@%s@' % (old, owner)
+                for name in sorted(n for n in names if n.startswith(head)):
+                    renamed = '?%s@%s@' % (new, owner) + name[len(head):]
+                    if renames.setdefault(name, renamed) != renamed:
+                        raise SystemExit('member_renames: conflicting renames for %s' % name)
     for path, items_ in edits.items():
         offsets = [o for o, _, _ in items_]
         if len(set(offsets)) != len(offsets):

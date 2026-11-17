@@ -137,8 +137,8 @@ alignas(16) unsigned char ra2_bss_0100[248] __asm__("_session_empty");  // 0x008
 __asm__(".globl _wol_empty_name_83c55c\n.set _wol_empty_name_83c55c, _session_empty\n");  // same address: wol_empty_name_83c55c
 __asm__(".globl _unknown_mapselect_empty_83c55c\n.set _unknown_mapselect_empty_83c55c, _session_empty\n");  // same address: unknown_mapselect_empty_83c55c
 __asm__(".globl _unknown_string_83c55c\n.set _unknown_string_83c55c, _session_empty\n");  // same address: unknown_string_83c55c
-alignas(16) unsigned char ra2_bss_0101[131112] __asm__("_unknown_alpha_table_83c670");  // 0x0083C670 unknown_alpha_table_83c670 (?unknown_alpha_table_83c670@@3PAEA)
-alignas(16) unsigned char ra2_bss_0102[88] __asm__("_unknown_alpha_table_ready_84c684");  // 0x0084C684 unknown_alpha_table_ready_84c684 (?unknown_alpha_table_ready_84c684@@3_NA)
+alignas(16) unsigned char ra2_bss_0101[131112] __asm__("_AlphaShapeClass_BrightnessTable");  // 0x0083C670 AlphaShapeClass_BrightnessTable (?AlphaShapeClass_BrightnessTable@@3PAEA)
+alignas(16) unsigned char ra2_bss_0102[88] __asm__("_BrightnessCalculated");  // 0x0084C684 BrightnessCalculated (?BrightnessCalculated@@3_NA)
 alignas(16) unsigned char ra2_bss_0103[104] __asm__("_unknown_application_84c7dc");  // 0x0084C7DC unknown_application_84c7dc (?unknown_application_84c7dc@@3PAUIUnknown@@A)
 __asm__(".globl _ApplicationInstance\n.set _ApplicationInstance, _unknown_application_84c7dc\n");  // same address: ApplicationInstance
 alignas(16) unsigned char ra2_bss_0104[64] __asm__("_AStarFacingToOffset");  // 0x0084C838 AStarFacingToOffset (?AStarFacingToOffset@@3PAHA)

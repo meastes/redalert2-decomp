@@ -50,7 +50,7 @@ int TechnoClass::unknown_slot176()
     int const ramp2 = Stored_Int(0x007F7128, -1);
     int const rock = Stored_Int(0x007F712C, 3);
     int zadjust = -Tactical_Z_Lepton_To_Pixel(Get_Height());
-    Cell cell = unknown_slot104();
+    Cell cell = Get_Cell();
     CellClass *here = &Map[cell];
     if (Kind_Of() == 1) {
         UnitClass *unit = (UnitClass *)this;

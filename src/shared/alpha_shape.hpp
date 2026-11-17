@@ -12,8 +12,8 @@ extern "C" GUID const CLSID_AlphaShapeClass;      // 0x007A1EE0
 
 // The product of two 8-bit values over 127, clamped (0x0083C670;
 // index first * 256 + second) and whether it is built (0x0084C684).
-extern unsigned char unknown_alpha_table_83c670[0x10000];
-extern bool unknown_alpha_table_ready_84c684;
+extern unsigned char AlphaShapeClass_BrightnessTable[0x10000];
+extern bool BrightnessCalculated;
 
 class AlphaShapeClass : public AbstractClass {
 public:

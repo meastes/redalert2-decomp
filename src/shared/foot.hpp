@@ -151,7 +151,7 @@ public:
 
     // Further overrides (entries of the FootClass vtable inside Foot.cpp;
     // base-class signatures, bodies not yet recovered).
-    virtual CoordStruct unknown_slot19(TechnoClass *techno) const;  // slot 19 0x004CA6F0
+    virtual CoordStruct Destination_Coord(TechnoClass *techno) const;  // slot 19 0x004CA6F0
     virtual void AI();  // slot 23 0x004C8FF0
     virtual int unknown_slot25(bool arg1, int arg2);  // slot 25 0x004C8FA0
     virtual void *Get_Image_Data();  // slot 26 0x004CD650

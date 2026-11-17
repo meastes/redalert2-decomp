@@ -369,7 +369,7 @@ public:
     virtual int Owner() const;                                  // slot 14 0x006C7420
     virtual HouseClass *Owning_House() const;                   // slot 15 0x006C7430
     virtual void AI();                                          // slot 23 0x006C74C0
-    virtual bool unknown_slot24();                              // slot 24 0x006C1320
+    virtual bool Is_Players_Army();                              // slot 24 0x006C1320
     virtual int unknown_slot25(bool arg1, int arg2);             // slot 25 0x006CF3C0
     virtual int What_Action(Cell const *cell, bool arg2, bool arg3);   // slot 27 0x006CCCE0
     virtual int unknown_slot28(ObjectClass *object, bool arg2);             // slot 28 0x006CC5D0

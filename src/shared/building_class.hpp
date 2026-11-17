@@ -159,7 +159,7 @@ public:
     virtual int Size_Of() const { return sizeof(BuildingClass); }     // slot 12 0x00453BF0 (inline)
     virtual void Compute_CRC(WWCRCEngine &crc) const;                 // slot 13 0x0044F3C0
     virtual CoordStruct Center_Coord() const;                         // slot 18 0x00444080
-    virtual CoordStruct unknown_slot19(TechnoClass *techno) const;    // slot 19 0x00444340
+    virtual CoordStruct Destination_Coord(TechnoClass *techno) const;    // slot 19 0x00444340
     virtual void AI();                                                // slot 23 0x0043C930
     virtual int unknown_slot25(bool arg1, int arg2);                   // slot 25 0x0044F600
     virtual void *Get_Image_Data();                                   // slot 26 0x0044C5A0

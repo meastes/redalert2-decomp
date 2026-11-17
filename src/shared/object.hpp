@@ -237,7 +237,7 @@ public:
     virtual bool In_Air() const;                                   // 0x005D5410
     virtual void AI();                                                     // 0x005D27F0
 
-    virtual bool unknown_slot24();                                         // slot 24 (+0x60) 0x423d10
+    virtual bool Is_Players_Army();                                         // slot 24 (+0x60) 0x423d10
     virtual int unknown_slot25(bool arg1, int arg2);                        // slot 25 (+0x64) 0x423d20
     virtual void *Get_Image_Data();                                        // slot 26 (+0x68) 0x5d27b0
     virtual int What_Action(Cell const *cell, bool arg2, bool arg3);              // slot 27 (+0x6C) 0x5d2bb0
@@ -317,7 +317,7 @@ public:
     virtual int Can_Enter_Cell(CellClass *arg1, int arg2, int arg3, CellClass *arg4, bool arg5); // slot 101 (+0x194) 0x423e00
     virtual int unknown_slot102(UnknownCellClass *from, int facing, int *level, bool *ramp, UnknownCellClass *to); // slot 102 (+0x198) 0x423e10
     virtual void Set_Coord(CoordStruct const &coord);                // slot 103 (+0x19C) 0x5d51c0
-    virtual Cell unknown_slot104() const;                                 // slot 104 (+0x1A0) 0x41b320
+    virtual Cell Get_Cell() const;                                 // slot 104 (+0x1A0) 0x41b320
     virtual AbstractClass *Get_Cell_Ptr();                                        // slot 105 (+0x1A4) 0x5d51e0
     virtual Cell Get_Target_Cell() const;                                 // slot 106 (+0x1A8) 0x5d5240
     virtual CellClass *Get_Target_Cell_Ptr() const;                                   // slot 107 (+0x1AC) 0x5d5290

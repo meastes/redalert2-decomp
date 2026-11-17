@@ -108,15 +108,15 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
                             LinkedTo->IsNewNavCom = false;
                             Cell dest = unknown_1c.As_Cell();
                             if (LinkedTo->unknown_32d) {
-                                Cell nav_dest = LinkedTo->unknown_slot19(0).As_Cell();
+                                Cell nav_dest = LinkedTo->Destination_Coord(0).As_Cell();
                                 if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                     LinkedTo->Assign_Destination(0, true);
                                 }
                             }
                             if (LinkedTo->TarCom != 0) {
-                                Cell tar_dest = LinkedTo->TarCom->unknown_slot19(LinkedTo).As_Cell();
+                                Cell tar_dest = LinkedTo->TarCom->Destination_Coord(LinkedTo).As_Cell();
                                 if (LinkedTo->unknown_32d && LinkedTo->TarCom != 0) {
-                                    Cell nav_dest = LinkedTo->unknown_slot19(LinkedTo).As_Cell();
+                                    Cell nav_dest = LinkedTo->Destination_Coord(LinkedTo).As_Cell();
                                     if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                         LinkedTo->unknown_slot220(0);
                                     }
@@ -300,8 +300,8 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
         LinkedTo->unknown_slot93(2);
         if (LinkedTo->IsActive && !LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
             if (unknown_1c == unknown_geometry_l
-                || (LinkedTo->unknown_slot19(0).As_Cell() == unknown_1c.As_Cell()
-                    && abs(LinkedTo->unknown_slot19(0).Z - unknown_1c.Z) < unknown_geometry_g * 2)) {
+                || (LinkedTo->Destination_Coord(0).As_Cell() == unknown_1c.As_Cell()
+                    && abs(LinkedTo->Destination_Coord(0).Z - unknown_1c.Z) < unknown_geometry_g * 2)) {
                 LinkedTo->Assign_Destination(0, true);
                 LinkedTo->unknown_slot306(0.0);
                 unknown_28 = unknown_geometry_l;
@@ -323,7 +323,7 @@ void WalkLocomotionClass::unknown_71e220(bool first_pass)
     LinkedTo->IsToPathAroundBlockage = false;
     UnknownFacingDir face = Direction(LinkedTo->Center_Coord(), unknown_28);
     Do_Turn(face);
-    Cell old_cell = LinkedTo->unknown_slot104();
+    Cell old_cell = LinkedTo->Get_Cell();
     CoordStruct new_coord = Move_Coord(Object_Coord(LinkedTo), face, speed);
     Cell new_cell = new_coord.As_Cell();
     if (old_cell != new_cell) {

@@ -4,8 +4,8 @@
     "id": "population-953",
     "inventory_sha256": "0aab4e61c00007d02c245ce254d63b2d8b1085bb790b94b4ec01436f407d5d41",
     "gaps_sha256": "55a0c57319162951e67c8d700212ca792960c072ec9c9cd9247a30993afe0d90",
-    "historical_population_sha256": "c8cd3b8cad0d83e9809a1ba897f502d701b3416c560c410f572eb66f7bbbe3d8",
-    "historical_acceptance_sha256": "dbeaf4445ea3ae75d3c746661a235b700e77720ff0b90a711145eb5bda708586",
+    "historical_population_sha256": "224d5583aa069122ecefd0230762af1a29bdd6d6ddee11728b1b356cb35f9543",
+    "historical_acceptance_sha256": "6bd44c7328ccbfb961e11fab5171c46e5503ef60ddf3c09ad61c832aa2d2b31c",
     "separate_units": true
   },
   "references": {
@@ -81,8 +81,8 @@
     "?unknown_send_5d05f0@UnknownMessageSink_005974f0@@QAEXPAXHH@Z": 6096368,
     "?unknown_message_sink_a40a28@@3VUnknownMessageSink_005974f0@@A": 10750504,
     "?unknown_value_6c22a0@UnknownLevelSource_004b9780@@QAEHXZ": 7086752,
-    "?unknown_time_4092d0@@YA_JXZ": 4231888,
-    "?unknown_update_4070f0@@YIXPAUUnknownFixedTimer_00407030@@@Z": 4223216,
+    "?AudioGetTime@@YA_JXZ": 4231888,
+    "?AudioLevelUpdate@@YIXPAUUnknownFixedTimer_00407030@@@Z": 4223216,
     "?unknown_update_and_get_08_00409230@@YIHPAUUnknownUpdated_00409230@@@Z": 4231728,
     "?unknown_reset_00408400@UnknownResettable_00408400@@QAEXXZ": 4228096,
     "?Audio_Device_First_Channel@@YIPAUAudioListNode@@PAUAudioDevice@@PAUAudioListIterator@@@Z": 4208048,
@@ -95,7 +95,7 @@
     "?unknown_list_owner_add_00408a30@@YIXPAUUnknownListOwner_00408a30@@PAUUnknownListNode_00408a30@@@Z": 4229680,
     "?unknown_disable_ok_and_send_005974f0@@YIXPAUUnknownDialogOwner_005974f0@@@Z": 5862640,
     "?unknown_scaled_level_004b9780@@YIHPBUUnknownLevelOwner_004b9780@@@Z": 4953984,
-    "?unknown_start_00407030@@YIXPAUUnknownFixedTimer_00407030@@H@Z": 4223024,
+    "?AudioLevelInit@@YIXPAUUnknownFixedTimer_00407030@@H@Z": 4223024,
     "??_7MapSeedClass@@6B@": 8019492,
     "??_EMapSeedClass@@": 5823056,
     "??_GMapSeedClass@@": 5823056,
@@ -1966,8 +1966,8 @@
     {
       "entry": 4223024,
       "method": "00407030",
-      "symbol": "?unknown_start_00407030@@YIXPAUUnknownFixedTimer_00407030@@H@Z",
-      "symbol_prefix": "?unknown_start_00407030@@YIXPAUUnknownFixedTimer_00407030@@H@Z",
+      "symbol": "?AudioLevelInit@@YIXPAUUnknownFixedTimer_00407030@@H@Z",
+      "symbol_prefix": "?AudioLevelInit@@YIXPAUUnknownFixedTimer_00407030@@H@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -1983,7 +1983,7 @@
         {
           "offset": 13,
           "kind": 20,
-          "symbol": "?unknown_time_4092d0@@YA_JXZ",
+          "symbol": "?AudioGetTime@@YA_JXZ",
           "target": 4231888,
           "addend": 0,
           "resolved": 8847
@@ -1991,13 +1991,13 @@
         {
           "offset": 62,
           "kind": 20,
-          "symbol": "?unknown_update_4070f0@@YIXPAUUnknownFixedTimer_00407030@@@Z",
+          "symbol": "?AudioLevelUpdate@@YIXPAUUnknownFixedTimer_00407030@@@Z",
           "target": 4223216,
           "addend": 0,
           "resolved": 126
         }
       ],
-      "source_sha256": "42755f877ba2a6dd533432c7e9e61f8f5c76f5dd9e8757b92e34de4b4c610f68",
+      "source_sha256": "b6e4bd4368f40e7f2c379090b9f80bb586e50c452fd1c764bab1553d82c17de7",
       "source": "src/recovered/audlevel/unknown_start.cpp",
       "population": "population-953",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",

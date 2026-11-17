@@ -4,8 +4,8 @@
     "id": "population-4095",
     "inventory_sha256": "2b0b4d032b2581fd8289fa7a876477c9371ef88fc22b30502aae56f4dc1306b0",
     "gaps_sha256": "4dba58272c411b207d3cdda55e4ea1cc369da256d527b355dfca20c17aa739fc",
-    "historical_population_sha256": "a42c7bb118631faacde31c37562319a4e8f58c0cc8104112e30b1bfec2e4a25f",
-    "historical_acceptance_sha256": "f3d2cb28e09124def33b0c59f96e85c65d0d7040371111a130cf72fbf9d570f1"
+    "historical_population_sha256": "cf22f0613bfba55e7c96edd64f6f3468cf8218d6c45f3da98093a1103b88a274",
+    "historical_acceptance_sha256": "4a1697bb0ae7a59439e09570801899628b2787bfeaa0d1076d3657cc066c48d0"
   },
   "references": {
     "?unknown_a40b2c@@3HA": 10750764,
@@ -115,7 +115,7 @@
     "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
     "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
     "?AI@AbstractClass@@UAEXXZ": 4260624,
-    "?unknown_slot24@AbstractTypeClass@@UAEXH@Z": 4262304,
+    "?Init_Theater@AbstractTypeClass@@UAEXH@Z": 4262304,
     "?Lock@XSurface@@UAEPAXUPoint2D@@@Z": 4264672,
     "?Rules@@3PAVRulesClass@@A": 8624200,
     "?unknown_slot35@AircraftClass@@UAEPBGXZ": 4306384,
@@ -1746,7 +1746,7 @@
     "?Get_Rect@MSPCXAnim@@UAE?AVRect@@XZ": 5962688,
     "??0AbstractClass@@QAE@XZ": 4259600,
     "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ": 4260448,
-    "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 4260496,
+    "?Destination_Coord@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 4260496,
     "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ": 4260576,
     "?Set@PaletteClass@@QAEXXZ": 4808992,
     "??0ObjectClass@@QAE@XZ": 6103776,
@@ -1777,7 +1777,7 @@
     "?Add@?$DynamicVectorClass@H@@QAE_NABH@Z": 4641536,
     "?One_Time@DisplayClass@@UAEXXZ": 4819824,
     "?One_Time@MapClass@@UAEXXZ": 5538000,
-    "?unknown_slot24@TechnoClass@@UAE_NXZ": 7082784,
+    "?Is_Players_Army@TechnoClass@@UAE_NXZ": 7082784,
     "?unknown_b263d8@@3HA": 11690968,
     "?Can_Player_Move@TechnoClass@@UAE_NXZ": 7131792,
     "?Can_Player_Fire@TechnoClass@@UAE_NXZ": 7132720,
@@ -1790,7 +1790,7 @@
     "?unknown_slot38@TechnoTypeClass@@UBEPBXXZ": 7188032,
     "?Max_Pips@TechnoTypeClass@@UBEHXZ": 7201312,
     "?Load_Image@AnimTypeClass@@UAEXH@Z": 4347024,
-    "?unknown_slot24@AnimTypeClass@@UAEXH@Z": 4346816,
+    "?Init_Theater@AnimTypeClass@@UAEXH@Z": 4346816,
     "?unknown_string_83c55c@@3PADA": 8635740,
     "?Get_Image_Data@AnimTypeClass@@UBEPAXXZ": 4351312,
     "?Center_Coord@AnimClass@@UBE?AUCoordStruct@@XZ": 4328848,
@@ -1952,7 +1952,7 @@
     "?unknown_slot25@FootClass@@UAEH_NH@Z": 5017504,
     "?unknown_slot25@TechnoClass@@UAEH_NH@Z": 7140288,
     "?In_Which_Layer@FootClass@@UBEHXZ": 5022000,
-    "?unknown_slot19@FootClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 5023472,
+    "?Destination_Coord@FootClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 5023472,
     "?Shadow_Point@FlyLocomotionClass@@UAG?AUPoint2D@@XZ": 4976832,
     "??0HouseClass@@QAE@ABVNoInitClass@@@Z": 5117568,
     "??_7HouseClass@@6BIPersistStream@@@": 8007136,
@@ -1976,7 +1976,7 @@
     "??0TechnoClass@@QAE@PAVHouseClass@@@Z": 7081168,
     "?Delete@?$DynamicVectorClass@PAVBuildingClass@@@@QAE_NH@Z": 4541280,
     "?Center_Coord@BuildingClass@@UBE?AUCoordStruct@@XZ": 4472960,
-    "?unknown_slot19@BuildingClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 4473664,
+    "?Destination_Coord@BuildingClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 4473664,
     "?Can_Demolish@BuildingClass@@UAE_NXZ": 4478000,
     "?Detach@BuildingClass@@UAEXPAVAbstractClass@@_N@Z": 4496960,
     "?Detach@TechnoClass@@UAEXPAVAbstractClass@@_N@Z": 7154960,
@@ -2660,7 +2660,7 @@
     "?unknown_flag_a3f120@@3_NA": 10744096,
     "?unknown_flag_a3f121@@3_NA": 10744097,
     "?Play_Taunt@@YIXD@Z": 7430064,
-    "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z": 5473696,
+    "?Clamp_Tile_RGB@@YIXAAH00@Z": 5473696,
     "?AllowDisableableSupers@@3EA": 10736323,
     "?Print_Box@BitTextClass@@QAE_NPAVBitFontClass@@PAVSurface@@PBGHHHHHHH@Z": 4400272,
     "?Unknown_0042E290@BeaconManagerClass@@QAEXPAVSurface@@VRect@@@Z": 4383376,
@@ -4234,7 +4234,12 @@
     "?Draw_It@BuildingClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4433376,
     "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z": 7343728,
     "?Draw_It@BulletClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4591824,
-    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096
+    "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
+    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952,
+    "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z": 4711104,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_EFootClass@@UAEPAXI@Z": 5037584
   },
   "regions": [
     {
@@ -4256,7 +4261,7 @@
       "full_extent_sha256": "f19296cae6a431ac09dea0991bc305d4a0241c133c3366185474bcf6e6cf3b35",
       "relocations": [],
       "source": "src/recovered/lightcalc.cpp",
-      "source_sha256": "2e4d836d9b6918474950937aba78103c0a5f076b7245b40a3c548fbfe0d795a9",
+      "source_sha256": "72e5bd2ba012596ee4a868e2773937f023852c1062a6d38ebf3a44fd7573729c",
       "source_order": 243429,
       "population": "population-4095",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -4266,8 +4271,8 @@
     {
       "entry": 5473696,
       "method": "005385a0",
-      "symbol": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z",
-      "symbol_prefix": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z",
+      "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+      "symbol_prefix": "?Clamp_Tile_RGB@@YIXAAH00@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -4290,7 +4295,7 @@
           "resolved": 10750764
         }
       ],
-      "source_sha256": "2e4d836d9b6918474950937aba78103c0a5f076b7245b40a3c548fbfe0d795a9",
+      "source_sha256": "72e5bd2ba012596ee4a868e2773937f023852c1062a6d38ebf3a44fd7573729c",
       "source": "src/recovered/lightcalc.cpp",
       "population": "population-4095",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -4485,7 +4490,7 @@
           "resolved": 2386851
         }
       ],
-      "source_sha256": "2e4d836d9b6918474950937aba78103c0a5f076b7245b40a3c548fbfe0d795a9",
+      "source_sha256": "72e5bd2ba012596ee4a868e2773937f023852c1062a6d38ebf3a44fd7573729c",
       "source": "src/recovered/lightcalc.cpp",
       "population": "population-4095",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

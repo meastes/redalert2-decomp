@@ -141,10 +141,10 @@ void __fastcall AnimTypeClass::Init(int theater)
 }
 
 
-// void AnimTypeClass::unknown_slot24(int theater) (0x004253C0)
+// void AnimTypeClass::Init_Theater(int theater) (0x004253C0)
 // Reloads this type's theater-specific image when the theater changes.
 
-void AnimTypeClass::unknown_slot24(int theater)
+void AnimTypeClass::Init_Theater(int theater)
 {
     if (!Debug_Map && theater == LastTheater) {
         return;

@@ -313,7 +313,7 @@ void BuildingLightClass::AI()
     if (Behavior == 1) {
         if (owner_building != 0 && owner_building->IsActive && owner_building->unknown_slot195() && owner_building->Tag != 0) {
             bool found = false;
-            Cell cell = unknown_slot104();
+            Cell cell = Get_Cell();
             int radius = Detection_Radius();
             int detection = radius + 30;
             HouseClass *house = Owner->House;
@@ -440,7 +440,7 @@ void BuildingLightClass::Set_Behavior(int behavior)
     Behavior = behavior;
     unknown_98 = 0;
     if (behavior == 3) {
-        Cell cell = unknown_slot104();
+        Cell cell = Get_Cell();
         int best_distance = 9999999;
         ObjectClass *best = 0;
         HouseClass *house = Owner->House;

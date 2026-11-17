@@ -340,7 +340,7 @@ void EventClass::Execute()
                 }
             }
             if (techno->Mission != 0x12 && techno->Mission != 0x13 && techno->Kind_Of() != 2) {
-                Cell cell = techno->unknown_slot104();
+                Cell cell = techno->Get_Cell();
                 if (cell != unknown_geometry_k) {
                     ObjectClass *object = Map[cell].Cell_Building();
                     if (object && ((BuildingClass *)object)->Type->WeaponsFactory) {

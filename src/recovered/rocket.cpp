@@ -375,7 +375,7 @@ bool __stdcall RocketLocomotionClass::Process()
     if (unknown_48 > 0.0) {
         CoordStruct coord = unknown_63dbe0((int)unknown_48);
         LinkedTo->Set_Coord(coord);
-        Cell cell = LinkedTo->unknown_slot104();
+        Cell cell = LinkedTo->Get_Cell();
         if (cell != LinkedTo->LastFlightMapCoords && LinkedTo->IsActive) {
             AircraftTracker.Update_00413600(LinkedTo, LinkedTo->LastFlightMapCoords, cell);
         }

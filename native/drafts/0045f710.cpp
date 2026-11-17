@@ -453,7 +453,7 @@ flown:
                 Set_Height_AGL(0);
             }
             Start_Dominator_Lighting_005208A0();
-            Unknown_0063B5B0(13, unknown_slot104());
+            Unknown_0063B5B0(13, Get_Cell());
             int index = AnimTypeClass::From_Name("NUKEBALL");
             AnimTypeClass *type;
             if (index != -1 && (type = AnimTypes[index]) != 0) {

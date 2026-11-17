@@ -27,7 +27,7 @@ Cell Native_Map_Clip_To_Map_00568d60(Cell const &cell);   // NATIVE: link/behavi
 // @ref ?unknown_facing_radians_79b620@@3NB=0079b620
 // @ref ?unknown_coord_a40f48@@3UCoordStruct@@A=00a40f48
 // @ref ?Map@@3VMouseClass@@A=008324e0
-// @ref ?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z=0055a660
+// @ref ?In_Local_Radar@MapClass@@QAE_NABVCell@@_N@Z=0055a660
 // @ref ??0UnknownVector3@@QAE@HHH@Z=0041b630
 // @ref ?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z=00491750
 
@@ -108,7 +108,7 @@ Cell HouseClass::Random_Cell_In_Zone(int zone)
     } else {
         cell = Cell(coord.X / 256, coord.Y / 256);
     }
-    if (!Map.Unknown_0055A660(cell, true)) {
+    if (!Map.In_Local_Radar(cell, true)) {
         cell = Native_Map_Clip_To_Map_00568d60(cell);   // NATIVE: MapClass::Clip_To_Map 0x00568D60
     }
     return cell;

@@ -426,7 +426,7 @@ void TemporalClass::Unknown_006E27B0(TechnoClass *target)
                 if(object==0) unit=0;
                 else unit=object->Kind_Of()==1 ? (UnitClass *)object:0;
                 if(unit->Type->Harvester && Target->House==PlayerPtr) {
-                    Cell cell(Target->unknown_slot19(0));
+                    Cell cell(Target->Destination_Coord(0));
                     if(Unknown_0063B5B0(4,cell)) Speech_Play_Name("EVA_OreMinerUnderAttack",-1,-1);
                 }
             }

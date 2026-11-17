@@ -95,7 +95,7 @@ void InfantryClass::unknown_slot93(int why)
             if (navigation && is_techno && static_cast<ObjectClass *>(navigation)->Considered_Vehicle()) {
                 TechnoClass *destination=static_cast<TechnoClass *>(NavCom);
                 if (destination && destination->Kind_Of()==6) {
-                    if (unknown_slot104()==destination->unknown_slot104()) {
+                    if (Get_Cell()==destination->Get_Cell()) {
                         if (destination->Tag) destination->Tag->Spring(1,this,unknown_geometry_k,false,0);
                         destination->unknown_slot54(false);
                         destination->Captured(House,1);
@@ -107,7 +107,7 @@ void InfantryClass::unknown_slot93(int why)
                         return;
                     }
                     UnknownCoord434820 locomotor_destination(Locomotor.Checked()->Destination());
-                    if (locomotor_destination==unknown_geometry_l || unknown_slot104()==Coord_Cell(locomotor_destination)) {
+                    if (locomotor_destination==unknown_geometry_l || Get_Cell()==Coord_Cell(locomotor_destination)) {
                         Assign_Destination(NavCom,1);
                         return;
                     }
@@ -118,19 +118,19 @@ void InfantryClass::unknown_slot93(int why)
                 if (building->Tag) building->Tag->Spring(1,this,unknown_geometry_k,false,0);
                 if (Type->Engineer) {
                     if (building->Kind_Of()==6 && building->Type->BridgeRepairHut) {
-                        if (House->Is_Player_Control() && Unknown_0063B5B0(14,unknown_slot104())) Speech_Play_Name("EVA_BridgeRepaired",-1,-1);
+                        if (House->Is_Player_Control() && Unknown_0063B5B0(14,Get_Cell())) Speech_Play_Name("EVA_BridgeRepaired",-1,-1);
                         bool train=false;
                         for (int y=-2;y<3;y++) {
                             for (int x=-2;x<3;x++) {
-                                Cell spot=Cell(unknown_slot104()+Cell(x,y));
+                                Cell spot=Cell(Get_Cell()+Cell(x,y));
                                 int tile=Map_Cell_At(spot)->unknown_38;
-                                Cell overlay_spot=Cell(Cell(x,y)+unknown_slot104());
+                                Cell overlay_spot=Cell(Cell(x,y)+Get_Cell());
                                 int overlay=Map_Cell_At(overlay_spot)->unknown_44;
                                 if ((tile>=IsometricTileTypeClass_TrainBridgeSet && tile<IsometricTileTypeClass_TrainBridgeSet+16) || (overlay>=74 && overlay<=101)) train=true;
                             }
                         }
-                        if (train) Map.Unknown_00552570(unknown_slot104());
-                        else Map.Unknown_00555A60(unknown_slot104());
+                        if (train) Map.Unknown_00552570(Get_Cell());
+                        else Map.Unknown_00555A60(Get_Cell());
                         for (int index=Infantry.Count()-1;index>=0;--index) Infantry[index]->Detach(building,false);
                         building->unknown_slot173();
                     } else if (House->Is_Ally(building) || (building->House->Type->MultiplayPassive && building->Type->CanBeOccupied)) {
@@ -205,7 +205,7 @@ void InfantryClass::unknown_slot93(int why)
                     Abort_Motion();
                     return;
                 }
-            } else if (unknown_slot104()==transport->unknown_slot104() && transport==NavCom) {
+            } else if (Get_Cell()==transport->Get_Cell() && transport==NavCom) {
                 if (unknown_slot150(15,transport)==1) {
                     Assign_Archive_Target(0);
                     IsOnBridge=false;

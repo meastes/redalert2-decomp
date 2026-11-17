@@ -53,11 +53,11 @@ GameTimeClass::GameTimeClass()
 }
 
 
-// int GameTimeClass::unknown_elapsed_004d0050() const -- 0x004D0050
+// int GameTimeClass::Get_Time() const -- 0x004D0050
 // Purpose: milliseconds since the recorded time (+0x00), computed across a
 // timeGetTime wrap (one less when the clock has wrapped). No direct callers.
 
-int GameTimeClass::unknown_elapsed_004d0050() const
+int GameTimeClass::Get_Time() const
 {
     unsigned long now = timeGetTime();
     if (now <= Time) {
@@ -86,7 +86,7 @@ int GameTimeClass::unknown_elapsed_004d0050() const
 
 int Get_Game_Time()
 {
-    return Game_Time.unknown_elapsed_004d0050();
+    return Game_Time.Get_Time();
 }
 
 
@@ -102,5 +102,5 @@ int Get_Game_Time()
 
 unsigned long Get_Game_Time_50()
 {
-    return (unsigned long)Game_Time.unknown_elapsed_004d0050() * 3 / 50;
+    return (unsigned long)Game_Time.Get_Time() * 3 / 50;
 }

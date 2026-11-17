@@ -34,7 +34,7 @@
 // @ref ?What_Am_I@AbstractClass@@UAGHXZ=0040ffb0
 // @ref ?Fetch_Heap_ID@AbstractClass@@UBEHXZ=00410250
 // @ref ?Is_Inactive@AbstractClass@@UBE_NXZ=004101e0
-// @ref ?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z=00410290
+// @ref ?Destination_Coord@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z=00410290
 // @ref ?On_Ground@AbstractClass@@UBE_NXZ=004102c0
 // @ref ?In_Air@AbstractClass@@UBE_NXZ=004102d0
 // @ref ?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ=004102e0

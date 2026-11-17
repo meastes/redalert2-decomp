@@ -262,13 +262,13 @@ bool TeleportLocomotionClass::Pick_Arrival(CoordStruct const &to)
             if (LinkedTo->Get_Mission() == 8 || LinkedTo->Get_Mission() == 9 || LinkedTo->Get_Mission() == 7 || LinkedTo->Get_Mission() == 25) {
                 {
                     ObjectClass *target = (ObjectClass *)LinkedTo->NavCom;
-                    if (target != 0 && target->Kind_Of() == 1 && target->unknown_slot104() == Coord_Cell(to)) {
+                    if (target != 0 && target->Kind_Of() == 1 && target->Get_Cell() == Coord_Cell(to)) {
                         target_here = true;
                     }
                 }
                 {
                     ObjectClass *target = (ObjectClass *)LinkedTo->NavCom;
-                    if (target != 0 && target->Kind_Of() == 2 && target->unknown_slot104() == Coord_Cell(to)) {
+                    if (target != 0 && target->Kind_Of() == 2 && target->Get_Cell() == Coord_Cell(to)) {
                         target_here = true;
                     }
                 }
@@ -289,8 +289,8 @@ bool TeleportLocomotionClass::Pick_Arrival(CoordStruct const &to)
                 AbstractClass *target = LinkedTo->NavCom;
                 if (target != 0 && target->AbstractFlags.IsObject) {
                     int zone = LinkedTo->Techno_Type_Class()->MovementZone;
-                    Cell target_cell = Coord_Cell(target->unknown_slot19(0));
-                    CellClass *cell = &Map[LinkedTo->unknown_slot19(0)];
+                    Cell target_cell = Coord_Cell(target->Destination_Coord(0));
+                    CellClass *cell = &Map[LinkedTo->Destination_Coord(0)];
                     bool alt = LinkedTo->Is_Moving_Onto_Bridge(0);
                     Cell found = Map.Nearby_Location(target_cell, LinkedTo->Techno_Type_Class()->SpeedType,
                         Map.Zone(cell->MapCoords, zone, alt), zone, Map[target_cell].IsUnderBridge,
@@ -489,7 +489,7 @@ bool __stdcall TeleportLocomotionClass::Process()
                 Voc_Play_At(sound, Object_Coord(linked), 0);
             }
         }
-        if (!Map.Unknown_0055A660(LinkedTo->unknown_slot104(), true)) {
+        if (!Map.In_Local_Radar(LinkedTo->Get_Cell(), true)) {
             LinkedTo->unknown_32d = false;
         }
         if (LinkedTo->TeleportState == 0) {

@@ -47,7 +47,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     }
 
     if (IsWaypointMode && DraggedWaypoint != 0) {
-        if (PlayerPtr->Waypoint_At(cell) == 0 && Map.Unknown_0055A660(cell, true)) {
+        if (PlayerPtr->Waypoint_At(cell) == 0 && Map.In_Local_Radar(cell, true)) {
             *DraggedWaypoint = Cell_Coord(cell);
             DraggedWaypoint->Z = Map.Get_Height_GL(*DraggedWaypoint) + ((Map[cell].unknown_140 & 0x100) ? unknown_geometry_j : 0);
         }

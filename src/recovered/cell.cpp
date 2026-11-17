@@ -3124,7 +3124,7 @@ bool CellClass::Spread_Tiberium(bool forced)
 
 bool CellClass::Can_Tiberium_Germinate(TiberiumClass *tiberium)
 {
-    if (Map.Unknown_0055A660(MapCoords, true) && (unknown_140 & 0x500) == 0) {
+    if (Map.In_Local_Radar(MapCoords, true) && (unknown_140 & 0x500) == 0) {
         BuildingClass *building = (BuildingClass *)Cell_Building();
         if (building != 0 && building->Strength > 0 && !building->Type->Invisible && !building->Type->InvisibleInGame) {
             return false;
@@ -3224,7 +3224,7 @@ HRESULT __stdcall CellClass::Save(IStream *stream, BOOL clear_dirty)
 
 void CellClass::Recalc_Passability()
 {
-    if (!Map.Unknown_0055A660(MapCoords, true)) {
+    if (!Map.In_Local_Radar(MapCoords, true)) {
         Passability = 7;
         return;
     }
@@ -4355,7 +4355,7 @@ void CellClass::Fog_Cell()
                         int kind = object->What_Am_I();
                         if (kind == 6) {
                             BuildingClass *building = (BuildingClass *)object;
-                            building->unknown_slot104();
+                            building->Get_Cell();
                             if (building->unknown_452be0()) {
                                 bool fade;
                                 if (building->Considered_Vehicle() || building->TranslucencyLevel == 15) {

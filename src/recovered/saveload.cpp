@@ -429,7 +429,7 @@ bool __fastcall Save_Game(char const *filename, wchar_t const *description, int 
 bool __fastcall Put_All(IStream *stream, int save_net)
 {
     Scen->Save(stream);
-    unknown_scenario_checkpoint_00855a90.Write_004B5C70(stream);
+    Environment.Write_004B5C70(stream);
     Rules->Save(stream);
     if (FAILED(Save_Vector(stream, AnimTypes))) {
         DebugString("\t***** FAILED!\n");
@@ -817,7 +817,7 @@ bool __fastcall Get_All(IStream *stream, bool save_net)
         Allocate_Surfaces(&VisibleRect, &composite, &tile, &sidebar, false);
     }
     Map.unknown_slot42(temp);
-    unknown_scenario_checkpoint_00855a90.Read_004B5C50(stream);
+    Environment.Read_004B5C50(stream);
     Init_Theater_00519e70(Scen->Theater);
     Rules->Load(stream);
     if (FAILED(Skip_Objects(stream))) {    // AnimTypes

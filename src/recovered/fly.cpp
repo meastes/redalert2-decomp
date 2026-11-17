@@ -269,7 +269,7 @@ void __stdcall FlyLocomotionClass::Stop_Moving()
 {
     if (Is_Moving()) {
         Cell cell(Object_Coord(LinkedTo));
-        if (!LinkedTo->unknown_32c && !Map.Unknown_0055A660(cell, true) && !LinkedTo->unknown_slot282()) {
+        if (!LinkedTo->unknown_32c && !Map.In_Local_Radar(cell, true) && !LinkedTo->unknown_slot282()) {
             cell = Map.Unknown_005689D0(cell, 1);
         }
         FootClass *linked = LinkedTo;
@@ -425,7 +425,7 @@ inline CoordStruct Fly_Move_Coord_004bcd50(CoordStruct const &start,UnknownFacin
 }
 void FlyLocomotionClass::unknown_4bcd50()
 {
-    Cell here=LinkedTo->unknown_slot104();
+    Cell here=LinkedTo->Get_Cell();
     if (here!=LinkedTo->LastFlightMapCoords && Is_Moving_Now()) {
         AircraftTracker.Update_00413600(LinkedTo,LinkedTo->LastFlightMapCoords,here);
     }
@@ -634,7 +634,7 @@ void FlyLocomotionClass::unknown_4bcd50()
         }
     }
     if (!unknown_5c && LinkedTo->Strength>0 && !IsLanding && !unknown_50) {
-        if (Cell(unknown_1c)==LinkedTo->unknown_slot104() && unknown_40==0.0 && (LinkedTo->TarCom==0 || LinkedTo->Ammo==0)) {
+        if (Cell(unknown_1c)==LinkedTo->Get_Cell() && unknown_40==0.0 && (LinkedTo->TarCom==0 || LinkedTo->Ammo==0)) {
             unknown_4bf1f0();
         }
     }
@@ -797,14 +797,14 @@ bool FlyLocomotionClass::Process_Landing_004bdfb0()
                 CellClass *cell=&Map[adjacent];
                 cell->AdjacentObjectCount--;
             }
-            LinkedTo->unknown_454=LinkedTo->unknown_slot104();
+            LinkedTo->unknown_454=LinkedTo->Get_Cell();
             for (facing=0;facing<8;facing++) {
                 Cell adjacent=Fly_Adjacent_Cell_004bdfb0(LinkedTo->unknown_454,facing);
                 CellClass *cell=&Map[adjacent];
                 cell->AdjacentObjectCount++;
             }
         } else {
-            LinkedTo->unknown_454=LinkedTo->unknown_slot104();
+            LinkedTo->unknown_454=LinkedTo->Get_Cell();
             for (int facing=0;facing<8;facing++) {
                 Cell adjacent=Fly_Adjacent_Cell_004bdfb0(LinkedTo->unknown_454,facing);
                 CellClass *cell=&Map[adjacent];
@@ -848,7 +848,7 @@ inline int Fly_Distance_XY_004be720(CoordStruct const &from,CoordStruct const &t
 }
 int FlyLocomotionClass::unknown_4be720(bool stage,CoordStruct coord)
 {
-    LinkedTo->unknown_slot104();
+    LinkedTo->Get_Cell();
     UnknownComPtr<IFlyControl,&unknown_uuid_7d80a8> flyctrl(LinkedTo);
     if (flyctrl!=0 && LinkedTo->TarCom!=0 && LinkedTo->Ammo!=0 && flyctrl->Is_Strafe()) {
         stage=false;

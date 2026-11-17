@@ -5,7 +5,7 @@
 
 struct GameTimeClass {
     GameTimeClass();                    // 0x004D0040 records timeGetTime()
-    int unknown_elapsed_004d0050() const;           // 0x004D0050 milliseconds since then
+    int Get_Time() const;           // 0x004D0050 milliseconds since then
 
     unsigned long Time;     // +0x00
 };

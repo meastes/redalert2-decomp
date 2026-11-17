@@ -274,7 +274,7 @@ void AircraftClass::Draw_It(Point2D const &point, Rect const &window)
     if (Cargo.Object && Type->Carryall) {
         Cargo.Attached_Object()->Draw_It(draw_point, window);
     }
-    unknown_slot104();
+    Get_Cell();
     if (Type->IsVoxel && Type->Voxel.unknown_00) {
         CoordStruct ground = Position_Coord_004f3f40();
         ground.Z = Map.Get_Height_GL(ground);
@@ -433,7 +433,7 @@ void AircraftClass::AI()
     CoordStruct position = Coord;
     if (Type->Trailer && Frame % Type->SpawnDelay == 0)
         new AnimClass(Type->Trailer, position, 1, 1, 0x600, 0);
-    if (!Map.Unknown_0055A660(unknown_slot104(), true) && unknown_slot282()) {
+    if (!Map.In_Local_Radar(Get_Cell(), true) && unknown_slot282()) {
         Delete_Me();
         return;
     }
@@ -521,9 +521,9 @@ choose_destination:
                     Mark(1);
                 } else {
                 FootClass *passenger = (FootClass *)Cargo.Detach_Object();
-                Map.Pick_Up(unknown_slot104(), this);
+                Map.Pick_Up(Get_Cell(), this);
                 if (Exit_Object(passenger)) passenger->unknown_37c = false;
-                Map.Place_Down(unknown_slot104(), this);
+                Map.Place_Down(Get_Cell(), this);
                 if (!passenger->unknown_37c && passenger->Team) Team->Add(passenger);
                 if (!Cargo.Object) unknown_slot261(false, true);
                 }
@@ -639,7 +639,7 @@ int AircraftClass::Exit_Object(TechnoClass *techno)
     Cell cell(0, 0);
     int index;
     for (index = 0; index < 8; index++) {
-        cell = Adjacent_Cell(unknown_slot104(), unknown_facings_7ce4a8[index]);
+        cell = Adjacent_Cell(Get_Cell(), unknown_facings_7ce4a8[index]);
         if (techno->Can_Enter_Cell(&Map[cell], -1, -1, 0, 1) == 0) {
             break;
         }
@@ -911,7 +911,7 @@ int AircraftClass::Do_MISSION_MOVE_Normal()
             unknown_slot261(false, true);
             return 1;
         }
-        CoordStruct destination = NavCom->unknown_slot19(this);
+        CoordStruct destination = NavCom->Destination_Coord(this);
         Locomotor.Checked()->Move_To(destination);
         Status = 2;
         return 1;
@@ -930,7 +930,7 @@ int AircraftClass::Do_MISSION_MOVE_Normal()
             }
         }
         if (Locomotor.Checked()->Is_Moving()) {
-            if (!NavCom || Destination_Cell(NavCom, this) != unknown_slot104()) {
+            if (!NavCom || Destination_Cell(NavCom, this) != Get_Cell()) {
                 if (NavCom && !Cell_Seems_Ok(Destination_Cell(NavCom, this), true)) {
                     Status = 0;
                 } else {
@@ -950,7 +950,7 @@ int AircraftClass::Do_MISSION_MOVE_Normal()
         return 1;
     case 4:
         if (Locomotor.Checked()->Is_Moving()) {
-            if (!NavCom || Destination_Cell(NavCom, this) != unknown_slot104()) {
+            if (!NavCom || Destination_Cell(NavCom, this) != Get_Cell()) {
                 if (NavCom && !Cell_Seems_Ok(Destination_Cell(NavCom, this), true)) {
                     Status = 0;
                 }
@@ -1179,7 +1179,7 @@ int AircraftClass::Do_MISSION_PATROL()
             unknown_slot261(false, true);
             return 1;
         }
-        CoordStruct destination = NavCom->unknown_slot19(this);
+        CoordStruct destination = NavCom->Destination_Coord(this);
         Locomotor.Checked()->Move_To(destination);
         Status = 2;
         return 1;
@@ -1480,7 +1480,7 @@ docking:
         }
     }
     if (Type->Carryall && action == 0x11) {
-        Cell cell = object->unknown_slot104();
+        Cell cell = object->Get_Cell();
         if (cell.X != unknown_geometry_k.X || cell.Y != unknown_geometry_k.Y) {
             UnknownAircraftBuilding *building = ((UnknownAircraftCell &)((UnknownPlacementCellView &)Map[cell])).Unknown_004717B0();
             if (building != 0 && building->Type->IsWeaponsFactory) {
@@ -1852,7 +1852,7 @@ AbstractClass *AircraftClass::New_LZ(AbstractClass *desired)
     if (desired) {
         if (Team && Team->Is_Leaving_Map()) return desired;
         if (unknown_slot309(desired)) {
-            Cell cell = Coord_Cell(desired->unknown_slot19(0));
+            Cell cell = Coord_Cell(desired->Destination_Coord(0));
             if (Cell_Seems_Ok(cell, false)) return desired;
         }
         CoordStruct coord = desired->Center_Coord();
@@ -1862,7 +1862,7 @@ AbstractClass *AircraftClass::New_LZ(AbstractClass *desired)
                 Cell previous(0, 0);
                 for (int direction = 0; direction < 8; direction++) {
                     Cell cell = Move_Cell(Coord_Cell(coord), UnknownFacingDir((unsigned short)(Facing_Dir(direction + phase).Raw & ~0x1fff)), radius);
-                    if (Map.Unknown_0055A660(cell, true)) {
+                    if (Map.In_Local_Radar(cell, true)) {
                         CellClass *candidate = &Map[cell];
                         if (cell != previous && unknown_slot309(candidate) &&
                             Cell_Seems_Ok(cell, false)) {
@@ -2113,7 +2113,7 @@ AbstractClass *AircraftClass::Good_Fire_Location(AbstractClass *desired)
                     int sample_x = (int)(unknown_cos_4ba4d0(angle) * ring_radius + center_x);
                     Cell sample = XY_Cell(sample_x / 256, sample_y / 256);
                     Cell cell = sample;
-                    if (Map.Unknown_0055A660(cell, true) &&
+                    if (Map.In_Local_Radar(cell, true) &&
                         (unknown_game_mode_a3d298 || unknown_32c ||
                          (reinterpret_cast<UnknownCellClass *>(&Map[cell])->unknown_12c & 0x10)) &&
                         Cell_Seems_Ok(cell, true)) {
@@ -2151,7 +2151,7 @@ AbstractClass *AircraftClass::Good_Fire_Location(AbstractClass *desired)
 // Aircraft landing-cell predicate00419250. Boolean return spelling is a hypothesis.
 bool AircraftClass::Cell_Seems_Ok(Cell const &cell, bool allow_self)
 {
-    if (!Map.Unknown_0055A660(cell, true)) return true;
+    if (!Map.In_Local_Radar(cell, true)) return true;
     if (Type->Spawned) {
         Point2D offset(0, 0);
         TechnoClass *occupant = (TechnoClass *)Map[cell].Cell_Techno(offset, false, 0);
@@ -2167,7 +2167,7 @@ bool AircraftClass::Cell_Seems_Ok(Cell const &cell, bool allow_self)
         FootClass *foot = Feet[index];
         if (foot && (!ignore_contact || NavCom != foot) &&
             (allow_self || foot != this) && !foot->IsInLimbo && foot->IsDown &&
-            (foot->unknown_slot104() == cell || foot->NavCom == where)) return false;
+            (foot->Get_Cell() == cell || foot->NavCom == where)) return false;
     }
     return true;
 }
@@ -2336,7 +2336,7 @@ AbstractClass *AircraftClass::Good_LZ()
                     distance /= 4;
                 }
                 if (best_distance == -1 || distance < best_distance) {
-                    Cell cell = building->unknown_slot104();
+                    Cell cell = building->Get_Cell();
                     cell = Map.Nearby_Location(cell, 0, Map.Zone(cell, 0, false), 0, false, Point2D(3, 3), 0, 0, 0, 1, Cell(0, 0), 0);
                     if (cell != unknown_geometry_k) {
                         best_distance = distance;
@@ -2349,7 +2349,7 @@ AbstractClass *AircraftClass::Good_LZ()
 
     if (best_distance != -1) {
         if (best_distance < 256) {
-            Cell cell = Map.Nearby_Location(unknown_slot104(), 0, Map.Zone(unknown_slot104(), 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
+            Cell cell = Map.Nearby_Location(Get_Cell(), 0, Map.Zone(Get_Cell(), 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
             return &Map[cell];
         }
         return &Map[best_cell];
@@ -2360,7 +2360,7 @@ AbstractClass *AircraftClass::Good_LZ()
         if (techno && !techno->IsInLimbo && techno->House == House && techno != this) {
             int distance = Coord_Distance(Center_Coord(), techno->Center_Coord());
             if (best_distance == -1 || distance < best_distance) {
-                Cell cell = techno->unknown_slot104();
+                Cell cell = techno->Get_Cell();
                 cell = Map.Nearby_Location(cell, 0, Map.Zone(cell, 0, false), 0, false, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
                 if (cell != unknown_geometry_k) {
                     best_distance = distance;
@@ -2687,7 +2687,7 @@ void __fastcall AircraftClass::Write_INI_0041A6C0(CCINIClass &ini)
             sprintf(line, "%s,%s,%d,%d,%d,%d,%s,%s,%d,%d,%d,%d",
                     (char const *)aircraft->House->IniName, (char const *)aircraft->Type->ID,
                     (int)(aircraft->Health_Ratio() * 256.0),
-                    aircraft->unknown_slot104().X, aircraft->unknown_slot104().Y,
+                    aircraft->Get_Cell().X, aircraft->Get_Cell().Y,
                     direction, MissionClass::Name_From_Mission(aircraft->Get_Mission()), tag,
                     aircraft->Veterancy.To_Integer(), aircraft->Group,
                     aircraft->unknown_379, aircraft->unknown_37a);
@@ -3066,7 +3066,7 @@ CoordStruct ObjectClass::unknown_slot44(int arg1)
 }
 
 
-Cell ObjectClass::unknown_slot104() const
+Cell ObjectClass::Get_Cell() const
 {
     Cell cell;
     cell.X = Coord.X / 256;

@@ -79,7 +79,7 @@ AlphaShapeClass::AlphaShapeClass(ObjectClass *object, int x, int y) :
     Bounds = Rect(x, y, image->Get_Width(), image->Get_Height());
     AlphaShapes.Add(this);
     ObjectPtrTracker.Add(this);
-    if (!unknown_alpha_table_ready_84c684) {
+    if (!BrightnessCalculated) {
         Init_Alpha_Table();
     }
 }
@@ -96,7 +96,7 @@ AlphaShapeClass::AlphaShapeClass() :
 {
     AlphaShapes.Add(this);
     ObjectPtrTracker.Add(this);
-    if (!unknown_alpha_table_ready_84c684) {
+    if (!BrightnessCalculated) {
         Init_Alpha_Table();
     }
 }
@@ -202,7 +202,7 @@ void AlphaShapeClass::Detach(AbstractClass *target, bool all)
 
 void AlphaShapeClass::Update_All()
 {
-    if (!unknown_alpha_table_ready_84c684) {
+    if (!BrightnessCalculated) {
         Init_Alpha_Table();
     }
     for (int i = AlphaShapes.Count() - 1; i >= 0; i--) {
@@ -302,7 +302,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &point, Rect const &
                         for (int x = left; x < right; x++) {
                             unsigned char pixel = *shapeptr++;
                             if (*maskptr++ != ' ') {
-                                *alphaptr = unknown_alpha_table_83c670[pixel * 256 + *alphaptr];
+                                *alphaptr = AlphaShapeClass_BrightnessTable[pixel * 256 + *alphaptr];
                             }
                             alphaptr++;
                             alphaptr = AlphaBuffer->Wrap_Pointer(alphaptr);
@@ -317,7 +317,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &point, Rect const &
                         for (int x = left; x < right; x++) {
                             unsigned char pixel = *shapeptr++;
                             if (*maskptr++ != ' ') {
-                                *alphaptr = unknown_alpha_table_83c670[pixel * 256 + *alphaptr];
+                                *alphaptr = AlphaShapeClass_BrightnessTable[pixel * 256 + *alphaptr];
                             }
                             ++alphaptr;
                         }
@@ -384,7 +384,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
                     for (int y = top; y < bottom; y++) {
                         for (int x = left; x < right; x++) {
                             unsigned char pixel = *shapeptr++;
-                            *alphaptr = unknown_alpha_table_83c670[pixel * 256 + *alphaptr];
+                            *alphaptr = AlphaShapeClass_BrightnessTable[pixel * 256 + *alphaptr];
                             alphaptr++;
                             alphaptr = AlphaBuffer->Wrap_Pointer(alphaptr);
                         }
@@ -396,7 +396,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
                     for (int y = top; y < bottom; y++) {
                         for (int x = left; x < right; x++) {
                             unsigned char pixel = *shapeptr++;
-                            *alphaptr = unknown_alpha_table_83c670[pixel * 256 + *alphaptr];
+                            *alphaptr = AlphaShapeClass_BrightnessTable[pixel * 256 + *alphaptr];
                             ++alphaptr;
                         }
                         shapeptr += shape_skip;
@@ -417,12 +417,12 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
 
 void AlphaShapeClass::Init_Alpha_Table()
 {
-    unknown_alpha_table_ready_84c684 = true;
+    BrightnessCalculated = true;
     for (int i = 0; i < 256 * 256; i++) {
         int low = i % 256;
         int high = i / 256;
         int value = ALPHA_MAX(0, ALPHA_MIN(255, low * high / 127));
-        unknown_alpha_table_83c670[i] = value;
+        AlphaShapeClass_BrightnessTable[i] = value;
     }
 }
 

@@ -334,77 +334,77 @@
    "address": "007b2500",
    "bytes": 24,
    "kind": "rtti",
-   "section": 140
+   "section": 151
   },
   {
    "symbol": "??_R2CCFileClass@@8",
    "address": "007b2518",
    "bytes": 21,
    "kind": "rtti",
-   "section": 141
+   "section": 152
   },
   {
    "symbol": "??_R3CCFileClass@@8",
    "address": "007b2530",
    "bytes": 16,
    "kind": "rtti",
-   "section": 142
+   "section": 153
   },
   {
    "symbol": "??_R4CCFileClass@@6B@",
    "address": "007b2540",
    "bytes": 20,
    "kind": "rtti",
-   "section": 144
+   "section": 155
   },
   {
    "symbol": "??_R1A@?0A@A@FileClass@@8",
    "address": "007b2558",
    "bytes": 24,
    "kind": "rtti",
-   "section": 146
+   "section": 144
   },
   {
    "symbol": "??_R1A@?0A@A@RawFileClass@@8",
    "address": "007b2570",
    "bytes": 24,
    "kind": "rtti",
-   "section": 148
+   "section": 146
   },
   {
    "symbol": "??_R1A@?0A@A@BufferIOFileClass@@8",
    "address": "007b2588",
    "bytes": 24,
    "kind": "rtti",
-   "section": 150
+   "section": 148
   },
   {
    "symbol": "??_R1A@?0A@A@CDFileClass@@8",
    "address": "007b25a0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 151
+   "section": 150
   },
   {
    "symbol": "??_R2CDFileClass@@8",
    "address": "007b25b8",
    "bytes": 17,
    "kind": "rtti",
-   "section": 152
+   "section": 140
   },
   {
    "symbol": "??_R3CDFileClass@@8",
    "address": "007b25d0",
    "bytes": 16,
    "kind": "rtti",
-   "section": 153
+   "section": 141
   },
   {
    "symbol": "??_R4CDFileClass@@6B@",
    "address": "007b25e0",
    "bytes": 20,
    "kind": "rtti",
-   "section": 155
+   "section": 142
   },
   {
    "symbol": "??_R1M@?0A@A@INoticeSource@@8",
@@ -531,35 +531,35 @@
    "address": "007cc8b0",
    "bytes": 26,
    "kind": "rtti",
-   "section": 143
+   "section": 154
   },
   {
    "symbol": "??_R0?AVFileClass@@@8",
    "address": "007cc8d0",
    "bytes": 24,
    "kind": "rtti",
-   "section": 145
+   "section": 143
   },
   {
    "symbol": "??_R0?AVRawFileClass@@@8",
    "address": "007cc8e8",
    "bytes": 27,
    "kind": "rtti",
-   "section": 147
+   "section": 145
   },
   {
    "symbol": "??_R0?AVBufferIOFileClass@@@8",
    "address": "007cc908",
    "bytes": 32,
    "kind": "rtti",
-   "section": 149
+   "section": 147
   },
   {
    "symbol": "??_R0?AVCDFileClass@@@8",
    "address": "007cc928",
    "bytes": 26,
    "kind": "rtti",
-   "section": 154
+   "section": 149
   },
   {
    "symbol": "??_R0?AVINoticeSink@@@8",
@@ -1469,6 +1469,10 @@
    "address": "00639240"
   },
   {
+   "symbol": "?Destination_Coord@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
    "symbol": "?Detach@AbstractClass@@UAEXPAV1@_N@Z",
    "address": "00410220"
   },
@@ -1551,6 +1555,10 @@
   {
    "symbol": "?Init@AbstractClass@@UAEXXZ",
    "address": "00410210"
+  },
+  {
+   "symbol": "?Init_Theater@AbstractTypeClass@@UAEXH@Z",
+   "address": "004109a0"
   },
   {
    "symbol": "?IsDirty@AbstractClass@@UAGJXZ",
@@ -1753,16 +1761,8 @@
    "address": "004ba5b0"
   },
   {
-   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
-   "address": "00410290"
-  },
-  {
    "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
    "address": "004102e0"
-  },
-  {
-   "symbol": "?unknown_slot24@AbstractTypeClass@@UAEXH@Z",
-   "address": "004109a0"
   },
   {
    "symbol": "?unknown_slot38@ObjectTypeClass@@UBEPBXXZ",

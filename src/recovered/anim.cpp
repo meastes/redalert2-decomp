@@ -1274,7 +1274,7 @@ CoordStruct AnimClass::unknown_func_4237b0()
     for (int x = start.X - 5; x < start.X + 5; x++) {
         any = true;
         for (int y = start.Y - 5; y < start.Y + 5; y++) {
-            if (Map.Unknown_0055A660(Cell(x, y), true)) {
+            if (Map.In_Local_Radar(Cell(x, y), true)) {
                 CellClass &cell = Map[Cell(x, y)];
                 if (cell.Land == 2 && !(cell.unknown_140 & 0x100)
                     && !(cell.Adjacent_Cell(6).unknown_140 & 0x100)

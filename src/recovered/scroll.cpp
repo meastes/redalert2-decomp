@@ -293,7 +293,7 @@ int ScrollClass::What_Action(Cell const &cell, ObjectClass *object, bool check_f
             } else if (waypoint != 0) {
                 action = 0x2E;
             } else if (PlayerPtr->SelectedPath != -1 && PlayerPtr->Can_Add_Waypoint_To_Path()
-                    && Map.Unknown_0055A660(cell, true)) {
+                    && Map.In_Local_Radar(cell, true)) {
                 action = 0x2A;
             } else {
                 action = 0x2B;

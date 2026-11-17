@@ -222,7 +222,7 @@ bool FootClass::Mark(int arg1)
     }
     if (TechnoClass::Mark(arg1)) {
         if (In_Which_Layer() == 2) {
-            Cell cell = unknown_slot104();
+            Cell cell = Get_Cell();
             switch (arg1) {
             case 0:
                 Map.Pick_Up(cell, this);
@@ -256,7 +256,7 @@ bool FootClass::unknown_slot171(CoordStruct const &coord)
     if (cell == unknown_geometry_k) {
         return false;
     }
-    Cell here = Coord_Cell(unknown_slot19(0));
+    Cell here = Coord_Cell(Destination_Coord(0));
     return Map.Unknown_0054F7C0(here, cell, zone, Is_Moving_Onto_Bridge(0),
         (unsigned char)((((UnknownCellClass *)&Map[cell])->Flags >> 8) & 1), unknown_slot189());
 }
@@ -300,7 +300,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         int zone=unknown_zone_table_7a1200[Techno_Type_Class()->MovementZone];
         bool check=Techno_Type_Class()->unknown_af5 && Map[cell].Can_Burrow_Here();
         Cell nearby=Map.Nearby_Location(cell,Techno_Type_Class()->SpeedType,
-            Map.Zone(unknown_slot104(),zone,IsOnBridge),zone,IsOnBridge,Point2D(1,1),false,true,check,true,unknown_slot104(),0);
+            Map.Zone(Get_Cell(),zone,IsOnBridge),zone,IsOnBridge,Point2D(1,1),false,true,check,true,Get_Cell(),0);
         int dest_y=cell.Y;
         int nearby_y=nearby.Y;
         int dest_x=cell.X;
@@ -319,7 +319,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
             int zone=unknown_zone_table_7a1200[Techno_Type_Class()->MovementZone];
             bool check=Techno_Type_Class()->unknown_af5 && Map[cell].Can_Burrow_Here();
             Cell nearby=Map.Nearby_Location(cell,Techno_Type_Class()->SpeedType,
-                Map.Zone(unknown_slot104(),zone,IsOnBridge),zone,IsOnBridge,Point2D(1,1),false,true,check,true,unknown_slot104(),0);
+                Map.Zone(Get_Cell(),zone,IsOnBridge),zone,IsOnBridge,Point2D(1,1),false,true,check,true,Get_Cell(),0);
             Assign_Destination(&Map[nearby],true);
             cell=nearby;
         }
@@ -351,7 +351,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
                 CellClass *current=&Map[next_cell];
                 next_cell=current->Adjacent_Cell((work_path[length]+4)%8).MapCoords;
                 AbstractClass *destination=follower->NavCom;
-                if(!destination || Coord_Cell(destination->unknown_slot19(0))!=next_cell) {
+                if(!destination || Coord_Cell(destination->Destination_Coord(0))!=next_cell) {
                     follower->QueueMission(2,false);
                     follower->Assign_Destination(&Map[next_cell],true);
                     follower->unknown_4c3000(next_cell,0,0);
@@ -361,7 +361,7 @@ bool FootClass::unknown_4c3000(Cell cell,int path_offset,int avoidance)
         }
     }
     if(path) {
-        LastPathingCell=unknown_slot104();
+        LastPathingCell=Get_Cell();
         return true;
     }
     PathDelay=(int)(Rules->PathDelay*900.0);
@@ -448,7 +448,7 @@ int FootClass::Do_MISSION_PATROL()
         ObjectClass *optr = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
         int primary = What_Weapon_Should_I_Use(optr);
 
-        if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(Coord_Cell(unknown_slot19(0)), Coord_Cell(optr->unknown_slot19(0)), this, Is_Moving_Onto_Bridge(0), optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
+        if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(Coord_Cell(Destination_Coord(0)), Coord_Cell(optr->Destination_Coord(0)), this, Is_Moving_Onto_Bridge(0), optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             PatrolCell = (AbstractClass *)Get_Target_Cell_Ptr();
             if ((((UnknownCellClass *)PatrolCell)->Flags & 0x100) && !Is_Moving_Onto_Bridge(0)) {
                 Cell cell = Map.Nearby_Location(((UnknownCellClass *)PatrolCell)->unknown_24, Techno_Type_Class()->SpeedType, Map.Zone(((UnknownCellClass *)PatrolCell)->unknown_24, Techno_Type_Class()->MovementZone, false), Techno_Type_Class()->MovementZone, false, Point2D(1, 1), 0, 1, 0, 0, Cell(0, 0), 0);
@@ -488,7 +488,7 @@ int FootClass::Do_MISSION_PATROL()
 
         if (Is_Renovator() && optr != 0 && optr->Kind_Of() == 6 && House->Is_Ally(((TechnoClass *)optr)->House) && optr->Health_Ratio() > Rules->ConditionRed) {
             unknown_slot220(0);
-        } else if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
+        } else if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(optr->Destination_Coord(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             unknown_slot304();
             if (TarCom != 0) {
                 break;
@@ -504,7 +504,7 @@ int FootClass::Do_MISSION_PATROL()
             AbstractClass *target = unknown_slot219(2, &PatrolCell->Center_Coord(), false);
             ObjectClass *scan = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
             int weapon = What_Weapon_Should_I_Use(scan);
-            if (scan != 0 && (unknown_slot212(scan, weapon) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(scan->unknown_slot19(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, scan->Is_Moving_Onto_Bridge(0), -1) < dist)) {
+            if (scan != 0 && (unknown_slot212(scan, weapon) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(scan->Destination_Coord(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, scan->Is_Moving_Onto_Bridge(0), -1) < dist)) {
                 unknown_slot220(target);
                 Assign_Destination(0, true);
                 return 1;
@@ -536,7 +536,7 @@ int FootClass::Do_MISSION_PATROL()
         ObjectClass *optr = target == 0 ? 0 : (target->AbstractFlags.IsObject ? (ObjectClass *)target : 0);
         int primary = What_Weapon_Should_I_Use(optr);
 
-        if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(optr->unknown_slot19(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
+        if (optr != 0 && (unknown_slot212(optr, primary) || Search.Test_Cell_Walk(((UnknownCellClass *)PatrolCell)->unknown_24, Coord_Cell(optr->Destination_Coord(0)), this, ((UnknownCellClass *)PatrolCell)->Flags >> 8 & 1, optr->Is_Moving_Onto_Bridge(0), -1) < dist)) {
             unknown_slot220(target);
             Assign_Destination(0, true);
             Status = 1;
@@ -673,7 +673,7 @@ int FootClass::Do_MISSION_ATTACK()
 BuildingClass *FootClass::unknown_4c45b0()
 {
     for (int facing = 0; facing < 8; facing++) {
-        Cell cell = AdjacentCell[facing & 7] + unknown_slot104();
+        Cell cell = AdjacentCell[facing & 7] + Get_Cell();
         BuildingClass *building = Map_Cell_At(cell)->Unknown_004717B0();
         if (building != 0 && building->Type->Overpowerable && building->Owning_House() == Owning_House()) {
             return building;
@@ -700,7 +700,7 @@ int FootClass::Do_MISSION_GUARD()
         if (unknown_slot231(1)->WeaponType != 0 && unknown_slot231(1)->WeaponType->Warhead->ElectricAssault) {
             BuildingClass *building = 0;
             for (int facing = 0; facing < 8; facing++) {
-                Cell cell = Adjacent_Cell(unknown_slot104(), facing);
+                Cell cell = Adjacent_Cell(Get_Cell(), facing);
                 BuildingClass *candidate = ((UnknownCellClass *)&Map[cell])->Unknown_004717B0();
                 if (candidate != 0 && candidate->Type->Overpowerable) {
                     HouseClass *owner = Owning_House();
@@ -941,7 +941,7 @@ void FootClass::unknown_slot304()
     if (TarCom->Kind_Of()==11) {
         CellClass *target_cell=(CellClass *)TarCom;
         if (target_cell->Is_Tile_Destroyable_Cliff()) {
-            Cell destination=unknown_slot19(0).As_Cell();
+            Cell destination=Destination_Coord(0).As_Cell();
             Cell nearer=Map.Unknown_00568ED0(target_cell->MapCoords,destination);
             unknown_slot220(&Map[nearer]);
         }
@@ -982,9 +982,9 @@ void FootClass::unknown_slot304()
             if (Map[trial_position].unknown_140&0x100) trial_position.Z+=unknown_geometry_j;
             if (!unknown_6c4bb0(&trial_position,TarCom,unknown_slot231(weapon)->WeaponType)) continue;
             trial_cell=trial_position.As_Cell();
-            if (!Map.Unknown_0055A660(trial_cell,true)) continue;
+            if (!Map.In_Local_Radar(trial_cell,true)) continue;
             bool clear=Map[trial_cell].Is_Clear_To_Move(Techno_Type_Class()->SpeedType,false,false,
-                Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,IsOnBridge),movement_zone,-1,true);
+                Map.Zone(Destination_Coord(0).As_Cell(),movement_zone,IsOnBridge),movement_zone,-1,true);
             if (!clear) {
                 if (Kind_Of()==15) continue;
                 CoordStruct saved_position=trial_position;
@@ -994,7 +994,7 @@ void FootClass::unknown_slot304()
                     trial_position=CoordStruct(trial_cell);
                     if (unknown_6c4bb0(&trial_position,TarCom,unknown_slot231(weapon)->WeaponType)
                         && Map[trial_cell].Is_Clear_To_Move(Techno_Type_Class()->SpeedType,false,false,
-                            Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,IsOnBridge),movement_zone,-1,true)) {
+                            Map.Zone(Destination_Coord(0).As_Cell(),movement_zone,IsOnBridge),movement_zone,-1,true)) {
                         clear=true;
                         break;
                     }
@@ -1011,7 +1011,7 @@ void FootClass::unknown_slot304()
             CellClass *cell=&Map[trial_cell];
             if (!flyer && Search.Test_Cell_Walk(trial_cell,target_cell,this,
                     (cell->unknown_140&0x100)!=0,target_bridge,-1)>maximum_distance+8) {
-                Cell destination=unknown_slot19(0).As_Cell();
+                Cell destination=Destination_Coord(0).As_Cell();
                 int dest_dy=abs((int)destination.Y-trial_cell.Y);
                 int dest_dx=abs((int)destination.X-trial_cell.X);
                 int dest_distance=dest_dx>dest_dy?dest_dx:dest_dy;
@@ -1030,7 +1030,7 @@ void FootClass::unknown_slot304()
         Assign_Destination(TarCom,true);
     } else {
         trial_cell=Map.Nearby_Location(trial_cell,Techno_Type_Class()->SpeedType,
-            Map.Zone(unknown_slot19(0).As_Cell(),movement_zone,Is_Moving_Onto_Bridge(0)),movement_zone,
+            Map.Zone(Destination_Coord(0).As_Cell(),movement_zone,Is_Moving_Onto_Bridge(0)),movement_zone,
             (Map[trial_cell].unknown_140&0x100)!=0,Point2D(1,1),false,true,false,false,Cell(0,0),0);
         unknown_slot220(0);
         if (trial_cell!=unknown_geometry_k) Assign_Destination(&Map[trial_cell],true);
@@ -1125,7 +1125,7 @@ int FootClass::Do_MISSION_GUARD_AREA()
 
     if (TarCom == 0 && unknown_slot231(1)->WeaponType != 0 && unknown_slot231(1)->WeaponType->Warhead->ElectricAssault) {
         for (int facing = 0; facing < 8; facing++) {
-            Cell cell = Adjacent_Cell(unknown_slot104(), facing);
+            Cell cell = Adjacent_Cell(Get_Cell(), facing);
             BuildingClass *candidate = ((UnknownCellClass *)&Map[cell])->Unknown_004717B0();
             if (candidate != 0 && candidate->Type->Overpowerable && candidate->Owning_House() == Owning_House()) {
                 if (candidate != 0) {
@@ -1165,7 +1165,7 @@ bool FootClass::Unlimbo(CoordStruct const *coord, int dir)
         }
         Revealed(House);
         unknown_4d0 = -1;
-        Cell cell = unknown_slot104();
+        Cell cell = Get_Cell();
         for (int facing = 0; facing < 8; facing++) {
             UnknownCellClass *next = (UnknownCellClass *)&Map[Adjacent_Cell(cell, facing)];
             next->unknown_122++;
@@ -1337,9 +1337,9 @@ bool FootClass::unknown_slot78(int action, ObjectClass *object, bool arg3)
             if (((Techno_Type_Class()->unknown_af5 && !Rules->AllowShroudedSubteranneanMoves) || Kind_Of() == 2) && Map.Is_Shrouded(center)) return true;
 
             int mzone = Techno_Type_Class()->MovementZone;
-            Cell cell = Coord_Cell(object->unknown_slot19(0));
-            bool in_radar = Map.Unknown_0055A660(cell, true);
-            UnknownCellClass *cptr = (UnknownCellClass *)&Map[unknown_slot19(0)];
+            Cell cell = Coord_Cell(object->Destination_Coord(0));
+            bool in_radar = Map.In_Local_Radar(cell, true);
+            UnknownCellClass *cptr = (UnknownCellClass *)&Map[Destination_Coord(0)];
 
             if (mzone == 6) mzone = 0;
             else if (mzone == 9) mzone = 7;
@@ -1411,7 +1411,7 @@ bool FootClass::unknown_slot77(int action, Cell const *arg2, Cell const *arg3, b
     Cell const &cell = *arg2;
     action = What_Action(&cell, false, arg4);
 
-    if (!Map.Unknown_0055A660(cell, true) && action != 2) {
+    if (!Map.In_Local_Radar(cell, true) && action != 2) {
         return false;
     }
 
@@ -1608,7 +1608,7 @@ void FootClass::unknown_slot93(int why)
         }
 
         if (unknown_454 != Cell(0, 0)) {
-            if (Map.Cell_Region(unknown_454) != Map.Cell_Region(unknown_slot104())) {
+            if (Map.Cell_Region(unknown_454) != Map.Cell_Region(Get_Cell())) {
                 unknown_6d95d0((UnknownCellClass *)&Map[unknown_454]);
                 unknown_6d95a0((UnknownCellClass *)Get_Cell_Ptr());
             }
@@ -1618,7 +1618,7 @@ void FootClass::unknown_slot93(int why)
                 UnknownCellClass *cptr = (UnknownCellClass *)&Map[c];
                 cptr->unknown_122--;
             }
-            unknown_454 = unknown_slot104();
+            unknown_454 = Get_Cell();
             for (face = 0; face < 8; face++) {
                 Cell c = Adjacent_Cell(unknown_454, face);
                 UnknownCellClass *cptr = (UnknownCellClass *)&Map[c];
@@ -1628,9 +1628,9 @@ void FootClass::unknown_slot93(int why)
 
         if (Cloak == 2) {
             for (int face = 0; face < 8; face++) {
-                Cell cell = AdjacentCell[face & 7] + unknown_slot104();
+                Cell cell = AdjacentCell[face & 7] + Get_Cell();
 
-                if (Map.Unknown_0055A660(cell, true)) {
+                if (Map.In_Local_Radar(cell, true)) {
                     TechnoClass *techno = ((UnknownCellClass *)&Map[cell])->Unknown_00471660(Point2D(0, 0), 0, 0);
 
                     if (techno && !techno->House->Is_Ally(this) && (techno->Techno_Type_Class()->Sensors || techno->Has_Ability(12))) {
@@ -1652,7 +1652,7 @@ void FootClass::unknown_slot93(int why)
             Path[0] = -1;
         }
 
-        Cell cell = unknown_slot104();
+        Cell cell = Get_Cell();
         UnknownCellClass *cellptr = (UnknownCellClass *)&Map[cell];
 
         if (Cloak != 2) {
@@ -1660,10 +1660,10 @@ void FootClass::unknown_slot93(int why)
             int x = cell.X;
             int y = cell.Y;
             if ((!(cellptr->Flags & 0x500) || IsOnBridge) && tag != 0) {
-                tag->Spring(1, this, unknown_slot104());
+                tag->Spring(1, this, Get_Cell());
                 if (Kind_Of() == 15 && ((InfantryClass *)this)->Type->Agent) {
-                    tag->Spring(0x35, this, unknown_slot104());
-                    tag->Spring(0x36, this, unknown_slot104());
+                    tag->Spring(0x35, this, Get_Cell());
+                    tag->Spring(0x36, this, Get_Cell());
                 }
             }
 
@@ -1673,7 +1673,7 @@ void FootClass::unknown_slot93(int why)
                     tag = cellptr->unknown_3c;
                     if (tag != 0) {
                         if (tag->Is_Cross_Horizontal()) {
-                            tag->Spring(0x19, this, unknown_slot104());
+                            tag->Spring(0x19, this, Get_Cell());
                         }
                     }
                 }
@@ -1684,7 +1684,7 @@ void FootClass::unknown_slot93(int why)
                     tag = ((UnknownCellClass *)&Map[Cell(x, index + Map.unknown_124)])->unknown_3c;
                     if (tag != 0) {
                         if (tag->Is_Cross_Vertical()) {
-                            tag->Spring(0x1A, this, unknown_slot104());
+                            tag->Spring(0x1A, this, Get_Cell());
                         }
                     }
                 }
@@ -1694,8 +1694,8 @@ void FootClass::unknown_slot93(int why)
                 tag = MapTags[MapTriggerID];
                 if (tag != 0) {
                     if (tag->Is_Enters_Zone()) {
-                        if (Map.Unknown_0054F7C0(tag->Get_Position(), Coord_Cell(unknown_slot19(0)), Techno_Type_Class()->MovementZone, ((UnknownCellClass *)&Map[tag->Get_Position()])->Flags >> 8 & 1, Is_Moving_Onto_Bridge(0), false)) {
-                            tag->Spring(0x18, this, Coord_Cell(unknown_slot19(0)));
+                        if (Map.Unknown_0054F7C0(tag->Get_Position(), Coord_Cell(Destination_Coord(0)), Techno_Type_Class()->MovementZone, ((UnknownCellClass *)&Map[tag->Get_Position()])->Flags >> 8 & 1, Is_Moving_Onto_Bridge(0), false)) {
+                            tag->Spring(0x18, this, Coord_Cell(Destination_Coord(0)));
                         }
                     }
                 }
@@ -1718,7 +1718,7 @@ void FootClass::unknown_slot93(int why)
 
         if (!IsActive) return;
 
-        if (!Map.Unknown_0055A660(unknown_slot104(), true) && unknown_slot282()) {
+        if (!Map.In_Local_Radar(Get_Cell(), true) && unknown_slot282()) {
             Delete_Me();
             return;
         }
@@ -1829,7 +1829,7 @@ int FootClass::Receive_Message(RadioClass *from, int message, AbstractClass *&pa
     case 18:
         if (param != 0) {
             Cell cell = Coord_Cell(param->Center_Coord());
-            if (unknown_slot104() == cell) {
+            if (Get_Cell() == cell) {
                 return 20;
             }
         }
@@ -1940,7 +1940,7 @@ void FootClass::Assign_Destination(AbstractClass *target, bool immediate)
         if (IsMoveToSkipped) {
             IsMoveToSkipped = false;
         } else {
-            CoordStruct coord = NavCom->unknown_slot19(this);
+            CoordStruct coord = NavCom->Destination_Coord(this);
             Locomotor.Checked()->Move_To(coord);
         }
     } else if (Kind_Of() != 2 || (Mission != 1 && MissionQueue != 1) || TarCom == 0) {
@@ -2027,7 +2027,7 @@ int FootClass::Rescue_Mission(AbstractClass *target)
 void FootClass::unknown_slot216(int arg1)
 {
     if (House->Is_Player_Control() && !Techno_Type_Class()->Spawned) {
-        if (Unknown_0063B5B0(7, unknown_slot104())) {
+        if (Unknown_0063B5B0(7, Get_Cell())) {
             Speech_Play_Name("EVA_UnitLost", -1, -1);
         }
     }
@@ -2935,7 +2935,7 @@ void FootClass::unknown_slot308()
 
 bool FootClass::unknown_slot169(AbstractClass *target)
 {
-    Cell cell = Coord_Cell(target->unknown_slot19(this));
+    Cell cell = Coord_Cell(target->Destination_Coord(this));
     CoordStruct center(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
     return unknown_slot171(center);
 }
@@ -3001,12 +3001,12 @@ bool FootClass::unknown_slot154()
 }
 
 
-// CoordStruct FootClass::unknown_slot19(TechnoClass *techno) const (0x004CA6F0)
+// CoordStruct FootClass::Destination_Coord(TechnoClass *techno) const (0x004CA6F0)
 // Inside a tube (+0x574 set): the centre of its cell; otherwise where the
 // locomotor is heading (ILocomotion::Head_To_Coord), or the object's own
 // coordinate when that is the zero coordinate.
 
-CoordStruct FootClass::unknown_slot19(TechnoClass *techno) const
+CoordStruct FootClass::Destination_Coord(TechnoClass *techno) const
 {
     if (CurrentTube >= 0) {
         Cell cell = Tubes[CurrentTube]->ExitCell;
@@ -3028,7 +3028,7 @@ bool FootClass::Captured(HouseClass *house, int arg2)
 {
     if (TechnoClass::Captured(house, true)) {
         if (!In_Air()) {
-            unknown_454 = unknown_slot104();
+            unknown_454 = Get_Cell();
         }
         return true;
     }
@@ -3300,7 +3300,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
             int adjusted_action = What_Action(&adjusted, false, true);
             int zone = Map.Zone(cell, Techno_Type_Class()->MovementZone, cell_ptr->Flags >> 8 & 1);
             int adjusted_zone = Map.Zone(adjusted, Techno_Type_Class()->MovementZone, adjusted_cell->Flags >> 8 & 1);
-            int dest_zone = Map.Zone(Coord_Cell(unknown_slot19(0)), Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0));
+            int dest_zone = Map.Zone(Coord_Cell(Destination_Coord(0)), Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0));
             int entry = Can_Enter_Cell((CellClass *)adjusted_cell, -1, adjusted_cell->unknown_11b + (adjusted_cell->Flags >> 8 & 1) * 4, 0, 1);
 
             int limit = abs(offset.X) > abs(offset.Y) ? abs(offset.X) : abs(offset.Y);
@@ -3342,7 +3342,7 @@ bool FootClass::unknown_4cb110(WaypointClass *waypoint)
 
 bool FootClass::Tiberium_Check(Cell const &cell)
 {
-    if (Map.Unknown_0055A660(cell, true)) {
+    if (Map.In_Local_Radar(cell, true)) {
         if (unknown_game_mode_a3d298 == 0 && unknown_372) {
             int height = Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0));
             CoordStruct spot = CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, height);
@@ -3350,7 +3350,7 @@ bool FootClass::Tiberium_Check(Cell const &cell)
                 return false;
             }
         }
-        Cell here = Coord_Cell(unknown_slot19(0));
+        Cell here = Coord_Cell(Destination_Coord(0));
         if (Map.Unknown_0054F7C0(here, cell, Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0), 0, 0)) {
             CellClass *map_cell = &Map[cell];
             UnknownCellClass *object = (UnknownCellClass *)map_cell;
@@ -3614,7 +3614,7 @@ Cell FootClass::Search_For_Weed(int radius)
 bool FootClass::Weed_Check(Cell &cell, int dx, int dy)
 {
     Cell next = cell + Cell(dx, dy);
-    if (Map.Unknown_0055A660(next, true)) {
+    if (Map.In_Local_Radar(next, true)) {
         cell = next;
         if (unknown_game_mode_a3d298 == 0 && unknown_372) {
             int height = Map.Get_Height_GL(CoordStruct(cell.X * 256 + 128, cell.Y * 256 + 128, 0));
@@ -3623,7 +3623,7 @@ bool FootClass::Weed_Check(Cell &cell, int dx, int dy)
                 return false;
             }
         }
-        Cell here = Coord_Cell(unknown_slot19(0));
+        Cell here = Coord_Cell(Destination_Coord(0));
         if (Map.Unknown_0054F7C0(here, cell, Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0), 0, 0)) {
             CellClass *map_cell = &Map[cell];
             UnknownCellClass *object = (UnknownCellClass *)map_cell;
@@ -3682,7 +3682,7 @@ bool FootClass::unknown_slot309(AbstractClass *target)
         return false;
     }
     Cell cell = Coord_Cell(target->Center_Coord());
-    if (!Map.Unknown_0055A660(cell, true)) {
+    if (!Map.In_Local_Radar(cell, true)) {
         return false;
     }
     TechnoClass *techno = ((UnknownCellClass *)&Map[cell])->Unknown_00471660(Point2D(0, 0), 0, 0);
@@ -3722,7 +3722,7 @@ int FootClass::What_Action(Cell const *cell, bool arg2, bool arg3)
         coord.Z += unknown_geometry_j;
     }
     if (Map.Is_Shrouded(coord) && result != 0) {
-        if (Techno_Type_Class()->MoveToShroud && Map.Unknown_0055A660(*cell, true)) {
+        if (Techno_Type_Class()->MoveToShroud && Map.In_Local_Radar(*cell, true)) {
             if (result != 0x33) {
                 return 1;
             }
@@ -3828,7 +3828,7 @@ int FootClass::Do_MISSION_RESCUE()
 Cell FootClass::unknown_4cca40(Cell const &cell, bool arg2)
 {
     int action = What_Action(&cell, arg2, false);
-    bool in_radar = Map.Unknown_0055A660(cell, true);
+    bool in_radar = Map.In_Local_Radar(cell, true);
 
     CoordStruct coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
     coord.Z = Map.Get_Height_GL(coord);
@@ -3838,7 +3838,7 @@ Cell FootClass::unknown_4cca40(Cell const &cell, bool arg2)
     if (Techno_Type_Class()->MoveToShroud || !Map.Is_Shrouded(coord)) {
 
         Cell nearby = cell;
-        UnknownCellClass *cptr = (UnknownCellClass *)&Map[unknown_slot19(0)];
+        UnknownCellClass *cptr = (UnknownCellClass *)&Map[Destination_Coord(0)];
         int mzone = Techno_Type_Class()->MovementZone;
         if (mzone == 6) mzone = 0;
         else if (mzone == 9 && House->Ion_Sensitives_Should_Be_Offline()) mzone = 7;
@@ -4171,7 +4171,7 @@ TechnoClass *FootClass::unknown_slot300(TechnoTypeClass *type, int arg2, int arg
                 && (arg3 == 1 || building->Unknown_00636ED0(this))) {
                 if (Kind_Of() != 2) {
                     Cell there = Coord_Cell(building->Center_Coord());
-                    Cell here = Coord_Cell(unknown_slot19(0));
+                    Cell here = Coord_Cell(Destination_Coord(0));
                     if (!Map.Unknown_0054F7C0(here, there, Techno_Type_Class()->MovementZone, Is_Moving_Onto_Bridge(0), 0, 0)) {
                         continue;
                     }

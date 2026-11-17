@@ -170,7 +170,7 @@ SmudgeClass::~SmudgeClass()
 bool SmudgeClass::Mark(int mark)
 {
     if (ObjectClass::Mark(mark) && (mark == 1 || mark == 3)) {
-        Cell origin = Cell(unknown_slot104());
+        Cell origin = Cell(Get_Cell());
         if (ScenarioInit > 0 || Debug_Map || Class->Can_Place(origin, true)) {
             Class->Place(origin);
         }

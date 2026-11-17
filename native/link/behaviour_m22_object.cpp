@@ -17,7 +17,7 @@ int ObjectClass::unknown_slot102(UnknownCellClass *from, int facing, int *level,
     (void)from; (void)facing; (void)level; (void)ramp; (void)to;
     return 0;
 }
-bool ObjectClass::unknown_slot24() { return false; }                       // 0x00423D10
+bool ObjectClass::Is_Players_Army() { return false; }                       // 0x00423D10
 int ObjectClass::unknown_slot25(bool arg1, intptr_t arg2) { (void)arg1; (void)arg2; return 0; }   // 0x00423D20
 void ObjectClass::unknown_slot66(Point2D const &point, Rect const &window) { (void)point; (void)window; }   // 0x00423DD0
 void ObjectClass::IronCurtain(int arg1) { (void)arg1; }                 // 0x00423DE0

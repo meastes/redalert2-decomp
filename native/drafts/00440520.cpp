@@ -126,13 +126,13 @@ exitcell.X += random; exitcell.Y += random;
                     Cell navalcell = Center_Cell(this);
                     if (ArchivedTarget) {
                         Cell target = Center_Cell(ArchivedTarget);
-                        UnknownFacingDir dir = Direction_Between(unknown_slot104(), target);
+                        UnknownFacingDir dir = Direction_Between(Get_Cell(), target);
                         int facing = Dir_To_8(dir);
                         while (Map[navalcell].Cell_Building() == this) {
                             navalcell = Adjacent_Cell(navalcell, facing);
                         }
                     }
-                    if (ArchivedTarget && Map[navalcell].Land == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
+                    if (ArchivedTarget && Map[navalcell].Land == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.In_Local_Radar(navalcell, true)) {
  } else {
                         navalcell = Map.Nearby_Location(Center_Cell(this), base->Techno_Type_Class()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
  }
@@ -190,7 +190,7 @@ exitcell.X += random; exitcell.Y += random;
                 CoordStruct exitcoord;
                 int dir = Dir_To_256(Direction_Between(Center_Coord(), CoordStruct(exitcell)));
                 Cell to = exitcell;
-                Cell cell = unknown_slot104();
+                Cell cell = Get_Cell();
                 int x = cell.X;
                 if (to.X >= x + Type->Width()) {
                     to.X -= 1;
@@ -243,7 +243,7 @@ exitcell.X += random; exitcell.Y += random;
  if (exitcell == unknown_geometry_k) return 0;
  int dir = Dir_To_256(Direction_Between(Center_Coord(), CoordStruct(exitcell)));
                 Cell to = exitcell;
-                Cell cell = unknown_slot104();
+                Cell cell = Get_Cell();
                 int x = cell.X;
                 if (to.X >= x + Type->Width()) {
                     to.X -= 1;

@@ -1254,7 +1254,7 @@ bool TeamClass::Is_Leaving_Map()
 {
     if (IsMoving && Script->Has_Mission()) {
         ScriptMissionClass mission = Script->Get_Current_Mission();
-        if (mission.Mission == 3 && !Map.Unknown_0055A660(Scen->Get_Waypoint_Location(mission.Data), true)) {
+        if (mission.Mission == 3 && !Map.In_Local_Radar(Scen->Get_Waypoint_Location(mission.Data), true)) {
             return true;
         }
     }
@@ -1441,7 +1441,7 @@ void TeamClass::TMission_MOVE(ScriptMissionClass const &mission, bool unknown)
         bool adjust = true;
         if (IsMoving && Script->Has_Mission()) {
             ScriptMissionClass next = Script->Get_Current_Mission();
-            if (next.Mission == 3 && !Map.Unknown_0055A660(Scen->Get_Waypoint_Location(next.Data), true)) {
+            if (next.Mission == 3 && !Map.In_Local_Radar(Scen->Get_Waypoint_Location(next.Data), true)) {
                 adjust = false;
             }
         }
@@ -1712,8 +1712,8 @@ void TeamClass::TMission_DEPLOY(ScriptMissionClass const &mission, bool unknown)
                 finished = false;
                 if (unit->Get_Mission() != 0x10) {
                     unit->Mark(0);
-                    if (!((UnitClass *)unit)->Type->DeploysInto->Legal_Placement(unit->unknown_slot104(), 0)) {
-                        ((UnitClass *)unit)->Type->DeploysInto->Flush_For_Placement(unit->unknown_slot104(), unit->House);
+                    if (!((UnitClass *)unit)->Type->DeploysInto->Legal_Placement(unit->Get_Cell(), 0)) {
+                        ((UnitClass *)unit)->Type->DeploysInto->Flush_For_Placement(unit->Get_Cell(), unit->House);
                         unit->Mark(1);
                     } else {
                         unit->Mark(1);

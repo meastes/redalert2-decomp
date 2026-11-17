@@ -43,7 +43,7 @@ public:
     bool operator==(char const *ini_name) const;                 // 0x004107C0 (case-insensitive ID)
 
     virtual void Compute_CRC(WWCRCEngine &crc) const;            // 0x00410960 slot 13
-    virtual void unknown_slot24(int value);                      // 0x004109A0 (nothing)
+    virtual void Init_Theater(int value);                      // 0x004109A0 (nothing)
     virtual bool Read_INI(CCINIClass &ini);                      // 0x004107E0 slot 25
     virtual bool Write_INI(CCINIClass &ini) const;               // 0x00410910 slot 26
 

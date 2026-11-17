@@ -968,7 +968,7 @@ bool ObjectClass::Mark(int request)
                 if (techno) {
                     techno->unknown_slot168();
                     techno->Owner();
-                    unknown_slot104();
+                    Get_Cell();
                 }
             }
             if ((action == 1 || action == 3) && !IsDown) {
@@ -1557,7 +1557,7 @@ AbstractClass *ObjectClass::Get_Cell_Ptr()
 
 Cell ObjectClass::Get_Target_Cell() const
 {
-    return Coord_Cell(unknown_slot19(0));
+    return Coord_Cell(Destination_Coord(0));
 }
 
 
@@ -1565,7 +1565,7 @@ Cell ObjectClass::Get_Target_Cell() const
 
 CellClass *ObjectClass::Get_Target_Cell_Ptr() const
 {
-    return &Map[Coord_Cell(unknown_slot19(0))];
+    return &Map[Coord_Cell(Destination_Coord(0))];
 }
 
 
@@ -1580,7 +1580,7 @@ CellClass *ObjectClass::Get_Target_Cell_Ptr() const
 bool ObjectClass::Is_Moving_Onto_Bridge(TechnoClass *techno)
 {
     bool result = IsOnBridge;
-    CoordStruct coord = unknown_slot19(techno);
+    CoordStruct coord = Destination_Coord(techno);
     int there = Map.Get_Height_GL(coord);
     int ground = Map.Get_Height_GL(CoordStruct(Coord));
     if (!IsOnBridge && ground - there > unknown_geometry_g * 3 && (Map_Cell(coord)->Flags & 0x100)) {

@@ -181,7 +181,7 @@ bool __fastcall CrateClass::Put_Crate(Cell &cell)
 {
     int old = ScenarioInit;
     ScenarioInit = 0;
-    if (!Map.Unknown_0055A660(cell, true)) {
+    if (!Map.In_Local_Radar(cell, true)) {
         ScenarioInit = old;
         return false;
     }

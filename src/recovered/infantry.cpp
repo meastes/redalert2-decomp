@@ -333,7 +333,7 @@ int InfantryClass::unknown_500350()
 {
     int sequence = Sequence;
     if (sequence == -1) {
-        if (Map_Cell_At(unknown_slot104())->unknown_ec == 2 && !IsOnBridge) {
+        if (Map_Cell_At(Get_Cell())->unknown_ec == 2 && !IsOnBridge) {
             sequence = 16;
         } else {
             sequence = 0;
@@ -504,7 +504,7 @@ void InfantryClass::unknown_slot93(int why)
             if (navigation && is_techno && static_cast<ObjectClass *>(navigation)->Considered_Vehicle()) {
                 TechnoClass *destination=static_cast<TechnoClass *>(NavCom);
                 if (destination && destination->Kind_Of()==6) {
-                    if (unknown_slot104()==destination->unknown_slot104()) {
+                    if (Get_Cell()==destination->Get_Cell()) {
                         if (destination->Tag) destination->Tag->Spring(1,this,unknown_geometry_k,false,0);
                         destination->unknown_slot54(false);
                         destination->Captured(House,1);
@@ -516,7 +516,7 @@ void InfantryClass::unknown_slot93(int why)
                         return;
                     }
                     UnknownCoord434820 locomotor_destination(Locomotor.Checked()->Destination());
-                    if (locomotor_destination==unknown_geometry_l || unknown_slot104()==Coord_Cell(locomotor_destination)) {
+                    if (locomotor_destination==unknown_geometry_l || Get_Cell()==Coord_Cell(locomotor_destination)) {
                         Assign_Destination(NavCom,true);
                         return;
                     }
@@ -527,19 +527,19 @@ void InfantryClass::unknown_slot93(int why)
                 if (building->Tag) building->Tag->Spring(1,this,unknown_geometry_k,false,0);
                 if (Type->Engineer) {
                     if (building->Kind_Of()==6 && building->Type->BridgeRepairHut) {
-                        if (House->Is_Player_Control() && Unknown_0063B5B0(14,unknown_slot104())) Speech_Play_Name("EVA_BridgeRepaired",-1,-1);
+                        if (House->Is_Player_Control() && Unknown_0063B5B0(14,Get_Cell())) Speech_Play_Name("EVA_BridgeRepaired",-1,-1);
                         bool train=false;
                         for (int y=-2;y<3;y++) {
                             for (int x=-2;x<3;x++) {
-                                Cell spot=Cell(unknown_slot104()+Cell(x,y));
+                                Cell spot=Cell(Get_Cell()+Cell(x,y));
                                 int tile=Map[spot].IsoTileIndex;
-                                Cell overlay_spot=Cell(Cell(x,y)+unknown_slot104());
+                                Cell overlay_spot=Cell(Cell(x,y)+Get_Cell());
                                 int overlay=Map[overlay_spot].OverlayIndex;
                                 if ((tile>=IsometricTileTypeClass_TrainBridgeSet && tile<IsometricTileTypeClass_TrainBridgeSet+16) || (overlay>=74 && overlay<=101)) train=true;
                             }
                         }
-                        if (train) Map.Unknown_00552570(unknown_slot104());
-                        else Map.Unknown_00555A60(unknown_slot104());
+                        if (train) Map.Unknown_00552570(Get_Cell());
+                        else Map.Unknown_00555A60(Get_Cell());
                         for (int index=Infantry.Count()-1;index>=0;--index) Infantry[index]->Detach(building,false);
                         building->unknown_slot173();
                     } else if (House->Is_Ally(building) || (building->House->Type->MultiplayPassive && building->Type->CanBeOccupied)) {
@@ -613,7 +613,7 @@ void InfantryClass::unknown_slot93(int why)
                     Abort_Motion();
                     return;
                 }
-            } else if (unknown_slot104()==transport->unknown_slot104() && transport==NavCom) {
+            } else if (Get_Cell()==transport->Get_Cell() && transport==NavCom) {
                 if (unknown_slot150(15,transport)==1) {
                     Assign_Archive_Target(0);
                     IsOnBridge=false;
@@ -759,7 +759,7 @@ void InfantryClass::Assign_Destination(AbstractClass *target, bool immediate)
         }
     }
     if (Type->JumpJet && target && !Locomotor.Checked()->Is_Moving()) {
-        bool should_fly=Should_JumpJet_Fly(&unknown_slot19(0).As_Cell(),&target->Center_Coord().As_Cell());
+        bool should_fly=Should_JumpJet_Fly(&Destination_Coord(0).As_Cell(),&target->Center_Coord().As_Cell());
         bool is_jumpjet=Is_JumpJet();
         if (Type->HoverAttack) should_fly=true;
         if (is_jumpjet) {
@@ -970,7 +970,7 @@ int InfantryClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellC
     while (occupant) {
         if (occupant!=this) {
             if (ParasiteImUsing && ParasiteImUsing->unknown_28) {
-                if (occupant->unknown_slot104()==ParasiteImUsing->unknown_28->unknown_slot104()) return 0;
+                if (occupant->Get_Cell()==ParasiteImUsing->unknown_28->Get_Cell()) return 0;
             }
             if (Get_Mission()==7 || Get_Mission()==8 || Get_Mission()==9 ||
                 (Get_Mission()==17 && Type->C4) ||
@@ -1423,7 +1423,7 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
             if (position!=Point2D(128,128)) facing=Dir_To_8(Direction_00504120(Point2D(128,128),position));
             else facing=Dir_To_8(PrimaryFacing.Current());
             facing=facing+Scen->Random()(0,4)-2;
-            Cell nearby=Map.Nearby_Location(Cell(unknown_slot19(0)),Type->SpeedType,-1,0,IsOnBridge,Point2D(1,1),0,1,0,1,Cell(0,0),0);
+            Cell nearby=Map.Nearby_Location(Cell(Destination_Coord(0)),Type->SpeedType,-1,0,IsOnBridge,Point2D(1,1),0,1,0,1,Cell(0,0),0);
             if (nearby!=unknown_geometry_k) {
                 Assign_Destination(&Map[nearby],true);
                 Locomotor.Checked()->Process();
@@ -1432,16 +1432,16 @@ void InfantryClass::Scatter(CoordStruct const &threat, bool forced, bool nokiddi
         }
         Cell alternate(0,0);
         Cell best(0,0);
-        Cell origin=Cell(unknown_slot19(0));
+        Cell origin=Cell(Destination_Coord(0));
         CellClass *origin_cell=&Map[origin];
         int height=origin_cell->Height+Is_Moving_Onto_Bridge(0) ? 4 : 0;
-        CoordStruct destination=unknown_slot19(0);
+        CoordStruct destination=Destination_Coord(0);
         destination.Z=height*unknown_geometry_g;
         for (int index=0;index<8;++index) {
             int direction=(facing+index)&7;
             Cell check=Adjacent_Cell(origin,direction);
             CellClass *candidate=&Map[check];
-            if (Map.Unknown_0055A660(check,true) && Can_Enter_Cell(candidate,direction,Unknown_005D47D0(),0,1)==0) {
+            if (Map.In_Local_Radar(check,true) && Can_Enter_Cell(candidate,direction,Unknown_005D47D0(),0,1)==0) {
                 if (alternate==unknown_geometry_k) alternate=check;
                 if (unknown_geometry_k==Cell(0,0)) {
                     CoordStruct projected=Cell_Coord(check);
@@ -1473,7 +1473,7 @@ bool InfantryClass::unknown_slot311(int sequence, bool force, bool random_start)
         return false;
     }
     if (Type->MovementZone == 3) {
-        UnknownCellClass *cell = Map_Cell_At(unknown_slot104());
+        UnknownCellClass *cell = Map_Cell_At(Get_Cell());
         int on_land = 1;
         if ((cell->unknown_ec == 6 || cell->unknown_ec == 2) && !IsOnBridge) {
             on_land = 0;
@@ -1662,7 +1662,7 @@ bool InfantryClass::Unlimbo(CoordStruct const *coord, int dir)
     int ground = Map.Get_Height_GL(*coord);
     CoordStruct where = *coord;
     if (where.Z == ground) {
-        int alternate = ScenarioInit != 0 || !Map.Unknown_0055A660(Coord_Cell(*coord), true);
+        int alternate = ScenarioInit != 0 || !Map.In_Local_Radar(Coord_Cell(*coord), true);
         where = Map_Cell(*coord)->Unknown_004764B0(*coord, alternate, false);
         if (where.X == unknown_geometry_l.X && where.Y == unknown_geometry_l.Y
             && where.Z == unknown_geometry_l.Z) {
@@ -2178,7 +2178,7 @@ int InfantryClass::Do_MISSION_UNLOAD()
                 if (unknown_func_5d27d0("DESO")) {
                     delay = Type->DoControls[27].Count + 1;
                 } else {
-                    unknown_slot220((AbstractClass *)&Map[unknown_slot104()]);
+                    unknown_slot220((AbstractClass *)&Map[Get_Cell()]);
                 }
             }
             if (Type->UndeployDelay > -1) {
@@ -2402,7 +2402,7 @@ void __fastcall InfantryClass::Write_INI(CCINIClass &ini)
             sprintf(line, "%s,%s,%d,%d,%d,%d,%s,%d,%s,%d,%d,%d,%d,%d",
                     (char const *)infantry->House->IniName, (char const *)infantry->Type->ID,
                     (int)(infantry->Health_Ratio() * 256.0),
-                    infantry->unknown_slot104().X, infantry->unknown_slot104().Y,
+                    infantry->Get_Cell().X, infantry->Get_Cell().Y,
                     Unknown_004763D0(coord),
                     MissionClass::Name_From_Mission(mission), direction, tag,
                     infantry->Veterancy.To_Integer(), infantry->Group,
@@ -2474,7 +2474,7 @@ bool InfantryClass::Theft_AI()
     TechnoClass *vehicle=static_cast<TechnoClass *>(NavCom);
     if (House->Is_Ally(vehicle)) return false;
     // The destination query receives the requesting infantry.
-    CoordStruct coord=vehicle->unknown_slot19(this);
+    CoordStruct coord=vehicle->Destination_Coord(this);
     int vehicle_z=coord.Z;
     coord=Center_Coord();
     if (abs(vehicle_z-coord.Z)<unknown_geometry_g) {
@@ -2496,7 +2496,7 @@ bool InfantryClass::Theft_AI()
         Assign_Destination(NavCom,true);
     } else {
         if (UnknownCoord434820(Locomotor.Checked()->Destination())!=unknown_geometry_l) {
-            if (Coord_Cell(vehicle->unknown_slot19(this))==Coord_Cell(UnknownCoord434820(Locomotor.Checked()->Destination()))) return false;
+            if (Coord_Cell(vehicle->Destination_Coord(this))==Coord_Cell(UnknownCoord434820(Locomotor.Checked()->Destination()))) return false;
         }
     }
     // The original calls this again after the near-target branch.
@@ -2688,12 +2688,12 @@ void InfantryClass::Update_Movement_00507b90()
         }
     }
     if (NavCom != 0) {
-        Cell target_cell = Coord_Cell(NavCom->unknown_slot19(this));
+        Cell target_cell = Coord_Cell(NavCom->Destination_Coord(this));
         if (unknown_5c4 && Can_Enter_Cell(Get_Target_Cell_Ptr(), -1, -1, 0, 1) == 7) {
             goto select_sequence;
         }
         if (!Locomotor.Checked()->Is_Moving() && !unknown_370 && NavCom != 0 && unknown_32d) {
-            Cell current_cell = Coord_Cell(unknown_slot19(0));
+            Cell current_cell = Coord_Cell(Destination_Coord(0));
             if (!Map.Unknown_0054F7C0(current_cell, target_cell, Type->MovementZone,
             Is_Moving_Onto_Bridge(0), (unsigned char)((Map[target_cell].unknown_140 >> 8) & 1), unknown_slot189())
             && !Type->Infiltrate && Get_Mission() != 7) {
@@ -2744,10 +2744,10 @@ int InfantryClass::Update_Deployed_Attack()
         }
         if (Type->DeployFire) {
             if (Type->ImmuneToRadiation) {
-                RadSiteClass *site = reinterpret_cast<RadSiteCell *>(&Map[unknown_slot104()])->Unknown_0047CE40();
+                RadSiteClass *site = reinterpret_cast<RadSiteCell *>(&Map[Get_Cell()])->Unknown_0047CE40();
                 int threshold = Infantry_Deployment_Radiation_Threshold(*unknown_slot231(1)->WeaponType);
                 if (site == 0 || site->Get_Current_Level() < threshold) {
-                    unknown_slot220(&Map[unknown_slot104()]);
+                    unknown_slot220(&Map[Get_Cell()]);
                     if (unknown_slot218(TarCom, 1, 1) == 0) {
                         // Slot221's existing int argument carries the same 32-bit target pointer.
                         Fire_At(TarCom, 1);
@@ -3174,7 +3174,7 @@ bool InfantryClass::Should_JumpJet_Fly(Cell const *from, Cell const *to)
     if (distance >= 4) {
         return true;
     }
-    if (!Map.Unknown_0055A660(*from, true) || !Map.Unknown_0055A660(*to, true)) {
+    if (!Map.In_Local_Radar(*from, true) || !Map.In_Local_Radar(*to, true)) {
         return true;
     }
     return Search.Test_Cell_Walk(*from, *to, this, IsOnBridge, (Map_Cell_At(*to)->Flags >> 8) & 1, 7) > 7;

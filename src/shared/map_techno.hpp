@@ -33,7 +33,7 @@ public:
 
 class ObjectClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void What_Action(); virtual void unknown_slot28(); virtual int In_Which_Layer() const;   // slot 29 (+0x74; as shared/object.hpp; TibSun In_Which_Layer)
+    virtual void Is_Players_Army(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void What_Action(); virtual void unknown_slot28(); virtual int In_Which_Layer() const;   // slot 29 (+0x74; as shared/object.hpp; TibSun In_Which_Layer)
     virtual void Not_Underground(); virtual void Considered_Vehicle(); virtual UnknownMapTechnoType *Techno_Type_Class() const; virtual ObjectTypeClass *Class_Of() const;   // slot 33 (+0x84; as shared/object.hpp)
     virtual void Get_Ownable(); virtual void unknown_slot35();
     virtual void Can_Repair(); virtual void Can_Demolish(); virtual void Can_Player_Fire(); virtual void Can_Player_Move(); virtual void unknown_slot40(); virtual void unknown_slot41();
@@ -69,7 +69,7 @@ public:
 
 class TechnoClass : public AbstractClass {
 public:
-    virtual void unknown_slot24(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void What_Action(); virtual void unknown_slot28(); virtual void In_Which_Layer();
+    virtual void Is_Players_Army(); virtual void unknown_slot25(); virtual void Get_Image_Data(); virtual void What_Action(); virtual void unknown_slot28(); virtual void In_Which_Layer();
     virtual void Not_Underground(); virtual void Considered_Vehicle(); virtual void Techno_Type_Class(); virtual void unknown_slot33(); virtual void Get_Ownable(); virtual void unknown_slot35();
     virtual void Can_Repair(); virtual void Can_Demolish(); virtual void Can_Player_Fire(); virtual void Can_Player_Move(); virtual void unknown_slot40(); virtual void unknown_slot41();
     virtual void unknown_slot42(); virtual void unknown_slot43(); virtual void unknown_slot44(); virtual void Sort_Y(); virtual void Is_Moving_Onto_Bridge(); virtual void unknown_slot47();

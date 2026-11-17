@@ -923,7 +923,7 @@ void RadarClass::Set_Tactical_Position(CoordStruct const &coord)
 
 bool RadarClass::Cell_On_Radar(Cell const &cell)
 {
-    return Unknown_0055A660(cell, true);
+    return In_Local_Radar(cell, true);
 }
 
 
@@ -1078,7 +1078,7 @@ void RadarClass::Set_Local_Dimensions(Rect const &size)
     CellClass *iter = Iterate();
     while (iter != 0) {
         Cell cell = iter->MapCoords;
-        if (Unknown_0055A660(cell, true)) {
+        if (In_Local_Radar(cell, true)) {
             if (RadarY == -1) RadarY = iter->MapCoords.X + iter->MapCoords.Y;
             cell = iter->MapCoords;
             Rect area = Cell_Radar_Rect(cell);
@@ -1458,7 +1458,7 @@ void RadarClass::Plot_Radar_Background()
     Rect r(0, 0, 0, 0);
     for (int i = unknown_1220.Count() - 1; i >= 0; i--) {
         Cell cell = unknown_1220[i];
-        if (Unknown_0055A660(cell, true)) {
+        if (In_Local_Radar(cell, true)) {
             Rect update_rect = Cell_Radar_Rect(cell);
             int x = update_rect.X;
             Rect cellgrid(0, 0, RadarCellWidth, RadarCellHeight);
@@ -2008,7 +2008,7 @@ void RadarClass::Resolve_Radar_Point(Point2D const &pixel, Cell &cell, TechnoCla
         }
     }
     if (found != 0) {
-        cell = Cell(found->unknown_slot19(0));
+        cell = Cell(found->Destination_Coord(0));
     } else {
         cell = Radar_Pixel_To_Cell(point);
     }

@@ -3560,6 +3560,10 @@
    "address": "00a40d13"
   },
   {
+   "symbol": "?Destination_Coord@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
    "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
    "address": "006ecb90"
   },
@@ -3608,6 +3612,10 @@
    "address": "00410180"
   },
   {
+   "symbol": "?Get_Cell@ObjectClass@@UBE?AVCell@@XZ",
+   "address": "0041b320"
+  },
+  {
    "symbol": "?Get_Height_GL@MapClass@@QAEHABUCoordStruct@@@Z",
    "address": "0055a280"
   },
@@ -3642,6 +3650,10 @@
   {
    "symbol": "?Is_Player_Control@HouseClass@@QAE_NXZ",
    "address": "004f52b0"
+  },
+  {
+   "symbol": "?Is_Players_Army@ObjectClass@@UAE_NXZ",
+   "address": null
   },
   {
    "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
@@ -3840,10 +3852,6 @@
    "address": null
   },
   {
-   "symbol": "?unknown_slot104@ObjectClass@@UBE?AVCell@@XZ",
-   "address": "0041b320"
-  },
-  {
    "symbol": "?unknown_slot111@ObjectClass@@UAE_NXZ",
    "address": null
   },
@@ -3864,16 +3872,8 @@
    "address": null
   },
   {
-   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
-   "address": "00410290"
-  },
-  {
    "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",
    "address": "004102e0"
-  },
-  {
-   "symbol": "?unknown_slot24@ObjectClass@@UAE_NXZ",
-   "address": null
   },
   {
    "symbol": "?unknown_slot25@ObjectClass@@UAEH_NH@Z",
@@ -3982,7 +3982,7 @@
   },
   {
    "symbol": "??_7ObjectClass@@6BIPersistStream@@@",
-   "reason": "relocation target unbound: ?unknown_slot24@ObjectClass@@UAE_NXZ"
+   "reason": "relocation target unbound: ?Is_Players_Army@ObjectClass@@UAE_NXZ"
   }
  ],
  "stand_in_references": [

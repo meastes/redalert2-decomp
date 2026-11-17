@@ -143,7 +143,7 @@ public:
     void Unknown_00562F50(CellClass *cell); // 00562F50: observed thiscall/RET4; unused return hypothesis
     CellClass *Find_Nearby_Shroud(AbstractClass *object);                         // 0x005629D0 (the cell under an object; hypothesis)
     int Cell_Threat(Cell const &cell, HouseClass *house);                 // 0x0054E3A0
-    bool Unknown_0055A660(Cell const &cell, bool flag);                   // 0x0055A660
+    bool In_Local_Radar(Cell const &cell, bool flag);                   // 0x0055A660
     bool Unknown_0055A740(CellClass *cell, bool flag);                          // 0x0055A740
     bool Unknown_0055A7F0(CoordStruct const &coord);                            // 0x0055A7F0
     void Unknown_0055ACC0();                                                    // 0x0055ACC0

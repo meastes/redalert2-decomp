@@ -528,7 +528,7 @@ bool __stdcall DriveLocomotionClass::Process()
             && (LinkedTo->Kind_Of() != 1 || !((UnitClass *)LinkedTo)->unknown_5b9)) {
             bool stop = false;
             if (LinkedTo->Kind_Of() == 1 && LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 15) {
-                CoordStruct coord = LinkedTo->NavCom->unknown_slot19(LinkedTo);
+                CoordStruct coord = LinkedTo->NavCom->Destination_Coord(LinkedTo);
                 if (coord != DestinationCoord) {
                     Move_To(coord);
                 }
@@ -548,7 +548,7 @@ bool __stdcall DriveLocomotionClass::Process()
     } else {
         if (LinkedTo->NavCom != 0 && LinkedTo->NavCom->Kind_Of() == 11) {
             CellClass *cell = (CellClass *)LinkedTo->NavCom;
-            if (LinkedTo->unknown_slot104() == cell->Fetch_CellID()) {
+            if (LinkedTo->Get_Cell() == cell->Fetch_CellID()) {
                 Abandon_Navigation();
                 return false;
             }
@@ -592,7 +592,7 @@ bool __stdcall DriveLocomotionClass::Process()
                     Stop_Driver();
                     unknown_50 = 0;
                 } else if (LinkedTo->NavCom != 0) {
-                    Move_To(LinkedTo->NavCom->unknown_slot19(LinkedTo));
+                    Move_To(LinkedTo->NavCom->Destination_Coord(LinkedTo));
                 }
             }
         }
@@ -886,7 +886,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
                 Cell oldcell;
                 if (!TrackIndex) {
-                    oldcell = LinkedTo->unknown_slot104();
+                    oldcell = LinkedTo->Get_Cell();
                 } else {
                     dir = ptr[TrackIndex - 1].Facing;
                     Point2D prevoffset = ptr[TrackIndex - 1].Offset;
@@ -1050,8 +1050,8 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
                 TrackIndex = 0;
 
                 bool arrived = false;
-                if (LinkedTo->NavCom != 0 && LinkedTo->unknown_slot104() == LinkedTo->NavCom->unknown_slot19(LinkedTo).As_Cell()) {
-                    if (abs(LinkedTo->unknown_slot19(LinkedTo).Z - DestinationCoord.Z) < 2 * unknown_geometry_g) {
+                if (LinkedTo->NavCom != 0 && LinkedTo->Get_Cell() == LinkedTo->NavCom->Destination_Coord(LinkedTo).As_Cell()) {
+                    if (abs(LinkedTo->Destination_Coord(LinkedTo).Z - DestinationCoord.Z) < 2 * unknown_geometry_g) {
                         arrived = true;
                         DestinationCoord = unknown_geometry_l;
                         Stop_Driver();
@@ -1227,7 +1227,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
                     if (!LinkedTo->IsActive) return false;
                 } else {
                     Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), Dir_To_8(LinkedTo->PrimaryFacing.Current()));
-                    if (Map.Unknown_0055A660(cell, true)) {
+                    if (Map.In_Local_Radar(cell, true)) {
                         int ok = LinkedTo->Can_Enter_Cell(&Map[cell], Dir_To_8(LinkedTo->PrimaryFacing.Current()), LinkedTo->unknown_5d47d0(), 0, true);
                         if (ok == 3) {
                             unknown_4a47c0(cell);
@@ -1283,7 +1283,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool &stop_processing, bool retry, bool
         }
 
         Cell cell = Adjacent_Cell((LinkedTo->Center_Coord()).As_Cell(), LinkedTo->Path[0]);
-        if (Map.Unknown_0055A660(cell, true)) {
+        if (Map.In_Local_Radar(cell, true)) {
             int ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->Path[0], LinkedTo->unknown_5d47d0(), 0, true);
             if (ok == 3) {
                 unknown_4a47c0(cell);

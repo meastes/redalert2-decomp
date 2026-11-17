@@ -170,6 +170,15 @@ class MemberRenameTests(unittest.TestCase):
             member_rename.plan('Base', 'Draw', 'Render')
         self.assertIn('overridden in Painter', str(caught.exception))
 
+    def test_a_family_rename_takes_the_base_and_every_override(self):
+        result = member_rename.plan('Base', 'Draw', 'Render', family=True)
+        self.assertEqual(result['owners'], ['Base', 'Painter'])
+        self.assertEqual(self.lines(result, 'src/shared/a.hpp'), [3, 7])
+        with self.assertRaises(SystemExit):
+            member_rename.plan('Painter', 'Draw', 'Render', family=True)   # an override: rename the base family
+        with self.assertRaises(SystemExit):
+            member_rename.plan('Base', 'Get_Cell', 'Render', family=True)  # not virtual
+
 
 class NativeRekeyTests(unittest.TestCase):
     def apply(self, spec, text):

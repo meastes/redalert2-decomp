@@ -259,7 +259,7 @@ void SpawnManagerClass::AI()
                 }
                 unit->Assign_Destination(Destination, true);
             } else {
-                CellClass &cell = Map[Owner->unknown_slot104()];
+                CellClass &cell = Map[Owner->Get_Cell()];
                 unit->Assign_Destination(&cell.Adjacent_Cell(0), true);
             }
             unit->QueueMission(2, false);
@@ -285,7 +285,7 @@ void SpawnManagerClass::AI()
                 unit->QueueMission(2, false);
                 SpawnedNodes[i]->Status = 4;
             } else {
-                CellClass &cell = Map[Owner->unknown_slot104()];
+                CellClass &cell = Map[Owner->Get_Cell()];
                 unit->Assign_Destination(&cell.Adjacent_Cell(4), true);
                 unit->QueueMission(2, false);
             }
@@ -316,7 +316,7 @@ void SpawnManagerClass::AI()
                 SpawnedNodes[i]->Status = 3;
                 SpawnedNodes[i]->Unit->unknown_slot220(Destination);
                 SpawnedNodes[i]->Unit->QueueMission(1, false);
-            } else if (unit->unknown_slot104() == Owner->unknown_slot104() && CoordStruct(unit->Coord).Z - CoordStruct(Owner->Coord).Z < 20) {
+            } else if (unit->Get_Cell() == Owner->Get_Cell() && CoordStruct(unit->Coord).Z - CoordStruct(Owner->Coord).Z < 20) {
                 unit->Limbo();
                 SpawnedNodes[i]->Status = 6;
                 SpawnedNodes[i]->Timer = ReloadRate;

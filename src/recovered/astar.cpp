@@ -178,7 +178,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
                     facing = Dir_To_8(((FootClass *)occupier)->PrimaryFacing.Current());
                 }
                 clear = false;
-                cellptr = &Map[Path_Adjacent_Cell(occupier->unknown_slot104(), facing)];
+                cellptr = &Map[Path_Adjacent_Cell(occupier->Get_Cell(), facing)];
                 on_bridge = (cellptr->unknown_140 & 0x100) && (occupier->IsOnBridge || ((CellClass *)occupier->Get_Cell_Ptr())->Height - cellptr->Height > 2);
                 next_occupier = on_bridge ? cellptr->AltOccupierPtr : cellptr->OccupierPtr;
                 occupier = next_occupier;
@@ -846,7 +846,7 @@ void AStarClass::Apply_Path_Collision_Avoidance(FootClass *foot)
         unsigned :13;
     };
     if(IsAvoidPathCollision) {
-    Cell current=foot->unknown_slot104();
+    Cell current=foot->Get_Cell();
     CellClass *currentCell=&Map[current];
     CellClass *next=&Map[CellClass::Adjacent_Cell(current,Dir_To_8(foot->PrimaryFacing.Current()))];
     bool bridge=(next->unknown_140&0x100)!=0 &&
@@ -860,7 +860,7 @@ void AStarClass::Apply_Path_Collision_Avoidance(FootClass *foot)
             int index=0;
             Cell position=blocker->LastPathingCell;
             TechnoTypeClass const *other=blocker->Techno_Type_Class();
-            if(Avoidance==2 || (type!=other && type->Speed>other->Speed && Map.Unknown_0055A660(position,true))) {
+            if(Avoidance==2 || (type!=other && type->Speed>other->Speed && Map.In_Local_Radar(position,true))) {
                 if(blocker->Kind_Of()==1) {
                     if(blocker->Path[0]==-1 || blocker->Path[1]==-1) {blocker=(FootClass*)blocker->unknown_30;continue;}
                 } else {
@@ -1585,7 +1585,7 @@ PathStruct *AStarClass::Find_Path(Cell const &from, Cell const &to, FootClass *f
         with_hs = false;
     } else if (!foot->unknown_32d || foot->unknown_slot189()) {
         with_hs = false;
-    } else if (!Map.Unknown_0055A660(hs_from, true) || !Map.Unknown_0055A660(hs_to, true)) {
+    } else if (!Map.In_Local_Radar(hs_from, true) || !Map.In_Local_Radar(hs_to, true)) {
         with_hs = false;
     } else {
         with_hs = true;

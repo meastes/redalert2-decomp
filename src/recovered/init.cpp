@@ -1299,7 +1299,7 @@ top:
                     Darken_Surface(0, true);
                     break;
                 case 8: {
-                    new (&unknown_scenario_checkpoint_00855a90) EnvironmentClass;
+                    new (&Environment) EnvironmentClass;
                     Scen->Campaign = Choose_Campaign();
                     if (Scen->Campaign == -1) {
                         process = true;

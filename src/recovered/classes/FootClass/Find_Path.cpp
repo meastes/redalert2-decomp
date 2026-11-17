@@ -2,7 +2,7 @@
 #include "shared/foot.hpp"
 PathStruct *FootClass::Find_Path_004bb350(Cell *dest,int *moves,int maximum,int threshold,int path_offset,int avoidance)
 {
-    Cell source=Cell(unknown_slot19(0));
+    Cell source=Cell(Destination_Coord(0));
     if (!moves) return 0;
     source=AStarClass::Follow_Path(source,path_offset,Path);
     return Search.Find_Path(source,*dest,this,moves,-1,-1,avoidance);

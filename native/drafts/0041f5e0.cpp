@@ -16,7 +16,7 @@ void *Native_Pointer_From_Handle(int handle);   // NATIVE: native/link/native_po
 #include "shared/shape_file.hpp"
 #include "shared/tactical.hpp"
 // @ref ?AlphaShapes@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A=0083c648
-// @ref ?unknown_alpha_table_83c670@@3PAEA=0083c670
+// @ref ?AlphaShapeClass_BrightnessTable@@3PAEA=0083c670
 // @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
 // @ref ?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z=00411230
 // @ref ?AlphaBuffer@@3PAVABuffer@@A=008315b4
@@ -65,7 +65,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
                     for (int y = top; y < bottom; y++) {
                         for (int x = left; x < right; x++) {
                             unsigned char pixel = *shapeptr++;
-                            *alphaptr = unknown_alpha_table_83c670[pixel * 256 + *alphaptr];
+                            *alphaptr = AlphaShapeClass_BrightnessTable[pixel * 256 + *alphaptr];
                             alphaptr++;
                             alphaptr = AlphaBuffer->Wrap_Pointer(alphaptr);
                         }
@@ -77,7 +77,7 @@ void __fastcall Unknown_0041F5E0(Rect const &cliprect)   // NATIVE: the callers'
                     for (int y = top; y < bottom; y++) {
                         for (int x = left; x < right; x++) {
                             unsigned char pixel = *shapeptr++;
-                            *alphaptr = unknown_alpha_table_83c670[pixel * 256 + *alphaptr];
+                            *alphaptr = AlphaShapeClass_BrightnessTable[pixel * 256 + *alphaptr];
                             ++alphaptr;
                         }
                         shapeptr += shape_skip;

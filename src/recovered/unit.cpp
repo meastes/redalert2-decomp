@@ -209,7 +209,7 @@ UnitClass::~UnitClass()
         }
         if (FootClass::Limbo() && unknown_5b4 != -1) {
             ObjectClass *object = this;   // (the call below stays virtual, as in the original)
-            Houses[unknown_5b4]->Flag_Attach(object->unknown_slot104(), 0);
+            Houses[unknown_5b4]->Flag_Attach(object->Get_Cell(), 0);
             unknown_5b4 = -1;
         }
     }
@@ -338,7 +338,7 @@ void UnitClass::AI()
         if (Type->Harvester && !House->Is_Human_Player() && Frame - CurrentMissionStartTime > 300 && !Locomotor.Checked()->Is_Moving()) {
             BuildingClass *refinery = (BuildingClass *)Map[CoordStruct(Coord)].Cell_Building();
             if (refinery && refinery->Type->Refinery) {
-                if (unknown_slot104() == Unit_AI_Refinery_Exit_Cell(refinery->unknown_slot104())) {
+                if (Get_Cell() == Unit_AI_Refinery_Exit_Cell(refinery->Get_Cell())) {
                     ObjectClass *contact = Map[CoordStruct(Coord)].Cell_Building();
                     if (HasAnyLink()) unknown_slot149(3);
                     Assign_Destination(&Map[unknown_6cf130(contact)], true);
@@ -651,7 +651,7 @@ inline Cell Unit_Adjacent_Cell(Cell cell, int facing)
 
 void UnitClass::unknown_6fbf40()
 {
-    Cell position = unknown_slot104();
+    Cell position = Get_Cell();
     if (StageClass::Stage >= 90) {
         if (StageClass::Stage % 5 != 4) return;
         StageClass::Stage = Scen->Random()(0, 2) * 30;
@@ -708,7 +708,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
     case 36:
         if (unknown_slot111()) return 0;
         {
-            CellClass &tile = Map[unknown_slot19(0)];
+            CellClass &tile = Map[Destination_Coord(0)];
             if ((tile.unknown_140 & 0x100) && !Is_Moving_Onto_Bridge(0)) return 10;
         }
         if (Get_Mission() == 16) return 10;
@@ -772,7 +772,7 @@ int UnitClass::Receive_Message(RadioClass *radio, int message, AbstractClass *&p
             } else goto no_transport_room;
         }
         if (!NavCom) {
-            Cell cell = unknown_slot104();
+            Cell cell = Get_Cell();
             CellClass &tile = Map[cell];
             int own_zone = Map.Zone(unknown_454, sender->Techno_Type_Class()->MovementZone, false);
             int sender_zone = -1;
@@ -983,7 +983,7 @@ drop_crate:
             ((Scen->TruckCrate && !Type->IsTrain) ||
              (Scen->IsTrainCargo && Type->IsTrain))) {
             Cell destination;
-            destination = Map.Nearby_Location(unknown_slot104(), 1, -1, 0, false,
+            destination = Map.Nearby_Location(Get_Cell(), 1, -1, 0, false,
                 Point2D(1, 1), 1, 0, 0, 1, Cell(0, 0), 0);
             if (destination != unknown_geometry_k && unknown_flag_a3d2c1)
                 Map.Place_Crate(destination, 20);
@@ -995,7 +995,7 @@ drop_crate:
         }
     } else {
         if (result && Type->Harvester && House == PlayerPtr) {
-            Cell cell = Coord_Cell(unknown_slot19(0));
+            Cell cell = Coord_Cell(Destination_Coord(0));
             if (Unknown_0063B5B0(4, cell))
                 Speech_Play_Name(Unit_Ore_Miner_Under_Attack_007F819C, -1, -1);
         }
@@ -1114,7 +1114,7 @@ bool UnitClass::unknown_slot261(bool arg1, bool arg2)
         return result;
     }
     if (Get_Mission() == 2 && !NavCom) {
-        CoordStruct center = Cell_Center_Of(unknown_slot104());
+        CoordStruct center = Cell_Center_Of(Get_Cell());
         CoordStruct coord = Coord;
         if (coord.X == center.X && coord.Y == center.Y && coord.Z == center.Z) {
             unknown_slot149(3);
@@ -1230,7 +1230,7 @@ bool UnitClass::unknown_6fd930()
                     Cell first;
                     {
                         Cell zero(0, 0);
-                        first = Map.Nearby_Location(unknown_slot104(), 5, -1, 0, false, Point2D(House->unknown_func_4ef600(Rules->Shipyard)->Width() + 1, House->unknown_func_4ef600(Rules->Shipyard)->Foundation_Height(false) + 1), 0, 0, 0, 1, zero, 0);
+                        first = Map.Nearby_Location(Get_Cell(), 5, -1, 0, false, Point2D(House->unknown_func_4ef600(Rules->Shipyard)->Width() + 1, House->unknown_func_4ef600(Rules->Shipyard)->Foundation_Height(false) + 1), 0, 0, 0, 1, zero, 0);
                     }
                     {
                         Cell zero(0, 0);
@@ -1291,7 +1291,7 @@ bool UnitClass::unknown_6fd930()
                 Cell(4, 0)
             };
             for (int offset_index = 0; offset_index < 36; offset_index++) {
-                Cell adjacent = Offset_Cell_6fd930(offsets[offset_index], unknown_slot104());
+                Cell adjacent = Offset_Cell_6fd930(offsets[offset_index], Get_Cell());
                 Cell placement = adjacent + AdjacentCell[7];
                 if (Type->DeploysInto->Legal_Placement(placement, 0)) {
                     Assign_Destination(&Map[adjacent], true);
@@ -1334,7 +1334,7 @@ bool UnitClass::unknown_6fdfc0()
         if (Type->DeploysInto == 0) return false;
         Mark(0);
         Locomotor.Checked()->Mark_All_Occupation_Bits(0);
-        Cell cell = unknown_slot104();
+        Cell cell = Get_Cell();
         Cell origin;
         if (Type->DeploysInto->Is_Mobile_Deployer()) {
             origin = cell;
@@ -1437,7 +1437,7 @@ ILocomotion *__fastcall Unit_Checked_Locomotor_004cde90(UnknownComPtr<ILocomotio
 
 void UnitClass::unknown_slot93(int reason)
 {
-    Cell cell=unknown_slot104();
+    Cell cell=Get_Cell();
     if ((reason==2 || reason==0) && IsDeploying) {
         unknown_6fdfc0();
         if (!IsActive) return;
@@ -1482,7 +1482,7 @@ void UnitClass::unknown_slot93(int reason)
         }
         if (transport==this) transport=Unknown_0040DC20(transport->unknown_30);
         if (Get_Mission()==7 && transport && transport!=this) {
-            if (unknown_slot104()==transport->unknown_slot104() && ContainsLink(transport) && transport->Techno_Type_Class()->Passengers>0) {
+            if (Get_Cell()==transport->Get_Cell() && ContainsLink(transport) && transport->Techno_Type_Class()->Passengers>0) {
                 if (unknown_slot150(15,transport)==1) {
                     Assign_Archive_Target(0);
                     IsOnBridge=false;
@@ -1582,7 +1582,7 @@ void UnitClass::unknown_slot93(int reason)
             RockingForwardsPerFrame+=0.019999999552965164f;
         }
     }
-    Overrun_Square(unknown_slot104(),false);
+    Overrun_Square(Get_Cell(),false);
     if (IsActive) FootClass::unknown_slot93(reason);
 }
 
@@ -2037,7 +2037,7 @@ void UnitClass::Draw_It(Point2D const &input, Rect const &window)
     if (unknown_37c) {
         adjusted_point.Y += 14;
     }
-    Cell cell = unknown_slot104();
+    Cell cell = Get_Cell();
     if (unknown_slot25(false, 0) != 5) {
         TacticalMap->Add_To_Selectables(this, adjusted_point);
         int height = Get_Height_AGL();
@@ -2179,10 +2179,10 @@ int UnitClass::Do_MISSION_UNLOAD()
         switch (Status) {
             case 0: {
                 if (Locomotor.Checked()->Is_Moving()) return 10;
-                Cell current=unknown_slot104();
+                Cell current=Get_Cell();
                 CellClass &current_cell=Map[current];
                 if (!NavCom && current_cell.Land==2) {
-                    Cell destination=Map.Nearby_Location(unknown_slot104(),2,-1,0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
+                    Cell destination=Map.Nearby_Location(Get_Cell(),2,-1,0,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
                     Assign_Destination(&Map[destination],true);
                     return 10;
                 }
@@ -2215,7 +2215,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                     bool placed=false;
                     for (;attempt<8;++attempt) {
                         int facing=(start+attempt)&7;
-                        Cell near_cell=Adjacent_Cell(unknown_slot104(),(FacingType)facing);
+                        Cell near_cell=Adjacent_Cell(Get_Cell(),(FacingType)facing);
                         Cell far_cell=Adjacent_Cell(near_cell,(FacingType)facing);
                         bool far_allowed=passenger->Can_Enter_Cell(&Map[far_cell],facing,unknown_5d47d0(),0,1)==0;
                         bool near_allowed=passenger->Can_Enter_Cell(&Map[near_cell],facing,unknown_5d47d0(),0,1)==0;
@@ -2303,7 +2303,7 @@ int UnitClass::Do_MISSION_UNLOAD()
         StageClass::Stage=0;
         StageClass::Set_Rate(1);
         if (Type->Harvester) {
-            BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
+            BuildingClass *building=(BuildingClass *)Map[Get_Cell()+AdjacentCell[6]].Cell_Building();
             if (building) building->PlayNthAnim(7,building->Health_Ratio()<=Rules->ConditionYellow,false,0);
         }
         Status=3;
@@ -2320,7 +2320,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                         if (Ready_To_Commence()) { if (HasAnyLink()) unknown_slot149(3);Commence(); }
                     }
                 } else {
-                    BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
+                    BuildingClass *building=(BuildingClass *)Map[Get_Cell()+AdjacentCell[6]].Cell_Building();
                     bool active=false;
                     if (building && building->Type->Refinery) active=building->unknown_454[8]!=0;
                     if (active) return 1;
@@ -2336,7 +2336,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 break;
             }
             case 3: {
-                BuildingClass *building=(BuildingClass *)Map[unknown_slot104()+AdjacentCell[6]].Cell_Building();
+                BuildingClass *building=(BuildingClass *)Map[Get_Cell()+AdjacentCell[6]].Cell_Building();
                 if (!building) {
                     if (HasAnyLink()) unknown_slot149(3);
                     QueueMission(10,true);
@@ -2755,7 +2755,7 @@ int UnitClass::Can_Enter_Cell(CellClass *cell,int direction,int height,CellClass
     while (occupant) {
         if (this!=occupant) {
             if (ParasiteImUsing && ParasiteImUsing->unknown_28) {
-                if (occupant->unknown_slot104()==ParasiteImUsing->unknown_28->unknown_slot104()) return 0;
+                if (occupant->Get_Cell()==ParasiteImUsing->unknown_28->Get_Cell()) return 0;
             }
             TechnoClass *contact=occupant->AbstractFlags.IsTechno ? static_cast<TechnoClass*>(occupant) : 0;
             if (ContainsLink(contact) && occupant->Kind_Of()==6 && !static_cast<BuildingClass*>(occupant)->Cell_Is_Impassable_Row_00453af0(cell)) {
@@ -3232,10 +3232,10 @@ int UnitClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
     int bestval = -1;
     for (; face < FACING_COUNT; face++) {
         int value = 0;
-        Cell cellnum = Adjacent_Cell(unknown_slot104(), face);
+        Cell cellnum = Adjacent_Cell(Get_Cell(), face);
         if (object) {
             value = (!((ObjectClass *)object)->Can_Enter_Cell(&Map[cellnum], face, unknown_5d47d0(), 0, 1)
-                || ((ObjectClass *)object)->unknown_slot104() == cellnum) ? 128 : -128;
+                || ((ObjectClass *)object)->Get_Cell() == cellnum) ? 128 : -128;
         } else {
             CellClass *land = &Map[Cell(cellnum)];
             if (Ground[land->Land].Cost[0] == 0.0f || land->Occupy_124.Building || land->Occupy_124.Vehicle || land->Occupy_124.Monolith
@@ -3264,7 +3264,7 @@ int UnitClass::Desired_Load_Dir(AbstractClass *object, Cell *cell)
     int facing = FACING_S;
     *cell = unknown_geometry_k;
     if (bestval > 0) {
-        *cell = Adjacent_Cell(unknown_slot104(), bestdir);
+        *cell = Adjacent_Cell(Get_Cell(), bestdir);
         facing = UnitClass_Harvester_Load_List[bestdir];
     }
     if (Type->IsTrain) {
@@ -3724,7 +3724,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 
 	BuildingClass * b=Unit_Dynamic_Cast<BuildingClass,6>(target);
     if(Get_Mission()==16 || MissionQueue==16) {
-        Cell unload_cell=unknown_slot104()+unknown_unload_offset_851a88;
+        Cell unload_cell=Get_Cell()+unknown_unload_offset_851a88;
         BuildingClass *refinery=(BuildingClass *)Map[unload_cell].Cell_Building();
         if(refinery && Type->Harvester) {
             if(refinery->unknown_25c[5]) refinery->unknown_25c[5]->Delete_Me();
@@ -3842,7 +3842,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		if (Type->unknown_af5 && immediate) {
 			bool isbridge = Is_Moving_Onto_Bridge(0);
 
-			Cell from = Cell(unknown_slot19(0));
+			Cell from = Cell(Destination_Coord(0));
 			bool canburrowfrom = Map[from].Can_Burrow_Here();
 
 			Cell to = Cell(target->Center_Coord());
@@ -3952,7 +3952,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			if (!doswap) {
 				bool canburrow = !Is_Moving_Onto_Bridge(0)
 					&& !(Map[target->Center_Coord()].unknown_140&0x100)
-					&& Map[unknown_slot19(0)].Can_Burrow_Here()
+					&& Map[Destination_Coord(0)].Can_Burrow_Here()
 					&& Map[target->Center_Coord()].Can_Burrow_Here();
 				if (canburrow) {
 					Cell to = Cell(target->Center_Coord());
@@ -4240,7 +4240,7 @@ void __fastcall UnitClass::Write_INI(CCINIClass &ini)
             sprintf(line, "%s,%s,%d,%d,%d,%d,%s,%s,%d,%d,%d,%d,%d,%d",
                     (char const *)unit->House->IniName, (char const *)unit->Type->ID,
                     (int)(unit->Health_Ratio() * 256.0),
-                    unit->unknown_slot104().X, unit->unknown_slot104().Y,
+                    unit->Get_Cell().X, unit->Get_Cell().Y,
                     direction,
                     MissionClass::Name_From_Mission(unit->Get_Mission()), tag,
                     unit->Veterancy.To_Integer(), unit->Group, unit->IsOnBridge, linked,
@@ -4340,7 +4340,7 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
         return;
     }
     if (source == unknown_geometry_l) {
-        Cell found = Map.Nearby_Location(Coord_Cell(unknown_slot19(0)), Type->SpeedType, -1, 0, IsOnBridge,
+        Cell found = Map.Nearby_Location(Coord_Cell(Destination_Coord(0)), Type->SpeedType, -1, 0, IsOnBridge,
             Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
         if (found != unknown_geometry_k) {
             Assign_Destination(&Map[found], true);
@@ -4363,16 +4363,16 @@ void UnitClass::Scatter(CoordStruct const &source, bool forced, bool nokidding)
             }
             Cell alt(0, 0);
             Cell found(0, 0);
-            Cell center = Coord_Cell(unknown_slot19(0));
+            Cell center = Coord_Cell(Destination_Coord(0));
             CellClass *cell = &Map[center];
             int level = (Is_Moving_Onto_Bridge(0) + cell->Height) ? 4 : 0;
-            CoordStruct here = unknown_slot19(0);
+            CoordStruct here = Destination_Coord(0);
             here.Z = unknown_geometry_g * level;
             for (int index = 0; index < 8; index++) {
                 int dir = (facing + index) & 7;
                 Cell adjacent = center + AdjacentCell[dir & 7];
                 CellClass *next = &Map[adjacent];
-                if (Map.Unknown_0055A660(adjacent, true) && Can_Enter_Cell(next, dir, Unknown_005D47D0(), 0, 1) == 0) {
+                if (Map.In_Local_Radar(adjacent, true) && Can_Enter_Cell(next, dir, Unknown_005D47D0(), 0, 1) == 0) {
                     if (alt.X == unknown_geometry_k.X) {
                         if (alt.Y == unknown_geometry_k.Y) {
                             alt = adjacent;
@@ -4411,7 +4411,7 @@ bool UnitClass::Limbo()
 {
     if (FootClass::Limbo()) {
         if (unknown_5b4 != -1) {
-            Houses[unknown_5b4]->Flag_Attach(unknown_slot104(), 0);
+            Houses[unknown_5b4]->Flag_Attach(Get_Cell(), 0);
             unknown_5b4 = -1;
         }
         return true;
@@ -4643,7 +4643,7 @@ AbstractClass *UnitClass::Plan_Route_00707f60(AbstractClass *target)
 
     unknown_478.Clear();
     bool leaving_bridge=Is_Moving_Onto_Bridge(0);
-    Cell origin=Cell(unknown_slot19(0));
+    Cell origin=Cell(Destination_Coord(0));
     bool origin_burrow=Map[origin].Can_Burrow_Here() || Get_Height_AGL()<0;
     Cell goal=Cell(target->Center_Coord());
     CellClass *goal_cell=&Map[goal];
@@ -4847,7 +4847,7 @@ bool UnitClass::AStarAttempt(Cell const *from, Cell const *to)
         if (distance == 1) {
             return false;
         }
-        if (distance < 12 && Map.Unknown_0055A660(*from, true) && Map.Unknown_0055A660(*to, true)) {
+        if (distance < 12 && Map.In_Local_Radar(*from, true) && Map.In_Local_Radar(*to, true)) {
             return Search.Test_Cell_Walk(*from, *to, this, false, (Map_Cell_At(*to)->Flags >> 8) & 1, 0) > 15;
         }
     }
@@ -5131,7 +5131,7 @@ void UnitClass::UpdateDisguise()
             can_disguise = true;
         if (Locomotor.Checked()->Is_Moving()) goto clear_disguise;
         if (Frame % 8 != 0) {
-            Cell position = unknown_slot104();
+            Cell position = Get_Cell();
             bool bridge = ((CellClass *)Get_Cell_Ptr())->Is_Tile_Bridge();
             for (int facing = 0; facing < 8; facing++) {
                 Cell adjacent = AdjacentCell[facing & 7] + position;

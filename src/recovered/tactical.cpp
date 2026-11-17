@@ -2518,7 +2518,7 @@ void Tactical::Draw_Objects(bool forced)
             if (Is_Foot_Object(obj)) {
                 position = obj->Position_Coord_004f3f40();
                 if (view.Is_Point_Within(Point2D(position.X, position.Y))) {
-                    obj->unknown_slot19(0);
+                    obj->Destination_Coord(0);
                     if (Scen->Special().FogOfWar && Map.Is_Fogged(position)) {
                         continue;
                     }
@@ -2595,7 +2595,7 @@ void Tactical::Draw_Objects(bool forced)
             ObjectClass *obj2 = DisplayClass::Layer[layer2][index2];
             if (obj2->IsVisible && obj2 != 0 && Is_Techno_Object(obj2)) {
                 if (Is_Foot_Object(obj2)) {
-                    obj2->unknown_slot19(0);
+                    obj2->Destination_Coord(0);
                     if (unknown_b263d8 && !Debug_Map && Scen->Special().FogOfWar && Map.Is_Fogged(obj2->Position_Coord_004f3f40())) {
                         continue;
                     }

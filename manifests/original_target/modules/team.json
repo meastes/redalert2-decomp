@@ -952,8 +952,7 @@
    "address": "007c3a70",
    "bytes": 16,
    "kind": "rtti",
-   "section": 62,
-   "known_difference": "hierarchy ambiguous bit"
+   "section": 62
   },
   {
    "symbol": "??_R4TeamClass@@6BIPersistStream@@@",
@@ -1297,8 +1296,7 @@
    "symbol": "??_R3TeamClass@@8",
    "address": "007c3a70",
    "bytes": 16,
-   "kind": "rtti",
-   "known_difference": "hierarchy ambiguous bit"
+   "kind": "rtti"
   },
   {
    "symbol": "??_R4TeamClass@@6BIPersistStream@@@",
@@ -1848,6 +1846,10 @@
    "address": "004068f0"
   },
   {
+   "symbol": "?Destination_Coord@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
+   "address": "00410290"
+  },
+  {
    "symbol": "?Detach_This_From_All@@YIXPAVAbstractClass@@_N@Z",
    "address": "006ecb90"
   },
@@ -1954,6 +1956,10 @@
   {
    "symbol": "?In_Air@AbstractClass@@UBE_NXZ",
    "address": "004102d0"
+  },
+  {
+   "symbol": "?In_Local_Radar@MapClass@@QAE_NABVCell@@_N@Z",
+   "address": "0055a660"
   },
   {
    "symbol": "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A",
@@ -2188,10 +2194,6 @@
    "address": "004f52f0"
   },
   {
-   "symbol": "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z",
-   "address": "0055a660"
-  },
-  {
    "symbol": "?Unknown_0055A740@MapClass@@QAE_NPAVCellClass@@_N@Z",
    "address": "0055a740"
   },
@@ -2274,10 +2276,6 @@
   {
    "symbol": "?unknown_sin_4ba480@@YANN@Z",
    "address": "004ba480"
-  },
-  {
-   "symbol": "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z",
-   "address": "00410290"
   },
   {
    "symbol": "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ",

@@ -131,7 +131,7 @@ int TerrainClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warhe
             if (Class->SpawnsTiberium) {
                 new AnimClass(Select_Damage_Anim(100, Rules->C4Warhead, Land_Type_At(Get_Coord(this)), &Get_Coord(this)), Get_Coord(this), 0, 1, 0x2600, Get_Explosion_Z_0047fcc0(Get_Coord(this)));
                 Explosion_Damage(Get_Coord(this), 100, 0, Rules->C4Warhead, 1);
-                unknown_slot104().Chain_Reaction_Damage();
+                Get_Cell().Chain_Reaction_Damage();
             } else if (unknown_b4) {
                 Shorten_Attached_Anims(this);
             } else {
@@ -194,7 +194,7 @@ TerrainClass::TerrainClass() :
 bool TerrainClass::Mark(int arg1)
 {
     if (ObjectClass::Mark(arg1)) {
-        Cell cell = unknown_slot104();
+        Cell cell = Get_Cell();
         switch (arg1) {
         case 0:
             Map.Pick_Up(cell, this);
@@ -277,7 +277,7 @@ static inline bool Is_Animating(TerrainClass const *terrain)
 
 void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
 {
-    Cell where = unknown_slot104();
+    Cell where = Get_Cell();
     CellClass &cell = Map_Cell(where);
     ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
     if (shape != 0) {
@@ -324,7 +324,7 @@ void TerrainClass::Draw_It(Point2D const &point, Rect const &window)
 
 void TerrainClass::Editor_Draw_It(Point2D const &point, Rect const &window)
 {
-    Cell where = unknown_slot104();
+    Cell where = Get_Cell();
     CellClass &cell = Map_Cell(where);
     ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
     if (shape != 0) {
@@ -488,7 +488,7 @@ void TerrainClass::Start_Crumbling()
 bool TerrainClass::Limbo()
 {
     if (!IsInLimbo) {
-        Cell cell = unknown_slot104();
+        Cell cell = Get_Cell();
         for (int facing = 0; facing < 8; facing++) {
             CellClass &next = Map[Adjacent_Cell(cell, facing)];
             next.AdjacentObjectCount--;
@@ -496,7 +496,7 @@ bool TerrainClass::Limbo()
         CoordStruct coord = Coord;
         ((TerrainCellView &)Map[coord]).unknown_124.Occupy.Monolith = false;
     }
-    Cell cell = unknown_slot104();
+    Cell cell = Get_Cell();
     bool result = ObjectClass::Limbo();
     Map[cell].Recalc_Attributes(-1);
     if (ScenarioInit == 0) {
@@ -559,7 +559,7 @@ void __fastcall TerrainClass::Write_INI(CCINIClass &ini)
     for (int index = 0; index < Terrains.Count(); index++) {
         TerrainClass *terrain = Terrains[index];
         if (terrain != 0 && !terrain->IsInLimbo && terrain->IsActive) {
-            Cell cell = terrain->unknown_slot104();
+            Cell cell = terrain->Get_Cell();
             char entry[12];
             sprintf(entry, "%d", cell.X + cell.Y * 1000);
             ini.Put_String(TerrainClass_INI_NAME, entry, terrain->Class->ID);

@@ -160,10 +160,10 @@ void AbstractTypeClass::Compute_CRC(WWCRCEngine &crc) const
 }
 
 
-// void AbstractTypeClass::unknown_slot24(int value) (0x004109A0)
+// void AbstractTypeClass::Init_Theater(int value) (0x004109A0)
 // Virtual slot 24: nothing.
 
-void AbstractTypeClass::unknown_slot24(int value)
+void AbstractTypeClass::Init_Theater(int value)
 {
 }
 

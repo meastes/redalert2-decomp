@@ -859,7 +859,7 @@ void MapClass::Set_Local_Dimensions(Rect const &rect)
     for (int index = 0; index < unknown_list_a40c20.Count(); index++) {
         TechnoClass *techno = unknown_list_a40c20[index];
         bool was = techno->unknown_32d;
-        techno->unknown_32d = Unknown_0055A660(techno->unknown_slot104(), true);
+        techno->unknown_32d = In_Local_Radar(techno->unknown_slot104(), true);
         if (!was && techno->unknown_32d && techno->House->Is_Player_Control()
             && techno->Kind_Of() != 6 && techno->unknown_7d && !techno->unknown_76) {
             techno->Look(false, false);
@@ -2780,13 +2780,13 @@ bool MapClass::Unknown_0054F7C0(Cell const &from, Cell const &to, int zone, bool
         return true;
     }
 
-    bool from_local = Map.Unknown_0055A660(from, true);
+    bool from_local = Map.In_Local_Radar(from, true);
     bool from_map = Map.In_Radar(from);
     if (!from_local && from_map) {
         return true;
     }
 
-    bool to_local = Map.Unknown_0055A660(to, true);
+    bool to_local = Map.In_Local_Radar(to, true);
     bool to_map = Map.In_Radar(to);
     if (arg6 && from_local && !to_local && to_map) {
         return true;
@@ -6564,19 +6564,19 @@ void MapClass::Reset_Iterator()
 
 bool MapClass::Unknown_0055A590(Rect const &rect, bool flag)
 {
-    return(Unknown_0055A660(Cell(rect.X, rect.Y), flag) &&
-        Unknown_0055A660(Cell(rect.X + rect.Width - 1, rect.Y), flag) &&
-        Unknown_0055A660(Cell(rect.X, rect.Y + rect.Height - 1), flag) &&
-        Unknown_0055A660(Cell(rect.X + rect.Width - 1, rect.Y + rect.Height - 1), flag) ? 1 : 0);
+    return(In_Local_Radar(Cell(rect.X, rect.Y), flag) &&
+        In_Local_Radar(Cell(rect.X + rect.Width - 1, rect.Y), flag) &&
+        In_Local_Radar(Cell(rect.X, rect.Y + rect.Height - 1), flag) &&
+        In_Local_Radar(Cell(rect.X + rect.Width - 1, rect.Y + rect.Height - 1), flag) ? 1 : 0);
 }
 
 
-// bool MapClass::Unknown_0055A660(Cell const &cell, bool flag) (0x0055A660)
+// bool MapClass::In_Local_Radar(Cell const &cell, bool flag) (0x0055A660)
 // Whether a cell lies inside the local map rectangle (+0xF8) in the map's
 // diamond coordinates; with flag, the cell's height (+0x11B, one more on a
 // bridge cell, +0x11C, below the top band) moves the X + Y bounds.
 
-bool MapClass::Unknown_0055A660(Cell const &cell, bool flag)
+bool MapClass::In_Local_Radar(Cell const &cell, bool flag)
 {
     int height = 0;
     int x = cell.X;
@@ -6629,7 +6629,7 @@ bool MapClass::Unknown_0055A740(CellClass *cell, bool flag)
 bool MapClass::Unknown_0055A7F0(CoordStruct const &coord)
 {
     Cell cell = Cell(coord.X / 256, coord.Y / 256);
-    return Unknown_0055A660(cell, true);
+    return In_Local_Radar(cell, true);
 }
 
 
@@ -6687,7 +6687,7 @@ CellClass *MapClass::Unknown_0055A910()
             LocalIterX++;
             LocalIterY--;
         }
-        if (Unknown_0055A660(cell, true)) {
+        if (In_Local_Radar(cell, true)) {
             return &(*this)[cell];
         }
     }
@@ -9006,7 +9006,7 @@ CellClass *MapClass::Find_Nearby_Shroud(AbstractClass *object)
         for (int x = -ring; x <= ring; x++) {
 
             Cell cell = Cell(xx + x, yy - ring);
-            if (Unknown_0055A660(cell, true)) {
+            if (In_Local_Radar(cell, true)) {
                 CoordStruct coord = CoordStruct(cell, 0);
                 coord.Z = Get_Height_GL(coord);
                 if (Is_Shrouded(coord)) {
@@ -9018,7 +9018,7 @@ CellClass *MapClass::Find_Nearby_Shroud(AbstractClass *object)
             }
 
             cell = Cell(xx + x, yy + ring);
-            if (Unknown_0055A660(cell, true)) {
+            if (In_Local_Radar(cell, true)) {
                 CoordStruct coord = CoordStruct(cell, 0);
                 coord.Z = Get_Height_GL(coord);
                 if (Is_Shrouded(coord)) {
@@ -9036,7 +9036,7 @@ CellClass *MapClass::Find_Nearby_Shroud(AbstractClass *object)
         for (int y = -ring + 1; y <= ring - 1; y++) {
 
             Cell cell = Cell(xx - ring, yy + y);
-            if (Unknown_0055A660(cell, true)) {
+            if (In_Local_Radar(cell, true)) {
                 CoordStruct coord = CoordStruct(cell, 0);
                 coord.Z = Get_Height_GL(coord);
                 if (Is_Shrouded(coord)) {
@@ -9048,7 +9048,7 @@ CellClass *MapClass::Find_Nearby_Shroud(AbstractClass *object)
             }
 
             cell = Cell(xx + ring, yy + y);
-            if (Unknown_0055A660(cell, true)) {
+            if (In_Local_Radar(cell, true)) {
                 CoordStruct coord = CoordStruct(cell, 0);
                 coord.Z = Get_Height_GL(coord);
                 if (Is_Shrouded(coord)) {
@@ -9143,7 +9143,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         for (y = 0; y < isotype->unknown_2b8; y++) {
             for (x = 0; x < isotype->unknown_2b4; x++) {
                 Cell here = origin + Cell(x, y);
-                if (image->Tiles[y * isotype->unknown_2b4 + x] != 0 && Unknown_0055A660(here, true)) {
+                if (image->Tiles[y * isotype->unknown_2b4 + x] != 0 && In_Local_Radar(here, true)) {
                     Fine_Subzone(here) = 0;
                     Map[here].Recalc_Attributes(-1);
                 }
@@ -9152,7 +9152,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         for (y = 0; y < isotype->unknown_2b8; y++) {
             for (x = 0; x < isotype->unknown_2b4; x++) {
                 Cell here = origin + Cell(x, y);
-                if (image->Tiles[y * isotype->unknown_2b4 + x] != 0 && Unknown_0055A660(here, true)
+                if (image->Tiles[y * isotype->unknown_2b4 + x] != 0 && In_Local_Radar(here, true)
                     && Fine_Subzone(here) == 0) {
                     Update_Cell_Subzones(here);
                 }
@@ -9161,7 +9161,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
         for (y = 0; y < isotype->unknown_2b8; y++) {
             for (x = 0; x < isotype->unknown_2b4; x++) {
                 Cell here = origin + Cell(x, y);
-                if (image->Tiles[y * isotype->unknown_2b4 + x] != 0 && Unknown_0055A660(here, true)) {
+                if (image->Tiles[y * isotype->unknown_2b4 + x] != 0 && In_Local_Radar(here, true)) {
                     Unknown_006D7C80(&Map[here]);
                     Map.Radar_Background(here);
                 }
@@ -9225,7 +9225,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
             row_width = isotype->unknown_2b4;
             for (x = 0; x < row_width; row_width = isotype->unknown_2b4, x++) {
                 Cell here = origin + Cell(x, y);
-                if (image->Tiles[y * row_width + x] != 0 && Unknown_0055A660(here, true)) {
+                if (image->Tiles[y * row_width + x] != 0 && In_Local_Radar(here, true)) {
                     Fine_Subzone(here) = 0;
                     Map[here].Recalc_Attributes(-1);
                 }
@@ -9235,7 +9235,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
             row_width = isotype->unknown_2b4;
             for (x = 0; x < row_width; row_width = isotype->unknown_2b4, x++) {
                 Cell here = origin + Cell(x, y);
-                if (image->Tiles[y * row_width + x] != 0 && Unknown_0055A660(here, true)) {
+                if (image->Tiles[y * row_width + x] != 0 && In_Local_Radar(here, true)) {
                     if (Fine_Subzone(here) == 0) {
                         Update_Cell_Subzones(here);
                     }
@@ -9246,7 +9246,7 @@ void MapClass::Unknown_00562F50(CellClass *cell)
             row_width = isotype->unknown_2b4;
             for (x = 0; x < row_width; row_width = isotype->unknown_2b4, x++) {
                 Cell here = origin + Cell(x, y);
-                if (image->Tiles[y * row_width + x] != 0 && Unknown_0055A660(here, true)) {
+                if (image->Tiles[y * row_width + x] != 0 && In_Local_Radar(here, true)) {
                     Unknown_006D7C80(&Map[here]);
                     Map.Radar_Background(here);
                 }
@@ -9486,9 +9486,9 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
     if (adjacent > 0 && abs(begin->Height - prev_height) < 2 && adjacent != last_adjacent) {
         Cell probe;
         probe = Cell(x, y);
-        if (Unknown_0055A660(probe, true)) {
+        if (In_Local_Radar(probe, true)) {
             probe = Cell(x + 1, y);
-            if (Unknown_0055A660(probe, true)) {
+            if (In_Local_Radar(probe, true)) {
                 int packed_pair = Span_Pack32(adjacent, (unsigned short)id);
                 entry.Value.unknown_04 = false;
                 entry.Key = entry.Value.unknown_00 = packed_pair;
@@ -9517,9 +9517,9 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
         Cell probe;
         probe.X = (short)end_x;
         probe.Y = (short)y;
-        if (Unknown_0055A660(probe, true)) {
+        if (In_Local_Radar(probe, true)) {
             probe = Cell(end_x - 1, y);
-            if (Unknown_0055A660(probe, true)) {
+            if (In_Local_Radar(probe, true)) {
                 int packed_pair = Span_Pack32(adjacent, (unsigned short)id);
                 entry.Value.unknown_04 = false;
                 entry.Key = entry.Value.unknown_00 = packed_pair;
@@ -9566,11 +9566,11 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
         if (shadow_subzone != 0 || y <= ymin || x < xmin || x > xmax) {
             if (shadow_subzone != (unsigned short)id && shadow_subzone != last_adjacent) {
                 if (shadow_subzone != 0) {
-                    if (abs(span_ptr->Height - above->Height) < 2 && Unknown_0055A660(span_cell, true)) {
+                    if (abs(span_ptr->Height - above->Height) < 2 && In_Local_Radar(span_cell, true)) {
                         Cell shadow_cell;
                         shadow_cell.Y = (short)(y - 1);
                         shadow_cell.X = (short)x;
-                        if (Unknown_0055A660(shadow_cell, true)) {
+                        if (In_Local_Radar(shadow_cell, true)) {
                             int packed_pair = Span_Pack32(shadow_subzone, (unsigned short)id);
                             if (x < xmin) {
                                 entry.Value.unknown_04 = true;
@@ -9632,11 +9632,11 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
         if (shadow_subzone != 0 || y >= ymax || x < xmin || x > xmax) {
             if (shadow_subzone != (unsigned short)id && shadow_subzone != last_adjacent) {
                 if (shadow_subzone != 0) {
-                    if (abs(below->Height - span_ptr->Height) < 2 && Unknown_0055A660(span_cell, true)) {
+                    if (abs(below->Height - span_ptr->Height) < 2 && In_Local_Radar(span_cell, true)) {
                         Cell shadow_cell;
                         shadow_cell.X = (short)x;
                         shadow_cell.Y = (short)(y + 1);
-                        if (Unknown_0055A660(shadow_cell, true)) {
+                        if (In_Local_Radar(shadow_cell, true)) {
                             int packed_pair = Span_Pack32(shadow_subzone, (unsigned short)id);
                             if (x < xmin) {
                                 entry.Value.unknown_04 = true;
@@ -9903,11 +9903,11 @@ Cell MapClass::Unknown_005653C0(Cell const &cell, Cell const &reference)
 
     Cell result = unknown_cell_a6f238;
 
-    if (Map.Unknown_0055A660(fresult, true)) {
+    if (Map.In_Local_Radar(fresult, true)) {
         result = fresult;
     }
 
-    if (Map.Unknown_0055A660(bresult, true)) {
+    if (Map.In_Local_Radar(bresult, true)) {
         if (result == unknown_cell_a6f238 || bresult.Distance_To(reference) < fresult.Distance_To(reference)) {
             result = bresult;
         }
@@ -9954,7 +9954,7 @@ Cell MapClass::Find_Bridge_End_Cell_For_Subzone(Cell const &cell, int layer, uns
     candidates[5] = Adjacent_Cell(back_end, (facing - 2) & 7);
     for (int index = 0; index < 6; ++index) {
         Cell candidate = candidates[index];
-        if (Map.Unknown_0055A660(candidate, true)) {
+        if (Map.In_Local_Radar(candidate, true)) {
             int fine_index = Get_Cell_Zone_Index(candidate);
             CellSubzoneStruct *record = (CellSubzoneStruct *)CellSubzones + fine_index;
             if (record->SubzoneID[layer] == subzone)
@@ -10165,7 +10165,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass *cptr, int layer, DynamicVecto
 
             Cell c = cptr->MapCoords + Cell(bx, by);
 
-            if (Unknown_0055A660(c, true)) {
+            if (In_Local_Radar(c, true)) {
                 if (start_subzone == ((unsigned short *)(CellSubzones + Get_Cell_Zone_Index(c) * 10))[layer] && !_subzone_flood_visited[facing][col]) {
                     return true;
                 }
@@ -10333,7 +10333,7 @@ inline int Cell_Passability(MapClass *map, Cell const &cell)
 
 void MapClass::Update_Cell_Subzones(Cell const &cell)
 {
-    if (Unknown_0055A660(cell, true)) {
+    if (In_Local_Radar(cell, true)) {
         int y;
         int x;
         Cell trycell;
@@ -10381,7 +10381,7 @@ void MapClass::Update_Cell_Subzones(Cell const &cell)
             int entry_count = unknown_70[level];
             for (y = bounds.Y; y < bounds.Y + bounds.Height; ++y) {
                 for (x = bounds.X; x < bounds.Width + bounds.X; ++x) {
-                    if (Unknown_0055A660(Cell(x, y), true)) {
+                    if (In_Local_Radar(Cell(x, y), true)) {
                         CellSubzoneStruct *subptr = (CellSubzoneStruct *)&Fine_Subzone(Cell(x, y));
                         int passability = Cell_Passability(this, Cell(x, y));
                         if (passability != 7 && subptr->SubzoneID[level] == 0) {
@@ -10442,7 +10442,7 @@ void MapClass::Update_Cell_Subzones(Cell const &cell)
             for (x = base_x; x < base_x + 8; ++x) {
                 trycell.X = (short)x;
                 trycell.Y = (short)y;
-                if (Unknown_0055A660(trycell, true)) {
+                if (In_Local_Radar(trycell, true)) {
                     CellSubzoneStruct *subptr = (CellSubzoneStruct *)&Fine_Subzone(Cell(x, y));
                     for (int parent_level = 0; parent_level < 2; ++parent_level) {
                         SubzoneTracking[parent_level][subptr->SubzoneID[parent_level]].unknown_18 = subptr->SubzoneID[parent_level + 1];
@@ -11020,7 +11020,7 @@ void MapClass::Recalc_Cells_In_List(DynamicVectorClass<Cell> &cells)
 {
     int index;
     for (index = cells.Count() - 1; index >= 0; index--) {
-        if (Unknown_0055A660(cells[index], true)) {
+        if (In_Local_Radar(cells[index], true)) {
             *(short *)(CellSubzones + Get_Cell_Zone_Index(cells[index]) * 10) = 0;
             CellClass *cellptr = &Map[cells[index]];
             cellptr->Recalc_Attributes(-1);
@@ -11028,7 +11028,7 @@ void MapClass::Recalc_Cells_In_List(DynamicVectorClass<Cell> &cells)
     }
     for (index = cells.Count() - 1; index >= 0; index--) {
         Cell cell = cells[index];
-        if (Unknown_0055A660(cell, true)) {
+        if (In_Local_Radar(cell, true)) {
             if (*(short *)(CellSubzones + Get_Cell_Zone_Index(cell) * 10) == 0) {
                 Update_Cell_Subzones(cell);
             }
@@ -11153,12 +11153,12 @@ Cell MapClass::Clip_To_Map(Cell const &cell)
         do {
             x++;
             y++;
-        } while (!Unknown_0055A660(Cell(x, y), true));
+        } while (!In_Local_Radar(Cell(x, y), true));
     } else if (x + y > height + MapSize.Width + 2 * (MapLocalSize.Y + MapLocalSize.Height) + 2) {
         do {
             x--;
             y--;
-        } while (!Unknown_0055A660(Cell(x, y), true));
+        } while (!In_Local_Radar(Cell(x, y), true));
     }
     return Cell(x, y);
 }
@@ -11192,7 +11192,7 @@ Cell MapClass::Unknown_00568ED0(Cell const &cell, Cell const &from)
     for (int y = 0; y < h; y++) {
         for (int x = 0; x < w; x++) {
             Cell here = d + Cell(x, y);
-            if (image->Tiles[x + y * iptr->unknown_2b4] != 0 && Unknown_0055A660(here, true)) {
+            if (image->Tiles[x + y * iptr->unknown_2b4] != 0 && In_Local_Radar(here, true)) {
                 int xdiff = here.X - from.X;
                 int ydiff = here.Y - from.Y;
                 double dist = Fast_Sqrt(double(xdiff * xdiff + ydiff * ydiff));

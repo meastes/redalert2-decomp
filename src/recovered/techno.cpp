@@ -236,10 +236,10 @@ bool TechnoClass::unknown_slot155()
 }
 
 
-// bool TechnoClass::unknown_slot24() (0x006C1320, slot 24)
+// bool TechnoClass::Is_Players_Army() (0x006C1320, slot 24)
 // A chain of state tests ending in the owner test 0x004F52B0.
 
-bool TechnoClass::unknown_slot24()
+bool TechnoClass::Is_Players_Army()
 {
     if (Strength > 0 && !IsInLimbo && unknown_32d && Kind_Of() != 6 && unknown_373 &&
             Techno_Type_Class()->IsSelectable) {
@@ -896,7 +896,7 @@ void TechnoClass::unknown_slot93(int arg1)
         if (Tag != 0) {
             Tag->Spring(0x22, this, unknown_cell_ac0148, 0, 0);
         }
-        if (!unknown_32d && Map.Unknown_0055A660(cell, true)) {
+        if (!unknown_32d && Map.In_Local_Radar(cell, true)) {
             unknown_32d = true;
         }
         if (!unknown_373 && (Map_Cell_At(cell)->unknown_12c & 0x10)) {
@@ -932,7 +932,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
         if (!IsSelected && Get_Height_AGL() < -20 && cell && cell->Is_Sensed(PlayerPtr->ArrayIndex)) {
             sensed_underground = true;
         }
-        if (BombVisible && unknown_38 && !Map[unknown_slot104()].unknown_47cb50()) {
+        if (BombVisible && unknown_38 && !Map[Get_Cell()].unknown_47cb50()) {
             Point2D bomb_point;
             TacticalMap->Coord_To_Pixel(unknown_slot42(), bomb_point);
             CC_Draw_Shape(LogicalSurface, static_cast<ConvertClass *>(unknown_convert_8323c8),
@@ -941,7 +941,7 @@ void TechnoClass::unknown_slot66(Point2D const &point, Rect const &window)
         }
         if (this && Kind_Of() == 6) {
             BuildingClass *building = Kind_Of() == 6 ? static_cast<BuildingClass *>(this) : 0;
-            if (building->IsRepairing && !Map[unknown_slot104()].unknown_47cb50()) {
+            if (building->IsRepairing && !Map[Get_Cell()].unknown_47cb50()) {
                 Point2D repair_point;
                 TacticalMap->Coord_To_Pixel(unknown_slot42(), repair_point);
                 int delay = Options.Normalize_Delay(14) / 4;
@@ -1256,7 +1256,7 @@ bool TechnoClass::Limbo()
 
 bool TechnoClass::Unlimbo(CoordStruct const *coord, int dir)
 {
-    unknown_32d = Map.Unknown_0055A660(Coord_Cell(*coord), true);
+    unknown_32d = Map.In_Local_Radar(Coord_Cell(*coord), true);
     if (ObjectClass::Unlimbo(coord, dir)) {
         if (!IsActive) {
             return true;
@@ -1284,7 +1284,7 @@ bool TechnoClass::Unlimbo(CoordStruct const *coord, int dir)
             Commence();
         }
         unknown_378 = (char)(coord->Z / Rules->LeptonsPerSightIncrease) * 10;
-        if (!Map.Unknown_0055A660(Coord_Cell(*coord), true)) {
+        if (!Map.In_Local_Radar(Coord_Cell(*coord), true)) {
             unknown_373 = false;
         }
         UnknownCellClass *here = (UnknownCellClass *)Get_Cell_Ptr();
@@ -3828,7 +3828,7 @@ int TechnoClass::What_Action(Cell const *cell, bool arg2, bool arg3)
         }
     }
     if (House->Is_Player_Control() && (Can_Player_Move() || unknown_slot153())) {
-        if (Map.Unknown_0055A660(*cell, true)) {
+        if (Map.In_Local_Radar(*cell, true)) {
             if (force_move) {
                 return 1;
             }
@@ -3901,7 +3901,7 @@ bool TechnoClass::unknown_slot185()
 
 bool TechnoClass::unknown_slot186()
 {
-    Cell where = unknown_slot104();
+    Cell where = Get_Cell();
     CellClass *cell = &Map[where];
     if (cell == 0 || !cell->Is_Near_Tunnel_NW()) {
         switch (Kind_Of()) {
@@ -3925,7 +3925,7 @@ bool TechnoClass::unknown_slot186()
                 if (IsOnBridge) {
                     break;
                 }
-                Cell center = unknown_slot104();
+                Cell center = Get_Cell();
                 CellClass *here = &Map[center];
                 if (here != 0) {
                     CellClass *south = &Map[center + AdjacentCell[4]];
@@ -4645,7 +4645,7 @@ extern Cell const AdjacentCell[8];
 
 bool TechnoClass::Is_Z_Fudge_Bridge()
 {
-    Cell position = unknown_slot104();
+    Cell position = Get_Cell();
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
     if (here != 0 && !IsOnBridge) {
         UnknownCellClass *south = (UnknownCellClass *)&Map[(AdjacentCell[4] + position)];
@@ -4673,7 +4673,7 @@ extern Cell const AdjacentCell[8];
 
 bool TechnoClass::Was_Z_Fudge_Bridge()
 {
-    Cell position = unknown_slot104();
+    Cell position = Get_Cell();
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
     if (here != 0 && !IsOnBridge) {
         UnknownCellClass *south = (UnknownCellClass *)&Map[(AdjacentCell[4] + position)];
@@ -4703,7 +4703,7 @@ extern int IsometricTileTypeClass_BridgeSet;
 
 int TechnoClass::Get_Z_Fudge_Column()
 {
-    Cell position = unknown_slot104();
+    Cell position = Get_Cell();
     int count = 0;
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
     if (here != 0 && (Is_Z_Fudge_Bridge() || Was_Z_Fudge_Bridge())) {
@@ -4755,7 +4755,7 @@ inline Cell Adjacent_Cell(Cell const &cell, Dir256 dir) { return cell + Adjacent
 int TechnoClass::Get_Z_Fudge_Tunnel()
 {
     int fudge = 0;
-    Cell cell = unknown_slot104();
+    Cell cell = Get_Cell();
     if (!IsOnBridge) {
         CellClass *north = &Map[Adjacent_Cell(cell, DIR_N)];
         CellClass *west = &Map[Adjacent_Cell(cell, DIR_W)];
@@ -4799,10 +4799,10 @@ extern Cell const AdjacentCell[8];
 int TechnoClass::Get_Z_Fudge_Cliff()
 {
     int result = 0;
-    Cell position = unknown_slot104();
+    Cell position = Get_Cell();
     UnknownCellClass *here = (UnknownCellClass *)&Map[position];
     if (!IsOnBridge) {
-        UnknownCellClass *next = (UnknownCellClass *)&Map[(AdjacentCell[3] + unknown_slot104())];
+        UnknownCellClass *next = (UnknownCellClass *)&Map[(AdjacentCell[3] + Get_Cell())];
         if (next != 0) {
             if (next->unknown_11b - here->unknown_11b >= 4) {
                 result = 2;
@@ -4844,7 +4844,7 @@ int TechnoClass::unknown_slot176()
     int z = -Tactical_Z_Lepton_To_Pixel(Get_Height());
     int zadjust2 = z;
     int zadjust = z;
-    Cell cell = unknown_slot104();
+    Cell cell = Get_Cell();
     CellClass *cptr = (CellClass *)&Map[cell];
     UnitClass *unit = (UnitClass *)this;
     if (unit->Kind_Of() == 1) {
@@ -5746,7 +5746,7 @@ bool TechnoClass::unknown_slot171(CoordStruct const &coord)
     if (zone != -1) {
         if (!(coord == unknown_geometry_l)) {
             Cell cell = Coord_Cell(coord);
-            Cell here = Coord_Cell(unknown_slot19(0));
+            Cell here = Coord_Cell(Destination_Coord(0));
             return Map.Unknown_0054F7C0(here, cell, zone, Is_Moving_Onto_Bridge(0),
                 (unsigned char)((((UnknownCellClass *)&Map[cell])->Flags >> 8) & 1), unknown_slot189());
         }
@@ -5782,8 +5782,8 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
             if ((!member->Team || base_defense) && member->unknown_379 && member->unknown_slot163() && member->unknown_37a && (member->Control()->IsRecruitable || unknown_game_mode_a3d298)) {
                 int armor=attacker->Techno_Type_Class()->Armor;
                 if (member->unknown_slot230()->WeaponType->Warhead->Verses[armor]!=0.0) {
-                    Cell from=Coord_Cell(unknown_slot19(0));
-                    Cell to=Coord_Cell(member->unknown_slot19(0));
+                    Cell from=Coord_Cell(Destination_Coord(0));
+                    Cell to=Coord_Cell(member->Destination_Coord(0));
                     if (Map.Unknown_0054F7C0(to,from,member->Type->MovementZone,member->Is_Moving_Onto_Bridge(0),false,false)) {
                         int value=member->Rescue_Mission(attacker);
                         if (value) {
@@ -5814,8 +5814,8 @@ void TechnoClass::unknown_6d3400(TechnoClass *attacker)
             if ((!member->Team || base_defense) && member->unknown_379 && member->unknown_slot163() && member->unknown_37a && (member->Control()->IsRecruitable || unknown_game_mode_a3d298)) {
                 int armor=attacker->Techno_Type_Class()->Armor;
                 if (member->unknown_slot230()->WeaponType->Warhead->Verses[armor]!=0.0) {
-                    Cell from=Coord_Cell(unknown_slot19(0));
-                    Cell to=Coord_Cell(member->unknown_slot19(0));
+                    Cell from=Coord_Cell(Destination_Coord(0));
+                    Cell to=Coord_Cell(member->Destination_Coord(0));
                     if (Map.Unknown_0054F7C0(to,from,member->Type->MovementZone,member->Is_Moving_Onto_Bridge(0),false,false)) {
                         int value=member->Rescue_Mission(attacker);
                         if (value) {
@@ -7320,7 +7320,7 @@ int TechnoClass::unknown_slot164()
 {
     CoordStruct coord = Coord;
     Cell shown = ((UnknownTacticalView *)TacticalMap)->Unknown_006A6A50(coord);
-    if (shown == unknown_slot104()) {
+    if (shown == Get_Cell()) {
         return 0;
     }
     return 1;

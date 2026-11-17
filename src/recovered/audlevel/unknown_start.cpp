@@ -4,10 +4,10 @@
 // running (bit 0), sets the per-second rate 1000 (+0x10) and its scaled
 // reciprocal 0x10624D (+0x0C), the target value (+0x08, 16.16), zeroes
 // +0x14 and updates (0x004070F0). No direct callers. Names are hypotheses.
-// @ref ?unknown_time_4092d0@@YA_JXZ=004092d0
-// @ref ?unknown_update_4070f0@@YIXPAUUnknownFixedTimer_00407030@@@Z=004070f0
+// @ref ?AudioGetTime@@YA_JXZ=004092d0
+// @ref ?AudioLevelUpdate@@YIXPAUUnknownFixedTimer_00407030@@@Z=004070f0
 
-__int64 unknown_time_4092d0();
+__int64 AudioGetTime();
 
 struct UnknownFixedTimer_00407030 {
     unsigned int Flags;          // +0x00 bit 0 running
@@ -22,12 +22,12 @@ struct UnknownFixedTimer_00407030 {
     } StartTime;                 // +0x18 (64-bit time)
 };
 
-void __fastcall unknown_update_4070f0(UnknownFixedTimer_00407030 *timer);
+void __fastcall AudioLevelUpdate(UnknownFixedTimer_00407030 *timer);
 
-void __fastcall unknown_start_00407030(UnknownFixedTimer_00407030 *timer, int target)
+void __fastcall AudioLevelInit(UnknownFixedTimer_00407030 *timer, int target)
 {
     timer->Flags = 0;
-    unsigned __int64 now = unknown_time_4092d0();
+    unsigned __int64 now = AudioGetTime();
     timer->StartTime.LowPart = (unsigned int)now;
     timer->Rate = 1000;
     timer->Flags |= 1;
@@ -35,5 +35,5 @@ void __fastcall unknown_start_00407030(UnknownFixedTimer_00407030 *timer, int ta
     timer->StartTime.HighPart = (unsigned int)(now >> 32);
     timer->RateScale = 0x10624d;
     timer->unknown_14 = 0;
-    unknown_update_4070f0(timer);
+    AudioLevelUpdate(timer);
 }

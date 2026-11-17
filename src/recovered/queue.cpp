@@ -2750,7 +2750,7 @@ void __fastcall Unknown_00629290(int start, int count)
             cells.Add(dest);
             done.Add(false);
         }
-        Cell origin = closest->unknown_slot104();
+        Cell origin = closest->Get_Cell();
         for (i = 0; i < list.Count();) {
             ObjectClass *object = list[i];
             Cell best = dest;
@@ -2759,7 +2759,7 @@ void __fastcall Unknown_00629290(int start, int count)
                 done[0] = true;
             } else if (!done[i]) {
                 Cell fallback = dest;
-                Cell cell(object->unknown_slot19(0));
+                Cell cell(object->Destination_Coord(0));
                 int level = Map[dest].IsUnderBridge * 4 + Map[dest].Height;
                 Vector3 position(dest.X + 0.5, dest.Y + 0.5, 0);
                 int offset_x = cell.X - origin.X;
@@ -2776,7 +2776,7 @@ void __fastcall Unknown_00629290(int start, int count)
                     position = step + position;
                     spot = Cell((short)position.X, (short)position.Y);
                     CellClass *spot_ptr = &Map[spot];
-                    if (!Map.Unknown_0055A660(spot, true)) {
+                    if (!Map.In_Local_Radar(spot, true)) {
                         break;
                     }
                     int spot_zone = Map.Zone(spot, type->MovementZone, spot_ptr->IsUnderBridge);
@@ -2822,7 +2822,7 @@ void __fastcall Unknown_00629290(int start, int count)
                 done[i] = true;
             }
             for (int j = i + 1; j < list.Count(); j++) {
-                if (!done[j] && object->unknown_slot104() == list[j]->unknown_slot104()) {
+                if (!done[j] && object->Get_Cell() == list[j]->Get_Cell()) {
                     TargetClass target(&Map[best]);
                     Unknown_00629220(start, count, TargetClass((AbstractClass *)list[j]), target);
                     done[j] = true;

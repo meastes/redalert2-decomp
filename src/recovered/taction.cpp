@@ -473,7 +473,7 @@ bool TActionClass::TAction_REMOVE_PARTICLE_ANIM(HouseClass *house, ObjectClass *
     Cell waypoint = Scen->Get_Waypoint_Location(EffectLocation);
     for (int index = 0; index < ParticleSystems.Count(); index++) {
         ParticleSystemClass *system = ParticleSystems[index];
-        if (system->IsActive && system->unknown_slot104() == waypoint) {
+        if (system->IsActive && system->Get_Cell() == waypoint) {
             system->Delete_Me();
         }
     }

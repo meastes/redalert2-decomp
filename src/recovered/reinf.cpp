@@ -274,7 +274,7 @@ bool __fastcall Do_Reinforcements(TeamTypeClass *teamtype, int wp)
         }
     }
 
-    bool onmap = atwaypoint && Map.Unknown_0055A660(origin, true);
+    bool onmap = atwaypoint && Map.In_Local_Radar(origin, true);
 
     bool ok;
     if (!drop_pod) {

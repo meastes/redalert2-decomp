@@ -1099,7 +1099,7 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
             Cell cell2(rect1.X + 2, rect1.Y);
             CellClass * cptr1 = &Map[cell1];
             CellClass * cptr2 = &Map[cell2];
-            if (!Map.Unknown_0055A660(cell1,true) || !Map.Unknown_0055A660(cell2,true) || cptr1->unknown_47b5e0() || cptr2->unknown_47b5e0()) {
+            if (!Map.In_Local_Radar(cell1,true) || !Map.In_Local_Radar(cell2,true) || cptr1->unknown_47b5e0() || cptr2->unknown_47b5e0()) {
                 allow_rect1 = false;
                 break;
             }
@@ -1113,7 +1113,7 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
                     Cell cell2(rect2.X + 2, rect2.Y);
                     CellClass * cptr1 = &Map[cell1];
                     CellClass * cptr2 = &Map[cell2];
-                    if (!Map.Unknown_0055A660(cell1,true) || !Map.Unknown_0055A660(cell2,true) || cptr1->unknown_47b5e0() || cptr2->unknown_47b5e0()) {
+                    if (!Map.In_Local_Radar(cell1,true) || !Map.In_Local_Radar(cell2,true) || cptr1->unknown_47b5e0() || cptr2->unknown_47b5e0()) {
                         allow_rect1 = false;
                         break;
                     }
@@ -1135,7 +1135,7 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
             Cell cell2(rect3.X, rect3.Y + 2);
             CellClass * cptr1 = &Map[cell1];
             CellClass * cptr2 = &Map[cell2];
-            if (!Map.Unknown_0055A660(cell1,true) || !Map.Unknown_0055A660(cell2,true) || cptr1->unknown_47b5e0() || cptr2->unknown_47b5e0()) {
+            if (!Map.In_Local_Radar(cell1,true) || !Map.In_Local_Radar(cell2,true) || cptr1->unknown_47b5e0() || cptr2->unknown_47b5e0()) {
                 allow_rect3 = false;
                 break;
             }
@@ -1149,7 +1149,7 @@ bool MapRegionClass::Connect_Regions_With_Bridge_00570bc0(MapRegionClass *region
                     Cell cell2(rect4.X, rect4.Y + 2);
                     CellClass * cptr1 = &Map[cell1];
                     CellClass * cptr2 = &Map[cell2];
-                    if (!Map.Unknown_0055A660(cell1,true) || !Map.Unknown_0055A660(cell2,true) || cptr1->unknown_47b5e0() || cptr2->unknown_47b5e0()) {
+                    if (!Map.In_Local_Radar(cell1,true) || !Map.In_Local_Radar(cell2,true) || cptr1->unknown_47b5e0() || cptr2->unknown_47b5e0()) {
                         allow_rect3 = false;
                         break;
                     }
@@ -1374,7 +1374,7 @@ void MapRegionClass::Make_Region_Connections_00571ed0()
                         choice=(unsigned)((unsigned)RMGRandom()*range.Span*(1.0/4294967295.0));
                     } while(choice>last);
                     Cell position=(*border)[choice];
-                    if(Map.Unknown_0055A660(position,true)) {
+                    if(Map.In_Local_Radar(position,true)) {
                         connected+=upper->Connect_Regions_With_Ramp_00572270(position,lower,(float)tries*unknown_ramp_attempt_scale_7a5df0)?1:0;
                     }
                     ++tries;
@@ -2002,16 +2002,16 @@ bool MapRegionClass::unknown_005753f0(Cell const &first,Cell const &second,int r
 
 bool MapRegionClass::Is_Rectangle_Clear_00575910(Rect const &area,int allowedRegion)
 {
-    if(Map.Unknown_0055A660(Cell(area.X,area.Y),true)) {
+    if(Map.In_Local_Radar(Cell(area.X,area.Y),true)) {
        int right=area.Width+area.X-1;
-       if(Map.Unknown_0055A660(Cell(right,area.Y),true)) {
+       if(Map.In_Local_Radar(Cell(right,area.Y),true)) {
        int bottom=area.Y;
        bottom+=area.Height-1;
-       if(Map.Unknown_0055A660(Cell(area.X,bottom),true)) {
+       if(Map.In_Local_Radar(Cell(area.X,bottom),true)) {
        right=area.Width+area.X-1;
        bottom=area.Y;
        bottom+=area.Height-1;
-       if(Map.Unknown_0055A660(Cell(right,bottom),true)) {
+       if(Map.In_Local_Radar(Cell(right,bottom),true)) {
     for(int y=area.Y;y<area.Height+area.Y;++y) {
         for(int x=area.X;x<area.Width+area.X;++x) {
             Cell position(x,y);
@@ -5757,7 +5757,7 @@ void MapGeneratorClass::Create_Tiberium_Patch(Cell const &position,int amount,in
         UnknownVeinNode *next=&nodes[marker];
         for(int facing=0;facing<8;++facing) {
             Cell adjacent=current->Position + unknown_adjacent_851a70[facing&7];
-            if(Map.Unknown_0055A660(adjacent,true)) {
+            if(Map.In_Local_Radar(adjacent,true)) {
                 CellClass &neighbor=Map[adjacent];
                 if(neighbor.Is_Tile_Clear() &&
                    ((neighbor.OverlayIndex==-1 && RMGCellData[adjacent.Y*MapCellStride+adjacent.X].unknown_3c!=patchId) ||
@@ -6663,7 +6663,7 @@ void MapGeneratorClass::Generate_Urban_Units(DynamicVectorClass<Cell> &cells)
         while(!wasPlaced) {
             if(attempts>=60)break;
             Cell position=cells[Map_Random_Range_005797a0(0,cells.Count()-1)];
-            if(Map.Unknown_0055A660(position,true) && Map[position].OccupierPtr==0) {
+            if(Map.In_Local_Radar(position,true) && Map[position].OccupierPtr==0) {
                 if(unit->Unlimbo(&CoordStruct(position.X*256+128,position.Y*256+128,0),Map_Random_Range_005797a0(0,7)*32)) {
                     int strength=unit->Techno_Type_Class()->MaxStrength;
                     unit->Strength=strength;
@@ -7149,7 +7149,7 @@ void MapGeneratorClass::Generate_Rural_Units(Cell const &origin)
         while(!wasPlaced) {
             if(attempts>=60)break;
             Cell position=origin + Cell(Map_Random_Range_005797a0(0,16)-8,Map_Random_Range_005797a0(0,16)-8);
-            if(Map.Unknown_0055A660(position,true) && Map[position].OccupierPtr==0) {
+            if(Map.In_Local_Radar(position,true) && Map[position].OccupierPtr==0) {
                 if(unit->Unlimbo(&CoordStruct(position.X*256+128,position.Y*256+128,0),Map_Random_Range_005797a0(0,7)*32)) {
                     int strength=unit->Techno_Type_Class()->MaxStrength;
                     unit->Strength=strength;

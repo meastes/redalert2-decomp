@@ -955,7 +955,7 @@ ObjectClass *DisplayClass::Next_Object(ObjectClass *object)
     for (int order = 0; order < 3; order++) {
         for (int index = 0; index < Layer[unknown_layers_7d5cdc[order]].Count(); index++) {
             ObjectClass *candidate = Layer[unknown_layers_7d5cdc[order]][index];
-            if (candidate && candidate->unknown_slot24()) {
+            if (candidate && candidate->Is_Players_Army()) {
                 if (!first) {
                     first = candidate;
                 }
@@ -986,7 +986,7 @@ ObjectClass *DisplayClass::Prev_Object(ObjectClass *object)
     for (int order = 0; order < 3; order++) {
         for (int index = Layer[unknown_layers_7d5ce8[order]].Count() - 1; index >= 0; index--) {
             ObjectClass *candidate = Layer[unknown_layers_7d5ce8[order]][index];
-            if (candidate && candidate->unknown_slot24()) {
+            if (candidate && candidate->Is_Players_Army()) {
                 if (!first) {
                     first = candidate;
                 }
@@ -1125,7 +1125,7 @@ Cell DisplayClass::Calculated_Cell(int dir, Cell const &waypoint, Cell const &ce
                 for (y = 0; y < 15; y++) {
                     Point2D newcellPoint = LocalRect_To_Cell_Point(Point2D(x, y + 2 * MapLocalSize.Height));
                     Cell newcell(newcellPoint.X, newcellPoint.Y);
-                    if (!Unknown_0055A660(newcell, true) && Unknown_0049AD90(newcell, trycell, loco, zone, mzone)) {
+                    if (!In_Local_Radar(newcell, true) && Unknown_0049AD90(newcell, trycell, loco, zone, mzone)) {
                         cells.Add(newcell);
                         break;
                     }
@@ -1467,7 +1467,7 @@ void DisplayClass::unknown_slot46(Cell const &cell, bool shadow, ObjectClass *ob
     }
 
     if (IsWaypointMode && DraggedWaypoint != 0) {
-        if (PlayerPtr->Waypoint_At(cell) == 0 && Map.Unknown_0055A660(cell, true)) {
+        if (PlayerPtr->Waypoint_At(cell) == 0 && Map.In_Local_Radar(cell, true)) {
             *DraggedWaypoint = Cell_Coord(cell);
             DraggedWaypoint->Z = Map.Get_Height_GL(*DraggedWaypoint) + ((Map[cell].unknown_140 & 0x100) ? unknown_geometry_j : 0);
         }

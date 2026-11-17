@@ -605,7 +605,7 @@ flown:
                 Set_Height_AGL(0);
             }
             Start_Dominator_Lighting_005208A0();
-            Unknown_0063B5B0(13, unknown_slot104());
+            Unknown_0063B5B0(13, Get_Cell());
             int index = AnimTypeClass::From_Name("NUKEBALL");
             AnimTypeClass *type;
             if (index != -1 && (type = AnimTypes[index]) != 0) {
@@ -1155,7 +1155,7 @@ void BulletClass::unknown_func_462c50()
     if (center->OccupierPtr->Kind_Of() == 6) return;
     WeaponTypeClass *weapon = Type->ShrapnelWeapon;
     BulletTypeClass *projectile = weapon->Projectile;
-    Cell origin = unknown_slot104();
+    Cell origin = Get_Cell();
     int range = weapon->unknown_b4 / 256;
     int fired = 0;
     // One velocity for both loops, zeroed with Set() before each fragment (TibSun building.cpp idiom).
@@ -1184,7 +1184,7 @@ void BulletClass::unknown_func_462c50()
     if (fired < count) {
         int remaining = count - fired;
         do {
-            Cell cell = unknown_slot104();
+            Cell cell = Get_Cell();
             cell.X += Random_Pick(-2, 2);
             cell.Y += Random_Pick(-2, 2);
             BulletClass *fragment = Create_Bullet(projectile, &Map[cell], Owner, weapon->unknown_a4, weapon->Warhead, weapon->unknown_a8, weapon->unknown_10b);

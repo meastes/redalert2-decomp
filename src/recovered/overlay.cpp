@@ -202,7 +202,7 @@ bool OverlayClass::Mark(int mark)
 
     if (ObjectClass::Mark(mark)) {
         if (mark == 1 || mark == 3) {
-            Cell cell = unknown_slot104();
+            Cell cell = Get_Cell();
             CellClass *cellptr = &Map[cell];
 
             int type = Class->ArrayIndex;

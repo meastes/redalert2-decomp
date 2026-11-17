@@ -42,7 +42,7 @@ CoordStruct ra2native_object_coord_5484e0(ObjectClass const *object)
 // ObjectClass slot 104 (+0x1A0, 0x0041B320): the object's cell.
 Cell ra2native_object_cell_5484e0(ObjectClass const *object)
 {
-    return object->unknown_slot104();
+    return object->Get_Cell();
 }
 
 // AnimClass +0xB4: the object the animation is attached to.

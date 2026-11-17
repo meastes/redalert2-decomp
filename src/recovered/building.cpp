@@ -604,7 +604,7 @@ int BuildingClass::Receive_Message(RadioClass *radio,int message,AbstractClass *
             if (unknown_slot150(19,sender)==1 || needs_to_move) {
                 param=this;
                 if (Type->DockUnload || Type->Weeder) {
-                    param=&Map[unknown_slot104()+Cell(3,1)];
+                    param=&Map[Get_Cell()+Cell(3,1)];
                     if (unknown_slot151(18,&param,sender)==20) {
                         unknown_slot150(24,sender);
                         if (unknown_slot150(22,sender)!=1) radio->Scatter(unknown_geometry_l,true,true);
@@ -711,7 +711,7 @@ bool BuildingClass::Render(Rect *bounds,bool force,bool alternate)
 // Slot68 keeps its established address-word ABI until the shared virtual interface is retyped.
 void BuildingClass::Editor_Draw_It(Point2D const &point_ref, Rect const &bounds)
 {
-    Cell cell = unknown_slot104();
+    Cell cell = Get_Cell();
     ShapeFileStruct const *shape = (ShapeFileStruct const *)Get_Image_Data();
     if (shape == 0) return;
     if (Type->InvisibleInGame) return;
@@ -753,7 +753,7 @@ void BuildingClass::Editor_Draw_It(Point2D const &point_ref, Rect const &bounds)
 // The legacy virtual interface carries Point2D const& and Rect const& as x86 address words (RET8).
 void BuildingClass::Draw_It(Point2D const &draw_point, Rect const &bounds)
 {
-    Cell cell=unknown_slot104();
+    Cell cell=Get_Cell();
     ShapeFileStruct const *shape=(ShapeFileStruct const *)Get_Image_Data();
     if(shape==0) return;
     if(this!=0 && Kind_Of()==6 && BState==0 && Get_Mission()==19) {
@@ -838,12 +838,12 @@ inline bool Barrel_Side_0043abd0(FacingClass &facing)
 }
 void BuildingClass::unknown_slot284(Point2D const &xy,Rect const &bounds)
 {
-    Cell cell=unknown_slot104();
+    Cell cell=Get_Cell();
     if(Get_Mission()==16 && (Door.Is_Count_Up_Active() || Door.Is_Count_Up_Complete() || Door.Is_Count_Down_Complete() || Door.Is_Count_Down_Active()) && unknown_370) {
         for(int index=0;index<RadioLinks.Length();index++) {
             TechnoClass *product=Contact_With_Whom(index);
             if(product && !product->IsInLimbo && product->Kind_Of()!=6) {
-                CoordStruct destination=product->unknown_slot19(0);
+                CoordStruct destination=product->Destination_Coord(0);
                 destination.Z=product->Position_Coord_004f3f40().Z;
                 if(!unknown_b263d8 || Debug_Map || !(Scen->unknown_000&0x1000) ||
                    (!Map.Is_Fogged(product->Position_Coord_004f3f40()) && !Map.Is_Fogged(destination))) {
@@ -958,7 +958,7 @@ void __fastcall CC_Draw_Shape(Surface *surface, ConvertClass *drawer, ShapeFileS
 extern ConvertClass *NormalDrawer;
 void BuildingClass::Draw_Selection_Overlay_0043b660(Point2D const &point, Rect const &bounds)
 {
-    unknown_slot104();
+    Get_Cell();
     if (IsSelected && (House->Is_Ally(PlayerPtr) ||
         (unknown_1a8 & (1 << PlayerPtr->Type->House)))) {
         Point2D text = point + Point2D(-10, 10);
@@ -1211,7 +1211,7 @@ int BuildingClass::unknown_43be20()
 bool BuildingClass::Mark(int mark)
 {
     if (TechnoClass::Mark(mark)) {
-        Cell cell = unknown_slot104();
+        Cell cell = Get_Cell();
 
         switch (mark) {
             case 0:
@@ -1496,8 +1496,8 @@ void BuildingClass::AI()
             bool bridge_overlay = false;
             for (int y = -2; y < 3; ++y) {
                 for (int x = -2; x < 3; ++x) {
-                    int tile = Map[Cell(unknown_slot104() + Cell(x,y))].IsoTileIndex;
-                    int overlay = Map[Cell(unknown_slot104() + Cell(x,y))].OverlayIndex;
+                    int tile = Map[Cell(Get_Cell() + Cell(x,y))].IsoTileIndex;
+                    int overlay = Map[Cell(Get_Cell() + Cell(x,y))].OverlayIndex;
                     if ((tile >= IsometricTileTypeClass_TrainBridgeSet && tile < IsometricTileTypeClass_TrainBridgeSet + 16) ||
                         (overlay >= 0x4a && overlay <= 0x65)) {
                         bridge_overlay = true;
@@ -1505,9 +1505,9 @@ void BuildingClass::AI()
                 }
             }
             if (bridge_overlay) {
-                Map.Unknown_00557090(unknown_slot104());
+                Map.Unknown_00557090(Get_Cell());
             } else {
-                Map.Unknown_00556520(unknown_slot104());
+                Map.Unknown_00556520(Get_Cell());
             }
             unknown_5af = false;
             unknown_438 = 0;
@@ -2090,7 +2090,7 @@ int BuildingClass::Take_Damage(int *damage, int distance, WarheadTypeClass *warh
             if (Techno_Type_Class()->DamageSound==-1) Voc_Static_Add(Rules->BuildingDamageSound,Position_Coord_00450950(*this),0);
             while (*offset!=Cell(32767,32767)) {
                 Cell relative(*offset++);
-                Cell cell=unknown_slot104()+relative;
+                Cell cell=Get_Cell()+relative;
                 CoordStruct location(cell);
                 location.Z=Map.Get_Height_GL(location);
                 if (warhead->Sparky) {
@@ -2178,7 +2178,7 @@ inline Cell Adjacent_Cell(Cell const &cell, int facing)
 CoordStruct __fastcall Coord_Scatter(CoordStruct const &coord, int distance, bool lock);
 void BuildingClass::Spawn_Survivors_0043f8e0(ObjectClass *attacker)
 {
-    Cell origin=unknown_slot104();
+    Cell origin=Get_Cell();
     Cell const *offset=Occupy_List(0);
     int odds=2;
     if(unknown_438)odds=1;
@@ -2491,13 +2491,13 @@ exitcell.X += random; exitcell.Y += random;
                     Cell navalcell = Center_Cell(this);
                     if (ArchivedTarget) {
                         Cell target = Center_Cell(ArchivedTarget);
-                        UnknownFacingDir dir = Direction_Between(unknown_slot104(), target);
+                        UnknownFacingDir dir = Direction_Between(Get_Cell(), target);
                         int facing = Dir_To_8(dir);
                         while (Map[navalcell].Cell_Building() == this) {
                             navalcell = Adjacent_Cell(navalcell, facing);
                         }
                     }
-                    if (ArchivedTarget && Map[navalcell].Land == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.Unknown_0055A660(navalcell, true)) {
+                    if (ArchivedTarget && Map[navalcell].Land == 2 && !Map[navalcell].Cell_Techno(Point2D(0, 0), 0, 0) && Map.In_Local_Radar(navalcell, true)) {
  } else {
                         navalcell = Map.Nearby_Location(Center_Cell(this), base->Techno_Type_Class()->SpeedType, -1, 0, 0, Point2D(1, 1), 0, 0, 0, 1, Cell(0, 0), 0);
  }
@@ -2555,7 +2555,7 @@ exitcell.X += random; exitcell.Y += random;
                 CoordStruct exitcoord;
                 int dir = Dir_To_256(Direction_Between(Center_Coord(), CoordStruct(exitcell)));
                 Cell to = exitcell;
-                Cell cell = unknown_slot104();
+                Cell cell = Get_Cell();
                 int x = cell.X;
                 if (to.X >= x + Type->Width()) {
                     to.X -= 1;
@@ -2608,7 +2608,7 @@ exitcell.X += random; exitcell.Y += random;
  if (exitcell == unknown_geometry_k) return 0;
  int dir = Dir_To_256(Direction_Between(Center_Coord(), CoordStruct(exitcell)));
                 Cell to = exitcell;
-                Cell cell = unknown_slot104();
+                Cell cell = Get_Cell();
                 int x = cell.X;
                 if (to.X >= x + Type->Width()) {
                     to.X -= 1;
@@ -2888,7 +2888,7 @@ bool BuildingClass::Limbo()
         if (Type->ToTile == 0) {
             int width = Type->Width();
             int height = Type->Foundation_Height(false);
-            Cell base = unknown_slot104();
+            Cell base = Get_Cell();
             for (int y = 0; y < height + 2; y++) {
                 for (int x = 0; x < width + 2; x++) {
                     Cell corner(base.X - 1, base.Y - 1);
@@ -3066,7 +3066,7 @@ void BuildingClass::unknown_slot282(bool captured)
         }
     }
     if (Type->WeaponsFactory && Type->Naval) {
-        Cell result = Map.Nearby_Location(unknown_slot104(), 5, -1, 10, false, Point2D(5, 5),
+        Cell result = Map.Nearby_Location(Get_Cell(), 5, -1, 10, false, Point2D(5, 5),
             false, false, false, true, Cell(0, 0), 0);
         result = Cell(result.X + 2, result.Y + 2);
         if (result != grand_none_0084ed10) unknown_440140(&result, false);
@@ -3385,7 +3385,7 @@ CoordStruct BuildingClass::Center_Coord() const
 CoordStruct BuildingClass::unknown_slot41(int dock) const
 {
     if (Type->Weeder) {
-        Cell cell = unknown_slot104() + Cell(2, 1);
+        Cell cell = Get_Cell() + Cell(2, 1);
         CoordStruct coord = CoordStruct(cell);
         coord.Z = CoordStruct(Coord).Z;
         return coord;
@@ -3429,11 +3429,11 @@ int BuildingClass::unknown_slot281(ObjectClass *object)
 }
 
 
-// CoordStruct BuildingClass::unknown_slot19(TechnoClass *techno) const (0x00444340, slot 19)
+// CoordStruct BuildingClass::Destination_Coord(TechnoClass *techno) const (0x00444340, slot 19)
 // Where a techno docks: slot 41 for helipads and repair bays, otherwise
 // the center.
 
-CoordStruct BuildingClass::unknown_slot19(TechnoClass *techno) const
+CoordStruct BuildingClass::Destination_Coord(TechnoClass *techno) const
 {
     if (Type->Helipad) {
         return unknown_slot41((int)techno);
@@ -3577,7 +3577,7 @@ bool BuildingClass::Captured(HouseClass *newowner, int announce)
                     if(newowner->Is_Player_Control()) { Speech_Play_Name(capture_eva_tech_007cf93c,-1,-1); }
                 }
             } else {
-                if(Unknown_0063B5B0(10,unknown_slot104())) { Speech_Play_Name(capture_eva_building_007cf924,-1,-1); }
+                if(Unknown_0063B5B0(10,Get_Cell())) { Speech_Play_Name(capture_eva_building_007cf924,-1,-1); }
             }
         }
         unknown_flag_8339e8=true;
@@ -3746,7 +3746,7 @@ bool BuildingClass::Clear_Weapons_Factory_Bib()
 {
     if(Type->WeaponsFactory) {
         Cell offset=Type->FoundationOutside[10];
-        Cell cell=unknown_slot104()+offset;
+        Cell cell=Get_Cell()+offset;
         cell=cell+Cell(-1,0);
         Cell lookup=cell;
         CoordStruct coordinate=Cell_Center(lookup);
@@ -3998,7 +3998,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION()
                     if(crew) infantry=new InfantryClass(crew,House);
                     if(infantry) {
                         ++ScenarioInit;
-                        Cell cell=unknown_slot104()+foundation[Scen->RandomNumber(0,cells-1)];
+                        Cell cell=Get_Cell()+foundation[Scen->RandomNumber(0,cells-1)];
                         CoordStruct position=CoordStruct(cell)+CoordStruct(0,36,0);
                         position=Map[position].Closest_Free_Spot(position,false,false);
                         if(position==unknown_geometry_l || !infantry->Unlimbo(&position,0)) {
@@ -4215,7 +4215,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                     switch (unknown_slot149(28)) {
                     case 33:
                         if (House->Is_Player_Control()) {
-                            if (Unknown_0063B5B0(8, unknown_slot104())) Speech_Play_Name("EVA_UnitRepaired", -1, -1);
+                            if (Unknown_0063B5B0(8, Get_Cell())) Speech_Play_Name("EVA_UnitRepaired", -1, -1);
                             Voc_Play_At(Rules->HealCrateSound, CoordStruct(Coord), 0);
                         }
                         // Both completed treatment and an empty reply release the patient.
@@ -4317,7 +4317,7 @@ int BuildingClass::Do_MISSION_REPAIR()
                             break;
                         }
                     default: {
-                            if (unknown_372 && Unknown_0063B5B0(8, unknown_slot104())) Speech_Play_Name("EVA_UnitRepaired", -1, -1);
+                            if (unknown_372 && Unknown_0063B5B0(8, Get_Cell())) Speech_Play_Name("EVA_UnitRepaired", -1, -1);
                             DestroyNthAnim(8);
                             DestroyNthAnim(11);
                             PlayNthAnim(12, Health_Ratio() <= Rules->ConditionYellow, false, 0);
@@ -4527,7 +4527,7 @@ void __fastcall Remember_Radar_Event_Cell(Cell const &cell);       // 0x0063C6C0
 void BuildingClass::unknown_slot216(int arg1)
 {
     if (arg1 && House->Is_Player_Control()) {
-        Remember_Radar_Event_Cell(Coord_Cell(unknown_slot19(0)));
+        Remember_Radar_Event_Cell(Coord_Cell(Destination_Coord(0)));
     }
 }
 
@@ -4569,7 +4569,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
         CoordStruct destination(0,0,0);
         if(!Type->Naval) {
             Cell exit=Type->FoundationOutside[10];
-            Cell position=unknown_slot104()+exit;
+            Cell position=Get_Cell()+exit;
             destination=CoordStruct(Cell(position.X-1,position.Y));
         }
         switch(Status) {
@@ -4615,7 +4615,7 @@ int BuildingClass::Do_MISSION_UNLOAD()
                             unit->Take_Damage(&damage,0,Rules->C4Warhead,0,true,0);
                         }
                     } else if(!(classid==CLSID_DriveLocomotionClass)) {
-                        unit->Assign_Destination(&Map[unknown_slot104()+Cell(5,1)],true);
+                        unit->Assign_Destination(&Map[Get_Cell()+Cell(5,1)],true);
                     } else {
                         unit->Locomotor.Checked()->Force_Track(66,destination);
                     }
@@ -4677,7 +4677,7 @@ static inline bool Is_List_End(Cell const *offset)
 #pragma auto_inline(off)
 bool BuildingClass::Is_Blocked_By_Occupier()
 {
-    Cell cell = unknown_slot104();
+    Cell cell = Get_Cell();
     Cell const *offset = Occupy_List(0);
     bool found = false;
     while (!Is_List_End(offset)) {
@@ -4947,7 +4947,7 @@ int BuildingClass::Flush_For_Placement_0044a3d0(TechnoClass const *object, Cell 
 extern "C" Cell const exit_cell_none_0084ed10;
 Cell BuildingClass::unknown_slot280(TechnoClass *object)
 {
-    Cell origin = unknown_slot104();
+    Cell origin = Get_Cell();
     Cell cell;
     if (Type->GDIBarracks) {
         cell = origin + Cell(1, 2);
@@ -5285,7 +5285,7 @@ void BuildingClass::Write_Structure_INI_0044b250(INIClass &ini)
     int behavior=BuildingLight?static_cast<BuildingLightClass *>(BuildingLight)->Behavior:0;
     char const *tag=(Tag && Tag->Class)?(char const *)Tag->Class->ID:unknown_none_007ce9b4;
     sprintf(value,unknown_structure_format_007cfa74,(char const *)House->IniName,(char const *)Type->ID,
-            (int)(Health_Ratio()*256.0+0.5),unknown_slot104().X,unknown_slot104().Y,
+            (int)(Health_Ratio()*256.0+0.5),Get_Cell().X,Get_Cell().Y,
             Dir_To_256(PrimaryFacing.Current()),tag,(int)IsAllowedToSell,(int)IsToRebuild,(int)IsOn,
             (int)(signed char)UpgradeLevel,behavior);
     TechnoTypeClass **upgrade=unknown_4c0;
@@ -7982,7 +7982,7 @@ void BuildingClass::Unknown_00452390(HouseClass *house)
 {
     bool visible = false;
     if(House->Is_Player_Control() || house->Is_Player_Control()) {
-        if(Unknown_0063B5B0(9, unknown_slot104())) visible = true;
+        if(Unknown_0063B5B0(9, Get_Cell())) visible = true;
     }
     BuildingTypeClass *type = Type;
     if(type->Radar) {
@@ -8123,7 +8123,7 @@ void BuildingClass::unknown_slot173()
 {
     for (int index = 0; index < Infantry.Count(); index++) {
         UnknownBuildingInfantryView *infantry = (UnknownBuildingInfantryView *)Infantry[index];
-        ObjectClass *building = Map[infantry->unknown_slot19(0)].Cell_Building();
+        ObjectClass *building = Map[infantry->Destination_Coord(0)].Cell_Building();
         if (infantry->IsActive && building && building == this
             && (!infantry->unknown_494 || infantry->unknown_494 == building)) {
             infantry->Scatter(unknown_geometry_l, 1 != 0, 1 != 0);
@@ -8137,7 +8137,7 @@ bool BuildingClass::unknown_slot160()
 {
     if(!TechnoClass::unknown_slot160()) goto denied;
     {
-        Cell origin=unknown_slot104();
+        Cell origin=Get_Cell();
         int width=Type->Width();
         int height=Type->Foundation_Height(false);
         for(int x=-1;x<=width;++x) {
@@ -8160,7 +8160,7 @@ bool BuildingClass::unknown_slot161()
 {
     if(TechnoClass::unknown_slot161()) goto detected;
     {
-        Cell origin=unknown_slot104();
+        Cell origin=Get_Cell();
         int width=Type->Width();
         int height=Type->Foundation_Height(false);
         for(int x=-1;x<=width;++x) {
@@ -8184,7 +8184,7 @@ detected:
 // because 0x00442060's file-local operator+(Cell, Cell) would otherwise be chosen here.
 bool BuildingClass::unknown_452be0()
 {
-    Cell cell = unknown_slot104();
+    Cell cell = Get_Cell();
     Cell const *occupy = Type->Occupy_List(0);
     while (*occupy != Cell(32767, 32767)) {
         if (!(Map[Cell(occupy->operator+(cell))].unknown_140 & 0x400000)) {
@@ -8204,7 +8204,7 @@ void BuildingClass::Create_Fogged_Copy_00452c70(
     Cell const *offset=Type->Occupy_List(0);
     Unselect();
     FoggedObjectClass *copy=new FoggedObjectClass(this,arg);
-    Cell base=unknown_slot104();
+    Cell base=Get_Cell();
     for(;offset->X!=0x7fff || offset->Y!=0x7fff;++offset) {
         CellClass &cell=Cell_At(*offset+base);
         if(replacement_cell && &cell==replacement_cell) {
@@ -8266,24 +8266,24 @@ void BuildingClass::Eject_Occupants(int control)
     int width = Type->Width();
     int height = Type->Foundation_Height(false);
     bool found = false;
-    Cell probe = unknown_slot104();
+    Cell probe = Get_Cell();
     probe.X = (short)((unsigned int)(int)probe.X + (unsigned int)width);
     probe.Y = (short)((unsigned int)(int)probe.Y + (unsigned int)height);
     InfantryClass *occupant = unknown_554[0];
 
     int entry_result = occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1);
     while (entry_result != 0) {
-        if ((int)probe.Y <= (int)unknown_slot104().Y - 1) goto after_first_edge;
+        if ((int)probe.Y <= (int)Get_Cell().Y - 1) goto after_first_edge;
         probe.Y = (short)(probe.Y - 1);
         entry_result = occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1);
     }
     found = true;
     selected = probe;
 after_first_edge:
-    probe = unknown_slot104();
+    probe = Get_Cell();
     probe.X = (short)((unsigned int)(int)probe.X + (unsigned int)width);
     probe.Y = (short)((unsigned int)(int)probe.Y + (unsigned int)height);
-    while (!found && (int)probe.X > (int)unknown_slot104().X - 1) {
+    while (!found && (int)probe.X > (int)Get_Cell().X - 1) {
         probe.X = (short)(probe.X - 1);
         if (occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1) == 0) {
             found = true;
@@ -8291,10 +8291,10 @@ after_first_edge:
         }
     }
 
-    probe = unknown_slot104();
+    probe = Get_Cell();
     probe.X = (short)(probe.X - 1);
     probe.Y = (short)(probe.Y - 1);
-    while (!found && (int)probe.X < (int)((unsigned int)(int)unknown_slot104().X + (unsigned int)width)) {
+    while (!found && (int)probe.X < (int)((unsigned int)(int)Get_Cell().X + (unsigned int)width)) {
         probe.X = (short)(probe.X + 1);
         if (occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1) == 0) {
             found = true;
@@ -8302,10 +8302,10 @@ after_first_edge:
         }
     }
 
-    probe = unknown_slot104();
+    probe = Get_Cell();
     probe.X = (short)(probe.X - 1);
     probe.Y = (short)(probe.Y - 1);
-    while (!found && (int)probe.Y < (int)((unsigned int)(int)unknown_slot104().Y + (unsigned int)height)) {
+    while (!found && (int)probe.Y < (int)((unsigned int)(int)Get_Cell().Y + (unsigned int)height)) {
         probe.Y = (short)(probe.Y + 1);
         if (occupant->Can_Enter_Cell(&Map[probe], -1, -1, 0, 1) == 0) {
             selected = probe;
@@ -8374,7 +8374,7 @@ void BuildingClass::Update_Garrison_Owner()
         if(House!=civilian) {
             if(House->Is_Player_Control()) {
                 Voc_Play(Rules->BuildingAbandonedSound,1.0f,0x2000,0);
-                if(Unknown_0063B5B0(15,unknown_slot104()))
+                if(Unknown_0063B5B0(15,Get_Cell()))
                     Speech_Play_Name(unknown_eva_structure_abandoned_007cfc14,-1,-1);
             }
             Refresh_State_Animations_00453450();
@@ -8524,7 +8524,7 @@ bool BuildingClass::Cell_Is_Impassable_Row_00453af0(CellClass const *cell)
     if (Type->NumberImpassableRows == -1)
         return true;
     int cell_x = cell->MapCoords.X;
-    int origin_x = unknown_slot104().X;
+    int origin_x = Get_Cell().X;
     return (int)((unsigned int)Type->NumberImpassableRows + (unsigned int)origin_x) > cell_x ? true : false;
 }
 

@@ -16,6 +16,6 @@ public:
  int Difficulty; // +3c
  unsigned short unknown_40;
 };
-extern EnvironmentClass unknown_scenario_checkpoint_00855a90;   // 0x00855A90
+extern EnvironmentClass Environment;   // 0x00855A90
 typedef char ScenarioCheckpoint_size_check[(sizeof(EnvironmentClass)==0x44)?1:-1];
 #endif

@@ -4,8 +4,8 @@
     "id": "population-4133",
     "inventory_sha256": "c5004ec856e450c3427a68cc7b07f00ac51859eec41f25770dbdd7c5aa1c55ab",
     "gaps_sha256": "e2cfb688622ccd4af16a820d1f124fd5ef21c886b23cf4cdd0a0053f9c648432",
-    "historical_population_sha256": "9d6dbad0cae9c49103c1d924e7062a63f85b9ea18ab84903348717ceaedf1a07",
-    "historical_acceptance_sha256": "a876e26a670edeadaca73367f13e4e3446a48a9502cb667f71236a034078454a"
+    "historical_population_sha256": "e6006cc21336c626f1d0a726adc550739eb53a702289d04cc1e7ca60127df2aa",
+    "historical_acceptance_sha256": "99c7014ac04c2e64fc4afde1d1f639a6aaab1f8c37b781296420e035a9fd041b"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -1817,8 +1817,8 @@
     "?unknown_send_5d05f0@UnknownMessageSink_005974f0@@QAEXPAXHH@Z": 6096368,
     "?unknown_message_sink_a40a28@@3VUnknownMessageSink_005974f0@@A": 10750504,
     "?unknown_value_6c22a0@UnknownLevelSource_004b9780@@QAEHXZ": 7086752,
-    "?unknown_time_4092d0@@YA_JXZ": 4231888,
-    "?unknown_update_4070f0@@YIXPAUUnknownFixedTimer_00407030@@@Z": 4223216,
+    "?AudioGetTime@@YA_JXZ": 4231888,
+    "?AudioLevelUpdate@@YIXPAUUnknownFixedTimer_00407030@@@Z": 4223216,
     "?unknown_update_and_get_08_00409230@@YIHPAUUnknownUpdated_00409230@@@Z": 4231728,
     "?unknown_reset_00408400@UnknownResettable_00408400@@QAEXXZ": 4228096,
     "?unknown_list_owner_add_00408420@@YIXPAUUnknownListOwner_00408420@@PAUUnknownListNode_00408420@@@Z": 4228128,
@@ -1830,7 +1830,7 @@
     "?unknown_list_owner_add_00408a30@@YIXPAUUnknownListOwner_00408a30@@PAUUnknownListNode_00408a30@@@Z": 4229680,
     "?unknown_disable_ok_and_send_005974f0@@YIXPAUUnknownDialogOwner_005974f0@@@Z": 5862640,
     "?unknown_scaled_level_004b9780@@YIHPBUUnknownLevelOwner_004b9780@@@Z": 4953984,
-    "?unknown_start_00407030@@YIXPAUUnknownFixedTimer_00407030@@H@Z": 4223024,
+    "?AudioLevelInit@@YIXPAUUnknownFixedTimer_00407030@@H@Z": 4223024,
     "??_7MapSeedClass@@6B@": 8019492,
     "??_EMapSeedClass@@": 5823056,
     "??_GMapSeedClass@@": 5823056,

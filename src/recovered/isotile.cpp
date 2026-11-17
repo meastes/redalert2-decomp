@@ -107,7 +107,7 @@ bool IsometricTileClass::Mark(int mark)
     }
     for (int row = 0; row < Type->unknown_2b8; row++) {
         for (int column = 0; column < Type->unknown_2b4; column++) {
-            Cell cell = XY_Cell(column, row) + unknown_slot104();
+            Cell cell = XY_Cell(column, row) + Get_Cell();
             if (!Map.In_Radar(cell)) {
                 continue;
             }

@@ -336,7 +336,7 @@ def group_units(units):
     return out
 
 
-def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
+def plan(klass, old, new, mangled=None, files=None, allow_hiding=False, family=False):
     """{'edits': {path: [offset, ...]}, 'manglings': {old full: new full}, 'overload': bool,
     'units': n}: every token of `old` that resolves to klass's member, or SystemExit with the
     tokens the parses cannot explain."""
@@ -386,6 +386,18 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
         targets = {u for u in targets if decls[u]['mangled'] == mangled}
     if not targets:
         raise SystemExit('member_rename: %s has no member %s%s' % (klass, old, ' (%s)' % mangled if mangled else ''))
+    if family:
+        # `family` (a virtual slot renamed across its override family): the base declaration and every
+        # declaration that overrides it, directly or through another override, are renamed in one step.
+        if not all(decls[u]['virtual'] for u in targets):
+            raise SystemExit('member_rename: %s::%s is not virtual (family renames are for virtual slots)' % (klass, old))
+        if any(decls[u]['overrides'] for u in targets):
+            raise SystemExit('member_rename: %s::%s overrides a base member (rename the base family)' % (klass, old))
+        grown = True
+        while grown:
+            more = {u for u, d in decls.items() if set(d['overrides']) & targets} - targets
+            grown = bool(more)
+            targets |= more
     # the new name may not already be a member of the class, a base or a derived class
     def closure(edges):
         found, stack = {klass}, [klass]
@@ -401,14 +413,16 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
     # a virtual base member is never hidden: clang (the native build) refuses a static or
     # non-virtual member that hides a virtual one, and a virtual one would override it
     clash = sorted(new_owners & (descendants | (ancestors & new_virtual) if allow_hiding else descendants | ancestors))
+    if family:
+        clash = sorted(set(clash) | (new_owners & {decls[u]['owner'] for u in targets}))
     if clash:
         raise SystemExit('member_rename: %s is already a member of %s (in %s::%s\'s hierarchy)' % (
             new, ', '.join(clash), klass, old))
-    overriders = sorted({d['owner'] for u, d in decls.items() if set(d['overrides']) & targets})
+    overriders = sorted({d['owner'] for u, d in decls.items() if set(d['overrides']) & targets and u not in targets})
     if overriders:
         raise SystemExit('member_rename: %s::%s is overridden in %s (the overrides would not follow)' % (
             klass, old, ', '.join(overriders)))
-    if any(decls[u]['virtual'] and decls[u]['overrides'] for u in targets):
+    if not family and any(decls[u]['virtual'] and decls[u]['overrides'] for u in targets):
         raise SystemExit('member_rename: %s::%s overrides a base member (rename the base instead)' % (klass, old))
     # A stand-in view of the class (a header that declares a class of the same name for some units)
     # keeps `char unknown_XX[N]` padding where the real class has members: the same USR, so clang
@@ -455,7 +469,7 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
                 else:
                     edits.setdefault(path, []).append(offset)
         for owner, offset in comments:
-            if owner == klass:
+            if owner == klass or (family and owner in {decls[u]['owner'] for u in targets}):
                 edits.setdefault(path, []).append(offset)
     if unexplained or conflicts:
         def where(items):
@@ -470,10 +484,11 @@ def plan(klass, old, new, mangled=None, files=None, allow_hiding=False):
         prefix = '?%s@' % old
         if full.startswith(prefix):
             manglings[full] = '?%s@' % new + full[len(prefix):]
-    siblings = {u for u, d in decls.items() if d['owner'] == klass and u not in targets and
+    owners = sorted({decls[u]['owner'] for u in targets})
+    siblings = {u for u, d in decls.items() if d['owner'] in owners and u not in targets and
                 d['kind'] in (CXX_METHOD, VAR_DECL)}
     return dict(edits={p: sorted(set(o)) for p, o in edits.items()}, manglings=manglings,
-                overload=bool(siblings), units=len(units), targets=sorted(targets))
+                overload=bool(siblings), units=len(units), targets=sorted(targets), owners=owners)
 
 
 def apply_edits(text, offsets, old, new):
@@ -493,9 +508,10 @@ def main():
     parser.add_argument('klass'); parser.add_argument('old'); parser.add_argument('new')
     parser.add_argument('--mangled')
     parser.add_argument('--allow-hiding', action='store_true', help='the new name may hide a base class member')
+    parser.add_argument('--family', action='store_true', help='a virtual slot: rename the base and every override')
     parser.add_argument('--json', action='store_true')
     args = parser.parse_args()
-    result = plan(args.klass, args.old, args.new, args.mangled, allow_hiding=args.allow_hiding)
+    result = plan(args.klass, args.old, args.new, args.mangled, allow_hiding=args.allow_hiding, family=args.family)
     if args.json:
         print(json.dumps(result, indent=1))
     else:

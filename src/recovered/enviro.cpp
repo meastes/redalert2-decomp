@@ -36,7 +36,7 @@
 // drafts of this plan are emitted by these includes.
 
 extern int Frame;
-EnvironmentClass unknown_scenario_checkpoint_00855a90;
+EnvironmentClass Environment;
 
 
 // Dynamic initializer (0x004B5860, _$E) of b from the header(s) included

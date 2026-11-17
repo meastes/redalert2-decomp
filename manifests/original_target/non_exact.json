@@ -10,7 +10,7 @@
    "symbol": "?Draw_In_Area@AlphaShapeClass@@SIXABUPoint2D@@ABVRect@@@Z",
    "references": {
     "?AlphaShapes@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A": "0083C648",
-    "?unknown_alpha_table_83c670@@3PAEA": "0083C670",
+    "?AlphaShapeClass_BrightnessTable@@3PAEA": "0083C670",
     "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z": "0041FDF0",
     "?Get_Buffer_Ptr@ZBuffer@@QAEPAGUPoint2D@@@Z": "00411230",
     "?AlphaBuffer@@3PAVZBuffer@@A": "008315B4",
@@ -35,7 +35,7 @@
    "symbol": "?Unknown_0041F5E0@@YIXABVRect@@@Z",
    "references": {
     "?AlphaShapes@@3V?$DynamicVectorClass@PAVAlphaShapeClass@@@@A": "0083C648",
-    "?unknown_alpha_table_83c670@@3PAEA": "0083C670",
+    "?AlphaShapeClass_BrightnessTable@@3PAEA": "0083C670",
     "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z": "0041FDF0",
     "?Get_Buffer_Offset@ABuffer@@QAEPAGUPoint2D@@@Z": "00411230",
     "?AlphaBuffer@@3PAVABuffer@@A": "008315B4",
@@ -366,7 +366,7 @@
     "?unknown_facing_radians_79b620@@3NB": "0079B620",
     "?unknown_coord_a40f48@@3UCoordStruct@@A": "00A40F48",
     "?Map@@3VMouseClass@@A": "008324E0",
-    "?Unknown_0055A660@MapClass@@QAE_NABVCell@@_N@Z": "0055A660",
+    "?In_Local_Radar@MapClass@@QAE_NABVCell@@_N@Z": "0055A660",
     "??0UnknownVector3@@QAE@HHH@Z": "0041B630",
     "?Coord_Scatter@@YI?AUCoordStruct@@ABU1@H_N@Z": "00491750"
    },

@@ -16,7 +16,7 @@
 
 bool TechnoClass::unknown_slot186()
 {
-    Cell where = unknown_slot104();
+    Cell where = Get_Cell();
     CellClass *cell = &Map[where];
     if (cell == 0 || !cell->Is_Near_Tunnel_NW()) {
         switch (Kind_Of()) {
@@ -40,7 +40,7 @@ bool TechnoClass::unknown_slot186()
                 if (IsOnBridge) {
                     break;
                 }
-                Cell center = unknown_slot104();
+                Cell center = Get_Cell();
                 CellClass *here = &Map[center];
                 if (here != 0) {
                     CellClass *south = &Map[center + AdjacentCell[4]];

@@ -46,7 +46,7 @@ inline int Cell_Passability(MapClass *map, Cell const &cell)
 
 void MapClass::Update_Cell_Subzones(Cell const &cell)
 {
-    if (Unknown_0055A660(cell, true)) {
+    if (In_Local_Radar(cell, true)) {
         int y;
         int x;
         Cell trycell;
@@ -94,7 +94,7 @@ void MapClass::Update_Cell_Subzones(Cell const &cell)
             int entry_count = unknown_70[level];
             for (y = bounds.Y; y < bounds.Y + bounds.Height; ++y) {
                 for (x = bounds.X; x < bounds.Width + bounds.X; ++x) {
-                    if (Unknown_0055A660(Cell(x, y), true)) {
+                    if (In_Local_Radar(Cell(x, y), true)) {
                         CellSubzoneStruct *subptr = (CellSubzoneStruct *)&Fine_Subzone(Cell(x, y));
                         int passability = Cell_Passability(this, Cell(x, y));
                         if (passability != 7 && subptr->SubzoneID[level] == 0) {
@@ -155,7 +155,7 @@ void MapClass::Update_Cell_Subzones(Cell const &cell)
             for (x = base_x; x < base_x + 8; ++x) {
                 trycell.X = (short)x;
                 trycell.Y = (short)y;
-                if (Unknown_0055A660(trycell, true)) {
+                if (In_Local_Radar(trycell, true)) {
                     CellSubzoneStruct *subptr = (CellSubzoneStruct *)&Fine_Subzone(Cell(x, y));
                     for (int parent_level = 0; parent_level < 2; ++parent_level) {
                         SubzoneTracking[parent_level][subptr->SubzoneID[parent_level]].unknown_18 = subptr->SubzoneID[parent_level + 1];

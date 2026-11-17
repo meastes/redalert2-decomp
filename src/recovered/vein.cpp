@@ -600,7 +600,7 @@ void VeinholeMonsterClass::Grow()
         if (cell->OverlayData >= 0x30) {
             for (int facing = 0; facing < 8; facing += 2) {
                 ::Cell spot = node->Position + AdjacentCell[facing & 7];
-                if (!Map.Unknown_0055A660(spot, true)) {
+                if (!Map.In_Local_Radar(spot, true)) {
                     continue;
                 }
                 CellClass *adjacent = &Map[spot];

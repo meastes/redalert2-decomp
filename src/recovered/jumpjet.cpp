@@ -385,7 +385,7 @@ void JumpjetLocomotionClass::unknown_52fd50()
     if (!LinkedTo->IsOnBridge && (Map[Object_Coord(LinkedTo)].unknown_140 & 0x100) && height >= unknown_geometry_j) {
         height -= unknown_geometry_j;
     }
-    Cell cell = LinkedTo->unknown_slot104();
+    Cell cell = LinkedTo->Get_Cell();
     if (cell != LinkedTo->LastFlightMapCoords) {
         AircraftTracker.Update_00413600(LinkedTo, LinkedTo->LastFlightMapCoords, cell);
     }
@@ -482,7 +482,7 @@ extern double const unknown_facing_origin_79b630;
 void JumpjetLocomotionClass::unknown_530180()
 {
     CoordStruct position = LinkedTo->Coord;
-    Cell cell = LinkedTo->unknown_slot104();
+    Cell cell = LinkedTo->Get_Cell();
     if (cell != LinkedTo->LastFlightMapCoords) {
         AircraftTracker.Update_00413600(LinkedTo, LinkedTo->LastFlightMapCoords, cell);
     }
@@ -713,7 +713,7 @@ void JumpjetLocomotionClass::unknown_530b00()
         unknown_68=unknown_68>0?unknown_68:0;
     }
     LinkedTo->unknown_slot306(unknown_68/Speed);
-    bool at_destination=LinkedTo->unknown_slot104()==Coord_Cell(unknown_3c);
+    bool at_destination=LinkedTo->Get_Cell()==Coord_Cell(unknown_3c);
     if ((unknown_4c==2 || unknown_4c==3) && !NoWobbles)
         unknown_80+=unknown_jumpjet_full_turn_79c9b8/(unknown_jumpjet_cycle_7a5398/Wobbles);
     else unknown_80=0;
@@ -747,7 +747,7 @@ void JumpjetLocomotionClass::unknown_530b00()
         difference=difference>0?difference:0;
         moved=true;
     }
-    if (LinkedTo->unknown_slot104()!=Coord_Cell(unknown_3c)) {
+    if (LinkedTo->Get_Cell()!=Coord_Cell(unknown_3c)) {
         if (difference<desired_height/2) unknown_68=0;
         if (difference<desired_height/4) unknown_68=0;
     }

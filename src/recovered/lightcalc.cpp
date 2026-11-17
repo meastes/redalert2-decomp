@@ -98,45 +98,45 @@ class Leaf_5383a0 { public: void get(); };
 void Leaf_5383a0::get() { unsigned int unused_this_address = (unsigned int)this; unsigned int zero_value; unsigned int unused_value; zero_value = 0; *(unsigned int*)(0xa6e888) = zero_value; *(unsigned int*)(0xa6e88c) = zero_value; *(unsigned int*)(0xa6e890) = zero_value; *(unsigned int*)(0xa6e894) = zero_value; }
 
 
-// void __fastcall Unknown_Quantize_Color_005385a0(int *red, int *green, int *blue) (0x005385A0)
+// void __fastcall Clamp_Tile_RGB(int &red, int &green, int &blue) (0x005385A0): name and reference parameters from mischa85 names.csv
 // Clamps three colour components to 0..1000 and drops their low bits by the detail level
 // (0x00A40B2C: 0 keeps multiples of 128, 1 of 64, 2 of 32, anything else keeps them).
 
-void __fastcall Unknown_Quantize_Color_005385a0(int *red, int *green, int *blue)
+void __fastcall Clamp_Tile_RGB(int &red, int &green, int &blue)
 {
-    int value = *red;
+    int value = red;
     if (value >= 1000) {
         value = 1000;
     }
-    *red = value;
-    value = *green;
+    red = value;
+    value = green;
     if (value >= 1000) {
         value = 1000;
     }
-    *green = value;
-    value = *blue;
+    green = value;
+    value = blue;
     if (value >= 1000) {
         value = 1000;
     }
-    *blue = value;
-    *red = (*red <= 0 ? 0 : *red);
-    *green = (*green <= 0 ? 0 : *green);
-    *blue = (*blue <= 0 ? 0 : *blue);
+    blue = value;
+    red = (red <= 0 ? 0 : red);
+    green = (green <= 0 ? 0 : green);
+    blue = (blue <= 0 ? 0 : blue);
     switch (unknown_a40b2c) {
     case 0:
-        *red &= ~127;
-        *green &= ~127;
-        *blue &= ~127;
+        red &= ~127;
+        green &= ~127;
+        blue &= ~127;
         break;
     case 1:
-        *red &= ~63;
-        *green &= ~63;
-        *blue &= ~63;
+        red &= ~63;
+        green &= ~63;
+        blue &= ~63;
         break;
     case 2:
-        *red &= ~31;
-        *green &= ~31;
-        *blue &= ~31;
+        red &= ~31;
+        green &= ~31;
+        blue &= ~31;
         break;
     }
 }

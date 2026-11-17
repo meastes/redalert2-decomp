@@ -2873,8 +2873,8 @@
   },
   {
    "source": "src/recovered/saveload.cpp",
-   "old": "    Map.unknown_slot42(temp);\n    unknown_scenario_checkpoint_00855a90.Read_004B5C50(stream);\n",
-   "new": "    void Native_Map_Zoom_Load();   // NATIVE (C4): link/native_map_zoom.cpp\n    Native_Map_Zoom_Load();\n    Map.unknown_slot42(temp);\n    unknown_scenario_checkpoint_00855a90.Read_004B5C50(stream);\n",
+   "old": "    Map.unknown_slot42(temp);\n    Environment.Read_004B5C50(stream);\n",
+   "new": "    void Native_Map_Zoom_Load();   // NATIVE (C4): link/native_map_zoom.cpp\n    Native_Map_Zoom_Load();\n    Map.unknown_slot42(temp);\n    Environment.Read_004B5C50(stream);\n",
    "why": "Native addition (C4, Map zoom, enhancements v2 part 2; not original behaviour): the map in play may be shown larger than the interface. The game's screen keeps its size; only the tactical view rectangle is made smaller (link/native_map_zoom.cpp) and the host shows it over the whole tactical area, larger (host.cpp zoom layout). At map zoom 1x (the default and the ORIGINAL preset) nothing changes. This row: Get_All 0x00656B80 (a load) takes the zoom set now before its Set_View_Dimensions call, and the loading screen is shown whole until the first frame.",
    "verified": false
   },

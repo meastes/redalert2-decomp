@@ -25,7 +25,7 @@
    "padding_bytes": 6
   },
   {
-   "symbol": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z",
+   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
    "entry": "005385a0",
    "body_bytes": 194,
    "padding_bytes": 14
@@ -129,27 +129,8 @@
  "residuals": [],
  "unit_functions": 3,
  "data_unproven": [],
- "stand_in_references": [
-  {
-   "site": "004790f0",
-   "target": "005385a0",
-   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
-   "module_symbol": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z"
-  },
-  {
-   "site": "00479310",
-   "target": "005385a0",
-   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
-   "module_symbol": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z"
-  },
-  {
-   "site": "00529590",
-   "target": "005385a0",
-   "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
-   "module_symbol": "?Unknown_Quantize_Color_005385a0@@YIXPAH00@Z"
-  }
- ],
- "stand_in_reference_count": 3,
+ "stand_in_references": [],
+ "stand_in_reference_count": 0,
  "residual_split": {
   "rows": 0,
   "bytes": 0

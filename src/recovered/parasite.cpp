@@ -521,9 +521,9 @@ void ParasiteClass::Unknown_00607440()
     }
     Cell cell;
     if (naval) {
-        cell = Adjacent_Cell(unknown_28->unknown_slot104(), (FacingType)Dir_To_8(exit_dir));
+        cell = Adjacent_Cell(unknown_28->Get_Cell(), (FacingType)Dir_To_8(exit_dir));
     } else if (unknown_2c.Value() == 0) {
-        cell = unknown_28->unknown_slot104();
+        cell = unknown_28->Get_Cell();
     } else {
         Owner->Strength = 0;
         unknown_28->ParalysisTimer = CDTimerClass<FrameTimerClass>(0);

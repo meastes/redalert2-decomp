@@ -219,7 +219,7 @@ inline Cell Adjacent_Cell(Cell const &cell, int facing)
 // cell the move and patrol missions (0x00416010, 0x00416C20) check.
 inline Cell Destination_Cell(AbstractClass *target, TechnoClass *techno)
 {
-    return Coord_Cell(target->unknown_slot19(techno));
+    return Coord_Cell(target->Destination_Coord(techno));
 }
 
 // Every aircraft (0x00A40398).

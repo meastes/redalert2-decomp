@@ -252,7 +252,7 @@ static inline Cell Adjacent_Tube(Cell const &cell, int facing)
 // One step along the facing: the new coordinate, the bridge state when the step changes cells.
 static inline void Step_Along(MechLocomotionClass *loco, UnknownFacingDir desired, int speed)
 {
-    Cell old_cell = loco->LinkedTo->unknown_slot104();
+    Cell old_cell = loco->LinkedTo->Get_Cell();
     CoordStruct new_coord = Move_Coord(Object_Coord(loco->LinkedTo), desired, speed);
     Cell new_cell = new_coord.As_Cell();
     if (old_cell != new_cell) {
@@ -308,15 +308,15 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                         LinkedTo->IsNewNavCom = false;
                         Cell dest = unknown_18.As_Cell();
                         if (LinkedTo->unknown_32d) {
-                            Cell nav_dest = LinkedTo->unknown_slot19(0).As_Cell();
+                            Cell nav_dest = LinkedTo->Destination_Coord(0).As_Cell();
                             if (!Map.Unknown_0054F7C0(nav_dest, dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge((TechnoClass *)0), Map[dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                 LinkedTo->Assign_Destination(0, true);
                             }
                         }
                         if (LinkedTo->TarCom != 0) {
-                            Cell tar_dest = LinkedTo->TarCom->unknown_slot19(LinkedTo).As_Cell();
+                            Cell tar_dest = LinkedTo->TarCom->Destination_Coord(LinkedTo).As_Cell();
                             if (LinkedTo->unknown_32d) {
-                                Cell nav_dest = LinkedTo->unknown_slot19(LinkedTo).As_Cell();
+                                Cell nav_dest = LinkedTo->Destination_Coord(LinkedTo).As_Cell();
                                 if (!Map.Unknown_0054F7C0(nav_dest, tar_dest, LinkedTo->Techno_Type_Class()->MovementZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_dest].IsUnderBridge, LinkedTo->unknown_slot189())) {
                                     LinkedTo->unknown_slot220(0);
                                 }
@@ -469,7 +469,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                     }
                 } else if (Mark_Head_To(head_coord)) {
                     if (LinkedTo->Path[0] != -1 && LinkedTo->Path[0] != 8) {
-                        Cell cell = Adjacent_Tube(LinkedTo->unknown_slot104(), LinkedTo->Path[0]);
+                        Cell cell = Adjacent_Tube(LinkedTo->Get_Cell(), LinkedTo->Path[0]);
                         int overlay = Map[cell].OverlayIndex;
                         if (overlay != -1) {
                             OverlayTypeClass *otype = OverlayTypes[overlay];
@@ -521,8 +521,8 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
             LinkedTo->IsOccupyingCell = true;
             LinkedTo->IsToPathAroundBlockage = false;
             if (unknown_18 == unknown_geometry_l
-                || (LinkedTo->unknown_slot104() == unknown_18.As_Cell()
-                && abs(LinkedTo->unknown_slot19(0).Z - unknown_18.Z) < unknown_geometry_g * 2)) {
+                || (LinkedTo->Get_Cell() == unknown_18.As_Cell()
+                && abs(LinkedTo->Destination_Coord(0).Z - unknown_18.Z) < unknown_geometry_g * 2)) {
                 LinkedTo->Assign_Destination(0, true);
                 LinkedTo->unknown_slot306(0.0);
                 Stop_Moving();
@@ -536,7 +536,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving)
                 return;
             }
             if (LinkedTo->Path[0] != -1 && LinkedTo->Path[0] != 8) {
-                Cell cell = Adjacent_Tube(LinkedTo->unknown_slot104(), LinkedTo->Path[0]);
+                Cell cell = Adjacent_Tube(LinkedTo->Get_Cell(), LinkedTo->Path[0]);
                 int overlay = Map[cell].OverlayIndex;
                 if (overlay != -1) {
                     OverlayTypeClass *otype = OverlayTypes[overlay];

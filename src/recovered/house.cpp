@@ -1971,7 +1971,7 @@ bool HouseClass::unknown_func_4e7070(TechnoClass *builder, BuildingClass *buildi
         Map.PendingObjectPtr = building;
         Map.PendingHouse = ArrayIndex;
         Map.Unknown_00498F10(building->Occupy_List(1));
-        Map.Set_Cursor_Pos(builder->unknown_slot104());
+        Map.Set_Cursor_Pos(builder->Get_Cell());
         builder->Mark(2);
         return true;
     }
@@ -4339,7 +4339,7 @@ Cell HouseClass::Random_Cell_In_Zone(int zone)
     } else {
         cell = Cell(coord.X / 256, coord.Y / 256);
     }
-    if (!Map.Unknown_0055A660(cell, true)) {
+    if (!Map.In_Local_Radar(cell, true)) {
         cell = Map.Clip_To_Map(cell);
     }
     return cell;
@@ -5667,7 +5667,7 @@ bool HouseClass::AI_Build_Defense(int node, DynamicVectorClass<Cell> *cells)
     int count = Buildings.Count();
     for (i = 0; i < count; i++) {
         BuildingClass *building = Buildings[i];
-        Cell offset = building->unknown_slot104() - unknown_55f0.PlacementCenter;
+        Cell offset = building->Get_Cell() - unknown_55f0.PlacementCenter;
         if (offset.X != 0 || offset.Y != 0) {
             Point2D delta;
             delta.X = offset.X;
@@ -5948,7 +5948,7 @@ void HouseClass::AI_Build_Wall()
             bool buildings=!current->Cell_Building() && !neighbor->Cell_Building();
             bool terrain=!current->Cell_Terrain() && !neighbor->Cell_Terrain();
             bool flat=current->Ramp==0;
-            bool visible=Map.Unknown_0055A660(cell,true);
+            bool visible=Map.In_Local_Radar(cell,true);
             if (level && ground && overlay && buildings && terrain && flat && visible) {
                 if (!running) { running=true; length=1; beginning=cell; }
                 else ++length;

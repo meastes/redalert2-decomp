@@ -59,7 +59,7 @@ void __fastcall AlphaShapeClass::Draw_In_Area(Point2D const &pixel, Rect const &
             for (int x = left; x < right; x++) {
                 unsigned char value = *shapeptr++;
                 if (*maskptr++ != ' ') {
-                    *alphaptr = unknown_alpha_table_83c670[*alphaptr + value * 256];
+                    *alphaptr = AlphaShapeClass_BrightnessTable[*alphaptr + value * 256];
                 }
                 alphaptr = buffer->Wrap_Pointer(alphaptr + 1);
             }

@@ -4,8 +4,8 @@
     "id": "population-4479",
     "inventory_sha256": "56e9fef3567efd6569e4ee27252d8520e540970a87188461a55108189d1f9585",
     "gaps_sha256": "cffc97a9f7f734b5ef0183c6a02b2a9b39f53c59cb4d8914914c6813984695e9",
-    "historical_population_sha256": "0eeb7712e64abbb443610c086f56da598223fe3cd69d0ed7b3f131411c4abbac",
-    "historical_acceptance_sha256": "a0da389e1ad8fdef76a181c933caf1a5c85005c2938db94579fa330fe5d9f221"
+    "historical_population_sha256": "ccfa32036543405f684204d50f8597dc7883bb652868e0dc14920f410acc8049",
+    "historical_acceptance_sha256": "e30acd98f803bb90f7c1afe65a80514a93ae9518a8875fe656e71b1a377084bb"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -3819,7 +3819,7 @@
     "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
     "??RWWCRCEngine@@QAEX_N@Z": 4800128,
     "?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ": 4260448,
-    "?unknown_slot19@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 4260496,
+    "?Destination_Coord@AbstractClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 4260496,
     "?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ": 4260576,
     "?QueryInterface@AbstractClass@@W3AGJABUGUID@@PAPAX@Z": 4260736,
     "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
@@ -3996,7 +3996,7 @@
     "??1TechnoClass@@UAE@XZ": 7086256,
     "?Compute_CRC@TechnoClass@@UBEXAAVWWCRCEngine@@@Z": 7170720,
     "??RWWCRCEngine@@QAEXF@Z": 4800272,
-    "?unknown_slot19@FootClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 5023472,
+    "?Destination_Coord@FootClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 5023472,
     "?Load@RocketLocomotionClass@@UAGJPAUIStream@@@Z": 6548384,
     "?Load@TunnelLocomotionClass@@UAGJPAUIStream@@@Z": 7279344,
     "?Load@HoverLocomotionClass@@UAGJPAUIStream@@@Z": 5237952,
@@ -4061,7 +4061,7 @@
     "??0TechnoClass@@QAE@PAVHouseClass@@@Z": 7081168,
     "?Init@BuildingClass@@UAEXXZ": 4454464,
     "?Center_Coord@BuildingClass@@UBE?AUCoordStruct@@XZ": 4472960,
-    "?unknown_slot19@BuildingClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 4473664,
+    "?Destination_Coord@BuildingClass@@UBE?AUCoordStruct@@PAVTechnoClass@@@Z": 4473664,
     "?Detach@BuildingClass@@UAEXPAVAbstractClass@@_N@Z": 4496960,
     "?Detach@TechnoClass@@UAEXPAVAbstractClass@@_N@Z": 7154960,
     "?Load@BuildingClass@@UAGJPAUIStream@@@Z": 4517776,

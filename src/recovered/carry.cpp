@@ -128,7 +128,7 @@ CarryoverClass::CarryoverClass(TechnoClass *techno) :
         }
         House = techno->House->Type->House;
         Strength = techno->Strength;
-        Position = techno->unknown_slot104();
+        Position = techno->Get_Cell();
     }
 }
 

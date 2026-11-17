@@ -62,9 +62,9 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
     if (adjacent > 0 && abs(begin->Height - prev_height) < 2 && adjacent != last_adjacent) {
         Cell probe;
         probe = Cell(x, y);
-        if (Unknown_0055A660(probe, true)) {
+        if (In_Local_Radar(probe, true)) {
             probe = Cell(x + 1, y);
-            if (Unknown_0055A660(probe, true)) {
+            if (In_Local_Radar(probe, true)) {
                 int packed_pair = Span_Pack32(adjacent, (unsigned short)id);
                 entry.Value.unknown_04 = false;
                 entry.Key = entry.Value.unknown_00 = packed_pair;
@@ -93,9 +93,9 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
         Cell probe;
         probe.X = (short)end_x;
         probe.Y = (short)y;
-        if (Unknown_0055A660(probe, true)) {
+        if (In_Local_Radar(probe, true)) {
             probe = Cell(end_x - 1, y);
-            if (Unknown_0055A660(probe, true)) {
+            if (In_Local_Radar(probe, true)) {
                 int packed_pair = Span_Pack32(adjacent, (unsigned short)id);
                 entry.Value.unknown_04 = false;
                 entry.Key = entry.Value.unknown_00 = packed_pair;
@@ -142,11 +142,11 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
         if (shadow_subzone != 0 || y <= ymin || x < xmin || x > xmax) {
             if (shadow_subzone != (unsigned short)id && shadow_subzone != last_adjacent) {
                 if (shadow_subzone != 0) {
-                    if (abs(span_ptr->Height - above->Height) < 2 && Unknown_0055A660(span_cell, true)) {
+                    if (abs(span_ptr->Height - above->Height) < 2 && In_Local_Radar(span_cell, true)) {
                         Cell shadow_cell;
                         shadow_cell.Y = (short)(y - 1);
                         shadow_cell.X = (short)x;
-                        if (Unknown_0055A660(shadow_cell, true)) {
+                        if (In_Local_Radar(shadow_cell, true)) {
                             int packed_pair = Span_Pack32(shadow_subzone, (unsigned short)id);
                             if (x < xmin) {
                                 entry.Value.unknown_04 = true;
@@ -208,11 +208,11 @@ int MapClass::Unknown_00564290(CellSubzoneStruct *seed, int level, unsigned int 
         if (shadow_subzone != 0 || y >= ymax || x < xmin || x > xmax) {
             if (shadow_subzone != (unsigned short)id && shadow_subzone != last_adjacent) {
                 if (shadow_subzone != 0) {
-                    if (abs(below->Height - span_ptr->Height) < 2 && Unknown_0055A660(span_cell, true)) {
+                    if (abs(below->Height - span_ptr->Height) < 2 && In_Local_Radar(span_cell, true)) {
                         Cell shadow_cell;
                         shadow_cell.X = (short)x;
                         shadow_cell.Y = (short)(y + 1);
-                        if (Unknown_0055A660(shadow_cell, true)) {
+                        if (In_Local_Radar(shadow_cell, true)) {
                             int packed_pair = Span_Pack32(shadow_subzone, (unsigned short)id);
                             if (x < xmin) {
                                 entry.Value.unknown_04 = true;

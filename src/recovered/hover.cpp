@@ -301,8 +301,8 @@ unsigned char __stdcall HoverLocomotionClass::Process()
 
             TechnoClass *contact = LinkedTo->Contact(0);
             Cell cell = unknown_geometry_k;
-            if (contact) cell = Coord_Cell(contact->unknown_slot19(LinkedTo));
-            bool arrived = LinkedTo->unknown_slot104() == cell;
+            if (contact) cell = Coord_Cell(contact->Destination_Coord(LinkedTo));
+            bool arrived = LinkedTo->Get_Cell() == cell;
 
             if (unknown_18 != unknown_geometry_l || arrived) {
                 int ok = While_Moving_004fcbc0(true);
@@ -537,7 +537,7 @@ int HoverLocomotionClass::While_Moving_004fcbc0(bool first_pass)
     }
 
     if (nextface != -1) {
-        unknown_24 = Cell(LinkedTo->unknown_slot104() + AdjacentCell[nextface & 7]).As_Coord();
+        unknown_24 = Cell(LinkedTo->Get_Cell() + AdjacentCell[nextface & 7]).As_Coord();
         unknown_24.Z = Map.Get_Height_GL(unknown_24);
         if (Object_Coord(LinkedTo).Z >= unknown_24.Z + 2 * unknown_geometry_g + unknown_geometry_g) {
             unknown_24.Z += unknown_geometry_j;
@@ -850,7 +850,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
     Reduce_Path_Length_004fdfd0();
     int facing=LinkedTo->Path[0];
     if (unknown_18!=unknown_geometry_l) {
-        if (LinkedTo->unknown_slot104()==Coord_Cell(unknown_18) && abs(LinkedTo->unknown_slot19(0).Z-unknown_18.Z)<2*unknown_geometry_g) {
+        if (LinkedTo->Get_Cell()==Coord_Cell(unknown_18) && abs(LinkedTo->Destination_Coord(0).Z-unknown_18.Z)<2*unknown_geometry_g) {
             Stop_Moving();
             LinkedTo->Assign_Destination(0,true);
             return;
@@ -858,7 +858,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
     }
     if (facing!=-1) return;
     if (unknown_18==unknown_geometry_l) return;
-    if (LinkedTo->unknown_slot104()==Coord_Cell(unknown_18) && abs(LinkedTo->unknown_slot19(0).Z-unknown_18.Z)<=2*unknown_geometry_g) return;
+    if (LinkedTo->Get_Cell()==Coord_Cell(unknown_18) && abs(LinkedTo->Destination_Coord(0).Z-unknown_18.Z)<=2*unknown_geometry_g) return;
     if (LinkedTo->PathDelay!=0) return;
     if (!LinkedTo->unknown_4c3000(Coord_Cell(unknown_18),0,num)) {
         LinkedTo->PathDelay=CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay*900));
@@ -892,7 +892,7 @@ void HoverLocomotionClass::Start_Of_Move_004fe0f0(int num)
     } else {
     LinkedTo->PathDelay=CDTimerClass<FrameTimerClass>((int)(Rules->PathDelay*900));
     Cell cell=Coord_Cell(LinkedTo->Center_Coord())+AdjacentCell[LinkedTo->Path[0]&7];
-    if (Map.Unknown_0055A660(cell,true)) {
+    if (Map.In_Local_Radar(cell,true)) {
         int ok=LinkedTo->Can_Enter_Cell(&Map[cell],LinkedTo->Path[0],LinkedTo->unknown_5d47d0(),0,true);
         if (ok==6) {
             CellClass *cellptr=&Map[cell];
@@ -969,7 +969,7 @@ bool __stdcall HoverLocomotionClass::Push(UnknownFacingDir dir)
 {
     if (Is_Powered() && !unknown_70) {
         int facing=Dir_To_8(dir);
-        Cell cell=Hover_Adjacent_Cell_004fea20(LinkedTo->unknown_slot104(),facing);
+        Cell cell=Hover_Adjacent_Cell_004fea20(LinkedTo->Get_Cell(),facing);
         FootClass *linked=LinkedTo;
         if (linked->Can_Enter_Cell(&Map[cell],-1,-1,0,true)==0) {
             unknown_70=true;
@@ -1057,7 +1057,7 @@ int __stdcall HoverLocomotionClass::Layer()
 
 void HoverLocomotionClass::unknown_4fed20()
 {
-    bool arrived = unknown_24 == unknown_geometry_l || LinkedTo->unknown_slot104() == unknown_24.As_Cell();
+    bool arrived = unknown_24 == unknown_geometry_l || LinkedTo->Get_Cell() == unknown_24.As_Cell();
     unknown_48 = 1.0;
     LinkedTo->unknown_slot306(1.0);
     Start_Of_Move_004fe0f0(0);
