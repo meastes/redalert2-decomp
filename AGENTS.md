@@ -67,7 +67,12 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   User decision (2026-11-08): one dedicated native lane runs alongside the exact
   lanes; at five or six lanes, two native lanes, provided they work on separate parts of
   `native/` (each brief names its area, one lands at a time, neither edits `src/`); otherwise
-  the extra lane is an exact lane (user, 2026-11-09). It builds the native tree from
+  the extra lane is an exact lane (user, 2026-11-09). User decision (2026-11-17): while
+  the ports are being finished (Red Alert 2 on Mac, iPhone and Windows; full Yuri's
+  Revenge; real campaign wins left to the user), every lane may be a native lane, each on a
+  separate part of `native/`, one landing at a time, none editing `src/`. Exact-match and
+  structure work has no lanes for now; this is not a goal change, main keeps every matched
+  byte, and the work can resume. It builds the native tree from
   `src/recovered` and `src/shared`; unmatched functions are carried as their best
   parked draft (flagged non-exact with its score) or a behaviour-written
   implementation, never empty stubs. Native work earns no exact-match credit.
