@@ -5,17 +5,20 @@
 // Behaviour-written from gamemd.exe's code for the skirmish/multiplayer screen: a fresh
 // render-size surface (ProgressSurface) filled with the black colour, then the country's loading
 // picture "ls<640|800><country>.shp" (the observer's in IPX/Internet games when the first player
-// has no house) through FUN_0072B500's drawer at LoadScreenSHPRect. Lane Y11 added the map preview.
-// NOT YET DRAWN (open in native/yr/README.md): the campaign screen (Session.Type GAME_NORMAL: the
-// scenario's pictures and briefing), the coop-campaign picture, the player names, colours and sides,
-// the title and the game's texts (gamemd.exe 0x005536A0-0x005540E7). Behaviour code for the native
-// build; never part of an exact build.
+// has no house) through FUN_0072B500's drawer at LoadScreenSHPRect. Lane Y11 added the map preview
+// and the texts (country, unit, briefing, Loading). NOT YET DRAWN (open in native/yr/README.md): the
+// campaign screen (Session.Type GAME_NORMAL: the scenario's pictures and briefing) and the
+// coop-campaign picture. Behaviour code for the native build; never part of an exact build.
 // ---------------------------------------------------------------------------------------------
 ConvertClass * __fastcall FUN_0072B500(void);
 void *YR_LoadWholeFileEx_ld(char const *name, bool &allocated) __asm__("__ZN10FileSystem15LoadWholeFileExEPKcRb");
 #include "bsurface.h"
 #include "draw.h"
 #include "preview.h"
+#include "progress.h"
+#include "scheme.h"
+#include "multiplayer.h"
+#include "stringtable.h"
 
 void LoadProgressManager::Draw(void)
 {
@@ -57,4 +60,53 @@ void LoadProgressManager::Draw(void)
 	}
 	preview->DrawMap(*surface);
 	delete preview;
+
+	// The texts (lane Y11, gamemd.exe 0x005536A0-0x005540E7; user report 2026-11-17: the loading screen
+	// lacked its texts), as Red Alert 2's loading screen draws them (src/recovered/ldprgmgr.cpp,
+	// UnknownLoadProgress::Unknown_00535BF0) with Yuri's Revenge's tenth country and places: the
+	// country's name right-aligned on a dimmed strip, the country's unit in black on the title band,
+	// the country's briefing on a dimmed box (placed lower in a cooperative game), then "Loading".
+	// An observer gets only the name and "Loading". Colour: the loading colour scheme's.
+	RGBClass rgb = (RGBClass)Progress.Loading_Scheme()->HSV;
+	int pixel = DSurface::Build_Hicolor_Pixel(rgb);
+	bool observer = (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && *(int *)((char *)Session.Players[0] + 0x6b) == -1;
+	static char const * const names[10] = {"Name:Americans", "Name:Alliance", "Name:French", "Name:Germans", "Name:British",
+		"Name:Africans", "Name:Arabs", "Name:Confederation", "Name:Russians", "Name:YuriCountry"};
+	static char const * const units[10] = {"Name:Para", "Name:BEAGLE", "Name:GTGCAN", "Name:TNKD", "Name:SNIPE",
+		"Name:DTRUCK", "Name:DESO", "Name:TERROR", "Name:TTNK", "Name:YURI"};
+	static char const * const briefs[10] = {"LoadBrief:USA", "LoadBrief:Korea", "LoadBrief:French", "LoadBrief:Germans",
+		"LoadBrief:British", "LoadBrief:Lybia", "LoadBrief:Iraq", "LoadBrief:Cuba", "LoadBrief:Russia", "LoadBrief:YuriCountry"};
+	wchar_t const *country_name = NULL;
+	if (observer) {
+		country_name = StringTable::LoadString("Name:Observer", NULL, "D:\\ra2mdpost\\LdPrgMgr.cpp", 0xB2);
+	} else if (country >= 0 && country < 10) {
+		country_name = StringTable::LoadString(names[country], NULL, "D:\\ra2mdpost\\LdPrgMgr.cpp", 0xB7 + 2 * country);
+	}
+	if (country_name != NULL) {
+		Rect area = small ? Rect(0x181, 0x1B4, 200, 20) : Rect(0x21C, 0x136, 200, 20);
+		FUN_00554100(&area);
+		FUN_005541C0(country_name, surface, FUN_0072A9C0(&area), area.Width, 2, false);
+		FUN_00554280(country_name, surface, &area, pixel, 2);
+	}
+	if (!observer && country >= 0 && country < 10) {
+		wchar_t unit_name[128];
+		wcscpy(unit_name, StringTable::LoadString(units[country], NULL, "D:\\ra2mdpost\\LdPrgMgr.cpp", 0xF7 + 2 * country));
+		for (wchar_t *c = unit_name; *c != 0; ++c) {
+			if ((*c >= 'a' && *c <= 'z') || (*c >= 0xE0 && *c <= 0xFE)) *c -= 0x20;
+		}
+		Rect area = small ? Rect(0x10, 0x48, 200, 20) : Rect(0x14, 0x5A, 200, 20);
+		FUN_00554100(&area);
+		FUN_00554280(unit_name, surface, &area, DSurface::Build_Hicolor_Pixel(BlackColor), 0);
+
+		wchar_t const *brief = StringTable::LoadString(briefs[country], NULL, "D:\\ra2mdpost\\LdPrgMgr.cpp", 0x12A + 2 * country);
+		bool coop = Session.MPGameMode != NULL && Session.MPGameMode->vt_entry_08();
+		Rect box = small ? Rect(0x10, 0x7E, 0x13E, 0x68) : Rect(0x14, coop ? 0x17C : 0x9E, 0x18E, 0x82);
+		FUN_00554100(&box);
+		FUN_005541C0(brief, surface, FUN_0072A9C0(&box), box.Width, 0, true);
+		FUN_00554280(brief, surface, &box, pixel, 0);
+	}
+	wchar_t const *loading = StringTable::LoadString("GUI:LoadingEx", NULL, "D:\\ra2mdpost\\LdPrgMgr.cpp", 0x365);
+	Rect area = FUN_00554150();
+	FUN_005541C0(loading, surface, FUN_0072A9C0(&area), area.Width, 0, false);
+	FUN_00554280(loading, surface, &area, pixel, 0);
 }

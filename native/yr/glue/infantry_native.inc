@@ -213,7 +213,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 				if (Class->IsEngineer) {
 					// are we trying to repair a bridge?
 					if (tech->RTTI == RTTI_BUILDING && ((BuildingClass*)tech)->Class->IsBridgeRepairHut) {
-						if (House->Is_Player_Control()) Speak(VOX_BRIDGE_REPAIRED);
+						if (House->Is_Player_Control()) VoxClass::Play("EVA_BridgeRepaired");	// NATIVE (lane Y11b): YR's EVA call for TibSun's Speak
 
 						bool train = false;
 						for (int y = -2; y < 3; y++) {
@@ -269,7 +269,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 					}
 				} else {
 					if (Class->IsAgent) {
-						if (House->Is_Player_Control()) Speak(VOX_BUILDING_INFILTRATED);
+						if (House->Is_Player_Control()) VoxClass::Play("EVA_BuildingInfiltrated");	// NATIVE (lane Y11b): YR's EVA call for TibSun's Speak
 						((BuildingClass *)tech)->Spied_By(House);
 					}
 				}
@@ -409,7 +409,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 			**	Special voice play.
 			*/
 			if (Class->VoiceComment.Count() > 1) {
-				Sound_Effect((VocType)Class->VoiceComment[1], PositionCoord);
+				VocClass::PlayAt(Class->VoiceComment[1], PositionCoord);	// NATIVE (lane Y11b): YR's sound call for TibSun's Sound_Effect
 			}
 
 			/*

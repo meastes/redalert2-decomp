@@ -59,8 +59,10 @@ const std::vector<Row> &rows()
         // 800x600 panel is centred and the rest of the screen is black on a wider or taller
         // screen; Blurred backdrop fills it with the panel itself, enlarged, blurred and
         // darkened (host.cpp fill_menu_bands). Menus only: play and movies draw as before.
-        {"menufill", "Menu fill", "Wide screens: the menus' black bands show the menu, blurred.",
-         {"off", "backdrop"}, {"Off", "Blurred backdrop"}, true},
+        // Lane Y11b (user decision 2026-11-17): Scale to fit shows the 800x600 menu panel as large as
+        // the screen holds, keeping its aspect (host.cpp update_layout), in both games.
+        {"menufill", "Menu fill", "Menus on large screens: the bands show the menu blurred, or the menu is scaled to fit.",
+         {"off", "backdrop", "fit"}, {"Off", "Blurred backdrop", "Scale to fit"}, true},
         // Lane C16 (user, 2026-11-14): Shift with a click on a build icon in the sidebar queues
         // five of it, Shift with a right click removes five (link/native_queue_five.cpp). Only
         // the clicks' own events repeat: the game's production events, so no simulation change.
@@ -142,7 +144,7 @@ void apply()
     const std::string &scaling = current["scaling"];
     ra2_host_set_picture_scaling(scaling == "nearest" ? 1 : scaling == "smooth" ? 2 : 0);
     ra2_host_set_vsync(current["vsync"] == "on");
-    ra2_host_set_menu_fill(current["menufill"] == "backdrop" ? 1 : 0);
+    ra2_host_set_menu_fill(current["menufill"] == "backdrop" ? 1 : current["menufill"] == "fit" ? 2 : 0);
 }
 
 void load()

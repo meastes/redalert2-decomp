@@ -495,7 +495,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 			if (Class->IsCanUnitRepair && Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER && ::Distance(Center_Coord(), Contact_With_Whom()->Center_Coord()) < CELL_LEPTON / 2) {
 				TechnoClass * tech = Contact_With_Whom();
 				Transmit_Message(RADIO_OVER_OUT);
-				if (IsOwnedByPlayer) Speak(VOX_UNIT_SOLD);
+				if (IsOwnedByPlayer) VoxClass::Play("EVA_UnitSold");	// NATIVE (lane Y11b): YR's EVA call for TibSun's Speak
 				tech->Sell_Back(1);
 				Assign_Mission(MISSION_GUARD);
 				return(1);
@@ -510,7 +510,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 				House->RecalcPower = true;
 				House->RecalcRadar = true;
 				House->IsRecalcNeeded = true;	// NATIVE: YR rechecks power through IsRecalcNeeded (TibSun: Adjust_House_Power)
-				if (IsOwnedByPlayer) Speak(VOX_STRUCTURE_SOLD);
+				if (IsOwnedByPlayer) VoxClass::Play("EVA_StructureSold");	// NATIVE (lane Y11b): YR's EVA call for TibSun's Speak
 				Assign_Mission(MISSION_GUARD);
 				return(1);
 			}
@@ -533,7 +533,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 			// NATIVE: TibSun's juggernaut facing wait left out (YR has no juggernaut).
 
 			if (Class->AuxSound2 != VOC_NONE) {
-				Sound_Effect(Class->AuxSound2, PositionCoord);
+				VocClass::PlayAt(Class->AuxSound2, PositionCoord);	// NATIVE (lane Y11b): YR's sound call for TibSun's Sound_Effect
 			}
 
 			Status = HOLDING;
@@ -648,7 +648,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 				}
 
 				if (House->Is_Player_Control() && !Considered_Vehicle()) {
-					Sound_Effect(Rule->SellSound, PositionCoord);
+					VocClass::PlayAt(Rule->SellSound, PositionCoord);	// NATIVE (lane Y11b): YR's sound call for TibSun's Sound_Effect
 				}
 				Status = DURING;
 				Begin_Mode(BSTATE_CONSTRUCTION);
@@ -668,7 +668,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 			if (IsReadyToCommence) {
 				House->IsRecalcNeeded = true;
 				Assign_Target(NULL);
-				if (IsOwnedByPlayer && Class->UndeploysInto == NULL) Speak(VOX_STRUCTURE_SOLD);
+				if (IsOwnedByPlayer && Class->UndeploysInto == NULL) VoxClass::Play("EVA_StructureSold");	// NATIVE (lane Y11b): YR's EVA call for TibSun's Speak
 
 				/*
 				**	Construction yards that deconstruct, really just revert back
@@ -812,8 +812,8 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 					StorageClass *storage = &Storage;
 					int i = storage->First_Used_Slot();
 					while (i != -1) {
-						int amount = storage->Decrease_Amount(storage->Get_Amount(i), i);
-						House->Harvested(amount, TiberiumType(i));
+						int amount = (int)storage->Decrease_Amount(storage->Get_Amount(i), i);
+						House->Give_Tiberium((float)amount, i);	// NATIVE (lane Y11b): YR credits it so (gamemd.exe 0x0044A272); TibSun's Harvested is not in the tree
 						i = storage->First_Used_Slot();
 					}
 
@@ -836,4 +836,192 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 			break;
 	}
 	return(1);
+}
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y11b): BuildingClass::Drop_Debris, gamemd.exe 0x00442D90 (1,651 bytes),
+// unmatched in the YR tree (a link-closure trap whenever a building is destroyed). TibSun's text
+// (TibSun archive code/building.cpp, BuildingClass::Drop_Debris; attribution as above) with Yuri's
+// Revenge's changes read from gamemd.exe's code: a building that absorbs units or infantry (UnitAbsorb,
+// InfantryAbsorb: the bio reactor, the tank bunker) first lets out what it holds at its own position,
+// facing the building's way (each one steps the foundation list on), scattering and a computer house's set to Hunt (each
+// counted as the house's infantry again); a survivor that cannot be placed is deleted; the survivors
+// then follow TibSun's rules (a technician from a building with buildup data, an attack on the
+// destroyer unless the house can overpower it, else Move for a human house or Hunt); the scorch or crater mark is placed within half a cell of each clear cell's centre.
+// Behaviour code for the native build; never part of an exact build.
+// ---------------------------------------------------------------------------------------------
+void BuildingClass::Drop_Debris(AbstractClass * source)
+{
+	Cell cell = Get_Cell();
+	Cell const * offset = Occupy_List();
+	int odds = (WhomToRepay != NULL) ? 1 : 2;
+	if (IsCaptured) {
+		odds += 6;
+	}
+	int count = How_Many_Survivors();
+
+	if (Class->UnitAbsorb || Class->InfantryAbsorb) {
+		for (FootClass * foot = Cargo.Detach_Object(); foot != NULL; foot = Cargo.Detach_Object()) {
+			offset++;		// gamemd.exe works out a spot in the next foundation cell, then places the unit at the building's own position
+			ScenarioInit++;
+			foot->IsOnBridge = IsOnBridge;
+			Coord coord = Position;
+			coord.Z = Get_Cell_Ptr()->Center_Coord().Z;
+			bool placed = false;
+			if (!IsSurvivorless) {
+				DirType facing = PrimaryFacing.Current();
+				if (foot->Unlimbo(coord, (Dir256)((((unsigned)facing.Raw >> 7) + 1) >> 1 & 0xFF))) {
+					placed = true;
+					if (!foot->CountedAsOwnedSpecial) {
+						foot->House->CurInfantry++;
+						foot->CountedAsOwnedSpecial = true;
+					}
+					foot->Absorbed = false;
+					foot->Scatter(COORD_NONE, true, false);
+					if (!House->FUN_0050B730()) {
+						foot->QueueMission(MISSION_HUNT, false);
+					}
+				}
+			}
+			if (!placed) {
+				foot->RegisterDestruction((source != NULL && (source->AbstractFlags & 1)) ? (TechnoClass *)source : NULL);
+				foot->Delete_Me();
+			}
+			ScenarioInit--;
+		}
+	}
+
+	if (count == 0) {
+		return;
+	}
+	while (*offset != REFRESH_EOL) {
+		Cell newcell = cell + *offset++;
+		CellClass * cellptr = &Map[newcell];
+
+		if (!House->IsToDie && count > 0 && Scen->RandomNumber(0, odds) == 1) {
+			InfantryTypeClass const * type = Crew_Type();
+			InfantryClass * infantry = (type != NULL) ? new InfantryClass(type, House) : NULL;
+			if (infantry != NULL) {
+				if (HasBuildupData && infantry->Class->IsNominal) {
+					infantry->IsTechnician = true;
+				}
+				ScenarioInit++;
+				Coord newcoord(newcell.X * CELL_LEPTON_W + CELL_LEPTON_W / 2, newcell.Y * CELL_LEPTON_H + CELL_LEPTON_H / 2 + 36, 0);
+				newcoord = Map[newcoord].Closest_Free_Spot(newcoord, false, false, false);
+				if (newcoord != COORD_NONE && infantry->Unlimbo(newcoord, DIR_N)) {
+					count--;
+					infantry->Strength = Scen->RandomNumber(5, infantry->Class->MaxStrength);
+					infantry->Scatter(COORD_NONE, true, false);
+					if (source != NULL && !House->CanOverpower(source)) {
+						infantry->QueueMission(MISSION_ATTACK, false);
+						infantry->Assign_Target(source);
+					} else if (House->FUN_0050B730()) {
+						infantry->QueueMission(MISSION_MOVE, false);
+					} else {
+						infantry->QueueMission(MISSION_HUNT, false);
+					}
+				} else {
+					delete infantry;
+				}
+				ScenarioInit--;
+			}
+		}
+
+		if (cellptr->Is_Clear_To_Move(SPEED_TRACK, true, true, -1, MZONE_NORMAL, -1, true)) {
+			Coord center = newcell.As_Coord();
+			center.Z = 0;
+			Coord spot = Coord_Scatter(center, CELL_LEPTON_W / 2, false);
+			Coord mark = spot.As_Cell().As_Coord();
+			mark.Z = 0;
+			if (Scen->RandomNumber(0, 99) < 50) {
+				SmudgeTypeClass::Scorch_The_Ground(mark, 100, 100, false);
+			} else {
+				SmudgeTypeClass::Crater_The_Ground(mark, 100, 100, false);
+			}
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y11b): BuildingClass::FUN_00457DE0 (gamemd.exe 0x00457DE0, 1,029 bytes,
+// unmatched in the YR tree): a garrisoned building lets its occupants out (it is destroyed, red, sold
+// or abandoned). Written from gamemd.exe's code: the first cell along the outside of the foundation
+// that the first occupant can enter (the right edge upwards from the bottom right corner, the bottom
+// edge leftwards, the top edge rightwards from the top left corner, the left edge downwards); with
+// none, the occupants die unless the caller forces them out at the foundation's bottom right cell.
+// Each is placed there, its garrison orders dropped for a human house, its target cleared, scattered
+// away from the building, and (hunt) taken from its team and set to Hunt; one that cannot be placed is
+// deleted. Then the list is emptied and the cell's threat updated.
+// ---------------------------------------------------------------------------------------------
+void BuildingClass::FUN_00457DE0(bool hunt, bool force)
+{
+	FiringOccupantIndex = 0;
+	if (GetOccupantCount() == 0) {
+		return;
+	}
+	Cell found = CELL_NONE;
+	int width = Class->Width();
+	int height = Class->Height(false);
+	InfantryClass * first = Occupants[0];
+	Cell home = Get_Cell();
+	bool ok = false;
+	auto enter = [&](Cell const & c) { return first->Can_Enter_Cell(&Map[c], FACING_NONE, -1, NULL, true) == MOVE_OK; };
+
+	Cell c(home.X + width, home.Y + height);
+	if (enter(c)) {
+		found = c;
+		ok = true;
+	} else {
+		while (c.Y > home.Y - 1) {
+			c.Y--;
+			if (enter(c)) { found = c; ok = true; break; }
+		}
+	}
+	c = Cell(home.X + width, home.Y + height);
+	while (!ok && c.X > home.X - 1) {
+		c.X--;
+		if (enter(c)) { found = c; ok = true; }
+	}
+	c = Cell(home.X - 1, home.Y - 1);
+	while (!ok && c.X < home.X + width) {
+		c.X++;
+		if (enter(c)) { found = c; ok = true; }
+	}
+	c = Cell(home.X - 1, home.Y - 1);
+	while (!ok && c.Y < home.Y + height) {
+		c.Y++;
+		if (enter(c)) { found = c; ok = true; }
+	}
+	if (!ok) {
+		if (!force) {
+			KillOccupants(NULL);
+			return;
+		}
+		found = Cell(home.X + width - 1, home.Y + height - 1);
+	}
+
+	Coord coord = Map[found].Center_Coord();
+	ScenarioInit++;
+	for (int i = Occupants.Count() - 1; i >= 0; i--) {
+		InfantryClass * occupant = Occupants[i];
+		if (occupant->Unlimbo(coord, DIR_N)) {
+			if (occupant->House->IsHuman) {
+				occupant->ShouldGarrisonStructure = false;
+				occupant->ShouldEnterOccupiable = false;
+			}
+			occupant->Assign_Target(NULL);
+			occupant->Scatter(Center_Coord(), true, true);
+			if (hunt) {
+				if (occupant->Team != NULL) {
+					occupant->Team->Remove(occupant, -1, false);
+				}
+				occupant->QueueMission(MISSION_HUNT, false);
+			}
+		} else {
+			occupant->Delete_Me();
+		}
+	}
+	ScenarioInit--;
+	Occupants.Clear();
+	UpdateThreatInCell(Get_Cell_Ptr());
 }

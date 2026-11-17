@@ -156,6 +156,7 @@ struct Region { double sx, sy, sw, sh; double dx, dy, dw, dh; };
 std::vector<Region> regions;
 bool layout_dirty = true;
 bool menu_fill_on = false;        // the Menu fill enhancement (fill_menu_bands)
+bool menu_scale_fit = false;      // Menu fill: Scale to fit (update_layout)
 
 // The touch controls (Scout1248): on where the screen is touched (iOS), or with
 // RA2_NATIVE_TOUCH_UI=1 (tests). A column of toggles at the usable part's left edge:
@@ -546,9 +547,26 @@ void update_layout()
     render_scale = ra2_enh_render_scale();
     if (render_scale > 1 && update_layout_scaled()) return;
     double pw = split_on ? pic_w - kSidebarWidth + kSidebarWidth * split_ratio : pic_w;
-    double scale = SDL_min(usable.w / pw, usable.h / pic_h);
+    // The menus' size (lane Y11b, user rule 2026-11-17: the original by default, filling as an
+    // enhancement). By default each game as its original: Red Alert 2 runs its menus at the game
+    // resolution with the 800x600 menu centred (game.exe 0x005115F0); Yuri's Revenge runs them in a
+    // separate 800x600 display mode, GameOptionsClass::ShellWidth x ShellHeight (gamemd.exe WinMain
+    // 0x006BDB7E-0x006BDB90), so its menu fills the screen as the picture does. Menu fill's Scale to
+    // fit shows the 800x600 menu as large as the window holds, keeping its aspect, in both games (the
+    // rest of a larger screen, black, overflows the window and is cut). Menus only, not during a movie
+    // or in play.
+    double fit_w = pw, fit_h = pic_h;
+    if (menu_scale_fit && !split_on && !zoom_on && ra2port_menu_shown() && !ra2port::movie_playing()
+            && !ra2_enh_game_in_play() && pic_w >= 800 && pic_h >= 600) {
+        fit_w = 800;
+        fit_h = 600;
+    }
+    double scale = SDL_min(usable.w / fit_w, usable.h / fit_h);
     split_scale = scale;
     picture = hostos::Rect{usable.x + (usable.w - pw * scale) / 2, usable.y + (usable.h - pic_h * scale) / 2, pw * scale, pic_h * scale};
+    if (fit_w != pw || fit_h != pic_h || (ra2port_menu_shown() && !ra2_enh_game_in_play()))
+        log_layout("host: layout: menu %dx%d at the scale of %.0fx%.0f: picture %.0f,%.0f %.0fx%.0f in %.0fx%.0f\n", pic_w, pic_h,
+                   fit_w, fit_h, picture.x, picture.y, picture.w, picture.h, usable.w, usable.h);
     regions.clear();
     if (split_on || zoom_on) {
         double map_w = pic_w - kSidebarWidth;
@@ -1899,6 +1917,13 @@ void present_now(const void *pixels, int width, int height, int pitch)
             layout_dirty = true;
         }
         if (split_wanted(&ratio) != split_on) layout_dirty = true;
+        // The menus' scale (lane Y11b) follows the game: a menu shown or gone, a game starting.
+        static int menu_state = -1;
+        int menu_now = ra2port_menu_shown() && !ra2port::movie_playing() && !ra2_enh_game_in_play();
+        if (menu_now != menu_state) {
+            menu_state = menu_now;
+            layout_dirty = true;
+        }
         // The zoom layout follows the game too: a game starting or loading, a dialog, a movie.
         double show[4];
         int full[4];
@@ -2640,17 +2665,21 @@ void ra2_host_set_vsync(bool on)
     picture_vsync = on;
     if (renderer) SDL_SetRenderVSync(renderer, on ? 1 : 0);
 }
-// Menu fill: 0 off (the original look), 1 blurred backdrop; RA2_NATIVE_MENU_FILL=backdrop|off
+// Menu fill: 0 off (the original look), 1 blurred backdrop, 2 scale to fit (lane Y11b); RA2_NATIVE_MENU_FILL=backdrop|fit|off
 // overrides it (tests, the C11 prototype's variable).
 void ra2_host_set_menu_fill(int mode)
 {
-    bool on = mode == 1;
     if (const char *env = getenv("RA2_NATIVE_MENU_FILL")) {
-        if (!strcmp(env, "backdrop")) on = true;
-        else if (!strcmp(env, "off")) on = false;
+        if (!strcmp(env, "backdrop")) mode = 1;
+        else if (!strcmp(env, "fit")) mode = 2;
+        else if (!strcmp(env, "off")) mode = 0;
     }
-    if (on != menu_fill_on) fprintf(stderr, "host: menu fill %s\n", on ? "blurred backdrop" : "off");
+    bool on = mode == 1, fit = mode == 2;
+    if (on != menu_fill_on || fit != menu_scale_fit)
+        fprintf(stderr, "host: menu fill %s\n", on ? "blurred backdrop" : fit ? "scale to fit" : "off");
     menu_fill_on = on;
+    menu_scale_fit = fit;
+    layout_dirty = true;
     redraw();
 }
 void ra2_host_set_fullscreen(bool on) { set_fullscreen(on); }

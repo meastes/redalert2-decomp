@@ -680,6 +680,39 @@ redraws its command bar only once the mouse passes over it.
 * Simulator walk: `yr/tests/ios_sim_menus.py` (not a ctest) runs both games' shell, a skirmish's setup,
   load and first play with the same settings on "RA2 Duo Validation" and checks the backdrops.
 
+## Lane Y11b (2026-11-17): the loading screen, Fire_At, the menus' size
+
+* **The loading screen** (glue/ldprgmgr_native.inc, NON-EXACT): the map preview (MapPreviewClass, the
+  scenario's [Preview] or a random map's picture) and the texts: the country's name on a dimmed strip,
+  its special unit in black on the title band, its briefing (lower in a cooperative game) and Loading,
+  from Red Alert 2's loading-screen text with YR's places and tenth country (gamemd.exe
+  0x005536A0-0x005540E7). The campaign screen is still not drawn.
+* **NON-EXACT drafts**: TechnoClass::Fire_At (glue/fire_at_native.inc, gamemd.exe 0x006FDD50: Red
+  Alert 2's text with YR's drain weapon, spray attack, area fire, disk laser, damage multipliers,
+  occupant cycling, berserk rearm and magnetron; the railgun's beam damage, gamemd.exe 0x0070C690, left
+  out), BuildingClass::Drop_Debris (glue/building_native.inc, 0x00442D90: TibSun's text with YR's
+  release of absorbed units) and ParticleClass::Spark_Behavior_AI (glue/particle_native.inc,
+  0x0062C6E0). Two 20-minute games (three hard opponents on map 30, one on The Alamo) reached no trap.
+* **The menus' size** (user rule 2026-11-17: the original by default, filling as an enhancement):
+  Yuri's Revenge runs its menus in a separate display mode, GameOptionsClass::ShellWidth x ShellHeight
+  (800x600 from its constructor, read from no INI; gamemd.exe WinMain 0x006BDB7E-0x006BDB90 passes
+  Options+0x2C/+0x30 to Set_Video_Mode, and ScenarioClass returns to it after a game, ra2-decomp
+  src/scenario.cpp:605), so its menu fills the screen; Red Alert 2 runs its menus at the game
+  resolution with the 800x600 menu centred (game.exe 0x005115F0). Both stay so by default. Menu fill's
+  new choice Scale to fit shows the 800x600 menu as large as the screen holds in both games (Red Alert
+  2's then fills as Yuri's Revenge's does; off in the Original preset; the Enhanced preset keeps Blurred
+  backdrop). one-game-menu-backdrop checks both looks at 1024x768.
+* More traps off the play paths: HouseClass::Is_Build_Limited (a second unit queued in a factory),
+  MindControlBuildings and RelinquishBuildings are the tree's FUN_0050B370, FUN_0050D290 and
+  FUN_0050D2D0 (data/name_aliases.tsv, from gamemd.exe's callers); the TibSun-text drafts called
+  TibSun's Speak, Sound_Effect, Harvested and Remove_Target, which YR does not have: they call
+  VoxClass::Play, VocClass::PlayAt/PlayGlobal, Give_Tiberium and AbstractClass::BecomeUntargetable as
+  gamemd.exe does there (selling, repairing bridges, walls and bridges destroyed, barrels); NON-EXACT
+  BuildingClass::FUN_00457DE0 (gamemd.exe 0x00457DE0: a garrisoned building lets its occupants out).
+  Link closure 236 (lane Y11 start) -> 219.
+* Fix on main: lane CB s2's native rekey had renamed the YR glue's DisplayClass::Set_Cursor_Shape to
+  RA2's Set_Copy_Cursor_Shape (yr-native did not compile).
+
 ## Next
 
 1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu

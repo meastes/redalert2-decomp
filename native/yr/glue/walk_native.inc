@@ -31,7 +31,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 								LinkedTo->TryTryAgain--;
 							} else {
 								if (LinkedTo->IsNewNavCom) {
-									Sound_Effect(Rule->ScoldSound);
+									VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000);	// NATIVE (lane Y11b): YR's sound call for TibSun's Sound_Effect
 								}
 								LinkedTo->IsNewNavCom = false;
 

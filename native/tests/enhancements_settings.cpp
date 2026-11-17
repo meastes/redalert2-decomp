@@ -173,7 +173,7 @@ int main(int argc, char **argv)
     expect(ra2_enh_rows() == kRows, "row count", std::to_string(ra2_enh_rows()));
     // Each dropdown lists its setting's values, the original look first.
     static const char *const lists[kRows] = {"Off,On", "Off,On", "1x,1.25x,1.5x,2x", "1x,1.25x,1.5x,2x", "Sharp,Nearest,Smooth",
-                                               "Off,Blurred backdrop", "Off,On",
+                                               "Off,Blurred backdrop,Scale to fit", "Off,On",
                                                "Classic,Modern", "Off,On", "Off,2x,3x"};
     for (int r = 0; r < kRows; ++r) {
         int i = row_of(rows[r].label);

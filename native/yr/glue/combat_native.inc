@@ -85,7 +85,7 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 				}
 			}
 			if (cptr->Overlay == OVERLAY_NONE) {
-				TechnoClass::Remove_Target(cptr);
+				cptr->BecomeUntargetable();	// NATIVE (lane Y11b): YR calls AbstractClass::BecomeUntargetable here (gamemd.exe 0x004896BA) where TibSun has Remove_Target
 			}
 		}
 
@@ -186,7 +186,7 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 					} while (ion_cannon && tries > 0);
 
 					if (bridge_damaged) {
-						TechnoClass::Remove_Target(cellptr);
+						cellptr->BecomeUntargetable();	// NATIVE (lane Y11b): YR's call here (gamemd.exe 0x0048A044 and on) for TibSun's Remove_Target
 					}
 					Point2D point;
 					TacticalMap->Coord_To_Pixel(coord, point);
@@ -215,7 +215,7 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 					} while (ion_cannon && tries > 0);
 
 					if (bridge_damaged) {
-						TechnoClass::Remove_Target(cellptr);
+						cellptr->BecomeUntargetable();	// NATIVE (lane Y11b): YR's call here (gamemd.exe 0x0048A044 and on) for TibSun's Remove_Target
 					}
 					Point2D point;
 					TacticalMap->Coord_To_Pixel(coord, point);
@@ -229,7 +229,7 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 				bool destroyed = Map.Damage_Low_Bridge(cell);
 				Map.Damage_Low_Bridge(cell);
 				if (destroyed) {
-					TechnoClass::Remove_Target(cellptr);
+					cellptr->BecomeUntargetable();	// NATIVE (lane Y11b): YR's call here (gamemd.exe 0x0048A044 and on) for TibSun's Remove_Target
 				}
 			}
 		}
@@ -241,7 +241,7 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 		cellptr->Recalc_Attributes();
 		Map.Update_Cell_Zone(cellptr->CellID);
 		Map.Update_Cell_Subzones(cellptr->CellID);
-		TechnoClass::Remove_Target(cellptr);
+		cellptr->BecomeUntargetable();	// NATIVE (lane Y11b): YR's call here (gamemd.exe 0x0048A044 and on) for TibSun's Remove_Target
 
 		new AnimClass(Rule->BarrelExplode, coord);
 		Explosion_Damage(coord, Rule->AmmoCrateDamage, NULL, Rule->C4Warhead, true);

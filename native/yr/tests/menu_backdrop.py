@@ -12,7 +12,9 @@ settings the user had: main menu -> Options -> Enhancements -> Cancel (back on O
 a window dump after each step settles. Checks on the backdrop region (the left part below the
 controls, where only the backdrop shows): on Options and Enhancements it is drawn (not black: some
 of it lit) and it is the backdrop's dark-red art, not noise (lit pixels mostly red); the main menu's
-region looks the same before and after. No trap, no fault.
+region looks the same before and after. Then, at a 1024x768 game resolution, each game's shell
+menu is shown as its original shows it (Yuri's Revenge's filling the screen, Red Alert 2's centred),
+and both fill the window with Menu fill = Scale to fit (see main). No trap, no fault.
 
   menu_backdrop.py --binary <ra2yr-native> --data-dir <game folder> --game-exe <game.exe> --work <dir>
 """
@@ -61,24 +63,38 @@ def region_stats(path):
     return lit / max(1, total), red / max(1, lit)
 
 
-def run(a, game):
-    work = os.path.join(a.work, game)
+def lit_box(path):
+    """(left, top, right, bottom) of the dump's lit pixels as fractions of its size."""
+    width, height, rows = read_bmp(path)
+    xs, ys = [], []
+    for y in range(0, height, 2):
+        for x in range(0, width, 2):
+            if max(rows[y][x]) > 24:
+                xs.append(x)
+                ys.append(y)
+    if not xs:
+        return None
+    return (min(xs) / width, min(ys) / height, (max(xs) + 2) / width, (max(ys) + 2) / height)
+
+
+def run(a, game, tag=None, ini=INI, script_text=SCRIPT, seconds=45, enhancements=ENHANCEMENTS):
+    work = os.path.join(a.work, tag or game)
     os.makedirs(os.path.join(work, 'shots'))
     writes = os.path.join(work, 'w')
     os.makedirs(writes)
     with open(os.path.join(writes, 'RA2.INI'), 'w') as f:
-        f.write(INI)
+        f.write(ini)
     with open(os.path.join(writes, 'RA2MD.INI'), 'w') as f:     # Yuri's Revenge: no start-up movie
-        f.write('[Intro]\nPlay=no\n\n' + INI)
+        f.write('[Intro]\nPlay=no\n\n' + ini)
     script = os.path.join(work, 'e0.script')
     with open(script, 'w') as f:
-        f.write(SCRIPT)
+        f.write(script_text)
     env = dict(os.environ, RA2_NATIVE_SETTINGS=os.path.join(work, 'settings'), RA2_GAME_EXE=a.game_exe,
-               RA2_NATIVE_ENHANCEMENTS=ENHANCEMENTS, RA2_NATIVE_WINDOW_DUMP=os.path.join(work, 'shots', 'w'),
+               RA2_NATIVE_ENHANCEMENTS=enhancements, RA2_NATIVE_WINDOW_DUMP=os.path.join(work, 'shots', 'w'),
                RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_DIALOG_LOG='1', RA2_NATIVE_MOVIE_SKIP='1')
     env.pop('RA2_GAMEMD_EXE', None)
     env.pop('RA2_NATIVE_INPUT_SCRIPT', None)
-    cmd = [a.binary, '--game=' + game, '--data-dir', a.data_dir, '--run-to=never', '--run-seconds=45',
+    cmd = [a.binary, '--game=' + game, '--data-dir', a.data_dir, '--run-to=never', '--run-seconds=%d' % seconds,
            '--write-dir=' + writes, '--game-args=-noaudio', '--engine-scripts=' + script]
     with open(os.path.join(work, 'run.log'), 'w') as log:
         game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=165)
@@ -127,6 +143,41 @@ def main():
         if abs(stats[0][0] - stats[4][0]) > 0.05:
             failures.append('%s: the main menu\'s region changed after Options (%.0f%% lit, then %.0f%%)'
                             % (game, stats[0][0] * 100, stats[4][0] * 100))
+    # The menus' size at a larger game resolution (1024x768 here; the phone's play size in the app; lane
+    # Y11b, user rule 2026-11-17: the original by default, filling as an enhancement). By default each
+    # game as its original: Red Alert 2 runs its menus at the game resolution with the 800x600 menu
+    # centred (game.exe 0x005115F0); Yuri's Revenge runs them in a separate 800x600 display mode,
+    # GameOptionsClass::ShellWidth x ShellHeight (gamemd.exe WinMain 0x006BDB7E-0x006BDB90), so its menu
+    # fills the screen. Menu fill = Scale to fit fills the window in both games. Measured: the menu's
+    # rectangle in the window from the host's layout line, as fractions of the window.
+    big = '[Video]\nScreenWidth=1024\nScreenHeight=768\nAllowHiResModes=yes\n'
+    boxes = {}
+    for fill in ('off', 'fit'):
+        for game in ('yr', 'ra2'):
+            text, work = run(a, game, '%s-1024-%s' % (game, fill), big, 's1+1500 dump\n', 25, 'menufill=' + fill)
+            # The host's layout line for the main menu: the game's picture's place in the window, and the
+            # 800x600 menu centred in it.
+            lines = re.findall(r'^host: layout: menu (\d+)x(\d+) at the scale of \S+: picture (-?[\d.]+),(-?[\d.]+) ([\d.]+)x([\d.]+) in ([\d.]+)x([\d.]+)', text, re.M)
+            if not lines:
+                failures.append('%s 1024x768 menu fill %s: no layout line' % (game, fill))
+                continue
+            pw, ph, x, y, w, h, ww, wh = (float(v) for v in lines[-1])
+            sx, sy = w / pw, h / ph
+            mx, my = x + (pw - 800) / 2 * sx, y + (ph - 600) / 2 * sy
+            boxes[(game, fill)] = (mx / ww, my / wh, (mx + 800 * sx) / ww, (my + 600 * sy) / wh)
+            print('%s 1024x768 menu fill %s: the menu covers %s of the window' % (
+                game, fill, ', '.join('%.2f' % v for v in boxes[(game, fill)])))
+    def near(p, q, tol=0.03):
+        return p is not None and q is not None and all(abs(x - y) <= tol for x, y in zip(p, q))
+    off_yr, off_ra2 = boxes.get(('yr', 'off')), boxes.get(('ra2', 'off'))
+    fit_yr, fit_ra2 = boxes.get(('yr', 'fit')), boxes.get(('ra2', 'fit'))
+    if off_yr is None or max(off_yr[2] - off_yr[0], off_yr[3] - off_yr[1]) < 0.95:
+        failures.append('yr: the original look (its own 800x600 shell mode) does not fill the window (%s)' % (off_yr,))
+    if not near(off_ra2, (112 / 1024.0, 84 / 768.0, 912 / 1024.0, 684 / 768.0)):
+        failures.append('ra2: the original look is not the 800x600 menu centred at 1024x768 (%s)' % (off_ra2,))
+    for game, box in (('yr', fit_yr), ('ra2', fit_ra2)):
+        if box is None or max(box[2] - box[0], box[3] - box[1]) < 0.95:
+            failures.append('%s: Scale to fit does not fill the window (%s)' % (game, box))
     for f in failures:
         print('FAIL: ' + f)
     print('%s (%s)' % ('FAIL' if failures else 'OK', a.work))

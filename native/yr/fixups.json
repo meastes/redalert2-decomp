@@ -753,6 +753,11 @@
    "why": "ParticleSystemClass::Smoke_AI and Spark_AI, unmatched in the YR tree; the RA2 twins' text checked against gamemd.exe (lane Y6)."
   },
   {
+   "file": "src/particle.cpp",
+   "append": "particle_native.inc",
+   "why": "ParticleClass::Spark_Behavior_AI (0x0062C6E0) is unmatched in the YR tree; a native draft from Red Alert 2's text checked against gamemd.exe (lane Y11b)."
+  },
+  {
    "file": "src/unit.cpp",
    "append": "unit_native.inc",
    "why": "UnitClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."
@@ -874,6 +879,11 @@
    "file": "src/techno.cpp",
    "append": "techno_native.inc",
    "why": "TechnoClass functions unmatched in the YR tree; TibSun's text adjusted to gamemd.exe as native drafts (lane Y3)."
+  },
+  {
+   "file": "src/techno.cpp",
+   "append": "fire_at_native.inc",
+   "why": "TechnoClass::Fire_At (0x006FDD50) is unmatched in the YR tree (the first shot of a long game reached its trap); a native draft from Red Alert 2's text and gamemd.exe's YR changes (lane Y11b)."
   },
   {
    "file": "src/bullet.cpp",

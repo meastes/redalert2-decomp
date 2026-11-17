@@ -71,3 +71,10 @@ __ZNK8ShapeSet17Is_RLE_CompressedEi	__ZNK9SHPStruct14HasCompressionEi
 # FootClass, BuildingClass, InfantryClass and AircraftClass vtables hold 0x00710460 there, UnitClass::Destroy calls it; it frees
 # the mind-controlled units. A unit dying while mind-controlling reached the trap in a long skirmish under ctest -j4).
 __ZN11TechnoClass7DestroyEv	__ZN11TechnoClass12FUN_00710460Ev
+# HouseClass::Is_Build_Limited is the tree's HouseClass::FUN_0050B370 (lane Y11b: FactoryClass::Set 0x004C9C70 calls 0x0050B370
+# where the tree calls Is_Build_Limited; a second unit queued in a factory reached the trap).
+__ZNK10HouseClass16Is_Build_LimitedEPK15TechnoTypeClass	__ZN10HouseClass12FUN_0050B370EPK15TechnoTypeClass
+# HouseClass::MindControlBuildings and RelinquishBuildings are the tree's FUN_0050D290 and FUN_0050D2D0 (lane Y11b: the trigger
+# actions 0x006E0CA0 and 0x006E0D00 call them where the tree has those names).
+__ZN10HouseClass20MindControlBuildingsEPS_	__ZN10HouseClass12FUN_0050D290EPS_
+__ZN10HouseClass19RelinquishBuildingsEPS_	__ZN10HouseClass12FUN_0050D2D0EPS_
