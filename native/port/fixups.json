@@ -1806,6 +1806,20 @@
   },
   {
    "source": "src/recovered/uicmnds.cpp",
+   "old": "    DynamicVectorClass<TechnoClass *> *list = unknown_flag_ac133c ? Unknown_006F6930(test, (int)name) : Unknown_006F69F0(test, (int)name);\n",
+   "new": "    DynamicVectorClass<TechnoClass *> *list;   // NATIVE: both list builders written out with the name pointer\n    if (unknown_flag_ac133c) {\n        list = Unknown_006F6930(test, (int)name);\n    } else {\n        list = Unknown_006F69F0(test, (int)name);\n    }\n",
+   "why": "Unselect_Type 0x006F7020 and Select_Type 0x006F71E0 (exact since lane R1) hand the type name to the test 0x006F7190 through 0x006F6930/0x006F69F0, whose argument is an int: VC6's int holds the pointer, arm64's cuts it. Natively the test is called directly with the name pointer and 0x006F6930's loop (Technos) is written out, as for 0x006F7800 (Scout1209 r6); the 0x006F69F0 call is rewritten by the fixup above. Same meaning; the exact build is untouched.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/uicmnds.cpp",
+   "old": "        list = Unknown_006F6930(test, (int)name);\n",
+   "new": "        list = new DynamicVectorClass<TechnoClass *>(0, 0);   // NATIVE: 0x006F6930's loop with the name pointer\n        int count = Technos.Count();\n        for (int index = 0; index < count; index++) {\n            TechnoClass *techno = Technos[index];\n            if ((char)Unknown_006F7190(techno, name)) {\n                list->Add(techno);\n            }\n        }\n",
+   "why": "Unselect_Type 0x006F7020 and Select_Type 0x006F71E0 (exact since lane R1) hand the type name to the test 0x006F7190 through 0x006F6930/0x006F69F0, whose argument is an int: VC6's int holds the pointer, arm64's cuts it. Natively the test is called directly with the name pointer and 0x006F6930's loop (Technos) is written out, as for 0x006F7800 (Scout1209 r6); the 0x006F69F0 call is rewritten by the fixup above. Same meaning; the exact build is untouched.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/uicmnds.cpp",
    "old": "    UnknownTest test = (UnknownTest)Unknown_006F7190;\n",
    "new": "",
    "why": "0x006F7800 hands the type name to the test 0x006F7190 through UnknownTest, whose argument is an int: VC6's int holds the pointer, arm64's cuts it. Natively the test is called directly with the name pointer and 0x006F69F0's loop (the selection list 0x0083996C, IsTechno) is written out, as the 0x006F7020 behaviour row does (Scout1209 r6). Same meaning; the exact build is untouched. No caller reaches 0x006F7800 today.",

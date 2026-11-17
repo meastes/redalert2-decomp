@@ -4179,6 +4179,30 @@
    "symbol": "?Register_Dirty_Area@Tactical@@QAEXVRect@@_N@Z",
    "target": "006a3020",
    "function_entry": true
+  },
+  {
+   "site": "006f7020",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "target": "006ac7b0",
+   "function_entry": true
+  },
+  {
+   "site": "006f7020",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "target": "006ac7c0",
+   "function_entry": true
+  },
+  {
+   "site": "006f71e0",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "target": "006ac7b0",
+   "function_entry": true
+  },
+  {
+   "site": "006f71e0",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "target": "006ac7c0",
+   "function_entry": true
   }
  ],
  "references_out": [
@@ -5481,9 +5505,33 @@
    "target": "006a2970",
    "symbol": "?Bullet_Height_Pixel@@YIHH@Z",
    "module_symbol": "?Tactical_Z_Lepton_To_Pixel@@YIHH@Z"
+  },
+  {
+   "site": "006f7020",
+   "target": "006ac7b0",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "module_symbol": "?get@Leaf_6ac7b0@@QAEIXZ"
+  },
+  {
+   "site": "006f7020",
+   "target": "006ac7c0",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "module_symbol": "?unknown_get_006ac7c0@seed_006ac7c0@@YGIH@Z"
+  },
+  {
+   "site": "006f71e0",
+   "target": "006ac7b0",
+   "symbol": "?Count@UnknownSelection@@QAEHXZ",
+   "module_symbol": "?get@Leaf_6ac7b0@@QAEIXZ"
+  },
+  {
+   "site": "006f71e0",
+   "target": "006ac7c0",
+   "symbol": "?Get@UnknownSelection@@QAEPAVObjectClass@@H@Z",
+   "module_symbol": "?unknown_get_006ac7c0@seed_006ac7c0@@YGIH@Z"
   }
  ],
- "stand_in_reference_count": 21,
+ "stand_in_reference_count": 25,
  "residual_split": {
   "rows": 8,
   "bytes": 1434

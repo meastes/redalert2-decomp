@@ -187,6 +187,12 @@
    "padding_bytes": 9
   },
   {
+   "symbol": "?Populate_Dialog_00739b70@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
+   "entry": "00739b70",
+   "body_bytes": 1309,
+   "padding_bytes": 3
+  },
+  {
    "symbol": "??_GPlayerProfile@@UAEPAXI@Z",
    "entry": "0073a090",
    "body_bytes": 46,
@@ -199,7 +205,7 @@
    "padding_bytes": 12
   }
  ],
- "code_bytes": 5712,
+ "code_bytes": 7024,
  "data": [
   {
    "symbol": "??_7CDFileClass@@6B@",
@@ -788,6 +794,20 @@
    "bytes": 17,
    "kind": "string",
    "section": 164
+  },
+  {
+   "symbol": "??_C@_0BF@LHNK@GUI?3UserProfileLabel?$AA@",
+   "address": "007fd2d8",
+   "bytes": 21,
+   "kind": "string",
+   "section": 169
+  },
+  {
+   "symbol": "??_C@_0M@BAMJ@GUI?3Default?$AA@",
+   "address": "007fd2f0",
+   "bytes": 12,
+   "kind": "string",
+   "section": 170
   }
  ],
  "data_ranges": [],
@@ -1297,6 +1317,18 @@
    "address": "007fd2c4",
    "bytes": 17,
    "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0BF@LHNK@GUI?3UserProfileLabel?$AA@",
+   "address": "007fd2d8",
+   "bytes": 21,
+   "kind": "string"
+  },
+  {
+   "symbol": "??_C@_0M@BAMJ@GUI?3Default?$AA@",
+   "address": "007fd2f0",
+   "bytes": 12,
+   "kind": "string"
   }
  ],
  "failures": [],
@@ -1305,6 +1337,12 @@
    "site": "0075dbd0",
    "symbol": "?Load_00738880@PlayerProfile@@SI?AV?$rc_ptr@VPlayerProfile@@@@ABVWstring@@@Z",
    "target": "00738880",
+   "function_entry": true
+  },
+  {
+   "site": "0075dbd0",
+   "symbol": "?Populate_Dialog_00739b70@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
+   "target": "00739b70",
    "function_entry": true
   },
   {
@@ -1374,6 +1412,12 @@
    "function_entry": true
   },
   {
+   "site": "00752cf0",
+   "symbol": "?Populate_Dialog_00739b70@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
+   "target": "00739b70",
+   "function_entry": true
+  },
+  {
    "site": "0075d330",
    "symbol": "?Load_00738880@PlayerProfile@@SI?AV?$rc_ptr@VPlayerProfile@@@@ABVWstring@@@Z",
    "target": "00738880",
@@ -1386,6 +1430,12 @@
    "function_entry": true
   },
   {
+   "site": "0075d330",
+   "symbol": "?Populate_Dialog_00739b70@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
+   "target": "00739b70",
+   "function_entry": true
+  },
+  {
    "site": "00753370",
    "symbol": "?Load_00738880@PlayerProfile@@SI?AV?$rc_ptr@VPlayerProfile@@@@ABVWstring@@@Z",
    "target": "00738880",
@@ -1395,6 +1445,12 @@
    "site": "00753370",
    "symbol": "?WOL_Auto_Login_Persona@@YI?AVWstring@@XZ",
    "target": "007390b0",
+   "function_entry": true
+  },
+  {
+   "site": "00753370",
+   "symbol": "?Populate_Dialog_00739b70@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
+   "target": "00739b70",
    "function_entry": true
   },
   {
@@ -1501,8 +1557,20 @@
   },
   {
    "site": "00753370",
+   "symbol": "?Populate_Dialog_00739b70@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
+   "target": "00739b70",
+   "function_entry": true
+  },
+  {
+   "site": "00753370",
    "symbol": "?Load_00738880@PlayerProfile@@SI?AV?$rc_ptr@VPlayerProfile@@@@ABVWstring@@@Z",
    "target": "00738880",
+   "function_entry": true
+  },
+  {
+   "site": "00753370",
+   "symbol": "?Populate_Dialog_00739b70@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
+   "target": "00739b70",
    "function_entry": true
   },
   {
@@ -1696,6 +1764,10 @@
    "address": "00781d3b"
   },
   {
+   "symbol": "??4WideString@@QAEAAV0@PBG@Z",
+   "address": "0076fb70"
+  },
+  {
    "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
    "address": "0076dc30"
   },
@@ -1748,6 +1820,10 @@
    "address": "0050c9b0"
   },
   {
+   "symbol": "?Get@WideString@@QBEPBGXZ",
+   "address": "007703f0"
+  },
+  {
    "symbol": "?Get@Wstring@@QBEPBDXZ",
    "address": "0076e6f0"
   },
@@ -1774,6 +1850,10 @@
   {
    "symbol": "?Is_Open@BufferIOFileClass@@UBE_NXZ",
    "address": "0042f700"
+  },
+  {
+   "symbol": "?Length@WideString@@QBEIXZ",
+   "address": "007704a0"
   },
   {
    "symbol": "?Length@Wstring@@QBEIXZ",
@@ -1860,6 +1940,10 @@
    "address": "0042f830"
   },
   {
+   "symbol": "?Wstring_To_Wide@@YI?AVWideString@@ABVWstring@@@Z",
+   "address": "007711c0"
+  },
+  {
    "symbol": "?target@Call_7395b0_0@@QAEIXZ",
    "address": "0076d9e0"
   },
@@ -1882,6 +1966,10 @@
   {
    "symbol": "?unknown_math_4ba5b0@@YANN@Z",
    "address": "004ba5b0"
+  },
+  {
+   "symbol": "?unknown_number_text_7710c0@@YI?AVWideString@@H@Z",
+   "address": "007710c0"
   },
   {
    "symbol": "?unknown_slot1@ReferenceCounted@@UAE_NH@Z",
@@ -1922,6 +2010,10 @@
   {
    "symbol": "_data_7395b0_7af554",
    "address": "007af554"
+  },
+  {
+   "symbol": "_swprintf",
+   "address": "00783764"
   }
  ],
  "route": "A",

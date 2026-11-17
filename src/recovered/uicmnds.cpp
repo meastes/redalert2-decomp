@@ -965,26 +965,17 @@ int __fastcall Unknown_006F6FE0(TechnoClass *techno, int argument)
 }
 
 
-// Not exact (RA2_NON_MATCHING): FUN_006f7020 at 0x006F7020, best score 52.31, 2026-11-13; differs: 66 instructions in the original, 129 in the draft (shape 64.62)
-#ifdef RA2_NON_MATCHING
+// Takes every techno of a type out of the selection: those on the screen, or on the whole map
+// after a selection by type reached over it (shape from mischa85/RedAlert2 b4ce41e src/uicmnds.cpp
+// Unselect_Type; GPL-3.0-or-later, OpenTS contributors, EA section 7 terms).
 int __fastcall Unknown_006F7190(TechnoClass *techno, char const *name);
-DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F6930(UnknownTest test, int argument);
-DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, int argument);
-
 
 void __fastcall Unknown_006F7020(char const *name)
 {
     UnknownTest test = (UnknownTest)Unknown_006F7190;
     DynamicVectorClass<TechnoClass *> *list;
     if (unknown_flag_ac133c) {
-        list = new DynamicVectorClass<TechnoClass *>(0, 0);
-        int count = Technos.Count();
-        for (int index = 0; index < count; index++) {
-            TechnoClass *techno = Technos[index];
-            if (test(techno, (int)name)) {
-                list->Add(techno);
-            }
-        }
+        list = Unknown_006F6930(test, (int)name);
     } else {
         list = Unknown_006F69F0(test, (int)name);
     }
@@ -994,7 +985,6 @@ void __fastcall Unknown_006F7020(char const *name)
     }
     delete list;
 }
-#endif
 
 // int __fastcall Unknown_006F7190(TechnoClass *techno, char const *name) (0x006F7190)
 // Whether a player-side techno in play has the type name (0x005D27D0).
@@ -1013,39 +1003,22 @@ int __fastcall Unknown_006F7190(TechnoClass *techno, char const *name)
 }
 
 
-// Not exact (RA2_NON_MATCHING): FUN_006f71e0 at 0x006F71E0, best score 48.78, 2026-11-13; differs: 69 instructions in the original, 136 in the draft (shape 65.37)
-#ifdef RA2_NON_MATCHING
-int __fastcall Unknown_006F7190(TechnoClass *techno, char const *name);
-DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F6930(UnknownTest test, int argument);
-DynamicVectorClass<TechnoClass *> *__fastcall Unknown_006F69F0(UnknownTest test, int argument);
-#include "shared/techno.hpp"
-
+// Selects every techno of a type, with the voice off meanwhile: those on the screen, or on the
+// whole map after a selection by type reached over it (shape from mischa85/RedAlert2 b4ce41e
+// src/uicmnds.cpp Select_Type; GPL-3.0-or-later, OpenTS contributors, EA section 7 terms).
 void __fastcall Unknown_006F71E0(char const *name)
 {
-    unsigned char sound = AllowVoice;
+    bool voice = AllowVoice;
     AllowVoice = false;
     UnknownTest test = (UnknownTest)Unknown_006F7190;
-    DynamicVectorClass<TechnoClass *> *list;
-    if (unknown_flag_ac133c) {
-        list = new DynamicVectorClass<TechnoClass *>(0, 0);
-        int count = Technos.Count();
-        for (int index = 0; index < count; index++) {
-            TechnoClass *techno = Technos[index];
-            if (test(techno, (int)name)) {
-                list->Add(techno);
-            }
-        }
-    } else {
-        list = Unknown_006F69F0(test, (int)name);
-    }
+    DynamicVectorClass<TechnoClass *> *list = unknown_flag_ac133c ? Unknown_006F6930(test, (int)name) : Unknown_006F69F0(test, (int)name);
     int total = list->Count();
     for (int index = 0; index < total; index++) {
         (*list)[index]->unknown_slot80();
     }
     delete list;
-    AllowVoice = sound != 0;
+    AllowVoice = voice;
 }
-#endif
 
 // Not exact (RA2_NON_MATCHING): FUN_006f7360 at 0x006F7360, best score 37.13, 2026-11-13; differs: 234 instructions in the original, 240 in the draft (shape 92.41)
 #ifdef RA2_NON_MATCHING

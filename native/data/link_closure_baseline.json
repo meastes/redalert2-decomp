@@ -1,12 +1,12 @@
 {
  "about": "Undefined symbols of the Mac ra2-native link closure (RA2_NATIVE_SUBSYSTEM=all, drafts and link closure on, WIN64_PARAMS on) that tests/link_closure_baseline.py allows. Names only (no bytes). Regenerate with tests/link_closure_baseline.py --build <dir> --write when the set shrinks.",
- "total": 181,
+ "total": 180,
  "by_class": {
   "c-address": 13,
   "c-data": 1,
   "c-function": 3,
   "cxx-data": 3,
-  "cxx-function": 161
+  "cxx-function": 160
  },
  "symbols": [
   {
@@ -332,11 +332,6 @@
   {
    "symbol": "__ZN13MSOverlayAnim12Has_FinishedEv",
    "name": "MSOverlayAnim::Has_Finished()",
-   "cls": "cxx-function"
-  },
-  {
-   "symbol": "__ZN13PlayerProfile24Populate_Dialog_00739b70EP6HWND__RK7Wstringb",
-   "name": "PlayerProfile::Populate_Dialog_00739b70(HWND__*, Wstring const&, bool)",
    "cls": "cxx-function"
   },
   {

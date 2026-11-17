@@ -343,10 +343,22 @@
    "padding_bytes": 6
   },
   {
+   "symbol": "?Unknown_006F7020@@YIXPBD@Z",
+   "entry": "006f7020",
+   "body_bytes": 353,
+   "padding_bytes": 15
+  },
+  {
    "symbol": "?Unknown_006F7190@@YIHPAVTechnoClass@@PBD@Z",
    "entry": "006f7190",
    "body_bytes": 80,
    "padding_bytes": 0
+  },
+  {
+   "symbol": "?Unknown_006F71E0@@YIXPBD@Z",
+   "entry": "006f71e0",
+   "body_bytes": 371,
+   "padding_bytes": 13
   },
   {
    "symbol": "?unknown_matches_any_name@@YI_NPAUUnknownObject_006f7610@@ABUUnknownNameList_006f7610@@@Z",
@@ -469,7 +481,7 @@
    "padding_bytes": 6
   }
  ],
- "code_bytes": 10944,
+ "code_bytes": 11696,
  "data": [
   {
    "symbol": "__real@8@40008000000000000000",
@@ -609,112 +621,112 @@
    "address": "007b4c04",
    "bytes": 5,
    "kind": "rtti",
-   "section": 233
+   "section": 237
   },
   {
    "symbol": "??_R3?$VectorClass@H@@8",
    "address": "007b4c10",
    "bytes": 16,
    "kind": "rtti",
-   "section": 234
+   "section": 238
   },
   {
    "symbol": "??_R4?$VectorClass@H@@6B@",
    "address": "007b4c20",
    "bytes": 20,
    "kind": "rtti",
-   "section": 235
+   "section": 239
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@H@@8",
    "address": "007b4c38",
    "bytes": 24,
    "kind": "rtti",
-   "section": 198
+   "section": 202
   },
   {
    "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@H@@8",
    "address": "007b4c50",
    "bytes": 24,
    "kind": "rtti",
-   "section": 199
+   "section": 203
   },
   {
    "symbol": "??_R2?$DynamicVectorClass@H@@8",
    "address": "007b4e18",
    "bytes": 9,
    "kind": "rtti",
-   "section": 200
+   "section": 204
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@H@@8",
    "address": "007b4e28",
    "bytes": 16,
    "kind": "rtti",
-   "section": 201
+   "section": 205
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@H@@6B@",
    "address": "007b4e38",
    "bytes": 20,
    "kind": "rtti",
-   "section": 203
+   "section": 207
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@PBD@@8",
    "address": "007bde00",
    "bytes": 24,
    "kind": "rtti",
-   "section": 161
+   "section": 165
   },
   {
    "symbol": "??_R1A@?0A@A@?$DynamicVectorClass@PBD@@8",
    "address": "007bde18",
    "bytes": 24,
    "kind": "rtti",
-   "section": 162
+   "section": 166
   },
   {
    "symbol": "??_R2?$DynamicVectorClass@PBD@@8",
    "address": "007bde30",
    "bytes": 9,
    "kind": "rtti",
-   "section": 163
+   "section": 167
   },
   {
    "symbol": "??_R3?$DynamicVectorClass@PBD@@8",
    "address": "007bde40",
    "bytes": 16,
    "kind": "rtti",
-   "section": 164
+   "section": 168
   },
   {
    "symbol": "??_R4?$DynamicVectorClass@PBD@@6B@",
    "address": "007bde50",
    "bytes": 20,
    "kind": "rtti",
-   "section": 166
+   "section": 170
   },
   {
    "symbol": "??_R2?$VectorClass@PBD@@8",
    "address": "007bde64",
    "bytes": 5,
    "kind": "rtti",
-   "section": 170
+   "section": 174
   },
   {
    "symbol": "??_R3?$VectorClass@PBD@@8",
    "address": "007bde70",
    "bytes": 16,
    "kind": "rtti",
-   "section": 171
+   "section": 175
   },
   {
    "symbol": "??_R4?$VectorClass@PBD@@6B@",
    "address": "007bde80",
    "bytes": 20,
    "kind": "rtti",
-   "section": 172
+   "section": 176
   },
   {
    "symbol": "??_R0?AV?$VectorClass@PAVTechnoClass@@@@@8",
@@ -735,28 +747,28 @@
    "address": "007d1f48",
    "bytes": 30,
    "kind": "rtti",
-   "section": 197
+   "section": 201
   },
   {
    "symbol": "??_R0?AV?$DynamicVectorClass@H@@@8",
    "address": "007d1f68",
    "bytes": 37,
    "kind": "rtti",
-   "section": 202
+   "section": 206
   },
   {
    "symbol": "??_R0?AV?$VectorClass@PBD@@@8",
    "address": "007e32a8",
    "bytes": 32,
    "kind": "rtti",
-   "section": 160
+   "section": 164
   },
   {
    "symbol": "??_R0?AV?$DynamicVectorClass@PBD@@@8",
    "address": "007e32c8",
    "bytes": 39,
    "kind": "rtti",
-   "section": 165
+   "section": 169
   },
   {
    "symbol": "??_C@_0BK@BJPP@MSG?3AttackMoveUnsupported?$AA@",
@@ -819,49 +831,49 @@
    "address": "007f8c7c",
    "bytes": 10,
    "kind": "string",
-   "section": 182
+   "section": 186
   },
   {
    "symbol": "??_C@_0M@EGJA@MSG?3Healthy?$AA@",
    "address": "007f8c88",
    "bytes": 12,
    "kind": "string",
-   "section": 183
+   "section": 187
   },
   {
    "symbol": "??_C@_0BD@EMHN@MSG?3HeavilyDamaged?$AA@",
    "address": "007f8c94",
    "bytes": 19,
    "kind": "string",
-   "section": 184
+   "section": 188
   },
   {
    "symbol": "??_C@_0N@IEJB@MSG?3Critical?$AA@",
    "address": "007f8ca8",
    "bytes": 13,
    "kind": "string",
-   "section": 185
+   "section": 189
   },
   {
    "symbol": "??_C@_0BF@BENO@MSG?3LittleExperience?$AA@",
    "address": "007f8cb8",
    "bytes": 21,
    "kind": "string",
-   "section": 190
+   "section": 194
   },
   {
    "symbol": "??_C@_0M@KCCB@MSG?3Veteran?$AA@",
    "address": "007f8cd0",
    "bytes": 12,
    "kind": "string",
-   "section": 191
+   "section": 195
   },
   {
    "symbol": "??_C@_09MLOC@MSG?3Elite?$AA@",
    "address": "007f8cdc",
    "bytes": 10,
    "kind": "string",
-   "section": 192
+   "section": 196
   }
  ],
  "data_ranges": [],
@@ -1466,6 +1478,12 @@
    "function_entry": true
   },
   {
+   "site": "006aabc0",
+   "symbol": "?Unknown_006F71E0@@YIXPBD@Z",
+   "target": "006f71e0",
+   "function_entry": true
+  },
+  {
    "site": "005d2e70",
    "symbol": "?Set_Type_Select_Mode@@YIXI@Z",
    "target": "006f6780",
@@ -1599,14 +1617,32 @@
   },
   {
    "site": "0049bb20",
-   "symbol": "?Unknown_006F76B0@@YA_NXZ",
-   "target": "006f76b0",
+   "symbol": "?Unknown_006F7020@@YIXPBD@Z",
+   "target": "006f7020",
    "function_entry": true
   },
   {
    "site": "0049bb20",
    "symbol": "?Unknown_006F76B0@@YA_NXZ",
    "target": "006f76b0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_006F71E0@@YIXPBD@Z",
+   "target": "006f71e0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_006F76B0@@YA_NXZ",
+   "target": "006f76b0",
+   "function_entry": true
+  },
+  {
+   "site": "0049bb20",
+   "symbol": "?Unknown_006F71E0@@YIXPBD@Z",
+   "target": "006f71e0",
    "function_entry": true
   },
   {

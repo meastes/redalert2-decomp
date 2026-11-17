@@ -14,6 +14,7 @@
 #include "shared/win32_api.hpp"
 #include "shared/string_table.hpp"
 #include "shared/wide_string.hpp"
+#include "shared/multiplayer_game_mode.hpp"
 
 
 // Header-static dynamic initializers of the unit at 0x00738450: the shape_file.hpp empty rect and the
@@ -409,6 +410,112 @@ void __fastcall Unknown_Persona_Stats_Text_00739a50(HWND window, bool clear)
 // Compiler-generated PlayerProfile scalar deleting destructor.
 // The existing accepted constructor in this population emits the vtable and implicit destructor.
 
+
+// PlayerProfile::Populate_Dialog (0x00739B70): fills the profile dialog from the profile: the
+// nickname list (when update is set), the server, the locale, country and color lists, the
+// statistics ("GUI:UnknownStats" for a statistic not known) and the title.
+// From mischa85/RedAlert2 b4ce41e src/wolpersonainformation.cpp PlayerProfile::PopulateDialog and
+// Profile_Set_Text (matching RA2 1.006 decomp; SPDX-License-Identifier: GPL-3.0-or-later; Copyright
+// 2026 OpenTS contributors; contains material derived from Electronic Arts source code, EA's GPLv3
+// section 7 terms apply); modified: our names and types, numeric control ids and messages.
+// @ref ??_C@_0M@BAMJ@GUI?3Default?$AA@=007fd2f0
+// @ref ??_C@_0BF@LHNK@GUI?3UserProfileLabel?$AA@=007fd2d8
+
+// Sets a profile dialog control's wide text (inline helper, as in ra2-decomp and mischa85).
+static inline void Profile_Set_Text(HWND dialog, int id, WideString const &text)
+{
+    HWND item = GetDlgItem(dialog, id);
+    SendMessageA(item, 0x4B2, 0, (LPARAM)text.text());
+}
+
+void PlayerProfile::Populate_Dialog_00739b70(HWND dialog, Wstring const &name, bool update)
+{
+    if (update) {
+        HWND item = GetDlgItem(dialog, 0x628);
+        bool wide = SendMessageA(item, 0x4CE, 0, 0) != 0;
+        if (name.Length() != 0 && !wide) {
+            int selected = SendMessageA(item, 0x4B9, -1, (LPARAM)name.Peek_Buffer());
+            SendMessageA(item, CB_SETCURSEL, selected, 0);
+            if (selected == -1) {
+                SendMessageA(item, 0x4B4, 0, (LPARAM)name.Peek_Buffer());
+            }
+        } else {
+            WideString nickname = Wstring_To_Wide(name);
+            int selected = -1;
+            if (name.Length() > 0) {
+                selected = SendMessageA(item, 0x4BF, -1, (LPARAM)nickname.text());
+            }
+            if (selected == -1) {
+                nickname = (unsigned short const *)StringTable::Load_String("GUI:Default", 0, "D:\\Ra2\\WOLPersonaInformation.cpp", 668);
+                selected = SendMessageA(item, 0x4BF, -1, (LPARAM)nickname.text());
+            }
+            SendMessageA(item, CB_SETCURSEL, selected, 0);
+            if (selected == -1) {
+                SendMessageA(item, 0x4B2, 0, (LPARAM)nickname.text());
+            }
+        }
+    }
+
+    HWND item = GetDlgItem(dialog, 0x629);
+    int selected = SendMessageA(item, 0x4B9, -1, (LPARAM)Server.Peek_Buffer());
+    SendMessageA(item, CB_SETCURSEL, selected, 0);
+
+    item = GetDlgItem(dialog, 0x62A);
+    if (item) {
+        int count = SendMessageA(item, CB_GETCOUNT, 0, 0);
+        for (int i = 0; i < count; i++) {
+            LRESULT data = SendMessageA(item, CB_GETITEMDATA, i, 0);
+            if (data == unknown_10) {
+                SendMessageA(item, CB_SETCURSEL, i, 0);
+                break;
+            }
+        }
+    }
+
+    item = GetDlgItem(dialog, 0x6A1);
+    if (item) {
+        int count = SendMessageA(item, CB_GETCOUNT, 0, 0);
+        for (int i = 0; i < count; i++) {
+            LRESULT data = SendMessageA(item, CB_GETITEMDATA, i, 0);
+            if (data == Country) {
+                SendMessageA(item, CB_SETCURSEL, i, 0);
+                break;
+            }
+        }
+    }
+
+    item = GetDlgItem(dialog, 0x6A2);
+    if (item) {
+        int count = SendMessageA(item, CB_GETCOUNT, 0, 0);
+        for (int i = 0; i < count; i++) {
+            LRESULT data = SendMessageA(item, CB_GETITEMDATA, i, 0);
+            if (data == Color) {
+                SendMessageA(item, CB_SETCURSEL, i, 0);
+                break;
+            }
+        }
+    }
+
+    WideString unknown((unsigned short const *)StringTable::Load_String("GUI:UnknownStats", 0, "D:\\Ra2\\WOLPersonaInformation.cpp", 729));
+
+    Profile_Set_Text(dialog, 0x6F4, Rank == -1 ? unknown : unknown_number_text_7710c0(Rank));
+    Profile_Set_Text(dialog, 0x6F5, Points == -1 ? unknown : unknown_number_text_7710c0(Points));
+    Profile_Set_Text(dialog, 0x6F0, Wins == -1 ? unknown : unknown_number_text_7710c0(Wins));
+    Profile_Set_Text(dialog, 0x6F1, Losses == -1 ? unknown : unknown_number_text_7710c0(Losses));
+    Profile_Set_Text(dialog, 0x701, Disconnects == -1 ? unknown : unknown_number_text_7710c0(Disconnects));
+
+    if (name.Length() > 0) {
+        WideString label((unsigned short const *)StringTable::Load_String("GUI:UserProfileLabel", 0, "D:\\Ra2\\WOLPersonaInformation.cpp", 737));
+        wchar_t *title = new wchar_t[label.Length() + name.Length() + 1];
+        swprintf(title, (wchar_t const *)label.Get(), name.Peek_Buffer());
+        HWND titleItem = GetDlgItem(dialog, 0x6EF);
+        SendMessageA(titleItem, 0x4B2, 0, (LPARAM)title);
+        delete [] title;
+    } else {
+        HWND titleItem = GetDlgItem(dialog, 0x6EF);
+        SendMessageA(titleItem, 0x4B2, 0, (LPARAM)L"");
+    }
+}
 
 // rc_ptr<PlayerProfile>::`scalar deleting destructor' (0x0073A0C0)
 // Compiler-emitted in this unit; no source of its own.
