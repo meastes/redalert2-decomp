@@ -78,3 +78,18 @@ __ZNK10HouseClass16Is_Build_LimitedEPK15TechnoTypeClass	__ZN10HouseClass12FUN_00
 # actions 0x006E0CA0 and 0x006E0D00 call them where the tree has those names).
 __ZN10HouseClass20MindControlBuildingsEPS_	__ZN10HouseClass12FUN_0050D290EPS_
 __ZN10HouseClass19RelinquishBuildingsEPS_	__ZN10HouseClass12FUN_0050D2D0EPS_
+# CellClass::On_Ground (AbstractClass vtable slot 20) is the tree's CellClass::Is_Tile_Not_Water (lane Y12: gamemd.exe's CellClass vtable
+# 0x007E4EEC holds 0x004867E0 at slot 20, the folded body of both; reached when a unit attacks another and checks its target on the ground).
+__ZNK9CellClass9On_GroundEv	__ZNK9CellClass17Is_Tile_Not_WaterEv
+# FUN_004C3E30 (the main menu's Credits, init.cpp) is Show_Who_Was_Responsible (lane Y12: gamemd.exe's Do_Win 0x006859EE calls 0x004C3E30
+# after a campaign's final movie; glue/egos_native.inc).
+__Z12FUN_004C3E30v	__Z24Show_Who_Was_Responsiblev
+# Submit_Radar_Event (revent.h; TAction RADAR_EVENT, TechnoClass::Update_Radar_Position) is RadarEventClass::Create, gamemd.exe 0x0065FA70
+# (lane Y12: the tree defines it as the static member and declares the free function too).
+__Z18Submit_Radar_Event14RadarEventType4Cell	__ZN15RadarEventClass6CreateE14RadarEventType4Cell
+# FUN_00622B50 (stlscore.cpp: the campaign score screen's dialog procedure passes the rest on to it) is UI::StandardWndProc, gamemd.exe 0x00622B50 (lane Y12).
+__Z12FUN_00622B50P6HWND__jyx	__ZN2UI15StandardWndProcEP6HWND__jyx
+# FUN_005BF390 (taction.cpp: the in-game movie actions) is Play_Ingame_Movie(VQType, bool), gamemd.exe 0x005BF390 (lane Y12, the campaign chain reached it).
+__Z12FUN_005BF3906VQTypeb	__Z17Play_Ingame_Movie6VQTypeb
+# FUN_0041C610 (init.cpp Delete_All_Objects: the qsort compare of the object index) is IndexClass<int, AbstractClass *>::search_compfunc, gamemd.exe 0x0041C610 (lane Y12).
+__Z12FUN_0041C610PKvS0_	__ZN10IndexClassIiP13AbstractClassE15search_compfuncEPKvS4_

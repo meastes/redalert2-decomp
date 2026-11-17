@@ -26,3 +26,26 @@ AttachType Attaches_To(TActionType event)
 	}
 	return(attach);
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y12): TActionClass::TAction_IRON_CURTAIN (action 109), gamemd.exe 0x006E36E0
+// (the operator()'s case calls it; unmatched in the YR tree, a link-closure trap of the campaign's play
+// paths). Written from gamemd.exe's code: the iron curtain's invoke animation over the waypoint's cell
+// (five leptons up), then every object in that cell and its eight neighbours (MapClass::RadiusCount[1], nine
+// cells of Unsorted::CellSpreadTable) gets the iron curtain for Rule->IronCurtainDuration.
+// ---------------------------------------------------------------------------------------------
+namespace Unsorted { extern Cell CellSpreadTable[]; }
+bool TActionClass::TAction_IRON_CURTAIN(HouseClass *, ObjectClass *, TriggerClass *, Cell const &)
+{
+	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
+	Coord coord = Map[waypoint].Center_Coord();
+	coord.Z += 5;
+	new AnimClass(Rule->IronCurtainInvokeAnim, coord, 0, 1, ShapeFlags_Type(0x600), 0, false);
+	for (int index = 0; index < 9; index++) {
+		Cell cell = waypoint + Unsorted::CellSpreadTable[index];
+		for (ObjectClass * object = Map[cell].Cell_Occupier(); object != NULL; object = object->Next) {
+			object->IronCurtain(Rule->IronCurtainDuration, NULL, false);
+		}
+	}
+	return(true);
+}

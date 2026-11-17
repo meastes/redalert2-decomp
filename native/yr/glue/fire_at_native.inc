@@ -9,8 +9,8 @@
 // damage multipliers; the disk laser (a DiskLaserClass fires instead of a bullet); the building's
 // occupant cycling; recoil on turret-equipped types; the berserk half rearm; the occupant and
 // open-topped firing animations; the sound skipped for gattling types; the magnetron beam; the last
-// fire frame. NATIVE: the railgun's beam damage (gamemd.exe 0x0070C690, not in the tree) is left out:
-// the railgun's particle system ends at the target. Behaviour code for the native build; never part
+// fire frame; the railgun's beam damage (gamemd.exe 0x0070C690, not in the tree; lane Y12, below).
+// Behaviour code for the native build; never part
 // of an exact build.
 // ---------------------------------------------------------------------------------------------
 #include "disklaser.h"
@@ -25,6 +25,86 @@ static Coord const Static_Spray[8] = {
 	Coord(256, 0, 0), Coord(180, 180, 0), Coord(0, 256, 0), Coord(-180, 180, 0),
 	Coord(-256, 0, 0), Coord(-180, -180, 0), Coord(0, -256, 0), Coord(180, -180, 0)
 };
+
+// NON-EXACT NATIVE DRAFT (lane Y12): the railgun's beam damage, gamemd.exe 0x0070C690 (1,523 bytes, a
+// TechnoClass member the tree declares but does not define), written from gamemd.exe's code. The beam is walked from
+// the firing point to the target in 50 steps (i / 49 of the way); in each new cell it passes, every
+// techno in the cell's occupier list (the bridge list when the cell is under a bridge and the beam is
+// at least four levels above the cell) other than the firer is hit when it lies within
+// Rule->RailgunDamageRadius of the beam's line (a building always), or when it is the target. If the
+// beam meets the ground first it stops there: a destroyable cliff there may collapse
+// (Rule->CollapseChance) and nothing is damaged. Otherwise the target is hit too (it is always hit
+// when the walk missed it), each hit object takes the weapon's AmbientDamage with its warhead from
+// the firer, a cliff cell aimed at may collapse, and the beam ends at the target. Returns the end.
+Coord TechnoClass::Railgun_Beam_Damage(Coord & source, AbstractClass * target, WeaponTypeClass * weapon)
+{
+	TechnoClass * firer = this;
+	Coord target_coord = target->Center_Coord();
+	float sx = (float)source.X, sy = (float)source.Y, sz = (float)source.Z;
+	float dx = (float)target_coord.X - sx, dy = (float)target_coord.Y - sy, dz = (float)target_coord.Z - sz;
+	Cell last_cell = source.As_Cell();
+	bool hit_target = false;
+	DynamicVectorClass<ObjectClass *> hits;
+
+	for (int step = 0; step < 50; step++) {
+		Coord point = Lerp(source, target_coord, (float)step * (1.0f / 49.0f));
+		Cell cell = point.As_Cell();
+		if (cell == last_cell) {
+			continue;
+		}
+		last_cell = cell;
+		CellClass & cellref = Map[cell];
+		bool bridge = cellref.IsUnderBridge && point.Z >= (cellref.Height + 4) * LEVEL_LEPTON_H;
+		for (ObjectClass * object = cellref.Cell_Occupier(bridge); object != NULL; object = object->Next) {
+			if (object == firer) {
+				continue;
+			}
+			if (object == target) {
+				hit_target = true;
+			}
+			if (!object->Is_Techno()) {
+				continue;
+			}
+			float distance = 0.0f;
+			if (object->Fetch_RTTI() != RTTI_BUILDING) {
+				// the distance of the object from the beam's line: w = P - S, e = (w x D) x D, |e . w| / |e|
+				float wx = (float)object->Position.X - sx, wy = (float)object->Position.Y - sy, wz = (float)object->Position.Z - sz;
+				float cx = wy * dz - wz * dy, cy = wz * dx - wx * dz, cz = wx * dy - wy * dx;
+				float ex = cy * dz - cz * dy, ey = cz * dx - cx * dz, ez = cx * dy - cy * dx;
+				double length = sqrt((double)ex * ex + (double)ey * ey + (double)ez * ez);
+				distance = length > 0.0 ? (float)fabs((ex * wx + ey * wy + ez * wz) / length) : 0.0f;
+			}
+			if (distance < (float)Rule->RailgunDamageRadius || object == target) {
+				if (hits.ID(object) == -1) {
+					hits.Add(object);
+				}
+			}
+		}
+		if (Map.Get_Height_GL(point) > point.Z) {
+			CellClass * ground = &Map[point];
+			if (ground->Is_Tile_Destroyable_Cliff() && Scen->RandomNumber(0, 99) < Rule->CollapseChance) {
+				Map.Collapse_Cliff(&Map[point]);
+			}
+			return(point);
+		}
+	}
+	if (!hit_target && target != NULL && (target->AbstractFlags & 2)) {
+		if (hits.ID((ObjectClass *)target) == -1) {
+			hits.Add((ObjectClass *)target);
+		}
+	}
+	for (int index = 0; index < hits.Count(); index++) {
+		int damage = weapon->AmbientDamage;
+		hits[index]->Take_Damage(damage, 0, weapon->WarheadPtr, firer, false, false, NULL);
+	}
+	if (target->Fetch_RTTI() == RTTI_CELL) {
+		CellClass * cell = (CellClass *)target;
+		if (cell->Is_Tile_Destroyable_Cliff() && Scen->RandomNumber(0, 99) < Rule->CollapseChance) {
+			Map.Collapse_Cliff(cell);
+		}
+	}
+	return(target_coord);
+}
 
 BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 {
@@ -290,8 +370,9 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 				ParticleSystems[1] = new ParticleSystemClass(weapon->AttachedParticleSystem, fire_coord, target, this, Coord(0, 0, 0), NULL);
 			}
 			if (weapon->IsRailgun && ParticleSystems[4] == NULL) {
-				// NATIVE: gamemd.exe's railgun beam damage (0x0070C690) is not drafted; the beam ends at the target.
-				ParticleSystems[4] = new ParticleSystemClass(weapon->AttachedParticleSystem, fire_coord, NULL, this, target_coord, NULL);
+				// gamemd.exe 0x006FF20F: the beam's damage first; the beam is drawn to where it ended.
+				Coord beam_end = Railgun_Beam_Damage(fire_coord, target, weapon);
+				ParticleSystems[4] = new ParticleSystemClass(weapon->AttachedParticleSystem, fire_coord, NULL, this, beam_end, NULL);
 			}
 
 			BurstIndex++;

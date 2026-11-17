@@ -10,7 +10,7 @@ decompilation are in [STATUS.md](STATUS.md); this file covers only the ports.
 |---|---|---|
 | Mac (Apple silicon, arm64) | macOS 26.0 | The app binary's build version (`otool -l`, minos 26.0); played on the owner's Mac |
 | iPhone | iOS 17.0 (build default) | Built and installed on the user's foldable iPhone ("Duo"); played there. One app holds both games (see "One app, two games") |
-| iPad | iOS 17.0 | Not verified: the app carries iPad icons but has not been run on an iPad |
+| iPad | iOS 17.0 | Simulator only (lane N1, 2026-11-17, iPad Air 11-inch (M4) Simulator, iOS 27): the one-game app imports the game, plays at 1040x720, the main menu, Options and back, Single Player, Skirmish, Start Game, then touch play (pan, hold-and-drag box, two-finger tap, the toolbar's Deploy, a sidebar build) at 62 frames/s with no fault. Not verified on a real iPad |
 | Windows (x86_64) | Windows 10 or later (needs the UCRT that ships with Windows 10) | Cross-built on the Mac; played by the user on a real Windows PC (LAN game, 2026-11-15/16); test runs under Wine |
 
 No Rosetta, Wine, virtual machine or emulation is used by the shipped ports: the game code is
@@ -109,8 +109,10 @@ platform layer. It earns no exact-match credit.
 - Internet play: held. The Internet button is disabled.
 - Open faults: the Yuri's Revenge items above (Fire_At in longer games, the loading screen, the
   start crash seen once in the simulator).
-- Unchecked code: 126 rewritten functions are not reached by any test or play so far (lane C21);
-  most belong to features the base game does not use.
+- Unchecked code: 124 rewritten functions are not reached by any test or play so far (lane C21). Lane N1
+  (2026-11-17) labelled each from game.exe's callers: 110 reachable in the base game but on paths no
+  test takes yet (each statically checked), 6 unreachable in the base game, 8 unreachable in the port
+  (Westwood Online only, or a branch the port never takes); `native/behaviour_rewrites.json` `reach`.
 - No signed or notarised builds: no TestFlight, no Mac notarisation, no Windows code signing.
   Gatekeeper and SmartScreen will warn.
 

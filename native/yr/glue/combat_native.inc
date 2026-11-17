@@ -152,9 +152,9 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 						TPoint3D<float> rockdirf((float)(scoord.X - tcoord.X), (float)(scoord.Y - tcoord.Y), (float)(scoord.Z - tcoord.Z));
 						rockdirf = rockdirf.Normalize() * 10;
 						tcoord += Coord(rockdirf.X, rockdirf.Y, rockdirf.Z);
-						techno->Rock(tcoord, rocking_force);
+						techno->vt_entry_3D8(tcoord, (float)rocking_force, false);	// gamemd.exe 0x00489DFF: the rocking slot 0x3D8, third argument false (lane Y12)
 					} else {
-						techno->Rock(coord, rocking_force);
+						techno->vt_entry_3D8(coord, (float)rocking_force, false);
 					}
 				}
 			}

@@ -69,6 +69,8 @@ static void yr_native_harness_save(int frame)
     ra2port_progress("harness-save", detail);
 }
 
+void yr_native_harness_frame(int frame);
+
 bool yr_native_main_loop(void)
 {
     static int frames = 0;
@@ -77,6 +79,7 @@ bool yr_native_main_loop(void)
     if (over) ra2_enh_in_play(0);
     ra2port_frame(++frames);
     yr_native_harness_save(frames);
+    yr_native_harness_frame(frames);   // yr_harness.cpp: RA2_NATIVE_ORDERS, RA2_NATIVE_FORCE_END (lane Y12)
     // --run-to=frames --frames=N (lane Y10, as the RA2 game's Main_Loop seam): N frames of a game
     // started from the menus, or loaded (--load-save: the count starts with the loaded game).
     if (frames == ra2port_skirmish_frames()) {

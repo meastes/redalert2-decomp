@@ -14,49 +14,80 @@ bool Inside(Rect const &clip, int x, int y)
 
 // 0x007746C0 XSurface::Draw_Ellipse (slot 8; DSurface and BSurface inherit it): the
 // outline of the ellipse with radii rx, ry around center, each pixel inside the clip
-// rectangle put with Put_Pixel (slot 9), as the original's midpoint walk does.
-// Reached by Draw_Radial_Indicator 0x00451BF0 (the range circle of a selected or
+// rectangle. Reached by Draw_Radial_Indicator 0x00451BF0 (the range circle of a selected or
 // placed building with a radial indicator).
+// Lane N1 (checked against the original's instructions 0x007746C0-0x00774C83): the original
+// walks the outline from both axes, not as one midpoint walk with a second region. It puts
+// (cx, cy +- ry) with Put_Pixel (slot 9), then steps x from the top/bottom with the midpoint
+// rule until 2*b2*x >= 2*a2*y (that point not drawn); then puts (cx +- rx, cy) and steps y from
+// the sides with the mirrored rule until 2*a2*y > 2*b2*x (equality drawn). Its other pixels
+// are 16-bit stores through Lock(0, 0) at pitch Get_Pitch()/2, the same pixels Put_Pixel
+// writes on the 16-bit surfaces the game draws on; it returns Unlock's result. The products
+// are 32-bit (imul) and a2/4, b2/4 divide toward zero (cdq; and 3; sar 2), kept here with
+// wrapping 32-bit arithmetic. No negative-radius guard (the original has none).
 bool XSurface::Draw_Ellipse(Point2D center, int rx, int ry, Rect cliprect, int color)
 {
-    if (rx < 0 || ry < 0) {
-        return false;
-    }
-    auto plot4 = [&](int dx, int dy) {
-        int const xs[2] = {center.X + dx, center.X - dx};
-        int const ys[2] = {center.Y + dy, center.Y - dy};
-        for (int i = 0; i < (dx ? 2 : 1); ++i) {
-            for (int j = 0; j < (dy ? 2 : 1); ++j) {
-                if (Inside(cliprect, xs[i], ys[j])) {
-                    Point2D p;
-                    p.X = xs[i];
-                    p.Y = ys[j];
-                    Put_Pixel(p, color);
-                }
-            }
+    auto put = [&](int x, int y) {
+        if (Inside(cliprect, x, y)) {
+            Point2D p;
+            p.X = x;
+            p.Y = y;
+            Put_Pixel(p, color);
         }
     };
-    long long a2 = (long long)rx * rx, b2 = (long long)ry * ry;
-    int x = 0, y = ry;
-    long long d = b2 - a2 * ry + a2 / 4;
-    while (b2 * x <= a2 * y) {             // region 1: slope above -1
-        plot4(x, y);
-        if (d >= 0) {
-            --y;
-            d -= 2 * a2 * y;
-        }
-        ++x;
-        d += b2 * (2 * x + 1);
-    }
-    d = b2 * x * x + b2 * x + b2 / 4 + a2 * (long long)(y - 1) * (y - 1) - a2 * b2;
-    while (y >= 0) {                       // region 2
-        plot4(x, y);
-        if (d <= 0) {
+    auto put4 = [&](int dx, int dy) {
+        put(center.X + dx, center.Y + dy);
+        put(center.X - dx, center.Y - dy);
+        put(center.X + dx, center.Y - dy);
+        put(center.X - dx, center.Y + dy);
+    };
+    auto mul = [](unsigned a, unsigned b) { return a * b; };     // imul: 32-bit, wrapping
+    unsigned const b2 = mul(ry, ry);
+    unsigned const a2 = mul(rx, rx);
+
+    // From the top and bottom: x steps, y follows.
+    put(center.X, center.Y + ry);
+    put(center.X, center.Y - ry);
+    {
+        int x = 0, y = ry;
+        unsigned px = 0, py = 2 * mul(a2, ry);
+        unsigned d = (unsigned)((int)a2 / 4) - mul(a2, ry);
+        for (;;) {
+            d += px + b2;
+            if ((int)d >= 0) {
+                py -= 2 * a2;
+                d -= py;
+                --y;
+            }
+            px += 2 * b2;
             ++x;
-            d += 2 * b2 * x;
+            if ((int)px >= (int)py) {
+                break;
+            }
+            put4(x, y);
         }
-        --y;
-        d += a2 * (1 - 2 * y);
+    }
+    // From the sides: y steps, x follows.
+    put(center.X + rx, center.Y);
+    put(center.X - rx, center.Y);
+    {
+        int x = rx, y = 0;
+        unsigned px = 0, py = 2 * mul(b2, rx);
+        unsigned d = (unsigned)((int)b2 / 4) - mul(b2, rx);
+        for (;;) {
+            d += px + a2;
+            if ((int)d >= 0) {
+                py -= 2 * b2;
+                d -= py;
+                --x;
+            }
+            px += 2 * a2;
+            ++y;
+            if ((int)px > (int)py) {
+                break;
+            }
+            put4(x, y);
+        }
     }
     return true;
 }

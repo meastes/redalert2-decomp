@@ -2,27 +2,52 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Packages a built ra2-native as RA2.app (README.md in this folder).
 #   native/packaging/make_app.sh <path/to/ra2-native> [<output folder>]
+#   native/packaging/make_app.sh --one-game <path/to/ra2yr-native> [<output folder>]
+# --one-game (lane N1): the Mac one-game app, RA2YR.app: the thin host ra2yr-native as
+# Contents/MacOS/RA2 with its two engine bundles (ra2-engine.so, yr-engine.so, built beside it
+# with -DRA2_NATIVE_YR=ON -DRA2_NATIVE_COMBINED=ON) next to it, where the host loads them
+# (yr/combined/one_game.cpp executable_dir); every Mach-O's SDL path rewritten to the bundled
+# copy; engines signed before the app. Bundle id RA2_APP_ID, default local.ra2native.ra2yr (the
+# owner's first hand-made RA2YR.app, so folder permissions already granted carry over).
 # The bundle holds the executable, the SDL3 library it links (zlib licence,
 # with its LICENSE), a generated placeholder icon and Info.plist; it is signed
 # ad hoc for this Mac only (no notarisation, never published). It never holds
 # game data or a game.exe: the app asks for the installed game on first run.
 set -eu
 
+one_game=0
+if [ "${1:-}" = --one-game ]; then
+    one_game=1
+    shift
+fi
 if [ $# -lt 1 ] || [ $# -gt 2 ]; then
-    echo "usage: $0 <path/to/ra2-native> [<output folder>]" >&2
+    echo "usage: $0 [--one-game] <path/to/ra2-native or ra2yr-native> [<output folder>]" >&2
     exit 64
 fi
 binary=$1
 out=${2:-$(dirname "$binary")}
 here=$(cd "$(dirname "$0")" && pwd)
 [ -x "$binary" ] || { echo "make_app: $binary is not an executable" >&2; exit 1; }
+engines=""
+if [ $one_game = 1 ]; then
+    # The thin host and its two engines (yr/combined.cmake).
+    for engine in ra2-engine.so yr-engine.so; do
+        [ -f "$(dirname "$binary")/$engine" ] || { echo "make_app: no $engine beside $binary: build ra2yr-native with -DRA2_NATIVE_YR=ON -DRA2_NATIVE_COMBINED=ON" >&2; exit 1; }
+        nm -gU "$(dirname "$binary")/$engine" 2>/dev/null | grep -q ' T _ra2_engine_main$' || { echo "make_app: $engine exports no ra2_engine_main" >&2; exit 1; }
+        engines="$engines $engine"
+    done
+    app_name=RA2YR
+    app_id=${RA2_APP_ID:-local.ra2native.ra2yr}
 # Only the game build (RA2_NATIVE_SUBSYSTEM=all) is an app.
-if ! nm "$binary" 2>/dev/null | grep -q ' T _WinMain$'; then
+elif ! nm "$binary" 2>/dev/null | grep -q ' T _WinMain$'; then
     echo "make_app: $binary has no WinMain: configure with -DRA2_NATIVE_SUBSYSTEM=all" >&2
     exit 1
+else
+    app_name=RA2
+    app_id=${RA2_APP_ID:-io.github.ra2native.RA2}
 fi
 
-app=$out/RA2.app
+app=$out/$app_name.app
 contents=$app/Contents
 work=$(mktemp -d "${TMPDIR:-/tmp}/ra2-app.XXXXXX")
 trap 'rm -rf "$work"' EXIT
@@ -31,6 +56,10 @@ rm -rf "$app"
 mkdir -p "$contents/MacOS" "$contents/Resources" "$contents/Frameworks"
 /bin/cp -f "$binary" "$contents/MacOS/RA2"
 chmod 755 "$contents/MacOS/RA2"
+for engine in $engines; do
+    /bin/cp -f "$(dirname "$binary")/$engine" "$contents/MacOS/$engine"
+    chmod 755 "$contents/MacOS/$engine"
+done
 
 # Info.plist: the version from git when the source is a checkout.
 version=0.1
@@ -38,7 +67,11 @@ build=$(git -C "$here" rev-parse --short HEAD 2>/dev/null || echo local)
 minos=$(otool -l "$binary" | awk '/LC_BUILD_VERSION/{f=1} f&&/minos/{print $2; exit}')
 [ -n "$minos" ] || minos=13.0
 sed -e "s/@VERSION@/$version/" -e "s/@BUILD@/$build/" -e "s/@MINOS@/$minos/" \
+    -e "s/io\.github\.ra2native\.RA2</$app_id</" \
     "$here/Info.plist.in" > "$contents/Info.plist"
+if [ $one_game = 1 ]; then
+    plutil -replace CFBundleName -string RA2YR "$contents/Info.plist"
+fi
 plutil -lint "$contents/Info.plist" >/dev/null
 printf 'APPL????' > "$contents/PkgInfo"
 
@@ -84,11 +117,14 @@ bundle_lib() {
         install_name_tool -change "$dep" "@loader_path/$(basename "$dep")" "$contents/Frameworks/$name"
     done
 }
-for lib in $(non_system "$binary"); do
-    bundle_lib "$lib"
-    install_name_tool -change "$lib" "@executable_path/../Frameworks/$(basename "$lib")" "$contents/MacOS/RA2"
+# The engines load into the host's process, so @executable_path is the host's folder for them too.
+for exe in RA2 $engines; do
+    for lib in $(non_system "$contents/MacOS/$exe"); do
+        bundle_lib "$lib"
+        install_name_tool -change "$lib" "@executable_path/../Frameworks/$(basename "$lib")" "$contents/MacOS/$exe"
+    done
 done
-for file in "$contents/MacOS/RA2" "$contents/Frameworks"/*; do
+for file in "$contents/MacOS"/* "$contents/Frameworks"/*; do
     [ -f "$file" ] || continue
     if [ -n "$(non_system "$file")" ]; then
         echo "make_app: unbundled library left in $file:" >&2
@@ -104,10 +140,13 @@ if find "$app" -type f \( -iname '*.mix' -o -iname '*.exe' -o -iname '*.mmx' -o 
     exit 1
 fi
 
-# Ad-hoc signature (this Mac only): the libraries first, then the app.
+# Ad-hoc signature (this Mac only): the libraries and engines first, then the app.
 for lib in "$contents/Frameworks"/*; do
     if [ -f "$lib" ]; then codesign --force --sign - "$lib"; fi
 done
-codesign --force --sign - --identifier io.github.ra2native.RA2 "$app"
+for engine in $engines; do
+    codesign --force --sign - "$contents/MacOS/$engine"
+done
+codesign --force --sign - --identifier "$app_id" "$app"
 codesign --verify --strict --deep "$app"
 echo "make_app: $app"

@@ -596,6 +596,11 @@
    "why": "OwnerDraw::ComboBoxHandler (0x00617250) and the ComboDropWin procedure FUN_0060D540 (0x0060D540), unmatched in the YR tree; native drafts from the RA2 tree's rewrite and matched twin with gamemd.exe's globals (lane Y3)."
   },
   {
+   "file": "src/ownrdraw.cpp",
+   "append": "ownrdraw_list_native.inc",
+   "why": "OwnerDraw::ListBoxHandler (0x00618D40, the campaign dialog's and the load dialog's lists) is unmatched in the YR tree; a native draft from the RA2 tree's list rewrite, drawn as the YR combo's drop list (lane Y12), appended after the combo draft whose helpers it uses."
+  },
+  {
    "file": "src/srfcache.cpp",
    "append": "srfcache_native.inc",
    "why": "SurfaceCacheClass::Draw (0x006BA3E0) and DrawMasked, unmatched in the YR tree; TibSun's text, adopted with attribution (lane Y3)."
@@ -1345,6 +1350,74 @@
    "old": "\t\tif (FUN_00609BC0(parent, window)) {\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
    "new": "\t\tif (FUN_00609BC0(parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\t// NATIVE (lane C23, Y11): the one-game toggle\n\t\t\tdata->Dialog.LayoutBand = 1;\n",
    "why": "Native addition: the one-game app's toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) is drawn and animated as the main menu's sidebar buttons (WinData +0xB0 = 1, as FUN_00609BC0 gives Exit Game), as RA2's twin 0x005E7EB0 gives it (port/fixups.json). FUN_00609BC0 knows only the listed dialogs' ids. Lane Y11 (user request 2026-11-17, adopted by the owner): the toggle is a regular main-menu sidebar button in the slot directly above Exit Game, so it takes the sidebar buttons' kind as Exit Game does (record +0xB0 = 1) instead of the dialogs' push buttons' (3)."
+  },
+  {
+   "file": "src/egos.cpp",
+   "append": "egos_native.inc",
+   "why": "Show_Who_Was_Responsible (0x004C3E30, the credits: the main menu's Credits and the end of a campaign) is unmatched in the YR tree; a native draft from the RA2 draft's text and gamemd.exe's code (lane Y12), appended to the egos unit."
+  },
+  {
+   "file": "hdr/progress.h",
+   "old": "void Set_Graphic_Data(char const * progbar, char const * background, int string);",
+   "new": "void Set_Graphic_Data(char const * progbar, char const * background, intptr_t string);",
+   "why": "Native: ProgressScreenClass::Set_Graphic_Data's third argument and Field74 carry the load bar's drawer (Start_Scenario passes FUN_0072B380()'s ConvertClass pointer; Draw_Bar draws through it); as int they cut the pointer to 32 bits and the campaign's load bar faulted in Draw_Shape (lane Y12). Pointer-wide here; gamemd.exe's 32-bit ints are the same width as its pointers."
+  },
+  {
+   "file": "hdr/progress.h",
+   "old": "\t\tint Field74;",
+   "new": "\t\tintptr_t Field74;",
+   "why": "Native: ProgressScreenClass::Set_Graphic_Data's third argument and Field74 carry the load bar's drawer (Start_Scenario passes FUN_0072B380()'s ConvertClass pointer; Draw_Bar draws through it); as int they cut the pointer to 32 bits and the campaign's load bar faulted in Draw_Shape (lane Y12). Pointer-wide here; gamemd.exe's 32-bit ints are the same width as its pointers."
+  },
+  {
+   "file": "src/progress.cpp",
+   "old": "void ProgressScreenClass::Set_Graphic_Data(char const * progbar, char const * background, int string)",
+   "new": "void ProgressScreenClass::Set_Graphic_Data(char const * progbar, char const * background, intptr_t string)",
+   "why": "Native: ProgressScreenClass::Set_Graphic_Data's third argument and Field74 carry the load bar's drawer (Start_Scenario passes FUN_0072B380()'s ConvertClass pointer; Draw_Bar draws through it); as int they cut the pointer to 32 bits and the campaign's load bar faulted in Draw_Shape (lane Y12). Pointer-wide here; gamemd.exe's 32-bit ints are the same width as its pointers."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": "Progress.Set_Graphic_Data(\"SPLDBR.SHP\", NULL, FUN_0072B380());",
+   "new": "Progress.Set_Graphic_Data(\"SPLDBR.SHP\", NULL, (intptr_t)FUN_0072B380());",
+   "why": "Native: ProgressScreenClass::Set_Graphic_Data's third argument and Field74 carry the load bar's drawer (Start_Scenario passes FUN_0072B380()'s ConvertClass pointer; Draw_Bar draws through it); as int they cut the pointer to 32 bits and the campaign's load bar faulted in Draw_Shape (lane Y12). Pointer-wide here; gamemd.exe's 32-bit ints are the same width as its pointers."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": "int __fastcall FUN_0072B380(void);",
+   "new": "class ConvertClass;\nConvertClass * FUN_0072B380(void);",
+   "why": "Native: scenario.cpp declares FUN_0072B380 (txtlabel2.cpp, the load bar's drawer) as returning int; the ConvertClass pointer it returns was cut to 32 bits before Set_Graphic_Data kept it, and the campaign's load bar faulted in Draw_Shape (lane Y12). Declared as txtlabel2.cpp defines it."
+  },
+  {
+   "file": "src/ship.cpp",
+   "append": "ship_native.inc",
+   "why": "ShipLocomotionClass::Draw_Matrix and While_Moving (and its track tables) are unmatched in the YR tree; gamemd.exe's ship locomotor is a clone of the drive locomotor, so the drive drafts' text under the ship's name (lane Y12)."
+  },
+  {
+   "file": "src/hover.cpp",
+   "append": "hover_native.inc",
+   "why": "HoverLocomotionClass::Process, While_Moving and Start_Of_Move are unmatched in the YR tree; TibSun's text (lane Y12)."
+  },
+  {
+   "file": "hdr/rocket.h",
+   "old": "\t\tvirtual HRESULT STDMETHODCALLTYPE Save(IStream * stream, BOOL cleardirty) override;\n",
+   "new": "",
+   "why": "gamemd.exe's RocketLocomotionClass vtables (ILocomotion 0x007F0A90.., IPersistStream 0x007F0BE8) hold LocomotionClass's own Save (0x0055AA60), Do_Turn (0x0055AC30) and Mark_All_Occupation_Bits (0x004B6620): the rocket does not override them. The tree declared overrides it never defines (link-closure traps; a Soviet mission's save reached Save, lane Y12); the declarations go, so the class inherits them as the original does."
+  },
+  {
+   "file": "hdr/rocket.h",
+   "old": "\t\tvirtual void STDMETHODCALLTYPE Do_Turn(DirStruct coord) override;\n",
+   "new": "",
+   "why": "gamemd.exe's RocketLocomotionClass vtables (ILocomotion 0x007F0A90.., IPersistStream 0x007F0BE8) hold LocomotionClass's own Save (0x0055AA60), Do_Turn (0x0055AC30) and Mark_All_Occupation_Bits (0x004B6620): the rocket does not override them. The tree declared overrides it never defines (link-closure traps; a Soviet mission's save reached Save, lane Y12); the declarations go, so the class inherits them as the original does."
+  },
+  {
+   "file": "hdr/rocket.h",
+   "old": "\t\tvirtual void STDMETHODCALLTYPE Mark_All_Occupation_Bits(int mark) override;\n",
+   "new": "",
+   "why": "gamemd.exe's RocketLocomotionClass vtables (ILocomotion 0x007F0A90.., IPersistStream 0x007F0BE8) hold LocomotionClass's own Save (0x0055AA60), Do_Turn (0x0055AC30) and Mark_All_Occupation_Bits (0x004B6620): the rocket does not override them. The tree declared overrides it never defines (link-closure traps; a Soviet mission's save reached Save, lane Y12); the declarations go, so the class inherits them as the original does."
+  },
+  {
+   "file": "src/vanim.cpp",
+   "append": "vanim_native.inc",
+   "why": "VoxelAnimClass's main constructor (0x007493B0) is unmatched in the YR tree; TibSun's text with gamemd.exe's audio and particle changes (lane Y12)."
   }
  ]
 }

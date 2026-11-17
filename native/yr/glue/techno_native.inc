@@ -390,3 +390,51 @@ bool TechnoClass::Can_Deploy_Now(void) const
 			return(Techno_Type_Class()->Max_Passengers() != 0);
 	}
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y12): the rocking from an impact, TechnoClass vtable slot 0x3D8, gamemd.exe
+// 0x0070B280 (752 bytes; the tree's vt_entry_3D8, unmatched: a link-closure trap that the area damage of
+// a rocker warhead reached in the first Soviet mission; Explosion_Damage, BulletClass and the parasite
+// call it). Red Alert 2's draft of the same function (src/recovered/techno.cpp, game.exe 0x006D5F40,
+// TechnoClass slot 223) in the YR tree's names, with gamemd.exe's change: the third argument keeps the full
+// forward rocking (false halves it, as Red Alert 2 always does). Only voxel units rock. Behaviour code for
+// the native build; never part of an exact build.
+// ---------------------------------------------------------------------------------------------
+void TechnoClass::vt_entry_3D8(Coord const & coord, float force, bool full)
+{
+	TechnoTypeClass const * type = Techno_Type_Class();
+	if (type->Voxel.VoxLib == NULL || type->Voxel.VoxLib->Load_Failed()) {
+		return;
+	}
+	float vx = (float)(Position.X - coord.X);
+	float vy = (float)(coord.Y - Position.Y);
+	float vz = (float)(Position.Z - coord.Z);
+	double theta = PrimaryFacing.Current().As_Radian();
+	float sangle = (float)fastmath::sin(theta);
+	float cangle = (float)fastmath::cos(theta);
+	float distance = (float)fastmath::sqrt((double)vx * vx + (double)vy * vy + (double)vz * vz);
+	float scale = (float)((0.04f - distance * 0.000025f) * force / type->Weight);
+	if (fabs(distance) < 0.00002 || scale < 0.01f) {
+		return;
+	}
+	if (scale > 0.05f) {
+		scale = 0.05f;
+	}
+	// The direction in the ground plane, normalised.
+	float length = (float)fastmath::sqrt((double)vx * vx + (double)vy * vy);
+	float nx = vx, ny = vy, nz = 0.0f;
+	if (length != 0.0f) {
+		nx = vx / length;
+		ny = vy / length;
+	}
+	float forwards = nx * cangle + ny * sangle;
+	float cx = -(nz * sangle);
+	float cy = nz * cangle;
+	float cz = nx * sangle - ny * cangle;
+	double sideways = fastmath::sqrt((double)cx * cx + (double)cy * cy + (double)cz * cz);
+	if (fabs(forwards * cangle - sideways * sangle - nx) > 0.0002 || fabs(sideways * cangle + forwards * sangle - ny) > 0.0002) {
+		sideways = -sideways;
+	}
+	RockingForwardsPerFrame = full ? forwards * scale : forwards * scale / 2.0f;
+	RockingSidewaysPerFrame = -((float)sideways * scale);
+}

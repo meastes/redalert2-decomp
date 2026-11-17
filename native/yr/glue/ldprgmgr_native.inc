@@ -6,9 +6,8 @@
 // render-size surface (ProgressSurface) filled with the black colour, then the country's loading
 // picture "ls<640|800><country>.shp" (the observer's in IPX/Internet games when the first player
 // has no house) through FUN_0072B500's drawer at LoadScreenSHPRect. Lane Y11 added the map preview
-// and the texts (country, unit, briefing, Loading). NOT YET DRAWN (open in native/yr/README.md): the
-// campaign screen (Session.Type GAME_NORMAL: the scenario's pictures and briefing) and the
-// coop-campaign picture. Behaviour code for the native build; never part of an exact build.
+// and the texts (country, unit, briefing, Loading); lane Y12 the campaign screen (Draw_Campaign).
+// NOT YET DRAWN: the coop-campaign picture. Behaviour code for the native build; never part of an exact build.
 // ---------------------------------------------------------------------------------------------
 ConvertClass * __fastcall FUN_0072B500(void);
 void *YR_LoadWholeFileEx_ld(char const *name, bool &allocated) __asm__("__ZN10FileSystem15LoadWholeFileExEPKcRb");
@@ -19,6 +18,87 @@ void *YR_LoadWholeFileEx_ld(char const *name, bool &allocated) __asm__("__ZN10Fi
 #include "scheme.h"
 #include "multiplayer.h"
 #include "stringtable.h"
+#include "dialog.h"
+
+char const * __fastcall FUN_0072B2F0(int width, int height, int side);   // txtlabel2.cpp: the title band's file
+char const * __fastcall FUN_0072B310(int width, int height, int side);   // the load bar's file
+ConvertClass * FUN_0072B340(void);                                       // their drawers
+ConvertClass * FUN_0072B360(void);
+ConvertClass * FUN_0072B380(void);
+void __fastcall FUN_0072B390(char const * name);                         // the campaign picture's palette
+
+// The campaign's loading screen (lane Y12, gamemd.exe 0x00552E65-0x005532FD, the GAME_NORMAL branch;
+// it was not drawn): the side's title band, the scenario's picture (ScenarioClass LS640BkgdName or
+// LS800BkgdName with the LS800BkgdPal palette) and the side's load bar, each at its rect (a missing
+// band or bar leaves its rect black); the mission's name (LSLoadMessage) at the title band's corner in
+// the side's colour scheme, and its briefing (LSBrief) on a dimmed box at the scenario's
+// LS640BriefLoc / LS800BriefLoc from the picture's rect, 400 pixels wide. Nothing is drawn without a
+// picture name; no briefing ends it there.
+static void Draw_Campaign(LoadProgressManager & self, BSurface & surface, bool small)
+{
+	char const * picture = small ? Scen->LS640BkgdName : Scen->LS800BkgdName;
+	if (picture[0] == '\0') {
+		return;
+	}
+	FUN_0072B390(Scen->LS800BkgdPal);
+	self.LoadMessage = NULL;
+	if (Scen->LSLoadMessage[0] != '\0') {
+		self.LoadMessage = (wchar_t *)StringTable::LoadString(Scen->LSLoadMessage, NULL, "D:\\ra2mdpost\\LdPrgMgr.cpp", 0x297);
+	}
+	self.LoadBriefing = NULL;
+	if (Scen->LSBrief[0] != '\0') {
+		self.LoadBriefing = (wchar_t *)StringTable::LoadString(Scen->LSBrief, NULL, "D:\\ra2mdpost\\LdPrgMgr.cpp", 0x29B);
+	}
+	int side = Progress.Get_Side();
+	char const * title_name = FUN_0072B2F0(Drawing::RenderWidth, Drawing::RenderHeight, side);
+	char const * bar_name = FUN_0072B310(Drawing::RenderWidth, Drawing::RenderHeight, side);
+	self.TitleBarSHP = (SHPStruct *)YR_LoadWholeFileEx_ld(title_name, self.TitleBarSHP_loaded);
+	self.LoadBarSHP = (SHPStruct *)YR_LoadWholeFileEx_ld(bar_name, self.LoadBarSHP_loaded);
+	self.LoadScreenSHP = (SHPStruct *)YR_LoadWholeFileEx_ld(picture, self.LoadScreenSHP_loaded);
+	ConvertClass * title_drawer = FUN_0072B340();
+	ConvertClass * picture_drawer = FUN_0072B360();
+	ConvertClass * bar_drawer = FUN_0072B380();
+	Rect whole(0, 0, Drawing::RenderWidth, Drawing::RenderHeight);
+	int black = DSurface::Build_Hicolor_Pixel(BlackColor);
+	// gamemd.exe draws all three at the title band's X, each at its own rect's Y.
+	Point2D point(self.TitleBarRect.X, self.TitleBarRect.Y);
+	if (self.TitleBarSHP != NULL && title_drawer != NULL) {
+		Draw_Shape(surface, *title_drawer, (ShapeSet const *)self.TitleBarSHP, 0, point, whole, (ShapeFlags_Type)0x400);
+	} else {
+		surface.Fill_Rect(self.TitleBarRect, black);
+	}
+	point.Y = self.LoadBarSHPRect.Y;
+	if (self.LoadScreenSHP != NULL && picture_drawer != NULL) {
+		Draw_Shape(surface, *picture_drawer, (ShapeSet const *)self.LoadScreenSHP, 0, point, whole, (ShapeFlags_Type)0x400);
+	}
+	point.Y = self.LoadScreenSHPRect.Y;
+	if (self.LoadBarSHP != NULL && bar_drawer != NULL) {
+		Draw_Shape(surface, *bar_drawer, (ShapeSet const *)self.LoadBarSHP, 0, point, whole, (ShapeFlags_Type)0x400);
+	} else {
+		surface.Fill_Rect(self.LoadScreenSHPRect, black);
+	}
+	ColorScheme * scheme = Progress.Side_Scheme();
+	if (self.LoadMessage != NULL) {
+		Point2D ret;
+		Point2D at(self.TitleBarRect.X + 10, self.TitleBarRect.Y + 10);
+		Fancy_Text_Print_Wide(&ret, self.LoadMessage, &surface, &whole, &at, scheme, 0, (TextPrintType)0x19);
+	}
+	if (self.LoadBriefing == NULL) {
+		return;
+	}
+	Point2D at(self.LoadBarSHPRect.X + (small ? Scen->LS640BriefLocX : Scen->LS800BriefLocX),
+		self.LoadBarSHPRect.Y + (small ? Scen->LS640BriefLocY : Scen->LS800BriefLocY));
+	wchar_t brief[1024];
+	wcsncpy(brief, self.LoadBriefing, 1023);
+	brief[1023] = 0;
+	int pixel = DSurface::Build_Hicolor_Pixel((RGBClass)scheme->HSV);
+	int width = 0;
+	int height = 0;
+	BitFont::Instance->GetTextDimension(brief, &width, &height, 400);
+	FUN_005541C0(brief, &surface, at, 400, 0, false);
+	Rect box(at.X, at.Y, width, height);
+	FUN_00554280(brief, &surface, &box, pixel, 0);
+}
 
 void LoadProgressManager::Draw(void)
 {
@@ -28,6 +108,7 @@ void LoadProgressManager::Draw(void)
 	Rect whole(0, 0, Drawing::RenderWidth, Drawing::RenderHeight);
 	surface->Fill_Rect(whole, DSurface::Build_Hicolor_Pixel(BlackColor));
 	if (Session.Type == GAME_NORMAL) {
+		Draw_Campaign(*this, *surface, small);
 		return;
 	}
 	static char const * const pictures[10] = {

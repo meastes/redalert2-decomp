@@ -38,6 +38,50 @@ link-closure trap on the path instead of stopping at the first,
 `RA2_NATIVE_PRESENT_DUMP=<file.bmp>` writes every presented 16-bit primary frame
 there as a 24-bit BMP (the file holds the last one; test runs only).
 
+## Building the apps (one command per platform)
+
+`native/build.sh` builds and packages each port; run it from the checkout on a Mac.
+
+| Command | Result |
+|---|---|
+| `native/build.sh mac` | `build/release-mac/RA2.app`: Red Alert 2 for the Mac |
+| `native/build.sh mac-one` | `build/release-mac-one/RA2YR.app`: Red Alert 2 and Yuri's Revenge in one Mac app (the toggle at the bottom left of the main menu) |
+| `native/build.sh ios simulator` | `build/ios-one-simulator/RA2YR.app`: the iPhone/iPad one-game app for the Simulator |
+| `RA2_IOS_TEAM=<team id> native/build.sh ios device` | `build/ios-one-device/RA2YR.app`, signed for your devices |
+| `native/build.sh windows` | `build/release-win/RA2Native.exe`: Red Alert 2 for Windows 10/11 (x86_64), one self-contained file |
+| `native/build.sh all` | the four above in turn (mac, mac-one, ios simulator, windows) |
+
+Prerequisites (nothing is downloaded or installed by the script):
+
+- A Mac on Apple silicon. The Mac apps' minimum macOS is the SDK's (macOS 26 with Xcode 26).
+- Xcode (for iOS; the command line tools are enough for mac, mac-one and windows), CMake 3.20 or
+  later, Ninja and Python 3 (`brew install cmake ninja`).
+- mac and mac-one: SDL3 from Homebrew (`brew install sdl3`); the app bundles its library and
+  licence.
+- mac-one, ios and windows: the llvm-mingw 20261020 macOS release
+  (`llvm-mingw-20261020-ucrt-macos-universal`, github.com/mstorsjo/llvm-mingw) extracted, either
+  at `private/toolchains/llvm-mingw-20261020/` in the checkout or wherever `RA2_LLVM_MINGW`
+  points. Yuri's Revenge reads its Win32/DirectX headers; Windows uses it as the compiler.
+- ios and windows: the SDL 3.4.2 source, `private/vendor/SDL3-3.4.2.tar.gz` (SHA-256 checked) or
+  an extracted folder in `RA2_SDL_SOURCE`. It is built statically into the app.
+- ios device: your Apple team id in `RA2_IOS_TEAM` and a development profile Xcode has already
+  made for it (`packaging/ios_sign.py`); install with
+  `xcrun devicectl device install app --device <udid> build/ios-one-device/RA2YR.app`.
+
+Game data is never part of a build. Each app asks for the player's installed game the first time
+it starts (the Mac: a folder; iPhone/iPad: the Files folder picker, copied once; Windows:
+a folder chooser, or `--data-dir`/`RA2_DATA_DIR`) and reads data the original executable stores from
+the player's own `game.exe` at run time. The Mac apps and the Simulator app are signed ad hoc
+(this Mac only); nothing is notarised or code-signed for distribution, so Gatekeeper and
+SmartScreen warn on other machines.
+
+Extra arguments after the platform go to CMake's configure step (for example
+`native/build.sh mac -DRA2_NATIVE_DRAFTS=ON`), and `RA2_BUILD_DIR` picks another build folder.
+The Mac one-game app is `packaging/make_app.sh --one-game build/<dir>/ra2yr-native`: the thin host
+as `Contents/MacOS/RA2`, its engines `ra2-engine.so` and `yr-engine.so` beside it (the host loads
+them from its own folder), every Mach-O's SDL path rewritten to the bundled copy, engines signed
+before the app (bundle id `local.ra2native.ra2yr`, or `RA2_APP_ID`).
+
 ## Start-up test runs
 
 `ra2-native --run-to=<milestone> [--run-seconds=N] [--write-dir=D] --data-dir <installation>`

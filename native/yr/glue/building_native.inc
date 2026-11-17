@@ -1025,3 +1025,201 @@ void BuildingClass::FUN_00457DE0(bool hunt, bool force)
 	Occupants.Clear();
 	UpdateThreatInCell(Get_Cell_Ptr());
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y12): BuildingClass::Captured, gamemd.exe 0x00448260 (4,518 bytes,
+// unmatched in the YR tree; a campaign map's opening ownership changes reached it as a link-closure
+// trap). Written from behaviour: Red Alert 2's exact text (src/recovered/building.cpp
+// BuildingClass::Captured, game.exe 0x00444660, which names gamemd.exe 0x00448260 as its twin) and
+// TibSun's (building.cpp:4212) in the YR tree's names, with gamemd.exe's YR changes: the attached bomb
+// disarmed unless the building can be occupied; the multiplayer-passive cash bonus; the EVA lines
+// (EVA_TechBuildingLost, the type's CaptureEvaEvent, EVA_BuildingCaptured after the radar event 10); a
+// building that needs an engineer gets its engineer flag and its light source; the house's YR lists
+// (construction yards, repair bays, grinders, absorbers, bunkers, occupiables, cloning vats, secret
+// labs, psychic detectors, factory plants with the cost multipliers, buildings) and counters (ore
+// purifiers, docks, self heal) move from the old owner to the new, Grand_Opening(true) rebuilding the
+// new owner's counters as it does for every captured building. NATIVE: the light source and the
+// type's animations are not re-enabled here (Grand_Opening redraws them).
+// Behaviour code for the native build; never part of an exact build.
+// ---------------------------------------------------------------------------------------------
+bool BuildingClass::Captured(HouseClass * newowner, bool announce)
+{
+	if (newowner == House) {
+		return(false);
+	}
+	if (AttachedBomb != NULL && !Class->CanBeOccupied) {
+		AttachedBomb->Disarm();
+	}
+	if (Class->IsCloakGenerator) {
+		newowner->HasCloakGenerator = true;
+	}
+	if (House->Class->IsMultiplayPassive && Class->ProduceCashStartup) {
+		newowner->Refund_Money(Class->ProduceCashStartup);
+		CashProductionTimer = Class->ProduceCashDelay;
+	}
+	if (SpiedBy & (1 << newowner->Class->House)) {
+		SpiedBy -= (1 << newowner->Class->House);
+		if (Class->IsRadar) {
+			Update_Radar_Spied();
+		}
+	}
+	IsLeader = false;
+	if (Class->IsLaserFencePost) {
+		Update_Laser_Fence_Connections(0);
+	}
+	if (House->Is_Player_Control() || newowner->Is_Player_Control()) {
+		if (!newowner->Class->IsMultiplayPassive && announce) {
+			if (Class->NeedsEngineer) {
+				if (House != newowner) {
+					if (House->Is_Player_Control()) VoxClass::Play("EVA_TechBuildingLost");
+					if (newowner->Is_Player_Control() && Class->CaptureEvaEvent != -1) VoxClass::PlayIndex(Class->CaptureEvaEvent);
+				}
+			} else if (RadarEventClass::Create(RADAREVENT_BUILDING_CAPTURED, Get_Cell())) {
+				VoxClass::Play("EVA_BuildingCaptured");
+			}
+		}
+		Map.Flag_To_Redraw(GS_REDRAW_DIRTY);
+	}
+	IsToDisplay = true;
+	HasEngineer = true;
+
+	// Cargo and docked units change sides with it; units that only touch it are sent away.
+	if (TechnoClass * passenger = (TechnoClass *)Cargo.Attached_Object()) {
+		passenger->Captured(newowner, true);
+	}
+	struct Docked { TechnoClass * Contact; bool WasTethered; };
+	Docked docked[8];
+	int docked_count = 0;
+	for (int i = 0; i < RadioLinks.Length(); i++) {
+		TechnoClass * contact = FUN_0065AD30(i);
+		if (contact == NULL || !contact->Is_Foot()) continue;
+		intptr_t param = 0;
+		if (Transmit_Message(RADIO_NEED_TO_MOVE, param, contact) == RADIO_ROGER
+			&& (Class->IsWeaponsFactory || ::Distance(contact->Center_Coord(), Docking_Coord(contact)) < 64)) {
+			bool tethered = contact->IsTethered;
+			contact->Captured(newowner, true);
+			if (docked_count < 8) {
+				docked[docked_count].Contact = contact;
+				docked[docked_count].WasTethered = tethered;
+				docked_count++;
+			}
+		} else {
+			Transmit_Message(RADIO_RUN_AWAY, contact);
+			Transmit_Message(RADIO_OVER_OUT, contact);
+		}
+	}
+	if (Factory != NULL) {
+		Factory->Abandon();
+		delete Factory;
+		Factory = NULL;
+	}
+	House->Active_Remove(this);
+
+	HouseClass * oldowner = House;
+	IsCaptured = true;
+	oldowner->ConYards.Delete(this);
+	oldowner->UnitRepairStations.Delete(this);
+	oldowner->Grinders.Delete(this);
+	oldowner->Absorbers.Delete(this);
+	oldowner->Bunkers.Delete(this);
+	oldowner->Occupiables.Delete(this);
+	oldowner->CloningVats.Delete(this);
+	oldowner->SecretLabs.Delete(this);
+	oldowner->PsychicDetectionBuildings.Delete(this);
+	if (oldowner->FactoryPlants.Delete(this)) {
+		oldowner->CalculateCostMultipliers();
+	}
+	oldowner->Buildings.Delete(this);
+	if (Class->OrePurifier && oldowner->NumOrePurifiers > 0) oldowner->NumOrePurifiers--;
+	if (Class->IsHelipad) {
+		oldowner->AirportDocks -= Class->NumberOfDocks;
+		if (oldowner->AirportDocks < 0) oldowner->AirportDocks = 0;
+	}
+	if (Class->InfantryGainSelfHeal) {
+		oldowner->InfantrySelfHeal -= Class->InfantryGainSelfHeal;
+		if (oldowner->InfantrySelfHeal < 0) oldowner->InfantrySelfHeal = 0;
+	}
+	if (Class->UnitsGainSelfHeal) {
+		oldowner->UnitsSelfHeal -= Class->UnitsGainSelfHeal;
+		if (oldowner->UnitsSelfHeal < 0) oldowner->UnitsSelfHeal = 0;
+	}
+	if (Class->IsCloakGenerator) {
+		Disable_Cloak_Generator();
+		CurrentCloakRadius = 1;
+		Cloaking_AI(true);
+	}
+
+	TechnoClass::Captured(newowner, true);
+
+	if (Class->IsCloakGenerator && Is_Powered_On()) {
+		Enable_Cloak_Generator();
+	}
+	oldowner->ToCapture = this;
+	oldowner->Recalc_Center();
+	House->Recalc_Center();
+	if (House->ToCapture == this) {
+		House->ToCapture = NULL;
+	}
+	if (oldowner->Is_Player_Control() && Class->IsConstructionYard) {
+		Map.PendingObjectPtr = NULL;
+		Map.PendingObject = NULL;
+		Map.PendingHouse = HOUSE_NONE;
+		Map.Set_Cursor_Shape(NULL);
+	}
+	House->Active_Add(this);
+	IsRepairing = false;
+	if (Rule->BuildConst.Is_In_List(Class)) House->ConYards.Add(this);
+	if (Class->IsCanUnitRepair) House->UnitRepairStations.Add(this);
+	if (Class->Grinding) House->Grinders.Add(this);
+	if (Class->UnitAbsorb || Class->InfantryAbsorb) House->Absorbers.Add(this);
+	if (Class->Bunker) House->Bunkers.Add(this);
+	if (Class->CanBeOccupied && Class->Level > -1) House->Occupiables.Add(this);
+	if (Class->Cloning) House->CloningVats.Add(this);
+	if (Class->SecretLab) House->SecretLabs.Add(this);
+	if (Class->PsychicDetectionRadius > 0) House->PsychicDetectionBuildings.Add(this);
+	if (Class->FactoryPlant) {
+		House->FactoryPlants.Add(this);
+		House->CalculateCostMultipliers();
+	}
+	House->Buildings.Add(this);
+	Grand_Opening(true);
+	if (Class->IsLaserFencePost) {
+		Init_Laser_Fence();
+		Init_Laser_Fence_Frame();
+	}
+	if (House->Is_Player_Control()) {
+		Map.Flag_To_Redraw(GS_REDRAW_TACTICAL);
+	}
+	if (SpiedBy & (1 << newowner->Class->House)) {
+		SpiedBy &= ~(1 << newowner->Class->House);
+	}
+	Update_Anim_Appearance();
+	for (int d = 0; d < docked_count; d++) {
+		Transmit_Message(RADIO_HELLO, docked[d].Contact);
+		if (docked[d].WasTethered) {
+			IsTethered = true;
+			docked[d].Contact->IsTethered = true;
+		}
+	}
+	oldowner->IsRecalcNeeded = true;
+	newowner->IsRecalcNeeded = true;
+	return(true);
+}
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y12): BuildingClass::Fire_Direction, gamemd.exe 0x0044D7D0 (161 bytes,
+// BuildingClass vtable 0x007E3EBC slot 194; unmatched in the YR tree, a link-closure trap the first Soviet
+// mission reached). TibSun's text (TibSun archive code/building.cpp:6151; same licence notice as the drafts
+// above), which gamemd.exe follows: no target, the body's facing rounded to 256 directions; a turret not
+// drawn as a voxel animation, its facing rounded to 32; otherwise the aim at the target (Aim_Direction).
+// ---------------------------------------------------------------------------------------------
+DirType BuildingClass::Fire_Direction(void) const
+{
+	if (TarCom == NULL) {
+		return(DirType((Dir256)PrimaryFacing.Current().Round_To_256()));
+	}
+	if (Is_Turret_Equipped() && !Class->IsTurretAnimAVoxel) {
+		return(DirType(PrimaryFacing.Current().As_Dir32()));
+	}
+	return(Aim_Direction(TarCom));
+}

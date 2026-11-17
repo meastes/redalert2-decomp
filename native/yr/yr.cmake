@@ -182,5 +182,22 @@ add_test(NAME yr-native-controls COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CUR
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-controls")
 set_tests_properties(yr-native-controls PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
 
+# ctest yr-native-combat (lane Y12): a vehicle force-fires on another of the player's (glue/yr_harness.cpp
+# RA2_NATIVE_ORDERS): TechnoClass::Fire_At runs, damage is dealt and the target dies (yr/tests/yr_combat.py)
+add_test(NAME yr-native-combat COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_combat.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-combat")
+set_tests_properties(yr-native-combat PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
+
+# ctest yr-native-campaign-allied / -soviet (lane Y12): each side's campaign through the menus, its seven
+# missions won in turn (RA2_NATIVE_FORCE_END) through their score screens, the final movie, the credits
+# and the main menu again (yr/tests/yr_campaign_chain.py; about 6 minutes a side).
+foreach(yr_campaign_side allied soviet)
+  add_test(NAME yr-native-campaign-${yr_campaign_side} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_campaign_chain.py"
+           --side ${yr_campaign_side} --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+           --work "${CMAKE_CURRENT_BINARY_DIR}/yr-campaign-${yr_campaign_side}" --seconds 600)
+  set_tests_properties(yr-native-campaign-${yr_campaign_side} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+endforeach()
+
 # One game (lane Y5, -DRA2_NATIVE_COMBINED=ON): native/yr/combined.cmake.
 include("${CMAKE_CURRENT_SOURCE_DIR}/yr/combined.cmake")

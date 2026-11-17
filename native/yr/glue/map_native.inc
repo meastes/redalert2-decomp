@@ -311,3 +311,49 @@ void MapClass::AddContentAt(Cell const * coords, TechnoClass * content)
 		}
 	}
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y12): MapClass::Reveal, gamemd.exe 0x00577D90 (404 bytes, unmatched in the
+// YR tree; a Soviet campaign mission reached it as a link-closure trap; the spy satellite's
+// HouseClass::Recalc_Spy_Satellite and the reveal crate call it). Written from gamemd.exe's code, as the
+// tree's Reveal_The_Map and Reshroud (its neighbours) are written: the house's map is clear; for the
+// player, unless already visionary, every cell (but the three edge cells a multiplayer mode keeps hidden)
+// is mapped, visible and out of the fog with no shroud counter and no gap covering it, then the shroud's
+// edges are rebuilt and the whole screen redrawn.
+// ---------------------------------------------------------------------------------------------
+void MapClass::Reveal(HouseClass * house)
+{
+	if (house != NULL) {
+		Houses[house->HeapID]->MapIsClear = true;
+	}
+	if (house != PlayerPtr && house != NULL) {
+		return;
+	}
+	if (house == NULL) {
+		FUN_004068E0("We tried to clear the shroud without an owner");
+	}
+	bool edge = (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode != NULL && Session.MPGameMode->vt_entry_04();
+	if (PlayerPtr->IsVisionary) {
+		return;
+	}
+	Map.FUN_004ADEE0(false, false);
+	PlayerPtr->IsVisionary = true;
+	Reset_Iterator();
+	for (CellClass * cellptr = Iterate(); cellptr != NULL; cellptr = Iterate()) {
+		int x = cellptr->CellID.X;
+		int y = cellptr->CellID.Y;
+		if (edge && ((x == 7 && y == PlayRect.Width + 5) || (x == 13 && y == PlayRect.Width + 11)
+			|| (x == PlayRect.Height + 13 && y == PlayRect.Width + PlayRect.Height - 15))) {
+			continue;
+		}
+		cellptr->ShroudCounter = 0;
+		cellptr->GapsCoveringThisCell = 0;
+		cellptr->IsMapped = true;
+		cellptr->IsVisible = true;
+		cellptr->IsFogVisible = true;
+		cellptr->IsFogMapped = true;
+	}
+	Map.FUN_004ADCD0(false, false);
+	Map.sub_657CE0();
+	Flag_To_Redraw(GS_REDRAW_ALL);
+}

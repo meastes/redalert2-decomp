@@ -825,6 +825,12 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 void MapClass::Place_Down(Cell const & cell, ObjectClass * object)
 {
 	if (!object) return;
+	if (cell.X < 0 || cell.Y < 0 || cell.X >= MAP_CELL_W || cell.Y >= MAP_CELL_H) {	// NATIVE (lane Y12): a cell off the cell array (the original's Is_Valid reads past it) is logged and left alone; open: an LTNK in Allied 2 and Soviet 7 gets a garbage position from its drive locomotor
+		Coord where = object->Center_Coord();
+		static int logged = 0;
+		if (logged++ < 5) fprintf(stderr, "place-down: %s at cell %d,%d (coord %d,%d,%d) is off the map\n", object->Class_Of()->Name(), cell.X, cell.Y, where.X, where.Y, where.Z);
+		return;
+	}
 
 	if (object->Class_Of()->IsFootprint && object->In_Which_Layer() == LAYER_GROUND)  {
 		Cell xlist[32];
@@ -843,6 +849,12 @@ void MapClass::Place_Down(Cell const & cell, ObjectClass * object)
 void MapClass::Pick_Up(Cell const & cell, ObjectClass * object)
 {
 	if (!object) return;
+	if (cell.X < 0 || cell.Y < 0 || cell.X >= MAP_CELL_W || cell.Y >= MAP_CELL_H) {	// NATIVE (lane Y12): as Place_Down
+		Coord where = object->Center_Coord();
+		static int logged = 0;
+		if (logged++ < 5) fprintf(stderr, "pick-up: %s at cell %d,%d (coord %d,%d,%d) is off the map\n", object->Class_Of()->Name(), cell.X, cell.Y, where.X, where.Y, where.Z);
+		return;
+	}
 
 	if (object->Class_Of()->IsFootprint && object->In_Which_Layer() == LAYER_GROUND)  {
 		Cell xlist[32];

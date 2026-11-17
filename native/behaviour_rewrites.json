@@ -1,5 +1,5 @@
 {
- "about": "Behaviour rewrites of the functions the original implements in handwritten assembly (the link-closure \"c-function\" handwritten-assembly class, src/recovered/asm, manifests/original_target/assembly.json) and of the accepted rows whose body is evidenced inline assembly (native_units.py skips them). Each is portable C++ written from the adopted TibSun archive text, never original code or bytes, and is NOT EXACT: the exact build keeps the assembled procedures. Tests run each on synthetic inputs against references built from the algorithm (native-asm-check). Rows with origin_class \"unmatched (launch path)\" are behaviour rewrites of unmatched rows the skirmish harness (ra2-native --skirmish) reaches or of Scout1050's launch-path rows without a usable draft (Scout1069): written from the row's seed/decompile, its header's comment or TibSun, NOT EXACT; where the original reads a data table that is still unsourced the row says what the native body does instead (notes).",
+ "about": "Behaviour rewrites of the functions the original implements in handwritten assembly (the link-closure \"c-function\" handwritten-assembly class, src/recovered/asm, manifests/original_target/assembly.json) and of the accepted rows whose body is evidenced inline assembly (native_units.py skips them). Each is portable C++ written from the adopted TibSun archive text, never original code or bytes, and is NOT EXACT: the exact build keeps the assembled procedures. Tests run each on synthetic inputs against references built from the algorithm (native-asm-check). Rows with origin_class \"unmatched (launch path)\" are behaviour rewrites of unmatched rows the skirmish harness (ra2-native --skirmish) reaches or of Scout1050's launch-path rows without a usable draft (Scout1069): written from the row's seed/decompile, its header's comment or TibSun, NOT EXACT; where the original reads a data table that is still unsourced the row says what the native body does instead (notes). reach (lane N1, rows no coverage run reached): \"reviewed\" (reachable in the base game; reach_reason names the callers in game.exe and why no run took that path), \"unreachable in the base game\" (no caller, abstract-only vtables, a feature no menu offers), \"unreachable in the port\" (Westwood Online only, or a branch the port's platform never takes), \"reached by a test\" (a unit test runs it on synthetic inputs); reach_checked_by says how.",
  "rows": [
   {
    "entry": "0x00781130",
@@ -11,7 +11,10 @@
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/vqa_uncomp.asm AudioUnzap",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
-   "notes": "returns the source bytes read (the asm's incount), not the output size"
+   "notes": "returns the source bytes read (the asm's incount), not the output size",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x007813EB",
@@ -22,7 +25,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/vqa_uncomp.asm VQA_LCW_Uncompress",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x00780560",
@@ -33,7 +39,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/vqa_sos.asm VQA_sosCODECInitStream",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x00780581",
@@ -45,7 +54,10 @@
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/vqa_sos.asm VQA_sosCODECDecompressData + difftb.inc/indextb.inc/nybbtb.inc",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
-   "notes": "tables generated (IMA ADPCM); the test compares all 1,424 entries of each with the .inc text"
+   "notes": "tables generated (IMA ADPCM); the test compares all 1,424 entries of each with the .inc text",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x0077FF50",
@@ -56,7 +68,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/unvq_asm.asm ASM_UnVQ_4x2",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x0077FFE6",
@@ -67,7 +82,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/unvq_asm.asm ASM_UnVQ_4x4",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x007800A4",
@@ -78,7 +96,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/unvq_asm.asm ASM_UnVQ_4x4_HALF",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x007801D8",
@@ -89,7 +110,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_vqa.cpp",
    "source": "src/recovered/asm/unvq_asm.asm ASM_UnVQ1_C1_4x4",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x0079813A",
@@ -100,7 +124,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm BRIGHTEN_COLOR (rgb565)",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x00798217",
@@ -111,7 +138,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm BRIGHTEN_COLOR (rgb655)",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x007982F4",
@@ -122,7 +152,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm BRIGHTEN_COLOR (rgb556)",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x007983D1",
@@ -133,7 +166,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm BRIGHTEN_COLOR (rgb555)",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x007984C0",
@@ -144,7 +180,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm MMX_BRIGHTEN_COLOR (rgb565)",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x00798602",
@@ -155,7 +194,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm MMX_BRIGHTEN_COLOR (rgb555)",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x00798740",
@@ -167,7 +209,10 @@
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm MMX_BRIGHTEN_COLOR (rgb556)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
-   "notes": "packs G with six bits at bit 6 (its top bit lands on R bit 11), as the archive constants do"
+   "notes": "packs G with six bits at bit 6 (its top bit lands on R bit 11), as the archive constants do",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x00798880",
@@ -179,7 +224,10 @@
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm MMX_BRIGHTEN_COLOR (rgb655)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
-   "notes": "masks G << 4 with 0x423A0A60 (the archive constant), R unmasked"
+   "notes": "masks G << 4 with 0x423A0A60 (the archive constant), R unmasked",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x00799241",
@@ -190,7 +238,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm Asm_Interpolate",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x007992E6",
@@ -201,7 +252,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm Asm_Interpolate_Line_Double",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x0079943B",
@@ -213,7 +267,10 @@
    "file": "native/link/behaviour_asm_draw.cpp",
    "source": "src/recovered/asm/winasm.asm Asm_Interpolate_Line_Interpolate, Interpolate_Single_Line, Interpolate_Between_Lines",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
-   "notes": "the last output line interpolates the source line after the last one (the original reads it); kept"
+   "notes": "the last output line interpolates the source line after the last one (the original reads it); kept",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x0077F274",
@@ -225,7 +282,10 @@
    "file": "native/link/behaviour_asm_lib.cpp",
    "source": "src/recovered/asm/detproc.asm Get_CPU_Clock",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
-   "notes": "virtual 1 GHz TSC (monotonic nanoseconds)"
+   "notes": "virtual 1 GHz TSC (monotonic nanoseconds)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x00534D40",
@@ -237,7 +297,10 @@
    "file": "native/link/behaviour_asm_lib.cpp",
    "source": "src/recovered/lcw/LCW_Comp.cpp (evidenced __asm, TibSun lcw.cpp)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
-   "notes": "register-program transliteration; the out-of-range esi[64] read is skipped (cannot change the output)"
+   "notes": "register-program transliteration; the out-of-range esi[64] read is skipped (cannot change the output)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x004861C0",
@@ -248,7 +311,10 @@
    "exact": false,
    "file": "native/link/behaviour_asm_lib.cpp",
    "source": "src/recovered/classes/BlitTransXlat_unsigned_short/BlitForward.cpp (evidenced __asm, TibSun blitblit.h)",
-   "test": "native/tests/asm_check.cpp (native-asm-check)"
+   "test": "native/tests/asm_check.cpp (native-asm-check)",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x005ABF60",
@@ -260,7 +326,10 @@
    "file": "native/link/behaviour_asm_lib.cpp",
    "source": "src/recovered/mpu.cpp (evidenced __asm, TibSun mpu.cpp)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
-   "notes": "unreferenced natively; defines TSC_Low/TSC_High (0x00A71780/0x00A7177C) itself"
+   "notes": "unreferenced natively; defines TSC_Low/TSC_High (0x00A71780/0x00A7177C) itself",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x005ABF70",
@@ -272,7 +341,10 @@
    "file": "native/link/behaviour_asm_lib.cpp",
    "source": "src/recovered/mpu.cpp (evidenced __asm, TibSun mpu.cpp)",
    "test": "native/tests/asm_check.cpp (native-asm-check)",
-   "notes": "returns 1000 (the virtual TSC rate in MHz) instead of measuring it"
+   "notes": "returns 1000 (the virtual TSC rate in MHz) instead of measuring it",
+   "reach": "reached by a test",
+   "reach_reason": "native/tests/asm_check.cpp (native-asm-check) runs it on synthetic inputs against a reference built from the algorithm (no game run is claimed; no static verdict against the original yet)",
+   "reach_checked_by": "N1 2026-11-17: the test field and native/tests/asm_check.cpp"
   },
   {
    "entry": "0x00481BF0",
@@ -335,7 +407,10 @@
    "exact": false,
    "file": "native/link/behaviour_launch.cpp",
    "source": "decompile (handwritten assembly: MMX, CMOV and plain paths)",
-   "notes": "5:5:5 light table; the plain path"
+   "notes": "5:5:5 light table; the plain path",
+   "reach": "unreachable in the port",
+   "reach_reason": "LightConvertClass::Apply_Tint calls it (0x00538D08) only on the 5:5:5 branch of its PrimaryColorMode dispatch (0x00538CE5); the port's DirectDraw stand-in reports RGB565 (port/src/ddraw_dsound.cpp, red mask 0xF800)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00797440",
@@ -612,7 +687,10 @@
    "file": "native/link/behaviour_frame.cpp",
    "source": "leaf src/recovered/00406320.cpp",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "VocClass::PlayGlobal/PlayAt (0x00713DE9, 0x00713E97) call it when a sound is started with an audio controller (a tracked, updatable voice); the audio runs played none",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00406140",
@@ -636,7 +714,10 @@
    "file": "native/link/behaviour_frame.cpp",
    "source": "seed src/recovered/00406100.cpp",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "VocClass::PlayGlobal/PlayAt/UpdateAt, Controller_Set_Voc, RadarClass::Play_Movie/Update_Transmission: a controlled voice or a radar transmission with audio on; the audio runs played none",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423DC0",
@@ -660,7 +741,10 @@
    "file": "native/link/behaviour_frame.cpp",
    "source": "seed src/recovered/planmgr/Planning_Active.cpp",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "called by Tactical::Render every frame (src/recovered/tactical.cpp, the draft 006a45a0 keeps the call; 5 call sites in ra2-native), TechnoClass::Player_Assign_Mission/ClickedEvent and Command_Guard; the C21 report missed it because the link alias Planning_Mode_Active_614840 shares its address (coverage_runs.py now credits every name at an address)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00496CE0",
@@ -720,7 +804,10 @@
    "file": "native/link/behaviour_frames.cpp",
    "source": "seed src/recovered/0042ebe0.cpp",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the base game",
+   "reach_reason": "only caller HouseClass::Flag_Attach(UnitClass *) 0x004E77A0, whose only caller Create_Units runs it when Scen->Special.IsCaptureTheFlag (test byte [Scen] & 0x10 at 0x0066088B; ra2-decomp scenario.cpp 2421); capture the flag is a Tiberian Sun mode that no Red Alert 2 menu offers",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00735B20",
@@ -852,7 +939,10 @@
    "file": "native/link/behaviour_coord.cpp",
    "source": "leaf src/recovered/classes/ObjectClass/00423e60.cpp (returns 0)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 115 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006D8640",
@@ -1092,7 +1182,10 @@
    "file": "native/link/behaviour_m10_fog.cpp",
    "source": "seed decompile 0x004C2030",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass::What_Action over a fogged cell (0x006CCE70); fogged objects exist only under fog of war, which no Red Alert 2 menu turns on (probably unreachable; not proven)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00405A00",
@@ -1117,7 +1210,10 @@
    "source": "seed decompile 0x004B9420 (Leaf_4b9420: the +0x58 byte)",
    "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "SidebarClass::StripClass::AI (0x0067F466) asks it for a cameo whose build is on hold; the in-game-keys run right-clicks a cameo but did not reach it; a scripted hold remains to be written",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004B9430",
@@ -1156,7 +1252,10 @@
    "source": "seed decompile 0x004B9940 (Leaf_4b9940: +0x64)",
    "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "SidebarClass::StripClass::Recalc (0x00680F66) for a factory building a special (super weapon) item; no run built one through the sidebar",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": null,
@@ -1182,7 +1281,10 @@
    "source": "TibSun blitblit.h (backward = forward)",
    "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
    "behaviour_verdict": "same (the original 0x004870E0 calls the forward slot with the same arguments and 0)",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the blitter's backward slot: a translucent shape drawn right to left (mirrored); the runs drew the sidebar clock only forwards",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": null,
@@ -1195,7 +1297,10 @@
    "source": "TibSun blitblit.h (backward = forward); forward 0x00487110 recovered",
    "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
    "behaviour_verdict": "same (the original 0x00487170 calls the forward slot)",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the blitter's backward slot (as the 50% row)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": null,
@@ -1208,7 +1313,10 @@
    "source": "TibSun blitblit.h (backward = forward); forward 0x00486FF0 recovered",
    "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
    "behaviour_verdict": "same (the original 0x00487050 calls the forward slot)",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the blitter's backward slot (as the 50% row)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006F8A00",
@@ -1370,7 +1478,12 @@
    "exact": false,
    "file": "native/link/behaviour_m14_ownerdraw.cpp",
    "source": "pass-6a decompile 005f0f40",
-   "notes": "tab procedure: delegates; paints a frame only; Scout1119 (M14)"
+   "notes": "tab procedure: delegates; paints a frame only; Scout1119 (M14)",
+   "behaviour_verdict": "differs, not fixed (unreachable): the original (0x005F0F40-0x005F1900, 2.5 KB) returns 0 for WM_NCPAINT 0x85, loads the tab art (tab_tlu.pcx and its pieces) on message 0x497 and paints the tabs; the rewrite answers 0x14 and paints a frame",
+   "behaviour_checked_by": "N1 2026-11-17: static check against the original's instructions (entry and message dispatch)",
+   "reach": "unreachable in the base game",
+   "reach_reason": "OwnerDraw::Subclass_Control installs it (0x005ED5E0) only for a SysTabControl32 control, and no dialog template in game.exe holds one",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv; game.exe RT_DIALOG templates searched for the class name"
   },
   {
    "entry": "0x005F22A0",
@@ -1550,7 +1663,10 @@
    "source": "pass-6a decompile 00482e00",
    "notes": "shared empty leaf (Leaf_482e00::get); UnitClass::Explode calls it; Scout1125 (M15)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "UnitClass::Explode (a unit that explodes on death, e.g. the Demolition Truck) and BuildingClass::Unlimbo; no run destroyed such a unit",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": null,
@@ -1574,7 +1690,10 @@
    "source": "recovered siblings BlitTransLucent25ZRead/75ZRead, 0x00487C50",
    "notes": "same family as the darken row; Scout1125 (M15)",
    "behaviour_verdict": "same (0x00487D20 25%: palette * 3 + dest, 0x00487B80 75%: palette + dest * 3, each quarter masked; the backward slots 0x00487DC0/0x00487C20/0x00487CF0 call the forward slot)",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the depth-reading translucent blitters (25%/75% forward and backward, 50% backward): shapes with depth drawn translucent; no run drew one",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0053B190",
@@ -1598,7 +1717,10 @@
    "source": "pass-6a decompiles 0053c970..0053c9d0",
    "notes": "string table labels GUI:LoadMissionMenu, GUI:SaveMissionMenu, GUI:DeleteMissionMenu, TXT_GAME_WAS_SAVED; Scout1125 (M15)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "LoadOptionsClass vtable slot 5 (the load/save/delete dialog's captions); the in-game save and load ran through other slots",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0047A410",
@@ -1706,7 +1828,10 @@
    "source": "recovered twin EnumConnectionsClass 0x004924B0/0x00492210/Next",
    "notes": "a native IEnumConnectionPoints built in the house's allocation; Next fails when exhausted (ends Adjust_Drain's loop); Clone not implemented; Scout1125 (M15)",
    "behaviour_verdict": "same for the constructor (the points copied and each AddRef'd, as 0x00492E20 does); the enumerator's Next/Release follow the recovered twin EnumConnectionsClass and were not compared slot by slot",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the base game",
+   "reach_reason": "only caller HouseClass::EnumConnectionPoints 0x004ED36F, a COM IConnectionPointContainer method referenced only by the house's COM vtable: an external COM client would call it, the game never does",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006EA9B0",
@@ -1742,7 +1867,10 @@
    "source": "pass-6a decompile 005aa800",
    "notes": "forwards to MultiplayerTeam slot 1; the vtable's key function; Scout1133 (M16)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MultiplayerObserverTeam vtable slot 1: observer teams are made by MP_Score_Dialog_Proc and MultiplayerGameMode::CreateMPTeams; reached with an observer in a network game",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005E8710",
@@ -1778,7 +1906,10 @@
    "source": "the recovered Release_Held copies (0x00509860, 0x004A4D10)",
    "notes": "reached by an aircraft taking off (the win loop, frame ~19k); Scout1133 (M16)",
    "behaviour_verdict": "same (as the recovered copies 0x00509860 / 0x004A4D10: Release through slot 2 of what is held; this instance's own copy is not located)",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions (of the sibling copies); not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions (of the sibling copies); not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "an aircraft taking off (the win loop at frame ~19k, Scout1133); the instance has no symbol the coverage report can find (template instance, out-of-line copy not located), so no run can credit it",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0058FE10",
@@ -1826,7 +1957,10 @@
    "source": "pass-6a decompile 007291f0",
    "notes": "Scout1138 (M17)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the base game",
+   "reach_reason": "MSFrameAnim is never made: its constructor 0x007291C0 has no call or reference in game.exe, and the destructor none either",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00729200",
@@ -1838,7 +1972,10 @@
    "source": "pass-6a decompile 00729200 (accepted as unknown_callback_6f3650)",
    "notes": "Scout1138 (M17)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the base game",
+   "reach_reason": "MSFrameAnim vtable slot 4; the class is never made (constructor 0x007291C0 unreferenced)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00728B70",
@@ -1850,7 +1987,10 @@
    "source": "pass-6a decompile 00728b70",
    "notes": "Scout1138 (M17)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the port",
+   "reach_reason": "World Domination Tour, a Westwood Online feature: reached only from the online lobby (Wonline_Main), and the port disables the Internet button",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00728AB0",
@@ -1862,7 +2002,10 @@
    "source": "pass-6a decompile 00728ab0",
    "notes": "Scout1138 (M17)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the port",
+   "reach_reason": "World Domination Tour, a Westwood Online feature: reached only from the online lobby (Wonline_Main), and the port disables the Internet button",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004F3120",
@@ -1874,7 +2017,10 @@
    "source": "unowned view unknown_slot_ready_004f3120.cpp (0x154-byte pad) against house_screen.hpp/waypoint_path.hpp",
    "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ScrollClass::What_Action in waypoint mode (adding a waypoint to a path); the in-game runs toggled Z but clicked no path cell that asks it",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00435FB0",
@@ -1886,7 +2032,10 @@
    "source": "unowned view Unknown435FB0Owner_unknown_435fb0_00435fb0.cpp (char pads) against object.hpp",
    "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass::Delete_Me, BulletClass::Detonate, BuildingClass::Toggle_Primary for an object carrying a bomb (Tanya's C4, Crazy Ivan); no run planted one",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0047CE40",
@@ -1970,7 +2119,10 @@
    "source": "pass-6a decompile 00408450",
    "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the audio cache (AudioCacheCreate/Destroy/FreeOldestItem/ItemFree/LoadItem) frees a sample: a full cache or shutdown; the runs end by _exit before the audio shuts down and never filled the cache",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0041B3E0",
@@ -2018,7 +2170,10 @@
    "source": "pass-6a decompile 0072a6d0 against wdt_map.hpp (RA2_WDT_MAP_LOAD_LAYOUT)",
    "notes": "Scout1170 M21: the unowned UnknownToggle_72a6d0 view is refused by the padded-view alias rule",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the port",
+   "reach_reason": "World Domination Tour, a Westwood Online feature: reached only from the online lobby (Wonline_Main), and the port disables the Internet button",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0072A720",
@@ -2030,7 +2185,10 @@
    "source": "pass-6a decompile 0072a720 against wdt_map.hpp (RA2_WDT_MAP_LOAD_LAYOUT)",
    "notes": "Scout1170 M21: the unowned UnknownToggle_72a6d0 view is refused by the padded-view alias rule",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the port",
+   "reach_reason": "World Domination Tour, a Westwood Online feature: reached only from the online lobby (Wonline_Main), and the port disables the Internet button",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0072C390",
@@ -2042,7 +2200,10 @@
    "source": "unowned view unknown_has_44_0072c390.cpp (0x44-byte pad) against wdt_state.hpp",
    "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the port",
+   "reach_reason": "only caller Open_Buddy_Dialog (Westwood Online buddy list, Wonline_Main); the port disables the Internet button",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423DA0",
@@ -2054,7 +2215,10 @@
    "source": "pass-6a decompile 00423da0 (return false)",
    "notes": "Scout1161 M20 play-stability sweep trap",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 48 default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423DB0",
@@ -2066,7 +2230,10 @@
    "source": "pass-6a decompile 00423db0 (return false)",
    "notes": "Scout1161 M20 play-stability sweep trap",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot (IsDisguisedAs) default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0041B2E0",
@@ -2078,7 +2245,10 @@
    "source": "pass-6a decompile 0041b2e0 (return 0)",
    "notes": "Scout1161 M20 play-stability sweep trap",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot (GetDisguiseHouse) default slot inherited by AircraftClass, AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass, BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00542590",
@@ -2138,7 +2308,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "BuildingClass::SensorArrayActivate (a building with a sensor array, e.g. the Psychic Sensor) marks the cells; no run built one",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0047C390",
@@ -2150,7 +2323,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "BuildingClass::DisguiseDetectorDeactivate (the sensor building removed); no run built one",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0047C300",
@@ -2186,7 +2362,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "InfantryClass/UnitClass::What_Action over a tunnel entrance cell; tunnels are a Tiberian Sun feature and no shipped Red Alert 2 map was seen with one (probably unreachable; not proven)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0041B310",
@@ -2198,7 +2377,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 92 default slot inherited by AircraftClass, BuildingClass, InfantryClass, UnitClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0041B2F0",
@@ -2210,7 +2392,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 74 default slot inherited by AircraftClass, InfantryClass, UnitClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0041B2D0",
@@ -2222,7 +2407,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot (GetDisguise) default slot inherited by AircraftClass, BuildingClass, AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423D40",
@@ -2234,7 +2422,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same (the original returns the wide string at 0x007CECB0, \"No name\")",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 35 (\"No name\") default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423E10",
@@ -2246,7 +2437,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 102 default slot inherited by BuildingClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423D10",
@@ -2258,7 +2452,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot (Is_Players_Army) default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423D20",
@@ -2270,7 +2467,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 25 default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423DD0",
@@ -2282,7 +2482,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 66 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423DE0",
@@ -2294,7 +2497,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot (IronCurtain) default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423DF0",
@@ -2306,7 +2512,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 93 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423E20",
@@ -2318,7 +2527,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 111 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423E30",
@@ -2330,7 +2542,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 112 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423E40",
@@ -2342,7 +2557,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 113 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00423E50",
@@ -2354,7 +2572,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectClass slot 114 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004CDDD0",
@@ -2366,7 +2587,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the base game",
+   "reach_reason": "in the vtables of abstract classes only (ObjectClass, MissionClass, RadioClass, TechnoClass, FootClass): every class that is ever made overrides the slot",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00426760",
@@ -2378,7 +2602,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ObjectTypeClass slot (Get_Ownable) default slot inherited by AnimTypeClass, BulletTypeClass, IsometricTileTypeClass, OverlayTypeClass, ParticleSystemTypeClass, ParticleTypeClass, SmudgeTypeClass, TerrainTypeClass, VoxelAnimTypeClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006D4880",
@@ -2390,7 +2617,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass slot (Exit_Object) default slot inherited by InfantryClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00453BA0",
@@ -2402,7 +2632,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass slot 189 default slot inherited by BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00453BB0",
@@ -2414,7 +2647,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass slot 194 default slot inherited by BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006CD6E0",
@@ -2426,7 +2662,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass slot 195 (IsPowerOnline) default slot inherited by AircraftClass, InfantryClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00453BC0",
@@ -2438,7 +2677,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass slot 202 default slot inherited by BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0041B3D0",
@@ -2450,7 +2692,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass slot 204 (CanCheer) default slot inherited by AircraftClass, BuildingClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00453BD0",
@@ -2462,7 +2707,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass slot 224 default slot inherited by BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0041B400",
@@ -2474,7 +2722,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass slot 240 default slot inherited by AircraftClass, BuildingClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0041B430",
@@ -2486,7 +2737,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass slot 256 (ClearDisguise) default slot inherited by AircraftClass, BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004CD060",
@@ -2498,7 +2752,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "FootClass slot 280 (ReceiveGunner) default slot inherited by AircraftClass, InfantryClass (the IFV is a UnitClass, which overrides it); reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004CD070",
@@ -2510,7 +2767,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "FootClass slot 281 (RemoveGunner) default slot inherited by AircraftClass, InfantryClass (the IFV is a UnitClass, which overrides it); reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004F3160",
@@ -2522,7 +2782,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "BuildingClass::Limbo/Unlimbo call it on a branch the runs did not take (a building that is a threat node for the AI)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006A17B0",
@@ -2546,7 +2809,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the beacon command (TabClass::AI, TauntCommandClass): placing a beacon, a network-game feature; the skirmish runs pressed B, which places none in a skirmish",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006818B0",
@@ -2570,7 +2836,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "DisplayClass slot 43 default slot inherited by MouseClass (the Map object); reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00681940",
@@ -2618,7 +2887,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same (the CRT's _isctype(c, _SPACE) in the C locale: 8 for the six space characters, else 0)",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "StringTable::LoadFile/ReadFile, Read_Text_Entry and the CRT's _winput: the text-file string loaders (the game reads ra2.csf through another path) and wide scanf",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00672140",
@@ -2630,7 +2902,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the LAN/network dialogs (Find_Owner_User, Net2ReadyToGo, Update_Network_Dialog_Preview; Open_Buddy_Dialog online); the LAN-pair run did not take this branch",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006715C0",
@@ -2642,7 +2917,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "Main_Loop calls it for the session's object trap, a debugging aid set from the debug keys; release play never sets it",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005D5F40",
@@ -2678,7 +2956,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "DisplayClass::Mouse_Left_Up for action 71's cursor; no run released the mouse with that action",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006F6740",
@@ -2690,7 +2971,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "DisplayClass::Mouse_Left_Up for the area-guard cursor (Ctrl+Alt click); no run made that click",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00495770",
@@ -2702,7 +2986,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the port",
+   "reach_reason": "only caller DSurface::Create_Primary on a DirectDraw failure result; the port's DirectDraw stand-in never fails",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0047E2B0",
@@ -2714,7 +3001,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TerrainClass's destructor (a tree or terrain object destroyed) and WaveClass::Sonic_Damage; no run destroyed terrain",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0054F240",
@@ -2726,7 +3016,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MouseClass::Load and MapClass::One_Time on a branch the runs did not take",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0040CAF0",
@@ -2750,7 +3043,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "LayerClass slot 9 default slot inherited by LogicClass (the Logic object); reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004C2040",
@@ -2762,7 +3058,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "FoggedObjectClass vtable slot: fogged objects exist only under fog of war, which no Red Alert 2 menu turns on (probably unreachable; not proven)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004052F0",
@@ -2774,7 +3073,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "VocClass::UpdateAt for a controlled voice; the audio runs updated none",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005B55E0",
@@ -2786,7 +3088,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "Message_Input (typing a chat message in a network game); the LAN-pair run sends no chat",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005B69E0",
@@ -2798,7 +3103,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MSEngine's destructor (the menus' animated screens: the campaign map selection, the WDT selection, GraphicMenu); the campaign runs left the map selection by a path that keeps the engine",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00436100",
@@ -2810,7 +3118,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "BombClass COM slot (GetClassID): saving a game while a bomb is planted; no run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004361D0",
@@ -2822,7 +3133,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "BombClass::Save: saving a game while a bomb is planted; no run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004B53D0",
@@ -2834,7 +3148,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "EMPulseClass::Save: saving a game while an EM pulse is active; no run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004B5400",
@@ -2846,7 +3163,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "EMPulseClass vtable slot (Kind_Of) during a save or a pointer swizzle with a pulse active",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004B53F0",
@@ -2858,7 +3178,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "differs by design: the native object's size where the original answers 0x34 (AbstractClass::Save writes Size_Of bytes of the native object, as the comment says); no RA2 weapon makes an EM pulse",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "EMPulseClass vtable slot (Size_Of) during a save with a pulse active",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005DBCE0",
@@ -2870,7 +3193,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "OverlayClass::Save on a save with overlay objects (the scenario's overlays are saved as packs instead)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005A6280",
@@ -2882,7 +3208,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005A31F0",
@@ -2894,7 +3223,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005A46B0",
@@ -2906,7 +3238,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005A3F70",
@@ -2918,7 +3253,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005A5340",
@@ -2930,7 +3268,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005A62A0",
@@ -2942,7 +3283,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005AC390",
@@ -2954,7 +3298,10 @@
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "UnholyAlliance vtable slot: the start check of a network game in the Unholy Alliance mode; no test starts one",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00775980",
@@ -2966,7 +3313,10 @@
    "source": "blitter.hpp template semantics (handwritten assembly in the original)",
    "notes": "Scout1177 M22 8-bit transparent copy",
    "behaviour_verdict": "same for lengths >= 0 (a negative length would run the original's counter round; no caller passes one)",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the 8-bit transparent blitter (vtable slot after Mouse's): only 8-bit surfaces use it, and the game draws 16-bit surfaces",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "(741 entries)",
@@ -2989,7 +3339,10 @@
    "source": "pass-6a decompile 00493df0",
    "notes": "forwards to the recovered CRCEngine body at the same address (one class, two names); Scout1191 (M24)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "CRCEngine::operator()(char) from the Compute_CRC methods: sync CRCs, taken in network games when a CRC check is due; the LAN-pair run did not take it",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00493E80",
@@ -3002,7 +3355,10 @@
    "source": "pass-6a decompile 00493e80",
    "notes": "forwards to CRCEngine (same address); Scout1191 (M24)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "CRCEngine::operator()(bool) from the Compute_CRC methods (as 0x00493DF0)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00493FC0",
@@ -3015,7 +3371,10 @@
    "source": "pass-6a decompile 00493fc0",
    "notes": "forwards to CRCEngine (same address); Scout1191 (M24)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "CRCEngine::operator()(void const *, int) (as 0x00493DF0; also INIClass::Clear)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006E9380",
@@ -3028,7 +3387,10 @@
    "source": "pass-6a decompile 006e9380",
    "notes": "pass-6a decompile: AbstractClass size + Debris count*4 + 4; Scout1191 (M24)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TiberiumClass COM slot (GetSizeMax): only a COM stream sizing the object calls it; the save code does not",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006EA9E0",
@@ -3041,7 +3403,10 @@
    "source": "pass-6a decompile 006ea9e0",
    "notes": "returns ArrayIndex (+0x98); Scout1191 (M24)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TiberiumClass vtable slot 16 (Fetch_Heap_ID)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004C1F80",
@@ -3054,7 +3419,10 @@
    "source": "pass-6a decompile 004c1f80",
    "notes": "pass-6a decompile; Scout1191 (M24)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "FoggedObjectClass::Compute_CRC: fogged objects need fog of war (probably unreachable; not proven)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00448400",
@@ -3065,7 +3433,10 @@
    "exact": false,
    "file": "native/link/behaviour_m26_building.cpp",
    "source": "parked draft build/class-work/Scout697/w/keep/mm.cpp (99.77, codex2/Scout697); TibSun building.cpp Do_MISSION_MISSILE",
-   "notes": "rewritten over current headers (local velocity, EMP bullet null guard); Scout1208 (M26)"
+   "notes": "rewritten over current headers (local velocity, EMP bullet null guard); Scout1208 (M26)",
+   "reach": "reviewed",
+   "reach_reason": "BuildingClass vtable slot 142 (Mission_Missile): a building in the missile mission (a super weapon building launching); behaviour verdict still open (rewritten from the 99.77 parked draft over current headers)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x007225B0",
@@ -3156,7 +3527,10 @@
    "source": "pass-6a decompile 0069a430",
    "notes": "same body as operator long; Scout1208 (M26)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the original's 160 callers are compiled natively against the inline operator long (shared/system_timer.hpp, 554 native call sites), so this out-of-line copy keeps two native callers: Register_Game_Start_Time 0x0069A130 (SystemTimerClass::operator()) and unknown_restart_timer 0x0069A160 (UnknownTimeSource_0069a160::Value), neither on a path the runs took",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00770400",
@@ -3169,7 +3543,10 @@
    "source": "pass-6a decompile 00770400",
    "notes": "second copy of Get_Char 0x00770470; Scout1208 (M26)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "WideWstring::get from MSPrintAnim::Advance (the menus' typed-text animation)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00435FF0",
@@ -3182,7 +3559,10 @@
    "source": "pass-6a decompile 00435ff0",
    "notes": "returns Type (+0x30); Scout1208 (M26)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "TechnoClass::What_Action over an object carrying a bomb; no run planted one",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00579960",
@@ -3195,7 +3575,10 @@
    "source": "pass-6a decompile 00579960; RMG.INI keys from game.exe strings",
    "notes": "Get_Int defaults kept as current values; skirmish Random Map; Scout1208 (M27)",
    "behaviour_verdict": "same: Get_Int defaults are the current values as the original pushes them (0x00579A24)",
-   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; not reached in the coverage runs"
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; not reached in the coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00482100",
@@ -3260,7 +3643,10 @@
    "source": "Ghidra decompile inventory/decompiled/0057d3a0.c; ra2-decomp twin FUN_0059BBC0 (callers only)",
    "notes": "land patch grower; start cell via Map_Random_Range (other maps per seed than the original); Scout1208 (M28)",
    "behaviour_verdict": "same: the start cell's draws are the original's inline Map_Random_Range (0x0057D469-0x0057D50F), the region growth as the original",
-   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; not reached in the coverage runs"
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; not reached in the coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet (Seed_Land_Type0/1/2)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00582A50",
@@ -3273,7 +3659,10 @@
    "source": "asm 0x00582A50",
    "notes": "Scout1208 (M28)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the base game",
+   "reach_reason": "no call, jump or address reference anywhere in game.exe",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0056EF20",
@@ -3286,7 +3675,10 @@
    "source": "TibSun mapgen.cpp MapRegionClass::Split_Region; RA2 differences from inventory/decompiled/0056ef20.c",
    "notes": "Scout1209 (r3): heap tie order; an empty height list keeps the height (the original indexes past it)",
    "behaviour_verdict": "same except the empty height list guard (the original reads past an empty list): the heap's insert and sift-down compare strictly as the original's (0x0056F14D, 0x0058F090)",
-   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the heap against the original's instructions; not reached in the coverage runs"
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the heap against the original's instructions; not reached in the coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet (MapRegionClass::Make_Ice_Regions)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006F7020",
@@ -3299,7 +3691,10 @@
    "source": "decompile and asm 0x006F7020; 0x006F69F0/0x006F7800 accepted siblings",
    "notes": "Scout1209 (r5): the selection loop is written out (the original inlines 0x006F69F0's) and the test is called with the name pointer",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "DisplayClass::Mouse_Left_Release (unselecting a type); no run made that release",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0069A430",
@@ -3312,7 +3707,10 @@
    "source": "shared/system_timer.hpp 0x0069A430 (SystemTimerClass::operator())",
    "notes": "Scout1209 (r5): unknown_restart_timer 0x0069A160's name for the system clock",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the original's 160 callers are compiled natively against the inline operator long (shared/system_timer.hpp, 554 native call sites), so this out-of-line copy keeps two native callers: Register_Game_Start_Time 0x0069A130 (SystemTimerClass::operator()) and unknown_restart_timer 0x0069A160 (UnknownTimeSource_0069a160::Value), neither on a path the runs took",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006729F0",
@@ -3364,7 +3762,10 @@
    "source": "src/recovered/005bbd10.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the LAN/network dialogs (Net_Join_Dialog, Get_Join_Responses, Scenario_Select_Callback, CreateRandomMap); the LAN-pair run did not take this branch",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005DEF80",
@@ -3377,7 +3778,10 @@
    "source": "src/recovered/ownrdraw/unknown_focus_next_tab_item.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the LAN/network dialogs (IPX_Options_Proc and Net2ReadyToGo: Tab in a network dialog); the LAN-pair run did not take this branch",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005C9320",
@@ -3390,7 +3794,10 @@
    "source": "src/recovered/005c9320.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the LAN/network dialogs (Send_Player_List, Find_Owner_User, Compare_Users, Show_Wait_Window, Store_Slot_Pings); the LAN-pair run did not take this branch",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005C9370",
@@ -3403,7 +3810,10 @@
    "source": "src/recovered/005c9370.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the port",
+   "reach_reason": "only caller Reply_To_Last_Pager 0x007466C0 (the Westwood Online pager); the port disables the Internet button",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005C93A0",
@@ -3416,7 +3826,10 @@
    "source": "src/recovered/005c93a0.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "unreachable in the port",
+   "reach_reason": "only caller Reply_To_Last_Pager 0x007466C0 (the Westwood Online pager); the port disables the Internet button",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x007837D3",
@@ -3442,7 +3855,10 @@
    "source": "src/recovered/00672f20.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the LAN/network dialogs (Destroy_Connection, Compare_Users: a player leaving); the LAN-pair run did not take this branch",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00737B00",
@@ -3455,7 +3871,10 @@
    "source": "src/recovered/winstub/Build_By_String.cpp (accepted seed); string from game.exe at run time",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the version dialog, Print_CRCs/Write_Sync_File (a desync) and Dump_Exception_Info (a crash)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00738100",
@@ -3468,7 +3887,10 @@
    "source": "src/recovered/00738100.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MessageListClass::Input/Remove_Edit (typing a chat message in a network game)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005C2940",
@@ -3494,7 +3916,10 @@
    "source": "src/recovered/wonline/unknown_send_4dc.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the LAN/network dialogs (Handle_Reset_Ready, Set_Player_Map_State); the LAN-pair run did not take this branch",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x0073BDB0",
@@ -3507,7 +3932,10 @@
    "source": "src/recovered/0073bdb0.cpp (accepted seed)",
    "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "the LAN/network dialogs (Set_Player_Map_State); the LAN-pair run did not take this branch",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00668EA0",
@@ -3520,7 +3948,10 @@
    "source": "src/recovered/00668ea0.cpp (accepted seed, empty)",
    "notes": "Scout1209 (r14): reachable from the random map dialog (Write_Scenario_INI 0x0065F980)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "ScriptTypeClass::Write_All from Write_Scenario_INI, which only Do_Random_Map calls: the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x006F8A50",
@@ -3546,7 +3977,10 @@
    "source": "none (6-byte getter: mov eax, [0x00AC1338]; ret)",
    "notes": "Scout1281: the sidebar tab hot key (SetDefenseTabCommandClass::Execute 0x0051B0F0) reads it; a link-closure trap before (static reach from executed code, coverage battery)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "CreateTeamCommandClass / the sidebar defence-tab hot key (SetDefenseTabCommandClass::Execute 0x0051B0F0) with a building waiting for placement",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00617A00",
@@ -3559,7 +3993,10 @@
    "source": "src/recovered/00617a00.cpp (Leaf_617a00, raw read of 0x00A766B0)",
    "notes": "Scout1281: the Delete command (DeleteCommandClass::Execute 0x0051DA30 -> unknown_dispatch 0x006F6490) reads it; a link-closure trap before (static reach from executed code, coverage battery)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "Command_Delete_Plan_Or_Beacon (Delete in planning mode with a node selected)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00454BF0",
@@ -3585,7 +4022,10 @@
    "source": "src/recovered/unidentified/seed_views/MapSeedClass_005794d0.cpp (seed scaffolding)",
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map: Delete_Save_File 0x0053C7D0; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x005796F0",
@@ -3598,7 +4038,10 @@
    "source": "src/recovered/unidentified/uncalled_copies/MapSeedClass_005796f0.cpp (seed scaffolding)",
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Load Map dialog title GUI:LoadMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00579710",
@@ -3611,7 +4054,10 @@
    "source": "src/recovered/unidentified/uncalled_copies/MapSeedClass_00579710.cpp (seed scaffolding)",
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map dialog title GUI:SaveMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00579730",
@@ -3624,7 +4070,10 @@
    "source": "src/recovered/unidentified/uncalled_copies/MapSeedClass_00579730.cpp (seed scaffolding)",
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map dialog title GUI:DeleteMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x00579750",
@@ -3637,7 +4086,10 @@
    "source": "src/recovered/unidentified/uncalled_copies/MapSeedClass_00579750.cpp (seed scaffolding)",
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map's message GUI:MapSaved; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004CDA80",
@@ -3676,7 +4128,10 @@
    "source": "src/recovered/004cdab0.cpp (seed scaffolding)",
    "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed.",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs"
+   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
+   "reach": "reviewed",
+   "reach_reason": "FootClass slot 271 (HaveAttackMoveTarget, after a Ctrl+Shift attack-move) default slot inherited by AircraftClass, InfantryClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   },
   {
    "entry": "0x004CDAC0",
@@ -3760,6 +4215,38 @@
    "file": "native/link/behaviour_c16_vqa.cpp",
    "source": "src/recovered/unvqtblc.cpp",
    "notes": "C16 (owner item 1, 2026-11-15): The parked draft (src/recovered/unvqtblc.cpp RA2_NON_MATCHING, 75.55) checked against the original's instructions and carried natively. native-vqa-selftest."
+  },
+  {
+   "entry": "0x007746C0",
+   "name": "XSurface::Draw_Ellipse",
+   "symbol": "__ZN8XSurface12Draw_EllipseE7Point2Dii4Recti",
+   "origin_class": "unmatched (RA2_NON_MATCHING draft in src/recovered)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m23_surface.cpp",
+   "source": "the original's instructions 0x007746C0-0x00774C83 (lane N1); first written M23 Scout1187",
+   "notes": "listed by lane N1 (the rewrite had no row). The outline from both axes as the original walks it; Put_Pixel for every pixel (the original stores 16-bit words through Lock for all but the four axis points: the same pixels on the game's 16-bit surfaces).",
+   "behaviour_verdict": "differs, fixed: the M23 rewrite was one midpoint walk with a second region, which puts other pixels near where the two halves meet; rewritten to the original's two walks (top/bottom until 2*b2*x >= 2*a2*y, undrawn; sides until 2*a2*y > 2*b2*x, drawn), 32-bit products, a2/4 toward zero, no negative-radius guard",
+   "behaviour_checked_by": "N1 2026-11-17: static check against the original's instructions",
+   "reach": "reviewed",
+   "reach_reason": "XSurface vtable slot 8 (DSurface/BSurface inherit it); Draw_Radial_Indicator 0x00451BF0 draws a selected or placed building's range circle with it (gap generators, psychic sensor, Iron Curtain placement)",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+  },
+  {
+   "entry": "0x004AC650",
+   "name": "DSurface::Draw_Depth_Antialiased_Line",
+   "symbol": "__ZN8DSurface27Draw_Depth_Antialiased_LineERK4RectRK7Point2DS5_RK8RGBClassiibbbbf",
+   "origin_class": "unmatched (RA2_NON_MATCHING draft in src/recovered)",
+   "plan": "behaviour rewrite",
+   "exact": false,
+   "file": "native/link/behaviour_m23_surface.cpp",
+   "source": "the original's code (pass-6a decompile broken), M25 Scout1202",
+   "notes": "listed by lane N1 (the rewrite had no row); its header comment lists what it keeps and its one known difference (the weight clamped to 0..256: the original indexes past the falloff table for an intensity above 1).",
+   "behaviour_verdict": "cannot tell: not checked instruction by instruction (lane N1 ran out of time box); the laser beam draws as the original in the harness order laser (d/laser.png, M25)",
+   "behaviour_checked_by": "N1 2026-11-17: listed, not statically checked",
+   "reach": "reviewed",
+   "reach_reason": "DSurface vtable slot 15; LaserDrawClass::Draw_It 0x005334F0 (Prism towers, laser weapons) draws with it; the harness order laser reached it in M25",
+   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
   }
  ]
 }

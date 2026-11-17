@@ -249,8 +249,15 @@ def reached(binary, out):
         b = open(f, 'rb').read()
         for pc in set(struct.unpack_from('<%dQ' % ((len(b) - 8) // 8), b, 8)):
             i = bisect.bisect_right(addrs, pc) - 1
-            if i >= 0:
-                runs[t[i][1]].add(run)
+            # Every name at that address (lane N1): the link's aliases (alias_list.txt, e.g.
+            # Planning_Mode_Active_614840 = Planning_Active) share one address, and nm lists one
+            # of them last; a row named by another alias was reported as not reached.
+            if i < 0:
+                continue
+            j = bisect.bisect_left(addrs, addrs[i])
+            while j < len(addrs) and addrs[j] == addrs[i]:
+                runs[t[j][1]].add(run)
+                j += 1
     return syms, runs
 
 

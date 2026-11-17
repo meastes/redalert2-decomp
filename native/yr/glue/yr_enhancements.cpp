@@ -23,8 +23,8 @@
 // original's left click. On the radar the buttons swap. Hooks (yr/fixups.json): ScrollClass::
 // Message_Handler (gamemd.exe 0x006930A0) WM_LBUTTONUP and WM_RBUTTONUP, DisplayClass::
 // Mouse_Left_Release (0x004AB9B0) the band's walk, RadarClass::RTacticalClass::Action
-// (0x006539D0) the flags. The touch tap across player-controlled houses (lane C18) is RA2's
-// campaign case (Allied mission 2's Tanya); YR keeps the original's move there.
+// (0x006539D0) the flags. The touch tap across player-controlled houses (RA2's lane C18 campaign
+// case, Allied mission 2's Tanya) is carried over too (lane Y12, Tap_Selects_Across_Houses).
 #include "always.h"
 #include "geometry.h"
 #include "display.h"
@@ -98,6 +98,26 @@ void Unselect_Band(ObjectClass *object)
     if (Band_Takes(object) && object->IsSelected) object->Unselect();
 }
 
+// The left button's last press was a touch's (platform/sdl/host.cpp). Weak default: never.
+extern "C" __attribute__((weak)) int ra2_host_touch_click(void) { return 0; }
+
+// A tap's own rule (lane Y12; RA2's lane C18 rule, link/native_modern_controls.cpp): with Classic, a
+// plain tap on a selectable unit of a player-controlled house other than the selected object's
+// selects it. The original answers it with a move there (another owner's unit gives no action of its
+// own), which campaign maps that give some units their own player-controlled house make a trap for
+// touch, where no move cursor shows first; a mouse keeps the original's click.
+bool Tap_Selects_Across_Houses(ObjectClass *object, ActionType action)
+{
+    if ((action != ACTION_MOVE && action != ACTION_NOMOVE) || !ra2_host_touch_click() || In_Mode() || Held(kCtrl)
+        || Held(kAlt) || Held(kShift))
+        return false;
+    if (!Selectable(object) || object->IsSelected || !object->Is_Techno() || CurrentObject.Count() == 0) return false;
+    HouseClass *house = object->Owner_HouseClass();
+    if (house == NULL || !house->Is_Player_Control()) return false;
+    ObjectClass *selected = CurrentObject[0];
+    return selected != NULL && selected->Owner_HouseClass() != house;
+}
+
 }  // namespace
 
 // The sidebar's PRODUCE event (glue/sidebar_native.inc): five copies with the setting on and
@@ -118,6 +138,10 @@ bool Yr_Queue_Five_Add(EventClass const &event)
 ActionType Yr_Modern_Left_Up(ObjectClass *&object, ActionType action, bool band)
 {
     type_select = NULL;
+    if (!ra2_enh_modern_controls() && !band && Tap_Selects_Across_Houses(object, action)) {
+        fprintf(stderr, "controls: tap on another player-controlled house's unit: selected (the original's move there)\n");
+        return ACTION_SELECT;
+    }
     if (!ra2_enh_modern_controls() || In_Mode() || Held(kCtrl) || Held(kAlt)) return action;
     bool shift = Held(kShift);
     if (band) {

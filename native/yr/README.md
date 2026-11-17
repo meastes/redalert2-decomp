@@ -713,6 +713,55 @@ redraws its command bar only once the mouse passes over it.
 * Fix on main: lane CB s2's native rekey had renamed the YR glue's DisplayClass::Set_Cursor_Shape to
   RA2's Set_Copy_Cursor_Shape (yr-native did not compile).
 
+## Lane Y12 (2026-11-17): combat, long games, both campaigns to their endings
+
+* **Test harness** (`glue/yr_harness.cpp`, test scaffolding as RA2's link/harness_orders.cpp): RA2_NATIVE_ORDERS
+  (`list`, `health`, `shoot <ID|*>`, `watch`, `hunt`) and RA2_NATIVE_FORCE_END (`<f1>,<f2>,...[,lose]`: PlayerWins /
+  PlayerLoses at those loop frames), called from yr_native_main_loop.
+* **ctest `yr-native-combat`** (yr/tests/yr_combat.py): a Grizzly force-fires on another of the player's (the order a
+  force-fire click queues): TechnoClass::Fire_At runs, the target's strength drops and it dies (about frame 1,300).
+* **ctests `yr-native-campaign-allied` / `-soviet`** (yr/tests/yr_campaign_chain.py, as RA2's campaign_chain.py):
+  Single Player, New Campaign, the side's emblem, seven missions won in turn through their score screens, the final
+  movie, the credits and the main menu. Both pass (ALL01UMD..ALL07SMD and SOV01UMD..SOV07TMD: all 14 missions start and
+  end, both endings, the credits' 565 lines, menu-return; about 6 minutes a side).
+* **The campaign loading screen** (glue/ldprgmgr_native.inc Draw_Campaign, gamemd.exe 0x00552E65-0x005532FD): the
+  side's title band, the scenario's LS640/LS800 picture with its palette, the load bar, the mission name and the
+  briefing box. The load bar's drawer was cut to 32 bits on its way to Draw_Bar (scenario.cpp declared FUN_0072B380
+  as returning int; ProgressScreenClass Field74 and Set_Graphic_Data's argument were int): fixups.json.
+* **NON-EXACT drafts** (each labelled in its file), in the order the runs reached them: the spotlight's brightening
+  blitters (glue/yr_spotlight.cpp, gamemd.exe 0x007DEEFA-0x007DF640, hand-written assembly the tree declares);
+  the railgun's beam damage (TechnoClass::Railgun_Beam_Damage, 0x0070C690, called from Fire_At); the credits
+  (Show_Who_Was_Responsible, 0x004C3E30, glue/egos_native.inc: RA2's draft with CREDITSMD.TXT); OwnerDraw::ListBoxHandler
+  (0x00618D40, glue/ownrdraw_list_native.inc: the campaign dialog's list; columns and cells not yet);
+  BuildingClass::Captured (0x00448260), BuildingClass::Fire_Direction (0x0044D7D0), the rocking from an impact
+  (TechnoClass vtable slot 0x3D8, 0x0070B280), MapClass::Reveal (0x00577D90); the ship locomotor (glue/ship_native.inc:
+  gamemd.exe's ShipLocomotionClass is a clone of the drive locomotor, Draw_Matrix compared instruction by instruction,
+  so the drive drafts' text under the ship's name); the hover locomotor's Process, While_Moving and Start_Of_Move
+  (TibSun's text, glue/hover_native.inc, not yet compared with gamemd.exe); off the chains' paths but on the campaign's
+  play paths: TActionClass::TAction_IRON_CURTAIN (0x006E36E0) and the voxel debris' VoxelAnimClass constructor
+  (0x007493B0, TibSun's text with gamemd.exe's audio and particle changes).
+* **Bindings** (data/name_aliases.tsv): CellClass::On_Ground = Is_Tile_Not_Water (0x004867E0), FUN_004C3E30 =
+  Show_Who_Was_Responsible, Submit_Radar_Event = RadarEventClass::Create (0x0065FA70), FUN_00622B50 =
+  UI::StandardWndProc, FUN_005BF390 = Play_Ingame_Movie, FUN_0041C610 = IndexClass<int, AbstractClass *>::search_compfunc.
+  The rocket locomotor's Save, Do_Turn and Mark_All_Occupation_Bits declarations go (fixups.json): gamemd.exe's
+  vtables hold LocomotionClass's.
+* **Modern controls on touch**: RA2's tap across player-controlled houses (lane C18) carried over
+  (glue/yr_enhancements.cpp Tap_Selects_Across_Houses); the rest was wired by lane Y8.
+* **Simulator** ("RA2 Duo Validation", RA2YR.app, `--game=yr`, yr/tests/ios_sim_skirmish.py): 12 starts of a skirmish
+  (30 s of play each) all reached the time limit without a trap or a fault (the one start crash in 10 seen by lane Y7
+  did not recur); a 90 s run with `controls=modern` passed, its two-finger tap giving Modern's order.
+* **Long game**: 30 minutes against three hard opponents on map 30 (Mac, `RA2_NATIVE_TRAP_CONTINUE=1`): no trap, no
+  fault.
+* Link closure 219 (lane Y11b) -> 186. Of the 186: Westwood Online and internet 36, LAN / multiplayer / coop 42,
+  the random map generator 11, TibSun leftovers YR does not use (veins, fences, tunnels, ion storms, VQA) 40, shell
+  and Win32 16, Speech_Name (the trigger INI writer) 1, play paths 40 (planning mode, the rocket's Process, radiation beams, gas particles, hijackers, spies,
+  psychic dominator AI) (lane Y12 trace, by caller).
+* **Open**: an LTNK (Allied 2, Soviet 7) gets a garbage position from its drive locomotor; MapClass::Place_Down and
+  Pick_Up now log a cell off the cell array and leave it alone (`place-down:` / `pick-up:` lines, five each) instead
+  of faulting. The Mac window dumps of a skirmish show a black tactical view with only health bars and the
+  `Primary` tag (also on main, lane N1's build): not investigated. The campaign dialog's Difficulty label reads
+  `MISSING:''` on its right end. The rocket locomotor's Process (0x006622C0) is still a trap (not reached by the chains).
+
 ## Next
 
 1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu

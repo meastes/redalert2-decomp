@@ -12,6 +12,12 @@ cmake --build build/native
 native/packaging/make_app.sh build/native/ra2-native build/native   # writes build/native/RA2.app
 ```
 
+The Mac one-game app (Red Alert 2 and Yuri's Revenge, the toggle at the bottom left of the main
+menu) is `make_app.sh --one-game <build>/ra2yr-native`, from a build configured with
+`-DRA2_NATIVE_YR=ON -DRA2_NATIVE_COMBINED=ON`: `RA2YR.app` with the thin host and its two engines
+(`ra2-engine.so`, `yr-engine.so`) in `Contents/MacOS`. `native/build.sh mac` and
+`native/build.sh mac-one` run the whole sequence (native/README.md "Building the apps").
+
 ## How to launch
 
 1. Double-click **RA2.app** (or drag it to Applications first). Because it is
