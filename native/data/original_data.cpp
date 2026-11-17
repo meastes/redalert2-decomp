@@ -418,7 +418,7 @@ __asm__(".globl _vtable_4b4640\n.set _vtable_4b4640, _vtable_4b45f0\n");
 // row	_vtable_4b5770	0x007A0D6C	32	bytes	vtable_4b5770	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
 alignas(16) unsigned char ra2_orig_0124[64] __asm__("_unknown_vector_vtable_007a0d6c");
 __asm__(".globl _vtable_4b5770\n.set _vtable_4b5770, _unknown_vector_vtable_007a0d6c\n");
-// row	_exception_codes_007a0e48	0x007A0E48	108	bytes	exception_codes_007a0e48	src/recovered/header_statics/facing/HeaderStatics_empty_rect_init.cpp
+// row	_exception_codes_007a0e48	0x007A0E48	108	bytes	exception_codes_007a0e48	src/recovered/header_statics/except/HeaderStatics_empty_rect_init.cpp
 alignas(16) unsigned char ra2_orig_0125[112] __asm__("_exception_codes_007a0e48");
 // row	_table_4ba3c0	0x007A0F64	28	bytes	table_4ba3c0	src/recovered/classes/VectorClass_unsigned_int/0042b510.cpp
 // row	_vtable_4ba320	0x007A0F64	28	bytes	vtable_4ba320	src/recovered/classes/VectorClass_BombClass_ptr/0040bad0.cpp
@@ -2050,9 +2050,9 @@ alignas(16) unsigned char ra2_orig_0692[32] __asm__("_start_text_007d68f4");
 alignas(16) unsigned char ra2_orig_0693[16] __asm__("_exception_depth_007d6af8");
 // row	_exception_flag_007d6afc	0x007D6AFC	4	bytes	exception_flag_007d6afc	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0694[16] __asm__("_exception_flag_007d6afc");
-// row	_ImagehelpFunctionNames_007d6b00	0x007D6B00	40	ptrs	ImagehelpFunctionNames_007d6b00	src/recovered/header_statics/facing/HeaderStatics_empty_rect_init.cpp
+// row	_ImagehelpFunctionNames_007d6b00	0x007D6B00	40	ptrs	ImagehelpFunctionNames_007d6b00	src/recovered/header_statics/except/HeaderStatics_empty_rect_init.cpp
 alignas(16) unsigned char ra2_orig_0695[80] __asm__("_ImagehelpFunctionNames_007d6b00");
-// row	_exception_code_text_007d6b28	0x007D6B28	3504	ptrs	exception_code_text_007d6b28	src/recovered/header_statics/facing/HeaderStatics_empty_rect_init.cpp
+// row	_exception_code_text_007d6b28	0x007D6B28	3504	ptrs	exception_code_text_007d6b28	src/recovered/header_statics/except/HeaderStatics_empty_rect_init.cpp
 alignas(16) unsigned char ra2_orig_0696[7008] __asm__("_exception_code_text_007d6b28");
 // row	_abort_message_007d78d8	0x007D78D8	108	bytes	abort_message_007d78d8	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
 alignas(16) unsigned char ra2_orig_0697[112] __asm__("_abort_message_007d78d8");

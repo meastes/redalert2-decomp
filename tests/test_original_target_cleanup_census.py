@@ -188,5 +188,113 @@ class Census(unittest.TestCase):
         self.assertEqual(result['other_units'], dict(done=1, total=2))
 
 
+HEADER = """#ifndef RA2_SHARED_ALPHA_HPP
+#define RA2_SHARED_ALPHA_HPP
+class Beta;
+enum class Mode { A, B };
+template<class T> class Box { T v; };
+class AlphaClass : public Base<int> {
+public:
+    int Count(int);
+    struct Inner { int x; };
+};
+#ifdef RA2_ALPHA_WIDE
+int wide;
+#endif
+#if defined(RA2_NON_MATCHING) && !defined(RA2_OTHER)
+#endif
+// class Gamma { };
+extern int alpha_count_00a10000;
+#endif
+"""
+UNIT = """#include "shared/alpha.hpp"
+extern int alpha_count_00a10000;
+extern "C" int __cdecl abs(int value);
+extern char const name_7d7eac[];
+extern "C" {
+int c_thing;
+}
+// @ref ?Count@AlphaClass@@QAEHH@Z=00401000
+  // @ref _alpha_count_00a10000=00a10000
+struct AlphaClass { int duplicate; };
+int Helper_00401020(int unknown_0x24) { return unknown_0x24 + Free_0x00401040(); }
+int AlphaClass::Count(int n) { return n; }
+"""
+
+
+class Structure(unittest.TestCase):
+    def test_definitions_not_declarations(self):
+        found = cleanup_census.class_definitions(cleanup_census.code_only(HEADER))
+        self.assertEqual(found, [('class', 'Box'), ('class', 'AlphaClass'), ('struct', 'Inner')])
+
+    def test_switches_skip_include_guards(self):
+        self.assertEqual(cleanup_census.preprocessor_switches(HEADER),
+                         {'RA2_ALPHA_WIDE', 'RA2_NON_MATCHING', 'RA2_OTHER'})
+
+    def test_address_suffixed(self):
+        found = cleanup_census.address_suffixed(UNIT)
+        self.assertEqual(found, {'alpha_count_00a10000': 1, 'name_7d7eac': 1, 'Helper_00401020': 1,
+                                 'Free_0x00401040': 1})
+        self.assertEqual(cleanup_census.address_suffixed('int unknown_0x24; int x_123456;'), {})
+
+    def test_externs(self):
+        names = [n for n, _ in cleanup_census.extern_names(cleanup_census.code_only(UNIT))]
+        self.assertEqual(names, ['alpha_count_00a10000', 'abs', 'name_7d7eac'])
+
+    def test_symbol_parts(self):
+        self.assertEqual(cleanup_census.symbol_parts('?Process@FlasherClass@@QAE_NXZ'),
+                         ('Process', 'FlasherClass', True))
+        self.assertEqual(cleanup_census.symbol_parts('?Advance_004bbf00@@YI_NAAUX@@@Z'),
+                         ('Advance_004bbf00', None, False))
+        self.assertEqual(cleanup_census.base_name('Process_004bbf00'), 'Process')
+
+    def test_member_counterparts(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'mischa85-RedAlert2/config/ra2-1.006').mkdir(parents=True)
+            (root / 'mischa85-RedAlert2/config/ra2-1.006/names.csv').write_text(
+                'address,symbol,evidence\n0x004BBF00,?Process@FlasherClass@@QAE_NXZ,matched\n'
+                '0x00401000,?Free@@YAXXZ,matched\n')
+            (root / 'TibSun/code').mkdir(parents=True)
+            (root / 'TibSun/code/alpha.cpp').write_text(
+                'bool AlphaClass::Shake(void)\n{\n return true;\n}\nint Plain(int a) { return a; }\n')
+            regions = [region(0x4bbf00, 'src/recovered/flasher/A.cpp', '?Advance_004bbf00@@YI_NAAUX@@@Z'),
+                       region(0x401000, 'src/recovered/a/F.cpp', '?Free@@YAXXZ'),
+                       region(0x401100, 'src/recovered/a/S.cpp', '?Shake_00401100@@YI_NXZ'),
+                       region(0x401200, 'src/recovered/a/P.cpp', '?Plain@Unknown_401200@@QAEHH@Z'),
+                       region(0x401300, 'src/recovered/alpha.cpp', '?Shake@AlphaClass@@QAE_NXZ')]
+            rows = cleanup_census.member_counterparts(regions, {0x401100: 'alpha', 0x401200: 'alpha',
+                                                                0x401300: 'alpha'}, root)
+            self.assertEqual([(r['entry'], r['kind'], r['counterparts']) for r in rows],
+                             [('004bbf00', 'free', {'mischa85': 'FlasherClass::Process'}),
+                              ('00401100', 'free', {'tibsun': 'AlphaClass::Shake'})])
+
+    def test_structure_block(self):
+        tree = ['src/shared/alpha.hpp', 'src/recovered/alpha.cpp', 'src/recovered/beta/One.cpp',
+                'src/recovered/beta/Two.cpp', 'src/recovered/beta/Empty.cpp']
+        texts = {'src/shared/alpha.hpp': HEADER, 'src/recovered/alpha.cpp': UNIT,
+                 'src/recovered/beta/One.cpp': 'extern int alpha_count_00a10000;\nint One() { return 1; }\n',
+                 'src/recovered/beta/Two.cpp': 'int Two() { return 2; }\n', 'src/recovered/beta/Empty.cpp': ''}
+        regions = [region(0x401000, 'src/recovered/alpha.cpp'), region(0x401010, 'src/recovered/beta/One.cpp'),
+                   region(0x401020, 'src/recovered/beta/Two.cpp'), region(0x401030, 'src/recovered/beta/Two.cpp')]
+        with tempfile.TemporaryDirectory() as tmp:
+            result = cleanup_census.structure(tmp, tmp, tree=tree, regions=regions, unit_map={},
+                                              modules={'alpha': {'source': 'src/recovered/alpha.cpp'}},
+                                              read=texts.get)
+        self.assertEqual(result['classes']['multiply_defined'], 1)
+        self.assertEqual(result['classes']['top'][0]['name'], 'AlphaClass')
+        self.assertEqual(result['switches']['count'], 3)
+        f = result['files_outside']
+        self.assertEqual((f['unit_files'], f['outside'], f['one_function'], f['several_functions'], f['no_row']),
+                         (1, 3, 1, 1, 1))
+        self.assertEqual(result['ref_lines'], dict(lines=2, files=1))
+        e = result['externs']
+        self.assertEqual((e['lines'], e['names'], e['files'], e['declared_in_a_header'], e['in_several_cpp']),
+                         (4, 3, 2, 1, 1))
+        lines = cleanup_census.structure_block(result).splitlines()
+        self.assertEqual(len(lines), 7)
+        self.assertTrue(lines[5].startswith('(f) "// @ref" comment lines: 2 in 1 files'))
+
+
 if __name__ == '__main__':
     unittest.main()

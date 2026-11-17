@@ -4,8 +4,8 @@
     "id": "population-1918",
     "inventory_sha256": "f02f49888b525ba042067eb05856f5cb3d12bb50c673e74e2bae824076a1a7fc",
     "gaps_sha256": "8fbe5db892a14f32c6701e6613c5abc04f722c2babc7ba9534d96f58346ff4c4",
-    "historical_population_sha256": "ec99da201bc26d3f81c7ef8dd66e41dd023ba5754cf54247a5709e892101cab7",
-    "historical_acceptance_sha256": "73220e4d3d857b7b2add616a2c5ee45e1ea63babd991afcb34baa8884cc0b27c"
+    "historical_population_sha256": "0b255ea86cd3bdd627cd0cab99c2a2fae02425c21260e99d18d187fe9f79b40d",
+    "historical_acceptance_sha256": "cb4faf80e95833916d3b6d176aa4b582e819644f8b2524befe84948d7a3fcb4e"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -91,8 +91,7 @@
     "__real@8@4009e100000000000000": 7983424,
     "__real@8@4007e100000000000000": 7988944,
     "__purecall": 4950368,
-    "?Advance_Alternating_Counter_004bbf00@@": 4964096,
-    "?Advance_Alternating_Counter_004bbf00@@YI_NAAUUnknownAlternatingCounterPrefix@@@Z": 4964096,
+    "?Process@FlasherClass@@QAE_NXZ": 4964096,
     "__real@8@3ffc8000000000000000": 8055960,
     "__real@8@4002c000000000000000": 8019480,
     "__real@8@3ffdfae147ae147ae000": 8020048,
@@ -280,14 +279,34 @@
     "__except_handler3": 7885524,
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "?Contains@GraphicMenuItem@@UAE_NABUPoint2D@@@Z": 5112256,
+    "?Process@LocomotionClass@@UAG_NXZ": 5494112,
+    "?Process@MechLocomotionClass@@UAG_NXZ": 5838912,
+    "?Process@WalkLocomotionClass@@UAG_NXZ": 7462896,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856,
+    "?Process@RulesClass@@QAEXAAVCCINIClass@@@Z": 6566816,
+    "?Process@WWMessageBox@@QAEHPBG000_N@Z": 5981872,
+    "?Process@VocClass@@SIXAAVCCINIClass@@@Z": 7423296,
+    "?Process@VoxClass@@SIXAAVCCINIClass@@@Z": 7431152,
+    "?Process@JumpjetLocomotionClass@@UAG_NXZ": 5436352,
+    "?Process@FlyLocomotionClass@@UAG_NXZ": 4965040,
+    "?Process@DropPodLocomotionClass@@UAG_NXZ": 4872960,
+    "_?address@?1??Unknown_0063FA00@OwnerTalkClass@@QAEPAVIPXAddressClass@@PAD@Z@4V3@A": 11234568,
+    "?Process@TunnelLocomotionClass@@UAG_NXZ": 7274496,
+    "?Process@TeleportLocomotionClass@@UAG_NXZ": 7212560,
+    "?Process@RocketLocomotionClass@@UAG_NXZ": 6545040,
+    "?Process@ShipLocomotionClass@@UAG_NXZ": 6776240,
+    "?Process@DriveLocomotionClass@@UAG_NXZ": 4851184,
+    "?Process@HoverLocomotionClass@@UAGEXZ": 5226432
   },
   "regions": [
     {
       "entry": 4964096,
       "method": "004bbf00",
-      "symbol": "?Advance_Alternating_Counter_004bbf00@@YI_NAAUUnknownAlternatingCounterPrefix@@@Z",
-      "symbol_prefix": "?Advance_Alternating_Counter_004bbf00@@",
+      "symbol": "?Process@FlasherClass@@QAE_NXZ",
+      "symbol_prefix": "?Process@FlasherClass@@QAE_NXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -300,13 +319,12 @@
       "full_extent_bytes": 32,
       "full_extent_sha256": "9f8c59ad5225c529e9ef7108d6ce5badd3aed4905ed1ba854fed8081f130f13d",
       "relocations": [],
-      "source_sha256": "628d7a4ae39f59efe74491445340f46f813664387f417118a33b3e39cfc7de7c",
-      "source": "src/recovered/flasher/Advance_Alternating_Counter.cpp",
+      "source_sha256": "2cbfe1a9d455a0402c0d8f34890f290ea3ee7ee8e161deac14f8b2fcdc3d880a",
+      "source": "src/recovered/flasher.cpp",
       "population": "population-1918",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
       "source_quality_family": "hand-written",
-      "semantic_name": "Advance_Alternating_Counter",
       "source_order": 65051
     }
   ]
