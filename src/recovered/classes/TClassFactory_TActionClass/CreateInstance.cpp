@@ -2,7 +2,6 @@
 // Light TActionClass interface: allocation size 120 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0TActionClass@@QAE@XZ=006ad370
 
 class TActionClass {
 public:

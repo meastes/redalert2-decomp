@@ -1,7 +1,6 @@
 // void unknown_init_color_dark_teal_6f1a40() -- 0x006F1A40
 // Sets the colour at 0x00AC1008 to (0x00, 0x52, 0x75).
 #include "shared/rgb_class.hpp"
-// @ref ?unknown_color_ac1008@@3VRGBClass@@A=00ac1008
 extern RGBClass unknown_color_ac1008;
 
 void __fastcall unknown_init_color_dark_teal_6f1a40()

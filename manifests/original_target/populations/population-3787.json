@@ -4,8 +4,8 @@
     "id": "population-3787",
     "inventory_sha256": "20049d68870f4dbb8833bb8ea6b075d2bcee196db7918bd6f4f0ee308838a169",
     "gaps_sha256": "0f7903787e7d5535d95d40e16ead4397a1cae6dc3986df07361b2ec8d673b418",
-    "historical_population_sha256": "09fe323295155c67ce37b3db610a5637786a488e3ddab317d6650bac1b9b596b",
-    "historical_acceptance_sha256": "a3ed19a0d6835be0e07839e466e75eed48dd5b12604db366bf45e286df5faafc"
+    "historical_population_sha256": "e207bd95c06e95e788247c5ce67b0e833b651f01411d842a9e4bf13fb7877617",
+    "historical_acceptance_sha256": "79666361bd94e36f84947627cf8513141781fb35829901cbd82eb8f9efe3695f"
   },
   "references": {
     "??2@YAPAXI@Z": 7872535,
@@ -4570,7 +4570,9 @@
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__real@8@bff6b6db6db6db6db800": 8026880,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856
   },
   "regions": [
     {
@@ -4607,7 +4609,7 @@
           "resolved": 4292487151
         }
       ],
-      "source_sha256": "ca01f5c7b4a34f3f4dd69018a0fab31ad71d70b405953e0af05d6e55749d026b",
+      "source_sha256": "2cf7a0d31da6954b6c74dc10c769aa4e674a4a54a08d4314024f835e028dea19",
       "source": "src/recovered/classes/TClassFactory_BombClass/CreateInstance.cpp",
       "population": "population-3787",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -4650,7 +4652,7 @@
           "resolved": 365869
         }
       ],
-      "source_sha256": "21645600956d3a017baf7a4dccf4f5b63d854ca32b1ae6bffc8868bba0638770",
+      "source_sha256": "4fdbf8b915d87dd132be179739794e2f80b8e5509d89f6a14789ca1ec7f13787",
       "source": "src/recovered/classes/TClassFactory_TriggerClass/CreateInstance.cpp",
       "population": "population-3787",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -4693,7 +4695,7 @@
           "resolved": 559882
         }
       ],
-      "source_sha256": "e3091e06832f309583f2966254be0f47d7251e2641593500b123a6e508ad2146",
+      "source_sha256": "e71d9fc850bb8bf1531abe8bd26bd867cb8afeaa20ae619ad6cbc2439e67fc5d",
       "source": "src/recovered/classes/TClassFactory_WarheadTypeClass/CreateInstance.cpp",
       "population": "population-3787",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

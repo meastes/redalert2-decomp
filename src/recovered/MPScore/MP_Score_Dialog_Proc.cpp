@@ -85,34 +85,3 @@ int __stdcall MP_Score_Dialog_Proc_005AAE40(HWND window, UINT message, WPARAM wp
     }
     return 0;
 }
-// @ref ??BSystemTimerClass@@QBEJXZ=0069a430
-// @ref ??_C@_05DDDB@SCORE?$AA@=007e5648
-// @ref ??_C@_08BAEO@TXT_GAME?$AA@=007e563c
-// @ref ??_C@_0BC@POFI@GUI?3SkirmishScore?$AA@=007e5628
-// @ref ??_C@_0BD@OOCG@D?3?2Ra2?2MPScore?4cpp?$AA@=007e55b8
-// @ref ??_C@_0BF@DIMM@GUI?3MultiplayerScore?$AA@=007e5610
-// @ref ??_C@_0BG@MFEO@TXT_TIME_FORMAT_HOURS?$AA@=007d156c
-// @ref ??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@=007d1598
-// @ref ?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A=00ab6ef8
-// @ref ?From_Name@ThemeClass@@QBEHPBD@Z=006e8510
-// @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
-// @ref ?Play_Song@ThemeClass@@QAEHH@Z=006e7eb0
-// @ref ?Theme@@3VThemeClass@@A=00a35d78
-// @ref ?To_RGB@HSVClass@@QBE?AVRGBClass@@XZ=004ff050
-// @ref ?unknown_a3f58c@@3HA=00a3f58c
-// @ref ?unknown_b2a7fc@@3HA=00b2a7fc
-// @ref ?Scen@@3PAVScenarioClass@@A=00a3d290
-// @ref ?unknown_mp_score_controls_7e5518@@3PAY04HA=007e5518
-// @ref ?unknown_session_a3d298@@3USessionClass@@A=00a3d298
-// @ref __imp__GetDlgItem@8=0079a49c
-// @ref __imp__GetWindowLongA@8=0079a48c
-// @ref __imp__SendMessageA@16=0079a4a0
-// @ref _qsort=00781d46
-// @ref _swprintf=00783764
-// @ref ?Unknown_005feb60@@YIXPAVRect@@PAVSurface@@HH@Z=005feb60
-// @ref ?Unknown_Rect_Shrink_006F1B30@@YIXPAVRect@@HH@Z=006f1b30
-// @ref ?Window_Rect_In_Main_Client@@YIHPAUHWND__@@PAURECT@@@Z=00735690
-// @ref ?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z=005ffb00
-// @ref ?AlternateSurface@@3PAVSurface@@A=00839958
-// @ref ?unknown_compare_descending_60_005aae10@@YAHPBX0@Z=005aae10
-// @ref ?MP_Tally_Scores_005AABD0@@YAXXZ=005aabd0

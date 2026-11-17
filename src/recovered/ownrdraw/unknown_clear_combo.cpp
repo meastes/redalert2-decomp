@@ -3,7 +3,6 @@
 // CB_DELETESTRING); returns 0.
 // Assumptions: name hypothesis.
 #include "shared/win32_api.hpp"
-// @ref __imp__SendMessageA@16=0079a4a0
 
 int __fastcall unknown_clear_combo(HWND combo)
 {

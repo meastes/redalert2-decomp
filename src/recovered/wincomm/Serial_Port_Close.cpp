@@ -15,7 +15,7 @@
 namespace seed_00734950 {
 
 extern void  Debug_Log_004068f0(int);
-extern "C" __declspec(dllimport) unsigned int __stdcall CloseHandle(int);  // @ref __imp__CloseHandle@4=0079a1d4
+extern "C" __declspec(dllimport) unsigned int __stdcall CloseHandle(int);
 extern "C" char s_Closing_serial_port_007fca0c[];
 
 void __fastcall Serial_Port_Close_00734950(int self)

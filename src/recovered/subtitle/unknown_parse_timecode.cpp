@@ -5,9 +5,6 @@
 // Assumptions: the three CRT calls are wcsncpy (0x00783622), wcschr
 // (0x00783AC6) and wcstol (0x00784D76) on 16-bit characters; the name is
 // a hypothesis.
-// @ref _wcsncpy=00783622
-// @ref _wcschr=00783ac6
-// @ref _wcstol=00784d76
 extern "C" unsigned short *__cdecl wcsncpy(unsigned short *dest, unsigned short const *source, unsigned int count);
 extern "C" unsigned short *__cdecl wcschr(unsigned short const *text, unsigned short character);
 extern "C" long __cdecl wcstol(unsigned short const *text, unsigned short **end, int base);

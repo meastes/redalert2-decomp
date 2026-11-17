@@ -20,17 +20,6 @@
 #include "shared/keyboard.hpp"
 #include "shared/crt_string.hpp"
 
-// @ref ??_C@_0N@LJCA@PROGBARM?4SHP?$AA@=007f1fe8
-// @ref ??_C@_07HFL@failure?$AA@=007f2f48
-// @ref ??_C@_07IGMM@success?$AA@=007f2f50
-// @ref ??_C@_0BJ@CPAL@Send?5file?5?$CFs?5to?5clients?6?$AA@=007f3040
-// @ref ??_C@_0BK@FKDD@File?5info?5send?5timed?5out?6?$AA@=007f2fdc
-// @ref ??_C@_0BM@LKIN@File?5upload?5completed?5?9?5?$CFs?6?$AA@=007f2f2c
-// @ref ??_C@_0BO@OLMH@Sending?5file?5info?5to?5clients?6?$AA@=007f3020
-// @ref ??_C@_0CF@NINP@Client?5responded?5with?5file?5info?5@=007f2fb4
-// @ref ??_C@_0CH@EMII@Sending?5file?5chunk?5?$CFd?1?$CFd?0?5?$CFd?5sec@=007f2f8c
-// @ref ??_C@_0CH@JACN@Sending?5file?5info?5packet?5to?5play@=007f2ff8
-// @ref ??_C@_0DB@BACP@We?5sent?5the?5file?5properly?5with?5?$CF@=007f2f58
 
 bool __fastcall Send_Remote_File_0066bb20(char const *file_name, int gametype, bool to_players, bool progress)
 {

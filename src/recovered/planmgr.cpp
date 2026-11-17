@@ -1624,7 +1624,7 @@ void PlanningTokenClass::unknown_6138f0(int index)
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // void PlanningTokenClass::unknown_613a80() (0x00613A80)
 // Clears the loop marks of the loop start (once) and of every node from the
-// first one on. Statement shape from ra2-decomp PlanningTokenClass::FUN_00636CE0
+// first one on. Statement shape from ra2-decomp PlanningTokenClass 0x00636CE0
 // (YR 0x00636CE0).
 
 void PlanningTokenClass::unknown_613a80()
@@ -2688,7 +2688,7 @@ unsigned int __fastcall unknown_is_kind_7_8_9_006159c0(int kind)
 // bool __fastcall Planning_Mission_Allows(TechnoClass *techno) (0x00615A10)
 // Whether the techno's current mission lets planning mode take over: mission
 // 5, or mission 1 / 0xB whose target is a building (kind 0xB) or, for 0xB,
-// absent. Statement shape from ra2-decomp FUN_00638C70 (YR 0x00638C70).
+// absent. Statement shape from ra2-decomp (YR 0x00638C70).
 
 static inline bool Mission_Fits(int mission, TargetClass target)
 {
@@ -2814,7 +2814,7 @@ PlanningNodeClass *__stdcall Planning_Node_At(int x, int y)
 // at the same node as the first selected techno's; refuses
 // (MSG:PlanningModeHeteroSel) a mixed selection. True outside planning or
 // with nothing selected.
-// from ra2-decomp 0x00639040 (FUN_00639040, src/planmgr.cpp)
+// from ra2-decomp 0x00639040 (src/planmgr.cpp)
 
 // AbstractClass::Is_Techno as ra2-decomp writes it (not in this unit's
 // ObjectClass declaration).
@@ -2995,7 +2995,7 @@ void __fastcall Planning_Send_Pair(AbstractClass *source, PlanningNodeClass *nod
 // Gives the techno a planning token if it has none, then closes its path
 // into a loop at the node when the path holds it already, else appends it.
 // Planning_Close_Loop is defined here, `inline`: this function expands it, and so
-// does Planning_Close_Loop_006164e0 (0x006164E0, ra2-decomp's FUN_00639740 form),
+// does Planning_Close_Loop_006164e0 (0x006164E0, ra2-decomp's 0x00639740 form),
 // the function Planning_Execute 0x00614BA0 calls.
 
 // void __fastcall Planning_Close_Loop(TechnoClass *techno, PlanningNodeClass *node) (inline; expanded at
@@ -3045,7 +3045,7 @@ void __fastcall Planning_Path_Add(TechnoClass *techno, PlanningNodeClass *node)
 // void __fastcall Planning_Close_Loop_006164e0(TechnoClass *techno, PlanningNodeClass *node) (0x006164E0;
 // Planning_Execute 0x00614BA0 calls it): closes the techno's path into a loop at the node through the inline
 // Planning_Close_Loop (defined in Planning_Path_Add's file 0x00616350, which expands it too).
-// From ra2-decomp 0x00639740 (YR identical twin, src/planmgr.cpp FUN_00639740):
+// From ra2-decomp 0x00639740 (YR identical twin, src/planmgr.cpp):
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright 2026 ra2-decomp contributors
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
@@ -3067,7 +3067,7 @@ void __fastcall Planning_Close_Loop_006164e0(TechnoClass * techno, PlanningNodeC
 // it, else from the node with the stretch up to it shared too. Selects (or,
 // with a loop, unselects) the members of techno's last node the first time
 // a human house does this.
-// from ra2-decomp 0x00639800 (FUN_00639800, src/planmgr.cpp)
+// from ra2-decomp 0x00639800 (src/planmgr.cpp)
 
 void __fastcall Planning_Path_Append(TechnoClass *techno, PlanningNodeClass *node)
 {
@@ -3749,7 +3749,7 @@ unsigned int  unknown_get_a766f8_00617ae0(void)
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // void Planning_Unknown_617af0() (0x00617AF0)
-// Adopted from ra2-decomp FUN_0063AD50 (YR 0x0063AD50).
+// Adopted from ra2-decomp (YR 0x0063AD50).
 // Connects the remembered node to the selection: with objects selected,
 // every selected techno without a path, and every member of the last node
 // of each selected path, gets a connect event (0x2A) to the node's target

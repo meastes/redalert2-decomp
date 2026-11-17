@@ -1432,7 +1432,7 @@ void DisplayClass::Mouse_Left_Release(CoordStruct const &coord, Cell const &cell
 
 // Not exact (RA2_NON_MATCHING): DisplayClass::unknown_slot46 at 0x0049B0F0, best score 60.15, 2026-11-13; differs: 751 instructions in the original, 928 in the draft (shape 85.77)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x49B0F0 FUN_0049b0f0
+// NON-EXACT DRAFT 0x49B0F0 DisplayClass::unknown_slot46
 // entry 0x49B0F0; exact-match score 62.84 (misses_index best); plan "review: rewrite likely"
 // origin lane: Scout926 (build/class-work/Scout926/w/mu2.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by

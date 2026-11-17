@@ -4,8 +4,8 @@
     "id": "population-3671",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "13a2d6d0c65155631d32da105a7671bacd58451eb74f69fdf24ddf06590aa5c5",
-    "historical_acceptance_sha256": "0d84e5d0b6bcdbf47c826a5d005fd11d165b4f95056338af1b29d70f78e14b14"
+    "historical_population_sha256": "a66214b66b235302f63b2c2ce97fb594047c821c0a608215e81efb43b5586cc3",
+    "historical_acceptance_sha256": "7cb68b4113cdd8245ab11ec4029865d0ba4c5d4608e8bad5662493cd6f32b0b9"
   },
   "references": {
     "?LCW_Uncomp@@YIHPBXPAXK@Z": 5458768,
@@ -756,7 +756,9 @@
     "??_EMixFileClass@@UAEPAXI@Z": 5856352,
     "??_EWinModemClass@@UAEPAXI@Z": 7558672,
     "?Reset@BitFontClass@@QAEXXZ": 4399536,
-    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488
+    "_?dir@?4??Edge_Scroll_00669EC0@ScrollClass@@QAEXABUPoint2D@@@Z@4UUnknownFacingDir@@A": 11235488,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856
   },
   "regions": [
     {
@@ -793,7 +795,7 @@
           "resolved": 4294941803
         }
       ],
-      "source_sha256": "00f2c3a79bcbd90d123d81307e5c2dd5950d45d147b2957fae4cac0037ccda84",
+      "source_sha256": "64416f9708235fd2e031ea28789ebdc62dcfea676cd7a251cbeb0cee4b4f8602",
       "source": "src/recovered/load/Uncompress_Data.cpp",
       "population": "population-3671",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

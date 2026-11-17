@@ -5,8 +5,6 @@
 // (IMA ADPCM, tag 0x11: block size and 16-bit samples; PCM, tag 1: the
 // sample width) from it. The file is left at the start of the data.
 // Returns 1 for a supported format, else 0.
-// @ref _malloc=00782630
-// @ref _free=007825e8
 #include "shared/raw_file_class.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/audio.hpp"

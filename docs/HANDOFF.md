@@ -14,6 +14,46 @@ Earlier owner periods are in [history/](history/).
 - Open for the user: YR keyboard on the Duo; steps for the loading-screen Skip button and unit animation glitches; YR save check on Windows; review asks whether the README names the AI-agent method.
 - Follow-up: about 43 files still mention FUN_ names in comments (code is clean); CA2/R1 field tail prep in lane-ca build/r1/f; reference hits left: 0x577010, 0x673090 (91.55), 0x716780 (needs a bounds pass), 0x73A680 (class unknown).
 
+## Stopped work: freeze as an exact-match record (lane A1, 2026-11-17)
+
+The user decided the clean readable source will probably be mischa85/RedAlert2's tree. This tree
+stops at an honest, tidy exact-match record and the base the native ports build from (README "Still
+rough"; STATUS "Structure:" rows from `cleanup_census.py --structure`). Stopped, and how to resume:
+
+- **Structure clean-up beyond A1** (class merges, unit joins, moving externs into headers, folding
+  one-function files into unit files, switch removal). Resume from the census: `cleanup_census.py
+  --structure --json` lists the multiply-defined classes (a), switches by file (b), files outside their
+  unit (c), member counterparts (d) and externs (g). Class merges start from lane S2's CellClass pilot
+  (branch `lane-s2`, d836ea3ee, not exact, never land; record in
+  [history/S2_CELLCLASS_PILOT_20261117.md](history/S2_CELLCLASS_PILOT_20261117.md)); unit joins with
+  `refile_unit.py` under DECISIONS "Route A" and the own-bound join rows; every round gated by
+  `join_gate.py` and the YR engines build.
+- **Convergence toward mischa85's tree** (their unit map, names and headers adopted here). Lane S2
+  measured the cost against a local build of their tree; the lab files are in the lane-s2 worktree,
+  `build/s2/` (`m85-last.log` ends "1665800 of 4485392 bytes built from source (9319 functions; 10651
+  pending)"; `overlap.json`, `tier0.json`, `rebuilt_A.json`/`rebuilt_B.json`, `m85-nomatch.txt`).
+  Summary (S2, 2026-11-17, mischa85 at 32ed14c): their tree builds here with our VC6 and reproduces
+  their claims (7,356 of 8,450 verified by their build.py, 6 need their RTM C2). Both match 8,443 rows
+  (2.10 MB); only we match 9,467 rows (1.18 MB); only they match 7. Free carry-over 408 rows (28 KB) +
+  138 template-edit rows (21 KB); hand sample 4 of 13 matched in minutes, 5 need re-matching. Of the
+  236 large our-only rows (536 KB), 62% of bytes sit where they already hold an unmatched draft.
+  Estimate: 140-225 lane-days for everything we match that they lack, 90-120 after a week of their
+  growth, plus 25-35 to move the native ports. Their process overlays matched COMDATs onto the original
+  (no strict audit, bounds, flags or per-population options). Not pursued; the user chose the ports
+  plus a rebuild trial (AGENTS.md 2026-11-17). Resume: pull `private/reference/mischa85-RedAlert2`, rerun S2's `build/s2/tier0.py` and
+  `mcmp.py`, adopt with attribution per THIRD_PARTY.md.
+- **Field-name batches** (lanes CA2 a-l and CB2 m-z: `unknown_` fields take mischa85's names by class,
+  offset and size through `member_rename.py`/`apply_rename.py` `member_renames`; last landed CA2 b3
+  051e9ed04 and CB2 2bb740644). Remaining placeholders: `cleanup_census.py --units` (placeholder column);
+  E1b's leftover field pairs and refusals were in its worktree (`build/e1b-tools/fields-left.json`,
+  `fields-refused.json`; branch `e1b-rename-tools`). Resume with the same method, one class batch per
+  round, declaration-count-fragile rows through `fragile_lab.py`.
+
+A1 also removed the `// @ref` lines from accepted sources (every binding was already in its population
+table; scratch drafts keep them for `diff_candidate.py`/`accept_sources.py`). `accept_sources.py`
+still copies a draft verbatim, so a new acceptance can bring @ref lines back: strip them from the draft
+before promotion, and STATUS's "@ref" row shows any that return.
+
 ## After a compaction (owner checklist)
 
 0. Run `private/tools/owner_checks.sh` (Windows deliveries/status, mirror HEAD, disks, reference pull) and `private/tools/pull_references.sh` before the first status; paste the Windows line with its check time.

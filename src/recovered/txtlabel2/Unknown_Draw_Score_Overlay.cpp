@@ -1,10 +1,6 @@
 // void __fastcall Unknown_Draw_Score_Overlay_6F3B90(Surface *surface, Rect const &window) -- 0x6F3B90
 // Draws the shape at 0x00AC110C (hypothesis).
 #include "shared/rect.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HUPoint2D@@@Z=0049eea0
-// @ref ?unknown_point_ac11c0@@3PAUPoint2D@@A=00ac11c0
-// @ref ?unknown_drawer_ac1164@@3PAVConvertClass@@A=00ac1164
-// @ref ?unknown_shape_ac110c@@3PAUShapeFileStruct@@A=00ac110c
 
 class Surface;
 class ConvertClass;

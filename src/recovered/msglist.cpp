@@ -474,7 +474,7 @@ unsigned int Leaf_5b55e0::Get_Edit_Buf_005b55e0() { unsigned int message_list_ad
 //
 // Body: 20 bytes (frozen inventory bound).
 // Referenced from 0 sites.
-// Ghidra prototype: void __thiscall FUN_005b55f0(int param_1,undefined4 param_2)
+// Ghidra prototype: void __thiscall Set_Edit_Color_005b55f0(int param_1,undefined4 param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

@@ -4,15 +4,6 @@
 // Assumptions: the 0x00AC0CB0 list is declared as an ObjectClass list in
 // shared/object.hpp (it also holds AnimTypes; element type unknown).
 #include "shared/anim_type.hpp"
-// @ref ??0ObjectTypeClass@@QAE@PBD@Z=005d57f0
-// @ref ?AnimTypes@@3V?$TypeList@PAVAnimTypeClass@@@@A=008661e0
-// @ref ??_7AnimTypeClass@@6BIPersistStream@@@=0079c318
-// @ref ??_7AnimTypeClass@@6BIRTTITypeInfo@@@=0079c2ec
-// @ref ??_7AnimTypeClass@@6BINoticeSink@@@=0079c310
-// @ref ??_7AnimTypeClass@@6BINoticeSource@@@=0079c308
-// @ref ?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A=00ac0cb0
-// @ref ?Create_ID@AbstractClass@@UAGXXZ=0040ffd0
-// @ref ?Load_Image@AnimTypeClass@@UAEXH@Z=00425490
 
 AnimTypeClass::AnimTypeClass(char const *ini_name) :
     ObjectTypeClass(ini_name),

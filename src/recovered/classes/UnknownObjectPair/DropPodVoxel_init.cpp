@@ -3,8 +3,5 @@
 // _$E draft, emitted by this definition) runs ~UnknownObjectPair 0x005D4A60. Owning unit:
 // the global-object block around 0x004D4500.
 #include "shared/object_type.hpp"
-// @ref ??1UnknownObjectPair@@QAE@XZ=005d4a60
-// @ref ?DropPodVoxel@@3VUnknownObjectPair@@A=00a40c80
-// @ref _atexit=0078298a
 
 UnknownObjectPair DropPodVoxel;

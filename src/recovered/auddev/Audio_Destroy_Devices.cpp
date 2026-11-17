@@ -1,7 +1,6 @@
 // Destroys all audio devices and their channels; original00403210.
 #include "shared/audio.hpp"
 void __cdecl operator delete(void *block);
-// @ref ?Audio_System_Instance@@3PAUAudioSystem@@A=007cc968
 void __fastcall Audio_Destroy_Devices_00403210()
 {
     Audio_System_Instance->Busy++;

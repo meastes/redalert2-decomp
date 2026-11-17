@@ -107,28 +107,3 @@ HRESULT __stdcall CChatEventSink::OnChannelList(HRESULT result, WOL::Channel *ch
     }
     return S_OK;
 }
-// @ref ?Insert_00766c20@WolChannelArray@@=00766c20
-// @ref ?Get_00768260@WolIntArray@@=00768260
-// @ref ?Remove_007681a0@WolIntArray@@=007681a0
-// @ref ?Grow_00768320@?$WolArrayList@VWstring@@@@=00768320
-// @ref ?unknown_channel_requests_b29390=00b29390
-// @ref ?unknown_lobbies_b26c88=00b26c88
-// @ref ?unknown_games_b29990=00b29990
-// @ref ?unknown_game_names_b2a648=00b2a648
-// @ref ?unknown_pending_names_b29468=00b29468
-// @ref ?unknown_channel_names_b293a0=00b293a0
-// @ref ?unknown_ladder_cache_b2ac24=00b2ac24
-// @ref ?unknown_ladder_client_a72d00=00a72d00
-// @ref ?unknown_channel_event_b26504=00b26504
-// @ref ?unknown_user_list_count_b2a728=00b2a728
-// @ref ?Unknown_00755180=00755180
-// @ref ?Unknown_0073ee80=0073ee80
-// @ref ?Unknown_0073f8f0=0073f8f0
-// @ref ?unknown_ladder_address_b29018=00b29018
-// @ref ?unknown_ladder_port_b2a8ac=00b2a8ac
-// @ref ?unknown_protocol_7fd370=007fd370
-// @ref ??_C@_0BE@DACK@clearing?5game?5list?6?$AA@=007fe2b0
-// @ref ??_C@_0BI@IGIC@Setting?5ping?5?$CFd?5for?5?$CFs?6?$AA@=007fe298
-// @ref ??_C@_0CC@FEKE@restoring?5ping?5?$CFd?5for?5channel?5?$CFs@=007fe274
-// @ref ??_C@_01PKAG@?3?$AA@=007e6f8c
-// @ref ??_C@_0CN@DEJO@Received?5channel?5list?0?5user?5list@=007fe244

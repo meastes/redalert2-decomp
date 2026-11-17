@@ -4,26 +4,6 @@
 // screen (MNSCRNS/MNSCRNL by 640/480), the sidebar top, warning and button
 // background, the animated button, the multiplayer button, the button count
 // (0x00AC102C) and the bottom piece, and the lower-left screen (LWSCRNS/L).
-// @ref ??2@YAPAXI@Z=00782017
-// @ref ?unknown_shape_ac1128@@3PAUShapeFileStruct@@A=00ac1128
-// @ref ?unknown_shape_ac1010@@3PAUShapeFileStruct@@A=00ac1010
-// @ref ?unknown_shape_ac10e8@@3PAUShapeFileStruct@@A=00ac10e8
-// @ref ?unknown_shape_ac10b4@@3PAUShapeFileStruct@@A=00ac10b4
-// @ref ?unknown_shape_ac107c@@3PAUShapeFileStruct@@A=00ac107c
-// @ref ?unknown_shape_ac10b8@@3PAUShapeFileStruct@@A=00ac10b8
-// @ref ?unknown_shape_ac0fec@@3PAUShapeFileStruct@@A=00ac0fec
-// @ref ?unknown_shape_ac1044@@3PAUShapeFileStruct@@A=00ac1044
-// @ref ?unknown_shape_ac10d8@@3PAUShapeFileStruct@@A=00ac10d8
-// @ref ?unknown_shape_ac1060@@3PAUShapeFileStruct@@A=00ac1060
-// @ref ?unknown_rect_ac11c0@@3PAVRect@@A=00ac11c0
-// @ref ?unknown_rect_ac11c4@@3PAVRect@@A=00ac11c4
-// @ref ?unknown_rect_ac11bc@@3PAVRect@@A=00ac11bc
-// @ref ?unknown_rect_ac11c8@@3PAVRect@@A=00ac11c8
-// @ref ?unknown_rect_ac11b4@@3PAVRect@@A=00ac11b4
-// @ref ?unknown_rect_ac11b8@@3PAVRect@@A=00ac11b8
-// @ref ?unknown_rect_ac11cc@@3PAVRect@@A=00ac11cc
-// @ref ?unknown_rect_ac11d0@@3PAVRect@@A=00ac11d0
-// @ref ?unknown_count_ac102c@@3HA=00ac102c
 #define SHAPE_FILE_EMPTY_RECT Rect(0, 0, 0, 0)
 #include "shared/shape_file.hpp"
 

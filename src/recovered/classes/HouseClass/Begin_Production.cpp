@@ -1,13 +1,3 @@
-// @ref ??_C@_0BC@EKNB@IsSuspended?7?$DN?5?$CFd?6?$AA@=007d7fd8
-// @ref ??_C@_0BG@EDND@Object?9?$DOHeapID?5?$DN?$DN?5?$CFd?6?$AA@=007d7fec
-// @ref ??_C@_0BE@EMPD@Object?9?$DORTTI?5?$DN?$DN?5?$CFd?6?$AA@=007d8004
-// @ref ??_C@_0CD@JIFF@fptr?9?$DOQueuedObjects?4Count?$CI?$CJ?5?$DN?$DN?5?$CF@=007da358
-// @ref ??_C@_0N@NJAM@Frame?5?$DN?$DN?5?$CFd?6?$AA@=007d8038
-// @ref ??_C@_08NKGA@type?$DN?$CFd?6?$AA@=007da37c
-// @ref ??_C@_0GF@CJND@Request?5to?5Begin_Production?5of?5?8@=007da388
-// @ref ??_C@_0EL@FFCC@Request?5to?5Begin_Production?5of?5?8@=007da3f0
-// @ref ??_C@_0EM@PKHD@Request?5to?5Begin_Production?5of?5?8@=007da43c
-// @ref ??_C@_0EF@NGDE@Request?5to?5Begin_Production?5of?5?8@=007da488
 // HouseClass::Begin_Production, original004E5E30. Real source reconstruction.
 #include "shared/building_class.hpp"
 #include "shared/house_views.hpp"
@@ -16,8 +6,6 @@
 #include "shared/map_view.hpp"
 extern int unknown_max_ahead_a3d560;
 extern int unknown_a3d568;
-// @ref ?Debug_Printf@@YAXPBDZZ=004068f0
-// @ref ?unknown_4b9440@FactoryClass@@QAE_NPAVTechnoTypeClass@@PAVHouseClass@@E@Z=004b9440
 int HouseClass::Begin_Production(int kind,int index,bool naval,bool resume)
 {
     int result=true;

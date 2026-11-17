@@ -1,7 +1,6 @@
 // AudioDevice *__fastcall Audio_Create_Device(int driver_index, AudioFormat const *format) -- 0x00402C70
 // Purpose: find the driver owning device slot driver_index, create and open the device on first use, add a reference.
 // LevelSpan is set up inline (Reset/Set(33)/Set_08(165)/Set_20(165) stores), Span through the out-of-line methods.
-// @ref ?Audio_Device_Update@@YIHPAUAudioDevice@@@Z=0x00402F60
 #include "shared/crt_memory.hpp"
 #include "shared/audio.hpp"
 

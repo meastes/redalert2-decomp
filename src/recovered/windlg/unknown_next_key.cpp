@@ -4,8 +4,6 @@
 // key is absent or last.
 // Assumptions: the table's meaning is unidentified; names are placeholders.
 
-// @ref ?DialogStack@@3PAUDialogStackEntry@@A=00b25bb8
-// @ref ?DialogStackCount@@3HA=00b25de0
 #include "shared/win32_window.hpp"
 
 int __fastcall unknown_next_key(int key)

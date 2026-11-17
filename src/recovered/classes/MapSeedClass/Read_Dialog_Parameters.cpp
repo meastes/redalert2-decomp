@@ -1,11 +1,6 @@
 #include "shared/map_seed.hpp"
 #include "shared/map_preview.hpp"
 extern bool unknown_map_dialog_modified_a70068;
-// @ref ?unknown_map_dialog_modified_a70068@@3_NA=00a70068
-// @ref ?unknown_preview_a6fee4@@3PAVMapPreviewClass@@A=00a6fee4
-// @ref ??1MapPreviewClass@@QAE@XZ=0061d440
-// @ref ?Randomize_Parameters_005789f0@MapSeedClass@@=005789f0
-// @ref ?Fixup_Settings@MapSeedClass@@=00578d80
 void MapSeedClass::Read_Dialog_Parameters_00578420(HWND dialog)
 {
     {

@@ -1,10 +1,6 @@
 // void __fastcall Unknown_Draw_MP_Score_Backdrop_6F3C70(Surface *surface, Rect const &window) -- 0x6F3C70
 // Draws the backdrop shape at 0x00AC1104 (hypothesis).
 #include "shared/rect.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HUPoint2D@@@Z=0049eea0
-// @ref ?unknown_point_ac11c0@@3PAUPoint2D@@A=00ac11c0
-// @ref ?unknown_drawer_ac1170@@3PAVConvertClass@@A=00ac1170
-// @ref ?unknown_shape_ac1104@@3PAUShapeFileStruct@@A=00ac1104
 
 class Surface;
 class ConvertClass;

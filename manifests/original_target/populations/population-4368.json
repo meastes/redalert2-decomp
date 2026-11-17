@@ -4,8 +4,8 @@
     "id": "population-4368",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "176de3d62c5f5f43bd1de72182aa38a99e56c6a62cacf7b6b1eb5add64bd4347",
-    "historical_acceptance_sha256": "1f6cf332b67970d342862147cbbfb93392ea116c2f1481aa9daf59bf6bd195f0"
+    "historical_population_sha256": "f9d453fea27804f2897b056087f689d11a1b82b84278333b7158d4bc60396285",
+    "historical_acceptance_sha256": "05264564972c3ee9abdba5d5eca828b22bd481087e25cf679a4569f375918d87"
   },
   "references": {
     "?Audio_Now@@YI_JXZ": 4231888,
@@ -2354,7 +2354,12 @@
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__real@8@bff6b6db6db6db6db800": 8026880,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A": 11274248,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592
   },
   "regions": [
     {
@@ -2383,7 +2388,7 @@
           "resolved": 8724
         }
       ],
-      "source_sha256": "28b70eb61120994ab6ed20b7c2820369064b8aac4257aecb0e95e1bcf8ec1b4e",
+      "source_sha256": "acb476e4b855714bbb6ed7d9468868a90339ed0a2478d8156353c7ab99b3f506",
       "source": "src/recovered/classes/AudioLevel/Set_Target.cpp",
       "population": "population-4368",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

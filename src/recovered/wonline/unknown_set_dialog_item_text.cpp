@@ -3,8 +3,6 @@
 // (0x00735940 finds the dialog) when that dialog exists.
 // Assumptions: what control 0x5B2 and message 0x4B2 are is unknown.
 #include "shared/win32_api.hpp"
-// @ref ?WS_Find_Dialog_00735940@@YIPAUHWND__@@H@Z=00735940
-// @ref __imp__SendDlgItemMessageA@20=0079a484
 
 HWND __fastcall WS_Find_Dialog_00735940(int id);              // 0x00735940 (a dialog by id)
 WIN32_IMPORT LRESULT WINAPI SendDlgItemMessageA(HWND dialog, int item, UINT message, WPARAM wparam, LPARAM lparam);

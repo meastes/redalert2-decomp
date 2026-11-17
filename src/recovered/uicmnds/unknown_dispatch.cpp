@@ -2,10 +2,6 @@
 // Purpose: runs 0x00614AA0 on the object 0x00617A00 returns, or, when
 // there is none, 0x0042E990(-1, -1) on the object at 0x0084E8D0.
 // Assumptions: the objects are unidentified; /O1 like its neighbours.
-// @ref ?unknown_find_617a00@@YAPAUUnknownTarget_006f6490@@XZ=00617a00
-// @ref ?unknown_call_614aa0@UnknownTarget_006f6490@@QAEXXZ=00614aa0
-// @ref ?unknown_call_42e990@UnknownFallback_006f6490@@QAEXHH@Z=0042e990
-// @ref ?BeaconManager@@3UUnknownFallback_006f6490@@A=0084e8d0
 
 struct UnknownTarget_006f6490 {
     void unknown_call_614aa0();             // 0x00614AA0

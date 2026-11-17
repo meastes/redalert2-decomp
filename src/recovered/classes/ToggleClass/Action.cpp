@@ -3,8 +3,6 @@
 // release over it toggles it (type 1) or turns it on (type 2).
 #include "shared/gadget.hpp"
 #include "shared/mouse.hpp"
-// @ref ?Action@ControlClass@@UAEHIAAI@Z=004834b0
-// @ref ?WWMouse@@3PAVMouse@@A=00839c68
 
 int ToggleClass::Action(unsigned flags, unsigned &key)
 {

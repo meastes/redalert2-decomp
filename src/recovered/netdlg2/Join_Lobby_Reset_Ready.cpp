@@ -14,8 +14,8 @@
 namespace seed_005c2940 {
 
 extern unsigned int  WS_Top_Window(void);
-extern "C" __declspec(dllimport) unsigned int __stdcall GetDlgItem(int, int);  // @ref __imp__GetDlgItem@8=0079a49c
-extern "C" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);  // @ref __imp__SendMessageA@16=0079a4a0
+extern "C" __declspec(dllimport) unsigned int __stdcall GetDlgItem(int, int);
+extern "C" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);
 
 void  Join_Lobby_Reset_Ready(void)
 {

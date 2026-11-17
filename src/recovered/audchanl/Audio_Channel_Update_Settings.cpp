@@ -3,9 +3,6 @@
 // the defaults and combines the channel's own levels (clearing their
 // changed flags), the optional level sets at +0x90 (also cleared), +0x94,
 // +0x98 and +0x9C, and the device's levels and optional +0xE8 set.
-// @ref ?Clear_Changed@AudioLevelSet@@QAEXXZ=00401170
-// @ref ?Audio_Level_Set_Combine@@YIXPAUAudioLevelSet@@0@Z=004010c0
-// @ref ?Init@AudioLevelSet@@QAIXXZ=00401000
 #include "shared/audio.hpp"
 
 void __fastcall Audio_Channel_Update_Settings(AudioChannel *channel)

@@ -7,8 +7,6 @@
 #include "shared/com_persist.hpp"
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-// @ref ?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A=00ab67e8
-// @ref ?LastRadarEventCell@@3HA=00ab67b8
 
 class RadarEventClass;
 extern DynamicVectorClass<RadarEventClass *> RadarEventClass_RadarEvents;

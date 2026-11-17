@@ -36,11 +36,6 @@ inline FacingType Facing_Sub_4bb3f0(int first, int second)
 {
     return (FacingType)((first - second) & 7);
 }
-// @ref ?Fast_Atan2@@YAMNN@Z=004ba600
-// @ref __real@8@3fffc90fdaa22168c000=0079b630
-// @ref __real@8@c00ca2f83d7b47677800=0079b628
-// @ref ??AMapClass@@QAEAAVCellClass@@ABVCell@@@Z=00548070
-// @ref ?AdjacentCell@@3QBVCell@@B=00851a70
 
 Cell FootClass::Safety_Point_004bb3f0(Cell const &from, Cell const &to, int start, int max)
 {

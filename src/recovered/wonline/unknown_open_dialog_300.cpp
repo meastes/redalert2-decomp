@@ -4,11 +4,6 @@
 // runs 0x005FF7E0 on it with 300.
 // Assumptions: the helpers' meanings are hypotheses (WOL area).
 #include "shared/win32_api.hpp"
-// @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
-// @ref ?ProgramInstance@@3PAXA=00b26180
-// @ref ?WS_Create_Dialog@@YIPAXPAXHPAUHWND__@@P6GJ1IIJ@ZJ@Z=00735700
-// @ref ?unknown_dialog_proc_74db40@@YGJPAUHWND__@@IIJ@Z=0074db40
-// @ref ?unknown_show_dialog_5ff7e0@@YIXPAXH@Z=005ff7e0
 
 extern HWND MainWindow;                 // 0x00B263D8
 extern void *ProgramInstance;

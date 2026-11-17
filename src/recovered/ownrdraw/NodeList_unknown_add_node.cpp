@@ -4,7 +4,6 @@
 // and pushes it on the list at +0x34.
 // Owner and node layouts: shared/unknown_node_list.hpp.
 #include "shared/unknown_node_list.hpp"
-// @ref ??2@YAPAXI@Z=00782017
 
 TextNode *NodeList::unknown_add_node(int length)
 {

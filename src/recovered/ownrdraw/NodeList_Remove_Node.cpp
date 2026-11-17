@@ -2,7 +2,6 @@
 // Unlinks the node from the list at +0x34 and frees it (nothing when it is
 // not in the list).
 #include "shared/unknown_node_list.hpp"
-// @ref ??3@YAXPAX@Z=00781d3b
 
 void NodeList::Remove_Node(TextNode *node)
 {

@@ -8,14 +8,6 @@
 #include "shared/win32_api.hpp"
 #include "shared/debug_printf.hpp"
 #include "shared/owner_talk.hpp"
-// @ref ?Debug_Printf@@YAXPBDZZ=004068f0
-// @ref __imp__WaitForMultipleObjects@16=0079a134
-// @ref __imp__TerminateProcess@8=0079a258
-// @ref __imp__GetLastError@0=0079a1f4
-// @ref ??_C@_0BE@BALI@Router?5not?5running?6?$AA@=007eea68
-// @ref ??_C@_0DA@EGFP@Wait_For_Router_Shutdown?5?9?5hRout@=007eeae8
-// @ref ??_C@_0DB@PHEF@Failed?5to?5shut?5down?5router?5?9?5err@=007eea7c
-// @ref ??_C@_0DH@BCOA@?$CK?$CK?$CKRouter?5process?5still?5running?5@=007eeab0
 
 WIN32_IMPORT DWORD WINAPI WaitForMultipleObjects(DWORD count, HANDLE const *handles, BOOL all, DWORD timeout);
 WIN32_IMPORT BOOL WINAPI TerminateProcess(HANDLE process, unsigned int code);

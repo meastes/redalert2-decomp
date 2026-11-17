@@ -3,10 +3,6 @@
 // SIDEBAR/UIBKGD palettes of 0x006F4C60 expanded inline and the layout for the
 // screen size (0x006F4C90), then marks the art loaded (the block that
 // 0x006F4620 runs when the flag is clear).
-// @ref ?unknown_flag_ac11b0@@3_NA=00ac11b0
-// @ref ?VideoModeWidth@@3HA=008523e0
-// @ref ?VideoModeHeight@@3HA=008523e4
-// @ref ?Unknown_Load_Art_Buffers_006F4B00@@YIXXZ=006f4b00
 
 void __fastcall Unknown_Load_Art_Buffers_006F4B00();
 void __fastcall Unknown_Load_Art_Pairs_006F4C60();

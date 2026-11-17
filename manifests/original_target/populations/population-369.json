@@ -4,8 +4,8 @@
     "id": "population-369",
     "inventory_sha256": "61e342d91983358eebf0f940bb7c39413d25aa8bdfa97e83d43990945b75ee54",
     "gaps_sha256": "30053f16d4928d9a13f3d46dd386c2308ae9c8249c4e15181eb2f1f16f4b2112",
-    "historical_population_sha256": "275af5c4c4a3250770a868cdf6c75a81bb531c8becb5fe91dc563ac760b07dd3",
-    "historical_acceptance_sha256": "0f7ad67d87f7c864c9c32f4de9662a594536f0586cf7d2c2bc114150b14e6d4e"
+    "historical_population_sha256": "59d0ff343a58beb878ede0634f1409d2630fbe2657920f3862145f0fbaad4ca3",
+    "historical_acceptance_sha256": "3208adef6bbd0f31af372e0539ca6b18218c64112eba4b1e658f36564bcd95ef"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -2033,7 +2033,18 @@
     "?ID@?$DynamicVectorClass@PAE@@UAEHABQAE@Z": 7788608,
     "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
     "?text@WideString@@QBEPBGXZ": 7799856,
-    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344
+    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5205664,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210784,
+    "?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHABW4DiskID@@@Z": 6765680,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7078816,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079488,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781168,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781776,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "??_GMap@WorldDominationTour@@UAEPAXI@Z": 7515952,
+    "??_ETactical@@UAEPAXI@Z": 6998016,
+    "??_EMap@WorldDominationTour@@UAEPAXI@Z": 7515952
   },
   "regions": [
     {
@@ -2086,7 +2097,7 @@
           "resolved": 11276164
         }
       ],
-      "source_sha256": "eb24413111e6c02afd5039cf2569369012fc4890265722c1847978d52fb8ecde",
+      "source_sha256": "49216bdbe134dd964cebdf31462a6b3dcd509e8323ad70ddb5269b2230de2234",
       "source": "src/recovered/header_statics/txtlabel/HeaderStatics_empty_rect_init.cpp",
       "population": "population-369",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

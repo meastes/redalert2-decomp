@@ -4,8 +4,8 @@
     "id": "population-2214",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "24183b95fa8493a19d69382c325f961386a2e783d04232c243ff5fa57b5bbbe8",
-    "historical_acceptance_sha256": "4c8674216b07c79ebda92e8d5ed60d581b1ef3f91b42f84e7f87f0ad941f8083",
+    "historical_population_sha256": "5b0504df7f421646a1b1f90060cc24c94633488a465313824032847e3c81c50c",
+    "historical_acceptance_sha256": "4d1f7092df6b0ef589fd85c71e70fe00d201908cc39e641f6aeadf3b8b1e132c",
     "separate_units": true
   },
   "references": {
@@ -3182,7 +3182,10 @@
     "__except_handler3": 7885524,
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
-    "__real@8@bff6b6db6db6db6db800": 8026880
+    "__real@8@bff6b6db6db6db6db800": 8026880,
+    "?AudioDeviceAvailable@seed_005b69b0@@YAIXZ": 4222768,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856
   },
   "regions": [
     {
@@ -3251,7 +3254,7 @@
           "resolved": 4291951536
         }
       ],
-      "source_sha256": "a54265d0e1409836e839a74680b7884ad4412da791bfa1cbcc2597ff3cad7ff0",
+      "source_sha256": "d3a659017ba0efac2a624b39f0ef4c219974c4014e8cbc9c91e79d51a28a5d90",
       "source": "src/recovered/classes/ThemeClass/Suspend.cpp",
       "population": "population-2214",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",

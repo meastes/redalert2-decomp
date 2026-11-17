@@ -5,7 +5,6 @@
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
 #include "shared/owner_talk.hpp"
-// @ref ??3@YAXPAX@Z=00781d3b
 
 void OwnerTalkClass::Reset_0063f070()
 {

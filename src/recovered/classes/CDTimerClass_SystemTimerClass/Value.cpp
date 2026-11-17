@@ -3,7 +3,6 @@
 #define RA2_CDTIMER_VALUE_SOURCE
 #include "shared/system_timer.hpp"
 #include "shared/cd_timer.hpp"
-// @ref ??BSystemTimerClass@@QBEJXZ=0069a430
 template<>
 long CDTimerClass<SystemTimerClass>::Value() const
 {

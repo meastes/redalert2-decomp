@@ -5,9 +5,6 @@
 #include "shared/ini_class.hpp"
 #include "shared/crt_memory.hpp"
 #include "shared/crt_string.hpp"
-// @ref __strrev=00797070
-// @ref _?_addbits@?BG@??Obfuscate@@YIJPBD@Z@4PAEA=007e823c
-// @ref _?_lossbits@?BG@??Obfuscate@@YIJPBD@Z@4PAEA=007e8234
 
 extern "C" char *__cdecl _strupr(char *string);
 extern "C" char *__cdecl _strrev(char *string);

@@ -1,8 +1,8 @@
 // Audio_File_Cursor_00523360 (0x00523360)
 #include "shared/ghidra_types.hpp"
 
-extern "C" __declspec(dllimport) DWORD __stdcall EnterCriticalSection(int);  // @ref __imp__EnterCriticalSection@4=0079a1dc
-extern "C" __declspec(dllimport) DWORD __stdcall LeaveCriticalSection(int);  // @ref __imp__LeaveCriticalSection@4=0079a1e0
+extern "C" __declspec(dllimport) DWORD __stdcall EnterCriticalSection(int);
+extern "C" __declspec(dllimport) DWORD __stdcall LeaveCriticalSection(int);
 extern "C" DWORD audio_file_lock_00a52268;
 extern "C" DWORD audio_file_cursor_x_00a5229c;
 extern "C" DWORD audio_file_cursor_y_00a522a0;

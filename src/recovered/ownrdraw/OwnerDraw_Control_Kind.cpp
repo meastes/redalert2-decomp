@@ -2,7 +2,6 @@
 // The kind of an owner-drawn dialog control (name not recovered): the registered
 // control's kind (record +0x6C; 0 when key is not registered in 0x00A73640) and the
 // window's control ID pick 3 for a set of special controls, else 1.
-// @ref __imp__GetDlgCtrlID@4=0079a3f4
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 

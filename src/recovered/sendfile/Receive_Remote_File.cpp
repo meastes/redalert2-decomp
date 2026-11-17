@@ -20,16 +20,6 @@
 
 #define RESPONSE_TIMEOUT 60 * 60        // ticks
 
-// @ref ??_C@_0N@LJCA@PROGBARM?4SHP?$AA@=007f1fe8
-// @ref ??_C@_0BA@HEOL@GUI?3MapTransfer?$AA@=007f2efc
-// @ref ??_C@_0BE@KGIN@D?3?2Ra2?2SendFile?4CPP?$AA@=007f2ee8
-// @ref ??_C@_0BG@FCCA@Download?5file?5closed?6?$AA@=007f2e48
-// @ref ??_C@_0BG@LGME@Partial?5file?5deleted?6?$AA@=007f2e30
-// @ref ??_C@_0BI@HMLH@Received?5file?5chunk?5?$CFd?6?$AA@=007f2ea0
-// @ref ??_C@_0BM@MANJ@File?5download?5completed?5OK?6?$AA@=007f2e84
-// @ref ??_C@_0BP@PDJD@Receiving?5download?5of?5file?5?$CFs?6?$AA@=007f2f0c
-// @ref ??_C@_0CC@HJDA@File?5download?5failed?5to?5complete@=007f2e60
-// @ref ??_C@_0DA@CEPB@Received?5file?5chunk?5?$CFd?1?$CFd?5with?5?$CF@=007f2eb8
 
 bool __fastcall Receive_Remote_File_0066b520(char *file_name, unsigned int file_length, int gametype, bool progress)
 {

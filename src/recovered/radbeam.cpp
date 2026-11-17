@@ -183,7 +183,7 @@ void RadBeam::Start_Pass()
 
 // Not exact (RA2_NON_MATCHING): RadBeam::unknown_635c30 at 0x00635C30, best score 96.92, 2026-11-13; differs: same instruction count (130), shape 96.92: instruction choice and registers differ
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x635C30 FUN_00635c30
+// NON-EXACT DRAFT 0x635C30 RadBeam::unknown_635c30
 // entry 0x635C30; exact-match score 100.0 (misses_index best), last lane score 96.92; plan "draft as-is"
 // origin lane: Scout993 (build/class-work/Scout993/w/c0.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -293,7 +293,7 @@ void RadBeam::unknown_636020()
 
 // Not exact (RA2_NON_MATCHING): RadBeam::unknown_636130 at 0x00636130, best score 71.90, 2026-11-13; differs: 120 instructions in the original, 122 in the draft (shape 94.21)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x636130 FUN_00636130
+// NON-EXACT DRAFT 0x636130 RadBeam::unknown_636130
 // entry 0x636130; exact-match score 95.83 (misses_index best); plan "draft as-is"
 // origin lane: Scout993 (build/class-work/Scout993/w/a3.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by

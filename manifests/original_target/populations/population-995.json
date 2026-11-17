@@ -4,8 +4,8 @@
     "id": "population-995",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "3009d79b4d550eebbf9c749383e4d6720b30183aa32bab828d9d63b4f511874d",
-    "historical_acceptance_sha256": "b9882546a8ad7cd36488121df3dd8542dc285ce873e087c43dc99b57b8136062",
+    "historical_population_sha256": "31933f175f657e3665adeb835268b53b490d968e07f1c68938eec3abc3a797f6",
+    "historical_acceptance_sha256": "16847e2b0a722f43a5095c9ec5d81bb3b52c5db633185e6babb5ecc7c9f226ab",
     "separate_units": true
   },
   "references": {
@@ -1925,7 +1925,12 @@
     "__real@8@bff6b6db6db6db6db800": 8026880,
     "??_ENode@?$WolDictionary@VWstring@@ULadder@WOL@@@@QAEPAXI@Z": 7759744,
     "??_ENode@?$WolDictionary@VWstring@@UChannel@WOL@@@@QAEPAXI@Z": 7759840,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A": 11274248,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592
   },
   "regions": [
     {
@@ -1954,7 +1959,7 @@
           "resolved": 4294962147
         }
       ],
-      "source_sha256": "0c65c1a6482e8b14e7c7113e9191b219de7298ea15496fb2a085b795f765f82b",
+      "source_sha256": "4fd699f8625b50bf9ad25f8c822d3720195d7f72e9568b3d52f6e7a7e975d01b",
       "source": "src/recovered/audchanl/Audio_Channel_Finished.cpp",
       "population": "population-995",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -1989,7 +1994,7 @@
           "resolved": 20646
         }
       ],
-      "source_sha256": "222c527f5345d27fbc79378da8ceb9e08282ce3cdadc7ebfe7d200a2bb931ba6",
+      "source_sha256": "611c57774a8529cf305fdab360aebdb15c4b331bb9265998fa48acc2a6f04001",
       "source": "src/recovered/audchanl/Audio_Channel_Next_Piece.cpp",
       "population": "population-995",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -2050,7 +2055,7 @@
           "resolved": 24793
         }
       ],
-      "source_sha256": "090020e7c4419d9e3869ea3f56736a4e96480e5c8753b6ce842bebb4faffd195",
+      "source_sha256": "04d42bbd99fc27a2ed62ab1b1f5eba59727e0b6aba545e871ec1f6ee9f31f314",
       "source": "src/recovered/audchanl/Audio_Channel_Source_Ended.cpp",
       "population": "population-995",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -2157,7 +2162,7 @@
           "resolved": 4294962698
         }
       ],
-      "source_sha256": "9b1637ad546d529a6d8a6b1524c249dde11f3a774e1bf8eecddb5ed9089f89c3",
+      "source_sha256": "a25358f1e0f116b645d2b0d4318308078b377ec4f2b155ad4c2925612312184a",
       "source": "src/recovered/audchanl/Audio_Channel_Update_Settings.cpp",
       "population": "population-995",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
@@ -2216,7 +2221,7 @@
           "resolved": 120
         }
       ],
-      "source_sha256": "b5334862c3ebaa6e294a2801a9944295e8143aeb05ab17b179794e78ce12c71f",
+      "source_sha256": "91dd1ebcdafa1c3f09b7a799c5a6acf05adf4fe52da93f50d4340ffc76bbc555",
       "source": "src/recovered/drv_dsnd/Audio_DS_Decode_Adpcm_Block.cpp",
       "population": "population-995",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -2259,7 +2264,7 @@
           "resolved": 8178024
         }
       ],
-      "source_sha256": "41b8ceaabb851d240646916cc4e0b6769a1e45495e5373fd18d7f7c9a8cae607",
+      "source_sha256": "66ea201e33b89402a8c676108cda2feccece318ffa2af58833e04bfe9e45d5d4",
       "source": "src/recovered/auddev/Audio_Update_Devices.cpp",
       "population": "population-995",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

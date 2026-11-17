@@ -4,19 +4,6 @@
 // ring, and deletes the locks. Placeholders: the globals are named by address until the layer is recovered.
 #include "shared/audio_file.hpp"
 
-// @ref __imp__EnterCriticalSection@4=0079a1dc
-// @ref __imp__LeaveCriticalSection@4=0079a1e0
-// @ref __imp__DeleteCriticalSection@4=0079a1d8
-// @ref __imp__Sleep@4=0079a1e4
-// @ref __imp__WaitForSingleObject@8=0079a1d0
-// @ref __imp__CloseHandle@4=0079a1d4
-// @ref ?unknown_audio_file_lock_a52280@@3UCRITICAL_SECTION@@A=00a52280
-// @ref ?unknown_audio_file_lock_a52268@@3UCRITICAL_SECTION@@A=00a52268
-// @ref ?Audio_Queue_Stdio@@YIHPAUAudioQueue@@PAXHPAH@Z=00408f50
-// @ref ?Audio_Queue_Available@@YIHPAUAudioQueue@@@Z=00409240
-// @ref ?fflush_0078439c@@YAHPAX@Z=0078439c
-// @ref ?fclose_0078395b@@YAHPAX@Z=0078395b
-// @ref ??3@YAXPAX@Z=00781d3b
 extern int fflush_0078439c(void *file);
 extern int fclose_0078395b(void *file);
 

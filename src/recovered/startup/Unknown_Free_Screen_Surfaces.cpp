@@ -3,10 +3,6 @@
 // when it is in use (0x004B1470), deletes the six screen surfaces and restores
 // the video mode (0x00495E90), then sets the flag (hypothesis: the final
 // shutdown of the display).
-// @ref ?Release_Direct3D@@YAXXZ=004b1470
-// @ref ?Restore_Video_Mode_00495e90@@YAXXZ=00495e90
-// @ref ?unknown_flag_abd48d@@3_NA=00abd48d
-// @ref ?TileSurface@@3PAVSurface@@A=00839944
 #include "shared/dsurface.hpp"
 #include "shared/unknown_globals.hpp"
 

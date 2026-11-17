@@ -16,7 +16,5 @@ void TemporalClass::Unknown_Release_Target_State_006E2610()
         Target->Mark(2);
     }
 }
-// @ref ?unknown_temporal_thaw_0044d380@@YIXH@Z=0044d380
 
 // External references checked against complete original body operands.
-// @ref ?unknown_temporal_thaw_0044d380@@YIXH@Z=0044d380

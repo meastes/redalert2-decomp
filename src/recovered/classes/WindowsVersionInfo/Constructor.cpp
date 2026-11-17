@@ -4,7 +4,6 @@
 #include "shared/win32_api.hpp"
 #include "shared/windows_version.hpp"
 #include "shared/crt_string.hpp"
-// @ref _strncpy=007823d0
 
 WindowsVersionInfo::WindowsVersionInfo() :
     MajorVersion(0),

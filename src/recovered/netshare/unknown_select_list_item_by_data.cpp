@@ -4,7 +4,6 @@
 // scrolls it to the top (LB_SETTOPINDEX) and returns its index (item 0 when
 // none matches); -1 when `data` is 0. No direct callers.
 #include "shared/win32_api.hpp"
-// @ref __imp__SendDlgItemMessageA@20=0079a484
 
 WIN32_IMPORT long __stdcall SendDlgItemMessageA(HWND dialog, int id, unsigned int message, unsigned int wparam,
                                                 long lparam);

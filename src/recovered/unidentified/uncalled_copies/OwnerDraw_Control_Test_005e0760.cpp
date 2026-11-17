@@ -4,8 +4,6 @@
 // 0xBC/0xBD/0x102/0xC2/0xC9 kinds with IDs 0x6EC/0x5A8, and per-kind ID lists; also for
 // a 0x005DF660 kind with ID 0x695 while the session byte +0x3080 is clear. Seed 0x005E0DA0
 // returns 0 or 1 in eax and the original tests only al (the char conversion).
-// @ref __imp__GetDlgCtrlID@4=0079a3f4
-// @ref ?Is_In_Game@SessionClass@@QAEEXZ=00672f10
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 

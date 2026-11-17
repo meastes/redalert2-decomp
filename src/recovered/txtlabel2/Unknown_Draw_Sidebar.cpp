@@ -3,43 +3,6 @@
 // 0x006F4C60 expanded inline, the layout 0x006F4C90), clears the surface and
 // draws the sidebar pieces at their layout rectangles; the bottom bar is
 // clipped to the tactical width, and `tabs` selects the repeated tab strip.
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HU4@@Z=0049eea0
-// @ref ?unknown_flag_ac11b0@@3_NA=00ac11b0
-// @ref ?VideoModeWidth@@3HA=008523e0
-// @ref ?VideoModeHeight@@3HA=008523e4
-// @ref ?VisibleRect@@3VRect@@A=00839640
-// @ref ?unknown_drawer_ac11a4@@3PAVConvertClass@@A=00ac11a4
-// @ref ?unknown_drawer_ac11ac@@3PAVConvertClass@@A=00ac11ac
-// @ref ?unknown_value_ac10cc@@3HA=00ac10cc
-// @ref ?unknown_value_ac0ff4@@3HA=00ac0ff4
-// @ref ?Unknown_Load_Art_Buffers_006F4B00@@YIXXZ=006f4b00
-// @ref ?unknown_shape_ac10c4@@3PAUShapeFileStruct@@A=00ac10c4
-// @ref ?unknown_shape_ac10bc@@3PAUShapeFileStruct@@A=00ac10bc
-// @ref ?unknown_shape_ac105c@@3PAUShapeFileStruct@@A=00ac105c
-// @ref ?unknown_shape_ac10f8@@3PAUShapeFileStruct@@A=00ac10f8
-// @ref ?unknown_shape_ac0ff0@@3PAUShapeFileStruct@@A=00ac0ff0
-// @ref ?unknown_shape_ac1070@@3PAUShapeFileStruct@@A=00ac1070
-// @ref ?unknown_shape_ac1078@@3PAUShapeFileStruct@@A=00ac1078
-// @ref ?unknown_shape_ac100c@@3PAUShapeFileStruct@@A=00ac100c
-// @ref ?unknown_shape_ac1094@@3PAUShapeFileStruct@@A=00ac1094
-// @ref ?unknown_shape_ac1058@@3PAUShapeFileStruct@@A=00ac1058
-// @ref ?unknown_shape_ac1048@@3PAUShapeFileStruct@@A=00ac1048
-// @ref ?unknown_shape_ac1098@@3PAUShapeFileStruct@@A=00ac1098
-// @ref ?unknown_shape_ac10a4@@3PAUShapeFileStruct@@A=00ac10a4
-// @ref ?unknown_shape_ac10b0@@3PAUShapeFileStruct@@A=00ac10b0
-// @ref ?unknown_rect_ac11d4@@3PAVRect@@A=00ac11d4
-// @ref ?unknown_rect_ac11d8@@3PAVRect@@A=00ac11d8
-// @ref ?unknown_rect_ac11dc@@3PAVRect@@A=00ac11dc
-// @ref ?unknown_rect_ac11e0@@3PAVRect@@A=00ac11e0
-// @ref ?unknown_rect_ac11e8@@3PAVRect@@A=00ac11e8
-// @ref ?unknown_rect_ac11ec@@3PAVRect@@A=00ac11ec
-// @ref ?unknown_rect_ac11f0@@3PAVRect@@A=00ac11f0
-// @ref ?unknown_rect_ac11f4@@3PAVRect@@A=00ac11f4
-// @ref ?unknown_rect_ac1200@@3PAVRect@@A=00ac1200
-// @ref ?ThumbOpenRect@@3PAVRect@@A=00ac1204
-// @ref ?ThumbClosedRect@@3PAVRect@@A=00ac1208
-// @ref ?ButtonSlotRect@@3PAVRect@@A=00ac120c
-// @ref ?TabEndRect@@3PAVRect@@A=00ac1210
 #define SHAPE_FILE_EMPTY_RECT Rect(0, 0, 0, 0)
 #include "shared/shape_file.hpp"
 #include "shared/surface.hpp"

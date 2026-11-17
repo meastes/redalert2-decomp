@@ -5,8 +5,6 @@
 // file while the ring is more than half full (mode 1), and sleeps for the period.
 #include "shared/audio_file.hpp"
 extern int fflush_0078439c(void *file);
-// @ref ?fflush_0078439c@@YAHPAX@Z=0078439c
-// @ref ?unknown_audio_file_lock_a52280@@3UCRITICAL_SECTION@@A=00a52280
 
 DWORD WINAPI Audio_File_Thread(void *data)
 {

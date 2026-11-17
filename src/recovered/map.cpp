@@ -9424,7 +9424,7 @@ void MapClass::Reset_Subzone(int level)
 }
 #endif
 
-// Not exact (RA2_NON_MATCHING): FUN_00564290 at 0x00564290, best score 42.47, 2026-11-13; differs: 688 instructions in the original, 687 in the draft (shape 92.36)
+// Not exact (RA2_NON_MATCHING): MapClass::Unknown_00564290 at 0x00564290, best score 42.47, 2026-11-13; differs: 688 instructions in the original, 687 in the draft (shape 92.36)
 #ifdef RA2_NON_MATCHING
 // NON-EXACT DRAFT 0x564290 MapClass::Unknown_00564290 (Subzone_Span)
 // entry 0x564290; exact-match score 42.47 (misses_index best); plan "draft, verify"

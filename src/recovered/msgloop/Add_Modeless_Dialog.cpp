@@ -7,7 +7,6 @@
 #define VECTOR_IMPLEMENT_DYNAMIC_DELETE_INDEX
 #include "shared/msgloop.hpp"
 #include "shared/crt_string.hpp"
-// @ref ?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A=00a71900
 
 void __fastcall Add_Modeless_Dialog(HWND dialog)
 {

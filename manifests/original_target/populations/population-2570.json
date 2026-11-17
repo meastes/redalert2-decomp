@@ -4,8 +4,8 @@
     "id": "population-2570",
     "inventory_sha256": "f01b3a5496ee5f460cc0f89bafa96df8f84788e8b44a1fdd5caab8e8cfdb63f0",
     "gaps_sha256": "09b456ada54df906b3c5bbb591a3292a177884544773afa6d500bced6cb90eba",
-    "historical_population_sha256": "6d2d56d22d6236cacfec65d704845199ed8753a526e226611f12d32918e40b5c",
-    "historical_acceptance_sha256": "709879a91bcd808c0bb6e5bc98ad06736db95a6d7663f38b02f1b946ebf1ae08"
+    "historical_population_sha256": "0ce44b81438659e69e99684c2ddbc84a50b8a953031fdd9ba926e1b70e646bce",
+    "historical_acceptance_sha256": "946177ca655ed12279451ca3ed80daa65aee91e10e8f33c868851660a149347b"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -11610,7 +11610,22 @@
     "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
     "?text@WideString@@QBEPBGXZ": 7799856,
     "?BlackColor@@3VRGBClass@@A": 11233345,
-    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344
+    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5205664,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210784,
+    "?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHABW4DiskID@@@Z": 6765680,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7078816,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079488,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781168,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781776,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "??_GMap@WorldDominationTour@@UAEPAXI@Z": 7515952,
+    "??_EMPCooperative@@UAEPAXI@Z": 5923504,
+    "??_ETechnoClass@@UAEPAXI@Z": 7182160,
+    "??_ETiberiumClass@@UAEPAXI@Z": 7252464,
+    "??_EWDTState@@UAEPAXI@Z": 7522816,
+    "??_ETactical@@UAEPAXI@Z": 6998016,
+    "??_EMap@WorldDominationTour@@UAEPAXI@Z": 7515952
   },
   "regions": [
     {
@@ -14202,7 +14217,7 @@
           "resolved": 1020056
         }
       ],
-      "source_sha256": "33428567f45ec9081782efc90710a54932b7f4a9e9106f93f06ad6f480f9bd55",
+      "source_sha256": "36b9f593518d36d42a6c927ac715342f018a1a7e5b95d1211c97695c8e3be2f5",
       "source": "src/recovered/classes/SmudgeTypeClass/Scalar_Deleting_Destructor.cpp",
       "population": "population-2570",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

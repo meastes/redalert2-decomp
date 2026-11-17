@@ -4,7 +4,6 @@
 // (TechnoClass 0x006D0990).
 #include "shared/capture_manager.hpp"
 #include "shared/techno.hpp"
-// @ref ?unknown_6d0990@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@@Z=006d0990
 
 void CaptureManagerClass::Draw_Link()
 {

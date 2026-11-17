@@ -313,6 +313,13 @@
    "section": 3
   },
   {
+   "symbol": "??_7?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007a8820",
+   "bytes": 32,
+   "kind": "vtable",
+   "section": 117
+  },
+  {
    "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
    "address": "007b25f8",
    "bytes": 24,
@@ -524,6 +531,12 @@
    "address": "0079c728",
    "bytes": 16,
    "kind": "table"
+  },
+  {
+   "symbol": "??_7?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
+   "address": "007a8820",
+   "bytes": 32,
+   "kind": "vtable"
   },
   {
    "symbol": "??_R1A@?0A@A@?$VectorClass@USubzoneConnectionStruct@@@@8",
@@ -1095,10 +1108,6 @@
   {
    "symbol": "_$S3",
    "reason": "no original address bound"
-  },
-  {
-   "symbol": "??_7?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@6B@",
-   "reason": "relocation target unbound: ??_E?$VectorClass@U?$HashObject@URadarTrackingStruct@@PAVTechnoClass@@@@@@UAEPAXI@Z"
   },
   {
    "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",

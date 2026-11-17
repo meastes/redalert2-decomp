@@ -302,8 +302,6 @@ WolChannelDictionary unknown_channels_b29478;
 // Two widths of the buddy list's columns (0x00B29460, 0x00B26CB4): their dynamic
 // initializers (0x0073BC80, 0x0073BCA0, _$E) are emitted by these definitions. Names are
 // hypotheses.
-// @ref ?unknown_column_width_b29460@@3HA=00b29460
-// @ref ?unknown_column_width_b26cb4@@3HA=00b26cb4
 extern int buddy_column_007fd308;
 extern int buddy_column_007fd30c;
 extern int buddy_column_007fd318;
@@ -1359,7 +1357,7 @@ template<> unsigned long __stdcall CComObject<CChatEventSink>::Release()
 
 
 namespace ATL {
-extern InterfaceMapEntry const CChatEventSinkInterfaceMap[]; // @ref ?CChatEventSinkInterfaceMap@ATL@@=007af760
+extern InterfaceMapEntry const CChatEventSinkInterfaceMap[];
 template<> HRESULT __stdcall CComObject<CChatEventSink>::QueryInterface(GUID const &iid, void **object)
 {
     return InternalQueryInterface(this, CChatEventSinkInterfaceMap, iid, object);
@@ -1378,7 +1376,7 @@ template<> unsigned long __stdcall CComObject<CNetUtilEventSink>::Release()
 
 
 namespace ATL {
-extern InterfaceMapEntry const CNetUtilEventSinkInterfaceMap[]; // @ref ?CNetUtilEventSinkInterfaceMap@ATL@@=007af720
+extern InterfaceMapEntry const CNetUtilEventSinkInterfaceMap[];
 template<> HRESULT __stdcall CComObject<CNetUtilEventSink>::QueryInterface(GUID const &iid, void **object)
 {
     return InternalQueryInterface(this, CNetUtilEventSinkInterfaceMap, iid, object);
@@ -8180,7 +8178,7 @@ long __stdcall Wonline_Profile_Login_Dialog_00753370(HWND window,UINT message,WP
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // void Unknown_00753F10() (0x00753F10)
 // Clears the WOL channel state: the lobby, game and user lists, the current and pending channel.
-// From ra2-decomp 0x00799CD0 (YR twin FUN_00799CD0, src/wonline.cpp).
+// From ra2-decomp 0x00799CD0 (YR twin, src/wonline.cpp).
 extern bool unknown_7fd354;
 
 void Unknown_00753F10()
@@ -11829,8 +11827,8 @@ HRESULT __stdcall CChatEventSink::OnChannelLeave(HRESULT result, WOL::Channel *c
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // HRESULT CChatEventSink::OnUserList(HRESULT, WOL::Channel *, WOL::User *) (0x00760C00)
 // Rebuilds the WOL channel user list and queues missing profile lookups.
-// From ra2-decomp 0x007A7110 (YR twin FUN_007A7110, src/wonline.cpp): the session player list is read through
-// the session object (Session.Players) and a user's address comes from Unknown_0073c130 (YR FUN_0077D720).
+// From ra2-decomp 0x007A7110 (YR twin, src/wonline.cpp): the session player list is read through
+// the session object (Session.Players) and a user's address comes from Unknown_0073c130 (YR 0x0077D720).
 // Built on codex4's pass7_760c00 draft (Scout696 keep/ul_c4_9972.cpp).
 extern char ladder_names_separator_7e6f8c[], user_reply_format_7fdec4[],user_reply_debug_7fdea0[];
 extern unsigned int local_socket_a71b18;
@@ -13142,7 +13140,7 @@ template<> unsigned long __stdcall CComObject<CDownloadEventSink>::Release()
 
 
 namespace ATL {
-extern InterfaceMapEntry const CDownloadEventSinkInterfaceMap[]; // @ref ?CDownloadEventSinkInterfaceMap@ATL@@=007af708
+extern InterfaceMapEntry const CDownloadEventSinkInterfaceMap[];
 template<> HRESULT __stdcall CComObject<CDownloadEventSink>::QueryInterface(GUID const &iid, void **object)
 {
     return InternalQueryInterface(this, CDownloadEventSinkInterfaceMap, iid, object);

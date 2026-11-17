@@ -3,10 +3,6 @@
 // 0x00A522B4 (the slots before the last one) unless it is listed already, counting it
 // (0x00522B80 removes; the mono window 0x0059D900/0x0059DB30 uses both).
 #include "shared/audio_file.hpp"
-// @ref _audio_file_window_slots_00a521dc=00a521dc
-// @ref _audio_file_ready_00a522b0=00a522b0
-// @ref _audio_file_windows_00a522b4=00a522b4
-// @ref _audio_file_window_count_00a522b8=00a522b8
 
 void __fastcall Unknown_Add_Modeless_Dialog_00522b20(HWND__ *dialog)
 {

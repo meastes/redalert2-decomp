@@ -4,8 +4,8 @@
     "id": "population-2737",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "8341e060aad16c3c07f28c82f9b61f5f6d4e938b56cd0397423167ea4d295a53",
-    "historical_acceptance_sha256": "cae88a03cadec9eea6d84c888f0f25044763023f04ce4a3799b441116caaf5f9",
+    "historical_population_sha256": "ed60466c4e4a4dee5c80aef8708a0226843b49fedb306dba31b6d874a62f7bd2",
+    "historical_acceptance_sha256": "677b997f75693b7d0f7f67af9806630a37542f23053bfc214ee038797a83ee54",
     "separate_units": true
   },
   "references": {
@@ -2438,7 +2438,9 @@
     "?Draw_It@BuildingLightClass@@UAEXABUPoint2D@@ABVRect@@@Z": 4404096,
     "??_ECellClass@@UAEPAXI@Z": 4706208,
     "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
-    "??_EINIClass@@UAEPAXI@Z": 5107440
+    "??_EINIClass@@UAEPAXI@Z": 5107440,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "??_ETactical@@UAEPAXI@Z": 6998016
   },
   "regions": [
     {
@@ -2499,7 +2501,7 @@
           "resolved": 7971828
         }
       ],
-      "source_sha256": "1f5847d299d06484545274669bb273b95290ef10db6dc2f61f82d997596244bc",
+      "source_sha256": "eecff550ca58ca47719ea465ecaa74875c5f7cefd3bcd1ea653445fa6cebf9fd",
       "source": "src/recovered/unidentified/uncalled_copies/OwnerDraw_Control_Test_005e6860.cpp",
       "population": "population-2737",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",

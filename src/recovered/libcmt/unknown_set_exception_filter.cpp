@@ -11,7 +11,7 @@
 namespace seed_00792ad4 {
 
 extern void __cdecl CxxUnhandledExceptionFilter_00792a8e(void);
-extern "C" __declspec(dllimport) unsigned int __stdcall SetUnhandledExceptionFilter(int);  // @ref __imp__SetUnhandledExceptionFilter@4=0079a13c
+extern "C" __declspec(dllimport) unsigned int __stdcall SetUnhandledExceptionFilter(int);
 extern "C" unsigned int unknown_previous_filter_00b2b33c;
 
 void  unknown_set_exception_filter_00792ad4(void)

@@ -2,7 +2,6 @@
 // Light UnitTypeClass interface: allocation size 3088 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0UnitTypeClass@@QAE@PBD@Z=0070a600
 
 class UnitTypeClass {
 public:

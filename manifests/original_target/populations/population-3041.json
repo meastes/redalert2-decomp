@@ -4,8 +4,8 @@
     "id": "population-3041",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "4f3c7ad112fe5012d96a22f1182db27bea4cb7eeb143761a3197c9d4641b6799",
-    "historical_acceptance_sha256": "082faf7f2a8ceead6960c589c017b666b4a7998dc98f93fab1535b5715e4b4da"
+    "historical_population_sha256": "636494cb51202a052689b7b25801bf968c751d84817a2bc61a90b278d97bb7e4",
+    "historical_acceptance_sha256": "2911f746fd1890d006de2ddf4784b00edd212f48adbfe25f459e02a3286462a8"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -375,7 +375,9 @@
     "?unknown_version_name_b25df0@@3PADA": 11689456,
     "_?name@?1??Theme_File_Name@ThemeClass@@QAEPBDH@Z@4PADA": 11274328,
     "?x@?1???AToolTipIndex@@QBEABQAVToolTip@@ABI@Z@4PAV2@A": 11712032,
-    "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA": 8361752
+    "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA": 8361752,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856
   },
   "regions": [
     {
@@ -454,7 +456,7 @@
           "resolved": 3615910
         }
       ],
-      "source_sha256": "d680f9164db5c1a056925a4a4ff22c9fa96fe5ffefcee03a8a69753f62ffd49a",
+      "source_sha256": "f788e66138e10e2f8b2614e35ec04f9d4f133c854578758ee46fc3788c101642",
       "source": "src/recovered/classes/WindowsVersionInfo/WinVersion_init.cpp",
       "population": "population-3041",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

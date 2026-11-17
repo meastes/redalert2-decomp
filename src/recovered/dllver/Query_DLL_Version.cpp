@@ -14,7 +14,6 @@ struct DLLVERSIONINFO {
 };
 typedef long (WINAPI *DLLGETVERSIONPROC)(DLLVERSIONINFO *version);
 extern char const dll_version_entry_name_007d5e9c[];
-// @ref ?dll_version_entry_name_007d5e9c@@=007d5e9c
 unsigned int __fastcall Query_DLL_Version_0049ee00(char const *name)
 {
     unsigned int version = 0;

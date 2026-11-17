@@ -3912,7 +3912,7 @@ bool MapRegionClass::Split_Region_0056ef20()
 }
 #endif
 
-// Not exact (RA2_NON_MATCHING): FUN_00576420 at 0x00576420, best score 43.93, 2026-11-13; differs: 293 instructions in the original, 358 in the draft (shape 83.87)
+// Not exact (RA2_NON_MATCHING): Generate_Starting_Points_00576420 at 0x00576420, best score 43.93, 2026-11-13; differs: 293 instructions in the original, 358 in the draft (shape 83.87)
 #ifdef RA2_NON_MATCHING
 // Divides the starting positions between the regions large enough to hold them, largest first.
 #include "shared/ini_class.hpp"
@@ -3994,7 +3994,7 @@ bool __cdecl Generate_Starting_Points_00576420()
 }
 #endif
 
-// Not exact (RA2_NON_MATCHING): FUN_00577010 at 0x00577010, best score 86.79, 2026-11-13; differs: same instruction count (106), shape 92.45: instruction choice and registers differ
+// Not exact (RA2_NON_MATCHING): MapGeneratorClass::MapGeneratorClass at 0x00577010, best score 86.79, 2026-11-13; differs: same instruction count (106), shape 92.45: instruction choice and registers differ
 #ifdef RA2_NON_MATCHING
 // MapGeneratorClass::MapGeneratorClass() (0x00577010)
 // The seed settings, no seeder or preview, empty light/vegetation/lamp lists, tiberium 2500-5500,
@@ -4092,7 +4092,7 @@ void MapGeneratorClass::Read_Settings_00579960()
 #endif
 
 // Operation/name/return intent are hypotheses; physical RET28 and AL predicate. A member of the generator: both
-// callers (0x57C9E0, 0x57D3A0) pass this in ECX, which is not read (ra2-decomp YR twin MapGeneratorClass::FUN_0059BAB0).
+// callers (0x57C9E0, 0x57D3A0) pass this in ECX, which is not read (ra2-decomp YR twin MapGeneratorClass 0x0059BAB0).
 extern double const unknown_half_79a728,unknown_one_79a708;
 bool MapGeneratorClass::Cell_In_Generation_Shape(Cell const &position,Rect const &area,bool ellipse,double x_weight,double y_weight)
 {

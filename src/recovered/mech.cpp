@@ -184,7 +184,7 @@ void __stdcall MechLocomotionClass::Force_Immediate_Destination(CoordStruct coor
 }
 
 
-// Not exact (RA2_NON_MATCHING): FUN_005919a0 at 0x005919A0, best score 89.00, 2026-11-13; differs: same instruction count (1664), shape 99.52: instruction choice and registers differ
+// Not exact (RA2_NON_MATCHING): MechLocomotionClass::Movement_AI at 0x005919A0, best score 89.00, 2026-11-13; differs: same instruction count (1664), shape 99.52: instruction choice and registers differ
 #ifdef RA2_NON_MATCHING
 #define RA2_COORD_AS_CELL
 #include "shared/rules.hpp"

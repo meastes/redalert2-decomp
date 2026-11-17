@@ -1,7 +1,6 @@
 // int PaletteClass::Closest_Color(RGBClass const &rgb) const (0x006031B0): the entry with the smallest
 // RGBClass::Difference (Westwood palette.cpp).
 #include "shared/convert.hpp"
-// @ref ?Difference@RGBClass@@QBEHABV1@@Z=0063cfb0
 
 int PaletteClass::Closest_Color(RGBClass const &rgb) const
 {

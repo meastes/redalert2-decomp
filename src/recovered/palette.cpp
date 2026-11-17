@@ -173,8 +173,8 @@ int SchemeLibrary_Count()
 }
 
 
-// From ra2-decomp 0x00626DA0 (gibbo101/ra2-decomp c10706e, src/palette.cpp: Next_Key, PaletteSchemeIterator,
-// FUN_00626DA0; GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors), adapted to our names.
+// From ra2-decomp 0x00626DA0 (gibbo101/ra2-decomp c10706e, src/palette.cpp: Next_Key, PaletteSchemeIterator;
+// GPL-3.0-or-later, Copyright 2026 ra2-decomp contributors), adapted to our names.
 // int Unknown_00603D50() (0x00603D50; TechnoTypeClass::Read_INI): the number of palettes with a scheme list
 // (the table is made on first use). The iterator's Next and the table's Find expand inline.
 

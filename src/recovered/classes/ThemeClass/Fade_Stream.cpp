@@ -4,7 +4,6 @@
 // Assumptions: layout as in ThemeClass::Suspend (0x006E8270); what
 // 0x00407FE0 does to the sample (a fade?) and the flag's meaning are
 // unknown.
-// @ref ?AudioStreamerFadeOut@@YIXPAX@Z=00407fe0
 
 void __fastcall AudioStreamerFadeOut(void *sample);    // 0x00407FE0
 

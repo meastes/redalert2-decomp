@@ -249,80 +249,80 @@ struct RegisterDLLType {
 extern "C" RegisterDLLType const register_dlls_7ab988[1];
 
 // generated from Startup232 out/regs.txt (registration order)
-class CStreamClass; extern "C" GUID const CLSID_CompressStream; // @ref _CLSID_CompressStream=007a1ab0
-class WaveClass; extern "C" GUID const CLSID_WaveClass; // @ref _CLSID_WaveClass=007a1c90
-class TerrainTypeClass; extern "C" GUID const CLSID_TerrainTypeClass; // @ref _CLSID_TerrainTypeClass=007a1b50
-class TerrainClass; extern "C" GUID const CLSID_TerrainClass; // @ref _CLSID_TerrainClass=007a1cb0
-class SuperWeaponTypeClass; extern "C" GUID const CLSID_SuperWeaponTypeClass; // @ref _CLSID_SuperWeaponTypeClass=007a1ae0
-class SuperClass; extern "C" GUID const CLSID_SuperClass; // @ref _CLSID_SuperClass=007a1af0
-class Tactical; extern "C" GUID const CLSID_TacticalMapClass; // @ref _CLSID_TacticalMapClass=007a1e90
-class CellClass; extern "C" GUID const CLSID_CellClass; // @ref _CLSID_CellClass=007a1e70
-class EMPulseClass; extern "C" GUID const CLSID_EMPulseClass; // @ref _CLSID_EMPulseClass=007a1e80
-class LightSourceClass; extern "C" GUID const CLSID_LightSource; // @ref _CLSID_LightSource=007a1e30
-class SideClass; extern "C" GUID const CLSID_SideClass; // @ref _CLSID_SideClass=007a1e50
-class TiberiumClass; extern "C" GUID const CLSID_TiberiumClass; // @ref _CLSID_TiberiumClass=007a1e60
-class TubeClass; extern "C" GUID const CLSID_TubeClass; // @ref _CLSID_TubeClass=007a1cc0
-class CampaignClass; extern "C" GUID const CLSID_CampaignClass; // @ref _CLSID_CampaignClass=007a1e40
-class BuildingLightClass; extern "C" GUID const CLSID_BuildingLightClass; // @ref _CLSID_BuildingLightClass=007a1ca0
-class WaypointPathClass; extern "C" GUID const CLSID_WaypointPath; // @ref _CLSID_WaypointPath=007a1dc0
-class TemporalClass; extern "C" GUID const CLSID_TemporalClass; // @ref _CLSID_TemporalClass=007a1e20
-class SpawnManagerClass; extern "C" GUID const CLSID_SpawnManagerClass; // @ref _CLSID_SpawnManagerClass=007a1dd0
-class CaptureManagerClass; extern "C" GUID const CLSID_CaptureManagerClass; // @ref _CLSID_CaptureManagerClass=007a1de0
-class ParasiteClass; extern "C" GUID const CLSID_ParasiteClass; // @ref _CLSID_ParasiteClass=007a1df0
-class BombClass; extern "C" GUID const CLSID_BombClass; // @ref _CLSID_BombClass=007a1e00
-class RadSiteClass; extern "C" GUID const CLSID_RadSiteClass; // @ref _CLSID_RadSiteClass=007a1e10
-class TEventClass; extern "C" GUID const CLSID_TEventClass; // @ref _CLSID_TEventClass=007a1d80
-class VoxelAnimTypeClass; extern "C" GUID const CLSID_VoxelAnimTypeClass; // @ref _CLSID_VoxelAnimTypeClass=007a1d00
-class VoxelAnimClass; extern "C" GUID const CLSID_VoxelAnimClass; // @ref _CLSID_VoxelAnimClass=007a1bc0
-class TActionClass; extern "C" GUID const CLSID_TActionClass; // @ref _CLSID_TActionClass=007a1d70
-class TriggerClass; extern "C" GUID const CLSID_TriggerClass; // @ref _CLSID_TriggerClass=007a1d50
-class TriggerTypeClass; extern "C" GUID const CLSID_TriggerTypeClass; // @ref _CLSID_TriggerTypeClass=007a1d60
-class ScriptClass; extern "C" GUID const CLSID_ScriptClass; // @ref _CLSID_ScriptClass=007a1d10
-class ScriptTypeClass; extern "C" GUID const CLSID_ScriptTypeClass; // @ref _CLSID_ScriptTypeClass=007a1d20
-class TagClass; extern "C" GUID const CLSID_TagClass; // @ref _CLSID_TagClass=007a1d30
-class TagTypeClass; extern "C" GUID const CLSID_TagTypeClass; // @ref _CLSID_TagTypeClass=007a1d40
-class TeamClass; extern "C" GUID const CLSID_TeamClass; // @ref _CLSID_TeamClass=007a1cd0
-class TeamTypeClass; extern "C" GUID const CLSID_TeamTypeClass; // @ref _CLSID_TeamTypeClass=007a1cf0
-class TaskForceClass; extern "C" GUID const CLSID_TaskForceClass; // @ref _CLSID_TaskForceClass=007a1ce0
-class UnitTypeClass; extern "C" GUID const CLSID_UnitTypeClass; // @ref _CLSID_UnitTypeClass=007a1b00
-class BuildingTypeClass; extern "C" GUID const CLSID_BuildingTypeClass; // @ref _CLSID_BuildingTypeClass=007a1b30
-class AircraftTypeClass; extern "C" GUID const CLSID_AircraftTypeClass; // @ref _CLSID_AircraftTypeClass=007a1b20
-class InfantryTypeClass; extern "C" GUID const CLSID_InfantryTypeClass; // @ref _CLSID_InfantryTypeClass=007a1b10
-class BulletTypeClass; extern "C" GUID const CLSID_BulletTypeClass; // @ref _CLSID_BulletTypeClass=007a1b40
-class IsometricTileTypeClass; extern "C" GUID const CLSID_IsometricTileTypeClass; // @ref _CLSID_IsometricTileTypeClass=007a1b60
-class OverlayTypeClass; extern "C" GUID const CLSID_OverlayTypeClass; // @ref _CLSID_OverlayTypeClass=007a1b70
-class SmudgeTypeClass; extern "C" GUID const CLSID_SmudgeTypeClass; // @ref _CLSID_SmudgeTypeClass=007a1b80
-class UnitClass; extern "C" GUID const CLSID_UnitClass; // @ref _CLSID_UnitClass=007a1c60
-class BuildingClass; extern "C" GUID const CLSID_BuildingClass; // @ref _CLSID_BuildingClass=007a1c10
-class AircraftClass; extern "C" GUID const CLSID_AircraftClass; // @ref _CLSID_AircraftClass=007a1bd0
-class InfantryClass; extern "C" GUID const CLSID_InfantryClass; // @ref _CLSID_InfantryClass=007a1bf0
-class AnimClass; extern "C" GUID const CLSID_AnimClass; // @ref _CLSID_AnimClass=007a1be0
-class AnimTypeClass; extern "C" GUID const CLSID_AnimTypeClass; // @ref _CLSID_AnimTypeClass=007a1b90
-class HouseTypeClass; extern "C" GUID const CLSID_HouseTypeClass; // @ref _CLSID_HouseTypeClass=007a1ba0
-class HouseClass; extern "C" GUID const CLSID_HouseClass; // @ref _CLSID_HouseClass=007a1ad0
-class DriveLocomotionClass; extern "C" GUID const CLSID_DriveLocomotionClass; // @ref _CLSID_DriveLocomotionClass=007a1f70
-class JumpjetLocomotionClass; extern "C" GUID const CLSID_JumpjetLocomotionClass; // @ref _CLSID_JumpjetLocomotionClass=007a2000
-class HoverLocomotionClass; extern "C" GUID const CLSID_HoverLocomotionClass; // @ref _CLSID_HoverLocomotionClass=007a1f80
-class RocketLocomotionClass; extern "C" GUID const CLSID_RocketLocomotionClass; // @ref _CLSID_RocketLocomotionClass=007a2010
-class TunnelLocomotionClass; extern "C" GUID const CLSID_TunnelLocomotionClass; // @ref _CLSID_TunnelLocomotionClass=007a1f90
-class WalkLocomotionClass; extern "C" GUID const CLSID_WalkLocomotionClass; // @ref _CLSID_WalkLocomotionClass=007a1fa0
-class DropPodLocomotionClass; extern "C" GUID const CLSID_DropPodLocomotionClass; // @ref _CLSID_DropPodLocomotionClass=007a1fb0
-class FlyLocomotionClass; extern "C" GUID const CLSID_FlyLocomotionClass; // @ref _CLSID_FlyLocomotionClass=007a1fc0
-class TeleportLocomotionClass; extern "C" GUID const CLSID_TeleportLocomotion; // @ref _CLSID_TeleportLocomotion=007a1fd0
-class MechLocomotionClass; extern "C" GUID const CLSID_MechLocomotionClass; // @ref _CLSID_MechLocomotionClass=007a1fe0
-class ShipLocomotionClass; extern "C" GUID const CLSID_ShipLocomotionClass; // @ref _CLSID_ShipLocomotionClass=007a1ff0
-class BulletClass; extern "C" GUID const CLSID_BulletClass; // @ref _CLSID_BulletClass=007a1c50
-class FactoryClass; extern "C" GUID const CLSID_FactoryClass; // @ref _CLSID_FactoryClass=007a1d90
-class WarheadTypeClass; extern "C" GUID const CLSID_WarheadTypeClass; // @ref _CLSID_WarheadTypeClass=007a1db0
-class WeaponTypeClass; extern "C" GUID const CLSID_WeaponTypeClass; // @ref _CLSID_WeaponTypeClass=007a1da0
-class ParticleClass; extern "C" GUID const CLSID_ParticleClass; // @ref _CLSID_ParticleClass=007a1c70
-class ParticleTypeClass; extern "C" GUID const CLSID_ParticleTypeClass; // @ref _CLSID_ParticleTypeClass=007a1c80
-class ParticleSystemClass; extern "C" GUID const CLSID_ParticleSystemClass; // @ref _CLSID_ParticleSystemClass=007a1c30
-class ParticleSystemTypeClass; extern "C" GUID const CLSID_ParticleSystemTypeClass; // @ref _CLSID_ParticleSystemTypeClass=007a1c40
-class AITriggerTypeClass; extern "C" GUID const CLSID_AITriggerTypeClass; // @ref _CLSID_AITriggerTypeClass=007a1ea0
-class NeuronClass; extern "C" GUID const CLSID_NeuronClass; // @ref _CLSID_NeuronClass=007a1ec0
-class FoggedObjectClass; extern "C" GUID const CLSID_FoggedObjectClass; // @ref _CLSID_FoggedObjectClass=007a1ed0
-class AlphaShapeClass; extern "C" GUID const CLSID_AlphaShapeClass; // @ref _CLSID_AlphaShapeClass=007a1ee0
+class CStreamClass; extern "C" GUID const CLSID_CompressStream;
+class WaveClass; extern "C" GUID const CLSID_WaveClass;
+class TerrainTypeClass; extern "C" GUID const CLSID_TerrainTypeClass;
+class TerrainClass; extern "C" GUID const CLSID_TerrainClass;
+class SuperWeaponTypeClass; extern "C" GUID const CLSID_SuperWeaponTypeClass;
+class SuperClass; extern "C" GUID const CLSID_SuperClass;
+class Tactical; extern "C" GUID const CLSID_TacticalMapClass;
+class CellClass; extern "C" GUID const CLSID_CellClass;
+class EMPulseClass; extern "C" GUID const CLSID_EMPulseClass;
+class LightSourceClass; extern "C" GUID const CLSID_LightSource;
+class SideClass; extern "C" GUID const CLSID_SideClass;
+class TiberiumClass; extern "C" GUID const CLSID_TiberiumClass;
+class TubeClass; extern "C" GUID const CLSID_TubeClass;
+class CampaignClass; extern "C" GUID const CLSID_CampaignClass;
+class BuildingLightClass; extern "C" GUID const CLSID_BuildingLightClass;
+class WaypointPathClass; extern "C" GUID const CLSID_WaypointPath;
+class TemporalClass; extern "C" GUID const CLSID_TemporalClass;
+class SpawnManagerClass; extern "C" GUID const CLSID_SpawnManagerClass;
+class CaptureManagerClass; extern "C" GUID const CLSID_CaptureManagerClass;
+class ParasiteClass; extern "C" GUID const CLSID_ParasiteClass;
+class BombClass; extern "C" GUID const CLSID_BombClass;
+class RadSiteClass; extern "C" GUID const CLSID_RadSiteClass;
+class TEventClass; extern "C" GUID const CLSID_TEventClass;
+class VoxelAnimTypeClass; extern "C" GUID const CLSID_VoxelAnimTypeClass;
+class VoxelAnimClass; extern "C" GUID const CLSID_VoxelAnimClass;
+class TActionClass; extern "C" GUID const CLSID_TActionClass;
+class TriggerClass; extern "C" GUID const CLSID_TriggerClass;
+class TriggerTypeClass; extern "C" GUID const CLSID_TriggerTypeClass;
+class ScriptClass; extern "C" GUID const CLSID_ScriptClass;
+class ScriptTypeClass; extern "C" GUID const CLSID_ScriptTypeClass;
+class TagClass; extern "C" GUID const CLSID_TagClass;
+class TagTypeClass; extern "C" GUID const CLSID_TagTypeClass;
+class TeamClass; extern "C" GUID const CLSID_TeamClass;
+class TeamTypeClass; extern "C" GUID const CLSID_TeamTypeClass;
+class TaskForceClass; extern "C" GUID const CLSID_TaskForceClass;
+class UnitTypeClass; extern "C" GUID const CLSID_UnitTypeClass;
+class BuildingTypeClass; extern "C" GUID const CLSID_BuildingTypeClass;
+class AircraftTypeClass; extern "C" GUID const CLSID_AircraftTypeClass;
+class InfantryTypeClass; extern "C" GUID const CLSID_InfantryTypeClass;
+class BulletTypeClass; extern "C" GUID const CLSID_BulletTypeClass;
+class IsometricTileTypeClass; extern "C" GUID const CLSID_IsometricTileTypeClass;
+class OverlayTypeClass; extern "C" GUID const CLSID_OverlayTypeClass;
+class SmudgeTypeClass; extern "C" GUID const CLSID_SmudgeTypeClass;
+class UnitClass; extern "C" GUID const CLSID_UnitClass;
+class BuildingClass; extern "C" GUID const CLSID_BuildingClass;
+class AircraftClass; extern "C" GUID const CLSID_AircraftClass;
+class InfantryClass; extern "C" GUID const CLSID_InfantryClass;
+class AnimClass; extern "C" GUID const CLSID_AnimClass;
+class AnimTypeClass; extern "C" GUID const CLSID_AnimTypeClass;
+class HouseTypeClass; extern "C" GUID const CLSID_HouseTypeClass;
+class HouseClass; extern "C" GUID const CLSID_HouseClass;
+class DriveLocomotionClass; extern "C" GUID const CLSID_DriveLocomotionClass;
+class JumpjetLocomotionClass; extern "C" GUID const CLSID_JumpjetLocomotionClass;
+class HoverLocomotionClass; extern "C" GUID const CLSID_HoverLocomotionClass;
+class RocketLocomotionClass; extern "C" GUID const CLSID_RocketLocomotionClass;
+class TunnelLocomotionClass; extern "C" GUID const CLSID_TunnelLocomotionClass;
+class WalkLocomotionClass; extern "C" GUID const CLSID_WalkLocomotionClass;
+class DropPodLocomotionClass; extern "C" GUID const CLSID_DropPodLocomotionClass;
+class FlyLocomotionClass; extern "C" GUID const CLSID_FlyLocomotionClass;
+class TeleportLocomotionClass; extern "C" GUID const CLSID_TeleportLocomotion;
+class MechLocomotionClass; extern "C" GUID const CLSID_MechLocomotionClass;
+class ShipLocomotionClass; extern "C" GUID const CLSID_ShipLocomotionClass;
+class BulletClass; extern "C" GUID const CLSID_BulletClass;
+class FactoryClass; extern "C" GUID const CLSID_FactoryClass;
+class WarheadTypeClass; extern "C" GUID const CLSID_WarheadTypeClass;
+class WeaponTypeClass; extern "C" GUID const CLSID_WeaponTypeClass;
+class ParticleClass; extern "C" GUID const CLSID_ParticleClass;
+class ParticleTypeClass; extern "C" GUID const CLSID_ParticleTypeClass;
+class ParticleSystemClass; extern "C" GUID const CLSID_ParticleSystemClass;
+class ParticleSystemTypeClass; extern "C" GUID const CLSID_ParticleSystemTypeClass;
+class AITriggerTypeClass; extern "C" GUID const CLSID_AITriggerTypeClass;
+class NeuronClass; extern "C" GUID const CLSID_NeuronClass;
+class FoggedObjectClass; extern "C" GUID const CLSID_FoggedObjectClass;
+class AlphaShapeClass; extern "C" GUID const CLSID_AlphaShapeClass;
 #include "shared/windows_version.hpp"
 #include "shared/win_stub.hpp"
 #include "shared/main_opt.hpp"

@@ -5,12 +5,6 @@
 // keeps it as the one to resume (+0x08).
 // Assumptions: layout from this function (+0x00 current, +0x04 playing,
 // +0x08 suspended, +0x2C sample); the object is Theme (0x00A35D78).
-// @ref ?ScoresPresent@@3DA=00a40c18
-// @ref ?Debug_Quiet@@3DA=00a40d0c
-// @ref ?AudioDeviceAvailable@@YAHXZ=00406f30
-// @ref ?Debug_Printf@@YAXPBDZZ=004068f0
-// @ref ?AudioStreamerStop@@YIXPAX@Z=00407e60
-// @ref ??_C@_0BE@KPIN@Theme?3?3Suspend?$CI?$CFd?$CJ?6?$AA@=007f841c
 #include "shared/debug_printf.hpp"
 #include "shared/sound_available.hpp"
 

@@ -1,5 +1,4 @@
 #include "shared/unknown_pair_second.hpp"
-// @ref ?Read_File_0059ebc0@UnknownPairSecond@@QAEHPAVFileClass@@@Z=0059ebc0
 
 UnknownPairSecond::UnknownPairSecond(FileClass *file)
 {

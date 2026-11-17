@@ -5,7 +5,6 @@
 // 4-byte groups of eight nibbles, low nibble first, interleaved by channel
 // for stereo. +0x94 counts the output bytes. Returns 1 when the block
 // was consumed exactly, 0 for a short block or a bad header.
-// @ref ?Audio_Adpcm_Decode@@YIFEPAUAudioAdpcmState@@@Z=0040abf0
 #include "shared/audio.hpp"
 
 int __fastcall Audio_DS_Decode_Adpcm_Block(AudioChannelBuffer *record)

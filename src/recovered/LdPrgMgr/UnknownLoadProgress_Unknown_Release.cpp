@@ -5,8 +5,6 @@
 #include "shared/mix_file_class.hpp"
 #include "shared/cc_file_class.hpp"
 #include "shared/surface.hpp"
-// @ref ?Unknown_Free_Art_Sets_006F2510@@YIXXZ=006f2510
-// @ref ?Unknown_Free_MP_Loading_Palette_006F26D0@@YIXXZ=006f26d0
 
 void UnknownLoadProgress::Unknown_Release_00536E20()
 {

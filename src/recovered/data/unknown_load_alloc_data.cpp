@@ -4,7 +4,6 @@
 // Load_Alloc_Data(FileClass &) has this shape (hypothesis; here __fastcall).
 // No direct callers.
 #include "shared/raw_file_class.hpp"
-// @ref ??2@YAPAXI@Z=00782017
 
 void *__fastcall Hires_Load(FileClass &file)
 {

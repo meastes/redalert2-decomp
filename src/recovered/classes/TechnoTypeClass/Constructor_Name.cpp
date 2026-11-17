@@ -1,9 +1,6 @@
 // TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) (0x006D9B40)
 #include "shared/techno_type.hpp"
 #include "shared/house.hpp"
-// @ref ??0?$VectorClass@PAVParticleSystemTypeClass@@@@QAE@IPBQAVParticleSystemTypeClass@@@Z=00454ad0
-// @ref ??0?$VectorClass@PAVVoxelAnimTypeClass@@@@QAE@IPBQAVVoxelAnimTypeClass@@@Z=00654960
-// @ref _unknown_clsid_7a1fd0=007a1fd0
 
 TechnoTypeClass::TechnoTypeClass(char const *ini_name, int speed_type) :
     ObjectTypeClass(ini_name),

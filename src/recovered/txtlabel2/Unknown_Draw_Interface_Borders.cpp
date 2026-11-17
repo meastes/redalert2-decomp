@@ -2,10 +2,6 @@
 // On screens 1024 or more wide, blacks out the eight bands around the
 // 800x600 interface panel (0x00AC11C0, 0x00AC11C4 and 0x00AC11D0 are the
 // panel rectangles 0x006F3E70 lays out).
-// @ref ?VideoModeWidth@@3HA=008523e0
-// @ref ?unknown_rect_ac11c0@@3PAVRect@@A=00ac11c0
-// @ref ?unknown_rect_ac11c4@@3PAVRect@@A=00ac11c4
-// @ref ?unknown_rect_ac11d0@@3PAVRect@@A=00ac11d0
 #include "shared/rect.hpp"
 #include "shared/surface.hpp"
 

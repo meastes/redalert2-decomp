@@ -4,8 +4,6 @@
 // for iid, destroying it again when the query fails.
 // Assumptions: the constructor at 0x006ED220 is the recovered TriggerClass constructor. Only the members the factory touches are declared;
 // the virtual destructor occupies slot 8 of the primary vtable.
-// @ref ??2@YAPAXI@Z=00782017
-// @ref ??0TriggerClass@@QAE@PAVTriggerTypeClass@@@Z=006ed220
 #include "shared/class_factory.hpp"
 
 class TriggerTypeClass;

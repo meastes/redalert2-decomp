@@ -19,17 +19,6 @@ extern HWND game_window_00b263d8;
 extern char const resource_found_007d79cc[];
 extern char const resource_missing_007d79b8[];
 extern char const recursive_exception_007d795c[];
-// @ref ?Unknown_00522e10@@=00522e10
-// @ref ?Load_Resource_004954e0@@=004954e0
-// @ref ?Exception_Dialog_Procedure_004b7bf0@@=004b7bf0
-// @ref ?Console_Printf_00796714@@=00796714
-// @ref ?Console_Read_Key_007963f7@@=007963f7
-// @ref ?exception_depth_007d6af8@@=007d6af8
-// @ref ?game_instance_00b26180@@=00b26180
-// @ref ?game_window_00b263d8@@=00b263d8
-// @ref ?resource_found_007d79cc@@=007d79cc
-// @ref ?resource_missing_007d79b8@@=007d79b8
-// @ref ?recursive_exception_007d795c@@=007d795c
 int __fastcall Show_Exception_Dialog_004b7cf0()
 {
     Unknown_00522e10();

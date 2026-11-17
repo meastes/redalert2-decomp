@@ -11,10 +11,6 @@ extern Cell unknown_event_cells_ab6788[8];
 extern Cell unknown_event_empty_cell_ab67a8;
 extern int unknown_event_last_ab67c8;
 extern int unknown_event_current_ab6818;
-// @ref ?unknown_event_cells_ab6788@@3PAVCell@@A=00ab6788
-// @ref ?unknown_event_empty_cell_ab67a8@@3VCell@@A=00ab67a8
-// @ref ?unknown_event_last_ab67c8@@3HA=00ab67c8
-// @ref ?unknown_event_current_ab6818@@3HA=00ab6818
 
 void RadarEventClass_unknown_reset_cells()
 {

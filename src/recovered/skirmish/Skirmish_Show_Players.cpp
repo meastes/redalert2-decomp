@@ -36,8 +36,3 @@ void __fastcall Skirmish_Show_Players(HWND dialog, int first, int count)
     }
 }
 
-// @ref ?unknown_player_control_4d0ee0@@YIHH@Z=004d0ee0
-// @ref ?Player_Side_Combo_ID_4d1350@@YIHH@Z=004d1350
-// @ref ?Player_Color_Combo_ID_4d1cb0@@YIHH@Z=004d1cb0
-// @ref ?Select_Color_Combo_4d2480@@YIXPAUHWND__@@HH@Z=004d2480
-// @ref ?Select_Side_Combo_4d1a90@@YIXPAUHWND__@@HH@Z=004d1a90

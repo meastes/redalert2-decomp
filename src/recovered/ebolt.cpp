@@ -114,7 +114,7 @@ void __fastcall unknown_clear_owner_004b1830(int object_address)
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // void EBolt::Draw_Bolt_004B1900(CoordStruct start, CoordStruct end, int color) (0x004B1900): from
-// ra2-decomp EBolt::FUN_004C1F20 (YR 0x004C1F20), adapted to our names. Splits the bolt into three
+// ra2-decomp EBolt (YR 0x004C1F20), adapted to our names. Splits the bolt into three
 // jittered strands by repeated midpoint displacement (an explicit stack of eight segments) and draws
 // each finished piece with Draw_Line_004B1850, the main strand in colour 15.
 #include "shared/fast_math.hpp"

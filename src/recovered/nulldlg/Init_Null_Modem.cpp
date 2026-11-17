@@ -16,8 +16,6 @@
 #include "shared/null_modem.hpp"
 #include "shared/serial_settings.hpp"
 extern NullModemClass serial_manager_00a40a28;
-// @ref ?serial_manager_00a40a28@@3VNullModemClass@@A=00a40a28
-// @ref ?Init@NullModemClass@@QAEHHHPADHDHH@Z=005d00e0
 bool __fastcall Init_Null_Modem(SerialSettingsType *settings)
 {
     return serial_manager_00a40a28.Init(settings->Port, settings->IRQ,

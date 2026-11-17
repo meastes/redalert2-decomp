@@ -2,11 +2,6 @@
 // Runs 0x006F3650, then 0x006F3930 with the drawer at 0x00AC1188 and the shapes at 0x00AC1128
 // and 0x00AC1010 (hypothesis).
 #include "shared/rect.hpp"
-// @ref ?Unknown_Draw_Interface_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z=006f3650
-// @ref ?Unknown_Draw_Clipped_Shape_006F3930@@YIXPAVSurface@@ABVRect@@PAVConvertClass@@PBUShapeFileStruct@@3@Z=006f3930
-// @ref ?unknown_drawer_ac1188@@3PAVConvertClass@@A=00ac1188
-// @ref ?unknown_shape_ac1128@@3PAUShapeFileStruct@@A=00ac1128
-// @ref ?unknown_shape_ac1010@@3PAUShapeFileStruct@@A=00ac1010
 class Surface;
 class ConvertClass;
 struct ShapeFileStruct;

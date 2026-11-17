@@ -2,7 +2,6 @@
 // Light TEventClass interface: allocation size 56 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0TEventClass@@QAE@XZ=006e5de0
 
 class TEventClass {
 public:

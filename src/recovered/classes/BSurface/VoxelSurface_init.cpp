@@ -4,9 +4,6 @@
 // DynamicVectorClass<VoxClass *>, probably a voxel renderer), the names and
 // use of the surface (0x00AE0DB8) and of its buffer (0x00AE3408).
 #include "shared/surface.hpp"
-// @ref ?unknown_buffer_ae3408@@3PAEA=00ae3408
-// @ref ?VoxelSurface@@3VBSurface@@A=00ae0db8
-// @ref _atexit=0078298a
 
 extern unsigned char unknown_buffer_ae3408[256 * 256];
 

@@ -1,17 +1,5 @@
 // void VQAMovieCompanion::Draw_Sub_Title(SubTitle const *subtitle) (0x0069B500): clears the last caption
 // and prints this one on its line of the surface.
-// @ref ?BitFont@@3PAVBitFontClass@@A=0084e9e8
-// @ref ?BitText@@3PAVBitTextClass@@A=0084e9d0
-// @ref ?Get_Text_Area@BitFontClass@@QAE_NPBGPAH1H@Z=004314b0
-// @ref ?Print_Box@BitTextClass@@QAE_NPAVBitFontClass@@PAVSurface@@PBGHHHHHHH@Z=00432490
-// @ref ?Set_Clip_Box@BitFontClass@@QAEXPBUtagRECT@@@Z=00431460
-// @ref ?Set_Color@BitFontClass@@QAEGG@Z=00431430
-// @ref ?DSurface_RedRight@@3HA=00852fb8
-// @ref ?DSurface_RedLeft@@3HA=00852fbc
-// @ref ?DSurface_BlueRight@@3HA=00852fc0
-// @ref ?DSurface_BlueLeft@@3HA=00852fc4
-// @ref ?DSurface_GreenRight@@3HA=00852fc8
-// @ref ?DSurface_GreenLeft@@3HA=00852fcc
 void VQAMovieCompanion::Draw_Sub_Title(SubTitle const *subtitle)
 {
     if (unknown_10 != 0) {

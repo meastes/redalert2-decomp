@@ -1,8 +1,6 @@
 // void PaletteClass::Adjust(int ratio) (0x006030A0): every entry toward black by ratio/256.
 #include "shared/convert.hpp"
 #include "shared/rgb_globals.hpp"
-// @ref ?Adjust@RGBClass@@QAEXHABV1@@Z=0063cf20
-// @ref ?BlackColor@@3VRGBClass@@A=00ab6841
 
 void PaletteClass::Adjust(int ratio)
 {

@@ -2,14 +2,6 @@
 // Loads the multiplayer score screen backdrop into 0x00AC1104: MPASCRNS/L for
 // the normal set, MPSSCRNS/L for the alternate one, small when the screen is
 // 640 wide (0x008523E0). 0x006F2A30 expands it inline.
-// @ref ?VideoModeWidth@@3HA=008523e0
-// @ref ?unknown_flag_ac1217@@3_NA=00ac1217
-// @ref ?unknown_shape_ac1104@@3PBXB=00ac1104
-// @ref ?unknown_name_7f8780@@3QBDB=007f8780
-// @ref ?unknown_name_7f8784@@3QBDB=007f8784
-// @ref ?unknown_name_7f8788@@3QBDB=007f8788
-// @ref ?unknown_name_7f878c@@3QBDB=007f878c
-// @ref ?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z=00495270
 
 void const *__fastcall Unknown_Load_Shape_00495270(char const *filename, bool &allocated);
 extern int VideoModeWidth;                 // screen width

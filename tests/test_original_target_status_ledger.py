@@ -110,3 +110,33 @@ class FunctionStatsTest(unittest.TestCase):
         self.assertEqual((out['total'], out['done'], out['open'], out['scored']), (3, 1, 2, 1))
         self.assertAlmostEqual(out['fuzzy_bytes'], 100.0 * (100 + 90) / 300)
         self.assertAlmostEqual(out['fuzzy_functions'], (100 + 90 + 0) / 3)
+
+
+class StructureLinesTests(unittest.TestCase):
+    RESULT = dict(
+        classes=dict(defined=10, multiply_defined=2, extra_definitions=3, top=[]),
+        switches=dict(count=4, files=5, guard_tests=0, by_switch={}),
+        files_outside=dict(unit_files=6, outside=7, one_function=5, one_function_folders=1,
+                           one_function_top_folders=1, several_functions=1, no_row=1, top_folders=[]),
+        member_counterparts=dict(rows=8, bytes=900, free=5, stand_in=3, by_reference={},
+                                 references={'mischa85': True, 'tibsun': False}, list=[]),
+        address_suffixed=dict(identifiers=11, occurrences=1200, files=13, eight_digit=5, six_digit=6),
+        ref_lines=dict(lines=0, files=0),
+        externs=dict(lines=14, names=15, files=16, declared_in_a_header=1, in_several_cpp=2))
+
+    def test_structure_rows_follow_the_drafts_row(self):
+        catalog = dict(regions=[region(0x401000, 100, 4)])
+        lines = status.render(catalog, TEXT, [], structure=self.RESULT).splitlines()
+        rows = [l for l in lines if l.startswith('| Structure:')]
+        self.assertEqual(len(rows), 7)
+        self.assertIn('| 2 of 10 names (3 extra definitions) |', rows[0])
+        self.assertIn('| 7 (5 one-function) beside 6 unit files |', rows[1])
+        self.assertIn('8 rows, 900 bytes (free 5, stand-in 3); references absent: tibsun |', rows[2])
+        self.assertIn('| 11 distinct, 1,200 occurrences in 13 files |', rows[3])
+        self.assertIn('| 0 in 0 files |', rows[5])
+        drafts = [i for i, l in enumerate(lines) if l.startswith('| Non-exact drafts')][0]
+        self.assertEqual(lines.index(rows[0]), drafts + 1)
+
+    def test_no_structure_rows_without_a_census(self):
+        catalog = dict(regions=[region(0x401000, 100, 4)])
+        self.assertNotIn('| Structure:', status.render(catalog, TEXT, []))

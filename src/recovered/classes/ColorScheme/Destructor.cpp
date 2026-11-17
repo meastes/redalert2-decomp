@@ -8,8 +8,6 @@
 #include "shared/vector_class.hpp"
 #include "shared/color_scheme.hpp"
 #include "shared/convert.hpp"
-// @ref ?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A=00ab6ef8
-// @ref _free=007825e8
 
 extern "C" void __cdecl free(void *block);
 

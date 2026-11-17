@@ -418,8 +418,6 @@ void __fastcall Unknown_Persona_Stats_Text_00739a50(HWND window, bool clear)
 // Profile_Set_Text (matching RA2 1.006 decomp; SPDX-License-Identifier: GPL-3.0-or-later; Copyright
 // 2026 OpenTS contributors; contains material derived from Electronic Arts source code, EA's GPLv3
 // section 7 terms apply); modified: our names and types, numeric control ids and messages.
-// @ref ??_C@_0M@BAMJ@GUI?3Default?$AA@=007fd2f0
-// @ref ??_C@_0BF@LHNK@GUI?3UserProfileLabel?$AA@=007fd2d8
 
 // Sets a profile dialog control's wide text (inline helper, as in ra2-decomp and mischa85).
 static inline void Profile_Set_Text(HWND dialog, int id, WideString const &text)

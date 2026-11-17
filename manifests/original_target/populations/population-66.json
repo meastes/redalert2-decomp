@@ -4,8 +4,8 @@
     "id": "population-66",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "d8145341bd757b7cfe0e781cc298f1300524f7c29f650b779c3373029e00a858",
-    "historical_acceptance_sha256": "6d0129d12cfff3eef3b57468401e8256f6322e863bfd22b626112a2fb3cb0a72"
+    "historical_population_sha256": "63b8eb3922fb7588f8153cdd79d718bf338480b22631e334707daecd9584833a",
+    "historical_acceptance_sha256": "a1668e4082419d70bb1047baae4db2bf81a0ab9f20fb4e7a4e95943ab718812d"
   },
   "references": {
     "?FUN_0051afa0@": 5353376,
@@ -819,7 +819,9 @@
     "_?buffer@?1??Version_Name@@YIPBDXZ@4PADA": 8361752,
     "??_EStraw@@UAEPAXI@Z": 4844864,
     "_wcslen": 7878149,
-    "_wcscpy": 7878281
+    "_wcscpy": 7878281,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856
   },
   "regions": [
     {
@@ -864,7 +866,7 @@
           "resolved": 1943584
         }
       ],
-      "source_sha256": "1e4af89f8c759da309b6bfba696a60f81e2e90f5df7e4b1ce1ae150efa346ee7",
+      "source_sha256": "02df76b747ceb1b574d346a4a30e142b96ddd63b7c8b559048e2943ab3713275",
       "source": "src/recovered/classes/MultiplayerManBattle/MultiplayerManBattle_Scalar_Deleting_Destructor.cpp",
       "source_order": 7800,
       "population": "population-66",
@@ -898,7 +900,7 @@
           "resolved": 945214
         }
       ],
-      "source_sha256": "8a0bc57880d325cc1b448da357da70186d6c1fbe7710768ba79f3cdaa70c4f56",
+      "source_sha256": "494da856a580e51aa5e71431cf69c2eb862c213d8c9d61b335f57b3cf73ef723",
       "source": "src/recovered/straw/SubTitle_Destructor.cpp",
       "source_order": 7907,
       "population": "population-66",
@@ -956,7 +958,7 @@
           "resolved": 951589
         }
       ],
-      "source_sha256": "1ef734b1b7c6c7303d2584fec1559ff6ce7f91e8ec0ae620d0548a6cdaa52829",
+      "source_sha256": "fd204bb4911df7c0051b162161e31a97f108de793dbc04ebe284ba9d3eafae7b",
       "source": "src/recovered/straw/SubTitle_Set_Caption.cpp",
       "source_order": 7908,
       "population": "population-66",

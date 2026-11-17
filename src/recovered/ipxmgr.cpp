@@ -723,7 +723,7 @@ bool IPXManagerClass::Forward_Router_Packet(CommHeaderType *header, char *buf, i
 }
 
 
-// Not exact (RA2_NON_MATCHING): FUN_00525f60 at 0x00525F60, best score 97.99, 2026-11-13; differs: 770 instructions in the original, 771 in the draft (shape 99.94)
+// Not exact (RA2_NON_MATCHING): IPXManagerClass::Service at 0x00525F60, best score 97.99, 2026-11-13; differs: 770 instructions in the original, 771 in the draft (shape 99.94)
 #ifdef RA2_NON_MATCHING
 #include "shared/event.hpp"
 #include "shared/crt_string.hpp"

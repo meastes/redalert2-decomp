@@ -702,8 +702,11 @@ $RA2_PYTHON -B tools/original_target/ghidra_seed_pass.py --no-analysis --base-pr
 $RA2_PYTHON -B tools/original_target/class_inventory.py --write-docs
 # Move class-owned flat sources into src/recovered/classes/<Class>/
 $RA2_PYTHON -B tools/original_target/organize_by_class.py
-# Regenerate the numeric block in docs/STATUS.md
+# Regenerate the numeric block in docs/STATUS.md (its structure rows come from cleanup_census.py --structure)
+# and the flat function map manifests/function_map.csv
 $RA2_PYTHON -B tools/original_target/status.py --write
+# The function map alone (address, size, source, symbol, population, options, flags; byte-free, ~2.4 MB)
+$RA2_PYTHON -B tools/original_target/export_function_map.py --output manifests/function_map.csv
 # Matched bytes landed per worker per day from status history (no compiler; ~1 s warm):
 # --markdown for HANDOFF, --lanes for per-Mac-lane columns, --hours 6 for 6 h buckets
 $RA2_PYTHON -B tools/original_target/throughput.py --markdown
@@ -712,7 +715,8 @@ python3 tools/original_target/treemap.py [--threshold 16000] [--out path]
 ```
 
 `diff_candidate.py` binds relocations from in-source `// @ref NAME=ADDRESS`
-comments, accepted manifest symbols/references, address-named symbols
+comments (scratch drafts only: accepted sources carry none since lane A1, 2026-11-17, because the
+population reference tables hold every binding), accepted manifest symbols/references, address-named symbols
 (`FUN_00401000`, `DAT_00830b50`, `_data_402190_4022c0`, Ghidra string labels),
 `--ref NAME=ADDRESS` and `--refs-json` (a candidate population, which also
 supplies frozen body lengths). `--include DIR` adds a private header tree.

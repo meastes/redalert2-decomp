@@ -2,7 +2,6 @@
 // Light BuildingTypeClass interface: allocation size 5144 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0BuildingTypeClass@@QAE@PBD@Z=00457ac0
 
 class BuildingTypeClass {
 public:

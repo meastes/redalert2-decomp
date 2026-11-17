@@ -1,10 +1,6 @@
 // LRESULT __fastcall Unknown_Set_Time_Text_0069A6F0(HWND dialog, int id, int seconds) (0x0069A6F0)
 // Formats a number of seconds as "hh:mm:ss" and sends it to the dialog item as text (message 0x4B2).
 // The hours/minutes/seconds split is by subtracting the quotients (a % would use idiv).
-// @ref _swprintf=00783764
-// @ref ??_C@_1BO@ECFI@?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?$AA@=007f62a8
-// @ref __imp__GetDlgItem@8=0079a49c
-// @ref __imp__SendMessageA@16=0079a4a0
 #include "shared/win32_api.hpp"
 #include "shared/string_table.hpp"
 

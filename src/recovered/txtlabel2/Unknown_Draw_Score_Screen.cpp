@@ -1,12 +1,6 @@
 // void __fastcall Unknown_Draw_Score_Screen_6F3BF0(Surface *surface, Rect const &window) -- 0x6F3BF0
 // Runs 0x006F34D0 and 0x006F3650 then draws the shape at 0x00AC110C (hypothesis).
 #include "shared/rect.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HUPoint2D@@@Z=0049eea0
-// @ref ?Unknown_006F34D0@@YIXPAVSurface@@ABVRect@@@Z=006f34d0
-// @ref ?Unknown_Draw_Interface_006F3650@@YIXPAVSurface@@ABVRect@@_N@Z=006f3650
-// @ref ?unknown_point_ac11c0@@3PAUPoint2D@@A=00ac11c0
-// @ref ?unknown_drawer_ac1164@@3PAVConvertClass@@A=00ac1164
-// @ref ?unknown_shape_ac110c@@3PAUShapeFileStruct@@A=00ac110c
 
 class Surface;
 class ConvertClass;

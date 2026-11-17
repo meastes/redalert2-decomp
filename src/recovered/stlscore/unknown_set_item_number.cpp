@@ -9,8 +9,8 @@ extern unsigned short const ladder_number_format_007d1598[];   // 0x007D1598 L"%
 namespace seed_0069a780 {
 
 extern unsigned int  swprintf_00783764(int, int, int);
-extern "C" __declspec(dllimport) unsigned int __stdcall GetDlgItem(int, int);  // @ref __imp__GetDlgItem@8=0079a49c
-extern "C" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);  // @ref __imp__SendMessageA@16=0079a4a0
+extern "C" __declspec(dllimport) unsigned int __stdcall GetDlgItem(int, int);
+extern "C" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);
 
 void __fastcall unknown_set_item_number_0069a780(HWND parent_window, int control_id, unsigned int format_argument)
 {

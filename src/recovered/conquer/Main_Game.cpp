@@ -20,33 +20,6 @@
 #include "shared/main_loop.hpp"
 #include "shared/queue.hpp"
 #include "shared/win_util.hpp"
-// @ref ?Init_Game@@YIHHQAPAD@Z=005116a0
-// @ref ?Select_Game@@YI_N_N@Z=005135f0
-// @ref _?fade@?1??Main_Game@@YIXHQAPAD@Z@4_NA=007d3338
-// @ref ??_C@_0BE@PFBP@TXT_INITGAME_FAILED?$AA@=007d33dc
-// @ref ??_C@_0BA@GICH@TXT_SHORT_TITLE?$AA@=007d33cc
-// @ref ??_C@_0BD@GDCE@D?3?2Ra2?2Conquer?4CPP?$AA@=007d3350
-// @ref ??_C@_0BN@KIAN@ExceptionReturnStack?5?$DN?5?$CF08X?6?$AA@=007d33ac
-// @ref ??_C@_0BP@GKNM@ExceptionReturnAddress?5?$DN?5?$CF08X?6?$AA@=007d338c
-// @ref ??_C@_0CG@BCOF@Game?5loop?5finished?4?5Average?5FPS?5@=007d3364
-// @ref ?Register_Game_Start_Time@@YIXXZ=0069a130
-// @ref ?Modem_Signoff@@YIXXZ=005cea90
-// @ref ?Write_Chat_Settings_00670730@@YIXPAUSessionClass@@@Z=00670730
-// @ref ?Unknown_00672DE0@SessionClass@@QAEXXZ=00672de0
-// @ref ?Leave_Game@SessionClass@@QAEXXZ=00672e70
-// @ref ?Write_Multiplayer_Statistics_00482fe0@@YAXXZ=00482fe0
-// @ref ?Special_Dialog_00481850@@YIXXZ=00481850
-// @ref ?ExceptionReturnStack@@3KA=00865c14
-// @ref ?ExceptionReturnAddress@@3KA=00865c18
-// @ref ?ExceptionReturnFrame@@3KA=00865c1c
-// @ref ?unknown_abd530@@3HA=00abd530
-// @ref ?unknown_flag_007d88e0@@3_NA=007d88e0
-// @ref ?accumulated_fps_00a6eb20@@3IA=00a6eb20
-// @ref ?fps_sample_count_00a6eb24@@3IA=00a6eb24
-// @ref ?unknown_flag_7ce008@@3_NA=007ce008
-// @ref ?unknown_palette_837510@@3VPaletteClass@@A=00837510
-// @ref __imp__MessageBoxIndirectA@4=0079a468
-// @ref __imp__WideCharToMultiByte@32=0079a23c
 
 struct MSGBOXPARAMSA {
     UINT cbSize;

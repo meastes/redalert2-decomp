@@ -3,7 +3,6 @@
 // 0x103/0xBC7 and 0x108/0xBC6 control kinds (record +0x6C) per-ID values 0x10, 8, 0x20
 // or 0x40; 0x10 for a 0x005DF660 kind with ID 0x695. The last list of each kind is
 // tested through a named bool (the original keeps that return inline).
-// @ref __imp__GetDlgCtrlID@4=0079a3f4
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 

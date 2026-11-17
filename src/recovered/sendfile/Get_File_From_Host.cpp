@@ -17,17 +17,6 @@
 #include "shared/debug_printf.hpp"
 #include "shared/crt_string.hpp"
 
-// @ref ??_C@_04NCCD@true?$AA@=007d24d8
-// @ref ??_C@_05NAGO@false?$AA@=007d24d0
-// @ref ??_C@_0BB@ODNE@File?5name?5is?5?$CFs?6?$AA@=007f2d98
-// @ref ??_C@_0BI@FHHC@Getting?5file?5from?5host?6?$AA@=007f2e18
-// @ref ??_C@_0BK@DLM@Requesting?5file?5download?6?$AA@=007f2dfc
-// @ref ??_C@_0BP@ILOB@Host?5responded?5with?5file?5info?6?$AA@=007f2dac
-// @ref ??_C@_0CA@HKMA@Sending?5file?5info?5received?5ack?6?$AA@=007f2d3c
-// @ref ??_C@_0CB@HLMN@Receive_Remote_File?5returned?5?$CFs?6@=007f2cf0
-// @ref ??_C@_0CI@BGCO@Timeout?5waiting?5for?5FILE_INFO_AC@=007f2d14
-// @ref ??_C@_0CO@ELHL@Timeout?5waiting?5for?5REQ_SCENARIO@=007f2dcc
-// @ref ??_C@_0DK@DEGM@Timeout?5waiting?5for?5host?5to?5resp@=007f2d5c
 
 #define RESPONSE_TIMEOUT 60 * 60        // ticks
 

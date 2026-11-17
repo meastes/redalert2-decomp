@@ -2,7 +2,6 @@
 // Light HouseTypeClass interface: allocation size 432 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0HouseTypeClass@@QAE@PBD@Z=004f90f0
 
 class HouseTypeClass {
 public:

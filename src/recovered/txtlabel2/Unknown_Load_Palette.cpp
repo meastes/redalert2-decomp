@@ -2,8 +2,6 @@
 // Loads a 768-byte 6-bit palette file into a new palette (each component times four),
 // releases the file data when it was allocated, and makes a converter for the palette
 // on the 0x00839958 background surface (0 when the allocation fails).
-// @ref ?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z=00495270
-// @ref ?AlternateSurface@@3PAVSurface@@A=00839958
 #include "shared/convert.hpp"
 
 class Surface;

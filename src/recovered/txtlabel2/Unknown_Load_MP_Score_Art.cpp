@@ -2,20 +2,6 @@
 // Loads the multiplayer score screen backdrop (small or large by screen
 // width) and its palette once: MPASCRN for the Allies, MPSSCRN when `side`
 // is nonzero (hypothesis); the backdrop load is 0x006F2B50, expanded inline.
-// @ref ?unknown_flag_ac1174@@3_NA=00ac1174
-// @ref ?VideoModeWidth@@3HA=008523e0
-// @ref ?unknown_flag_ac1217@@3_NA=00ac1217
-// @ref ?unknown_shape_ac1104@@3PBXB=00ac1104
-// @ref ?unknown_name_7f8780@@3QBDB=007f8780
-// @ref ?unknown_name_7f8784@@3QBDB=007f8784
-// @ref ?unknown_name_7f8788@@3QBDB=007f8788
-// @ref ?unknown_name_7f878c@@3QBDB=007f878c
-// @ref ?unknown_name_7f8710@@3QBDB=007f8710
-// @ref ?unknown_name_7f8714@@3QBDB=007f8714
-// @ref ?unknown_palette_ac116c@@3PAVPaletteClass@@A=00ac116c
-// @ref ?unknown_drawer_ac1170@@3PAVConvertClass@@A=00ac1170
-// @ref ?Unknown_Load_Shape_00495270@@YIPBXPBDAA_N@Z=00495270
-// @ref ?Unknown_Load_Palette_006F1FA0@@YIXPBDPAPAVPaletteClass@@PAPAVConvertClass@@@Z=006f1fa0
 class PaletteClass;
 class ConvertClass;
 

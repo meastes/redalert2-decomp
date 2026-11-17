@@ -6,7 +6,6 @@
 // the view, e.g. for House.cpp's callers at 0x004E805D) is not identified.
 
 extern "C" unsigned short *__cdecl wcscpy(unsigned short *dest, unsigned short const *source);   // 0x00783689
-// @ref _wcscpy=00783689
 
 class Tactical {
 public:

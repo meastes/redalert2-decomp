@@ -32,7 +32,7 @@
 // body below (build/class-work/TypeList/generate.py writes them). Any
 // constructor emits the TypeList vtable, the scalar deleting destructor, the
 // VectorClass vtable and VectorClass::Clear; sources bind those to the
-// original copies with @ref. The generic definitions (TYPELIST_IMPLEMENT_*
+// original copies in the population reference tables. The generic definitions (TYPELIST_IMPLEMENT_*
 // or VECTOR_IMPLEMENT_ALL) serve ordinary users such as the CCINIClass list
 // readers, where the members are instantiated implicitly. Include this
 // header, not shared/vector_class.hpp, first: it sets the base guards.

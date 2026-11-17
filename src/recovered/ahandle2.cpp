@@ -305,7 +305,7 @@ long AircraftTrackerClass::Save_00413590(IStream *stream)
 // Referenced from 0 sites.
 // Ghidra prototype: void __fastcall unknown_debug_string_00412710(undefined4 param_1)
 // Callees with accepted source:
-//   FUN_004068f0 -> src/recovered/004068f0.cpp
+//   Leaf_4068f0::get -> src/recovered/audevent.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

@@ -4,7 +4,6 @@
 // is nonzero; otherwise steps to the next piece of the source and copies
 // its words into +0x170 and +0x174/+0x178 (clearing +0x174 at the end).
 // Returns 0 in that case.
-// @ref ?Audio_List_Next_Unchecked@@YIPAUAudioListNode@@PAU1@@Z=004073a0
 #include "shared/audio.hpp"
 
 int __fastcall Audio_Channel_Next_Piece(AudioChannel *channel)

@@ -5,7 +5,6 @@
 #include "shared/vector_class.hpp"
 class TubeClass;
 extern DynamicVectorClass<TubeClass *> Tubes;
-// @ref ?Tubes@@=008661c8
 TubeClass *__fastcall Cell_Tube_0047a130(CellClass const *cell)
 {
     short index=cell->Tube;

@@ -4,10 +4,6 @@
 // the descriptor's in-use flag, deletes it and returns 0; on success marks
 // the descriptor in use, links the instance into the system's driver list
 // (setting 0x00830B48 when the descriptor asks for it) and returns it.
-// @ref ?Audio_List_Add_Tail@@YIXPAUAudioListNode@@0@Z=00407350
-// @ref ?Audio_List_Init_Node@@YIXPAUAudioListNode@@@Z=00407200
-// @ref ?Audio_System_Instance@@3PAUAudioSystem@@A=007cc968
-// @ref ?Audio_unknown_830b48@@3HA=00830b48
 #include "shared/crt_memory.hpp"
 #include "shared/audio.hpp"
 

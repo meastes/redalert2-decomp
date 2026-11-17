@@ -2,7 +2,6 @@
 // Light UnitClass interface: allocation size 2000 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0UnitClass@@QAE@PAVUnitTypeClass@@PAVHouseClass@@@Z=006fa400
 class UnitTypeClass;
 class HouseClass;
 

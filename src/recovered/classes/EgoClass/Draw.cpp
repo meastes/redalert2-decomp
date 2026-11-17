@@ -8,12 +8,6 @@ extern "C" unsigned int __cdecl wcslen(wchar_t const *text);
 int __fastcall unknown_text_draw_005fe1b0(unsigned int color, BitFontClass *font,
     Rect const &area, wchar_t const *text, int length, int x_alignment,
     int y_alignment, Surface *surface, int unknown9);
-// @ref ?VideoModeWidth@@3HA=008523e0
-// @ref ?VideoModeHeight@@3HA=008523e4
-// @ref ?unknown_surface_853118@@3PAVSurface@@A=00853118
-// @ref ?GameInFocus@@3_NA=00a40d28
-// @ref ?unknown_text_draw_005fe1b0=005fe1b0
-// @ref _wcslen=00783605
 void EgoClass::Draw(bool force)
 {
     int y = Y;

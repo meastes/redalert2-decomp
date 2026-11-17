@@ -3,8 +3,6 @@
 // 0x0046C1C0), a tail call. Callers 0x005960D9, 0x00598EE2, 0x005BD089 and
 // others compare it (multiplayer synchronisation; hypothesis).
 // Assumptions: the function's name is a placeholder.
-// @ref ?Get_Unique_ID@CCINIClass@@QBEHXZ=0046c1c0
-// @ref ?AIINI@@3VCCINIClass@@A=008397a0
 #include "shared/ccini_class.hpp"
 
 extern CCINIClass AIINI;      // 0x008397A0

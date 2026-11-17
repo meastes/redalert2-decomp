@@ -5,9 +5,5 @@
 #define RA2_SESSION_STATE_DEFINED
 #include "shared/session_state.hpp"
 #include "shared/unknown_globals.hpp"
-// @ref ??0SessionClass@@QAE@XZ=0066e380
-// @ref ??1SessionClass@@QAE@XZ=0066eb20
-// @ref ?unknown_session_a3d298@@3USessionClass@@A=00a3d298
-// @ref _atexit=0078298a
 
 SessionClass unknown_session_a3d298;

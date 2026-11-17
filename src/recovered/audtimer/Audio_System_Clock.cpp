@@ -3,10 +3,6 @@
 // sequence, then (until no other reader interfered) reads timeGetTime,
 // counts a wrap of the low word into the high word and stores both.
 // Returns the extended time.
-// @ref ?Audio_Clock_High@@3QAKA=0079a754
-// @ref ?Audio_Clock_Low@@3QAKA=0079a750
-// @ref ?Audio_Clock_Sequence@@3HC=0083155c
-// @ref ?Audio_Clock_Time@@3_JA=007ccde8
 #include "shared/audio.hpp"
 
 __int64 Audio_System_Clock()

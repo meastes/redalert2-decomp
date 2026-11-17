@@ -501,7 +501,7 @@ void WaveClass::Draw_It(Point2D const &point, Rect const &window)
 }
 
 
-// Not exact (RA2_NON_MATCHING): FUN_007225b0 at 0x007225B0, best score 86.89, 2026-11-13; differs: same instructions; registers, stack slots or operands differ
+// Not exact (RA2_NON_MATCHING): WaveClass::Draw_Sonic_007225b0 at 0x007225B0, best score 86.89, 2026-11-13; differs: same instructions; registers, stack slots or operands differ
 #ifdef RA2_NON_MATCHING
 #include "shared/blit.hpp"
 void __fastcall Rasterize_Polygon_0061be40(WavePolygonInput const &shape, WaveScanlineBuffer &raster);
@@ -670,7 +670,7 @@ void WaveClass::Draw_Sonic_007225b0(Point2D const &point, Rect const &cliprect)
 }
 #endif
 
-// Not exact (RA2_NON_MATCHING): FUN_00722cb0 at 0x00722CB0, best score 61.27, 2026-11-13; differs: 394 instructions in the original, 396 in the draft (shape 92.41)
+// Not exact (RA2_NON_MATCHING): WaveClass::Draw_Laser_00722cb0 at 0x00722CB0, best score 61.27, 2026-11-13; differs: 394 instructions in the original, 396 in the draft (shape 92.41)
 #ifdef RA2_NON_MATCHING
 extern Rect TacticalRect;
 #ifndef MIN

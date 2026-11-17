@@ -3,7 +3,6 @@
 // of MainWindow's client origin, giving the rectangle in main-window client
 // coordinates. Returns GetWindowRect's result.
 #include "shared/win32_window.hpp"
-// @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
 
 BOOL __fastcall Window_Rect_In_Main_Client(HWND window, RECT *rect)
 {

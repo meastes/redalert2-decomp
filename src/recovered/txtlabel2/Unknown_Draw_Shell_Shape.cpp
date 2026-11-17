@@ -1,10 +1,6 @@
 // void __fastcall Unknown_Draw_Shell_Shape_6F3A60(Surface *surface, Rect const &window) -- 0x6F3A60
 // Draws the shape at 0x00AC0FEC (hypothesis).
 #include "shared/rect.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HUPoint2D@@@Z=0049eea0
-// @ref ?unknown_point_ac11b8@@3PAUPoint2D@@A=00ac11b8
-// @ref ?unknown_drawer_ac1188@@3PAVConvertClass@@A=00ac1188
-// @ref ?unknown_shape_ac0fec@@3PAUShapeFileStruct@@A=00ac0fec
 
 class Surface;
 class ConvertClass;

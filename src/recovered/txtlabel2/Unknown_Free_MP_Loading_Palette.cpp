@@ -1,9 +1,6 @@
 // void Unknown_Free_MP_Loading_Palette_006F26D0() (0x006F26D0)
 // Frees the multiplayer loading-screen palette 0x00AC1158 and its drawer
 // 0x00AC115C (MPLS.PAL or MPLSOBS.PAL, loaded by 0x006F25C0).
-// @ref ??3@YAXPAX@Z=00781d3b
-// @ref ?unknown_palette_ac1158@@3PAVPaletteClass@@A=00ac1158
-// @ref ?unknown_drawer_ac115c@@3PAVConvertClass@@A=00ac115c
 #include "shared/convert.hpp"
 
 extern PaletteClass *unknown_palette_ac1158;

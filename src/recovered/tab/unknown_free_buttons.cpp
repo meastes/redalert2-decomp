@@ -3,9 +3,6 @@
 // at 0x00ABD8A0; only those flagged as allocated at 0x00ABE32C are
 // deleted) and clears the pointers and flags.
 // Assumptions: as for 0x006A17C0 (what the buttons belong to is unknown).
-// @ref ??3@YAXPAX@Z=00781d3b
-// @ref ?unknown_button_shapes_abd8a0@@3PAPBXA=00abd8a0
-// @ref ?unknown_button_allocated_abe32c@@3PA_NA=00abe32c
 
 extern void const *unknown_button_shapes_abd8a0[25];
 extern bool unknown_button_allocated_abe32c[25];

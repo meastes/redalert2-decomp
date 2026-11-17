@@ -3,10 +3,7 @@
 #include "shared/map_cell.hpp"
 #include "shared/map_view.hpp"
 void Init_Dirt_Roads();
-// @ref ?Init_Dirt_Roads@@=0058d9d0
 #include "shared/map_gaussian.hpp"
-// @ref ?Next@MapGaussianClass@@QAENXZ=00579830
-// @ref ?unknown_map_gaussian_a6fd50@@3VMapGaussianClass@@A=00a6fd50
 double __stdcall Sample_Truncated_Normal(double mean,double deviation,double minimum,double maximum)
 {
     if(maximum<mean-deviation || mean+deviation<minimum) {
@@ -20,11 +17,6 @@ double __stdcall Sample_Truncated_Normal(double mean,double deviation,double min
     return value;
 }
 
-// @ref ?Is_Cliff_0047b5e0@CellClass@@=0047b5e0
-// @ref ?Create_Urban_Area@MapGeneratorClass@@=00586b40
-// @ref ?Generate_Urban_Roads@MapGeneratorClass@@=00587330
-// @ref ?Generate_Urban_Buildings@MapGeneratorClass@@=00587cf0
-// @ref ?Generate_Urban_Units@MapGeneratorClass@@=00588100
 bool __fastcall Neighborhood_Is_Clear_00588380(Cell const &center);
 namespace seed_0056dac0 { bool __fastcall unknown_generation_cell_clear_0056dac0(short *position); }
 void MapGeneratorClass::Generate_Urban_Areas()
@@ -67,16 +59,12 @@ void MapGeneratorClass::Generate_Urban_Areas()
 
     }
 }
-// @ref __real@8@3ffda3d70a3d70a3d800=007a6030
-// @ref __real@8@40079600000000000000=007a6028
-// @ref __real@8@4009fa00000000000000=007a6020
 
 // Packed coordinate ECX and AL-only result; freefastcall/constreference/bool/name are source hypotheses.
 #include "shared/coord.hpp"
 #include "shared/map_cell.hpp"
 #include "shared/map_view.hpp"
 bool __fastcall Unknown_Cell_Predicate_0047b5e0(CellClass *cell);
-// @ref ?Unknown_Cell_Predicate_0047b5e0@@=0047b5e0
 bool __fastcall Neighborhood_Is_Clear_00588380(Cell const &center)
 {
     int centerY=center.Y;

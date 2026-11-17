@@ -4,8 +4,8 @@
     "id": "population-27",
     "inventory_sha256": "5b41afa1757ff1a04d1bdf4723b42ae7795b7f46488a650b0b3e3786cdca48e0",
     "gaps_sha256": "76d1285f957de8fadd2cd3da1a2b1a99abfff8862513c9f58798826b8a4a1757",
-    "historical_population_sha256": "9e1d4eb6b5846b9ec541f98de830934632c00e5c1d445e46cfc991e301fc6e5b",
-    "historical_acceptance_sha256": "8b18f74a61ade0ac5c9cadd3e91d90613297f925cdf1527a69729920da92ac9b"
+    "historical_population_sha256": "c245889c9e313a001b595866985773feb1590b541b1f55ad319358ead5c20996",
+    "historical_acceptance_sha256": "5f9eb83b9394c7438bc4900e7e18e62255614b830c819da3dc46d0b9274f8544"
   },
   "references": {
     "_allocate_6918b0": 7872535,
@@ -2134,7 +2134,11 @@
     "__except_list": 0,
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__real@8@bff6b6db6db6db6db800": 8026880,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856,
+    "??_ETactical@@UAEPAXI@Z": 6998016
   },
   "regions": [
     {
@@ -2172,7 +2176,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_Tactical/CreateInstance.cpp",
-      "source_sha256": "219885b8ed411032afae53c19d5cbcc70acb7a053ab122fb45bfc61f1aa7526f",
+      "source_sha256": "498ac3aea50b18a65b7d26483c4b3f277a59d1a7a326bd5b6501f3d51f063db1",
       "source_order": 5160,
       "population": "population-27",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
@@ -2213,7 +2217,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_TEventClass/CreateInstance.cpp",
-      "source_sha256": "03b198cf0b10a79d33b864dbb94f5a6a8951882f5496566d5de84fd1a4d5454d",
+      "source_sha256": "c480ab8694f3408bdacddc3434f5fae5ec98db47fdfa68f86173165f41d681b4",
       "source_order": 5189,
       "population": "population-27",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -2254,7 +2258,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_TActionClass/CreateInstance.cpp",
-      "source_sha256": "a185e28f8d939d31a844de8ffd3f27cdcf90396ce9dcdb906a9427e5deee9ccc",
+      "source_sha256": "f1fdb3e7a5bd28b583a03e4dbad234588441303d27795d59b18b3c4a2dab30ed",
       "source_order": 5194,
       "population": "population-27",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -2295,7 +2299,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_TriggerTypeClass/CreateInstance.cpp",
-      "source_sha256": "1702e80e0c7079e4890f6315caf4f52c59c575e11333233e0ed8c3161f84cb70",
+      "source_sha256": "c600a95c50706eb8207412de61e898f16de8906493221ef3f144d7f55a845719",
       "source_order": 5197,
       "population": "population-27",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2336,7 +2340,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_TagClass/CreateInstance.cpp",
-      "source_sha256": "e0bddca6ea70a74f57126417fce423c0f26d3e8387b79fb34f091c42a0a78915",
+      "source_sha256": "12a6c953cfe9a80b7f6adc1bbc10b54a5c5ced60788b4b5af974972d7a669110",
       "source_order": 5202,
       "population": "population-27",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -2377,7 +2381,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_TagTypeClass/CreateInstance.cpp",
-      "source_sha256": "0b09e330972e2728d78154f127d58b2bf6b934fcf56225abb0cfab93d5e189b4",
+      "source_sha256": "fec7747bd58bae2ef32b60af221091e4955246ebc63e25358c049091b3b5d13d",
       "source_order": 5204,
       "population": "population-27",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2418,7 +2422,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_UnitTypeClass/CreateInstance.cpp",
-      "source_sha256": "c6bb3ec04e9f676f46662cb7652488ef631f43266d67bf1f9991522238949088",
+      "source_sha256": "a1a6be3673db70197da050b99060568825b8b91be019eca489da88576666ded4",
       "source_order": 5211,
       "population": "population-27",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2459,7 +2463,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_BuildingTypeClass/CreateInstance.cpp",
-      "source_sha256": "bc5e573fe748aa298ec376441422c8c28ae81ff56a1d47ef19f15af615f906a4",
+      "source_sha256": "567f6b73ada4270e63765e5b760cbd283e1609ac6074e212bd48a39aafea3da7",
       "source_order": 5213,
       "population": "population-27",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2500,7 +2504,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_BulletTypeClass/CreateInstance.cpp",
-      "source_sha256": "76bff4cccbe6acfa76fdf2b568f960032c5f89463d7030c42c79b9d1849214d7",
+      "source_sha256": "4489861045a769e3427a153ef7820fd9bb6d4e8cc300ef5e51f210ba8e421cf8",
       "source_order": 5219,
       "population": "population-27",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2541,7 +2545,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_UnitClass/CreateInstance.cpp",
-      "source_sha256": "1b60d15d3097e2c05a3a09e8e9b3d78da795d468488f6c3c7667e169765622f4",
+      "source_sha256": "ad01b9862cab801fa52f749ccaaa0af3079d8a2b1d9d19e2e2d99f536844fbd0",
       "source_order": 5226,
       "population": "population-27",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
@@ -2582,7 +2586,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_HouseTypeClass/CreateInstance.cpp",
-      "source_sha256": "947eb9733b86966b286f18e0b5c10d6893774443609e5fe9e19f0f94e00fb2b8",
+      "source_sha256": "b4a6252ae6a8245b681ad461a50e75761a0543ddf1268a1a7056ecf78d11dd76",
       "source_order": 5237,
       "population": "population-27",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2623,7 +2627,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_HouseClass/CreateInstance.cpp",
-      "source_sha256": "03ff01ab049ffb1a256ffcf3590ce107569e15358aff65174bca8106217e2a59",
+      "source_sha256": "d57386ac9d4d7608498f9cda898ab1d2654d28ce47660ae2776e0786a2330a02",
       "source_order": 5239,
       "population": "population-27",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -2664,7 +2668,7 @@
         }
       ],
       "source": "src/recovered/classes/TClassFactory_WeaponTypeClass/CreateInstance.cpp",
-      "source_sha256": "914e46fc52723f2bda475f7fdbbc27ffd6dbd23e07c514f36bd065ceea836442",
+      "source_sha256": "139d709aa04d05a1def9fc0bf63a2bd5f7e8fa21848058270f0bc35cb71c6b0d",
       "source_order": 5265,
       "population": "population-27",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

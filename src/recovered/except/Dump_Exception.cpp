@@ -62,80 +62,8 @@ extern char const *ImagehelpFunctionNames_007d6b00[];
 extern unsigned int const exception_codes_007a0e48[];
 extern char const *exception_code_text_007d6b28[];
 extern char exception_text_00855ba8[];
-// @ref ??_C@_02IGCE@?5?$CK?$AA@=007d79dc
-// @ref ??_C@_0N@IMBF@?5?9?5?$CFs?5?$CL?5?$CF08X?$AA@=007d79e0
-// @ref ??_C@_0L@JMHI@?$CF08X?3?5?$CF08X?$AA@=007d79f0
-// @ref ??_C@_0L@KNHL@DATA_PTR?$AN?6?$AA@=007d79fc
-// @ref ??_C@_0M@LHM@?$CF08X?3?5?$CF08X?5?$AA@=007d7a08
-// @ref ??_C@_0L@LIP@?$DP?$DP?$DP?$DP?$DP?$DP?$DP?$DP?$AN?6?$AA@=007d7a14
-// @ref ??_C@_06OFEH@?$CF08X?3?5?$AA@=007d7a20
-// @ref ??_C@_0DD@BJGG@Stack?5dump?5?$CI?$CK?5indicates?5possible@=007d7a28
-// @ref ??_C@_0P@PCFD@Stack?5dump?4?4?4?6?$AA@=007d7a5c
-// @ref ??_C@_04FGNA@?$AN?6?$AN?6?$AA@=007d7a6c
-// @ref ??_C@_05DLFD@?$CF02X?5?$AA@=007d7a74
-// @ref ??_C@_03HEHB@?$DP?$DP?5?$AA@=007d7a7c
-// @ref ??_C@_0BN@CJDF@?$AN?6Bytes?5at?5CS?3EIP?5?$CI?$CF08X?$CJ?5?5?3?5?$AA@=007d7a80
-// @ref ??_C@_0BD@GBIJ@EIP?5bytes?5dump?4?4?4?6?$AA@=007d7aa0
-// @ref ??_C@_0DH@DLPC@CS?3?$CF04x?5?5SS?3?$CF04x?5?5DS?3?$CF04x?5?5ES?3?$CF0@=007d7ab4
-// @ref ??_C@_0P@PIIH@EFlags?3?$CF08X?5?$AN?6?$AA@=007d7aec
-// @ref ??_C@_0BN@GJMN@Edx?3?$CF08X?7Esi?3?$CF08X?7Edi?3?$CF08X?$AN?6?$AA@=007d7afc
-// @ref ??_C@_0BN@BIDB@Eax?3?$CF08X?7Ebx?3?$CF08X?7Ecx?3?$CF08X?$AN?6?$AA@=007d7b1c
-// @ref ??_C@_0BN@IPKL@Eip?3?$CF08X?7Esp?3?$CF08X?7Ebp?3?$CF08X?$AN?6?$AA@=007d7b3c
-// @ref ??_C@_0BC@ICBI@Register?5dump?4?4?4?6?$AA@=007d7b5c
-// @ref ??_C@_0N@BNPN@?$AN?6Details?3?$AN?6?$AA@=007d7b70
-// @ref ??_C@_0BN@BMBN@CPU?5?$CFs?0?5MMX?5?$CFs?0?5Vendor?3?5?$CFs?$AN?6?$AA@=007d7b80
-// @ref ??_C@_02JOHD@No?$AA@=007d7ba0
-// @ref ??_C@_03PEHN@Yes?$AA@=007d7ba4
-// @ref ??_C@_0BP@LJMN@Release?5Build?3?5?$CFs?5by?5?$CFs?5?9?5?$CFs?$AN?6?$AA@=007d7ba8
-// @ref ??_C@_0BG@PPDM@Internal?5Version?5?$CFs?$AN?6?$AA@=007d7bc8
-// @ref ??_C@_0P@BFKO@?$AN?6Version?5?$CFs?$AN?6?$AA@=007d7be0
-// @ref ??_C@_0CC@OJMJ@context?9?$DOEip?5is?5bad?5code?5pointer@=007d7bf0
-// @ref ??_C@_0BN@LCNF@Exception?5occurred?5at?5?$CF08X?$AN?6?$AA@=007d7c14
-// @ref ??_C@_0CM@NNMB@SymGetSymFromAddr?5failed?5with?5co@=007d7c34
-// @ref ??_C@_0BP@OOJK@Failed?5to?5get?5symbol?5for?5EIP?$AN?6?$AA@=007d7c60
-// @ref ??_C@_0CJ@GKLA@Exception?5occurred?5at?5?$CF08X?5?9?5?$CFs?5@=007d7c80
-// @ref ??_C@_0BB@IKIB@was?5read?5from?4?$AN?6?$AA@=007d7cac
-// @ref ??_C@_0BC@MEIE@was?5written?5to?4?$AN?6?$AA@=007d7cc0
-// @ref ??_C@_0BF@CLDO@Access?5address?3?$CF08X?5?$AA@=007d7cd4
-// @ref ??_C@_02PIMC@?$AN?6?$AA@=007d7cec
-// @ref ??_C@_0BN@ODMO@Found?5exception?5description?6?$AA@=007d7cf0
-// @ref ??_C@_0BG@OGEF@Exception?5code?5is?5?$CFd?6?$AA@=007d7d10
-// @ref ??_C@_0CI@OLNB@SymInitialize?5failed?5with?5code?5?$CF@=007d7d28
-// @ref ??_C@_0BP@CNEP@Exception?5is?5access?5violation?6?$AA@=007d7d50
-// @ref ??_C@_0DA@CNMN@SymLoad?5failed?5for?5module?5?$CFs?5wit@=007d7d70
-// @ref ??_C@_0BJ@MAEJ@Symbols?5are?5available?$AN?6?6?$AA@=007d7da0
-// @ref ??_C@_0BN@MGC@Unable?5to?5load?5IMAGEHLP?4DLL?6?$AA@=007d7dbc
-// @ref ??_C@_0DE@DDMG@Found?5IMAGEHLP?4DLL?5?9?5linking?5to?5@=007d7ddc
-// @ref ??_C@_0N@MLEM@IMAGEHLP?4DLL?$AA@=007d7e10
-// @ref ??_C@_0BF@GGFI@Dump?5exception?5info?6?$AA@=007d7e20
 
 void __fastcall Dump_Exception_004b7df0(_EXCEPTION_POINTERS *information);
-// @ref ?ImageHelp_00865c20@@3UImageHelpStruct@@A=00865c20
-// @ref ?ImagehelpFunctionNames_007d6b00@@3PAPBDA=007d6b00
-// @ref ?exception_codes_007a0e48@@3QBIB=007a0e48
-// @ref ?exception_code_text_007d6b28@@3PAPBDA=007d6b28
-// @ref ?exception_text_00855ba8@@=00855ba8
-// @ref ?Debug_Printf@@YAXPBDZZ=004068f0
-// @ref ?Get_CPU_Info@@YIXPAHPAEPADI@Z=004d2a20
-// @ref ?Get_CPU_Type_Name@@YIPBDXZ=004d2b80
-// @ref ?VendorID@@3PADA=008015a5
-// @ref ?Build_Time_Text@@YIXPADH@Z=00737a60
-// @ref ?Build_Number_String@@YIPADPADH@Z=00737ad0
-// @ref ?Build_By_String_00737b00@@YIPADPADH@Z=00737b00
-// @ref ?Version_Name@@YIPBDXZ=007131d0
-// @ref ?Version_Name@VersionClass@@QAEPBDXZ=00712ed0
-// @ref ?VerNum@@3VVersionClass@@A=00a40c88
-// @ref __imp__LoadLibraryA@4=0079a210
-// @ref __imp__GetProcAddress@8=0079a240
-// @ref __imp__FreeLibrary@4=0079a214
-// @ref __imp__GetCurrentProcess@0=0079a194
-// @ref __imp__GetLastError@0=0079a1f4
-// @ref __imp__GetModuleFileNameA@12=0079a198
-// @ref __imp__IsBadReadPtr@8=0079a158
-// @ref __imp__IsBadCodePtr@4=0079a154
-// @ref __imp__lstrlenA@4=0079a19c
-// @ref __imp__lstrcatA@8=0079a130
-// @ref __imp__wsprintfA=0079a4a4
 
 // Appends text to the exception text while it fits (TS Add_Txt).
 static inline void Add_Txt(char const *text)

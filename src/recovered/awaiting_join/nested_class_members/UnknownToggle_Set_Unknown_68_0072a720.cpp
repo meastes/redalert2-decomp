@@ -5,9 +5,6 @@
 // address of +0x54 (MSEngine::Broadcast) and redraw.
 // Assumptions: the owner (a two-state button of the 0x0072Exxx dialog code)
 // and the callees' classes are unidentified; names are placeholders.
-// @ref ?Unknown_005AD820@UnknownShape_72a6d0@@QAEXH@Z=005ad820
-// @ref ?Broadcast@MSEngine@@QAEXH@Z=005b3800
-// @ref ?Redraw@MSEngine@@QAEXXZ=005b2f90
 
 class UnknownShape_72a6d0 {
 public:

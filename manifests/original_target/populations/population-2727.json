@@ -4,8 +4,8 @@
     "id": "population-2727",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "c5172634094a9eef8d1cd0361beaf44e3d4fca8f01515fca5527ac4751f1ecb5",
-    "historical_acceptance_sha256": "318c332b077855881778581334d9529f411dd1c6c05d15e29c196dedfee43a5e",
+    "historical_population_sha256": "b373fbbd92f421f43e49d5c47da1352b4413d6a1111703b8214603869efbffba",
+    "historical_acceptance_sha256": "b7341f0cc2da3a111a99790ef46f1fbd1147c1d5b75019a2e74eee5a242faa70",
     "separate_units": true
   },
   "references": {
@@ -5778,7 +5778,15 @@
     "??_ECellClass@@UAEPAXI@Z": 4706208,
     "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
     "??_EFootClass@@UAEPAXI@Z": 5037584,
-    "??_EINIClass@@UAEPAXI@Z": 5107440
+    "??_EINIClass@@UAEPAXI@Z": 5107440,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "??_ETactical@@UAEPAXI@Z": 6998016,
+    "??_GMap@WorldDominationTour@@UAEPAXI@Z": 7515952,
+    "??_EMPCooperative@@UAEPAXI@Z": 5923504,
+    "??_ETechnoClass@@UAEPAXI@Z": 7182160,
+    "??_ETiberiumClass@@UAEPAXI@Z": 7252464,
+    "??_EWDTState@@UAEPAXI@Z": 7522816,
+    "??_EMap@WorldDominationTour@@UAEPAXI@Z": 7515952
   },
   "regions": [
     {
@@ -5847,7 +5855,7 @@
           "resolved": 4294963136
         }
       ],
-      "source_sha256": "30a343c490084b67f1558da52c1cba94e1d297ed8bff94384bd9841b5ebe604a",
+      "source_sha256": "1771c80230958bf5c031c179936ad07e79a57141166088e5c785e83b41874de4",
       "source": "src/recovered/ownrdraw/OwnerDraw_Control_Flags.cpp",
       "population": "population-2727",
       "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
@@ -5946,7 +5954,7 @@
           "resolved": 598406
         }
       ],
-      "source_sha256": "d15c43e3ca4cb12207376e03589ebbcb32c985b115a7cc2a34461acd4f1c511a",
+      "source_sha256": "8b068112ae9439bbcdfeeba1fca18001ff3430dd7a8eca8fac43d197ae2a768f",
       "source": "src/recovered/unidentified/uncalled_copies/OwnerDraw_Control_Test_005e0760.cpp",
       "population": "population-2727",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",

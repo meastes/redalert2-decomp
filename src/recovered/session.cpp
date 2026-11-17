@@ -1942,9 +1942,9 @@ int SessionClass::Slot_To_Player(int slot)
 }
 
 
-// Not exact (RA2_NON_MATCHING): FUN_00673090 at 0x00673090, best score 83.07, 2026-11-13; differs: 538 instructions in the original, 543 in the draft (shape 97.87)
+// Not exact (RA2_NON_MATCHING): UnknownSessionState::Allocate_Ports_00673090 at 0x00673090, best score 83.07, 2026-11-13; differs: 538 instructions in the original, 543 in the draft (shape 97.87)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x673090 FUN_00673090 (SessionClass::Allocate_Ports)
+// NON-EXACT DRAFT 0x673090 UnknownSessionState::Allocate_Ports_00673090 (SessionClass::Allocate_Ports)
 // entry 0x673090; exact-match score 94.42 (misses_index best); this text 82.90 (codex4 r506); plan "draft, verify"
 // origin lane: Scout775 (build/class-work/Scout775/keep/ap_z1_8290_loose9238.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by

@@ -6,8 +6,6 @@
 // units). Name hypothesis.
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-// @ref ?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A=00ab67e8
-// @ref ??3@YAXPAX@Z=00781d3b
 
 class RadarEventClass {
 public:

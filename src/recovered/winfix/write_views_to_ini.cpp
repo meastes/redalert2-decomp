@@ -3,13 +3,6 @@
 // ini, remembers section for the child callback (0x00B25F28) and saves
 // every child window through 0x00736B40.
 // Assumptions: the callback's behaviour is only inferred from its use.
-// @ref __imp__GetWindowRect@8=0079a398
-// @ref __imp__EnumChildWindows@12=0079a4dc
-// @ref ?Put_Int@INIClass@@QAE_NPBD0HH@Z=0050d6e0
-// @ref ??_C@_01FIAI@X?$AA@=007fd0d0
-// @ref ??_C@_01PCJP@Y?$AA@=007fd0cc
-// @ref ?last_view_ini_section_name@@3PBDB=00b25f28
-// @ref ?write_view_to_ini@@YGHPAUHWND__@@J@Z=00736b40
 #include "shared/win32_api.hpp"
 #include "shared/ini_class.hpp"
 

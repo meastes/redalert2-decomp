@@ -3,30 +3,6 @@
 #include "shared/movie.hpp"
 #include "shared/shape_file.hpp"
 #include "shared/dsurface.hpp"
-// @ref _unknown_empty_rect=0084e9b0
-// @ref ?AudioDeviceAvailable@@YAHXZ=00406f30
-// @ref ?GetDirectSoundObject@@YAPAXXZ=0040a6c0
-// @ref ?unknown_volume_a40b48@@3MA=00a40b48
-// @ref ?BinkVolume@@3MA=0084e9a8
-// @ref ?Subtitles_Open@@YIPAVVQAMovieCompanion@@PBD@Z=0069b190
-// @ref ?VisibleSurface@@3PAVSurface@@A=00839950
-// @ref ?HiddenSurface@@3PAVSurface@@A=00839954
-// @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
-// @ref ?Debug_Printf@@YAXPBDZZ=004068f0
-// @ref __real@4@400e8000000000000000=0079c780
 // Bink SDK imports (IAT, manifests/imports.json):
-// @ref __imp__BinkSetSoundSystem@8=0079a584
-// @ref __imp__BinkOpenDirectSound@4=0079a588
-// @ref __imp__BinkGetError@0=0079a58c
-// @ref __imp__BinkOpen@8=0079a590
-// @ref __imp__BinkSetVolume@8=0079a594
-// @ref __imp__BinkClose@4=0079a598
-// @ref __imp__BinkDDSurfaceType@4=0079a59c
-// @ref __imp__BinkGoto@12=0079a5a0
-// @ref __imp__BinkPause@8=0079a5a4
-// @ref __imp__BinkNextFrame@4=0079a5a8
-// @ref __imp__BinkCopyToBuffer@28=0079a5ac
-// @ref __imp__BinkDoFrame@4=0079a5b0
-// @ref __imp__BinkWait@4=0079a5b4
 #include "shared/rect_intersect.hpp"
 

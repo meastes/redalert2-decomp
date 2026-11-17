@@ -5,10 +5,6 @@
 
 extern "C" unsigned int __cdecl wcslen(unsigned short const *string);                                   // 0x00783605
 extern "C" unsigned short *__cdecl wcscpy(unsigned short *destination, unsigned short const *source);   // 0x00783689
-// @ref _wcslen=00783605
-// @ref _wcscpy=00783689
-// @ref ??2@YAPAXI@Z=00782017
-// @ref ??3@YAXPAX@Z=00781d3b
 
 void SubTitle::Set_Caption(unsigned short const *string)
 {

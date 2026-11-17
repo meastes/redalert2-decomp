@@ -4,8 +4,8 @@
     "id": "population-2685",
     "inventory_sha256": "08121d1095bbf818f1857101706dda303d214d8ed2f3956ba0caeb7ea5077ba3",
     "gaps_sha256": "a01045e5252c2a8c68dafd3133f41c6ef602bcd4a73ee78654e8efd4059acda0",
-    "historical_population_sha256": "f1eceb530c9656415b097c3b695cfcdfdde3cf639851a0c9b8de6944da1f582a",
-    "historical_acceptance_sha256": "aa3c232fa24666b0aea13027f19567a368d4aa123a34ac9af72cae942a0eb2f8",
+    "historical_population_sha256": "f9e3bcff8d1558d8c865aed00135388612fe2d6705e5db90ec7511b1de8b1510",
+    "historical_acceptance_sha256": "37f58feb262ee16f458026518e8d6cca4e618e598d4a611ea33ec4708ec8325f",
     "separate_units": true
   },
   "references": {
@@ -2243,7 +2243,15 @@
     "??0Cell@@QAE@XZ": 4582640,
     "??0MultiMission@@QAE@AAVINIClass@@PBD@Z": 6755952,
     "??9Cell@@QBE_NABV0@@Z": 5823312,
-    "??8Cell@@QBE_NABV0@@Z": 5238560
+    "??8Cell@@QBE_NABV0@@Z": 5238560,
+    "??_GCellClass@@UAEPAXI@Z": 4706208,
+    "??_GFootClass@@UAEPAXI@Z": 5037584,
+    "??_GWDTState@@UAEPAXI@Z": 7522816,
+    "?Clear@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ": 7781120,
+    "?Clear@?$DynamicVectorClass@PAE@@UAEXXZ": 7787952,
+    "??_ECellClass@@UAEPAXI@Z": 4706208,
+    "??_EFootClass@@UAEPAXI@Z": 5037584,
+    "??_EWDTState@@UAEPAXI@Z": 7522816
   },
   "regions": [
     {
@@ -2296,7 +2304,7 @@
           "resolved": 2660772
         }
       ],
-      "source_sha256": "6a92e0b3d7ff25b06b5fddf6bc538630c0e239773ddc1aacd26ed95bcde4b015",
+      "source_sha256": "5c615bcba1ad80ec36090670e657efec276bbc95313267dc8be52ae077065f35",
       "source": "src/recovered/classes/DynamicVectorClass_BuildingTypeDistribution/Resize.cpp",
       "population": "population-2685",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -2588,7 +2596,7 @@
           "resolved": 792068
         }
       ],
-      "source_sha256": "15722277e64d45dfd8c8ee96c02335427a010aaaa1239cb8b03e36d700680d32",
+      "source_sha256": "94c470b1de7adf2716b0e352f529b75b10f8c6f39cb2f4de1e84134e98a5bfee",
       "source": "src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/Resize.cpp",
       "population": "population-2685",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

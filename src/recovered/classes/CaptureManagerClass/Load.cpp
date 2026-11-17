@@ -1,9 +1,6 @@
 // ?Load@CaptureManagerClass@@UAGJPAUIStream@@@Z (0x00468280)
 // AbstractClass load, vtables, pointer fixups.
 #include "shared/capture_manager.hpp"
-// @ref ?Load@AbstractClass@@UAGJPAUIStream@@@Z=00410120
-// @ref ?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z=0069fb20
-// @ref ?Swizzler@@3VSwizzleManagerClass@@A=00abd868
 
 HRESULT __stdcall CaptureManagerClass::Load(IStream *stream)
 {

@@ -14,15 +14,6 @@ extern char exception_text_00855ba8[];
 extern char const dialog_init_log_007d794c[];
 extern char const abort_message_007d78d8[];
 extern char const abort_caption_007d7944[];
-// @ref ?Unknown_Center_Window_00737080@@=00737080
-// @ref ?Unknown_Dialog_Added_00522b20@@=00522b20
-// @ref ?Unknown_Dialog_Removed_00522b80@@=00522b80
-// @ref ?On_WM_MOVING@@=00736d80
-// @ref ?game_window_00b263d8@@=00b263d8
-// @ref ?exception_text_00855ba8@@=00855ba8
-// @ref ?dialog_init_log_007d794c@@=007d794c
-// @ref ?abort_message_007d78d8@@=007d78d8
-// @ref ?abort_caption_007d7944@@=007d7944
 int __stdcall Exception_Dialog_Procedure_004b7bf0(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
 {
     switch(message) {

@@ -2,7 +2,6 @@
 // Light TagClass interface: allocation size 56 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0TagClass@@QAE@PAVTagTypeClass@@@Z=006b3870
 class TagTypeClass;
 
 class TagClass {

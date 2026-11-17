@@ -4,8 +4,8 @@
     "id": "population-4341",
     "inventory_sha256": "a1b03d8d4359f17cd961dfd86c92f0787e6cdaace52ee238303b1e88b9effeb7",
     "gaps_sha256": "8ba322497a7c0747637109524718b9f5de4b94b6e276af787b9c9075604d1eca",
-    "historical_population_sha256": "2a13c7670663e83e13ba769cb86e04f1354296d83d0029cdac7571acbde354ed",
-    "historical_acceptance_sha256": "b534e5af0d7444155cbe34cbb00096fa3689a66f9fd042784dcb57b65b42bc5b"
+    "historical_population_sha256": "3418d52d99140db197da604e073b8ebb239ebef7b22a627dcc84e1bcad897f0f",
+    "historical_acceptance_sha256": "1c4f10ee8909d2cb697897f1cfcc787e89279a26683499e03def948769929c09"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -10346,7 +10346,22 @@
     "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
     "?text@WideString@@QBEPBGXZ": 7799856,
     "?Load_Alloc_Data@@YIPBXABVWstring@@AA_N@Z": 4805392,
-    "?Regions@MapRegionClass@@2V?$DynamicVectorClass@PAVMapRegionClass@@@@A": 10943784
+    "?Regions@MapRegionClass@@2V?$DynamicVectorClass@PAVMapRegionClass@@@@A": 10943784,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5205664,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210784,
+    "?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHABW4DiskID@@@Z": 6765680,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7078816,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079488,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781168,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781776,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "??_GMap@WorldDominationTour@@UAEPAXI@Z": 7515952,
+    "??_EMPCooperative@@UAEPAXI@Z": 5923504,
+    "??_ETechnoClass@@UAEPAXI@Z": 7182160,
+    "??_ETiberiumClass@@UAEPAXI@Z": 7252464,
+    "??_EWDTState@@UAEPAXI@Z": 7522816,
+    "??_ETactical@@UAEPAXI@Z": 6998016,
+    "??_EMap@WorldDominationTour@@UAEPAXI@Z": 7515952
   },
   "regions": [
     {
@@ -12057,7 +12072,7 @@
           "resolved": 10750664
         }
       ],
-      "source_sha256": "2035c9282690884b3ad2847b3746da7e4421f8cf720308e34ad41eeac67cd047",
+      "source_sha256": "b053d9a1f4b6b28f8b84bd2540447eac9e7019814277f9e980b69ad1c1934e5e",
       "source": "src/recovered/classes/TechnoTypeClass/NoInit_Constructor.cpp",
       "population": "population-4341",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -13911,7 +13926,7 @@
           "resolved": 4293897920
         }
       ],
-      "source_sha256": "11c3e5c21c8c9a4d2bed9e170c2f9aabf71a4a4e29b5f4fb80a73868b8d6ab8b",
+      "source_sha256": "66c665d069560563d4f69d30a99fe0e77ab345638c47fa31b8b695bba0d9a9dd",
       "source": "src/recovered/classes/TechnoTypeClass/Destructor.cpp",
       "population": "population-4341",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -21487,7 +21502,7 @@
           "resolved": 10750652
         }
       ],
-      "source_sha256": "e74b8f28dbbf6dc59a1032d362585a154e9108840862652309e637365f015055",
+      "source_sha256": "92b9288309db402e102f6ce62971b0c79041cfce1452e7bb17ffa57396709c40",
       "source": "src/recovered/classes/TechnoTypeClass/Constructor_Name.cpp",
       "population": "population-4341",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",

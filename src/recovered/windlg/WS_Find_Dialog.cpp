@@ -6,8 +6,6 @@
 // Assumptions: the table's meaning (window per id) and the names are
 // hypotheses.
 
-// @ref ?DialogStack@@3PAUDialogStackEntry@@A=00b25bb8
-// @ref ?DialogStackCount@@3HA=00b25de0
 #include "shared/win32_window.hpp"
 
 HWND __fastcall WS_Find_Dialog_00735940(int value)

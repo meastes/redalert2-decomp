@@ -3,9 +3,6 @@
 // Get_CPU_Type (one translation unit would inline it).
 #include "shared/cpu_info.hpp"
 
-// @ref ?Get_CPU_Type@@YAHXZ=004d2a60
-// @ref ?unknown_cpu_type_names_7d8838@@3PAPBDA=007d8838
-// @ref ??_C@_07PCHH@Unknown?$AA@=007d88cc
 
 extern char const *unknown_cpu_type_names_7d8838[];
 

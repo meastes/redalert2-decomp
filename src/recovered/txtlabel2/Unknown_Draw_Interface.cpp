@@ -1,39 +1,6 @@
 // void __fastcall Unknown_Draw_Interface_006F3650(Surface *surface, Rect const &window, bool arg3) -- 0x006F3650
 // Loads the interface art once, then draws the panel frame shapes clipped to the window (hypothesis).
 #include "shared/rect.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HUPoint2D@@@Z=0049eea0
-// @ref ?Unknown_0051A2B0@@YIXXZ=0051a2b0
-// @ref ?Unknown_006F3D50@@YIXXZ=006f3d50
-// @ref ?unknown_load_art_6f1fa0@@YIXPBDPAPAX1@Z=006f1fa0
-// @ref ?Unknown_006F3E70@@YIXHH@Z=006f3e70
-// @ref ?Unknown_006F34D0@@YIXPAVSurface@@ABVRect@@@Z=006f34d0
-// @ref ?unknown_flag_ac119c@@3_NA=00ac119c
-// @ref ?VideoModeWidth@@3HA=008523e0
-// @ref ?VideoModeHeight@@3HA=008523e4
-// @ref ?unknown_count_ac102c@@3HA=00ac102c
-// @ref ?unknown_name_7f871c@@3QBDB=007f871c
-// @ref ?unknown_art_ac1184@@3PAXA=00ac1184
-// @ref ?unknown_art_ac1188@@3PAXA=00ac1188
-// @ref ?unknown_name_7f8720@@3QBDB=007f8720
-// @ref ?unknown_art_ac118c@@3PAXA=00ac118c
-// @ref ?unknown_art_ac1190@@3PAXA=00ac1190
-// @ref ?unknown_name_7f8724@@3QBDB=007f8724
-// @ref ?unknown_art_ac1194@@3PAXA=00ac1194
-// @ref ?unknown_art_ac1198@@3PAXA=00ac1198
-// @ref ?unknown_rect_ac11c4@@3PAVRect@@A=00ac11c4
-// @ref ?unknown_rect_ac11c8@@3PAVRect@@A=00ac11c8
-// @ref ?unknown_rect_ac11b4@@3PAVRect@@A=00ac11b4
-// @ref ?unknown_rect_ac11cc@@3PAVRect@@A=00ac11cc
-// @ref ?unknown_rect_ac11d0@@3PAVRect@@A=00ac11d0
-// @ref ?unknown_shape_ac10e8@@3PAUShapeFileStruct@@A=00ac10e8
-// @ref ?unknown_shape_ac107c@@3PAUShapeFileStruct@@A=00ac107c
-// @ref ?unknown_shape_ac10b8@@3PAUShapeFileStruct@@A=00ac10b8
-// @ref ?unknown_shape_ac1044@@3PAUShapeFileStruct@@A=00ac1044
-// @ref ?unknown_shape_ac10d8@@3PAUShapeFileStruct@@A=00ac10d8
-// @ref ?unknown_shape_ac1060@@3PAUShapeFileStruct@@A=00ac1060
-// @ref ?unknown_drawer_ac1188@@3PAVConvertClass@@A=00ac1188
-// @ref ?unknown_drawer_ac1190@@3PAVConvertClass@@A=00ac1190
-// @ref ?unknown_drawer_ac1198@@3PAVConvertClass@@A=00ac1198
 
 class Surface;
 class ConvertClass;

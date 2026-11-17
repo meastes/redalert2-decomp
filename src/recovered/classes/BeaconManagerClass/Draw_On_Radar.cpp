@@ -3,8 +3,6 @@
 #include "shared/beacon.hpp"
 #include "shared/house.hpp"
 #include "shared/cd_timer.hpp"
-// @ref ?Unknown_0042DE20@UnknownBeacon@@QAEXPAVSurface@@VRect@@_N@Z=0042de20
-// @ref ?unknown_beacon_phase_84e948@@3HA=0084e948
 
 void BeaconManagerClass::Draw_On_Radar_0042eed0(Surface *surface, Rect rect)
 {

@@ -4,8 +4,8 @@
     "id": "population-1929",
     "inventory_sha256": "bf4054f37ca7a8ba5485843832fa7f33c42a7b39491f8c0ee8fd836f18f78a96",
     "gaps_sha256": "0361cbcbffd2830827efe0f9a8f83c60174ef09ae578fa2a6ca71e8515894f23",
-    "historical_population_sha256": "454dced722d028e705e2b4c92d61d4513cc78c533194bae9d2f37463522ad992",
-    "historical_acceptance_sha256": "e6f9c45463d695b7b3d921482a871af23198cfe0a226c458064a43a3e1af4215"
+    "historical_population_sha256": "12ffde0b74e2dfd6a1a4ff7f4294df3abaea6bdb77bc310032c67be5b3d28d9a",
+    "historical_acceptance_sha256": "f3f97823b5f0403ced12fecf884d95ff2ce7cd1152349b0beefc3b79afee4354"
   },
   "references": {
     "?dll_version_entry_name_007d5e9c@@": 8216220,
@@ -569,7 +569,9 @@
     "__imp__ImmGetContext": 7971000,
     "__imp__ImmGetCompositionStringA@16": 7971004,
     "__imp__ImmGetCompositionStringA": 7971004,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856
   },
   "regions": [
     {
@@ -622,7 +624,7 @@
           "resolved": 7971348
         }
       ],
-      "source_sha256": "4256fdfee605c44017f007c8cc9995478c8008186383ec3edb3fe549e40e91be",
+      "source_sha256": "65ef8ca5e2b71993e1a3771cd0fbb4a5349f320cb836cfcf3f2f8d32b9bc0d25",
       "source": "src/recovered/dllver/Query_DLL_Version.cpp",
       "population": "population-1929",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",

@@ -8,21 +8,6 @@
 #include "shared/tool_tip.hpp"
 #include "shared/win32_window.hpp"
 #include "shared/msgloop.hpp"
-// @ref ?MessageLoopCount@@3HA=00a52298
-// @ref ?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z=00522ed0
-// @ref ?Get_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@II@Z=00522e90
-// @ref __imp__TranslateMessage@4=0079a4b0
-// @ref __imp__DispatchMessageA@4=0079a4b4
-// @ref __imp__IsDialogMessageA@8=0079a4ec
-// @ref __imp__TranslateAcceleratorA@12=0079a4e4
-// @ref ?ToolTips@@3PAVCCToolTip@@A=008399b0
-// @ref ?MainWindow@@3PAUHWND__@@A=00b263d8
-// @ref ?Process_Message@ToolTipManager@@QAEXPAUtagMSG@@@Z=006eb4e0
-// @ref ?DispatchLauncherMessage@@YIXPAUtagMSG@@@Z=004919b0
-// @ref ?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A=00a71900
-// @ref ?_Accelerators@@3V?$DynamicVectorClass@UAcceleratorTracker@@@@A=00a71928
-// @ref ??_H@YGXPAXIHP6EX0@Z@Z=0040aed0
-// @ref ?Message_Intercept_Handler@@3P6I_NAAUtagMSG@@@ZA=00a719a4
 
 WIN32_IMPORT BOOL WINAPI IsDialogMessageA(HWND dialog, MSG *message);
 WIN32_IMPORT int WINAPI TranslateAcceleratorA(HWND window, HACCEL accelerators, MSG *message);

@@ -4,11 +4,6 @@
 // 0x00AC1134/0x00AC113C (array delete through their virtual destructor),
 // clearing each pointer.
 // Assumptions: the companion objects' class is unidentified.
-// @ref ??3@YAXPAX@Z=00781d3b
-// @ref ?unknown_art_ac1130@@3PAXA=00ac1130
-// @ref ?unknown_art_ac1134@@3PAVUnknownArtData_006f2390@@A=00ac1134
-// @ref ?unknown_art_ac1138@@3PAXA=00ac1138
-// @ref ?unknown_art_ac113c@@3PAVUnknownArtData_006f2390@@A=00ac113c
 
 class UnknownArtData_006f2390 {
 public:

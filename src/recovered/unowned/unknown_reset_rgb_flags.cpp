@@ -3,9 +3,6 @@
 // bytes after it.
 // Assumptions: what the three bytes are (a value and two flags) is
 // unknown.
-// @ref ?unknown_mode_ab6831@@3DA=00ab6831
-// @ref ?unknown_flag_ab6832@@3_NA=00ab6832
-// @ref ?unknown_flag_ab6833@@3_NA=00ab6833
 
 extern char unknown_mode_ab6831;
 extern bool unknown_flag_ab6832;

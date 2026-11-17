@@ -3,7 +3,6 @@
 // Assumptions: name hypothesis.
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-// @ref ?RadarEventClass_RadarEvents@@3V?$DynamicVectorClass@PAVRadarEventClass@@@@A=00ab67e8
 
 class RadarEventClass;
 extern DynamicVectorClass<RadarEventClass *> RadarEventClass_RadarEvents;

@@ -4,8 +4,6 @@
 // Assumptions: the dialog helpers are unidentified; names follow
 // 0x0074D780's draft.
 #include "shared/win32_api.hpp"
-// @ref ?WS_Top_Window@@YIPAUHWND__@@XZ=00735b10
-// @ref ?WS_Destroy_Dialog@@YIXPAXH@Z=007357e0
 
 void __fastcall WS_Destroy_Dialog(void *window, int arg2);
 HWND __fastcall WS_Top_Window();

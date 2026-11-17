@@ -541,8 +541,6 @@ public:
     T *Pointer;
 };
 
-// @ref ?WDT_Block_b2ad60@@3V?$WDTPointer@X@@A=00b2ad60
-// @ref ?WDT_Block_b2ad70@@3V?$WDTPointer@X@@A=00b2ad70
 WDTPointer<void> WDT_Block_b2ad60;
 WDTPointer<void> WDT_Block_b2ad70;
 

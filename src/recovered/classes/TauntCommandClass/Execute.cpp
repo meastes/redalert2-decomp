@@ -10,26 +10,6 @@
 #include "shared/owner_talk.hpp"
 #include "shared/connection.hpp"
 #include "shared/taunt_packet.hpp"
-// @ref __imp__timeGetTime@0=0079a524
-// @ref ?unknown_taunt_time_7db560@@3KA=007db560
-// @ref ?unknown_flag_a3f120@@3_NA=00a3f120
-// @ref ?unknown_flag_a3f121@@3_NA=00a3f121
-// @ref ?unknown_flags_a3f118@@3PA_NA=00a3f118
-// @ref ?Game_PlayerColor@@3HA=00a3d3b4
-// @ref ?MuteSWLaunches@@3HA=00a3d548
-// @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
-// @ref ?unknown_flag_a3fba8@@3_NA=00a3fba8
-// @ref ?unknown_host_name_a3f618@@3PAGA=00a3f618
-// @ref ?unknown_players_a3fa7c@@3V?$DynamicVectorClass@PAUNodeNameType@@@@A=00a3fa7c
-// @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
-// @ref ?Ipx@@3VIPXManagerClass@@A=00a40978
-// @ref ?OwnerTalk@@3VOwnerTalkClass@@A=00ab6d18
-// @ref ?Compute_Name_CRC_W@@YIHPAG@Z=005bba50
-// @ref ?Play_Taunt@@YIXD@Z=00715fb0
-// @ref ?Mask_From_ID@OwnerTalkClass@@QAEEH@Z=0063f4c0
-// @ref ?Wide_To_Narrow_006fa120@@YIPADPBG@Z=006fa120
-// @ref _wcscmp=007837d3
-// @ref ?Service@IPXManagerClass@@UAEHXZ=00525f60
 
 extern "C" __declspec(dllimport) unsigned long __stdcall timeGetTime(void);
 extern "C" char *__cdecl strcpy(char *destination, char const *source);

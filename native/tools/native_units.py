@@ -742,9 +742,9 @@ HEADER_STATICS = ROOT / 'native/data/header_statics.tsv'
 def header_static_candidates(rows):
     """(name, address) of the C-named data a compile group's accepted rows refer to, from the
     catalog's relocation receipts (`_unknown_geometry_j` at 0x00AD057C). A unit's header and
-    file statics are among them whatever file its rows live in: a re-filed unit (one module
-    source for the whole translation unit, docs/SOURCE_FORM_TRIAL.md "Route A") carries no
-    `// @ref` lines, so the comment alone cannot key the copies."""
+    file statics are among them whatever file its rows live in. Accepted sources carry no
+    `// @ref` lines (lane A1, 2026-11-17: they restated the population tables), so the catalog
+    alone keys the copies."""
     out = set()
     for row in rows:
         for relocation in row.get('relocations') or []:
@@ -752,6 +752,27 @@ def header_static_candidates(rows):
             if match:
                 out.add((match.group(1), relocation['target']))
     return sorted(out)
+
+
+def header_static_keys(fixed, candidates):
+    """source -> the (name, address) statics header_static_copies keys in that source, from the
+    catalog alone (header_static_candidates of the whole group): accepted sources carry no
+    `// @ref` lines (lane A1, 2026-11-17: they restated the population tables). Each static goes
+    to the first source of the group that defines it (its text or the shared headers it
+    includes): the header is included once per unit, so that is where the static is defined and
+    initialised, and the copy follows it at once, before anything later in the unit reads the
+    extern name. FIXED: source -> text after fixups, in the group's source order, sources the
+    native build skips left out."""
+    keys = OrderedDict((source, []) for source in fixed)
+    texts = {}
+    for name, address in candidates:
+        for source, text in fixed.items():
+            if source not in texts:
+                texts[source] = text + header_static_text(text)
+            if header_static_defined(name, texts[source]):
+                keys[source].append((name, address))
+                break
+    return keys
 
 
 def header_static_defined(name, text):
@@ -768,15 +789,12 @@ def header_static_copies(text, bss_by_address, candidates=(), done=None, record=
     level's vehicle bit because the bridge height read 0, so a deploying MCV
     still blocked its own cell). Same value at the same _initterm position.
 
-    The statics are keyed two ways: the source's `// @ref _name=ADDRESS` lines (a
-    one-row file) and `candidates`, the catalog's (name, address) pairs of the unit
-    (header_static_candidates; passed for a module source, whose text has no such
-    lines). `done` holds the addresses the unit has already copied (one copy per
+    The statics are keyed by `candidates`, the catalog's (name, address) pairs
+    (header_static_candidates: the whole group's for a module source, the source's own
+    rows' otherwise). `done` holds the addresses the unit has already copied (one copy per
     storage and unit); `record` collects what is emitted."""
     done = set() if done is None else done
-    pairs = [(m.group(1), int(m.group(2), 16))
-             for m in re.finditer(r'^// @ref _([A-Za-z]\w*)=([0-9a-fA-F]{8})\s*$', text, re.M)]
-    pairs += [pair for pair in candidates if pair not in pairs]
+    pairs = list(candidates)
     defined = None
     lines = []
     for name, address in pairs:
@@ -878,7 +896,6 @@ def main():
     manifest = []
     unit_texts = OrderedDict()
     bss_by_address = bss_symbols()
-    module_sources = {s for s, n in Counter(r['source'] for r in catalog['regions']).items() if n > 1}
     hs_copies, hs_expected = [], []
     for index, (key, rows) in enumerate(groups(catalog).items()):
         # A module source (one original translation unit, several rows of the
@@ -890,10 +907,12 @@ def main():
         name = 'g%04d_%s.cpp' % (index, key[0].replace('population-', 'p'))
         candidates = header_static_candidates(rows)
         hs_done, hs_texts = set(), []
-        for source in sources:
-            # Fixups first: a fixup may replace an evidenced __asm block with its
-            # native meaning (Main_Game's exception-return capture).
-            text = apply_fixups(source, texts[source], fixups, renames, used)
+        # Fixups first: a fixup may replace an evidenced __asm block with its
+        # native meaning (Main_Game's exception-return capture).
+        fixed = OrderedDict((source, apply_fixups(source, texts[source], fixups, renames, used)) for source in sources)
+        hs_keys = header_static_keys(OrderedDict((source, text) for source, text in fixed.items()
+                                                 if '__asm' not in text and '_asm ' not in text), candidates)
+        for source, text in fixed.items():
             if '__asm' in text or '_asm ' in text:
                 report['skipped'].append(dict(source=source, reason='inline assembly: native implementation needed'))
                 continue
@@ -902,10 +921,8 @@ def main():
             # (0x00ABE490, pixels per lepton of height) is read elsewhere through
             # the extern unknown_abe490; zero there, every object's Z adjust lost
             # its height and the depth test hid units and infantry.
-            # A module source (a re-filed unit) has no `// @ref` lines: its statics are
-            # keyed by the catalog (header_static_candidates), so re-filing changes no copy.
-            parts.append(header_static_copies(text, bss_by_address, candidates if source in module_sources else (),
-                                              hs_done, hs_copies, name))
+            # Keyed by the catalog for every source (header_static_keys).
+            parts.append(header_static_copies(text, bss_by_address, hs_keys[source], hs_done, hs_copies, name))
             hs_texts.append(text)
         if not parts:
             continue

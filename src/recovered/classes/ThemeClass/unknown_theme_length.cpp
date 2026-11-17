@@ -3,7 +3,6 @@
 // control record, 0 for an unknown theme.
 // Assumptions: the themes are a DynamicVectorClass of control records at
 // +0x14 (elements +0x18, count +0x24); +0x284 is taken to be the length.
-// @ref __ftol=0077f110
 
 
 

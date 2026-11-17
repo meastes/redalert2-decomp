@@ -8,12 +8,6 @@
 #include "shared/crt_memory.hpp"
 #include "shared/debug_printf.hpp"
 #include "shared/win32_window.hpp"
-// @ref ?unknown_audio_file_lock_a52280@@3UCRITICAL_SECTION@@A=00a52280
-// @ref ?unknown_audio_file_lock_a52268@@3UCRITICAL_SECTION@@A=00a52268
-// @ref ?Audio_File_Thread@@YGKPAX@Z=005227d0
-// @ref ??2@YAPAXI@Z=00782017
-// @ref __alldiv=007820c0
-// @ref ??_C@_0DL@CKCP@Unable?5to?5change?5the?5priority?5of@=007ccd50
 extern "C" short unknown_audio_file_table_00a51fd0[256];
 
 int __fastcall Audio_File_Init(int count, int size)

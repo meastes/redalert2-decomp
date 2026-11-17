@@ -6,4 +6,3 @@ void OwnerDraw::SimpleDialogControl::Set_Window_006010f0(unsigned int key, HWND 
     if (record) record->unknown_d4 = true;
     unknown_08 = true;
 }
-// @ref ?unknown_registry_a73640@OwnerDraw@@=00a73640

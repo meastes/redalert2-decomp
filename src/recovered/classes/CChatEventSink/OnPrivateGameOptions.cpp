@@ -170,9 +170,3 @@ request_done:
     return S_OK;
 }
 
-// @ref ?IsRandomMap=007e6dc0
-// @ref ?port_debug_7fe030=007fe030
-// @ref ?options_debug_7fdfd0=007fdfd0
-// @ref ?preview_debug_7fdf98=007fdf98
-// @ref ?hex_format_7db4b0=007db4b0
-// @ref ?comma_7ce9c0=007ce9c0

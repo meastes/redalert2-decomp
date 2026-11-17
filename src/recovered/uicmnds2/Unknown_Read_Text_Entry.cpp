@@ -5,8 +5,6 @@
 // that follows (letters, digits and underscores after any leading white
 // space or '='; a label ending in a digit gets an "e" appended) into
 // label. Characters come from source first, then from file (0x00784A3C).
-// @ref ?Unknown_getc_00784a3c@@YAHPAX@Z=00784a3c
-// @ref ?Unknown_isspace_00784aa8@@YAHF@Z=00784aa8
 
 int __cdecl Unknown_getc_00784a3c(void *file);
 int __cdecl Unknown_isspace_00784aa8(short character);

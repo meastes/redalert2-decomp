@@ -5,11 +5,6 @@
 // Assumptions: message 0x4B3 is a control-specific (WM_USER-based) text
 // request; the name is a hypothesis.
 #include "shared/win32_api.hpp"
-// @ref __imp__SendMessageA@16=0079a4a0
-// @ref ??2@YAPAXI@Z=00782017
-// @ref ??3@YAXPAX@Z=00781d3b
-// @ref ??4WideString@@QAEAAV0@PBG@Z=0076fb70
-// @ref ?Release@WideString@@QAEXXZ=00770330
 
 // The wide string class (shared/wide_string.hpp's WideString), with the two
 // members used here.

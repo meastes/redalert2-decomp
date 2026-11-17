@@ -3,7 +3,6 @@
 #include "shared/beacon.hpp"
 #include "shared/house.hpp"
 #include "shared/cd_timer.hpp"
-// @ref ?unknown_beacon_phase_84e948@@3HA=0084e948
 
 bool BeaconManagerClass::Is_Flashing_0042efd0()
 {

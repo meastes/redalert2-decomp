@@ -4,7 +4,6 @@
 // kinds with IDs 0x6EC/0x5A8; per-ID 30 or 60 for the 0x103/0xBC7 and 0x108/0xBC6 kinds; 15 otherwise
 // (0x005DF660 is still called for a kind with ID 0x695). The 0x6F4 exclusion is an if/else whose else
 // returns, laid out after the function; the original's return blocks only line up that way.
-// @ref __imp__GetDlgCtrlID@4=0079a3f4
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 

@@ -2,6 +2,5 @@
 // voxel shadow records (shared/unknown_pair_first.hpp), each holding four
 // Vector3s at +0x0C, constructed like 0x00716EE0.
 #include "shared/unknown_pair_first.hpp"
-// @ref ?VoxelShadowRenderData@@3PAUVoxelShadowRenderStruct@@A=00af3408
 
 VoxelShadowRenderStruct VoxelShadowRenderData[64];

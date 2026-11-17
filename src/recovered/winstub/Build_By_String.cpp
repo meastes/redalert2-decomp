@@ -10,7 +10,7 @@
 
 namespace seed_00737b00 {
 
-extern "C" unsigned int __cdecl _strncpy(...);  // @ref __strncpy=007823d0
+extern "C" unsigned int __cdecl _strncpy(...);
 extern "C" char s_gsmallwoo_007d8904[];
 
 char * __fastcall Build_By_String_00737b00(char *destination)

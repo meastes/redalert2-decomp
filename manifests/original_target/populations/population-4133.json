@@ -4,8 +4,8 @@
     "id": "population-4133",
     "inventory_sha256": "c5004ec856e450c3427a68cc7b07f00ac51859eec41f25770dbdd7c5aa1c55ab",
     "gaps_sha256": "e2cfb688622ccd4af16a820d1f124fd5ef21c886b23cf4cdd0a0053f9c648432",
-    "historical_population_sha256": "e6006cc21336c626f1d0a726adc550739eb53a702289d04cc1e7ca60127df2aa",
-    "historical_acceptance_sha256": "99c7014ac04c2e64fc4afde1d1f639a6aaab1f8c37b781296420e035a9fd041b"
+    "historical_population_sha256": "898f4766328de95e97b77e9b98c8faa224cb798467555f0570c9da7b7054330e",
+    "historical_acceptance_sha256": "e295a8dc862bd28559475155bf1e471c486784cc773e5024a1f75abfff10ffe3"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -1959,7 +1959,12 @@
     "__real@8@bff6b6db6db6db6db800": 8026880,
     "??_ENode@?$WolDictionary@VWstring@@ULadder@WOL@@@@QAEPAXI@Z": 7759744,
     "??_ENode@?$WolDictionary@VWstring@@UChannel@WOL@@@@QAEPAXI@Z": 7759840,
-    "??_EWinModemClass@@UAEPAXI@Z": 7558672
+    "??_EWinModemClass@@UAEPAXI@Z": 7558672,
+    "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A": 11274248,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856,
+    "?Reset@BitFontClass@@QAEXXZ": 4399536,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592
   },
   "regions": [
     {
@@ -2047,7 +2052,7 @@
           "resolved": 8588104
         }
       ],
-      "source_sha256": "3e951f6f06a67aa293c4e413fe9951da05b72ebe7243c69281663ea647a1590e",
+      "source_sha256": "77155ad3f7015b744e201747928ef6258712130040ab364dec063e3d149da819",
       "source": "src/recovered/auddev/Audio_Destroy_Driver.cpp",
       "population": "population-4133",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
@@ -2122,7 +2127,7 @@
           "resolved": 8588104
         }
       ],
-      "source_sha256": "b30722e851b3f30d6d1e15df4c264983d5d90c9bbf5517f0c3d7ff9605022aeb",
+      "source_sha256": "e2b771ae1cdb5b254d9fc3a210f850c653f7867f818dbf83d15d6bf51cd0df6f",
       "source": "src/recovered/auddev/Audio_Destroy_Drivers.cpp",
       "population": "population-4133",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -2336,7 +2341,7 @@
           "resolved": 8178024
         }
       ],
-      "source_sha256": "abcf7d221a82407787e76511db9b6ad7de0cd5a855b579c878f8f27118ebe2c3",
+      "source_sha256": "0a5b2f4df2eea742cb80cec9bb9a32dadfceca5d81980fae51f120b416eddfb4",
       "source": "src/recovered/auddev/Audio_Create_Device.cpp",
       "population": "population-4133",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -2678,7 +2683,7 @@
           "resolved": 8178024
         }
       ],
-      "source_sha256": "73980292dde9391edad2a5684199647232c61d5a888e13c7442ab665d45d9bbd",
+      "source_sha256": "501128593b2826e80804f46c5b3a7d2cbd2f658b34b5b85be3d8e4558622cbba",
       "source": "src/recovered/auddev/Audio_Destroy_Devices.cpp",
       "population": "population-4133",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",

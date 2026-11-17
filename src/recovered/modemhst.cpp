@@ -167,7 +167,7 @@ bool ModemHost::Dialog_00598e10()
 // WM_COMMAND, WM_HSCROLL/VSCROLL, WM_DESTROY, WM_PAINT). The /Ob2 budget matches the original only with the
 // chat chain (Send_Chat 0x59A880 -> 0x59BFA0 -> Show_Chat 0x59C0B0 calls) and the checkbox readers' named
 // state/checked locals: Read_Unit_Count inlines, Read_Tech_Level and ??_G 0x59CB80 stay calls.
-// @ref? ??_C@_13ECNF@?$AA?5?$AA?$AA@ hits 007a0190 007a01f0 007a0250 007a02b0 007a0310
+// The string literal ??_C@_13ECNF@?$AA?5?$AA?$AA@ has identical copies at 007a0190 007a01f0 007a0250 007a02b0 007a0310
 // Read_AI_Difficulty_0059ad80 (0x0059AD80)
 // Read_AI_Players_0059ad10 (0x0059AD10)
 // Read_Bases_0059adf0 (0x0059ADF0)
@@ -1099,7 +1099,7 @@ void ModemHost::Service_0059b560(bool force)
 
 
 // ModemHost::Process_Messages_0059b690 (0x0059B690)
-// @ref? ??_C@_13ECNF@?$AA?5?$AA?$AA@ hits 007a0190 007a01f0 007a0250 007a02b0 007a0310
+// The string literal ??_C@_13ECNF@?$AA?5?$AA?$AA@ has identical copies at 007a0190 007a01f0 007a0250 007a02b0 007a0310
 
 bool ModemHost::Process_Messages_0059b690(bool quiet)
 {

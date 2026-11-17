@@ -16,9 +16,6 @@
 // (TibSun xsurface.cpp:806, instructions unchanged); VC6 expands it inline in both 16-bit cases.
 #include "shared/surface.hpp"
 #include "shared/crt_string.hpp"
-// @ref ?Intersect@@YI?AVRect@@ABV1@0PAH1@Z=0041fdf0
-// @ref ??0Rect@@QAE@ABURectPoint2D@@HH@Z=00453e40
-// @ref ?Top_Left@Rect@@QBE?AURectPoint2D@@XZ=00435560
 
 // inline asm functions don't have a return statement
 #pragma warning(disable: 4035)

@@ -216,7 +216,7 @@ void __stdcall WalkLocomotionClass::Force_Immediate_Destination(CoordStruct coor
 }
 
 
-// Not exact (RA2_NON_MATCHING): FUN_0071e220 at 0x0071E220, best score 89.83, 2026-11-13; differs: 1505 instructions in the original, 1483 in the draft (shape 97.46)
+// Not exact (RA2_NON_MATCHING): WalkLocomotionClass::unknown_71e220 at 0x0071E220, best score 89.83, 2026-11-13; differs: 1505 instructions in the original, 1483 in the draft (shape 97.46)
 #ifdef RA2_NON_MATCHING
 #define RA2_COORD_AS_CELL
 #include "shared/rules.hpp"

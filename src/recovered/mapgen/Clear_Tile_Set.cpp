@@ -1,6 +1,5 @@
 #include "shared/cell.hpp"
 #include "shared/map_view.hpp"
-// @ref ?IsometricTileTypeClass_ShorePieces@@3HA=00a6cb74
 // Original set name is unknown; this clears its42 tile indices and Cell+11A.
 void __fastcall Clear_Tile_Set_0057dd10()
 {

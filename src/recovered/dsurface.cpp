@@ -167,16 +167,16 @@ void __fastcall unknown_00495770(HRESULT result, int show_success);
 extern IDirectDrawSurface *PrimarySurface_8523d8;
 extern DDPIXELFORMAT PrimaryPixelFormat_852b38;
 extern unsigned short unknown_eighth_mask_852fd4;
-extern char const CreatePrimary[]; // @ref ?CreatePrimary@@3QBDB=007d63b0
-extern char const AllowStretch[]; // @ref ?AllowStretch@@3QBDB=007d638c
-extern char const AllowHWFill[]; // @ref ?AllowHWFill@@3QBDB=007d6370
-extern char const CreateSurface[]; // @ref ?CreateSurface@@3QBDB=007d6340
-extern char const CreateFailed[]; // @ref ?CreateFailed@@3QBDB=007d62b0
-extern char const CreateOK[]; // @ref ?CreateOK@@3QBDB=007d632c
-extern char const GetDescFailed[]; // @ref ?GetDescFailed@@3QBDB=007d62fc
-extern char const CreateDone[]; // @ref ?CreateDone@@3QBDB=007d62dc
-extern char const TrueText[]; // @ref ?TrueText@@3QBDB=007d24d8
-extern char const FalseText[]; // @ref ?FalseText@@3QBDB=007d24d0
+extern char const CreatePrimary[];
+extern char const AllowStretch[];
+extern char const AllowHWFill[];
+extern char const CreateSurface[];
+extern char const CreateFailed[];
+extern char const CreateOK[];
+extern char const GetDescFailed[];
+extern char const CreateDone[];
+extern char const TrueText[];
+extern char const FalseText[];
 inline bool Match_Primary_Format(int red_left, int red_right, int green_left, int green_right, int blue_left, int blue_right) {
     return DSurface_BlueRight == blue_left && DSurface_BlueLeft == blue_right && DSurface_GreenRight == green_left && DSurface_GreenLeft == green_right && DSurface_RedRight == red_left && DSurface_RedLeft == red_right;
 }
@@ -1762,7 +1762,7 @@ int __fastcall Brighten_Hicolor_Pixel(RGBClass const &color, int red_add, int gr
 // interpolated from start_depth to end_depth (z, x and y major Bresenham walks over the screen, depth and alpha
 // buffers). The depth test reads the buffer behind DepthBuffer and the level the one behind AlphaBuffer; ra2-decomp's
 // YR twin calls those DepthBuffer and AlphaBuffer the other way round (name lead, not settled here).
-// From ra2-decomp 0x004BEAC0 (YR identical twin, src/dsurface.cpp DSurface::FUN_004BEAC0), on Scout795's draft
+// From ra2-decomp 0x004BEAC0 (YR identical twin, src/dsurface.cpp DSurface), on Scout795's draft
 // (its blend helper kept; ra2-decomp's Alpha_Hicolor_Pixel form scores 80.75):
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright 2026 ra2-decomp contributors

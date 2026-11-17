@@ -4,8 +4,8 @@
     "id": "population-4352",
     "inventory_sha256": "82d76aac864d26e1a63b17341b43281aa316ce10c95f0d35474ebdba4d64c791",
     "gaps_sha256": "04d36338335bdd7e43e23bfbef070ac0785ff73d83cba2e18e0315fd2eb8d76f",
-    "historical_population_sha256": "e2053c8361dfd0049146b55e85e91e46efa5cf1588d4124d298fc963973e62d8",
-    "historical_acceptance_sha256": "75d60865282ca5341c93be1edf902faae1f8f24c6e1ff2e071f8b401956fd19e",
+    "historical_population_sha256": "7429a3d5f7c1e83e48d354a148467cb3fb93c144b65fd558fd7150ca227023df",
+    "historical_acceptance_sha256": "372579d8044194b3f017138d0245f27338360ee9d61920af59b7f41d674f9017",
     "separate_units": true
   },
   "references": {
@@ -10939,7 +10939,10 @@
     "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
     "??_EFootClass@@UAEPAXI@Z": 5037584,
     "??_EINIClass@@UAEPAXI@Z": 5107440,
-    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952
+    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "??_ETactical@@UAEPAXI@Z": 6998016,
+    "?Build_By_String_00737b00@seed_00737b00@@YIPADPAD@Z": 7568128
   },
   "regions": [
     {
@@ -10993,7 +10996,7 @@
           "resolved": 8589228
         }
       ],
-      "source_sha256": "0aa4a111090b4f501a3434e38dfe6b3e76eee76b76154f106837d0592cdf9975",
+      "source_sha256": "c353ea9f06be448a910e330991f3a5185e1a3d273eb75f4348ac9d92a203d5e5",
       "source": "src/recovered/classes/AudioEventHandle/Init.cpp",
       "population": "population-4352",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
@@ -11177,7 +11180,7 @@
           "resolved": 10948160
         }
       ],
-      "source_sha256": "0d205d60ac3a8f5ee916bdc7a7b34e1dd682c956d2eb69e9c513ffa210fd1bdd",
+      "source_sha256": "5dd41bd1e909e21047b0713ffb705e60c0fb2d217059b9db7e63a30f5fb5f98f",
       "source": "src/recovered/classes/MonoClass/Mono_Page.cpp",
       "population": "population-4352",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
@@ -11362,7 +11365,7 @@
           "resolved": 11406776
         }
       ],
-      "source_sha256": "0825a74df0be474422f048b85d0e38e5ebb78252a5a5f0aa563cf302e489a82d",
+      "source_sha256": "511ea4b9785384f35c2323d160ba57a4ac8575b711b5817a7bb1e84415aefa98",
       "source": "src/recovered/voxdrsys/VoxelDrawSystem_Get_Surface.cpp",
       "population": "population-4352",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11396,7 +11399,7 @@
           "resolved": 8227072
         }
       ],
-      "source_sha256": "1c25bcd9e005542df97c2d25f68f35ab75f9ceda1f492c7528e437e3312b2e86",
+      "source_sha256": "1afb172d4d1cb64758084af8e0472aa5fbf1fd2e47ec84cdd74041c47026af37",
       "source": "src/recovered/winstub/Channel_Version.cpp",
       "population": "population-4352",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
@@ -11430,7 +11433,7 @@
           "resolved": 11691000
         }
       ],
-      "source_sha256": "8052dfcefc07de56c98989caba453f5cdf459ac1c5658aacde678837dfbc95c9",
+      "source_sha256": "c1b63c4ce719a17e665ff3d497fd7d45e3287c8bde5e0fb447e31beae3689652",
       "source": "src/recovered/winstub/IME_Get_Default_Result.cpp",
       "population": "population-4352",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",

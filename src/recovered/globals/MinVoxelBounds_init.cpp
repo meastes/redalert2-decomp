@@ -3,6 +3,5 @@
 // (10000, 10000, 10000) and lowers it to the smallest vertex coordinates seen
 // (bounding box minimum, hypothesis).
 #include "shared/vector3.hpp"
-// @ref ?MinVoxelBounds@@3UVector3@@A=00ae0a70
 
 Vector3 MinVoxelBounds;

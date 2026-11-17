@@ -3,9 +3,6 @@
 // TechnoTypes; the member lists and the object type part follow.
 #include "shared/techno_type.hpp"
 #include "shared/object.hpp"
-// @ref ??1ObjectTypeClass@@UAE@XZ=005d5b60
-// @ref ??3@YAXPAX@Z=00781d3b
-// @ref ?Delete@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NH@Z=006dfa70
 
 // Frees the cameo shapes the type owns (inline).
 static inline void Free_Cameo(TechnoTypeClass *type)

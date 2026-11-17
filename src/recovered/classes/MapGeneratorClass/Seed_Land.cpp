@@ -11,13 +11,6 @@
 #include "shared/cell.hpp"
 #include "shared/tileset_index.hpp"
 extern DynamicVectorClass<MapRegionClass *> MapRegionClass_MapRegions;
-// @ref ?MapRegionClass_MapRegions@@3V?$DynamicVectorClass@PAVMapRegionClass@@@@A=00a6fd28
-// @ref ??1MapRegionClass@@QAE@XZ=0056d970
-// @ref ?Seed_Land@MapGeneratorClass@@=0057bea0
-// @ref ?Seed_Land_Type0@MapGeneratorClass@@=0057c4f0
-// @ref ?Seed_Land_Type1@MapGeneratorClass@@=0057c780
-// @ref ?Seed_Land_Type2@MapGeneratorClass@@=0057c9e0
-// @ref ?Unknown_0055C2C0@MapClass@@=0055c2c0
 // R109 proves this adopted-pointer path; global dynamic identity remains qualified.
 MapRegionClass::~MapRegionClass()
 {

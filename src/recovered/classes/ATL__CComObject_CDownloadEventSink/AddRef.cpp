@@ -12,7 +12,7 @@
 
 namespace seed_00766ab0 {
 
-extern "C" __declspec(dllimport) unsigned int __stdcall InterlockedIncrement(int);  // @ref __imp__InterlockedIncrement@4=0079a1bc
+extern "C" __declspec(dllimport) unsigned int __stdcall InterlockedIncrement(int);
 
 void __stdcall AddRef_00766ab0(int self)
 {

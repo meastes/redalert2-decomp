@@ -19,18 +19,6 @@
 extern bool unknown_b2ac46;               // 0x00B2AC46
 void Unknown_00750f60();                   // 0x00750F60
 bool __fastcall Unknown_005c3ff0(char *options, char const *name);   // 0x005C3FF0
-// @ref ??_C@_02EHJP@A0?$AA@=007e6ed0
-// @ref ??_C@_02ONAI@A1?$AA@=007e6d74
-// @ref ??_C@_03JMHL@P?$CFs?$AA@=007fdf40
-// @ref ??_C@_0CH@NNIJ@Never?5recieved?5preview?$DL?5re?9reque@=007fdf44
-// @ref ??_C@_0CJ@JFJN@New?5scenario?5?9?5requesting?5a?5map?5@=007fdf6c
-// @ref ??_C@_0DP@DEPM@Sent?5private?5game?5option?5packet?5@=007fdf00
-// @ref ?Unknown_005c3ff0@@YI_NPADPBD@Z=005c3ff0
-// @ref ?Unknown_00750f60@@YAXXZ=00750f60
-// @ref ?unknown_game_channel_b299c0@@3UChannel@WOL@@A=00b299c0
-// @ref ?unknown_b2ac46@@3_NA=00b2ac46
-// @ref _?$S8@?1??OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@4@PBD@Z@4EA=00b2b400
-// @ref _?preview_timer@?1??OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@4@PBD@Z@4V?$BasicTimerClass@VSystemTimerClass@@@@A=00b2b408
 
 // The game channel tests (0x0073C3C0, 0x0073C340, 0x0073C370; accepted out of line in the wonline unit).
 inline bool __fastcall Unknown_0073c3c0(WOL::Channel const *channel)

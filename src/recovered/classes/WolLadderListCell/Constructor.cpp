@@ -6,4 +6,3 @@ WolLadderListCell::WolLadderListCell()
     unknown_14 = -1;
     unknown_10 = 0;
 }
-// @ref ??0WideString@@QAE@XZ=0076f9b0

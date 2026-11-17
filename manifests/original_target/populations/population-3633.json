@@ -4,8 +4,8 @@
     "id": "population-3633",
     "inventory_sha256": "f6976c5881677e7258bc3c6e6cf256e51f3332f4903b5dad29743539179f249f",
     "gaps_sha256": "a6d9a6a9cd6b5cd4e8b90ea57f95f9ad280561b9545fb3bd15c706c0d3b8ed04",
-    "historical_population_sha256": "9894860a122ef52693ac54da4253bc358f130040761999ee5243f3085139fe72",
-    "historical_acceptance_sha256": "50e938be3c3b8d88cb71a4d72f8d4b020addddd6354e314f8ffcaa9f4038f341"
+    "historical_population_sha256": "2e3347aa310e53b295944cf18b8243822f4051307f2f917d72fe1f7cc068b051",
+    "historical_acceptance_sha256": "46a013e09703f85c39274d32db0dae89e957a02018c6465f8d8758bca197d126"
   },
   "references": {
     "_draw_cliprect": 8726864,
@@ -2246,7 +2246,9 @@
     "??_GCellClass@@UAEPAXI@Z": 4706208,
     "??_GFoggedObjectClass@@UAEPAXI@Z": 4989056,
     "??_ECellClass@@UAEPAXI@Z": 4706208,
-    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056
+    "??_EFoggedObjectClass@@UAEPAXI@Z": 4989056,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "??_ETactical@@UAEPAXI@Z": 6998016
   },
   "regions": [
     {
@@ -2300,7 +2302,7 @@
           "resolved": 8726876
         }
       ],
-      "source_sha256": "f8b926ae10f49aa845374686cd020739b653e08a34b15ea986f2350ddb420316",
+      "source_sha256": "fb117d4eecc2e8d3f2f90ab1fc1a1f647fda219a7720dceaaa2e4c64cfc4ddcf",
       "source": "src/recovered/draw_cliprect_init.cpp",
       "population": "population-3633",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",

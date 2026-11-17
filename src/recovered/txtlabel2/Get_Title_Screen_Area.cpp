@@ -2,9 +2,6 @@
 // The tactical view rectangle: the screen window less the sidebar (0xA8 wide,
 // at the left unless the sidebar is on the left or 0x00A40D13 is set) and the
 // 0x20-pixel top bar.
-// @ref ?VisibleRect@@3VRect@@A=00839640
-// @ref ?unknown_flag_a40b30@@3_NA=00a40b30
-// @ref ?Debug_Map@@3_NA=00a40d13
 #include "shared/rect.hpp"
 
 extern Rect VisibleRect;

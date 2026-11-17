@@ -5,10 +5,6 @@
 double __cdecl Map_Random_Fraction_00579770();
 double __stdcall Sample_Truncated_Normal(double,double,double,double);
 extern int IsometricTileTypeClass_RoughTile;
-// @ref ?IsometricTileTypeClass_RoughTile@@=00a6e0e8
-// @ref ?Place_Tile_Patch@MapGeneratorClass@@=00586340
-// @ref ?Place_Forest@MapGeneratorClass@@=00585dc0
-// @ref ?Fixup_LAT@CellClass@@=00471d10
 void MapGeneratorClass::Generate_Arctic_Vegetation()
 {
     Map.Reset_Iterator();
@@ -46,10 +42,3 @@ void MapGeneratorClass::Generate_Arctic_Vegetation()
         remaining-=Place_Forest(&Map[position],(int)Sample_Truncated_Normal(25.0,10.0,10.0,35.0),Sample_Truncated_Normal(0.2,0.1,0.05,0.4));
     }
 }
-// @ref __real@8@3ffcccccccccccccd000=0079c260
-// @ref __real@8@3ffeb333333333333000=007a6000
-// @ref __real@8@4002f000000000000000=007a5398
-// @ref __real@8@4003c800000000000000=007a5ff8
-// @ref __real@8@40048c00000000000000=007a5f50
-// @ref ?Reset_Iterator@MapClass@@=0055a550
-// @ref ?Iterate@MapClass@@=0055a490

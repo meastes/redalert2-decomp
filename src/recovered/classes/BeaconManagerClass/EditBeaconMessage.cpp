@@ -10,8 +10,6 @@
 #include "shared/radar_event.hpp"
 #include "shared/gadget.hpp"
 #include "shared/text_print.hpp"
-// @ref ??_C@_0BL@HAJF@Sending?5beacon?5text?5to?5?$CFs?6?$AA@=007cf4bc
-// @ref ?unknown_string_83c55c@@3PADA=0083c55c
 
 void BeaconManagerClass::EditBeaconMessage_0042ec20(unsigned short const *text, int house, int slot, bool done)
 {

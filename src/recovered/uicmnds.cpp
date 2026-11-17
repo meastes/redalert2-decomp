@@ -1020,7 +1020,7 @@ void __fastcall Unknown_006F71E0(char const *name)
     AllowVoice = voice;
 }
 
-// Not exact (RA2_NON_MATCHING): FUN_006f7360 at 0x006F7360, best score 37.13, 2026-11-13; differs: 234 instructions in the original, 240 in the draft (shape 92.41)
+// Not exact (RA2_NON_MATCHING): Command_Type_Select at 0x006F7360, best score 37.13, 2026-11-13; differs: 234 instructions in the original, 240 in the draft (shape 92.41)
 #ifdef RA2_NON_MATCHING
 extern int unknown_state_ac132c;
 bool __fastcall unknown_matches_any_name(TechnoClass *techno, DynamicVectorClass<char const *> const &names);

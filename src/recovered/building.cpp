@@ -2378,7 +2378,7 @@ void BuildingClass::unknown_slot283()
 
 // Not exact (RA2_NON_MATCHING): BuildingClass::Exit_Object at 0x00440520, best score 86.73, 2026-11-13; differs: 1873 instructions in the original, 1886 in the draft (shape 97.74)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x440520 FUN_00440520
+// NON-EXACT DRAFT 0x440520 BuildingClass::Exit_Object
 // entry 0x440520; exact-match score 92.27 (misses_index best), this text 91.93; plan "draft, verify"
 // origin lane: Scout761 (build/class-work/Scout761/keep/eo_F_9193.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -3474,7 +3474,7 @@ int BuildingClass::unknown_slot218(AbstractClass *target, int weapon, bool check
 
 // bool BuildingClass::Become_Primary(bool take) 0x004444B0: makes this the primary factory of its
 // factory type and naval group unless another building already is (that one gives way when take).
-// Returns whether this building's primary state changed. Shape: YR twin FUN_00448070 (ra2-decomp).
+// Returns whether this building's primary state changed. Shape: YR twin 0x00448070 (ra2-decomp).
 bool BuildingClass::Become_Primary(bool take)
 {
     int factory = Type->Factory;

@@ -1,10 +1,5 @@
 // void ScenarioClass::Compute_CRC(WWCRCEngine &crc) const (0x00662E00)
 // Adds the scenario's name, movies, timers and lighting settings to a CRC.
-// @ref ??RWWCRCEngine@@QAEXPBD@Z=00493f90
-// @ref ??RWWCRCEngine@@QAEXJ@Z=00493f30
-// @ref ??RWWCRCEngine@@QAEXN@Z=00493f70
-// @ref ??RWWCRCEngine@@QAEX_N@Z=00493e80
-// @ref ??BSystemTimerClass@@QBEJXZ=0069a430
 #include "shared/id_source.hpp"
 #include "shared/wwcrc_engine.hpp"
 

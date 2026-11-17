@@ -2,7 +2,6 @@
 extern "C" double __cdecl log(double);
 #pragma intrinsic(log)
 double __cdecl unknown_sqrt_4ba410(double);
-// @ref ?unknown_sqrt_4ba410@@YANN@Z=004ba410
 double MapGaussianClass::Next()
 {
     if(HasSpare) {

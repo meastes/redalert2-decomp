@@ -1812,7 +1812,7 @@ void UnitClass::unknown_slot311(Point2D point,Rect window,int brightness)
 
 // Not exact (RA2_NON_MATCHING): UnitClass::unknown_slot310 at 0x006FF690, best score 86.76, 2026-11-13; differs: 1076 instructions in the original, 1084 in the draft (shape 98.33)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x6FF690 FUN_006ff690
+// NON-EXACT DRAFT 0x6FF690 UnitClass::unknown_slot310
 // entry 0x6FF690; exact-match score 86.76 (misses_index best); plan "review: rewrite likely"
 // origin lane: Scout974 (build/class-work/Scout974/best_8676.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by

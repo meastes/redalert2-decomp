@@ -3,11 +3,6 @@
 // These no-argument operations have no established incoming receiver.
 void MapRegionClass_Make_Ice_Regions();
 void unknown_00570810();
-// @ref ?MapRegionClass_Make_Ice_Regions@@YAXXZ=005704c0
-// @ref ?unknown_00570810@@YAXXZ=00570810
-// @ref ?Vary_Cliff_Runs@MapGeneratorClass@@=00582fd0
-// @ref ?Fixup_Cliff_Corners@MapGeneratorClass@@=005831c0
-// @ref ?Build_All_Cliffs@MapClass@@=0055b060
 void MapGeneratorClass::Make_Regions()
 {
     if (SeedData.MapType==4 || SeedData.MapType==3) {

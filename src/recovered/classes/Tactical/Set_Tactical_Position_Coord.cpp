@@ -41,7 +41,6 @@ inline Point2D Tactical::Coord_To_Pixel_Absolute(CoordStruct const &coord)
 }
 
 // Tactical world-coordinate view position, original006A66B0 (255 body + 1 NOP).
-// @ref ?Tactical_Z_Lepton_To_Pixel@@YIHH@Z=006a2970
 #include "shared/tactical.hpp"
 
 void Tactical::Set_Tactical_Position_006a66b0(CoordStruct const &coord)

@@ -12,7 +12,7 @@
 
 namespace seed_005e1fd0 {
 
-extern "C" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);  // @ref __imp__SendMessageA@16=0079a4a0
+extern "C" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);
 
 void __fastcall unknown_send_4e6_005e1fd0(HWND window, unsigned char flag)
 {

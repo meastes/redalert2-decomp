@@ -3,7 +3,6 @@
 // LB_DELETESTRING); returns 0.
 // Assumptions: name hypothesis (the combo-box twin is 0x006007F0).
 #include "shared/win32_api.hpp"
-// @ref __imp__SendMessageA@16=0079a4a0
 
 int __fastcall unknown_clear_listbox(HWND listbox)
 {

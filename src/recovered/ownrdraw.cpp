@@ -506,8 +506,8 @@ void const *__fastcall unknown_5e1a80(unsigned int key, HWND window, bool &alloc
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // int OwnerDraw::unknown_5e1ca0(HWND dialog, HWND window) (0x005E1CA0): 0xC0 when the dialog is one of the
 // listed kinds (marking it band 2) and the control is an edit, a type-1 list box or a non-dropdown combo box.
-// Shape adapted from ra2-decomp src/ownrdraw.cpp FUN_00603AA0 / TrySetDialogLayoutBand2 (gamemd 0x0060C7D0) with
-// the class-name test as its own helper (FUN_006242B0, gamemd 0x006242B0), matched there; see THIRD_PARTY.md.
+// Shape adapted from ra2-decomp src/ownrdraw.cpp 0x00603AA0 / TrySetDialogLayoutBand2 (gamemd 0x0060C7D0) with
+// the class-name test as its own helper (gamemd 0x006242B0), matched there; see THIRD_PARTY.md.
 // The helper is expanded here and in the 0x005E8720 callback, which auto-inlines this body; game.exe has no body
 // of the helper (GetClassNameA is called only here and inside 0x005E8720 in this unit).
 #include "shared/crt_string.hpp"
@@ -515,7 +515,7 @@ void const *__fastcall unknown_5e1a80(unsigned int key, HWND window, bool &alloc
 namespace OwnerDraw {
 
 // Whether the control is an edit, a registered list box of type 1 or a non-dropdown combo box
-// (ra2-decomp FUN_006242B0).
+// (ra2-decomp 0x006242B0).
 inline bool __fastcall Is_Text_Control(HWND control)
 {
     unsigned int key = (unsigned int)control;
@@ -1990,7 +1990,7 @@ namespace OwnerDraw {
 BOOL __stdcall unknown_5e7d00(HWND window, LPARAM);
 BOOL __stdcall unknown_5e7dd0(HWND window, LPARAM);
 
-// Visible owner-drawn buttons of the dialog (inline; ra2-decomp's FUN_0060A230 in YR).
+// Visible owner-drawn buttons of the dialog (inline; ra2-decomp's 0x0060A230 in YR).
 inline int Visible_Count_A737E4(HWND dialog)
 {
     unknown_visible_count_a737e4 = 0;
@@ -1998,7 +1998,7 @@ inline int Visible_Count_A737E4(HWND dialog)
     return unknown_visible_count_a737e4;
 }
 
-// Whether any 0x005E7DD0 control is visible (inline; ra2-decomp's FUN_0060A300 in YR).
+// Whether any 0x005E7DD0 control is visible (inline; ra2-decomp's 0x0060A300 in YR).
 inline bool Any_Visible_A763B4(HWND dialog)
 {
     unknown_visible_count_a763b4 = 0;
@@ -2454,7 +2454,7 @@ bool __fastcall Select_Control_Rect_005e6450(HWND dialog,HWND control,Rect *boun
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // bool OwnerDraw::unknown_5e7230(unsigned int key, HWND window) (0x005E7230): an owner-drawn, free control that
-// passes test 0x005E6860. Adapted from ra2-decomp src/ownrdraw.cpp FUN_006096A0 (gamemd twin 0x006096A0, matched
+// passes test 0x005E6860. Adapted from ra2-decomp src/ownrdraw.cpp (gamemd twin 0x006096A0, matched
 // there): the window copy made before record is cleared (wlib Dictionary<HWND>::getPointer key); see THIRD_PARTY.md.
 
 namespace OwnerDraw {
@@ -2577,7 +2577,7 @@ bool __fastcall unknown_5e76b0(unsigned int key, HWND window)
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // bool OwnerDraw::unknown_5e7740(unsigned int key, HWND window) (0x005E7740): layout band 1 test outside a session.
-// Adapted from ra2-decomp src/ownrdraw.cpp FUN_00609BC0 and Is_Plain_Control (gamemd twin 0x00609BC0, matched
+// Adapted from ra2-decomp src/ownrdraw.cpp, with Is_Plain_Control (gamemd twin 0x00609BC0, matched
 // there); see THIRD_PARTY.md.
 
 namespace OwnerDraw {
@@ -2618,7 +2618,7 @@ bool __fastcall unknown_5e7740(unsigned int key, HWND window)
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // bool OwnerDraw::unknown_5e7870(unsigned int key, HWND window) (0x005E7870): layout band 2 test inside a session.
-// Adapted from ra2-decomp src/ownrdraw.cpp FUN_00609CF0 (gamemd twin 0x00609CF0, matched there); see THIRD_PARTY.md.
+// Adapted from ra2-decomp src/ownrdraw.cpp (gamemd twin 0x00609CF0, matched there); see THIRD_PARTY.md.
 
 namespace OwnerDraw {
 
@@ -7308,7 +7308,7 @@ void __fastcall unknown_5fe7c0(Rect const &area, Surface *surface, int color, in
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 // Darkens the left_width band and the top_height band of area on a locked 16-bit surface to half (0x005FE9B0).
-// Adapted from ra2-decomp src/ownrdraw.cpp FUN_006219D0 (gamemd twin 0x006219D0, matched there); see THIRD_PARTY.md.
+// Adapted from ra2-decomp src/ownrdraw.cpp (gamemd twin 0x006219D0, matched there); see THIRD_PARTY.md.
 namespace OwnerDraw {
 void __fastcall unknown_5fe9b0(Rect const &area, Surface &surface, int left_width, int top_height)
 {
@@ -8243,7 +8243,7 @@ namespace seed_00600510 {
 extern void  operator_delete_00781d3b(unsigned int);
 extern unsigned int  Wide_Length_00783605(short *);
 extern void  Wide_Copy_00783689(short *, short *);
-extern "C" unsigned int __cdecl operator_new(...);  // @ref _operator_new=00782017
+extern "C" unsigned int __cdecl operator_new(...);
 
 struct Owner_00600510 { void Set_Wide_Text_00600510(short *text); };
 

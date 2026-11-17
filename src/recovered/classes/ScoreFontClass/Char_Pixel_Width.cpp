@@ -2,7 +2,6 @@
 #include "shared/score_font.hpp"
 #include "shared/shape_file.hpp"
 #include "shared/msfont.hpp"
-// @ref ?unknown_score_empty_rect_ab6f20@@3VRect@@B=00ab6f20
 
 int ScoreFontClass::Char_Pixel_Width(unsigned short character)
 {

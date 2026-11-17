@@ -3,7 +3,6 @@
 // until it yields a message; FALSE for WM_QUIT (shared/movie.hpp).
 #include "shared/win32_api.hpp"
 #include "shared/movie.hpp"
-// @ref ?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z=00522ed0
 
 BOOL __fastcall Get_Windows_Message(MSG *message, HWND window, UINT first, UINT last)
 {

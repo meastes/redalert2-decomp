@@ -3,7 +3,6 @@
 // kinds (record +0x6C of the registered control) with control ID 0x694, the second kind list
 // with ID 0x71C and the third with ID 0x468; otherwise a per-kind ID list. Every list return
 // (`return id == a || ...`) shares one `mov eax, 1` block; single compares return a sete.
-// @ref __imp__GetDlgCtrlID@4=0079a3f4
 #include "shared/win32_api.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 

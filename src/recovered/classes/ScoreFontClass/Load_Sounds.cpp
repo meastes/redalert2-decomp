@@ -8,21 +8,6 @@
 #include "shared/cc_file_class.hpp"
 #include "shared/mix_file_class.hpp"
 #include "shared/debug_printf.hpp"
-// @ref ?AudioDeviceAvailable@@YAHXZ=00406f30
-// @ref ??0CCFileClass@@QAE@XZ=00468fd0
-// @ref ?Close@CCFileClass@@UAEXXZ=004691f0
-// @ref ?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z=00495230
-// @ref ?Retrieve@MixFileClass@@SIPBXPBD@Z=005956c0
-// @ref ?Debug_Printf@@YAXPBDZZ=004068f0
-// @ref ??1Buffer@@QAE@XZ=00438410
-// @ref ??1BufferIOFileClass@@UAE@XZ=0042f350
-// @ref ?text_sounds@@3PAUScoreFontSound@@A=00ab6fa8
-// @ref ??_C@_09CNEE@TEXT1?4AUD?$AA@=007f2ae0
-// @ref ??_C@_09MNCL@TEXT2?4AUD?$AA@=007f2ab4
-// @ref ??_C@_09GNAO@TEXT3?4AUD?$AA@=007f2a88
-// @ref ??_C@_0BP@OHAE@ScoreScreen?3?5Loaded?5TEXT1?4AUD?6?$AA@=007f2ac0
-// @ref ??_C@_0BP@FJOE@ScoreScreen?3?5Loaded?5TEXT2?4AUD?6?$AA@=007f2a94
-// @ref ??_C@_0BP@MMEE@ScoreScreen?3?5Loaded?5TEXT3?4AUD?6?$AA@=007f2a68
 void *__fastcall Load_Alloc_Data(class FileClass &file);
 
 void ScoreFontClass::Load_Sounds()

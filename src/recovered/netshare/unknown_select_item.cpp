@@ -11,8 +11,8 @@
 
 namespace seed_005c3480 {
 
-extern "C" __declspec(dllimport) unsigned int __stdcall GetDlgItem(int, int);  // @ref __imp__GetDlgItem@8=0079a49c
-extern "C" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);  // @ref __imp__SendMessageA@16=0079a4a0
+extern "C" __declspec(dllimport) unsigned int __stdcall GetDlgItem(int, int);
+extern "C" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);
 extern "C" unsigned int unknown_item_data_00a3d8dc;
 
 void __fastcall unknown_select_item_005c3480(HWND window, int index)

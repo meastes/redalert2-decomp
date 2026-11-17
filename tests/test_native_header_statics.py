@@ -35,10 +35,18 @@ class HeaderStaticTests(unittest.TestCase):
         native_units.header_static_copies(MODULE, BSS, candidates, done)
         self.assertEqual(native_units.header_static_copies(MODULE, BSS, candidates, done), '')
 
-    def test_ref_lines_still_key_a_one_row_file(self):
-        text = '// @ref _unknown_geometry_j=00ad057c\nstatic int const unknown_geometry_j = 416;\n'
-        self.assertIn('native_hs_ad057c', native_units.header_static_copies(text, BSS))
+    def test_a_one_row_file_is_keyed_by_its_rows_only(self):
+        text = 'static int const unknown_geometry_j = 416;\n'
+        self.assertEqual(native_units.header_static_copies(text, BSS), '')
+        self.assertIn('native_hs_ad057c', native_units.header_static_copies(text, BSS, [('unknown_geometry_j', 0xAD057C)]))
         self.assertEqual(native_units.header_static_copies('int unknown_geometry_j;\n', BSS, [('unknown_geometry_j', 0xAD057C)]), '')
+
+    def test_each_static_is_keyed_in_the_first_source_that_defines_it(self):
+        from collections import OrderedDict
+        fixed = OrderedDict([('a.cpp', '// emitted by b.cpp\n'), ('b.cpp', MODULE), ('c.cpp', MODULE)])
+        keys = native_units.header_static_keys(fixed, native_units.header_static_candidates(ROWS))
+        self.assertEqual(keys, OrderedDict([('a.cpp', []), ('b.cpp', [('unknown_geometry_j', 0xAD057C),
+                                                                     ('unknown_level', 0x850C40)]), ('c.cpp', [])]))
 
     def test_check_names_missing_listed_and_unlisted_storages(self):
         saved = native_units.HEADER_STATICS

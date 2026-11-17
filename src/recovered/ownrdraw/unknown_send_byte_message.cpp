@@ -2,7 +2,6 @@
 // Purpose: sends the custom message 0x4E5 (WM_USER + 0xE5) with a byte value
 // as lparam. No direct callers.
 #include "shared/win32_api.hpp"
-// @ref __imp__SendMessageA@16=0079a4a0
 
 WIN32_IMPORT long __stdcall SendMessageA(HWND window, unsigned int message, unsigned int wparam, long lparam);
 

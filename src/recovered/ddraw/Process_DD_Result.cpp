@@ -2,7 +2,7 @@
 #include "shared/ghidra_types.hpp"
 
 extern DWORD  sprintf_007820f4(int, int, int);
-extern "C" __declspec(dllimport) DWORD __stdcall MessageBoxA(int, int, int, int);  // @ref __imp__MessageBoxA@16=0079a47c
+extern "C" __declspec(dllimport) DWORD __stdcall MessageBoxA(int, int, int, int);
 extern "C" DWORD unknown_string_note_007d59f4;
 extern "C" code * direct_draw_error_handler_008523ec;
 extern "C" DWORD MainWindow_00b263d8;

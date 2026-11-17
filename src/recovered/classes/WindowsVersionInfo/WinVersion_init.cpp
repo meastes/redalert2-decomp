@@ -3,9 +3,5 @@
 // _$E draft, emitted by this definition; the destructor is empty). The
 // owning unit is not identified yet.
 #include "shared/windows_version.hpp"
-// @ref ??0WindowsVersionInfo@@QAE@XZ=00736eb0
-// @ref ?WinVersion@@3VWindowsVersionInfo@@A=00839bc0
-// @ref _atexit=0078298a
-// @ref _$E2=0040fcf0
 
 WindowsVersionInfo WinVersion;

@@ -4,8 +4,6 @@
 // running (bit 0), sets the per-second rate 1000 (+0x10) and its scaled
 // reciprocal 0x10624D (+0x0C), the target value (+0x08, 16.16), zeroes
 // +0x14 and updates (0x004070F0). No direct callers. Names are hypotheses.
-// @ref ?AudioGetTime@@YA_JXZ=004092d0
-// @ref ?AudioLevelUpdate@@YIXPAUUnknownFixedTimer_00407030@@@Z=004070f0
 
 __int64 AudioGetTime();
 

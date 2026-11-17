@@ -3,8 +3,6 @@
 // the key-state override 0x00A522AC is set: 0x8000 (down) unless release
 // (shared/keyboard.hpp).
 #include "shared/keyboard.hpp"
-// @ref ?unknown_key_state_override_a522ac@@3HA=00a522ac
-// @ref ?unknown_key_states_a51fd0@@3PAFA=00a51fd0
 
 void __fastcall Set_Key_State(int key, bool release)
 {

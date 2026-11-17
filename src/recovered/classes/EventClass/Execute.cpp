@@ -22,52 +22,16 @@
 #include "shared/id_source.hpp"
 #include "shared/unknown_player_entry.hpp"
 #include "shared/unknown_geometry.hpp"
-// @ref _unknown_geometry_j=00855b88
-// @ref _unknown_geometry_k=00855b40
-// @ref _unknown_geometry_l=00855b60
-// @ref ??_C@_08FILB@TXT_NONE?$AA@=007d6a84
-// @ref ??_C@_0N@JPFB@SAVEGAME?4NET?$AA@=007d6a4c
-// @ref ??_C@_0BA@HIPI@TXT_SAVING_GAME?$AA@=007d6a74
-// @ref ??_C@_13ECNF@?$AA?5?$AA?$AA@=007d64f4
-// @ref ??_C@_0BB@EKFJ@D?3?2Ra2?2Event?4CPP?$AA@=007d6ae4
-// @ref ??_C@_0BD@MAJD@New?5address?5is?5?$CFs?6?$AA@=007d69bc
-// @ref ??_C@_0BE@EPMK@LatencyFudge?5is?5?$CFd?6?$AA@=007d68f4
-// @ref ??_C@_0BE@MNAG@TXT_SPECIAL_WARNING?$AA@=007d6ad0
-// @ref ??_C@_0BF@NLEO@TXT_MULTIPLAYER_GAME?$AA@=007d6a5c
-// @ref ??_C@_0BG@PAMP@New?5game?5host?5is?5?$CFls?6?$AA@=007d6934
-// @ref ??_C@_0BJ@IBAJ@TXT_PLAYER_CHANGED_SPEED?$AA@=007d6a90
-// @ref ??_C@_0BL@ELJE@TXT_PLAYER_CHANGED_LATENCY?$AA@=007d68d8
-// @ref ??_C@_0BN@IFAJ@Received?5FALLBACKHOST?5event?6?$AA@=007d6a00
-// @ref ??_C@_0BP@KEPE@Session?4PacketRouterPort?5?$DN?5?$CFd?6?$AA@=007d694c
-// @ref ??_C@_0CC@HDKL@Session?4PacketRouterAddress?5?$DN?5?$CFs@=007d696c
-// @ref ??_C@_0CD@EFPN@Processing?5EXIT?5event?5on?5frame?5?$CF@=007d6aac
-// @ref ??_C@_0CK@LFDL@Processing?5ABOUTTOEXIT?5event?5on?5@=007d6990
-// @ref ??_C@_0CL@IMLE@Executing?5LATENCYFUDGE?5event?4?5Fr@=007d6908
-// @ref ??_C@_0CL@KPPK@Executing?5REMOVEPLAYER?5event?4?5Fr@=007d6a20
-// @ref ??_C@_0CN@JPPC@Executing?5ADDRESSCHANGE?5event?5fo@=007d69d0
-// @ref ?Unknown_00435D30@BombClass@@QAEXXZ=00435d30
-// @ref ?Unknown_004E6950@HouseClass@@QAE_NHH_NABVCell@@@Z=004e6950
-// @ref ?Send_Player_List@OwnerTalkClass@@QAE_NXZ=0063f130
-// @ref ?Unknown_0063F9A0@OwnerTalkClass@@QAEXHPAVIPXAddressClass@@@Z=0063f9a0
-// @ref ?Unknown_0063FBA0@OwnerTalkClass@@QAEHXZ=0063fba0
-// @ref ?Unknown_0063FE20@OwnerTalkClass@@QAEXH@Z=0063fe20
 
 // Hypotheses (to move to shared headers).
 // The planning hooks: a planned event (0x00614BA0) and an event about a techno (0x00615480).
 void __fastcall Planning_Event_00614BA0(EventClass *event);
 void __fastcall Planning_Techno_00615480(TechnoClass *techno, EventClass *event);
-// @ref ?Planning_Event_00614BA0@@YIXPAVEventClass@@@Z=00614ba0
-// @ref ?Planning_Techno_00615480@@YIXPAVTechnoClass@@PAVEventClass@@@Z=00615480
 extern bool unknown_a35db0;
-// @ref ?unknown_a35db0@@3_NA=00a35db0
 extern int unknown_a3d23c;
 extern int unknown_a3d258;
-// @ref ?unknown_a3d23c@@3HA=00a3d23c
-// @ref ?unknown_a3d258@@3HA=00a3d258
 extern bool unknown_a402b8;
 extern bool unknown_a402d8;
-// @ref ?unknown_a402b8@@3_NA=00a402b8
-// @ref ?unknown_a402d8@@3_NA=00a402d8
 
 void EventClass::Execute()
 {

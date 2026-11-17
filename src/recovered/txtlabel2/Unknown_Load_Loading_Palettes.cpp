@@ -2,17 +2,6 @@
 // Loads the loading-screen palettes once each: LDSCRN.PAL, the side's
 // LDSCRNA.PAL or LDSCRNS.PAL, and SPLDBR.PAL (hypothesis: `side` nonzero
 // selects the Soviet palette).
-// @ref ?unknown_name_7f86f0@@3QBDB=007f86f0
-// @ref ?unknown_name_7f86f4@@3QBDB=007f86f4
-// @ref ?unknown_name_7f86f8@@3QBDB=007f86f8
-// @ref ?unknown_name_7f86fc@@3QBDB=007f86fc
-// @ref ?unknown_palette_ac1140@@3PAVPaletteClass@@A=00ac1140
-// @ref ?unknown_drawer_ac1144@@3PAVConvertClass@@A=00ac1144
-// @ref ?unknown_palette_ac1148@@3PAVPaletteClass@@A=00ac1148
-// @ref ?unknown_drawer_ac114c@@3PAVConvertClass@@A=00ac114c
-// @ref ?unknown_palette_ac1150@@3PAVPaletteClass@@A=00ac1150
-// @ref ?unknown_drawer_ac1154@@3PAVConvertClass@@A=00ac1154
-// @ref ?Unknown_Load_Palette_006F1FA0@@YIXPBDPAPAVPaletteClass@@PAPAVConvertClass@@@Z=006f1fa0
 class PaletteClass;
 class ConvertClass;
 

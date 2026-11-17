@@ -8,18 +8,6 @@ extern int _urban_min[5],_urban_max[5];
 extern int _access_min[5],_access_max[5];
 extern int _region_size_min[5],_region_size_max[5];
 extern int *_vegetation_min,*_vegetation_max;
-// @ref ?_water_min@@3PAHA=007e0b58
-// @ref ?_water_max@@3PAHA=007e0b6c
-// @ref ?_rugged_min@@3PAHA=007e0bbc
-// @ref ?_rugged_max@@3PAHA=007e0bd0
-// @ref ?_urban_min@@3PAHA=00a70a54
-// @ref ?_urban_max@@3PAHA=007e0ba8
-// @ref ?_access_min@@3PAHA=00a70a2c
-// @ref ?_access_max@@3PAHA=007e0b80
-// @ref ?_region_size_min@@3PAHA=007e0b30
-// @ref ?_region_size_max@@3PAHA=007e0b44
-// @ref ?_vegetation_min@@3PAHA=00a6fff0
-// @ref ?_vegetation_max@@3PAHA=00a7000c
 inline int MapSeed_Random_Range(int minimum,int maximum)
 { return NonCriticalRandomNumber(minimum,maximum); }
 void MapSeedClass::Randomize_Parameters_005789f0(int map_type)

@@ -598,7 +598,7 @@ void IonStormClass_Apply_Secondary_Effect();
 void Unknown_006F89E0();
 void __fastcall Unknown_0063C790();
 
-// Forgets a building pending placement (0x006F8A20; seed name FUN_006f8a20).
+// Forgets a building pending placement (0x006F8A20).
 void __fastcall Unknown_006F8A20(BuildingClass *building);
 // Pending placement of a completed building (0x006F8A00; uicmnds.cpp defines it as unknown_file_pending_building_006f8a00).
 void __fastcall Unknown_006F8A00(BuildingClass *building);

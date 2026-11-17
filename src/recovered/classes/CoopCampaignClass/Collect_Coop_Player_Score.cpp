@@ -2,9 +2,6 @@
 // Fills a score record from the first (or, with skip_first, the second) active
 // non-passive player house.
 #include "shared/coop_campaign.hpp"
-// @ref ??_C@_0EI@HLKF@?$EA?$EA?$EA?$EA?5?$CFs?3?5?$CFs?6?5Scheme?3?5?$CFd?6?5Lost?5?$DN?5@=007d4e8c
-// @ref ??_C@_06POBF@Winner?$AA@=007d15ec
-// @ref ??_C@_05IOKF@Loser?$AA@=007d15e4
 #include "shared/mplayer_score_type.hpp"
 #include "shared/house.hpp"
 #include "shared/house_type.hpp"

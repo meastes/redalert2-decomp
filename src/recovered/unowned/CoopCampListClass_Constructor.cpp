@@ -5,33 +5,17 @@
 #include "shared/string_table.hpp"
 extern "C" wchar_t *__cdecl wcscpy(wchar_t *destination, wchar_t const *source);
 extern char unknown_campaign_buffer_008519c8[128];
-// @ref ?unknown_campaign_buffer_008519c8@@3PADA=008519c8
-// @ref ??0GenericList@@QAE@XZ=00490e80
-// @ref ??_7CCINIClass@@6B@=0079aae4
-// @ref _wcscpy=00783689
-// @ref _strtok=00782ec2
 extern char const unknown_campaign_file_007d514c[];
-// @ref ?unknown_campaign_file_007d514c@@3QBDB=007d514c
 extern char const unknown_campaigns_key_007d5140[];
-// @ref ?unknown_campaigns_key_007d5140@@3QBDB=007d5140
 extern char const unknown_map_count_key_007d5128[];
-// @ref ?unknown_map_count_key_007d5128@@3QBDB=007d5128
 extern char const unknown_campaign_name_key_007d5118[];
-// @ref ?unknown_campaign_name_key_007d5118@@3QBDB=007d5118
 extern char const unknown_source_file_007d5104[];
-// @ref ?unknown_source_file_007d5104@@3QBDB=007d5104
 extern char const unknown_campaign_ai_key_007d50f8[];
-// @ref ?unknown_campaign_ai_key_007d50f8@@3QBDB=007d50f8
 extern char const unknown_campaign_player_key_007d50e8[];
-// @ref ?unknown_campaign_player_key_007d50e8@@3QBDB=007d50e8
 extern char const unknown_campaign_enemy_key_007d50d8[];
-// @ref ?unknown_campaign_enemy_key_007d50d8@@3QBDB=007d50d8
 extern char const unknown_map_format_007d4f64[];
-// @ref ?unknown_map_format_007d4f64@@3QBDB=007d4f64
 extern char const unknown_ai_default_007ceaec[];
-// @ref ?unknown_ai_default_007ceaec@@3QBDB=007ceaec
 extern char const unknown_token_delimiters_007ce9c0[];
-// @ref ?unknown_token_delimiters_007ce9c0@@3QBDB=007ce9c0
 CoopCampListClass::CoopCampListClass()
 {
     CCFileClass file(unknown_campaign_file_007d514c);
@@ -103,5 +87,3 @@ CoopCampListClass::CoopCampListClass()
     Initialized=true;
 }
 
-// @ref ??0?$VectorClass@PAD@@QAE@IPBQAD@Z=004913e0
-// @ref ??_7?$DynamicVectorClass@PAD@@6B@=0079e55c

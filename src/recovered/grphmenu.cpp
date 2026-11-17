@@ -297,7 +297,7 @@ bool __fastcall VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90(int cur
 // Referenced from 1 site (data).
 // Ghidra prototype: undefined4 * __thiscall VectorCursor_GraphicMenuItemPtr_Scalar_Deleting_Destructor_004defa0(undefined4 *param_1,byte param_2)
 // Callees with accepted source:
-//   FUN_00781d3b -> src/recovered/libcmt/operator_delete.cpp
+//   operator_delete_00781d3b -> src/recovered/libcmt/operator_delete.cpp
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

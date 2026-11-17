@@ -1,6 +1,3 @@
-// @ref ?OnServerTime@CChatEventSink@@UAGJJJ@Z=00765950
-// @ref ?OnInsiderStatus@CChatEventSink@@UAGJJPAUUser@WOL@@@Z=00765960
-// @ref ?OnSetLocalIP@CChatEventSink@@UAGJJPBD@Z=00765970
 // The Westwood Online event sinks of WOnline.cpp ("D:\Ra2\wonline.cpp"):
 // CNetUtilEventSink (vtable 0x007AF840) and CChatEventSink (0x007AF868)
 // implement the WOL API's INetUtilEvent and IChatEvent; the ATL

@@ -6,12 +6,9 @@
 // the ra2-decomp YR twin's (SubTitle::Set_RGB_Color).
 
 #include "shared/subtitle.hpp"
-// @ref ?Set_RGB_Color@SubTitle@@QAEXEEE@Z=0069b100
 
 extern "C" unsigned short *__cdecl wcschr(unsigned short const *string, unsigned short character);   // 0x00783AC6
 extern "C" unsigned long __cdecl wcstoul(unsigned short const *string, unsigned short **end, int base);   // 0x00784D76
-// @ref _wcschr=00783ac6
-// @ref _wcstoul=00784d76
 
 void __fastcall unknown_subtitle_parse_color(unsigned short *value, SubTitle *subtitle)
 {

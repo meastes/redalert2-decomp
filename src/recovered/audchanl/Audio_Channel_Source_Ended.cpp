@@ -4,7 +4,6 @@
 // source's first piece; otherwise drops the source. Then runs the loop
 // callback (+0xB4) and, when the channel still has a source, the driver's
 // +0x24 entry. Returns 0.
-// @ref ?Info@AudioSource@@QAEPAUAudioSourceInfo@@XZ=00408440
 #include "shared/audio.hpp"
 
 int __fastcall Audio_Channel_Source_Ended(AudioChannel *channel)

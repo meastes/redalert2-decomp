@@ -1626,7 +1626,7 @@ bool TechnoClass::Evaluate_Cell(int method,int mask,Cell const *cell,int range,O
 
 // Not exact (RA2_NON_MATCHING): TechnoClass::unknown_6c5270 at 0x006C5270, best score 96.38, 2026-11-13; differs: same instruction count (221), shape 97.74: instruction choice and registers differ
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x6C5270 FUN_006c5270
+// NON-EXACT DRAFT 0x6C5270 TechnoClass::unknown_6c5270
 // entry 0x6C5270; exact-match score 96.38 (misses_index best); plan "draft as-is"
 // origin lane: Scout898 (build/class-work/Scout898/w/am0.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -1691,7 +1691,7 @@ double TechnoClass::unknown_6c5270(Cell const &cell)
 
 // Not exact (RA2_NON_MATCHING): TechnoClass::Evaluate_Object at 0x006C5570, best score 91.70, 2026-11-13; differs: 920 instructions in the original, 923 in the draft (shape 99.84)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x6C5570 FUN_006c5570
+// NON-EXACT DRAFT 0x6C5570 TechnoClass::Evaluate_Object
 // entry 0x6C5570; exact-match score 91.81 (misses_index best), this text 91.7; plan "draft, verify"
 // origin lane: Scout668 (build/class-work/Scout668/w/keep/eo_9170.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by
@@ -6279,7 +6279,7 @@ unsigned int __fastcall unknown_mission_set_006d43b0(int self)
 // unknown_3a8 = candidate targets, unknown_390 = their values, unknown_3c0 = targets fired on.
 // The membership tests are written-out loops (an inlined ID compared with -1 does not thread
 // the found branch); the two local vectors' vtables, slots and out-of-line base constructors
-// are bound by @ref (they are emitted outside their home population).
+// are bound in the population's reference table (they are emitted outside their home population).
 void TechnoClass::Distribute_Fire()
 {
     if (CurrentTargets.Count() == 0) {
@@ -6897,7 +6897,7 @@ void TechnoClass::unknown_slot263(bool arg1, bool arg2, bool arg3, HouseClass *h
 
 // Not exact (RA2_NON_MATCHING): TechnoClass::unknown_slot223 at 0x006D5F40, best score 63.62, 2026-11-13; differs: 218 instructions in the original, 219 in the draft (shape 98.86)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x6D5F40 FUN_006d5f40
+// NON-EXACT DRAFT 0x6D5F40 TechnoClass::unknown_slot223
 // entry 0x6D5F40; exact-match score 96.38 (misses_index best), this text 64.37; plan "draft as-is"
 // origin lane: Scout767 (build/class-work/Scout767/w/keep/rk5.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by

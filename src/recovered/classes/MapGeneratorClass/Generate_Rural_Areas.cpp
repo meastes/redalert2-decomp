@@ -5,10 +5,7 @@
 #include "shared/map_generation_path.hpp"
 #include "shared/tileset_index.hpp"
 extern int IsometricTileTypeClass_DirtRoadSlopes;
-// @ref ?IsometricTileTypeClass_DirtRoadCurve@@=00a6e014
-// @ref ?IsometricTileTypeClass_DirtRoadSlopes@@=00a6dd04
 extern DirtRoadTile unknown_generation_paths_a700a0[109];
-// @ref ?unknown_generation_paths_a700a0@@=00a700a0
 // The original109-record array/12-byte stride is evidenced by full initializer/cleanup.
 // Its source name and this cdecl/void operation spelling remain hypotheses.
 void Init_Dirt_Roads()
@@ -21,10 +18,6 @@ void Init_Dirt_Roads()
 }
 
 bool __fastcall Can_Place_Paved_Road_00588a30(Rect const &area,bool first,bool second);
-// @ref ?Generate_Rural_Buildings@MapGeneratorClass@@=00589ac0
-// @ref ?Generate_Rural_Units@MapGeneratorClass@@=00589f00
-// @ref ?Generate_Rural_Roads@MapGeneratorClass@@=0058a1b0
-// @ref __real@8@3ffdf5c28f5c28f5c000=007a6050
 // Existing accepted cell-protection predicate, legacy fastcall/short-pointer ABI retained.
 namespace seed_0056dac0 {
 bool __fastcall unknown_generation_cell_clear_0056dac0(short *position)
@@ -33,7 +26,6 @@ bool __fastcall unknown_generation_cell_clear_0056dac0(short *position)
     return RMGCellData[index].unknown_45[0]==0;
 }
 }
-// @ref ?unknown_generation_cell_clear_0056dac0@=0056dac0
 void MapGeneratorClass::Generate_Rural_Areas()
 {
     Init_Dirt_Roads();

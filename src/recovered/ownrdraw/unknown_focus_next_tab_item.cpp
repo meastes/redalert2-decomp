@@ -12,9 +12,9 @@
 
 namespace seed_005def80 {
 
-extern "C" __declspec(dllimport) unsigned int __stdcall GetNextDlgTabItem(int, int, int);  // @ref __imp__GetNextDlgTabItem@12=0079a4fc
-extern "C" __declspec(dllimport) unsigned int __stdcall GetParent(int);  // @ref __imp__GetParent@4=0079a500
-extern "C" __declspec(dllimport) unsigned int __stdcall SetFocus(int);  // @ref __imp__SetFocus@4=0079a38c
+extern "C" __declspec(dllimport) unsigned int __stdcall GetNextDlgTabItem(int, int, int);
+extern "C" __declspec(dllimport) unsigned int __stdcall GetParent(int);
+extern "C" __declspec(dllimport) unsigned int __stdcall SetFocus(int);
 
 bool __fastcall unknown_focus_next_tab_item_005def80(void * window, unsigned int previous)
 {

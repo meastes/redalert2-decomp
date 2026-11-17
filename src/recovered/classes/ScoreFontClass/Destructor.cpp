@@ -1,10 +1,6 @@
 // ScoreFontClass::~ScoreFontClass() (0x006678B0)
 // Frees an owned sheet; the last font forgets the typing sounds.
 #include "shared/score_font.hpp"
-// @ref ??_7ScoreFontClass@@6B@=007a92a0
-// @ref ?score_font_count@@3HA=00ab6fa4
-// @ref ??3@YAXPAX@Z=00781d3b
-// @ref ?text_sounds@@3PAUScoreFontSound@@A=00ab6fa8
 
 ScoreFontClass::~ScoreFontClass()
 {

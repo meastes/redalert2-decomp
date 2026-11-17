@@ -145,9 +145,3 @@ int __fastcall Skirmish_Message_497(HWND dialog, WPARAM wparam, LPARAM lparam)
     return 0;
 }
 
-// @ref ??_C@_08DOEP@GUI?3None?$AA@=007f4008
-// @ref ??_C@_0M@EOLM@RandMap?4img?$AA@=007e1540
-// @ref ??_C@_0L@OJFC@GUI?3AIHard?$AA@=007e72b8
-// @ref ??_C@_0N@GOPO@GUI?3AINormal?$AA@=007e72c4
-// @ref ??_C@_0L@JIHB@GUI?3AIEasy?$AA@=007e72d4
-// @ref ??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@=007f3fd4

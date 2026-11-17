@@ -9,10 +9,6 @@
 #include "shared/tactical.hpp"
 #include "shared/rules.hpp"
 #include "shared/unknown_globals.hpp"
-// @ref ?Clamp_To_Tactical_Rect@Tactical@@QAE_NPAUPoint2D@@@Z=006a8c80
-// @ref ?Update_Visible_Cells@Tactical@@QAEXXZ=006a9170
-// @ref ?Lerp@@YI?AUPoint2D@@ABU1@0M@Z=00722140
-// @ref ?unknown_abe540@@3UPoint2D@@A=00abe540/00abe544
 
 extern Point2D unknown_abe540;    // 0x00ABE540 (the header static unknown_geometry_l, read as a point)
 Point2D __fastcall Lerp(Point2D const &from, Point2D const &to, float t);

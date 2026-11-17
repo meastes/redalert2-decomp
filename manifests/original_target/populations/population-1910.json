@@ -4,8 +4,8 @@
     "id": "population-1910",
     "inventory_sha256": "efd70c392ce34b65743a3822a4b2d9bddcd65e80575d136f1ad843e70d3afce8",
     "gaps_sha256": "0d02a131330c76cd7f72569ea35f71b496e778edb4d317cd331eeedd62ea42ac",
-    "historical_population_sha256": "a39e043d9644eb48701a79d37e827972fad7dd6eb31db8378406b7683118ebfb",
-    "historical_acceptance_sha256": "af0ff59f578b84eb4ab7485e63c538df32b1d3e2ed6b84324c84515e695bd071"
+    "historical_population_sha256": "f2678b7c420162856e93c27afa327818bc9482f06b3324051759747ce295cfa5",
+    "historical_acceptance_sha256": "fbc12f1a2732887df6c089d910f56d094422a18ae07d13c58bf10ba5ef78bd5d"
   },
   "references": {
     "??0WideString@@QAE@XZ": 7797168,
@@ -467,7 +467,8 @@
     "__real@8@3ffefd70a3d70a3d7000": 7986552,
     "__real@8@bff6b6db6db6db6db800": 8026880,
     "??_EMSPrintAnim@@UAEPAXI@Z": 5963392,
-    "??_EWideString@@QAEPAXI@Z": 6296624
+    "??_EWideString@@QAEPAXI@Z": 6296624,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136
   },
   "regions": [
     {
@@ -504,7 +505,7 @@
           "resolved": 1642589
         }
       ],
-      "source_sha256": "50b19b02c1ece9dd763f7401b4946e8a5fe31742941e361d6f8abd2c668d4a1a",
+      "source_sha256": "002a7a9ad259f6cf56cadb0fe6ccfc4fa7bd69dfcb4e275153b741988fff5f33",
       "source": "src/recovered/classes/WolLadderListCell/Constructor.cpp",
       "population": "population-1910",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

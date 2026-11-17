@@ -6,8 +6,6 @@
 // Trial: leading 0x50 bytes match the existing CCINIClass size;
 // its empty implicit derived destructor ends at the observed INIClass destructor.
 // Composition is a layout hypothesis, not a recovered owning class name.
-// @ref ??_7?$VectorClass@PAD@@6B@=0079e57c
-// @ref ??1INIClass@@UAE@XZ=0050b8d0
 
 bool CoopCampListClass::Get_Record(int index, CoopCampEntry **record)
 {

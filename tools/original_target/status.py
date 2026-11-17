@@ -6,7 +6,8 @@ supplied executable's section header. Throughput history comes from every
 commit that changed the catalog (or the former monolithic
 manifests/original_target.json), so the matched-bytes-per-hour trend is
 measured, not narrated. The block between the generated markers in
-docs/STATUS.md is replaced; everything else in that file is hand-written.
+docs/STATUS.md is replaced; everything else in that file is hand-written. With --write the
+flat function map manifests/function_map.csv (export_function_map.py) is rewritten too.
 """
 import argparse
 from collections import Counter
@@ -567,7 +568,34 @@ def non_exact_line(drafts):
             .format(count, size, mean))
 
 
-def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.0)):
+def structure_lines(result):
+    """Table rows from the structure census (cleanup_census.py --structure, lane S1; added lane A1 2026-11-17):
+    how the tree is organised, not how much matches. RESULT is cleanup_census.structure()."""
+    c, s, f, m = result['classes'], result['switches'], result['files_outside'], result['member_counterparts']
+    a, r, e = result['address_suffixed'], result['ref_lines'], result['externs']
+    absent = [k for k, v in m['references'].items() if not v]
+    return [
+        '| Structure: class/struct names defined more than once under src/ (cleanup_census.py --structure (a)) '
+        '| {:,} of {:,} names ({:,} extra definitions) |'.format(c['multiply_defined'], c['defined'],
+                                                                 c['extra_definitions']),
+        '| Structure: files under src/recovered/ outside their unit\'s file ((c); a one-function file holds one '
+        'catalog row) | {:,} ({:,} one-function) beside {:,} unit files |'.format(
+            f['outside'], f['one_function'], f['unit_files']),
+        '| Structure: functions free or on a stand-in class where a reference has a class member ((d); mischa85 '
+        'by address, ra2-decomp/TibSun by unit-scoped name) | {:,} rows, {:,} bytes (free {:,}, stand-in {:,}){} |'.format(
+            m['rows'], m['bytes'], m['free'], m['stand_in'],
+            '; references absent: ' + ', '.join(absent) if absent else ''),
+        '| Structure: address-suffixed identifiers ((e)) | {:,} distinct, {:,} occurrences in {:,} files |'.format(
+            a['identifiers'], a['occurrences'], a['files']),
+        '| Structure: RA2_ preprocessor switches ((b); include guards excluded) | {:,} distinct in {:,} files |'.format(
+            s['count'], s['files']),
+        '| Structure: "// @ref" comment lines ((f)) | {:,} in {:,} files |'.format(r['lines'], r['files']),
+        '| Structure: extern declarations in .cpp files ((g)) | {:,} lines, {:,} names, {:,} files |'.format(
+            e['lines'], e['names'], e['files']),
+    ]
+
+
+def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.0), structure=None):
     now = coverage(catalog)
     modules = module_form(catalog=catalog)
     calibrated = calibrated_coverage(catalog)
@@ -631,7 +659,7 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.
              '| In-scope functions with source (exact or draft: accepted rows plus non-exact drafts in source) '
              '| {:,} of {:,} ({:.2f}%) |'.format(funcs.get('with_source', funcs['done']), funcs['total'],
                                                100.0 * funcs.get('with_source', funcs['done']) / funcs['total']),
-             ] if funcs else []) + [non_exact_line(drafts)] + [
+             ] if funcs else []) + [non_exact_line(drafts)] + (structure_lines(structure) if structure else []) + [
              '| Original .text scaffold bytes | {:,} |'.format(scaffold),
              '| Logical .text bytes | {:,} |'.format(text),
              '| Compiler populations | {} |'.format(len(populations)),
@@ -673,8 +701,9 @@ def main():
     catalog = catalog_io.load(catalog_io.locate(REPOSITORY), references=False)
     text = args.text_bytes or text_bytes(json.loads(args.config.read_bytes())['executable'])
     import non_exact
+    import cleanup_census
     block = render(catalog, text, history(), load_functions(), load_library(), load_assembly(),
-                   non_exact.summary(REPOSITORY))
+                   non_exact.summary(REPOSITORY), cleanup_census.structure(REPOSITORY))
     if not args.write:
         print(block); return
     path = REPOSITORY / 'docs/STATUS.md'
@@ -684,6 +713,11 @@ def main():
     head, rest = current.split(BEGIN, 1)
     path.write_text(head + block + rest.split(END, 1)[1])
     print('updated', path)
+    # The flat function map (export_function_map.py; byte-free, ~2.4 MB) follows the catalog.
+    import export_function_map
+    table = REPOSITORY / 'manifests/function_map.csv'
+    table.write_text(export_function_map.render(export_function_map.rows(*export_function_map.load(REPOSITORY))))
+    print('updated', table)
 
 
 if __name__ == '__main__':

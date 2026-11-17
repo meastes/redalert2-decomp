@@ -11,8 +11,6 @@
 #endif
 #include "shared/vector_class.hpp"
 #include "shared/color_scheme.hpp"
-// @ref ?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A=00ab6ef8
-// @ref __stricmp=00781f20
 
 extern "C" int __cdecl _stricmp(char const *left, char const *right);
 

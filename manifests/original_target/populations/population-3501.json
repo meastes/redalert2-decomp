@@ -4,8 +4,8 @@
     "id": "population-3501",
     "inventory_sha256": "12991a2275e76cd33c8ac6ed52a5bf5be403594ca0d2aec5b9230724539f3959",
     "gaps_sha256": "67c1d4119ab03b4e5c106915b75d46689dacd94b40cda5e7348fad19dc2b0dd1",
-    "historical_population_sha256": "3afa6287bb38f6f305da52b3ed2e647daaa9506e8d987b407c159b81cb774683",
-    "historical_acceptance_sha256": "6d702298f6d912678ed9a6da85b17c9923764dae61e5ef79c6856ed3e599dd75"
+    "historical_population_sha256": "11fb8965ef114b809be556642ef934933cd51cda11ee8fd63a4a751653c0cb59",
+    "historical_acceptance_sha256": "b2d5acd047b216f1324893c11dddc5e992884ee42cb3c244874312d801d68fe8"
   },
   "references": {
     "?unknown_math_4ba520@@YANN@Z": 4957472,
@@ -11232,7 +11232,31 @@
     "?ID@?$DynamicVectorClass@PAE@@UAEHABQAE@Z": 7788608,
     "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
     "?text@WideString@@QBEPBGXZ": 7799856,
-    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344
+    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5205664,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210784,
+    "?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHABW4DiskID@@@Z": 6765680,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7078816,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079488,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781168,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781776,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "??_GMap@WorldDominationTour@@UAEPAXI@Z": 7515952,
+    "??_ETactical@@UAEPAXI@Z": 6998016,
+    "??_EMap@WorldDominationTour@@UAEPAXI@Z": 7515952,
+    "?Fetch@?$VectorClass@PAVEMPulseClass@@@@UBEPAVEMPulseClass@@H@Z": 4936960,
+    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952,
+    "?Get_Time@GameTimeClass@@QBEHXZ": 5046352,
+    "??0Campaign@WorldDominationTour@@QAE@ABVWstring@@ABV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@@Z": 7495488,
+    "??1Campaign@WorldDominationTour@@UAE@XZ": 7496416,
+    "??_7Campaign@WorldDominationTour@@6B@": 8056820,
+    "??_GCampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "?Special@@3VSpecialClass@@A": 10750240,
+    "??_EMPCooperative@@UAEPAXI@Z": 5923504,
+    "??_ETechnoClass@@UAEPAXI@Z": 7182160,
+    "??_ETiberiumClass@@UAEPAXI@Z": 7252464,
+    "??_EWDTState@@UAEPAXI@Z": 7522816,
+    "??_ECampaign@WorldDominationTour@@UAEPAXI@Z": 7498160
   },
   "regions": [
     {
@@ -11286,7 +11310,7 @@
           "resolved": 11273180
         }
       ],
-      "source_sha256": "1429f50c41fca6245eb1eba4f7da38549be062ca9aa1146675a2352008f8158f",
+      "source_sha256": "99d1e35379bc76142775c5a7be224b4b6b3bffad9203f3555a4c90ab89d7361f",
       "source": "src/recovered/header_statics/terrtype/HeaderStatics_empty_rect_init.cpp",
       "population": "population-3501",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -13600,7 +13624,7 @@
           "resolved": 639448
         }
       ],
-      "source_sha256": "4dbcd130fa7fc7ccca62cad5c1309a9d8df278dee691162756b87318851c1eeb",
+      "source_sha256": "5004eb10294abf767048793a6103af10f98665e688729775023abf3f319ac29c",
       "source": "src/recovered/classes/TerrainTypeClass/Scalar_Deleting_Destructor.cpp",
       "population": "population-3501",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",

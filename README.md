@@ -75,9 +75,22 @@ not yet rebuilt from source is still taken from the original. STATUS counts exac
   stand-in names where nobody has worked out what they mean yet: a field such as `unknown_0x0c`,
   a class such as `UnknownAnimTechno`. Decompiler-generated names (such as `FUN_` followed by an
   address) have been removed from the code.
-- **Readability.** 127 of 418 source units (one unit is one original source file) read as
-  ordinary source today: no decompiler-style leftovers, no placeholder names, no
-  address-named files.
+- **Structure.** This tree is an exact-match record: every function is shown to compile to the
+  original bytes, and it is the base the native ports build from. Its source is organised by
+  function, as it was matched, not as Westwood's original source files. The structure census
+  (`tools/original_target/cleanup_census.py --structure`, also in [docs/STATUS.md](docs/STATUS.md))
+  counts what that leaves:
+  - 155 class names are defined more than once (a class redeclared in the files that needed it);
+  - about 1,960 one-function files sit beside 406 unit files (one per original source file);
+  - 482 functions are free functions, or members of a stand-in class, where a sister project has
+    them as a member of the real class;
+  - about 7,200 distinct names still carry the address of the original function or variable as a
+    suffix (such as `_004F52F0`);
+  - 260 `RA2_` preprocessor switches select declarations per file.
+
+  If you want readable source organised like the original, read
+  [mischa85/RedAlert2](https://github.com/mischa85/RedAlert2), a matching decompilation of the
+  same `game.exe`. This tree's job is the exact-match evidence and the native ports.
 - **Address-named files.** 121 files are still named after addresses in the program rather than
   after what they hold. They live in two labelled folders: `src/recovered/unidentified/` (69
   files whose owner is not known yet) and `src/recovered/awaiting_join/` (52 files waiting to be

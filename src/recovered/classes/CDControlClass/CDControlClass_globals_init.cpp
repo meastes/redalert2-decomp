@@ -3,8 +3,5 @@
 // The constructor (clearing the object) is expanded inline; the empty
 // destructor is registered with atexit.
 #include "shared/cd_control.hpp"
-// @ref ?CDControl@@3VCDControlClass@@A=00850830
-// @ref _atexit=0078298a
-// @ref _$E2=0046ea60
 
 CDControlClass CDControl;

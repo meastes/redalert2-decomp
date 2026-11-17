@@ -3,11 +3,6 @@
 // Assumptions: 0x006F1FA0 (__fastcall) loads the named art into two
 // outputs (a shape and its companion data; hypothesis); the name and
 // output globals are unidentified.
-// @ref ?unknown_load_art_6f1fa0@@YIXPBDPAPAX1@Z=006f1fa0
-// @ref ?unknown_name_7f8708@@3QBDB=007f8708
-// @ref ?unknown_art_ac1160@@3PAXA=00ac1160
-// @ref ?unknown_art_ac1164@@3PAXA=00ac1164
-// @ref ?unknown_name_7f870c@@3QBDB=007f870c
 
 void __fastcall unknown_load_art_6f1fa0(char const *name, void **shape, void **data);   // 0x006F1FA0
 extern char const * const unknown_name_7f8708;

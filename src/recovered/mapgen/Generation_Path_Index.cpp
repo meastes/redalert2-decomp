@@ -1,8 +1,6 @@
 #include "shared/map_generation_path.hpp"
 #include "shared/tileset_index.hpp"
 extern int IsometricTileTypeClass_DirtRoadSlopes;
-// @ref ?IsometricTileTypeClass_DirtRoadCurve@@=00a6e014
-// @ref ?IsometricTileTypeClass_DirtRoadSlopes@@=00a6dd04
 // Original names and free fastcall/return-signedness source intent are hypotheses.
 int __fastcall Generation_Path_Index_0058d9a0(int tile)
 {

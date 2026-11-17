@@ -7,22 +7,6 @@
 #include "shared/map_preview.hpp"
 #include "shared/owner_draw_dialog_control.hpp"
 #include "shared/string_table.hpp"
-// @ref ?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z=005ffb00
-// @ref ?Skirmish_Message_497@@YIHPAUHWND__@@IJ@Z=00683fc0
-// @ref ?unknown_5e4720@OwnerDraw@@YI_NPAUHWND__@@@Z=005e4720
-// @ref ?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z=0061d460
-// @ref ?MultiplayerMapPreview@@3PAVMapPreviewClass@@A=00a72ce8
-// @ref ?Side_Combo_Player_4d13b0@@YIHH@Z=004d13b0
-// @ref ?Color_Combo_Player_4d1d10@@YIHH@Z=004d1d10
-// @ref ?Side_Name_4d1420@@YIPBGH@Z=004d1420
-// @ref ?Color_Name_4d1d80@@YIPBGH@Z=004d1d80
-// @ref ?Side_Combo_Data_4d1c70@@YIHPAUHWND__@@HH@Z=004d1c70
-// @ref ?Color_Combo_Data_4d2900@@YIHPAUHWND__@@HH@Z=004d2900
-// @ref ??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@=007f3fd4
-// @ref ??_C@_0P@IOHO@STT?3PlayerNone?$AA@=007f3fc4
-// @ref ??_C@_0BB@FAHH@STT?3PlayerDumbAI?$AA@=007e7378
-// @ref ??_C@_0BC@LDDH@STT?3PlayerSmartAI?$AA@=007e7364
-// @ref ??_C@_0BD@PLEH@STT?3PlayerGeniusAI?$AA@=007e7350
 
 int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {

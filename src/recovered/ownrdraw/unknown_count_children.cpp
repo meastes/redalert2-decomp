@@ -12,7 +12,7 @@
 namespace seed_005e7db0 {
 
 extern void __cdecl unknown_count_proc_005e7d00(void);
-extern "C" __declspec(dllimport) unsigned int __stdcall EnumChildWindows(int, int, int);  // @ref __imp__EnumChildWindows@12=0079a4dc
+extern "C" __declspec(dllimport) unsigned int __stdcall EnumChildWindows(int, int, int);
 extern "C" unsigned int unknown_visible_count_00a737e4;
 
 unsigned int __fastcall unknown_count_children_005e7db0(HWND window)

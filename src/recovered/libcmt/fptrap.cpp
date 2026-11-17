@@ -10,7 +10,7 @@
 
 namespace seed_007905e2 {
 
-extern "C" unsigned int __cdecl __amsg_exit(...);  // @ref ___amsg_exit=00785ba8
+extern "C" unsigned int __cdecl __amsg_exit(...);
 
 void  fptrap_007905e2(void)
 {

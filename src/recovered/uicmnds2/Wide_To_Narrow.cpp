@@ -1,8 +1,6 @@
 // char *__fastcall Wide_To_Narrow_006fa120(unsigned short const *string) (0x006FA120)
 // Narrows a wide string into the next of eight 0x400-byte rotating buffers
 // (0x00AC136C, slot index 0x00AD045C) and answers it; null stays null.
-// @ref ?unknown_narrow_buffers_ac136c@@3PADA=00ac136c
-// @ref ?unknown_narrow_index_ad045c@@3HA=00ad045c
 
 extern char unknown_narrow_buffers_ac136c[];
 extern int unknown_narrow_index_ad045c;

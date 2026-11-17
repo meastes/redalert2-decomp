@@ -4,9 +4,6 @@
 // stored at 0x00AC11C0, clipped to the window with the part beyond 800 x 600 halved
 // (hypothesis).
 #include "shared/rect.hpp"
-// @ref ?CC_Draw_Shape@@YIXPAVSurface@@PAVConvertClass@@PBUShapeFileStruct@@HABUPoint2D@@ABVRect@@HPBEHHH2HUPoint2D@@@Z=0049eea0
-// @ref ?unknown_point_ac11c0@@3PAUPoint2D@@A=00ac11c0
-// @ref ?VideoModeWidth@@3HA=008523e0
 class Surface;
 class ConvertClass;
 struct ShapeFileStruct;

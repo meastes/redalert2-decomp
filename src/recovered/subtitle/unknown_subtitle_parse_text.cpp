@@ -8,7 +8,6 @@
 // YR twin's; the handler signature is a hypothesis.
 
 #include "shared/subtitle.hpp"
-// @ref ?Set_Caption@SubTitle@@QAEXPBG@Z=0069b120
 
 void __fastcall unknown_subtitle_parse_text(unsigned short const *value, SubTitle *subtitle)
 {

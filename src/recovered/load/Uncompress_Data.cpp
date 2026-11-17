@@ -1,8 +1,6 @@
 // unsigned long Uncompress_Data(void const *, void *) (0x0053AEB0)
 // Westwood's Uncompress_Data (TibSun load.cpp): decodes a block that starts
 // with a CompressedFileHeader; returns the decoded size.
-// @ref ?LCW_Uncomp@@YIHPBXPAXK@Z=00534b50
-// @ref _memmove=00783290
 #include "shared/compressed_file.hpp"
 #include "shared/lcw.hpp"
 #include "shared/crt_memory.hpp"

@@ -133,7 +133,6 @@ static double unknown_scale_abe520 = unknown_geometry_diagonal / (Fast_Sin(unkno
 // rectangle as the empty header rectangle; the body clears the cells to
 // redraw and the caption and builds the two projection matrices (TibSun
 // Tactical::Tactical).
-// @ref ?unknown_abe540@@3UPoint2D@@A=00abe540/00abe544
 
 extern Point2D unknown_abe540;    // 0x00ABE540 (the header static unknown_geometry_l, read as a point)
 
@@ -1614,7 +1613,7 @@ void Tactical::Draw_Shroud(Rect const &area)
 
 // Not exact (RA2_NON_MATCHING): Tactical::Render at 0x006A45A0, best score 54.57, 2026-11-13; differs: 904 instructions in the original, 903 in the draft (shape 94.30)
 #ifdef RA2_NON_MATCHING
-// NON-EXACT DRAFT 0x6A45A0 FUN_006a45a0
+// NON-EXACT DRAFT 0x6A45A0 Tactical::Render
 // entry 0x6A45A0; exact-match score 64.69 (misses_index best), this text 56.45; plan "review: rewrite likely"
 // origin lane: Scout958 (build/class-work/Scout958/w/keep/render_b3_5645.cpp)
 // Recovered source text by our lanes/workers; never exact-match credit. Tracked by

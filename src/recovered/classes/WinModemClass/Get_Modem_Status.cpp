@@ -13,7 +13,7 @@
 
 namespace seed_007348b0 {
 
-extern "C" __declspec(dllimport) unsigned int __stdcall GetCommModemStatus(int, int);  // @ref __imp__GetCommModemStatus@8=0079a174
+extern "C" __declspec(dllimport) unsigned int __stdcall GetCommModemStatus(int, int);
 
 unsigned int __fastcall Get_Modem_Status_007348b0(int self)
 {

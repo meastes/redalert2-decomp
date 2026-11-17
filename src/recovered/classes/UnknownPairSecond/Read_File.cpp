@@ -5,7 +5,6 @@
 #include "shared/unknown_pair_second.hpp"
 #include "shared/matrix3d.hpp"
 #include "shared/raw_file_class.hpp"
-// @ref ??0Matrix3D@@QAE@PBM@Z=0058fde0
 
 int UnknownPairSecond::Read_File_0059ebc0(FileClass *file)
 {

@@ -6,8 +6,6 @@
 #include "shared/rad_beam_list.hpp"
 #include "shared/queue.hpp"
 #include "shared/random2.hpp"
-// @ref ?unknown_6358d0@RadBeam@@QAE_NXZ=006358d0
-// @ref ?unknown_635e00@RadBeam@@QAE_NXZ=00635e00
 
 void __fastcall RadBeam::Update_All()
 {

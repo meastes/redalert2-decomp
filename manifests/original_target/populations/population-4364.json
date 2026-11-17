@@ -4,8 +4,8 @@
     "id": "population-4364",
     "inventory_sha256": "a2ca12dbb0ad1622bd8f7be6d2257cb2dec60b994a9e40eca98da634173ace94",
     "gaps_sha256": "1b6da73f6516d3da739fa6a90b068354ff80f5c0bc97bb852e5b155d8f7a5f0b",
-    "historical_population_sha256": "c4995aad6ea64c869603ec8dbf9f78091bb84cea81a661df4041d5d91a553341",
-    "historical_acceptance_sha256": "e67b7c686f376f3bcc9ab6c876f4cf104f10e36af8c0269380ed66803e23a730"
+    "historical_population_sha256": "647395c6c56b1081402e709e56a8036a722f822687da892a5efef842ab69051a",
+    "historical_acceptance_sha256": "3fa64c3aba793d324c54eb67854f2788cae7f982e27afb1e9dd79e132e4b648e"
   },
   "references": {
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -2705,7 +2705,10 @@
     "?audioChannelDestroy@@YIXPAUUnknownComHolder_00402170@@@Z": 4202864,
     "__ramp_corners": 8339828,
     "?Reset@BitFontClass@@QAEXXZ": 4399536,
-    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Events@@3V?$DynamicVectorClass@PAVTEventClass@@@@A": 11274248,
+    "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
+    "?text@WideString@@QBEPBGXZ": 7799856
   },
   "regions": [
     {
@@ -3280,7 +3283,7 @@
           "resolved": 18146
         }
       ],
-      "source_sha256": "08fa6cf3d942b247932d7e28777c3788a6202c54eb8b560463b06d2c21cb035b",
+      "source_sha256": "03f2992bc5f873475a2e8fff365aaee2a339faa1265e6b338fe5d7f0c79371f2",
       "source": "src/recovered/auddev/Audio_List_Cursor_Next.cpp",
       "population": "population-4364",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
@@ -3367,7 +3370,7 @@
           "resolved": 18096
         }
       ],
-      "source_sha256": "1fd48552b0bc4d40c4d459c41f744e4ec8f0e9dd920f34e85a54d881e47a2fcf",
+      "source_sha256": "0e3684efeeaace4e682e015edda2a121981c3739e0aafc8ebff697ddd6e5b18c",
       "source": "src/recovered/auddev/Audio_Ready_Driver_Count.cpp",
       "population": "population-4364",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",

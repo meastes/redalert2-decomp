@@ -2,8 +2,6 @@
 // Purpose: unlinks the driver instance, releases it through its
 // descriptor, clears the descriptor's in-use flag, deletes it and clears
 // 0x00830B48.
-// @ref ?Audio_List_Remove@@YIXPAUAudioListNode@@@Z=00407380
-// @ref ?Audio_unknown_830b48@@3HA=00830b48
 #include "shared/audio.hpp"
 
 void __cdecl operator delete(void *block);

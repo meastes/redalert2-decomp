@@ -6,7 +6,6 @@
 // unit's header statics, HeaderStatics_diagonal_init_006101b0.cpp).
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-// @ref ?unknown_list_00a76628@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A=00a76628
 
 // Only the members used here (as the header-statics source declares them).
 class PlanningNodeClass {

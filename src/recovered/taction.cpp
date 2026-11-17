@@ -2522,7 +2522,7 @@ template<> FixedString<32> FixedString<32>::operator=(FixedString<32> const &oth
 
 namespace seed_006b3200 {
 
-extern "C" unsigned int __cdecl _strncpy(...);  // @ref __strncpy=007823d0
+extern "C" unsigned int __cdecl _strncpy(...);
 
 struct Owner_006b3200 { char * Copy_Text_006b3200(char *source_text); };
 

@@ -6,33 +6,6 @@
 // caller's done flag; 0x4D8 and 0x4EC drive the counter control 0x72B (0x4EC with the
 // ScoreAnimSound sound).
 #define SOUND_PLAY_DECLARE_KEEP_EVENT
-// @ref ??_C@_1BO@ECFI@?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?3?$AA?$CF?$AA0?$AA2?$AAd?$AA?$AA@=007f62a8
-// @ref ??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@=007d1598
-// @ref ??_C@_05DDDB@SCORE?$AA@=007e5648
-// @ref ??_C@_0BE@OIMO@D?3?2Ra2?2stlscore?4cpp?$AA@=007f62c8
-// @ref ?unknown_score_audio_abd6a0@@3VUnknownAudioController@@A=00abd6a0
-// @ref ?unknown_score_audio_on_abd6d4@@3HA=00abd6d4
-// @ref ?Default_Dialog_Proc@@YIHPAUHWND__@@IIJ@Z=005ffb00
-// @ref ?Init@UnknownAudioController@@QAEXXZ=00405bf0
-// @ref ?Unknown_00405C10@UnknownAudioController@@QAEXXZ=00405c10
-// @ref ?Unknown_00405D50@UnknownAudioController@@QAEXXZ=00405d50
-// @ref ?Unknown_00405FE0@UnknownAudioController@@QAEXXZ=00405fe0
-// @ref ?Unknown_00406100@UnknownAudioController@@QAIXPAUAudioEvent@@PAUAudioEventType@@@Z=00406100
-// @ref ?Voc_Play@@YIPAUAudioEvent@@HMHPAUAudioEventHandle@@@Z=00713db0
-// @ref ?Get_All_Totals_Sum@UnknownHouseTracker@@QAEHXZ=0070c510
-// @ref ?From_Name@ThemeClass@@QBEHPBD@Z=006e8510
-// @ref ?Play_Song@ThemeClass@@QAEHH@Z=006e7eb0
-// @ref ?Theme@@3VThemeClass@@A=00a35d78
-// @ref ?Load_String@StringTable@@SIPBGPBDPAD0H@Z=006f9ec0
-// @ref ?Scen@@3PAVScenarioClass@@A=00a3d290
-// @ref ?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A=00a32298
-// @ref ?Rules@@3PAVRulesClass@@A=00839848
-// @ref _swprintf=00783764
-// @ref __imp__GetDlgItem@8=0079a49c
-// @ref __imp__GetWindowLongA@8=0079a48c
-// @ref __imp__PostMessageA@16=0079a470
-// @ref __imp__SendDlgItemMessageA@20=0079a484
-// @ref __imp__SendMessageA@16=0079a4a0
 #include "shared/sound_play.hpp"
 #include "shared/win32_api.hpp"
 #include "shared/dialog_default_proc.hpp"

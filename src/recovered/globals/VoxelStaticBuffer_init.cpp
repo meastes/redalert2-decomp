@@ -2,8 +2,5 @@
 // dynamic initializer 0x0040F070 and the atexit destructor 0x0040F090.
 #define STATIC_BUFFER_DECLARE_LIFETIME
 #include "shared/static_buffer.hpp"
-// @ref ?VoxelStaticBuffer@@3VStaticBufferClass@@A=00839aa0
-// @ref ??0StaticBufferClass@@QAE@H@Z=0069a1a0
-// @ref ??1StaticBufferClass@@QAE@XZ=0069a1c0
 
 StaticBufferClass VoxelStaticBuffer(4000000);

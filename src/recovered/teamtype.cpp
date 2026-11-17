@@ -842,7 +842,7 @@ void  unknown_empty_006c0780(void)
 // Owner: DynamicVectorClass<DiscreteDistributionClass<AITriggerTypeClass>::DistributionObject<AITriggerTypeClass *>>, virtual slot 4 (vtable +0x10) (from RTTI/vtables).
 // Body: 54 bytes (frozen inventory bound).
 // Referenced from 1 site (data).
-// Ghidra prototype: int __thiscall FUN_006c07f0(int param_1,int *param_2)
+// Ghidra prototype: int __thiscall ID_006c07f0(int param_1,int *param_2)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

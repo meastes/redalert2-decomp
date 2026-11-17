@@ -17,19 +17,6 @@
 #include "shared/ww_message_box.hpp"
 #include "shared/unknown_player_entry.hpp"
 #include "shared/modem_guest.hpp"
-// @ref ?WS_Save_Dialog_Values@@YIXPAUHWND__@@@Z=005e5fc0
-// @ref ?Process@WWMessageBox@@QAEHPBG000_N@Z=005b46b0
-// @ref ??_C@_13ECNF@?$AA?5?$AA?$AA@=007d64f4
-// @ref ??_C@_06DN@TXT_OK?$AA@=007db8f4
-// @ref ??_C@_0BO@JKCN@TXT_NEED_AT_LEAST_TWO_PLAYERS?$AA@=007f3fe8
-// @ref ??_C@_0BH@KOPH@TXT_SCENARIO_TOO_SMALL?$AA@=007e24cc
-// @ref ??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@=007f3fd4
-// @ref ??_C@_0M@EOLM@RandMap?4img?$AA@=007e1540
-// @ref ??_EWstring@@QAEPAXI@Z=0040af40
-// @ref ??_H@YGXPAXIHP6EX0@Z@Z=0040aed0
-// @ref ??_I@YGXPAXIHP6EX0@Z@Z=0040af00
-// @ref ??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z=0051e600
-// @ref ??_7?$rc_ptr@VWDTTerritory@@@@6B@=007a452c
 
 // (0x005E5FC0; before the lobby dialog opens over the skirmish dialog; not recovered.)
 void __fastcall WS_Save_Dialog_Values(HWND dialog);

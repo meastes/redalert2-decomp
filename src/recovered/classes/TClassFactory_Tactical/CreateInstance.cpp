@@ -2,7 +2,6 @@
 // Light Tactical interface: allocation size 3608 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0Tactical@@QAE@XZ=006a24b0
 
 class Tactical {
 public:

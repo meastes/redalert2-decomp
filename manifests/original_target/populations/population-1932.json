@@ -4,8 +4,8 @@
     "id": "population-1932",
     "inventory_sha256": "be54464b3c12413d9cf6486a4dca357b4c89a4316576bd8f622f8e810c38a531",
     "gaps_sha256": "845f9d5ca6da4fc78a9262f556e34006c889ec806cbc84241052ff381dc1364b",
-    "historical_population_sha256": "af6afd6336151f3c64341b5fca9d6a8749dc3821449574f7fdd2cac0dbafca05",
-    "historical_acceptance_sha256": "d8c69522b4f01210db4007374d139b5af1c17365c9fae52ea6b567dda14f85c7"
+    "historical_population_sha256": "c0de5d0cfd8e4a2263beb62d376fb3bc97ac0f30a17827f638eab8e5c6f2fb6b",
+    "historical_acceptance_sha256": "1c0d359a58de5fcae0d705f0793409ea44dff8e678ce40801d07f378df2ae335"
   },
   "references": {
     "_unknown_empty_rect": 8739104,
@@ -5502,7 +5502,63 @@
     "??_E?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z": 7524128,
     "??_E?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z": 5212320,
     "?text@UnknownWideText_005c3450@@QBEPBGXZ": 7799856,
-    "?text@WideString@@QBEPBGXZ": 7799856
+    "?text@WideString@@QBEPBGXZ": 7799856,
+    "?ID@?$DynamicVectorClass@G@@UAEHPBG@Z": 4370064,
+    "?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z": 4537872,
+    "?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHABQAVReestablish@@@Z": 4540128,
+    "?ID@?$DynamicVectorClass@PAUDDSURFACEDESC@@@@UAEHPBQAUDDSURFACEDESC@@@Z": 4809888,
+    "?ID@?$DynamicVectorClass@PAUDDSURFACEDESC@@@@UAEHABQAUDDSURFACEDESC@@@Z": 4810496,
+    "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z": 4889392,
+    "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z": 4889488,
+    "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z": 4890096,
+    "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z": 4890704,
+    "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z": 4936928,
+    "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z": 4937264,
+    "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z": 4937328,
+    "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z": 4937536,
+    "?ID@?$VectorClass@PAVSideClass@@@@UAEHPBQAVSideClass@@@Z": 5082576,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5205664,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": 5210784,
+    "?ID@?$DynamicVectorClass@PAVCCINIClass@@@@UAEHPBQAVCCINIClass@@@Z": 5365968,
+    "?ID@?$DynamicVectorClass@PAVCCINIClass@@@@UAEHABQAVCCINIClass@@@Z": 5366576,
+    "?ID@?$DynamicVectorClass@PAUWIN32_FIND_DATA@@@@UAEHPBQAUWIN32_FIND_DATA@@@Z": 5823840,
+    "?ID@?$DynamicVectorClass@VRect@@@@UAEHPBVRect@@@Z": 5823936,
+    "?ID@?$DynamicVectorClass@PAUWIN32_FIND_DATA@@@@UAEHABQAUWIN32_FIND_DATA@@@Z": 5825792,
+    "?ID@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@UAEHPBQAUUnknownGlobalPacket@@@Z": 6764896,
+    "?ID@?$DynamicVectorClass@PAVPhoneEntryClass@@@@UAEHPBQAVPhoneEntryClass@@@Z": 6764992,
+    "?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHABW4DiskID@@@Z": 6765680,
+    "?ID@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@UAEHABQAUUnknownGlobalPacket@@@Z": 6767872,
+    "?ID@?$DynamicVectorClass@PAVPhoneEntryClass@@@@UAEHABQAVPhoneEntryClass@@@Z": 6768480,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7078816,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079488,
+    "?ID@?$DynamicVectorClass@PAVtConnInfoStruct@@@@UAEHPBQAVtConnInfoStruct@@@Z": 7757360,
+    "?ID@?$DynamicVectorClass@PAVtConnInfoStruct@@@@UAEHABQAVtConnInfoStruct@@@Z": 7759696,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781168,
+    "?ID@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAVWinsockBufferType@WinsockInterfaceClass@@@Z": 7781776,
+    "?ID@?$DynamicVectorClass@PAE@@UAEHPBQAE@Z": 7788000,
+    "?ID@?$DynamicVectorClass@PAE@@UAEHABQAE@Z": 7788608,
+    "??_GTactical@@UAEPAXI@Z": 6998016,
+    "?Get_Count@CoopCampListClass@@QBE_NPAH@Z": 4787344,
+    "??_ETactical@@UAEPAXI@Z": 6998016,
+    "?Fetch@?$VectorClass@PAVEMPulseClass@@@@UBEPAVEMPulseClass@@H@Z": 4936960,
+    "??_GWDTState@@UAEPAXI@Z": 7522816,
+    "?Clear@?$DynamicVectorClass@PAVWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ": 7781120,
+    "?Clear@?$DynamicVectorClass@PAE@@UAEXXZ": 7787952,
+    "??_EWDTState@@UAEPAXI@Z": 7522816,
+    "??_GFootClass@@UAEPAXI@Z": 5037584,
+    "??_GMPCooperative@@UAEPAXI@Z": 5923504,
+    "??_GTechnoClass@@UAEPAXI@Z": 7182160,
+    "??_GTiberiumClass@@UAEPAXI@Z": 7252464,
+    "??_GRLEBlitter@@UAEPAXI@Z": 4769936,
+    "??_GMap@WorldDominationTour@@UAEPAXI@Z": 7515952,
+    "?WS_Top_Window@seed_005c2940@@YAIXZ": 7559952,
+    "?BlackColor@@3VRGBClass@@A": 11233345,
+    "??_EFootClass@@UAEPAXI@Z": 5037584,
+    "??_EMPCooperative@@UAEPAXI@Z": 5923504,
+    "??_ETechnoClass@@UAEPAXI@Z": 7182160,
+    "??_ETiberiumClass@@UAEPAXI@Z": 7252464,
+    "??_ERLEBlitter@@UAEPAXI@Z": 4769936,
+    "??_EMap@WorldDominationTour@@UAEPAXI@Z": 7515952
   },
   "regions": [
     {
@@ -5555,7 +5611,7 @@
           "resolved": 8739116
         }
       ],
-      "source_sha256": "4f022fa2a3c9cb71f8a06cf340c525ed6539ddb481dca83e28b47dda0e5e418c",
+      "source_sha256": "112cc001d8ee185ceddedd08f92327bb4c06db69d7e019cde4a3def38cc43257",
       "source": "src/recovered/egos_empty_rect_init.cpp",
       "population": "population-1932",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -5661,7 +5717,7 @@
           "resolved": 2945967
         }
       ],
-      "source_sha256": "1f2eea8b5072fe7ec55f8e97f6e7c9af18fb18474bedac5c3197cbab88f5dff7",
+      "source_sha256": "cf68e747837c262118fd32257ce49f109cdbc74f6c614146d27bb51b9a3159cc",
       "source": "src/recovered/classes/DynamicVectorClass_EgoClass_ptr/unknown_EgoClass_list_init.cpp",
       "population": "population-1932",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
@@ -5802,7 +5858,7 @@
           "resolved": 2949171
         }
       ],
-      "source_sha256": "f9f276101ddf1ec51cc0b0bd604070af8d4369ad4e27a2fa036069752f86ef17",
+      "source_sha256": "ed76b84ce241d86bffec6f8c84f2e438a6e73979b564382b314d00b90823ba4a",
       "source": "src/recovered/classes/EgoClass/Constructor.cpp",
       "population": "population-1932",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -5954,7 +6010,7 @@
           "resolved": 1354337
         }
       ],
-      "source_sha256": "b306e5450b5a44d225f93575bb6c7807029057594479ccc05dcea390f2bdba40",
+      "source_sha256": "2d3fb320d60260da61c7ec3eaf43b0aa93d046b0fe3a20b0e416cd5856c48c47",
       "source": "src/recovered/classes/EgoClass/Draw.cpp",
       "population": "population-1932",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
@@ -6013,7 +6069,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "a3d6ad5c3d6d84911e9601ee074b02d49ffe7e36edb6aa6fb589ed6eb626553e",
+      "source_sha256": "956dff0c574259eec13cef40737b7fe8e5a6737f321b29fddf2f27e810d07ec5",
       "source": "src/recovered/classes/EgoClass/Copy_Background.cpp",
       "population": "population-1932",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",

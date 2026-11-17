@@ -6,9 +6,6 @@
 #include "shared/cc_file_class.hpp"
 #include "shared/ini_class.hpp"
 #include "shared/wstring.hpp"
-// @ref ??0GraphicMenuItem@@QAE@H@Z=004e0120
-// @ref ??_7GraphicMenuAnimItem@@6B@=007a2b98
-// @ref ?Add_Anim@MSEngine@@QAEHPAVMSAnim@@@Z=005b2d60
 
 GraphicMenuAnimItem::GraphicMenuAnimItem(int id, void *unknown_list, Point2D const &origin, INIRect const &area,
                                          Wstring const &image, Wstring const &palette, int rate, bool loop)

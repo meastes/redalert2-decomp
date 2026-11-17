@@ -4,7 +4,6 @@
 // their window and wParam in ECX/EDX for WM_SIZING/WM_MOVING (0x214/0x216)
 // and the rectangle on the stack; the body ignores the two register
 // parameters (the convention also fixes the epilogue's `mov al, 1`).
-// @ref __imp__GetSystemMetrics@4=0079a3dc
 #include "shared/win32_api.hpp"
 #include "shared/rect.hpp"
 

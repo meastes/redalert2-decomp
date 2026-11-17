@@ -1,5 +1,4 @@
 #include "shared/remap_alpha_blitter.hpp"
-// @ref ?DepthBuffer@@=00839c6c
 inline unsigned short *Wrap_Alpha(ZBuffer *buffer,unsigned short *next) {
  if((char *)next>=buffer->BufferTail) next=(unsigned short *)((char *)next-buffer->BufferSize);
  return next;

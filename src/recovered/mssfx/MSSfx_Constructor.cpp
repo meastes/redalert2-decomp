@@ -4,8 +4,8 @@
 // Referenced from 1 site (unconditional call).
 // Ghidra prototype: undefined4 * __thiscall MSSfx_Constructor_005b69b0(undefined4 *param_1,undefined4 param_2)
 // Callees with accepted source:
-//   AudioDeviceAvailable -> src/recovered/00406f30.cpp
-//   FUN_0078d816 -> src/recovered/0078d816.cpp
+//   AudioDeviceAvailable -> src/recovered/audio.cpp
+//   _mbsdup (LIBCMT mbsdup.obj, linked library member)
 //
 // Types and names are Ghidra placeholders;
 // rename and retype as the purpose becomes known.

@@ -3020,14 +3020,14 @@
   },
   {
    "source": "src/recovered/netdlg2/Join_Lobby_Reset_Ready.cpp",
-   "old": "extern \"C\" __declspec(dllimport) unsigned int __stdcall GetDlgItem(int, int);  // @ref __imp__GetDlgItem@8=0079a49c\n",
+   "old": "extern \"C\" __declspec(dllimport) unsigned int __stdcall GetDlgItem(int, int);\n",
    "new": "",
    "why": "population-67 compiles 0x005C2940 in one translation unit with 0x005EAD00, which now includes shared/win32_api.hpp (OwnerDraw's NewEdit window procedure on its real declaration, lane S1). VC6 accepts the seed's int-typed extern \"C\" GetDlgItem/SendMessageA beside the SDK ones; clang refuses the conflicting redeclaration, so natively the seed calls the SDK declarations (same imports, same arguments).",
    "verified": true
   },
   {
    "source": "src/recovered/netdlg2/Join_Lobby_Reset_Ready.cpp",
-   "old": "extern \"C\" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);  // @ref __imp__SendMessageA@16=0079a4a0\n",
+   "old": "extern \"C\" __declspec(dllimport) unsigned int __stdcall SendMessageA(int, int, int, int);\n",
    "new": "",
    "why": "population-67 compiles 0x005C2940 in one translation unit with 0x005EAD00, which now includes shared/win32_api.hpp (OwnerDraw's NewEdit window procedure on its real declaration, lane S1). VC6 accepts the seed's int-typed extern \"C\" GetDlgItem/SendMessageA beside the SDK ones; clang refuses the conflicting redeclaration, so natively the seed calls the SDK declarations (same imports, same arguments).",
    "verified": true

@@ -10,14 +10,6 @@
 #include "shared/cd_timer.hpp"
 WIN32_IMPORT BOOL WINAPI PeekMessageA(MSG *message, HWND window, UINT first, UINT last, UINT remove);
 WIN32_IMPORT BOOL WINAPI GetCursorPos(POINT *point);
-// @ref __imp__PeekMessageA@20=0079a464
-// @ref __imp__GetCursorPos@4=0079a3a8
-// @ref __imp__DispatchMessageA@4=0079a4b4
-// @ref ?WWMouse@@3PAVMouse@@A=00839c68
-// @ref ?Frame@@3HA=00a40d2c
-// @ref ?MessageLoopCount@@3HA=00a52298
-// @ref ?Audio_Queue_Copy@@YIHPAUAudioQueue@@PAXH@Z=00408e00
-// @ref ?unknown_audio_file_lock_a52268@@3UCRITICAL_SECTION@@A=00a52268
 
 BOOL __fastcall Peek_Windows_Message(MSG *message, HWND window, UINT first, UINT last, UINT remove)
 {

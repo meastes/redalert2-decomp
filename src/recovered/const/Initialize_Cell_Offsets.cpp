@@ -1,6 +1,5 @@
 #include "shared/coord.hpp"
 // Five ordered three-int coordinate records, at a twelve-byte stride.
-// @ref ?unknown_cell_offsets_00850e50@@=00850e50
 extern CoordStruct unknown_cell_offsets_00850e50[5];
 void Initialize_Cell_Offsets_00483390()
 {

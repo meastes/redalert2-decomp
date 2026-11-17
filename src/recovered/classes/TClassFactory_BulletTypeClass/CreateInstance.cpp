@@ -2,7 +2,6 @@
 // Light BulletTypeClass interface: allocation size 712 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0BulletTypeClass@@QAE@PBD@Z=004644e0
 
 class BulletTypeClass {
 public:

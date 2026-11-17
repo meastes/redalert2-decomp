@@ -17,8 +17,6 @@ WIN32_IMPORT BOOL WINAPI VirtualProtect(LPVOID address, unsigned int length, DWO
 WIN32_IMPORT HANDLE WINAPI GetCurrentProcess();
 WIN32_IMPORT BOOL WINAPI FlushInstructionCache(HANDLE process, LPCVOID address, unsigned int length);
 extern char const memory_protection_error_007d8050[];
-// @ref ?Fast_Sin@@=004ba480
-// @ref ?memory_protection_error_007d8050@@=007d8050
 
 // Actual original store: clear one DWORD at Fast_Sin, after changing page protection.
 // No semantic claim about why the original invalidates that entry.

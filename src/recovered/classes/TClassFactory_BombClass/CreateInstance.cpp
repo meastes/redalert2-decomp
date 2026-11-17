@@ -4,8 +4,6 @@
 // for iid, destroying it again when the query fails.
 // Assumptions: the constructor at 0x00435BE0 stores the BombClass vtables (RTTI). Only the members the factory touches are declared;
 // the virtual destructor occupies slot 8 of the primary vtable.
-// @ref ??2@YAPAXI@Z=00782017
-// @ref ??0BombClass@@QAE@XZ=00435be0
 #include "shared/class_factory.hpp"
 
 class BombClass {

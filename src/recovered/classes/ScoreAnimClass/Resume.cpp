@@ -3,7 +3,6 @@
 // unstarted timer (Started == -1) takes the current time (SystemTimerClass,
 // 0x0069A430).
 #include "shared/score_anim.hpp"
-// @ref ??BSystemTimerClass@@QBEJXZ=0069a430
 
 void ScoreAnimClass::Resume()
 {

@@ -1,4 +1,3 @@
-// @ref ?unknown_shape_empty_rect_84ed88@@3VRect@@B=0084ed88
 // Original0045ED50: rectangle of one shape frame,108body+4padding.
 #include "shared/rect.hpp"
 extern Rect const unknown_shape_empty_rect_84ed88;

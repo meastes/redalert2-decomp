@@ -3,12 +3,6 @@
 // and Audio_File_Shutdown start with the same code. Placeholders: the globals are named by address.
 #include "shared/audio_file.hpp"
 
-// @ref __imp__EnterCriticalSection@4=0079a1dc
-// @ref __imp__LeaveCriticalSection@4=0079a1e0
-// @ref ?unknown_audio_file_lock_a52280@@3UCRITICAL_SECTION@@A=00a52280
-// @ref ?Audio_Queue_Stdio@@YIHPAUAudioQueue@@PAXHPAH@Z=00408f50
-// @ref ?Audio_Queue_Available@@YIHPAUAudioQueue@@@Z=00409240
-// @ref ?fflush_0078439c@@YAHPAX@Z=0078439c
 extern int fflush_0078439c(void *file);
 
 void Audio_File_Flush()

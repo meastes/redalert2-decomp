@@ -16,34 +16,14 @@ extern DWORD main_thread_00b25f78;
 extern HWND exception_window_00b25dd4;
 extern bool unknown_flag_839c4c;
 extern Surface *VisibleSurface;
-// @ref ?VisibleSurface@@=00839950
-// @ref ?HiddenSurface@@=00839954
 extern Surface *CompositeSurface;
-// @ref ?CompositeSurface@@=00839964
 extern Surface *TileSurface;
-// @ref ?TileSurface@@=00839944
 extern Surface *SidebarSurface;
-// @ref ?SidebarSurface@@=00839948
 extern Surface *AlternateSurface;
-// @ref ?AlternateSurface@@=00839958
-// @ref ?Unknown_00522e10@@=00522e10
-// @ref ?Dump_Exception_004b7df0@@=004b7df0
-// @ref ?Show_Exception_Dialog_004b7cf0@@=004b7cf0
-// @ref ?Destroy_Exception_Window_005ff6e0@@=005ff6e0
-// @ref ?exception_depth_007d6af8@@=007d6af8
-// @ref ?exception_flag_007d6afc@@=007d6afc
-// @ref ?exception_text_00855ba8@@=00855ba8
-// @ref ?main_thread_00b25f78@@=00b25f78
-// @ref ?exception_window_00b25dd4@@=00b25dd4
-// @ref ?unknown_flag_839c4c@@=00839c4c
 extern char const exception_log_007d7ea0[];
-// @ref ?exception_log_007d7ea0@@=007d7ea0
 extern char const exception_filename_007d7e94[];
-// @ref ?exception_filename_007d7e94@@=007d7e94
 extern char const show_dialog_log_007d7e38[];
-// @ref ?show_dialog_log_007d7e38@@=007d7e38
 extern char const dialog_unavailable_log_007d7e4c[];
-// @ref ?dialog_unavailable_log_007d7e4c@@=007d7e4c
 // Original filter shims0068E270 and00690891 pass the exception code in ECX
 // and the actual EXCEPTION_POINTERS in EDX. Code is unused by this body.
 int __fastcall Handle_Exception_004b87f0(unsigned int exceptionCode, _EXCEPTION_POINTERS *information)

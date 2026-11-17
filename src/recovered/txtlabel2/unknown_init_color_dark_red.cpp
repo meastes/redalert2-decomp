@@ -9,7 +9,6 @@ struct UnknownColor_6f1a60 {
     unsigned char Blue;
 };
 extern UnknownColor_6f1a60 unknown_color_ac1100;
-// @ref ?unknown_color_ac1100@@3UUnknownColor_6f1a60@@A=00ac1100
 
 void unknown_init_color_dark_red_6f1a60()
 {

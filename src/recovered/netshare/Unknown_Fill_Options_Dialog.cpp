@@ -2,18 +2,6 @@
 // Fills the game options dialog from the session settings: speed, money and start unit sliders and the
 // option check boxes; when first shown, the controls a World Domination Tour territory does not allow are
 // disabled and the slider ranges come from the rules.
-// @ref ?unknown_session_a3d2a0@@3HA=00a3d2a0
-// @ref ?unknown_a3d2a4@@3HA=00a3d2a4
-// @ref ?unknown_session_a3d2bc@@3HA=00a3d2bc
-// @ref ?unknown_session_a3d2d0@@3HA=00a3d2d0
-// @ref ?unknown_session_a3d2c2@@3EA=00a3d2c2
-// @ref ?AllowDisableableSupers@@3EA=00a3d2c3
-// @ref ?unknown_session_a3d2c4@@3HA=00a3d2c4
-// @ref ?unknown_session_a3d340@@3HA=00a3d340
-// @ref ?unknown_session_a3d2c8@@3HA=00a3d2c8
-// @ref ?unknown_flag_a3d2c1@@3_NA=00a3d2c1
-// @ref ?unknown_game_mode_a3d298@@3HA=00a3d298
-// @ref ?Find_WDT_Territory@@YI?AV?$rc_ptr@VWDTTerritory@@@@H@Z=00769690
 #include "shared/options_dialog.hpp"
 #include "shared/win32_api.hpp"
 #include "shared/unknown_globals.hpp"

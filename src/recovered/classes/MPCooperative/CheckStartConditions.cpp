@@ -2,8 +2,6 @@
 // Names the campaign after the two players when there are two, then the base check.
 #define VECTOR_IMPLEMENT_VECTOR_ACCESSORS
 #define VECTOR_IMPLEMENT_DYNAMIC_ACCESSORS
-// @ref ?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z=005b73a0
-// @ref ?Set_Names@CoopCampaignClass@@QAEXPBG0@Z=0048e190
 #include "shared/multiplayer_game_mode.hpp"
 #include "shared/coop_campaign.hpp"
 

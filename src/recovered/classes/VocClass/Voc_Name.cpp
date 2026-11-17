@@ -6,10 +6,6 @@
 // 0x00405150 returns; that class and its name are unidentified.
 #define VECTOR_IMPLEMENT_ALL
 #include "shared/vector_class.hpp"
-// @ref ?Vocs@@3V?$DynamicVectorClass@PAVVocClass@@@@A=00ad0818
-// @ref ?Name@UnknownSound_405150@@QAEPBDXZ=00405150
-// @ref ??_C@_0M@OOFK@Invalid?5Voc?$AA@=007f9b3c
-// @ref ??_C@_06CPHF@?$DMnone?$DO?$AA@=007cdecc
 
 class UnknownSound_405150 {
 public:

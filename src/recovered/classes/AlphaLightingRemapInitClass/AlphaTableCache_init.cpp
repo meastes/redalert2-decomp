@@ -3,10 +3,5 @@
 // the following _$E draft, emitted by this definition; it tail-calls the
 // destructor 0x0041E3D0). The owning unit is not identified yet.
 #include "shared/alpha_table_cache.hpp"
-// @ref ??0AlphaLightingRemapInitClass@@QAE@XZ=0041e3c0
-// @ref ??1AlphaLightingRemapInitClass@@QAE@XZ=0041e3d0
-// @ref ?AlphaTableCache_008315B8@@3VAlphaLightingRemapInitClass@@A=008315b8
-// @ref _atexit=0078298a
-// @ref _$E2=0040aca0
 
 AlphaLightingRemapInitClass AlphaTableCache_008315B8;

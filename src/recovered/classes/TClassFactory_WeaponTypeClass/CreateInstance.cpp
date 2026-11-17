@@ -2,7 +2,6 @@
 // Light WeaponTypeClass interface: allocation size 304 and QI/deleting destructor slots
 // are independently present in the accepted original factory body.
 #include "shared/class_factory.hpp"
-// @ref ??0WeaponTypeClass@@QAE@PBD@Z=00732ea0
 
 class WeaponTypeClass {
 public:

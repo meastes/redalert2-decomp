@@ -10,4 +10,3 @@ bool WolServerArray::Get(WOL::Server *&server, int index)
     }
     return false;
 }
-// @ref ??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z=0051e600

@@ -73,7 +73,7 @@ public:
     void Partition_Rect(DynamicVectorClass<Rect> *regions,int count,Rect const &area); //0057C5B7 ECX owner, RET12
     int unknown_0057d3a0(int count,Rect const &area,Point2D const &seed,bool flag,Cell const &origin,double weight,bool last); //RET32; source intent hypotheses
 #ifdef RA2_MAPGEN_SHAPE_MEMBER
-    // A member: both callers (0x57C9E0, 0x57D3A0) pass this in ECX; ECX is not read (ra2-decomp FUN_0059BAB0).
+    // A member: both callers (0x57C9E0, 0x57D3A0) pass this in ECX; ECX is not read (ra2-decomp 0x0059BAB0).
     bool Cell_In_Generation_Shape(Cell const &position,Rect const &area,bool ellipse,double x_weight,double y_weight);
 #endif
     void Seed_Land_Type1();
