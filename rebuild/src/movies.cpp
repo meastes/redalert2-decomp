@@ -4,6 +4,7 @@
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 
 #include "always.h"
+#include "geozero.h"
 #include "geoconst1.h"
 #include "movies.h"
 #include "multiplayer.h"

@@ -42,7 +42,18 @@ def body_end(text, i):
     return -1
 
 
-def main(unit, dry):
+def namespace_spans(text, scope):
+    """(start, end) of every `namespace A { namespace B {` block that opens scope 'A::B' (one level per
+    block; nested blocks are matched by their innermost name only when scope has one part)."""
+    spans = []
+    for m in re.finditer(r'^namespace\s+%s\s*\{' % re.escape(scope.split('::')[-1]), text, re.M):
+        end = body_end(text, m.end() - 1)
+        if end > 0:
+            spans.append((m.end(), end))
+    return spans
+
+
+def main(unit, dry, callers=False):
     units = R.load_json(R.UNITS, {})
     info = units[unit]
     last = json.load(open(R.WORK / 'last' / (unit + '.json')))
@@ -70,6 +81,22 @@ def main(unit, dry):
             # Its address lies in the unit but main has no row there: no independent bound, so it
             # cannot be accepted, and its statics would reach the image unbound (lane R3).
             targets[n] = 'no independent bound yet (%08x has no row)' % a
+    if callers:
+        # Only the functions that are not exact and call an unbound function out of line: an inline
+        # helper the exact rows expand is emitted only for such callers, so guarding them leaves the
+        # helper unemitted (lane R6).
+        unbound = {f['name'] for f in coff._functions if resolve(f['name'])[0] is None and
+                   not f['name'].startswith(('??_G', '??_E', '_$E'))}
+        targets = {}
+        for f in coff._functions:
+            n = f['name']
+            if n in exact or n in unbound or n.startswith(('??_G', '??_E', '_$E', '??_')) or '?$' in n:
+                continue
+            section = coff.sections[f['section'] - 1]
+            called = {coff.symbols[i]['name'] for _, i, _ in section['relocs'] if i in coff.symbols} & unbound
+            if called:
+                targets[n] = 'calls %s out of line, which no row of the original has' % ', '.join(
+                    sorted(demangle(c) or c for c in called))[:120]
     src = R.ROOT / info['source']
     text = src.read_text(encoding='latin-1')
     edits, left = [], []
@@ -82,6 +109,18 @@ def main(unit, dry):
             seg = text[m.start():text.find('{', m.start())]
             return ';' not in re.sub(r'//[^\n]*', '', seg)
         hits = [m for m in pat.finditer(text) if body_end(text, text.find('{', m.start())) > 0 and no_semicolon(m)]
+        if not hits and '::' in name:
+            # A namespace member defined inside a `namespace NS {` block names itself unqualified (lane R6).
+            # A member of a class inside the namespace names itself by the rest ('WinData::Copy').
+            parts = name.split('::')
+            for k in range(1, len(parts)):
+                spans = namespace_spans(text, '::'.join(parts[:k]))
+                rest = '::'.join(parts[k:])
+                pat = re.compile(r'^(?![ \t#/])[^\n;{}]*?(?<![\w:~])%s\s*\(' % re.escape(rest), re.M)
+                hits = [m for m in pat.finditer(text) if any(s < m.start() < e for s, e in spans) and
+                        body_end(text, text.find('{', m.start())) > 0 and no_semicolon(m)]
+                if hits:
+                    break
         hits = [m for m in hits if not text[:m.start()].rstrip().endswith('#ifdef RA2_NON_MATCHING') and
                 not re.search(r'#ifdef RA2_NON_MATCHING[^\n]*\n$', text[:m.start()])]
         if len(hits) > 1:
@@ -104,11 +143,19 @@ def main(unit, dry):
                 r'^static\b[^\n;{]*\b%s\s*\([^;{]*\)\s*;' % re.escape(short), text, re.M):
             left.append((sym, 'file-static: callers need its definition')); continue
         end = body_end(text, text.find('{', m.start()))
-        edits.append((m.start(), end, why, sym))
-    for start, end, why, sym in sorted(edits, reverse=True):
+        # A definition that is also the function's only declaration leaves a prototype in front of the
+        # guard, so the callers still compile (lane R6).
+        proto = ''
+        if '::' not in text[m.start():m.end()]:
+            decl = re.compile(r'(?<![\w:~])%s\s*\([^;{}]*\)\s*;' % re.escape(short))
+            if not decl.search(text[:m.start()]):
+                head = re.sub(r'\s*//[^\n]*', '', text[m.start():text.find('{', m.start())]).strip()
+                proto = re.sub(r'^inline\s+', '', head) + '; // RA2: the definition is not exact yet\n'
+        edits.append((m.start(), end, why, sym, proto))
+    for start, end, why, sym, proto in sorted(edits, reverse=True):
         nl = text.find('\n', end)
         nl = len(text) if nl < 0 else nl
-        text = text[:start] + OPEN % why + text[start:nl] + '\n#endif' + text[nl:]
+        text = text[:start] + proto + OPEN % why + text[start:nl] + '\n#endif' + text[nl:]
     print('%s: %d guarded, %d left' % (unit, len(edits), len(left)))
     for sym, why in left:
         print('    left %s: %s' % (sym[:80], why))
@@ -182,4 +229,4 @@ if __name__ == '__main__':
     if '--refine' in sys.argv:
         refine(sys.argv[1], sys.argv[sys.argv.index('--refine') + 1])
     else:
-        main(sys.argv[1], '--dry' in sys.argv)
+        main(sys.argv[1], '--dry' in sys.argv, '--callers' in sys.argv)

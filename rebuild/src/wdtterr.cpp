@@ -9,6 +9,7 @@
 
 #include "always.h" // RA2: the includes this file needs
 
+#include "geozero.h"
 #include "geoconst1.h" // RA2: this unit holds its own copy of the geometry constants (the first initializer, at 0x00730990, is the zero rectangle of geozero.h)
 
 #include "ccfile.h" // RA2: the shape of a territory is looked up through the game's file system

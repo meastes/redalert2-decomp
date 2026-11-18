@@ -6,6 +6,7 @@
 #include "always.h"
 #include "vqa.h"
 
+#include "geozero.h"
 #include "geoconst1.h"
 
 #include "_keyboar.h"

@@ -2269,6 +2269,33 @@
       "source_quality_family": "rebuild"
     },
     {
+      "entry": 4875728,
+      "method": "004a65d0",
+      "body_bytes": 3,
+      "body_sha256": "e598d0c3ba86d917b177d7adde0556aa99bc355543c57aee0a3e50b684dd7e99",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5f8000e06feea278a2405a7626ff8ace96d61611909705643119bff5eb066bec",
+      "source": "rebuild/src/droppod.cpp",
+      "population": "rebuild-droppod",
+      "source_order": 4875728,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 4875744,
       "method": "004a65e0",
       "body_bytes": 3,

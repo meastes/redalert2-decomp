@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright 2026 ra2-decomp contributors
 // RA2: modules including this hold their own copy of these constants; geoconst2.h defines LEVEL_LEPTON_H and the rest after them.
+// Most of them include geozero.h just before it; ownrdraw.cpp does not (its initializer table has no GeoZero).
 #pragma once
-
-#include "geozero.h"
 
 #include <cmath>
 #include "fastmath.h"

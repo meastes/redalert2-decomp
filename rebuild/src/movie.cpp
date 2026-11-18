@@ -5,6 +5,7 @@
 
 #include "always.h"
 #include "movie.h"
+#include "geozero.h"
 #include "geoconst1.h"
 #include "_keyboar.h"
 #include "_map.h"

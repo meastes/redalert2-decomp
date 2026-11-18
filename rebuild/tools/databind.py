@@ -27,7 +27,26 @@ for i, s in enumerate(c.sections, 1):
     pattern = b''.join(re.escape(bytes([b])) if j not in mask else b'.' for j, b in enumerate(data))
     hits = [(base + m.start()) for base, img in images for m in re.finditer(pattern, img, flags=re.S)]
     if len(hits) != 1:
-        print('#%d %s: %d matches, not bound' % (i, [n['name'] for n in defined][:3], len(hits))); continue
+        print('#%d %s: %d matches, not bound as a whole' % (i, [n['name'] for n in defined][:3], len(hits)))
+        # Each symbol on its own (its bytes up to the next symbol): the linker keeps a section's
+        # symbols in order, but the original object may order its tables differently; a symbol
+        # binds when its own bytes occur once, at a 4-byte boundary (lane R5).
+        cuts = sorted({n['value'] for n in defined} | {len(data)})
+        for n in sorted(defined, key=lambda n: n['value']):
+            if resolve(n['name'])[0] is not None:
+                continue
+            lo, hi = n['value'], cuts[cuts.index(n['value']) + 1]
+            if hi - lo < 8:
+                print('  %s: %d bytes, too short to place' % (n['name'][:60], hi - lo)); continue
+            piece = b''.join(re.escape(bytes([data[j]])) if j not in mask else b'.' for j in range(lo, hi))
+            found = [(base + m.start()) for base, img in images for m in re.finditer(piece, img, flags=re.S)
+                     if (base + m.start()) % 4 == 0]
+            if len(found) == 1:
+                info.setdefault('references', {})[n['name']] = '%08x' % found[0]
+                print('  %s = %08x (its own %d bytes, unique match)' % (n['name'][:70], found[0], hi - lo))
+            else:
+                print('  %s: %d matches, not bound' % (n['name'][:60], len(found)))
+        continue
     for n in defined:
         if resolve(n['name'])[0] is None:
             info.setdefault('references', {})[n['name']] = '%08x' % (hits[0] + n['value'])

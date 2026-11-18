@@ -127,7 +127,8 @@ Cell const MapClass::RadiusOffset[] = {
 	/* 7  */	Cell(-1,-7),Cell(0,-7),Cell(1,-7),Cell(-3,-6),Cell(-2,-6),Cell(2,-6),Cell(3,-6),Cell(-5,-5),Cell(-4,-5),Cell(4,-5),Cell(5,-5),Cell(-5,-4),Cell(5,-4),Cell(-6,-3),Cell(6,-3),Cell(-6,-2),Cell(6,-2),Cell(-7,-1),Cell(7,-1),Cell(-7,0),Cell(7,0),Cell(-7,1),Cell(7,1),Cell(-6,2),Cell(6,2),Cell(-6,3),Cell(6,3),Cell(-5,4),Cell(5,4),Cell(-5,5),Cell(-4,5),Cell(4,5),Cell(5,5),Cell(-3,6),Cell(-2,6),Cell(2,6),Cell(3,6),Cell(-1,7),Cell(0,7),Cell(1,7),
 	/* 8  */	Cell(-1,-8),Cell(0,-8),Cell(1,-8),Cell(-3,-7),Cell(-2,-7),Cell(2,-7),Cell(3,-7),Cell(-5,-6),Cell(-4,-6),Cell(4,-6),Cell(5,-6),Cell(-6,-5),Cell(6,-5),Cell(-6,-4),Cell(6,-4),Cell(-7,-3),Cell(7,-3),Cell(-7,-2),Cell(7,-2),Cell(-8,-1),Cell(8,-1),Cell(-8,0),Cell(8,0),Cell(-8,1),Cell(8,1),Cell(-7,2),Cell(7,2),Cell(-7,3),Cell(7,3),Cell(-6,4),Cell(6,4),Cell(-6,5),Cell(6,5),Cell(-5,6),Cell(-4,6),Cell(4,6),Cell(5,6),Cell(-3,7),Cell(-2,7),Cell(2,7),Cell(3,7),Cell(-1,8),Cell(0,8),Cell(1,8),
 	/* 9  */	Cell(-1,-9),Cell(0,-9),Cell(1,-9),Cell(-3,-8),Cell(-2,-8),Cell(2,-8),Cell(3,-8),Cell(-5,-7),Cell(-4,-7),Cell(4,-7),Cell(5,-7),Cell(-6,-6),Cell(6,-6),Cell(-7,-5),Cell(7,-5),Cell(-7,-4),Cell(7,-4),Cell(-8,-3),Cell(8,-3),Cell(-8,-2),Cell(8,-2),Cell(-9,-1),Cell(9,-1),Cell(-9,0),Cell(9,0),Cell(-9,1),Cell(9,1),Cell(-8,2),Cell(8,2),Cell(-8,3),Cell(8,3),Cell(-7,4),Cell(7,4),Cell(-7,5),Cell(7,5),Cell(-6,6),Cell(6,6),Cell(-5,7),Cell(-4,7),Cell(4,7),Cell(5,7),Cell(-3,8),Cell(-2,8),Cell(2,8),Cell(3,8),Cell(-1,9),Cell(0,9),Cell(1,9),
-	/* 10 */	Cell(-1,-10),Cell(0,-10),Cell(1,-10),Cell(-3,-9),Cell(-2,-9),Cell(2,-9),Cell(3,-9),Cell(-5,-8),Cell(-4,-8),Cell(4,-8),Cell(5,-8),Cell(-7,-7),Cell(-6,-7),Cell(6,-7),Cell(7,-7),Cell(-7,-6),Cell(7,-6),Cell(-8,-5),Cell(8,-5),Cell(-8,-4),Cell(8,-4),Cell(-9,-3),Cell(9,-3),Cell(-9,-2),Cell(9,-2),Cell(-10,-1),Cell(10,-1),Cell(-10,0),Cell(10,0),Cell(-10,1),Cell(10,1),Cell(-9,2),Cell(9,2),Cell(-9,3),Cell(9,3),Cell(-8,4),Cell(8,4),Cell(-8,5),Cell(8,5),Cell(-7,6),Cell(7,6),Cell(-7,7),Cell(-6,7),Cell(6,7),Cell(7,7),Cell(-5,8),Cell(-4,8),Cell(4,8),Cell(5,8),Cell(-3,9),Cell(-2,9),Cell(2,9),Cell(3,9),Cell(-1,10),Cell(0,10),Cell(1,10)
+	/* 10 */	Cell(-1,-10),Cell(0,-10),Cell(1,-10),Cell(-3,-9),Cell(-2,-9),Cell(2,-9),Cell(3,-9),Cell(-5,-8),Cell(-4,-8),Cell(4,-8),Cell(5,-8),Cell(-7,-7),Cell(-6,-7),Cell(6,-7),Cell(7,-7),Cell(-7,-6),Cell(7,-6),Cell(-8,-5),Cell(8,-5),Cell(-8,-4),Cell(8,-4),Cell(-9,-3),Cell(9,-3),Cell(-9,-2),Cell(9,-2),Cell(-10,-1),Cell(10,-1),Cell(-10,0),Cell(10,0),Cell(-10,1),Cell(10,1),Cell(-9,2),Cell(9,2),Cell(-9,3),Cell(9,3),Cell(-8,4),Cell(8,4),Cell(-8,5),Cell(8,5),Cell(-7,6),Cell(7,6),Cell(-7,7),Cell(-6,7),Cell(6,7),Cell(7,7),Cell(-5,8),Cell(-4,8),Cell(4,8),Cell(5,8),Cell(-3,9),Cell(-2,9),Cell(2,9),Cell(3,9),Cell(-1,10),Cell(0,10),Cell(1,10),
+	/* 11 */	Cell(0,11),Cell(0,-11),Cell(-1,11),Cell(1,11),Cell(-1,-11),Cell(1,-11),Cell(-2,11),Cell(2,11),Cell(-2,-11),Cell(2,-11),Cell(-3,11),Cell(3,11),Cell(-3,-11),Cell(-3,11),Cell(-4,9),Cell(4,9),Cell(-4,-9),Cell(4,-9),Cell(-5,9),Cell(5,9),Cell(-5,-9),Cell(5,-9),Cell(-6,8),Cell(6,8),Cell(-6,-8),Cell(6,-8),Cell(-7,8),Cell(7,8),Cell(-7,-8),Cell(7,-8),Cell(-8,7),Cell(8,7),Cell(-8,-7),Cell(8,-7),Cell(-8,6),Cell(8,6),Cell(-8,-6),Cell(8,-6),Cell(-9,5),Cell(9,5),Cell(-9,-5),Cell(9,-5),Cell(-9,4),Cell(9,4),Cell(-9,-4),Cell(9,-4),Cell(-10,3),Cell(10,3),Cell(-10,-3),Cell(10,-3),Cell(-10,2),Cell(10,2),Cell(-10,-2),Cell(10,-2),Cell(-11,1),Cell(11,1),Cell(-11,-1),Cell(11,-1),Cell(11,0),Cell(-11,0) // RA2: the executable's table has the eleventh ring as well (369 cells)
 };
 
 Cell const MapClass::OcclusionOffset[] = {
@@ -172,18 +173,20 @@ CellClass BlubCell;
  * to a movement zone when this reads TRAVERSAL_PASSABLE for it, so this one table decides zone
  * grouping, hierarchical path gating, and every reachability flood in the game.
  */
-int MZonePassability[MZONE_COUNT][PASSABLE_COUNT] = {
-	/// LAND                CRUSH                 BLOCKED               WATER                 PARTIALLY_BLOCKED     NO                    OUTSIDE
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// NORMAL
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// CRUSHER
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// DESTROYER
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// AMPHIBIOUS_DESTROYER
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// AMPHIBIOUS_CRUSHER
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// AMPHIBIOUS
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_ILLEGAL },	/// SUBTERANNEAN
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// INFANTRY
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// INFANTRY_DESTROYER
-	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_ILLEGAL },	/// FLYER
+int MZonePassability[MZONE_CRUSHER_ALL][PASSABLE_COUNT] = { // RA2: twelve zones (MZONE_CRUSHER_ALL has no row), eight kinds of ground
+	/// LAND                CRUSH                 BLOCKED               BEACH                 WATER                 PARTIALLY_BLOCKED     NO                    OUTSIDE
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// NORMAL
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// CRUSHER
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// DESTROYER
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// AMPHIBIOUS_DESTROYER
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// AMPHIBIOUS_CRUSHER
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// AMPHIBIOUS
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_ILLEGAL },	/// SUBTERANNEAN
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// INFANTRY
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// INFANTRY_DESTROYER
+	{ TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_ILLEGAL },	/// FLYER
+	{ TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// WATER
+	{ TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_PASSABLE,   TRAVERSAL_PASSABLE,   TRAVERSAL_IMPASSABLE, TRAVERSAL_IMPASSABLE, TRAVERSAL_ILLEGAL },	/// WATER_BEACH
 };
 
 
@@ -627,14 +630,6 @@ char const IceSetLut[] = {
 
 
 
-/*
- * These are the four regions of an aligned 2x2 block of threat regions, expressed as cell
- * offsets from the upper left cell of the block. They run left to right and top to bottom, so
- * the low bit of the index is the eastern half of the block and the high bit is the southern.
- */
-Cell RegionQuadrantOffsets[4] = {
-	Cell(0, 0), Cell(REGION_WIDTH, 0), Cell(0, REGION_HEIGHT), Cell(REGION_WIDTH, REGION_HEIGHT),
-};
 
 
 /*
@@ -659,7 +654,7 @@ int ToRegionQuadrants[FACING_COUNT][2] = {
 /// </summary>
 MapClass::MapClass(void)
 {
-	//nothing
+	MaxLevel = 13; // RA2: the highest cell level to start with
 }
 
 
@@ -8868,6 +8863,16 @@ Cell ShorePieceOffsets[] = {
 };
 
 
+/*
+ * These are the four regions of an aligned 2x2 block of threat regions, expressed as cell
+ * offsets from the upper left cell of the block. They run left to right and top to bottom, so
+ * the low bit of the index is the eastern half of the block and the high bit is the southern.
+ */
+Cell RegionQuadrantOffsets[4] = {
+	Cell(0, 0), Cell(REGION_WIDTH, 0), Cell(0, REGION_HEIGHT), Cell(REGION_WIDTH, REGION_HEIGHT),
+};
+
+
 /// <summary>
 /// Places the shore tile that suits one cell at the water's edge.
 /// This is the per-cell worker of the generator's shore pass. The water lying around the cell
@@ -10921,6 +10926,7 @@ void MapClass::Reset_All_Subzones(void)
 /// <param name="bounds">The block the fill may not leave.</param>
 /// <param name="cell">Map position of the seed cell.</param>
 /// <returns>Returns with the distance the caller should advance its scan along the row.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int MapClass::Subzone_Span(CellSubzoneStruct * seed, int subzone_level, int subzone_id, Rect const & bounds, Cell const & cell)
 {
 	int zone = seed->ZoneID;
@@ -11159,6 +11165,7 @@ int MapClass::Subzone_Span(CellSubzoneStruct * seed, int subzone_level, int subz
 
 	return(skip);
 }
+#endif
 
 
 /// <summary>

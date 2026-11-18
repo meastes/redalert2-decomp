@@ -2,3 +2,6 @@ unit,entry,function,bytes,class,first_try,minutes,note
 tactical,006a24b0,Tactical::Tactical,522,b,edit,15,main's form carried: the +0xAC flag pair is one member with an inline constructor (header shape: store order); Scale takes a float quotient; the inverse matrix is RA2's 4.2667/8.5334 literals (TibSun's formula gives 5.33); exact
 sidebar,00681600,SidebarClass::StripClass::SelectClass::Mouse_Enter,66,b,edit,10,main's body in this tree's names; missing override made the vtable differ (whole-file build); exact
 sidebar,00681650,SidebarClass::StripClass::SelectClass::Mouse_Leave,53,b,yes,2,as Mouse_Enter; exact
+map,00547960,MapClass::MapClass,244,b,edit,3,main's MaxLevel = 13 carried; exact in the unit (map itself held by its static Cell-table initializer)
+combat,0047e2c0,Explosion_Damage,4611,b,parked,15,main's body already carried (R4); the original keeps TPoint3D<int>(x,y,z) and Length out of line (0x41B630/0x41B780) and uses 32 more bytes of frame; trial: the two members defined outside the class template changes nothing (VC6 still expands them); no mechanism yet
+init,005116a0,Init_Game,4420,b,parked,10,unguarded trial: besides unbound statics the locals sit in other stack slots (CCFileClass/INI objects at +0x50 vs +0xA0) and one inline expansion is missing; main's local order to be compared line by line next

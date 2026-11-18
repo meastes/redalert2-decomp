@@ -13,6 +13,7 @@
 
 #include "always.h"
 
+#include "geozero.h"
 #include "geoconst1.h" // RA2: this module holds its own copy of the geometry constants
 #include "voc.h"
 

@@ -109,6 +109,7 @@ unsigned char EventClass::EventLength[EventClass::LAST_EVENT] = {
 	size_of(EventClass, Data.Target ),				// SCATTER
 	0,												// DESTRUCT
 	size_of(EventClass, Data.Target ),				// DEPLOY
+	size_of(EventClass, Data.Target ),				// DETONATE
 	size_of(EventClass, Data.Place ),				// PLACE
 	0,												// OPTIONS
 	size_of(EventClass, Data.General ),				// GAMESPEED
@@ -135,6 +136,15 @@ unsigned char EventClass::EventLength[EventClass::LAST_EVENT] = {
 	0,												/// PAGEUSER
 	size_of(EventClass, Data.General ),				/// REMOVEPLAYER
 	size_of(EventClass, Data.General ),				/// LATENCYFUDGE
+	104,											// MEGAFRAMEINFO (RA2)
+	64,												// PACKET_TIMING (RA2)
+	0,												// ABOUT_TO_EXIT (RA2)
+	size_of(EventClass, Data.General ),				// FALLBACK_HOST (RA2)
+	size_of(EventClass, Data.Address ),				// ADDRESS_CHANGE (RA2)
+	size_of(EventClass, Data.NavCom ),				// PLAN_CONNECT (RA2)
+	0,												// PLAN_COMMIT (RA2)
+	size_of(EventClass, Data.Target ),				// PLAN_NODE_DELETE (RA2)
+	size_of(EventClass, Data.General ),				// ALL_CHEER (RA2)
 };
 
 char const * EventClass::EventNames[EventClass::LAST_EVENT] = {
@@ -148,6 +158,7 @@ char const * EventClass::EventNames[EventClass::LAST_EVENT] = {
 	"SCATTER",
 	"DESTRUCT",
 	"DEPLOY",
+	"DETONATE",
 	"PLACE",
 	"OPTIONS",
 	"GAMESPEED",
@@ -174,6 +185,15 @@ char const * EventClass::EventNames[EventClass::LAST_EVENT] = {
 	"PAGEUSER",
 	"REMOVEPLAYER",
 	"LATENCYFUDGE",
+	"MEGAFRAMEINFO",
+	"PACKETTIMING",
+	"ABOUTTOEXIT",
+	"FALLBACKHOST",
+	"ADDRESSCHANGE",
+	"PLANCONNECT",
+	"PLANCOMMIT",
+	"PLANNODEDELETE",
+	"ALLCHEER",
 };
 
 

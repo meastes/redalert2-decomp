@@ -2,6 +2,7 @@ symbol,address,evidence
 ??0?$ValueGameOption@E@WorldDominationTour@@QAE@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z,0x00727DA0,inferred: wdtconflict rows 00727c10 differ only at its sites
 ??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z,0x0068B0E0,inferred: spawnmanager rows 00689710 00689910 0068a7d0 0068a7d0 differ only at its sites
 ??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z,0x00531EE0,inferred: kamikaze rows 00531550 differ only at its sites
+??0?$VectorClass@USubzoneConnectionStruct@@@@QAE@HPBUSubzoneConnectionStruct@@@Z,0x0056CA50,"inferred: VectorClass<SubzoneTrackingStruct>::Resize (0x0056B4A0, bound copy) calls it at offsets 90 and 178 (lane R5)"
 ??0BaseNodeClass@@QAE@W4StructType@@ABVCell@@@Z,0x004F6BE0,"main: ??0BaseNodeClass@@QAE@HABVCell@@@Z (the same constructor, its first parameter typed int there)"
 ??0BuildType@StripClass@SidebarClass@@QAE@XZ,0x00682480,inferred: sidebar rows 0067b700 differ only at its sites
 ??0CRCEngine@@QAE@H@Z,0x00510B20,inferred: ini rows 0050d0f0 0050d400 0050d400 0050e5f0 differ only at its sites
@@ -2154,6 +2155,7 @@ symbol,address,evidence
 ?Is_Weapon_Valid@TechnoClass@@QBE_NPBUWeaponDataStruct@@@Z,0x006D8640,inferred: building rows 00451930 differ only at its sites
 ?JumpJet_To_Walk@FootClass@@UAE_NXZ,0x0041B480,slot +488 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b480@@QAE_NXZ
 ?Jump_To_Radar_Event@@YIXXZ,0x006F88F0,inferred: init rows 0051c640 differ only at its sites
+?LastAdjacentZone@@3HA,0x00A6FC34,main: the accepted map.cpp rows name this global unknown_zone_a6fc34 (0x00A6FC34) (lane R5)
 ?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,0x006DE0E0,slot +ac of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z
 ?Lepton_Dimensions@ObjectTypeClass@@UBE?AV?$TPoint3D@H@@XZ,0x005D5D30,slot +7c of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Lepton_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ
 ?Likely_Coord@FootClass@@UBE?AVCoord@@XZ,0x004C8AC0,slot +480 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot287@FootClass@@UAE?AUCoordStruct@@XZ
@@ -2213,6 +2215,7 @@ symbol,address,evidence
 ?New_Edit_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F22A0,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Not_Underground@ObjectClass@@UBE_NXZ,0x005D5490,slot +7c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Not_Underground@ObjectClass@@UBE_NXZ
 ?ONE_RAD@@3NB,0x007A6C48,inferred: mpsiegeteam rows 005abc60 005abc80 005abca0 differ only at its sites
+?OcclusionOffset@MapClass@@2QBVCell@@B,0x00A6ED18,inferred: map rows 005461a0 005461a0 005461a0 005461a0 differ only at its sites
 ?Occupies_Cells@FootClass@@UBE_NXZ,0x0041B470,slot +c0 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b470@@QAEEXZ
 ?Occupies_Cells@ObjectClass@@UBE_NXZ,0x00423D90,slot +c0 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot47@ObjectClass@@UAE_NXZ
 ?Occupy_List@ObjectClass@@UBEPBVCell@@_N@Z,0x005D4470,slot +104 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Occupy_List@ObjectClass@@UAEPBVCell@@H@Z
@@ -2332,6 +2335,7 @@ symbol,address,evidence
 ?RefreshMegaMission@FootClass@@UAE_NXZ,0x004CDD70,slot +460 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot279@FootClass@@UAE_NXZ
 ?RefreshMegaMission@TechnoClass@@UAE_NXZ,0x006D8FC0,slot +460 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_6d8fc0@@QAE_NXZ
 ?Refund_Amount@TechnoClass@@UBEHXZ,0x006D5850,slot +2a0 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot167@TechnoClass@@UAEHXZ
+?RegionQuadrantOffsets@@3PAVCell@@A,0x00A6F218,inferred: map rows 00567cc0 00567cc0 00567cc0 00567cc0 differ only at its sites
 ?RegisteredClasses@@3V?$DynamicVectorClass@K@@A,0x00ABD428,inferred: startup rows 0068db40 0068db40 0068db40 0068db40 differ only at its sites
 ?Release@AbstractClass@@UAGKXZ,0x004100B0,slot +0c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Release@AbstractClass@@UAGKXZ
 ?Release@AbstractClass@@W3AGKXZ,0x004103A0,slot +0c of ??_7BuildingClass@@6BIRTTITypeInfo@@@ at 0079cb9c; main row ?Release@AbstractClass@@W3AGKXZ
@@ -2741,8 +2745,6 @@ symbol,address,evidence
 ?Who_Can_Build_Me@ObjectClass@@UBEPAVBuildingClass@@_N0@Z,0x005D4500,slot +17c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z
 ?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z,0x005D5FC0,slot +94 of ??_7BuildingTypeClass@@6BIPersistStream@@@ at 0079d1f8; main row ?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z
 ?Will_Jump_Tracks@LocomotionClass@@UAGEXZ,0x004A65C0,slot +a8 of ??_7FlyLocomotionClass@@6BILocomotion@@@ at 007a1000; main row ?Will_Jump_Tracks@LocomotionClass@@UAG_NXZ
-?Window_Proc_Table@@3V?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A,0x00A73400,inferred: ownrdraw rows 005deb90 005deb90 005deb90 005deb90 differ only at its sites
-?Window_Table@@3V?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A,0x00A73640,inferred: ownrdraw rows 005ded60 005ded60 005ded60 005ded60 differ only at its sites
 ?Write@BufferIOFileClass@@UAEHPBXH@Z,0x0042F830,slot +34 of ??_7CDFileClass@@6B@ at 0079a654; main row ?Write@BufferIOFileClass@@UAEJPBXJ@Z
 ?Write@CCFileClass@@UAEHPBXH@Z,0x00469030,slot +34 of ??_7CCFileClass@@6B@ at 0079a69c; main row ?Write@CCFileClass@@UAEJPBXJ@Z
 ?Write@RawFileClass@@UAEHPBXH@Z,0x00638E80,slot +34 of ??_7RawFileClass@@6B@ at 007a8cc0; main row ?Write@RawFileClass@@UAEJPBXJ@Z
@@ -2779,3 +2781,4 @@ symbol,address,evidence
 ?vt_entry_9C@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z,0x005A24D0,slot +9c of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot39@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z
 ?vt_entry_A0@MultiplayerGameMode@@UAE_NXZ,0x005A24F0,slot +a0 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot40@MultiplayerGameMode@@UAE_NXZ
 __purecall,0x004B8960,slot +10 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_4b8960@@QAEHXZ
+?shrink@?$Dictionary@IUWinData@OwnerDraw@@@@AAEXXZ,0x006027E0,"main row ?Shrink_Table@?$WolDictionary@IUWinData@OwnerDraw@@@@QAEXXZ (population-4450): the same template instance, wlib Dictionary::shrink for the control registry"

@@ -19163,7 +19163,11 @@
    "_PIXELS_PER_LEPTON": "00b25748",
    "_RAD_45": "00b25740",
    "_RAD_60": "00b25718",
-   "_RAD_90": "00b256f0"
+   "_RAD_90": "00b256f0",
+   "?Get_Display_Priority@MapSizeGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z": "00728b70",
+   "?Get_String@MapSizeGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z": "00728ab0",
+   "?Get_Display_Priority@FlagGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z": "00728850",
+   "?Get_String@FlagGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z": "00728870"
   }
  },
  "draw": {
@@ -45314,7 +45318,37 @@
    "_PIXELS_PER_LEPTON": "00a71090",
    "_RAD_45": "00a71088",
    "_RAD_60": "00a71048",
-   "_RAD_90": "00a71020"
+   "_RAD_90": "00a71020",
+   "??8?$VectorClass@PBD@@UBE_NABV0@@Z": "005a2020",
+   "?Resize@?$DynamicVectorClass@PBD@@UAE_NHPBQBD@Z": "005a21a0",
+   "?Clear@?$DynamicVectorClass@PBD@@UAEXXZ": "005a1fc0",
+   "?ID@?$DynamicVectorClass@PBD@@UAEHABQBD@Z": "005a2250",
+   "?ID@?$DynamicVectorClass@PBD@@UAEHPBQBD@Z": "005a1ff0",
+   "?GetItem@?$VectorClass@PBD@@UBEPBDH@Z": "005a2010",
+   "?Resize@?$VectorClass@PBD@@UAE_NHPBQBD@Z": "005a2060",
+   "?Clear@?$VectorClass@PBD@@UAEXXZ": "005a2110",
+   "?ID@?$VectorClass@PBD@@UAEHABQBD@Z": "005a2140",
+   "?ID@?$VectorClass@PBD@@UAEHPBQBD@Z": "005a2180",
+   "?AdvanceFrame@VQMovieHandle@@UAE_NXZ": "005a1860",
+   "?Waiting@VQMovieHandle@@UAEXXZ": "005a18a0",
+   "?Pause@VQMovieHandle@@UAEX_N@Z": "005a17f0",
+   "?Stop@VQMovieHandle@@UAEXXZ": "005a1830",
+   "?FramesLeft@VQMovieHandle@@UAE_NXZ": "005a1850",
+   "?SetPosition@VQMovieHandle@@UAEXHH@Z": "005a18b0",
+   "?SeekToFrame@VQMovieHandle@@UAEXH@Z": "005a1910",
+   "?InitSubtitles@VQMovieHandle@@UAEXP6IXPAX@Z@Z": "005a18f0",
+   "?Timing@VQMovieHandle@@UAEHXZ": "005a1930",
+   "?Blit@VQMovieHandle@@UAEXXZ": "005a1940",
+   "?AdvanceFrame@BinkMovieHandle@@UAE_NXZ": "005a1af0",
+   "?Waiting@BinkMovieHandle@@UAEXXZ": "005a1b00",
+   "?Pause@BinkMovieHandle@@UAEX_N@Z": "005a1ab0",
+   "?Stop@BinkMovieHandle@@UAEXXZ": "005a1ac0",
+   "?FramesLeft@BinkMovieHandle@@UAE_NXZ": "005a1ae0",
+   "?SetPosition@BinkMovieHandle@@UAEXHH@Z": "005a1b10",
+   "?SeekToFrame@BinkMovieHandle@@UAEXH@Z": "005a1b40",
+   "?InitSubtitles@BinkMovieHandle@@UAEXP6IXPAX@Z@Z": "005a1b30",
+   "?Timing@BinkMovieHandle@@UAEHXZ": "005a1b50",
+   "?Blit@BinkMovieHandle@@UAEXXZ": "005a1b60"
   }
  },
  "weapon": {
@@ -50729,7 +50763,17 @@
    "_RAD_45": "00ad0808",
    "_RAD_60": "00ad07e0",
    "_RAD_90": "00ad07a8",
-   "__real@4@3ff8a3d70a0000000000": "007a5df0"
+   "__real@4@3ff8a3d70a0000000000": "007a5df0",
+   "??8?$VectorClass@PAVVocClass@@@@UBE_NABV0@@Z": "00714d90",
+   "?Resize@?$DynamicVectorClass@PAVVocClass@@@@UAE_NHPBQAVVocClass@@@Z": "00714f10",
+   "?Clear@?$DynamicVectorClass@PAVVocClass@@@@UAEXXZ": "00714d30",
+   "?ID@?$DynamicVectorClass@PAVVocClass@@@@UAEHABQAVVocClass@@@Z": "00714fc0",
+   "?ID@?$DynamicVectorClass@PAVVocClass@@@@UAEHPBQAVVocClass@@@Z": "00714d60",
+   "?GetItem@?$VectorClass@PAVVocClass@@@@UBEPAVVocClass@@H@Z": "00714d80",
+   "?Resize@?$VectorClass@PAVVocClass@@@@UAE_NHPBQAVVocClass@@@Z": "00714dd0",
+   "?Clear@?$VectorClass@PAVVocClass@@@@UAEXXZ": "00714e80",
+   "?ID@?$VectorClass@PAVVocClass@@@@UAEHABQAVVocClass@@@Z": "00714eb0",
+   "?ID@?$VectorClass@PAVVocClass@@@@UAEHPBQAVVocClass@@@Z": "00714ef0"
   },
   "partial_ok": true
  },
@@ -119049,7 +119093,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004b5c90",
    "004b65c0"
@@ -119331,7 +119375,43 @@
    "??_C@_04HGOH@IDLE?$AA@": "007d6848",
    "??_C@_07IHFJ@SCATTER?$AA@": "007d6840",
    "??_C@_08NPPB@DESTRUCT?$AA@": "007d6834",
-   "??_C@_06MHLH@DEPLOY?$AA@": "007d682c"
+   "??_C@_06MHLH@DEPLOY?$AA@": "007d682c",
+   "??_C@_08FPFD@DETONATE?$AA@": "007d6820",
+   "??_C@_05DLB@PLACE?$AA@": "007d6818",
+   "??_C@_07MKIM@OPTIONS?$AA@": "007d6810",
+   "??_C@_09OMEC@GAMESPEED?$AA@": "007d6804",
+   "??_C@_07HGON@PRODUCE?$AA@": "007d67fc",
+   "??_C@_07NMBJ@SUSPEND?$AA@": "007d67f4",
+   "??_C@_07HNGC@ABANDON?$AA@": "007d67ec",
+   "??_C@_07PLFH@PRIMARY?$AA@": "007d67e4",
+   "??_C@_0O@IHEM@SPECIAL_PLACE?$AA@": "007d67d4",
+   "??_C@_04HPFN@EXIT?$AA@": "007d67cc",
+   "??_C@_09FJDH@ANIMATION?$AA@": "007d67c0",
+   "??_C@_06LGHC@REPAIR?$AA@": "007d67b8",
+   "??_C@_04OPML@SELL?$AA@": "007d67b0",
+   "??_C@_08MBBN@SELLCELL?$AA@": "007d67a4",
+   "??_C@_07LPDC@SPECIAL?$AA@": "007d679c",
+   "??_C@_09JINN@FRAMESYNC?$AA@": "007d6790",
+   "??_C@_07NCFE@MESSAGE?$AA@": "007d6788",
+   "??_C@_0O@JJFJ@RESPONSE_TIME?$AA@": "007d6778",
+   "??_C@_09HJHD@FRAMEINFO?$AA@": "007d676c",
+   "??_C@_08DDJA@SAVEGAME?$AA@": "007d6760",
+   "??_C@_07FAGJ@ARCHIVE?$AA@": "007d6758",
+   "??_C@_09HGAN@ADDPLAYER?$AA@": "007d674c",
+   "??_C@_06NNPN@TIMING?$AA@": "007d6744",
+   "??_C@_0N@BAJM@PROCESS_TIME?$AA@": "007d6734",
+   "??_C@_08PHEC@PAGEUSER?$AA@": "007d6728",
+   "??_C@_0N@HHAI@REMOVEPLAYER?$AA@": "007d6718",
+   "??_C@_0N@HMIK@LATENCYFUDGE?$AA@": "007d6708",
+   "??_C@_0O@FEFA@MEGAFRAMEINFO?$AA@": "007d66f8",
+   "??_C@_0N@DJK@PACKETTIMING?$AA@": "007d66e8",
+   "??_C@_0M@NDF@ABOUTTOEXIT?$AA@": "007d66dc",
+   "??_C@_0N@MBMJ@FALLBACKHOST?$AA@": "007d66cc",
+   "??_C@_0O@NCOA@ADDRESSCHANGE?$AA@": "007d66bc",
+   "??_C@_0M@CKEG@PLANCONNECT?$AA@": "007d66b0",
+   "??_C@_0L@CAGJ@PLANCOMMIT?$AA@": "007d66a4",
+   "??_C@_0P@DMHI@PLANNODEDELETE?$AA@": "007d6694",
+   "??_C@_08MGD@ALLCHEER?$AA@": "007d6688"
   },
   "partial_ok": true,
   "holder": "codex2",
@@ -119367,7 +119447,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00543fe0",
    "0056a9f0"
@@ -119505,7 +119585,7 @@
     "entry": "005441e0",
     "body": 8102,
     "padding": 10,
-    "symbol": "_$E47",
+    "symbol": "_$E248",
     "main_symbol": "_$E47",
     "main_source": "src/recovered/map.cpp"
    },
@@ -119521,7 +119601,7 @@
     "entry": "005461a0",
     "body": 6028,
     "padding": 4,
-    "symbol": "_$E50",
+    "symbol": "_$E251",
     "main_symbol": "_$E50",
     "main_source": "src/recovered/map.cpp"
    },
@@ -119993,7 +120073,7 @@
     "entry": "0054ebc0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E66",
+    "symbol": "_$E267",
     "main_symbol": "_$E66",
     "main_source": "src/recovered/map.cpp"
    },
@@ -120627,7 +120707,7 @@
     "entry": "0055b520",
     "body": 762,
     "padding": 6,
-    "symbol": "_$E260",
+    "symbol": "_$E272",
     "main_symbol": "_$E71",
     "main_source": "src/recovered/map.cpp"
    },
@@ -120683,7 +120763,7 @@
     "entry": "0055cbc0",
     "body": 809,
     "padding": 7,
-    "symbol": "_$E275",
+    "symbol": "_$E276",
     "main_symbol": "_$E75",
     "main_source": "src/recovered/map.cpp"
    },
@@ -121257,9 +121337,6 @@
    }
   ],
   "references": {
-   "_$E248": "005441e0",
-   "_$E251": "005461a0",
-   "_$E270": "0054ebc0",
    "_?$S269@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4EA": "00a6f9f0",
    "_?_offsets@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4PAVCell@@A": "00a6f1ec",
    "_BRIDGE_LEPTON_HEIGHT": "00a6fb40",
@@ -121285,9 +121362,19 @@
    "?Init_Cells@MapClass@@UAEXXZ": "00548490",
    "?Detach@MapClass@@UAEXPBVAbstractClass@@_N@Z": "00559d80",
    "?Logic@MapClass@@UAEXXZ": "0054e300",
-   "?Set_Local_Dimensions@MapClass@@UAEXABV?$TRect@H@@@Z": "00549ae0"
+   "?Set_Local_Dimensions@MapClass@@UAEXABV?$TRect@H@@@Z": "00549ae0",
+   "_?$S266@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4EA": "00a6f9f0",
+   "?BridgeSideFacings@@3PAW4FacingType@@A": "007e0454",
+   "?ShorePieceGroups@@3PAHA": "007e0304",
+   "?ShorePieceFacings@@3PAHA": "007e03ac",
+   "?FromRegionQuadrants@@3PAY01HA": "007e0494",
+   "?ToRegionQuadrants@@3PAY01HA": "007e04d4"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "build_refused": {
+   "source_sha256": "26a133ad7787350b9e47d402081441edc0a1805e35cd6d966f07682b8d76e91a",
+   "reason": "Unaccounted emitted code section bytes"
+  }
  },
  "wonline": {
   "core": [
@@ -124263,7 +124350,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004981a0",
    "004983e0"
@@ -133500,7 +133587,7 @@
     "entry": "005de750",
     "body": 49,
     "padding": 15,
-    "symbol": "_$E23",
+    "symbol": "_$E71",
     "main_symbol": "_$E23",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -133548,7 +133635,7 @@
     "entry": "005de850",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E89",
+    "symbol": "_$E160",
     "main_symbol": "_$E43",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -133556,7 +133643,7 @@
     "entry": "005de870",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E161",
+    "symbol": "_$E158",
     "main_symbol": "_$E41",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -133604,7 +133691,7 @@
     "entry": "005de9c0",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E163",
+    "symbol": "_$E165",
     "main_symbol": "_$E48",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -133612,7 +133699,7 @@
     "entry": "005dea60",
     "body": 291,
     "padding": 13,
-    "symbol": "_$E166",
+    "symbol": "_$E163",
     "main_symbol": "_$E46",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -133620,7 +133707,7 @@
     "entry": "005deb90",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E168",
+    "symbol": "_$E170",
     "main_symbol": "_$E53",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -133628,7 +133715,7 @@
     "entry": "005dec30",
     "body": 291,
     "padding": 13,
-    "symbol": "_$E171",
+    "symbol": "_$E168",
     "main_symbol": "_$E51",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -133636,7 +133723,7 @@
     "entry": "005ded60",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E173",
+    "symbol": "_$E175",
     "main_symbol": "_$E58",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -133644,7 +133731,7 @@
     "entry": "005dee00",
     "body": 369,
     "padding": 15,
-    "symbol": "_$E56",
+    "symbol": "_$E173",
     "main_symbol": "_$E56",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -134518,7 +134605,9 @@
     "padding": 0,
     "symbol": "_$E178",
     "main_symbol": "_unknown_init_globals_5edf60",
-    "main_source": "src/recovered/ownrdraw/unknown_init_globals.cpp"
+    "main_source": "src/recovered/ownrdraw/unknown_init_globals.cpp",
+    "gap_padding": 15,
+    "gap_population": "population-106"
    },
    {
     "entry": "005edfa0",
@@ -134618,17 +134707,24 @@
    }
   ],
   "references": {
-   "_CELL_LEPTON_DIAG": "0079a708",
-   "_ISO_TILE_SIZE": "00a763c0",
-   "_LEPTONS_PER_PIXEL": "00a76368",
-   "_ONE_RAD": "007a7b10",
-   "_RAD_45": "00a736c8",
-   "_RAD_60": "00a733d8",
    "_RECT_NONE": "00a733f0",
-   "__real@8@4004b400000000000000": "0079a718",
-   "__real@8@4004f000000000000000": "0079a720",
-   "_$E166": "005dec30",
-   "_$E171": "005dee00"
+   "_CELL_LEPTON_DIAG": "00a73680",
+   "_ISO_TILE_SIZE": "007a7b08",
+   "_LEPTONS_PER_PIXEL": "00a763c0",
+   "_LEVEL_LEPTON_H": "00a763d0",
+   "_ONE_RAD": "007a7b10",
+   "_PIXELS_PER_LEPTON": "00a76368",
+   "_RAD_45": "00a76360",
+   "_RAD_60": "00a736c8",
+   "_RAD_90": "00a733d8",
+   "?BRIDGE_LEPTON_HEIGHT@@3HB": "00a763bc",
+   "?CELL_DIAG_SLOPE_ANGLE@@3NB": "00a76148",
+   "?CELL_NONE@@3VCell@@B": "00a73678",
+   "?CELL_SLOPE_ANGLE@@3NB": "00a737d8",
+   "?COORD_NONE@@3VCoord@@B": "00a73930",
+   "?Window_Proc_Table@@3V?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A": "00a73688",
+   "?Window_Table@@3V?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A": "00a73400",
+   "_$E163": "005dea60"
   },
   "partial_ok": true
  }

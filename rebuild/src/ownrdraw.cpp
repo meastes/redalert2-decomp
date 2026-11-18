@@ -4795,6 +4795,7 @@ inline int __cdecl Get_Item_Text(HWND owner, int const &index, wchar_t *text, in
 }
 
 
+#ifdef RA2_NON_MATCHING // not exact: calls ?shrink@?$Dictionary@IUWinData@OwnerDraw@@@@AAEXXZ, OwnerDraw::WinData::Copy_List out of line, which no row of the original has
 LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     static void *solid_brush = CreateSolidBrush(0x306030); // RA2: as above
@@ -5187,6 +5188,7 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
     }
     return DefWindowProcA(window, message, wparam, lparam); // RA2: as above
 }
+#endif
 
 }
 
@@ -5417,6 +5419,8 @@ BOOL __stdcall Restore_Child(HWND window, LPARAM lparam) // RA2: as above
 }
 
 
+OwnerDraw::Tooltip ODTooltip; // RA2: 0x00A737F0, the dialogs' one tooltip (its initializer comes after the dictionaries')
+
 namespace OwnerDraw { // RA2: as above
 
 OwnerDraw::Tooltip::Tooltip() // RA2: as above
@@ -5544,6 +5548,7 @@ namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
 class WindowList; // RA2: as above
+#ifdef RA2_NON_MATCHING // not exact: calls ?expand@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ, ?growVector@?$ArrayList@PAUHWND__@@@@AAEDXZ, ?keyHash@?$Dictiona out of line, which no row of the original has
 LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static POINT min_update_rect = {0xFFFFFF, 0xFFFFFF};
@@ -6176,6 +6181,7 @@ cleanup:
     }
     return result; // RA2: as above
 }
+#endif
 
 }
 
@@ -7920,6 +7926,7 @@ struct ScrollBarRecord { // RA2: as above
     int keep_capture; // RA2: as above
 };
 
+#ifdef RA2_NON_MATCHING // not exact: calls OwnerDraw::Draw_Arrow, OwnerDraw::Draw_Edge_Glows out of line, which no row of the original has
 LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     RECT client_rect;
@@ -8258,11 +8265,13 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
     }
     return 0; // RA2: as above
 }
+#endif
 
 }
 
 
 namespace OwnerDraw { // RA2: as above
+#ifdef RA2_NON_MATCHING // not exact: calls OwnerDraw::Draw_Progress_Fill out of line, which no row of the original has
 LRESULT __stdcall Progress_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     RECT rect;
@@ -8306,6 +8315,7 @@ LRESULT __stdcall Progress_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
     }
     return 0; // RA2: as above
 }
+#endif
 }
 
 
@@ -8710,6 +8720,7 @@ LRESULT __stdcall Group_Box_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 
 namespace OwnerDraw { // RA2: as above
 
+#ifdef RA2_NON_MATCHING // not exact: calls OwnerDraw::Draw_Text_In_Rect, OwnerDraw::Hotkey_Text out of line, which no row of the original has
 LRESULT __stdcall Hotkey_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     switch (message) {
@@ -8755,6 +8766,7 @@ LRESULT __stdcall Hotkey_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
     Window_Proc_Table.getValue(window, proc); // RA2: as above
     return CallWindowProcA(proc, window, message, wparam, lparam); // RA2: as above
 }
+#endif
 
 }
 
@@ -9853,6 +9865,7 @@ void __fastcall Show_Dialog(HWND dialog, int kind) // RA2: as above
 */
 namespace OwnerDraw { // RA2: as above
 
+#ifdef RA2_NON_MATCHING // not exact: calls OwnerDraw::Control_Record, OwnerDraw::Prepare_Dialog, OwnerDraw::TextRequest::TextRequest out of line, which no row of the original has
 int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	switch (message) {
@@ -9944,6 +9957,7 @@ int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 	}
 	return(0);
 }
+#endif
 
 }
 

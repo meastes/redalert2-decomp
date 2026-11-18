@@ -575,4 +575,4 @@ class MapClass: public GScreenClass
 extern CellClass BlubCell;
 
 int SubzoneHash(unsigned int const & key);
-extern int MZonePassability[MZONE_COUNT][PASSABLE_COUNT];
+extern int MZonePassability[MZONE_CRUSHER_ALL][PASSABLE_COUNT];
