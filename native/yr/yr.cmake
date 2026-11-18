@@ -193,6 +193,7 @@ if(WIN32)
            --work "${CMAKE_CURRENT_BINARY_DIR}/yr-combat"
            --wine-prefix "${CMAKE_CURRENT_BINARY_DIR}/wine/yr-combat" --wine "${RA2_NATIVE_WINE}")
   set_tests_properties(yr-native-combat PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+  include("${CMAKE_CURRENT_SOURCE_DIR}/yr/combined.cmake")   # lane Y16: RA2YRNative.exe and the engine DLLs
   return()   # the other ctests below run the Mac build
 endif()
 target_link_options(yr-native PRIVATE "LINKER:-alias_list,${RA2_NATIVE_YR_GEN}/alias_list.txt")
@@ -273,6 +274,14 @@ add_test(NAME yr-native-combat COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRE
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-combat")
 set_tests_properties(yr-native-combat PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
+
+# ctest yr-native-standins (lane Y16): the newer stand-ins at work in one skirmish: Magnetron, Prism and Mirage
+# tanks fire on spawned enemies, sonic and magnetron waves (WaveClass::FUN_007602E0), a spy goes into an
+# enemy power plant, the Psychic Dominator and the Lightning Storm are placed (yr/tests/yr_standins.py)
+add_test(NAME yr-native-standins COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_standins.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-standins" --seconds 120)
+set_tests_properties(yr-native-standins PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
 
 # ctest yr-native-graphics (lane Y14): no noise drawn while the MCV deploys and a Grizzly first moves
 # (a vehicle's uncached voxel picture through the eight-bit drawer; yr/tests/yr_graphics.py)

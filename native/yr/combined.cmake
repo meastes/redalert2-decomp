@@ -33,6 +33,58 @@ add_library(yr_engine_host_objs OBJECT ${ra2_engine_host_sources})
 target_link_libraries(yr_engine_host_objs PRIVATE SDL3::SDL3 ra2_port)
 target_compile_definitions(yr_engine_host_objs PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1 RA2_NATIVE_ENGINE=1)
 
+if(WIN32)
+  # Windows (lane Y16; native/yr/README.md "One game on Windows"): the engines are DLLs of the same
+  # objects as ra2-native.exe and yr-native.exe, each exporting only ra2_engine_main (its one
+  # __declspec(dllexport): lld then exports nothing else), linked against the one SDL3.dll; the thin
+  # host RA2YRNative.exe (GUI subsystem; ra2yr-native.exe, console, for the tests) loads a fresh copy
+  # per start (combined/one_game.cpp). The C runtime is the UCRT DLL every module shares.
+  function(ra2_windows_engine_link target)
+    # -static: libc++, libunwind and winpthreads inside each DLL, as in the .exe builds (the toolchain file's
+    # CMAKE_EXE_LINKER_FLAGS_INIT); only the system DLLs, the UCRT and SDL3.dll are imported.
+    target_link_options(${target} PRIVATE -static "LINKER:--allow-multiple-definition" "LINKER:--exclude-all-symbols")
+    target_sources(${target} PRIVATE "${ra2_win_dir}/ctors_win.c")   # the initialisers in link order (in a DLL too)
+    target_link_libraries(${target} PRIVATE ws2_32 iphlpapi winmm shell32 ole32 uuid)
+    set_target_properties(${target} PROPERTIES PREFIX "" SUFFIX ".dll")
+  endfunction()
+  add_library(ra2-engine SHARED $<TARGET_OBJECTS:ra2_engine_host_objs> $<TARGET_OBJECTS:ra2_recovered_objs>
+              $<TARGET_OBJECTS:ra2_data> "${RA2_NATIVE_GEN}/link_closure.c")
+  target_link_libraries(ra2-engine PRIVATE SDL3::SDL3 ra2_port)
+  target_compile_definitions(ra2-engine PRIVATE RA2_NATIVE_GAME=1)
+  ra2_windows_engine_link(ra2-engine)
+  add_dependencies(ra2-engine ra2-native)
+  add_library(yr-engine SHARED $<TARGET_OBJECTS:yr_engine_host_objs> $<TARGET_OBJECTS:yr_units_objs>
+              $<TARGET_OBJECTS:yr_data_obj> "${RA2_NATIVE_YR_GEN}/link_closure.c")
+  target_link_libraries(yr-engine PRIVATE SDL3::SDL3 ra2_port)
+  target_compile_definitions(yr-engine PRIVATE RA2_NATIVE_GAME=1 RA2_NATIVE_YR=1)
+  ra2_windows_engine_link(yr-engine)
+  add_dependencies(yr-engine yr-native)     # after yr-native's PRE_LINK has moved the initialisers
+  foreach(host ra2yr-native RA2YRNative)
+    if(host STREQUAL "RA2YRNative")
+      add_executable(${host} WIN32 "${CMAKE_CURRENT_SOURCE_DIR}/yr/combined/one_game.cpp")
+      target_sources(${host} PRIVATE "${ra2_win_icon_dir}/ra2native.rc")
+      target_include_directories(${host} PRIVATE "${ra2_win_icon_dir}")
+    else()
+      add_executable(${host} "${CMAKE_CURRENT_SOURCE_DIR}/yr/combined/one_game.cpp")
+    endif()
+    target_link_libraries(${host} PRIVATE SDL3::SDL3)
+    target_link_options(${host} PRIVATE "LINKER:--stack,8388608")   # the games run on its main thread
+    add_dependencies(${host} ra2-engine yr-engine)
+  endforeach()
+  # SDL3.dll beside them (the build folder is what is copied to a PC, with the three executables).
+  add_custom_command(TARGET RA2YRNative POST_BUILD
+    COMMAND "${CMAKE_COMMAND}" -E copy_if_different $<TARGET_FILE:SDL3::SDL3-shared> "${CMAKE_CURRENT_BINARY_DIR}"
+    VERBATIM)
+  # ctest one-game-toggle-wine (lane Y16): the one-game-toggle route on ra2yr-native.exe under Wine (a
+  # fresh prefix deleted after the run); the same conditions as the Mac's.
+  add_test(NAME one-game-toggle-wine COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/one_game_toggle.py"
+           --binary $<TARGET_FILE:ra2yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+           --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/one-game-toggle-wine"
+           --wine-prefix "${CMAKE_CURRENT_BINARY_DIR}/wine/one-game" --wine "${RA2_NATIVE_WINE}")
+  set_tests_properties(one-game-toggle-wine PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
+  return()
+endif()
+
 if(NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")   # bundles: the Mac's (iOS loads no bundle)
 # Red Alert 2: ra2-native's objects (they are already weakened by its PRE_LINK: built after it).
 add_library(ra2-engine MODULE $<TARGET_OBJECTS:ra2_engine_host_objs> ${ra2_engine_hostos} $<TARGET_OBJECTS:ra2_recovered_objs>

@@ -825,7 +825,7 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 void MapClass::Place_Down(Cell const & cell, ObjectClass * object)
 {
 	if (!object) return;
-	if (cell.X < 0 || cell.Y < 0 || cell.X >= MAP_CELL_W || cell.Y >= MAP_CELL_H) {	// NATIVE (lane Y12): a cell off the cell array (the original's Is_Valid reads past it) is logged and left alone; open: an LTNK in Allied 2 and Soviet 7 gets a garbage position from its drive locomotor
+	if (cell.X < 0 || cell.Y < 0 || cell.X >= MAP_CELL_W || cell.Y >= MAP_CELL_H) {	// NATIVE (lane Y12): a cell off the cell array (the original's Is_Valid reads past it) is logged and left alone (lane Y12's LTNK in Allied 2 and Soviet 7 was YR's turn tracks 67-71 missing from the drive locomotor's table: fixed by lane Y16, hdr/drive.h's fixup)
 		Coord where = object->Center_Coord();
 		static int logged = 0;
 		if (logged++ < 5) fprintf(stderr, "place-down: %s at cell %d,%d (coord %d,%d,%d) is off the map\n", object->Class_Of()->Name(), cell.X, cell.Y, where.X, where.Y, where.Z);

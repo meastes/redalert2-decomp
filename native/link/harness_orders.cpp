@@ -156,7 +156,8 @@ int Scripted_Order(char const *command)
         // `scout <ID> <dx> <dy>` (lane P2, test scaffolding): up to three of the player's units of
         // type ID are sent max(|dx|, |dy|) cells away (the move a click queues), each in another of
         // the eight directions, the ones whose destination's 7x7 cells are all on the map
-        // (MapClass::In_Radar) and least mapped first; the player's mapped cells (CellClass +0x12C
+        // (MapClass::In_Radar) and reachable (MapClass::Zone of the type's MovementZone, lane Y16), least
+        // mapped first; the player's mapped cells (CellClass +0x12C
         // bit 3, which Unshroud sets) around each start are kept. `mapped` logs, for each scout,
         // `harness-mapped s<n> moved <cells> now <mapped>/<cells> before <mapped>`: the 7x7 cells
         // around where it stands now, mapped now and when it was sent (ctest native-basics: a unit
@@ -175,6 +176,12 @@ int Scripted_Order(char const *command)
                 if (techno == 0 || techno->House != PlayerPtr || techno->Techno_Type_Class() == 0) continue;
                 if (!Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[2])) continue;
                 Cell at = techno->Center_Coord().As_Cell();
+                // Only a destination the scout can reach (the same movement zone as where it stands): a
+                // destination in another zone (a cliff top, water) is refused by the path finder and the
+                // scout never moves. The start position is random, so before lane Y16 a game whose three
+                // nearest-to-unmapped destinations were all unreachable failed the shroud check.
+                int mzone = techno->Techno_Type_Class()->MovementZone;
+                int zone = Map.Zone(at, mzone, false);
                 int best = -1, best_mapped = 0;
                 for (int d = 0; d < 8; ++d) {
                     if (used[d]) continue;
@@ -188,6 +195,12 @@ int Scripted_Order(char const *command)
                             if (!Map.In_Radar(cell)) inside = false;
                             else if (Map[cell].unknown_12c & 0x8) ++mapped;
                         }
+                    }
+                    if (inside) {
+                        Cell to;
+                        to.X = (short)(at.X + dirs[d][0] * reach);
+                        to.Y = (short)(at.Y + dirs[d][1] * reach);
+                        inside = Map.Zone(to, mzone, false) == zone;
                     }
                     if (inside && (best < 0 || mapped < best_mapped)) best = d, best_mapped = mapped;
                 }
@@ -205,8 +218,8 @@ int Scripted_Order(char const *command)
                 to.X = (short)(at.X + dirs[best][0] * reach);
                 to.Y = (short)(at.Y + dirs[best][1] * reach);
                 Queue_Mission(TargetClass(techno), 2, TargetClass(), TargetClass(to));
-                fprintf(stderr, "harness-scout s%d #%d @%d,%d -> @%d,%d (%d of 49 mapped)\n", scouts, i, at.X, at.Y,
-                        to.X, to.Y, best_mapped);
+                fprintf(stderr, "harness-scout s%d #%d @%d,%d -> @%d,%d (%d of 49 mapped, zone %d)\n", scouts, i, at.X, at.Y,
+                        to.X, to.Y, best_mapped, zone);
                 scout[scouts] = techno;
                 origin[scouts++] = at;
             }

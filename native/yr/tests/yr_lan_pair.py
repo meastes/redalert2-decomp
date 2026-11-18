@@ -9,14 +9,16 @@ native-lan-pair, native/tests/lan_pair.py).
   Bravo: main menu -> Network -> the Games list's second row (Alpha's game) -> Join (the guest
          screen); types a chat line; Accept.
   Both then play: the game's frames run in step until Alpha's frame count (--frames) is reached and
-  Alpha quits; Bravo, told the host left, is closed.
+  Alpha quits; Bravo, told the host left, is closed. Meanwhile both give orders (lane Y16, as RA2's
+  native-lan-pair): their vehicles selected, made team 1 and moved as a group, the team recalled and sent
+  back, every 600 frames; from --frames 6000 on, every combat unit hunts for the last 2,000 frames.
 
 Each instance has its own write folder with its player name in RA2MD.INI ([MultiPlayer] Handle) and
 the pair its own UDP port (RA2_NATIVE_IPX_PORT). Checks: no link-closure trap or fault in either log;
 the host seated Bravo (Bravo's guest screen shown; Alpha's join answer); each saw the other's chat
 line (RA2_NATIVE_LIST_LOG: the chat list's "[Name] text" line); both reached the game; the per-frame
 game CRCs both logged (RA2_NATIVE_CRC_LOG: "crc <frame> <value>") agree on every frame both logged,
-and there are at least --frames / 2 of them.
+and there are at least --frames / 2 of them; each side gave group orders.
 
   yr_lan_pair.py --binary <yr-native> --data-dir <game folder> --work <dir> [--frames 3000]
                  [--binary-b <second build> [--wine-prefix-b <dir> [--wine <wine>]]]
@@ -59,6 +61,23 @@ def host_script(frames):
 def guest_script():
     return (['s1+1500 click ' + NETWORK, 's2+12000 move ' + GAME_ROW, 's2+12500 click ' + GAME_ROW, 's2+14000 click ' + JOIN,
              's3+8000 click ' + CHAT] + typed('s3', 8500, 'bravochat') + ['s3+20000 click ' + START])
+
+
+def orders(start, end, every, hunt_at=0):
+    """Both sides' orders in play (lane Y16, as RA2's native-lan-pair): each round the player's fighting
+    vehicles are selected (harness `select * all`), made team 1 (Ctrl+1), moved as a group (`go`: one move
+    event per vehicle in one frame), the team recalled (1) and sent back: reused group orders through the
+    network queue (Extract_Compressed_Events). With hunt_at, every combat unit hunts from that frame (the two
+    players fight). Returns (harness orders, input-script lines)."""
+    harness, script = [], []
+    for k, f in enumerate(range(start, end, every)):
+        dx, dy = (5, 0, -5, 0)[k % 4], (0, 5, 0, -5)[k % 4]
+        harness += ['%d select * all' % f, '%d go %d %d' % (f + 60, dx, dy), '%d go %d %d' % (f + 210, -dx, -dy)]
+        script += ['%d keydown Left_Ctrl' % (f + 10), '%d key 1' % (f + 12), '%d keyup Left_Ctrl' % (f + 16), '%d key 1' % (f + 200)]
+    if hunt_at:
+        harness.append('%d hunt' % hunt_at)
+    harness.sort(key=lambda o: int(o.split()[0]))
+    return harness, script
 
 
 def handle(name):
@@ -104,7 +123,10 @@ def main():
     port = str(random.SystemRandom().randrange(27000, 60000, 8))
     runs = []
     try:
+        hunt = a.frames - 2000 if a.frames >= 6000 else 0
         for name, script, binary in (('Alpha', host_script(a.frames), a.binary), ('Bravo', guest_script(), a.binary_b or a.binary)):
+            harness, extra = orders(800 if name == 'Alpha' else 1000, a.frames - 400, 600, hunt)
+            script = script + extra
             folder = os.path.join(work, name)
             os.makedirs(os.path.join(folder, 'w'))
             with open(os.path.join(folder, 'w', 'RA2MD.INI'), 'w') as f:
@@ -113,7 +135,7 @@ def main():
                 f.write('\n'.join(script) + '\n')
             env = dict(os.environ, RA2_NATIVE_MOVIE_SKIP='1', RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_DIALOG_LOG='1',
                        RA2_NATIVE_MSG_LOG='1', RA2_NATIVE_LIST_LOG='1', RA2_NATIVE_CRC_LOG='1', RA2_NATIVE_IPX_PORT=port,
-                       RA2_NATIVE_SCRIPT_AS_USER='1')
+                       RA2_NATIVE_SCRIPT_AS_USER='1', RA2_NATIVE_ORDERS='; '.join(harness))
             for k in ('RA2_NATIVE_TRAP_CONTINUE', 'RA2_NATIVE_FORCE_END'):
                 env.pop(k, None)
             cmd = [binary, '--data-dir', a.data_dir, '--run-to=never', '--run-seconds=%d' % a.seconds,
@@ -160,6 +182,10 @@ def main():
             failures.append('%s did not show %s\'s chat line' % (name, other))
         if 'Starting scnenario' not in text[name] and 'progress: frame' not in text[name] and not CRC.search(text[name]):
             failures.append('%s never reached the game' % name)
+        groups = re.findall(r'^harness-go (\d+) units', text[name], re.M)
+        print('yr-lan-pair: %s gave %d group moves (%s units)' % (name, len(groups), ','.join(groups[:6])))
+        if a.frames >= 2000 and not any(int(g) > 0 for g in groups):
+            failures.append('%s gave no group order' % name)
     crcs = [dict((int(f), v) for f, v in CRC.findall(text[n])) for n in ('Alpha', 'Bravo')]
     both = sorted(set(crcs[0]) & set(crcs[1]))
     differ = [f for f in both if crcs[0][f] != crcs[1][f]]

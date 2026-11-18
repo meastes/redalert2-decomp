@@ -11,7 +11,8 @@ build order (link/harness_orders.cpp, harness_build.cpp):
   death      the Grizzly keeps firing until the target dies: the player has one Grizzly fewer
              and the target is gone from Technos (removed, not left at 0 strength);
   shroud     three GIs are sent 12 cells away (`scout`: each in another direction, the least mapped
-             first): one has moved at least 6 cells and mapped at least 20 of the 7x7 cells around
+             first, only to a cell in the GI's own movement zone: lane Y16 found the old flake was the
+             random start position giving three unreachable destinations, which the path finder refuses): one has moved at least 6 cells and mapped at least 20 of the 7x7 cells around
              it that were not mapped when it was sent (CellClass::Unshroud; the RadiusCount
              regression also revealed the wrong cells, Sight_From);
   produce    the build order places a power plant, a refinery and a barracks; `train E1` (the

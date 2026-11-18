@@ -297,6 +297,22 @@ int ra2_win_rename(const char *from, const char *to)
     return -1;
 }
 
+// _exit(): TerminateProcess, no DLL detach (port_compat.h, lane Y16).
+#undef _exit
+void ra2_win_exit_now(int code)
+{
+    TerminateProcess(GetCurrentProcess(), (UINT)code);
+    for (;;) Sleep(1000);
+}
+
+// link(): a hard link (CreateHardLinkA; NTFS), for the one-game app's imports (app_mode.hpp, lane Y16).
+int ra2_win_link(const char *from, const char *to)
+{
+    if (CreateHardLinkA(to, from, nullptr)) return 0;
+    errno = GetLastError() == ERROR_ALREADY_EXISTS ? EEXIST : GetLastError() == ERROR_FILE_NOT_FOUND ? ENOENT : EXDEV;
+    return -1;
+}
+
 int ra2_win_fcntl(int fd, int command, ...)
 {
     va_list ap;

@@ -274,7 +274,12 @@ void engine_toggle_clicked()
 }
 }
 static int host_main(int argc, char **argv);
-extern "C" __attribute__((visibility("default"))) int ra2_engine_main(int argc, char **argv, ra2_engine_host *host)
+#ifdef _WIN32
+#define RA2_ENGINE_EXPORT __declspec(dllexport)   // the engine DLL's one export (lane Y16)
+#else
+#define RA2_ENGINE_EXPORT __attribute__((visibility("default")))
+#endif
+extern "C" RA2_ENGINE_EXPORT int ra2_engine_main(int argc, char **argv, ra2_engine_host *host)
 {
     if (!host || host->version != RA2_ENGINE_API_VERSION) return 70;
 #ifdef RA2_NATIVE_YR

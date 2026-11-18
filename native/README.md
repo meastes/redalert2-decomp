@@ -700,7 +700,9 @@ BombClass 0x00435FB0, WDTState::Is_Valid).
   many of the 7x7 cells around that destination the player has mapped (lane P2).
   ctest `native-basics` (`tests/basics.py`, fast tier): one uncapped skirmish checks a tank's shell
   damages a tank, the target dies and is removed, a scout lifts the shroud, the barracks trains
-  GIs and the refinery's harvester delivers, each with its own pass/fail line.
+  GIs and the refinery's harvester delivers, each with its own pass/fail line. Its scouts go only
+  to cells in their own movement zone (lane Y16: the shroud check's flake was a random start position
+  whose three picked destinations were all unreachable, so no scout moved).
   Gate tiers: every test carries the ctest label `static` (no play), `fast` or `slow` (plus
   `area:<name>`), see the end of CMakeLists.txt and docs/ORIGINAL_TARGET_BUILD.md "Native test tiers".
   `RA2_NATIVE_FILE_DUMP="<name>:<out path>[;...]"` (Scout1236) writes the named game

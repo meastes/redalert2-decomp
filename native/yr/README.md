@@ -643,12 +643,63 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   same garbage coordinates every run, e.g. -1447125004,-1459498755), so it is not a pointer's low half (those vary
   with ASLR); not found in the time box.
 
+### Lane Y16 (2026-11-18): the LTNK off the map, the Magnetron's beam, stand-in tests, a longer LAN game, one game on Windows
+
+* **The LTNK driven off the map** (Allied 2, Soviet 7; lane Y12's `place-down:`/`pick-up:` lines with the same garbage
+  coordinates every run): gamemd.exe's drive locomotor has 72 turn tracks and 15 raw tracks; the tree has TibSun's 67
+  and 13. YR's turn tracks 67-71 (raw tracks 14, 16 steps, and 15, 17 steps) are what Force_Track gives a unit leaving
+  a factory diagonally; with the 67-entry table TrackControl[70] read past it, its raw track was RawTracks[-1] and
+  Smooth_Turn added garbage offsets. The tables are pointer-free, so `TrackControl[72]`, `Track14_007E78A8[16]` and
+  `Track15_007E7968[17]` are declared only (hdr/drive.h's fixup) and loaded from gamemd.exe (yr_data.py:
+  `TurnTrackType`/`TrackType` are plain structures); `RawTracks[15]` (glue/drive_native.inc) keeps its pointers. On the
+  way, yr_data.py reads a static member's bound from its own class's declaration (`Class::member` index), not from a
+  same-named member of another class (ship.h's `TrackControl[67]` had given the drive's its bound; CDFileClass::First
+  and LastCDDrive now get their own types too). `yr-native-campaign-allied/-soviet` fail on any off-map line.
+* **NON-EXACT WaveClass::FUN_007602E0** (gamemd.exe 0x007602E0, 1,777 bytes; Draw_It's wave type 3, the Magnetron's
+  beam): gamemd.exe's routine is Draw_Sonic with FUN_00760190 (matched) called where Draw_Sonic calls
+  Set_Sonic_Pixel; the two disassemblies differ in those four call targets only (yr_dis.py; ra2-decomp's attempts.csv
+  says the same). glue/wave_native.inc: the Draw_Sonic draft with the call swapped. Link closure (Mac) 127 -> 126.
+* **ctest `yr-native-standins`** (yr/tests/yr_standins.py; harness orders `spawn <ID> [enemy|dx dy]`, `fire`, `enter`,
+  `owner`, `waves`, `wave <type>`, `super <name> enemy`, `money`): a Magnetron (TELE), a Prism Tank (SREF) and a
+  Mirage Tank (MGTK) fire on two enemy Apocalypses spawned beside them, sonic and magnetron waves are made directly,
+  a spy goes into an enemy power plant, the Psychic Dominator and the Lightning Storm are placed through
+  SuperClass::Discharged (the map click's path): no trap, the waves in flight, the Apocalypses destroyed, the spy in.
+  Not covered: a hijacker (no rules ID found here; TechnoClass::GotHijacked is gamemd.exe's empty slot anyway, lane
+  Y14), bridge repair (needs a map with a broken bridge) and the War Factory's unload (production through the
+  harness is not written; the AI's factories run Do_MISSION_UNLOAD in every long skirmish).
+* **A longer LAN game with orders** (`yr-native-lan-pair`, also `--frames 12000`): both sides' fighting vehicles are
+  selected (`select * all`), made team 1 (Ctrl+1), moved as a group (`go`: one move event each in one frame), the team
+  recalled and sent back every 600 frames, as RA2's native-lan-pair; from 6,000 frames on every combat unit hunts for
+  the last 2,000. 3,000 frames (the ctest) and 12,000 frames (6 min 20 s, 36 group moves a side, the hunt): every
+  frame's CRC equal.
+* **One game on Windows** (`-DRA2_NATIVE_COMBINED=ON` in the Windows build; yr/combined.cmake's WIN32 branch):
+  `ra2-engine.dll` and `yr-engine.dll` are the same objects as ra2-native.exe and yr-native.exe with the engine host
+  (main.cpp's `ra2_engine_main`, `__declspec(dllexport)`: the DLLs' one export), libc++/libunwind/winpthreads inside
+  each (-static); the build's SDL is then the one shared `SDL3.dll` (copied beside the executables), owning the window
+  both games draw in. `RA2YRNative.exe` (GUI) and `ra2yr-native.exe` (console, the tests) are the thin host
+  (combined/one_game.cpp's `_WIN32` parts): each start copies the engine's DLL to %TEMP% under a new name and
+  LoadLibrary's it (a fresh image: the game's static initialisers again), an ended engine's exit handlers run through
+  its DLL entry point with DLL_PROCESS_DETACH (what FreeLibrary would run: that DLL's atexit table, the static
+  destructors, Prog_End, the settings save) and its image stays loaded; copies left by earlier runs are deleted at
+  the next start. The host's environment changes (`_putenv_s`) reach the engines (one ucrtbase.dll). The last engine's
+  exit handlers also run before the host returns (ExitProcess would run them in its DLL detach after ending every
+  other thread), and the port's and host's `_exit` is TerminateProcess on Windows (platform/win/port_compat.h): the
+  UCRT's goes through ExitProcess and the running engine's detach, and a test run's time limit never ended the
+  process. Also: link()
+  for the one-game imports' hard links (CreateHardLinkA, platform/win). ctest `one-game-toggle-wine`: the
+  one-game-toggle route (RA2 -> YR -> RA2 and a skirmish, RA2 -> YR and a YR skirmish, YR chosen last) on
+  ra2yr-native.exe under Wine (`one_game_toggle.py --wine-prefix`; time limits doubled). Not tried on a real PC.
+* **native-basics' shroud flake** (RA2, link/harness_orders.cpp): the scouts' destinations were picked among the
+  least-mapped directions without asking whether they could be reached; the start position is random, and a game
+  whose three picks were all in another movement zone (cliff tops, water: the path finder refuses them, the scout
+  never moves) failed. Destinations are now in the scout's own zone (MapClass::Zone with its MovementZone).
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both
   games must be linked into the one executable. The design and its size: "iOS in one executable"
   below (lane Y8).
-* **Windows.** Two DLLs (`ra2-engine.dll`, `yr-engine.dll`) built from the same objects with
+* **Windows** (built by lane Y16: "One game on Windows" above). Two DLLs (`ra2-engine.dll`, `yr-engine.dll`) built from the same objects with
   only `ra2_engine_main` exported (PE exports are explicit: nothing else is visible), loaded with
   `LoadLibrary` from a fresh copy per start, `RA2Native.exe` as the thin host. The engines' C
   runtime must be the shared UCRT DLL (each DLL with a static CRT would keep its own heap and
@@ -951,9 +1002,9 @@ redraws its command bar only once the mouse passes over it.
 
 ## Next
 
-0. (lane Y13) LAN: `IPXManagerClass` (the RA2 tree has its twin) and the `MultiplayerGameMode` entries, then a
-   two-instance ctest as Red Alert 2's native-lan-pair; the Windows build on a real PC; the combined (one-game) app on
-   Windows (engines as DLLs).
+0. The Windows builds on a real PC (YRNative.exe, RA2YRNative.exe with its two DLLs and SDL3.dll); the stand-ins
+   not yet seen at work (a hijacker, bridge repair, the War Factory's unload through the harness); the -MPDEBUG sync
+   record's object lists.
 
 1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu
    will stop at its unmatched handlers (ListBoxHandler 14.7 KB, ComboBoxHandler 6.9 KB,

@@ -19,6 +19,11 @@ fault; no process of the run is left (native/tests/game_process.py ends the grou
 Skipped (77) without the installed game (RA2 with Yuri's Revenge in --data-dir, game.exe given).
 
   one_game_toggle.py --binary <ra2yr-native> --data-dir <game folder> --game-exe <game.exe> --work <dir>
+                     [--wine-prefix <dir> [--wine <wine>]]
+
+With --wine-prefix (lane Y16, ctest one-game-toggle-wine) the binary is the Windows build's
+ra2yr-native.exe (the engines are DLLs beside it), run under Wine in that fresh prefix, deleted after;
+each run's time limit is doubled (Wine starts slower).
 """
 import argparse
 import glob
@@ -30,6 +35,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'tests'))
 import game_process  # noqa: E402  (native/tests: the game's process group, lane C19)
+import yr_wine  # noqa: E402  (the Windows build under Wine, lanes YW, Y16)
 
 # Both games at 800x600 (RA2: the write folder's RA2.INI; YR: its installed RA2MD.INI, as the
 # yr-native tests run it): Single Player, Skirmish (the single-player menu's third button) and Start
@@ -67,6 +73,10 @@ def run(a, name, scripts, game, seconds, run_to='never'):
         '--write-dir=' + a.writes, '--game-args=-noaudio']
     if paths:
         cmd.append('--engine-scripts=' + ','.join(paths))
+    if a.prefix:
+        cmd = [c.replace('--run-seconds=%d' % seconds, '--run-seconds=%d' % (2 * seconds)) for c in cmd]
+        seconds *= 2
+    cmd, env = yr_wine.wrap(a.prefix, cmd, env)
     log_path = os.path.join(work, 'run.log')
     with open(log_path, 'w') as log:
         p = game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=seconds + 120)
@@ -181,6 +191,7 @@ def main():
     ap.add_argument('--data-dir', default='')
     ap.add_argument('--game-exe', default='')
     ap.add_argument('--work', required=True)
+    yr_wine.add_arguments(ap)
     a = ap.parse_args()
     if not a.data_dir or not os.path.exists(os.path.join(a.data_dir, 'gamemd.exe')):
         print('skipped: no Yuri\'s Revenge install (gamemd.exe) in --data-dir')
@@ -193,6 +204,16 @@ def main():
     os.makedirs(a.writes)
     with open(os.path.join(a.writes, 'RA2.INI'), 'w') as f:
         f.write(INI)
+    a.prefix = yr_wine.open_prefix(a)
+    if a.prefix == yr_wine.SKIP:
+        return 77
+    try:
+        return checks(a)
+    finally:
+        yr_wine.close(a.prefix)
+
+
+def checks(a):
     failures = []
 
     # Run 1: RA2 -> YR -> RA2, then a skirmish in RA2.

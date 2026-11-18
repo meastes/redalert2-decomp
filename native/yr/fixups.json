@@ -949,6 +949,12 @@
    "why": "radar.cpp declares the radar animation shape (an SHPStruct * that txtlabel2.cpp loads) as int; natively the int read takes only the pointer's low half (lane Y3)."
   },
   {
+   "file": "hdr/drive.h",
+   "old": "static TurnTrackType const TrackControl[67];\n\t\tstatic RawTrackType const RawTracks[13];",
+   "new": "static TurnTrackType const TrackControl[72];\t\t// NATIVE (lane Y16): YR's 72 turn tracks, loaded from gamemd.exe\n\t\tstatic RawTrackType const RawTracks[15];\n\t\tstatic TrackType const Track14_007E78A8[16];\t\t// NATIVE (lane Y16): YR's raw tracks 14 and 15, loaded from gamemd.exe\n\t\tstatic TrackType const Track15_007E7968[17];",
+   "why": "gamemd.exe's drive locomotor has 72 turn tracks and 15 raw tracks, not TibSun's 67 and 13: YR adds raw tracks 14 (16 steps) and 15 (17 steps) and turn tracks 67-71, which Force_Track sets (a unit leaving a factory diagonally: an LTNK in Allied 2 and Soviet 7 drove track 70). With the tree's 67-entry table, TrackControl[70] read past the table, its raw track was RawTracks[-1] and the unit's position became garbage (-1447125004,-1459498755 on every run; Place_Down/Pick_Up's off-map lines of lane Y12). TrackControl and the two new raw tracks are pointer-free, so they are declared only and the port loads gamemd.exe's (yr_data.py: 0x007E7B28, 0x007E78A8, 0x007E7968); RawTracks (glue/drive_native.inc) keeps its pointers, with the two new rows (lane Y16)."
+  },
+  {
    "file": "src/drive.cpp",
    "append": "drive_native.inc",
    "why": "DriveLocomotionClass functions unmatched in the YR tree; TibSun's text as native drafts (lane Y3)."

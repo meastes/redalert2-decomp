@@ -244,7 +244,14 @@ option(RA2_NATIVE_LINK_CLOSURE "Close the ra2-native link with generated trap st
 # else the installed SDL3 package (Homebrew's dylib on the Mac).
 set(RA2_NATIVE_SDL_SOURCE "" CACHE PATH "SDL3 source folder to build statically (the iOS build)")
 if(RA2_NATIVE_SDL AND RA2_NATIVE_SDL_SOURCE)
-  set(SDL_SHARED OFF CACHE BOOL "" FORCE)
+  # The combined app on Windows (lane Y16, yr/combined.cmake) shares one SDL3.dll between its host
+  # and its two engine DLLs (one SDL owns the window both games draw in): SDL3::SDL3 is then the
+  # shared library for every target of the build; the static one stays for the link closure.
+  if(WIN32 AND RA2_NATIVE_COMBINED)
+    set(SDL_SHARED ON CACHE BOOL "" FORCE)
+  else()
+    set(SDL_SHARED OFF CACHE BOOL "" FORCE)
+  endif()
   set(SDL_STATIC ON CACHE BOOL "" FORCE)
   set(SDL_TEST_LIBRARY OFF CACHE BOOL "" FORCE)
   set(SDL_TESTS OFF CACHE BOOL "" FORCE)

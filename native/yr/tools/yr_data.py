@@ -50,8 +50,10 @@ POD_STRUCTS = {'GUID', 'IID', 'CLSID', '_GUID', 'RECT', 'POINT', 'tagRECT', 'tag
                'VoxelRenderOrientation',   # voxdrsys.h: nine ints (lane Y3)
                'ZGradStruct',   # _zbuffer.h: five ints and a bool (lane Y13: Bit_Blit's z steps divided by zero)
                'MouseStruct',   # mouse.h: seven ints, the cursors' frames (lane Y13: Draw_Waypoints divided by zero)
-               'DoStruct'}      # _infantr.h: four bytes, the infantry actions' rates and flags (lane Y13)
-POD_SIZES = {'TheaterDataType': 0x70, 'VoxelRenderOrientation': 36, 'ZGradStruct': 24, 'MouseStruct': 28, 'DoStruct': 4}
+               'DoStruct',      # _infantr.h: four bytes, the infantry actions' rates and flags (lane Y13)
+               'TurnTrackType', 'TrackType'}   # drive.h: chars and enums, Point2D and an enum (lane Y16: YR's track tables)
+POD_SIZES = {'TheaterDataType': 0x70, 'VoxelRenderOrientation': 36, 'ZGradStruct': 24, 'MouseStruct': 28, 'DoStruct': 4,
+             'TurnTrackType': 12, 'TrackType': 12}
 ADDRESS = re.compile(r'_([0-9A-Fa-f]{8})$')
 
 
@@ -72,12 +74,25 @@ def text_index(gen):
     for path in list((gen / 'hdr').rglob('*')) + list((gen / 'units').glob('*.cpp')):
         if not path.is_file():
             continue
+        owner = None
         for line in path.read_text(encoding='latin-1').splitlines():
+            m = CLASS_HEAD.match(line)
+            if m:
+                owner = m.group(1)
             if 'extern' not in line and ';' not in line:
                 continue
             for w in set(word.findall(line)):
                 index[w].append(line)
+                if owner:
+                    index['%s::%s' % (owner, w)].append(line)
     return index
+
+
+# A top-level class's head in a header (`class DriveLocomotionClass : ...`, not a forward declaration): the
+# members declared after it are indexed under `Class::member` too, so a static member is read from
+# its own class's declaration and not from a same-named member of another class (lane Y16: ship.h's
+# TrackControl[67] gave DriveLocomotionClass::TrackControl its bound).
+CLASS_HEAD = re.compile(r'^(?:class|struct)\s+(?:__declspec\(\w+\)\s+)?([A-Za-z_]\w*)\s*(?::[^;]*)?(?:\{[^;]*)?$')
 
 
 def enum_values(gen):
@@ -199,7 +214,7 @@ def main():
             continue
         primary[address] = symbol
         short = name.split('::')[-1]
-        lines = index.get(short, [])
+        lines = (index.get('::'.join(name.split('::')[-2:]), []) if '::' in name else []) or index.get(short, [])
         decl = original_data.declaration(short, lines)
         if decl is None and re.match(r'(?:IID|CLSID|LIBID|FMTID)_\w+$', short):
             decl = ('GUID', 0, False)     # declared by the Win32 headers (objidl.h: EXTERN_C const IID)

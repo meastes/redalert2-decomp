@@ -19,15 +19,31 @@
 // handlers registered by its code (its __text, bounded by the engine markers).
 //
 //   ra2yr-native [--game=ra2|yr] [--engine-dir=<dir>] [--engine-scripts=<s0>,<s1>,...] <the game's options...>
+//
+// Windows (lane Y16): the engines are DLLs (ra2-engine.dll, yr-engine.dll) exporting only
+// ra2_engine_main, beside RA2YRNative.exe and the one SDL3.dll all three share. Each start loads
+// a fresh copy of the engine's DLL (copied to %TEMP%: the loader maps a file once per process),
+// so the game starts from its static initialisers; an ended engine's exit handlers run through its
+// DLL entry point with DLL_PROCESS_DETACH (what FreeLibrary would run: the C runtime's atexit table
+// of that DLL, the static destructors), and its image stays loaded, never called again. Copies of
+// earlier runs left in %TEMP% are deleted at the next start.
+#ifdef _WIN32
+#define SDL_MAIN_HANDLED 1
+#endif
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>      // iOS: SDL's UIKit start-up calls this file's main (ra2yr-one)
+#ifdef _WIN32
+#include <windows.h>
+#include <direct.h>
+#else
 #if !RA2_NATIVE_ONE_EXECUTABLE
 #include <copyfile.h>
 #endif
 #include <dlfcn.h>
-#include <errno.h>
 #include <mach-o/dyld.h>
 #include <mach-o/loader.h>
+#endif
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -44,13 +60,21 @@
 #include <mach-o/ldsyms.h>
 #endif
 
+#ifndef _WIN32
 extern "C" {
 // libSystem: the exit handlers registered by code in the given ranges (what dlclose runs).
 struct __cxa_range_t { const void *addr; size_t length; };
 void __cxa_finalize_ranges(const struct __cxa_range_t ranges[], unsigned int count);
 }
+#endif
 
 namespace {
+
+#ifdef _WIN32
+// The UCRT's environment, which the engine DLLs read too (one ucrtbase.dll per process).
+int setenv(const char *name, const char *value, int) { return _putenv_s(name, value); }
+int unsetenv(const char *name) { return _putenv_s(name, ""); }
+#endif
 
 const char *game_key(int game) { return game == RA2_ENGINE_YR ? "yr" : "ra2"; }
 const char *game_name(int game) { return game == RA2_ENGINE_YR ? "Yuri's Revenge" : "Red Alert 2"; }
@@ -60,8 +84,21 @@ std::string settings_path()
 {
     const char *s = getenv("RA2_NATIVE_SETTINGS");
     if (s && *s) return s;
+#ifdef _WIN32
+    const char *appdata = getenv("APPDATA");     // host_win.cpp settings_dir: %APPDATA%\RA2Native
+    return std::string(appdata ? appdata : ".") + "\\RA2Native\\settings";
+#else
     const char *home = getenv("HOME");
     return std::string(home ? home : "") + "/Library/Application Support/RA2Native/settings";
+#endif
+}
+void make_dir(std::string const &dir)
+{
+#ifdef _WIN32
+    _mkdir(dir.c_str());
+#else
+    mkdir(dir.c_str(), 0755);
+#endif
 }
 std::string read_setting(const char *key)
 {
@@ -102,22 +139,34 @@ void write_setting(const char *key, const char *value)
         lines.push_back("# Red Alert 2 (native) settings: written by the app");
     }
     if (!replaced) lines.push_back(std::string(key) + "=" + value);
-    size_t slash = path.rfind('/');
+    size_t slash = path.find_last_of("/\\");
     if (slash != std::string::npos) {
         std::string dir = path.substr(0, slash);
         for (size_t i = 1; i <= dir.size(); ++i)
-            if (i == dir.size() || dir[i] == '/') mkdir(dir.substr(0, i).c_str(), 0755);
+            if (i == dir.size() || dir[i] == '/' || dir[i] == '\\') make_dir(dir.substr(0, i));
     }
     std::string tmp = path + ".tmp";
     FILE *f = fopen(tmp.c_str(), "w");
     if (!f) return;
     for (auto const &l : lines) fprintf(f, "%s\n", l.c_str());
     fclose(f);
+#ifdef _WIN32
+    MoveFileExA(tmp.c_str(), path.c_str(), MOVEFILE_REPLACE_EXISTING);
+#else
     rename(tmp.c_str(), path.c_str());
+#endif
 }
 
 std::string executable_dir()
 {
+#ifdef _WIN32
+    char buf[MAX_PATH];
+    DWORD n = GetModuleFileNameA(nullptr, buf, sizeof buf);
+    std::string path(buf, n);
+    size_t slash = path.find_last_of("/\\");
+    return slash == std::string::npos ? "." : path.substr(0, slash);
+#endif
+#ifndef _WIN32
     char buf[4096];
     uint32_t size = sizeof buf;
     if (_NSGetExecutablePath(buf, &size) != 0) return ".";
@@ -125,6 +174,7 @@ std::string executable_dir()
     std::string path = realpath(buf, real) ? real : buf;
     size_t slash = path.rfind('/');
     return slash == std::string::npos ? "." : path.substr(0, slash);
+#endif
 }
 
 struct Engine {
@@ -133,7 +183,69 @@ struct Engine {
     const void *base = nullptr;     // its Mach-O header
 };
 
-#if !RA2_NATIVE_ONE_EXECUTABLE
+#ifdef _WIN32
+std::string temp_dir()
+{
+    char buf[MAX_PATH];
+    DWORD n = GetTempPathA(sizeof buf, buf);
+    std::string dir = n ? std::string(buf, n) : std::string(".\\");
+    if (dir.back() != '\\' && dir.back() != '/') dir += '\\';
+    return dir;
+}
+// Copies of the engines left by earlier runs (a loaded DLL cannot be deleted): those no process
+// has loaded any more go now.
+void delete_stale_copies()
+{
+    std::string dir = temp_dir();
+    WIN32_FIND_DATAA found;
+    HANDLE h = FindFirstFileA((dir + "ra2yr-*.dll").c_str(), &found);
+    if (h == INVALID_HANDLE_VALUE) return;
+    do DeleteFileA((dir + found.cFileName).c_str());
+    while (FindNextFileA(h, &found));
+    FindClose(h);
+}
+// A fresh image of the engine's DLL: a copy under a new name per start.
+bool load_engine(std::string const &dir, int game, int serial, Engine &out)
+{
+    std::string dll = dir + "\\" + (game == RA2_ENGINE_YR ? "yr-engine.dll" : "ra2-engine.dll");
+    char copy[MAX_PATH];
+    snprintf(copy, sizeof copy, "%sra2yr-%lu-%d-%s.dll", temp_dir().c_str(), (unsigned long)GetCurrentProcessId(), serial, game_key(game));
+    if (!CopyFileA(dll.c_str(), copy, FALSE)) {
+        fprintf(stderr, "one-game: cannot copy %s: error %lu\n", dll.c_str(), (unsigned long)GetLastError());
+        return false;
+    }
+    HMODULE module = LoadLibraryA(copy);
+    if (!module) {
+        fprintf(stderr, "one-game: %s: LoadLibrary error %lu\n", dll.c_str(), (unsigned long)GetLastError());
+        DeleteFileA(copy);
+        return false;
+    }
+    auto entry = (ra2_engine_main_fn)(void *)GetProcAddress(module, "ra2_engine_main");
+    if (!entry) {
+        fprintf(stderr, "one-game: %s has no ra2_engine_main\n", dll.c_str());
+        return false;
+    }
+    out.handle = module;
+    out.main = entry;
+    out.base = module;
+    return true;
+}
+
+// The ended engine's exit handlers: its DLL entry point (the C runtime's DllMainCRTStartup) with
+// DLL_PROCESS_DETACH, as FreeLibrary would call it, but the image stays loaded (a thread of it may
+// still be parked there). The runtime runs the DLL's own atexit table: the static destructors,
+// Prog_End, the app settings' save. At the process's exit the loader's own detach finds it done.
+void finalize_engine(Engine const &e)
+{
+    const unsigned char *base = (const unsigned char *)e.base;
+    const IMAGE_DOS_HEADER *dos = (const IMAGE_DOS_HEADER *)base;
+    const IMAGE_NT_HEADERS *nt = (const IMAGE_NT_HEADERS *)(base + dos->e_lfanew);
+    DWORD rva = nt->OptionalHeader.AddressOfEntryPoint;
+    if (!rva) return;
+    typedef BOOL (WINAPI *DllEntry)(HINSTANCE, DWORD, LPVOID);
+    ((DllEntry)(void *)(base + rva))((HINSTANCE)e.handle, DLL_PROCESS_DETACH, nullptr);
+}
+#elif !RA2_NATIVE_ONE_EXECUTABLE
 // A fresh image of the bundle: dyld maps a file once per process, so each start copies it.
 bool load_engine(std::string const &dir, int game, int serial, Engine &out)
 {
@@ -285,6 +397,10 @@ int main(int argc, char **argv)
         fprintf(stderr, "one-game: starting %s (--game)\n", game_name(game));
     }
     if (persist) write_setting("game", game_key(game));
+#ifdef _WIN32
+    SDL_SetMainReady();
+    delete_stale_copies();
+#endif
     if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS)) {
         fprintf(stderr, "SDL_Init: %s\n", SDL_GetError());
         return 1;
@@ -335,6 +451,12 @@ int main(int argc, char **argv)
         int code = e.main((int)engine_args.size() - 1, engine_args.data(), &host);
         if (!host.swap) {
             fprintf(stderr, "one-game: %s ended (%d)\n", game_name(game), code);
+#ifdef _WIN32
+            // Its exit handlers now, while its threads still run (ExitProcess would run them in the
+            // DLL's detach after ending every other thread), then its threads.
+            finalize_engine(e);
+            if (host.stop_threads) host.stop_threads();
+#endif
             SDL_Quit();
             return code;
         }

@@ -66,6 +66,15 @@ int ra2_bsd_gethostname(char *name, size_t length);
 #define mkdtemp ra2_win_mkdtemp
 #define realpath ra2_win_realpath
 #define rename ra2_win_rename
+// _exit(): the process ends at once, as POSIX's _exit, with no DLL's exit code run (TerminateProcess).
+// The UCRT's _exit ends through ExitProcess, which runs every loaded DLL's detach: in the one-game
+// app that is the running engine DLL's static destructors and atexit table, with its other threads
+// already gone (lane Y16: a test run's time limit never ended ra2yr-native.exe under Wine).
+__attribute__((noreturn)) void ra2_win_exit_now(int code);
+#define _exit ra2_win_exit_now
+// link(): a hard link (CreateHardLinkA; the one-game app's imports, app_mode.hpp, lane Y16).
+int ra2_win_link(const char *from, const char *to);
+#define link ra2_win_link
 
 // futimes(fd, times[2]): access and modification times of an open file.
 int ra2_win_futimes(int fd, const struct timeval times[2]);

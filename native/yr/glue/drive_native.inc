@@ -1041,7 +1041,7 @@ DriveLocomotionClass::TrackType const DriveLocomotionClass::Track13[] = {
 **	are they. Each track can be interpreted differently but this is controlled
 **	by the TrackControl structure elaborated elsewhere.
 */
-DriveLocomotionClass::RawTrackType const DriveLocomotionClass::RawTracks[13] = {
+DriveLocomotionClass::RawTrackType const DriveLocomotionClass::RawTracks[15] = {	// NATIVE (lane Y16): YR's 15
 	{Track1, -1, 0, -1},
 	{Track2, -1, 0, -1},
 	{Track3, 37, 12, 22},
@@ -1054,7 +1054,9 @@ DriveLocomotionClass::RawTrackType const DriveLocomotionClass::RawTracks[13] = {
 	{Track10, -1, 0, -1},
 	{Track11, -1, 0, -1},
 	{Track12, -1, 0, -1},
-	{Track13, -1, 0, -1}
+	{Track13, -1, 0, -1},
+	{Track14_007E78A8, -1, 0, -1},	// NATIVE (lane Y16): YR's raw tracks 14 and 15 (gamemd.exe's rows: no jump, entry or cell point)
+	{Track15_007E7968, -1, 0, -1}
 };
 
 
@@ -1063,73 +1065,5 @@ DriveLocomotionClass::RawTrackType const DriveLocomotionClass::RawTracks[13] = {
 **	table determines which track to use and what modifying operations need
 **	be performed on the track data.
 */
-DriveLocomotionClass::TurnTrackType const DriveLocomotionClass::TrackControl[67] = {
-	{1,	0,		DIR_N,	F_},                                                                // 0-0
-	{3,	7,		DIR_NE,	F_D},                                                               //	0-1 (raw chart)
-	{4,	9,		DIR_E,	F_D},                                                               //	0-2 (raw chart)
-	{0,	0,		DIR_SE,	F_},                                                                // 0-3 !
-	{0,	0,		DIR_S,	F_},                                                                // 0-4 !
-	{0,	0,		DIR_SW,	F_},                                                                // 0-5 !
-	{4,	9,		DIR_W,	(DriveLocomotionClass::TrackControlType)(F_X|F_D)},                 // 0-6
-	{3,	7,		DIR_NW,	(DriveLocomotionClass::TrackControlType)(F_X|F_D)},                 // 0-7
-	{6,	8,		DIR_N,	(DriveLocomotionClass::TrackControlType)(F_T|F_X|F_Y|F_D)},         // 1-0
-	{2,	0,		DIR_NE,	F_},                                                                //	1-1 (raw chart)
-	{6,	8,		DIR_E,	F_D},                                                               //	1-2 (raw chart)
-	{5,	10,	DIR_SE,	F_D},                                                                   //	1-3 (raw chart)
-	{0,	0,		DIR_S,	F_},                                                                // 1-4 !
-	{0,	0,		DIR_SW,	F_},                                                                // 1-5 !
-	{0,	0,		DIR_W,	F_},                                                                // 1-6 !
-	{5,	10,	DIR_NW,	(DriveLocomotionClass::TrackControlType)(F_T|F_X|F_Y|F_D)},             // 1-7
-	{4,	9,		DIR_N,	(DriveLocomotionClass::TrackControlType)(F_T|F_X|F_Y|F_D)},         // 2-0
-	{3,	7,		DIR_NE,	(DriveLocomotionClass::TrackControlType)(F_T|F_X|F_Y|F_D)},         // 2-1
-	{1,	0,		DIR_E,	(DriveLocomotionClass::TrackControlType)(F_T|F_X)},                 // 2-2
-	{3,	7,		DIR_SE,	(DriveLocomotionClass::TrackControlType)(F_T|F_X|F_D)},             // 2-3
-	{4,	9,		DIR_S,	(DriveLocomotionClass::TrackControlType)(F_T|F_X|F_D)},             // 2-4
-	{0,	0,		DIR_SW,	F_},                                                                // 2-5 !
-	{0,	0,		DIR_W,	F_},                                                                // 2-6 !
-	{0,	0,		DIR_NW,	F_},                                                                // 2-7 !
-	{0,	0,		DIR_N,	F_},                                                                // 3-0 !
-	{5,	10,	DIR_NE,	(DriveLocomotionClass::TrackControlType)(F_Y|F_D)},                     // 3-1
-	{6,	8,		DIR_E,	(DriveLocomotionClass::TrackControlType)(F_Y|F_D)},                 // 3-2
-	{2,	0,		DIR_SE,	F_Y},                                                               // 3-3
-	{6,	8,		DIR_S,	(DriveLocomotionClass::TrackControlType)(F_T|F_X|F_D)},             // 3-4
-	{5,	10,	DIR_SW,	(DriveLocomotionClass::TrackControlType)(F_T|F_X|F_D)},                 // 3-5
-	{0,	0,		DIR_W,	F_},                                                                // 3-6 !
-	{0,	0,		DIR_NW,	F_},                                                                // 3-7 !
-	{0,	0,		DIR_N,	F_},                                                                // 4-0 !
-	{0,	0,		DIR_NE,	F_},                                                                // 4-1 !
-	{4,	9,		DIR_E,	(DriveLocomotionClass::TrackControlType)(F_Y|F_D)},                 // 4-2
-	{3,	7,		DIR_SE,	(DriveLocomotionClass::TrackControlType)(F_Y|F_D)},                 // 4-3
-	{1,	0,		DIR_S,	F_Y},                                                               // 4-4
-	{3,	7,		DIR_SW,	(DriveLocomotionClass::TrackControlType)(F_X|F_Y|F_D)},             // 4-5
-	{4,	9,		DIR_W,	(DriveLocomotionClass::TrackControlType)(F_X|F_Y|F_D)},             // 4-6
-	{0,	0,		DIR_NW,	F_},                                                                // 4-7 !
-	{0,	0,		DIR_N,	F_},                                                                // 5-0 !
-	{0,	0,		DIR_NE,	F_},                                                                // 5-1 !
-	{0,	0,		DIR_E,	F_},                                                                // 5-2 !
-	{5,	10,	DIR_SE,	(DriveLocomotionClass::TrackControlType)(F_T|F_D)},                     // 5-3
-	{6,	8,		DIR_S,	(DriveLocomotionClass::TrackControlType)(F_T|F_D)},                 // 5-4
-	{2,	0,		DIR_SW,	F_T},                                                               // 5-5
-	{6,	8,		DIR_W,	(DriveLocomotionClass::TrackControlType)(F_X|F_Y|F_D)},             // 5-6
-	{5,	10,	DIR_NW,	(DriveLocomotionClass::TrackControlType)(F_X|F_Y|F_D)},                 // 5-7
-	{4,	9,		DIR_N,	(DriveLocomotionClass::TrackControlType)(F_T|F_Y|F_D)},             // 6-0
-	{0,	0,		DIR_NE,	F_},                                                                // 6-1 !
-	{0,	0,		DIR_E,	F_},                                                                // 6-2 !
-	{0,	0,		DIR_SE,	F_},                                                                // 6-3 !
-	{4,	9,		DIR_S,	(DriveLocomotionClass::TrackControlType)(F_T|F_D)},                 // 6-4
-	{3,	7,		DIR_SW,	(DriveLocomotionClass::TrackControlType)(F_T|F_D)},                 // 6-5
-	{1,	0,		DIR_W,	F_T},                                                               // 6-6
-	{3,	7,		DIR_NW,	(DriveLocomotionClass::TrackControlType)(F_T|F_Y|F_D)},             // 6-7
-	{6,	8,		DIR_N,	(DriveLocomotionClass::TrackControlType)(F_T|F_Y|F_D)},             // 7-0
-	{5,	10,	DIR_NE,	(DriveLocomotionClass::TrackControlType)(F_T|F_Y|F_D)},                 // 7-1
-	{0,	0,		DIR_E,	F_},                                                                // 7-2 !
-	{0,	0,		DIR_SE,	F_},                                                                // 7-3 !
-	{0,	0,		DIR_S,	F_},                                                                // 7-4 !
-	{5,	10,	DIR_SW,	(DriveLocomotionClass::TrackControlType)(F_X|F_D)},                     // 7-5
-	{6,	8,		DIR_W,	(DriveLocomotionClass::TrackControlType)(F_X|F_D)},                 // 7-6
-	{2,	0,		DIR_NW,	F_X},                                                               // 7-7
-
-	{11,	11,	DIR_SW,	F_},                                                            // Backup harvester into refinery.
-	{12,	12,	DIR_SW,	F_},                                                            // Drive back into refinery.
-	{13,	13,	DIR_SW,	F_}                                                             // Drive out of weapons factory.
-};
+// NATIVE (lane Y16): DriveLocomotionClass::TrackControl is YR's 72 turn tracks (TibSun's 67 and YR's 67-71), declared
+// only (hdr/drive.h's fixup) and loaded from gamemd.exe (0x007E7B28) by yr_data.py.

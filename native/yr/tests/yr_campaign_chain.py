@@ -86,6 +86,11 @@ def main():
         problems.append('the credits did not run')
     if not any(l.startswith('run-to: reached menu-return') for l in lines):
         problems.append('the main menu did not come back: %s' % ([l for l in lines if l.startswith('run-to:')][-1:] or '?'))
+    off = [l for l in lines if re.match(r'(place-down|pick-up): .* is off the map', l)]
+    if off:
+        # lane Y16: a unit driven off the cell array (YR's turn tracks 67-71 were missing: an LTNK in
+        # Allied 2 and Soviet 7)
+        problems.append('a unit left the map: %s' % off[0])
     bad = sorted(set(l for l in lines if BAD.search(l) and not l.startswith('input-script')))
     if bad:
         problems.append('traps or faults: %s' % '; '.join(bad[:5]))
