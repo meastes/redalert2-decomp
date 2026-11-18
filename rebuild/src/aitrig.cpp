@@ -41,11 +41,6 @@
 #include "unittype.h"
 #include "vector.h"
 
-char const *TRIG_DIFFICULTIES[DIFF_COUNT] = {
-	"Easy",
-	"Medium",
-	"Hard"
-};
 
 char const * NONE_STRING = "<none>";
 char const * ALL_STRING = "<all>";

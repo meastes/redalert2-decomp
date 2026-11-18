@@ -90,7 +90,7 @@ def main(unit, dry, callers=False):
         targets = {}
         for f in coff._functions:
             n = f['name']
-            if n in exact or n in unbound or n.startswith(('??_G', '??_E', '_$E', '??_')) or '?$' in n:
+            if n in exact or n in unbound or n.startswith(('??_G', '??_E', '_$E', '??_')) or '?$' in n.split('@@')[0]:
                 continue
             section = coff.sections[f['section'] - 1]
             called = {coff.symbols[i]['name'] for _, i, _ in section['relocs'] if i in coff.symbols} & unbound

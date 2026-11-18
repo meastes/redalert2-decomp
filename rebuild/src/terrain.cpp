@@ -144,7 +144,6 @@ TerrainClass::~TerrainClass(void)
  *   11/22/1994 JLB : Shares base damage handler for techno objects.                           *
  *   12/11/1994 JLB : Shortens attached burning animations.                                    *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 611 bytes differ (adopted text)
 ResultType TerrainClass::Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source, bool forced, bool no_crew)
 {
 	ResultType res = RESULT_NONE;
@@ -160,10 +159,6 @@ ResultType TerrainClass::Take_Damage(int & damage, int distance, WarheadTypeClas
 
 		if (res == RESULT_ALREADY_DESTROYED) {
 			return(res);
-		}
-
-		if (!IsOnFire && damage > 0 && warhead->IsSparky) {
-			Catch_Fire();
 		}
 
 		/*
@@ -203,7 +198,6 @@ ResultType TerrainClass::Take_Damage(int & damage, int distance, WarheadTypeClas
 	}
 	return(res);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1103,7 +1097,7 @@ void TerrainClass::Debug_Dump(MonoClass * mono) const
 /// write into the Z buffer.
 /// </summary>
 /// <returns>bool; Is the terrain object animating?</returns>
-bool TerrainClass::Is_Animating(void) const // RA2: defined last, after Fetch_RTTI
+inline bool TerrainClass::Is_Animating(void) const // RA2: defined last, after Fetch_RTTI
 {
 	return(Class->IsAnimated || IsCrumbling);
 }

@@ -10028,7 +10028,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0041e320",
    "0041e600"
@@ -19817,7 +19817,9 @@
    "0041bc90",
    "0041c2e0"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "0041bf80": "_$E71"
+  },
   "source": "rebuild/src/airctype.cpp",
   "options": [
    "/O2",
@@ -19827,7 +19829,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0041baa0",
    "0041c2e0"
@@ -20023,7 +20025,7 @@
     "entry": "0041bf80",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E49",
+    "symbol": "_$E71",
     "main_symbol": "_$E49",
     "main_source": "src/recovered/airctype.cpp"
    },
@@ -20111,7 +20113,8 @@
    "_RAD_60": "0083c500",
    "_RAD_90": "0083c4d8",
    "_RECT_NONE": "0083c4e0"
-  }
+  },
+  "holder": "codex1"
  },
  "brain": {
   "core": [
@@ -27311,7 +27314,8 @@
   "build_refused": {
    "source_sha256": "28bf6c712ac5bd8e9febd05cba6947ee20b12f0a01c5e80b14e7c52a54eeabd2",
    "reason": "Unsupported allocatable data section .data #2 in accepted.obj (['.data', '_?_names@?1??Special_From_Name@@YI?AW4SuperWeaponType@@PBD@Z@4PAPBDA'])"
-  }
+  },
+  "holder": "codex1"
  },
  "cstream": {
   "core": [
@@ -31595,7 +31599,8 @@
   "build_refused": {
    "source_sha256": "e1414013e51ee4334f8d248468a983536410852587beffaf16d3e1b6e0c0fabb",
    "reason": "Unsupported allocatable data section .rdata #112 in accepted.obj (['.rdata', '??_7ScriptTypeClass@@6BIPersistStream@@@']): the original RTTI names the vtable at 007a93b8 ??_7ScriptTypeClass@@6B@; +28 "
-  }
+  },
+  "holder": "codex1"
  },
  "bittext": {
   "core": [
@@ -36165,7 +36170,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0042bcf0",
    "0042d520"
@@ -36707,7 +36712,8 @@
    "?Clear@?$VectorClass@VBaseNodeClass@@@@UAEXXZ": "0042d2a0",
    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": "0042d2d0",
    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHPBVBaseNodeClass@@@Z": "0042d320"
-  }
+  },
+  "holder": "codex1"
  },
  "keyboard": {
   "core": [
@@ -55924,7 +55930,10 @@
    "004bffd0",
    "004c25b0"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "004bff00": "_$E160",
+   "004bff90": "_$E166"
+  },
   "source": "rebuild/src/fog.cpp",
   "options": [
    "/O2",
@@ -55934,7 +55943,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004bfcd0",
    "004c26c0"
@@ -56072,7 +56081,7 @@
     "entry": "004bff00",
     "body": 88,
     "padding": 8,
-    "symbol": "_$E45",
+    "symbol": "_$E160",
     "main_symbol": "_$E45",
     "main_source": "src/recovered/fog.cpp"
    },
@@ -56088,7 +56097,7 @@
     "entry": "004bff90",
     "body": 64,
     "padding": 0,
-    "symbol": "_$E51",
+    "symbol": "_$E166",
     "main_symbol": "_$E51",
     "main_source": "src/recovered/fog.cpp"
    },
@@ -56390,9 +56399,12 @@
    "_RAD_45": "00865ec0",
    "_RAD_60": "00865e80",
    "_RAD_90": "00865e58",
-   "_RECT_NONE": "00865e60"
+   "_RECT_NONE": "00865e60",
+   "_$S161": "00865e54",
+   "_$S167": "00865e38"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "holder": "codex1"
  },
  "mainloop": {
   "core": [
@@ -58628,7 +58640,10 @@
    "005d57f0",
    "005d7ff0"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "005d5790": "_$E85",
+   "005d5df0": "_$E91"
+  },
   "source": "rebuild/src/objtype.cpp",
   "options": [
    "/O2",
@@ -58638,7 +58653,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005d5560",
    "005d8070"
@@ -58770,7 +58785,7 @@
     "entry": "005d5790",
     "body": 88,
     "padding": 8,
-    "symbol": "_$E51",
+    "symbol": "_$E85",
     "main_symbol": "_$E51",
     "main_source": "src/recovered/objtype.cpp"
    },
@@ -58858,7 +58873,7 @@
     "entry": "005d5df0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E57",
+    "symbol": "_$E91",
     "main_symbol": "_$E57",
     "main_source": "src/recovered/objtype.cpp"
    },
@@ -59050,9 +59065,11 @@
    "_RAD_45": "00a72fb8",
    "_RAD_60": "00a72f70",
    "_RAD_90": "00a72f48",
-   "_RECT_NONE": "00a72f50"
+   "_RECT_NONE": "00a72f50",
+   "_$S86": "00a72fd9"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "holder": "codex1"
  },
  "object": {
   "core": [
@@ -63828,7 +63845,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0041c3d0",
    "0041e270"
@@ -64184,7 +64201,8 @@
    "?Compute_CRC@AITriggerTypeClass@@UBEXAAVCRCEngine@@@Z": "0041c850",
    "?Read_INI@AITriggerTypeClass@@UAE_NABVCCINIClass@@@Z": "0041d7e0",
    "?Write_INI@AITriggerTypeClass@@UBE_NAAVCCINIClass@@@Z": "0041dd60"
-  }
+  },
+  "holder": "codex1"
  },
  "ini": {
   "core": [
@@ -76617,7 +76635,8 @@
    "?On_Ground@CellClass@@UBE_NXZ": "0047b9f0",
    "?As_Coord@CellClass@@UBE?AVCoord@@XZ": "0047baa0"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "holder": "codex1"
  },
  "foot": {
   "core": [
@@ -89158,7 +89177,7 @@
     "entry": "0045f310",
     "body": 61,
     "padding": 3,
-    "symbol": "_$E168",
+    "symbol": "_$E170",
     "main_symbol": "_$E53",
     "main_source": "src/recovered/bullet.cpp"
    },
@@ -89448,13 +89467,17 @@
    "_RAD_45": "00850328",
    "_RAD_60": "008502e8",
    "_RAD_90": "008502b8",
-   "_RECT_NONE": "008502c8"
+   "_RECT_NONE": "008502c8",
+   "_$E168": "0045f350",
+   "_$E173": "0045f6e0",
+   "_?$S172@?1??Occupy_List@BulletClass@@UBEPBVCell@@_N@Z@4EA": "008502c0"
   },
   "partial_ok": true,
   "build_refused": {
-   "source_sha256": "1d524307da446f00f2316a89f0dabacbf1510e60d3b1167821c5f394d93e240b",
+   "source_sha256": "1da6ba7774e0ebfaa033680b3991bfc62e2bf15bc8eceee9aea8435ac6f97abd",
    "reason": "Unaccounted emitted code section bytes"
-  }
+  },
+  "holder": "codex1"
  },
  "astar": {
   "core": [
@@ -105434,7 +105457,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "006e2e10",
    "006e4b10"
@@ -105810,7 +105833,8 @@
    "?Fire_Out@TerrainClass@@UAEXXZ": "006e3e90",
    "?Can_Enter_Cell@TerrainClass@@UBE?AW4MoveType@@PBVCellClass@@W4FacingType@@H0_N@Z": "006e3cb0"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "holder": "codex1"
  },
  "gdlgsupp": {
   "core": [
@@ -134726,6 +134750,10 @@
    "?Window_Table@@3V?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A": "00a73400",
    "_$E163": "005dea60"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "build_refused": {
+   "source_sha256": "cb7c63fe702ec5214c89645e8cb8c230b7fc818e9afd4e0eaae0b24f34d1bccd",
+   "reason": "Unaccounted emitted code section bytes"
+  }
  }
 }

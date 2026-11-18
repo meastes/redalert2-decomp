@@ -74,6 +74,17 @@ gated landing (column `tree`; older rows from worker branches are marked as such
   0x56A660), so `map.h` follows them; house.cpp's caller drops the `const` from its local (`btype`),
   which leaves its code unchanged.
 
+- **A function our object emits that the image lacks takes the linkage that does not emit it** (lane R6,
+  owner via the review session, 2026-11-18). The original link kept unreferenced code: main's accepted
+  "uncalled copies" rows are /Gy COMDATs with no reference anywhere in the image (0x56D620/0x56D640/0x56D660,
+  0x5E5130/0x5E5140/0x5E8120/0x5E86C0), and byte-identical ones sit at distinct addresses (0x56D620 and
+  0x56D660; 0x63B890 and 0x63C640), so neither /OPT:REF nor folding ran (the debug directory is a MISC
+  .dbg record, a /DEBUG link). A helper that every exact row expands inline and that no row of the unit's
+  fully covered range matches was therefore never emitted out of line: it is declared `inline` (in its class
+  where ra2-decomp or the TibSun archive has it there, else at its definition), never kept as an external
+  function. Applied with every row of the unit unchanged: ownrdraw's 19 helpers, `TerrainClass::Is_Animating`
+  (in the class, as ra2-decomp has it), `~AlphaLightingRemapClass`.
+
 ## Structure gate
 
 `tools/rebuild.py catalog` refuses to land a tree that breaks the structure budget in

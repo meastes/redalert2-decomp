@@ -66,7 +66,6 @@
 HouseClass *UnusedHouse = NULL;
 
 
-char const * const BaseClass::INI_NAME = "Base";
 
 /***********************************************************************************************
  * BaseNodeClass::operator == -- equality operator                                             *

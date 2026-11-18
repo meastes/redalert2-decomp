@@ -2170,59 +2170,44 @@ void CellClass::Draw_Overlay(Point2D const & xpoint, Rect const & cliprect)
 /// </summary>
 /// <returns>Returns with the screen rectangle the overlay draws into. An empty rectangle is
 /// returned if the cell has no overlay.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 199 bytes differ (adopted text)
-Rect CellClass::Overlay_Render_Rect(void) const
+Rect CellClass::Overlay_Render_Rect() const
 {
-	if (Overlay != OVERLAY_NONE) { // RA2: the whole body is nested; the empty rectangle is the single fall-out
-		int frame = OverlayData; // RA2: the frame can be replaced by a rubble frame or the crate frame 0
-		OverlayTypeClass const * overlay = OverlayTypes[Overlay];
-		ShapeSet const * image = NULL;
-
-		if (overlay->IsTiberium) {
-			TiberiumType tib = Tiberium_Type_Here();
-			if (tib != TIBERIUM_NONE) {
-				TiberiumClass * tiberium = Tiberiums[tib];
-				OverlayTypeClass const * tib_overlay = NULL;
-				if (Ramp != 0) {
-					tib_overlay = OverlayTypes[tiberium->Overlay->HeapID + tiberium->Variety + tiberium->RampVariety / 4 * (Ramp - 1) + CellID.X * CellID.Y % (tiberium->RampVariety / 4)];
-				} else {
-					tib_overlay = OverlayTypes[tiberium->Overlay->HeapID + CellID.X * CellID.Y % tiberium->Variety];
-				}
-				image = (ShapeSet const *)tib_overlay->Get_Image_Data();
-			}
-		} else if (overlay->IsRubble) { // RA2: a rubble overlay takes the shape of the rubble building type
-			image = NULL; // RA2: as above
-		if (Rubble != NULL) { // RA2: as above
-				Rubble->Get_Rubble_Shape(&image, &frame); // RA2: as above
-			}
-		} else {
-			image = (ShapeSet const *)overlay->Get_Image_Data();
-		}
-
-		Point2D point;
-		TacticalMap->Coord_To_Pixel(Coord_Whole(CellID), point);
-
-		point += Overlay_Draw_Offset();
-		point.X -= ISO_TILE_PIXEL_W / 2;
-
-		if (image == NULL) {
-			return(Rect(0, 0, 0, 0));
-		}
-
-		if (overlay->IsCrate) { // RA2: a crate always shows frame 0
-			frame = 0; // RA2: as above
-		}
-
-		int width = image->Get_Width() / 2;
-		int height = image->Get_Height() / 2;
-		Point2D rect_point = point;
-		rect_point -= Point2D(width, height);
-		return(image->Get_Rect(frame) + rect_point); // RA2: the chosen frame
-	}
-
-	return(Rect(0, 0, 0, 0));
+    if (Overlay == -1) {
+        return Rect(0, 0, 0, 0);
+    }
+    int frame = OverlayData;
+    OverlayTypeClass *overlay = OverlayTypes[Overlay];
+    ShapeSet const *image = 0;
+    if (overlay->IsTiberium) {
+        int tib = Tiberium_Type_Here();
+        if (tib != -1) {
+            TiberiumClass *tiberium = Tiberiums[tib];
+            if (Ramp != 0) {
+                image = (ShapeSet const *)OverlayTypes[tiberium->Overlay->HeapID + tiberium->Variety + tiberium->RampVariety / 4 * (Ramp - 1) + CellID.X * CellID.Y % (tiberium->RampVariety / 4)]->Get_Image_Data();
+            } else {
+                image = (ShapeSet const *)OverlayTypes[tiberium->Overlay->HeapID + CellID.X * CellID.Y % tiberium->Variety]->Get_Image_Data();
+            }
+        }
+    } else if (overlay->IsRubble) {
+        image = 0;
+        if (Rubble != 0) {
+            Rubble->Get_Rubble_Shape(&image, &frame);
+        }
+    } else {
+        image = (ShapeSet const *)overlay->Get_Image_Data();
+    }
+    Point2D point;
+    TacticalMap->Coord_To_Pixel(Coord_Whole(CellID), point);
+    point += Overlay_Draw_Offset();
+    point.X -= 30;
+    if (image == 0) {
+        return Rect(0, 0, 0, 0);
+    }
+    if (overlay->IsCrate) {
+        frame = 0;
+    }
+    return image->Get_Rect(frame) + (point - Point2D(image->Get_Width() / 2, image->Get_Height() / 2));
 }
-#endif
 
 
 
@@ -3319,7 +3304,6 @@ static inline Coord Crate_Sound_Coord(CellClass const & cell)
  *   07/08/1995 JLB : Added a bunch of goodies to the crates.                                  *
  *   06/17/1996 JLB : Revamped for Red Alert                                                   *
  *=============================================================================================*/
-void Queue_Speech(char const * name, int priority, int expire); // RA2: 0x715B40, an EVA line by name
 
 #ifdef RA2_NON_MATCHING // not exact: 6238 bytes differ (adopted text)
 bool CellClass::Goodie_Check(FootClass * object)

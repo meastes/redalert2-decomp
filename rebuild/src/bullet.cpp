@@ -52,6 +52,13 @@
 #include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
 
 #include "bullet.h"
+#include "temporal.h"
+#include "parasite.h"
+#include "bomb.h"
+#include "bomblist.h"
+#include "capmgr.h"
+#include "voc.h"
+#include "unittype.h"
 
 #include "_convert.h"
 #include "_map.h"
@@ -121,29 +128,37 @@ DynamicVectorClass<BulletClass *> ScalableBullets; // RA2: 0x008502F8 (YR name),
  *   12/23/1994 JLB : Fixed scatter algorithm for non-homing projectiles.                      *
  *   12/31/1994 JLB : Removed range parameter (not needed).                                    *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 240 bytes differ (adopted text)
-BulletClass::BulletClass(void) :
-	BASECLASS(),
-	Class(NULL),
-	Payback(NULL),
-	IsInaccurate(false),
-	Fuse(),
-	IsBright(false),
-	SmoothedClosure(0),
-	field_A4(true),
-	IsLaunching(true),
-	BounceCount(0),
-	TarCom(NULL),
-	MaxSpeed(0),
-	ClosureSamples(0),
-	Warhead(NULL),
-	AnimFrame(0),
-	AnimRate(0)
+BulletClass::BulletClass() :
+    Class(0),
+    Payback(0),
+    IsInaccurate(false),
+    IsBright(false),
+    BounceCount(0),
+    field_A4(true),
+    IsLaunching(true),
+    CourseLockCounter(0),
+    TarCom(0),
+    MaxSpeed(0),
+    InheritedColor(-1),
+    ClosureSamples(0),
+    SmoothedClosure(0),
+    Warhead(0),
+    AnimFrame(0),
+    AnimRate(0),
+    WeaponType(0),
+    LastMapCoords(-1, -1),
+    NextAnim(0),
+    SpawnNextAnim(false)
 {
-	Create_ID();
-	Bullets.Add(this);
+    Create_ID();
+    SourceCoords.X = 0;
+    SourceCoords.Y = 0;
+    SourceCoords.Z = 0;
+    TargetCoords.X = 0;
+    TargetCoords.Y = 0;
+    TargetCoords.Z = 0;
+    Bullets.Add(this);
 }
-#endif
 
 
 /// <summary>
@@ -1024,85 +1039,66 @@ void BulletClass::Detach(AbstractClass const * target, bool all)
  * HISTORY:                                                                                    *
  *   01/10/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1086 bytes differ (adopted text)
-bool BulletClass::Unlimbo(Coord const & coord, TVelocity3D<double> const & velocity)
+inline float Projectile_Launch_Distance(Coord const & source, Coord const & target)
 {
-	/*
-	**	Try to unlimbo the bullet as far as the base class is concerned. Use the already
-	**	set direction and strength if the "punt" values were passed in. This allows a bullet
-	**	to be setup prior to being launched.
-	*/
-	if (BASECLASS::Unlimbo(coord)) {
-		Velocity = velocity;
-		SourceCoords = coord; // RA2: remembers where the bullet started ...
-		LastMapCoords = SourceCoords.As_Cell(); // RA2: ... and its cell
-		Map.Remove(this);
-
-		Coord tcoord = TarCom->As_Coord();
-		TargetCoords = tcoord; // RA2: remembers where it is going
-
-		/*
-		**	RA2: a flak bullet that is invisible is scattered around the target the farther it flies, up to
-		**	the ballistic scatter of the rules.
-		*/
-		if (Class->FlakScatter && Class->IsInvisible) { // RA2: as above
-			float dx = (float)(coord.X - tcoord.X); // RA2: as above
-			float dy = (float)(coord.Y - tcoord.Y); // RA2: as above
-			double dz = (double)(coord.Z - tcoord.Z); // RA2: as above
-			float distance = (float)fastmath::sqrt(dx * dx + dy * dy + dz * dz); // RA2: the distance to fly
-			int scatter = Scen->RandomNumber(0, Rule->BallisticScatter * 2); // RA2: as above
-			int radius = (scatter * (int)distance) / WeaponType->Range; // RA2: as above
-			double angle = (short)((Scen->RandomNumber(0, 0x7FFFFFFE) * 4.656612877414201e-10 * 6.283185307179586 - 1.5707963267948966) * -10430.060040584269); // RA2: as above
-			angle = (angle - 0x3FFF) * -9.587672516830327e-05; // RA2: as above
-			int z = tcoord.Z; // RA2: as above
-			int y = (int)(tcoord.Y - fastmath::sin(angle) * radius); // RA2: as above
-			int x = (int)(fastmath::cos(angle) * radius + tcoord.X); // RA2: as above
-			tcoord = Coord(x, y, z); // RA2: as above
-		}
-
-		/*
-		**	For very fast and invisible projectiles, just make the projectile exist at the target
-		**	location and dispense with the actual flight.
-		*/
-		if (Class->IsInvisible) {
-			HouseClass * house = Payback != NULL ? Payback->House : NULL; // RA2: as above
-			Coord firestorm_coord = Map.Firestorm_On_Path(coord, tcoord, house);
-			if (firestorm_coord != COORD_NONE) { // RA2: a firestorm on the way takes the bullet there
-				firestorm_coord.Z = Map.Get_Height_GL(firestorm_coord);
-				Set_Coord(firestorm_coord);
-				BuildingClass * bptr = Map[firestorm_coord].Cell_Building();
-				bptr->Crossing_Firestorm(this, false);
-				Delete_Me();
-			} else {
-				CellClass * blocking = TrajectoryHelper::FindFirstObstacle(coord, tcoord, Class, house); // RA2: a bullet that is stopped by an obstacle on the way lands there
-				if (blocking != NULL) { // RA2: as above
-					Set_Coord(blocking->Center_Coord()); // RA2: as above
-				} else {
-					Set_Coord(tcoord); // RA2: as above
-				}
-				Set_Coord(tcoord); // RA2: as above
-				MaxSpeed = 0;
-				Velocity.Set_Speed(0);
-			}
-		}
-
-		/*
-		**	Arm the fuse.
-		*/
-		Fuse.Arm_Fuse(PositionCoord, tcoord, (TarCom != NULL && TarCom->Fetch_RTTI() == RTTI_AIRCRAFT) ? 0 : Class->Arming); // RA2: as above
-
-		if (Class->ROT > 0) { // RA2: a homing bullet
-			Velocity.Set_Speed(1);
-		}
-
-		if (IsActive) {
-			Map.Submit(this);
-		}
-		return(true);
-	}
-	return(false);
+    Vector3 delta((float)(source.X-target.X), (float)(target.Y-source.Y), (float)(source.Z-target.Z));
+    float distance=fastmath::sqrt((double)delta.X*delta.X+(double)delta.Y*delta.Y+(double)delta.Z*delta.Z);
+    return distance;
 }
-#endif
+
+bool BulletClass::Unlimbo(Coord const &source, TVelocity3D<double> const &velocity)
+{
+    if (ObjectClass::Unlimbo(source, DIR_N)) {
+        Velocity = velocity;
+        SourceCoords = source;
+        LastMapCoords = SourceCoords.As_Cell();
+        Map.Remove(this);
+        Coord target = TarCom->As_Coord();
+        TargetCoords = target;
+        if (Class->FlakScatter && Class->IsInvisible) {
+            float distance=Projectile_Launch_Distance(source,target);
+            int maximum=Rule->BallisticScatter*2;
+            int scatter=Scen->RandomNumber(0,maximum);
+            int product = (int)((unsigned int)scatter * (unsigned int)(int)distance); // original32-bit IMUL before signed IDIV
+            int radius = product / WeaponType->Range;
+            int random_direction = Scen->RandomNumber(0, 0x7ffffffe);
+            double random_angle = random_direction * 4.656612877414201e-10;
+            random_angle *= 6.283185307179586;
+            short raw_direction = (short)(int)((random_angle - 1.5707963267948966) * -10430.060040584269);
+            int z=target.Z;
+            double angle = ((int)raw_direction - 0x3fff) * -9.587672516830327e-05;
+            int y = (int)((double)target.Y - fastmath::sin(angle) * (double)radius);
+            int x = (int)(fastmath::cos(angle) * (double)radius + target.X);
+            target = Coord(x, y, z);
+        }
+        if (Class->IsInvisible) {
+            HouseClass *house = Payback != 0 ? Payback->House : 0;
+            Coord collision = Map.Firestorm_On_Path(source, target, house);
+            if (collision != COORD_NONE) {
+                collision.Z = Map.Get_Height_GL(collision);
+                Set_Coord(collision);
+                BuildingClass *building = static_cast<BuildingClass *>(Map[collision].Cell_Building());
+                building->Crossing_Firestorm(this, false);
+                Delete_Me();
+            } else {
+                CellClass *blocking = TrajectoryHelper::FindFirstObstacle(source, target, Class, house);
+                if (blocking != 0) Set_Coord(blocking->Center_Coord());
+                else Set_Coord(target);
+                Set_Coord(target);
+                MaxSpeed = 0;
+                Velocity.Set_Speed(0.0);
+            }
+        }
+        int arm = TarCom != 0 && TarCom->Fetch_RTTI() == 2 ? 0 : Class->Arming;
+        Fuse.Arm_Fuse(Coord(PositionCoord), target, arm, 0x7fffffff);
+        if (Class->ROT > 0) {
+            Velocity.Set_Speed(1.0);
+        }
+        if (IsActive) Map.Submit(this);
+        return true;
+    }
+    return false;
+}
 
 
 
@@ -1306,67 +1302,142 @@ static inline Vector3 Normalize_Dir(const Vector3 & vec)
 /// launch their bomblets.
 /// </summary>
 /// <param name="coord">The location that the projectile detonates at.</param>
-#ifdef RA2_NON_MATCHING // not exact: 2852 bytes differ (adopted text)
-void BulletClass::Detonate(Coord const & coord)
+#ifdef RA2_NON_MATCHING // not exact: 1831 bytes differ (class-b carry)
+void BulletClass::Detonate(Coord const &position)
 {
-	WarheadTypeClass * warhead = Warhead;
-
-	if (warhead->IsEMEffect) {
-		new EMPulseClass(coord.As_Cell(), Warhead->SpreadFactor, Strength, Payback);
-	}
-
-
-	/*
-	**	Non-aircraft targets apply damage to the ground.
-	*/
-	else { // RA2: no WebRadius, IsWebby (not in RA2's layout)
-		Explosion_Damage(coord, Strength, Payback, warhead, true);
-		if (!IsActive) return;
-	}
-
-	Coord blast_coord = coord;
-
-	/*
-	**	For projectiles that are invisible while travelling toward the target,
-	**	allow scatter effect for the impact animation.
-	*/
-	if (Class->IsInvisible) {
-		blast_coord = Coord_Scatter(blast_coord, CELL_LEPTON / 8);
-	}
-
-	/*
-	**	Fetch the land type that the explosion will be upon. Special case for
-	**	flying aircraft targets, their land type will be LAND_NONE.
-	*/
-	LandType land = LAND_NONE;
-	if (blast_coord.Z - Map.Get_Height_GL(blast_coord) < 2 * LEVEL_LEPTON_H) {
-		land = Map[(Coord const &)PositionCoord].Land_Type();
-	}
-
-	const AnimTypeClass * anim = Combat_Anim(Strength, Warhead, land, PositionCoord);
-
-	if (IsBright) {
-		Combat_Lighting(blast_coord, Strength, Warhead, true, 0); // RA2: the five argument form
-	}
-
-	if (anim != NULL) {
-		AnimClass * aptr = new AnimClass(anim, blast_coord, 0, 1, ShapeFlags_Type(SHAPE_ZGRAD|SHAPE_WIN_REL|SHAPE_CENTER), Get_Explosion_Z(blast_coord));
-		/*
-		**	Special case trap: if they're making the nuclear explosion,
-		**	and no anim is available, force the nuclear damage anyway
-		**	because nuke damage is done in the middle of the animation
-		**	and if there's no animation, there won't be any damage.
-		*/
-		if (!aptr && Warhead == Rule->NukeWarhead) {
-			HousesType house = HOUSE_NONE;
-			if (Payback) {
-				house = Payback->House->Class->House;
-			}
-			AnimClass::Do_Atom_Damage(house, blast_coord);
-		}
-	}
-
-} // RA2: no IsSplits (not in RA2's layout)
+    int damage_result = 1;
+    bool special_impact = false;
+    if (Warhead->ShakeXlo != 0 || Warhead->ShakeXhi != 0)
+        Map.ScreenX = Sim_Random_Pick(Warhead->ShakeXlo, Warhead->ShakeXhi);
+    if (Warhead->ShakeYlo != 0 || Warhead->ShakeYhi != 0)
+        Map.ScreenY = Sim_Random_Pick(Warhead->ShakeYlo, Warhead->ShakeYhi);
+    if (WeaponType != 0) {
+        int level = WeaponType->RadLevel;
+        if (level > 0) {
+            ApplyRadiationToCell(position.As_Cell(), (int)WeaponType->WarheadPtr->SpreadFactor, level);
+        }
+    }
+    if (Warhead->MindControl) {
+        if (Payback != 0 && Payback->CaptureManager != 0) {
+            ObjectClass *object = TarCom == 0 ? 0 :
+                (TarCom->AbstractFlags & 2 ? static_cast<ObjectClass *>(TarCom) : 0);
+            bool target_house = TarCom != 0 && (TarCom->AbstractFlags & 1) &&
+                static_cast<TechnoClass *>(TarCom)->House->Is_Player_Control();
+            if (object != 0 && object->IsActive && object->Tag != 0) {
+                object->Tag->Spring((TEventType)6, object, CELL_NONE, false, Payback);
+                object->Tag->Spring((TEventType)0x2c, object, CELL_NONE, false, Payback);
+            }
+            if (static_cast<CaptureManagerClass *>(Payback->CaptureManager)->Capture(static_cast<TechnoClass *>(TarCom))
+                && Rule->YuriMindControlSound != -1
+                && (Payback->House->Is_Player_Control() || target_house)) {
+                VocClass::PlayAt(Rule->YuriMindControlSound, Coord(object->PositionCoord), 0);
+            }
+        }
+    } else if (Warhead->IvanBomb) {
+        TechnoClass *target = TarCom == 0 ? 0 :
+            (TarCom->AbstractFlags & 1 ? static_cast<TechnoClass *>(TarCom) : 0);
+        BombList.Plant(Payback, target);
+    } else if (Warhead->ElectricAssault) {
+        if (TarCom != 0 && TarCom->Fetch_RTTI() == 6 && Payback != 0 && Payback->Fetch_RTTI() == 15)
+            static_cast<BuildingClass *>(TarCom)->Rotate_Overpowerer(static_cast<InfantryClass *>(Payback));
+    } else if (Warhead->Parasite) {
+        if (Payback != 0) {
+            FootClass *target = TarCom == 0 ? 0 :
+                (TarCom->AbstractFlags & 4 ? static_cast<FootClass *>(TarCom) : 0);
+            static_cast<FootClass *>(Payback)->ParasiteImUsing->TryInfect(target);
+        }
+    } else if (Warhead->Temporal) {
+        if (Payback != 0 && TarCom != 0) {
+            TechnoClass *target = (TarCom != 0 && (TarCom->AbstractFlags & 1) ? static_cast<TechnoClass *>(TarCom) : 0);
+            Payback->TemporalImUsing->Fire(target);
+        }
+    } else if (Warhead->BombDisarm) {
+        if (TarCom != 0 && (TarCom->AbstractFlags & 2)) {
+            ObjectClass *object = static_cast<ObjectClass *>(TarCom);
+            if (object->AttachedBomb != 0) object->AttachedBomb->Disarm();
+        }
+    } else if (Warhead->MakesDisguise) {
+        if (Payback != 0) Payback->DisguiseAs(static_cast<TechnoClass *>(TarCom));
+    } else if (Warhead->NukeMaker) {
+        NukeMaker();
+    } else {
+        if (Class->ShrapnelWeapon != 0) Shrapnel();
+        int damage = DamageMultiplier * Strength;
+        damage_result = Explosion_Damage(position, damage >> 8, Payback, Warhead, true);
+        if (!IsActive) return;
+        if (damage_result == 2) special_impact = true;
+    }
+    Coord impact = position;
+    if (Class->IsInvisible) impact = Coord_Scatter(impact, 32, false);
+    int land = -1;
+    if (Get_Height_AGL() < LEVEL_LEPTON_H * 2) {
+        land = Map[Coord(PositionCoord)].Land_Type();
+        if (land == 2 && damage_result == 0) {
+            ObjectClass *occupier = Map[Coord(PositionCoord)].Cell_Occupier();
+            if (occupier != 0 && occupier->Fetch_RTTI() == 1) {
+                UnitTypeClass const *type = static_cast<UnitClass *>(occupier)->Class;
+                if (type->Naval && !type->Underwater) land = -1;
+            }
+        }
+    }
+    AnimTypeClass const *animation = Combat_Anim(Strength, Warhead, (LandType)land, Coord(PositionCoord));
+    if (IsBright && !special_impact) {
+        unsigned flags = 0;
+        if (Warhead->CLDisableRed) flags = 2;
+        if (Warhead->CLDisableGreen) flags |= 4;
+        if (Warhead->CLDisableBlue) flags |= 8;
+        Combat_Lighting(impact, Strength, Warhead, 1, flags);
+    }
+    if (special_impact) {
+        AnimTypeClass const *nullify = Rule->WeaponNullifyAnim;
+        if (nullify != 0)
+            new AnimClass(nullify, impact, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(impact));
+    } else {
+        if (animation != 0) {
+            AnimClass *created = new AnimClass(animation, impact, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(impact));
+            if (created == 0 && Warhead == Rule->NukeWarhead) {
+                int house_type = -1;
+                if (Payback != 0) house_type = Payback->House->Class->House;
+                AnimClass::Do_Atom_Damage((HousesType)house_type, impact.As_Cell());
+            }
+        }
+        if (Class->IsAirburst) {
+            WeaponTypeClass *weapon = Class->AirburstWeapon;
+            BulletTypeClass const *projectile = weapon->Bullet;
+            unsigned facing = 0;
+            CellClass *center = static_cast<CellClass *>(Get_Cell_Ptr());
+            int remaining = 8;
+            do {
+                CellClass &neighbor = center->Adjacent_Cell((FacingType)facing);
+                facing = (facing + 1) & 7;
+                BulletClass *fragment = projectile->Create_Bullet(&neighbor, Payback, weapon->Attack, weapon->WarheadPtr, 50, false);
+                if (fragment != 0) {
+                    int random_direction = Scen->RandomNumber(0, 32);
+                    short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
+                    double speed = (double)(weapon->MaxSpeed / 10);
+                    double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
+                    TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(4.712436918747274) * speed, fastmath::sin(angle) * fastmath::cos(4.712436918747274) * speed);
+                    TVelocity3D<double> velocity;
+                    static_cast<TVelocity2D<double> &>(velocity) = planar;
+                    velocity.Z = fastmath::sin(4.712436918747274) * speed;
+                    fragment->Unlimbo(Coord(PositionCoord), velocity);
+                }
+            } while (--remaining != 0);
+            BulletClass *fragment = projectile->Create_Bullet(center, Payback, weapon->Attack, weapon->WarheadPtr, 50, false);
+            if (fragment != 0) {
+                int random_direction = Scen->RandomNumber(0, 32);
+                short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
+                double speed = (double)(weapon->MaxSpeed / 10);
+                double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
+                TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(4.712436918747274) * speed, fastmath::sin(angle) * fastmath::cos(4.712436918747274) * speed);
+                TVelocity3D<double> velocity;
+                static_cast<TVelocity2D<double> &>(velocity) = planar;
+                velocity.Z = fastmath::sin(4.712436918747274) * speed;
+                fragment->Unlimbo(Coord(PositionCoord), velocity);
+            }
+        }
+    }
+}
 #endif
 
 

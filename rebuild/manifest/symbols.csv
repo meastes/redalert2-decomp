@@ -2782,3 +2782,9 @@ symbol,address,evidence
 ?vt_entry_A0@MultiplayerGameMode@@UAE_NXZ,0x005A24F0,slot +a0 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot40@MultiplayerGameMode@@UAE_NXZ
 __purecall,0x004B8960,slot +10 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_4b8960@@QAEHXZ
 ?shrink@?$Dictionary@IUWinData@OwnerDraw@@@@AAEXXZ,0x006027E0,"main row ?Shrink_Table@?$WolDictionary@IUWinData@OwnerDraw@@@@QAEXXZ (population-4450): the same template instance, wlib Dictionary::shrink for the control registry"
+?Copy_List@WinData@OwnerDraw@@QAEXPBUTextNode@@@Z,0x00600460,"main row ?Copy_List_600460@WinData@OwnerDraw@@QAEXPBUTextNode@@@Z (population-4450), the same member"
+?Combo_Owner@OwnerDraw@@3PAUHWND__@@A,0x00A763F4,"main's exact row 0x5EAD20 (Combo_Drop_Proc) reads it as ?unknown_combo_owner_a763f4@OwnerDraw@@3PAUHWND__@@A where this tree's draft reads Combo_Owner"
+?Dropdown_Owner@OwnerDraw@@3PAUHWND__@@A,0x00A763E8,"main's exact row 0x5EAD20 stores the combo's parent there (?unknown_dropdown_owner_a763e8@OwnerDraw@@3PAUHWND__@@A), as this tree's draft stores Dropdown_Owner"
+?Dropdown_Window@OwnerDraw@@3PAUHWND__@@A,0x00A763E4,"main's exact row 0x5EAD20 stores the window there (?unknown_dropdown_window_a763e4@OwnerDraw@@3PAUHWND__@@A), as this tree's draft stores Dropdown_Window"
+?Find@SchemeTable@@QAEPAPAVSchemeNode@@ABVHashString@@@Z,0x006050C0,"main row ?Find@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAPAVSchemeNode@@ABVHashString@@@Z (palette.cpp), the scheme table's lookup"
+?Next@SchemeTable@@QAEPAVHashString@@PAUHashIterator@@@Z,0x00605120,"main row ?Next@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAVHashString@@AAUUnknownSchemeListIterator@@@Z (palette.cpp), the scheme table's iterator step"

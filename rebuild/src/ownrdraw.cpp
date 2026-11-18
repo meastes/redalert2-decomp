@@ -2716,6 +2716,7 @@ inline int __cdecl Kind_Of(unsigned int key) // RA2: as above
     Control_Table.getPointer(key, &record); // RA2: as above
     return record != 0 ? record->Kind : 0; // RA2: as above
 }
+#ifdef RA2_NON_MATCHING // not exact: no exact match yet (row 005e4780)
 BOOL __stdcall Enable_Animated_Control(HWND window, LPARAM lparam) // RA2: as above
 {
     HWND parent = GetParent(window);
@@ -2736,6 +2737,7 @@ BOOL __stdcall Enable_Animated_Control(HWND window, LPARAM lparam) // RA2: as ab
     Set_Control_Disabled(window, value); // RA2: as above
     return TRUE; // RA2: as above
 }
+#endif
 
 }
 
@@ -3749,6 +3751,7 @@ static inline void __cdecl Get_Animation_Record(unsigned int const &key, WinData
 {
     Control_Table.getPointer(key, &record); // RA2: as above
 }
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005e8130 has no row)
 BOOL __stdcall Init_Control_Animation(HWND window, LPARAM) // RA2: as above
 {
     HWND parent = GetParent(window);
@@ -3808,6 +3811,7 @@ done: // RA2: as above
     }
     return TRUE; // RA2: as above
 }
+#endif
 
 }
 
@@ -4154,6 +4158,7 @@ void __fastcall Move_Centred_Control(HWND window, Point2D const &size) // RA2: a
 
 namespace OwnerDraw { // RA2: as above
 
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005e9410 has no row)
 void __fastcall Adjust_Control_Position(HWND window) // RA2: as above
 {
     HWND parent = GetParent(window);
@@ -4225,6 +4230,7 @@ void __fastcall Adjust_Control_Position(HWND window) // RA2: as above
         MoveWindow(window, x, y, width, height, FALSE); // RA2: as above
     }
 }
+#endif
 
 }
 
@@ -6232,6 +6238,7 @@ namespace OwnerDraw { // RA2: as above
 **	RA2: the window procedure of the owner-drawn (BS_OWNERDRAW) buttons: plain buttons from the b?e_ art,
 **	or the campaign, network and cancel button shapes by the record's button kind, which can flash.
 */
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f0320 has no row)
 LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static char last_look = 'u'; // RA2: as above
@@ -6458,6 +6465,7 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 	}
 	return(CallWindowProcA(previous, window, message, wparam, lparam)); // RA2: as above
 }
+#endif
 
 }
 
@@ -6475,6 +6483,7 @@ namespace OwnerDraw { // RA2: as above
 /*
 **	RA2: TibSun's TextBoxCtrlProc, the tab control procedure, with wide titles.
 */
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f0f40 has no row)
 LRESULT __stdcall Tab_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static char string1[64];
@@ -6761,6 +6770,7 @@ LRESULT __stdcall Tab_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpar
 	}
 	return(result);
 }
+#endif
 
 }
 
@@ -6977,6 +6987,7 @@ namespace OwnerDraw { // RA2: as above
 **	RA2: the window procedure of the "NewEdit" control, an edit control that keeps its text in the record as wide
 **	characters and draws itself. The cursor keys (the jump table at 0x5F2B04) move the caret in it.
 */
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f22a0 has no row)
 LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x5F22A0, the NewEdit window procedure
 { // RA2: as above
 	WinData * record = 0; // RA2: the record is looked up in Control_Table, the original procedure in Window_Proc_Table
@@ -7182,6 +7193,7 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 	} // RA2: as above
 	return 0; // RA2: as above
 } // RA2: as above
+#endif
 
 } // RA2: as above
 
@@ -7251,6 +7263,7 @@ static void Stop_Static_Movie(HWND window, StaticRecord * data) // RA2: as above
 **	RA2: the window procedure of the static controls: text (typed out), an image, a shape or its
 **	animation, or a movie.
 */
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f2b50 has no row)
 LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	WinData * record = 0; // RA2: as above
@@ -7633,6 +7646,7 @@ LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
 	Window_Proc_Table.getValue(window, proc); // RA2: as above
 	return(CallWindowProcA(proc, window, message, wparam, lparam)); // RA2: as above
 }
+#endif
 
 }
 
@@ -8773,7 +8787,7 @@ LRESULT __stdcall Hotkey_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
 
 namespace OwnerDraw { // RA2: as above
 
-void __fastcall Hotkey_Text(unsigned short hotkey, wchar_t *text) // RA2: as above
+inline void __fastcall Hotkey_Text(unsigned short hotkey, wchar_t *text) // RA2: as above
 {
     char name[32]; // RA2: as above
     char buffer[500]; // RA2: as above
@@ -8815,7 +8829,7 @@ namespace OwnerDraw { // RA2: as above
 unsigned short Red_Green_Masks[2]; // RA2: as above
 unsigned short Blue_Mask = 0; // RA2: as above
 
-void Init_Color_Masks() // RA2: as above
+inline void Init_Color_Masks() // RA2: as above
 {
     Red_Green_Masks[0] = 0xff; // RA2: as above
     Red_Green_Masks[0] >>= DSurface::Get_Red_Left(); // RA2: as above
@@ -8976,7 +8990,7 @@ void __fastcall Load_Dialog_Images() // RA2: as above
 
 namespace OwnerDraw { // RA2: as above
 
-bool __fastcall Draw_Edge_Glow(Surface *surface, Point2D const &start, Point2D const &end, int color, // RA2: as above
+inline bool __fastcall Draw_Edge_Glow(Surface *surface, Point2D const &start, Point2D const &end, int color, // RA2: as above
                                               int alpha) // RA2: as above
 {
     Point2D startpoint = start;
@@ -9062,7 +9076,7 @@ namespace OwnerDraw { // RA2: as above
 bool __fastcall Draw_Edge_Glow(Surface *surface, Point2D const &start, Point2D const &end, int color, // RA2: as above
                                               int alpha); // RA2: as above
 
-void __fastcall Draw_Edge_Glows(Surface *surface, Rect const &rect, int raised, int count, // RA2: as above
+inline void __fastcall Draw_Edge_Glows(Surface *surface, Rect const &rect, int raised, int count, // RA2: as above
                                                int left_alpha, int top_alpha, int right_alpha, int bottom_alpha) // RA2: as above
 {
     int light = 0xffff; // RA2: as above
@@ -9087,7 +9101,7 @@ void __fastcall Draw_Edge_Glows(Surface *surface, Rect const &rect, int raised, 
 
 namespace OwnerDraw { // RA2: as above
 
-void __fastcall Draw_Arrow(Surface *surface, Rect const &rect, int upward, int pressed, bool prefixed) // RA2: as above
+inline void __fastcall Draw_Arrow(Surface *surface, Rect const &rect, int upward, int pressed, bool prefixed) // RA2: as above
 {
     char name[32]; // RA2: as above
     char state = 'r';
@@ -9116,7 +9130,7 @@ void __fastcall Draw_Arrow(Surface *surface, Rect const &rect, int upward, int p
 
 namespace OwnerDraw { // RA2: as above
 
-int __fastcall Color_To_Pixel(unsigned long color) // RA2: as above
+inline int __fastcall Color_To_Pixel(unsigned long color) // RA2: as above
 {
     if (color == 0xffffffff) { // RA2: as above
         return -1; // RA2: as above
@@ -9134,7 +9148,7 @@ int __fastcall Color_To_Pixel(unsigned long color) // RA2: as above
 
 namespace OwnerDraw { // RA2: as above
 
-unsigned long __fastcall Pixel_To_Color(unsigned short pixel) // RA2: as above
+inline unsigned long __fastcall Pixel_To_Color(unsigned short pixel) // RA2: as above
 {
     RGBClass color = DSurface::Deconstruct_Hicolor_Pixel(pixel); // RA2: as above
     return 0x02000000 | ((unsigned long)color.Get_Blue() << 16) | ((unsigned short)color.Get_Green() << 8) | color.Get_Red(); // RA2: as above
@@ -9170,7 +9184,7 @@ void __fastcall Draw_Frame(Surface *surface, Rect const &rect, int thickness, in
 
 namespace OwnerDraw { // RA2: as above
 
-void __fastcall Draw_Button_Frame(Surface *surface, Rect const &rect, int thickness) // RA2: as above
+inline void __fastcall Draw_Button_Frame(Surface *surface, Rect const &rect, int thickness) // RA2: as above
 {
     Rect frame = rect; // RA2: as above
     int top_color = DSurface::Build_Hicolor_Pixel(0x27, 0xf8, 0x74); // RA2: as above
@@ -9195,7 +9209,7 @@ void __fastcall Draw_Button_Frame(Surface *surface, Rect const &rect, int thickn
 
 
 namespace OwnerDraw { // RA2: as above
-int __fastcall Draw_Text_In_Rect(Surface *surface, wchar_t const *text, RECT *area, // RA2: as above
+inline int __fastcall Draw_Text_In_Rect(Surface *surface, wchar_t const *text, RECT *area, // RA2: as above
     BitFont *font, unsigned long color, int flags) // RA2: as above
 {
     unsigned int pixel = (((unsigned char)color >> (unsigned char)DSurface::RedLeft) << DSurface::RedRight) // RA2: as above
@@ -9244,7 +9258,7 @@ int __fastcall Draw_Text_In_Rect_Ex(Surface *surface, wchar_t const *text, RECT 
 
 namespace OwnerDraw { // RA2: as above
 
-float __fastcall Glow_Factor(int value) // RA2: as above
+inline float __fastcall Glow_Factor(int value) // RA2: as above
 {
     int centers[3] = { 0x2b, 0x80, 0xd5 }; // RA2: as above
     float factor = 1.0f; // RA2: as above
@@ -9390,7 +9404,7 @@ void __fastcall Draw_Dimmed_Back(Rect const &area, HWND window, int alpha) // RA
 
 namespace OwnerDraw { // RA2: as above
 
-void __fastcall Draw_Progress_Fill(Rect const &area, Surface *surface, int color, int fraction) // RA2: as above
+inline void __fastcall Draw_Progress_Fill(Rect const &area, Surface *surface, int color, int fraction) // RA2: as above
 {
     int fade = 1;
     int run = (area.Width * fraction) >> 16; // RA2: as above
@@ -9488,7 +9502,7 @@ void __fastcall Blend_Rect(Rect *area, Surface *surface, int color, int alpha) /
 
 namespace OwnerDraw { // RA2: as above
 
-void __fastcall Draw_Bits(Rect const *area, Surface *surface) // RA2: as above
+inline void __fastcall Draw_Bits(Rect const *area, Surface *surface) // RA2: as above
 {
     unsigned char palette[768]; // RA2: as above
     Surface *image = SurfaceCache.GetSurface("bits_i.pcx", (void *)palette); // RA2: as above
@@ -9640,7 +9654,7 @@ namespace OwnerDraw { // RA2: as above
 
 namespace OwnerDraw { // RA2: as above
 
-void __fastcall Free_Control_Surface(unsigned int key) // RA2: as above
+inline void __fastcall Free_Control_Surface(unsigned int key) // RA2: as above
 {
     WinData *record = 0; // RA2: as above
     Control_Table.getPointer(key, &record); // RA2: as above
@@ -9697,7 +9711,7 @@ public: // RA2: as above
     int Length() const { return Count; } // RA2: as above
 };
 
-BOOL __stdcall Add_Window(HWND window, WindowList *list) // RA2: as above
+inline BOOL __stdcall Add_Window(HWND window, WindowList *list) // RA2: as above
 {
     if (list != 0) { // RA2: as above
         list->Add(window, list->Length()); // RA2: as above
@@ -9710,7 +9724,7 @@ BOOL __stdcall Add_Window(HWND window, WindowList *list) // RA2: as above
 
 namespace OwnerDraw { // RA2: as above
 
-int Release_Mouse_For_Dialog() // RA2: as above
+inline int Release_Mouse_For_Dialog() // RA2: as above
 {
     if (MouseCursor && MouseCursor->Is_Captured() == true) { // RA2: as above
         MouseCursor->Release_Mouse();
@@ -9723,7 +9737,7 @@ int Release_Mouse_For_Dialog() // RA2: as above
 
 namespace OwnerDraw { // RA2: as above
 
-int Capture_Mouse_After_Dialog() // RA2: as above
+inline int Capture_Mouse_After_Dialog() // RA2: as above
 {
     if (Mouse_Release_Depth > 0) { // RA2: as above
         --Mouse_Release_Depth; // RA2: as above
@@ -10148,7 +10162,7 @@ void __fastcall Set_Custom_Message_Box_Text(HWND dialog, wchar_t const * text) /
 
 namespace OwnerDraw { // RA2: as above
 
-void WinData::Set_Text(char const *text) // RA2: as above
+inline void WinData::Set_Text(char const *text) // RA2: as above
 {
     if (Text) { // RA2: as above
         operator delete(Text); // RA2: as above
@@ -10190,7 +10204,7 @@ inline WinData &WinData::operator=(WinData const &other) // RA2: as above
 
 namespace OwnerDraw { // RA2: as above
 
-WinData &WinData::Copy(WinData const &other) // RA2: as above
+inline WinData &WinData::Copy(WinData const &other) // RA2: as above
 {
     TextNode *list = Nodes; // RA2: as above
     wchar_t *text = Text; // RA2: as above
@@ -10263,6 +10277,7 @@ namespace OwnerDraw { // RA2: as above
 
 template<class T> inline T Max_Of(T a, T b) { return a < b ? b : a; } // RA2: as above
 
+#ifdef RA2_NON_MATCHING // not exact: calls OwnerDraw::Blend_Color out of line, which no row of the original has
 void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text, int caret, // RA2: as above
                                               BitFont *font, unsigned int color, int *scroll, int ime, // RA2: as above
                                               int password, int frame, int unknown9) // RA2: as above
@@ -10393,6 +10408,7 @@ void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text
     }
     Caret_Hidden = 0; // RA2: as above
 }
+#endif
 
 }
 
@@ -10574,7 +10590,7 @@ int __fastcall Controlled_Dialog(int resource,DLGPROC procedure,DialogControl *c
 
 
 namespace OwnerDraw { // RA2: as above
-bool __fastcall Control_Test(HWND window) // RA2: as above
+inline bool __fastcall Control_Test(HWND window) // RA2: as above
 {
     char name[128]; // RA2: as above
     GetClassNameA(window,name,sizeof(name)); // RA2: as above

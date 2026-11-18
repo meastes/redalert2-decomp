@@ -235,7 +235,7 @@ static inline bool Is_Bridge_Middle(int ittype)
 /// the warhead's particle system is spawned.
 /// </summary>
 /// <returns>2 when an iron curtained object blocked the blast, 1 when nothing was hit, else 0.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 4429 bytes differ (main's body carried; the original calls TPoint3D<int>(x, y, z) and Length out of line, 0x41B630 and 0x41B780)
+#ifdef RA2_NON_MATCHING // not exact: main's body with TibSun's rocker form; the three cell-loop sites expand TPoint3D<int>(x, y, z) where the original calls 0x41B630 (diff 225/196 lines)
 int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, WarheadTypeClass const * warhead, bool dochainreaction)
 {
 	int distance;
@@ -316,15 +316,15 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 				if (object->Fetch_RTTI() == RTTI_BUILDING) {
 					if (m == 0) {
 						if (coord.Z - cellptr->Center_Coord().Z > LEVEL_LEPTON_H * 2) {
-							group->Distance = Explosion_Length(coord - cellptr->Center_Coord()) - LEVEL_LEPTON_H * 2;
+							group->Distance = (coord - cellptr->Center_Coord()).Length() - LEVEL_LEPTON_H * 2;
 						} else {
 							group->Distance = 0;
 						}
 					} else {
-						group->Distance = Explosion_Length(coord - cellptr->Center_Coord());
+						group->Distance = (coord - cellptr->Center_Coord()).Length();
 					}
 				} else {
-					group->Distance = Explosion_Length(coord - object->Target_Coord());
+					group->Distance = (coord - object->Target_Coord()).Length();
 				}
 				if (close && m == 0 && object) {
 					if (Is_Techno_Object(object) && ((TechnoClass *)object)->Unknown_Virtual_32C() && group->Distance < 0x55) {
@@ -373,9 +373,8 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 						if ((short)x == cell.X && (short)y == cell.Y && source) {
 							Coord tcoord = techno->Position;
 							Coord scoord = source->Position;
-							Vector3 dir((float)(scoord.X - tcoord.X), (float)(scoord.Y - tcoord.Y), (float)(scoord.Z - tcoord.Z));
-							dir.Normalize();
-							dir = dir * 10.0f;
+							TPoint3D<float> dir((float)(scoord.X - tcoord.X), (float)(scoord.Y - tcoord.Y), (float)(scoord.Z - tcoord.Z));
+							dir = dir.Normalize() * 10.0f;
 							tcoord += Coord((int)dir.X, (int)dir.Y, (int)dir.Z);
 							techno->Rock(tcoord, (float)force);
 						} else {
