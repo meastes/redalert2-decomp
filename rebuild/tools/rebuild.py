@@ -482,18 +482,29 @@ def resolver(unit, info):
             own.setdefault(name, set()).add(address)
     local = {n: next(iter(a)) for n, a in own.items() if len(a) == 1}
     # The rows of every rebuild unit bind their own symbols to their entries.
-    rows = {}
+    # A byte-identical copy (a select-any template member) may be a row of several units under one name:
+    # the unit whose object emits the copy at that address keeps the name (its own row), and a unit that
+    # refers to the name binds to the copy its own main population refers to before another unit's row
+    # (the kept-copy ruling; lane R20: rules' widened ??4?$VectorClass@H at 0x653150 had taken the name
+    # weapon's Read_INI resolves to 0x46DB60).
+    rows, own_rows = {}, {}
     for name, other in load_json(UNITS, {}).items():
+        mine = other.get('source') == info.get('source')
         for row in other['rows']:
             # Initializer and guard names repeat in every unit: only this unit's own rows bind them.
-            if row['symbol'].startswith(('_$E', '_$S', '$T')) and other.get('source') != info.get('source'):
+            if row['symbol'].startswith(('_$E', '_$S', '$T')) and not mine:
                 continue
-            rows[row['symbol']] = int(row['entry'], 16)
+            (own_rows if mine else rows)[row['symbol']] = int(row['entry'], 16)
 
     def resolve(name):
         per_unit = name.startswith(('_$E', '_$S', '$T'))
-        for table, label in ((info.get('references', {}), 'unit'), (extra, 'symbols.csv'), (rows, 'rows'), (local, 'main-unit'),
-                             (unique, 'main'), (mischa, 'mischa85')):
+        # Only a select-any copy (a template member or compiler-emitted helper) may exist at several
+        # addresses; an ordinary function's row in its own unit outranks a name main's population gives it.
+        copy = '?$' in name or name.startswith(('??_G', '??_E'))
+        order = ((own_rows, 'rows'), (local, 'main-unit'), (rows, 'rows')) if copy else \
+                ((own_rows, 'rows'), (rows, 'rows'), (local, 'main-unit'))
+        for table, label in ((info.get('references', {}), 'unit'), (extra, 'symbols.csv')) + order + \
+                            ((unique, 'main'), (mischa, 'mischa85')):
             if per_unit and label in ('main', 'mischa85', 'symbols.csv', 'main-unit'):
                 continue    # initializer names repeat in every unit: only this unit's own bindings
             if name in table:

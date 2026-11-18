@@ -9774,7 +9774,7 @@ HWND __fastcall Begin_Dialog(int resource, DLGPROC proc, LPARAM param) // RA2: a
     }
     g_Dialogs[index].handle = window; // RA2: as above
     g_Dialogs[index].id = id; // RA2: as above
-    Add_Audio_File_Window(window); // RA2: as above
+    Add_Modeless_Dialog(window); // RA2: 0x005B6000, the modeless dialog list (its byte-identical twin 0x522B20 is the audio file window list)
     g_TopWindow = window; // RA2: as above
     g_TopWindowID = id; // RA2: as above
     return window; // RA2: as above
@@ -9989,7 +9989,7 @@ bool Dialog_Message_Handler() // RA2: as above
 {
     Windows_Message_Handler();
     if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH || Session_Busy || // RA2: as above
-        Counter != 0) { // RA2: as above
+        Session.Suspended != 0) { // RA2: as above
         Call_Back();
         return false; // RA2: as above
     }
@@ -10425,7 +10425,7 @@ bool __fastcall Prompt_Dialog(unsigned short const *text) // RA2: as above
         while (result < 0) { // RA2: as above
             Windows_Message_Handler();
             if (Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH && !Session_Busy && // RA2: as above
-                Counter == 0 && !Is_In_Main_Loop() && Main_Loop()) { // RA2: as above
+                Session.Suspended == 0 && !Is_In_Main_Loop() && Main_Loop()) { // RA2: as above
                 break;
             }
         }

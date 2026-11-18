@@ -77745,7 +77745,7 @@
   },
   "partial_ok": true,
   "held_reason": "binding",
-  "held_note": "initializers exact (rows renamed to the emitted names after four row-less functions were guarded: Generate_Swamp, Grow_Water_Region, Is_Cell_Area_Clear, Seed_Ice), 200/217. Left: the eight 4-byte _Road_*_4Way tables (too short for databind; a layout binding would need the enclosed-item rule), ConditionRed/YellowChances and MapSeedSelection/MapSeedPreviewFlag, referenced only by rows not yet exact",
+  "held_note": "initializers exact, 200/217. The .data section is the original's order with holes the guarded drafts' statics leave (60 bytes after Build_East_Ramp's tables: Build_North_Ramp's), so it cannot compare whole yet; the _Road_*_4Way tables and MapSeedSelection/MapSeedPreviewFlag are enclosed at fixed addresses, ConditionRed/YellowChances lie elsewhere. Next: the drafts, Build_North_Ramp first",
   "held_manual": true
  },
  "building": {
@@ -82054,7 +82054,7 @@
   "status": "catalogued",
   "range": [
    "00640270",
-   "00652810"
+   "006532b0"
   ],
   "mischa85": "tibsun: functions compiled from src/rules.cpp, without gaps; matched except ??0RulesClass@@QAE@XZ and ?Audio_Visual_Rules@RulesClass@@QAE_NABVCCINIClass@@@Z and ?Combat_Damage@RulesClass@@QAE_NABVCCINIClass@@@Z and ?General@RulesClass@@QAE_NABVCCINIClass@@@Z",
   "main_options": [
@@ -82577,6 +82577,318 @@
     "symbol": "??4?$TypeList@H@@QAEAAV0@ABV0@@Z",
     "main_symbol": "??4?$TypeList@H@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652810",
+    "body": 45,
+    "padding": 3,
+    "symbol": "?VectorClass_Int_Destructor_00652810@seed_00652810@@YIXPAI@Z",
+    "main_symbol": "?VectorClass_Int_Destructor_00652810@seed_00652810@@YIXPAI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652840",
+    "body": 45,
+    "padding": 3,
+    "symbol": "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ",
+    "main_symbol": "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ",
+    "main_source": "src/recovered/classes/VectorClass_InfantryTypeClass_ptr/Destructor.cpp"
+   },
+   {
+    "entry": "00652870",
+    "body": 45,
+    "padding": 3,
+    "symbol": "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ",
+    "main_symbol": "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ",
+    "main_source": "src/recovered/classes/VectorClass_TerrainTypeClass_ptr/Destructor.cpp"
+   },
+   {
+    "entry": "006528a0",
+    "body": 121,
+    "padding": 7,
+    "symbol": "??4?$TypeList@PAVInfantryTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4?$TypeList@PAVInfantryTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652920",
+    "body": 121,
+    "padding": 7,
+    "symbol": "??4?$TypeList@PAVTerrainTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4?$TypeList@PAVTerrainTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "006529a0",
+    "body": 121,
+    "padding": 7,
+    "symbol": "??4?$TypeList@PBVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4?$TypeList@PAVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652a20",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Save@?$TypeList@PBVBuildingTypeClass@@@@QBEXPAUIStream@@@Z",
+    "main_symbol": "?Save@?$TypeList@PAVBuildingTypeClass@@@@QAEXPAUIStream@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652a70",
+    "body": 34,
+    "padding": 14,
+    "symbol": "??0?$TypeList@PBVVoxelAnimTypeClass@@@@QAE@XZ",
+    "main_symbol": "??0?$TypeList@PAVVoxelAnimTypeClass@@@@QAE@XZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652aa0",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Save@?$TypeList@PBVVoxelAnimTypeClass@@@@QBEXPAUIStream@@@Z",
+    "main_symbol": "?Save@?$TypeList@PAVVoxelAnimTypeClass@@@@QAEXPAUIStream@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652af0",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@UAEXXZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652b20",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@UAEHPBQBVVoxelAnimTypeClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@UAEHPBQAVVoxelAnimTypeClass@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652b40",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PBVVoxelAnimTypeClass@@@@UBEPBVVoxelAnimTypeClass@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVVoxelAnimTypeClass@@@@UBEPAVVoxelAnimTypeClass@@H@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652b50",
+    "body": 34,
+    "padding": 14,
+    "symbol": "??0?$TypeList@PBVAnimTypeClass@@@@QAE@XZ",
+    "main_symbol": "??0?$TypeList@PAVAnimTypeClass@@@@QAE@XZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652b80",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Save@?$TypeList@PBVAnimTypeClass@@@@QBEXPAUIStream@@@Z",
+    "main_symbol": "?Save@?$TypeList@PAVAnimTypeClass@@@@QAEXPAUIStream@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652bd0",
+    "body": 34,
+    "padding": 14,
+    "symbol": "??0?$TypeList@H@@QAE@XZ",
+    "main_symbol": "??0?$TypeList@H@@QAE@XZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652c00",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Save@?$TypeList@H@@QBEXPAUIStream@@@Z",
+    "main_symbol": "?Save@?$TypeList@H@@QAEXPAUIStream@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652c50",
+    "body": 34,
+    "padding": 14,
+    "symbol": "??0?$TypeList@PBVSmudgeTypeClass@@@@QAE@XZ",
+    "main_symbol": "??0?$TypeList@PAVSmudgeTypeClass@@@@QAE@XZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652c80",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Save@?$TypeList@PBVSmudgeTypeClass@@@@QBEXPAUIStream@@@Z",
+    "main_symbol": "?Save@?$TypeList@PAVSmudgeTypeClass@@@@QAEXPAUIStream@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652cd0",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PBVSmudgeTypeClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$DynamicVectorClass@PAVSmudgeTypeClass@@@@UAEXXZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652d00",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PBVSmudgeTypeClass@@@@UAEHPBQBVSmudgeTypeClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVSmudgeTypeClass@@@@UAEHPBQAVSmudgeTypeClass@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652d20",
+    "body": 132,
+    "padding": 12,
+    "symbol": "??4?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652db0",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PBVSmudgeTypeClass@@@@UBEPBVSmudgeTypeClass@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVSmudgeTypeClass@@@@UBEPAVSmudgeTypeClass@@H@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652dc0",
+    "body": 34,
+    "padding": 14,
+    "symbol": "??0?$TypeList@PBVUnitTypeClass@@@@QAE@XZ",
+    "main_symbol": "??0?$TypeList@PAVUnitTypeClass@@@@QAE@XZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652df0",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Save@?$TypeList@PBVUnitTypeClass@@@@QBEXPAUIStream@@@Z",
+    "main_symbol": "?Save@?$TypeList@PAVUnitTypeClass@@@@QAEXPAUIStream@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652e40",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Save@?$TypeList@PBVAircraftTypeClass@@@@QBEXPAUIStream@@@Z",
+    "main_symbol": "?Save@?$TypeList@PAVAircraftTypeClass@@@@QAEXPAUIStream@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652e90",
+    "body": 34,
+    "padding": 14,
+    "symbol": "??0?$TypeList@PBVInfantryTypeClass@@@@QAE@XZ",
+    "main_symbol": "??0?$TypeList@PAVInfantryTypeClass@@@@QAE@XZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652ec0",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Save@?$TypeList@PBVInfantryTypeClass@@@@QBEXPAUIStream@@@Z",
+    "main_symbol": "?Save@?$TypeList@PAVInfantryTypeClass@@@@QAEXPAUIStream@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652f10",
+    "body": 34,
+    "padding": 14,
+    "symbol": "??0?$TypeList@PBVTerrainTypeClass@@@@QAE@XZ",
+    "main_symbol": "??0?$TypeList@PAVTerrainTypeClass@@@@QAE@XZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652f40",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Save@?$TypeList@PBVTerrainTypeClass@@@@QBEXPAUIStream@@@Z",
+    "main_symbol": "?Save@?$TypeList@PAVTerrainTypeClass@@@@QAEXPAUIStream@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652f90",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PBVTerrainTypeClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$DynamicVectorClass@PAVTerrainTypeClass@@@@UAEXXZ",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652fc0",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PBVTerrainTypeClass@@@@UAEHPBQBVTerrainTypeClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVTerrainTypeClass@@@@UAEHPBQAVTerrainTypeClass@@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652fe0",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PBVTerrainTypeClass@@@@UBEPBVTerrainTypeClass@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVTerrainTypeClass@@@@UBEPAVTerrainTypeClass@@H@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00652ff0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$TypeList@PBVVoxelAnimTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$TypeList@PAVVoxelAnimTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00653040",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$TypeList@PBVSmudgeTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$TypeList@PAVSmudgeTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00653090",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$TypeList@PBVTerrainTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$TypeList@PAVTerrainTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "006530e0",
+    "body": 108,
+    "padding": 4,
+    "symbol": "??4?$VectorClass@PBVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4?$VectorClass@PAVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00653150",
+    "body": 108,
+    "padding": 4,
+    "symbol": "??4?$VectorClass@PAVVoxelAnimTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4?$VectorClass@PAVVoxelAnimTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "006531c0",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PBVVoxelAnimTypeClass@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVVoxelAnimTypeClass@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00653200",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PBVVoxelAnimTypeClass@@@@UAE_NHPBQBVVoxelAnimTypeClass@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVVoxelAnimTypeClass@@@@UAE_NHPBQAVVoxelAnimTypeClass@@@Z",
+    "main_source": "src/recovered/rules.cpp"
    }
   ],
   "references": {
@@ -82623,7 +82935,18 @@
    "_RAD_45": "00ab6dc8",
    "_RAD_60": "00ab6da0",
    "_RAD_90": "00ab6d78",
-   "_RECT_NONE": "00ab6d80"
+   "_RECT_NONE": "00ab6d80",
+   "?Clear@?$DynamicVectorClass@PBVTerrainTypeClass@@@@UAEXXZ": "00652f90",
+   "?ID@?$DynamicVectorClass@PBVTerrainTypeClass@@@@UAEHPBQBVTerrainTypeClass@@@Z": "00652fc0",
+   "?GetItem@?$VectorClass@PBVTerrainTypeClass@@@@UBEPBVTerrainTypeClass@@H@Z": "00652fe0",
+   "?Clear@?$DynamicVectorClass@PBVSmudgeTypeClass@@@@UAEXXZ": "00652cd0",
+   "?ID@?$DynamicVectorClass@PBVSmudgeTypeClass@@@@UAEHPBQBVSmudgeTypeClass@@@Z": "00652d00",
+   "?GetItem@?$VectorClass@PBVSmudgeTypeClass@@@@UBEPBVSmudgeTypeClass@@H@Z": "00652db0",
+   "??8?$VectorClass@PBVVoxelAnimTypeClass@@@@UBE_NABV0@@Z": "006531c0",
+   "?Clear@?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@UAEXXZ": "00652af0",
+   "?ID@?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@UAEHPBQBVVoxelAnimTypeClass@@@Z": "00652b20",
+   "?GetItem@?$VectorClass@PBVVoxelAnimTypeClass@@@@UBEPBVVoxelAnimTypeClass@@H@Z": "00652b40",
+   "?Resize@?$VectorClass@PBVVoxelAnimTypeClass@@@@UAE_NHPBQBVVoxelAnimTypeClass@@@Z": "00653200"
   },
   "partial_ok": true
  },
@@ -146880,7 +147203,7 @@
   },
   "partial_ok": true,
   "held_reason": "mismatch",
-  "held_note": "range widened to 0x602A60 (177/248 under the 21-entry DoType). With the 38-entry DoType (review ruling 2026-11-18) four more rows flip by declaration count (WS_Save_Dialog_Values, Dialog_Box, Begin_Dialog, Dialog_Message_Handler family, 3 bytes each); mischa85 10c94af dropped the name Counter (it is Session.Suspended), so those rows now also refer to an unbound ?Counter@@3HA. Blocker as before: _$E173 inlines ??_GWideWstring",
+  "held_note": "range widened to 0x602A60; 179/248 after Counter became Session.Suspended (mischa85 10c94af) and Begin_Dialog's call went to Add_Modeless_Dialog (0x5B6000). Left: _$E173 inlines ??_GWideWstring (the original calls 0x601430), Restore_Child, Dialog_On_WM_PAINT (unguarded draft), DialogControl's deleting destructor; guarding them flips Restore_Window (174)",
   "held_manual": true
  },
  "mpobserver": {
