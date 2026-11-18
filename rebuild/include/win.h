@@ -51,3 +51,5 @@ extern bool			GameInFocus;
 
 // Declarations moved from the units that used them (one declaration per name).
 extern int __fastcall Clear_ComboBox(HWND list); // RA2: 0x006007F0
+extern HWND PressedSideButton; // RA2: 0x00A41690, the side button the mouse went down on
+extern HWND Current_Dialog; // RA2: as above

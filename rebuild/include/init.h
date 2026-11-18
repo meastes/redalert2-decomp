@@ -67,3 +67,4 @@ int New_Main_Menu(void);
 // Declarations moved from the units that used them (one declaration per name).
 extern bool __cdecl Release_Neutral_Mix(void); // RA2: 0x0051A270; releases the mix file of the neutral art
 extern bool __cdecl Load_Neutral_Mix(void); // RA2: 0x0051A2B0; loads it again
+extern int MovieListChoice; // RA2: 0x007DB558, the movie list entry chosen last (init.cpp defines it after the campaign selection sounds, its place in .data)

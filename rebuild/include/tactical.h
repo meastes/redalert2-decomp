@@ -286,9 +286,17 @@ class Tactical : public AbstractClass
 		 */
 		int LastAIFrame;
 
-		/// Unused
-		bool field_58;
-		bool field_59;
+		/*
+		 * Unused (TibSun field_58/field_59). RA2 keeps the two flags in one member whose inline
+		 * constructor clears both (the constructor stores the zoom factor's low word ahead of them)
+		 * and whose NoInitClass constructor leaves them (main's Tactical layout, 0x006A24B0).
+		 */
+		struct UnusedFlags {
+			UnusedFlags(void) : field_58(false), field_59(false) {}
+			UnusedFlags(NoInitClass const &) {}
+			bool field_58;
+			bool field_59;
+		} Unused;
 
 		/*
 		**	This is the pixel offset for the upper left corner of the tactical map.

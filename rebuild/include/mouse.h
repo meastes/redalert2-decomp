@@ -124,3 +124,6 @@ class MouseClass: public ScrollClass
 		static CDTimerClass<SystemTimerClass> Timer;
 		int Frame;
 };
+
+// Declarations moved from the units that used them (one declaration per name).
+extern void * MouseShapes; // RA2: 0x00ABD488, MOUSE.SHP as Init_Mouse loaded it (startup.cpp)

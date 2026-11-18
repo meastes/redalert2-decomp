@@ -56,3 +56,8 @@ extern MFCD * SideCDMix;
 
 extern DynamicVectorClass<MFCD *> MapsMixLocal; // RA2: 0x00837468, the further MAPS*.MIX files
 extern DynamicVectorClass<MFCD *> MoviesMixLocal; // RA2: 0x008374A0, the further MOVIES*.MIX files
+
+// Declarations moved from the units that used them (one declaration per name).
+extern MFCD * GenericMix; // RA2: 0x008374C8, GENERIC.MIX, kept while a theater other than snow is loaded
+extern MFCD * IsoGenericMix; // RA2: 0x008374D0, ISOGEN.MIX
+extern MFCD * NeutralMix; // RA2: 0x008374F0, NEUTRAL.MIX

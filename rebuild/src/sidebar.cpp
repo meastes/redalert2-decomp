@@ -224,9 +224,6 @@ bool SidebarClass::IsToEraseSidebarMouse = false;
 /*
 **	Shape data pointers
 */
-ShapeSet * SidebarClass::StripClass::LogoShapes = NULL;
-ShapeSet const * SidebarClass::StripClass::ClockShapes;
-ShapeSet const * SidebarClass::StripClass::RechargeClockShapes;
 ShapeSet const * SidebarClass::StripClass::DarkenShapes; // RA2: 0xAB9480
 
 void Print_Cameo_Text(wchar_t const * string, Point2D const & point, Rect const & cliprect, int maxlinelen); // RA2: wide text; the flag is a global
@@ -1294,6 +1291,7 @@ void SidebarClass::Recalc(void)
  * HISTORY:                                                                                    *
  *   12/09/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0067e210 has no row)
 bool SidebarClass::Activate(int control)
 {
 	bool old = IsSidebarActive;
@@ -1377,6 +1375,7 @@ bool SidebarClass::Activate(int control)
 	}
 	return changed; // RA2: as above
 }
+#endif
 
 
 /***********************************************************************************************
@@ -2414,6 +2413,7 @@ void SidebarClass::StripClass::Draw_It(bool complete)
  *   01/19/1995 JLB : Created.                                                                 *
  *   06/26/1995 JLB : Doesn't collapse sidebar when buildables removed.                        *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006802d0 has no row)
 bool SidebarClass::StripClass::Recalc(void)
 {
 	int ok;
@@ -2506,6 +2506,7 @@ bool SidebarClass::StripClass::Recalc(void)
 	delete[] unshifted;
 	return(redraw);
 }
+#endif
 
 
 /***********************************************************************************************
@@ -2525,7 +2526,7 @@ bool SidebarClass::StripClass::Recalc(void)
  *   01/19/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
 SidebarClass::StripClass::SelectClass::SelectClass(void) :
-	ControlClass(0, 0, 0, OBJECT_WIDTH-1, OBJECT_HEIGHT, LEFTPRESS|RIGHTPRESS|LEFTUP),
+	ControlClass(0, 0, 0, 60, 48, LEFTPRESS|RIGHTPRESS|LEFTUP), // RA2: the 60 by 48 cameo (ra2-decomp)
 	Strip(0),
 	Index(0)
 {
@@ -2796,6 +2797,40 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, KeyNumType & k
 
 
 /***********************************************************************************************
+ * SidebarClass::StripClass::SelectClass::Mouse_Enter -- The mouse moved onto a cameo button.   *
+ *                                                                                             *
+ *    RA2: the tooltip comes up at once (its delay is saved, then cleared), the button marks    *
+ *    itself hovered and the strip and the whole sidebar are redrawn.                          *
+ *=============================================================================================*/
+void SidebarClass::StripClass::SelectClass::Mouse_Enter(void)
+{
+	ToolTips->Save_Timer_Delay();
+	ToolTips->Set_Timer_Delay(0);
+	IsHovered = true;
+	Strip->IsToRedraw = true;
+	Map.Flag_To_Redraw();
+	Map.IsForceCompleteRedraw = true;
+	SidebarClass::IsToBlitSidebar = true;
+}
+
+
+/***********************************************************************************************
+ * SidebarClass::StripClass::SelectClass::Mouse_Leave -- The mouse left a cameo button.         *
+ *                                                                                             *
+ *    RA2: the tooltip delay is restored and the hover mark cleared; then the same redraws.    *
+ *=============================================================================================*/
+void SidebarClass::StripClass::SelectClass::Mouse_Leave(void)
+{
+	ToolTips->Restore_Timer_Delay();
+	IsHovered = false;
+	Strip->IsToRedraw = true;
+	Map.Flag_To_Redraw();
+	Map.IsForceCompleteRedraw = true;
+	SidebarClass::IsToBlitSidebar = true;
+}
+
+
+/***********************************************************************************************
  * SidebarClass::SBGadgetClass::Action -- Special function that controls the mouse over the si *
  *                                                                                             *
  *    This routine is called whenever the mouse is over the sidebar. It makes sure that the    *
@@ -2896,10 +2931,12 @@ bool SidebarClass::Abandon_Production(RTTIType type, int id, FactoryClass * fact
  * HISTORY:                                                                                    *
  *   05/18/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool SidebarClass::Abandon_Production(RTTIType type, FactoryClass * factory)
 {
 	return(Column[Which_Column(type)].Abandon_Production(factory));
 }
+#endif
 
 
 /***********************************************************************************************
@@ -2968,6 +3005,7 @@ bool SidebarClass::StripClass::Abandon_Production(FactoryClass const * factory)
  * HISTORY:                                                                                    *
  *   07/31/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 75 bytes differ (adopted text)
 void SidebarClass::Zoom_Mode_Control(void)
 {
 	/*
@@ -2991,6 +3029,7 @@ void SidebarClass::Zoom_Mode_Control(void)
 		Radar_Activate(2, true); // RA2: as above
 	}
 }
+#endif
 
 /// <summary>
 /// Determines which sidebar tab an object type is built from, when the build category is known already.
@@ -3033,6 +3072,7 @@ int SidebarClass::First_Used_Column() // RA2: as above
 }
 
 
+#ifdef RA2_NON_MATCHING // not exact: 296 bytes differ (adopted text)
 void SidebarClass::Reposition_Sidebar() // RA2: as above
 {
 	PowerClass::Reposition_Sidebar(); // RA2: as above
@@ -3170,6 +3210,7 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 		ToolTips->Add(&tip); // RA2: as above
 	}
 }
+#endif
 
 
 /// <summary>
@@ -3179,6 +3220,7 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 /// </summary>
 /// <param name="id">The gadget identifier that text is wanted for.</param>
 /// <returns>Returns with a pointer to the help text, or NULL if the gadget has none.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 452 bytes differ (adopted text)
 const char * SidebarClass::Help_Text(int id)
 {
 	const char *text = BASECLASS::Help_Text(id);
@@ -3191,6 +3233,7 @@ const char * SidebarClass::Help_Text(int id)
 	}
 	return(text);
 }
+#endif
 
 
 /// <summary>

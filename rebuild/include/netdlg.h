@@ -61,3 +61,6 @@ enum RejectType {
 	REJECT_MISMATCH,                // "rules.ini" file mismatch.
 	REJECT_DUPLICATE_SERIAL,        /// player's serial is a duplicate
 };
+
+// Declarations moved from the units that used them (one declaration per name).
+extern unsigned int __fastcall Compute_Name_CRC(wchar_t const * name); // RA2: 0x005BBA50

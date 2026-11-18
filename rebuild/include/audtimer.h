@@ -10,3 +10,7 @@ typedef unsigned __int64 TimeStamp;
 
 void InitAudioTimer(void);
 TimeStamp AudioGetTime(void);
+
+// Declarations moved from the units that used them (one declaration per name).
+extern TimeStamp LoadingScreenHoldUntil; // RA2: 0x00A41668, as below
+extern TimeStamp SideSoundTime; // RA2: 0x00A41680, when the hovered side's sound may play

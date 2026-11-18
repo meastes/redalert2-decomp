@@ -323,3 +323,4 @@ extern int SentFrameSyncCount;
 extern void __fastcall Enqueue_Event(EventClass * event); // RA2: 0x0062E6E0 (queue.cpp); puts the event on the list to run
 extern bool __fastcall Add_Outgoing_Event(EventClass event); // RA2: 0x0062E670 (queue.cpp); sends the event to the other players, false when the list is full
 extern unsigned int RouterResponseTimes[]; // RA2: 0x00A76C88, the packet router round trip per connection (Multiplayer_Debug_Print "Rout resp")
+extern bool ExtraSyncInfo; // RA2: 0x00AB62E8, set by -MPDEBUG

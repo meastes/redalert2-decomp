@@ -53,7 +53,11 @@ for i, s in enumerate(c.sections, 1):
         if base is None: continue
         address = struct.unpack('<I', audit.original(base + o - owner[0], 4))[0]
         literal = c.sections[target['section'] - 1]['data'] if target['section'] > 0 else None
-        if literal is not None and audit.original(address, len(literal)) == bytes(literal):
+        try:
+            equal = literal is not None and audit.original(address, len(literal)) == bytes(literal)
+        except ValueError:          # the pointer leads outside the image: no evidence (lane R5)
+            equal = False
+        if equal:
             info['references'][target['name']] = '%08x' % address
             print('  %s = %08x (pointer at %s+%d, literal bytes equal)' % (target['name'][:60], address, owner[1][:30], o - owner[0]))
 R.save_units(units, [unit])

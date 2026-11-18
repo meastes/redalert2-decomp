@@ -186,6 +186,9 @@ class SidebarClass : public PowerClass
 					int Index;
 					bool IsHovered; // RA2: +0x34, the mouse is over the button; the button is 0x38 bytes
 
+					virtual void Mouse_Enter(void) override; // RA2: 0x681600
+					virtual void Mouse_Leave(void) override; // RA2: 0x681650
+
 				protected:
 					virtual int Action(unsigned flags, KeyNumType & key) override;
 			};
@@ -376,7 +379,7 @@ class SidebarClass : public PowerClass
 				**	Pointer to the shape data for small versions of the logos. These are used as
 				**	placeholder pieces on the side bar.
 				*/
-				static ShapeSet * LogoShapes;
+				static ShapeSet * LogoShapes; // RA2: declared, never defined (nor are ClockShapes and RechargeClockShapes); the initializer numbering of every unit that includes this header counts the three declarations
 
 				/*
 				**	This points to the animation sequence of frames used to mark the passage of time

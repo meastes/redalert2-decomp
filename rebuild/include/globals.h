@@ -356,6 +356,9 @@ class ShapeButtonClass;
 class ShapeSet;
 class MixFileClass;
 class MultiplayerTeam;
+class ConvertClass;
+struct AudioController;
+struct VoxelDataStruct;
 // Declarations moved from the units that used them (one declaration per name).
 class RGBClass;
 class SchemeLibrary;
@@ -453,3 +456,72 @@ extern bool PortsRead; // RA2: 0xAB9178, set once the port numbers have been rea
 extern int SavedGameSpeed; // RA2: 0x7F3230, the game speed from before the game was left (-1 when none)
 extern int Text_Color; // RA2: 0x00A733E4, the font color of the dialogs
 extern MultiplayerTeam * __fastcall Create_Battle_Team(int number); // RA2: 0x005A2550, a team titled with its number (the MultiplayerTeam constructor at 0x005B9B20 with the number as the text and the index)
+extern ConvertClass * EndGameGraphicsConvert; // RA2: 0xA41678, the palette conversion of the end game graphic (set up in Init_Game, not in main yet)
+extern ShapeSet const * EndGameGraphicsShape; // RA2: 0xA41674, the end game graphic loaded in Init_Game
+extern void __fastcall Set_Jabber_Option(int value); // RA2: 0x006F9FB0, the -jabber switch: stores the value and tells the text system
+extern void __fastcall Set_Str_Option(int value); // RA2: 0x006F9FE0, the -str and -nostr switches, the same for a second text option
+extern int AudioAllowed; // RA2: 0x007F4CC8, 0 with -noaudio
+extern int RecordPlayRequest; // RA2: 0x00A41664, 1 with -record, 2 with -play; WinMain opens session.ipb for it
+extern void * EndGameGraphicsPalette; // RA2: 0x00A41670, GRFXTXT.PAL as Bootstrap loaded it
+extern bool MouseShapesAllocated; // RA2: 0x00ABD48C (startup.cpp)
+extern AudioController SideSound; // RA2: 0x00A411E8, the sound of the side that was chosen
+extern int HoveredSideButton; // RA2: 0x00A41688, the highlighted side button
+extern bool CampaignListShown; // RA2: 0x00A4168D, the campaign list and its button are shown
+extern int __fastcall Wonline_Main(bool returning); // RA2: 0x0073A300, the Internet game dialogs; returns -2 or 0 (back), -1 (quit), 1 (a game is ready), 2 (skirmish)
+extern bool MovieListShown; // RA2: 0x00A40D10, the trailer button plays the movies of the list in turn
+extern int TrailerMovieIndex; // RA2: 0x00A41698, the movie the trailer button plays next
+extern VoxelDataStruct DropPodVoxel;
+extern BuildingClass * Structure_Tab_Building(void); // RA2: 0x006F8A50
+extern BuildingClass * Defense_Tab_Building(void); // RA2: 0x006F8A60
+extern void Type_Select_Press(void); // RA2: 0x006F7650
+extern void Type_Select_Release(void); // RA2: 0x006F7670
+extern void __fastcall Apply_State_Command(bool shifted); // RA2: 0x006F7B80
+extern void __fastcall Apply_Rank_Command(bool shifted); // RA2: 0x006F7EC0
+extern void Jump_To_Radar_Event(void); // RA2: 0x006F88F0
+extern void Group_Select_Members(int group); // RA2: 0x006F61F0; uicmnds.cpp defines it, tab.h does not declare it
+extern void Select_All_Combatants(bool clear); // RA2: 0x006F6D00; as above
+extern void __cdecl Command_Scatter(void); // RA2: 0x006F5D10; as above
+extern void __cdecl Command_Ally(void); // RA2: 0x006F6380; as above
+extern void __cdecl Command_Delete_Plan_Or_Beacon(void); // RA2: 0x006F6490; as above
+extern bool VideoBackBufferAllowed; // RA2: 0x007F4CC4, [Video] VideoBackBuffer (startup.cpp)
+extern void __fastcall Set_Scheme_Table_Theater(TheaterType theater); // RA2: 0x00603750, palette.cpp: switches the colour scheme table to the theater
+extern void __cdecl Delete_All_Line_Trails(void); // RA2: 0x005397B0, deletes every line trail
+extern void __fastcall Load_Techno_Palettes(void); // RA2: 0x006DF640, TechnoTypeClass::Load_Palettes of the executable
+extern int Alternate_Frame_Color; // RA2: as above
+extern int Base_Screen_Height; // RA2: as above
+extern int Base_Screen_Width; // RA2: as above
+extern int Border_Width; // RA2: as above
+extern int Brown_Color; // RA2: as above
+extern int Dark_Brown_Color; // RA2: as above
+extern int Dark_Grey_Color; // RA2: as above
+extern int Default_Frame_Color; // RA2: as above
+extern int Dim_Alpha; // RA2: as above
+extern int Disabled_Text_Color; // RA2: as above
+extern int Fill_Color; // RA2: as above
+extern int Frame_Color; // RA2: as above
+extern int Glow_Color; // RA2: as above
+extern int Grey_Color; // RA2: as above
+extern int Highlight_Text_Color; // RA2: as above
+extern int Light_Grey_Color; // RA2: as above
+extern int Olive_Color; // RA2: as above
+extern int Pressed_Fill_Color; // RA2: as above
+extern int Tab_Text_Color; // RA2: as above
+extern int Visible_Default_Buttons; // RA2: as above
+extern int Visible_Free_Buttons; // RA2: as above
+extern int White_Color; // RA2: as above
+extern int Classes_Registered; // RA2: as above
+extern int Surface_Count; // RA2: as above
+extern unsigned short Edit_Buffer[0x1400]; // RA2: as above
+extern int Mouse_Release_Depth; // RA2: as above
+extern bool Session_Busy; // RA2: as above
+extern void* DialogControl_Vtable; // RA2: as above
+extern char const *Dialog_Back_Name; // RA2: as above
+extern char const *Listed_Kind_Art_Name; // RA2: as above
+extern ShapeSet *Cancel_Button_Shape; // RA2: 0xAC10C0
+extern RGBClass Menu_Disabled_Color; // RA2: 0xAC109C
+extern RGBClass Soviet_Disabled_Color; // RA2: 0xAC1100
+extern RGBClass Allied_Disabled_Color; // RA2: 0xAC1008
+extern void *Art_Popup_Back; // RA2: as above
+extern void *Art_Popup_Back_Allied; // RA2: as above
+extern void *Art_Popup_Back_Soviet; // RA2: as above
+extern int Counter; // RA2: 0x00A3FABC, nonzero while a modal loop runs (Dialog_Message_Handler then leaves the message to it)

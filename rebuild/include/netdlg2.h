@@ -28,3 +28,6 @@ bool Net2ReadyToGo(int load_game);
 bool Process_Global_Packet(GlobalPacketType *packet, IPXAddressClass *address);
 void Net2DisplayGameList(void);
 void Net2ServiceGameList(void);
+
+// Declarations moved from the units that used them (one declaration per name).
+extern bool Net_Join_Dialog(void); // RA2: 0x005BD070 (netdlg2.cpp)

@@ -121,3 +121,6 @@ class MultiplayerGameMode
 		CCINIClass * INI;
 		int wolTourney; // RA2: +0x3C, an int read from WonlineTournamentAllowed (default 1); no AlliesAllowed, wolClanTourney or MustAlly
 };
+
+// Declarations moved from the units that used them (one declaration per name).
+extern void Init_Game_Modes(void); // RA2: 0x005B8BD0 (multiplayer.cpp)

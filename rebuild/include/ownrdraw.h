@@ -525,5 +525,15 @@ struct ToolTipTextRequest { // RA2: what a combo box asks for with message 0x4E9
 	WideWstring Text; // RA2: the answer
 };
 
+template <class K,class V> class Dictionary;
 // Declarations moved from the units that used them (one declaration per name).
 extern bool __fastcall Focus_Next_Tab_Item(long lparam, bool flag); // RA2: 0x005DEF80
+extern int __fastcall Dialog_Box(int resource, int (__stdcall * proc)(struct HWND__ *, unsigned int, unsigned int, long), bool show); // RA2: 0x005EAB60 (ownrdraw.cpp)
+extern Dictionary<unsigned int, OwnerDraw::WinData> Control_Table; // RA2: as above
+extern OwnerDraw::Tooltip ODTooltip; // RA2: as above
+namespace OwnerDraw { extern int Masks_Ready; } // RA2: as above
+namespace OwnerDraw { extern long ODLastTooltipTime; } // RA2: as above
+namespace OwnerDraw { extern int Caret_Hidden; } // RA2: 0xA763EC, the caret blink state Draw_Edit_Text reads
+namespace OwnerDraw { extern char const *Dialog_Back_Name; } // RA2: as above
+extern HWND Dropdown_Window; // RA2: the open drop-down list (ownrdraw.cpp defines it)
+extern HWND Dropdown_Owner; // RA2: the combo box that owns it

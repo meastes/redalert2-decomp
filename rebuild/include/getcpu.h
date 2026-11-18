@@ -48,3 +48,7 @@ enum CPUType {
 	CPU_CYRIX,
 	CPU_COUNT,
 };
+
+// Declarations moved from the units that used them (one declaration per name).
+extern int Get_CPU_Type(void); // RA2: 0x004D2A60 (getcpu.cpp holds the other, TibSun's Get_CPU_Type): the CPU class
+extern char const * Get_CPU_Type_Name(void); // RA2: 0x004D2B80 (queue.cpp declares it too)
