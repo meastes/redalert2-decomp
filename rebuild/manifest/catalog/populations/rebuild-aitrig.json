@@ -118,6 +118,7 @@
     "?Put_String@INIClass@@QAE_NPBD00@Z": 5301744,
     "?Map@@3VMouseClass@@A": 8594656,
     "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z": 5568752,
+    "??3@YAXPAX@Z": 7871803,
     "??_C@_0BF@FHL@AITriggerTypesEnable?$AA@": 8186520,
     "??_C@_0P@CHJA@AITriggerTypes?$AA@": 8186544,
     "??_C@_05IDBG@?$DMall?$DO?$AA@": 8186580,
@@ -172,7 +173,6 @@
     "?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z": 4262304,
     "?Fetch_RTTI@AITriggerTypeClass@@UBE?AW4RTTIType@@XZ": 4317808,
     "?Fetch_Object_Size@AITriggerTypeClass@@UBEHXZ": 4317824,
-    "??3@YAXPAX@Z": 7871803,
     "??1AITriggerTypeClass@@UAE@XZ": 4310768,
     "?GetClassID@AITriggerTypeClass@@UAGJPAU_GUID@@@Z": 4310896,
     "?Load@AITriggerTypeClass@@UAGJPAUIStream@@@Z": 4310960,
@@ -4484,6 +4484,184 @@
       "source": "rebuild/src/aitrig.cpp",
       "population": "rebuild-aitrig",
       "source_order": 4317488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4317808,
+      "method": "0041e270",
+      "body_bytes": 6,
+      "body_sha256": "a54993b3f8cb62ea800a654e8ac3dce38e1d622cc2de4b2d378f223fb59db662",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0f7edd8e7c9c0d54ac5b469b6ef5158ec5d290ef845292599545e3ba56ffff62",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@AITriggerTypeClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@AITriggerTypeClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "257d30ce794001d7315c13bcf5e734004b0416f104a5365fa48579574ab7d85e",
+      "source": "rebuild/src/aitrig.cpp",
+      "population": "rebuild-aitrig",
+      "source_order": 4317808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4317824,
+      "method": "0041e280",
+      "body_bytes": 6,
+      "body_sha256": "c1fadb972e67edc97088325fad5a9bebeb6276a9b9ae0c3bbfab67101011225a",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2eb9494690302e7630b18b3da11494491bd948805c6e793de2b83a0798177b81",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@AITriggerTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@AITriggerTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "257d30ce794001d7315c13bcf5e734004b0416f104a5365fa48579574ab7d85e",
+      "source": "rebuild/src/aitrig.cpp",
+      "population": "rebuild-aitrig",
+      "source_order": 4317824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4317840,
+      "method": "0041e290",
+      "body_bytes": 134,
+      "body_sha256": "25fa05f751bac223cb572b73c88d247ef9b8512fb1ea0b90c62c916fa57f83e7",
+      "padding_bytes": 10,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "8f00f3153a6bf91549d4a16b5e88cbd4e396a1ba4a87ca7ecfaee3d0377dd5b5",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GAITriggerTypeClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GAITriggerTypeClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+          "target": 10736224,
+          "addend": 0,
+          "resolved": 10736224
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7AITriggerTypeClass@@6BIPersistStream@@@",
+          "target": 7976832,
+          "addend": 0,
+          "resolved": 7976832
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7AITriggerTypeClass@@6BIRTTITypeInfo@@@",
+          "target": 7976804,
+          "addend": 0,
+          "resolved": 7976804
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7AITriggerTypeClass@@6BINoticeSink@@@",
+          "target": 7976796,
+          "addend": 0,
+          "resolved": 7976796
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_7AITriggerTypeClass@@6BINoticeSource@@@",
+          "target": 7976788,
+          "addend": 0,
+          "resolved": 7976788
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+          "target": 10736224,
+          "addend": 0,
+          "resolved": 10736224
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+          "target": 10736224,
+          "addend": 16,
+          "resolved": 10736240
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+          "target": 10736224,
+          "addend": 16,
+          "resolved": 10736240
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+          "target": 10736224,
+          "addend": 4,
+          "resolved": 10736228
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+          "target": 10736224,
+          "addend": 16,
+          "resolved": 10736240
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "??1AbstractTypeClass@@UAE@XZ",
+          "target": 4261696,
+          "addend": 0,
+          "resolved": 4294911041
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3553839
+        }
+      ],
+      "source_sha256": "257d30ce794001d7315c13bcf5e734004b0416f104a5365fa48579574ab7d85e",
+      "source": "rebuild/src/aitrig.cpp",
+      "population": "rebuild-aitrig",
+      "source_order": 4317840,
       "source_quality_family": "rebuild"
     }
   ]

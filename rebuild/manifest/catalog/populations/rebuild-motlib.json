@@ -214,6 +214,43 @@
       "population": "rebuild-motlib",
       "source_order": 5893424,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893568,
+      "method": "0059edc0",
+      "body_bytes": 28,
+      "body_sha256": "84c8c92498169d323cdc5eb2d83470fcc7909b518682ae54fd9cde8e020b3a7c",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cad904e4e2c84392f96863b3b3d36887bfe83f06621c9443f0968b346cf9381e",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@MotionLibrary@@QAEXXZ",
+      "symbol_prefix": "?Clear@MotionLibrary@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1978219
+        }
+      ],
+      "source_sha256": "3aa153f1656d0320b0f70827366ddd1515103e85879c8485e31b4135cd169822",
+      "source": "rebuild/src/motlib.cpp",
+      "population": "rebuild-motlib",
+      "source_order": 5893568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
     }
   ]
 }

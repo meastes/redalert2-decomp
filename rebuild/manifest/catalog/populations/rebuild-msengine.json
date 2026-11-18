@@ -48,6 +48,7 @@
     "?Options@@3VGameOptionsClass@@A": 10750744,
     "__ftol": 7860496,
     "?Play@MSSfx@@QAEXH@Z": 5990896,
+    "??1MSEngine@@UAE@XZ": 5975152,
     "_$E2": 5974976,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??0MSEngine@@QAE@XZ": 5975008,
@@ -56,7 +57,6 @@
     "??_GMSEngine@@UAEPAXI@Z": 5978176,
     "?Do_Custom_Draw@MSEngine@@UAEXPAVSurface@@@Z": 5832080,
     "?Process_Idle@MSEngine@@UAEXXZ": 5978160,
-    "??1MSEngine@@UAE@XZ": 5975152,
     "??_G?$VectorClass@PAVMSAnim@@@@UAEPAXI@Z": 5979616,
     "??_G?$VectorClass@PAVMSSfx@@@@UAEPAXI@Z": 5979776,
     "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z": 5975392,
@@ -1166,6 +1166,903 @@
       "source": "rebuild/src/msengine.cpp",
       "population": "rebuild-msengine",
       "source_order": 5978112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978160,
+      "method": "005b3830",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Idle@MSEngine@@UAEXXZ",
+      "symbol_prefix": "?Process_Idle@MSEngine@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978176,
+      "method": "005b3840",
+      "body_bytes": 30,
+      "body_sha256": "69dfde7e7a567b0289063f04722049b90b0f02c0ffe773876f6946af611b1db4",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d9f7450dbbeb2e5625ab305ae5bff347968db78571aa6a056df0c1d5c5444d29",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMSEngine@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMSEngine@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1MSEngine@@UAE@XZ",
+          "target": 5975152,
+          "addend": 0,
+          "resolved": 4294964264
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1893606
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978208,
+      "method": "005b3860",
+      "body_bytes": 42,
+      "body_sha256": "3d13cd9c06371bbfb56e694a3d2f72419d0de83ad85856cc376296a36b34cc42",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "191c1a8dd517e260a408642454119be901af3354bac437c441ae54601f7b4c38",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVMSAnim@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVMSAnim@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1893568
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978256,
+      "method": "005b3890",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVMSAnim@@@@UAEHPBQAVMSAnim@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVMSAnim@@@@UAEHPBQAVMSAnim@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978288,
+      "method": "005b38b0",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVMSAnim@@@@UBEPAVMSAnim@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVMSAnim@@@@UBEPAVMSAnim@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978304,
+      "method": "005b38c0",
+      "body_bytes": 42,
+      "body_sha256": "60465c4b86584a84b7c6babdbbecb32ca5d37a82c86b708adda96c6593910543",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c23aa74242a63f0f4c8ad38d1a67ec1ed24da69a15286ea7ae9d402a2f4ed05a",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVMSSfx@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVMSSfx@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1893472
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978352,
+      "method": "005b38f0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVMSSfx@@@@UAEHPBQAVMSSfx@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVMSSfx@@@@UAEHPBQAVMSSfx@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978384,
+      "method": "005b3910",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVMSSfx@@@@UBEPAVMSSfx@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVMSSfx@@@@UBEPAVMSSfx@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978400,
+      "method": "005b3920",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVMSAnim@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVMSAnim@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978464,
+      "method": "005b3960",
+      "body_bytes": 174,
+      "body_sha256": "582159931d06a34eaea6f86bd9b10df70cd9399a521cdda44c6d649062d8754a",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "1b7eaf9606b91464fe01f87ba94a92a640690bab43aa09ad5e4bb9f2916d19dc",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVMSAnim@@@@UAE_NHPBQAVMSAnim@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVMSAnim@@@@UAE_NHPBQAVMSAnim@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1894028
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1893216
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978640,
+      "method": "005b3a10",
+      "body_bytes": 39,
+      "body_sha256": "b0e4d0e9d92b8187a43a0c42247fd1a4c83e5ab92f8d1ab8a60da8d8510103ce",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "95ac51bbf9addba68f632231996bc1730f5f97048042f6fadb4ced500c76d4f8",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVMSAnim@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVMSAnim@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1893139
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978688,
+      "method": "005b3a40",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVMSAnim@@@@UAEHABQAVMSAnim@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVMSAnim@@@@UAEHABQAVMSAnim@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978752,
+      "method": "005b3a80",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVMSAnim@@@@UAEHPBQAVMSAnim@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVMSAnim@@@@UAEHPBQAVMSAnim@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978784,
+      "method": "005b3aa0",
+      "body_bytes": 176,
+      "body_sha256": "a91874a9e71d7d66b4c4864635a9eee79015f3ced277bb0975581a7faa77d590",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "a91874a9e71d7d66b4c4864635a9eee79015f3ced277bb0975581a7faa77d590",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVMSAnim@@@@UAE_NHPBQAVMSAnim@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVMSAnim@@@@UAE_NHPBQAVMSAnim@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1893712
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1892909
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5978960,
+      "method": "005b3b50",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVMSAnim@@@@UAEHABQAVMSAnim@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVMSAnim@@@@UAEHABQAVMSAnim@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5978960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979008,
+      "method": "005b3b80",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVMSSfx@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVMSSfx@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979072,
+      "method": "005b3bc0",
+      "body_bytes": 174,
+      "body_sha256": "8f3de932e6eb8de5f6a891f1d33742d7d9232dfa74de6cebc1796519d920bbc3",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "d3021a49a3e9595f498a2e26ebb0845722b4cb9c2ea4fc3a189a2382535d980e",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVMSSfx@@@@UAE_NHPBQAVMSSfx@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVMSSfx@@@@UAE_NHPBQAVMSSfx@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1893420
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1892608
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979248,
+      "method": "005b3c70",
+      "body_bytes": 39,
+      "body_sha256": "12344880151a96b389cece46c0066a584e3a8fbcac94ab7c7d73c5071faca6e7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e493bba129d27383434d6676382d05481c49e5acbb339ab47f41e0609975aff9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVMSSfx@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVMSSfx@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1892531
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979296,
+      "method": "005b3ca0",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVMSSfx@@@@UAEHABQAVMSSfx@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVMSSfx@@@@UAEHABQAVMSSfx@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979360,
+      "method": "005b3ce0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVMSSfx@@@@UAEHPBQAVMSSfx@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVMSSfx@@@@UAEHPBQAVMSSfx@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979392,
+      "method": "005b3d00",
+      "body_bytes": 176,
+      "body_sha256": "6564fababe5438f1f4f0a9e9767b09901128e1c056e89a7e30478ff74a609b55",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "6564fababe5438f1f4f0a9e9767b09901128e1c056e89a7e30478ff74a609b55",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVMSSfx@@@@UAE_NHPBQAVMSSfx@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVMSSfx@@@@UAE_NHPBQAVMSSfx@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1893104
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1892301
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979568,
+      "method": "005b3db0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVMSSfx@@@@UAEHABQAVMSSfx@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVMSSfx@@@@UAEHABQAVMSSfx@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979616,
+      "method": "005b3de0",
+      "body_bytes": 73,
+      "body_sha256": "a4ebb12145f9af6d435934c3dfc68a219c8ff68c7499804e51054d7a6d99ee8e",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "a706d6a97590cec04209b03919c5e9b44e109bc031b6e9dc9c21deb4ad45d443",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVMSAnim@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVMSAnim@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMSAnim@@@@6B@",
+          "target": 8024184,
+          "addend": 0,
+          "resolved": 8024184
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1892158
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1892123
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979696,
+      "method": "005b3e30",
+      "body_bytes": 73,
+      "body_sha256": "4f8200fc20b8835fbf02220b1a177967d4bbb84619eb939000060d627234ba9d",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "fc82aa566271dbdadbab8bdc24ba052ae7761bac0814ea765dac005a7b08c966",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVMSAnim@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVMSAnim@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMSAnim@@@@6B@",
+          "target": 8024184,
+          "addend": 0,
+          "resolved": 8024184
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1892078
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1892043
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979776,
+      "method": "005b3e80",
+      "body_bytes": 73,
+      "body_sha256": "fa8469039090f427fba74b00e589ab7c21a08af91d31eccaadde19b294853041",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ab2739bfcd27b0f1bf0d36f9028e428a90294acd817468066c677552ec0f4712",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVMSSfx@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVMSSfx@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMSSfx@@@@6B@",
+          "target": 8024216,
+          "addend": 0,
+          "resolved": 8024216
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1891998
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1891963
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979856,
+      "method": "005b3ed0",
+      "body_bytes": 73,
+      "body_sha256": "03727e4789da2ade5326b2679a060089bf913eb9534012a28be538298d6cf476",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ad172a7b5ff1f84707fe0eb779f6ba0f0f8bf5718cf3b4f2a3448dd54d9fc484",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVMSSfx@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVMSSfx@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMSSfx@@@@6B@",
+          "target": 8024216,
+          "addend": 0,
+          "resolved": 8024216
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1891918
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1891883
+        }
+      ],
+      "source_sha256": "9baa77ac1202c1666ee41755258e9b7258ccc73de7b70e5bdf3290a46cb59378",
+      "source": "rebuild/src/msengine.cpp",
+      "population": "rebuild-msengine",
+      "source_order": 5979856,
       "source_quality_family": "rebuild"
     }
   ]

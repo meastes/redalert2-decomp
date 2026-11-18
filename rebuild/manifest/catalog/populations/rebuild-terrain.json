@@ -124,6 +124,8 @@
     "?Detach@ObjectClass@@UAEXPBVAbstractClass@@_N@Z": 6110160,
     "?Unlimbo@ObjectClass@@UAE_NABVCoord@@W4Dir256@@@Z": 6109328,
     "?Get_Image_Data@ObjectClass@@UBEPBXXZ": 6105008,
+    "_CLSID_TerrainClass": 8002736,
+    "??1TerrainClass@@UAE@XZ": 7221248,
     "??_C@_07FCGA@Terrain?$AA@": 8183096,
     "_$E2": 7220752,
     "_$E5": 7220800,
@@ -140,7 +142,6 @@
     "_$E38": 7221216,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "??1TerrainClass@@UAE@XZ": 7221248,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
     "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
@@ -261,7 +262,6 @@
     "?Fetch_Object_Size@TerrainClass@@UBEHXZ": 7228144,
     "?Fetch_RTTI@TerrainClass@@UBE?AW4RTTIType@@XZ": 7228160,
     "?GetClassID@TerrainClass@@UAGJPAU_GUID@@@Z": 7228176,
-    "_CLSID_TerrainClass": 8002736,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
@@ -4135,6 +4135,108 @@
       "source": "rebuild/src/terrain.cpp",
       "population": "rebuild-terrain",
       "source_order": 7228160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7228176,
+      "method": "006e4b10",
+      "body_bytes": 56,
+      "body_sha256": "e8dcfc97cee5b7058defce143f20960df5dfeb4f7f891df6db2a87f7110dbf75",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c5a22a7ce698096626d8f7e76fc079522403ef96b2ad66345c84bf21123ec578",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@TerrainClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@TerrainClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_TerrainClass",
+          "target": 8002736,
+          "addend": 0,
+          "resolved": 8002736
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_TerrainClass",
+          "target": 8002736,
+          "addend": 4,
+          "resolved": 8002740
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_TerrainClass",
+          "target": 8002736,
+          "addend": 8,
+          "resolved": 8002744
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_TerrainClass",
+          "target": 8002736,
+          "addend": 12,
+          "resolved": 8002748
+        }
+      ],
+      "source_sha256": "2409d22b98abac736d580ab209eb1d6c5ec2603cef9eed4377fd26b09c226892",
+      "source": "rebuild/src/terrain.cpp",
+      "population": "rebuild-terrain",
+      "source_order": 7228176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7228240,
+      "method": "006e4b50",
+      "body_bytes": 30,
+      "body_sha256": "e2a9fd360f8fa83d916720b938f58e406a774639bafc422f29f6fe8a40991590",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7f81293aa297e8fdb93058bb35e6bbe00b389519cd863126bb7e86c13694544e",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTerrainClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTerrainClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1TerrainClass@@UAE@XZ",
+          "target": 7221248,
+          "addend": 0,
+          "resolved": 4294960296
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 643542
+        }
+      ],
+      "source_sha256": "2409d22b98abac736d580ab209eb1d6c5ec2603cef9eed4377fd26b09c226892",
+      "source": "rebuild/src/terrain.cpp",
+      "population": "rebuild-terrain",
+      "source_order": 7228240,
       "source_quality_family": "rebuild"
     }
   ]

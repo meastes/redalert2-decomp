@@ -2601,6 +2601,32 @@
       "population": "rebuild-smudtype",
       "source_order": 6851392,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6851568,
+      "method": "00688bf0",
+      "body_bytes": 6,
+      "body_sha256": "c1ff6f09e9a650308b4724bdf5e9b2778c80630e91ea5a47ac6e32ba695875cd",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "23bcbf2baa44c14b943543fcede9be860d8837bf27a55c4d7d304c8598ab357b",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@SmudgeTypeClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@SmudgeTypeClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "a7c64b68fe094fa4ddd2b902ded055447f5bb4b036decb99e06a7063f9ab22cf",
+      "source": "rebuild/src/smudtype.cpp",
+      "population": "rebuild-smudtype",
+      "source_order": 6851568,
+      "source_quality_family": "rebuild"
     }
   ]
 }

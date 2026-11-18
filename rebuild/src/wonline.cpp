@@ -717,6 +717,8 @@ static inline bool Same_Player_Name(wchar_t const * first, wchar_t const * secon
 /// house, and color, into a single comma-separated string for transmission over WOL.
 /// </summary>
 /// <param name="out">Buffer that receives the encoded options string.</param>
+void Encode_Game_Options(char * out); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 void Encode_Game_Options(char * out)
 {
 	static char useroptions[512];
@@ -769,6 +771,7 @@ void Encode_Game_Options(char * out)
 
 	strcat(out, useroptions);
 }
+#endif
 
 /// <summary>
 /// Combines the rules, AI, and art CRCs into a single hash used to verify that all players
@@ -1761,6 +1764,7 @@ void Refresh_Game_List(void)
 	if (dialog == WS_Top_Window()) SetFocus(GetDlgItem(dialog, 0x540));
 }
 
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive: exact text whose spill reload order (win, userwin after the user loop; 9 bytes) follows the declaration count before it; exact with the 21-entry DoType, not with the 38-entry one
 void Draw_Player_List(int keep_selection, bool force)
 {
 	HWND win = GameoptWindow();
@@ -2047,6 +2051,7 @@ void Draw_Player_List(int keep_selection, bool force)
 	SendDlgItemMessageA(win, 0x53E, OD_DISABLEPAINT, 0, 0);
 	InvalidateRect(GetDlgItem(win, 0x53E), NULL, 0);
 }
+#endif
 
 
 #ifdef RA2_NON_MATCHING // not exact: the chat event sinks are ATL classes (no ATL headers here)

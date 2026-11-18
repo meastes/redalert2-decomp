@@ -374,7 +374,7 @@ ResultType InfantryClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 			**	will perform when killed.
 			*/
 			int infdeath = warhead->InfantryDeath;
-			if (Doing == 33) { // RA2: a paradropping soldier explodes
+			if (Doing == DO_PARADROP) { // RA2: a paradropping soldier explodes
 				infdeath = 3; // RA2: as above
 			}
 			if (source != NULL && source->RTTI == RTTI_BUILDING && reinterpret_cast<BuildingClass*>(source)->Class->IsLaserFence) {
@@ -515,7 +515,7 @@ int InfantryClass::Shape_Number(void) const
 	DoType doit = Doing;
 	if (doit == DO_NOTHING) {
 		if (Map[Get_Cell()].Land_Type() == LAND_WATER && !IsOnBridge) { // RA2: treading water
-			doit = (DoType)16; // RA2: the Tread sequence
+			doit = DO_TREAD; // RA2: the Tread sequence
 		} else {
 			doit = DO_STAND_READY;
 		}
@@ -1158,7 +1158,7 @@ void InfantryClass::Detach(AbstractClass const * target, bool all)
 void InfantryClass::Assign_Destination(AbstractClass * target, bool immediate)
 {
 	if (Owner_HouseClass()->Is_Human_Player()) { // RA2: a deploying human soldier ignores new destinations
-		if (Doing == 27 || Doing == 28 || Doing == 29 || Doing == 30) { // RA2: as above
+		if (Doing == DO_DEPLOY || Doing == DO_DEPLOYED || Doing == DO_DEPLOYED_FIRE || Doing == DO_DEPLOYED_IDLE) { // RA2: as above
 			return;
 		}
 	}
@@ -1303,7 +1303,7 @@ void InfantryClass::Assign_Target(AbstractClass * target)
 	if (target != TarCom && Strength > 0) {
 		IsFiring = false;
 		if (Is_Deploying()) {
-			Do_Action((DoType)28, 0, 0);
+			Do_Action(DO_DEPLOYED, 0, 0);
 		} else if (IsProne) {
 			Do_Action(DO_PRONE, 0, 0);
 		} else {
@@ -1539,7 +1539,7 @@ void InfantryClass::AI(void)
 	if (IsFiring && Fetch_Rate() == 0) {
 		IsFiring = false;
 		if (Is_Deploying()) { // RA2: a deployed soldier returns to the deployed sequence
-			Do_Action((DoType)28); // RA2: as above
+			Do_Action(DO_DEPLOYED); // RA2: as above
 		} else {
 			Do_Action(DO_STAND_READY);
 		}
@@ -2265,10 +2265,10 @@ static inline DirType Coord_Direction(Coord const & coord1, Coord const & coord2
  *=============================================================================================*/
 void InfantryClass::Scatter(Coord const & threat, bool forced, bool nokidding)
 {
-	if ((Doing == 27 || Doing == 28 || Doing == 29 || Doing == 30) && forced && nokidding) { // RA2: a deployed soldier undeploys when forced to scatter
-		Do_Action((DoType)31, false, false); // RA2: as above
+	if ((Doing == DO_DEPLOY || Doing == DO_DEPLOYED || Doing == DO_DEPLOYED_FIRE || Doing == DO_DEPLOYED_IDLE) && forced && nokidding) { // RA2: a deployed soldier undeploys when forced to scatter
+		Do_Action(DO_UNDEPLOY, false, false); // RA2: as above
 	} else if (House->Is_Human_Player()) { // RA2: as above
-		if (Doing == 27 || Doing == 28 || Doing == 29 || Doing == 30) return; // RA2: as above
+		if (Doing == DO_DEPLOY || Doing == DO_DEPLOYED || Doing == DO_DEPLOYED_FIRE || Doing == DO_DEPLOYED_IDLE) return; // RA2: as above
 	}
 
 	/*
@@ -2291,7 +2291,7 @@ void InfantryClass::Scatter(Coord const & threat, bool forced, bool nokidding)
 	/*
 	**	Don't scatter if performing an action that can't be interrupted.
 	*/
-	if (Doing != DO_NOTHING && Doing != 31 && !MasterDoControls[Doing].Interrupt) return; // RA2: undeploying may be interrupted
+	if (Doing != DO_NOTHING && Doing != DO_UNDEPLOY && !MasterDoControls[Doing].Interrupt) return; // RA2: undeploying may be interrupted
 
 	/*
 	**	For human players, don't scatter the infantry, if the special
@@ -2392,7 +2392,7 @@ bool InfantryClass::Do_Action(DoType todo, bool force, bool randomize)
 		return(false);
 	}
 
-	if (Doing == 33 && IsFalling) { // RA2: nothing interrupts the paradrop fall
+	if (Doing == DO_PARADROP && IsFalling) { // RA2: nothing interrupts the paradrop fall
 		return(false);
 	}
 
@@ -2406,19 +2406,19 @@ bool InfantryClass::Do_Action(DoType todo, bool force, bool randomize)
 		if ((land == LAND_BEACH || land == LAND_WATER) && !IsOnBridge) { // RA2: as above
 			onland = 0; // RA2: as above
 			if (todo == DO_WALK || todo == DO_CRAWL) { // RA2: as above
-				todo = (DoType)17; // RA2: as above
+				todo = DO_SWIM; // RA2: as above
 			} else if (todo == DO_PRONE || todo == DO_STAND_READY) { // RA2: as above
-				todo = (DoType)16; // RA2: as above
+				todo = DO_TREAD; // RA2: as above
 			} else if (todo == DO_IDLE1) { // RA2: as above
-				todo = (DoType)18; // RA2: as above
+				todo = DO_WET_IDLE1; // RA2: as above
 			} else if (todo == DO_IDLE2) { // RA2: as above
-				todo = (DoType)19; // RA2: as above
+				todo = DO_WET_IDLE2; // RA2: as above
 			} else if (todo == DO_GUN_DEATH) { // RA2: as above
-				todo = (DoType)20; // RA2: as above
+				todo = DO_WET_DIE1; // RA2: as above
 			} else if (todo == DO_EXPLOSION_DEATH) { // RA2: as above
-				todo = (DoType)21; // RA2: as above
+				todo = DO_WET_DIE2; // RA2: as above
 			} else if (todo == DO_FIRE_WEAPON || todo == DO_FIRE_PRONE) { // RA2: as above
-				todo = (DoType)22; // RA2: as above
+				todo = DO_WET_ATTACK; // RA2: as above
 			}
 		}
 		if (LastSurface == 0 && onland == 1) { // RA2: as above
@@ -2430,9 +2430,9 @@ bool InfantryClass::Do_Action(DoType todo, bool force, bool randomize)
 	}
 
 	if (In_Air() && !IsOnBridge && Class->DoControls[23].Frame > 0 && todo == DO_STAND_READY) { // RA2: a flying soldier hovers
-		todo = (DoType)23; // RA2: as above
+		todo = DO_HOVER; // RA2: as above
 	} else if (todo == DO_WALK && Fear >= FEAR_PANIC) { // RA2: panicked infantry run
-		todo = (DoType)37; // RA2: as above
+		todo = DO_PANIC; // RA2: as above
 	}
 
 	if (todo != Doing && (Doing == DO_NOTHING || force || MasterDoControls[Doing].Interrupt)) {
@@ -2514,7 +2514,7 @@ bool InfantryClass::Stop_Driver(void)
 	if (Doing == 0x1d) goto deploy_fire; // RA2: as above
 	if (Doing == 0x1e) { // RA2: as above
 deploy_fire: // RA2: as above
-		Do_Action((DoType)0x1c); // RA2: as above
+		Do_Action(DO_DEPLOYED); // RA2: as above
 	} else if (IsProne) { // RA2: as above
 		Do_Action(DO_PRONE);
 	} else {
@@ -2909,7 +2909,7 @@ capture: // RA2: structured forms do not match; the exe shares this return betwe
 
 	if (object->RTTI == RTTI_BUILDING && House->Is_Ally(object) && House->Is_Player_Control() && ((BuildingClass const *)object)->Class->IsHospital && !force_fire) { // RA2: the executable's object action (engineer, medic, thief, deploy, capture, cloning)
 		if (Strength < Class->MaxStrength) {
-			if (!Class->Deployer || (Doing != 27 && Doing != 28 && Doing != 29 && Doing != 30)) { // RA2: as above
+			if (!Class->Deployer || (Doing != DO_DEPLOY && Doing != DO_DEPLOYED && Doing != DO_DEPLOYED_FIRE && Doing != DO_DEPLOYED_IDLE)) { // RA2: as above
 				switch (((InfantryClass *)this)->Transmit_Message(RADIO_CAN_LOAD, (RadioClass *)object)) {
 					case RADIO_ROGER:
 						action = ACTION_ENTER;
@@ -2927,7 +2927,7 @@ capture: // RA2: structured forms do not match; the exe shares this return betwe
 
 	if (object->RTTI == RTTI_BUILDING && House->Is_Ally(object) && House->Is_Player_Control() && ((BuildingClass const *)object)->Class->IsArmory) { // RA2: armories train veterans
 		if (!Veterancy.Is_Elite()) {
-			if (!Class->Deployer || (Doing != 27 && Doing != 28 && Doing != 29 && Doing != 30)) { // RA2: as above
+			if (!Class->Deployer || (Doing != DO_DEPLOY && Doing != DO_DEPLOYED && Doing != DO_DEPLOYED_FIRE && Doing != DO_DEPLOYED_IDLE)) { // RA2: as above
 				switch (((InfantryClass *)this)->Transmit_Message(RADIO_CAN_LOAD, (RadioClass *)object)) {
 					case RADIO_ROGER:
 						action = ACTION_ENTER;
@@ -2962,7 +2962,7 @@ capture: // RA2: structured forms do not match; the exe shares this return betwe
 		return(ACTION_NO_IVAN_BOMB); // RA2: as above
 	}
 
-	if (House->Is_Player_Control() && Class->Deployer && (Doing == 27 || Doing == 28 || Doing == 29 || Doing == 30)) { // RA2: as above
+	if (House->Is_Player_Control() && Class->Deployer && (Doing == DO_DEPLOY || Doing == DO_DEPLOYED || Doing == DO_DEPLOYED_FIRE || Doing == DO_DEPLOYED_IDLE)) { // RA2: as above
 		if (action == ACTION_MOVE) { // RA2: as above
 			return(ACTION_NOMOVE); // RA2: as above
 		}
@@ -2985,7 +2985,7 @@ capture: // RA2: structured forms do not match; the exe shares this return betwe
 		}
 	}
 
-	if (House->Is_Player_Control() && action == ACTION_SELF && Class->Deployer && Class->UndeployDelay > -1 && Doing == 31) { // RA2: the executable's object action (engineer, medic, thief, deploy, capture, cloning)
+	if (House->Is_Player_Control() && action == ACTION_SELF && Class->Deployer && Class->UndeployDelay > -1 && Doing == DO_UNDEPLOY) { // RA2: the executable's object action (engineer, medic, thief, deploy, capture, cloning)
 		return(ACTION_NO_DEPLOY); // RA2: as above
 	}
 
@@ -3320,13 +3320,13 @@ int InfantryClass::Do_MISSION_GUARD_AREA(void)
 /// </summary>
 int InfantryClass::Do_MISSION_MOVE(void)
 {
-	if (Doing == 27 || Doing == 28 || Doing == 29 || Doing == 30) {
+	if (Doing == DO_DEPLOY || Doing == DO_DEPLOYED || Doing == DO_DEPLOYED_FIRE || Doing == DO_DEPLOYED_IDLE) {
 		if (Owner_HouseClass()->Is_Human_Player()) {
 			Assign_Destination(NULL, true);
 			return(1);
 		}
 		if (Class->UndeployDelay <= -1) {
-			Do_Action((DoType)31, false, false);
+			Do_Action(DO_UNDEPLOY, false, false);
 			return(Class->DoControls[31].Count);
 		}
 	}
@@ -3343,10 +3343,10 @@ int InfantryClass::Do_MISSION_UNLOAD(void)
 		int delay = -1;
 		if (Is_Deploying()) {
 			if (Class->UndeployDelay <= -1) {
-				Do_Action((DoType)31, true, false);
+				Do_Action(DO_UNDEPLOY, true, false);
 			}
 		} else {
-			Do_Action((DoType)27, true, false);
+			Do_Action(DO_DEPLOY, true, false);
 			WeaponDataStruct const *weapon = GetDeployWeapon();
 			if (Is_Weapon_Valid(weapon) && weapon->Weapon->AreaFire) {
 				if (Is_Type_Named("DESO")) {
@@ -3422,7 +3422,7 @@ ActionType InfantryClass::What_Action(Cell const & cell, bool check_fog, bool di
 		}
 	}
 
-	if (House->Is_Player_Control() && Class->Deployer && (Doing == 27 || Doing == 28 || Doing == 29 || Doing == 30) && (action == ACTION_MOVE || action == ACTION_ATTACK)) { // RA2: a deployed soldier cannot move, and attacks only what it can reach
+	if (House->Is_Player_Control() && Class->Deployer && (Doing == DO_DEPLOY || Doing == DO_DEPLOYED || Doing == DO_DEPLOYED_FIRE || Doing == DO_DEPLOYED_IDLE) && (action == ACTION_MOVE || action == ACTION_ATTACK)) { // RA2: a deployed soldier cannot move, and attacks only what it can reach
 		if (action == ACTION_MOVE) { // RA2: as above
 			action = ACTION_NOMOVE;
 		} else {
@@ -3913,10 +3913,10 @@ void InfantryClass::Firing_AI(void)
 					**	Start firing animation.
 					*/
 					if (Is_JumpJet()) {
-						Do_Action((DoType)26); // RA2: FireFly
+						Do_Action(DO_FIREFLY); // RA2: FireFly
 					} else {
 						if (Is_Deploying()) { // RA2: a deployed soldier fires in its deployed sequence
-							Do_Action((DoType)29); // RA2: as above
+							Do_Action(DO_DEPLOYED_FIRE); // RA2: as above
 						} else if (IsProne) { // RA2: as above
 							Do_Action(DO_FIRE_PRONE);
 						} else {
@@ -3959,7 +3959,7 @@ void InfantryClass::Firing_AI(void)
 				if (IsProne) {
 					Do_Action(DO_PRONE);
 				} else if (Is_Deploying()) { // RA2: back to the deployed sequence
-					Do_Action((DoType)28); // RA2: as above
+					Do_Action(DO_DEPLOYED); // RA2: as above
 				} else {
 					Do_Action(DO_STAND_READY);
 				}
@@ -4005,7 +4005,7 @@ void InfantryClass::Doing_AI(void)
 	if (Doing == DO_NOTHING || Fetch_Stage() >= Class->DoControls[Doing].Count) {
 		switch (Doing) {
 			case 27: // RA2: the end of the deploy sequence starts the deployed one
-				Do_Action((DoType)28, true, false); // RA2: as above
+				Do_Action(DO_DEPLOYED, true, false); // RA2: as above
 				Shorten_Targeting_Timer(); // RA2: as above
 				break;
 
@@ -4028,7 +4028,7 @@ void InfantryClass::Doing_AI(void)
 					}
 				} else {
 					if (Is_Deploying()) { // RA2: as above
-						Do_Action((DoType)28, true, false); // RA2: as above
+						Do_Action(DO_DEPLOYED, true, false); // RA2: as above
 					} else if (IsProne) { // RA2: as above
 						Do_Action(DO_PRONE, true, false); // RA2: as above
 					} else {
@@ -4041,7 +4041,7 @@ void InfantryClass::Doing_AI(void)
 				break; // RA2: as above
 
 			case 34: // RA2: a sequence that leads on into the next one
-				Do_Action((DoType)35, true, false); // RA2: as above
+				Do_Action(DO_AIR_DEATH_FALLING, true, false); // RA2: as above
 				break;
 
 			case DO_GUN_DEATH:
@@ -4070,7 +4070,7 @@ void InfantryClass::Doing_AI(void)
 				break;
 		}
 	}
-	if (Doing == 33 && !IsFalling) { // RA2: the paradrop sequence ends when landed
+	if (Doing == DO_PARADROP && !IsFalling) { // RA2: the paradrop sequence ends when landed
 		Do_Action(DO_STAND_READY, true, false); // RA2: as above
 	}
 }
@@ -4128,9 +4128,9 @@ void InfantryClass::Movement_AI(void)
 				return;
 			}
 			if (Speed > 0.8) {
-				Do_Action((DoType)24, false, false);
+				Do_Action(DO_FLY, false, false);
 			} else {
-				Do_Action((DoType)23, false, false);
+				Do_Action(DO_HOVER, false, false);
 			}
 			return;
 		}
@@ -4140,12 +4140,12 @@ void InfantryClass::Movement_AI(void)
 			Do_Action(DO_WALK, false, false);
 		}
 	} else {
-		if (Doing == 3 || Doing == 24 || Doing == 23) {
+		if (Doing == 3 || Doing == DO_FLY || Doing == DO_HOVER) {
 			Do_Action(DO_STAND_READY, false, false);
 		} else if (Doing == 6) {
 			Do_Action(DO_PRONE, false, false);
-		} else if (Doing == 17) {
-			Do_Action(DO_HOVER, false, false);
+		} else if (Doing == DO_SWIM) {
+			Do_Action(DO_TREAD, false, false);
 		}
 		return;
 	}
@@ -4162,7 +4162,7 @@ int InfantryClass::Update_Deployed_Attack(void) // RA2: the executable's deploye
 {
 	if (Is_Deploying()) { // RA2: as above
 		if (Class->UndeployDelay > -1) { // RA2: as above
-			Do_Action((DoType)31, false, false); // RA2: as above
+			Do_Action(DO_UNDEPLOY, false, false); // RA2: as above
 			return(Class->DoControls[31].Count); // RA2: as above
 		}
 		if (Class->DeployFire) { // RA2: as above
@@ -4175,7 +4175,7 @@ int InfantryClass::Update_Deployed_Attack(void) // RA2: the executable's deploye
 					if (Can_Fire(TarCom, 1, true) == FIRE_OK) { // RA2: as above
 						Fire_At(TarCom, 1); // RA2: as above
 						Assign_Target(NULL);
-						Do_Action((DoType)29, false, false); // RA2: as above
+						Do_Action(DO_DEPLOYED_FIRE, false, false); // RA2: as above
 						return(Class->DoControls[29].Count); // RA2: as above
 					}
 					Assign_Target(NULL);
@@ -4194,7 +4194,7 @@ int InfantryClass::Update_Deployed_Attack(void) // RA2: the executable's deploye
 			}
 			if (!Class->ImmuneToRadiation) { // RA2: as above
 				if (!Locomotion->Is_Moving()) { // RA2: as above
-					Do_Action((DoType)27, false, false); // RA2: as above
+					Do_Action(DO_DEPLOY, false, false); // RA2: as above
 					return(Class->DoControls[27].Count); // RA2: as above
 				}
 				Locomotion->Stop_Moving(); // RA2: as above
@@ -4300,7 +4300,7 @@ bool InfantryClass::Paradrop(Coord const & coord)
 		} else {
 			QueueMission(MISSION_HUNT, false);
 		}
-		Do_Action((DoType)33, 1, 0);
+		Do_Action(DO_PARADROP, 1, 0);
 		return(true);
 	}
 	return(false);
@@ -4370,7 +4370,7 @@ void InfantryClass::Clear_Occupy_Bit(Coord const & coord)
 /// </summary>
 int InfantryClass::What_Weapon_Should_I_Use(AbstractClass * target) const
 {
-	if ((Doing == 27 || Doing == 28 || Doing == 29 || Doing == 30) && Class->DeployFire) {
+	if ((Doing == DO_DEPLOY || Doing == DO_DEPLOYED || Doing == DO_DEPLOYED_FIRE || Doing == DO_DEPLOYED_IDLE) && Class->DeployFire) {
 		return(Class->DeployFireWeapon);
 	}
 	return(BASECLASS::What_Weapon_Should_I_Use(target));
@@ -4439,7 +4439,7 @@ void InfantryClass::Unknown_Virtual_4D0(void)
 {
 	if (ShouldDeploy) {
 		ShouldDeploy = false;
-		Do_Action((DoType)27, false, false);
+		Do_Action(DO_DEPLOY, false, false);
 	}
 }
 
@@ -4740,7 +4740,7 @@ void InfantryClass::Approach_Target(void)
 	}
 	if (Is_Deploying()) { // RA2: undeploy again when the target is out of range
 		if (!in_range) { // RA2: as above
-			Do_Action((DoType)31, false, false); // RA2: as above
+			Do_Action(DO_UNDEPLOY, false, false); // RA2: as above
 		}
 		return;
 	}
@@ -4748,7 +4748,7 @@ void InfantryClass::Approach_Target(void)
 		return;
 	}
 	if (!Locomotion->Is_Moving()) { // RA2: standing still: start deploying
-		Do_Action((DoType)27, false, false); // RA2: as above
+		Do_Action(DO_DEPLOY, false, false); // RA2: as above
 		return;
 	}
 	Locomotion->Stop_Moving(); // RA2: moving: stop and deploy later
@@ -4789,7 +4789,7 @@ bool InfantryClass::Has_Undeploy_Delay(void) const
 /// </summary>
 bool InfantryClass::Is_Deploying(void) const
 {
-	return(Doing == 27 || Doing == 28 || Doing == 29 || Doing == 30);
+	return(Doing == DO_DEPLOY || Doing == DO_DEPLOYED || Doing == DO_DEPLOYED_FIRE || Doing == DO_DEPLOYED_IDLE);
 }
 
 
@@ -4808,7 +4808,7 @@ bool InfantryClass::Is_Deploy_Fire(void) const
 int InfantryClass::Deploy_Or_Stop(void)
 {
 	if (!Locomotion->Is_Moving()) {
-		Do_Action((DoType)27, false, false);
+		Do_Action(DO_DEPLOY, false, false);
 		return(Class->DoControls[27].Count);
 	}
 	Locomotion->Stop_Moving();
@@ -4942,7 +4942,7 @@ bool InfantryClass::CanAttackOnTheMove(void) const
 /// </summary>
 bool InfantryClass::IsDeployed(void) const
 {
-	return(Class->Deployer && (Doing == 27 || Doing == 28 || Doing == 29 || Doing == 30));
+	return(Class->Deployer && (Doing == DO_DEPLOY || Doing == DO_DEPLOYED || Doing == DO_DEPLOYED_FIRE || Doing == DO_DEPLOYED_IDLE));
 }
 
 
@@ -4981,7 +4981,7 @@ bool InfantryClass::Unknown_Virtual_0(int code, int)
 	}
 	if (Class->Crashable && code == 0x117C) {
 		Set_Height_AGL(0);
-		Do_Action((DoType)36, true, false);
+		Do_Action(DO_AIR_DEATH_FINISH, true, false);
 		return(true);
 	}
 	return(false);
@@ -4994,7 +4994,7 @@ bool InfantryClass::Unknown_Virtual_0(int code, int)
 bool InfantryClass::CanCheer(void) const
 {
 	if (Get_Mission() == MISSION_GUARD || Get_Mission() == MISSION_GUARD_AREA) {
-		if (Doing == 0 || Doing == 9 || Doing == 10 || Doing == 32) {
+		if (Doing == 0 || Doing == 9 || Doing == 10 || Doing == DO_CHEER) {
 			return(true);
 		}
 	}
@@ -5008,7 +5008,7 @@ bool InfantryClass::CanCheer(void) const
 void InfantryClass::Cheer(void)
 {
 	if (CanCheer()) {
-		Do_Action((DoType)32, false, false);
+		Do_Action(DO_CHEER, false, false);
 	}
 }
 
@@ -5039,7 +5039,7 @@ bool InfantryClass::Is_Death_Doing(DoType doing) const
 /// </summary>
 bool InfantryClass::Is_Dying(void) const
 {
-	return(Doing == 11 || Doing == 12 || Doing == 13 || Doing == 14 || Doing == 15 || Doing == 34 || Doing == 35 || Doing == 36 || Doing == 20 || Doing == 21);
+	return(Doing == 11 || Doing == 12 || Doing == 13 || Doing == 14 || Doing == 15 || Doing == DO_AIR_DEATH_START || Doing == DO_AIR_DEATH_FALLING || Doing == DO_AIR_DEATH_FINISH || Doing == DO_WET_DIE1 || Doing == DO_WET_DIE2);
 }
 
 

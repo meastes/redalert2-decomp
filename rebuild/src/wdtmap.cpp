@@ -25,8 +25,8 @@
 using namespace WorldDominationTour;
 
 
-bool FrameAdvanceDraws; // RA2: 0x007FBD04
-bool FrameRedrawDraws; // RA2: 0x007FBD05
+bool FrameAdvanceDraws = true; // RA2: 0x007FBD04
+bool FrameRedrawDraws = true; // RA2: 0x007FBD05
 
 
 /// <summary>

@@ -3621,6 +3621,42 @@
       "population": "rebuild-gdlgsupp",
       "source_order": 5056256,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5056768,
+      "method": "004d2900",
+      "body_bytes": 53,
+      "body_sha256": "877bef4134606d060a6d0eed56f281341c1e4887f09a895fbcfde04001888e93",
+      "padding_bytes": 11,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "191ef7fd74aadaf8048f0b7a574d903ace8be4a01510b26f9b3a6af6192103fe",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Color_Combo_Data@@YIHPAUHWND__@@HH@Z",
+      "symbol_prefix": "?Color_Combo_Data@@YIHPAUHWND__@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        }
+      ],
+      "source_sha256": "2bf0f5ebf865cde0bdedc5152f49bbe07b426b577616f0f85b6ef33b3ad27565",
+      "source": "rebuild/src/gdlgsupp.cpp",
+      "population": "rebuild-gdlgsupp",
+      "source_order": 5056768,
+      "source_quality_family": "rebuild"
     }
   ]
 }

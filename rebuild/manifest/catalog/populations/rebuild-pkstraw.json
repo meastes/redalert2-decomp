@@ -15,18 +15,18 @@
     "?Encrypt@PKey@@QBEHPBXHPAX@Z": 6354208,
     "?Key@BlowStraw@@QAEXPBXH@Z": 4413744,
     "_memmove": 7877264,
+    "??1BlowfishEngine@@QAE@XZ": 4412912,
+    "??3@YAXPAX@Z": 7871803,
+    "??1Straw@@UAE@XZ": 6926352,
     "??0PKStraw@@QAE@W4CryptControl@0@AAVRandomStraw@@@Z": 6356528,
+    "??_GPKStraw@@UAEPAXI@Z": 6357328,
+    "??_R0?AVPKStraw@@@8": 8305120,
     "?Get@BlowStraw@@UAEHPAXH@Z": 4413504,
     "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
     "??_GBlowStraw@@UAEPAXI@Z": 5856240,
-    "??_R0?AVBlowStraw@@@8": 8265128,
-    "??_GPKStraw@@UAEPAXI@Z": 6357328,
     "??_R0?AVStraw@@@8": 8199872,
     "??_7type_info@@6B@": 8066532,
-    "??_R0?AVPKStraw@@@8": 8305120,
-    "??1Straw@@UAE@XZ": 6926352,
-    "??3@YAXPAX@Z": 7871803,
-    "??1BlowfishEngine@@QAE@XZ": 4412912,
+    "??_R0?AVBlowStraw@@@8": 8265128,
     "?Get_From@PKStraw@@UAEXAAVStraw@@@Z": 6357312,
     "?Get_From@PKStraw@@UAEXPAVStraw@@@Z": 6356640,
     "?Key@PKStraw@@QAEXPBVPKey@@@Z": 6356720,
@@ -277,6 +277,109 @@
       "source": "rebuild/src/pkstraw.cpp",
       "population": "rebuild-pkstraw",
       "source_order": 6357264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6357312,
+      "method": "00610140",
+      "body_bytes": 13,
+      "body_sha256": "0f16536e1f778cedda1cb0598d1721389c8ae82ca72b0cc254d7c8f163b99062",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f8eb83fd5e4a62f4aee468bafdf2cfe7dcafaa20d7070595e0b3dc6368b83628",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_From@PKStraw@@UAEXAAVStraw@@@Z",
+      "symbol_prefix": "?Get_From@PKStraw@@UAEXAAVStraw@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "295a86a26fcee4afcd5b9b63f98e823432780b2be36b938c9bb5df10a84127ec",
+      "source": "rebuild/src/pkstraw.cpp",
+      "population": "rebuild-pkstraw",
+      "source_order": 6357312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6357328,
+      "method": "00610150",
+      "body_bytes": 82,
+      "body_sha256": "82c54e64f2ec439cb007d232b7d7240daf4d82e5374b3301b2881e1ac45eeea6",
+      "padding_bytes": 14,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "9b1908eb750f474608da650b6e3740ee1204e4c265dafcbf6a19ddea62cc8840",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GPKStraw@@UAEPAXI@Z",
+      "symbol_prefix": "??_GPKStraw@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7BlowStraw@@6B@",
+          "target": 8021088,
+          "addend": 0,
+          "resolved": 8021088
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??1BlowfishEngine@@QAE@XZ",
+          "target": 4412912,
+          "addend": 0,
+          "resolved": 4293022852
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1514441
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "??1Straw@@UAE@XZ",
+          "target": 6926352,
+          "addend": 0,
+          "resolved": 568973
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??1Straw@@UAE@XZ",
+          "target": 6926352,
+          "addend": 0,
+          "resolved": 568966
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1514404
+        }
+      ],
+      "source_sha256": "295a86a26fcee4afcd5b9b63f98e823432780b2be36b938c9bb5df10a84127ec",
+      "source": "rebuild/src/pkstraw.cpp",
+      "population": "rebuild-pkstraw",
+      "source_order": 6357328,
       "source_quality_family": "rebuild"
     }
   ]

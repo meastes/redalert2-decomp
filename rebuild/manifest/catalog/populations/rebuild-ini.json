@@ -7438,6 +7438,834 @@
       "population": "rebuild-ini",
       "source_order": 5311232,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5311264,
+      "method": "00510b20",
+      "body_bytes": 19,
+      "body_sha256": "28df2a2e8fad58e026018531dac4dac516e38500013a84903f827853c83f55c6",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "47612843de84011413c63d407326ca9117a3fd56b9d218dca00bb796362ecd65",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0CRCEngine@@QAE@H@Z",
+      "symbol_prefix": "??0CRCEngine@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5311264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5311296,
+      "method": "00510b40",
+      "body_bytes": 30,
+      "body_sha256": "e123d5878d167fb299c91dce7c00e37733a582dc3fd2da28d0828723bfcc3409",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "35612ff51b5dfa64dc9b65c521e1222d0da53e16e8c720a45ce00871f51a8c2d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GBase64Pipe@@UAEPAXI@Z",
+      "symbol_prefix": "??_GBase64Pipe@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1Pipe@@UAE@XZ",
+          "target": 6351456,
+          "addend": 0,
+          "resolved": 1040152
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2560486
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5311296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5311328,
+      "method": "00510b60",
+      "body_bytes": 68,
+      "body_sha256": "d9aa5bef7a969bc9fe25ee8d53acf651cfe0d8f8cb67016ece1009dd4abb35f6",
+      "padding_bytes": 12,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "da1efe5f983e48ef30e5aca30491fb85f03301f0df6cc1b9953245992f4228f9",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0INIEntry@INIClass@@QAE@PAD0PAUINIComment@1@0HHH@Z",
+      "symbol_prefix": "??0INIEntry@INIClass@@QAE@PAD0PAUINIComment@1@0HHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "??_7INIEntry@INIClass@@6B@",
+          "target": 8010652,
+          "addend": 0,
+          "resolved": 8010652
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5311328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5311408,
+      "method": "00510bb0",
+      "body_bytes": 111,
+      "body_sha256": "048fa67241285ef7211b24ca7b221a89d6217d49d794999ebebb5b19ff3a3658",
+      "padding_bytes": 1,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "ee49678759deb93ddaddb926f682d8a4db783bfcd28a7fb880e7b9caf889a2f5",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$List@PAUINIEntry@INIClass@@@@QAE@XZ",
+      "symbol_prefix": "??0?$List@PAUINIEntry@INIClass@@@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "??_7GenericNode@@6B@",
+          "target": 7973628,
+          "addend": 0,
+          "resolved": 7973628
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7GenericNode@@6B@",
+          "target": 7973628,
+          "addend": 0,
+          "resolved": 7973628
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "??_7GenericList@@6B@",
+          "target": 7973620,
+          "addend": 0,
+          "resolved": 7973620
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "??_7?$List@PAUINIEntry@INIClass@@@@6B@",
+          "target": 8010668,
+          "addend": 0,
+          "resolved": 8010668
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5311408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5311520,
+      "method": "00510c20",
+      "body_bytes": 179,
+      "body_sha256": "87dc68d70244f21ab91aba1b6f296c1bc7aaca209335da485e19b5903072369b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "4de455fd8b569496ffd84ed5d6cd0c37761d03c5127062596d2e21158860f212",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$List@PAUINIEntry@INIClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$List@PAUINIEntry@INIClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7GenericList@@6B@",
+          "target": 7973620,
+          "addend": 0,
+          "resolved": 7973620
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "??_7GenericNode@@6B@",
+          "target": 7973628,
+          "addend": 0,
+          "resolved": 7973628
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "??_7GenericNode@@6B@",
+          "target": 7973628,
+          "addend": 0,
+          "resolved": 7973628
+        },
+        {
+          "offset": 165,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2560114
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5311520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5311712,
+      "method": "00510ce0",
+      "body_bytes": 19,
+      "body_sha256": "c7afa1ea30e0db51090a1443582dc7826a96a2b78ce603f943571a6121e2e1d4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "de8aa5e9feb717b4ec1cf528d3cddcd519d851e12d943439ac29fb22689b2c80",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$IndexClass@HPAUINIEntry@INIClass@@@@QAE@XZ",
+      "symbol_prefix": "??0?$IndexClass@HPAUINIEntry@INIClass@@@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5311712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5311744,
+      "method": "00510d00",
+      "body_bytes": 199,
+      "body_sha256": "fb794c1d780106d538adbdf77190ca1fa102cc14091437b14d28e88604f97120",
+      "padding_bytes": 9,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "d06520443e813135830500f48339b4ed51bedd345e9fe5f67f90d2100dcc5ccd",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Index@?$IndexClass@HPAUINIEntry@INIClass@@@@QAE_NABHABQAUINIEntry@INIClass@@@Z",
+      "symbol_prefix": "?Add_Index@?$IndexClass@HPAUINIEntry@INIClass@@@@QAE_NABHABQAUINIEntry@INIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2560736
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2559940
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5311744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5311952,
+      "method": "00510dd0",
+      "body_bytes": 151,
+      "body_sha256": "2138c27edc74a0a845364a310edc6ed6a8edf0ca2c17cd337f268bb2b9cdb4d7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "98861920aec082a56343fac37d161008375db75e9696dbcc8f6ae6a2293d13f9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Present@?$IndexClass@HPAUINIEntry@INIClass@@@@QBE_NABH@Z",
+      "symbol_prefix": "?Is_Present@?$IndexClass@HPAUINIEntry@INIClass@@@@QBE_NABH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?search_compfunc@?$IndexClass@HPAUINIEntry@INIClass@@@@CAHPBX0@Z",
+          "target": 5313280,
+          "addend": 0,
+          "resolved": 5313280
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 2559798
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5311952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5312112,
+      "method": "00510e70",
+      "body_bytes": 149,
+      "body_sha256": "55fd661ce93d0515a5eeea7756944459c8428308d5dedbd08631830b337365eb",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "d7d2e296c9cf2f33bf42759ebc6be4b7bbaebbfc6f52d99c8bb78807f8f15d11",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??A?$IndexClass@HPAUINIEntry@INIClass@@@@QBEABQAUINIEntry@INIClass@@ABH@Z",
+      "symbol_prefix": "??A?$IndexClass@HPAUINIEntry@INIClass@@@@QBEABQAUINIEntry@INIClass@@ABH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?search_compfunc@?$IndexClass@HPAUINIEntry@INIClass@@@@CAHPBX0@Z",
+          "target": 5313280,
+          "addend": 0,
+          "resolved": 5313280
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 2559647
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?x@?4???A?$IndexClass@HPAUINIEntry@INIClass@@@@QBEABQAUINIEntry@INIClass@@ABH@Z@4PAU23@A",
+          "target": 11712048,
+          "addend": 0,
+          "resolved": 11712048
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5312112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5312272,
+      "method": "00510f10",
+      "body_bytes": 213,
+      "body_sha256": "48e28c730bb0b766eff9fa9545eea1b78125ebe6abf778777886209a1536b4c8",
+      "padding_bytes": 11,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "87832f932dbf1736298b8815f02bb1726e3701117ed77511f329c832d41576c6",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Index@?$IndexClass@HPAUINISection@INIClass@@@@QAE_NABH@Z",
+      "symbol_prefix": "?Remove_Index@?$IndexClass@HPAUINISection@INIClass@@@@QAE_NABH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?search_compfunc@?$IndexClass@HPAUINISection@INIClass@@@@CAHPBX0@Z",
+          "target": 5313408,
+          "addend": 0,
+          "resolved": 5313408
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 2559503
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5312272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5312496,
+      "method": "00510ff0",
+      "body_bytes": 151,
+      "body_sha256": "7b7d91644d7f2e8bc1bc15d5eec8aae1b171d3bf0b3440300ba4cefb4fe5bf86",
+      "padding_bytes": 9,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "e6713ec979c319d64affd81541bc49d0a0309c4cfc8d3d41c34bf3eff8d3de34",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Present@?$IndexClass@HPAUINISection@INIClass@@@@QBE_NABH@Z",
+      "symbol_prefix": "?Is_Present@?$IndexClass@HPAUINISection@INIClass@@@@QBE_NABH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?search_compfunc@?$IndexClass@HPAUINISection@INIClass@@@@CAHPBX0@Z",
+          "target": 5313408,
+          "addend": 0,
+          "resolved": 5313408
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 2559254
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5312496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5312656,
+      "method": "00511090",
+      "body_bytes": 149,
+      "body_sha256": "62fd9f6c6d9a78298773515073cae6a1bff08070ab0622e236221c88617b0387",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "c61355d301c04ddd5ecc2f4c1cd9b5aade42e065ae301f00d2f9f913006fe1ac",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??A?$IndexClass@HPAUINISection@INIClass@@@@QBEABQAUINISection@INIClass@@ABH@Z",
+      "symbol_prefix": "??A?$IndexClass@HPAUINISection@INIClass@@@@QBEABQAUINISection@INIClass@@ABH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?search_compfunc@?$IndexClass@HPAUINISection@INIClass@@@@CAHPBX0@Z",
+          "target": 5313408,
+          "addend": 0,
+          "resolved": 5313408
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 2559103
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?x@?4???A?$IndexClass@HPAUINISection@INIClass@@@@QBEABQAUINISection@INIClass@@ABH@Z@4PAU23@A",
+          "target": 11712044,
+          "addend": 0,
+          "resolved": 11712044
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5312656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5312816,
+      "method": "00511130",
+      "body_bytes": 27,
+      "body_sha256": "b4be17007c7a21c076634259b8a92af8be05edf2bc1bf564fc6a09cd1ca7ac20",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a8fd7d7913c4e1538d4b128475ff23eabd5350cc1a188915078474e8a6686d05",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Archive_Same@?$IndexClass@HPAUINIEntry@INIClass@@@@ABE_NABH@Z",
+      "symbol_prefix": "?Is_Archive_Same@?$IndexClass@HPAUINIEntry@INIClass@@@@ABE_NABH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5312816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5312848,
+      "method": "00511150",
+      "body_bytes": 121,
+      "body_sha256": "4166b2a0a55fade073e9ae1084d96eea2aed31a74c4695083b0ccb95614a5121",
+      "padding_bytes": 7,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "e9044b7952724af302f510954ee0df79a0e4a310f805685eb21c535316c1de9c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Search_For_Node@?$IndexClass@HPAUINIEntry@INIClass@@@@ABEPBUNodeElement@1@ABH@Z",
+      "symbol_prefix": "?Search_For_Node@?$IndexClass@HPAUINIEntry@INIClass@@@@ABEPBUNodeElement@1@ABH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?search_compfunc@?$IndexClass@HPAUINIEntry@INIClass@@@@CAHPBX0@Z",
+          "target": 5313280,
+          "addend": 0,
+          "resolved": 5313280
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 2558929
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5312848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5312976,
+      "method": "005111d0",
+      "body_bytes": 134,
+      "body_sha256": "8f184c4f527f6d29ba8819b76fe7bf52d15cb2551631872e218ca98128d7753d",
+      "padding_bytes": 10,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "618e5065d0012bad4c0539a86edfbf1b6fe8671c152a018f4e7c94ddaaa93c63",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Increase_Table_Size@?$IndexClass@HPAUINISection@INIClass@@@@AAE_NH@Z",
+      "symbol_prefix": "?Increase_Table_Size@?$IndexClass@HPAUINISection@INIClass@@@@AAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2559527
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2558731
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5312976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5313120,
+      "method": "00511260",
+      "body_bytes": 27,
+      "body_sha256": "b4be17007c7a21c076634259b8a92af8be05edf2bc1bf564fc6a09cd1ca7ac20",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a8fd7d7913c4e1538d4b128475ff23eabd5350cc1a188915078474e8a6686d05",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Archive_Same@?$IndexClass@HPAUINISection@INIClass@@@@ABE_NABH@Z",
+      "symbol_prefix": "?Is_Archive_Same@?$IndexClass@HPAUINISection@INIClass@@@@ABE_NABH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5313120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5313152,
+      "method": "00511280",
+      "body_bytes": 121,
+      "body_sha256": "d05019c8d5537ea7687101cbff4aa11ac53fffa68fa67fbd3c6bcb948c98a4ff",
+      "padding_bytes": 7,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "8381ee263d3115e28ddae211513059c50abed4e6332764a113762591967bbb88",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Search_For_Node@?$IndexClass@HPAUINISection@INIClass@@@@ABEPBUNodeElement@1@ABH@Z",
+      "symbol_prefix": "?Search_For_Node@?$IndexClass@HPAUINISection@INIClass@@@@ABEPBUNodeElement@1@ABH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?search_compfunc@?$IndexClass@HPAUINISection@INIClass@@@@CAHPBX0@Z",
+          "target": 5313408,
+          "addend": 0,
+          "resolved": 5313408
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 2558625
+        }
+      ],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5313152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5313280,
+      "method": "00511300",
+      "body_bytes": 34,
+      "body_sha256": "2120aa9971aa1c646b5dc0d2b456a6b53069e85b83636d7e0d7a71bdf3866b7f",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8c8bbd8fad1ba5d328de100ba0ca8e91049c5c2407d20aeadadc6e640c2400ad",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?search_compfunc@?$IndexClass@HPAUINIEntry@INIClass@@@@CAHPBX0@Z",
+      "symbol_prefix": "?search_compfunc@?$IndexClass@HPAUINIEntry@INIClass@@@@CAHPBX0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5313280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5313328,
+      "method": "00511330",
+      "body_bytes": 68,
+      "body_sha256": "901d8f320c14de85179ce2ea42ac9688979465c83af0f7d32ee4368b7b2404bc",
+      "padding_bytes": 12,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c5d34184ac2440d309df21fa2d16dcf7c6a38cd73adf1ad06205173bca7cc650",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAUINIEntry@INIClass@@@@PAU12@HABU12@@Z",
+      "symbol_prefix": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAUINIEntry@INIClass@@@@PAU12@HABU12@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5313328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5313408,
+      "method": "00511380",
+      "body_bytes": 34,
+      "body_sha256": "2120aa9971aa1c646b5dc0d2b456a6b53069e85b83636d7e0d7a71bdf3866b7f",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8c8bbd8fad1ba5d328de100ba0ca8e91049c5c2407d20aeadadc6e640c2400ad",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?search_compfunc@?$IndexClass@HPAUINISection@INIClass@@@@CAHPBX0@Z",
+      "symbol_prefix": "?search_compfunc@?$IndexClass@HPAUINISection@INIClass@@@@CAHPBX0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5313408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5313456,
+      "method": "005113b0",
+      "body_bytes": 68,
+      "body_sha256": "901d8f320c14de85179ce2ea42ac9688979465c83af0f7d32ee4368b7b2404bc",
+      "padding_bytes": 12,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c5d34184ac2440d309df21fa2d16dcf7c6a38cd73adf1ad06205173bca7cc650",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAUINISection@INIClass@@@@PAU12@HABU12@@Z",
+      "symbol_prefix": "?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPAUINISection@INIClass@@@@PAU12@HABU12@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d",
+      "source": "rebuild/src/ini.cpp",
+      "population": "rebuild-ini",
+      "source_order": 5313456,
+      "source_quality_family": "rebuild"
     }
   ]
 }

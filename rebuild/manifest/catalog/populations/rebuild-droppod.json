@@ -81,6 +81,9 @@
     "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
     "?Release@LocomotionClass@@UAGKXZ": 5493360,
     "??3@YAXPAX@Z": 7871803,
+    "?QueryInterface@DropPodLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 4875248,
+    "?AddRef@DropPodLocomotionClass@@UAGKXZ": 4875808,
+    "?Release@DropPodLocomotionClass@@UAGKXZ": 4875824,
     "_$E2": 4872272,
     "_$E5": 4872320,
     "_$E8": 4872352,
@@ -147,8 +150,6 @@
     "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
     "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
     "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
-    "?AddRef@DropPodLocomotionClass@@UAGKXZ": 4875808,
-    "?Release@DropPodLocomotionClass@@UAGKXZ": 4875824,
     "?Is_Piggybacking@DropPodLocomotionClass@@UAGEXZ": 4875840,
     "?Fetch_Object_Size@DropPodLocomotionClass@@UBEHXZ": 4875872,
     "??1DropPodLocomotionClass@@UAE@XZ": 4872848,
@@ -163,7 +164,6 @@
     "?Begin_Piggyback@DropPodLocomotionClass@@UAGJPAUILocomotion@@@Z": 4875056,
     "?End_Piggyback@DropPodLocomotionClass@@UAGJPAPAUILocomotion@@@Z": 4875136,
     "?Is_Ok_To_End@DropPodLocomotionClass@@UAGEXZ": 4875200,
-    "?QueryInterface@DropPodLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 4875248,
     "?In_Which_Layer@DropPodLocomotionClass@@UAG?AW4LayerType@@XZ": 4875344,
     "?Piggyback_CLSID@DropPodLocomotionClass@@UAGJPAU_GUID@@@Z": 4875360,
     "?Drawing_Code@DropPodLocomotionClass@@UAGHXZ": 4875632,
@@ -2269,33 +2269,6 @@
       "source_quality_family": "rebuild"
     },
     {
-      "entry": 4875728,
-      "method": "004a65d0",
-      "body_bytes": 3,
-      "body_sha256": "e598d0c3ba86d917b177d7adde0556aa99bc355543c57aee0a3e50b684dd7e99",
-      "padding_bytes": 13,
-      "full_extent_bytes": 16,
-      "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
-      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ",
-      "symbol_prefix": "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy",
-        "/Gr",
-        "/GR"
-      ],
-      "relocations": [],
-      "source_sha256": "5f8000e06feea278a2405a7626ff8ace96d61611909705643119bff5eb066bec",
-      "source": "rebuild/src/droppod.cpp",
-      "population": "rebuild-droppod",
-      "source_order": 4875728,
-      "source_quality_family": "rebuild"
-    },
-    {
       "entry": 4875744,
       "method": "004a65e0",
       "body_bytes": 3,
@@ -2595,6 +2568,222 @@
       "source": "rebuild/src/droppod.cpp",
       "population": "rebuild-droppod",
       "source_order": 4875888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4875968,
+      "method": "004a66c0",
+      "body_bytes": 10,
+      "body_sha256": "40c667e8280768160962b3e6a76316c9876e44897d24e5da399e0d270404ec53",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "40c667e8280768160962b3e6a76316c9876e44897d24e5da399e0d270404ec53",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@DropPodLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@DropPodLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@DropPodLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 4875248,
+          "addend": 0,
+          "resolved": 4294966566
+        }
+      ],
+      "source_sha256": "5f8000e06feea278a2405a7626ff8ace96d61611909705643119bff5eb066bec",
+      "source": "rebuild/src/droppod.cpp",
+      "population": "rebuild-droppod",
+      "source_order": 4875968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4875984,
+      "method": "004a66d0",
+      "body_bytes": 10,
+      "body_sha256": "92a46f83d3ff012ff14b05c5b7583740ee964270b0b5ea7faa34683eb4565393",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "92a46f83d3ff012ff14b05c5b7583740ee964270b0b5ea7faa34683eb4565393",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@DropPodLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@DropPodLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@DropPodLocomotionClass@@UAGKXZ",
+          "target": 4875808,
+          "addend": 0,
+          "resolved": 4294967110
+        }
+      ],
+      "source_sha256": "5f8000e06feea278a2405a7626ff8ace96d61611909705643119bff5eb066bec",
+      "source": "rebuild/src/droppod.cpp",
+      "population": "rebuild-droppod",
+      "source_order": 4875984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4876000,
+      "method": "004a66e0",
+      "body_bytes": 10,
+      "body_sha256": "92a46f83d3ff012ff14b05c5b7583740ee964270b0b5ea7faa34683eb4565393",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "92a46f83d3ff012ff14b05c5b7583740ee964270b0b5ea7faa34683eb4565393",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@DropPodLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@DropPodLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@DropPodLocomotionClass@@UAGKXZ",
+          "target": 4875824,
+          "addend": 0,
+          "resolved": 4294967110
+        }
+      ],
+      "source_sha256": "5f8000e06feea278a2405a7626ff8ace96d61611909705643119bff5eb066bec",
+      "source": "rebuild/src/droppod.cpp",
+      "population": "rebuild-droppod",
+      "source_order": 4876000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4876016,
+      "method": "004a66f0",
+      "body_bytes": 10,
+      "body_sha256": "ed0389a275d31aebb8db2162daf868e05326764f2ad7249af74eac0504b24d70",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "ed0389a275d31aebb8db2162daf868e05326764f2ad7249af74eac0504b24d70",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@DropPodLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@DropPodLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@DropPodLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 4875248,
+          "addend": 0,
+          "resolved": 4294966518
+        }
+      ],
+      "source_sha256": "5f8000e06feea278a2405a7626ff8ace96d61611909705643119bff5eb066bec",
+      "source": "rebuild/src/droppod.cpp",
+      "population": "rebuild-droppod",
+      "source_order": 4876016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4876032,
+      "method": "004a6700",
+      "body_bytes": 10,
+      "body_sha256": "0e7d5fe827dc9104371cbc4a8463bd04640bc3e3a169c07af238c57fd5bddb92",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "0e7d5fe827dc9104371cbc4a8463bd04640bc3e3a169c07af238c57fd5bddb92",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@DropPodLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?AddRef@DropPodLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@DropPodLocomotionClass@@UAGKXZ",
+          "target": 4875808,
+          "addend": 0,
+          "resolved": 4294967062
+        }
+      ],
+      "source_sha256": "5f8000e06feea278a2405a7626ff8ace96d61611909705643119bff5eb066bec",
+      "source": "rebuild/src/droppod.cpp",
+      "population": "rebuild-droppod",
+      "source_order": 4876032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4876048,
+      "method": "004a6710",
+      "body_bytes": 10,
+      "body_sha256": "0e7d5fe827dc9104371cbc4a8463bd04640bc3e3a169c07af238c57fd5bddb92",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "0e7d5fe827dc9104371cbc4a8463bd04640bc3e3a169c07af238c57fd5bddb92",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@DropPodLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?Release@DropPodLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@DropPodLocomotionClass@@UAGKXZ",
+          "target": 4875824,
+          "addend": 0,
+          "resolved": 4294967062
+        }
+      ],
+      "source_sha256": "5f8000e06feea278a2405a7626ff8ace96d61611909705643119bff5eb066bec",
+      "source": "rebuild/src/droppod.cpp",
+      "population": "rebuild-droppod",
+      "source_order": 4876048,
       "source_quality_family": "rebuild"
     }
   ]

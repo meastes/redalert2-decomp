@@ -109,8 +109,8 @@
     "_$E35": 7541904,
     "_$E38": 7541920,
     "??0Voices@WorldDominationTour@@QAE@H@Z": 7541952,
-    "??_G?$DynamicVectorClass@VWstring@@@@UAEPAXI@Z": 6768720,
     "??_G?$DynamicVectorClass@I@@UAEPAXI@Z": 4371488,
+    "??_G?$DynamicVectorClass@VWstring@@@@UAEPAXI@Z": 6768720,
     "??_7type_info@@6B@": 8066532,
     "??1Voices@WorldDominationTour@@QAE@XZ": 7542400,
     "??_G?$VectorClass@VWstring@@@@UAEPAXI@Z": 6768608,
@@ -4453,6 +4453,88 @@
       "population": "rebuild-wdtvoice",
       "source_order": 7547936,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547952,
+      "method": "00732c30",
+      "body_bytes": 32,
+      "body_sha256": "3b55088239463e547191b137799136d961fc830ad94c4c6c5d35c0983c7985d4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3b55088239463e547191b137799136d961fc830ad94c4c6c5d35c0983c7985d4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_F?$DynamicVectorClass@I@@QAEXXZ",
+      "symbol_prefix": "??_F?$DynamicVectorClass@I@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@I@@6B@",
+          "target": 7980252,
+          "addend": 0,
+          "resolved": 7980252
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547952,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 7547984,
+      "method": "00732c50",
+      "body_bytes": 45,
+      "body_sha256": "1e0279d1cf5be7d41eded335629b6a628dd85f2b3ad5ef9dac6048684225d3c7",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "094d3d04143dda9a9bdfd437c016559e9e0ee52a11e116a017273cb99aa2896d",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1?$DynamicVectorClass@I@@UAE@XZ",
+      "symbol_prefix": "??1?$DynamicVectorClass@I@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@I@@6B@",
+          "target": 7980284,
+          "addend": 0,
+          "resolved": 7980284
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 323789
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547984,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
     }
   ]
 }

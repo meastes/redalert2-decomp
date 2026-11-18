@@ -25,6 +25,9 @@
     "?lzo1x_decompress@@YIHPBEIPAEPAIPAX@Z": 5499248,
     "?lzo1x_1_compress@@YIHPBEIPAEPAIPAX@Z": 5497888,
     "??8?$_com_ptr_t@V?$_com_IIID@UIStream@@$1?_GUID_0000000c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAE_NH@Z": 4805072,
+    "?QueryInterface@CStreamClass@@UAGJABU_GUID@@PAPAX@Z": 4802928,
+    "?AddRef@CStreamClass@@UAGKXZ": 4802832,
+    "?Release@CStreamClass@@UAGKXZ": 4802864,
     "??0CStreamClass@@QAE@XZ": 4802560,
     "??_GCStreamClass@@UAEPAXI@Z": 4804848,
     "??_R0?AUILinkStream@@@8": 8214800,
@@ -34,9 +37,6 @@
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVCStreamClass@@@8": 8214888,
     "??1CStreamClass@@UAE@XZ": 4802656,
-    "?AddRef@CStreamClass@@UAGKXZ": 4802832,
-    "?Release@CStreamClass@@UAGKXZ": 4802864,
-    "?QueryInterface@CStreamClass@@UAGJABU_GUID@@PAPAX@Z": 4802928,
     "?Link_Stream@CStreamClass@@UAGJPAUIUnknown@@@Z": 4803072,
     "?Unlink_Stream@CStreamClass@@UAGJPAPAUIUnknown@@@Z": 4803216,
     "?Read@CStreamClass@@UAGJPAXKPAK@Z": 4803392,
@@ -1114,6 +1114,150 @@
       "source": "rebuild/src/cstream.cpp",
       "population": "rebuild-cstream",
       "source_order": 4804848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4805072,
+      "method": "004951d0",
+      "body_bytes": 34,
+      "body_sha256": "1bacd7b7c2c17e253c2bf2b95748d1c54b91545a280d07f3bdb29bfcabdb5000",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "641e91846f718225cc55a5b8630bdc0a00717d5b942a77d81f7dc6b7a47856c5",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$_com_ptr_t@V?$_com_IIID@UIStream@@$1?_GUID_0000000c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAE_NH@Z",
+      "symbol_prefix": "??8?$_com_ptr_t@V?$_com_IIID@UIStream@@$1?_GUID_0000000c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 3147611
+        }
+      ],
+      "source_sha256": "e4ea49d6932bdd10dde900f5cdb90e6ab549c9e37aa0097959782e62e8ff40ec",
+      "source": "rebuild/src/cstream.cpp",
+      "population": "rebuild-cstream",
+      "source_order": 4805072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4805120,
+      "method": "00495200",
+      "body_bytes": 10,
+      "body_sha256": "367a81209d33d058f9a1797749160b09b4e63b2f0890e067d7a2d361498c1b09",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "367a81209d33d058f9a1797749160b09b4e63b2f0890e067d7a2d361498c1b09",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@CStreamClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@CStreamClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@CStreamClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 4802928,
+          "addend": 0,
+          "resolved": 4294965094
+        }
+      ],
+      "source_sha256": "e4ea49d6932bdd10dde900f5cdb90e6ab549c9e37aa0097959782e62e8ff40ec",
+      "source": "rebuild/src/cstream.cpp",
+      "population": "rebuild-cstream",
+      "source_order": 4805120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4805136,
+      "method": "00495210",
+      "body_bytes": 10,
+      "body_sha256": "791774e53cb5bc94af51be00ac9430f7d5872f7430af2b4ff5da0f7c1727f951",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "791774e53cb5bc94af51be00ac9430f7d5872f7430af2b4ff5da0f7c1727f951",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@CStreamClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@CStreamClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@CStreamClass@@UAGKXZ",
+          "target": 4802832,
+          "addend": 0,
+          "resolved": 4294964982
+        }
+      ],
+      "source_sha256": "e4ea49d6932bdd10dde900f5cdb90e6ab549c9e37aa0097959782e62e8ff40ec",
+      "source": "rebuild/src/cstream.cpp",
+      "population": "rebuild-cstream",
+      "source_order": 4805136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4805152,
+      "method": "00495220",
+      "body_bytes": 10,
+      "body_sha256": "fbe773fb4bf2e62e664ede51a4d18787dc113371a50f049ec06cab6507a367d5",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "fbe773fb4bf2e62e664ede51a4d18787dc113371a50f049ec06cab6507a367d5",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@CStreamClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@CStreamClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@CStreamClass@@UAGKXZ",
+          "target": 4802864,
+          "addend": 0,
+          "resolved": 4294964998
+        }
+      ],
+      "source_sha256": "e4ea49d6932bdd10dde900f5cdb90e6ab549c9e37aa0097959782e62e8ff40ec",
+      "source": "rebuild/src/cstream.cpp",
+      "population": "rebuild-cstream",
+      "source_order": 4805152,
       "source_quality_family": "rebuild"
     }
   ]

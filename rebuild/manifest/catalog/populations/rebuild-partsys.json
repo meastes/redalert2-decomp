@@ -84,6 +84,7 @@
     "??RCRCEngine@@QAEXH@Z": 4800304,
     "??RCRCEngine@@QAEXM@Z": 4800336,
     "_CLSID_ParticleSystemClass": 8002608,
+    "??1ParticleSystemClass@@UAE@XZ": 6336128,
     "__FireStepY": 8304804,
     "__FireStepX": 8304772,
     "_$E2": 6334592,
@@ -220,7 +221,6 @@
     "?IsNotWarping@ObjectClass@@UBE_NXZ": 4341328,
     "?GetRemapColour@ObjectClass@@UBEPAXXZ": 4341344,
     "??0ParticleSystemClass@@QAE@XZ": 6335792,
-    "??1ParticleSystemClass@@UAE@XZ": 6336128,
     "??_G?$VectorClass@PAVParticleClass@@@@UAEPAXI@Z": 5095184,
     "?Draw_It@ParticleSystemClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 6336656,
     "?Spawn_Held_Particle@ParticleSystemClass@@QAEPAVParticleClass@@ABVCoord@@0@Z": 6336912,
@@ -2926,6 +2926,149 @@
       "population": "rebuild-partsys",
       "source_order": 6344704,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6344720,
+      "method": "0060d010",
+      "body_bytes": 6,
+      "body_sha256": "0e16a5f4f32347b761b9ac66a92a90037631e1eda4d9cb38b43bc0b44d90d764",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ad5e04667b2ef8ae67a15a9b334092beaf248a2e0302531571220d3e8fb3e5b0",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@ParticleSystemClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@ParticleSystemClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source": "rebuild/src/partsys.cpp",
+      "population": "rebuild-partsys",
+      "source_order": 6344720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6344736,
+      "method": "0060d020",
+      "body_bytes": 7,
+      "body_sha256": "84358b64bfaccfd336ed4b2ce706f45729f875f610a80f96346cc982b5cad304",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "481c6a7bee7c3498d5d33c7caebaa012418257550fa590bd50f9a042c44a2d33",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Class_Of@ParticleSystemClass@@UBEPBVObjectTypeClass@@XZ",
+      "symbol_prefix": "?Class_Of@ParticleSystemClass@@UBEPBVObjectTypeClass@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source": "rebuild/src/partsys.cpp",
+      "population": "rebuild-partsys",
+      "source_order": 6344736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6344752,
+      "method": "0060d030",
+      "body_bytes": 30,
+      "body_sha256": "f74278300a27e94d269cd77ff1b021f993986518011ec72a390c0255a320ae12",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6918375a968d1b161748b05f82bf84e5f0633fb54d62051c41b24786582e03f7",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GParticleSystemClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GParticleSystemClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1ParticleSystemClass@@UAE@XZ",
+          "target": 6336128,
+          "addend": 0,
+          "resolved": 4294958664
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1527030
+        }
+      ],
+      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source": "rebuild/src/partsys.cpp",
+      "population": "rebuild-partsys",
+      "source_order": 6344752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6344864,
+      "method": "60d0a0",
+      "body_bytes": 74,
+      "body_sha256": "e8e294fe801519f6d8f670f090f424e2d1338c1e193dd146569967a3a8fd0a13",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "02cf84fa740491c554527176772464dce2c1437bfb9655fb7374ea3a7f4a6f1b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAVParticleClass@@@@QAE@HPBQAVParticleClass@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAVParticleClass@@@@QAE@HPBQAVParticleClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVParticleClass@@@@6B@",
+          "target": 8004292,
+          "addend": 0,
+          "resolved": 8004292
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1527613
+        }
+      ],
+      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source": "rebuild/src/partsys.cpp",
+      "population": "rebuild-partsys",
+      "source_order": 6344864,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-16"
     }
   ]
 }

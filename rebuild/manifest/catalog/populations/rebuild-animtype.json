@@ -4448,6 +4448,341 @@
       "population": "rebuild-animtype",
       "source_order": 4351744,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4351840,
+      "method": "00426760",
+      "body_bytes": 4,
+      "body_sha256": "031a1d90a8a2c46993613c8b2828efd0c52f20f2852d5f2ff930bc6acc0090c8",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ca7ecff8f03519160102a6cef35737c8af874a9bea7748eb56fc710a9fb329f3",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Ownable@ObjectTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Get_Ownable@ObjectTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d4b2ea7c6113ae4968c759318f01043b96df6fbd39b1f30013d2aaaa42c957ab",
+      "source": "rebuild/src/animtype.cpp",
+      "population": "rebuild-animtype",
+      "source_order": 4351840,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
+    },
+    {
+      "entry": 4351856,
+      "method": "00426770",
+      "body_bytes": 6,
+      "body_sha256": "21faa16607cb70438711aab3fa582829af50aa15d5946524996fc7aa8a8e4e6d",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0dfae65d18a89b5cdbe7a9022e4d776327127bc9964fed55f9baa5f336d4943e",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@AnimTypeClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@AnimTypeClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d4b2ea7c6113ae4968c759318f01043b96df6fbd39b1f30013d2aaaa42c957ab",
+      "source": "rebuild/src/animtype.cpp",
+      "population": "rebuild-animtype",
+      "source_order": 4351856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4351872,
+      "method": "00426780",
+      "body_bytes": 7,
+      "body_sha256": "9d738a62d8b00f9d1bd9b09257e79e2809a06409a231a198e273db239ef8bfa1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7d043569ce0bdb08296d7ac6849e3e3281b3d90d09d70cf19458c7b457863ecc",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Heap_ID@AnimTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Heap_ID@AnimTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d4b2ea7c6113ae4968c759318f01043b96df6fbd39b1f30013d2aaaa42c957ab",
+      "source": "rebuild/src/animtype.cpp",
+      "population": "rebuild-animtype",
+      "source_order": 4351872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4351888,
+      "method": "00426790",
+      "body_bytes": 6,
+      "body_sha256": "87c3f59261c0f5781f574496dc0eee0a311ee20af185086d76b730b7130e8981",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "485e8e78d290e73c7bd55396a88f40c299860abe07827918fedde3887742b6ab",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@AnimTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@AnimTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d4b2ea7c6113ae4968c759318f01043b96df6fbd39b1f30013d2aaaa42c957ab",
+      "source": "rebuild/src/animtype.cpp",
+      "population": "rebuild-animtype",
+      "source_order": 4351888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4351904,
+      "method": "004267a0",
+      "body_bytes": 5,
+      "body_sha256": "8cad4061f7462df3586af0942fd0de860c94376587768a065839209dcaf67fd5",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6f48bfedca167197485f2452c60da9c2d7baf8ea803e13aa163eaf2cfdfba19d",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create_And_Place@AnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+      "symbol_prefix": "?Create_And_Place@AnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d4b2ea7c6113ae4968c759318f01043b96df6fbd39b1f30013d2aaaa42c957ab",
+      "source": "rebuild/src/animtype.cpp",
+      "population": "rebuild-animtype",
+      "source_order": 4351904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4351920,
+      "method": "004267b0",
+      "body_bytes": 5,
+      "body_sha256": "5fed5afb29946811bf02359627a94bc01d08d31b779528feaadde3866af9c855",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3004f92f58d17d5816db8b502d475d818e57c2ba54e31a90c4f95edece32ad1b",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create_One_Of@AnimTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z",
+      "symbol_prefix": "?Create_One_Of@AnimTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d4b2ea7c6113ae4968c759318f01043b96df6fbd39b1f30013d2aaaa42c957ab",
+      "source": "rebuild/src/animtype.cpp",
+      "population": "rebuild-animtype",
+      "source_order": 4351920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4351936,
+      "method": "004267c0",
+      "body_bytes": 207,
+      "body_sha256": "9a74543c506886d374168dab5533b5a76ab4eac4227acba815ae6231ee79c643",
+      "padding_bytes": 1,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "3e67c9dc03bd6e1c5e6b86475ee5dae44c3b8551a8a6a973d6c7cd5307a4d016",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GAnimTypeClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GAnimTypeClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7AnimTypeClass@@6BIPersistStream@@@",
+          "target": 7979800,
+          "addend": 0,
+          "resolved": 7979800
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7AnimTypeClass@@6BIRTTITypeInfo@@@",
+          "target": 7979756,
+          "addend": 0,
+          "resolved": 7979756
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7AnimTypeClass@@6BINoticeSink@@@",
+          "target": 7979792,
+          "addend": 0,
+          "resolved": 7979792
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_7AnimTypeClass@@6BINoticeSource@@@",
+          "target": 7979784,
+          "addend": 0,
+          "resolved": 7979784
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 4,
+          "resolved": 11275444
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 0,
+          "resolved": 8806880
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 0,
+          "resolved": 8806880
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 16,
+          "resolved": 8806896
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 16,
+          "resolved": 8806896
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 16,
+          "resolved": 8806896
+        },
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "??1ObjectTypeClass@@UAE@XZ",
+          "target": 6118240,
+          "addend": 0,
+          "resolved": 1766120
+        },
+        {
+          "offset": 193,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3519670
+        }
+      ],
+      "source_sha256": "d4b2ea7c6113ae4968c759318f01043b96df6fbd39b1f30013d2aaaa42c957ab",
+      "source": "rebuild/src/animtype.cpp",
+      "population": "rebuild-animtype",
+      "source_order": 4351936,
+      "source_quality_family": "rebuild"
     }
   ]
 }

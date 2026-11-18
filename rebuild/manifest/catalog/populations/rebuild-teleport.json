@@ -88,6 +88,9 @@
     "?Release@LocomotionClass@@UAGKXZ": 5493360,
     "??1LocomotionClass@@UAE@XZ": 5492720,
     "??3@YAXPAX@Z": 7871803,
+    "?QueryInterface@TeleportLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 7215360,
+    "?AddRef@TeleportLocomotionClass@@UAGKXZ": 7216032,
+    "?Release@TeleportLocomotionClass@@UAGKXZ": 7216048,
     "_$E2": 7207600,
     "_$E5": 7207648,
     "_$E8": 7207680,
@@ -153,8 +156,6 @@
     "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
     "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
     "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
-    "?AddRef@TeleportLocomotionClass@@UAGKXZ": 7216032,
-    "?Release@TeleportLocomotionClass@@UAGKXZ": 7216048,
     "?Is_Piggybacking@TeleportLocomotionClass@@UAGEXZ": 7216064,
     "?Is_Moving@TeleportLocomotionClass@@UAGEXZ": 7208224,
     "?Is_Stationary@TeleportLocomotionClass@@UAEEXZ": 7208240,
@@ -177,7 +178,6 @@
     "?Mark_All_Occupation_Bits@LocomotionClass@@UAGXH@Z": 4875680,
     "?Save@TeleportLocomotionClass@@UAGJPAUIStream@@H@Z": 7215120,
     "?In_Which_Layer@TeleportLocomotionClass@@UAG?AW4LayerType@@XZ": 7215344,
-    "?QueryInterface@TeleportLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 7215360,
     "?Begin_Piggyback@TeleportLocomotionClass@@UAGJPAUILocomotion@@@Z": 7215456,
     "?End_Piggyback@TeleportLocomotionClass@@UAGJPAPAUILocomotion@@@Z": 7215536,
     "?Is_Ok_To_End@TeleportLocomotionClass@@UAGEXZ": 7215600,
@@ -193,15 +193,15 @@
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
+    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
+    "?Release@LocomotionClass@@W3AGKXZ": 4979904,
     "?QueryInterface@TeleportLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 7216160,
     "?AddRef@TeleportLocomotionClass@@W3AGKXZ": 7216176,
     "?Release@TeleportLocomotionClass@@W3AGKXZ": 7216192,
     "?QueryInterface@TeleportLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z": 7216208,
     "?AddRef@TeleportLocomotionClass@@WBI@AGKXZ": 7216224,
-    "?Release@TeleportLocomotionClass@@WBI@AGKXZ": 7216240,
-    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
-    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
-    "?Release@LocomotionClass@@W3AGKXZ": 4979904
+    "?Release@TeleportLocomotionClass@@WBI@AGKXZ": 7216240
   },
   "regions": [
     {
@@ -3496,6 +3496,222 @@
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7216112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216160,
+      "method": "006e1c20",
+      "body_bytes": 10,
+      "body_sha256": "b148db05ecfc5af9e84c483d54582a9e8128c263c6f12f703e62cdab5fad7a71",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "b148db05ecfc5af9e84c483d54582a9e8128c263c6f12f703e62cdab5fad7a71",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@TeleportLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@TeleportLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@TeleportLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 7215360,
+          "addend": 0,
+          "resolved": 4294966486
+        }
+      ],
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216176,
+      "method": "006e1c30",
+      "body_bytes": 10,
+      "body_sha256": "3aa7164cc9c3bb73b2d5d4a297e0e85d03efef51f1944964296a0137300d9315",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "3aa7164cc9c3bb73b2d5d4a297e0e85d03efef51f1944964296a0137300d9315",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@TeleportLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@TeleportLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@TeleportLocomotionClass@@UAGKXZ",
+          "target": 7216032,
+          "addend": 0,
+          "resolved": 4294967142
+        }
+      ],
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216192,
+      "method": "006e1c40",
+      "body_bytes": 10,
+      "body_sha256": "3aa7164cc9c3bb73b2d5d4a297e0e85d03efef51f1944964296a0137300d9315",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "3aa7164cc9c3bb73b2d5d4a297e0e85d03efef51f1944964296a0137300d9315",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@TeleportLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@TeleportLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@TeleportLocomotionClass@@UAGKXZ",
+          "target": 7216048,
+          "addend": 0,
+          "resolved": 4294967142
+        }
+      ],
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216208,
+      "method": "006e1c50",
+      "body_bytes": 10,
+      "body_sha256": "f8853d73f00af5e7dcf4309aa96a9bdeaea2ef0d2d031329339a5d8230c12c37",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "f8853d73f00af5e7dcf4309aa96a9bdeaea2ef0d2d031329339a5d8230c12c37",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@TeleportLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@TeleportLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@TeleportLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 7215360,
+          "addend": 0,
+          "resolved": 4294966438
+        }
+      ],
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216224,
+      "method": "006e1c60",
+      "body_bytes": 10,
+      "body_sha256": "5c8ec6e3d368496811c5ac5f26ddf3a0b60e0fde8b8ffcecf7e49306a5eaec4f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "5c8ec6e3d368496811c5ac5f26ddf3a0b60e0fde8b8ffcecf7e49306a5eaec4f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@TeleportLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?AddRef@TeleportLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@TeleportLocomotionClass@@UAGKXZ",
+          "target": 7216032,
+          "addend": 0,
+          "resolved": 4294967094
+        }
+      ],
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216240,
+      "method": "006e1c70",
+      "body_bytes": 10,
+      "body_sha256": "5c8ec6e3d368496811c5ac5f26ddf3a0b60e0fde8b8ffcecf7e49306a5eaec4f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "5c8ec6e3d368496811c5ac5f26ddf3a0b60e0fde8b8ffcecf7e49306a5eaec4f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@TeleportLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?Release@TeleportLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@TeleportLocomotionClass@@UAGKXZ",
+          "target": 7216048,
+          "addend": 0,
+          "resolved": 4294967094
+        }
+      ],
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216240,
       "source_quality_family": "rebuild"
     }
   ]

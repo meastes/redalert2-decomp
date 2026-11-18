@@ -26,6 +26,8 @@
     "?NormalDrawer@@3PAVConvertClass@@A": 8594372,
     "?LogicalSurface@@3PAVSurface@@A": 8624476,
     "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z": 4816512,
+    "?LastList@GadgetClass@@1PAV1@A": 8806388,
+    "?Set_Selected_Index@ListClass@@UAEXH@Z": 5482752,
     "_$E2": 4707008,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??0CheckListClass@@QAE@HHHHHW4TextPrintType@@PBVShapeSet@@1@Z": 4707040,
@@ -75,12 +77,10 @@
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVCheckListClass@@@8": 8204168,
     "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ": 4708080,
-    "?LastList@GadgetClass@@1PAV1@A": 8806388,
     "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
     "?Count@ListClass@@UBEHXZ": 4708112,
     "?Remove_Item@CheckListClass@@UAEXH@Z": 4708128,
     "?Set_Selected_Index@CheckListClass@@UAEXH@Z": 4708144,
-    "?Set_Selected_Index@ListClass@@UAEXH@Z": 5482752,
     "??1CheckListClass@@UAE@XZ": 4707120,
     "?Add_Item@CheckListClass@@UAEHPBG@Z": 4707184,
     "?Current_Item@CheckListClass@@UBEPBGXZ": 4707248,
@@ -723,6 +723,244 @@
       "source": "rebuild/src/cheklist.cpp",
       "population": "rebuild-cheklist",
       "source_order": 4707712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708080,
+      "method": "0047d6f0",
+      "body_bytes": 11,
+      "body_sha256": "b4327dee14318760db33c66df27b3cfa78a31b39bee1694a826d44646934ea4e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6ff11e3e34b5390c48c8020e60d41d5cec87e9549c77e57e802427727cf77b1f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ",
+      "symbol_prefix": "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?LastList@GadgetClass@@1PAV1@A",
+          "target": 8806388,
+          "addend": 0,
+          "resolved": 8806388
+        }
+      ],
+      "source_sha256": "fc9d1452592cab24433ef5df430cf1145efc05035272acebe0f13b1942164c18",
+      "source": "rebuild/src/cheklist.cpp",
+      "population": "rebuild-cheklist",
+      "source_order": 4708080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708096,
+      "method": "0047d700",
+      "body_bytes": 4,
+      "body_sha256": "efef38aeb810a323430fc66bf44c23344f05bb31daf4f7d709e70ff3be2db95d",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e78db5f02beb1b2741c74bad986f6b3e85968ddb471cf9bd12406817d615004c",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_To_Redraw@GadgetClass@@UAE_NXZ",
+      "symbol_prefix": "?Is_To_Redraw@GadgetClass@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "fc9d1452592cab24433ef5df430cf1145efc05035272acebe0f13b1942164c18",
+      "source": "rebuild/src/cheklist.cpp",
+      "population": "rebuild-cheklist",
+      "source_order": 4708096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708112,
+      "method": "0047d710",
+      "body_bytes": 4,
+      "body_sha256": "75315a13a7503cb9a126675518a19ff201faa8c510e8a849d0f971d9c61bbb2b",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "94380ce7e5b7de595c702a019afcc92fde31c9e6a7aba4c6cbaca1e37f3e54d9",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Count@ListClass@@UBEHXZ",
+      "symbol_prefix": "?Count@ListClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "fc9d1452592cab24433ef5df430cf1145efc05035272acebe0f13b1942164c18",
+      "source": "rebuild/src/cheklist.cpp",
+      "population": "rebuild-cheklist",
+      "source_order": 4708112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708128,
+      "method": "0047d720",
+      "body_bytes": 13,
+      "body_sha256": "191758c3b3fa4759feab648e35c2f3addfdbd89bde24f4283f41ed4ae5af5717",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e70b4eeecd6084f155e10b42cff854805fd57262381deb08358e4b9290c697b7",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Item@CheckListClass@@UAEXH@Z",
+      "symbol_prefix": "?Remove_Item@CheckListClass@@UAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Remove_Item@ListClass@@UAEXH@Z",
+          "target": 5480688,
+          "addend": 0,
+          "resolved": 772550
+        }
+      ],
+      "source_sha256": "fc9d1452592cab24433ef5df430cf1145efc05035272acebe0f13b1942164c18",
+      "source": "rebuild/src/cheklist.cpp",
+      "population": "rebuild-cheklist",
+      "source_order": 4708128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708144,
+      "method": "0047d730",
+      "body_bytes": 13,
+      "body_sha256": "45b4e388e64e133fd33535cb4615e56ddbeb8139f9b27ae5e4d1170c781ebda9",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "de3e144c763d235237cc16aec750aca5905d5daed90b76ec49b179cc94f85f44",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Selected_Index@CheckListClass@@UAEXH@Z",
+      "symbol_prefix": "?Set_Selected_Index@CheckListClass@@UAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Set_Selected_Index@ListClass@@UAEXH@Z",
+          "target": 5482752,
+          "addend": 0,
+          "resolved": 774598
+        }
+      ],
+      "source_sha256": "fc9d1452592cab24433ef5df430cf1145efc05035272acebe0f13b1942164c18",
+      "source": "rebuild/src/cheklist.cpp",
+      "population": "rebuild-cheklist",
+      "source_order": 4708144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4708160,
+      "method": "0047d740",
+      "body_bytes": 83,
+      "body_sha256": "2d38a873d39019679541ea701415b50f1fad0bbdf5d68021b486ea557b254624",
+      "padding_bytes": 13,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "a7ca8ea6da6a9b7ac973ce403d6e0787c16a35361cdfaf17a2f3933d35d15f1e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GCheckListClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GCheckListClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7CheckListClass@@6B@",
+          "target": 7986076,
+          "addend": 0,
+          "resolved": 7986076
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?Get_Item@ListClass@@UBEPBGH@Z",
+          "target": 5481600,
+          "addend": 0,
+          "resolved": 773414
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "?Remove_Item@ListClass@@UAEXH@Z",
+          "target": 5480688,
+          "addend": 0,
+          "resolved": 772491
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3163600
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??1ListClass@@UAE@XZ",
+          "target": 5480384,
+          "addend": 0,
+          "resolved": 772163
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3163569
+        }
+      ],
+      "source_sha256": "fc9d1452592cab24433ef5df430cf1145efc05035272acebe0f13b1942164c18",
+      "source": "rebuild/src/cheklist.cpp",
+      "population": "rebuild-cheklist",
+      "source_order": 4708160,
       "source_quality_family": "rebuild"
     }
   ]

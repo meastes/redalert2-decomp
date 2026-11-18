@@ -107,6 +107,7 @@
     "?MixFileHandler@VQAClass@@QAEJJPAXJ@Z": 7460016,
     "?CacheHandler@VQAClass@@QAEJJPAXJ@Z": 7457280,
     "_free": 7874024,
+    "??2@YAPAXI@Z": 7872535,
     "_$E6": 7455520,
     "_$E9": 7455552,
     "_$E12": 7455600,
@@ -193,7 +194,6 @@
     "?GetItem@?$VectorClass@PAVMovieHandle@@@@UBEPAVMovieHandle@@H@Z": 7460880,
     "??8?$VectorClass@PAVMovieHandle@@@@UBE_NABV0@@Z": 7460896,
     "?Resize@?$VectorClass@PAVMovieHandle@@@@UAE_NHPBQAVMovieHandle@@@Z": 7460960,
-    "??2@YAPAXI@Z": 7872535,
     "?Clear@?$VectorClass@PAVMovieHandle@@@@UAEXXZ": 7461136,
     "?ID@?$VectorClass@PAVMovieHandle@@@@UAEHABQAVMovieHandle@@@Z": 7461184,
     "?ID@?$VectorClass@PAVMovieHandle@@@@UAEHPBQAVMovieHandle@@@Z": 7461248,
@@ -3353,6 +3353,432 @@
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7460800,
+      "method": "0071d7c0",
+      "body_bytes": 42,
+      "body_sha256": "0467a8b5ab5a53a28441938a4a30f8268598bf54d6c6d74ce6fb3b438d0dac01",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "295c24869f85864cdab3dab4bd22f912e38636a34d0a4e50f3f1d951fe74f355",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVMovieHandle@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVMovieHandle@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 410976
+        }
+      ],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7460800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7460848,
+      "method": "0071d7f0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVMovieHandle@@@@UAEHPBQAVMovieHandle@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVMovieHandle@@@@UAEHPBQAVMovieHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7460848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7460880,
+      "method": "0071d810",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVMovieHandle@@@@UBEPAVMovieHandle@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVMovieHandle@@@@UBEPAVMovieHandle@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7460880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7460896,
+      "method": "0071d820",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVMovieHandle@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVMovieHandle@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7460896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7460960,
+      "method": "0071d860",
+      "body_bytes": 174,
+      "body_sha256": "cecb2999c5f49b48ece8f4b8b4f61801105eee285139f6d9605e30456b20c65f",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "018dfedc91ca7676f8cbe71f860179e1e971fe8bf76d01cea2270615d89753d4",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVMovieHandle@@@@UAE_NHPBQAVMovieHandle@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVMovieHandle@@@@UAE_NHPBQAVMovieHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 411532
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 410720
+        }
+      ],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7460960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7461136,
+      "method": "0071d910",
+      "body_bytes": 39,
+      "body_sha256": "3cb64e35bd070be11f0c7e1f10b49ff7fa2e18c067a8dd77522861c9d8aebc82",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "bf6d79c15b825781275ded757ea8e9cae64a0f3fbcf89567982eb2aa236c7ec9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVMovieHandle@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVMovieHandle@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 410643
+        }
+      ],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7461136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7461184,
+      "method": "0071d940",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVMovieHandle@@@@UAEHABQAVMovieHandle@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVMovieHandle@@@@UAEHABQAVMovieHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7461184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7461248,
+      "method": "0071d980",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVMovieHandle@@@@UAEHPBQAVMovieHandle@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVMovieHandle@@@@UAEHPBQAVMovieHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7461248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7461280,
+      "method": "0071d9a0",
+      "body_bytes": 176,
+      "body_sha256": "3ae6af6d34a21498714e8f039f6af02af0fd70fee74fc1eca017ffb2a200d8ae",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "3ae6af6d34a21498714e8f039f6af02af0fd70fee74fc1eca017ffb2a200d8ae",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVMovieHandle@@@@UAE_NHPBQAVMovieHandle@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVMovieHandle@@@@UAE_NHPBQAVMovieHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 411216
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 410413
+        }
+      ],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7461280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7461456,
+      "method": "0071da50",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVMovieHandle@@@@UAEHABQAVMovieHandle@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVMovieHandle@@@@UAEHABQAVMovieHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7461456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7461504,
+      "method": "0071da80",
+      "body_bytes": 73,
+      "body_sha256": "a9ac207a216b625b2a9b53897057e818d15ab912a0b72615ce6a65c25a2979a3",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f674768d061302a62c0d2afa0ebeae02ad856eb4fd832fa656c737c478a1b7e3",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVMovieHandle@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVMovieHandle@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMovieHandle@@@@6B@",
+          "target": 8055428,
+          "addend": 0,
+          "resolved": 8055428
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 410270
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 410235
+        }
+      ],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7461504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7461584,
+      "method": "0071dad0",
+      "body_bytes": 73,
+      "body_sha256": "1406e2dc04bc0d984d7df8911a1ca7d738efaede7f12451a47e4820039ad42ab",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "71ac4efb108459da944e12eb1f5493dba234919febab5bc336233a0a16dea9dc",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVMovieHandle@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVMovieHandle@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMovieHandle@@@@6B@",
+          "target": 8055428,
+          "addend": 0,
+          "resolved": 8055428
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 410190
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 410155
+        }
+      ],
+      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7461584,
       "source_quality_family": "rebuild"
     }
   ]

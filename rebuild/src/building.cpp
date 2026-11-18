@@ -1532,7 +1532,6 @@ int BuildingClass::Shape_Number(void) const
  *   12/23/1994 JLB : Calls low level check before proceeding.                                 *
  *   01/27/1995 JLB : Special road spacer template added.                                      *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 59 bytes differ (adopted text)
 bool BuildingClass::Mark(MarkType mark)
 {
 	if (BASECLASS::Mark(mark)) {
@@ -1671,7 +1670,6 @@ bool BuildingClass::Mark(MarkType mark)
 	}
 	return(false);
 }
-#endif
 
 
 
@@ -8397,8 +8395,7 @@ void BuildingClass::Set_Anim_Coords(void)
 	for (int i = 0; i < 18; i++) { // RA2: eighteen animations
 		ObjectClass * anim = Anims[i]; // RA2: an object
 		if (anim != NULL) {
-			Coord coord = TacticalMap->Pixel_To_Coord_Absolute(Class->AnimData[i].Location) + render; // RA2: the offset first
-			anim->Set_Coord(coord); // RA2: as above
+			anim->Set_Coord(TacticalMap->Pixel_To_Coord_Absolute(Class->AnimData[i].Location) + render); // RA2: the offset first, no named temporary
 		}
 	}
 }

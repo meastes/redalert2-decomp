@@ -5476,6 +5476,34 @@
       "population": "rebuild-anim",
       "source_order": 4341456,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4341600,
+      "method": "00423f60",
+      "body_bytes": 5,
+      "body_sha256": "e58773679e693e79ccf3a079b2d7c66b6103cf65bb691bf2e5991ab2eaa2769d",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8982bbd85277eda73c1ddb286f45d3587f237b29c19ae0b01c18cc79cb0b1dfa",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@ABVNoInitClass@@@Z",
+      "symbol_prefix": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@ABVNoInitClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7a4c0a0d7b3e36217455c3bb37301de35a8ed883c3cf27f0cb261354ff440870",
+      "source": "rebuild/src/anim.cpp",
+      "population": "rebuild-anim",
+      "source_order": 4341600,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
     }
   ]
 }

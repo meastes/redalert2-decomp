@@ -48,6 +48,8 @@
     "?Rule@@3PAVRulesClass@@A": 8624200,
     "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
     "?Draw_Edit_Text@OwnerDraw@@YIXPAVSurface@@AAV?$TRect@H@@PBGHPAVBitFont@@IPAHHHHH@Z": 6293552,
+    "??1GadgetClass@@UAE@XZ": 5042304,
+    "??3@YAXPAX@Z": 7871803,
     "_$E2": 7279568,
     "_$E5": 7279600,
     "_$E8": 7279648,
@@ -101,8 +103,6 @@
     "?Peer_To_Peer@GadgetClass@@UAEXIAAW4KeyNumType@@AAVControlClass@@@Z": 4732256,
     "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
     "?Set_Text@TextLabelClass@@UAEXPAG@Z": 7280608,
-    "??3@YAXPAX@Z": 7871803,
-    "??1GadgetClass@@UAE@XZ": 5042304,
     "?Draw_Me@TextLabelClass@@UAEHH@Z": 7280160
   },
   "regions": [
@@ -1068,6 +1068,50 @@
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7280608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7280624,
+      "method": "006f17f0",
+      "body_bytes": 30,
+      "body_sha256": "effd4fa4c5f4f4654bef28721e3c74289f606e8b01f2b92042c9e0b77c398ef8",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b6768fd900886ea092aa9ed98196657fb2af171d109ed41855d0e4be2932c076",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTextLabelClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTextLabelClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1GadgetClass@@UAE@XZ",
+          "target": 5042304,
+          "addend": 0,
+          "resolved": 4292728968
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 591158
+        }
+      ],
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
+      "source": "rebuild/src/txtlabel.cpp",
+      "population": "rebuild-txtlabel",
+      "source_order": 7280624,
       "source_quality_family": "rebuild"
     }
   ]

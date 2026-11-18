@@ -83,6 +83,10 @@
     "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
     "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
     "?Release@LocomotionClass@@UAGKXZ": 5493360,
+    "??3@YAXPAX@Z": 7871803,
+    "?QueryInterface@DriveLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 4847648,
+    "?AddRef@DriveLocomotionClass@@UAGKXZ": 4869216,
+    "?Release@DriveLocomotionClass@@UAGKXZ": 4869232,
     "?Track13@DriveLocomotionClass@@0QBUTrackType@1@B": 7994736,
     "?Track12@DriveLocomotionClass@@0QBUTrackType@1@B": 7994576,
     "?Track11@DriveLocomotionClass@@0QBUTrackType@1@B": 7994408,
@@ -147,10 +151,8 @@
     "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ": 4869200,
     "?Is_Piggybacking@DriveLocomotionClass@@UAGEXZ": 4869248,
     "?Fetch_Object_Size@DriveLocomotionClass@@UBEHXZ": 4869280,
-    "??3@YAXPAX@Z": 7871803,
     "??1DriveLocomotionClass@@UAE@XZ": 4847328,
     "?Piggyback_CLSID@DriveLocomotionClass@@UAGJPAU_GUID@@@Z": 4847376,
-    "?QueryInterface@DriveLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 4847648,
     "?Load@DriveLocomotionClass@@UAGJPAUIStream@@@Z": 4847744,
     "?Save@DriveLocomotionClass@@UAGJPAUIStream@@H@Z": 4847872,
     "?Begin_Piggyback@DriveLocomotionClass@@UAGJPAUILocomotion@@@Z": 4848096,
@@ -189,8 +191,6 @@
     "?Get_Track_Number@DriveLocomotionClass@@UAGHXZ": 4869056,
     "?Get_Track_Index@DriveLocomotionClass@@UAGHXZ": 4869072,
     "?Get_Speed_Accum@DriveLocomotionClass@@UAGHXZ": 4869088,
-    "?AddRef@DriveLocomotionClass@@UAGKXZ": 4869216,
-    "?Release@DriveLocomotionClass@@UAGKXZ": 4869232,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
@@ -3864,6 +3864,398 @@
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869248,
+      "method": "004a4c80",
+      "body_bytes": 17,
+      "body_sha256": "7a7fbeedf5866b8176b462ea8c7386637d1233f9aa33a0618865168c408405e9",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a59f8bde7a20b84e46ded8a67de51465773b0a8d836a5dc703a2a167fc8009a1",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Piggybacking@DriveLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Piggybacking@DriveLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869280,
+      "method": "004a4ca0",
+      "body_bytes": 6,
+      "body_sha256": "8d258eb00a7b982a463e2fce557d91d035bf96ef018384ee252fbd4141536838",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7f1f716fe5d0d11b9655699b70a561a52ed9596d272008f5ecb28e255a689122",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@DriveLocomotionClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@DriveLocomotionClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869296,
+      "method": "004a4cb0",
+      "body_bytes": 65,
+      "body_sha256": "f9ed25fd7a5cb263f03d2f27d9949f77ed69ef472ab8f5138b2238f980eb7e39",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "db130ece2ba9e7390f52f682b232f136e00e8eaf98651ad3d7ebe8a622b05a29",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GDriveLocomotionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GDriveLocomotionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7DriveLocomotionClass@@6BIPersistStream@@@",
+          "target": 7996820,
+          "addend": 0,
+          "resolved": 7996820
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7DriveLocomotionClass@@6BILocomotion@@@",
+          "target": 7996620,
+          "addend": 0,
+          "resolved": 7996620
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7DriveLocomotionClass@@6B@",
+          "target": 7996584,
+          "addend": 0,
+          "resolved": 7996584
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 623381
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3002451
+        }
+      ],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869376,
+      "method": "004a4d00",
+      "body_bytes": 13,
+      "body_sha256": "75d77bd0a3a4afb5d4a2bf6084d52171f3e5b72dcc4a78108c73cb70fde0c354",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2d8680bfffcf74534c3ad8b2508de5c0eaf9cd2fbe557725e7d4d6e4d2abbbf1",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+      "symbol_prefix": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869392,
+      "method": "004a4d10",
+      "body_bytes": 13,
+      "body_sha256": "75d77bd0a3a4afb5d4a2bf6084d52171f3e5b72dcc4a78108c73cb70fde0c354",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2d8680bfffcf74534c3ad8b2508de5c0eaf9cd2fbe557725e7d4d6e4d2abbbf1",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersistStream@@$1?_GUID_00000109_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+      "symbol_prefix": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersistStream@@$1?_GUID_00000109_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869440,
+      "method": "004a4d40",
+      "body_bytes": 10,
+      "body_sha256": "55cdb78f41d563ce51061829cfa26a705ab8a138e204e6dc4f51c5c94f30fa85",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "55cdb78f41d563ce51061829cfa26a705ab8a138e204e6dc4f51c5c94f30fa85",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@DriveLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@DriveLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@DriveLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 4847648,
+          "addend": 0,
+          "resolved": 4294945494
+        }
+      ],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869456,
+      "method": "004a4d50",
+      "body_bytes": 10,
+      "body_sha256": "56213c1214a69a8ef6b065a01cf9303894bd9fe3da954ca92b6101136b52607a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "56213c1214a69a8ef6b065a01cf9303894bd9fe3da954ca92b6101136b52607a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@DriveLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@DriveLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@DriveLocomotionClass@@UAGKXZ",
+          "target": 4869216,
+          "addend": 0,
+          "resolved": 4294967046
+        }
+      ],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869472,
+      "method": "004a4d60",
+      "body_bytes": 10,
+      "body_sha256": "56213c1214a69a8ef6b065a01cf9303894bd9fe3da954ca92b6101136b52607a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "56213c1214a69a8ef6b065a01cf9303894bd9fe3da954ca92b6101136b52607a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@DriveLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@DriveLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@DriveLocomotionClass@@UAGKXZ",
+          "target": 4869232,
+          "addend": 0,
+          "resolved": 4294967046
+        }
+      ],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869488,
+      "method": "004a4d70",
+      "body_bytes": 10,
+      "body_sha256": "c2e0937b0821b4da0ae44623a2c18232515c1f873f790cdb2a0f6c314b5c1833",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "c2e0937b0821b4da0ae44623a2c18232515c1f873f790cdb2a0f6c314b5c1833",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@DriveLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@DriveLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@DriveLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 4847648,
+          "addend": 0,
+          "resolved": 4294945446
+        }
+      ],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869504,
+      "method": "004a4d80",
+      "body_bytes": 10,
+      "body_sha256": "a06d33806c9217590a0cefe60eb1f0e723c4a73b2c30748a56e462ac90f75b13",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "a06d33806c9217590a0cefe60eb1f0e723c4a73b2c30748a56e462ac90f75b13",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@DriveLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?AddRef@DriveLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@DriveLocomotionClass@@UAGKXZ",
+          "target": 4869216,
+          "addend": 0,
+          "resolved": 4294966998
+        }
+      ],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4869520,
+      "method": "004a4d90",
+      "body_bytes": 10,
+      "body_sha256": "a06d33806c9217590a0cefe60eb1f0e723c4a73b2c30748a56e462ac90f75b13",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "a06d33806c9217590a0cefe60eb1f0e723c4a73b2c30748a56e462ac90f75b13",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@DriveLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?Release@DriveLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@DriveLocomotionClass@@UAGKXZ",
+          "target": 4869232,
+          "addend": 0,
+          "resolved": 4294966998
+        }
+      ],
+      "source_sha256": "6fca353ec46459d969ded9971b98b30cb7ada24867dfdcf3a144c480cd9b30da",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4869520,
       "source_quality_family": "rebuild"
     }
   ]

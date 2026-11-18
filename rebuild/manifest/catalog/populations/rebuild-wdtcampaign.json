@@ -91,6 +91,7 @@
     "??_7?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@6B@": 8056916,
     "?Get_Territory_Index@Conflict@WorldDominationTour@@QBEHXZ": 7500784,
     "??3@YAXPAX@Z": 7871803,
+    "??0?$rc_ptr@VConflict@WorldDominationTour@@@@QAE@XZ": 7499808,
     "_$E2": 7494640,
     "_$E5": 7494672,
     "_$E8": 7494720,
@@ -105,6 +106,11 @@
     "_$E35": 7495088,
     "_$E38": 7495104,
     "?WDT_Get_Campaign_ID@@YIHABVWstring@@@Z": 7495136,
+    "??_GINIClass@@UAEPAXI@Z": 5107440,
+    "??_R0?AVINIClass@@@8": 8183560,
+    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
+    "??_GGenericList@@UAEPAXI@Z": 4252192,
+    "??_R0?AVGenericList@@@8": 8183648,
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
     "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
@@ -120,13 +126,8 @@
     "??_R0?AVFileClass@@@8": 8177872,
     "??_R0?AVRawFileClass@@@8": 8177896,
     "??_R0?AVBufferIOFileClass@@@8": 8177928,
-    "??_R0?AVCDFileClass@@@8": 8177960,
-    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
-    "??_GINIClass@@UAEPAXI@Z": 5107440,
-    "??_R0?AVINIClass@@@8": 8183560,
-    "??_GGenericList@@UAEPAXI@Z": 4252192,
     "??_7type_info@@6B@": 8066532,
-    "??_R0?AVGenericList@@@8": 8183648,
+    "??_R0?AVCDFileClass@@@8": 8177960,
     "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
     "??_GGenericNode@@UAEPAXI@Z": 4252112,
     "??_R0?AVGenericNode@@@8": 8183616,
@@ -134,15 +135,15 @@
     "?Create@Campaign@WorldDominationTour@@SI?AV?$rc_ptr@VCampaign@WorldDominationTour@@@@ABVWstring@@ABV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@@Z": 7495392,
     "??_G?$rc_ptr@VCampaign@WorldDominationTour@@@@UAEPAXI@Z": 7498560,
     "??_R0?AVrc_ptr_base@@@8": 8248008,
-    "??_GReferenceCounted@@UAEPAXI@Z": 6526800,
     "??_G?$rc_ptr@VState@WorldDominationTour@@@@UAEPAXI@Z": 7498608,
+    "??_GCampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
     "?Release@ReferenceCounted@@UAEXXZ": 6526752,
     "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z": 6526784,
-    "??_GCampaign@WorldDominationTour@@UAEPAXI@Z": 7498160,
+    "??_GReferenceCounted@@UAEPAXI@Z": 6526800,
     "??_R0?AVReferenceCounted@@@8": 8316240,
     "??_G?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@UAEPAXI@Z": 7498432,
-    "??_G?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEPAXI@Z": 7499536,
     "??_G?$rc_ptr@VHistory@WorldDominationTour@@@@UAEPAXI@Z": 7498480,
+    "??_G?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEPAXI@Z": 7499728,
     "??1Campaign@WorldDominationTour@@UAE@XZ": 7496416,
     "?Is_Different_Cycle@Campaign@WorldDominationTour@@QBE_NXZ": 7496528,
     "?Is_Different@Campaign@WorldDominationTour@@QBE_NH@Z": 7496560,
@@ -174,8 +175,7 @@
     "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7504800,
     "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@": 8057052,
     "??_EWstring@@QAEPAXI@Z": 4239168,
-    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "??0?$rc_ptr@VConflict@WorldDominationTour@@@@QAE@XZ": 7499808
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
   },
   "regions": [
     {
@@ -3156,6 +3156,914 @@
       "population": "rebuild-wdtcampaign",
       "source_order": 7498368,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7498416,
+      "method": "00726ab0",
+      "body_bytes": 14,
+      "body_sha256": "65928e72743eaf9020009560cd7a304f982043da5d52b280521c28d758627639",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6e6072f8a70fc03a5bddce2ece34e019610941c429a8f6803f18ae4bd652db15",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??B?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UBE_NXZ",
+      "symbol_prefix": "??B?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7498416,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
+    },
+    {
+      "entry": 7498432,
+      "method": "00726ac0",
+      "body_bytes": 36,
+      "body_sha256": "4ae7d40ec64562cae1c7cc4631b72d0d4f68ab83a65a56e4936d0e118f41acc0",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b4f2d9bea6bb5f69240f03093c0cf14dd37e20a5fea0eb30bf8585da128bdd9f",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@6B@",
+          "target": 8056868,
+          "addend": 0,
+          "resolved": 8056868
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293995074
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 373344
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7498432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7498480,
+      "method": "00726af0",
+      "body_bytes": 36,
+      "body_sha256": "caa35fc2b460e4172a566d6c33d21a3bef22e6cad1f49bdfcf07ee170ff9d10a",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5fc0545a4ffedd3499391266270aa413b1cbdbb50301eb10a9c770fd9c17bbcb",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@VHistory@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@VHistory@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VHistory@WorldDominationTour@@@@6B@",
+          "target": 8056876,
+          "addend": 0,
+          "resolved": 8056876
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293995026
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 373296
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7498480,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7498528,
+      "method": "00726b20",
+      "body_bytes": 32,
+      "body_sha256": "3ed96c7f5df7b4fab05f07aaf000d5b0d718bcde76413599e1988b52ac6d005f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3ed96c7f5df7b4fab05f07aaf000d5b0d718bcde76413599e1988b52ac6d005f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@6B@",
+          "target": 8056916,
+          "addend": 0,
+          "resolved": 8056916
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 373252
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7498528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7498560,
+      "method": "00726b40",
+      "body_bytes": 36,
+      "body_sha256": "ef59d4374dd0e903a2bad1c24794b4215d3a026c2553adb2f180098c07a2f0d6",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b430009c15e306cac1ff3ff59bda9e299fefab5b2e99d96959753e9fdea9d375",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@VCampaign@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@VCampaign@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VCampaign@WorldDominationTour@@@@6B@",
+          "target": 8056796,
+          "addend": 0,
+          "resolved": 8056796
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293994946
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 373216
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7498560,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7498608,
+      "method": "00726b70",
+      "body_bytes": 36,
+      "body_sha256": "41a6b1c97e835c2cf9ca84273abfef894bb8f9b19c8cadd161d2fc9f968a65d1",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "889b53e6d6bb339cf7e23f63635fcf40ed0235b7ac61b64bceaa35def6a7cd59",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@VState@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@VState@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VState@WorldDominationTour@@@@6B@",
+          "target": 8056804,
+          "addend": 0,
+          "resolved": 8056804
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293994898
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 373168
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7498608,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7498656,
+      "method": "00726ba0",
+      "body_bytes": 70,
+      "body_sha256": "32b3a7c3ebf46f5bb251418608db3aa033113ebfc9316dbfd9203cb0974097d2",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9dc8cb1fc258301f6358ad5ea496e7e4f627e05dd43ee4fa52799d43afadc9e8",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7498656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7498736,
+      "method": "00726bf0",
+      "body_bytes": 282,
+      "body_sha256": "615c1369f0ff932be51bd33ccb35bedfcee1c61845c737ab5d1710d035053cba",
+      "padding_bytes": 6,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "0bc9c5be47d7c05ef2bcb1f42218ba247f023c8b0add5ce462c760e13eb70efc",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 373755
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293994659
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293994611
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293994617
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7498736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7499024,
+      "method": "00726d10",
+      "body_bytes": 40,
+      "body_sha256": "e1e726adcab65c96c4727ed7b00e7c6f820972aa385f7d02bb01dd05feaac921",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8230d93ecd046519a1228beb5e8cbed35b12310bf5ad000617916c07b45e6f36",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7499072,
+      "method": "00726d40",
+      "body_bytes": 55,
+      "body_sha256": "fed1782a4b5817954d2002aa7f8c50b4aa0f664e16627a3bf81ef0c6f0071255",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "693b7ee0f427b8243f52abfca083bc3c73e11ebb9cc1d983e174286ca8b4fdd8",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7499136,
+      "method": "00726d80",
+      "body_bytes": 27,
+      "body_sha256": "b5dbb22bab6aedc462b40d12ffee42a1fd4725233b80807364583e3679159ad4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f63073e6c4fb1f4514402df2f62b2b1af0426c2fe22eebf79b47303169753168",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7499168,
+      "method": "00726da0",
+      "body_bytes": 285,
+      "body_sha256": "31f56a6833bd4532f52f72bae56b375a8d5d7ea600e7abed25d00075f88d28a9",
+      "padding_bytes": 3,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "c4909cd1b81f3f19f3b9bd6043d584805084384c1abdbe262824db01df824e6a",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 373323
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "??0?$rc_ptr@VConflict@WorldDominationTour@@@@QAE@XZ",
+          "target": 7499808,
+          "addend": 0,
+          "resolved": 563
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293994181
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        },
+        {
+          "offset": 183,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293994197
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499168,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7499456,
+      "method": "00726ec0",
+      "body_bytes": 42,
+      "body_sha256": "6d44d001684a46726dc9a11537f6686d603d332f214242f118cd18b3e79a8c3f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c84547dff1b025a60d5660761515556d1870fae7871674926429b30bbb308ef2",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499456,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7499504,
+      "method": "726ef0",
+      "body_bytes": 6,
+      "body_sha256": "14db3be74843d875a82d78d97382ed667f85eecbb309b4584b94beaa27676d12",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2b52fe92ab420b3b64fe68bc7ae3b694023146ceb9e26b177681ea7bc1f8d734",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??E?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??E?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499504,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7499520,
+      "method": "726f00",
+      "body_bytes": 6,
+      "body_sha256": "f5d6ab61265ab17ba1aa24eec1dd3f880a3da42d1b1c807d32deaafa992aaa82",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "91a91676eb37e28fb88f9f6d0da9088cf2b2c06f7e1a18de246ed2f4e5ca1a27",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??F?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??F?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499520,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 7499536,
+      "method": "00726f10",
+      "body_bytes": 74,
+      "body_sha256": "7cb5e5b0fde434c38648b767de8ebbdec09da1dc0830f33cf6e06e363e8308a3",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "cb0b1fb1f0a197b19935985a3fa2078066d64f1cf401e694ccb5e3fad917a94f",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@6B@",
+          "target": 8056884,
+          "addend": 0,
+          "resolved": 8056884
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 372202
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7499616,
+      "method": "00726f60",
+      "body_bytes": 106,
+      "body_sha256": "2e809dac7b59e1024f35480e178ca9638a2b8107e16a6478aca3c024e158caaf",
+      "padding_bytes": 6,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "756730002b250ab7022fc4d2fc429ef9f46847aada456eaa98acb82992965c99",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293993858
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 372126
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293993819
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 372091
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7499728,
+      "method": "00726fd0",
+      "body_bytes": 74,
+      "body_sha256": "a9da752994226290a2e98e2aa6b3ccb60198c8f98c1c14080ec08caa49d7a03c",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c1a6f1f231e2de603f390b192e2fd4458635985d7bfc4d8102effcae36df3017",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@6B@",
+          "target": 8056884,
+          "addend": 0,
+          "resolved": 8056884
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 372010
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7499808,
+      "method": "727020",
+      "body_bytes": 18,
+      "body_sha256": "fa33d61da4538dd4c904312a1dd09313a5b8c06d39f0f35d217b575669fde4ca",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ffb5690ea3357f6d1690ee8b5429554125ea3b0ae6565865b8af475955d07733",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$rc_ptr@VConflict@WorldDominationTour@@@@QAE@XZ",
+      "symbol_prefix": "??0?$rc_ptr@VConflict@WorldDominationTour@@@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293993656
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499808,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-02"
+    },
+    {
+      "entry": 7499840,
+      "method": "00727040",
+      "body_bytes": 189,
+      "body_sha256": "cde3534d92eb3a7b54484d5f3d18f3aa5b37ec02a800e91af2b5dc79c175d611",
+      "padding_bytes": 3,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "6337fb55f812ac98926f2e389c7737d600901c5cd2caf3b7580e3f1d1d14cbe4",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@QAE@HPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "??0?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@QAE@HPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@6B@",
+          "target": 8056884,
+          "addend": 0,
+          "resolved": 8056884
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293993557
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 372583
+        },
+        {
+          "offset": 139,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293993489
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        }
+      ],
+      "source_sha256": "e09c215ce42eeadf3fd2b0641827cae6bc19429ba04a4579ae4c73163eef3554",
+      "source": "rebuild/src/wdtcampaign.cpp",
+      "population": "rebuild-wdtcampaign",
+      "source_order": 7499840,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3296"
     }
   ]
 }

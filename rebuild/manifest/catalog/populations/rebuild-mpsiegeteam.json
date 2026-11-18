@@ -47,6 +47,7 @@
     "?Session@@3VSessionClass@@A": 10736280,
     "??_C@_0BA@DGEJ@MP?3AttackerTeam?$AA@": 8279996,
     "??_7MultiplayerSiegeAttackerTeam@@6B@": 8023140,
+    "??3@YAXPAX@Z": 7871803,
     "_$E2": 5946320,
     "_$E29": 5946352,
     "_$E32": 5946400,
@@ -66,7 +67,6 @@
     "??_R0?AVMultiplayerTeam@@@8": 8270744,
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVMultiplayerSiegeDefenderTeam@@@8": 8279864,
-    "??3@YAXPAX@Z": 7871803,
     "??1MultiplayerSiegeDefenderTeam@@UAE@XZ": 5946896,
     "?IsTeamIncluded@MultiplayerSiegeDefenderTeam@@UAE_NH@Z": 5946912,
     "??0MultiplayerSiegeAttackerTeam@@QAE@XZ": 5946976,
@@ -1086,6 +1086,59 @@
       "source_order": 5946976,
       "source_quality_family": "rebuild",
       "bound_population": "population-2396"
+    },
+    {
+      "entry": 5947072,
+      "method": "005abec0",
+      "body_bytes": 36,
+      "body_sha256": "e53acd7d62499de491ad925f1d325ed72dc4080c8a821ae8bd85e1ea7fd5e7e2",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9fc8b9f354e026f8a291b1d58f4a77e22a20227873a1f12217351b4c2c23a681",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMultiplayerSiegeDefenderTeam@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMultiplayerSiegeDefenderTeam@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7MultiplayerSiegeDefenderTeam@@6B@",
+          "target": 8023124,
+          "addend": 0,
+          "resolved": 8023124
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1MultiplayerTeam@@UAE@XZ",
+          "target": 6003536,
+          "addend": 0,
+          "resolved": 56450
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1924704
+        }
+      ],
+      "source_sha256": "aa5ac1ce1c7d02c61f911b042390e8e44fbaba4e1b9e68e65e173b3b320e901b",
+      "source": "rebuild/src/mpsiegeteam.cpp",
+      "population": "rebuild-mpsiegeteam",
+      "source_order": 5947072,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
     }
   ]
 }

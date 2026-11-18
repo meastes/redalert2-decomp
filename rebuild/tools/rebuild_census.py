@@ -119,12 +119,26 @@ def parked_tail():
             last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
         fresh = bool(last) and last.get('source_sha256') == current
         status = {r['entry']: r['status'] for r in last['results']} if fresh else {}
+        sensitive = info.get('count_sensitive') or {}
         for r in info['rows']:
-            if status.get(r['entry']) != 'exact':
+            if status.get(r['entry']) != 'exact' and r['entry'] not in sensitive:
                 rows += 1; total += r['body']
                 if r['body'] >= LARGE:
                     large += 1; large_total += r['body']
     return rows, total, large, large_total
+
+
+def count_sensitive():
+    """(rows, body bytes) parked as "exact form, count-sensitive" (review ruling 2026-11-18, lane R20): rows
+    whose exact text flips with the declaration count before them when an evidenced header changes. Each is
+    listed in its unit's `count_sensitive` (entry -> windows, header, note) in units.json, guarded in the
+    source, and kept apart from the parked tail; `countsens.py` tries them again after a header change."""
+    rows = total = 0
+    for info in R.load_json(R.UNITS, {}).values():
+        body = {r['entry']: r['body'] for r in info['rows']}
+        for entry in info.get('count_sensitive') or {}:
+            rows += 1; total += body.get(entry, 0)
+    return rows, total
 
 
 def judgment_calls(regions):
@@ -220,6 +234,7 @@ def main(quiet=False):
     measures.update(placeholder_measures(tree, read))
     measures['judgment_rows'], measures['judgment_bytes'] = judgment_calls(cat['regions'])
     measures['unplaced_symbols'], measures['unplaced_bytes'] = unplaced_objects(cat['regions'])
+    measures['count_sensitive_rows'], measures['count_sensitive_bytes'] = count_sensitive()
     if quiet:
         return measures
     print(C.structure_block(result).replace('under src/', 'under rebuild/').replace('src/recovered/', 'rebuild/src/'))
@@ -246,6 +261,8 @@ def main(quiet=False):
           '1 KB or more: %d rows, %d body bytes' % ((measures['draft_guards'],) + parked_tail()))
     print('Judgment calls (reported, not gated): %d rows, %d body bytes' % (
         measures['judgment_rows'], measures['judgment_bytes']))
+    print('Count-sensitive rows (exact form, parked by declaration count; not in the parked tail): %d rows, %d body bytes' % (
+        measures['count_sensitive_rows'], measures['count_sensitive_bytes']))
     print('Unplaced unreferenced objects (data_bound_by: unplaced-unreferenced; earn nothing): %d symbols, %d bytes' % (
         measures['unplaced_symbols'], measures['unplaced_bytes']))
     print('Gate (inherited, to be evidenced): #define GEOMETRY_H in sources %d; #pragma auto_inline(off) %d; '

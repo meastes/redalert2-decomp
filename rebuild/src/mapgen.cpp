@@ -7270,6 +7270,7 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Build_Region_Border_Cell_List(int i
 /// <param name="origin">Reference origin used when computing the spread angle.</param>
 /// <param name="claim_frontier">When true, drain the remaining frontier into the region.</param>
 /// <returns>True if the region grew without colliding with another region.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (its callers Seed_River and Place_Waterfall are not exact, so no row bounds it)
 bool MapGeneratorClass::Grow_Water_Region(int region_id, float spread_scale, Rect const & bounds, Cell const & origin, bool claim_frontier)
 {
 	CellNode * nodes = new CellNode[MAX(2 * LocalHeight * LocalWidth, 100)];
@@ -7423,6 +7424,7 @@ bool MapGeneratorClass::Grow_Water_Region(int region_id, float spread_scale, Rec
 
 	return(result_flag);
 }
+#endif
 
 
 /// <summary>
@@ -10780,6 +10782,7 @@ void MapSeedClass::Clamp_Setting(int & setting, int min, int max, bool use_midpo
 /// spread.</param>
 /// <param name="nodes">Scratch storage for the spread.</param>
 /// <param name="queue">The queue that orders the spread.</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapGeneratorClass::Generate_Swamp(DynamicVectorClass<Cell> &cells, int last, CellNode *nodes, PriorityQueueClass<CellNode> *queue)
 {
 	Cell swamp_origin = CELL_NONE;
@@ -10911,6 +10914,7 @@ void MapGeneratorClass::Generate_Swamp(DynamicVectorClass<Cell> &cells, int last
 
 	DebugString("Swamp heap size:?? -- Marker Index:%d\n", marker_index);
 }
+#endif
 
 
 /// <summary>
@@ -11087,6 +11091,7 @@ bool MapGeneratorClass::Seed_Arctic_Lake(const Cell & cell)
 /// </summary>
 /// <param name="cells">The ice cells that may be painted.</param>
 /// <param name="last">The ice variant to paint with.</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapGeneratorClass::Seed_Ice(DynamicVectorClass<Cell> & cells, IsometricTileType last)
 {
 	double rand_scale = last == IsometricTileTypeClass::Ice1Set + ICE_CRACKED ? ICE_CRACKED - 1 : 1;
@@ -11146,6 +11151,7 @@ void MapGeneratorClass::Seed_Ice(DynamicVectorClass<Cell> & cells, IsometricTile
 
 	delete queue;
 }
+#endif
 
 
 /// <summary>
@@ -11605,6 +11611,7 @@ void MapGeneratorClass::Generate_Crystals(const Cell & cell)
 /// <param name="rect">The area of cells to examine.</param>
 /// <param name="check_data">Should cells the generator has protected be rejected too?</param>
 /// <returns>bool; Is the whole area clear?</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool MapGeneratorClass::Is_Cell_Area_Clear(Rect const & rect, bool check_data)
 {
 	if (My_In_Radar(Cell(rect.X, rect.Y)) &&
@@ -11629,6 +11636,7 @@ bool MapGeneratorClass::Is_Cell_Area_Clear(Rect const & rect, bool check_data)
 	}
 	return(false);
 }
+#endif
 
 
 /// <summary>

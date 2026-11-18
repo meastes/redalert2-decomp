@@ -984,6 +984,33 @@
       "population": "rebuild-rawfile",
       "source_order": 6526032,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526160,
+      "method": "006394d0",
+      "body_bytes": 12,
+      "body_sha256": "2609cca8d26d7e3a64850ce31548ebcab35f1d539738bb9413599fc6fbdc9eed",
+      "padding_bytes": 4,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ef6330443fb6ea8570e1b313719f133b4529128687ae3023dd5bf4c01f50026a",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Open@RawFileClass@@UBE_NXZ",
+      "symbol_prefix": "?Is_Open@RawFileClass@@UBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2a200930fd35bf8664f84e1019efd0fa0210e3e6312e420812bf259113086ac9",
+      "source": "rebuild/src/rawfile.cpp",
+      "population": "rebuild-rawfile",
+      "source_order": 6526160,
+      "source_quality_family": "rebuild"
     }
   ]
 }

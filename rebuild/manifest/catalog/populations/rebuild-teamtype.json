@@ -4084,6 +4084,33 @@
       "population": "rebuild-teamtype",
       "source_order": 7078224,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7078480,
+      "method": "006c0250",
+      "body_bytes": 6,
+      "body_sha256": "75e0eb7a8a07e309a4b2978be9316638a38032ea31cc24145fb24da7ccbaaa96",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6c6f43f8657ab9aed7e822a0345726ff8fa347929fc9967a87570d67f70d355a",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@TeamTypeClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@TeamTypeClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source": "rebuild/src/teamtype.cpp",
+      "population": "rebuild-teamtype",
+      "source_order": 7078480,
+      "source_quality_family": "rebuild"
     }
   ]
 }

@@ -273,6 +273,102 @@
       "population": "rebuild-nullconn",
       "source_order": 6085808,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085824,
+      "method": "005cdcc0",
+      "body_bytes": 5,
+      "body_sha256": "a6824551eb9e5fdd0b338efd007c6659542761f51560fef16750f0213aeb40bd",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1a3dba32e26ae166b71c36ff13d4090a4e527288fde3eaf68f52081f026329f4",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@NullModemConnClass@@UAEXXZ",
+      "symbol_prefix": "?Init@NullModemConnClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?Init@ConnectionClass@@UAEXXZ",
+          "target": 4722384,
+          "addend": 0,
+          "resolved": 4293603851
+        }
+      ],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085840,
+      "method": "005cdcd0",
+      "body_bytes": 50,
+      "body_sha256": "bc438b85d2483104a1373bba950ef5bd6ab2deea471c1bd126d87abb7fc51d0c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d8a8238184b1fc55f42c377632397d60bf76053e8480711356e6e2be228d55f6",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GNullModemConnClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GNullModemConnClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7NullModemConnClass@@6B@",
+          "target": 8025032,
+          "addend": 0,
+          "resolved": 8025032
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1785945
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??1ConnectionClass@@UAE@XZ",
+          "target": 4722336,
+          "addend": 0,
+          "resolved": 4293603764
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1785922
+        }
+      ],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085840,
+      "source_quality_family": "rebuild"
     }
   ]
 }

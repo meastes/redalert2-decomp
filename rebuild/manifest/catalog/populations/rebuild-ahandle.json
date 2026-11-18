@@ -1881,6 +1881,60 @@
       "population": "rebuild-ahandle",
       "source_order": 4268832,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268912,
+      "method": "00412370",
+      "body_bytes": 6,
+      "body_sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5a9bd1333a736806794087fa4c01765e17a6ad5adb9bf4b29fe6565e591b0e6f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Lock_Audio_Handler@@YAJXZ",
+      "symbol_prefix": "?Lock_Audio_Handler@@YAJXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268928,
+      "method": "00412380",
+      "body_bytes": 6,
+      "body_sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5a9bd1333a736806794087fa4c01765e17a6ad5adb9bf4b29fe6565e591b0e6f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Unlock_Audio_Handler@@YAJXZ",
+      "symbol_prefix": "?Unlock_Audio_Handler@@YAJXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268928,
+      "source_quality_family": "rebuild"
     }
   ]
 }

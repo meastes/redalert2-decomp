@@ -2800,6 +2800,87 @@
       "population": "rebuild-vanimtype",
       "source_order": 7400832,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7400976,
+      "method": "0070ee10",
+      "body_bytes": 6,
+      "body_sha256": "11db5348e275fb704be582e8005ee7d604f7f17b154d6cc644d240eef29d456a",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "fbaaf8790c041a35ee524957d71f6a295b42dd158b85a7023fe437a192943910",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@VoxelAnimTypeClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@VoxelAnimTypeClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4bbdcc2e5342e0333693d0cb220e57f94b89853fd7ba9a42f64d2a6af7b1b03e",
+      "source": "rebuild/src/vanimtype.cpp",
+      "population": "rebuild-vanimtype",
+      "source_order": 7400976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7400992,
+      "method": "0070ee20",
+      "body_bytes": 6,
+      "body_sha256": "a886486d7f5914114beb408fdf7eec89ac7840186cdbf0d9cb8a677e1cea00ff",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0750526ad3c1c4c53bfccf300f58a286024eb1eb871d559ce98e77c1d727941c",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@VoxelAnimTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@VoxelAnimTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4bbdcc2e5342e0333693d0cb220e57f94b89853fd7ba9a42f64d2a6af7b1b03e",
+      "source": "rebuild/src/vanimtype.cpp",
+      "population": "rebuild-vanimtype",
+      "source_order": 7400992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7401008,
+      "method": "0070ee30",
+      "body_bytes": 5,
+      "body_sha256": "8cad4061f7462df3586af0942fd0de860c94376587768a065839209dcaf67fd5",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6f48bfedca167197485f2452c60da9c2d7baf8ea803e13aa163eaf2cfdfba19d",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create_And_Place@VoxelAnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+      "symbol_prefix": "?Create_And_Place@VoxelAnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4bbdcc2e5342e0333693d0cb220e57f94b89853fd7ba9a42f64d2a6af7b1b03e",
+      "source": "rebuild/src/vanimtype.cpp",
+      "population": "rebuild-vanimtype",
+      "source_order": 7401008,
+      "source_quality_family": "rebuild"
     }
   ]
 }

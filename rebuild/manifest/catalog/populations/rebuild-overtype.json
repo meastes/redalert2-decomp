@@ -2717,6 +2717,219 @@
       "population": "rebuild-overtype",
       "source_order": 6148096,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6148704,
+      "method": "005dd260",
+      "body_bytes": 6,
+      "body_sha256": "e4f9f7041b372cb8bd7dda73eb33390a3fb3a11ea2164b2b6a465b11b2ea2188",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "74f218d00a729d43a8412f2cbc29b82c2891b9e021b24aeb077910546caa0191",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@OverlayTypeClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@OverlayTypeClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "050e0fbb96bb24eebf72afe9c8c24fc47ee4120ffc1029c8dffc300a1b40badf",
+      "source": "rebuild/src/overtype.cpp",
+      "population": "rebuild-overtype",
+      "source_order": 6148704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6148720,
+      "method": "005dd270",
+      "body_bytes": 6,
+      "body_sha256": "aa0c66c75e8b131462b6c9263573fcd87bfa06186f386f81042549b5113650ea",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c62875f07e1d6e8fa6ca8bf5c06d69e3166ead9dafebf0ecb39718ca0af0c6a6",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@OverlayTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@OverlayTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "050e0fbb96bb24eebf72afe9c8c24fc47ee4120ffc1029c8dffc300a1b40badf",
+      "source": "rebuild/src/overtype.cpp",
+      "population": "rebuild-overtype",
+      "source_order": 6148720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6148736,
+      "method": "005dd280",
+      "body_bytes": 7,
+      "body_sha256": "9d738a62d8b00f9d1bd9b09257e79e2809a06409a231a198e273db239ef8bfa1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7d043569ce0bdb08296d7ac6849e3e3281b3d90d09d70cf19458c7b457863ecc",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Heap_ID@OverlayTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Heap_ID@OverlayTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "050e0fbb96bb24eebf72afe9c8c24fc47ee4120ffc1029c8dffc300a1b40badf",
+      "source": "rebuild/src/overtype.cpp",
+      "population": "rebuild-overtype",
+      "source_order": 6148736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6148752,
+      "method": "005dd290",
+      "body_bytes": 141,
+      "body_sha256": "44d90a25b6cb23be55a81a6d411c674b0884943c4b9d585085c406f967526123",
+      "padding_bytes": 3,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "0b4ca6efc4c9f92e64f858b1d2c026f987dc264efec5cf4665788800d6671fc6",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GOverlayTypeClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GOverlayTypeClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7OverlayTypeClass@@6BIPersistStream@@@",
+          "target": 8026632,
+          "addend": 0,
+          "resolved": 8026632
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7OverlayTypeClass@@6BIRTTITypeInfo@@@",
+          "target": 8026604,
+          "addend": 0,
+          "resolved": 8026604
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7OverlayTypeClass@@6BINoticeSink@@@",
+          "target": 8026596,
+          "addend": 0,
+          "resolved": 8026596
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7OverlayTypeClass@@6BINoticeSource@@@",
+          "target": 8026588,
+          "addend": 0,
+          "resolved": 8026588
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 1112282
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 0,
+          "resolved": 10706408
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 0,
+          "resolved": 10706408
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 16,
+          "resolved": 10706424
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 16,
+          "resolved": 10706424
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 16,
+          "resolved": 10706424
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??1ObjectTypeClass@@UAE@XZ",
+          "target": 6118240,
+          "addend": 0,
+          "resolved": 4294936666
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1722920
+        }
+      ],
+      "source_sha256": "050e0fbb96bb24eebf72afe9c8c24fc47ee4120ffc1029c8dffc300a1b40badf",
+      "source": "rebuild/src/overtype.cpp",
+      "population": "rebuild-overtype",
+      "source_order": 6148752,
+      "source_quality_family": "rebuild"
     }
   ]
 }

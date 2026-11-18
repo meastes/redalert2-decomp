@@ -1,0 +1,2883 @@
+{
+  "id": "rebuild-voxlib",
+  "population": {
+    "id": "rebuild-voxlib",
+    "inventory_sha256": "609eefbc72cedcf8216e2e96de705f972e69a1b22ec4d3fe4826dbdf784c6592",
+    "gaps_sha256": "21065825b61fc51d4f655181781b6b5c6978c6d523359e7cc982058d092003ba",
+    "historical_population_sha256": "dfc97cb5ae2cf3d4a972a4a661ace91130258c87cb28be351db9f501e6576d41",
+    "historical_acceptance_sha256": "56caa98e0c528bbfbeadf916b618a81e2396ff4f8f5806423dd19b3fc2bb030b"
+  },
+  "references": {
+    "_RECT_NONE": 11504128,
+    "?Read_File@VoxelLibrary@@QAEHAAVFileClass@@H@Z": 7442784,
+    "??3@YAXPAX@Z": 7871803,
+    "??2@YAPAXI@Z": 7872535,
+    "??0Vector3@@QAE@XZ": 7437520,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_VoxelPaletteTranslateTable": 11486728,
+    "?VoxelRGBColors@@3PAURGBStruct@@A": 11415560,
+    "??0VoxelPaletteLibrary@@QAE@PAURGBStruct@@PAX@Z": 7453952,
+    "??1VoxelPaletteLibrary@@QAE@XZ": 7454064,
+    "?Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z": 7454496,
+    "??0Matrix3D@@QAE@QAM@Z": 5832160,
+    "__real@4@3ffe8000000000000000": 7986560,
+    "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A": 8363616,
+    "__real@4@40068000000000000000": 8055356,
+    "__real@4@40078000000000000000": 7975084,
+    "__ftol": 7860496,
+    "?EnableZBuffer@VoxelDrawSystem@@3HA": 11494928,
+    "?EnableLighting@VoxelDrawSystem@@3HA": 11494932,
+    "?VoxelDrawFunctions@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA": 8363488,
+    "_VoxelDrawBuffer": 11416584,
+    "_VoxelPixelDeltaTable": 11504144,
+    "_VoxelDrawZBuffer": 11340400,
+    "_VoxelNormalTranslateTable": 11505168,
+    "?VoxelNormalTables@@3PAPBVVector3@@A": 8363904,
+    "?VoxelNormalTableEntryCount@@3PAHA": 8363924,
+    "__real@8@00000000000000000000": 7976464,
+    "__real@4@40038000000000000000": 8055360,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "__real@4@00000000000000000000": 7972664,
+    "__real@4@3ffccccccd0000000000": 8055364,
+    "?VoxelNormals4@@3PAY02MA": 8365336,
+    "?VoxelNormals3@@3PAY02MA": 8364568,
+    "?VoxelNormals2@@3PAY02MA": 8364136,
+    "?VoxelNormals1@@3PAY02MA": 8363944,
+    "_Draw_Voxel_Reverse_ASM": 7966528,
+    "_Draw_Voxel_Regular_ASM": 7966272,
+    "_Draw_Voxel_Reverse_Lighting_Normals_ASM": 7965984,
+    "_Draw_Voxel_Regular_Lighting_Normals_ASM": 7965696,
+    "_Draw_Voxel_Reverse_Normals_ASM": 7965440,
+    "_Draw_Voxel_Regular_Normals_ASM": 7965184,
+    "_$E2": 7442496,
+    "??0VoxelLibrary@@QAE@XZ": 7442528,
+    "??0VoxelLibrary@@QAE@AAVFileClass@@H@Z": 7442560,
+    "??1VoxelLibrary@@QAE@XZ": 7442624,
+    "?Clear@VoxelLibrary@@QAEXXZ": 7442704,
+    "?Get_Layer@VoxelLibrary@@QAEABULayerStruct@1@H@Z": 7444560,
+    "?Get_Layer_Info@VoxelLibrary@@QAEABULayerInfoStruct@1@HH@Z": 7444576,
+    "?Get_Bounding_Box_Center@VoxelLibrary@@QAE?AVVector3@@HH@Z": 7444624,
+    "?Memory_Used@VoxelLibrary@@QAEHXZ": 7444768,
+    "?Render_Object@VoxelLibrary@@QAEXAAUVoxelRenderStruct@@AAVVector3@@@Z": 7444800,
+    "?Render_Shadow@VoxelLibrary@@QAEXAAUVoxelShadowRenderStruct@@AAVVector3@@@Z": 7445520,
+    "?Compute_Bounding_Box@VoxelLibrary@@QAEXXZ": 7446368,
+    "?Draw_Voxel_Regular_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7446912,
+    "?Draw_Voxel_Reverse_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7447344,
+    "?Draw_Voxel_Regular_Normals_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7447760,
+    "?Draw_Voxel_Reverse_Normals_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7448336,
+    "?Draw_Voxel_Regular_Normals_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7448912,
+    "?Draw_Voxel_Reverse_Normals_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7449408,
+    "?Draw_Voxel_Regular_Normals_ZBuffer_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7449904,
+    "?Draw_Voxel_Reverse_Normals_ZBuffer_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7450528,
+    "?Draw_Voxel_Regular@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7451168,
+    "?Draw_Voxel_Reverse@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7451616,
+    "?Draw_Voxel_Regular_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7452064,
+    "?Draw_Voxel_Reverse_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z": 7452640,
+    "?Precalculate_Normal_Lookup@@YIXABVVector3@@H@Z": 7453216,
+    "?Precalculate_Normal_Lookup@@YIXABVVector3@@0MH@Z": 7453344,
+    "?Find_Closest_Normal@@YIHABVVector3@@H@Z": 7453744,
+    "?Init_Normal_Lookup@@YIXXZ": 7453920
+  },
+  "regions": [
+    {
+      "entry": 7442496,
+      "method": "00719040",
+      "body_bytes": 23,
+      "body_sha256": "fedf23e23e8c7b3f1453f681155c5e2ad96dbc1ba7275fb669cdc25cb212cba7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f2bf4486ec44f3aa6d6568525866d038d1950e1b54de9ed2f9f7ef4fdcdd9b91",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11504128,
+          "addend": 0,
+          "resolved": 11504128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11504128,
+          "addend": 4,
+          "resolved": 11504132
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11504128,
+          "addend": 8,
+          "resolved": 11504136
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11504128,
+          "addend": 12,
+          "resolved": 11504140
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7442496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442528,
+      "method": "00719060",
+      "body_bytes": 25,
+      "body_sha256": "ac6411902bf2b7484f8cf43b26bb2bf9f75edd4daf5572a6c9c9ba9f9e420037",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4d1ab2ff2c43f3bca687afe6be3850d5864f5f5b996cede970804cb0087d8b13",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0VoxelLibrary@@QAE@XZ",
+      "symbol_prefix": "??0VoxelLibrary@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7442528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442560,
+      "method": "00719080",
+      "body_bytes": 55,
+      "body_sha256": "2e01d2d1db9601efd98e01f4a473246e312e10ed400574c09491c1448d50c7b1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e92aaf19c1e8af71d6c2285ea62459b68bda9b2aefb30dadf0ab17b5ef67a20c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0VoxelLibrary@@QAE@AAVFileClass@@H@Z",
+      "symbol_prefix": "??0VoxelLibrary@@QAE@AAVFileClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "?Read_File@VoxelLibrary@@QAEHAAVFileClass@@H@Z",
+          "target": 7442784,
+          "addend": 0,
+          "resolved": 182
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7442560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442624,
+      "method": "007190c0",
+      "body_bytes": 66,
+      "body_sha256": "55498583e306fb65bea3a8bc83cd4ff5e1920a21e6acde56a6e0de67788c5492",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "073b50d8e892a9733de27eb8421e9ddcad41a7a06f0a7ed806339eb5f412ae1d",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1VoxelLibrary@@QAE@XZ",
+      "symbol_prefix": "??1VoxelLibrary@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 429160
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 429141
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 429122
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7442624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442704,
+      "method": "00719110",
+      "body_bytes": 66,
+      "body_sha256": "dde699f0586e7e7936104c2afcb8b48ac1d9e3f402ced3d403ef1a943d664b77",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "7ffa363a77e98dfa26642efa36845d300dd20dc37ee677ab282cd99d7e5910ed",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@VoxelLibrary@@QAEXXZ",
+      "symbol_prefix": "?Clear@VoxelLibrary@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 429080
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 429061
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 429042
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7442704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442784,
+      "method": "00719160",
+      "body_bytes": 1762,
+      "body_sha256": "835be59394df4467822d401dee0c85540b0f8cde3322aadc7a03e170ef7ecfbb",
+      "padding_bytes": 14,
+      "full_extent_bytes": 1776,
+      "full_extent_sha256": "e36e37fa80986e197ad5b03fa69f47e52ccdc8538a1ac30e13238053d8731ae8",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_File@VoxelLibrary@@QAEHAAVFileClass@@H@Z",
+      "symbol_prefix": "?Read_File@VoxelLibrary@@QAEHAAVFileClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428992
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428973
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428954
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 429597
+        },
+        {
+          "offset": 173,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 429574
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "??0Vector3@@QAE@XZ",
+          "target": 7437520,
+          "addend": 0,
+          "resolved": 7437520
+        },
+        {
+          "offset": 212,
+          "kind": 20,
+          "symbol": "??_H@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239056,
+          "addend": 0,
+          "resolved": 4291763352
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 429504
+        },
+        {
+          "offset": 295,
+          "kind": 6,
+          "symbol": "_VoxelPaletteTranslateTable",
+          "target": 11486728,
+          "addend": 0,
+          "resolved": 11486728
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?VoxelRGBColors@@3PAURGBStruct@@A",
+          "target": 11415560,
+          "addend": 0,
+          "resolved": 11415560
+        },
+        {
+          "offset": 312,
+          "kind": 20,
+          "symbol": "??0VoxelPaletteLibrary@@QAE@PAURGBStruct@@PAX@Z",
+          "target": 7453952,
+          "addend": 0,
+          "resolved": 10852
+        },
+        {
+          "offset": 351,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428664
+        },
+        {
+          "offset": 370,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428645
+        },
+        {
+          "offset": 424,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428591
+        },
+        {
+          "offset": 443,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428572
+        },
+        {
+          "offset": 462,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428553
+        },
+        {
+          "offset": 480,
+          "kind": 20,
+          "symbol": "??1VoxelPaletteLibrary@@QAE@XZ",
+          "target": 7454064,
+          "addend": 0,
+          "resolved": 10796
+        },
+        {
+          "offset": 533,
+          "kind": 6,
+          "symbol": "?VoxelRGBColors@@3PAURGBStruct@@A",
+          "target": 11415560,
+          "addend": 1,
+          "resolved": 11415561
+        },
+        {
+          "offset": 578,
+          "kind": 6,
+          "symbol": "?VoxelRGBColors@@3PAURGBStruct@@A",
+          "target": 11415560,
+          "addend": 769,
+          "resolved": 11416329
+        },
+        {
+          "offset": 627,
+          "kind": 20,
+          "symbol": "?Calculate_Lookup_Table@VoxelPaletteLibrary@@AAEXPAMH@Z",
+          "target": 7454496,
+          "addend": 0,
+          "resolved": 11081
+        },
+        {
+          "offset": 639,
+          "kind": 20,
+          "symbol": "??1VoxelPaletteLibrary@@QAE@XZ",
+          "target": 7454064,
+          "addend": 0,
+          "resolved": 10637
+        },
+        {
+          "offset": 786,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428229
+        },
+        {
+          "offset": 823,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428192
+        },
+        {
+          "offset": 842,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428173
+        },
+        {
+          "offset": 861,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 428154
+        },
+        {
+          "offset": 1040,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@QAM@Z",
+          "target": 5832160,
+          "addend": 0,
+          "resolved": 4293355628
+        },
+        {
+          "offset": 1648,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 427367
+        },
+        {
+          "offset": 1667,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 427348
+        },
+        {
+          "offset": 1692,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 427323
+        },
+        {
+          "offset": 1711,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 427304
+        },
+        {
+          "offset": 1730,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 427285
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7442784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7444560,
+      "method": "00719850",
+      "body_bytes": 16,
+      "body_sha256": "9a57a0f97e8389dbd8dbd25551bed768a425f5dd89a343fb23816490cc493f17",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9a57a0f97e8389dbd8dbd25551bed768a425f5dd89a343fb23816490cc493f17",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Layer@VoxelLibrary@@QAEABULayerStruct@1@H@Z",
+      "symbol_prefix": "?Get_Layer@VoxelLibrary@@QAEABULayerStruct@1@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7444560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7444576,
+      "method": "00719860",
+      "body_bytes": 34,
+      "body_sha256": "575a9faac5f2f819552dcb611efcb4e4236cc12935bdd8955bcdc17b4a517507",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3e81d0583862630da539051c69932013220adf36b9d402560a9bec840439d44c",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Layer_Info@VoxelLibrary@@QAEABULayerInfoStruct@1@HH@Z",
+      "symbol_prefix": "?Get_Layer_Info@VoxelLibrary@@QAEABULayerInfoStruct@1@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7444576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7444624,
+      "method": "00719890",
+      "body_bytes": 133,
+      "body_sha256": "ada034601b4d41e6aa2cb18eff9543937b2f54dc7801f11800e90f02533b1e5c",
+      "padding_bytes": 11,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "4711fe9cd0348dc0111998aa271de26bab2e4adf1d008ed02f96970927f12d8f",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Bounding_Box_Center@VoxelLibrary@@QAE?AVVector3@@HH@Z",
+      "symbol_prefix": "?Get_Bounding_Box_Center@VoxelLibrary@@QAE?AVVector3@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "__real@4@3ffe8000000000000000",
+          "target": 7986560,
+          "addend": 0,
+          "resolved": 7986560
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "__real@4@3ffe8000000000000000",
+          "target": 7986560,
+          "addend": 0,
+          "resolved": 7986560
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "__real@4@3ffe8000000000000000",
+          "target": 7986560,
+          "addend": 0,
+          "resolved": 7986560
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7444624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7444768,
+      "method": "00719920",
+      "body_bytes": 29,
+      "body_sha256": "345a09fbb6c15f3abb2fd344fa15f906143b0299ab90d3d4bf3d5f913f79e526",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2c53c1fbab99d0f769c8a8af6cd963bec789e8deca42a25179a32fa5e1f5002c",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Memory_Used@VoxelLibrary@@QAEHXZ",
+      "symbol_prefix": "?Memory_Used@VoxelLibrary@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7444768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7444800,
+      "method": "00719940",
+      "body_bytes": 711,
+      "body_sha256": "36302b22e2d98c341356eca89cc596a8b1df77b366c960722dca054c8f7748ba",
+      "padding_bytes": 9,
+      "full_extent_bytes": 720,
+      "full_extent_sha256": "9bef37ba2b93e2c86d6a626d22a31b50a39e7668f059355960d7fded85a7eec8",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Render_Object@VoxelLibrary@@QAEXAAUVoxelRenderStruct@@AAVVector3@@@Z",
+      "symbol_prefix": "?Render_Object@VoxelLibrary@@QAEXAAUVoxelRenderStruct@@AAVVector3@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A",
+          "target": 8363616,
+          "addend": 4,
+          "resolved": 8363620
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A",
+          "target": 8363616,
+          "addend": 8,
+          "resolved": 8363624
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A",
+          "target": 8363616,
+          "addend": 12,
+          "resolved": 8363628
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A",
+          "target": 8363616,
+          "addend": 16,
+          "resolved": 8363632
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A",
+          "target": 8363616,
+          "addend": 28,
+          "resolved": 8363644
+        },
+        {
+          "offset": 179,
+          "kind": 6,
+          "symbol": "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A",
+          "target": 8363616,
+          "addend": 32,
+          "resolved": 8363648
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A",
+          "target": 8363616,
+          "addend": 24,
+          "resolved": 8363640
+        },
+        {
+          "offset": 237,
+          "kind": 6,
+          "symbol": "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A",
+          "target": 8363616,
+          "addend": 20,
+          "resolved": 8363636
+        },
+        {
+          "offset": 262,
+          "kind": 6,
+          "symbol": "__real@4@40068000000000000000",
+          "target": 8055356,
+          "addend": 0,
+          "resolved": 8055356
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 275,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415417
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "__real@4@40068000000000000000",
+          "target": 8055356,
+          "addend": 0,
+          "resolved": 8055356
+        },
+        {
+          "offset": 302,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 307,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415385
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "__real@4@40068000000000000000",
+          "target": 8055356,
+          "addend": 0,
+          "resolved": 8055356
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 339,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415353
+        },
+        {
+          "offset": 361,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 366,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415326
+        },
+        {
+          "offset": 397,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 402,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415290
+        },
+        {
+          "offset": 446,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 451,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415241
+        },
+        {
+          "offset": 470,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 475,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415217
+        },
+        {
+          "offset": 500,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 505,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415187
+        },
+        {
+          "offset": 530,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 535,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415157
+        },
+        {
+          "offset": 545,
+          "kind": 6,
+          "symbol": "?EnableZBuffer@VoxelDrawSystem@@3HA",
+          "target": 11494928,
+          "addend": 0,
+          "resolved": 11494928
+        },
+        {
+          "offset": 563,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 568,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415124
+        },
+        {
+          "offset": 595,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 600,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415092
+        },
+        {
+          "offset": 625,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 630,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 415062
+        },
+        {
+          "offset": 644,
+          "kind": 6,
+          "symbol": "?EnableZBuffer@VoxelDrawSystem@@3HA",
+          "target": 11494928,
+          "addend": 0,
+          "resolved": 11494928
+        },
+        {
+          "offset": 650,
+          "kind": 6,
+          "symbol": "?VoxelRenderOrientations@@3PAUVoxelRenderOrientation@@A",
+          "target": 8363616,
+          "addend": 0,
+          "resolved": 8363616
+        },
+        {
+          "offset": 662,
+          "kind": 6,
+          "symbol": "?EnableLighting@VoxelDrawSystem@@3HA",
+          "target": 11494932,
+          "addend": 0,
+          "resolved": 11494932
+        },
+        {
+          "offset": 694,
+          "kind": 6,
+          "symbol": "?VoxelDrawFunctions@@3PAP6AXPAUVoxelFuncArgumentStruct@@@ZA",
+          "target": 8363488,
+          "addend": 0,
+          "resolved": 8363488
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7444800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7445520,
+      "method": "00719c10",
+      "body_bytes": 837,
+      "body_sha256": "a992d3bf95fbc843f0945b6e833219140ae39bc80919b38a2540e104738dfe2a",
+      "padding_bytes": 11,
+      "full_extent_bytes": 848,
+      "full_extent_sha256": "36f8502f9b827c6b9f325f609624726ae23f7684f5ca81e0963727ca2ca60520",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Render_Shadow@VoxelLibrary@@QAEXAAUVoxelShadowRenderStruct@@AAVVector3@@@Z",
+      "symbol_prefix": "?Render_Shadow@VoxelLibrary@@QAEXAAUVoxelShadowRenderStruct@@AAVVector3@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "__real@4@40068000000000000000",
+          "target": 8055356,
+          "addend": 0,
+          "resolved": 8055356
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 414863
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "__real@4@40068000000000000000",
+          "target": 8055356,
+          "addend": 0,
+          "resolved": 8055356
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 414835
+        },
+        {
+          "offset": 152,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 414820
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 414806
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 414774
+        },
+        {
+          "offset": 246,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 251,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 414721
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 275,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 414697
+        },
+        {
+          "offset": 298,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 303,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 414669
+        },
+        {
+          "offset": 539,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 552,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        },
+        {
+          "offset": 748,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 754,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7445520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7446368,
+      "method": "00719f60",
+      "body_bytes": 542,
+      "body_sha256": "89ecf0233e82497456fddb274770729ac1097c985f179699f6255bf80167de94",
+      "padding_bytes": 2,
+      "full_extent_bytes": 544,
+      "full_extent_sha256": "bd9d62e75a8dea012b98d148feee40a1d8b064418f0779a4b59b14f3b4e98715",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_Bounding_Box@VoxelLibrary@@QAEXXZ",
+      "symbol_prefix": "?Compute_Bounding_Box@VoxelLibrary@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "__real@4@3ffe8000000000000000",
+          "target": 7986560,
+          "addend": 0,
+          "resolved": 7986560
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "__real@4@3ffe8000000000000000",
+          "target": 7986560,
+          "addend": 0,
+          "resolved": 7986560
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "__real@4@3ffe8000000000000000",
+          "target": 7986560,
+          "addend": 0,
+          "resolved": 7986560
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "__real@4@3ffe8000000000000000",
+          "target": 7986560,
+          "addend": 0,
+          "resolved": 7986560
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "__real@4@3ffe8000000000000000",
+          "target": 7986560,
+          "addend": 0,
+          "resolved": 7986560
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "__real@4@3ffe8000000000000000",
+          "target": 7986560,
+          "addend": 0,
+          "resolved": 7986560
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7446368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7446912,
+      "method": "0071a180",
+      "body_bytes": 417,
+      "body_sha256": "dc1a9b1e1578b6f5a7ae45cb9a916a4fd402e2ca49e0eeece706ea9e2f3665e7",
+      "padding_bytes": 15,
+      "full_extent_bytes": 432,
+      "full_extent_sha256": "3a1bda39410555c8036586e67e64ae7fb00292612c9e3f92f6f9672fa010e924",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Regular_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Regular_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 217,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7446912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7447344,
+      "method": "0071a330",
+      "body_bytes": 411,
+      "body_sha256": "411e82108a1940ec7a2cbacc179d675ca2e97a8163d4da3d4613ac924008ad62",
+      "padding_bytes": 5,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "90458fe492cd837598a28762f0f3bfa4275215a5c27a8a44a4f8c24cbb763782",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Reverse_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Reverse_Normals@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 280,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 290,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7447344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7447760,
+      "method": "0071a4d0",
+      "body_bytes": 565,
+      "body_sha256": "8f1e4a15d18e0db83180d61c8533a63c350c2a600e4db66cfbf482f325cf2e60",
+      "padding_bytes": 11,
+      "full_extent_bytes": 576,
+      "full_extent_sha256": "10ebe3c44bbca00dfa35dcd3ed9eeba559d6d9f35e14c88f0eb0d9d4d8a630d4",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Regular_Normals_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Regular_Normals_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 338,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 356,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 362,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 368,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 1,
+          "resolved": 11340401
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7447760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7448336,
+      "method": "0071a710",
+      "body_bytes": 563,
+      "body_sha256": "d32c446048784fb55875f64dd227434511f29144e325c0171226af70c7c91fe3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 576,
+      "full_extent_sha256": "f71b2aa368856b4a1a6aad57fa4379e354b49e7d76e028e240ede3e10c98f0f9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Reverse_Normals_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Reverse_Normals_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 279,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 306,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        },
+        {
+          "offset": 312,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 1,
+          "resolved": 11340401
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7448336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7448912,
+      "method": "0071a950",
+      "body_bytes": 491,
+      "body_sha256": "96e07b4717776db013432390205166856e2189fa40d54eb44ee90660cf04f6d3",
+      "padding_bytes": 5,
+      "full_extent_bytes": 496,
+      "full_extent_sha256": "4b392ac11a7dd96912091891be00150b939bd162af02e98066ff6281afc0448c",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Regular_Normals_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Regular_Normals_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 217,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 0,
+          "resolved": 11505168
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "_VoxelPaletteTranslateTable",
+          "target": 11486728,
+          "addend": 0,
+          "resolved": 11486728
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 340,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7448912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7449408,
+      "method": "0071ab40",
+      "body_bytes": 483,
+      "body_sha256": "8192a8a65577f85685f27d0d02f5d42a514d0e5e02baec99a714bae93925d679",
+      "padding_bytes": 13,
+      "full_extent_bytes": 496,
+      "full_extent_sha256": "51b6c5f6a0a2574257d20ff2c6a7bf7295e7a227fae9fc9d4077e63dbbfca4f3",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Reverse_Normals_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Reverse_Normals_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 0,
+          "resolved": 11505168
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "_VoxelPaletteTranslateTable",
+          "target": 11486728,
+          "addend": 0,
+          "resolved": 11486728
+        },
+        {
+          "offset": 289,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 295,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        },
+        {
+          "offset": 348,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 358,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7449408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7449904,
+      "method": "0071ad30",
+      "body_bytes": 613,
+      "body_sha256": "69d190cc6610214976852ddd64e6a6b55ee2854aa25f963414a4f7bc54f1aef2",
+      "padding_bytes": 11,
+      "full_extent_bytes": 624,
+      "full_extent_sha256": "b85e40a783d6d1bfe7d21e7697260d175ad27b06bad32e423e291770cbe94329",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Regular_Normals_ZBuffer_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Regular_Normals_ZBuffer_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 232,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 353,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 365,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 1,
+          "resolved": 11340401
+        },
+        {
+          "offset": 371,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 0,
+          "resolved": 11505168
+        },
+        {
+          "offset": 401,
+          "kind": 6,
+          "symbol": "_VoxelPaletteTranslateTable",
+          "target": 11486728,
+          "addend": 0,
+          "resolved": 11486728
+        },
+        {
+          "offset": 411,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 417,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7449904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7450528,
+      "method": "0071afa0",
+      "body_bytes": 635,
+      "body_sha256": "8b16972ab73c9005ba8c21caf9b3a67c8aa1cc97bad83310815af293034b1f69",
+      "padding_bytes": 5,
+      "full_extent_bytes": 640,
+      "full_extent_sha256": "1cc6ec9f206b25124938524b56a76d3074c26d8afa62f2a05d713dbc5e8ac6e4",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Reverse_Normals_ZBuffer_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Reverse_Normals_ZBuffer_Lighting@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 263,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 0,
+          "resolved": 11505168
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 338,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 1,
+          "resolved": 11340401
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "_VoxelPaletteTranslateTable",
+          "target": 11486728,
+          "addend": 0,
+          "resolved": 11486728
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 357,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        },
+        {
+          "offset": 437,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 447,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7450528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7451168,
+      "method": "0071b220",
+      "body_bytes": 438,
+      "body_sha256": "d3dbe30c6db3e08425e622b451ad1a4a13c399153482568980ed495fd0a66877",
+      "padding_bytes": 10,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "d5427071aa49cca6b598762e9083a3447ce17d4bde97cbd1977545ebc43995ad",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Regular@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Regular@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 206,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 279,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7451168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7451616,
+      "method": "0071b3e0",
+      "body_bytes": 446,
+      "body_sha256": "0cd53f09ad64599773a40bb03170ba4ce2f6de9d5c57f1e493b82950d9c55e51",
+      "padding_bytes": 2,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "1232d9a7b23b1571759076b0795b7db1ff3c761cae0d78223e0b2ca411bc3b78",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Reverse@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Reverse@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 232,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 238,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 299,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7451616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7452064,
+      "method": "0071b5a0",
+      "body_bytes": 563,
+      "body_sha256": "9ba9abb3b2775aba0ac3912380f8cbb108c14ec61ce53eb41db2818a56f96a86",
+      "padding_bytes": 13,
+      "full_extent_bytes": 576,
+      "full_extent_sha256": "82f704c1c3ee32c4e37c2179281620e3e978242c95a4629a015001b567adc313",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Regular_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Regular_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 338,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 354,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 366,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        },
+        {
+          "offset": 372,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 1,
+          "resolved": 11340401
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7452064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7452640,
+      "method": "0071b7e0",
+      "body_bytes": 561,
+      "body_sha256": "69ae18aa904fc4a6f55126887382e42d7232c40d30c5ae71c2c04899549fefb4",
+      "padding_bytes": 15,
+      "full_extent_bytes": 576,
+      "full_extent_sha256": "d2cfddb4e99b4ad5a3e93da6349b0a57efde5be9bb3bfa11ed596e83d58845f6",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Voxel_Reverse_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "symbol_prefix": "?Draw_Voxel_Reverse_ZBuffer@@YAXPAUVoxelFuncArgumentStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        },
+        {
+          "offset": 276,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 0,
+          "resolved": 11340400
+        },
+        {
+          "offset": 298,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 0,
+          "resolved": 11416584
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "_VoxelDrawBuffer",
+          "target": 11416584,
+          "addend": 1,
+          "resolved": 11416585
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "_VoxelDrawZBuffer",
+          "target": 11340400,
+          "addend": 1,
+          "resolved": 11340401
+        },
+        {
+          "offset": 382,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 0,
+          "resolved": 11504144
+        },
+        {
+          "offset": 392,
+          "kind": 6,
+          "symbol": "_VoxelPixelDeltaTable",
+          "target": 11504144,
+          "addend": 2,
+          "resolved": 11504146
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7452640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7453216,
+      "method": "0071ba20",
+      "body_bytes": 120,
+      "body_sha256": "d81c207a34a3e26c67d3bc3d081eb71029c85f4384adf9022a451c67c127a2cb",
+      "padding_bytes": 8,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "011e4cd674d4a1d9943c66adc4f435a833f5babcbeae9495b7aa5882228704f3",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Precalculate_Normal_Lookup@@YIXABVVector3@@H@Z",
+      "symbol_prefix": "?Precalculate_Normal_Lookup@@YIXABVVector3@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?VoxelNormalTables@@3PAPBVVector3@@A",
+          "target": 8363904,
+          "addend": 0,
+          "resolved": 8363904
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?VoxelNormalTableEntryCount@@3PAHA",
+          "target": 8363924,
+          "addend": 0,
+          "resolved": 8363924
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 0,
+          "resolved": 11505168
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "__real@4@40038000000000000000",
+          "target": 8055360,
+          "addend": 0,
+          "resolved": 8055360
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 407196
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 0,
+          "resolved": 11505168
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 255,
+          "resolved": 11505423
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 254,
+          "resolved": 11505422
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 253,
+          "resolved": 11505421
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7453216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7453344,
+      "method": "0071baa0",
+      "body_bytes": 391,
+      "body_sha256": "c06b37fe5325ba86d8ca5befb92274434005d8fa8012e0645b47ccf6c2a7c66c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 400,
+      "full_extent_sha256": "269b11f349afee00802d28313ee833ea804aeb3fa4951ffea242a1fc28d108c1",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Precalculate_Normal_Lookup@@YIXABVVector3@@0MH@Z",
+      "symbol_prefix": "?Precalculate_Normal_Lookup@@YIXABVVector3@@0MH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?VoxelNormalTables@@3PAPBVVector3@@A",
+          "target": 8363904,
+          "addend": 0,
+          "resolved": 8363904
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292471068
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "?VoxelNormalTableEntryCount@@3PAHA",
+          "target": 8363924,
+          "addend": 0,
+          "resolved": 8363924
+        },
+        {
+          "offset": 267,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 288,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 303,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 313,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 0,
+          "resolved": 11505168
+        },
+        {
+          "offset": 337,
+          "kind": 6,
+          "symbol": "__real@4@40038000000000000000",
+          "target": 8055360,
+          "addend": 0,
+          "resolved": 8055360
+        },
+        {
+          "offset": 342,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 406806
+        },
+        {
+          "offset": 348,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 0,
+          "resolved": 11505168
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 255,
+          "resolved": 11505423
+        },
+        {
+          "offset": 375,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 254,
+          "resolved": 11505422
+        },
+        {
+          "offset": 380,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 253,
+          "resolved": 11505421
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7453344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7453744,
+      "method": "0071bc30",
+      "body_bytes": 167,
+      "body_sha256": "7c26ea28a98cfbd3e8ad32c22c63f6a50eb8281ede12b5c2208676b17b8f9a7f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "4db4f9938ccf984c74a99919e7c99884168ac244840e8c77683bac7b9d65be87",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Find_Closest_Normal@@YIHABVVector3@@H@Z",
+      "symbol_prefix": "?Find_Closest_Normal@@YIHABVVector3@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?VoxelNormalTables@@3PAPBVVector3@@A",
+          "target": 8363904,
+          "addend": 0,
+          "resolved": 8363904
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292470685
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "__real@4@3ffccccccd0000000000",
+          "target": 8055364,
+          "addend": 0,
+          "resolved": 8055364
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?VoxelNormalTableEntryCount@@3PAHA",
+          "target": 8363924,
+          "addend": 0,
+          "resolved": 8363924
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7453744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7453920,
+      "method": "0071bce0",
+      "body_bytes": 20,
+      "body_sha256": "3a666600b47fc77ff40ff8c7d1c01e4169635aa083d25f12b45bc1b0a7f124b2",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "58c9a42dffc59c04a1cd4ab1cf460d55bd6e400ac4493e1819122b5906cba2ab",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Normal_Lookup@@YIXXZ",
+      "symbol_prefix": "?Init_Normal_Lookup@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_VoxelNormalTranslateTable",
+          "target": 11505168,
+          "addend": 0,
+          "resolved": 11505168
+        }
+      ],
+      "source_sha256": "9bca11a144c071dae25bc8ce6343af68fe68cc91da6c248f2fa52160ae5b6bdb",
+      "source": "rebuild/src/voxlib.cpp",
+      "population": "rebuild-voxlib",
+      "source_order": 7453920,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

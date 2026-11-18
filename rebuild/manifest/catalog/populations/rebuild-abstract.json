@@ -53,6 +53,9 @@
     "??RCRCEngine@@QAEXH@Z": 4800304,
     "??RCRCEngine@@QAEX_N@Z": 4800128,
     "??3@YAXPAX@Z": 7871803,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
     "_$E2": 4259072,
     "_$E5": 4259104,
     "_$E8": 4259152,
@@ -82,9 +85,6 @@
     "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
     "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
     "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
-    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
-    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
-    "?Release@AbstractClass@@UAGKXZ": 4260016,
     "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
     "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
     "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
@@ -1920,6 +1920,114 @@
       "source": "rebuild/src/abstract.cpp",
       "population": "rebuild-abstract",
       "source_order": 4260672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4260736,
+      "method": "00410380",
+      "body_bytes": 10,
+      "body_sha256": "3de84f571d984abdd99ddc8971cd0ff51f8f9b002de0771eeed6cf8e6741a75d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "3de84f571d984abdd99ddc8971cd0ff51f8f9b002de0771eeed6cf8e6741a75d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 4259840,
+          "addend": 0,
+          "resolved": 4294966390
+        }
+      ],
+      "source_sha256": "1063f58c1a73b58924eed4e3c61e6b0d8e8bdf24d9486b918bf22d6f6d4b3709",
+      "source": "rebuild/src/abstract.cpp",
+      "population": "rebuild-abstract",
+      "source_order": 4260736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4260752,
+      "method": "00410390",
+      "body_bytes": 10,
+      "body_sha256": "fd7cc110d209009bccd95527e2c894c5eeb452f4b0b20325b6e904a2b59fe506",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "fd7cc110d209009bccd95527e2c894c5eeb452f4b0b20325b6e904a2b59fe506",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@AbstractClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@AbstractClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@AbstractClass@@UAGKXZ",
+          "target": 4260000,
+          "addend": 0,
+          "resolved": 4294966534
+        }
+      ],
+      "source_sha256": "1063f58c1a73b58924eed4e3c61e6b0d8e8bdf24d9486b918bf22d6f6d4b3709",
+      "source": "rebuild/src/abstract.cpp",
+      "population": "rebuild-abstract",
+      "source_order": 4260752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4260768,
+      "method": "004103a0",
+      "body_bytes": 10,
+      "body_sha256": "fd7cc110d209009bccd95527e2c894c5eeb452f4b0b20325b6e904a2b59fe506",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "fd7cc110d209009bccd95527e2c894c5eeb452f4b0b20325b6e904a2b59fe506",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@AbstractClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@AbstractClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@AbstractClass@@UAGKXZ",
+          "target": 4260016,
+          "addend": 0,
+          "resolved": 4294966534
+        }
+      ],
+      "source_sha256": "1063f58c1a73b58924eed4e3c61e6b0d8e8bdf24d9486b918bf22d6f6d4b3709",
+      "source": "rebuild/src/abstract.cpp",
+      "population": "rebuild-abstract",
+      "source_order": 4260768,
       "source_quality_family": "rebuild"
     }
   ]

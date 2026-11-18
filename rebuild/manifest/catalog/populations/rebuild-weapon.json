@@ -164,7 +164,6 @@
     "_$E35": 7548512,
     "_$E38": 7548544,
     "??_G?$TypeList@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288448,
-    "??_G?$TypeList@H@@UAEPAXI@Z": 4640208,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
     "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
@@ -188,6 +187,7 @@
     "?Release@AbstractClass@@UAGKXZ": 4260016,
     "?AddRef@AbstractClass@@UAGKXZ": 4260000,
     "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "??_G?$TypeList@H@@UAEPAXI@Z": 4640208,
     "?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z": 4262304,
     "?Fetch_RTTI@WeaponTypeClass@@UBE?AW4RTTIType@@XZ": 7552992,
     "??_G?$VectorClass@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288624,
@@ -3409,6 +3409,195 @@
       "source": "rebuild/src/weapon.cpp",
       "population": "rebuild-weapon",
       "source_order": 7552976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7552992,
+      "method": "00733fe0",
+      "body_bytes": 6,
+      "body_sha256": "b51b8cf9800e04adbbe8029b6676afea560b47b232d98106af7ac15ac5215144",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8bf291c3a973a30ed243bd468796ca06e28c595c1c7191fb6a27ec181cea0ad0",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@WeaponTypeClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@WeaponTypeClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "212b6be899b60eaaddfac0bd4d05fc4b6fea661bed4e2add9b9f1533c0aa2f71",
+      "source": "rebuild/src/weapon.cpp",
+      "population": "rebuild-weapon",
+      "source_order": 7552992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7553008,
+      "method": "00733ff0",
+      "body_bytes": 267,
+      "body_sha256": "e437b6dea2635ce7033b9912193f1098cbf9cd0890f2ffc2cfaed053c6f18cf3",
+      "padding_bytes": 5,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "3a24cb68afdb4999c74c2d7360b4f2573fe04f6e5f6460d644e3bba7c978bd11",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GWeaponTypeClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GWeaponTypeClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7WeaponTypeClass@@6BIPersistStream@@@",
+          "target": 8057968,
+          "addend": 0,
+          "resolved": 8057968
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "??_7WeaponTypeClass@@6BIRTTITypeInfo@@@",
+          "target": 8057924,
+          "addend": 0,
+          "resolved": 8057924
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "??_7WeaponTypeClass@@6BINoticeSink@@@",
+          "target": 8057960,
+          "addend": 0,
+          "resolved": 8057960
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_7WeaponTypeClass@@6BINoticeSource@@@",
+          "target": 8057952,
+          "addend": 0,
+          "resolved": 8057952
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 4294675321
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 0,
+          "resolved": 8625040
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 0,
+          "resolved": 8625040
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 16,
+          "resolved": 8625056
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 16,
+          "resolved": 8625056
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 4,
+          "resolved": 8625044
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 16,
+          "resolved": 8625056
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVAnimTypeClass@@@@6B@",
+          "target": 8010588,
+          "addend": 0,
+          "resolved": 8010588
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 318635
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@H@@6B@",
+          "target": 7985620,
+          "addend": 0,
+          "resolved": 7985620
+        },
+        {
+          "offset": 211,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 318580
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "??1AbstractTypeClass@@UAE@XZ",
+          "target": 4261696,
+          "addend": 0,
+          "resolved": 4291675741
+        },
+        {
+          "offset": 252,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 318539
+        }
+      ],
+      "source_sha256": "212b6be899b60eaaddfac0bd4d05fc4b6fea661bed4e2add9b9f1533c0aa2f71",
+      "source": "rebuild/src/weapon.cpp",
+      "population": "rebuild-weapon",
+      "source_order": 7553008,
       "source_quality_family": "rebuild"
     }
   ]

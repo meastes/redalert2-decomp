@@ -86,6 +86,7 @@
     "??_C@_06CPHF@?$DMnone?$DO?$AA@": 8183500,
     "??_C@_04KIKH@none?$AA@": 8184044,
     "??0AircraftTypeClass@@QAE@PBD@Z": 4308112,
+    "??3@YAXPAX@Z": 7871803,
     "_$E2": 4307616,
     "_$E5": 4307664,
     "_$E8": 4307696,
@@ -152,7 +153,6 @@
     "?Fetch_RTTI@AircraftTypeClass@@UBE?AW4RTTIType@@XZ": 4309776,
     "?Fetch_Object_Size@AircraftTypeClass@@UBEHXZ": 4309792,
     "?Fetch_Heap_ID@AircraftTypeClass@@UBEHXZ": 4309808,
-    "??3@YAXPAX@Z": 7871803,
     "??0AircraftTypeClass@@QAE@ABVNoInitClass@@@Z": 4308400,
     "??1AircraftTypeClass@@UAE@XZ": 4308448,
     "?From_Name@AircraftTypeClass@@SI?AW4AircraftType@@PBD@Z": 4308576,
@@ -2301,6 +2301,273 @@
       "source": "rebuild/src/airctype.cpp",
       "population": "rebuild-airctype",
       "source_order": 4309584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4309728,
+      "method": "0041c2e0",
+      "body_bytes": 31,
+      "body_sha256": "13b700be700a666041e73973d356e14c6810f540e7eb82c64f54f09da5f6f2a5",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ca3c1205798bf634a8e881dc9db24ff3fb7f20dd9dc683989c92525bd043a67c",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Coord_Fixup@ObjectTypeClass@@UBE?BVCoord@@ABV2@@Z",
+      "symbol_prefix": "?Coord_Fixup@ObjectTypeClass@@UBE?BVCoord@@ABV2@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5f9960b6e08a470b95e75d87528022c75f3cec4deec7df28862657cc46f2d742",
+      "source": "rebuild/src/airctype.cpp",
+      "population": "rebuild-airctype",
+      "source_order": 4309728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4309760,
+      "method": "0041c300",
+      "body_bytes": 7,
+      "body_sha256": "aabd205c59f5a2ae488fe7441a532856f43654015b0bf5af7c8432912465f8b7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ccfa6f2d194026a603aa28a1326bf975a37d20f6795fbab094a1ebf9fae26e97",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Image_Data@ObjectTypeClass@@UBEPBXXZ",
+      "symbol_prefix": "?Get_Image_Data@ObjectTypeClass@@UBEPBXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5f9960b6e08a470b95e75d87528022c75f3cec4deec7df28862657cc46f2d742",
+      "source": "rebuild/src/airctype.cpp",
+      "population": "rebuild-airctype",
+      "source_order": 4309760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4309776,
+      "method": "0041c310",
+      "body_bytes": 6,
+      "body_sha256": "7adb2a5467d3718ab3b55c6851599af573d4fbeadcd90dd961cfd69d4f94cc9f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "4e5a4d15a037f4b61cd89c9a7340ac78aebe6ffd6fb3a271865f643c9fc4d6fc",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@AircraftTypeClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@AircraftTypeClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5f9960b6e08a470b95e75d87528022c75f3cec4deec7df28862657cc46f2d742",
+      "source": "rebuild/src/airctype.cpp",
+      "population": "rebuild-airctype",
+      "source_order": 4309776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4309792,
+      "method": "0041c320",
+      "body_bytes": 6,
+      "body_sha256": "5fc63630d13d7492bcce48053da7679b0df50b1e6d8f9f447d8fcf0b65c00219",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1441d142157d5ab9e9cf256607ae323fefd7d77bf7f798afb2d944eabed2e28e",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@AircraftTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@AircraftTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5f9960b6e08a470b95e75d87528022c75f3cec4deec7df28862657cc46f2d742",
+      "source": "rebuild/src/airctype.cpp",
+      "population": "rebuild-airctype",
+      "source_order": 4309792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4309808,
+      "method": "0041c330",
+      "body_bytes": 7,
+      "body_sha256": "259a4b6c11334b2deb9dc01b03ffe446a7c1f96ce28a9511ebbadbbf420b8b3b",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b8b88e4d01f9158dc7efa5419646774960ecbcc4cd47bf4c2ab12f90e2acd90c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Heap_ID@AircraftTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Heap_ID@AircraftTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5f9960b6e08a470b95e75d87528022c75f3cec4deec7df28862657cc46f2d742",
+      "source": "rebuild/src/airctype.cpp",
+      "population": "rebuild-airctype",
+      "source_order": 4309808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4309824,
+      "method": "0041c340",
+      "body_bytes": 141,
+      "body_sha256": "46cd2c341c69bc2596f626b036b39d604cf849b83a816d3263f01bc05b054599",
+      "padding_bytes": 3,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "c29b7f72b53aa6f898fbbc7d382808620d028fcc11cf8087438151745863667a",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GAircraftTypeClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GAircraftTypeClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7AircraftTypeClass@@6BIPersistStream@@@",
+          "target": 7976568,
+          "addend": 0,
+          "resolved": 7976568
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7AircraftTypeClass@@6BIRTTITypeInfo@@@",
+          "target": 7976540,
+          "addend": 0,
+          "resolved": 7976540
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7AircraftTypeClass@@6BINoticeSink@@@",
+          "target": 7976532,
+          "addend": 0,
+          "resolved": 7976532
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7AircraftTypeClass@@6BINoticeSource@@@",
+          "target": 7976524,
+          "addend": 0,
+          "resolved": 7976524
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 2951210
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+          "target": 10736248,
+          "addend": 0,
+          "resolved": 10736248
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+          "target": 10736248,
+          "addend": 0,
+          "resolved": 10736248
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+          "target": 10736248,
+          "addend": 16,
+          "resolved": 10736264
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+          "target": 10736248,
+          "addend": 16,
+          "resolved": 10736264
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+          "target": 10736248,
+          "addend": 4,
+          "resolved": 10736252
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A",
+          "target": 10736248,
+          "addend": 16,
+          "resolved": 10736264
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??1TechnoTypeClass@@UAE@XZ",
+          "target": 7186768,
+          "addend": 0,
+          "resolved": 2876826
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3561848
+        }
+      ],
+      "source_sha256": "5f9960b6e08a470b95e75d87528022c75f3cec4deec7df28862657cc46f2d742",
+      "source": "rebuild/src/airctype.cpp",
+      "population": "rebuild-airctype",
+      "source_order": 4309824,
       "source_quality_family": "rebuild"
     }
   ]

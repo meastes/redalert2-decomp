@@ -69,6 +69,9 @@
     "??_C@_04KIKH@none?$AA@": 8184044,
     "??2@YAPAXI@Z": 7872535,
     "??0HouseTypeClass@@QAE@PBD@Z": 5214448,
+    "?QueryInterface@HouseTypeClass@@UAGJABU_GUID@@PAPAX@Z": 5218928,
+    "?AddRef@HouseTypeClass@@UAGKXZ": 5219344,
+    "?Release@HouseTypeClass@@UAGKXZ": 5219360,
     "_$E2": 5213952,
     "_$E5": 5213984,
     "_$E8": 5214032,
@@ -83,7 +86,6 @@
     "_$E35": 5214400,
     "_$E38": 5214416,
     "??0HouseTypeClass@@QAE@ABVNoInitClass@@@Z": 5215056,
-    "??_G?$TypeList@PBVInfantryTypeClass@@@@UAEPAXI@Z": 5220032,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
     "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
@@ -104,6 +106,7 @@
     "?Init@AbstractClass@@UAEXXZ": 4260368,
     "??_GHouseTypeClass@@UAEPAXI@Z": 5219376,
     "?Load@HouseTypeClass@@UAGJPAUIStream@@@Z": 5218144,
+    "??_G?$TypeList@PBVInfantryTypeClass@@@@UAEPAXI@Z": 5220032,
     "??_G?$TypeList@PBVUnitTypeClass@@@@UAEPAXI@Z": 5220112,
     "??_G?$TypeList@PBVAircraftTypeClass@@@@UAEPAXI@Z": 5220192,
     "?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z": 4262304,
@@ -116,14 +119,11 @@
     "?IsDirty@HouseTypeClass@@UAGJXZ": 5218128,
     "?Save@HouseTypeClass@@UAGJPAUIStream@@H@Z": 5218640,
     "?GetSizeMax@HouseTypeClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 5218880,
-    "?QueryInterface@HouseTypeClass@@UAGJABU_GUID@@PAPAX@Z": 5218928,
     "?GetClassID@HouseTypeClass@@UAGJPAU_GUID@@@Z": 5219088,
     "?Find_Or_Make@HouseTypeClass@@SIPAV1@PBD@Z": 5219152,
     "?Fetch_RTTI@HouseTypeClass@@UBE?AW4RTTIType@@XZ": 5219296,
     "?Fetch_Object_Size@HouseTypeClass@@UBEHXZ": 5219312,
     "?Fetch_Heap_ID@HouseTypeClass@@UBEHXZ": 5219328,
-    "?AddRef@HouseTypeClass@@UAGKXZ": 5219344,
-    "?Release@HouseTypeClass@@UAGKXZ": 5219360,
     "?Clear@?$DynamicVectorClass@PBVInfantryTypeClass@@@@UAEXXZ": 5219696,
     "?ID@?$DynamicVectorClass@PBVInfantryTypeClass@@@@UAEHPBQBVInfantryTypeClass@@@Z": 5219744,
     "?GetItem@?$VectorClass@PBVInfantryTypeClass@@@@UBEPBVInfantryTypeClass@@H@Z": 5219776,
@@ -3282,6 +3282,111 @@
       "source_order": 5223392,
       "source_quality_family": "rebuild",
       "bound_population": "population-1597"
+    },
+    {
+      "entry": 5224112,
+      "method": "004fb6b0",
+      "body_bytes": 10,
+      "body_sha256": "eb217110b5c370d8875ebfc4be98d3eacae24cee50ca48bf8905db2515021bb3",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "eb217110b5c370d8875ebfc4be98d3eacae24cee50ca48bf8905db2515021bb3",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@HouseTypeClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@HouseTypeClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@HouseTypeClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 5218928,
+          "addend": 0,
+          "resolved": 4294962102
+        }
+      ],
+      "source_sha256": "e23c5722d92ae4220c36559d6f4630d114833d33dfb02e2aaa3ebf077388854c",
+      "source": "rebuild/src/houstype.cpp",
+      "population": "rebuild-houstype",
+      "source_order": 5224112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224128,
+      "method": "004fb6c0",
+      "body_bytes": 10,
+      "body_sha256": "9ee32db06af58e70dc57ce09200c36f614ccb8d61f3d72c0b3da43fda4020b50",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "9ee32db06af58e70dc57ce09200c36f614ccb8d61f3d72c0b3da43fda4020b50",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@HouseTypeClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@HouseTypeClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@HouseTypeClass@@UAGKXZ",
+          "target": 5219344,
+          "addend": 0,
+          "resolved": 4294962502
+        }
+      ],
+      "source_sha256": "e23c5722d92ae4220c36559d6f4630d114833d33dfb02e2aaa3ebf077388854c",
+      "source": "rebuild/src/houstype.cpp",
+      "population": "rebuild-houstype",
+      "source_order": 5224128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224144,
+      "method": "004fb6d0",
+      "body_bytes": 10,
+      "body_sha256": "9ee32db06af58e70dc57ce09200c36f614ccb8d61f3d72c0b3da43fda4020b50",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "9ee32db06af58e70dc57ce09200c36f614ccb8d61f3d72c0b3da43fda4020b50",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@HouseTypeClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@HouseTypeClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@HouseTypeClass@@UAGKXZ",
+          "target": 5219360,
+          "addend": 0,
+          "resolved": 4294962502
+        }
+      ],
+      "source_sha256": "e23c5722d92ae4220c36559d6f4630d114833d33dfb02e2aaa3ebf077388854c",
+      "source": "rebuild/src/houstype.cpp",
+      "population": "rebuild-houstype",
+      "source_order": 5224144,
+      "source_quality_family": "rebuild"
     }
   ]
 }

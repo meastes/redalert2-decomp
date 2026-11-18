@@ -41,12 +41,12 @@ SuperWeaponType Special_From_Name(char const * name)
 {
 	static const char * _names[SUPER_COUNT] = {
 		"MultiMissile",
-		"EMPulse",
-		"Firestorm",
-		"IonCannon",
-		"HunterSeeker",
-		"ChemMissile",
-		"DropPod"
+		"IronCurtain",
+		"LightningStorm",
+		"ChronoSphere",
+		"ChronoWarp",
+		"ParaDrop",
+		"AmerParaDrop"
 	};
 
 	for (int i = SUPER_FIRST; i < SUPER_COUNT; i++) {

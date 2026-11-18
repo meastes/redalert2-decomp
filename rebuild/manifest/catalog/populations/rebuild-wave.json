@@ -4065,6 +4065,34 @@
       "population": "rebuild-wave",
       "source_order": 7489024,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489328,
+      "method": "724730",
+      "body_bytes": 80,
+      "body_sha256": "30af68b9c6a673326067624c6aebf06e6d7145fa754b7738b9265393be87482f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "30af68b9c6a673326067624c6aebf06e6d7145fa754b7738b9265393be87482f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@?$DynamicVectorClass@PAVCellClass@@@@QAE_NABQAVCellClass@@@Z",
+      "symbol_prefix": "?Add@?$DynamicVectorClass@PAVCellClass@@@@QAE_NABQAVCellClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "af7999d69a2ed0ab27f3b9f0c86234a0926ab37e31468361cd1fcb274d36296b",
+      "source": "rebuild/src/wave.cpp",
+      "population": "rebuild-wave",
+      "source_order": 7489328,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-19"
     }
   ]
 }

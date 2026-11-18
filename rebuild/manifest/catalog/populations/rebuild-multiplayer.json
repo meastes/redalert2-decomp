@@ -173,20 +173,6 @@
     "??_G?$VectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z": 6002592,
     "??0MultiplayerGameMode@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z": 5991632,
     "??_G?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z": 6002512,
-    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
-    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
-    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
-    "?Close@CCFileClass@@UAEXXZ": 4624880,
-    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
-    "?Size@CCFileClass@@UAEHXZ": 4624720,
-    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
-    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
-    "?Open@CCFileClass@@UAEHH@Z": 4624928,
-    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
-    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
-    "?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@AAH@Z": 5996640,
-    "??_GMultiplayerGameMode@@UAEPAXI@Z": 6000144,
-    "??_GCCINIClass@@UAEPAXI@Z": 4252384,
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
     "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
@@ -199,10 +185,24 @@
     "?Open@CDFileClass@@UAEHH@Z": 4652560,
     "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
     "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@AAH@Z": 5996640,
+    "??_GMultiplayerGameMode@@UAEPAXI@Z": 6000144,
+    "??_GCCINIClass@@UAEPAXI@Z": 4252384,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
     "?Delete@RawFileClass@@UAEHXZ": 6525504,
     "?Create@RawFileClass@@UAEHXZ": 6525440,
     "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
-    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
     "?vt_entry_04@MultiplayerGameMode@@UAE_NXZ": 5907328,
     "?vt_entry_08@MultiplayerGameMode@@UAE_NXZ": 5907344,
     "?vt_entry_0C@MultiplayerGameMode@@UAE_NI@Z": 5907360,
@@ -252,9 +252,9 @@
     "?UnfixAlliances@MultiplayerGameMode@@UAE_NXZ": 5994528,
     "?IsCountryAllowed@MultiplayerGameMode@@UAE_NH@Z": 5994544,
     "?GetINI@MultiplayerGameMode@@QAEPAVCCINIClass@@XZ": 5994560,
+    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
     "??_GGenericNode@@UAEPAXI@Z": 4252112,
     "??_GGenericList@@UAEPAXI@Z": 4252192,
-    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
     "?AssignStartingPositionsToHouse@MultiplayerGameMode@@UAEPAVCell@@PAV2@HPAV?$DynamicVectorClass@VCell@@@@PAE@Z": 5994784,
     "?StartingPositionsToHouseBaseCells@MultiplayerGameMode@@UAE_ND@Z": 5995520,
     "??_G?$VectorClass@VCell@@@@UAEPAXI@Z": 4379536,
@@ -269,12 +269,12 @@
     "??_GINIClass@@UAEPAXI@Z": 5107440,
     "??1InitializerBase@MultiplayerGameMode@@UAE@XZ": 5999552,
     "?Init_Game_Modes@@YIXXZ": 5999568,
-    "??_G?$Initializer@VMPCooperative@@@MultiplayerGameMode@@UAEPAXI@Z": 6000512,
-    "??_G?$Initializer@VFreeForAll@@@MultiplayerGameMode@@UAEPAXI@Z": 6000480,
     "??_G?$Initializer@VUnholyAlliance@@@MultiplayerGameMode@@UAEPAXI@Z": 6000448,
     "??_G?$Initializer@VMultiplayerSiege@@@MultiplayerGameMode@@UAEPAXI@Z": 6000416,
     "??_G?$Initializer@VMultiplayerManBattle@@@MultiplayerGameMode@@UAEPAXI@Z": 6000384,
     "??_G?$Initializer@VMultiplayerBattle@@@MultiplayerGameMode@@UAEPAXI@Z": 6000352,
+    "??_G?$Initializer@VMPCooperative@@@MultiplayerGameMode@@UAEPAXI@Z": 6000512,
+    "??_G?$Initializer@VFreeForAll@@@MultiplayerGameMode@@UAEPAXI@Z": 6000480,
     "?Free_Game_Modes@@YIXXZ": 5999936,
     "?Clear@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEXXZ": 6000544,
     "?ID@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEHPBQAVMultiplayerTeam@@@Z": 6000592,
@@ -7106,6 +7106,381 @@
       "source_order": 6002080,
       "source_quality_family": "rebuild",
       "bound_population": "population-1597"
+    },
+    {
+      "entry": 6002112,
+      "method": "5b95c0",
+      "body_bytes": 93,
+      "body_sha256": "835606a6a4a3aad562b644dfdb944d38837fd294e554195cbb5220f889ae73f4",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "e01e3e6d38e1952eba978b7a36996a645f4f23eff91c2234f54fb92320296865",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$DynamicVectorClass@PAVMultiplayerGameMode@@@@QAE@IPBQAVMultiplayerGameMode@@@Z",
+      "symbol_prefix": "??0?$DynamicVectorClass@PAVMultiplayerGameMode@@@@QAE@IPBQAVMultiplayerGameMode@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMultiplayerGameMode@@@@6B@",
+          "target": 8024472,
+          "addend": 0,
+          "resolved": 8024472
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1870366
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVMultiplayerGameMode@@@@6B@",
+          "target": 8024440,
+          "addend": 0,
+          "resolved": 8024440
+        }
+      ],
+      "source_sha256": "bd1c4a4b7362494ba993b416edd3d1ab35cf4363c51b11a437e6db22ebda60cb",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002112,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-28"
+    },
+    {
+      "entry": 6002208,
+      "method": "005b9620",
+      "body_bytes": 176,
+      "body_sha256": "4c894110d34c8beb1833c2656394d3061c91f98af277082aab009abadc8eb9dc",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "4c894110d34c8beb1833c2656394d3061c91f98af277082aab009abadc8eb9dc",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAE_NHPBQAVMultiplayerGameMode@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAE_NHPBQAVMultiplayerGameMode@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1870288
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1869485
+        }
+      ],
+      "source_sha256": "bd1c4a4b7362494ba993b416edd3d1ab35cf4363c51b11a437e6db22ebda60cb",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 6002384,
+      "method": "005b96d0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEHABQAVMultiplayerGameMode@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEHABQAVMultiplayerGameMode@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "bd1c4a4b7362494ba993b416edd3d1ab35cf4363c51b11a437e6db22ebda60cb",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002384,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 6002432,
+      "method": "5b9700",
+      "body_bytes": 73,
+      "body_sha256": "01352cdbc8d087ec774a541ae0552b377bbdeab0050ff6d1faf0804caf953958",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ed36d66ec5dbca1fd03679fa3c49ffc6438029d26b35601461780267a5e8dd51",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMultiplayerTeam@@@@6B@",
+          "target": 8024720,
+          "addend": 0,
+          "resolved": 8024720
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1869342
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1869307
+        }
+      ],
+      "source_sha256": "bd1c4a4b7362494ba993b416edd3d1ab35cf4363c51b11a437e6db22ebda60cb",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6002512,
+      "method": "5b9750",
+      "body_bytes": 73,
+      "body_sha256": "c76f196931e9e0f2a639ecb88a56652bc051cb7ca9222d21cd89b69a518c51ef",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9f40023040aa0fdb28242a369bc1d61a8b7069e8beb6c495eaf2afa04ac82f6c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMultiplayerTeam@@@@6B@",
+          "target": 8024720,
+          "addend": 0,
+          "resolved": 8024720
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1869262
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1869227
+        }
+      ],
+      "source_sha256": "bd1c4a4b7362494ba993b416edd3d1ab35cf4363c51b11a437e6db22ebda60cb",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002512,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6002592,
+      "method": "5b97a0",
+      "body_bytes": 73,
+      "body_sha256": "276af76351499fcfaef55dc756dada6d89947b1e5a2334ad8d64be0e1921d876",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "65ab07a1944978ed612a9f3e2d6a890629a65e49f1756b72023c42c03273fa77",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMultiplayerGameMode@@@@6B@",
+          "target": 8024472,
+          "addend": 0,
+          "resolved": 8024472
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1869182
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1869147
+        }
+      ],
+      "source_sha256": "bd1c4a4b7362494ba993b416edd3d1ab35cf4363c51b11a437e6db22ebda60cb",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002592,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6002672,
+      "method": "5b97f0",
+      "body_bytes": 73,
+      "body_sha256": "788a87f759cc4fdcfb96f49a8ba05ee1c62234282a50a7c854f7e2c579ce81e8",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "47d70273ef6698fa6c2c0e2dc54acadc54e8f285c77a739ad5dd4e30fdd4cc81",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMultiplayerGameMode@@@@6B@",
+          "target": 8024472,
+          "addend": 0,
+          "resolved": 8024472
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1869102
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1869067
+        }
+      ],
+      "source_sha256": "bd1c4a4b7362494ba993b416edd3d1ab35cf4363c51b11a437e6db22ebda60cb",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002672,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6002912,
+      "method": "5b98e0",
+      "body_bytes": 74,
+      "body_sha256": "b96891f28e2bdfc8f5c19b612a37e9b3231f702a535346c435759c2be01b7c0e",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "958c356f6e1196a17dafb58d410b0bdae3693ab6e5f87aa42b08f1b8b7f5d0c7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAVMultiplayerGameMode@@@@QAE@HPBQAVMultiplayerGameMode@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAVMultiplayerGameMode@@@@QAE@HPBQAVMultiplayerGameMode@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMultiplayerGameMode@@@@6B@",
+          "target": 8024472,
+          "addend": 0,
+          "resolved": 8024472
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1869565
+        }
+      ],
+      "source_sha256": "bd1c4a4b7362494ba993b416edd3d1ab35cf4363c51b11a437e6db22ebda60cb",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002912,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-16"
     }
   ]
 }

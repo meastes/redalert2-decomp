@@ -61,6 +61,8 @@
     "_stricmp": 7872288,
     "?Compute_CRC@ObjectClass@@UBEXAAVCRCEngine@@@Z": 6114064,
     "??RCRCEngine@@QAEXH@Z": 4800304,
+    "??1ObjectClass@@UAE@XZ": 6104368,
+    "??3@YAXPAX@Z": 7871803,
     "_$E2": 5849872,
     "_$E5": 5849920,
     "_$E8": 5849952,
@@ -202,8 +204,6 @@
     "?IsNotWarping@ObjectClass@@UBE_NXZ": 4341328,
     "?GetRemapColour@ObjectClass@@UBEPAXXZ": 4341344,
     "?Ready_To_Commence@MissionClass@@UAE_NXZ": 5037536,
-    "??3@YAXPAX@Z": 7871803,
-    "??1ObjectClass@@UAE@XZ": 6104368,
     "?Do_MISSION_SLEEP@MissionClass@@UAEHXZ": 5850480,
     "?Do_MISSION_HARMLESS@MissionClass@@UAEHXZ": 5850496,
     "?Do_MISSION_AMBUSH@MissionClass@@UAEHXZ": 5850512,
@@ -3163,6 +3163,109 @@
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5853408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5853472,
+      "method": "00595120",
+      "body_bytes": 3,
+      "body_sha256": "1d10894625976bca9d8906f3ecf1e766b94e9219ec3bf1c30e02feea5e18e45a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2a2f950faf0d7851fcb17366fb6bc179054ac4270b9c00d37aa03373db6cc20a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_It@ObjectClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z",
+      "symbol_prefix": "?Draw_It@ObjectClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source": "rebuild/src/mission.cpp",
+      "population": "rebuild-mission",
+      "source_order": 5853472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5853488,
+      "method": "00595130",
+      "body_bytes": 57,
+      "body_sha256": "1d6bc23e7a09f1d3a30a1d04d34aa9770cc3f4c3bcaded0ad32a9f6de3261e9a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "baeda191c0ee0d25c6fb9ae2abba37395340c0e6c550adad4874e95f1f657a05",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMissionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMissionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7MissionClass@@6BIPersistStream@@@",
+          "target": 8020480,
+          "addend": 0,
+          "resolved": 8020480
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7MissionClass@@6BIRTTITypeInfo@@@",
+          "target": 8020452,
+          "addend": 0,
+          "resolved": 8020452
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7MissionClass@@6BINoticeSink@@@",
+          "target": 8020444,
+          "addend": 0,
+          "resolved": 8020444
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7MissionClass@@6BINoticeSource@@@",
+          "target": 8020436,
+          "addend": 0,
+          "resolved": 8020436
+        },
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "??1ObjectClass@@UAE@XZ",
+          "target": 6104368,
+          "addend": 0,
+          "resolved": 250845
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2018267
+        }
+      ],
+      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source": "rebuild/src/mission.cpp",
+      "population": "rebuild-mission",
+      "source_order": 5853488,
       "source_quality_family": "rebuild"
     }
   ]

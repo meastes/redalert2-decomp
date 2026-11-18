@@ -14293,6 +14293,104 @@
       "source_order": 4706208,
       "source_quality_family": "rebuild",
       "bound_population": "population-4352"
+    },
+    {
+      "entry": 4706240,
+      "method": "0047cfc0",
+      "body_bytes": 56,
+      "body_sha256": "3c57e7b1b2e78d06ab3ce7782f7d8375b4dd1e3d9a81e0fccf5871b4b72e6d67",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c43e3f550a889ee637bbffed7e49aacce9c2731e332450d47bc5b59bb067a08e",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Adjacent_Cell@@YI?AVCell@@ABV1@W4FacingType@@@Z",
+      "symbol_prefix": "?Adjacent_Cell@@YI?AVCell@@ABV1@W4FacingType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        }
+      ],
+      "source_sha256": "7897806a483dc193719d863d9c0bb6d0ea73ec11cc022cfcea12376f54bb7a20",
+      "source": "rebuild/src/cell.cpp",
+      "population": "rebuild-cell",
+      "source_order": 4706240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4706304,
+      "method": "0047d000",
+      "body_bytes": 52,
+      "body_sha256": "04a167785572ef2595ea708bb21c2edec52eb51819b0690f450a7e3ef51352d0",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "cc298cd7e595cc8e05635e1ab776e6fb49610f80e2154e01421261327f6c88ea",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??G?$TRect@H@@QBE?BV0@ABV?$TPoint2D@H@@@Z",
+      "symbol_prefix": "??G?$TRect@H@@QBE?BV0@ABV?$TPoint2D@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7897806a483dc193719d863d9c0bb6d0ea73ec11cc022cfcea12376f54bb7a20",
+      "source": "rebuild/src/cell.cpp",
+      "population": "rebuild-cell",
+      "source_order": 4706304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4706368,
+      "method": "0047d040",
+      "body_bytes": 32,
+      "body_sha256": "ef850fe747d4988a9c25ce9696cb42512d3d49e3649534ac3881a170065cbe00",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ef850fe747d4988a9c25ce9696cb42512d3d49e3649534ac3881a170065cbe00",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??G?$TPoint2D@H@@QBE?BV0@ABV0@@Z",
+      "symbol_prefix": "??G?$TPoint2D@H@@QBE?BV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7897806a483dc193719d863d9c0bb6d0ea73ec11cc022cfcea12376f54bb7a20",
+      "source": "rebuild/src/cell.cpp",
+      "population": "rebuild-cell",
+      "source_order": 4706368,
+      "source_quality_family": "rebuild"
     }
   ]
 }

@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
  ******************************************************************************/
@@ -99,10 +100,10 @@ VoxelRenderOrientation VoxelRenderOrientations[VOXEL_BOUNDS_COUNT] = {
 	{ 1, 7, 4, 6, 3, 0, 1, 1, -1 }
 };
 
-extern float VoxelNormals1[][3];
-extern float VoxelNormals2[][3];
-extern float VoxelNormals3[][3];
-extern float VoxelNormals4[][3];
+extern float VoxelNormals1[16][3];
+extern float VoxelNormals2[36][3];
+extern float VoxelNormals3[64][3];
+extern float VoxelNormals4[245][3];
 
 const Vector3 *VoxelNormalTables[] =
 {
@@ -111,6 +112,18 @@ const Vector3 *VoxelNormalTables[] =
 	(const Vector3 *)VoxelNormals2,
 	(const Vector3 *)VoxelNormals3,
 	(const Vector3 *)VoxelNormals4,
+};
+
+/*
+**	RA2 keeps the entry counts right after the table pointers.
+*/
+int VoxelNormalTableEntryCount[] =
+{
+	0,
+	ARRAY_SIZE(VoxelNormals1),
+	ARRAY_SIZE(VoxelNormals2),
+	ARRAY_SIZE(VoxelNormals3),
+	ARRAY_SIZE(VoxelNormals4),
 };
 
 
@@ -493,15 +506,6 @@ float VoxelNormals4[][3] = {
 	{    -0.328188,      0.140251,    0.93414301}
 };
 
-
-int VoxelNormalTableEntryCount[] =
-{
-	0,
-	ARRAY_SIZE(VoxelNormals1),
-	ARRAY_SIZE(VoxelNormals2),
-	ARRAY_SIZE(VoxelNormals3),
-	ARRAY_SIZE(VoxelNormals4),
-};
 
 
 /// <summary>
@@ -2254,6 +2258,27 @@ void Precalculate_Normal_Lookup(Vector3 const & light, int normal_type)
 }
 
 
+/*
+ * The specular term and the halfway vector of the lookup below (ra2-decomp's voxlib.cpp): the
+ * halfway vector is normalised with the fast square root of its own squared length.
+ */
+inline float Specular_Term(Vector3 const & normal, Vector3 const & halfway, float specular_strength)
+{
+	float halfway_dot = normal * halfway;
+	return(halfway_dot / (specular_strength - halfway_dot * specular_strength + halfway_dot));
+}
+
+inline Vector3 Halfway_Vector(Vector3 const & light, Vector3 const & viewer)
+{
+	Vector3 sum = viewer + light;
+	float len = (float)fastmath::sqrt(sum.X*sum.X + sum.Y*sum.Y + sum.Z*sum.Z);
+	if (len != 0.0) {
+		return(sum / len);
+	}
+	return(sum);
+}
+
+
 /// <summary>
 /// Builds the voxel normal lighting lookup with a specular highlight.
 /// This routine is used by the voxel draw system when the scene lighting calls for a
@@ -2272,7 +2297,7 @@ void Precalculate_Normal_Lookup(Vector3 const & light, Vector3 const & viewer, f
 	/*
 	 * Halfway vector between light direction and view direction (Blinn-Phong model)
 	 */
-	Vector3 halfway = Normalize(viewer + light);
+	Vector3 halfway = Halfway_Vector(light, viewer);
 
 	for (int i = 0; i < VoxelNormalTableEntryCount[normal_type]; i++) {
 
@@ -2284,14 +2309,10 @@ void Precalculate_Normal_Lookup(Vector3 const & light, Vector3 const & viewer, f
 		float diffuse = normal * light;
 
 		/*
-		 * Specular term: cosine of angle between normal and halfway vector
+		 * Specular term: cosine of angle between normal and halfway vector, with the empirical
+		 * boost that shapes the highlight
 		 */
-		float halfway_dot = normal * halfway;
-
-		/*
-		 * Specular boost (empirical) - the formula adjusts how specular highlights behave
-		 */
-		float specular = halfway_dot / (specular_strength - halfway_dot * specular_strength + halfway_dot);
+		float specular = Specular_Term(normal, halfway, specular_strength);
 
 		/*
 		 * Clamp both values to [0, inf)

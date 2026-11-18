@@ -4196,6 +4196,93 @@
       "population": "rebuild-fly",
       "source_order": 4979216,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4979440,
+      "method": "004bfaf0",
+      "body_bytes": 6,
+      "body_sha256": "ac8cd0e1ee6cb471173e25794fc3a6bb367c8911e26558695fdf344e7e55004d",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "a8f8fbbad64f7b608768446def5d0a79d168288edbea6a7392986f77e58d7cae",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@FlyLocomotionClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@FlyLocomotionClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "187f7995d4a89bb443d0c7d3ff32de47e52a20b4b455d63d7171fec46334a0ac",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4979440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4979456,
+      "method": "004bfb00",
+      "body_bytes": 43,
+      "body_sha256": "7c953d4f63d77f90d098bb3b27bb97c5395198ace31d0d2624ad845d7696c034",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0aef9d417406cebdee7062eb19f9193f22c7b94382cfb52c403bed6a3f2908b9",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GFlyLocomotionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GFlyLocomotionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7FlyLocomotionClass@@6BIPersistStream@@@",
+          "target": 7999692,
+          "addend": 0,
+          "resolved": 7999692
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7FlyLocomotionClass@@6BILocomotion@@@",
+          "target": 7999492,
+          "addend": 0,
+          "resolved": 7999492
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 513243
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2892313
+        }
+      ],
+      "source_sha256": "187f7995d4a89bb443d0c7d3ff32de47e52a20b4b455d63d7171fec46334a0ac",
+      "source": "rebuild/src/fly.cpp",
+      "population": "rebuild-fly",
+      "source_order": 4979456,
+      "source_quality_family": "rebuild"
     }
   ]
 }

@@ -145,6 +145,20 @@ comparable across the whole series; `bytes_exact` is comparable only from 16:07Z
   include/velocity.h:74). TibSun's form, through a `TVelocity2D<T>(x, y)` temporary, leaves
   `AircraftClass::Fire_At` (0x415790) 8 bytes of frame short; every other row of the tree is unchanged.
 
+- **DoType has RA2's 38 sequences; rows that flip with it by declaration count are "exact form,
+  count-sensitive"** (review session, 2026-11-18; lane R20). `do.hh` lists the 38 keys of SequenceName
+  (Tread .. Panic); infantry spells its raw sequence numbers by these names. Two unflagged rows whose exact
+  text depends only on the number of declarations before them (wonline's Draw_Player_List, sidebar's
+  SelectClass::Action) are guarded with the label "exact form, count-sensitive" and listed in their unit's
+  `count_sensitive` in `units.json` with the probed windows; the census and the progress line count them
+  apart from the parked tail. Headers are never padded to move a count: `tools/countsens.py [--write]`
+  tries every such row again at a landing whose headers changed and takes the guard off when the row is
+  exact again with nothing lost. Encode_Game_Options (judgment-flagged) is parked as an ordinary draft.
+- **BlitTransLucent50<unsigned short>::BlitForward is the original's inline-assembly copy** (owner, lane R20).
+  The member is declared in the class, TibSun's loop is a guarded out-of-class draft, and the vtable slot
+  binds to 0x487080; likewise the voxel draw functions the VoxelDrawFunctions table points to bind from its
+  entries.
+
 ## Structure gate
 
 `tools/rebuild.py catalog` refuses to land a tree that breaks the structure budget in

@@ -68,6 +68,9 @@
     "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
     "?Release@LocomotionClass@@UAGKXZ": 5493360,
     "??3@YAXPAX@Z": 7871803,
+    "?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 7469744,
+    "?AddRef@WalkLocomotionClass@@UAGKXZ": 7470560,
+    "?Release@WalkLocomotionClass@@UAGKXZ": 7470576,
     "_$E2": 7461904,
     "_$E5": 7461936,
     "_$E8": 7461984,
@@ -127,8 +130,6 @@
     "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
     "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
     "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
-    "?AddRef@WalkLocomotionClass@@UAGKXZ": 7470560,
-    "?Release@WalkLocomotionClass@@UAGKXZ": 7470576,
     "?Is_Piggybacking@WalkLocomotionClass@@UAGEXZ": 7470592,
     "?Stop_Movement_Animation@WalkLocomotionClass@@UAGXXZ": 7470624,
     "?Fetch_Object_Size@WalkLocomotionClass@@UBEHXZ": 7470640,
@@ -147,7 +148,6 @@
     "?Load@WalkLocomotionClass@@UAGJPAUIStream@@@Z": 7469376,
     "?Save@WalkLocomotionClass@@UAGJPAUIStream@@H@Z": 7469504,
     "?In_Which_Layer@WalkLocomotionClass@@UAG?AW4LayerType@@XZ": 7469728,
-    "?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 7469744,
     "?Begin_Piggyback@WalkLocomotionClass@@UAGJPAUILocomotion@@@Z": 7469840,
     "?End_Piggyback@WalkLocomotionClass@@UAGJPAPAUILocomotion@@@Z": 7469920,
     "?Is_Ok_To_End@WalkLocomotionClass@@UAGEXZ": 7469984,
@@ -2533,6 +2533,222 @@
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470736,
+      "method": "0071fe90",
+      "body_bytes": 10,
+      "body_sha256": "0ff6d9d505608b5acb50ccff09795394cba01605803916eb770975408030697e",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "0ff6d9d505608b5acb50ccff09795394cba01605803916eb770975408030697e",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@WalkLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@WalkLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 7469744,
+          "addend": 0,
+          "resolved": 4294966294
+        }
+      ],
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470752,
+      "method": "0071fea0",
+      "body_bytes": 10,
+      "body_sha256": "a1e5f677641e08cc992807e156345a588e0359c30da68e3a29240b19d442a946",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "a1e5f677641e08cc992807e156345a588e0359c30da68e3a29240b19d442a946",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@WalkLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@WalkLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@WalkLocomotionClass@@UAGKXZ",
+          "target": 7470560,
+          "addend": 0,
+          "resolved": 4294967094
+        }
+      ],
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470768,
+      "method": "0071feb0",
+      "body_bytes": 10,
+      "body_sha256": "a1e5f677641e08cc992807e156345a588e0359c30da68e3a29240b19d442a946",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "a1e5f677641e08cc992807e156345a588e0359c30da68e3a29240b19d442a946",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@WalkLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@WalkLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@WalkLocomotionClass@@UAGKXZ",
+          "target": 7470576,
+          "addend": 0,
+          "resolved": 4294967094
+        }
+      ],
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470784,
+      "method": "0071fec0",
+      "body_bytes": 10,
+      "body_sha256": "cb525f57ea9d53540c5cf023887939e824218ce9a2fb21fd04867766771fd1b5",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "cb525f57ea9d53540c5cf023887939e824218ce9a2fb21fd04867766771fd1b5",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@WalkLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@WalkLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 7469744,
+          "addend": 0,
+          "resolved": 4294966246
+        }
+      ],
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470800,
+      "method": "0071fed0",
+      "body_bytes": 10,
+      "body_sha256": "68729780cef199b4e7a6972c8b40db9b62417abee7f6ec42908cbf60feb7b296",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "68729780cef199b4e7a6972c8b40db9b62417abee7f6ec42908cbf60feb7b296",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@WalkLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?AddRef@WalkLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@WalkLocomotionClass@@UAGKXZ",
+          "target": 7470560,
+          "addend": 0,
+          "resolved": 4294967046
+        }
+      ],
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470816,
+      "method": "0071fee0",
+      "body_bytes": 10,
+      "body_sha256": "68729780cef199b4e7a6972c8b40db9b62417abee7f6ec42908cbf60feb7b296",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "68729780cef199b4e7a6972c8b40db9b62417abee7f6ec42908cbf60feb7b296",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@WalkLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?Release@WalkLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@WalkLocomotionClass@@UAGKXZ",
+          "target": 7470576,
+          "addend": 0,
+          "resolved": 4294967046
+        }
+      ],
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470816,
       "source_quality_family": "rebuild"
     }
   ]

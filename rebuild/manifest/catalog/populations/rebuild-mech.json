@@ -50,6 +50,7 @@
     "_CLSID_MechLocomotion": 8003552,
     "?Load@LocomotionClass@@UAGJPAUIStream@@@Z": 5493696,
     "?Is_Rotating@FacingClass@@QBE_NXZ": 4951184,
+    "??3@YAXPAX@Z": 7871803,
     "_$E2": 5838048,
     "_$E5": 5838096,
     "_$E8": 5838128,
@@ -115,7 +116,6 @@
     "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
     "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
     "?Fetch_Object_Size@MechLocomotionClass@@UBEHXZ": 5845760,
-    "??3@YAXPAX@Z": 7871803,
     "??1MechLocomotionClass@@UAE@XZ": 5838640,
     "?Is_Moving@MechLocomotionClass@@UAGEXZ": 5838672,
     "?Destination@MechLocomotionClass@@UAG?AUCoordStruct@@XZ": 5838688,
@@ -1798,6 +1798,156 @@
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5845408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5845520,
+      "method": "00593210",
+      "body_bytes": 70,
+      "body_sha256": "23cb4cf81db35714cc58f24739ae49d6ae449f1cbf436f57f8905994ec80d537",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "6fbd4e7494e486044aa040a6bd69012b2b100e1fed5468c63f3d548644ef5477",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mark_All_Occupation_Bits@MechLocomotionClass@@UAGXH@Z",
+      "symbol_prefix": "?Mark_All_Occupation_Bits@MechLocomotionClass@@UAGXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5845520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5845600,
+      "method": "00593260",
+      "body_bytes": 153,
+      "body_sha256": "a3f872c67250374a6dbfcd9c4d6581ee191f6d6c13e03a07be1a6d138c70e6bd",
+      "padding_bytes": 7,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "4cf0c6ed01eef1b925f58e01779ed9c2d1e2f21ec77ef72c8a0bfc6faeea354f",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving_Here@MechLocomotionClass@@UAGEUCoordStruct@@@Z",
+      "symbol_prefix": "?Is_Moving_Here@MechLocomotionClass@@UAGEUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10947408,
+          "addend": 0,
+          "resolved": 10947408
+        }
+      ],
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5845600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5845760,
+      "method": "00593300",
+      "body_bytes": 6,
+      "body_sha256": "bcf1f08b44afac5552d9f3f862c56ffaa519d689f14906117513fee6f0a077ea",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8358889164954be2abc24694261e6d741aec86999adbbc7d9f9df1df2215c7f7",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@MechLocomotionClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@MechLocomotionClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5845760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5845776,
+      "method": "00593310",
+      "body_bytes": 43,
+      "body_sha256": "d3e5933ee1854c64c0881af73220b62709178e4003ccaf9ebb4826c9abcebba8",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a1784f4f9d67816cbaea01e2e9232bbc647d798e6a1190b636cf72f0b5d51093",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMechLocomotionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMechLocomotionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7MechLocomotionClass@@6BIPersistStream@@@",
+          "target": 8020340,
+          "addend": 0,
+          "resolved": 8020340
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7MechLocomotionClass@@6BILocomotion@@@",
+          "target": 8020140,
+          "addend": 0,
+          "resolved": 8020140
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 4294614219
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2025993
+        }
+      ],
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5845776,
       "source_quality_family": "rebuild"
     }
   ]

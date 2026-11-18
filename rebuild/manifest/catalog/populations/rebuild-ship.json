@@ -81,6 +81,12 @@
     "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
     "_CLSID_ShipLocomotion": 8003568,
     "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
+    "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
+    "?Release@LocomotionClass@@UAGKXZ": 5493360,
+    "??3@YAXPAX@Z": 7871803,
+    "?QueryInterface@ShipLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 6772704,
+    "?AddRef@ShipLocomotionClass@@UAGKXZ": 6794048,
+    "?Release@ShipLocomotionClass@@UAGKXZ": 6794064,
     "?Track13@ShipLocomotionClass@@0QBUTrackType@1@B": 8038880,
     "?Track12@ShipLocomotionClass@@0QBUTrackType@1@B": 8038720,
     "?Track11@ShipLocomotionClass@@0QBUTrackType@1@B": 8038552,
@@ -145,10 +151,8 @@
     "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ": 4869200,
     "?Is_Piggybacking@ShipLocomotionClass@@UAGEXZ": 6794080,
     "?Fetch_Object_Size@ShipLocomotionClass@@UBEHXZ": 6794112,
-    "??3@YAXPAX@Z": 7871803,
     "??1ShipLocomotionClass@@UAE@XZ": 6772384,
     "?Piggyback_CLSID@ShipLocomotionClass@@UAGJPAU_GUID@@@Z": 6772432,
-    "?QueryInterface@ShipLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 6772704,
     "?Load@ShipLocomotionClass@@UAGJPAUIStream@@@Z": 6772800,
     "?Save@ShipLocomotionClass@@UAGJPAUIStream@@H@Z": 6772928,
     "?Begin_Piggyback@ShipLocomotionClass@@UAGJPAUILocomotion@@@Z": 6773152,
@@ -187,10 +191,6 @@
     "?Get_Track_Number@ShipLocomotionClass@@UAGHXZ": 6794000,
     "?Get_Track_Index@ShipLocomotionClass@@UAGHXZ": 6794016,
     "?Get_Speed_Accum@ShipLocomotionClass@@UAGHXZ": 6794032,
-    "?AddRef@ShipLocomotionClass@@UAGKXZ": 6794048,
-    "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
-    "?Release@ShipLocomotionClass@@UAGKXZ": 6794064,
-    "?Release@LocomotionClass@@UAGKXZ": 5493360,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
@@ -3622,6 +3622,416 @@
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794048,
+      "method": "0067ab40",
+      "body_bytes": 13,
+      "body_sha256": "daa260a856a78fdeae618972dfcacc2849cc9411176bf7160dc095e46a2b1eb0",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8ada2b79b9aabecb6a24300a19161f1a1968d997d318435a01f42d846b2f28a5",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@ShipLocomotionClass@@UAGKXZ",
+      "symbol_prefix": "?AddRef@ShipLocomotionClass@@UAGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@LocomotionClass@@UAGKXZ",
+          "target": 5493328,
+          "addend": 0,
+          "resolved": 4293666566
+        }
+      ],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794064,
+      "method": "0067ab50",
+      "body_bytes": 13,
+      "body_sha256": "c8ff2c6ff6723d4572a716f42b1573588c4e31c8ac35d7d417a80efb6aba1ba5",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0184fe95307f08ea5c2ae1e84b406f66ac399254040f4e09bdc906ccd1b29956",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@ShipLocomotionClass@@UAGKXZ",
+      "symbol_prefix": "?Release@ShipLocomotionClass@@UAGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@LocomotionClass@@UAGKXZ",
+          "target": 5493360,
+          "addend": 0,
+          "resolved": 4293666582
+        }
+      ],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794080,
+      "method": "0067ab60",
+      "body_bytes": 17,
+      "body_sha256": "7a7fbeedf5866b8176b462ea8c7386637d1233f9aa33a0618865168c408405e9",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a59f8bde7a20b84e46ded8a67de51465773b0a8d836a5dc703a2a167fc8009a1",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Piggybacking@ShipLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Piggybacking@ShipLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794112,
+      "method": "0067ab80",
+      "body_bytes": 6,
+      "body_sha256": "8d258eb00a7b982a463e2fce557d91d035bf96ef018384ee252fbd4141536838",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7f1f716fe5d0d11b9655699b70a561a52ed9596d272008f5ecb28e255a689122",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@ShipLocomotionClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@ShipLocomotionClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794128,
+      "method": "0067ab90",
+      "body_bytes": 65,
+      "body_sha256": "e5a28e74515417cb9a169803f820a2342b5b62c3d7cf8ac1880102ccc2832ffb",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "6cb418a01e53745190424b2f120d49dbba2a613fe1c74e83f140537096f02bed",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GShipLocomotionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GShipLocomotionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7ShipLocomotionClass@@6BIPersistStream@@@",
+          "target": 8040964,
+          "addend": 0,
+          "resolved": 8040964
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7ShipLocomotionClass@@6BILocomotion@@@",
+          "target": 8040764,
+          "addend": 0,
+          "resolved": 8040764
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7ShipLocomotionClass@@6B@",
+          "target": 8040728,
+          "addend": 0,
+          "resolved": 8040728
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 4293665845
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1077619
+        }
+      ],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794208,
+      "method": "0067abe0",
+      "body_bytes": 10,
+      "body_sha256": "6b052971854e470744da11821e8d210f64e33625710c34f944693b59dea5b983",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "6b052971854e470744da11821e8d210f64e33625710c34f944693b59dea5b983",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@ShipLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@ShipLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@ShipLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 6772704,
+          "addend": 0,
+          "resolved": 4294945782
+        }
+      ],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794224,
+      "method": "0067abf0",
+      "body_bytes": 10,
+      "body_sha256": "92a46f83d3ff012ff14b05c5b7583740ee964270b0b5ea7faa34683eb4565393",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "92a46f83d3ff012ff14b05c5b7583740ee964270b0b5ea7faa34683eb4565393",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@ShipLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@ShipLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@ShipLocomotionClass@@UAGKXZ",
+          "target": 6794048,
+          "addend": 0,
+          "resolved": 4294967110
+        }
+      ],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794240,
+      "method": "0067ac00",
+      "body_bytes": 10,
+      "body_sha256": "92a46f83d3ff012ff14b05c5b7583740ee964270b0b5ea7faa34683eb4565393",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "92a46f83d3ff012ff14b05c5b7583740ee964270b0b5ea7faa34683eb4565393",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@ShipLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@ShipLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@ShipLocomotionClass@@UAGKXZ",
+          "target": 6794064,
+          "addend": 0,
+          "resolved": 4294967110
+        }
+      ],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794256,
+      "method": "0067ac10",
+      "body_bytes": 10,
+      "body_sha256": "15eb658c59205e5924d92f13eef94c142fb9abbaeae86c4e8741462377a3b87a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "15eb658c59205e5924d92f13eef94c142fb9abbaeae86c4e8741462377a3b87a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@ShipLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@ShipLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@ShipLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 6772704,
+          "addend": 0,
+          "resolved": 4294945734
+        }
+      ],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794272,
+      "method": "0067ac20",
+      "body_bytes": 10,
+      "body_sha256": "0e7d5fe827dc9104371cbc4a8463bd04640bc3e3a169c07af238c57fd5bddb92",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "0e7d5fe827dc9104371cbc4a8463bd04640bc3e3a169c07af238c57fd5bddb92",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@ShipLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?AddRef@ShipLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@ShipLocomotionClass@@UAGKXZ",
+          "target": 6794048,
+          "addend": 0,
+          "resolved": 4294967062
+        }
+      ],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6794288,
+      "method": "0067ac30",
+      "body_bytes": 10,
+      "body_sha256": "0e7d5fe827dc9104371cbc4a8463bd04640bc3e3a169c07af238c57fd5bddb92",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "0e7d5fe827dc9104371cbc4a8463bd04640bc3e3a169c07af238c57fd5bddb92",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@ShipLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?Release@ShipLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@ShipLocomotionClass@@UAGKXZ",
+          "target": 6794064,
+          "addend": 0,
+          "resolved": 4294967062
+        }
+      ],
+      "source_sha256": "f50aad75f626b9da17be677510ab2f0b7ff58a21f2c56781b748252fa7b9d7d8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6794288,
       "source_quality_family": "rebuild"
     }
   ]

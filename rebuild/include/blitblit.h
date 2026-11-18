@@ -1071,17 +1071,7 @@ template<class T>
 class BlitTransLucent50 : public Blitter {
 	public:
 		BlitTransLucent50(T const * translator, T mask) : TranslateTable(translator), Mask(mask) {assert(TranslateTable != NULL);}
-		virtual void BlitForward(void * dest, void const * source, int length, int z_min = 0, void * z_buff = NULL, void * a_buff = NULL, int alpha_level = 1000, int warp_offset = 0) const override
-		{
-			for (int index = 0; index < length; index++) {
-				unsigned char color = *(unsigned char const *)source;
-				source = ((unsigned char *)source) + 1;
-				if (color != 0) {
-					*((T *)dest) = (T)((((*(T *)dest) >> 1) & Mask) + ((TranslateTable[color] >> 1) & Mask));
-				}
-				dest = ((T *)dest) + 1;
-			}
-		}
+		virtual void BlitForward(void * dest, void const * source, int length, int z_min = 0, void * z_buff = NULL, void * a_buff = NULL, int alpha_level = 1000, int warp_offset = 0) const override; // RA2: 0x00487080 (unsigned short), an inline-assembly blend
 
 		/*
 		**	The backward moving method will probably never be called in actual practice.
@@ -1094,6 +1084,21 @@ class BlitTransLucent50 : public Blitter {
 		T const * TranslateTable;
 		T Mask;
 };
+
+#ifdef RA2_NON_MATCHING // not exact: TibSun's C loop (2026-11-18); the original's 16 bit copy keeps the mask and table in frame locals and blends in an __asm block, which no TibSun text has
+template<class T>
+void BlitTransLucent50<T>::BlitForward(void * dest, void const * source, int length, int z_min, void * z_buff, void * a_buff, int alpha_level, int warp_offset) const
+{
+	for (int index = 0; index < length; index++) {
+		unsigned char color = *(unsigned char const *)source;
+		source = ((unsigned char *)source) + 1;
+		if (color != 0) {
+			*((T *)dest) = (T)((((*(T *)dest) >> 1) & Mask) + ((TranslateTable[color] >> 1) & Mask));
+		}
+		dest = ((T *)dest) + 1;
+	}
+}
+#endif
 
 
 /*

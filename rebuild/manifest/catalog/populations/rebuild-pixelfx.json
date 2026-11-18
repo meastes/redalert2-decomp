@@ -12,11 +12,11 @@
     "_rand": 7882410,
     "??_7PixelFXClass@@6B@": 8028540,
     "?Init@PixelFXClass@@QAEXH@Z": 6351648,
+    "??3@YAXPAX@Z": 7871803,
     "??0PixelFXClass@@QAE@XZ": 6351856,
     "??_GPixelFXClass@@UAEPAXI@Z": 6352160,
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVPixelFXClass@@@8": 8305040,
-    "??3@YAXPAX@Z": 7871803,
     "??0PixelFXClass@@QAE@H@Z": 6351888,
     "?Update@PixelFXClass@@QAEXH@Z": 6351920,
     "?Expire@PixelFXClass@@QAE_NH@Z": 6352064,
@@ -259,6 +259,86 @@
       "source": "rebuild/src/pixelfx.cpp",
       "population": "rebuild-pixelfx",
       "source_order": 6352112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6352144,
+      "method": "0060ed10",
+      "body_bytes": 7,
+      "body_sha256": "25785f4931df9542146f9f286319971e0a235cf4627f93e4ef822774985227e2",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "26c4f4a49809a6113031882ff8e7ae687f950470c7c113a714b0a3033778abce",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1PixelFXClass@@UAE@XZ",
+      "symbol_prefix": "??1PixelFXClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7PixelFXClass@@6B@",
+          "target": 8028540,
+          "addend": 0,
+          "resolved": 8028540
+        }
+      ],
+      "source_sha256": "fd67cd018fb6ef8d02f0eef4f87e48efcc1cc0bbca568e4cd77459f143243c49",
+      "source": "rebuild/src/pixelfx.cpp",
+      "population": "rebuild-pixelfx",
+      "source_order": 6352144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6352160,
+      "method": "0060ed20",
+      "body_bytes": 32,
+      "body_sha256": "8a11e2d32e96977582d3fbd5cdf5ed730c3842bba34559e6722a9abd91f325d2",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8a11e2d32e96977582d3fbd5cdf5ed730c3842bba34559e6722a9abd91f325d2",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GPixelFXClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GPixelFXClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7PixelFXClass@@6B@",
+          "target": 8028540,
+          "addend": 0,
+          "resolved": 8028540
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1519620
+        }
+      ],
+      "source_sha256": "fd67cd018fb6ef8d02f0eef4f87e48efcc1cc0bbca568e4cd77459f143243c49",
+      "source": "rebuild/src/pixelfx.cpp",
+      "population": "rebuild-pixelfx",
+      "source_order": 6352160,
       "source_quality_family": "rebuild"
     }
   ]

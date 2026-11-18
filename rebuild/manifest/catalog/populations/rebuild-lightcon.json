@@ -57,6 +57,8 @@
     "?GreenRight@DSurface@@2HA": 8728520,
     "?RedLeft@DSurface@@2HA": 8728508,
     "?RedRight@DSurface@@2HA": 8728504,
+    "??1ConvertClass@@UAE@XZ": 4739856,
+    "??3@YAXPAX@Z": 7871803,
     "_$E2": 5473904,
     "_$E5": 5473936,
     "_$E8": 5473984,
@@ -76,8 +78,6 @@
     "??_R0?AVConvertClass@@@8": 8207080,
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVLightConvertClass@@@8": 8255600,
-    "??3@YAXPAX@Z": 7871803,
-    "??1ConvertClass@@UAE@XZ": 4739856,
     "??1LightConvertClass@@UAE@XZ": 5476128
   },
   "regions": [
@@ -1178,6 +1178,103 @@
       "population": "rebuild-lightcon",
       "source_order": 5474976,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5476128,
+      "method": "00538f20",
+      "body_bytes": 11,
+      "body_sha256": "e697593de6158976ad7551c4b65818a9d1692dc73ddd791de55c9fb11d99c047",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "a774f9c8c2ddd33da8a402dd9fbf4cbb77288caec305d0a00929238d95590e88",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1LightConvertClass@@UAE@XZ",
+      "symbol_prefix": "??1LightConvertClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7LightConvertClass@@6B@",
+          "target": 8017372,
+          "addend": 0,
+          "resolved": 8017372
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??1ConvertClass@@UAE@XZ",
+          "target": 4739856,
+          "addend": 0,
+          "resolved": 4294231013
+        }
+      ],
+      "source_sha256": "411fee2670d9e7519148447ee9477df5ef9af49ebb77c6834319f0bd096b9cbd",
+      "source": "rebuild/src/lightcon.cpp",
+      "population": "rebuild-lightcon",
+      "source_order": 5476128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5476144,
+      "method": "00538f30",
+      "body_bytes": 36,
+      "body_sha256": "d14306b1654b594b15e6f4c06fb246b60b73c01c16d82a82056bfde47ba4525c",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f7870212582a5f641fee15a7ecec7d98ba9c5dc7dc6ccdb6685d257e4c4c8851",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GLightConvertClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GLightConvertClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7LightConvertClass@@6B@",
+          "target": 8017372,
+          "addend": 0,
+          "resolved": 8017372
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1ConvertClass@@UAE@XZ",
+          "target": 4739856,
+          "addend": 0,
+          "resolved": 4294230994
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2395632
+        }
+      ],
+      "source_sha256": "411fee2670d9e7519148447ee9477df5ef9af49ebb77c6834319f0bd096b9cbd",
+      "source": "rebuild/src/lightcon.cpp",
+      "population": "rebuild-lightcon",
+      "source_order": 5476144,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
     }
   ]
 }
