@@ -601,6 +601,48 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
 * **Next**: the -MPDEBUG sync record's object lists; longer games with orders (RA2's native-lan-pair gives orders
   and control groups); the both-games app on Windows (engines as DLLs).
 
+### Lane Y15 (2026-11-17): globals that are members, team buttons on touch, stand-ins
+
+* **Globals inside a defined object are its members** (tools/yr_member_aliases.py, data/member_aliases.tsv): gamemd.exe
+  names some fields of its global objects as globals (Game::PlayerColor is Session.PrefColor, DAT_00884D2E is Map's
+  TabClass::unknown_byte_5546, DAT_00B054D4 is ColorSchemes' item array). The tool finds every global yr_data.py would
+  give storage whose address lies inside a unit-defined object (owners from globals.tsv, template types included),
+  maps the offset to the member by the owner unit's clang layouts (i686-msvc against arm64 and x86-64 Windows,
+  original_layouts.py --game yr), and yr_units.py appends to the owner's unit one assembler alias per name (owner +
+  the member's native offset; `#if __x86_64__` for Windows). 48 names, 15 owners: Session (Unsorted::SWAllowed =
+  Options.SWAllowed, Unsorted::MuteSWLaunches, Game::RecordingFlag = the Record bit-field's byte, Game::PlayerColor /
+  PlayerCount / ChatMask / PreCalcFrameRate, GameModeOptionsClass::Instance, ...), Map (20: the pending placement,
+  the radar, the command bar's flags), the vectors' raw counts and arrays (Houses, ColorSchemes, CurrentObject,
+  IngameVQ, VoxArray), TargetTracker, CDList, WinVersion, RandomMapGen, RadarStatics' two buttons, DAT_00ABFEC8. Not
+  merged (the tree declares an int where the member is a pointer): DAT_0088097C, DAT_0088098C, DAT_00880990 keep their
+  lane Y7 fixups (narrowed). The per-name fixups of lanes YW2, Y14 and Y7 that the rule covers are gone. Found on the
+  way: the superweapon timer's flash read a null DAT_00B054D4 (yr-native-skirmish-long's fault in
+  Tactical::DrawTimer once a timer reached zero), and Delete_All_Objects sorted TargetTracker's table with the 8-byte
+  entry size (fixups: sizeof, Archive declared a pointer). ctest `yr-native-member-aliases`: the table is what the
+  build gives (rerun the tool after a header change, then build again).
+* **Pointer tables declared without a bound** (fixups.json): DAT_00822774 (TXT_EASY/NORMAL/HARD), DAT_0081B538,
+  DAT_00823FD4 hold their pointers followed by the strings; with the extent to the next global the strings were loaded
+  as pointer slots and the pointers into them reached converted storage: the campaign dialog's Difficulty label read
+  `MISSING:''`. Their bounds are the tables' own.
+* **Team buttons on touch** (both games; platform/sdl/touch.cpp, host.cpp, link/team_button_hook.cpp,
+  glue/yr_app_hooks.cpp): the command bar (TabClass::AI) gives an empty team the selection on a click, selects a team
+  with members, and disbands a team on a right click; Ctrl is not read there, which is why the toolbar's Fire toggle
+  did nothing. A hold (400 ms) on a team button now sends the right click and, 150 ms later, the click: the team
+  becomes the selection. A tap is unchanged; a mouse is unchanged. Each game answers `ra2_native_team_button_at`
+  from its bar's buttons; input scripts take `@team=N`. ctests `native-touch-team-hold` (RA2) and
+  `yr-native-touch-team`; `ios_sim_skirmish.py --team-hold` on "RA2 Duo Validation" passed.
+* **Stand-ins** (NON-EXACT, native/yr only): BuildingClass::Do_MISSION_UNLOAD (gamemd.exe 0x0044D880, read
+  instruction by instruction on the RA2 twin's shape: the Bio Reactor's and unit absorbers' unload, the war factory,
+  the gap generator); RadBeam FUN_00659AC0/FUN_00659FF0 (RA2's Compute_Pulse_Step/Compute_Swing_Step, fields checked
+  against gamemd.exe); from Red Alert 2's text (mischa85/RedAlert2, attributed): MechLocomotionClass::Movement_AI,
+  WaveClass::Draw_Sonic and Draw_Laser, ParticleClass::Gas_Behavior_AI, DSurface::Draw_Depth_Antialiased_Line;
+  UnitClass::Is_Route_Broken (TibSun's text); TechnoClass::Draw_A_Link_To (gamemd.exe 0x00704E40, the mind control
+  link, read instruction by instruction). Still open: WaveClass::FUN_007602E0 (wave type 3, 1,777 bytes). Link
+  closure (Mac) 137 -> 127.
+* **Open**: the LTNK off-map place-down/pick-up in the campaign chains (Allied 2, Soviet 7) is deterministic (the
+  same garbage coordinates every run, e.g. -1447125004,-1459498755), so it is not a pointer's low half (those vary
+  with ASLR); not found in the time box.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

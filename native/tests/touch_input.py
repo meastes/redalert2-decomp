@@ -27,6 +27,8 @@ new position (host.cpp kPointerSeenMs).
                   on the second tank selects it instead (the first tank unselected and not
                   ordered: still guarding), a tap on the first tank selects it again.
   second-modern   The same taps with Controls: Modern.
+  team-hold       (lane Y15) a hold on the command bar's Team 1 sets the team to the selection (a
+                  team that has members: the bar's click only selects it), a tap on it selects it.
   cross-classic   Allied mission 2 from the original's own save at its start (ALL02S.sav in the
                   data folder; skipped without it), Controls: Classic: Tanya there is the Germans',
                   a house of her own under the player's control (C18, the user's Duo report: "it
@@ -38,7 +40,7 @@ new position (host.cpp kPointerSeenMs).
   cross-mouse     The same as mouse clicks with Classic: the original's clicks (the GI selected
                   moves to Tanya and stays selected): the touch rule leaves a mouse alone.
 
-  touch_input.py --case two-finger|attack-move|modern|second-classic|second-modern|cross-classic|cross-modern|cross-mouse --binary <ra2-native> --data-dir <installed RA2>
+  touch_input.py --case two-finger|attack-move|modern|team-hold|second-classic|second-modern|cross-classic|cross-modern|cross-mouse --binary <ra2-native> --data-dir <installed RA2>
                  --game-exe <game.exe> [--log <file>]
 
 Without the data folder or game.exe it exits 77 (skipped), as native-census; so does the Windows
@@ -86,6 +88,16 @@ SCRIPTS = {
                        '300 tdown @MTNK', '300 tup @MTNK'],
 }
 SCRIPTS['second-modern'] = SCRIPTS['second-classic']
+# A hold on a command-bar team button sets the team (lane Y15): the first tank tapped and the bar's
+# Team 1 tapped (an empty team takes the selection: the original's click); the second tank tapped
+# and Team 1 held (~830 ms): the team becomes the second tank; a two-finger tap on the ground
+# deselects; Team 1 tapped selects the team: the second tank alone.
+SCRIPTS['team-hold'] = ['100 tdown @MTNK', '100 tup @MTNK',
+                        '150 tdown @team=1', '150 tup @team=1',
+                        '220 tdown @MTNK:1', '220 tup @MTNK:1',
+                        '300 tdown @team=1', '350 tup @team=1',
+                        '400 tdown 300 300 1', '400 tdown 360 320 2', '401 tup 300 300 1', '401 tup 360 320 2',
+                        '480 tdown @team=1', '480 tup @team=1']
 # Allied mission 2's start (C18): '@E1' is the player's first GI, '@TANY' Tanya (the Germans').
 SCRIPTS['cross-classic'] = ['20 tdown @E1', '20 tup @E1', '60 tdown @TANY', '60 tup @TANY',
                             '100 tdown @E1:1', '100 tup @E1:1', '140 tdown @TANY', '140 tup @TANY']
@@ -95,7 +107,7 @@ SCRIPTS['cross-mouse'] = ['20 click @E1', '60 click @TANY']
 SAVES = {'cross-classic': 'ALL02S.sav', 'cross-modern': 'ALL02S.sav', 'cross-mouse': 'ALL02S.sav'}
 # The run's last frame per case (each tank order takes under 100 frames to arrive).
 FRAMES = {'two-finger': 240, 'attack-move': 660, 'modern': 620, 'second-classic': 380, 'second-modern': 380,
-          'cross-classic': 180, 'cross-modern': 180, 'cross-mouse': 120}
+          'team-hold': 560, 'cross-classic': 180, 'cross-modern': 180, 'cross-mouse': 120}
 # Extra environment per case.
 ENV = {'modern': {'RA2_NATIVE_ENHANCEMENTS': 'controls=modern'},
        'second-classic': {'RA2_NATIVE_ENHANCEMENTS': 'controls=classic'},
@@ -293,6 +305,12 @@ def main():
             problems += modern_problems(st)
         elif a.case.startswith('second-'):
             problems += second_problems(st)
+        elif a.case == 'team-hold':
+            t = tanks(last)
+            if 'touch: hold on team button 1' not in out:
+                problems.append('the hold on Team 1 did not set the team (no "touch: hold on team button 1")')
+            if last[0] != 1 or len(t) < 2 or [x[0] for x in t[:2]] != [False, True]:
+                problems.append('Team 1 tapped selects %d objects, tanks %s: not the second tank alone' % (last[0], t[:2]))
         elif a.case == 'two-finger':
             if last[0] != 0:
                 problems.append('after the two-finger tap %d objects are still selected' % last[0])

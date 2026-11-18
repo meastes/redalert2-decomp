@@ -638,7 +638,8 @@ if(RA2_NATIVE_SDL)
         #     second tank selects it, in Classic and Modern; in Allied mission 2 (the original's
         #     ALL02S.sav) a tap on Tanya, the Germans' under the player's control, selects her and a
         #     tap on a GI selects it again, a mouse click keeps the original's move (C18).
-        foreach(ra2_touch_case two-finger attack-move modern second-classic second-modern cross-classic cross-modern cross-mouse)
+        #     A hold on the command bar's Team 1 sets the team to the selection (Y15).
+        foreach(ra2_touch_case two-finger attack-move modern team-hold second-classic second-modern cross-classic cross-modern cross-mouse)
           add_test(NAME native-touch-${ra2_touch_case} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/touch_input.py"
                    --case ${ra2_touch_case} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-touch-${ra2_touch_case}.log")

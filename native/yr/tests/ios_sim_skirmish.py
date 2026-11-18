@@ -66,7 +66,7 @@ def at(base, ms):
     return '%s+%d' % (base, ms)
 
 
-def play_script(play_w, play_ms):
+def play_script(play_w, play_ms, team_hold=False):
     """Menus -> skirmish -> play_ms of play with the touch gestures."""
     mx = (play_w - 800) // 2       # the menus' left edge on the wider surface
     lines = []
@@ -99,8 +99,12 @@ def play_script(play_w, play_ms):
     for k in range(1, 9):
         lines += ['%s tmove %d %d' % (at(g, t + 500 + 40 * k), 20 + (play_w - 220) * k // 8, 20 + 540 * k // 8)]
     lines += ['%s tup %d 560' % (at(g, t + 900), play_w - 200)]
+    if team_hold:
+        # (lane Y15) A hold on the command bar's Team 1 (@team=1: the host's point of the button) sets
+        # the team to the box's selection.
+        lines += ['%s tdown @team=1' % at(g, 28000), '%s tup @team=1' % at(g, 28900)]
     # The toolbar's Deploy (the MCV deploys), Guard, A-Move on and off.
-    lines += ['%s toolbar 4' % at(g, 28000)]
+    lines += ['%s toolbar 4' % at(g, 29500 if team_hold else 28000)]
     lines += ['%s toolbar 5' % at(g, 36000)]
     lines += ['%s toolbar 3' % at(g, 38000), '%s toolbar 3' % at(g, 40000)]
     # Then build: every 60 s H, a tap on the sidebar's first icon (production starts: a power
@@ -263,6 +267,9 @@ def main():
     ap.add_argument('--toggle', action='store_true',
                     help='ra2yr-one: the first game\'s main menu toggle, then the play in the other game')
     ap.add_argument('--enhancements', default='', help='RA2_NATIVE_ENHANCEMENTS for the play run ("controls=modern,...")')
+    ap.add_argument('--team-hold', action='store_true',
+                    help='(lane Y15) a hold on the command bar\'s Team 1 after the selection box sets the team: checked by the '
+                         'touch log and a harness listing of the tanks\' teams (RA2_NATIVE_ORDERS groups MTNK)')
     ap.add_argument('--opponents', type=int, default=0, choices=range(0, 8), help='0: the setup as it is')
     ap.add_argument('--difficulty', default='hard', choices=sorted(SLOT_TYPE))
     a = ap.parse_args()
@@ -293,7 +300,9 @@ def main():
             extra['RA2_NATIVE_TRAP_CONTINUE'] = '1'
         if a.enhancements:
             extra['RA2_NATIVE_ENHANCEMENTS'] = a.enhancements
-        lines = play_script(a.play_w, play_ms)
+        if a.team_hold:
+            extra['RA2_NATIVE_ORDERS'] = '; '.join('%d groups MTNK' % f for f in range(600, 6001, 300))
+        lines = play_script(a.play_w, play_ms, a.team_hold)
         if a.toggle:
             # ra2yr-one (lane Y8): one input script per engine start (one_game.cpp --engine-scripts):
             # the first game's main menu toggle (by its control id, 0x7F5E: a push button above the
@@ -343,6 +352,12 @@ def main():
         checks = [('touch: pan from', 'the swipe pan'), ('touch: left down', 'a tap')]
         if 'controls=modern' in a.enhancements:
             checks.append(('modern-controls: right click: action', "Modern's order from the two-finger tap"))
+        if a.team_hold:
+            checks.append(('touch: hold on team button 1', 'hold on Team 1'))
+            teams = [l for l in text.splitlines() if l.startswith('harness-groups MTNK')]
+            print('play: team listings %d, last %s' % (len(teams), teams[-1] if teams else None))
+            if not any(' 0' in l.replace('harness-groups MTNK', '') for l in teams):
+                failures.append('play: no tank in Team 1 after the hold')
         for needle, what in checks:
             if needle not in text:
                 failures.append('play: no %s in the log' % what)

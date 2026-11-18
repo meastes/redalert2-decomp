@@ -535,3 +535,27 @@ int UnitClass::Do_MISSION_HARVEST(void)
 	}
 	return(Current_Mission_Control().Normal_Delay() + Random_Pick(0, 2));
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y15): UnitClass::Is_Route_Broken, unmatched in ra2-decomp (called by
+// the route planning above). TibSun's text (TibSun archive code/unit.cpp; SPDX GPL-3.0-or-later,
+// Copyright 2025 Electronic Arts Inc. and OpenTS contributors, EA's GPL section 7 terms;
+// THIRD_PARTY.md); gamemd.exe's version is not compared. Behaviour code for the native build only.
+// ---------------------------------------------------------------------------------------------
+bool UnitClass::Is_Route_Broken(Cell const & from, Cell const & to) const
+{
+	if (HeightAGL >= 0 && Map.Is_Same_Cell_Zone(from, to, MZONE_NORMAL, 0, 0, 0)) {
+		if (from == to) {
+			return(false);
+		}
+		int dist = MAX(abs(to.X - from.X), abs(to.Y - from.Y));
+		if (dist == 1) {
+			return(false);
+		}
+		if (dist >= 12 || !Map.In_Local_Radar(from) || !Map.In_Local_Radar(to)) {
+			return(true);
+		}
+		return(Search.Test_Cell_Walk(from, to, this, false, Map[to].IsUnderBridge, MZONE_NORMAL) > 15);
+	}
+	return(true);
+}

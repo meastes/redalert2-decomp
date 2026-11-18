@@ -39,6 +39,7 @@ YR_MSG_PARAMS = re.compile(r'\(\s*((?:struct\s+)?HWND(?:__)?\s*\*?\s*\w*)\s*,'
 TREE = ROOT / 'yr/ra2-decomp'
 TIBSUN = ROOT / 'yr/tibsun/code'
 HEADER_SUFFIXES = ('.h', '.hh', '.hpp', '.inl')
+MEMBER_ALIASES = ROOT / 'native/yr/data/member_aliases.tsv'
 
 
 def read(path):
@@ -98,6 +99,37 @@ def apply_fixups(key, text, fixups):
     return text
 
 
+def member_aliases():
+    """{unit file name: [rows]} of native/yr/data/member_aliases.tsv (yr_member_aliases.py, lane Y15)."""
+    out = {}
+    if MEMBER_ALIASES.exists():
+        head = None
+        for line in MEMBER_ALIASES.read_text().splitlines():
+            if not line or line.startswith('#'):
+                continue
+            f = line.split('\t')
+            if head is None:
+                head = f
+                continue
+            row = dict(zip(head, f))
+            out.setdefault(row['unit'], []).append(row)
+    return out
+
+
+def member_alias_text(rows):
+    """The owner's unit's aliases: each gamemd.exe global inside one of the unit's objects is the
+    object's member there (one storage, as in gamemd.exe), at the member's native offset."""
+    if not rows:
+        return ''
+    def lines(column):
+        return ''.join('__asm__(".globl %s\\n%s = %s + %s");   // %s = %s.%s (0x%s)\n' % (
+            r['symbol'], r['symbol'], r['owner_symbol'], r[column], r['name'], r['owner'],
+            re.sub(r'base:[^.]*\.', '', r['member']), r['address'][2:]) for r in rows)
+    return ('\n// NATIVE (lane Y15): gamemd.exe globals that are members of this unit\'s objects\n'
+            '// (native/yr/data/member_aliases.tsv, yr_member_aliases.py): one storage, as in gamemd.exe.\n'
+            '#if defined(__x86_64__)\n' + lines('offset_win64') + '#else\n' + lines('offset_arm64') + '#endif\n')
+
+
 def emit(target, text):
     target.parent.mkdir(parents=True, exist_ok=True)
     if not target.exists() or target.read_text(encoding='latin-1') != text:
@@ -124,6 +156,7 @@ def main():
         spelled = headers[k].relative_to(TIBSUN if str(headers[k]).startswith(str(TIBSUN)) else TREE / 'include').as_posix()
         if spelled != k:
             emit(out / 'hdr' / spelled, text)
+    members = member_aliases()
     only = set(x for x in a.only.split(',') if x)
     units, skipped = [], []
     for src in sorted((TREE / 'src').rglob('*.cpp')):
@@ -138,7 +171,8 @@ def main():
             continue
         name = rel[:-4].replace('/', '__')
         target = out / 'units' / (name + '.cpp')
-        emit(target, '#line 1 "yr/ra2-decomp/src/%s"\n' % rel + native_units.port(apply_fixups('src/' + rel, read(src), fixups)))
+        emit(target, '#line 1 "yr/ra2-decomp/src/%s"\n' % rel + native_units.port(apply_fixups('src/' + rel, read(src), fixups)) +
+             member_alias_text(members.get(target.name, [])))
         units.append(target)
     unused = [r.get('old', r.get('cut', r['file'])) for r in fixups if not r['hits'] and (not only or r['file'] == '*' or r['file'].startswith('hdr/'))]
     if unused:

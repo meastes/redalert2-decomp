@@ -6,6 +6,10 @@
 //     0x006D6170) and Set_Tactical_Position (0x006D6000, which clamps to the map and flags the
 //     redraw), as the RA2 hook does with RA2's (0x006A67B0, 0x006A6640). Without it a swipe over
 //     the map turned the wheel.
+//   ra2_native_team_button_at (lane Y15): the command-bar team button (1-3) under a game pixel,
+//     else 0, for the touch host's hold on a team button (platform/sdl/touch.cpp): the bar's buttons
+//     (tab.cpp FUN_006CFD40, gamemd.exe's button of a command; Team01..Team03 commands
+//     DAT_00B0CC20..DAT_00B0CD28) while the bar is open (TabClass::ThumbActive), as the RA2 hook.
 //   ra2_native_save_settings: RA2MD.INI saved as the main menu's Exit Game does
 //     (GameOptionsClass::Save_Settings).
 //   yr_native_main_loop / yr_native_play_over (fixups.json, conquer.cpp's game loop): the host's
@@ -21,6 +25,8 @@
 #include "globals.h"
 #include "mainloop.h"
 #include "saveload.h"
+#include "mouse.h"
+#include "shapebtn.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,6 +46,24 @@ extern "C" int ra2_native_scroll_map(int, int, int dx, int dy)
     view.Y += dy;
     tactical->Set_Tactical_Position(view);
     return 1;
+}
+
+extern MouseClass Map;
+extern int DAT_00B0CC20;   // tab.cpp: the Team01 command
+extern int DAT_00B0CD28;   // tab.cpp: the Team03 command
+ShapeButtonClass * __fastcall FUN_006CFD40(int button);   // tab.cpp (gamemd.exe 0x006CFD40)
+
+extern "C" int ra2_native_team_button_at(int x, int y)
+{
+	if (!Map.ThumbActive) return 0;
+	for (int command = DAT_00B0CC20; command >= 0 && command <= DAT_00B0CD28; command++) {
+		ShapeButtonClass * button = FUN_006CFD40(command);
+		if (button && button->Is_Enabled() && x >= button->X && x < button->X + button->Width &&
+			y >= button->Y && y < button->Y + button->Height) {
+			return command - DAT_00B0CC20 + 1;
+		}
+	}
+	return 0;
 }
 
 extern "C" void ra2_native_save_settings(void)

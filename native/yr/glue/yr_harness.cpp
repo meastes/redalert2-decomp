@@ -27,6 +27,9 @@
 //                   pixels written into the eight-bit compositing surface show as random palette entries);
 //                   logs `harness-noise <n> at frame <f>` for each frame over 60 and at the end
 //                   `harness-noise-max <n> over <frames> frames` (lane Y14).
+//   select <ID> <n> the selection becomes the player's n-th unit of type ID (0 the first; lane Y15);
+//   groups <ID>     logs `harness-groups <ID> <g>[*] ...`: the team (-1 none, 0 Team 1) of each of the player's
+//                   units of type ID in order, * when selected (lane Y15).
 // RA2_NATIVE_FORCE_END=<f1>[,<f2>...][,lose]: at the first loop frame at or past each entry the game
 // ends as the house AI ends it on a win or defeat (PlayerWins / PlayerLoses, read by the main loop);
 // logs `force-end: win|loss at frame <f> in <scenario>`, so a campaign goes on mission by mission.
@@ -44,6 +47,7 @@
 #include "_surface.h"
 #include "surface.h"
 #include "tactical.h"
+#include "conquer.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -221,6 +225,30 @@ int Run_Order(int frame, char const * text)
 		noise_frames = noise_total = atoi(word[1]);
 		noise_max = 0;
 		return(noise_frames);
+	}
+	if ((!strcmp(word[0], "select") && words >= 3) || (!strcmp(word[0], "groups") && words >= 2)) {
+		bool select = word[0][0] == 's';
+		int wanted = select ? atoi(word[2]) : -1, n = 0;
+		char line[512];
+		int at = snprintf(line, sizeof(line), "harness-groups %s", word[1]);
+		if (select) Unselect_All();
+		for (int i = 0; i < Technos.Count(); ++i) {
+			TechnoClass * techno = Technos[i];
+			if (techno == NULL || techno->House != PlayerPtr || techno->IsInLimbo || strcmp(Type_Name(techno), word[1])) continue;
+			if (select && n == wanted) {
+				techno->Select();
+				fprintf(stderr, "harness-select %s %d &%p\n", word[1], wanted, (void *)techno);
+				return(1);
+			}
+			if (!select && at < (int)sizeof(line) - 16) at += snprintf(line + at, sizeof(line) - at, " %d%s", techno->Group, techno->IsSelected ? "*" : "");
+			++n;
+		}
+		if (select) {
+			fprintf(stderr, "harness-select: no unit %d of type %s\n", wanted, word[1]);
+			return(-1);
+		}
+		fprintf(stderr, "%s\n", line);
+		return(1);
 	}
 	if ((!strcmp(word[0], "deploy") || !strcmp(word[0], "move") || !strcmp(word[0], "where")) && words >= 2) {
 		TechnoClass * found = NULL;

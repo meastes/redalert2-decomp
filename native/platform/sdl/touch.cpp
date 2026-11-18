@@ -42,6 +42,11 @@ enum class State {
 };
 
 State state = State::idle;
+// A hold on a command-bar team button (lane Y15): its right click went out; the click follows
+// kTeamClickMs later (the game takes a click made in the same frame as the right click as part of it).
+constexpr uint64_t kTeamClickMs = 150;
+uint64_t team_click_ms = 0;
+float team_x = 0, team_y = 0;
 // Pinch (lane C16): on while the host's Zoom gestures apply (in play); the fingers' window points
 // (set_window_point before each event), the span when the second finger came down and at the last
 // zoom step. A pinch starts once the span changed by max(kPinchPoints, kPinchShare of it).
@@ -444,8 +449,25 @@ void finger_up(uint64_t id, float x, float y, uint64_t ms, Output const &out)
 
 void tick(uint64_t ms, Output const &out)
 {
+    if (team_click_ms && ms - team_click_ms >= kTeamClickMs) {
+        team_click_ms = 0;
+        click(out, 0, team_x, team_y);
+    }
     if (state == State::tap_wait && ms - up_ms >= kTapWaitMs) flush_tap(out, ms, "no second finger");
     if (state != State::pending || ms - down_ms < kHoldMs) return;
+    if (int team = out.team_button ? out.team_button(x0, y0) : 0) {
+        // Held on a command-bar team button (lane Y15): the team becomes the selection. Both
+        // games' bar (TabClass::AI) disbands a team on a right click and gives an empty team the
+        // selection on a click; a held Ctrl is not read there, so touch has no other way to
+        // set a team that already has members.
+        fprintf(stderr, "touch: hold on team button %d: right click, then click (set the team)\n", team);
+        click(out, 1, x0, y0);
+        team_click_ms = ms ? ms : 1;
+        team_x = x0;
+        team_y = y0;
+        state = State::done;
+        return;
+    }
     if (over_sidebar(x0)) {
         click(out, 1, x0, y0);       // held on a cameo: right click (cancel or put on hold)
         state = State::done;

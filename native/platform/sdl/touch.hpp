@@ -8,6 +8,9 @@
 //   hold ~400 ms, then drag     left button held: a selection box
 //   hold ~400 ms on the map, release without moving   right click
 //   hold ~400 ms on the sidebar (a cameo)              right click at once
+//   hold ~400 ms on a command-bar team button          right click, then left click: the team
+//                               becomes the selection (the bar's right click disbands the team and
+//                               its click on an empty team assigns the selection; lane Y15)
 //   two-finger tap              right click (forgiving: a one-finger tap's click waits
 //                               100 ms for a second finger; Scout1274)
 // No SDL here: platform/sdl/host.cpp converts SDL's finger events.
@@ -22,6 +25,7 @@ struct Output {
     void (*pan)(float dx, float dy, float x, float y);    // view moves by dx, dy game pixels
     void (*wheel)(int notches, float x, float y);         // + up, - down (120 each)
     void (*zoom)(float scale, float wx, float wy);        // a pinch's step about its middle (window points; lane C16)
+    int (*team_button)(float x, float y);                 // the command-bar team button (1-3) there, else 0 (lane Y15)
 };
 
 // Pinch zoom (lane C16): two fingers whose span changes become a pinch while this is on (the

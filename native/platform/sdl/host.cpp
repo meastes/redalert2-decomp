@@ -1142,7 +1142,32 @@ void touch_moves_due()
 }
 bool zoom_at(double factor, float wx, float wy);
 void touch_zoom(float scale, float wx, float wy) { zoom_at(scale, wx, wy); }
-const touch::Output touch_out = {touch_move, touch_button, touch_pan_logged, touch_wheel_logged, touch_zoom};
+// The command-bar team button (1-3) under a game pixel, else 0 (lane Y15: a hold there sets the
+// team): each game answers from its TabClass buttons (native/link/app_hooks.cpp,
+// native/yr/glue/yr_app_hooks.cpp); the weak default has no bar.
+extern "C" __attribute__((weak)) int ra2_native_team_button_at(int, int) { return 0; }
+int touch_team_button(float x, float y)
+{
+    if (ra2port_menu_shown() || !ra2_enh_game_in_play()) return 0;
+    return ra2_native_team_button_at((int)x, (int)y);
+}
+const touch::Output touch_out = {touch_move, touch_button, touch_pan_logged, touch_wheel_logged, touch_zoom,
+                                 touch_team_button};
+// An input script's point (test scaffolding): "@team=N" is the middle of command-bar team button N
+// (found through the same hook; lane Y15), anything else the port's and the game's resolvers.
+int script_resolve_point(const char *spec, int *x, int *y)
+{
+    if (strncmp(spec, "team=", 5)) return ra2port_resolve_point(spec, x, y);
+    int team = atoi(spec + 5), n = 0;
+    long sx = 0, sy = 0;
+    for (int py = 0; py < 2048; py += 2)
+        for (int px = 0; px < 4096; px += 2)
+            if (ra2_native_team_button_at(px, py) == team) { sx += px; sy += py; ++n; }
+    if (!n) return 0;
+    *x = (int)(sx / n);
+    *y = (int)(sy / n);
+    return 1;
+}
 
 void redraw();
 // The glass toolbar shows the toggles' states and the scale (Scout1249).
@@ -2445,7 +2470,7 @@ void play(Scripted &s, int number)
         if (e.type == kScriptedZoom) {
             if (!s.spec.empty()) {
                 int px = 0, py = 0;
-                if (!ra2port_resolve_point(s.spec.c_str(), &px, &py)) {
+                if (!script_resolve_point(s.spec.c_str(), &px, &py)) {
                     fprintf(stderr, "input-script: frame %d: no point for @%s\n", number, s.spec.c_str());
                     return;
                 }
@@ -2470,7 +2495,7 @@ void play(Scripted &s, int number)
             e.tfinger.windowID = id;
             int px = 0, py = 0;
             if (!s.spec.empty()) {
-                if (!ra2port_resolve_point(s.spec.c_str(), &px, &py)) {
+                if (!script_resolve_point(s.spec.c_str(), &px, &py)) {
                     fprintf(stderr, "input-script: frame %d: no point for @%s\n", number, s.spec.c_str());
                     return;
                 }
@@ -2493,7 +2518,7 @@ void play(Scripted &s, int number)
                     spec.resize(slash);
                 }
                 int px = 0, py = 0;
-                if (!ra2port_resolve_point(spec.c_str(), &px, &py)) {
+                if (!script_resolve_point(spec.c_str(), &px, &py)) {
                     fprintf(stderr, "input-script: frame %d: no point for @%s\n", number, s.spec.c_str());
                     return;
                 }

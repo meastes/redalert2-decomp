@@ -42,7 +42,7 @@ endif()
 file(GLOB ra2_yr_appends "${CMAKE_CURRENT_SOURCE_DIR}/yr/glue/*.inc")   # fixups.json "append" files
 set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS ${ra2_yr_appends}
   "${CMAKE_CURRENT_SOURCE_DIR}/yr/fixups.json" "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_units.py"
-  "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_sdk.py")
+  "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_sdk.py" "${CMAKE_CURRENT_SOURCE_DIR}/yr/data/member_aliases.tsv")
 include("${RA2_NATIVE_YR_GEN}/units.cmake")
 file(GLOB ra2_yr_glue CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/yr/glue/*.cpp")
 set(ra2_yr_headers "SHELL:-idirafter ${RA2_NATIVE_YR_GEN}/mingw")
@@ -247,6 +247,10 @@ set_tests_properties(yr-native-skirmish-long PROPERTIES SKIP_RETURN_CODE 77 TIME
 # could be mangled (tools/original_layouts.py --game yr --check).
 add_test(NAME yr-native-original-layouts COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_layouts.py"
          --game yr --build "${CMAKE_CURRENT_BINARY_DIR}" --out "${CMAKE_CURRENT_BINARY_DIR}/yr_original_layouts_check.cpp" --check)
+# ctest yr-native-member-aliases (lane Y15): yr/data/member_aliases.tsv (gamemd.exe globals inside a defined
+# object, bound to its members) is what this build's layouts and undefined globals give.
+add_test(NAME yr-native-member-aliases COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tools/yr_member_aliases.py"
+         --build "${CMAKE_CURRENT_BINARY_DIR}" --check)
 
 # ctest yr-native-save (lane Y10): a skirmish saved in gamemd.exe's format at frame 500, loaded from the
 # menus and played 300 frames, saved again after the load and that loaded and played; a save of the
@@ -276,6 +280,13 @@ add_test(NAME yr-native-graphics COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CUR
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-graphics")
 set_tests_properties(yr-native-graphics PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
+
+# ctest yr-native-touch-team (lane Y15): a hold on the command bar's Team 1 sets the team to the selection
+# and a tap selects it (platform/sdl/touch.cpp; yr/tests/yr_touch_team.py)
+add_test(NAME yr-native-touch-team COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_touch_team.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-touch-team")
+set_tests_properties(yr-native-touch-team PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
 
 # ctest yr-native-campaign-allied / -soviet (lane Y12): each side's campaign through the menus, its seven
 # missions won in turn (RA2_NATIVE_FORCE_END) through their score screens, the final movie, the credits

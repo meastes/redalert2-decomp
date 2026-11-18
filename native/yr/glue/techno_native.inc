@@ -454,3 +454,54 @@ void TechnoClass::vt_entry_3D8(Coord const & coord, float force, bool full)
 	RockingForwardsPerFrame = full ? forwards * scale : forwards * scale / 2.0f;
 	RockingSidewaysPerFrame = -((float)sideways * scale);
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane Y15): TechnoClass::Draw_A_Link_To (gamemd.exe 0x00704E40,
+// ObjectClass::DrawALinkTo, 1,059 bytes; the mind control link the capture manager draws), unmatched in
+// ra2-decomp. Written from gamemd.exe's code read instruction by instruction: a 3x3 dot at each end, then
+// 31 segments along a raised arc (the height 512 * (1 - ((i - 16) / 16)^2) leptons over the straight
+// line), each segment lightened toward white by a band that runs along the link with the clock
+// (timeGetTime). Behaviour code for the native build only.
+// ---------------------------------------------------------------------------------------------
+extern bool __fastcall Line_In_Bounds(Point2D & start, Point2D & end, Rect const & bounds);
+
+void TechnoClass::Draw_A_Link_To(Coord src, Coord dst, RGBClass color)
+{
+	RGBClass const white(255, 255, 255);
+	Point2D from, to;
+	TacticalMap->Coord_To_Pixel(src, from);
+	TacticalMap->Coord_To_Pixel(dst, to);
+	from.Y += TacticalRect.Y;
+	to.Y += TacticalRect.Y;
+	int pixel = DSurface::Build_Hicolor_Pixel(color);
+	Rect dot = Intersect(TacticalRect, Rect(to.X - 2, to.Y - 2, 3, 3));
+	DSurface::Composite->Fill_Rect(dot, pixel);
+	dot = Intersect(TacticalRect, Rect(from.X - 2, from.Y - 2, 3, 3));
+	DSurface::Composite->Fill_Rect(dot, pixel);
+
+	Rect clip = TacticalRect;
+	int band = (int)((timeGetTime() >> 4) << 3);
+	Coord prev = src;
+	for (int i = 1, j = 31, phase = 8; phase <= 256; i++, j--, phase += 8) {
+		Coord cur;
+		cur.X = (dst.X * i + src.X * j) / 32;
+		cur.Y = (dst.Y * i + src.Y * j) / 32;
+		double f = (i - 16.0) * 0.0625;
+		cur.Z = (int)((dst.Z * i + src.Z * j) / 32 + (1.0 - f * f) * 512.0);
+
+		Point2D p1, p2;
+		TacticalMap->Coord_To_Pixel(prev, p1);
+		TacticalMap->Coord_To_Pixel(cur, p2);
+		p1.Y += TacticalRect.Y;
+		p2.Y += TacticalRect.Y;
+		if (Line_In_Bounds(p1, p2, clip)) {
+			RGBClass shade = color;
+			int ratio = (phase - band) & 0x1F8;
+			if (ratio <= 0xF8 && ratio != 0) {
+				shade.Adjust(ratio, white);
+			}
+			DSurface::Composite->Draw_Line(p1, p2, DSurface::Build_Hicolor_Pixel(shade));
+		}
+		prev = cur;
+	}
+}

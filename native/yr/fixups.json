@@ -704,12 +704,6 @@
    "why": "DAT_00886FA8 is TacticalRect.Width (gamemd.exe's TacticalRect at 0x00886FA0): natively the name reads the unit's TacticalRect, not a separate zero-filled store the link closure would make (lane Y4)."
   },
   {
-   "file": "src/gscreen.cpp",
-   "old": "extern bool DAT_00884D2E;",
-   "new": "#define DAT_00884D2E (Map.unknown_byte_5546)\t// NATIVE (lane Y14)",
-   "why": "DAT_00884D2E is Map's TabClass::unknown_byte_5546 (0x0087F7E8 + 0x5546 = 0x00884D2E): TabClass::Draw_It sets it after drawing the command bar on the composite surface, and Update_Visible_Surface (0x004F4A26) then copies the bar's 32 rows to the screen. Natively the name was a separate global that stayed false, so the bar's rows were never copied (the user's report: no bottom bar in Yuri's Revenge); it reads the member, as gamemd.exe does."
-  },
-  {
    "file": "src/tab.cpp",
    "old": "extern int DAT_00886FA8;",
    "new": "extern Rect TacticalRect;\n#define DAT_00886FA8 (TacticalRect.Width)",
@@ -1042,58 +1036,46 @@
    "why": "FlyLocomotionClass::Nearing_Target (0x004CEFB0) is unmatched in the YR tree; a native draft from the RA2 tree's twin and gamemd.exe's code (lane Y7), appended to the fly unit."
   },
   {
+   "file": "src/scroll.cpp",
+   "old": "\t\t\t\tMap.Mouse_Left_Release(coord, cell, object, What_Action(cell, object, false));\n",
+   "new": "\t\t\t\tActionType Yr_Modern_Left_Up(ObjectClass *&object, ActionType action, bool band);\n\t\t\t\tvoid Yr_Modern_Left_Done();\n\t\t\t\tMap.Mouse_Left_Release(coord, cell, object, Yr_Modern_Left_Up(object, What_Action(cell, object, false), IsRubberBand));\n\t\t\t\tYr_Modern_Left_Done();\n",
+   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: ScrollClass::Message_Handler 0x006930A0, WM_LBUTTONUP: the action Mouse_Left_Release performs (Modern: select, deselect on open ground, Shift toggles, a double click selects the type)."
+  },
+  {
    "file": "src/house.cpp",
    "old": "\tif (this == PlayerPtr && !DAT_00880990 && builder && object) {",
    "new": "\tif (this == PlayerPtr && !Map.PendingObject && builder && object) {",
-   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members. (Lane Y15: kept: the tree declares these names int where the members are pointers, which yr_member_aliases.py does not merge.)"
   },
   {
    "file": "src/house.cpp",
    "old": "\t\tDAT_0088099A = false;\n\t\tDAT_0088099B = false;\n\t\tDAT_0088099C = false;\n\t\tCurrentSWType = -1;\n\t\tDAT_00880990 = (int)object->Class;\n\t\tDAT_0088098C.Ptr = (int)object;\n\t\tDAT_00880994 = HeapID;",
    "new": "\t\tMap.IsPowerMode = false;\n\t\tMap.IsWaypointMode = false;\n\t\tMap.PlaceBeaconMode = false;\n\t\tMap.IsTargettingMode = SuperWeaponType(-1);\n\t\tMap.PendingObject = object->Class;\n\t\tMap.PendingObjectPtr = object;\n\t\tMap.PendingHouse = HousesType(HeapID);",
-   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members. (Lane Y15: kept: the tree declares these names int where the members are pointers, which yr_member_aliases.py does not merge.)"
   },
   {
    "file": "src/taction.cpp",
    "old": "\tDAT_0088098C.Ptr = 0;\n\tDAT_0088098C.Type = 0;\n\tDAT_0088098C.House = -1;",
    "new": "\tMap.PendingObjectPtr = 0;\n\tMap.PendingObject = 0;\n\tMap.PendingHouse = HousesType(-1);",
-   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
-  },
-  {
-   "file": "src/taction.cpp",
-   "old": "\tDAT_0088099A = false;\n\tDAT_0088099B = false;\n\tDAT_0088099C = false;\n\tFUN_00684240();",
-   "new": "\tMap.IsPowerMode = false;\n\tMap.IsWaypointMode = false;\n\tMap.PlaceBeaconMode = false;\n\tFUN_00684240();",
-   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members. (Lane Y15: kept: the tree declares these names int where the members are pointers, which yr_member_aliases.py does not merge.)"
   },
   {
    "file": "src/uicmnds.cpp",
    "old": "\tif (DAT_00880990) {\n\t\tMap.Set_Cursor_Pos(DAT_00B0FDF0);",
    "new": "\tif (Map.PendingObject) {\n\t\tMap.Set_Cursor_Pos(DAT_00B0FDF0);",
-   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members. (Lane Y15: kept: the tree declares these names int where the members are pointers, which yr_member_aliases.py does not merge.)"
   },
   {
    "file": "src/mpcoop.cpp",
    "old": "\tDAT_0088098C = 0;\n\tDAT_00880990 = 0;\n\tDAT_00880994 = -1;",
    "new": "\tMap.PendingObjectPtr = 0;\n\tMap.PendingObject = 0;\n\tMap.PendingHouse = HousesType(-1);",
-   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members."
-  },
-  {
-   "file": "src/super.cpp",
-   "old": "extern int DAT_008809A0;",
-   "new": "#define DAT_008809A0 (*(int *)&Map.IsTargettingMode)",
-   "why": "lane Y7: Map's own members at these addresses (Map 0x0087F7E8: +0x11B8 IsTargettingMode = 0x008809A0; +0x1190 CurrentBuildingCopy, +0x1194 CurrentBuildingTypeCopy, +0x1198 CurrentBuildingOwnerArrayIndexCopy = 0x00880978..0x00880980; display.h), which the tree declares as separate globals; natively those are other storage than Map's, so the super weapon targeting mode and the placement copy were never the ones the interface reads. Each name now stands for the member."
+   "why": "lane Y7: the pending placement and the interface modes are Map's own members at these addresses (0x0088098C..0x008809A0 = Map 0x0087F7E8 + 0x11A4 PendingObjectPtr, +0x11A8 PendingObject, +0x11AC PendingHouse, +0x11B2 IsPowerMode, +0x11B3 IsWaypointMode, +0x11B4 PlaceBeaconMode, +0x11B8 IsTargettingMode; display.h). The tree names them as separate globals (int-typed, pointers stored as int), which natively are other storage than Map's members, so a building picked up for placement (Manual_Place) never reached the placement code that reads Map.PendingObject, and its pointers were truncated to 32 bits. The same stores, to the members. (Lane Y15: kept: the tree declares these names int where the members are pointers, which yr_member_aliases.py does not merge.)"
   },
   {
    "file": "src/tactical.cpp",
-   "old": "extern ObjectClass const * DAT_00880978;\nextern int DAT_0088097C;\nextern int DAT_00880980;",
-   "new": "#define DAT_00880978 Map.CurrentBuildingCopy\n#define DAT_0088097C (*(ObjectTypeClass const **)&Map.CurrentBuildingTypeCopy)\n#define DAT_00880980 (*(int *)&Map.CurrentBuildingOwnerArrayIndexCopy)",
-   "why": "lane Y7: Map's own members at these addresses (Map 0x0087F7E8: +0x11B8 IsTargettingMode = 0x008809A0; +0x1190 CurrentBuildingCopy, +0x1194 CurrentBuildingTypeCopy, +0x1198 CurrentBuildingOwnerArrayIndexCopy = 0x00880978..0x00880980; display.h), which the tree declares as separate globals; natively those are other storage than Map's, so the super weapon targeting mode and the placement copy were never the ones the interface reads. Each name now stands for the member."
-  },
-  {
-   "file": "src/scroll.cpp",
-   "old": "\t\t\t\tMap.Mouse_Left_Release(coord, cell, object, What_Action(cell, object, false));\n",
-   "new": "\t\t\t\tActionType Yr_Modern_Left_Up(ObjectClass *&object, ActionType action, bool band);\n\t\t\t\tvoid Yr_Modern_Left_Done();\n\t\t\t\tMap.Mouse_Left_Release(coord, cell, object, Yr_Modern_Left_Up(object, What_Action(cell, object, false), IsRubberBand));\n\t\t\t\tYr_Modern_Left_Done();\n",
-   "why": "lane Y8, Controls: Modern (native addition, not original behaviour; RA2's link/native_modern_controls.cpp rules on the YR tree's classes, glue/yr_enhancements.cpp). With Classic (the default and the Original preset) every Yr_Modern_* answer is the original's own value. This row: ScrollClass::Message_Handler 0x006930A0, WM_LBUTTONUP: the action Mouse_Left_Release performs (Modern: select, deselect on open ground, Shift toggles, a double click selects the type)."
+   "old": "extern int DAT_0088097C;",
+   "new": "#define DAT_0088097C (*(ObjectTypeClass const **)&Map.CurrentBuildingTypeCopy)",
+   "why": "lane Y7 (narrowed by lane Y15): DAT_0088097C is Map's DisplayClass::CurrentBuildingTypeCopy (Map 0x0087F7E8 + 0x1194), a pointer the tree declares int; the general rule (yr_member_aliases.py: names inside a defined object are its members) binds DAT_00880978 and DAT_00880980, but an int name cannot share a native pointer member, so this name reads the member itself."
   },
   {
    "file": "src/scroll.cpp",
@@ -1504,52 +1486,60 @@
    "why": "The declaration of the CRC log above (lane YW2)."
   },
   {
-   "file": "src/netshare.cpp",
-   "old": "GameModeOptionsClass::Instance",
-   "new": "Session.Options.MPModeIndex",
-   "why": "The name is a field of Session in gamemd.exe (GameModeOptionsClass::Instance at 0x00A8B250 is Session.Options.MPModeIndex), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the host's game mode was written to the copy and the options sent to the guests carried mode 0 (no game mode: the guest faulted in Read_Scenario_INI))."
+   "file": "src/init.cpp",
+   "old": "extern const char * DAT_00822774[];",
+   "new": "extern const char * DAT_00822774[3];",
+   "why": "gamemd.exe's table at 0x00822774 holds 3 pointers followed by the strings they point to (TXT_EASY, TXT_NORMAL, TXT_HARD). Declared without a bound, yr_data.py gave it the extent to the next known global and loaded those strings as pointer slots too, so the elements pointing at the strings reached the converted (doubled) pointer storage instead of the text: the campaign dialog's Difficulty label read MISSING:''. The bound is the table's own (lane Y15)."
   },
   {
-   "file": "src/netshare.cpp",
-   "old": "Game::PlayerColor",
-   "new": "Session.PrefColor",
-   "why": "The name is a field of Session in gamemd.exe (Game::PlayerColor at 0x00A8B394 is Session.PrefColor), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the colour sent with the public options)."
+   "file": "src/gamedlg.cpp",
+   "old": "extern char const * DAT_00822774[];",
+   "new": "extern char const * DAT_00822774[3];",
+   "why": "gamemd.exe's table at 0x00822774 holds 3 pointers followed by the strings they point to (TXT_EASY, TXT_NORMAL, TXT_HARD). Declared without a bound, yr_data.py gave it the extent to the next known global and loaded those strings as pointer slots too, so the elements pointing at the strings reached the converted (doubled) pointer storage instead of the text: the skirmish setup's difficulty label. The bound is the table's own (lane Y15)."
   },
   {
-   "file": "src/netdlg2.cpp",
-   "old": "Game::PlayerColor",
-   "new": "Session.PrefColor",
-   "why": "The name is a field of Session in gamemd.exe (Game::PlayerColor at 0x00A8B394 is Session.PrefColor), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the colour chosen in the setup screens)."
+   "file": "src/capturemanager.cpp",
+   "old": "extern char const * DAT_0081B538[];",
+   "new": "extern char const * DAT_0081B538[6];",
+   "why": "gamemd.exe's table at 0x0081B538 holds 6 pointers followed by the strings they point to (the AI capture decisions' log names). Declared without a bound, yr_data.py gave it the extent to the next known global and loaded those strings as pointer slots too, so the elements pointing at the strings reached the converted (doubled) pointer storage instead of the text. The bound is the table's own (lane Y15)."
   },
   {
-   "file": "src/session.cpp",
-   "old": "Game::PlayerColor",
-   "new": "Session.PrefColor",
-   "why": "The name is a field of Session in gamemd.exe (Game::PlayerColor at 0x00A8B394 is Session.PrefColor), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the player's colour)."
+   "file": "src/goptions.cpp",
+   "old": "extern char const * DAT_00823FD4[];",
+   "new": "extern char const * DAT_00823FD4[4];",
+   "why": "gamemd.exe's table at 0x00823FD4 holds 4 pointers followed by the strings they point to (TXT_WORST_CONNECTION .. TXT_BEST_CONNECTION). Declared without a bound, yr_data.py gave it the extent to the next known global and loaded those strings as pointer slots too, so the elements pointing at the strings reached the converted (doubled) pointer storage instead of the text: the network options' connection label. The bound is the table's own (lane Y15)."
   },
   {
-   "file": "src/house.cpp",
-   "old": "Game::PlayerColor",
-   "new": "Session.PrefColor",
-   "why": "The name is a field of Session in gamemd.exe (Game::PlayerColor at 0x00A8B394 is Session.PrefColor), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the colour of the player's chat messages)."
+   "file": "src/mech.cpp",
+   "append": "mech_native.inc",
+   "why": "Unmatched routines on play paths, drafted from gamemd.exe and Red Alert 2's text (lane Y15)."
   },
   {
-   "file": "src/house.cpp",
-   "old": "Game::ChatMask",
-   "new": "Session.PlayerChatEnabled",
-   "why": "The name is a field of Session in gamemd.exe (Game::ChatMask at 0x00A8D108 is Session.PlayerChatEnabled), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: which players a chat message goes to)."
+   "file": "src/wave.cpp",
+   "append": "wave_native.inc",
+   "why": "Unmatched routines on play paths, drafted from gamemd.exe and Red Alert 2's text (lane Y15)."
   },
   {
-   "file": "src/netdlg.cpp",
-   "old": "Game::PlayerCount",
-   "new": "Session.NumPlayers",
-   "why": "The name is a field of Session in gamemd.exe (Game::PlayerCount at 0x00A8B54C is Session.NumPlayers), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the player count)."
+   "file": "src/dsurface.cpp",
+   "append": "dsurface_native.inc",
+   "why": "Unmatched routines on play paths, drafted from gamemd.exe and Red Alert 2's text (lane Y15)."
   },
   {
-   "file": "src/scenario.cpp",
-   "old": "Game::Network::PreCalcFrameRate",
-   "new": "Session.PrecalcDesiredFrameRate",
-   "why": "The name is a field of Session in gamemd.exe (Game::Network::PreCalcFrameRate at 0x00A8B570 is Session.PrecalcDesiredFrameRate), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the precalculated frame rate)."
+   "file": "src/radbeam.cpp",
+   "append": "radbeam_native.inc",
+   "why": "Unmatched routines on play paths, drafted from gamemd.exe and Red Alert 2's text (lane Y15)."
+  },
+  {
+   "file": "src/init.cpp",
+   "old": "qsort(DAT_00B0E840, DAT_00B0E844, 8, FUN_0041C610);",
+   "new": "qsort(DAT_00B0E840, DAT_00B0E844, sizeof(TargetEntryStruct), FUN_0041C610);\t// NATIVE (lane Y15): the entry's native size",
+   "why": "Delete_All_Objects sorts TargetTracker's index table through raw names (DAT_00B0E840 the table, DAT_00B0E844 its count); gamemd.exe's 8-byte entry is 16 bytes natively (an int and a pointer). With the count now TargetTracker's own (yr_member_aliases.py) the sort ran with the 32-bit size and scrambled the table: the next scenario's Clear_Scenario faulted deleting a garbage pointer (lane Y15, the campaign chain)."
+  },
+  {
+   "file": "src/init.cpp",
+   "old": "extern int DAT_00B0E850;",
+   "new": "extern void * DAT_00B0E850;\t// NATIVE (lane Y15): TargetTracker's Archive, a pointer",
+   "why": "DAT_00B0E850 is TargetTracker's Archive (the last search's entry, a pointer); declared int it could not be bound to the member (yr_member_aliases.py), so Delete_All_Objects' reset after its sort missed the real Archive (lane Y15)."
   }
  ]
 }
