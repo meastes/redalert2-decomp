@@ -1209,6 +1209,7 @@ symbol,address,evidence
 ?Close@RawFileClass@@UAEXXZ,0x00638D50,slot +38 of ??_7RawFileClass@@6B@ at 007a8cc0; main row ?Close@RawFileClass@@UAEXXZ
 ?Close_Socket@WinsockInterfaceClass@@UAEXXZ,0x0076AE40,slot +08 of ??_7IPXInterfaceClass@@6B@ at 007afa08; main row ?Close_Socket@WinsockInterfaceClass@@UAEXXZ
 ?Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005EAD20,inferred: ownrdraw rows 005eac30 differ only at its sites
+?Combo_Owner@OwnerDraw@@3PAUHWND__@@A,0x00A763F4,main's exact row 0x5EAD20 (Combo_Drop_Proc) reads it as ?unknown_combo_owner_a763f4@OwnerDraw@@3PAUHWND__@@A where this tree's draft reads Combo_Owner
 ?Combo_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F4BA0,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Commence@MissionClass@@UAE_NXZ,0x00594C50,slot +1d8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Commence@MissionClass@@UAE_NXZ
 ?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z,0x004101B0,slot +38 of ??_7CellClass@@6BIPersistStream@@@ at 0079db00; main row ?Compute_CRC@AbstractClass@@UBEXAAVWWCRCEngine@@@Z
@@ -1221,6 +1222,7 @@ symbol,address,evidence
 ?ContinueMegaMission@TechnoClass@@UAE_NXZ,0x006D8FA0,slot +458 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_6d8fa0@@QAE_NXZ
 ?Control_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005EE460,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Coord_Fixup@ObjectTypeClass@@UBE?BVCoord@@ABV2@@Z,0x0041C2E0,slot +6c of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Coord_Fixup@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z
+?Copy_List@WinData@OwnerDraw@@QAEXPBUTextNode@@@Z,0x00600460,"main row ?Copy_List_600460@WinData@OwnerDraw@@QAEXPBUTextNode@@@Z (population-4450), the same member"
 ?Cost_Of@ObjectTypeClass@@UBEHPAVHouseClass@@@Z,0x005D5D60,slot +88 of ??_7IsometricTileTypeClass@@6BIPersistStream@@@ at 007a51a4; main row ?Cost_Of@ObjectTypeClass@@UBEHPAVHouseClass@@@Z
 ?Cost_Of@TechnoTypeClass@@UBEHPAVHouseClass@@@Z,0x006DAD30,slot +88 of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Cost_Of@TechnoTypeClass@@UBEHPAVHouseClass@@@Z
 ?Count@ListClass@@UBEHXZ,0x0047D710,slot +98 of ??_7ColorListClass@@6B@ at 0079dc68; main row ?Count@ListClass@@UBEHXZ
@@ -1355,6 +1357,8 @@ symbol,address,evidence
 ?Draw_Voxel@FootClass@@UBEXABUVoxelDataStruct@@HHPAV?$IndexClass@HPAUEntry@StaticBufferClass@@@@ABV?$TRect@H@@ABVPoint2D@@ABVMatrix3D@@HW4ShapeFlags_Type@@@Z,0x004C9880,slot +3dc of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot246@FootClass@@UAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@HI@Z
 ?Draw_Voxel@TechnoClass@@UBEXABUVoxelDataStruct@@HHPAV?$IndexClass@HPAUEntry@StaticBufferClass@@@@ABV?$TRect@H@@ABVPoint2D@@ABVMatrix3D@@HW4ShapeFlags_Type@@@Z,0x006D1D00,slot +3dc of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot246@TechnoClass@@UAEXABVUnknownObjectPair@@HHPAVUnknownBuffer@@ABVRect@@ABUPoint2D@@ABVMatrix3D@@HI@Z
 ?Drawing_Code@LocomotionClass@@UAGHXZ,0x0053D5F0,slot +8c of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Drawing_Code@LocomotionClass@@UAGHXZ
+?Dropdown_Owner@OwnerDraw@@3PAUHWND__@@A,0x00A763E8,"main's exact row 0x5EAD20 stores the combo's parent there (?unknown_dropdown_owner_a763e8@OwnerDraw@@3PAUHWND__@@A), as this tree's draft stores Dropdown_Owner"
+?Dropdown_Window@OwnerDraw@@3PAUHWND__@@A,0x00A763E4,"main's exact row 0x5EAD20 stores the window there (?unknown_dropdown_window_a763e4@OwnerDraw@@3PAUHWND__@@A), as this tree's draft stores Dropdown_Window"
 ?Editor_Draw_It@ObjectClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,0x005D4E70,slot +114 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z
 ?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A,0x00855930,inferred: egos rows 004b35a0 004b35a0 004b35a0 004b35a0 differ only at its sites
 ?EmptyCell@@3VCell@@A,0x0084ED10,inferred: building rows 00453b80 differ only at its sites
@@ -1436,6 +1440,7 @@ symbol,address,evidence
 ?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z,0x007743C0,slot +14 of ??_7BSurface@@6B@ at 0079aef4; main row ?Fill_Rect@XSurface@@UAE_NABVRect@@0H@Z
 ?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z,0x00774390,slot +18 of ??_7BSurface@@6B@ at 0079aef4; main row ?Fill_Rect@XSurface@@UAE_NABVRect@@H@Z
 ?Fill_Rect_Trans@XSurface@@UAE_NABV?$TRect@H@@ABVRGBClass@@I@Z,0x007746B0,slot +20 of ??_7BSurface@@6B@ at 0079aef4; main row ?Fill_Rect_Trans@XSurface@@UAE_NABVRect@@ABVRGBClass@@I@Z
+?Find@SchemeTable@@QAEPAPAVSchemeNode@@ABVHashString@@@Z,0x006050C0,"main row ?Find@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAPAVSchemeNode@@ABVHashString@@@Z (palette.cpp), the scheme table's lookup"
 ?FindCloserDockBuilding@FootClass@@UBEPAVBuildingClass@@PAVBuildingTypeClass@@IIPAH@Z,0x004CD760,slot +4b4 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot300@FootClass@@UAEPAVTechnoClass@@PAVTechnoTypeClass@@HHPAH@Z
 ?FindNearestDockBuilding@FootClass@@UBEPAVBuildingClass@@PAVBuildingTypeClass@@II@Z,0x004CD730,slot +4b8 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot301@FootClass@@UAEPAVTechnoClass@@PAVTechnoTypeClass@@HH@Z
 ?Find_Exit_Cell@TechnoClass@@UBE?AVCell@@PBV1@@Z,0x006D5800,slot +2d4 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot180@TechnoClass@@UAE?AVCell@@H@Z
@@ -2213,6 +2218,7 @@ symbol,address,evidence
 ?Move_To@LocomotionClass@@UAGXUCoordStruct@@@Z,0x0053D550,slot +48 of ??_7LocomotionClass@@6BILocomotion@@@ at 007a32e8; main row ?Move_To@LocomotionClass@@UAGXUCoordStruct@@@Z
 ?Net2DecodeGameopt@@YI_NPBD0@Z,0x005C3FF0,inferred: netdlg2 rows 005c08a0 differ only at its sites
 ?New_Edit_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F22A0,inferred: ownrdraw rows 005ed180 differ only at its sites
+?Next@SchemeTable@@QAEPAVHashString@@PAUHashIterator@@@Z,0x00605120,"main row ?Next@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAVHashString@@AAUUnknownSchemeListIterator@@@Z (palette.cpp), the scheme table's iterator step"
 ?Not_Underground@ObjectClass@@UBE_NXZ,0x005D5490,slot +7c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Not_Underground@ObjectClass@@UBE_NXZ
 ?ONE_RAD@@3NB,0x007A6C48,inferred: mpsiegeteam rows 005abc60 005abc80 005abca0 differ only at its sites
 ?OcclusionOffset@MapClass@@2QBVCell@@B,0x00A6ED18,inferred: map rows 005461a0 005461a0 005461a0 005461a0 differ only at its sites
@@ -2756,6 +2762,7 @@ symbol,address,evidence
 ?Zap@LinkClass@@UAEXXZ,0x00538FF0,slot +20 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Zap@LinkClass@@UAEXXZ
 ?entry_64@Surface@@UBE_NVPoint2D@@@Z,0x00411280,slot +6c of ??_7BSurface@@6B@ at 0079aef4; main row ?Unknown_Slot26@Surface@@UAE_NUPoint2D@@@Z
 ?search_compfunc@?$IndexClass@HPAVAbstractClass@@@@CAHPBX0@Z,0x0041BA10,unit destructor qsort target; comparator independently exact against main aircraft frozen34body+14padding; int/long signed32
+?shrink@?$Dictionary@IUWinData@OwnerDraw@@@@AAEXXZ,0x006027E0,"main row ?Shrink_Table@?$WolDictionary@IUWinData@OwnerDraw@@@@QAEXXZ (population-4450): the same template instance, wlib Dictionary::shrink for the control registry"
 ?vt_entry_04@MultiplayerGameMode@@UAE_NXZ,0x005A2380,slot +04 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot1@MultiplayerGameMode@@UAE_NXZ
 ?vt_entry_08@MultiplayerGameMode@@UAE_NXZ,0x005A2390,slot +08 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot2@MultiplayerGameMode@@UAE_NXZ
 ?vt_entry_0C@MultiplayerGameMode@@UAE_NI@Z,0x005A23A0,slot +0c of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot3@MultiplayerGameMode@@UAE_NPAVWideString@@@Z
@@ -2781,10 +2788,3 @@ symbol,address,evidence
 ?vt_entry_9C@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z,0x005A24D0,slot +9c of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot39@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z
 ?vt_entry_A0@MultiplayerGameMode@@UAE_NXZ,0x005A24F0,slot +a0 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot40@MultiplayerGameMode@@UAE_NXZ
 __purecall,0x004B8960,slot +10 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_4b8960@@QAEHXZ
-?shrink@?$Dictionary@IUWinData@OwnerDraw@@@@AAEXXZ,0x006027E0,"main row ?Shrink_Table@?$WolDictionary@IUWinData@OwnerDraw@@@@QAEXXZ (population-4450): the same template instance, wlib Dictionary::shrink for the control registry"
-?Copy_List@WinData@OwnerDraw@@QAEXPBUTextNode@@@Z,0x00600460,"main row ?Copy_List_600460@WinData@OwnerDraw@@QAEXPBUTextNode@@@Z (population-4450), the same member"
-?Combo_Owner@OwnerDraw@@3PAUHWND__@@A,0x00A763F4,"main's exact row 0x5EAD20 (Combo_Drop_Proc) reads it as ?unknown_combo_owner_a763f4@OwnerDraw@@3PAUHWND__@@A where this tree's draft reads Combo_Owner"
-?Dropdown_Owner@OwnerDraw@@3PAUHWND__@@A,0x00A763E8,"main's exact row 0x5EAD20 stores the combo's parent there (?unknown_dropdown_owner_a763e8@OwnerDraw@@3PAUHWND__@@A), as this tree's draft stores Dropdown_Owner"
-?Dropdown_Window@OwnerDraw@@3PAUHWND__@@A,0x00A763E4,"main's exact row 0x5EAD20 stores the window there (?unknown_dropdown_window_a763e4@OwnerDraw@@3PAUHWND__@@A), as this tree's draft stores Dropdown_Window"
-?Find@SchemeTable@@QAEPAPAVSchemeNode@@ABVHashString@@@Z,0x006050C0,"main row ?Find@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAPAVSchemeNode@@ABVHashString@@@Z (palette.cpp), the scheme table's lookup"
-?Next@SchemeTable@@QAEPAVHashString@@PAUHashIterator@@@Z,0x00605120,"main row ?Next@?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAEPAVHashString@@AAUUnknownSchemeListIterator@@@Z (palette.cpp), the scheme table's iterator step"

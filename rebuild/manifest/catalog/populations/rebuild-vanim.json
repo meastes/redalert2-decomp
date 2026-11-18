@@ -104,7 +104,7 @@
     "_$E38": 7391200,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "??0VoxelAnimClass@@QAE@PBVVoxelAnimTypeClass@@ABVCoord@@PAVHouseClass@@@Z": 7391232,
+    "??0VoxelAnimClass@@QAE@XZ": 7392544,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
     "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
@@ -153,6 +153,7 @@
     "?Paradrop@ObjectClass@@UAE_NABVCoord@@@Z": 6111808,
     "?Record_The_Kill@ObjectClass@@UAEXPAVTechnoClass@@@Z": 6106192,
     "?Detach_All@ObjectClass@@UAEX_N@Z": 6110224,
+    "?Unlimbo@ObjectClass@@UAE_NABVCoord@@W4Dir256@@@Z": 6109328,
     "?Is_Moving_Onto_Bridge@ObjectClass@@UBE_NPAVTechnoClass@@@Z": 6116080,
     "?Sort_Y@ObjectClass@@UBEHXZ": 6116432,
     "?Can_Player_Move@ObjectClass@@UBE_NXZ": 6106176,
@@ -170,6 +171,7 @@
     "?In_Air@ObjectClass@@UBE_NXZ": 6116368,
     "?On_Ground@ObjectClass@@UBE_NXZ": 6116320,
     "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@ObjectClass@@UBE?AVCoord@@XZ": 6114880,
     "?Is_Inactive@ObjectClass@@UBE_NXZ": 6115088,
     "?Fetch_Heap_ID@AbstractClass@@UBEHXZ": 4260432,
     "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
@@ -193,14 +195,6 @@
     "??_R0?AVObjectClass@@@8": 8185160,
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVVoxelAnimClass@@@8": 8360976,
-    "??0ParticleSystemClass@@QAE@PBVParticleSystemTypeClass@@ABVCoord@@PAVAbstractClass@@21@Z": 6335088,
-    "??2@YAPAXI@Z": 7872535,
-    "?End@AudioController@@QAEXXZ": 4218848,
-    "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z": 7421536,
-    "?Init@BounceClass@@QAEXABVCoord@@NNNABVVector3@@N@Z": 4419008,
-    "??RRandom2Class@@QAEHXZ": 6522944,
-    "?Center_Coord@ObjectClass@@UBE?AVCoord@@XZ": 6114880,
-    "?Unlimbo@ObjectClass@@UAE_NABVCoord@@W4Dir256@@@Z": 6109328,
     "?Is_Players_Army@ObjectClass@@UBE_NXZ": 4341008,
     "?Visual_Character@ObjectClass@@UBE?AW4VisualType@@_NPBVHouseClass@@@Z": 4341024,
     "?Considered_Vehicle@ObjectClass@@UBE_NXZ": 4341040,
@@ -231,7 +225,6 @@
     "?IsWarpingSomethingOut@ObjectClass@@UBE_NXZ": 4341312,
     "?IsNotWarping@ObjectClass@@UBE_NXZ": 4341328,
     "?GetRemapColour@ObjectClass@@UBEPAXXZ": 4341344,
-    "??0VoxelAnimClass@@QAE@XZ": 7392544,
     "?Render@VoxelAnimClass@@UBE_NAAV?$TRect@H@@_N1@Z": 7393136,
     "?Draw_It@VoxelAnimClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 7393216,
     "?Init_Clear@VoxelAnimClass@@SIXXZ": 7394128,
@@ -250,6 +243,7 @@
     "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
     "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "??2@YAPAXI@Z": 7872535,
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
@@ -320,7 +314,7 @@
           "resolved": 11339320
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390736,
@@ -372,7 +366,7 @@
           "resolved": 11339392
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390784,
@@ -424,7 +418,7 @@
           "resolved": 11339376
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390816,
@@ -476,7 +470,7 @@
           "resolved": 11339368
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390848,
@@ -528,7 +522,7 @@
           "resolved": 11339328
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390880,
@@ -580,7 +574,7 @@
           "resolved": 11339288
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390912,
@@ -664,7 +658,7 @@
           "resolved": 11339400
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390944,
@@ -724,7 +718,7 @@
           "resolved": 11339336
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391008,
@@ -784,7 +778,7 @@
           "resolved": 11339360
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391056,
@@ -844,7 +838,7 @@
           "resolved": 11339384
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391104,
@@ -888,7 +882,7 @@
           "resolved": 11339314
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391152,
@@ -940,7 +934,7 @@
           "resolved": 11339352
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391168,
@@ -1000,7 +994,7 @@
           "resolved": 11339308
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391200,
@@ -1180,7 +1174,7 @@
           "resolved": 8624596
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7392544,
@@ -1400,7 +1394,7 @@
           "resolved": 4293678543
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7392832,
@@ -1452,7 +1446,7 @@
           "resolved": 4293682483
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7393136,
@@ -1808,7 +1802,7 @@
           "resolved": 4292419691
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7393216,
@@ -1860,7 +1854,7 @@
           "resolved": 8624608
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7394128,
@@ -1887,7 +1881,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7396768,
@@ -2027,7 +2021,7 @@
           "resolved": 4294515941
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7396784,
@@ -2063,7 +2057,7 @@
           "resolved": 4291830364
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7396944,
@@ -2155,7 +2149,7 @@
           "resolved": 4292370480
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7396976,
@@ -2215,7 +2209,7 @@
           "resolved": 8002508
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397136,
@@ -2242,7 +2236,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397200,
@@ -2269,7 +2263,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397216,
@@ -2296,7 +2290,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397232,
@@ -2323,7 +2317,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397248,
@@ -2367,7 +2361,7 @@
           "resolved": 474518
         }
       ],
-      "source_sha256": "e723f02e5925da6c0283e6bc2254d01c564f5eb89ba9c7b71512535249440236",
+      "source_sha256": "699e5a8da08dfd0b9a8d865d6ff4aec83c223bbc3b77b24795277ca94d77237a",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397264,

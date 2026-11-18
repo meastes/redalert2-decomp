@@ -115,24 +115,20 @@ unsigned short mp_quo_digit(unsigned short * dividend);
 /// This routine gives the primality tests access to the shared table of small primes.
 /// </summary>
 /// <returns>Returns with a pointer to the small prime table.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 unsigned short const * XMP_Fetch_Prime_Table(void)
 {
 	return(primeTable);
 }
-#endif
 
 
 /// <summary>
 /// Fetches the number of entries in the small prime table.
 /// </summary>
 /// <returns>Returns with the count of small primes available.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Fetch_Prime_Size(void)
 {
 	return(ARRAY_SIZE(primeTable));
 }
-#endif
 
 
 /// <summary>
@@ -140,12 +136,10 @@ int XMP_Fetch_Prime_Size(void)
 /// </summary>
 /// <param name="i">The integer value to compare the MP number against.</param>
 /// <returns>bool; Does the MP number equal the integer?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Test_Eq_Int(digit const * r, int i, int p)
 {
 	return( (*r == (digit)i ) && XMP_Significance(r,p) <= 1 );
 }
-#endif
 
 
 /***********************************************************************************************
@@ -197,7 +191,6 @@ static int _Byte_Precision(unsigned int value)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_DER_Length_Encode(unsigned int length, unsigned char * output)
 {
 	assert(output != NULL);
@@ -214,7 +207,6 @@ int XMP_DER_Length_Encode(unsigned int length, unsigned char * output)
 	}
 	return(header_length);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -238,7 +230,6 @@ int XMP_DER_Length_Encode(unsigned int length, unsigned char * output)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_DER_Encode(digit const * from, unsigned char * output, int precision)
 {
 	assert(from != NULL);
@@ -256,7 +247,6 @@ int XMP_DER_Encode(digit const * from, unsigned char * output, int precision)
 
 	return(header_count+number_count);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -279,7 +269,6 @@ int XMP_DER_Encode(digit const * from, unsigned char * output, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_DER_Decode(digit * result, unsigned char const * input, int precision)
 {
 	assert(result != NULL);
@@ -302,7 +291,6 @@ void XMP_DER_Decode(digit * result, unsigned char const * input, int precision)
 		}
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -422,7 +410,6 @@ unsigned XMP_Encode(unsigned char * to, digit const * from, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Signed_Decode(digit * result, const unsigned char * from, int frombytes, int precision)
 {
 	assert(result != NULL);
@@ -450,7 +437,6 @@ void XMP_Signed_Decode(digit * result, const unsigned char * from, int frombytes
 		*--dest = *from++;
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -474,7 +460,6 @@ void XMP_Signed_Decode(digit * result, const unsigned char * from, int frombytes
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Unsigned_Decode(digit * result, const unsigned char * from, int frombytes, int precision)
 {
 	assert(result != NULL);
@@ -500,7 +485,6 @@ void XMP_Unsigned_Decode(digit * result, const unsigned char * from, int frombyt
 		*--dest = *from++;
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -521,7 +505,6 @@ void XMP_Unsigned_Decode(digit * result, const unsigned char * from, int frombyt
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Significance(const digit * number, int precision)
 {
 	assert(number != NULL);
@@ -535,7 +518,6 @@ int XMP_Significance(const digit * number, int precision)
 	} while (precision);
 	return(precision);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -554,7 +536,6 @@ int XMP_Significance(const digit * number, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Inc(digit * number, int precision)
 {
 	assert(number != NULL);
@@ -567,7 +548,6 @@ void XMP_Inc(digit * number, int precision)
 		precision --;
 	} while (precision);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -586,7 +566,6 @@ void XMP_Inc(digit * number, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Dec(digit * number, int precision)
 {
 	assert(number != NULL);
@@ -599,7 +578,6 @@ void XMP_Dec(digit * number, int precision)
 		precision--;
 	} while (precision);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -618,7 +596,6 @@ void XMP_Dec(digit * number, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Neg(digit * number, int precision)
 {
 	assert(number != NULL);
@@ -627,7 +604,6 @@ void XMP_Neg(digit * number, int precision)
 	XMP_Not(number, precision);
 	XMP_Inc(number, precision);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -648,7 +624,6 @@ void XMP_Neg(digit * number, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Abs(digit * number, int precision)
 {
 	assert(number != NULL);
@@ -658,7 +633,6 @@ void XMP_Abs(digit * number, int precision)
 		XMP_Neg(number, precision);
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -680,7 +654,6 @@ void XMP_Abs(digit * number, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Shift_Right_Bits(digit * number, int bits, int precision)
 {
 	assert(number != NULL);
@@ -747,7 +720,6 @@ void XMP_Shift_Right_Bits(digit * number, int bits, int precision)
 		*number++ = 0;
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -768,7 +740,6 @@ void XMP_Shift_Right_Bits(digit * number, int bits, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Shift_Left_Bits(digit * number, int bits, int precision)
 {
 	assert(number != NULL);
@@ -833,7 +804,6 @@ void XMP_Shift_Left_Bits(digit * number, int bits, int precision)
 		*number-- = 0;
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -857,7 +827,6 @@ void XMP_Shift_Left_Bits(digit * number, int bits, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Rotate_Left(digit * number, bool carry, int precision)
 {
 	assert(number != NULL);
@@ -872,7 +841,6 @@ bool XMP_Rotate_Left(digit * number, bool carry, int precision)
 	}
 	return(carry);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -891,7 +859,6 @@ bool XMP_Rotate_Left(digit * number, bool carry, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Not(digit * number, int precision)
 {
 	assert(number != NULL);
@@ -902,7 +869,6 @@ void XMP_Not(digit * number, int precision)
 		number++;
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -924,7 +890,6 @@ void XMP_Not(digit * number, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Init(digit * number, digit value, int precision)
 {
 	assert(number != NULL);
@@ -933,7 +898,6 @@ void XMP_Init(digit * number, digit value, int precision)
 	memset(number, '\0', precision * sizeof(digit));
 	*number = value;
 }
-#endif
 
 
 /***********************************************************************************************
@@ -953,7 +917,6 @@ void XMP_Init(digit * number, digit value, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 unsigned XMP_Count_Bits(const digit * number, int precision)
 {
 	assert(number != NULL);
@@ -972,7 +935,6 @@ unsigned XMP_Count_Bits(const digit * number, int precision)
 
 	return(total_bit_count);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -992,7 +954,6 @@ unsigned XMP_Count_Bits(const digit * number, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Count_Bytes(const digit * number, int precision)
 {
 	unsigned char * ptr = (unsigned char *)number;
@@ -1004,7 +965,6 @@ int XMP_Count_Bytes(const digit * number, int precision)
 	}
 	return(count);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1025,12 +985,10 @@ int XMP_Count_Bytes(const digit * number, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Move(digit * dest, digit const * source, int precision)
 {
 	memcpy(dest, source, precision * sizeof(digit));
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1054,7 +1012,6 @@ void XMP_Move(digit * dest, digit const * source, int precision)
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Compare(const digit * left_number, const digit * right_number, int precision)
 {
 	left_number += precision-1;
@@ -1068,7 +1025,6 @@ int XMP_Compare(const digit * left_number, const digit * right_number, int preci
 	} while (precision);
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1096,7 +1052,6 @@ int XMP_Compare(const digit * left_number, const digit * right_number, int preci
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Add(digit * result, const digit * left_number, const digit * right_number, bool carry, int precision)
 {
 	while (precision--) {
@@ -1110,7 +1065,6 @@ bool XMP_Add(digit * result, const digit * left_number, const digit * right_numb
 	}
 	return(carry);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1140,7 +1094,6 @@ bool XMP_Add(digit * result, const digit * left_number, const digit * right_numb
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Add_Int(digit * result, const digit * left_number, digit right_number, bool carry, int precision)
 {
 	while (precision--) {
@@ -1154,7 +1107,6 @@ bool XMP_Add_Int(digit * result, const digit * left_number, digit right_number, 
 	}
 	return(carry);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1183,7 +1135,6 @@ bool XMP_Add_Int(digit * result, const digit * left_number, digit right_number, 
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Sub(digit * result, const digit * left_number, const digit * right_number, bool borrow, int precision)
 {
 	const unsigned short * left_number_ptr = (const unsigned short *)left_number;
@@ -1200,7 +1151,6 @@ bool XMP_Sub(digit * result, const digit * left_number, const digit * right_numb
 	}
 	return(borrow);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1228,7 +1178,6 @@ bool XMP_Sub(digit * result, const digit * left_number, const digit * right_numb
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Sub_Int(digit * result, const digit * left_number, unsigned short right_number, bool borrow, int precision)
 {
 	const unsigned short * left_number_ptr = (const unsigned short *)left_number;
@@ -1245,7 +1194,6 @@ bool XMP_Sub_Int(digit * result, const digit * left_number, unsigned short right
 	}
 	return(borrow);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1269,7 +1217,6 @@ bool XMP_Sub_Int(digit * result, const digit * left_number, unsigned short right
  * HISTORY:                                                                                    *
  *   07/01/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Unsigned_Mult(digit * prod, const digit * multiplicand, const digit * multiplier, int precision)
 {
 	XMP_Init(prod, 0, precision);
@@ -1303,7 +1250,6 @@ int XMP_Unsigned_Mult(digit * prod, const digit * multiplicand, const digit * mu
 	}
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1326,7 +1272,6 @@ int XMP_Unsigned_Mult(digit * prod, const digit * multiplicand, const digit * mu
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Unsigned_Mult_Int(digit * prod, const digit * multiplicand, short multiplier, int precision)
 {
 	const unsigned short * m2 = (const unsigned short *)multiplicand;
@@ -1344,7 +1289,6 @@ int XMP_Unsigned_Mult_Int(digit * prod, const digit * multiplicand, short multip
 //	*pr += (unsigned short)carry;
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1368,7 +1312,6 @@ int XMP_Unsigned_Mult_Int(digit * prod, const digit * multiplicand, short multip
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Signed_Mult_Int(digit * prod, const digit * multiplicand, signed short multiplier, int precision)
 {
 	if (XMP_Is_Negative(multiplicand, precision)) {
@@ -1396,7 +1339,6 @@ int XMP_Signed_Mult_Int(digit * prod, const digit * multiplicand, signed short m
 	}
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1419,7 +1361,6 @@ int XMP_Signed_Mult_Int(digit * prod, const digit * multiplicand, signed short m
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Signed_Mult(digit * prod, const digit * multiplicand, const digit * multiplier, int precision)
 {
 	if (XMP_Is_Negative(multiplicand, precision)) {
@@ -1451,7 +1392,6 @@ int XMP_Signed_Mult(digit * prod, const digit * multiplicand, const digit * mult
 	}
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1475,7 +1415,6 @@ int XMP_Signed_Mult(digit * prod, const digit * multiplicand, const digit * mult
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 unsigned short XMP_Unsigned_Div_Int(digit * quotient, digit const * dividend, unsigned short divisor, int precision)
 {
 	if (!divisor) return(0);		/* zero divisor means divide error */
@@ -1513,7 +1452,6 @@ unsigned short XMP_Unsigned_Div_Int(digit * quotient, digit const * dividend, un
 
 	return(remainder);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1540,7 +1478,6 @@ unsigned short XMP_Unsigned_Div_Int(digit * quotient, digit const * dividend, un
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Unsigned_Div(digit * remainder, digit * quotient, digit const * dividend, digit const * divisor, int precision)
 {
 	// check for divide by zero.
@@ -1579,7 +1516,6 @@ int XMP_Unsigned_Div(digit * remainder, digit * quotient, digit const * dividend
 	}
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1606,7 +1542,6 @@ int XMP_Unsigned_Div(digit * remainder, digit * quotient, digit const * dividend
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Signed_Div(digit * remainder, digit * quotient, digit const * dividend, digit const * divisor, int precision)
 {
 	bool negative = false;
@@ -1638,7 +1573,6 @@ void XMP_Signed_Div(digit * remainder, digit * quotient, digit const * dividend,
 		}
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1663,7 +1597,6 @@ void XMP_Signed_Div(digit * remainder, digit * quotient, digit const * dividend,
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Inverse_A_Mod_B(digit * result, digit const * number, digit const * modulus, int precision)
 {
 	digit g[3][MAX_UNIT_PRECISION];
@@ -1690,7 +1623,6 @@ void XMP_Inverse_A_Mod_B(digit * result, digit const * number, digit const * mod
 
 	XMP_Move(result, v[(i-1)%3], precision);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1712,7 +1644,6 @@ void XMP_Inverse_A_Mod_B(digit * result, digit const * number, digit const * mod
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Reciprocal(digit * quotient, const digit * divisor, int precision)
 {
 	digit remainder[MAX_UNIT_PRECISION];
@@ -1749,7 +1680,6 @@ int XMP_Reciprocal(digit * quotient, const digit * divisor, int precision)
 	XMP_Init(remainder, 0, precision);
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1770,7 +1700,6 @@ int XMP_Reciprocal(digit * quotient, const digit * divisor, int precision)
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Decode_ASCII(char const * str, digit * mpn, int precision)
 {
 	/*
@@ -1849,7 +1778,6 @@ void XMP_Decode_ASCII(char const * str, digit * mpn, int precision)
 		XMP_Neg(mpn, precision);
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1888,7 +1816,6 @@ void XMP_Decode_ASCII(char const * str, digit * mpn, int precision)
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Hybrid_Mul(unsigned short * prod, unsigned short * multiplicand, unsigned short multiplier, int precision)
 {
 	unsigned int carry = 0;
@@ -1902,7 +1829,6 @@ void XMP_Hybrid_Mul(unsigned short * prod, unsigned short * multiplicand, unsign
 	/* Add carry to the next higher word of product / dividend */
 	*prod += (unsigned short) carry;
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1927,7 +1853,6 @@ void XMP_Hybrid_Mul(unsigned short * prod, unsigned short * multiplicand, unsign
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Double_Mul(digit * prod, const digit * multiplicand, const digit * multiplier, int precision)
 {
 	/*
@@ -1943,7 +1868,6 @@ void XMP_Double_Mul(digit * prod, const digit * multiplicand, const digit * mult
 		XMP_Hybrid_Mul(product_ptr++, (unsigned short *)multiplicand, *multiplier_ptr++, precision*2);
 	}
 }
-#endif
 
 
 
@@ -1986,7 +1910,6 @@ static digit _mod_divisor[4];
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Prepare_Modulus(const digit * n_modulus, int precision)
 {
 	XMP_Move(_scratch_modulus, n_modulus, precision);
@@ -2021,7 +1944,6 @@ int XMP_Prepare_Modulus(const digit * n_modulus, int precision)
 
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2046,7 +1968,6 @@ int XMP_Prepare_Modulus(const digit * n_modulus, int precision)
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int XMP_Mod_Mult(digit * prod, const digit * multiplicand, const digit * multiplier, int precision)
 {
 	XMP_Double_Mul(_double_staging_number, multiplicand, multiplier, precision);
@@ -2119,7 +2040,6 @@ int XMP_Mod_Mult(digit * prod, const digit * multiplicand, const digit * multipl
 	XMP_Move(prod, _double_staging_number, precision);
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2139,7 +2059,6 @@ int XMP_Mod_Mult(digit * prod, const digit * multiplicand, const digit * multipl
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void XMP_Mod_Mult_Clear(int precision)
 {
 	XMP_Init(_scratch_modulus, 0, precision);
@@ -2150,7 +2069,6 @@ void XMP_Mod_Mult_Clear(int precision)
 	_reciprical_high_digit = _reciprical_low_digit = 0;
 	_modulus_sub_precision = /*mutemp =*/ 0;
 }
-#endif
 
 
 /*
@@ -2185,7 +2103,6 @@ void XMP_Mod_Mult_Clear(int precision)
 /// </summary>
 /// <param name="dividend">Pointer to the most significant unit of the dividend.</param>
 /// <returns>Returns with the trial quotient digit.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 unsigned short mp_quo_digit(unsigned short * dividend)
 {
 	unsigned int q, q0, q1, q2;
@@ -2211,7 +2128,6 @@ unsigned short mp_quo_digit(unsigned short * dividend)
 	/*      Prevent overflow and then wipe out the intermediate results. */
 	return((unsigned short) MIN(q, (unsigned int)(1L << 16) - 1));
 }
-#endif
 
 
 /*
@@ -2227,7 +2143,6 @@ unsigned short mp_quo_digit(unsigned short * dividend)
 /// </summary>
 /// <returns>Returns with zero if the result was computed. Otherwise, a negative error code
 /// is returned to describe which argument was unusable.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int xmp_exponent_mod(digit * expout, const digit * expin, const digit * exponent_ptr, const digit * modulus, int precision)
 {
 	digit product[MAX_UNIT_PRECISION];
@@ -2309,7 +2224,6 @@ int xmp_exponent_mod(digit * expout, const digit * expin, const digit * exponent
 
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2328,7 +2242,6 @@ int xmp_exponent_mod(digit * expout, const digit * expin, const digit * exponent
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void memrev(char * buffer, size_t length)
 {
 	char * r2 = &(buffer[length - 1]);
@@ -2338,7 +2251,6 @@ void memrev(char * buffer, size_t length)
 		*r2-- = b;
 	}
 }
-#endif
 
 
 /// <summary>
@@ -2349,14 +2261,12 @@ void memrev(char * buffer, size_t length)
 /// <param name="base">Pointer to the table entry to compare against.</param>
 /// <returns>Returns with a negative value, zero, or a positive value according to whether the
 /// key sorts before, equal to, or after the entry examined.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int _USERENTRY pfunc(const void * pkey, const void * base)
 {
 	if (*(unsigned short *)pkey < *(unsigned short *)base) return(-1);
 	if (*(unsigned short *)pkey > *(unsigned short *)base) return(1);
 	return(0);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2376,7 +2286,6 @@ int _USERENTRY pfunc(const void * pkey, const void * base)
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Is_Small_Prime(const digit * candidate, int precision)
 {
 	/*
@@ -2389,7 +2298,6 @@ bool XMP_Is_Small_Prime(const digit * candidate, int precision)
 	unsigned short * ptr = Binary_Search(&primeTable[0], ARRAY_SIZE(primeTable), (unsigned short)*candidate);
 	return(ptr != NULL);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2411,7 +2319,6 @@ bool XMP_Is_Small_Prime(const digit * candidate, int precision)
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Small_Divisors_Test(const digit * candidate, int precision)
 {
 	digit quotient[MAX_UNIT_PRECISION];
@@ -2421,7 +2328,6 @@ bool XMP_Small_Divisors_Test(const digit * candidate, int precision)
 	}
 	return(true);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2467,7 +2373,6 @@ static inline bool Fermat_Test(const digit * candidate_prime, const unsigned sho
 	return(true);
 }
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Fermat_Test(const digit * candidate_prime, unsigned rounds, int precision)
 {
 	assert(rounds < ARRAY_SIZE(primeTable));
@@ -2489,7 +2394,6 @@ bool XMP_Fermat_Test(const digit * candidate_prime, unsigned rounds, int precisi
 	}
 	return(true);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2514,7 +2418,6 @@ bool XMP_Fermat_Test(const digit * candidate_prime, unsigned rounds, int precisi
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Rabin_Miller_Test(Straw & rng, digit const * w, int rounds, int precision)
 {
 	digit wminus1[MAX_UNIT_PRECISION];
@@ -2563,7 +2466,6 @@ bool XMP_Rabin_Miller_Test(Straw & rng, digit const * w, int rounds, int precisi
 	}
 	return(true);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2659,7 +2561,6 @@ void XMP_Randomize(digit * result, Straw & rng, digit const * minval, digit cons
  * HISTORY:                                                                                    *
  *   07/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool XMP_Is_Prime(digit const * prime, int precision)
 {
 	/*
@@ -2693,7 +2594,6 @@ bool XMP_Is_Prime(digit const * prime, int precision)
 	*/
 	return(true);
 }
-#endif
 
 
 /*

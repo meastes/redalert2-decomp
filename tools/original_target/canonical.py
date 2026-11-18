@@ -964,7 +964,7 @@ class CanonicalAudit(Audit):
 
 # Audit state that rows add to and that the report or later steps read.
 RECORDED = ('discarded_outputs', 'rtti_original_copies', 'data_original_copies', 'rtti_known_differences',
-            'kept_elsewhere_omitted')
+            'kept_elsewhere_compared', 'kept_elsewhere_omitted')
 _WORKER = None
 
 
@@ -1021,7 +1021,7 @@ def _audit_group(task):
     audit, path = _WORKER
     index, start, length, rows = task
     log = []
-    for name in RECORDED[:4]:
+    for name in RECORDED[:5]:
         setattr(audit, name, _Recorder(name, log, audit))
     audit.kept_elsewhere_omitted = _RecordedList('kept_elsewhere_omitted', log, audit)
     if not isinstance(audit.blobs, _LoggedBlobs):

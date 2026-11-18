@@ -53,8 +53,8 @@ class HSVClass
 			{};
 		operator RGBClass (void) const;
 
-		bool operator==(const HSVClass &that) const { return(Hue == that.Hue && Saturation == that.Saturation && Value == that.Value); }
-		bool operator!=(const HSVClass &that) const { return(Hue != that.Hue || Saturation != that.Saturation || Value != that.Value); }
+		bool operator==(const HSVClass &that) const; // RA2: out of line in hsv.cpp (0x4FF170)
+		bool operator!=(const HSVClass &that) const; // RA2: out of line in hsv.cpp (0x4FF1A0)
 
 		enum {
 			MAX_VALUE=255
@@ -74,3 +74,6 @@ class HSVClass
 		unsigned char Saturation;
 		unsigned char Value;
 };
+
+bool operator==(HSVClass & a, HSVClass const & b); // RA2: 0x4FF1E0
+bool operator!=(HSVClass & a, HSVClass & b); // RA2: 0x4FF1F0

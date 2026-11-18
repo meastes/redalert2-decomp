@@ -59,6 +59,7 @@ static inline Cell Vanim_Adjacent_Cell(Coord const & coord, FacingType dir)
 /// <param name="type">The voxel animation type to create an instance of.</param>
 /// <param name="coord">The coordinate to create the animation at.</param>
 /// <param name="house">The house that owns the animation, or NULL if it belongs to nobody.</param>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0070c800 has no row)
 VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass const * type, Coord const & coord, HouseClass * house) :
 	BASECLASS(),
 	Class((VoxelAnimTypeClass *)type),
@@ -120,6 +121,7 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass const * type, Coord const & co
 		AttachedParticleSys = new ParticleSystemClass(Class->AttachedSystem, coord, &Map[coord], this);
 	}
 }
+#endif
 
 
 /// <summary>

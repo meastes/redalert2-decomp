@@ -170,6 +170,7 @@ void STDMETHODCALLTYPE MechLocomotionClass::Force_Immediate_Destination(CoordStr
 /// </summary>
 /// <param name="continue_moving">Should the routine pick a fresh step immediately when the
 /// one it chose turns out to be unusable?</param>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005919a0 has no row)
 void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here, between Force_Immediate_Destination and Mark_Head_To
 {
 	if (LinkedTo->PrimaryFacing.Is_Rotating()) {
@@ -609,6 +610,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 		}
 	}
 }
+#endif
 
 
 /// <summary>

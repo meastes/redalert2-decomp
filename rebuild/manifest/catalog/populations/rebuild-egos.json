@@ -1,0 +1,996 @@
+{
+  "id": "rebuild-egos",
+  "population": {
+    "id": "rebuild-egos",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "6d59def5a89205cc3211d5b9da7c74a35a3129c095942e899696b373e94df68a",
+    "historical_acceptance_sha256": "ffdc5c3534b0bebf1fd2f3bb5ed67d6edbfa6ed30dc8d1b14187711c87fc3f1d"
+  },
+  "references": {
+    "_RECT_NONE": 8739104,
+    "_$E33": 4928992,
+    "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A": 8739120,
+    "??_7?$DynamicVectorClass@PAVEgoClass@@@@6B@": 7998700,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVEgoClass@@@@6B@": 7998732,
+    "??3@YAXPAX@Z": 7871803,
+    "_wcslen": 7878149,
+    "??2@YAPAXI@Z": 7872535,
+    "_wcscpy": 7878281,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?VideoModeWidth@@3HA": 8725472,
+    "?VideoModeHeight@@3HA": 8725476,
+    "?GameInFocus@@3_NA": 10751272,
+    "?CreditsSurface@@3PAVSurface@@A": 8728856,
+    "?OD_Draw_Text@@YIHIPAVBitFont@@ABV?$TRect@H@@PBGHHHPAVSurface@@H@Z": 6283696,
+    "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z": 4815440,
+    "?String_Pixel_Width@BitFont@@QAEHPBGH@Z": 4396688,
+    "?CreditsText@@3PAGA": 8728860,
+    "_$E2": 4928896,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E35": 4928928,
+    "??_G?$DynamicVectorClass@PAVEgoClass@@@@UAEPAXI@Z": 4933184,
+    "??_G?$VectorClass@PAVEgoClass@@@@UAEPAXI@Z": 4933104,
+    "??0EgoClass@@QAE@HHPAGW4TextPrintType@@@Z": 4929056,
+    "??1EgoClass@@QAE@XZ": 4929120,
+    "?Scroll@EgoClass@@QAE_NH@Z": 4929136,
+    "?Render@EgoClass@@QAEX_N@Z": 4929168,
+    "?Wipe@EgoClass@@QAEXPAVSurface@@@Z": 4929376,
+    "?Clear@?$DynamicVectorClass@PAVEgoClass@@@@UAEXXZ": 4932400,
+    "?ID@?$DynamicVectorClass@PAVEgoClass@@@@UAEHPBQAVEgoClass@@@Z": 4932448,
+    "?GetItem@?$VectorClass@PAVEgoClass@@@@UBEPAVEgoClass@@H@Z": 4932480,
+    "??8?$VectorClass@PAVEgoClass@@@@UBE_NABV0@@Z": 4932496,
+    "?Resize@?$VectorClass@PAVEgoClass@@@@UAE_NHPBQAVEgoClass@@@Z": 4932560,
+    "?Clear@?$VectorClass@PAVEgoClass@@@@UAEXXZ": 4932736,
+    "?ID@?$VectorClass@PAVEgoClass@@@@UAEHABQAVEgoClass@@@Z": 4932784,
+    "?ID@?$VectorClass@PAVEgoClass@@@@UAEHPBQAVEgoClass@@@Z": 4932848,
+    "?Resize@?$DynamicVectorClass@PAVEgoClass@@@@UAE_NHPBQAVEgoClass@@@Z": 4932880,
+    "?ID@?$DynamicVectorClass@PAVEgoClass@@@@UAEHABQAVEgoClass@@@Z": 4933056
+  },
+  "regions": [
+    {
+      "entry": 4928896,
+      "method": "004b3580",
+      "body_bytes": 23,
+      "body_sha256": "6bc0dff5d436f41d716f3e0b1314c994b792e2f3e1bd5a1303e0e008af041d5f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f39817cf279b88519897b8a0cf417cf26d15a5f882e210b97418b76e8f1fdcaa",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8739104,
+          "addend": 0,
+          "resolved": 8739104
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8739104,
+          "addend": 4,
+          "resolved": 8739108
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8739104,
+          "addend": 8,
+          "resolved": 8739112
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8739104,
+          "addend": 12,
+          "resolved": 8739116
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4928896,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1932"
+    },
+    {
+      "entry": 4928928,
+      "method": "004b35a0",
+      "body_bytes": 61,
+      "body_sha256": "a1909d1b6ec68f7352f2b1e0d582385032980643dff7aee27f5e57d37b4cd776",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "2b4cc63270222e938983844520c88a9b382260d5ca37530c7f2b912b35983153",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E33",
+          "target": 4928992,
+          "addend": 0,
+          "resolved": 4928992
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 4,
+          "resolved": 8739124
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 8,
+          "resolved": 8739128
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 12,
+          "resolved": 8739132
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 13,
+          "resolved": 8739133
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 0,
+          "resolved": 8739120
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVEgoClass@@@@6B@",
+          "target": 7998700,
+          "addend": 0,
+          "resolved": 7998700
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 20,
+          "resolved": 8739140
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 16,
+          "resolved": 8739136
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2945967
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4928928,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1932"
+    },
+    {
+      "entry": 4928992,
+      "method": "004b35e0",
+      "body_bytes": 59,
+      "body_sha256": "b42a1085b392e2cb67ce33e156f4fdce3730073152ab8dff0f455fb86ede7cfc",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "796a9c67142cec56e10d34ae76b683b56be07f36bcdcea923086a4751e6e1363",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E33",
+      "symbol_prefix": "_$E33",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 4,
+          "resolved": 8739124
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 0,
+          "resolved": 8739120
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVEgoClass@@@@6B@",
+          "target": 7998732,
+          "addend": 0,
+          "resolved": 7998732
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 13,
+          "resolved": 8739133
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2942775
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 4,
+          "resolved": 8739124
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 13,
+          "resolved": 8739133
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A",
+          "target": 8739120,
+          "addend": 8,
+          "resolved": 8739128
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4928992,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1932"
+    },
+    {
+      "entry": 4929056,
+      "method": "004b3620",
+      "body_bytes": 64,
+      "body_sha256": "c9439152aa9d7f45a55bca08c491e0a4015e2df78c0b56c7c72bbcd5119d34a7",
+      "padding_bytes": 0,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c9439152aa9d7f45a55bca08c491e0a4015e2df78c0b56c7c72bbcd5119d34a7",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0EgoClass@@QAE@HHPAGW4TextPrintType@@@Z",
+      "symbol_prefix": "??0EgoClass@@QAE@HHPAGW4TextPrintType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 2949058
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2943434
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 2949171
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4929056,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1932"
+    },
+    {
+      "entry": 4929120,
+      "method": "004b3660",
+      "body_bytes": 10,
+      "body_sha256": "3f18e464223d0b6b6eee28c29f1c1ed99d1108c6627ff370f3567bb7ca0d4b8c",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "46fc76d5acfc0cd9daf55e818e0c57f92aa133858c3761094a48e0ca5c3ff57e",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1EgoClass@@QAE@XZ",
+      "symbol_prefix": "??1EgoClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2942675
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4929120,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1932"
+    },
+    {
+      "entry": 4929136,
+      "method": "004b3670",
+      "body_bytes": 23,
+      "body_sha256": "5dfa264746f03c0f13660da66f1bbd529081d2532ea0f4625792b3fc4a8e33e9",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1f3db8ab1f6871b2938f99d136a4a826543c4b57f244e91f38c18aa5b9dce99c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Scroll@EgoClass@@QAE_NH@Z",
+      "symbol_prefix": "?Scroll@EgoClass@@QAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4929136,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1932"
+    },
+    {
+      "entry": 4929168,
+      "method": "004b3690",
+      "body_bytes": 199,
+      "body_sha256": "4427bac1b124446cc00835d0e526c96ecef510a165141cf2a62734498a3e4022",
+      "padding_bytes": 9,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "eb7251ef67557fb163fd913ebc705528eb39ea781cbb061eaa9ab85363c7f625",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Render@EgoClass@@QAEX_N@Z",
+      "symbol_prefix": "?Render@EgoClass@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?VideoModeHeight@@3HA",
+          "target": 8725476,
+          "addend": 0,
+          "resolved": 8725476
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "?GameInFocus@@3_NA",
+          "target": 10751272,
+          "addend": 0,
+          "resolved": 10751272
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?CreditsSurface@@3PAVSurface@@A",
+          "target": 8728856,
+          "addend": 0,
+          "resolved": 8728856
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 2948814
+        },
+        {
+          "offset": 187,
+          "kind": 20,
+          "symbol": "?OD_Draw_Text@@YIHIPAVBitFont@@ABV?$TRect@H@@PBGHHHPAVSurface@@H@Z",
+          "target": 6283696,
+          "addend": 0,
+          "resolved": 1354337
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4929168,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1932"
+    },
+    {
+      "entry": 4929376,
+      "method": "004b3760",
+      "body_bytes": 95,
+      "body_sha256": "23575f5ed741ea725cce52ec31032efbb4b6870c5fb663270bab4607fddefa7d",
+      "padding_bytes": 1,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "89b13e8728d67f01740e545e64725439646fdffd55716258032e798379ad81b8",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Wipe@EgoClass@@QAEXPAVSurface@@@Z",
+      "symbol_prefix": "?Wipe@EgoClass@@QAEXPAVSurface@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z",
+          "target": 4815440,
+          "addend": 0,
+          "resolved": 4294853346
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+          "target": 4396688,
+          "addend": 0,
+          "resolved": 4294434582
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4929376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1932"
+    },
+    {
+      "entry": 4932400,
+      "method": "004b4330",
+      "body_bytes": 42,
+      "body_sha256": "f0724a32fa7020f44e29cb2d8e6262508b87011c3c517f7bad3c6c57d305ddbf",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "25656efcdab3eb0d32e80227d840b147be52135752d9453ad592c0feced8d01b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVEgoClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVEgoClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2939376
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4932400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4932448,
+      "method": "004b4360",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVEgoClass@@@@UAEHPBQAVEgoClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVEgoClass@@@@UAEHPBQAVEgoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4932448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4932480,
+      "method": "004b4380",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVEgoClass@@@@UBEPAVEgoClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVEgoClass@@@@UBEPAVEgoClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4932480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4932496,
+      "method": "004b4390",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVEgoClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVEgoClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4932496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4932560,
+      "method": "004b43d0",
+      "body_bytes": 174,
+      "body_sha256": "581050b578f99d0fe611808624370316204ea61a04a944cc11d695a5bf3afe62",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "c01c53ca3d3dadd34283031dc7ca5799d93e9427300495caf0ffe1907f5fe5e8",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVEgoClass@@@@UAE_NHPBQAVEgoClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVEgoClass@@@@UAE_NHPBQAVEgoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2939932
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2939120
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4932560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4932736,
+      "method": "004b4480",
+      "body_bytes": 39,
+      "body_sha256": "a1c42c4e7eec5c9529f9145186ba0f432d61e88c415d0ae985d360250bd26b92",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ebd3c3e8bbe8058344573a8be45bc34e03fe6a20f6d9fc311ba38df5fc02ebb0",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVEgoClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVEgoClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2939043
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4932736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4932784,
+      "method": "004b44b0",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVEgoClass@@@@UAEHABQAVEgoClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVEgoClass@@@@UAEHABQAVEgoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4932784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4932848,
+      "method": "004b44f0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVEgoClass@@@@UAEHPBQAVEgoClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVEgoClass@@@@UAEHPBQAVEgoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4932848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4932880,
+      "method": "004b4510",
+      "body_bytes": 176,
+      "body_sha256": "5526d0e8ee3037a93e04ae9a73dc7798bfab63079da50965700b207267b16ae0",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "5526d0e8ee3037a93e04ae9a73dc7798bfab63079da50965700b207267b16ae0",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVEgoClass@@@@UAE_NHPBQAVEgoClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVEgoClass@@@@UAE_NHPBQAVEgoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2939616
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2938813
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4932880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4933056,
+      "method": "004b45c0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVEgoClass@@@@UAEHABQAVEgoClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVEgoClass@@@@UAEHABQAVEgoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4933056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4933104,
+      "method": "4b45f0",
+      "body_bytes": 73,
+      "body_sha256": "328f796c09f0e0a0d1a6c9b2e12039270b733b6e8a29e5962a2f1c57e0f2b239",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "0022a8be13b7bf12b96b15a3985d306465ac9caa931819ea24d6ba82ebe3e337",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVEgoClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVEgoClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVEgoClass@@@@6B@",
+          "target": 7998732,
+          "addend": 0,
+          "resolved": 7998732
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2938670
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2938635
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4933104,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4933184,
+      "method": "4b4640",
+      "body_bytes": 73,
+      "body_sha256": "a2664b49cf60a4edb1e96e2dfb183cf78b958ce62202927949e2b82805a0832d",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ce7b347fa7ae6f1a3c527f41a172f03e2115af2ad9202b60511d8c99428bdb28",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVEgoClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVEgoClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVEgoClass@@@@6B@",
+          "target": 7998732,
+          "addend": 0,
+          "resolved": 7998732
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2938590
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2938555
+        }
+      ],
+      "source_sha256": "65956b65b72a46d487852d5a0df903cede9be86df380663dc8c4505280545ffb",
+      "source": "rebuild/src/egos.cpp",
+      "population": "rebuild-egos",
+      "source_order": 4933184,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

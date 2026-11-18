@@ -538,6 +538,8 @@ bool __fastcall Color_Entry_Taken(int entry) // RA2: 0x004D2060, not in TibSun
 }
 
 /// <summary>Fills a color combo box with "random" and the colors that are free or the player's own, and selects the player's.</summary>
+void __fastcall Fill_Color_Combo(HWND dialog, int id); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004d2080 has no row)
 void __fastcall Fill_Color_Combo(HWND dialog, int id) // RA2: 0x004D2080, not in TibSun
 {
 	HWND combo = GetDlgItem(dialog, id); // RA2: the first item is "random" with color -1; the free colors and the player's own follow, the player's own is selected
@@ -568,6 +570,7 @@ void __fastcall Fill_Color_Combo(HWND dialog, int id) // RA2: 0x004D2080, not in
 		ShowWindow(combo, SW_SHOW); // RA2: as above
 	}
 }
+#endif
 
 /// <summary>Fills a color combo box with "random" only, and selects it.</summary>
 void __fastcall Fill_Random_Color_Combo(HWND dialog, int id) // RA2: 0x004D2250, not in TibSun

@@ -1,0 +1,688 @@
+{
+  "id": "rebuild-veteran",
+  "population": {
+    "id": "rebuild-veteran",
+    "inventory_sha256": "de4479a3783846c8405ccb56f843d223d6017da66c6e4165af578702ab05bd61",
+    "gaps_sha256": "5964d3b397a7ffce0efbaa61a8dfcc15a3e3b9ff47feb066f12eae36ab779aa3",
+    "historical_population_sha256": "75ad0d5c6889113f487499b7027b2c821fa8fe4e8688c2619dfdfd55933b6742",
+    "historical_acceptance_sha256": "1724e902db113ce0204b02a4a921c199d0ef12329ab81b9bdaf960a52b5a8c71"
+  },
+  "references": {
+    "_AbilityName": 8362360,
+    "_stricmp": 7872288,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "__real@8@3fff8000000000000000": 7972616,
+    "__real@8@40008000000000000000": 7972600,
+    "__real@8@00000000000000000000": 7976464,
+    "_floor": 7886249,
+    "__real@8@bff8a3d70a3d70a3d800": 8055152,
+    "__real@8@bfff8000000000000000": 7984504,
+    "__real@8@3ff8a3d70a3d70a3d800": 7980312,
+    "__real@8@4005c800000000000000": 7976944,
+    "__ftol": 7860496,
+    "??_C@_07CAFK@CRUSHER?$AA@": 8362432,
+    "??_C@_0L@LMDO@GUARD_AREA?$AA@": 8362440,
+    "??_C@_0O@MEIO@TIBERIUM_HEAL?$AA@": 8362452,
+    "??_C@_02MAJG@C4?$AA@": 8237716,
+    "??_C@_08EAEK@FEARLESS?$AA@": 8362468,
+    "??_C@_07IHHI@SENSORS?$AA@": 8362480,
+    "??_C@_0BA@ILAK@RADAR_INVISIBLE?$AA@": 8362488,
+    "??_C@_08LNLJ@EXPLODES?$AA@": 8362504,
+    "??_C@_09IBDD@SELF_HEAL?$AA@": 8362516,
+    "??_C@_0L@PJBM@VEIN_PROOF?$AA@": 8362528,
+    "??_C@_0P@BOKL@TIBERIUM_PROOF?$AA@": 8362540,
+    "??_C@_05BLNG@CLOAK?$AA@": 8362556,
+    "??_C@_05DCPP@SIGHT?$AA@": 8362564,
+    "??_C@_03CEPL@ROF?$AA@": 8236592,
+    "??_C@_07IHFJ@SCATTER?$AA@": 8218688,
+    "??_C@_09INEE@FIREPOWER?$AA@": 8362572,
+    "??_C@_08PDJN@STRONGER?$AA@": 8362584,
+    "??_C@_06IBEL@FASTER?$AA@": 8362596,
+    "?Ability_From_Name@@YI?AW4AbilityType@@PBD@Z": 7418624,
+    "??0VeterancyClass@@QAE@XZ": 7418688,
+    "??1VeterancyClass@@QAE@XZ": 7418704,
+    "?Made_A_Kill@VeterancyClass@@QAEXHH@Z": 7418720,
+    "?Is_Veteran@VeterancyClass@@QBE_NXZ": 7418784,
+    "?Is_Rookie@VeterancyClass@@QBE_NXZ": 7418832,
+    "?Is_Dumbass@VeterancyClass@@QBE_NXZ": 7418880,
+    "?Is_Elite@VeterancyClass@@QBE_NXZ": 7418912,
+    "?Remaining_Levels@VeterancyClass@@QBEHXZ": 7418944,
+    "?Modify@VeterancyClass@@QAENN@Z": 7418992,
+    "?Set_Dumbass@VeterancyClass@@QAEX_N@Z": 7419104,
+    "?Set_Rookie@VeterancyClass@@QAEX_N@Z": 7419152,
+    "?Set_Veteran@VeterancyClass@@QAEX_N@Z": 7419168,
+    "?Set_Elite@VeterancyClass@@QAEX_N@Z": 7419216,
+    "?To_Integer@VeterancyClass@@QBEHXZ": 7419264,
+    "?From_Integer@VeterancyClass@@QAEXH@Z": 7419280,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056
+  },
+  "regions": [
+    {
+      "entry": 7418624,
+      "method": "00713300",
+      "body_bytes": 53,
+      "body_sha256": "77f45d6ddfc924dad8e0a57edeae4dbeb13876ae3a7f63918fe21e5479424d10",
+      "padding_bytes": 11,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "8ca09084fced660038da4c2fd1b7744220f61da2301e83f5e6c705d26ce5657a",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Ability_From_Name@@YI?AW4AbilityType@@PBD@Z",
+      "symbol_prefix": "?Ability_From_Name@@YI?AW4AbilityType@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_AbilityName",
+          "target": 8362360,
+          "addend": 0,
+          "resolved": 8362360
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 453643
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_AbilityName",
+          "target": 8362360,
+          "addend": 72,
+          "resolved": 8362432
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418624,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4391"
+    },
+    {
+      "entry": 7418688,
+      "method": "00713340",
+      "body_bytes": 16,
+      "body_sha256": "9d20fb9737545d0eeb198c79dc5d325beabd6d570a4058d3f1e7f4a887df0403",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9d20fb9737545d0eeb198c79dc5d325beabd6d570a4058d3f1e7f4a887df0403",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0VeterancyClass@@QAE@XZ",
+      "symbol_prefix": "??0VeterancyClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418704,
+      "method": "00713350",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1VeterancyClass@@QAE@XZ",
+      "symbol_prefix": "??1VeterancyClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418720,
+      "method": "00713360",
+      "body_bytes": 61,
+      "body_sha256": "d1b4c42f41e5cc240b0647947d0c09be6d153d06411f8cc7a5434fb3177702bb",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ff4d0c4e99117c3eeb8682c0f94434c31fcb1e0635a94dc3a7ed112f8d5a3733",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Made_A_Kill@VeterancyClass@@QAEXHH@Z",
+      "symbol_prefix": "?Made_A_Kill@VeterancyClass@@QAEXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418784,
+      "method": "007133a0",
+      "body_bytes": 39,
+      "body_sha256": "11b22b28728a7664d023ff84b70ac8275910ee7d6738a5fa10ce87e4ca2e33c8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6398aa1ce4d03602699c3178132972de05bbf8c5a3eba58bae3b0fcbfa834ad2",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Veteran@VeterancyClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418832,
+      "method": "007133d0",
+      "body_bytes": 39,
+      "body_sha256": "62fa19055f8f33119a8d61bba2a923df33bb6712ffdcbd6b61e232bc8cceeeaf",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0bef0557fc67bf585b0208b0d7f628f13b3093d2d216d1e80a3c8cc04a93abce",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Rookie@VeterancyClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Rookie@VeterancyClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418880,
+      "method": "00713400",
+      "body_bytes": 24,
+      "body_sha256": "18ad7216b46fb25cc63a92995b102058ce728bd26ad8bd389c4a20cfc2279f15",
+      "padding_bytes": 8,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3febef72a232cc0a7684797080172dc3dff04c1c4e4a36ca9c07944ce417b9c5",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Dumbass@VeterancyClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Dumbass@VeterancyClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418912,
+      "method": "00713420",
+      "body_bytes": 24,
+      "body_sha256": "157315e55798cc705101d26ae44e6bfb999d2da5d6f771f133d77a0dd55c6d68",
+      "padding_bytes": 8,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4cd21a00f83c7467cdbc895fb8ff7017be4add67fdfa7e2594e6ffaeb8d1ee08",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Elite@VeterancyClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Elite@VeterancyClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418944,
+      "method": "00713440",
+      "body_bytes": 44,
+      "body_sha256": "48b0e8a69a5b1fd458981a2356c2edd44f2dc03742801a4ad1a92ac0ffba8280",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0b3b7552761474ac27a4a775a51a33d38d9f9b466aa2819014f4831078de3dd7",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remaining_Levels@VeterancyClass@@QBEHXZ",
+      "symbol_prefix": "?Remaining_Levels@VeterancyClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7418992,
+      "method": "00713470",
+      "body_bytes": 102,
+      "body_sha256": "3d83028befad673a14017313814459be2732d5e60de3a7d7c01534c800e9ceb1",
+      "padding_bytes": 10,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "a56b2074bf6d5513d26f46e3571aebe93264d9b55b1bb5e253abfdee7510fcd5",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Modify@VeterancyClass@@QAENN@Z",
+      "symbol_prefix": "?Modify@VeterancyClass@@QAENN@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "_floor",
+          "target": 7886249,
+          "addend": 0,
+          "resolved": 467232
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "__real@8@bff8a3d70a3d70a3d800",
+          "target": 8055152,
+          "addend": 0,
+          "resolved": 8055152
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "__real@8@bfff8000000000000000",
+          "target": 7984504,
+          "addend": 0,
+          "resolved": 7984504
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "__real@8@3ff8a3d70a3d70a3d800",
+          "target": 7980312,
+          "addend": 0,
+          "resolved": 7980312
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7418992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7419104,
+      "method": "007134e0",
+      "body_bytes": 34,
+      "body_sha256": "db84649ba8fcac1f2f4aabf4f0606e6b68d4cfcd6d0643ee6454756645014593",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8affe197fc40fcf27c059e87d034ac4474388ee77be5317a89b6af1e84152228",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Dumbass@VeterancyClass@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Dumbass@VeterancyClass@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7419104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7419152,
+      "method": "00713510",
+      "body_bytes": 16,
+      "body_sha256": "13afac442ebeccc9f58ff5a21e5bcf89bd0df4f37bf3b05e82c7f15248483209",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "13afac442ebeccc9f58ff5a21e5bcf89bd0df4f37bf3b05e82c7f15248483209",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Rookie@VeterancyClass@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Rookie@VeterancyClass@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7419152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7419168,
+      "method": "00713520",
+      "body_bytes": 34,
+      "body_sha256": "de70bb1de1ee807ddfcc8530a37e107d50e0a9d920a355f0b09a317366355651",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "432eea6a24133633f278d8c5670dc757156c45be24f5629f7d6fdb6cd424eceb",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Veteran@VeterancyClass@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Veteran@VeterancyClass@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7419168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7419216,
+      "method": "00713550",
+      "body_bytes": 34,
+      "body_sha256": "97601275c8a16ebf1a3de4c4d0f156050bee877e3c3c74ba6ea90375f5eb59c8",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "43acd4d73a341b0f6f7ba10068b31c99013c90c81455f264cd8872e668d38933",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Elite@VeterancyClass@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Elite@VeterancyClass@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7419216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7419264,
+      "method": "00713580",
+      "body_bytes": 13,
+      "body_sha256": "0c2d66a9bcb902230762375db0e3341cf514e80f8558405dc18ad8a3d81180b3",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b71e05fc56d78ad8ed3044db9db092bc96ababbfa546e450dfc653049d49c02d",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?To_Integer@VeterancyClass@@QBEHXZ",
+      "symbol_prefix": "?To_Integer@VeterancyClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "__real@8@4005c800000000000000",
+          "target": 7976944,
+          "addend": 0,
+          "resolved": 7976944
+        },
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 441219
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7419264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7419280,
+      "method": "00713590",
+      "body_bytes": 15,
+      "body_sha256": "caaf367f1e5e647e79f349d214f69a67a1c33904fc5d6add5fe4e271b2224a1b",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b6442c011608a57bffc006548be853feb5927736cc5995f89050f891aca76b6e",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?From_Integer@VeterancyClass@@QAEXH@Z",
+      "symbol_prefix": "?From_Integer@VeterancyClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "__real@8@3ff8a3d70a3d70a3d800",
+          "target": 7980312,
+          "addend": 0,
+          "resolved": 7980312
+        }
+      ],
+      "source_sha256": "0e2b1fb51656e9ffcefdd7f0533d38199357ac4d32f37525806bd0f7a240c619",
+      "source": "rebuild/src/veteran.cpp",
+      "population": "rebuild-veteran",
+      "source_order": 7419280,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

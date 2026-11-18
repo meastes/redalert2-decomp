@@ -628,6 +628,7 @@ void WaveClass::Draw_It(Point2D const & point, Rect const & cliprect) const
 /// </summary>
 /// <param name="point">The screen point that the wave's origin lands upon.</param>
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (007225b0 has no row)
 void WaveClass::Draw_Sonic(Point2D const & point, Rect const & cliprect)
 {
 	int zpix = Tactical::Z_Lepton_To_Pixel(StartCoord.Z);
@@ -821,6 +822,7 @@ void WaveClass::Draw_Sonic(Point2D const & point, Rect const & cliprect)
 		}
 	}
 }
+#endif
 
 
 
@@ -834,6 +836,7 @@ void WaveClass::Draw_Sonic(Point2D const & point, Rect const & cliprect)
 /// </summary>
 /// <param name="point">The screen point that the wave's origin lands upon.</param>
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00722cb0 has no row)
 void WaveClass::Draw_Laser(Point2D const & point, Rect const & cliprect)
 {
 	if (Options.DetailLevel == 2) {
@@ -928,6 +931,7 @@ void WaveClass::Draw_Laser(Point2D const & point, Rect const & cliprect)
 		}
 	}
 }
+#endif
 
 
 

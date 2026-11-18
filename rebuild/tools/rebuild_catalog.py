@@ -25,6 +25,36 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def external_omitted(coff, exact_names, resolve):
+    """No-duplicates COMDATs (external functions under /Gy) the object emits that are not exact rows
+    but bind to an image address: the audit would omit them as copies kept elsewhere, which the review
+    ruling of 2026-11-18 forbids (an external function is never a discarded duplicate). Budgeted per
+    unit in structure_budget.json (external_omitted_by_unit), allowed only to fall (lane R7)."""
+    out = []
+    for f in coff._functions:
+        name = f['name']
+        if name in exact_names or name.startswith(('??_G', '??_E', '_$E')):
+            continue
+        records = [s for s in coff.symbols.values() if s['section'] == f['section'] and s['storage'] == 3
+                   and s['type'] == 0 and len(s['auxiliary']) == 18]
+        address = resolve(name)[0]
+        if len(records) != 1 or records[0]['auxiliary'][14] == 2 or address is None:
+            continue
+        # A copy equal to the image modulo relocations is the original function compiled again (the
+        # audit's original-duplicate check verifies it relocated); only a differing one is a draft.
+        section = coff.sections[f['section'] - 1]
+        ours = bytearray(section['data'])
+        try:
+            kept = bytearray(_audit().original(address, len(ours)))
+        except ValueError:
+            kept = bytearray()
+        for offset, _, _ in section['relocs']:
+            ours[offset:offset + 4] = kept[offset:offset + 4] = bytes(4)
+        if ours != kept:
+            out.append(name)
+    return out
+
+
 _AUDIT = []
 
 
@@ -42,6 +72,7 @@ def write():
     units = R.load_json(R.UNITS, {})
     config = json.loads(R.CONFIG.read_text())
     regions, pops, tables, needed, refused = [], [], {}, set(), []
+    omitted_total = [0]
     for unit, info in sorted(units.items(), key=lambda kv: kv[1]['range'][0]):
         last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
         source = R.ROOT / info['source']
@@ -122,6 +153,15 @@ def write():
         if loose:
             refused.append('%s: emitted functions with no row or binding: %s' % (unit, ' '.join(loose)[:100]))
             continue
+        budget = json.loads((R.MANIFEST / 'structure_budget.json').read_text())
+        claimed_names = exact_names | {results[r['entry']].get('symbol') for r in exact}
+        omitted = [n for n in external_omitted(coff, claimed_names, resolve_u)
+                   if resolve_u(n)[0] not in exact_entries]
+        if len(omitted) > budget.get('external_omitted_by_unit', {}).get(unit, 0):
+            refused.append('%s: external functions compiled but not exact rows (the audit would omit them as kept '
+                           'copies; guard them): %s' % (unit, ' '.join(omitted)[:100]))
+            continue
+        omitted_total[0] += len(omitted)
         # The structure gate per unit (user, 2026-11-17): stray externs and address-suffixed names
         # within the unit's budget (rebuild/manifest/structure_budget.json; zero for a new unit).
         import rebuild_census
@@ -202,8 +242,8 @@ def write():
         info['status'] = 'catalogued' if info['source'] in catalogued else 'pending'
     R.write_json(R.UNITS, units)
     R.write_json(R.WORK / 'rebuild-config.json', config)
-    print('catalog: %d units, %d rows, %d body bytes; %d populations (%d bound-only)' % (
+    print('catalog: %d units, %d rows, %d body bytes; %d populations (%d bound-only); external functions omitted %d' % (
         len(catalogued), len(regions), sum(r['body_bytes'] for r in regions), len(pops),
-        len(pops) - len(catalogued)))
+        len(pops) - len(catalogued), omitted_total[0]))
     for line in refused:
         print('  left out: ' + line)

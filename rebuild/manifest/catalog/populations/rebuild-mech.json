@@ -125,31 +125,6 @@
     "?Stop_Moving@MechLocomotionClass@@UAGXXZ": 5839104,
     "?Do_Turn@MechLocomotionClass@@UAGXUDirStruct@@@Z": 5839184,
     "?Force_Immediate_Destination@MechLocomotionClass@@UAGXUCoordStruct@@@Z": 5839232,
-    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
-    "?cos@fastmath@@YANN@Z": 4957392,
-    "?sin@fastmath@@YANN@Z": 4957312,
-    "__real@8@bff1c9116cc4faf2b800": 7976480,
-    "__real@8@00000000000000000000": 7976464,
-    "?Has_Ability@TechnoClass@@QBE_NW4AbilityType@@@Z": 7174416,
-    "?Shimmer@CellClass@@QAEXXZ": 4687680,
-    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
-    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
-    "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z": 4659248,
-    "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
-    "__real@8@c00ca2f83d7b47677800": 7976488,
-    "__real@8@3fffc90fdaa22168c000": 7976496,
-    "?atan2@fastmath@@YANNN@Z": 4957696,
-    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
-    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
-    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
-    "?AdjacentCell@@3QBVCell@@B": 8723056,
-    "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": 8806856,
-    "?Is_Same_Cell_Zone@MapClass@@QAE_NABVCell@@0W4MZoneType@@_N22@Z": 5568448,
-    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
-    "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z": 4993024,
-    "__real@8@4008e100000000000000": 7976456,
-    "?Rule@@3PAVRulesClass@@A": 8624200,
-    "?Frame@@3HA": 10751276,
     "?Mark_Head_To@MechLocomotionClass@@AAE_NABVCoord@@@Z": 5844848,
     "?GetClassID@MechLocomotionClass@@UAGJPAU_GUID@@@Z": 5845280,
     "?Load@MechLocomotionClass@@UAGJPAUIStream@@@Z": 5845344,
@@ -157,8 +132,6 @@
     "?Is_Moving_Now@MechLocomotionClass@@UAGEXZ": 5845408,
     "?Mark_All_Occupation_Bits@MechLocomotionClass@@UAGXH@Z": 5845520,
     "?Is_Moving_Here@MechLocomotionClass@@UAGEUCoordStruct@@@Z": 5845600,
-    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
-    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
@@ -236,7 +209,7 @@
           "resolved": 10947328
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838048,
@@ -288,7 +261,7 @@
           "resolved": 10947400
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838096,
@@ -340,7 +313,7 @@
           "resolved": 10947384
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838128,
@@ -392,7 +365,7 @@
           "resolved": 10947376
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838160,
@@ -444,7 +417,7 @@
           "resolved": 10947336
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838192,
@@ -496,7 +469,7 @@
           "resolved": 10947296
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838224,
@@ -580,7 +553,7 @@
           "resolved": 10947408
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838256,
@@ -640,7 +613,7 @@
           "resolved": 10947344
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838320,
@@ -700,7 +673,7 @@
           "resolved": 10947368
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838368,
@@ -760,7 +733,7 @@
           "resolved": 10947392
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838416,
@@ -804,7 +777,7 @@
           "resolved": 10947322
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838464,
@@ -856,7 +829,7 @@
           "resolved": 10947360
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838480,
@@ -916,7 +889,7 @@
           "resolved": 10947316
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838512,
@@ -1016,7 +989,7 @@
           "resolved": 8020140
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838544,
@@ -1068,7 +1041,7 @@
           "resolved": 4294621358
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838640,
@@ -1095,7 +1068,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838672,
@@ -1147,7 +1120,7 @@
           "resolved": 10947360
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838688,
@@ -1199,7 +1172,7 @@
           "resolved": 10947360
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838784,
@@ -1235,7 +1208,7 @@
           "resolved": 337
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838912,
@@ -1287,7 +1260,7 @@
           "resolved": 1118406
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5838944,
@@ -1363,7 +1336,7 @@
           "resolved": 10947360
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5839104,
@@ -1399,7 +1372,7 @@
           "resolved": 4294078657
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5839184,
@@ -1426,7 +1399,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5839232,
@@ -1622,7 +1595,7 @@
           "resolved": 10947360
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5844848,
@@ -1682,7 +1655,7 @@
           "resolved": 8003564
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5845280,
@@ -1734,7 +1707,7 @@
           "resolved": 8020140
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5845344,
@@ -1761,7 +1734,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5845392,
@@ -1821,7 +1794,7 @@
           "resolved": 10947360
         }
       ],
-      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source_sha256": "dd506a0a577dd18a9250beb4de184899b4867c90d39ba8a8801b20952b6d5049",
       "source": "rebuild/src/mech.cpp",
       "population": "rebuild-mech",
       "source_order": 5845408,

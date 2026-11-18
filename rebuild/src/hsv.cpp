@@ -183,3 +183,26 @@ HSVClass::operator RGBClass (void) const
 	RGBClass rgb((unsigned char)red, (unsigned char)green, (unsigned char)blue);
 	return(rgb);
 }
+
+
+// RA2: the comparisons are compiled here, after the conversion operator (0x4FF170, 0x4FF1A0);
+// VectorClass<HSVClass>::operator== calls operator!= out of line.
+bool HSVClass::operator==(const HSVClass &that) const
+{
+	return(Hue == that.Hue && Saturation == that.Saturation && Value == that.Value);
+}
+
+bool HSVClass::operator!=(const HSVClass &that) const
+{
+	return(!(*this == that));
+}
+
+bool operator==(HSVClass & a, HSVClass const & b)
+{
+	return(a == b);
+}
+
+bool operator!=(HSVClass & a, HSVClass & b)
+{
+	return(!(a == b));
+}

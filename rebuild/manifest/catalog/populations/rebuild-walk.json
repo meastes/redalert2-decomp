@@ -142,31 +142,6 @@
     "?Stop_Moving@WalkLocomotionClass@@UAGXXZ": 7463184,
     "?Do_Turn@WalkLocomotionClass@@UAGXUDirStruct@@@Z": 7463280,
     "?Force_Immediate_Destination@WalkLocomotionClass@@UAGXUCoordStruct@@@Z": 7463328,
-    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
-    "?cos@fastmath@@YANN@Z": 4957392,
-    "?sin@fastmath@@YANN@Z": 4957312,
-    "__real@8@bff1c9116cc4faf2b800": 7976480,
-    "?Is_Immobilized@TechnoClass@@QBE_NXZ": 7179904,
-    "__real@8@c00ca2f83d7b47677800": 7976488,
-    "__real@8@3fffc90fdaa22168c000": 7976496,
-    "?atan2@fastmath@@YANNN@Z": 4957696,
-    "?Shimmer@CellClass@@QAEXXZ": 4687680,
-    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
-    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
-    "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z": 4659248,
-    "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
-    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
-    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
-    "?AdjacentPoint@@3QBVPoint2D@@B": 8723136,
-    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
-    "?AdjacentCell@@3QBVCell@@B": 8723056,
-    "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": 8806856,
-    "?Is_Same_Cell_Zone@MapClass@@QAE_NABVCell@@0W4MZoneType@@_N22@Z": 5568448,
-    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
-    "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z": 4993024,
-    "__real@8@4008e100000000000000": 7976456,
-    "?Rule@@3PAVRulesClass@@A": 8624200,
-    "?Frame@@3HA": 10751276,
     "?Mark_Head_To@WalkLocomotionClass@@QAE_NABVCoord@@@Z": 7468432,
     "?GetClassID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z": 7469312,
     "?Load@WalkLocomotionClass@@UAGJPAUIStream@@@Z": 7469376,
@@ -180,8 +155,6 @@
     "?Mark_All_Occupation_Bits@WalkLocomotionClass@@UAGXH@Z": 7470304,
     "?Is_Moving_Here@WalkLocomotionClass@@UAGEUCoordStruct@@@Z": 7470384,
     "?Is_Really_Moving_Now@WalkLocomotionClass@@UAGEXZ": 7470544,
-    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
-    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
@@ -254,7 +227,7 @@
           "resolved": 11505724
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7461904,
@@ -322,7 +295,7 @@
           "resolved": 11505736
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7461936,
@@ -374,7 +347,7 @@
           "resolved": 11505808
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7461984,
@@ -426,7 +399,7 @@
           "resolved": 11505792
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462016,
@@ -478,7 +451,7 @@
           "resolved": 11505784
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462048,
@@ -530,7 +503,7 @@
           "resolved": 11505744
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462080,
@@ -582,7 +555,7 @@
           "resolved": 11505704
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462112,
@@ -666,7 +639,7 @@
           "resolved": 11505816
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462144,
@@ -726,7 +699,7 @@
           "resolved": 11505752
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462208,
@@ -786,7 +759,7 @@
           "resolved": 11505776
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462256,
@@ -846,7 +819,7 @@
           "resolved": 11505800
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462304,
@@ -890,7 +863,7 @@
           "resolved": 11505730
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462352,
@@ -942,7 +915,7 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462368,
@@ -1050,7 +1023,7 @@
           "resolved": 8055476
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462400,
@@ -1110,7 +1083,7 @@
           "resolved": 4292997461
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462512,
@@ -1137,7 +1110,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462560,
@@ -1197,7 +1170,7 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462576,
@@ -1249,7 +1222,7 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462672,
@@ -1301,7 +1274,7 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462768,
@@ -1337,7 +1310,7 @@
           "resolved": 541
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462896,
@@ -1413,7 +1386,7 @@
           "resolved": 4294461673
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7462944,
@@ -1489,7 +1462,7 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7463184,
@@ -1525,7 +1498,7 @@
           "resolved": 4292454785
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7463280,
@@ -1577,7 +1550,7 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7463328,
@@ -1813,7 +1786,7 @@
           "resolved": 11505768
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7468432,
@@ -1873,7 +1846,7 @@
           "resolved": 8003500
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469312,
@@ -1949,7 +1922,7 @@
           "resolved": 7972332
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469376,
@@ -2017,7 +1990,7 @@
           "resolved": 7972328
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469504,
@@ -2044,7 +2017,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469728,
@@ -2088,7 +2061,7 @@
           "resolved": 8003664
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469744,
@@ -2115,7 +2088,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469840,
@@ -2142,7 +2115,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469920,
@@ -2169,7 +2142,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7469984,
@@ -2245,7 +2218,7 @@
           "resolved": 482453
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470032,
@@ -2272,7 +2245,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470304,
@@ -2308,7 +2281,7 @@
           "resolved": 11505816
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470384,
@@ -2335,7 +2308,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470544,
@@ -2371,7 +2344,7 @@
           "resolved": 4292990054
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470560,
@@ -2407,7 +2380,7 @@
           "resolved": 4292990070
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470576,
@@ -2434,7 +2407,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470592,
@@ -2461,7 +2434,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470624,
@@ -2488,7 +2461,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470640,
@@ -2556,7 +2529,7 @@
           "resolved": 401091
         }
       ],
-      "source_sha256": "cf9cf0161555ee1a80ae2b9f3d8b11dd774da3b51b50eb7a833eabad1611d986",
+      "source_sha256": "11ad35dcf9231a1de44809f80b919e2d440578db8308b2bf6f0e6a5b8e5b7361",
       "source": "rebuild/src/walk.cpp",
       "population": "rebuild-walk",
       "source_order": 7470656,

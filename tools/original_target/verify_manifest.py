@@ -908,6 +908,26 @@ class Audit:
             code = self.pe.get_section_by_rva((address - self.base) & 0xffffffff) if address else None
             if address is None or address in claimed or code is None or not code.Characteristics & 0x20:
                 return False
+            # Only a select-any COMDAT (an inline function or template instance, which every object
+            # that uses it emits) has a linker-discarded duplicate; /Gy gives an external function a
+            # no-duplicates COMDAT, which is never omitted this way (review ruling 2026-11-18). The
+            # landed units that still omit one are recorded (kept_elsewhere_compared, marked
+            # external-function-not-select-any) until their drafts are guarded (lane R7).
+            records = [s for s in coff.symbols.values() if s['section'] == index and s['storage'] == 3
+                       and s['type'] == 0 and len(s['auxiliary']) == 18]
+            selection = records[0]['auxiliary'][14] if len(records) == 1 else None
+            # The kept copy is compared with ours modulo relocations; a difference is recorded as a
+            # finding (the kept copy may be another object's inline expansion), not a refusal.
+            data = bytearray(section['data'])
+            kept = bytearray(self.original(address, len(data))) if \
+                address - self.base + len(data) <= code.VirtualAddress + code.SizeOfRawData else bytearray()
+            for offset, _, _ in section['relocs']:
+                data[offset:offset + 4] = kept[offset:offset + 4] = bytes(4)
+            if not hasattr(self, 'kept_elsewhere_compared'):
+                self.kept_elsewhere_compared = {}
+            self.kept_elsewhere_compared[names[0]] = '%08x %s%s' % (
+                address, 'equal-modulo-relocations' if data == kept else 'differs',
+                '' if selection == 2 else ' external-function-not-select-any')
         if names[0].startswith(('??_G', '??_E')):
             references = self.merged_references(candidates)
             aliases = {names[0], '??_E' + names[0][4:], '??_G' + names[0][4:]}
@@ -1142,6 +1162,8 @@ class Audit:
         return dict(status='verified-exact-intervals-and-provenance', manifest=str(self.path(manifest_path)), manifest_sha256=manifest_sha256, executable_sha256=TARGET_SHA256, **totals, source_function_boundaries_certified=False, regions=result,
                     discarded_compiler_output=getattr(self, 'discarded_outputs', {}),
                     compiler_generated_kept_elsewhere=sorted(set(getattr(self, 'kept_elsewhere_omitted', []))),
+                    **({'kept_elsewhere_compared': dict(sorted(self.kept_elsewhere_compared.items()))}
+                       if getattr(self, 'kept_elsewhere_compared', None) else {}),
                     **({'rtti_original_copies': {n: '%08x' % a for n, a in sorted(self.rtti_original_copies.items())}}
                        if getattr(self, 'rtti_original_copies', None) else {}),
                     **({'rtti_known_differences': dict(sorted(self.rtti_known_differences.items()))}

@@ -50,6 +50,20 @@ for u, i in units_info.items():
         if res.get(r['entry']) != 'exact':
             parked_f += 1; parked_b += r['body']
             if r['body'] >= 1024: large_f += 1; large_b += r['body']
+# External functions the audit would omit as kept copies (review ruling 2026-11-18; budgeted, lane R7).
+import rebuild_catalog
+from coff import Coff
+ext_omitted = 0
+for u, i in units_info.items():
+    last = R.load_json(R.WORK / 'last' / (u + '.json'), None)
+    if not last or i['source'] not in landed:
+        continue
+    exact_names = {r['symbol'] for r in last['results'] if r['status'] == 'exact'}
+    exact_entries = {int(r['entry'], 16) for r in last['results'] if r['status'] == 'exact'}
+    resolve = R.resolver(u, i)
+    ext_omitted += sum(resolve(n)[0] not in exact_entries for n in rebuild_catalog.external_omitted(
+        Coff(open(last['object'], 'rb').read()), exact_names, resolve))
+line.update(external_omitted=ext_omitted)
 line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m['externs'],
             address_suffixed=m['address_suffixed'], parked_units=sum(i['source'] not in landed for i in units_info.values()),
             parked_functions=parked_f, parked_bytes=parked_b, parked_large_functions=large_f, parked_large_bytes=large_b,

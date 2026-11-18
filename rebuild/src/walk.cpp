@@ -221,6 +221,7 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0071e220 has no row)
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -559,6 +560,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 		}
 	}
 }
+#endif
 
 
 /// <summary>

@@ -148,6 +148,7 @@ PathStruct * FootClass::Find_Path(Cell const & dest, FacingType * final_moves, i
 /// <param name="max">The distance at which the search gives up.</param>
 /// <returns>Returns with the cell found. If nothing within range can be entered, then
 /// CELL_NONE is returned.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 556 bytes differ (adopted text)
 Cell FootClass::Safety_Point(Cell const & src, Cell const & dst, int start, int max)
 {
 	FacingType dir;
@@ -204,3 +205,4 @@ Cell FootClass::Safety_Point(Cell const & src, Cell const & dst, int start, int 
 	}
 	return(CELL_NONE);
 }
+#endif

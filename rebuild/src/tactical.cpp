@@ -2483,6 +2483,7 @@ void Tactical::Draw_Tile_Shadows(Rect const & area, Rect const & cliprect)
 /// </summary>
 /// <param name="cell">The cell whose tile needs refreshing.</param>
 /// <param name="cliprect">Not referenced; the tiles clip to the tactical rectangle.</param>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a8560 has no row)
 void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 {
 	CellClass * basecell = &Map[cell];
@@ -2579,6 +2580,7 @@ void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 		y++;
 	}
 }
+#endif
 
 
 /// <summary>
