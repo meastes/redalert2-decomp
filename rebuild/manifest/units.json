@@ -12397,7 +12397,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004918f0",
    "00491c00"
@@ -62684,7 +62684,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0069b010",
    "0069b170"
@@ -71262,994 +71262,6 @@
   },
   "partial_ok": true
  },
- "unit": {
-  "core": [
-   "006fa400",
-   "0070a330"
-  ],
-  "symbol_overrides": {},
-  "source": "rebuild/src/unit.cpp",
-  "options": [
-   "/O2",
-   "/Ob2",
-   "/G5",
-   "/Gy",
-   "/Gr",
-   "/GR"
-  ],
-  "status": "pending",
-  "range": [
-   "006fa1e0",
-   "0070a350"
-  ],
-  "mischa85": "tibsun: functions compiled from src/unit.cpp, without gaps; matched except ??1UnitClass@@UAE@XZ and ?Tunnel_AI@UnitClass@@QAEXXZ and ?Rotation_AI@UnitClass@@QAEXXZ and ?Visceroid_AI@UnitClass@@QAEXXZ and ?Per_Cell_Process@UnitClass@@UAEXW4PCPType@@@Z and ?Unit_Draw_Shape@UnitClass@@UBEXVPoint2D@@V?$TRect@H@@H@Z and ?Do_MISSION_UNLOAD@UnitClass@@UAEHXZ and ?Do_MISSION_HARVEST@UnitClass@@UAEHXZ and ?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z and ?Read_INI@UnitClass@@SIXABVCCINIClass@@@Z and ?Scatter@UnitClass@@UAEXABVCoord@@_N1@Z and ?Plan_Route@UnitClass@@QBEPAVAbstractClass@@ABV2@@Z; two placed by the gap; ??1UnitClass@@UAE@XZ and ?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z and ?Do_MISSION_HARVEST@UnitClass@@UAEHXZ and ?Do_MISSION_UNLOAD@UnitClass@@UAEHXZ and ?Plan_Route@UnitClass@@QBEPAVAbstractClass@@ABV2@@Z and ?Read_INI@UnitClass@@SIXABVCCINIClass@@@Z and ?Rotation_AI@UnitClass@@QAEXXZ and ?Scatter@UnitClass@@UAEXABVCoord@@_N1@Z and ?Tunnel_AI@UnitClass@@QAEXXZ and ?Visceroid_AI@UnitClass@@QAEXXZ placed at their function starts; ?Unit_Draw_Voxel@UnitClass@@UBEXVPoint2D@@V?$TRect@H@@H@Z not placed; ?Weed_Load@UnitClass@@QBENXZ not placed; ?Get_Max_Speed@UnitClass@@UBEHXZ not placed; ?EMPulse_Blast@UnitClass@@QAEXXZ not placed; ?Reload_AI@UnitClass@@QAEXXZ not placed; ?Jellyfish_AI@UnitClass@@QAEXXZ not placed",
-  "main_options": [
-   [
-    "/O2",
-    "/Ob2",
-    "/G5",
-    "/Gy",
-    "/GR"
-   ]
-  ],
-  "rows": [
-   {
-    "entry": "006fa1e0",
-    "body": 40,
-    "padding": 8,
-    "symbol": "_$E2",
-    "main_symbol": "_$E2",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa210",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E5",
-    "main_symbol": "_$E5",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa230",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E8",
-    "main_symbol": "_$E8",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa250",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E11",
-    "main_symbol": "_$E11",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa270",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E14",
-    "main_symbol": "_$E14",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa290",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E17",
-    "main_symbol": "_$E17",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa2b0",
-    "body": 49,
-    "padding": 15,
-    "symbol": "_$E20",
-    "main_symbol": "_$E20",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa2f0",
-    "body": 33,
-    "padding": 15,
-    "symbol": "_$E23",
-    "main_symbol": "_$E23",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa320",
-    "body": 44,
-    "padding": 4,
-    "symbol": "_$E26",
-    "main_symbol": "_$E26",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa350",
-    "body": 39,
-    "padding": 9,
-    "symbol": "_$E29",
-    "main_symbol": "_$E29",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa380",
-    "body": 15,
-    "padding": 1,
-    "symbol": "_$E32",
-    "main_symbol": "_$E32",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa390",
-    "body": 18,
-    "padding": 14,
-    "symbol": "_$E35",
-    "main_symbol": "_$E35",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa3b0",
-    "body": 23,
-    "padding": 9,
-    "symbol": "_$E38",
-    "main_symbol": "_$E38",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa3d0",
-    "body": 45,
-    "padding": 3,
-    "symbol": "_$E298",
-    "main_symbol": "_$E45",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa400",
-    "body": 948,
-    "padding": 12,
-    "symbol": "??0UnitClass@@QAE@PBVUnitTypeClass@@PAVHouseClass@@@Z",
-    "main_symbol": "??0UnitClass@@QAE@PAVUnitTypeClass@@PAVHouseClass@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fa7c0",
-    "body": 616,
-    "padding": 8,
-    "symbol": "??1UnitClass@@UAE@XZ",
-    "main_symbol": "??1UnitClass@@UAE@XZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fb100",
-    "body": 1924,
-    "padding": 12,
-    "symbol": "?AI@UnitClass@@UAEXXZ",
-    "main_symbol": "?AI@UnitClass@@UAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fb890",
-    "body": 544,
-    "padding": 0,
-    "symbol": "?Rotation_AI@UnitClass@@QAEXXZ",
-    "main_symbol": "?unknown_6fb890@UnitClass@@QAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fbab0",
-    "body": 129,
-    "padding": 15,
-    "symbol": "?Edge_Of_World_AI@UnitClass@@QAE_NXZ",
-    "main_symbol": "?Edge_Of_World_AI@UnitClass@@QAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fbb40",
-    "body": 169,
-    "padding": 7,
-    "symbol": "?Reload@UnitClass@@UAEXXZ",
-    "main_symbol": "?Reload@UnitClass@@UAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fbbf0",
-    "body": 160,
-    "padding": 0,
-    "symbol": "?Deploy_To_Fire@UnitClass@@UBE_NXZ",
-    "main_symbol": "?Deploy_To_Fire@UnitClass@@UAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fbc90",
-    "body": 688,
-    "padding": 0,
-    "symbol": "?Firing_AI@UnitClass@@QAEXXZ",
-    "main_symbol": "?unknown_6fbc90@UnitClass@@QAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fbf40",
-    "body": 679,
-    "padding": 9,
-    "symbol": "?Visceroid_AI@UnitClass@@QAEXXZ",
-    "main_symbol": "?unknown_6fbf40@UnitClass@@QAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fc1f0",
-    "body": 1858,
-    "padding": 14,
-    "symbol": "?Receive_Message@UnitClass@@UAE?AW4RadioMessageType@@PAVRadioClass@@W42@AAH@Z",
-    "main_symbol": "?Receive_Message@UnitClass@@UAEHPAVRadioClass@@HAAPAVAbstractClass@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fc940",
-    "body": 232,
-    "padding": 8,
-    "symbol": "?Unlimbo@UnitClass@@UAE_NABVCoord@@W4Dir256@@@Z",
-    "main_symbol": "?Unlimbo@UnitClass@@UAE_NPBUCoordStruct@@H@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fca30",
-    "body": 2410,
-    "padding": 6,
-    "symbol": "?Take_Damage@UnitClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z",
-    "main_symbol": "?Take_Damage@UnitClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fd3a0",
-    "body": 512,
-    "padding": 0,
-    "symbol": "?Explode@UnitClass@@QAEXXZ",
-    "main_symbol": "?Explode@UnitClass@@QAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fd5a0",
-    "body": 107,
-    "padding": 5,
-    "symbol": "?Active_Click_With@UnitClass@@UAE_NW4ActionType@@PAVObjectClass@@_N@Z",
-    "main_symbol": "?unknown_slot78@UnitClass@@UAE_NHPAVObjectClass@@_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fd610",
-    "body": 28,
-    "padding": 4,
-    "symbol": "?Active_Click_With@UnitClass@@UAE_NW4ActionType@@ABVCell@@1_N@Z",
-    "main_symbol": "?unknown_slot77@UnitClass@@UAE_NHPBVCell@@0_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fd630",
-    "body": 761,
-    "padding": 7,
-    "symbol": "?Enter_Idle_Mode@UnitClass@@UAE_N_N0@Z",
-    "main_symbol": "?unknown_slot261@UnitClass@@UAE_N_N0@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fd930",
-    "body": 1650,
-    "padding": 14,
-    "symbol": "?Goto_Clear_Spot@UnitClass@@QAE_NXZ",
-    "main_symbol": "?unknown_6fd930@UnitClass@@QAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fdfb0",
-    "body": 1,
-    "padding": 15,
-    "symbol": "_$E48",
-    "main_symbol": "_$E48",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fdfc0",
-    "body": 1584,
-    "padding": 0,
-    "symbol": "?Try_To_Deploy@UnitClass@@QAE_NXZ",
-    "main_symbol": "?unknown_6fdfc0@UnitClass@@QAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fe5f0",
-    "body": 1,
-    "padding": 15,
-    "symbol": "?unknown_empty_006fe5f0@@YAXXZ",
-    "main_symbol": "?unknown_empty_006fe5f0@@YAXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fe600",
-    "body": 1,
-    "padding": 15,
-    "symbol": "?unknown_empty_006fe600@@YAXXZ",
-    "main_symbol": "?unknown_empty_006fe600@@YAXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006fe610",
-    "body": 3385,
-    "padding": 7,
-    "symbol": "?Per_Cell_Process@UnitClass@@UAEXW4PCPType@@@Z",
-    "main_symbol": "?unknown_slot93@UnitClass@@UAEXH@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006ff350",
-    "body": 140,
-    "padding": 4,
-    "symbol": "?Render@UnitClass@@UBE_NAAV?$TRect@H@@_N1@Z",
-    "main_symbol": "?Render@UnitClass@@UAE_NPAVRect@@_N1@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "006ff3e0",
-    "body": 688,
-    "padding": 0,
-    "symbol": "?Unit_Blit_Voxel@UnitClass@@UBEXAAVSurface@@VPoint2D@@V?$TRect@H@@H@Z",
-    "main_symbol": "?unknown_slot312@UnitClass@@UAEXAAVSurface@@UPoint2D@@VRect@@H@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007005b0",
-    "body": 2236,
-    "padding": 4,
-    "symbol": "?Unit_Draw_Shape@UnitClass@@UBEXVPoint2D@@V?$TRect@H@@H@Z",
-    "main_symbol": "?unknown_slot311@UnitClass@@UAEXUPoint2D@@VRect@@H@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00700e70",
-    "body": 1326,
-    "padding": 2,
-    "symbol": "?Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z",
-    "main_symbol": "?Draw_It@UnitClass@@UAEXABUPoint2D@@ABVRect@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007013a0",
-    "body": 477,
-    "padding": 3,
-    "symbol": "?Harvesting@UnitClass@@QAE_NXZ",
-    "main_symbol": "?Harvesting@UnitClass@@QAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00701580",
-    "body": 4124,
-    "padding": 4,
-    "symbol": "?Do_MISSION_UNLOAD@UnitClass@@UAEHXZ",
-    "main_symbol": "?Do_MISSION_UNLOAD@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007025a0",
-    "body": 2492,
-    "padding": 4,
-    "symbol": "?Do_MISSION_HARVEST@UnitClass@@UAEHXZ",
-    "main_symbol": "?Do_MISSION_HARVEST@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00702f60",
-    "body": 212,
-    "padding": 12,
-    "symbol": "?Do_MISSION_HUNT@UnitClass@@UAEHXZ",
-    "main_symbol": "?Do_MISSION_HUNT@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00703040",
-    "body": 2952,
-    "padding": 8,
-    "symbol": "?Can_Enter_Cell@UnitClass@@UBE?AW4MoveType@@PBVCellClass@@W4FacingType@@H0_N@Z",
-    "main_symbol": "?Can_Enter_Cell@UnitClass@@UAEHPAVCellClass@@HH0_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00703bd0",
-    "body": 1559,
-    "padding": 9,
-    "symbol": "?What_Action@UnitClass@@UBE?AW4ActionType@@PBVObjectClass@@_N@Z",
-    "main_symbol": "?unknown_slot28@UnitClass@@UAEHPAVObjectClass@@_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007041f0",
-    "body": 581,
-    "padding": 11,
-    "symbol": "?What_Action@UnitClass@@UBE?AW4ActionType@@ABVCell@@_N1@Z",
-    "main_symbol": "?What_Action@UnitClass@@UAEHPBVCell@@_N1@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704440",
-    "body": 576,
-    "padding": 0,
-    "symbol": "?Do_MISSION_GUARD@UnitClass@@UAEHXZ",
-    "main_symbol": "?Do_MISSION_GUARD@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704680",
-    "body": 94,
-    "padding": 2,
-    "symbol": "?Do_MISSION_MOVE@UnitClass@@UAEHXZ",
-    "main_symbol": "?Do_MISSION_MOVE@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007046e0",
-    "body": 65,
-    "padding": 15,
-    "symbol": "?Do_MISSION_PATROL@UnitClass@@UAEHXZ",
-    "main_symbol": "?Do_MISSION_PATROL@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704730",
-    "body": 656,
-    "padding": 0,
-    "symbol": "?Desired_Load_Dir@UnitClass@@UBE?AW4FacingType@@PAVObjectClass@@AAVCell@@@Z",
-    "main_symbol": "?Desired_Load_Dir@UnitClass@@UAEHPAVAbstractClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007049c0",
-    "body": 44,
-    "padding": 4,
-    "symbol": "?Flag_Attach@UnitClass@@QAE_NW4HousesType@@@Z",
-    "main_symbol": "?Flag_Attach@UnitClass@@QAE_NH@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007049f0",
-    "body": 35,
-    "padding": 13,
-    "symbol": "?Flag_Remove@UnitClass@@QAE_NXZ",
-    "main_symbol": "?Flag_Remove@UnitClass@@QAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704a20",
-    "body": 92,
-    "padding": 4,
-    "symbol": "?Pip_Count@UnitClass@@UBEHXZ",
-    "main_symbol": "?unknown_slot166@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704a80",
-    "body": 32,
-    "padding": 0,
-    "symbol": "?APC_Close_Door@UnitClass@@QAEXXZ",
-    "main_symbol": "?APC_Close_Door@UnitClass@@QAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704aa0",
-    "body": 82,
-    "padding": 14,
-    "symbol": "?APC_Open_Door@UnitClass@@QAEXXZ",
-    "main_symbol": "?APC_Open_Door@UnitClass@@QAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704b00",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?Crew_Type@UnitClass@@UBEPBVInfantryTypeClass@@XZ",
-    "main_symbol": "?Crew_Type@UnitClass@@UAEPAVInfantryTypeClass@@XZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704b10",
-    "body": 156,
-    "padding": 4,
-    "symbol": "?Do_MISSION_REPAIR@UnitClass@@UAEHXZ",
-    "main_symbol": "?Do_MISSION_REPAIR@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704bb0",
-    "body": 67,
-    "padding": 13,
-    "symbol": "?Fire_Direction@UnitClass@@UBE?AVDirType@@XZ",
-    "main_symbol": "?Fire_Direction@UnitClass@@UAE?AUUnknownFacingDir@@XZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704c00",
-    "body": 707,
-    "padding": 13,
-    "symbol": "?Can_Fire@UnitClass@@UBE?AW4FireErrorType@@PAVAbstractClass@@H_N@Z",
-    "main_symbol": "?unknown_slot218@UnitClass@@UAEHPAVAbstractClass@@H_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00704ed0",
-    "body": 331,
-    "padding": 5,
-    "symbol": "?Fire_At@UnitClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
-    "main_symbol": "?Fire_At@UnitClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00705020",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Class_Of@UnitClass@@UBEPBVObjectTypeClass@@XZ",
-    "main_symbol": "?Class_Of@UnitClass@@UBEPAVObjectTypeClass@@XZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00705030",
-    "body": 62,
-    "padding": 2,
-    "symbol": "?Tiberium_Load@UnitClass@@UBENXZ",
-    "main_symbol": "?unknown_slot165@UnitClass@@UAENXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00705070",
-    "body": 233,
-    "padding": 7,
-    "symbol": "?Approach_Target@UnitClass@@UAEXXZ",
-    "main_symbol": "?unknown_slot304@UnitClass@@UAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00705160",
-    "body": 648,
-    "padding": 8,
-    "symbol": "?Overrun_Square@UnitClass@@UAEXABVCell@@_N@Z",
-    "main_symbol": "?Overrun_Square@UnitClass@@UAEXABVCell@@_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007053f0",
-    "body": 5651,
-    "padding": 13,
-    "symbol": "?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z",
-    "main_symbol": "?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00706a10",
-    "body": 194,
-    "padding": 14,
-    "symbol": "?Greatest_Threat@UnitClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z",
-    "main_symbol": "?unknown_slot219@UnitClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00706ae0",
-    "body": 1147,
-    "padding": 5,
-    "symbol": "?Read_INI@UnitClass@@SIXABVCCINIClass@@@Z",
-    "main_symbol": "?Read_INI@UnitClass@@SIXAAVCCINIClass@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00706f60",
-    "body": 450,
-    "padding": 14,
-    "symbol": "?Write_INI@UnitClass@@SIXAAVCCINIClass@@@Z",
-    "main_symbol": "?Write_INI@UnitClass@@SIXAAVCCINIClass@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707130",
-    "body": 50,
-    "padding": 14,
-    "symbol": "?Credit_Load@UnitClass@@QBEHXZ",
-    "main_symbol": "?unknown_707130@UnitClass@@QAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707170",
-    "body": 347,
-    "padding": 5,
-    "symbol": "?Should_Crush_It@UnitClass@@QBE_NPBVTechnoClass@@@Z",
-    "main_symbol": "?unknown_707170@UnitClass@@QAE_NPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007072d0",
-    "body": 1559,
-    "padding": 9,
-    "symbol": "?Scatter@UnitClass@@UAEXABVCoord@@_N1@Z",
-    "main_symbol": "?Scatter@UnitClass@@UAEXABUCoordStruct@@_N1@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007078f0",
-    "body": 80,
-    "padding": 0,
-    "symbol": "?Limbo@UnitClass@@UAE_NXZ",
-    "main_symbol": "?Limbo@UnitClass@@UAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707940",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?Do_MISSION_GUARD_AREA@UnitClass@@UAEHXZ",
-    "main_symbol": "?Do_MISSION_GUARD_AREA@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707950",
-    "body": 48,
-    "padding": 0,
-    "symbol": "?Is_Ready_To_Move@UnitClass@@UBE_NXZ",
-    "main_symbol": "?Is_Ready_To_Move@UnitClass@@UAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707980",
-    "body": 94,
-    "padding": 2,
-    "symbol": "?Set_Occupy_Bit@UnitClass@@UAEXABVCoord@@@Z",
-    "main_symbol": "?Set_Occupy_Bit@UnitClass@@UAEXABUCoordStruct@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007079e0",
-    "body": 83,
-    "padding": 13,
-    "symbol": "?Clear_Occupy_Bit@UnitClass@@UAEXABVCoord@@@Z",
-    "main_symbol": "?Clear_Occupy_Bit@UnitClass@@UAEXABUCoordStruct@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707a40",
-    "body": 479,
-    "padding": 1,
-    "symbol": "?Ready_To_Commence@UnitClass@@UAE_NXZ",
-    "main_symbol": "?Ready_To_Commence@UnitClass@@UAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707c20",
-    "body": 391,
-    "padding": 9,
-    "symbol": "?Load@UnitClass@@UAGJPAUIStream@@@Z",
-    "main_symbol": "?Load@UnitClass@@UAGJPAUIStream@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707db0",
-    "body": 50,
-    "padding": 14,
-    "symbol": "?Save@UnitClass@@UAGJPAUIStream@@H@Z",
-    "main_symbol": "?Save@UnitClass@@UAGJPAUIStream@@H@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707df0",
-    "body": 159,
-    "padding": 1,
-    "symbol": "?Compute_CRC@UnitClass@@UBEXAAVCRCEngine@@@Z",
-    "main_symbol": "?Compute_CRC@UnitClass@@UBEXAAVWWCRCEngine@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707e90",
-    "body": 56,
-    "padding": 8,
-    "symbol": "?Detach@UnitClass@@UAEXPBVAbstractClass@@_N@Z",
-    "main_symbol": "?Detach@UnitClass@@UAEXPAVAbstractClass@@_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707ed0",
-    "body": 122,
-    "padding": 6,
-    "symbol": "?Record_The_Kill@UnitClass@@UAEXPAVTechnoClass@@@Z",
-    "main_symbol": "?Record_The_Kill@UnitClass@@UAEXPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707f50",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?Do_MISSION_ATTACK@UnitClass@@UAEHXZ",
-    "main_symbol": "?Do_MISSION_ATTACK@UnitClass@@UAEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00707f60",
-    "body": 6185,
-    "padding": 7,
-    "symbol": "?Plan_Route_00707f60@UnitClass@@QAEPAVAbstractClass@@PAV2@@Z",
-    "main_symbol": "?Plan_Route_00707f60@UnitClass@@QAEPAVAbstractClass@@PAV2@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709790",
-    "body": 254,
-    "padding": 2,
-    "symbol": "?Is_Route_Broken@UnitClass@@QBE_NABVCell@@0@Z",
-    "main_symbol": "?AStarAttempt@UnitClass@@QAE_NPBVCell@@0@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709890",
-    "body": 258,
-    "padding": 14,
-    "symbol": "?Unknown_Virtual_0@UnitClass@@UAE_NHH@Z",
-    "main_symbol": "?INoticeSink_Unknown@UnitClass@@UAE_NHH@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "007099a0",
-    "body": 83,
-    "padding": 13,
-    "symbol": "?Captured@UnitClass@@UAE_NPAVHouseClass@@_N@Z",
-    "main_symbol": "?Captured@UnitClass@@UAE_NPAVHouseClass@@H@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709a00",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?Considered_Vehicle@UnitClass@@UBE_NXZ",
-    "main_symbol": "?Considered_Vehicle@UnitClass@@UAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709a20",
-    "body": 188,
-    "padding": 4,
-    "symbol": "?ReceiveGunner@UnitClass@@UAEXPAVFootClass@@@Z",
-    "main_symbol": "?ReceiveGunner@UnitClass@@UAEXH@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709ae0",
-    "body": 196,
-    "padding": 12,
-    "symbol": "?RemoveGunner@UnitClass@@UAEXPAVFootClass@@@Z",
-    "main_symbol": "?RemoveGunner@UnitClass@@UAEXH@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709bb0",
-    "body": 52,
-    "padding": 12,
-    "symbol": "?GetDisguise@UnitClass@@UBEPAVObjectTypeClass@@_N@Z",
-    "main_symbol": "?GetDisguise@UnitClass@@UAEPAVObjectTypeClass@@_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709bf0",
-    "body": 52,
-    "padding": 12,
-    "symbol": "?GetDisguiseHouse@UnitClass@@UBEPAVHouseClass@@_N@Z",
-    "main_symbol": "?GetDisguiseHouse@UnitClass@@UAEPAVHouseClass@@_N@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709c30",
-    "body": 53,
-    "padding": 11,
-    "symbol": "?Disguise_As_Type@UnitClass@@QAEXPAVObjectTypeClass@@@Z",
-    "main_symbol": "?Disguise_As_Type@UnitClass@@QAEXPAVObjectTypeClass@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709c70",
-    "body": 167,
-    "padding": 9,
-    "symbol": "?DisguiseAs@UnitClass@@UAEIPAVAbstractClass@@@Z",
-    "main_symbol": "?DisguiseAs@UnitClass@@UAEXPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709d20",
-    "body": 40,
-    "padding": 8,
-    "symbol": "?ClearDisguise@UnitClass@@UAEXXZ",
-    "main_symbol": "?ClearDisguise@UnitClass@@UAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709d50",
-    "body": 185,
-    "padding": 7,
-    "symbol": "?IsDisguisedAs@UnitClass@@UBE_NPAVHouseClass@@@Z",
-    "main_symbol": "?IsDisguisedAs@UnitClass@@UAE_NPAVHouseClass@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709e10",
-    "body": 167,
-    "padding": 9,
-    "symbol": "?Init@UnitClass@@UAEXXZ",
-    "main_symbol": "?Init@UnitClass@@UAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "00709ec0",
-    "body": 537,
-    "padding": 7,
-    "symbol": "?UpdateDisguise@UnitClass@@QAEXXZ",
-    "main_symbol": "?UpdateDisguise@UnitClass@@QAEXXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "0070a0e0",
-    "body": 346,
-    "padding": 6,
-    "symbol": "?Full_Name@UnitClass@@UBEPBGXZ",
-    "main_symbol": "?unknown_slot35@UnitClass@@UAEPBGXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "0070a240",
-    "body": 27,
-    "padding": 5,
-    "symbol": "?Is_Immobilized@UnitClass@@QBE_NXZ",
-    "main_symbol": "?UnitClass_Is_Immobilized@@YIIH@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "0070a260",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?CanUseWaypoint@UnitClass@@UBE_NXZ",
-    "main_symbol": "?CanUseWaypoint@UnitClass@@UAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "0070a270",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?CanAttackOnTheMove@UnitClass@@UBE_NXZ",
-    "main_symbol": "?CanAttackOnTheMove@UnitClass@@UAE_NXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "0070a280",
-    "body": 6,
-    "padding": 10,
-    "symbol": "?Fetch_Object_Size@UnitClass@@UBEHXZ",
-    "main_symbol": "?Size_Of@UnitClass@@UBEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "0070a290",
-    "body": 56,
-    "padding": 8,
-    "symbol": "?GetClassID@UnitClass@@UAGJPAU_GUID@@@Z",
-    "main_symbol": "?GetClassID@UnitClass@@UAGJPAUGUID@@@Z",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "0070a2d0",
-    "body": 6,
-    "padding": 10,
-    "symbol": "?Fetch_RTTI@UnitClass@@UBE?AW4RTTIType@@XZ",
-    "main_symbol": "?Kind_Of@UnitClass@@UBEHXZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "0070a2e0",
-    "body": 73,
-    "padding": 7,
-    "symbol": "?Turret_Facing@UnitClass@@UBE?AVDirType@@XZ",
-    "main_symbol": "?Turret_Facing@UnitClass@@UAE?AUUnknownFacingDir@@XZ",
-    "main_source": "src/recovered/unit.cpp"
-   },
-   {
-    "entry": "0070a330",
-    "body": 30,
-    "padding": 2,
-    "symbol": "??_GUnitClass@@UAEPAXI@Z",
-    "main_symbol": "??_GUnitClass@@UAEPAXI@Z",
-    "main_source": "src/recovered/unit.cpp"
-   }
-  ],
-  "references": {
-   "??_C@_05MLML@Units?$AA@": "007f8f6c",
-   "_$E301": "006fdfb0",
-   "_?$S300@?BO@??Goto_Clear_Spot@UnitClass@@QAE_NXZ@4EA": "00ad04b8",
-   "_?$S302@?1??Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z@4EA": "00ad0578",
-   "_?_offsets@?BO@??Goto_Clear_Spot@UnitClass@@QAE_NXZ@4PAVCell@@A": "00ad04e8",
-   "_?harvesting_shape@?1??Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z@4PBVShapeSet@@B": "00ad0468",
-   "_BRIDGE_LEPTON_HEIGHT": "00ad057c",
-   "_CELL_DIAG_SLOPE_ANGLE": "00ad04d0",
-   "_CELL_LEPTON_DIAG": "00ad04a0",
-   "_CELL_NONE": "00ad0488",
-   "_CELL_SLOPE_ANGLE": "00ad04b0",
-   "_COORD_NONE": "00ad04c0",
-   "_ISO_TILE_SIZE": "007addb0",
-   "_LEPTONS_PER_PIXEL": "00ad0580",
-   "_LEVEL_LEPTON_H": "00ad0588",
-   "_ONE_RAD": "007addb8",
-   "_PIXELS_PER_LEPTON": "00ad04e0",
-   "_RAD_45": "00ad04d8",
-   "_RAD_60": "00ad04a8",
-   "_RAD_90": "00ad0470",
-   "_RECT_NONE": "00ad0478",
-   "?Unknown_Virtual_0@UnitClass@@UAE_NHH@Z": "00709890",
-   "?GetClassID@UnitClass@@UAGJPAU_GUID@@@Z": "0070a290",
-   "?Load@UnitClass@@UAGJPAUIStream@@@Z": "00707c20",
-   "?Save@UnitClass@@UAGJPAUIStream@@H@Z": "00707db0",
-   "?Init@UnitClass@@UAEXXZ": "00709e10",
-   "?Detach@UnitClass@@UAEXPBVAbstractClass@@_N@Z": "00707e90",
-   "?Fetch_RTTI@UnitClass@@UBE?AW4RTTIType@@XZ": "0070a2d0",
-   "?Fetch_Object_Size@UnitClass@@UBEHXZ": "0070a280",
-   "?Compute_CRC@UnitClass@@UBEXAAVCRCEngine@@@Z": "00707df0",
-   "?AI@UnitClass@@UAEXXZ": "006fb100",
-   "?What_Action@UnitClass@@UBE?AW4ActionType@@ABVCell@@_N1@Z": "007041f0",
-   "?What_Action@UnitClass@@UBE?AW4ActionType@@PBVObjectClass@@_N@Z": "00703bd0",
-   "?Considered_Vehicle@UnitClass@@UBE_NXZ": "00709a00",
-   "?Class_Of@UnitClass@@UBEPBVObjectTypeClass@@XZ": "00705020",
-   "?Full_Name@UnitClass@@UBEPBGXZ": "0070a0e0",
-   "?IsDisguisedAs@UnitClass@@UBE_NPAVHouseClass@@@Z": "00709d50",
-   "?GetDisguise@UnitClass@@UBEPAVObjectTypeClass@@_N@Z": "00709bb0",
-   "?GetDisguiseHouse@UnitClass@@UBEPAVHouseClass@@_N@Z": "00709bf0",
-   "?Limbo@UnitClass@@UAE_NXZ": "007078f0",
-   "?Unlimbo@UnitClass@@UAE_NABVCoord@@W4Dir256@@@Z": "006fc940",
-   "?Record_The_Kill@UnitClass@@UAEXPAVTechnoClass@@@Z": "00707ed0",
-   "?Set_Occupy_Bit@UnitClass@@UAEXABVCoord@@@Z": "00707980",
-   "?Clear_Occupy_Bit@UnitClass@@UAEXABVCoord@@@Z": "007079e0",
-   "?Render@UnitClass@@UBE_NAAV?$TRect@H@@_N1@Z": "006ff350",
-   "?Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": "00700e70",
-   "?Active_Click_With@UnitClass@@UAE_NW4ActionType@@ABVCell@@1_N@Z": "006fd610",
-   "?Active_Click_With@UnitClass@@UAE_NW4ActionType@@PAVObjectClass@@_N@Z": "006fd5a0",
-   "?Take_Damage@UnitClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z": "006fca30",
-   "?Scatter@UnitClass@@UAEXABVCoord@@_N1@Z": "007072d0",
-   "?Per_Cell_Process@UnitClass@@UAEXW4PCPType@@@Z": "006fe610",
-   "?Receive_Message@UnitClass@@UAE?AW4RadioMessageType@@PAVRadioClass@@W42@AAH@Z": "006fc1f0",
-   "?Can_Enter_Cell@UnitClass@@UBE?AW4MoveType@@PBVCellClass@@W4FacingType@@H0_N@Z": "00703040",
-   "?Ready_To_Commence@UnitClass@@UAE_NXZ": "00707a40",
-   "?Do_MISSION_ATTACK@UnitClass@@UAEHXZ": "00707f50",
-   "?Do_MISSION_GUARD@UnitClass@@UAEHXZ": "00704440",
-   "?Do_MISSION_GUARD_AREA@UnitClass@@UAEHXZ": "00707940",
-   "?Do_MISSION_HARVEST@UnitClass@@UAEHXZ": "007025a0",
-   "?Do_MISSION_HUNT@UnitClass@@UAEHXZ": "00702f60",
-   "?Do_MISSION_MOVE@UnitClass@@UAEHXZ": "00704680",
-   "?Do_MISSION_UNLOAD@UnitClass@@UAEHXZ": "00701580",
-   "?Do_MISSION_REPAIR@UnitClass@@UAEHXZ": "00704b10",
-   "?Do_MISSION_PATROL@UnitClass@@UAEHXZ": "007046e0",
-   "?Is_Ready_To_Move@UnitClass@@UBE_NXZ": "00707950",
-   "?Turret_Facing@UnitClass@@UBE?AVDirType@@XZ": "0070a2e0",
-   "?Tiberium_Load@UnitClass@@UBENXZ": "00705030",
-   "?Pip_Count@UnitClass@@UBEHXZ": "00704a20",
-   "?Desired_Load_Dir@UnitClass@@UBE?AW4FacingType@@PAVObjectClass@@AAVCell@@@Z": "00704730",
-   "?Fire_Direction@UnitClass@@UBE?AVDirType@@XZ": "00704bb0",
-   "?Crew_Type@UnitClass@@UBEPBVInfantryTypeClass@@XZ": "00704b00",
-   "?Can_Fire@UnitClass@@UBE?AW4FireErrorType@@PAVAbstractClass@@H_N@Z": "00704c00",
-   "?Greatest_Threat@UnitClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z": "00706a10",
-   "?Fire_At@UnitClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z": "00704ed0",
-   "?Captured@UnitClass@@UAE_NPAVHouseClass@@_N@Z": "007099a0",
-   "?Reload@UnitClass@@UAEXXZ": "006fbb40",
-   "?DisguiseAs@UnitClass@@UAEIPAVAbstractClass@@@Z": "00709c70",
-   "?ClearDisguise@UnitClass@@UAEXXZ": "00709d20",
-   "?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z": "007053f0",
-   "?Enter_Idle_Mode@UnitClass@@UAE_N_N0@Z": "006fd630",
-   "?CanUseWaypoint@UnitClass@@UBE_NXZ": "0070a260",
-   "?CanAttackOnTheMove@UnitClass@@UBE_NXZ": "0070a270",
-   "?ReceiveGunner@UnitClass@@UAEXPAVFootClass@@@Z": "00709a20",
-   "?RemoveGunner@UnitClass@@UAEXPAVFootClass@@@Z": "00709ae0",
-   "?Deploy_To_Fire@UnitClass@@UBE_NXZ": "006fbbf0",
-   "?Overrun_Square@UnitClass@@UAEXABVCell@@_N@Z": "00705160",
-   "?Approach_Target@UnitClass@@UAEXXZ": "00705070",
-   "?Unit_Draw_Shape@UnitClass@@UBEXVPoint2D@@V?$TRect@H@@H@Z": "007005b0",
-   "?Unit_Blit_Voxel@UnitClass@@UBEXAAVSurface@@VPoint2D@@V?$TRect@H@@H@Z": "006ff3e0"
-  },
-  "partial_ok": true
- },
  "cell": {
   "core": [
    "00470680",
@@ -73606,415 +72618,6 @@
    "?Center_Coord@CellClass@@UBE?AVCoord@@XZ": "0047ba50",
    "?On_Ground@CellClass@@UBE_NXZ": "0047b9f0",
    "?As_Coord@CellClass@@UBE?AVCoord@@XZ": "0047baa0"
-  },
-  "partial_ok": true
- },
- "queue": {
-  "core": [
-   "006233a0",
-   "0062e9e0"
-  ],
-  "symbol_overrides": {},
-  "source": "rebuild/src/queue.cpp",
-  "options": [
-   "/O2",
-   "/Ob2",
-   "/G5",
-   "/Gy",
-   "/Gr",
-   "/GR"
-  ],
-  "status": "pending",
-  "range": [
-   "00623320",
-   "0062ead0"
-  ],
-  "mischa85": "tibsun: functions compiled from src/queue.cpp, without gaps; matched except ?Draw_Sync_Bars@@YIXPAUHWND__@@@Z and ?Extract_Compressed_Events@@YIHPAXH@Z and ?Spread_Units_Around_Cell@@YIXHH@Z and ?Execute_DoList@@YIHHW4HousesType@@PAVConnManClass@@PAV?$CDTimerClass@VFrameTimerClass@@@@PAUFrameSyncStruct@@@Z and ?Print_CRCs@@YIXPAVEventClass@@@Z; ?Execute_DoList@@YIHHW4HousesType@@PAVConnManClass@@PAV?$CDTimerClass@VFrameTimerClass@@@@PAUFrameSyncStruct@@@Z and ?Print_CRCs@@YIXPAVEventClass@@@Z placed at their function starts; ??0FrameSyncStruct@@QAE@XZ not placed; ?Queue_Ipx_Set@@YIXXZ not placed; ?Queue_Ipx_Clear@@YIXXZ not placed",
-  "main_options": [
-   [
-    "/O2",
-    "/Ob2",
-    "/G5",
-    "/Gy"
-   ],
-   [
-    "/O2",
-    "/Ob2",
-    "/G5",
-    "/Gy",
-    "/GR"
-   ]
-  ],
-  "rows": [
-   {
-    "entry": "00623320",
-    "body": 78,
-    "padding": 2,
-    "symbol": "_$E215",
-    "main_symbol": "_$E78",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00623370",
-    "body": 43,
-    "padding": 5,
-    "symbol": "_$E213",
-    "main_symbol": "_$E76",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "006233a0",
-    "body": 210,
-    "padding": 14,
-    "symbol": "?Queue_Mission@@YI_NVTargetClass@@W4MissionType@@AAV1@2@Z",
-    "main_symbol": "?Queue_Mission@@YI_NVTargetClass@@HABV1@1@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00623480",
-    "body": 207,
-    "padding": 1,
-    "symbol": "?Queue_Mission@@YI_NVTargetClass@@W4MissionType@@AAV1@2W4SpeedType@@W4MPHType@@@Z",
-    "main_symbol": "?Queue_Mission@@YI_NVTargetClass@@HABV1@1HH@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00623550",
-    "body": 162,
-    "padding": 14,
-    "symbol": "?Queue_Options@@YI_NXZ",
-    "main_symbol": "?Queue_Options@@YI_NXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00623600",
-    "body": 162,
-    "padding": 14,
-    "symbol": "?Queue_PageUser@@YI_NXZ",
-    "main_symbol": "?Queue_Event_22@@YI_NXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "006236b0",
-    "body": 186,
-    "padding": 6,
-    "symbol": "?Queue_Exit@@YI_NXZ",
-    "main_symbol": "?Queue_Exit@@YI_NXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00623770",
-    "body": 912,
-    "padding": 0,
-    "symbol": "?Queue_AI@@YIXXZ",
-    "main_symbol": "?Queue_AI@@YIXXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00623b00",
-    "body": 3388,
-    "padding": 4,
-    "symbol": "?Queue_AI_Multiplayer@@YIXXZ",
-    "main_symbol": "?Queue_AI_Multiplayer@@YIXXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00624840",
-    "body": 1,
-    "padding": 15,
-    "symbol": "_$E81",
-    "main_symbol": "_$E81",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00624850",
-    "body": 948,
-    "padding": 12,
-    "symbol": "?Wait_For_End_Of_Queue@@YIXXZ",
-    "main_symbol": "?Wait_For_End_Game@@YIXXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00624c10",
-    "body": 5519,
-    "padding": 1,
-    "symbol": "?Wait_For_Players@@YI?AW4RetcodeType@@HPAVConnManClass@@HHHPADHPAUFrameSyncStruct@@@Z",
-    "main_symbol": "?Wait_For_Players@@YIHHPAVConnManClass@@HHHPADHPAUFrameSyncStruct@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "006261a0",
-    "body": 860,
-    "padding": 4,
-    "symbol": "?Send_Packets@@YIHPAVConnManClass@@PADHHH@Z",
-    "main_symbol": "?Send_Packets@@YIHPAVConnManClass@@PADHHH@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00626500",
-    "body": 178,
-    "padding": 14,
-    "symbol": "?Send_FrameSync@@YIXPAVConnManClass@@H@Z",
-    "main_symbol": "?Send_FrameSync@@YIXPAVConnManClass@@H@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "006265c0",
-    "body": 1377,
-    "padding": 15,
-    "symbol": "?Process_Receive_Packet@@YI?AW4RetcodeType@@PAVConnManClass@@PADHHPAUFrameSyncStruct@@PAV?$BasicTimerClass@VSystemTimerClass@@@@@Z",
-    "main_symbol": "?Process_Receive_Packet@@YI?AW4RetcodeType@@PAVConnManClass@@PADHHPAUFrameSyncStruct@@PAUUnknownElapsedTimer@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00626b30",
-    "body": 381,
-    "padding": 3,
-    "symbol": "?Process_Serial_Packet@@YI?AW4RetcodeType@@PADH@Z",
-    "main_symbol": "?Process_Serial_Packet@@YI?AW4RetcodeType@@PADH@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00626fa0",
-    "body": 59,
-    "padding": 5,
-    "symbol": "?ListBox_Trim@@YIXPAUHWND__@@@Z",
-    "main_symbol": "?Unknown_00626FA0@@YIXPAUHWND__@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00626fe0",
-    "body": 422,
-    "padding": 10,
-    "symbol": "?Propose_Kick_Player@@YIXPAUHWND__@@H@Z",
-    "main_symbol": "?Propose_Kick_Player@@YIXPAUHWND__@@H@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00627190",
-    "body": 121,
-    "padding": 7,
-    "symbol": "?Kick_Packet_Received@@YIXAAUGlobalPacketType@@AAVIPXAddressClass@@@Z",
-    "main_symbol": "?Unknown_00627190@@YIXPAUUnknownGlobalPacket@@PAVIPXAddressClass@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00627210",
-    "body": 285,
-    "padding": 3,
-    "symbol": "?Cast_Kick_Vote@@YIXHH@Z",
-    "main_symbol": "?Unknown_00627210@@YIXHH@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00627330",
-    "body": 28,
-    "padding": 4,
-    "symbol": "?Reset_Reconnect_Pings@@YIXXZ",
-    "main_symbol": "?unknown_reset_globals_ab62e0@@YAXXZ",
-    "main_source": "src/recovered/queue/unknown_reset_globals.cpp"
-   },
-   {
-    "entry": "00627350",
-    "body": 1000,
-    "padding": 8,
-    "symbol": "?Reconnect_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
-    "main_symbol": "?Unknown_00627350@@YGHPAUHWND__@@IIJ@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00627740",
-    "body": 461,
-    "padding": 3,
-    "symbol": "?Kick_Player_Now@@YIXPAVConnManClass@@HPAUFrameSyncStruct@@_N@Z",
-    "main_symbol": "?Kick_Player_Now@@YIXPAVConnManClass@@HPAUFrameSyncStruct@@E@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00627910",
-    "body": 187,
-    "padding": 5,
-    "symbol": "?Handle_Timeout@@YIHPAVConnManClass@@PAUFrameSyncStruct@@@Z",
-    "main_symbol": "?Handle_Timeout@@YIHPAVConnManClass@@PAUFrameSyncStruct@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "006279d0",
-    "body": 397,
-    "padding": 3,
-    "symbol": "?Compress_Megamission_List@@YI_NPAEPAHPAD2_N@Z",
-    "main_symbol": "?Unknown_006279D0@@YI_NPAEPAHPAD2_N@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00627b60",
-    "body": 1896,
-    "padding": 8,
-    "symbol": "?Add_Compressed_Events@@YIHPAXHHHHAAH@Z",
-    "main_symbol": "?Add_Compressed_Events@@YIHPAXHHHHPAH@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00628880",
-    "body": 2454,
-    "padding": 10,
-    "symbol": "?Execute_DoList@@YIHHW4HousesType@@PAVConnManClass@@PAV?$CDTimerClass@VFrameTimerClass@@@@PAUFrameSyncStruct@@@Z",
-    "main_symbol": "?Execute_DoList@@YIHHHPAVConnManClass@@PAV?$CDTimerClass@VFrameTimerClass@@@@PAUFrameSyncStruct@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00629220",
-    "body": 106,
-    "padding": 6,
-    "symbol": "?Update_Event_Destination@@YIXHHVTargetClass@@ABV1@@Z",
-    "main_symbol": "?Unknown_00629220@@YIXHHVTargetClass@@ABV1@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00629290",
-    "body": 3048,
-    "padding": 8,
-    "symbol": "?Unknown_00629290@@YIXHH@Z",
-    "main_symbol": "?Unknown_00629290@@YIXHH@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00629e80",
-    "body": 73,
-    "padding": 7,
-    "symbol": "?Clean_DoList@@YIXPAVConnManClass@@@Z",
-    "main_symbol": "?Clean_DoList@@YIXPAVConnManClass@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00629ed0",
-    "body": 205,
-    "padding": 3,
-    "symbol": "?Queue_Record@@YIXXZ",
-    "main_symbol": "?Queue_Record@@YIXXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "00629fa0",
-    "body": 924,
-    "padding": 4,
-    "symbol": "?Compute_Game_CRC@@YIXXZ",
-    "main_symbol": "?Compute_Game_CRC@@YIXXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062a340",
-    "body": 17,
-    "padding": 15,
-    "symbol": "?Add_CRC@@YIXPAII@Z",
-    "main_symbol": "?Add_CRC@@YIXPAKK@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062a360",
-    "body": 11223,
-    "padding": 9,
-    "symbol": "?Print_CRCs@@YIXPAVEventClass@@@Z",
-    "main_symbol": "?Print_CRCs@@YIXPAVEventClass@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062cf40",
-    "body": 3161,
-    "padding": 7,
-    "symbol": "?Fill_Sync_State@@YIXH@Z",
-    "main_symbol": "?Unknown_0062CF40@@YIXH@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062dba0",
-    "body": 2417,
-    "padding": 15,
-    "symbol": "?Write_Sync_File@@YIXHPAVEventClass@@@Z",
-    "main_symbol": "?Unknown_0062DBA0@@YIXHPAVEventClass@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062e520",
-    "body": 129,
-    "padding": 15,
-    "symbol": "?Dump_Packet_Too_Late_Stuff@@YIXPAVEventClass@@@Z",
-    "main_symbol": "?Dump_Packet_Too_Late_Stuff@seed_0062e520@@YIXPAE@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062e5b0",
-    "body": 1,
-    "padding": 15,
-    "symbol": "?Check_Mirror@@YIXXZ",
-    "main_symbol": "?Check_Mirror@@YAXXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062e5c0",
-    "body": 174,
-    "padding": 2,
-    "symbol": "?Calc_Frames_Behind@@YIXPAUFrameSyncStruct@@H@Z",
-    "main_symbol": "?Unknown_0062E5C0@@YIXPAUFrameSyncStruct@@H@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062e670",
-    "body": 111,
-    "padding": 1,
-    "symbol": "?Add_Outgoing_Event@@YI_NVEventClass@@@Z",
-    "main_symbol": "?Unknown_0062E670@@YG_NVEventClass@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062e6e0",
-    "body": 344,
-    "padding": 8,
-    "symbol": "?Enqueue_Event@@YIXPAVEventClass@@@Z",
-    "main_symbol": "?Unknown_0062E6E0@@YIXPAVEventClass@@@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062e840",
-    "body": 413,
-    "padding": 3,
-    "symbol": "?Send_Port_Unreachable@@YIXXZ",
-    "main_symbol": "?Send_Port_Unreachable@@YIXXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062e9e0",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?Next@?$QueueClass@VEventClass@@$0IA@@@QAEHXZ",
-    "main_symbol": "?Next@?$QueueClass@VEventClass@@$0IA@@@QAEHXZ",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062ea00",
-    "body": 49,
-    "padding": 15,
-    "symbol": "?Delete_Index@?$DynamicVectorClass@PAUGlobalPacketType@@@@QAE_NH@Z",
-    "main_symbol": "?Delete@?$DynamicVectorClass@PAUUnknownGlobalPacket@@@@QAE_NH@Z",
-    "main_source": "src/recovered/queue.cpp"
-   },
-   {
-    "entry": "0062ea40",
-    "body": 134,
-    "padding": 10,
-    "symbol": "?Increase_Table_Size@?$IndexClass@HPAVObjectClass@@@@AAE_NH@Z",
-    "main_symbol": "?Increase_Table_Size@?$IndexClass@HPAVObjectClass@@@@QAE_NH@Z",
-    "main_source": "src/recovered/queue.cpp"
-   }
-  ],
-  "references": {
-   "_$E251": "00624840",
-   "_?$S250@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
-   "_?_timings@?3??Queue_AI_Multiplayer@@YIXXZ@4PAU__unnamed@@A": "007ec438",
-   "_?mx@?1??Queue_Playback@@YIXXZ@4HA": "00a76b70",
-   "_?my@?1??Queue_Playback@@YIXXZ@4HA": "00a76c78",
-   "_$E218": "00624840",
-   "_?$S217@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0"
   },
   "partial_ok": true
  },
@@ -77469,1956 +76072,6 @@
    "?Unknown_Virtual_4D0@InfantryClass@@UAEXXZ": "00508750",
    "?IsDeployed@InfantryClass@@UBE_NXZ": "00509470",
    "?Do_Action@InfantryClass@@UAE_NW4DoType@@_N1@Z": "00504740"
-  },
-  "partial_ok": true
- },
- "planmgr": {
-  "core": [
-   "00610760",
-   "00619e00"
-  ],
-  "symbol_overrides": {},
-  "source": "rebuild/src/planmgr.cpp",
-  "options": [
-   "/O2",
-   "/Ob2",
-   "/G5",
-   "/Gy",
-   "/Gr",
-   "/GR"
-  ],
-  "status": "pending",
-  "range": [
-   "006101b0",
-   "00619e00"
-  ],
-  "mischa85": "source: functions compiled from src/planmgr.cpp, without gaps; matched except ?Draw_Lead_Box@PlanningNodeClass@@QAEXH@Z and ?Planning_Update@@YIXXZ and ?Planning_Execute@@YIXPAVEventClass@@@Z and ?Planning_Add_Order@@YI_NPAVTechnoClass@@PAVEventClass@@@Z and ?Planning_Node_At@@YGPAVPlanningNodeClass@@HH@Z and ?Is_Planning_Selection_Valid@@YI_NXZ and ?Planning_Find_Node@@YIPAVPlanningNodeClass@@HHUCoordStruct@@@Z and ?Planning_Pick_Node@@YGPAVPlanningNodeClass@@HH@Z and ?Planning_Pick_Drawn@@YGPAVPlanningNodeClass@@HH@Z and ?Planning_Convert_Loop_Moves@@YIXPAVTechnoClass@@@Z and ?Planning_Left_Press@@YG_NHH@Z and ?Planning_Mouse_AI@@YG_NHH@Z and ?Planning_Connect_Selection@@YAXXZ and ?Planning_Draw_Remembered@@YAXXZ and ?Planning_Draw_Techno@@YIXPAVTechnoClass@@@Z and ?Planning_Draw_Filled_Techno@@YIXPAVTechnoClass@@@Z and ?Planning_Draw_Node@@YIXPAVPlanningNodeClass@@@Z and ?Planning_Draw_Filled_Node@@YIXPAVPlanningNodeClass@@@Z; 22 placed by the gap; ?Planning_Draw_Filled_Techno@@YIXPAVTechnoClass@@@Z and ?Planning_Draw_Node@@YIXPAVPlanningNodeClass@@@Z placed where matched code calls them; ?Planning_Execute@@YIXPAVEventClass@@@Z to ?Planning_Add_Order@@YI_NPAVTechnoClass@@PAVEventClass@@@Z share the room between their neighbours; ?Planning_Node_At@@YGPAVPlanningNodeClass@@HH@Z to ?Is_Planning_Selection_Valid@@YI_NXZ share the room between their neighbours; ?Planning_Find_Node@@YIPAVPlanningNodeClass@@HHUCoordStruct@@@Z to ?Planning_Pick_Drawn@@YGPAVPlanningNodeClass@@HH@Z share the room between their neighbours; ?Planning_Draw_Remembered@@YAXXZ to ?Planning_Draw_Techno@@YIXPAVTechnoClass@@@Z share the room between their neighbours; ?Planning_Connect_Selection@@YAXXZ and ?Planning_Left_Press@@YG_NHH@Z and ?Planning_Mouse_AI@@YG_NHH@Z placed at their function starts; ?Planning_Techno_Color@@YIHPAVTechnoClass@@@Z not placed; ?Planning_Event_Pixel@@YI?AVPoint2D@@PBVEventClass@@PAVAbstractClass@@@Z not placed; ?Planning_Node_Highlight_Color@@YIHPAVPlanningNodeClass@@@Z not placed; ?Planning_Draw_Dot@@YIXVPoint2D@@H@Z not placed; ?Planning_Fill_Dot@@YIXVPoint2D@@H@Z not placed; ?Planning_Guard_Frame@@YIHPAVTechnoClass@@@Z not placed; ?Planning_Mega_Frame@@YIHPAVTechnoClass@@@Z not placed; ?Get_Event_Frame@PlanningFirstTarget@@QBEHXZ not placed; ?Planning_Draw_Midpoint@@YIXVPoint2D@@0H@Z not placed; ?Planning_Draw_Midpoint_Shape@@YIXVPoint2D@@0HHH@Z not placed; ?Planning_Draw_Line@@YIXVPoint2D@@0HH_N@Z not placed; ?Planning_Draw_Thick_Line@@YIXVPoint2D@@0HH@Z not placed; ?Planning_Draw_Dashed_Thick_Line@@YIXVPoint2D@@0HH@Z not placed; ?Planning_Pixel@@YIHPBVRGBClass@@@Z not placed; inline ?Detach@PlanningNodeClass@@QAEXPAVPlanningMemberClass@@@Z at 0x00611E20; inline ?Cancel_Owner@PlanningTokenClass@@QAEXXZ at 0x00612EC0; inline ?Planning_Uncount@@YIXH@Z at 0x00616D20",
-  "main_options": [
-   [
-    "/O1",
-    "/Ob2",
-    "/G5",
-    "/Gy"
-   ],
-   [
-    "/O2",
-    "/Ob2",
-    "/G5",
-    "/Gy"
-   ],
-   [
-    "/O2",
-    "/Ob2",
-    "/G5",
-    "/Gy",
-    "/GR"
-   ]
-  ],
-  "rows": [
-   {
-    "entry": "006101b0",
-    "body": 40,
-    "padding": 8,
-    "symbol": "_$E2",
-    "main_symbol": "_$E2",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006101e0",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E5",
-    "main_symbol": "_$E5",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610200",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E8",
-    "main_symbol": "_$E8",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610220",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E11",
-    "main_symbol": "_$E11",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610240",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E14",
-    "main_symbol": "_$E14",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610260",
-    "body": 19,
-    "padding": 13,
-    "symbol": "_$E17",
-    "main_symbol": "_$E17",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610280",
-    "body": 49,
-    "padding": 15,
-    "symbol": "_$E20",
-    "main_symbol": "_$E20",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006102c0",
-    "body": 33,
-    "padding": 15,
-    "symbol": "_$E23",
-    "main_symbol": "_$E23",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006102f0",
-    "body": 44,
-    "padding": 4,
-    "symbol": "_$E26",
-    "main_symbol": "_$E26",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610320",
-    "body": 39,
-    "padding": 9,
-    "symbol": "_$E29",
-    "main_symbol": "_$E29",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610350",
-    "body": 15,
-    "padding": 1,
-    "symbol": "_$E32",
-    "main_symbol": "_$E32",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610360",
-    "body": 18,
-    "padding": 14,
-    "symbol": "_$E35",
-    "main_symbol": "_$E35",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610380",
-    "body": 23,
-    "padding": 9,
-    "symbol": "_$E38",
-    "main_symbol": "_$E38",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006103a0",
-    "body": 61,
-    "padding": 3,
-    "symbol": "_$E58",
-    "main_symbol": "_$E58",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006103e0",
-    "body": 88,
-    "padding": 8,
-    "symbol": "_$E55",
-    "main_symbol": "_$E55",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610440",
-    "body": 61,
-    "padding": 3,
-    "symbol": "_$E64",
-    "main_symbol": "_$E64",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610480",
-    "body": 88,
-    "padding": 8,
-    "symbol": "_$E61",
-    "main_symbol": "_$E61",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006104e0",
-    "body": 61,
-    "padding": 3,
-    "symbol": "_$E70",
-    "main_symbol": "_$E70",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610520",
-    "body": 88,
-    "padding": 8,
-    "symbol": "_$E67",
-    "main_symbol": "_$E67",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610580",
-    "body": 61,
-    "padding": 3,
-    "symbol": "_$E76",
-    "main_symbol": "_$E76",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006105c0",
-    "body": 88,
-    "padding": 8,
-    "symbol": "_$E73",
-    "main_symbol": "_$E73",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610620",
-    "body": 61,
-    "padding": 3,
-    "symbol": "_$E81",
-    "main_symbol": "_$E81",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610660",
-    "body": 88,
-    "padding": 8,
-    "symbol": "_$E79",
-    "main_symbol": "_$E79",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006106c0",
-    "body": 61,
-    "padding": 3,
-    "symbol": "_$E86",
-    "main_symbol": "_$E86",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610700",
-    "body": 88,
-    "padding": 8,
-    "symbol": "_$E84",
-    "main_symbol": "_$E84",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610760",
-    "body": 1,
-    "padding": 15,
-    "symbol": "?Planning_Empty@@YIXXZ",
-    "main_symbol": "?get@Leaf_610760@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610770",
-    "body": 37,
-    "padding": 11,
-    "symbol": "?Planning_House@@YIHPAVTechnoClass@@@Z",
-    "main_symbol": "?Planning_House@@YIHPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006107a0",
-    "body": 59,
-    "padding": 5,
-    "symbol": "?Planning_Coord_Pixel@@YI?AVPoint2D@@ABVCoord@@@Z",
-    "main_symbol": "?Planning_Coord_Pixel@@YI?AUPoint2D@@ABUCoordStruct@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006107e0",
-    "body": 20,
-    "padding": 12,
-    "symbol": "??0PlanningMemberClass@@QAE@XZ",
-    "main_symbol": "??0PlanningMemberClass@@QAE@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610800",
-    "body": 9,
-    "padding": 7,
-    "symbol": "?Set_Owner@PlanningMemberClass@@QAEXPAVTechnoClass@@@Z",
-    "main_symbol": "?Set_Owner@PlanningMemberClass@@QAEXPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610810",
-    "body": 10,
-    "padding": 6,
-    "symbol": "?Set_Packet@PlanningMemberClass@@QAEXPAVEventClass@@@Z",
-    "main_symbol": "?Set_Event@PlanningMemberClass@@QAEXPAVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610820",
-    "body": 10,
-    "padding": 6,
-    "symbol": "?Set_Branch@PlanningMemberClass@@QAEXH@Z",
-    "main_symbol": "?Set_BranchIndex@PlanningMemberClass@@QAEXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610830",
-    "body": 10,
-    "padding": 6,
-    "symbol": "?Set_Active@PlanningMemberClass@@QAEX_N@Z",
-    "main_symbol": "?Set_unknown_0c@PlanningMemberClass@@QAEX_N@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610840",
-    "body": 3,
-    "padding": 13,
-    "symbol": "?Get_Owner@PlanningMemberClass@@QAEPAVTechnoClass@@XZ",
-    "main_symbol": "?Get_Owner@PlanningMemberClass@@QBEPAVTechnoClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610850",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Get_Packet@PlanningMemberClass@@QAEPAVEventClass@@XZ",
-    "main_symbol": "?Get_Event@PlanningMemberClass@@QBEPAVEventClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610860",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Get_Branch@PlanningMemberClass@@QAEHXZ",
-    "main_symbol": "?Get_BranchIndex@PlanningMemberClass@@QBEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610870",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Get_Active@PlanningMemberClass@@QAE_NXZ",
-    "main_symbol": "?Get_unknown_0c@PlanningMemberClass@@QBE_NXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610880",
-    "body": 20,
-    "padding": 12,
-    "symbol": "??0PlanningBranchClass@@QAE@XZ",
-    "main_symbol": "??0PlanningBranchClass@@QAE@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006108a0",
-    "body": 23,
-    "padding": 9,
-    "symbol": "?Set_Event@PlanningBranchClass@@QAEXABVEventClass@@@Z",
-    "main_symbol": "?Set_Event@PlanningBranchClass@@QAEXABVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006108c0",
-    "body": 10,
-    "padding": 6,
-    "symbol": "?Set_Count@PlanningBranchClass@@QAEXH@Z",
-    "main_symbol": "?Set_Count@PlanningBranchClass@@QAEXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006108d0",
-    "body": 10,
-    "padding": 6,
-    "symbol": "?Set_Color@PlanningBranchClass@@QAEXH@Z",
-    "main_symbol": "?Set_unknown_74@PlanningBranchClass@@QAEXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006108e0",
-    "body": 8,
-    "padding": 8,
-    "symbol": "?Clear_Count@PlanningBranchClass@@QAEXXZ",
-    "main_symbol": "?Clear_Count@PlanningBranchClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006108f0",
-    "body": 8,
-    "padding": 8,
-    "symbol": "?Inc_Count@PlanningBranchClass@@QAEHXZ",
-    "main_symbol": "?Increment_Count@PlanningBranchClass@@QAEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610900",
-    "body": 8,
-    "padding": 8,
-    "symbol": "?Dec_Count@PlanningBranchClass@@QAEHXZ",
-    "main_symbol": "?Decrement_Count@PlanningBranchClass@@QAEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610910",
-    "body": 25,
-    "padding": 7,
-    "symbol": "?Get_Event@PlanningBranchClass@@QAE?AVEventClass@@XZ",
-    "main_symbol": "?Get_Event@PlanningBranchClass@@QBE?AVEventClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610930",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Get_Count@PlanningBranchClass@@QAEHXZ",
-    "main_symbol": "?Get_Count@PlanningBranchClass@@QBEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610940",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Get_Color@PlanningBranchClass@@QAEHXZ",
-    "main_symbol": "?Get_unknown_74@PlanningBranchClass@@QBEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610950",
-    "body": 46,
-    "padding": 2,
-    "symbol": "?Get_Coord@PlanningBranchClass@@QAE?AVCoord@@XZ",
-    "main_symbol": "?Coord@PlanningBranchClass@@QBE?AUCoordStruct@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610980",
-    "body": 150,
-    "padding": 10,
-    "symbol": "?Planning_Event_Coord@@YI?AVCoord@@ABVEventClass@@@Z",
-    "main_symbol": "?Planning_Event_Coord@@YI?AUCoordStruct@@ABVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610a20",
-    "body": 93,
-    "padding": 3,
-    "symbol": "?Get_Pixel@PlanningBranchClass@@QAE?AVPoint2D@@XZ",
-    "main_symbol": "?Pixel@PlanningBranchClass@@QBE?AUPoint2D@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610a80",
-    "body": 105,
-    "padding": 7,
-    "symbol": "??0PlanningNodeClass@@QAE@H@Z",
-    "main_symbol": "??0PlanningNodeClass@@QAE@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610af0",
-    "body": 280,
-    "padding": 8,
-    "symbol": "??1PlanningNodeClass@@QAE@XZ",
-    "main_symbol": "??1PlanningNodeClass@@QAE@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610c10",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Get_Id@PlanningNodeClass@@QAEHXZ",
-    "main_symbol": "?unknown_get_18_00610c10@seed_00610c10@@YIIH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610c20",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Get_Count@PlanningNodeClass@@QAEHXZ",
-    "main_symbol": "?unknown_get_10_00610c20@seed_00610c20@@YIIH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610c30",
-    "body": 33,
-    "padding": 15,
-    "symbol": "?Index_In@PlanningNodeClass@@QAEHPAVTechnoClass@@@Z",
-    "main_symbol": "?Index_For@PlanningNodeClass@@QAEHPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610c60",
-    "body": 122,
-    "padding": 6,
-    "symbol": "?Prev_Node@PlanningNodeClass@@QAEPAV1@PAVTechnoClass@@@Z",
-    "main_symbol": "?Previous@PlanningNodeClass@@QAEPAV1@PAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610ce0",
-    "body": 123,
-    "padding": 5,
-    "symbol": "?Next_Node@PlanningNodeClass@@QAEPAV1@PAVTechnoClass@@@Z",
-    "main_symbol": "?Next@PlanningNodeClass@@QAEPAV1@PAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610d60",
-    "body": 263,
-    "padding": 9,
-    "symbol": "?Add_Member@PlanningNodeClass@@QAEXPAVTechnoClass@@PBVEventClass@@@Z",
-    "main_symbol": "?Add_Member@PlanningNodeClass@@QAEXPAVTechnoClass@@ABVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00610e70",
-    "body": 475,
-    "padding": 5,
-    "symbol": "?Remove_Member@PlanningNodeClass@@QAEXPAVTechnoClass@@@Z",
-    "main_symbol": "?Remove_Member@PlanningNodeClass@@QAEXPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611050",
-    "body": 50,
-    "padding": 14,
-    "symbol": "?Find_Member@PlanningNodeClass@@QAEHPAVTechnoClass@@@Z",
-    "main_symbol": "?Member_Index@PlanningNodeClass@@QBEHPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611090",
-    "body": 15,
-    "padding": 1,
-    "symbol": "?Member_Owner@PlanningNodeClass@@QAEPAVTechnoClass@@H@Z",
-    "main_symbol": "?Member_Owner@PlanningNodeClass@@QBEPAVTechnoClass@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006110a0",
-    "body": 36,
-    "padding": 12,
-    "symbol": "?Get_Event@PlanningNodeClass@@QAE?AVEventClass@@H@Z",
-    "main_symbol": "?Member_Event@PlanningNodeClass@@QBE?AVEventClass@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006110d0",
-    "body": 76,
-    "padding": 4,
-    "symbol": "?Get_Event_For@PlanningNodeClass@@QAE?AVEventClass@@PAVTechnoClass@@@Z",
-    "main_symbol": "?Event_For@PlanningNodeClass@@QBE?AVEventClass@@PAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611120",
-    "body": 66,
-    "padding": 14,
-    "symbol": "?Has_Member@PlanningNodeClass@@QAE_NPAVTechnoClass@@@Z",
-    "main_symbol": "?Has_Member@PlanningNodeClass@@QBE_NPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611170",
-    "body": 14,
-    "padding": 2,
-    "symbol": "?Lead_House@PlanningNodeClass@@QAEPAVHouseClass@@XZ",
-    "main_symbol": "?House@PlanningNodeClass@@QBEPAVHouseClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611180",
-    "body": 52,
-    "padding": 12,
-    "symbol": "?Lead_Coord@PlanningNodeClass@@QAE?AVCoord@@XZ",
-    "main_symbol": "?Coord@PlanningNodeClass@@QBE?AUCoordStruct@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006111c0",
-    "body": 99,
-    "padding": 13,
-    "symbol": "?Lead_Pixel@PlanningNodeClass@@QAE?AVPoint2D@@XZ",
-    "main_symbol": "?Pixel@PlanningNodeClass@@QBE?AUPoint2D@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611230",
-    "body": 152,
-    "padding": 8,
-    "symbol": "?Hit_Test@PlanningNodeClass@@QAE_NHH@Z",
-    "main_symbol": "?Is_At_Pixel@PlanningNodeClass@@QBEHUPoint2D@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006112d0",
-    "body": 53,
-    "padding": 11,
-    "symbol": "?Planning_Centered_Rect@@YI?AV?$TRect@H@@VPoint2D@@H@Z",
-    "main_symbol": "?Planning_Centered_Rect@@YI?AVRect@@UPoint2D@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611310",
-    "body": 71,
-    "padding": 9,
-    "symbol": "?Lead_At@PlanningNodeClass@@QAE_NVCoord@@@Z",
-    "main_symbol": "?Is_At@PlanningNodeClass@@QBE_NUCoordStruct@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611360",
-    "body": 131,
-    "padding": 13,
-    "symbol": "?Lead_Rect@PlanningNodeClass@@QAE?AV?$TRect@H@@XZ",
-    "main_symbol": "?Rect@PlanningNodeClass@@QBE?AV0@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006113f0",
-    "body": 79,
-    "padding": 1,
-    "symbol": "?Is_Past_Start@PlanningNodeClass@@QAE_NXZ",
-    "main_symbol": "?Is_In_Loop@PlanningNodeClass@@QAE_NXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611440",
-    "body": 36,
-    "padding": 12,
-    "symbol": "?Promote_Events@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?Promote_Events@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611470",
-    "body": 65,
-    "padding": 15,
-    "symbol": "?Get_Member@PlanningNodeClass@@QAEPAVPlanningMemberClass@@PAVTechnoClass@@@Z",
-    "main_symbol": "?Member_For@PlanningNodeClass@@QBEPAVPlanningMemberClass@@PAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006114c0",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Branch_Count@PlanningNodeClass@@QAEHXZ",
-    "main_symbol": "?Branch_Count@PlanningNodeClass@@QBEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006114d0",
-    "body": 14,
-    "padding": 2,
-    "symbol": "?Has_Loop@PlanningNodeClass@@QAEHXZ",
-    "main_symbol": "?Has_Branch_Members@PlanningNodeClass@@QBE_NXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006114e0",
-    "body": 28,
-    "padding": 4,
-    "symbol": "?Is_Loop_Alone@PlanningNodeClass@@QAEHXZ",
-    "main_symbol": "?unknown_6114e0@PlanningNodeClass@@QBEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611500",
-    "body": 47,
-    "padding": 1,
-    "symbol": "?Owner_At_Branch@PlanningNodeClass@@QAEPAVTechnoClass@@H@Z",
-    "main_symbol": "?Branch_Owner@PlanningNodeClass@@QBEPAVTechnoClass@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611530",
-    "body": 41,
-    "padding": 7,
-    "symbol": "?Active_Owner@PlanningNodeClass@@QAEPAVTechnoClass@@XZ",
-    "main_symbol": "?First_Counted_Owner@PlanningNodeClass@@QBEPAVTechnoClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611560",
-    "body": 13,
-    "padding": 3,
-    "symbol": "?Get_Branch@PlanningNodeClass@@QAEPAVPlanningBranchClass@@H@Z",
-    "main_symbol": "?Branch_At@PlanningNodeClass@@QBEPAVPlanningBranchClass@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611570",
-    "body": 76,
-    "padding": 4,
-    "symbol": "?Branch_Of@PlanningNodeClass@@QAEPAVPlanningBranchClass@@PAVTechnoClass@@@Z",
-    "main_symbol": "?Branch_For@PlanningNodeClass@@QBEPAVPlanningBranchClass@@PAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006115c0",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Loop_Event@PlanningNodeClass@@QAEPAVEventClass@@XZ",
-    "main_symbol": "?Own_Branch@PlanningNodeClass@@QAEPAVPlanningBranchClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006115d0",
-    "body": 54,
-    "padding": 10,
-    "symbol": "?Branch_Coord@PlanningNodeClass@@QAE?AVCoord@@H@Z",
-    "main_symbol": "?Branch_Coord@PlanningNodeClass@@QBE?AUCoordStruct@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611610",
-    "body": 47,
-    "padding": 1,
-    "symbol": "?Loop_Coord@PlanningNodeClass@@QAE?AVCoord@@XZ",
-    "main_symbol": "?Own_Branch_Coord@PlanningNodeClass@@QBE?AUCoordStruct@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611640",
-    "body": 101,
-    "padding": 11,
-    "symbol": "?Branch_Pixel@PlanningNodeClass@@QAE?AVPoint2D@@H@Z",
-    "main_symbol": "?Branch_Pixel@PlanningNodeClass@@QBE?AUPoint2D@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006116b0",
-    "body": 94,
-    "padding": 2,
-    "symbol": "?Loop_Pixel@PlanningNodeClass@@QAE?AVPoint2D@@XZ",
-    "main_symbol": "?Own_Branch_Pixel@PlanningNodeClass@@QBE?AUPoint2D@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611710",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?Set_Queued@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?Set_Queued@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611720",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Get_Queued@PlanningNodeClass@@QAE_NXZ",
-    "main_symbol": "?Is_Queued@PlanningNodeClass@@QBE_NXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611730",
-    "body": 53,
-    "padding": 11,
-    "symbol": "?Rebuild@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?unknown_611730@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611770",
-    "body": 356,
-    "padding": 12,
-    "symbol": "?Update_Active@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?unknown_611770@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006118e0",
-    "body": 407,
-    "padding": 9,
-    "symbol": "?Dump@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?Dump@PlanningNodeClass@@QBEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611a80",
-    "body": 326,
-    "padding": 10,
-    "symbol": "?Find_Branch@PlanningNodeClass@@QAEHPAVTechnoClass@@@Z",
-    "main_symbol": "?Find_Branch@PlanningNodeClass@@QAEHPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611bd0",
-    "body": 585,
-    "padding": 7,
-    "symbol": "?Assign_Branch@PlanningNodeClass@@QAEHPAVPlanningMemberClass@@@Z",
-    "main_symbol": "?unknown_611bd0@PlanningNodeClass@@QAEHPAVPlanningMemberClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611e20",
-    "body": 183,
-    "padding": 9,
-    "symbol": "?Detach@PlanningNodeClass@@QAEXPAVPlanningMemberClass@@@Z",
-    "main_symbol": "?unknown_611e20@PlanningNodeClass@@QAEXPAVPlanningMemberClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611ee0",
-    "body": 114,
-    "padding": 14,
-    "symbol": "?Clear@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?unknown_611ee0@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611f60",
-    "body": 53,
-    "padding": 11,
-    "symbol": "?Is_Loop_Start@PlanningNodeClass@@QAE_NPAVTechnoClass@@@Z",
-    "main_symbol": "?Is_Loop_Start@PlanningNodeClass@@QAE_NPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611fa0",
-    "body": 36,
-    "padding": 12,
-    "symbol": "?Deactivate@PlanningNodeClass@@QAEXPAVPlanningMemberClass@@@Z",
-    "main_symbol": "?unknown_611fa0@PlanningNodeClass@@QAEXPAVPlanningMemberClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00611fd0",
-    "body": 182,
-    "padding": 10,
-    "symbol": "?Locate_Loop_Branch@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?Locate_Loop_Branch@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612090",
-    "body": 46,
-    "padding": 2,
-    "symbol": "?Select_All@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?unknown_612090@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006120c0",
-    "body": 46,
-    "padding": 2,
-    "symbol": "?Unselect_All@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?unknown_6120c0@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006120f0",
-    "body": 309,
-    "padding": 11,
-    "symbol": "?Draw_Marker@PlanningNodeClass@@QAEXH@Z",
-    "main_symbol": "?Draw_Marker@PlanningNodeClass@@QAEXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612230",
-    "body": 202,
-    "padding": 6,
-    "symbol": "?Fill_Lead_Box@PlanningNodeClass@@QAEXH@Z",
-    "main_symbol": "?Fill_Marker@PlanningNodeClass@@QAEXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612300",
-    "body": 281,
-    "padding": 7,
-    "symbol": "?Frame_Lead_Box@PlanningNodeClass@@QAEXH@Z",
-    "main_symbol": "?Draw_Outer_Outline@PlanningNodeClass@@QAEXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612420",
-    "body": 324,
-    "padding": 12,
-    "symbol": "?Frame_Lead_Box_Outer@PlanningNodeClass@@QAEXH@Z",
-    "main_symbol": "?Draw_Marker_Outline@PlanningNodeClass@@QAEXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612570",
-    "body": 81,
-    "padding": 15,
-    "symbol": "?Planning_Inflate@@YIXAAV?$TRect@H@@H@Z",
-    "main_symbol": "?Planning_Inflate@@YIXAAVRect@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006125d0",
-    "body": 519,
-    "padding": 9,
-    "symbol": "?Node_Color@PlanningNodeClass@@QAEHXZ",
-    "main_symbol": "?Color@PlanningNodeClass@@QAEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006127e0",
-    "body": 462,
-    "padding": 2,
-    "symbol": "?Branch_Color@PlanningNodeClass@@QAEHH@Z",
-    "main_symbol": "?Branch_Color@PlanningNodeClass@@QAEHH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006129b0",
-    "body": 401,
-    "padding": 15,
-    "symbol": "?Loop_Color@PlanningNodeClass@@QAEHXZ",
-    "main_symbol": "?Loop_Color@PlanningNodeClass@@QAEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612b50",
-    "body": 54,
-    "padding": 10,
-    "symbol": "?Reset_Colors@PlanningNodeClass@@QAEX_N@Z",
-    "main_symbol": "?Reset_Colors@PlanningNodeClass@@QAEX_N@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612b90",
-    "body": 145,
-    "padding": 15,
-    "symbol": "?Lead_Box_Rect@PlanningNodeClass@@QAE?AV?$TRect@H@@XZ",
-    "main_symbol": "?Outer_Rect@PlanningNodeClass@@QBE?AVRect@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612c30",
-    "body": 144,
-    "padding": 0,
-    "symbol": "?Lead_Box_Rect2@PlanningNodeClass@@QAE?AV?$TRect@H@@XZ",
-    "main_symbol": "?Outer_Rect2@PlanningNodeClass@@QBE?AVRect@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612cc0",
-    "body": 82,
-    "padding": 14,
-    "symbol": "??0PlanningTokenClass@@QAE@PAVTechnoClass@@@Z",
-    "main_symbol": "??0PlanningTokenClass@@QAE@PAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612d20",
-    "body": 394,
-    "padding": 6,
-    "symbol": "??1PlanningTokenClass@@QAE@XZ",
-    "main_symbol": "??1PlanningTokenClass@@QAE@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612eb0",
-    "body": 3,
-    "padding": 13,
-    "symbol": "?Get_Owner@PlanningTokenClass@@QAEPAVTechnoClass@@XZ",
-    "main_symbol": "?unknown_get_00_00612eb0@seed_00612eb0@@YIIPAI@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00612ec0",
-    "body": 492,
-    "padding": 4,
-    "symbol": "?Cancel_Owner@PlanningTokenClass@@QAEXXZ",
-    "main_symbol": "?Cancel_Owner@PlanningTokenClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006130b0",
-    "body": 513,
-    "padding": 15,
-    "symbol": "?Destroy@PlanningTokenClass@@QAEXXZ",
-    "main_symbol": "?Destroy@PlanningTokenClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006132c0",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?Set_F1C@PlanningTokenClass@@QAEXXZ",
-    "main_symbol": "?unknown_set_1c_006132c0@seed_006132c0@@YIXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006132d0",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?Clear_F1C@PlanningTokenClass@@QAEXXZ",
-    "main_symbol": "?unknown_clear_1c_006132d0@seed_006132d0@@YIXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006132e0",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Get_F1C@PlanningTokenClass@@QAE_NXZ",
-    "main_symbol": "?unknown_get_1c_006132e0@seed_006132e0@@YIEH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006132f0",
-    "body": 32,
-    "padding": 0,
-    "symbol": "?Owner_Is_Mission@PlanningTokenClass@@QAE_NXZ",
-    "main_symbol": "?unknown_is_kind_1c_006132f0@seed_006132f0@@YIIPAH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613310",
-    "body": 31,
-    "padding": 1,
-    "symbol": "?Has_Started@PlanningTokenClass@@QAE_NXZ",
-    "main_symbol": "?unknown_613310@PlanningTokenClass@@QBE_NXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613330",
-    "body": 539,
-    "padding": 5,
-    "symbol": "?Pop_Front@PlanningTokenClass@@QAE?AVEventClass@@XZ",
-    "main_symbol": "?unknown_613330@PlanningTokenClass@@QAE?AVEventClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613550",
-    "body": 454,
-    "padding": 10,
-    "symbol": "?Share_Range@PlanningTokenClass@@QAEXPAVTechnoClass@@HH@Z",
-    "main_symbol": "?Copy_Nodes_To@PlanningTokenClass@@QAEXPAVTechnoClass@@HH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613720",
-    "body": 452,
-    "padding": 12,
-    "symbol": "?Share_From@PlanningTokenClass@@QAEXPAVTechnoClass@@H@Z",
-    "main_symbol": "?Copy_Nodes_To@PlanningTokenClass@@QAEXPAVTechnoClass@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006138f0",
-    "body": 386,
-    "padding": 14,
-    "symbol": "?Remove_Node_At@PlanningTokenClass@@QAEXH@Z",
-    "main_symbol": "?unknown_6138f0@PlanningTokenClass@@QAEXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613a80",
-    "body": 176,
-    "padding": 0,
-    "symbol": "?Reset_Node_Colors@PlanningTokenClass@@QAEXXZ",
-    "main_symbol": "?unknown_613a80@PlanningTokenClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613b30",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Get_F8C@PlanningTokenClass@@QAEHXZ",
-    "main_symbol": "?unknown_get_8c_00613b30@seed_00613b30@@YIIH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613b40",
-    "body": 32,
-    "padding": 0,
-    "symbol": "?Reached@PlanningTokenClass@@QAE_NH@Z",
-    "main_symbol": "?Reached@PlanningTokenClass@@QBE_NH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613b60",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Node_Count@PlanningTokenClass@@QAEHXZ",
-    "main_symbol": "?get@Leaf_613b60@@QAEIXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613b70",
-    "body": 15,
-    "padding": 1,
-    "symbol": "?Current_Or_Count@PlanningTokenClass@@QAEHXZ",
-    "main_symbol": "?unknown_get_8c_or_14_00613b70@seed_00613b70@@YIHH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613b80",
-    "body": 20,
-    "padding": 12,
-    "symbol": "?Remaining@PlanningTokenClass@@QAEHXZ",
-    "main_symbol": "?unknown_span_8c_14_00613b80@seed_00613b80@@YIHH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613ba0",
-    "body": 94,
-    "padding": 2,
-    "symbol": "?Add_Node@PlanningTokenClass@@QAEXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Add_Node@PlanningTokenClass@@QAEXPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613c00",
-    "body": 68,
-    "padding": 12,
-    "symbol": "?Node_At@PlanningTokenClass@@QAEPAVPlanningNodeClass@@H@Z",
-    "main_symbol": "?Node_At@PlanningTokenClass@@QBEPAVPlanningNodeClass@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613c50",
-    "body": 16,
-    "padding": 0,
-    "symbol": "?Last_Node@PlanningTokenClass@@QAEPAVPlanningNodeClass@@XZ",
-    "main_symbol": "?Last_Node@PlanningTokenClass@@QBEPAVPlanningNodeClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613c60",
-    "body": 27,
-    "padding": 5,
-    "symbol": "?Has_Node@PlanningTokenClass@@QAE_NPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Has_Node@PlanningTokenClass@@QAE_NPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613c80",
-    "body": 17,
-    "padding": 15,
-    "symbol": "?Node_Index@PlanningTokenClass@@QAEHPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?unknown_613c80@PlanningTokenClass@@QAEXPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613ca0",
-    "body": 84,
-    "padding": 12,
-    "symbol": "?Event_At@PlanningTokenClass@@QAE?AVEventClass@@H@Z",
-    "main_symbol": "?Event_At@PlanningTokenClass@@QAE?AVEventClass@@H@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613d00",
-    "body": 26,
-    "padding": 6,
-    "symbol": "?Last_Popped@PlanningTokenClass@@QAE?AVEventClass@@XZ",
-    "main_symbol": "?Get_Event@PlanningTokenClass@@QBE?AVEventClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613d20",
-    "body": 21,
-    "padding": 11,
-    "symbol": "?Loop_Node@PlanningTokenClass@@QAEPAVPlanningNodeClass@@XZ",
-    "main_symbol": "?Loop_Node@PlanningTokenClass@@QAEPAVPlanningNodeClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613d40",
-    "body": 30,
-    "padding": 2,
-    "symbol": "?Set_Loop@PlanningTokenClass@@QAEXHH@Z",
-    "main_symbol": "?unknown_set_90_94_00613d40@Owner_00613d40@seed_00613d40@@QAEXII@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613d60",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Get_Loop_Count@PlanningTokenClass@@QAEHXZ",
-    "main_symbol": "?unknown_get_90_00613d60@seed_00613d60@@YIIH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613d70",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Get_Loop_Start@PlanningTokenClass@@QAEHXZ",
-    "main_symbol": "?unknown_get_94_00613d70@seed_00613d70@@YIIH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613d80",
-    "body": 21,
-    "padding": 11,
-    "symbol": "?Loop_Start_Valid@PlanningTokenClass@@QAE_NXZ",
-    "main_symbol": "?Loop_Start_Valid@PlanningTokenClass@@QBEHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613da0",
-    "body": 14,
-    "padding": 2,
-    "symbol": "?Loop_Start_Positive@PlanningTokenClass@@QAE_NXZ",
-    "main_symbol": "?unknown_has_94_00613da0@seed_00613da0@@YI_NH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613db0",
-    "body": 14,
-    "padding": 2,
-    "symbol": "?Loop_Start_Zero@PlanningTokenClass@@QAE_NXZ",
-    "main_symbol": "?unknown_no_94_00613db0@seed_00613db0@@YI_NH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613dc0",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Get_F98@PlanningTokenClass@@QAE_NXZ",
-    "main_symbol": "?unknown_get_98_00613dc0@seed_00613dc0@@YIEH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613dd0",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Get_F99@PlanningTokenClass@@QAE_NXZ",
-    "main_symbol": "?unknown_get_99_00613dd0@seed_00613dd0@@YIEH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613de0",
-    "body": 30,
-    "padding": 2,
-    "symbol": "?Dec_Loop_Start@PlanningTokenClass@@QAEXXZ",
-    "main_symbol": "?Dec_Loop_Start@PlanningTokenClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613e00",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Planning_Set_Sink@@YIXPAVINoticeSink@@@Z",
-    "main_symbol": "?get@Leaf_613e00@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613e10",
-    "body": 46,
-    "padding": 2,
-    "symbol": "?Planning_Reset@@YAXXZ",
-    "main_symbol": "?Planning_Reset@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613e40",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?Planning_Reset_Wrapper@@YAXXZ",
-    "main_symbol": "?Unknown_00613E40@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00613e50",
-    "body": 446,
-    "padding": 2,
-    "symbol": "?Planning_Reset_State@@YAXXZ",
-    "main_symbol": "?Unknown_00613E50@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00614010",
-    "body": 734,
-    "padding": 2,
-    "symbol": "?Planning_Update@@YIXXZ",
-    "main_symbol": "?Planning_Update@@YIXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006142f0",
-    "body": 92,
-    "padding": 4,
-    "symbol": "?Planning_Free_Nodes@@YIXXZ",
-    "main_symbol": "?unknown_delete_all_a76648@@YAXXZ",
-    "main_source": "src/recovered/planmgr/unknown_delete_all.cpp"
-   },
-   {
-    "entry": "00614350",
-    "body": 139,
-    "padding": 5,
-    "symbol": "?Planning_Store_Event@@YIXABVEventClass@@@Z",
-    "main_symbol": "?Planning_Store_Event@@YIXABVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006143e0",
-    "body": 264,
-    "padding": 8,
-    "symbol": "?Planning_Unlist_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Unlist_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006144f0",
-    "body": 85,
-    "padding": 11,
-    "symbol": "?Planning_Unlist_Token@@YIXPAVPlanningTokenClass@@@Z",
-    "main_symbol": "?Planning_Unlist_Token@@YIXPAVPlanningTokenClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00614550",
-    "body": 142,
-    "padding": 2,
-    "symbol": "?Planning_Unlist_Techno@@YIXPAVTechnoClass@@@Z",
-    "main_symbol": "?Planning_Unlist_Techno@@YIXPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006145e0",
-    "body": 101,
-    "padding": 11,
-    "symbol": "?Select_Planning_Members@TechnoClass@@QAEXXZ",
-    "main_symbol": "?Select_Planning_Members@TechnoClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00614650",
-    "body": 103,
-    "padding": 9,
-    "symbol": "?Planning_Queue_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Queue_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006146c0",
-    "body": 148,
-    "padding": 12,
-    "symbol": "?Planning_Process_Queue@@YAXXZ",
-    "main_symbol": "?Planning_Process_Queue@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00614760",
-    "body": 66,
-    "padding": 14,
-    "symbol": "?Planning_Begin@@YAXXZ",
-    "main_symbol": "?Planning_Begin@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006147b0",
-    "body": 139,
-    "padding": 5,
-    "symbol": "?Planning_End@@YAXXZ",
-    "main_symbol": "?Planning_End@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00614840",
-    "body": 6,
-    "padding": 0,
-    "symbol": "?Planning_Is_Active@@YI_NXZ",
-    "main_symbol": "?Planning_Active_00614840@seed_00614840@@YAEXZ",
-    "main_source": "src/recovered/planmgr/Planning_Active.cpp"
-   },
-   {
-    "entry": "00614850",
-    "body": 579,
-    "padding": 13,
-    "symbol": "?Commit_Plans@@YIXH@Z",
-    "main_symbol": "?Commit_Plans@@YIXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00614aa0",
-    "body": 164,
-    "padding": 12,
-    "symbol": "?Send_Delete_Event@PlanningNodeClass@@QAEXXZ",
-    "main_symbol": "?unknown_614aa0@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00614b50",
-    "body": 20,
-    "padding": 12,
-    "symbol": "?Planning_Allows_Event_Type@@YI_NH@Z",
-    "main_symbol": "?Infantry_Action_Allowed_00614b50@@YIEH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00614b70",
-    "body": 47,
-    "padding": 1,
-    "symbol": "?Planning_Send_Event@@YGXVEventClass@@@Z",
-    "main_symbol": "?Planning_Send_Event@@YGXVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00614ec0",
-    "body": 1181,
-    "padding": 3,
-    "symbol": "?Planning_Add_Order@@YI_NPAVTechnoClass@@PAVEventClass@@@Z",
-    "main_symbol": "?Planning_Add_Order@@YI_NPAVTechnoClass@@PAVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615360",
-    "body": 276,
-    "padding": 12,
-    "symbol": "?TryNextPlanningTokenNode@TechnoClass@@QAE_NXZ",
-    "main_symbol": "?TryNextPlanningTokenNode@TechnoClass@@QAE_NXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615480",
-    "body": 337,
-    "padding": 15,
-    "symbol": "?Planning_Clear_Techno@@YIXPAVTechnoClass@@PAVEventClass@@@Z",
-    "main_symbol": "?Planning_Techno_00615480@@YIXPAVTechnoClass@@PAVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006155e0",
-    "body": 471,
-    "padding": 9,
-    "symbol": "?Planning_Cancel_Token@@YIXPAVTechnoClass@@@Z",
-    "main_symbol": "?unknown_6155e0@TechnoClass@@QAEXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006157c0",
-    "body": 88,
-    "padding": 8,
-    "symbol": "?Planning_Add_To_Drawn@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Unknown_Add_To_Drawn_Nodes_006157C0@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/classes/PlanningNodeClass/Unknown_Add_To_Drawn_Nodes.cpp"
-   },
-   {
-    "entry": "00615820",
-    "body": 195,
-    "padding": 13,
-    "symbol": "?Planning_New_Token@@YIPAVPlanningTokenClass@@PAVTechnoClass@@@Z",
-    "main_symbol": "?Planning_New_Token@@YIPAVPlanningTokenClass@@PAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006158f0",
-    "body": 24,
-    "padding": 8,
-    "symbol": "?Planning_Stop_Type@@YI_ND@Z",
-    "main_symbol": "?unknown_is_kind_6_7_9_006158f0@seed_006158f0@@YIID@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615910",
-    "body": 167,
-    "padding": 9,
-    "symbol": "?Planning_Order_Stays_Put@@YI_NPAVTechnoClass@@HVTargetClass@@@Z",
-    "main_symbol": "?Planning_Order_Stays_Put@@YI_NPAVTechnoClass@@HVTargetClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006159c0",
-    "body": 24,
-    "padding": 8,
-    "symbol": "?Planning_Terminal_Mission@@YI_NH@Z",
-    "main_symbol": "?unknown_is_kind_7_8_9_006159c0@seed_006159c0@@YIIH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006159e0",
-    "body": 42,
-    "padding": 6,
-    "symbol": "?Planning_Cell_Mission@@YI_NHVTargetClass@@@Z",
-    "main_symbol": "?Planning_Cell_Mission@@YI_NHVTargetClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615a10",
-    "body": 98,
-    "padding": 14,
-    "symbol": "?Planning_Mission_Allows@@YI_NPAVTechnoClass@@@Z",
-    "main_symbol": "?Planning_Mission_Allows@@YI_NPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615a80",
-    "body": 221,
-    "padding": 3,
-    "symbol": "?Planning_Order_Kind@@YIHPAVTechnoClass@@PBUPlanningEventTargets@@@Z",
-    "main_symbol": "?Planning_Order_Kind@@YIHPAVTechnoClass@@PBUPlanningEventTargets@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615b60",
-    "body": 88,
-    "padding": 8,
-    "symbol": "?Planning_Add_To_Nodes@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Unknown_Add_To_Node_List_00615B60@PlanningNodeClass@@QAEXXZ",
-    "main_source": "src/recovered/classes/PlanningNodeClass/Unknown_Add_To_Node_List.cpp"
-   },
-   {
-    "entry": "00615bc0",
-    "body": 55,
-    "padding": 9,
-    "symbol": "?Planning_Clear_Drawn@@YAXXZ",
-    "main_symbol": "?Planning_Clear_Drawn@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615c00",
-    "body": 294,
-    "padding": 10,
-    "symbol": "?Planning_Hover@@YAXXZ",
-    "main_symbol": "?Planning_Hover@@YIXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615d30",
-    "body": 173,
-    "padding": 3,
-    "symbol": "?Planning_Node_At@@YGPAVPlanningNodeClass@@HH@Z",
-    "main_symbol": "?Planning_Node_At@@YGPAVPlanningNodeClass@@HH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615de0",
-    "body": 229,
-    "padding": 11,
-    "symbol": "?Is_Planning_Selection_Valid@@YI_NXZ",
-    "main_symbol": "?Unknown_Planning_00615DE0@@YI_NXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615ed0",
-    "body": 215,
-    "padding": 9,
-    "symbol": "?Planning_Can_Add@@YI_NXZ",
-    "main_symbol": "?Planning_Can_Add@@YI_NXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00615fb0",
-    "body": 187,
-    "padding": 5,
-    "symbol": "?Planning_Find_Node@@YIPAVPlanningNodeClass@@HHUCoordStruct@@@Z",
-    "main_symbol": "?Planning_Find_Node@@YIPAVPlanningNodeClass@@HHUCoordStruct@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616070",
-    "body": 207,
-    "padding": 1,
-    "symbol": "?Planning_Pick_Node@@YGPAVPlanningNodeClass@@HH@Z",
-    "main_symbol": "?Planning_Pick_Node@@YGPAVPlanningNodeClass@@HH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616140",
-    "body": 207,
-    "padding": 1,
-    "symbol": "?Planning_Pick_Drawn@@YGPAVPlanningNodeClass@@HH@Z",
-    "main_symbol": "?Planning_Pick_Drawn@@YGPAVPlanningNodeClass@@HH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616210",
-    "body": 105,
-    "padding": 7,
-    "symbol": "?Planning_Find_Drawn@@YGPAVPlanningNodeClass@@VCoord@@@Z",
-    "main_symbol": "?Planning_Find_Drawn@@YGPAVPlanningNodeClass@@UCoordStruct@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616280",
-    "body": 193,
-    "padding": 15,
-    "symbol": "?Planning_Send_Pair@@YIXPAVAbstractClass@@PAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Send_Pair@@YIXPAVAbstractClass@@PAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616350",
-    "body": 385,
-    "padding": 15,
-    "symbol": "?Planning_Path_Add@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Path_Add@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006164e0",
-    "body": 182,
-    "padding": 10,
-    "symbol": "?Planning_Close_Loop@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Close_Loop_006164e0@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006165a0",
-    "body": 581,
-    "padding": 11,
-    "symbol": "?Planning_Path_Append@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Path_Append@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006167f0",
-    "body": 354,
-    "padding": 14,
-    "symbol": "?Planning_Copy_Members@@YIXPAVPlanningNodeClass@@0VEventClass@@@Z",
-    "main_symbol": "?Planning_Copy_Members@@YIXPAVPlanningNodeClass@@0VEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616960",
-    "body": 238,
-    "padding": 2,
-    "symbol": "?Planning_Remove_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Remove_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616b40",
-    "body": 131,
-    "padding": 13,
-    "symbol": "?Planning_Selection_Kind@@YAHXZ",
-    "main_symbol": "?Planning_Selection_Kind@@YAHXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616bd0",
-    "body": 291,
-    "padding": 13,
-    "symbol": "?Planning_Same_Last_Node@@YI_NPAVPlanningTokenClass@@0@Z",
-    "main_symbol": "?Planning_Same_Last_Node@@YI_NPAVPlanningTokenClass@@0@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616d00",
-    "body": 17,
-    "padding": 15,
-    "symbol": "?Planning_Recount@@YIXH@Z",
-    "main_symbol": "?unknown_count_increment_00616d00@seed_00616d00@@YIXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616d20",
-    "body": 36,
-    "padding": 12,
-    "symbol": "?Planning_Uncount@@YIXH@Z",
-    "main_symbol": "?Planning_Uncount@@YIXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616d50",
-    "body": 29,
-    "padding": 3,
-    "symbol": "?Planning_Count@@YIHH@Z",
-    "main_symbol": "?Planning_Count@@YIHH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616d70",
-    "body": 241,
-    "padding": 15,
-    "symbol": "?Planning_Refuse_Event@@YIXPAVEventClass@@@Z",
-    "main_symbol": "?Planning_Refuse_Event@@YIXPBVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616e70",
-    "body": 79,
-    "padding": 1,
-    "symbol": "?Planning_Refuse_Area_Guard@@YIXXZ",
-    "main_symbol": "?Planning_Refuse_No_Guard_Area@@YIXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616ec0",
-    "body": 132,
-    "padding": 12,
-    "symbol": "?Planning_Show_Help@@YIX_N0@Z",
-    "main_symbol": "?Planning_Intro@@YIX_N0@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616f50",
-    "body": 85,
-    "padding": 11,
-    "symbol": "?Planning_Help@@YIXH@Z",
-    "main_symbol": "?Planning_Help@@YIXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616fb0",
-    "body": 29,
-    "padding": 3,
-    "symbol": "?Planning_Message@@YIXPBD@Z",
-    "main_symbol": "?Planning_Message@@YIXPBD@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00616fd0",
-    "body": 74,
-    "padding": 6,
-    "symbol": "?Planning_Refuse@@YIXPBD@Z",
-    "main_symbol": "?Planning_Refuse@@YIXPBD@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617020",
-    "body": 216,
-    "padding": 8,
-    "symbol": "?Planning_Refuse_Order@@YIXPBVEventClass@@@Z",
-    "main_symbol": "?Planning_Refuse_Order@@YIXPBVEventClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617100",
-    "body": 221,
-    "padding": 3,
-    "symbol": "?Planning_Refuse_Selection@@YIXH@Z",
-    "main_symbol": "?Planning_Refuse_Selection@@YIXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006171e0",
-    "body": 91,
-    "padding": 5,
-    "symbol": "?Planning_Event_Result@@YIHPAVPlanningTokenClass@@PBUPlanningEventTargets@@@Z",
-    "main_symbol": "?Planning_Event_Result@@YIHPAVPlanningTokenClass@@PBUPlanningEventTargets@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617240",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Planning_Set_Pending_Refusal@@YIXH@Z",
-    "main_symbol": "?unknown_set_a76750_00617240@seed_00617240@@YIXI@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617250",
-    "body": 237,
-    "padding": 3,
-    "symbol": "?Planning_Refuse_Command@@YIXH@Z",
-    "main_symbol": "?Planning_Refuse_Command@@YIXH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617680",
-    "body": 466,
-    "padding": 14,
-    "symbol": "?Planning_Left_Release@@YG_NVPoint2D@@@Z",
-    "main_symbol": "?Planning_Left_Up_00617680@@YG_NUPoint2D@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617860",
-    "body": 64,
-    "padding": 0,
-    "symbol": "?Planning_Right_Press@@YGXHH@Z",
-    "main_symbol": "?Planning_Mouse_Down@@YGXHH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006178a0",
-    "body": 86,
-    "padding": 10,
-    "symbol": "?Planning_Right_Release@@YGXHH@Z",
-    "main_symbol": "?Planning_Mouse_Up@@YGXHH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617900",
-    "body": 252,
-    "padding": 4,
-    "symbol": "?Planning_Mouse_AI@@YG_NHH@Z",
-    "main_symbol": "?Planning_Mouse_Move_00617900@@YG_NHH@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617a00",
-    "body": 6,
-    "padding": 10,
-    "symbol": "?Planning_Selected_Node@@YIPAVPlanningNodeClass@@XZ",
-    "main_symbol": "?get@Leaf_617a00@@QAEIXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617a10",
-    "body": 182,
-    "padding": 10,
-    "symbol": "?Planning_Selection_Node_State@@YIHPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Selection_Node_State@@YIHPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617ad0",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Planning_Set_Picked_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?unknown_set_a766f8_00617ad0@seed_00617ad0@@YIXI@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617ae0",
-    "body": 6,
-    "padding": 10,
-    "symbol": "?Planning_Get_Picked_Node@@YIPAVPlanningNodeClass@@XZ",
-    "main_symbol": "?unknown_get_a766f8_00617ae0@seed_00617ae0@@YAIXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617af0",
-    "body": 756,
-    "padding": 12,
-    "symbol": "?Planning_Connect_Selection@@YAXXZ",
-    "main_symbol": "?Planning_Unknown_617af0@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617df0",
-    "body": 48,
-    "padding": 0,
-    "symbol": "?First_Target_Object@PlanningFirstTarget@@QBEPAVAbstractClass@@XZ",
-    "main_symbol": "?First_Target_Object@PlanningEventTargets@@QBEPAVAbstractClass@@XZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617e20",
-    "body": 7,
-    "padding": 9,
-    "symbol": "?Planning_Set_Selected_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?unknown_set_a766b0_00617e20@seed_00617e20@@YIXI@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617e30",
-    "body": 11,
-    "padding": 5,
-    "symbol": "?Planning_Clear_Selected_Node@@YAXXZ",
-    "main_symbol": "?unknown_clear_a766b0_00617e30@seed_00617e30@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617e40",
-    "body": 176,
-    "padding": 0,
-    "symbol": "?Planning_Redraw@@YAXXZ",
-    "main_symbol": "?Planning_Redraw@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00617ef0",
-    "body": 411,
-    "padding": 5,
-    "symbol": "?Planning_Draw_All@@YAXXZ",
-    "main_symbol": "?Planning_Draw_All@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00618090",
-    "body": 608,
-    "padding": 0,
-    "symbol": "?Planning_Draw_Remembered@@YAXXZ",
-    "main_symbol": "?Planning_Draw_Remembered@@YAXXZ",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "006182f0",
-    "body": 2230,
-    "padding": 10,
-    "symbol": "?Planning_Draw_Techno@@YIXPAVTechnoClass@@@Z",
-    "main_symbol": "?Planning_Draw_Techno@@YIXPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00618bb0",
-    "body": 66,
-    "padding": 14,
-    "symbol": "?Planning_Idle_Mover@@YI_NPAVTechnoClass@@@Z",
-    "main_symbol": "?Planning_Idle_Mover@@YI_NPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00618c00",
-    "body": 2076,
-    "padding": 4,
-    "symbol": "?Planning_Draw_Filled_Techno@@YIXPAVTechnoClass@@@Z",
-    "main_symbol": "?Planning_Draw_Techno_618c00@@YIXPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00619420",
-    "body": 994,
-    "padding": 14,
-    "symbol": "?Planning_Draw_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Draw_Node_619420@@YIXPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00619810",
-    "body": 87,
-    "padding": 9,
-    "symbol": "?Planning_Event_Or_Object_Coord@@YI?AVCoord@@ABVEventClass@@PAVAbstractClass@@@Z",
-    "main_symbol": "?Planning_Event_Or_Object_Coord@@YI?AUCoordStruct@@ABVEventClass@@PAVAbstractClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00619870",
-    "body": 852,
-    "padding": 12,
-    "symbol": "?Planning_Draw_Filled_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Draw_Node_619870@@YIXPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00619bd0",
-    "body": 205,
-    "padding": 3,
-    "symbol": "?Planning_Fill_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_symbol": "?Planning_Fill_Node@@YIXPAVPlanningNodeClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00619ca0",
-    "body": 165,
-    "padding": 11,
-    "symbol": "?Planning_Dim_Color@@YIHPAVTechnoClass@@@Z",
-    "main_symbol": "?Planning_Dim_Color@@YIHPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   },
-   {
-    "entry": "00619d50",
-    "body": 165,
-    "padding": 11,
-    "symbol": "?Planning_Bright_Color@@YIHPAVTechnoClass@@@Z",
-    "main_symbol": "?Planning_Bright_Color@@YIHPAVTechnoClass@@@Z",
-    "main_source": "src/recovered/planmgr.cpp"
-   }
-  ],
-  "references": {
-   "_BRIDGE_LEPTON_HEIGHT": "00a76794",
-   "_CELL_DIAG_SLOPE_ANGLE": "00a76730",
-   "_CELL_LEPTON_DIAG": "00a766a8",
-   "_CELL_NONE": "00a766a4",
-   "_CELL_SLOPE_ANGLE": "00a766f0",
-   "_COORD_NONE": "00a76718",
-   "_ISO_TILE_SIZE": "007a81c8",
-   "_LEPTONS_PER_PIXEL": "00a76798",
-   "_LEVEL_LEPTON_H": "00a767a0",
-   "_ONE_RAD": "007a81d0",
-   "_PIXELS_PER_LEPTON": "00a76780",
-   "_RAD_45": "00a76778",
-   "_RAD_60": "00a766d0",
-   "_RAD_90": "00a76668"
   },
   "partial_ok": true
  },
@@ -85158,1262 +81811,6 @@
    "?Mouse_Left_Held@DisplayClass@@MAEXABVPoint2D@@@Z": "0049c500",
    "?Mouse_Left_Release@DisplayClass@@MAEXABVCoord@@ABVCell@@PAVObjectClass@@W4ActionType@@_N@Z": "0049bb20",
    "?Mouse_Right_Release@DisplayClass@@MAEXABVPoint2D@@@Z": "0049af90"
-  },
-  "partial_ok": true
- },
- "taction": {
-  "core": [
-   "006ad4f0",
-   "006b3300"
-  ],
-  "symbol_overrides": {},
-  "source": "rebuild/src/taction.cpp",
-  "options": [
-   "/O2",
-   "/Ob2",
-   "/G5",
-   "/Gy",
-   "/Gr",
-   "/GR"
-  ],
-  "status": "pending",
-  "range": [
-   "006ad4f0",
-   "006b3600"
-  ],
-  "mischa85": "tibsun: functions compiled from src/taction.cpp, without gaps; matched except ??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z; 16 placed by the gap; ??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z placed at their function starts; ??0TActionClass@@QAE@XZ not placed; ten copies the compiler emitted after the last function",
-  "main_options": [
-   [
-    "/O2",
-    "/Ob2",
-    "/G5",
-    "/Gy",
-    "/GR"
-   ]
-  ],
-  "rows": [
-   {
-    "entry": "006ad4f0",
-    "body": 271,
-    "padding": 1,
-    "symbol": "??1TActionClass@@UAE@XZ",
-    "main_symbol": "??1TActionClass@@UAE@XZ",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006ad600",
-    "body": 52,
-    "padding": 12,
-    "symbol": "?Detach@TActionClass@@UAEXPBVAbstractClass@@_N@Z",
-    "main_symbol": "?Detach@TActionClass@@UAEXPAVAbstractClass@@_N@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006ad640",
-    "body": 544,
-    "padding": 0,
-    "symbol": "?Build_INI_Entry@TActionClass@@QBEXPAD@Z",
-    "main_symbol": "?Build_INI_Entry@TActionClass@@QBEXPAD@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006ad860",
-    "body": 632,
-    "padding": 8,
-    "symbol": "?Read_INI@TActionClass@@QAEXXZ",
-    "main_symbol": "?Read_INI@TActionClass@@QAEXXZ",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006adae0",
-    "body": 7752,
-    "padding": 8,
-    "symbol": "??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?Execute@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006af930",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?unknown_action_006af930@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_symbol": "?unknown_action_006af930@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006af940",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?TAction_DEACTIVATE_FIRESTORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_DEACTIVATE_FIRESTORM@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006af950",
-    "body": 35,
-    "padding": 13,
-    "symbol": "?TAction_ION_LIGHTNING_STRIKE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_ION_LIGHTNING_STRIKE@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006af980",
-    "body": 127,
-    "padding": 1,
-    "symbol": "?TAction_REMOVE_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_REMOVE_PARTICLE_ANIM@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afa00",
-    "body": 163,
-    "padding": 13,
-    "symbol": "?TAction_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_particle_system_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afab0",
-    "body": 136,
-    "padding": 8,
-    "symbol": "?TAction_WAKEUP_SELF@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_hunt_technos_with_tag@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afb40",
-    "body": 20,
-    "padding": 12,
-    "symbol": "?TAction_VEIN_GROWTH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_session_flag_222b@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afb60",
-    "body": 20,
-    "padding": 12,
-    "symbol": "?TAction_TIB_GROWTH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_session_flag_222a@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afb80",
-    "body": 20,
-    "padding": 12,
-    "symbol": "?TAction_ICE_GROWTH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_session_flag_222c@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afba0",
-    "body": 114,
-    "padding": 14,
-    "symbol": "?TAction_WAKEUP_ALL_SLEEP@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_hunt_idle_feet_not_of_house@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afc20",
-    "body": 115,
-    "padding": 13,
-    "symbol": "?TAction_WAKEUP_ALL_HARMLESS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_hunt_feet_mission_23_of_house@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afca0",
-    "body": 133,
-    "padding": 11,
-    "symbol": "?TAction_WAKEUP_GROUP@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_hunt_technos_of_house_type@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afd30",
-    "body": 18,
-    "padding": 14,
-    "symbol": "?TAction_ANNOUNCE_WIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_player_4e7ee0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afd50",
-    "body": 18,
-    "padding": 14,
-    "symbol": "?TAction_ANNOUNCE_LOSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_player_4e80d0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afd70",
-    "body": 16,
-    "padding": 0,
-    "symbol": "?TAction_FORCE_END@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_player_4e82c0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006afd80",
-    "body": 755,
-    "padding": 13,
-    "symbol": "?TAction_DAMAGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_DAMAGE@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0080",
-    "body": 81,
-    "padding": 15,
-    "symbol": "?TAction_LIGHT_SMALL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_explosion_50_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b00e0",
-    "body": 81,
-    "padding": 15,
-    "symbol": "?TAction_LIGHT_MEDIUM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_explosion_100_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0140",
-    "body": 81,
-    "padding": 15,
-    "symbol": "?TAction_LIGHT_LARGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_explosion_300_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b01a0",
-    "body": 107,
-    "padding": 5,
-    "symbol": "?TAction_SELL_ATTACHED@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_buildings_with_tag_slot98@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0210",
-    "body": 105,
-    "padding": 7,
-    "symbol": "?TAction_GO_BERZERK@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_infantry_with_tag_slot294@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0280",
-    "body": 112,
-    "padding": 0,
-    "symbol": "?TAction_TURN_OFF_ATTACHED@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_buildings_with_tag_power_down@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b02f0",
-    "body": 112,
-    "padding": 0,
-    "symbol": "?TAction_TURN_ON_ATTACHED@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_buildings_with_tag_power_up@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0360",
-    "body": 119,
-    "padding": 9,
-    "symbol": "?TAction_CHANGE_HOUSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_technos_with_tag_to_house@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b03e0",
-    "body": 87,
-    "padding": 9,
-    "symbol": "?TAction_ALL_CHANGE_HOUSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_give_technos_to_house@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0440",
-    "body": 124,
-    "padding": 4,
-    "symbol": "?TAction_TEXT_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_show_text@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b04c0",
-    "body": 53,
-    "padding": 11,
-    "symbol": "?TAction_MAKE_ALLY@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_make_ally@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0500",
-    "body": 53,
-    "padding": 11,
-    "symbol": "?TAction_MAKE_ENEMY@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_make_enemy@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0540",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_PREFERRED_TARGET@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_PREFERRED_TARGET@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0560",
-    "body": 184,
-    "padding": 8,
-    "symbol": "?TAction_BASE_BUILDING@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_base_building@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0620",
-    "body": 15,
-    "padding": 1,
-    "symbol": "?TAction_CREEP_SHADOW@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_map_49cc20@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0630",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_SET_GLOBAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_local_variable@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0650",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_CLEAR_GLOBAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_clear_local_variable@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0670",
-    "body": 399,
-    "padding": 1,
-    "symbol": "?TAction_REVEAL_SOME@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_reveal_around_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0800",
-    "body": 52,
-    "padding": 12,
-    "symbol": "?TAction_REDUCE_TIBERIUM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_map_55d990_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0840",
-    "body": 365,
-    "padding": 3,
-    "symbol": "?TAction_REVEAL_ZONE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_reveal_zone_of_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b09b0",
-    "body": 98,
-    "padding": 14,
-    "symbol": "?TAction_REVEAL_ALL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_reveal_whole_map@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0a20",
-    "body": 49,
-    "padding": 15,
-    "symbol": "?TAction_START_TIMER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_start_mission_timer@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0a60",
-    "body": 86,
-    "padding": 10,
-    "symbol": "?TAction_STOP_TIMER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_stop_mission_timer@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0ac0",
-    "body": 93,
-    "padding": 3,
-    "symbol": "?TAction_ADD_TIMER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_func_6b0ac0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0b20",
-    "body": 128,
-    "padding": 0,
-    "symbol": "?TAction_SUB_TIMER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_func_6b0b20@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0ba0",
-    "body": 176,
-    "padding": 0,
-    "symbol": "?TAction_SET_TIMER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_func_6b0ba0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0c50",
-    "body": 215,
-    "padding": 9,
-    "symbol": "?TAction_SET_TIMER_TEXT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_mission_timer_text@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0d30",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_PLAY_MOVIE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_PLAY_MOVIE@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0d50",
-    "body": 15,
-    "padding": 1,
-    "symbol": "?TAction_PLAY_INGAME_MOVIE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_PLAY_INGAME_MOVIE@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0d60",
-    "body": 15,
-    "padding": 1,
-    "symbol": "?TAction_PLAY_INGAME_MOVIE_PAUSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_PLAY_INGAME_MOVIE_PAUSE@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0d70",
-    "body": 25,
-    "padding": 7,
-    "symbol": "?TAction_PLAY_SOUND@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_PLAY_SOUND@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0d90",
-    "body": 169,
-    "padding": 7,
-    "symbol": "?TAction_PLAY_SOUND_RANDOM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_sound_at_random_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0e40",
-    "body": 115,
-    "padding": 13,
-    "symbol": "?Coord_Object@@YIPAVObjectClass@@ABVCoord@@@Z",
-    "main_symbol": "?Building_Or_Terrain_At_006B0E40@@YIPAVObjectClass@@ABUCoordStruct@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0ec0",
-    "body": 198,
-    "padding": 10,
-    "symbol": "?TAction_PLAY_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_PLAY_SOUND_AT@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b0f90",
-    "body": 191,
-    "padding": 1,
-    "symbol": "?TAction_STOP_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_STOP_SOUND_AT@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1050",
-    "body": 270,
-    "padding": 2,
-    "symbol": "?TAction_REVEAL_AROUND_WAYPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_REVEAL_AROUND_WAYPOINT@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1160",
-    "body": 19,
-    "padding": 13,
-    "symbol": "?TAction_PLAY_MUSIC@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_queue_theme@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1180",
-    "body": 20,
-    "padding": 12,
-    "symbol": "?TAction_PLAY_SPEECH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_play_voice@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b11a0",
-    "body": 88,
-    "padding": 8,
-    "symbol": "?TAction_1_SPECIAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_1_SPECIAL@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1200",
-    "body": 105,
-    "padding": 7,
-    "symbol": "?TAction_FULL_SPECIAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_FULL_SPECIAL@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1270",
-    "body": 240,
-    "padding": 0,
-    "symbol": "?TAction_DZ@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_DZ@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1360",
-    "body": 48,
-    "padding": 0,
-    "symbol": "?TAction_WIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_WIN@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1390",
-    "body": 48,
-    "padding": 0,
-    "symbol": "?TAction_LOSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_LOSE@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b13c0",
-    "body": 25,
-    "padding": 7,
-    "symbol": "?TAction_BEGIN_PRODUCTION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_house_136@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b13e0",
-    "body": 28,
-    "padding": 4,
-    "symbol": "?TAction_FIRE_SALE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_house_198@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1400",
-    "body": 25,
-    "padding": 7,
-    "symbol": "?TAction_AUTOCREATE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_house_137@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1420",
-    "body": 43,
-    "padding": 5,
-    "symbol": "?TAction_CREATE_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_create_team@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1450",
-    "body": 17,
-    "padding": 15,
-    "symbol": "?TAction_DESTROY_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_destroy_teams@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1470",
-    "body": 23,
-    "padding": 9,
-    "symbol": "?TAction_REINFORCEMENTS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_SPAWN_TEAM@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1490",
-    "body": 30,
-    "padding": 2,
-    "symbol": "?TAction_REINFORCEMENTS_SPECIAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_REINFORCEMENTS_SPECIAL@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b14b0",
-    "body": 23,
-    "padding": 9,
-    "symbol": "?TAction_ALL_HUNT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_ALL_HUNT@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b14d0",
-    "body": 358,
-    "padding": 10,
-    "symbol": "?TAction_DESTROY_OBJECT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_DESTROY_OBJECT@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1640",
-    "body": 5,
-    "padding": 11,
-    "symbol": "?TAction_CHANGE_ZOOM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_CHANGE_ZOOM@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1650",
-    "body": 179,
-    "padding": 13,
-    "symbol": "?TAction_RESIZE_PLAYER_VIEW@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_func_6b1650@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1710",
-    "body": 245,
-    "padding": 11,
-    "symbol": "?TAction_PLAY_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_PLAY_ANIM@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1810",
-    "body": 389,
-    "padding": 11,
-    "symbol": "?TAction_DO_EXPLOSION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_weapon_explosion_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b19a0",
-    "body": 211,
-    "padding": 13,
-    "symbol": "?TAction_METEOR_IMPACT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_METEOR_IMPACT@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1a80",
-    "body": 52,
-    "padding": 12,
-    "symbol": "?TAction_ION_STORM_START@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_ION_STORM_START@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1ac0",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_ION_STORM_STOP@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_ION_STORM_STOP@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1ae0",
-    "body": 10,
-    "padding": 6,
-    "symbol": "?TAction_LOCK_INPUT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_LOCK_INPUT@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1af0",
-    "body": 10,
-    "padding": 6,
-    "symbol": "?TAction_UNLOCK_INPUT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_UNLOCK_INPUT@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1b00",
-    "body": 187,
-    "padding": 5,
-    "symbol": "?TAction_CENTER_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_look_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1bc0",
-    "body": 179,
-    "padding": 13,
-    "symbol": "?TAction_JUMP_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_center_on_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1c80",
-    "body": 116,
-    "padding": 12,
-    "symbol": "?TAction_ZOOM_IN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_func_6b1c80@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1d00",
-    "body": 97,
-    "padding": 15,
-    "symbol": "?TAction_ZOOM_OUT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_ZOOM_OUT@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1d70",
-    "body": 15,
-    "padding": 1,
-    "symbol": "?TAction_RESHROUD@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_map_559fd0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1d80",
-    "body": 146,
-    "padding": 14,
-    "symbol": "?TAction_CHANGE_SPOTLIGHT_BEHAVIOR@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_CHANGE_SPOTLIGHT_BEHAVIOR@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1e20",
-    "body": 75,
-    "padding": 5,
-    "symbol": "?TAction_DESTROY_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_DESTROY_TRIGGER@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1e70",
-    "body": 75,
-    "padding": 5,
-    "symbol": "?TAction_DESTROY_TAG@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_DESTROY_TAG@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1ec0",
-    "body": 70,
-    "padding": 10,
-    "symbol": "?TAction_FORCE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_FORCE_TRIGGER@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1f10",
-    "body": 127,
-    "padding": 1,
-    "symbol": "?TAction_ENABLE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_ENABLE_TRIGGER@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1f90",
-    "body": 62,
-    "padding": 2,
-    "symbol": "?TAction_DISABLE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_DISABLE_TRIGGER@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b1fd0",
-    "body": 42,
-    "padding": 6,
-    "symbol": "?TAction_RADAR_EVENT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_63b5b0_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2000",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_SET_LOCAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_global_variable@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2020",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_CLEAR_LOCAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_clear_global_variable@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2040",
-    "body": 466,
-    "padding": 14,
-    "symbol": "?TAction_METEOR_SHOWER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_meteor_shower_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2220",
-    "body": 19,
-    "padding": 13,
-    "symbol": "?TAction_SET_AMBIENT_STEP@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_SET_AMBIENT_STEP@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2240",
-    "body": 19,
-    "padding": 13,
-    "symbol": "?TAction_SET_AMBIENT_RATE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_SET_AMBIENT_RATE@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2260",
-    "body": 46,
-    "padding": 2,
-    "symbol": "?TAction_SET_AMBIENT_LIGHT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_set_session_22a8@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2290",
-    "body": 25,
-    "padding": 7,
-    "symbol": "?TAction_BEGIN_AI_TRIGGERS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_BEGIN_AI_TRIGGERS@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b22b0",
-    "body": 25,
-    "padding": 7,
-    "symbol": "?TAction_STOP_AI_TRIGGERS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_STOP_AI_TRIGGERS@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b22d0",
-    "body": 25,
-    "padding": 7,
-    "symbol": "?TAction_CHEER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_CHEER@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b22f0",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_SET_AI_TRIGGER_TEAM_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_SET_AI_TRIGGER_TEAM_RATIO@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2310",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_SET_TEAM_AIRCRAFT_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_SET_TEAM_AIRCRAFT_RATIO@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2330",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_SET_TEAM_INFANTRY_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_SET_TEAM_INFANTRY_RATIO@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2350",
-    "body": 22,
-    "padding": 10,
-    "symbol": "?TAction_SET_TEAM_UNIT_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_SET_TEAM_UNIT_RATIO@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2370",
-    "body": 141,
-    "padding": 3,
-    "symbol": "?TAction_ION_CANNON@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_ion_blast_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2400",
-    "body": 469,
-    "padding": 11,
-    "symbol": "?TAction_MULTI_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_nuke_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b25e0",
-    "body": 228,
-    "padding": 12,
-    "symbol": "?TAction_LIGHTNING_STORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_LIGHTNING_STORM@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b26d0",
-    "body": 257,
-    "padding": 15,
-    "symbol": "?TAction_IRON_CURTAIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_iron_curtain_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b27e0",
-    "body": 41,
-    "padding": 7,
-    "symbol": "?TAction_SET_TECH_LEVEL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?Set_Type_Tech_Level_006b27e0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2810",
-    "body": 30,
-    "padding": 2,
-    "symbol": "?TAction_CHRONO_IN_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_CHRONO_IN_TEAM@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2830",
-    "body": 46,
-    "padding": 2,
-    "symbol": "?TAction_CREATE_CRATE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_map_54e580_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2860",
-    "body": 550,
-    "padding": 10,
-    "symbol": "?TAction_CHEM_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_chem_missile_at_waypoint@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2a90",
-    "body": 27,
-    "padding": 5,
-    "symbol": "?TAction_TOGGLE_TRAIN_CARGO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_toggle_session_flag_2229@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2ab0",
-    "body": 461,
-    "padding": 3,
-    "symbol": "?Action_Needs@@YI?AW4NeedType@@W4TActionType@@@Z",
-    "main_symbol": "?Value_Kind@TActionClass@@SIHH@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2c80",
-    "body": 56,
-    "padding": 8,
-    "symbol": "?GetClassID@TActionClass@@UAGJPAU_GUID@@@Z",
-    "main_symbol": "?GetClassID@TActionClass@@UAGJPAUGUID@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2cc0",
-    "body": 125,
-    "padding": 3,
-    "symbol": "?Load@TActionClass@@UAGJPAUIStream@@@Z",
-    "main_symbol": "?Load@TActionClass@@UAGJPAUIStream@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2d40",
-    "body": 29,
-    "padding": 3,
-    "symbol": "?Save@TActionClass@@UAGJPAUIStream@@H@Z",
-    "main_symbol": "?Save@TActionClass@@UAGJPAUIStream@@H@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2d60",
-    "body": 141,
-    "padding": 3,
-    "symbol": "?Compute_CRC@TActionClass@@UBEXAAVCRCEngine@@@Z",
-    "main_symbol": "?Compute_CRC@TActionClass@@UBEXAAVWWCRCEngine@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2df0",
-    "body": 138,
-    "padding": 6,
-    "symbol": "?Action_Flags@@YIHH@Z",
-    "main_symbol": "?Action_Flags@TActionClass@@SIHH@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2e80",
-    "body": 55,
-    "padding": 9,
-    "symbol": "?Waypoint_As_Coord@TActionClass@@QAE?AVCoord@@XZ",
-    "main_symbol": "?Waypoint_As_Coord@TActionClass@@QBE?AUCoordStruct@@XZ",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2ec0",
-    "body": 90,
-    "padding": 6,
-    "symbol": "?Set_Text@TActionClass@@QAEXPBD@Z",
-    "main_symbol": "?Set_Text@TActionClass@@QAEXPBD@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2f20",
-    "body": 13,
-    "padding": 3,
-    "symbol": "?Get_Text@TActionClass@@QBEPBDXZ",
-    "main_symbol": "?Get_Text@TActionClass@@QBEPBDXZ",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2f30",
-    "body": 23,
-    "padding": 9,
-    "symbol": "?TAction_FLASH_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_FLASH_TEAM@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2f50",
-    "body": 51,
-    "padding": 13,
-    "symbol": "?TAction_TALK_BUBBLE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_TALK_BUBBLE@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2f90",
-    "body": 13,
-    "padding": 3,
-    "symbol": "?TAction_PAUSE_SCENARIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_PAUSE_SCENARIO@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b2fa0",
-    "body": 104,
-    "padding": 8,
-    "symbol": "?TAction_EJECT_OCCUPANTS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?TAction_EJECT_OCCUPANTS@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3010",
-    "body": 68,
-    "padding": 12,
-    "symbol": "?TAction_SWITCH_TAB@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_select_sidebar_tab@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3060",
-    "body": 51,
-    "padding": 13,
-    "symbol": "?TAction_FLASH_CAMEO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
-    "main_symbol": "?unknown_sidebar_6822b0@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b30a0",
-    "body": 6,
-    "padding": 10,
-    "symbol": "?Fetch_Object_Size@TActionClass@@UBEHXZ",
-    "main_symbol": "?Size_Of@TActionClass@@UBEHXZ",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b30b0",
-    "body": 6,
-    "padding": 10,
-    "symbol": "?Fetch_RTTI@TActionClass@@UBE?AW4RTTIType@@XZ",
-    "main_symbol": "?Kind_Of@TActionClass@@UBEHXZ",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b30c0",
-    "body": 4,
-    "padding": 12,
-    "symbol": "?Fetch_Heap_ID@TActionClass@@UBEHXZ",
-    "main_symbol": "?Fetch_Heap_ID@TActionClass@@UBEHXZ",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b30d0",
-    "body": 291,
-    "padding": 13,
-    "symbol": "??_GTActionClass@@UAEPAXI@Z",
-    "main_symbol": "??_GTActionClass@@UAEPAXI@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3200",
-    "body": 41,
-    "padding": 7,
-    "symbol": "??0?$TStringID@$0BP@@@QAE@PBD@Z",
-    "main_symbol": "?Copy_Text_006b3200@Owner_006b3200@seed_006b3200@@QAEPADPAD@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3230",
-    "body": 41,
-    "padding": 7,
-    "symbol": "??4?$TStringID@$0BP@@@QAE?AU0@ABU0@@Z",
-    "main_symbol": "??4?$FixedString@$0CA@@@QAE?AV0@ABV0@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3260",
-    "body": 42,
-    "padding": 6,
-    "symbol": "?Clear@?$DynamicVectorClass@PAVTActionClass@@@@UAEXXZ",
-    "main_symbol": "?Clear@?$DynamicVectorClass@PAVTActionClass@@@@UAEXXZ",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3290",
-    "body": 27,
-    "padding": 5,
-    "symbol": "?ID@?$DynamicVectorClass@PAVTActionClass@@@@UAEHPBQAVTActionClass@@@Z",
-    "main_symbol": "?ID@?$DynamicVectorClass@PAVTActionClass@@@@UAEHPBQAVTActionClass@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b32b0",
-    "body": 13,
-    "padding": 3,
-    "symbol": "?GetItem@?$VectorClass@PAVTActionClass@@@@UBEPAVTActionClass@@H@Z",
-    "main_symbol": "?Fetch@?$VectorClass@PAVTActionClass@@@@UBEPAVTActionClass@@H@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b32c0",
-    "body": 54,
-    "padding": 10,
-    "symbol": "?Stop@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ",
-    "main_symbol": "?Stop@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ",
-    "main_source": "src/recovered/classes/CDTimerClass_FrameTimerClass/Stop.cpp"
-   },
-   {
-    "entry": "006b3300",
-    "body": 62,
-    "padding": 2,
-    "symbol": "??8?$VectorClass@PAVTActionClass@@@@UBE_NABV0@@Z",
-    "main_symbol": "??8?$VectorClass@PAVTActionClass@@@@UBE_NABV0@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3340",
-    "body": 174,
-    "padding": 2,
-    "symbol": "?Resize@?$VectorClass@PAVTActionClass@@@@UAE_NHPBQAVTActionClass@@@Z",
-    "main_symbol": "?Resize@?$VectorClass@PAVTActionClass@@@@UAE_NHPBQAVTActionClass@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b33f0",
-    "body": 39,
-    "padding": 9,
-    "symbol": "?Clear@?$VectorClass@PAVTActionClass@@@@UAEXXZ",
-    "main_symbol": "?Clear@?$VectorClass@PAVTActionClass@@@@UAEXXZ",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3420",
-    "body": 51,
-    "padding": 13,
-    "symbol": "?ID@?$VectorClass@PAVTActionClass@@@@UAEHABQAVTActionClass@@@Z",
-    "main_symbol": "?ID@?$VectorClass@PAVTActionClass@@@@UAEHABQAVTActionClass@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3460",
-    "body": 27,
-    "padding": 5,
-    "symbol": "?ID@?$VectorClass@PAVTActionClass@@@@UAEHPBQAVTActionClass@@@Z",
-    "main_symbol": "?ID@?$VectorClass@PAVTActionClass@@@@UAEHPBQAVTActionClass@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3480",
-    "body": 176,
-    "padding": 0,
-    "symbol": "?Resize@?$DynamicVectorClass@PAVTActionClass@@@@UAE_NHPBQAVTActionClass@@@Z",
-    "main_symbol": "?Resize@?$DynamicVectorClass@PAVTActionClass@@@@UAE_NHPBQAVTActionClass@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3530",
-    "body": 38,
-    "padding": 10,
-    "symbol": "?ID@?$DynamicVectorClass@PAVTActionClass@@@@UAEHABQAVTActionClass@@@Z",
-    "main_symbol": "?ID@?$DynamicVectorClass@PAVTActionClass@@@@UAEHABQAVTActionClass@@@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b3560",
-    "body": 73,
-    "padding": 7,
-    "symbol": "??_G?$VectorClass@PAVTActionClass@@@@UAEPAXI@Z",
-    "main_symbol": "??_G?$VectorClass@PAVTActionClass@@@@UAEPAXI@Z",
-    "main_source": "src/recovered/taction.cpp"
-   },
-   {
-    "entry": "006b35b0",
-    "body": 73,
-    "padding": 7,
-    "symbol": "??_G?$DynamicVectorClass@PAVTActionClass@@@@UAEPAXI@Z",
-    "main_symbol": "??_G?$DynamicVectorClass@PAVTActionClass@@@@UAEPAXI@Z",
-    "main_source": "src/recovered/taction.cpp"
-   }
-  ],
-  "references": {
-   "_LEVEL_LEPTON_H": "00abfe08",
-   "_?_counts@?1??TAction_METEOR_SHOWER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z@4PAHA": "007f6ad8",
-   "??8?$VectorClass@PAVTActionClass@@@@UBE_NABV0@@Z": "006b3300",
-   "?Resize@?$DynamicVectorClass@PAVTActionClass@@@@UAE_NHPBQAVTActionClass@@@Z": "006b3480",
-   "?Clear@?$DynamicVectorClass@PAVTActionClass@@@@UAEXXZ": "006b3260",
-   "?ID@?$DynamicVectorClass@PAVTActionClass@@@@UAEHABQAVTActionClass@@@Z": "006b3530",
-   "?ID@?$DynamicVectorClass@PAVTActionClass@@@@UAEHPBQAVTActionClass@@@Z": "006b3290",
-   "?GetItem@?$VectorClass@PAVTActionClass@@@@UBEPAVTActionClass@@H@Z": "006b32b0",
-   "?Resize@?$VectorClass@PAVTActionClass@@@@UAE_NHPBQAVTActionClass@@@Z": "006b3340",
-   "?Clear@?$VectorClass@PAVTActionClass@@@@UAEXXZ": "006b33f0",
-   "?ID@?$VectorClass@PAVTActionClass@@@@UAEHABQAVTActionClass@@@Z": "006b3420",
-   "?ID@?$VectorClass@PAVTActionClass@@@@UAEHPBQAVTActionClass@@@Z": "006b3460",
-   "?GetClassID@TActionClass@@UAGJPAU_GUID@@@Z": "006b2c80",
-   "?Load@TActionClass@@UAGJPAUIStream@@@Z": "006b2cc0",
-   "?Save@TActionClass@@UAGJPAUIStream@@H@Z": "006b2d40",
-   "?Detach@TActionClass@@UAEXPBVAbstractClass@@_N@Z": "006ad600",
-   "?Fetch_RTTI@TActionClass@@UBE?AW4RTTIType@@XZ": "006b30b0",
-   "?Fetch_Object_Size@TActionClass@@UBEHXZ": "006b30a0",
-   "?Compute_CRC@TActionClass@@UBEXAAVCRCEngine@@@Z": "006b2d60",
-   "?Fetch_Heap_ID@TActionClass@@UBEHXZ": "006b30c0"
   },
   "partial_ok": true
  },
@@ -99881,12 +95278,15 @@
   "parked_rows": [
    {
     "entry": "00777c90",
-    "status": "non_exact",
-    "best_differing": 887,
-    "draft": "build/class-work/codex2/parked-vqalib_drawer/drawer.cpp",
-    "result": "build/class-work/codex2/parked-vqalib_drawer/drawer.json",
-    "guard": "#if 0",
-    "note": "Seed/layout only; byte layout and register lifetimes differ; calibration not used"
+    "symbol": "?Select_Frame@@YIJPAU_VQAHandleP@@@Z",
+    "body": 921,
+    "best_differing": 764,
+    "note": "Guarded non-exact draft; no credit; original bytes remain",
+    "class": "c",
+    "text_source": "seed/layout only",
+    "draft": "build/class-work/codex2/drawer-flow-probes/previous_flags_value.cpp",
+    "result": "build/class-work/codex2/drawer-flow-probes/previous_flags_value.json",
+    "guard": "#if 0"
    }
   ]
  },
@@ -105929,7 +101329,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00432dd0",
    "00434820"
@@ -106195,6 +101595,18 @@
    }
   ],
   "references": {
+   "?GetClassID@BuildingLightClass@@UAGJPAU_GUID@@@Z": "004340a0",
+   "?Load@BuildingLightClass@@UAGJPAUIStream@@@Z": "004340e0",
+   "?Save@BuildingLightClass@@UAGJPAUIStream@@H@Z": "00434150",
+   "?Detach@BuildingLightClass@@UAEXPBVAbstractClass@@_N@Z": "00434190",
+   "?Fetch_Object_Size@BuildingLightClass@@UBEHXZ": "00434090",
+   "?Compute_CRC@BuildingLightClass@@UBEXAAVCRCEngine@@@Z": "004346d0",
+   "?AI@BuildingLightClass@@UAEXXZ": "00433970",
+   "?In_Which_Layer@BuildingLightClass@@UBE?AW4LayerType@@XZ": "00434180",
+   "?Class_Of@BuildingLightClass@@UBEPBVObjectTypeClass@@XZ": "00434170",
+   "?Limbo@BuildingLightClass@@UAE_NXZ": "004347c0",
+   "?Unlimbo@BuildingLightClass@@UAE_NABVCoord@@W4Dir256@@@Z": "004347e0",
+   "?Draw_It@BuildingLightClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": "00433380",
    "_BRIDGE_LEPTON_HEIGHT": "0084ea50",
    "_CELL_DIAG_SLOPE_ANGLE": "0084ea38",
    "_CELL_LEPTON_DIAG": "0084ea10",
@@ -106209,21 +101621,23 @@
    "_RAD_45": "0084ea40",
    "_RAD_60": "0084ea18",
    "_RAD_90": "0084e9f0",
-   "_RECT_NONE": "0084e9f8",
-   "?GetClassID@BuildingLightClass@@UAGJPAU_GUID@@@Z": "004340a0",
-   "?Load@BuildingLightClass@@UAGJPAUIStream@@@Z": "004340e0",
-   "?Save@BuildingLightClass@@UAGJPAUIStream@@H@Z": "00434150",
-   "?Detach@BuildingLightClass@@UAEXPBVAbstractClass@@_N@Z": "00434190",
-   "?Fetch_Object_Size@BuildingLightClass@@UBEHXZ": "00434090",
-   "?Compute_CRC@BuildingLightClass@@UBEXAAVCRCEngine@@@Z": "004346d0",
-   "?AI@BuildingLightClass@@UAEXXZ": "00433970",
-   "?In_Which_Layer@BuildingLightClass@@UBE?AW4LayerType@@XZ": "00434180",
-   "?Class_Of@BuildingLightClass@@UBEPBVObjectTypeClass@@XZ": "00434170",
-   "?Limbo@BuildingLightClass@@UAE_NXZ": "004347c0",
-   "?Unlimbo@BuildingLightClass@@UAE_NABVCoord@@W4Dir256@@@Z": "004347e0",
-   "?Draw_It@BuildingLightClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": "00433380"
+   "_RECT_NONE": "0084e9f8"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "parked_rows": [
+   {
+    "entry": "00433970",
+    "symbol": "?AI@BuildingLightClass@@UAEXXZ",
+    "body": 1818,
+    "best_differing": 1026,
+    "note": "Guarded non-exact draft; no credit; original bytes remain",
+    "class": "b",
+    "text_source": "old tree reshaped",
+    "draft": "build/class-work/codex2/blight-answer-probes/reuse_rotation_vector.cpp",
+    "result": "build/class-work/codex2/blight-answer-probes/reuse_rotation_vector.json",
+    "guard": "#if 0"
+   }
+  ]
  },
  "teamtype": {
   "core": [
@@ -110925,5 +106339,1094 @@
    "source_sha256": "ed0628d848eafa00e1369374dcd773385c89f2a20eca6ffef3eea49af9f57b57",
    "reason": "Unsupported allocatable data section .data #2 in accepted.obj (['.data', '__defaultconfig'])"
   }
+ },
+ "combuf2": {
+  "core": [
+   "00480b20",
+   "00480c30"
+  ],
+  "symbol_overrides": {
+   "00480b20": "?Command_Allows_Modified_Key@@YI_NABVCommandClass@@I@Z",
+   "00480b40": "?Command_Allows_Key@@YI_NI@Z"
+  },
+  "source": "rebuild/src/combuf2.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "00480b20",
+   "00480c30"
+  ],
+  "mischa85": "No source/module-map row; assigned class c. Bounds from main frozen combuf2 module map, cross-checked against frozen catalog.",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "00480b20",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?Command_Allows_Modified_Key@@YI_NABVCommandClass@@I@Z",
+    "main_symbol": "?Command_Allows_Modified_Key_00480b20@@YI_NABVCommandClass@@I@Z",
+    "main_source": "src/recovered/combuf2.cpp"
+   },
+   {
+    "entry": "00480b40",
+    "body": 192,
+    "padding": 0,
+    "symbol": "?Command_Allows_Key@@YI_NI@Z",
+    "main_symbol": "?Command_Allows_Key_00480b40@@YI_NI@Z",
+    "main_source": "src/recovered/combuf2.cpp"
+   },
+   {
+    "entry": "00480c00",
+    "body": 34,
+    "padding": 14,
+    "symbol": "?search_compfunc@?$IndexClass@HPBVCommandClass@@@@CAHPBX0@Z",
+    "main_symbol": "?search_compfunc@?$IndexClass@HPAVCommandClass@@@@CAHPBX0@Z",
+    "main_source": "src/recovered/combuf2.cpp"
+   }
+  ],
+  "references": {}
+ },
+ "voxel": {
+  "core": [
+   "00717f90",
+   "00719040"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/voxel.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "00717ce0",
+   "00719040"
+  ],
+  "mischa85": "tibsun: functions compiled from src/voxel.cpp, without gaps; matched except ?Init_Voxel_Matrices@@YIXXZ; two placed by the gap",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "00717ce0",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717d10",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717d30",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717d50",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717d70",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717d90",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717db0",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717df0",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717e20",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717e50",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717e80",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717e90",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717eb0",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717ed0",
+    "body": 1,
+    "padding": 15,
+    "symbol": "_$E52",
+    "main_symbol": "_$E43",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717ee0",
+    "body": 1,
+    "padding": 15,
+    "symbol": "_$E55",
+    "main_symbol": "_$E46",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717ef0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E58",
+    "main_symbol": "_$E49",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717f20",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E61",
+    "main_symbol": "_$E52",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717f50",
+    "body": 1,
+    "padding": 15,
+    "symbol": "_$E64",
+    "main_symbol": "_$E55",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717f60",
+    "body": 1,
+    "padding": 15,
+    "symbol": "_$E67",
+    "main_symbol": "_$E58",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717f70",
+    "body": 1,
+    "padding": 15,
+    "symbol": "_$E70",
+    "main_symbol": "_$E61",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717f80",
+    "body": 1,
+    "padding": 15,
+    "symbol": "_$E73",
+    "main_symbol": "_$E64",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717f90",
+    "body": 21,
+    "padding": 11,
+    "symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ",
+    "main_symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00717fb0",
+    "body": 167,
+    "padding": 9,
+    "symbol": "?Set_Voxel_Light_Angle@@YIXM@Z",
+    "main_symbol": "?Set_Voxel_Light_Angle@@YGXM@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00718060",
+    "body": 3290,
+    "padding": 6,
+    "symbol": "?Init_Voxel_Matrices@@YIXXZ",
+    "main_symbol": "?Unknown_00718060@@YIXXZ",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00718d40",
+    "body": 26,
+    "padding": 6,
+    "symbol": "?Get_Screen_Slope_Matrix@@YIXHAAVMatrix3D@@@Z",
+    "main_symbol": "?Get_Screen_Slope_Matrix@@YIXHPAVMatrix3D@@@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00718d60",
+    "body": 28,
+    "padding": 4,
+    "symbol": "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z",
+    "main_symbol": "?Get_Slope_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00718d80",
+    "body": 111,
+    "padding": 1,
+    "symbol": "?Get_Screen_Slope_Transition_Matrix@@YIXHHAAVMatrix3D@@N@Z",
+    "main_symbol": "?Get_Screen_Slope_Transition_Matrix@@YIXHHPAVMatrix3D@@N@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00718df0",
+    "body": 116,
+    "padding": 12,
+    "symbol": "?Get_Slope_Transition_Matrix@@YI?AVMatrix3D@@HHN@Z",
+    "main_symbol": "?Get_Slope_Transition_Matrix@@YIPAVMatrix3D@@PAV1@HHN@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00718e70",
+    "body": 8,
+    "padding": 8,
+    "symbol": "?Get_Some_Voxel_Number@@YIHH@Z",
+    "main_symbol": "?unknown_table_entry_7f9d9c@@YIHH@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00718e80",
+    "body": 87,
+    "padding": 9,
+    "symbol": "?_Direction256@@YIEABVCoord@@0@Z",
+    "main_symbol": "?_Direction256@@YIDABUCoordStruct@@0@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00718ee0",
+    "body": 180,
+    "padding": 12,
+    "symbol": "?Apply_Light_Transform@@YIXAAVMatrix3D@@HH@Z",
+    "main_symbol": "?Apply_Light_Transform@@YIXPAVMatrix3D@@HH@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00718fa0",
+    "body": 86,
+    "padding": 10,
+    "symbol": "?Get_Light_Vector@@YI?AVVector3@@W4Dir256@@H@Z",
+    "main_symbol": "?unknown_scaled_vector@@YI?AUVector3@@HH@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00719000",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?Clear_Voxel_Indexes@@YIXXZ",
+    "main_symbol": "?Unknown_00719000@@YAXXZ",
+    "main_source": "src/recovered/voxel.cpp"
+   },
+   {
+    "entry": "00719010",
+    "body": 36,
+    "padding": 12,
+    "symbol": "?Get_Bounce_Matrix@@YI?AVMatrix3D@@W4FacingType@@@Z",
+    "main_symbol": "?Get_Bounce_Matrix@@YIPAVMatrix3D@@PAV1@H@Z",
+    "main_source": "src/recovered/voxel.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00af85f8",
+   "_CELL_DIAG_SLOPE_ANGLE": "00af77a0",
+   "_CELL_LEPTON_DIAG": "00af7388",
+   "_CELL_NONE": "00af7380",
+   "_CELL_SLOPE_ANGLE": "00af7398",
+   "_COORD_NONE": "00af7790",
+   "_ISO_TILE_SIZE": "007aea20",
+   "_LEPTONS_PER_PIXEL": "00af8600",
+   "_LEVEL_LEPTON_H": "00af89f8",
+   "_ONE_RAD": "007aea28",
+   "_PIXELS_PER_LEPTON": "00af8530",
+   "_RAD_45": "00af7928",
+   "_RAD_60": "00af7390",
+   "_RAD_90": "00af7368",
+   "_RECT_NONE": "00af7370"
+  },
+  "partial_ok": true,
+  "parked_rows": [
+   {
+    "entry": "00718060",
+    "symbol": "?Init_Voxel_Matrices@@YIXXZ",
+    "body": 3290,
+    "best_differing": 25,
+    "note": "Guarded non-exact draft; no credit; original bytes remain"
+   }
+  ]
+ },
+ "unittype": {
+  "core": [
+   "0070a600",
+   "0070b600"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/unittype.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0070a410",
+   "0070b690"
+  ],
+  "mischa85": "tibsun: functions compiled from src/unittype.cpp, without gaps; matched except ?Read_INI@UnitTypeClass@@UAE_NABVCCINIClass@@@Z; one placed by the gap; ?Read_INI@UnitTypeClass@@UAE_NABVCCINIClass@@@Z placed at their function starts",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0070a410",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a430",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a460",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a480",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a4a0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a4c0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a4e0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a500",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a540",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a570",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a5a0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a5d0",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a5e0",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a600",
+    "body": 468,
+    "padding": 12,
+    "symbol": "??0UnitTypeClass@@QAE@PBD@Z",
+    "main_symbol": "??0UnitTypeClass@@QAE@PBD@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a7e0",
+    "body": 46,
+    "padding": 2,
+    "symbol": "??0UnitTypeClass@@QAE@ABVNoInitClass@@@Z",
+    "main_symbol": "??0UnitTypeClass@@QAE@ABVNoInitClass@@@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a810",
+    "body": 121,
+    "padding": 7,
+    "symbol": "??1UnitTypeClass@@UAE@XZ",
+    "main_symbol": "??1UnitTypeClass@@UAE@XZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a890",
+    "body": 65,
+    "padding": 15,
+    "symbol": "?From_Name@UnitTypeClass@@SI?AW4UnitType@@PBD@Z",
+    "main_symbol": "?From_Name@UnitTypeClass@@SIHPBD@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a8e0",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?CanUseWaypoint@UnitTypeClass@@UBE_NXZ",
+    "main_symbol": "?CanUseWaypoint@UnitTypeClass@@UBE_NXZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a8f0",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?CanAttackMove@UnitTypeClass@@UBE_NXZ",
+    "main_symbol": "?CanAttackMove@UnitTypeClass@@UBE_NXZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a900",
+    "body": 200,
+    "padding": 8,
+    "symbol": "?One_Time@UnitTypeClass@@SIXXZ",
+    "main_symbol": "?One_Time@UnitTypeClass@@SAXXZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070a9d0",
+    "body": 173,
+    "padding": 3,
+    "symbol": "?Create_And_Place@UnitTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+    "main_symbol": "?Create_And_Place@UnitTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070aa80",
+    "body": 43,
+    "padding": 5,
+    "symbol": "?Create_One_Of@UnitTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z",
+    "main_symbol": "?Create_One_Of@UnitTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070aab0",
+    "body": 64,
+    "padding": 0,
+    "symbol": "?Pixel_Dimensions@UnitTypeClass@@UBE?AV?$TPoint3D@H@@XZ",
+    "main_symbol": "?Pixel_Dimensions@UnitTypeClass@@UBE?AUCoordStruct@@XZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070aaf0",
+    "body": 36,
+    "padding": 12,
+    "symbol": "?Lepton_Dimensions@UnitTypeClass@@UBE?AV?$TPoint3D@H@@XZ",
+    "main_symbol": "?Lepton_Dimensions@UnitTypeClass@@UBE?AUCoordStruct@@XZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070ab20",
+    "body": 21,
+    "padding": 11,
+    "symbol": "?Turret_Adjust@UnitTypeClass@@QBE?AV?$TPoint2D@H@@W4Dir256@@ABV2@@Z",
+    "main_symbol": "?Turret_Adjust@UnitTypeClass@@QBE?AUPoint2D@@HABU2@@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070ab40",
+    "body": 2013,
+    "padding": 3,
+    "symbol": "?Read_INI@UnitTypeClass@@UAE_NABVCCINIClass@@@Z",
+    "main_symbol": "?Read_INI@UnitTypeClass@@UAE_NAAVCCINIClass@@@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b320",
+    "body": 97,
+    "padding": 15,
+    "symbol": "?Coord_Fixup@UnitTypeClass@@UBE?BVCoord@@ABV2@@Z",
+    "main_symbol": "?Coord_Fixup@UnitTypeClass@@UBE?AUCoordStruct@@ABU2@@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b390",
+    "body": 12,
+    "padding": 4,
+    "symbol": "?Repair_Step@UnitTypeClass@@UBEHXZ",
+    "main_symbol": "?Repair_Step@UnitTypeClass@@UBEHXZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b3a0",
+    "body": 56,
+    "padding": 8,
+    "symbol": "?GetClassID@UnitTypeClass@@UAGJPAU_GUID@@@Z",
+    "main_symbol": "?GetClassID@UnitTypeClass@@UAGJPAUGUID@@@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b3e0",
+    "body": 159,
+    "padding": 1,
+    "symbol": "?Compute_CRC@UnitTypeClass@@UBEXAAVCRCEngine@@@Z",
+    "main_symbol": "?Compute_CRC@UnitTypeClass@@UBEXAAVWWCRCEngine@@@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b480",
+    "body": 152,
+    "padding": 8,
+    "symbol": "?Load@UnitTypeClass@@UAGJPAUIStream@@@Z",
+    "main_symbol": "?Load@UnitTypeClass@@UAGJPAUIStream@@@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b520",
+    "body": 29,
+    "padding": 3,
+    "symbol": "?Save@UnitTypeClass@@UAGJPAUIStream@@H@Z",
+    "main_symbol": "?Save@UnitTypeClass@@UAGJPAUIStream@@H@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b540",
+    "body": 131,
+    "padding": 13,
+    "symbol": "?Find_Or_Make@UnitTypeClass@@SIPAV1@PBD@Z",
+    "main_symbol": "?Find_Or_Make@UnitTypeClass@@SIPAV1@PBD@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b5d0",
+    "body": 6,
+    "padding": 10,
+    "symbol": "?Fetch_Object_Size@UnitTypeClass@@UBEHXZ",
+    "main_symbol": "?Size_Of@UnitTypeClass@@UBEHXZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b5e0",
+    "body": 6,
+    "padding": 10,
+    "symbol": "?Fetch_RTTI@UnitTypeClass@@UBE?AW4RTTIType@@XZ",
+    "main_symbol": "?Kind_Of@UnitTypeClass@@UBEHXZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b5f0",
+    "body": 7,
+    "padding": 9,
+    "symbol": "?Fetch_Heap_ID@UnitTypeClass@@UBEHXZ",
+    "main_symbol": "?Fetch_Heap_ID@UnitTypeClass@@UBEHXZ",
+    "main_source": "src/recovered/unittype.cpp"
+   },
+   {
+    "entry": "0070b600",
+    "body": 141,
+    "padding": 3,
+    "symbol": "??_GUnitTypeClass@@UAEPAXI@Z",
+    "main_symbol": "??_GUnitTypeClass@@UAEPAXI@Z",
+    "main_source": "src/recovered/unittype.cpp"
+   }
+  ],
+  "references": {
+   "_LEVEL_LEPTON_H": "00ad0600",
+   "_RECT_NONE": "00ad0598",
+   "?GetClassID@UnitTypeClass@@UAGJPAU_GUID@@@Z": "0070b3a0",
+   "?Load@UnitTypeClass@@UAGJPAUIStream@@@Z": "0070b480",
+   "?Save@UnitTypeClass@@UAGJPAUIStream@@H@Z": "0070b520",
+   "?Fetch_RTTI@UnitTypeClass@@UBE?AW4RTTIType@@XZ": "0070b5e0",
+   "?Fetch_Object_Size@UnitTypeClass@@UBEHXZ": "0070b5d0",
+   "?Compute_CRC@UnitTypeClass@@UBEXAAVCRCEngine@@@Z": "0070b3e0",
+   "?Fetch_Heap_ID@UnitTypeClass@@UBEHXZ": "0070b5f0",
+   "?Read_INI@UnitTypeClass@@UAE_NABVCCINIClass@@@Z": "0070ab40",
+   "?Coord_Fixup@UnitTypeClass@@UBE?BVCoord@@ABV2@@Z": "0070b320",
+   "?Pixel_Dimensions@UnitTypeClass@@UBE?AV?$TPoint3D@H@@XZ": "0070aab0",
+   "?Lepton_Dimensions@UnitTypeClass@@UBE?AV?$TPoint3D@H@@XZ": "0070aaf0",
+   "?Create_And_Place@UnitTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z": "0070a9d0",
+   "?Create_One_Of@UnitTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z": "0070aa80",
+   "?CanUseWaypoint@UnitTypeClass@@UBE_NXZ": "0070a8e0",
+   "?CanAttackMove@UnitTypeClass@@UBE_NXZ": "0070a8f0",
+   "?Repair_Step@UnitTypeClass@@UBEHXZ": "0070b390",
+   "_BRIDGE_LEPTON_HEIGHT": "00ad05f0",
+   "_CELL_DIAG_SLOPE_ANGLE": "00ad05d8",
+   "_CELL_LEPTON_DIAG": "00ad05b0",
+   "_CELL_NONE": "00ad05a8",
+   "_CELL_SLOPE_ANGLE": "00ad05c0",
+   "_COORD_NONE": "00ad05c8",
+   "_ISO_TILE_SIZE": "007ae2e8",
+   "_LEPTONS_PER_PIXEL": "00ad05f8",
+   "_ONE_RAD": "007ae2f0",
+   "_PIXELS_PER_LEPTON": "00ad05e8",
+   "_RAD_45": "00ad05e0",
+   "_RAD_60": "00ad05b8",
+   "_RAD_90": "00ad0590",
+   "?CanUseWaypoint@TechnoTypeClass@@UBE_NXZ": "006dacb0",
+   "?CanAttackMove@TechnoTypeClass@@UBE_NXZ": "006dacc0"
+  },
+  "base_call_binding_evidence": "Direct base calls in original UnitType CanUseWaypoint/CanAttackMove rows target TechnoType 006dacb0/006dacc0; confirmed mischa85 names.csv. Global symbols.csv inferred inherited base names from BuildingType slots 0045e740/0045e750 (different implementations); unit direct call bindings override those slots.",
+  "partial_ok": true,
+  "parked_rows": [
+   {
+    "entry": "0070ab40",
+    "symbol": "?Read_INI@UnitTypeClass@@UAE_NABVCCINIClass@@@Z",
+    "body": 2013,
+    "best_differing": 1911,
+    "note": "Guarded non-exact draft; no credit; original bytes remain"
+   }
+  ]
+ },
+ "audio": {
+  "core": [
+   "00406ad0",
+   "00407030"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/audio.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "00406900",
+   "00407030"
+  ],
+  "mischa85": "source: functions compiled from src/audio.cpp, matched, without gaps; six placed by the gap",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ],
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "00406900",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_diagonal_init.cpp"
+   },
+   {
+    "entry": "00406930",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_b_init.cpp"
+   },
+   {
+    "entry": "00406950",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_c_init.cpp"
+   },
+   {
+    "entry": "00406970",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_angle45_init.cpp"
+   },
+   {
+    "entry": "00406990",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_angle60_init.cpp"
+   },
+   {
+    "entry": "004069b0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_angle90_init.cpp"
+   },
+   {
+    "entry": "004069d0",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_g_init.cpp"
+   },
+   {
+    "entry": "00406a10",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_h_init.cpp"
+   },
+   {
+    "entry": "00406a40",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_i_init.cpp"
+   },
+   {
+    "entry": "00406a70",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_j_init.cpp"
+   },
+   {
+    "entry": "00406aa0",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_k_init.cpp"
+   },
+   {
+    "entry": "00406ab0",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/header_statics/_alpha/HeaderStatics_l_init.cpp"
+   },
+   {
+    "entry": "00406ad0",
+    "body": 426,
+    "padding": 6,
+    "symbol": "?Audio_Init@@YIHH@Z",
+    "main_symbol": "?Audio_Init@@YIHH@Z",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406c80",
+    "body": 145,
+    "padding": 15,
+    "symbol": "?Audio_Shutdown@@YIXXZ",
+    "main_symbol": "?Audio_Shutdown@@YAXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406d20",
+    "body": 122,
+    "padding": 6,
+    "symbol": "?Audio_Open_Device@@YIHXZ",
+    "main_symbol": "?Audio_Open_Main_Device@@YAHXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406da0",
+    "body": 26,
+    "padding": 6,
+    "symbol": "?Audio_Close_Device@@YIXXZ",
+    "main_symbol": "?Audio_Close_Main_Device@@YAXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406dc0",
+    "body": 25,
+    "padding": 7,
+    "symbol": "?Audio_Stop_Events@@YIXXZ",
+    "main_symbol": "?Audio_Stop@@YIXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406de0",
+    "body": 30,
+    "padding": 2,
+    "symbol": "?Audio_Pause_Channels@@YIXXZ",
+    "main_symbol": "?Audio_Pause@@YIXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406e00",
+    "body": 31,
+    "padding": 1,
+    "symbol": "?Audio_Resume_Channels@@YIXXZ",
+    "main_symbol": "?Audio_Resume@@YAXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406e20",
+    "body": 30,
+    "padding": 2,
+    "symbol": "?Audio_Stop_All@@YIXXZ",
+    "main_symbol": "?Audio_Stop_All@@YAXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406e40",
+    "body": 40,
+    "padding": 8,
+    "symbol": "?Audio_Pause_All@@YIXXZ",
+    "main_symbol": "?Audio_Pause_All@@YAXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406e70",
+    "body": 41,
+    "padding": 7,
+    "symbol": "?Audio_Resume_All@@YIXXZ",
+    "main_symbol": "?Audio_Resume_All@@YAXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406ea0",
+    "body": 129,
+    "padding": 15,
+    "symbol": "?Audio_Service@@YIXXZ",
+    "main_symbol": "?Audio_Update@@YAXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406f30",
+    "body": 14,
+    "padding": 2,
+    "symbol": "?AudioDeviceAvailable@@YIHXZ",
+    "main_symbol": "?AudioDeviceAvailable@@YAHXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406f40",
+    "body": 6,
+    "padding": 10,
+    "symbol": "?AudioGetDevice@@YIPAUAudioDevice@@XZ",
+    "main_symbol": "?Audio_Get_Device@@YAPAUAudioDevice@@XZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406f50",
+    "body": 21,
+    "padding": 11,
+    "symbol": "?Audio_Focus_Lose@@YIXXZ",
+    "main_symbol": "?Audio_Focus_Lose@@YAXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406f70",
+    "body": 23,
+    "padding": 9,
+    "symbol": "?Audio_Focus_Regain@@YIXXZ",
+    "main_symbol": "?Audio_Focus_Regain@@YAXXZ",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406f90",
+    "body": 10,
+    "padding": 6,
+    "symbol": "?AudioLevelFull@@YIXPAUAudioLevel@@@Z",
+    "main_symbol": "?Audio_Level_Fade_To_Full@@YIXPAUAudioLevel@@@Z",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406fa0",
+    "body": 7,
+    "padding": 9,
+    "symbol": "?AudioLevelMute@@YIXPAUAudioLevel@@@Z",
+    "main_symbol": "?Audio_Level_Fade_To_Zero@@YIXPAUAudioLevel@@@Z",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406fb0",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?AudioLevelFadeTo@@YIXPAUAudioLevel@@H@Z",
+    "main_symbol": "?Audio_Level_Fade_To@@YIXPAUAudioLevel@@H@Z",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406fc0",
+    "body": 18,
+    "padding": 14,
+    "symbol": "?AudioLevelIsFading@@YIHPAUAudioLevel@@@Z",
+    "main_symbol": "?AudioLevelIsFading@@YIHH@Z",
+    "main_source": "src/recovered/audio.cpp"
+   },
+   {
+    "entry": "00406fe0",
+    "body": 68,
+    "padding": 12,
+    "symbol": "?AudioLevelWaitFade@@YIXPAUAudioLevel@@@Z",
+    "main_symbol": "?Audio_Wait_Drain@@YIXPAUAudioLevel@@@Z",
+    "main_source": "src/recovered/audio.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "008313a0",
+   "_CELL_DIAG_SLOPE_ANGLE": "00831288",
+   "_CELL_LEPTON_DIAG": "00831160",
+   "_CELL_NONE": "00831158",
+   "_CELL_SLOPE_ANGLE": "008311f0",
+   "_COORD_NONE": "00831278",
+   "_ISO_TILE_SIZE": "0079a740",
+   "_LEPTONS_PER_PIXEL": "008313a8",
+   "_LEVEL_LEPTON_H": "00831430",
+   "_ONE_RAD": "0079a748",
+   "_PIXELS_PER_LEPTON": "00831398",
+   "_RAD_45": "00831390",
+   "_RAD_60": "008311e8",
+   "_RAD_90": "00830fd0"
+  },
+  "partial_ok": true,
+  "parked_rows": [
+   {
+    "entry": "00406ea0",
+    "symbol": "?Audio_Service@@YIXXZ",
+    "body": 129,
+    "best_differing": 0,
+    "note": "Exact draft guarded pending Process_Mouse_Unthreaded declaration without extra RECT_NONE initializer; excluded, no credit; full source in parked-audio-closed"
+   }
+  ]
  }
 }

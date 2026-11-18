@@ -155,6 +155,8 @@ class VersionClass {
 		unsigned TextInit :			1;
 };
 
+extern VersionClass VerNum;
+
 char const * Version_Name(void);
 
 /************************** end of version.h *******************************/

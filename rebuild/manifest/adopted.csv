@@ -634,6 +634,7 @@ rebuild/src/audattr.cpp,mischa85,32ed14c,src/audattr.cpp,ca9eb6cdc50b9c9af5504ff
 rebuild/src/audbag.cpp,mischa85,32ed14c,src/audbag.cpp,25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45
 rebuild/src/audchanl.cpp,mischa85,32ed14c,src/audchanl.cpp,cf5696d59a4053f785f5319149e7020aac000583ace83701a3ded2cb5188ea54
 rebuild/src/audfile.cpp,mischa85,32ed14c,src/audfile.cpp,1bbbe3f5344b233b3969ff48d06edc3a1d51d69fa2ff0277c2e987f079c42c53
+rebuild/src/audio.cpp,mischa85,32ed14c,src/audio.cpp,7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2
 rebuild/src/audlevel.cpp,mischa85,32ed14c,src/audlevel.cpp,dcf10a71b4ad748bc80ad61a9ac692b793f726d330ba485e887c38389aa1604a
 rebuild/src/audlists.cpp,mischa85,32ed14c,src/audlists.cpp,a96929502173eac4293112a9542550ca4bece4b0ce20284448b9fe7ad7bd0adb
 rebuild/src/audmpool.cpp,mischa85,32ed14c,src/audmpool.cpp,5415388ee3bc4c07d8cc3519cc91b55e3383f3d5e65ebf4126a58501117e8815
@@ -832,7 +833,7 @@ rebuild/src/ovrlight.cpp,mischa85,32ed14c,src/ovrlight.cpp,4d8216ef50e9768dc1ad2
 rebuild/src/ownertalk.cpp,mischa85,32ed14c,src/ownertalk.cpp,52bb196530ef058aba5cf07c8d3dac44677bb4411829f7e8000cd5df7fa8adec
 rebuild/src/packet.cpp,mischa85,32ed14c,src/packet.cpp,606359f0249c042f10d9f33d2f260280a0c3f2d04702ee776ae66a616066111a
 rebuild/src/palette.cpp,mischa85,32ed14c,src/palette.cpp,a995006868c19d39438f5e093ad902d1fd6fedf127d0ce73f0c3b678aa8baa08
-rebuild/src/parasite.cpp,mischa85,6dee74a,src/parasite.cpp,0b40c9ee97879e85f069f428606d2999f7dcc33e8ad48e418922699899392853
+rebuild/src/parasite.cpp,mischa85,32ed14c,src/parasite.cpp,0b40c9ee97879e85f069f428606d2999f7dcc33e8ad48e418922699899392853
 rebuild/src/particle.cpp,mischa85,6dee74a,src/particle.cpp,0585c8962baf2e18fb50db9e8e6430cb7390258bbc074e147b6bdfe18d6bc512
 rebuild/src/partsys.cpp,mischa85,6dee74a,src/partsys.cpp,cd90096c8e63b15e8be84f1442ed0f75d6657cb95ca1d6aa61889c2e6b14e179
 rebuild/src/phoneed.cpp,mischa85,32ed14c,src/phoneed.cpp,c3652b7db89483eaff7002fd5de2f4216b4fbb31b223662270bf6f2b3e22b231
@@ -928,6 +929,7 @@ rebuild/src/tunnel.cpp,mischa85,6dee74a,src/tunnel.cpp,6689dc00e8944869abc6b6e7c
 rebuild/src/txtlabel.cpp,mischa85,32ed14c,src/txtlabel.cpp,4a6ae7f567308639980859beac3fbee1f03907048ecd77b4aab3cbc90c127625
 rebuild/src/txtlabel2.cpp,mischa85,6dee74a,src/txtlabel2.cpp,f511e07d3fa1c94533b8aa0e4306f0605c281cb0c94d39afc310601b6dc539c0
 rebuild/src/unit.cpp,mischa85,6dee74a,src/unit.cpp,152b272b698d80c2742bfc1d494ca8ce440ac794cfc3fa4feaa3ac87013407a8
+rebuild/src/unittype.cpp,mischa85,32ed14c,src/unittype.cpp,b3e4a0b96d35b494ef28e9587f70ed94e67db58df6889908ff53e909ffe70779
 rebuild/src/unvqtblc.cpp,mischa85,32ed14c,src/unvqtblc.cpp,20aae9501686da08cbd2f5a04c12a71c7887b1f7760a08a85bae9cf37a74f159
 rebuild/src/utracker.cpp,mischa85,32ed14c,src/utracker.cpp,53cabe07c7e59910029d0327f5ae7d21f42a7ac549ce224846a44e9f350b96e7
 rebuild/src/vanim.cpp,mischa85,6dee74a,src/vanim.cpp,7eba51fac6fc4a206479dbea132aae3d31a761558bcaec8f0c7b6b47dcdda348
@@ -940,6 +942,7 @@ rebuild/src/voc.cpp,mischa85,32ed14c,src/voc.cpp,7cd59bccde4a69a299df6469ab30e77
 rebuild/src/volinfo.cpp,mischa85,32ed14c,src/volinfo.cpp,93d510355d7d433ceeb67cd31022376317dbb44c4c5818b12b8db0bda5a3f054
 rebuild/src/vox.cpp,mischa85,32ed14c,src/vox.cpp,4b8f997715b8fff3d43106c1bc428df52cd48cdec30389cda481341a7423bbf3
 rebuild/src/voxdrsys.cpp,mischa85,32ed14c,src/voxdrsys.cpp,9ec3c1d0d79a12378df03fd1f5ce38b254fbdc3d39e18d8c3e0fc57025c73072
+rebuild/src/voxel.cpp,mischa85,32ed14c,src/voxel.cpp,930ae3535a832c0b73d6cc017095c1ff637f89bbeecfcd8f6247f9d54ded96ae
 rebuild/src/voxlib.cpp,mischa85,6dee74a,src/voxlib.cpp,bd736fcdec06f0bd1a6a558cd53b88222a16302204ddeb5cd83b3f3fef208d25
 rebuild/src/voxpal.cpp,mischa85,32ed14c,src/voxpal.cpp,4644ed4eed06f8af6952bc05e2ce3a0e9195e0b5e8d2a0246cf2d2b908115322
 rebuild/src/vqa.cpp,mischa85,32ed14c,src/vqa.cpp,07061fe4e6e14a2481a9c6fe0dff8022786cd5027400c842e47fa3b7d6f589bc

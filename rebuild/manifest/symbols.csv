@@ -388,12 +388,14 @@ symbol,address,evidence
 ??_ETriColorGaugeClass@@UAEPAXI@Z,0x004D0CD0,slot +04 of ??_7TriColorGaugeClass@@6B@ at 007a199c; main row ??_GTriColorGaugeClass@@UAEPAXI@Z
 ??_ETunnelLocomotionClass@@UAEPAXI@Z,0x006F13B0,slot +24 of ??_7TunnelLocomotionClass@@6BIPersistStream@@@ at 007adc70; main row ??_GTunnelLocomotionClass@@UAEPAXI@Z
 ??_EUnitClass@@UAEPAXI@Z,0x0070A330,slot +24 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ??_GUnitClass@@UAEPAXI@Z
+??_EUnitTypeClass@@UAEPAXI@Z,0x0070B600,slot +24 of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ??_GUnitTypeClass@@UAEPAXI@Z
 ??_EVoxelAnimClass@@UAEPAXI@Z,0x0070DF90,slot +24 of ??_7VoxelAnimClass@@6BIPersistStream@@@ at 007ae424; main row ??_GVoxelAnimClass@@UAEPAXI@Z
 ??_EWWMouseClass@@UAEPAXI@Z,0x00773710,slot +04 of ??_7WWMouseClass@@6B@ at 007afbe8; main row ??_GWWMouseClass@@UAEPAXI@Z
 ??_EWalkLocomotionClass@@UAEPAXI@Z,0x0071FE40,slot +24 of ??_7WalkLocomotionClass@@6BIPersistStream@@@ at 007aeb9c; main row ??_GWalkLocomotionClass@@UAEPAXI@Z
 ??_EWaveClass@@UAEPAXI@Z,0x00724600,slot +24 of ??_7WaveClass@@6BIPersistStream@@@ at 007aeccc; main row ??_GWaveClass@@UAEPAXI@Z
 ??_EXSurface@@UAEPAXI@Z,0x00411320,slot +04 of ??_7XSurface@@6B@ at 0079af88; main row ??_GXSurface@@UAEPAXI@Z
 ??_Erc_ptr_base@@UAEPAXI@Z,0x00639580,slot +04 of ??_7rc_ptr_base@@6B@ at 007a8d08; main row ??_Grc_ptr_base@@UAEPAXI@Z
+??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z,0x0040B230,Original SubzoneConnectionStruct VectorClass vtable destructor at0079a76c points0040b230; alias of landed ??_E; frozen population-12 body73 padding7 exact. Avoid unrelated unsigned-short vector row0042b470 collision.
 ?AI@AbstractClass@@UAEXXZ,0x00410310,slot +60 of ??_7CellClass@@6BIPersistStream@@@ at 0079db00; main row ?AI@AbstractClass@@UAEXXZ
 ?AI@MissionClass@@UAEXXZ,0x00594790,slot +60 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?AI@MissionClass@@UAEXXZ
 ?AI@ObjectClass@@UAEXXZ,0x005D27F0,slot +60 of ??_7ParticleClass@@6BIPersistStream@@@ at 007a7d58; main row ?AI@ObjectClass@@UAEXXZ
@@ -615,6 +617,7 @@ symbol,address,evidence
 ?ContinueMegaMission@TechnoClass@@UAE_NXZ,0x006D8FA0,slot +458 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_6d8fa0@@QAE_NXZ
 ?Coord_Fixup@ObjectTypeClass@@UBE?BVCoord@@ABV2@@Z,0x0041C2E0,slot +6c of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Coord_Fixup@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z
 ?Cost_Of@ObjectTypeClass@@UBEHPAVHouseClass@@@Z,0x005D5D60,slot +88 of ??_7IsometricTileTypeClass@@6BIPersistStream@@@ at 007a51a4; main row ?Cost_Of@ObjectTypeClass@@UBEHPAVHouseClass@@@Z
+?Cost_Of@TechnoTypeClass@@UBEHPAVHouseClass@@@Z,0x006DAD30,slot +88 of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Cost_Of@TechnoTypeClass@@UBEHPAVHouseClass@@@Z
 ?Crash@FootClass@@UAE_NPAVObjectClass@@@Z,0x004CD4B0,slot +384 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot224@FootClass@@UAE_NH@Z
 ?Crash@TechnoClass@@UAE_NPAVObjectClass@@@Z,0x00453BD0,slot +384 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?unknown_return_false_00453bd0@@YGEH@Z
 ?Create@RawFileClass@@UAEHXZ,0x00639200,slot +10 of ??_7CDFileClass@@6B@ at 0079a654; main row ?Create@RawFileClass@@UAEHXZ
@@ -1236,6 +1239,7 @@ symbol,address,evidence
 ?Is_Weapon_Equipped@TechnoClass@@UBE_NXZ,0x006CD670,slot +290 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot163@TechnoClass@@UAE_NXZ
 ?Is_Weapon_Valid@TechnoClass@@QBE_NPBUWeaponDataStruct@@@Z,0x006D8640,inferred: building rows 00451930 differ only at its sites
 ?JumpJet_To_Walk@FootClass@@UAE_NXZ,0x0041B480,slot +488 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b480@@QAE_NXZ
+?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,0x006DE0E0,slot +ac of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z
 ?Lepton_Dimensions@ObjectTypeClass@@UBE?AV?$TPoint3D@H@@XZ,0x005D5D30,slot +7c of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Lepton_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ
 ?Likely_Coord@FootClass@@UBE?AVCoord@@XZ,0x004C8AC0,slot +480 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot287@FootClass@@UAE?AUCoordStruct@@XZ
 ?Limbo@FootClass@@UAE_NXZ,0x004C9BD0,slot +d4 of ??_7AircraftClass@@6BIPersistStream@@@ at 0079b128; main row ?Limbo@FootClass@@UAE_NXZ
@@ -1261,6 +1265,7 @@ symbol,address,evidence
 ?Mark_All_Occupation_Bits@MechLocomotionClass@@UAGXH@Z,0x00593210,slot +a0 of ??_7MechLocomotionClass@@6BILocomotion@@@ at 007a60a8; main row ?Mark_All_Occupation_Bits@MechLocomotionClass@@UAGXH@Z
 ?Mark_For_Redraw@ObjectClass@@EAEXXZ,0x005D36E0,slot +130 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Mark_For_Redraw@ObjectClass@@UAEXXZ
 ?Max_Pips@ObjectTypeClass@@UBEHXZ,0x005D5D00,slot +78 of ??_7IsometricTileTypeClass@@6BIPersistStream@@@ at 007a51a4; main row ?Max_Pips@ObjectTypeClass@@UBEHXZ
+?Max_Pips@TechnoTypeClass@@UBEHXZ,0x006DE220,slot +78 of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Max_Pips@TechnoTypeClass@@UBEHXZ
 ?MegaMissionIsAttackMove@FootClass@@UBE_NXZ,0x004CDBD0,slot +454 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?FootClass_MegaMissionIsAttackMove@@YI_NH@Z
 ?MegaMissionIsAttackMove@TechnoClass@@UBE_NXZ,0x006D8F90,slot +454 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_6d8f90@@QAE_NXZ
 ?Mouse_Enter@GadgetClass@@UAEXXZ,0x004CF200,slot +70 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Mouse_Enter@GadgetClass@@UAEXXZ
@@ -1346,6 +1351,7 @@ symbol,address,evidence
 ?Radar_Track@TechnoClass@@UAEXXZ,0x006D74D0,slot +424 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot264@TechnoClass@@UAEXXZ
 ?Radar_Untrack@TechnoClass@@UAEXXZ,0x006D7500,slot +428 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot265@TechnoClass@@UAEXXZ
 ?Random_Animate@TechnoClass@@UAE_NXZ,0x0041B440,slot +40c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_41b440@@QAE_NXZ
+?Raw_Cost@TechnoTypeClass@@UBEHXZ,0x006DACE0,slot +b0 of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Raw_Cost@TechnoTypeClass@@UBEHXZ
 ?Reacquire_Target@TechnoClass@@UAEXXZ,0x0041B400,slot +3c4 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_41b400@@QAEXXZ
 ?Read@BufferIOFileClass@@UAEHPAXH@Z,0x0042FA80,slot +28 of ??_7CDFileClass@@6B@ at 0079a654; main row ?Read@BufferIOFileClass@@UAEJPAXJ@Z
 ?Read@CCFileClass@@UAEHPAXH@Z,0x00469060,slot +28 of ??_7CCFileClass@@6B@ at 0079a69c; main row ?Read@CCFileClass@@UAEJPAXJ@Z

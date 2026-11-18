@@ -144,6 +144,37 @@ audchanl,00402720,?AudioChannelStart@@YIHPAUAudioChannel@@@Z,110,a,mischa85,yes,
 audchanl,00402790,?AudioChannelSetSample@@YIXPAUAudioChannel@@PAUAudioSample@@@Z,98,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
 audchanl,00402800,?AudioChannelSetFormat@@YIHPAUAudioChannel@@PAUAudioFormat@@@Z,72,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
 audchanl,00402850,?AudioControlInit@@YIXPAUAudioControl@@@Z,9,a,mischa85,yes,0.091,Address-suffixed names 0; calibration not used
+audio,00406900,_$E2,40,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406930,_$E5,19,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406950,_$E8,19,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406970,_$E11,19,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406990,_$E14,19,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,004069b0,_$E17,19,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,004069d0,_$E20,49,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406a10,_$E23,33,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406a40,_$E26,44,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406a70,_$E29,39,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406aa0,_$E32,15,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406ab0,_$E35,18,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406ad0,?Audio_Init@@YIHH@Z,426,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406c80,?Audio_Shutdown@@YIXXZ,145,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406d20,?Audio_Open_Device@@YIHXZ,122,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406da0,?Audio_Close_Device@@YIXXZ,26,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406dc0,?Audio_Stop_Events@@YIXXZ,25,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406de0,?Audio_Pause_Channels@@YIXXZ,30,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406e00,?Audio_Resume_Channels@@YIXXZ,31,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406e20,?Audio_Stop_All@@YIXXZ,30,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406e40,?Audio_Pause_All@@YIXXZ,40,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406e70,?Audio_Resume_All@@YIXXZ,41,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406f30,?AudioDeviceAvailable@@YIHXZ,14,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406f40,?AudioGetDevice@@YIPAUAudioDevice@@XZ,6,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406f50,?Audio_Focus_Lose@@YIXXZ,21,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406f70,?Audio_Focus_Regain@@YIXXZ,23,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406f90,?AudioLevelFull@@YIXPAUAudioLevel@@@Z,10,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406fa0,?AudioLevelMute@@YIXPAUAudioLevel@@@Z,7,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406fb0,?AudioLevelFadeTo@@YIXPAUAudioLevel@@H@Z,5,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406fc0,?AudioLevelIsFading@@YIHPAUAudioLevel@@@Z,18,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
+audio,00406fe0,?AudioLevelWaitFade@@YIXPAUAudioLevel@@@Z,68,a,mischa85,edit,0.323,Address-suffixed names 0; calibration not used
 audlevel,00407030,?AudioLevelInit@@YIXPAUAudioLevel@@H@Z,66,a,mischa85,yes,,
 audlevel,00407080,?AudioLevelSet@@YIXPAUAudioLevel@@H@Z,13,a,mischa85,yes,,
 audlevel,00407090,?AudioLevelForce@@YIXPAUAudioLevel@@@Z,7,a,mischa85,yes,,
@@ -243,6 +274,36 @@ bfiofile,0042fc90,?Seek@BufferIOFileClass@@UAEHHH@Z,234,a,mischa85,yes,,
 bfiofile,0042fd80,?Size@BufferIOFileClass@@UAEHXZ,23,a,mischa85,yes,,
 bfiofile,0042fda0,?Close@BufferIOFileClass@@UAEXXZ,78,a,mischa85,yes,,
 bfiofile,0042fdf0,??_GBufferIOFileClass@@UAEPAXI@Z,84,a,mischa85,yes,,
+blight,00432dd0,_$E2,40,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432e00,_$E5,19,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432e20,_$E8,19,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432e40,_$E11,19,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432e60,_$E14,19,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432e80,_$E17,19,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432ea0,_$E20,49,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432ee0,_$E23,33,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432f10,_$E26,44,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432f40,_$E29,39,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432f70,_$E32,15,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432f80,_$E35,18,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432fa0,_$E38,23,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00432fc0,??0BuildingLightClass@@QAE@PAVTechnoClass@@@Z,816,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,004332f0,??1BuildingLightClass@@UAE@XZ,134,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00433380,?Draw_It@BuildingLightClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,1510,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00434090,?Fetch_Object_Size@BuildingLightClass@@UBEHXZ,6,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,004340a0,?GetClassID@BuildingLightClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,004340e0,?Load@BuildingLightClass@@UAGJPAUIStream@@@Z,107,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00434150,?Save@BuildingLightClass@@UAGJPAUIStream@@H@Z,23,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00434170,?Class_Of@BuildingLightClass@@UBEPBVObjectTypeClass@@XZ,3,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00434180,?In_Which_Layer@BuildingLightClass@@UBE?AW4LayerType@@XZ,6,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00434190,?Detach@BuildingLightClass@@UAEXPBVAbstractClass@@_N@Z,56,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,004341d0,?Init_Rotation_Arc@BuildingLightClass@@QAEXPAVTechnoClass@@@Z,405,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00434370,?Set_Behavior_Type@BuildingLightClass@@QAEXW4LightBehaviorType@@@Z,433,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00434530,?Detection_Radius@BuildingLightClass@@QBEHXZ,221,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,00434610,?Sweep_Stage@BuildingLightClass@@QBEHXZ,189,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,004346d0,?Compute_CRC@BuildingLightClass@@UBEXAAVCRCEngine@@@Z,229,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,004347c0,?Limbo@BuildingLightClass@@UAE_NXZ,31,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
+blight,004347e0,?Unlimbo@BuildingLightClass@@UAE_NABVCoord@@W4Dir256@@@Z,49,a,mischa85,edit,0.300,Address-suffixed names 0; calibration not used
 blowfish,00435580,??0BlowfishEngine@@QAE@XZ,110,a,mischa85,yes,0.2,
 blowfish,004355f0,??1BlowfishEngine@@QAE@XZ,13,a,mischa85,yes,0.2,
 blowfish,00435600,?Submit_Key@BlowfishEngine@@QAEXPBXH@Z,40,a,mischa85,yes,0.2,
@@ -710,6 +771,9 @@ combat,0047fb70,?Calculate_Projectile_Speed@@YI?AW4MPHType@@HN@Z,41,a,mischa85,y
 combat,0047fba0,?Is_Projectile_Trajectory_Valid@@YI_NHHHN@Z,287,a,mischa85,yes,,
 combat,0047fcc0,?Get_Explosion_Z@@YIHVCoord@@@Z,8,a,mischa85,yes,,
 combat,0047fcd0,?Get_Floater_Gravity@@YINXZ,18,a,mischa85,yes,,
+combuf2,00480b20,?Command_Allows_Modified_Key@@YI_NABVCommandClass@@I@Z,27,c,Ghidra seeds and landed command.h/index.h/_command.h only,edit,5.33,Class c; no old/reference unit body consulted; no calibration or address-suffixed names. All three frozen main-module rows retained; init --auto lacks mischa85 module entry.
+combuf2,00480b40,?Command_Allows_Key@@YI_NI@Z,192,c,Ghidra seeds and landed command.h/index.h/_command.h only,edit,5.33,Class c; no old/reference unit body consulted; no calibration or address-suffixed names. All three frozen main-module rows retained; init --auto lacks mischa85 module entry.
+combuf2,00480c00,?search_compfunc@?$IndexClass@HPBVCommandClass@@@@CAHPBX0@Z,34,c,Ghidra seeds and landed command.h/index.h/_command.h only,edit,5.33,Class c; no old/reference unit body consulted; no calibration or address-suffixed names. All three frozen main-module rows retained; init --auto lacks mischa85 module entry. No Ghidra export for comparator; real landed IndexClass template instantiation.
 connect,00480c30,_$E2,23,a,mischa85,yes,,
 connect,00480c50,_$E5,40,a,mischa85,yes,,
 connect,00480c80,_$E8,19,a,mischa85,yes,,
@@ -2438,56 +2502,56 @@ packet,00602e50,?Get_Field@PacketClass@@QAE_NPBDAAH@Z,75,a,mischa85,yes,0.154,Ad
 packet,00602ea0,?Get_Field@PacketClass@@QAE_NPBDPAD@Z,98,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
 packet,00602f10,?Get_Field@PacketClass@@QAE_NPBDAAI@Z,75,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
 packet,00602f60,?Get_Field@PacketClass@@QAE_NPBDPAXAAH@Z,111,a,mischa85,yes,0.154,Address-suffixed names 0; calibration not used
-parasite,00605f30,_$E2,40,a,mischa85,yes,,
-parasite,00605f60,_$E5,19,a,mischa85,yes,,
-parasite,00605f80,_$E8,19,a,mischa85,yes,,
-parasite,00605fa0,_$E11,19,a,mischa85,yes,,
-parasite,00605fc0,_$E14,19,a,mischa85,yes,,
-parasite,00605fe0,_$E17,19,a,mischa85,yes,,
-parasite,00606000,_$E20,49,a,mischa85,yes,,
-parasite,00606040,_$E23,33,a,mischa85,yes,,
-parasite,00606070,_$E26,44,a,mischa85,yes,,
-parasite,006060a0,_$E29,39,a,mischa85,yes,,
-parasite,006060d0,_$E32,15,a,mischa85,yes,,
-parasite,006060e0,_$E35,18,a,mischa85,yes,,
-parasite,00606100,_$E38,23,a,mischa85,yes,,
-parasite,00606120,_$E146,61,a,mischa85,yes,,
-parasite,00606160,_$E144,59,a,mischa85,yes,,
-parasite,006061a0,??0ParasiteClass@@QAE@XZ,145,a,mischa85,yes,,
-parasite,00606240,??0ParasiteClass@@QAE@PAVFootClass@@@Z,216,a,mischa85,yes,,
-parasite,00606320,??0ParasiteClass@@QAE@ABVNoInitClass@@@Z,72,a,mischa85,yes,,
-parasite,00606370,??1ParasiteClass@@UAE@XZ,226,a,mischa85,yes,,
-parasite,00606460,?Compute_CRC@ParasiteClass@@UBEXAAVCRCEngine@@@Z,88,a,mischa85,yes,,
-parasite,006064c0,?Clear_Grapple@ParasiteClass@@QAEXXZ,119,a,mischa85,yes,,
-parasite,00606540,?Load@ParasiteClass@@UAGJPAUIStream@@@Z,252,a,mischa85,yes,,
-parasite,00606640,?Save@ParasiteClass@@UAGJPAUIStream@@H@Z,23,a,mischa85,yes,,
-parasite,00606660,?GetClassID@ParasiteClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,,
-parasite,006066a0,?Reset_Grapple_Counters@ParasiteClass@@QAEXXZ,9,a,mischa85,yes,,
-parasite,006066b0,?UpdateGrapple@ParasiteClass@@QAE_NXZ,198,a,mischa85,yes,,
-parasite,00606780,?UpdateSquid@ParasiteClass@@QAEXXZ,1676,a,mischa85,yes,,
-parasite,00606e10,?Make_Wakes@@YIXPAVFootClass@@VCoord@@@Z,311,a,mischa85,yes,,
-parasite,00606f50,?AI@ParasiteClass@@UAEXXZ,674,a,mischa85,yes,,
-parasite,00607200,?Detach@ParasiteClass@@UAEXPBVAbstractClass@@_N@Z,571,a,mischa85,yes,,
-parasite,00607440,?ExitUnit@ParasiteClass@@QAEXXZ,1198,a,mischa85,yes,,
-parasite,006078f0,?CanInfect@ParasiteClass@@QBE_NPAVFootClass@@@Z,137,a,mischa85,yes,,
-parasite,00607980,?TryInfect@ParasiteClass@@QAEXPAVFootClass@@@Z,536,a,mischa85,yes,,
-parasite,00607ba0,?CanExistOnVictimCell@ParasiteClass@@QBE_NXZ,133,a,mischa85,yes,,
-parasite,00607c30,?Get_Exit_Coord@ParasiteClass@@QAE?AVCoord@@XZ,407,a,mischa85,yes,,
-parasite,00607dd0,?Fetch_Object_Size@ParasiteClass@@UBEHXZ,6,a,mischa85,yes,,
-parasite,00607de0,?Fetch_RTTI@ParasiteClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,yes,,
-parasite,00607df0,??_GParasiteClass@@UAEPAXI@Z,246,a,mischa85,yes,,
-parasite,00607ef0,?Clear@?$DynamicVectorClass@PAVParasiteClass@@@@UAEXXZ,42,a,mischa85,yes,,
-parasite,00607f20,?ID@?$DynamicVectorClass@PAVParasiteClass@@@@UAEHPBQAVParasiteClass@@@Z,27,a,mischa85,yes,,
-parasite,00607f40,?GetItem@?$VectorClass@PAVParasiteClass@@@@UBEPAVParasiteClass@@H@Z,13,a,mischa85,yes,,
-parasite,00607f50,??8?$VectorClass@PAVParasiteClass@@@@UBE_NABV0@@Z,62,a,mischa85,yes,,
-parasite,00607f90,?Resize@?$VectorClass@PAVParasiteClass@@@@UAE_NHPBQAVParasiteClass@@@Z,174,a,mischa85,yes,,
-parasite,00608040,?Clear@?$VectorClass@PAVParasiteClass@@@@UAEXXZ,39,a,mischa85,yes,,
-parasite,00608070,?ID@?$VectorClass@PAVParasiteClass@@@@UAEHABQAVParasiteClass@@@Z,51,a,mischa85,yes,,
-parasite,006080b0,?ID@?$VectorClass@PAVParasiteClass@@@@UAEHPBQAVParasiteClass@@@Z,27,a,mischa85,yes,,
-parasite,006080d0,?Resize@?$DynamicVectorClass@PAVParasiteClass@@@@UAE_NHPBQAVParasiteClass@@@Z,176,a,mischa85,yes,,
-parasite,00608180,?ID@?$DynamicVectorClass@PAVParasiteClass@@@@UAEHABQAVParasiteClass@@@Z,38,a,mischa85,yes,,
-parasite,006081b0,??_G?$VectorClass@PAVParasiteClass@@@@UAEPAXI@Z,73,a,mischa85,yes,,
-parasite,00608200,??_G?$DynamicVectorClass@PAVParasiteClass@@@@UAEPAXI@Z,73,a,mischa85,yes,,
+parasite,00605f30,_$E2,40,a,mischa85,yes,0.2,
+parasite,00605f60,_$E5,19,a,mischa85,yes,0.2,
+parasite,00605f80,_$E8,19,a,mischa85,yes,0.2,
+parasite,00605fa0,_$E11,19,a,mischa85,yes,0.2,
+parasite,00605fc0,_$E14,19,a,mischa85,yes,0.2,
+parasite,00605fe0,_$E17,19,a,mischa85,yes,0.2,
+parasite,00606000,_$E20,49,a,mischa85,yes,0.2,
+parasite,00606040,_$E23,33,a,mischa85,yes,0.2,
+parasite,00606070,_$E26,44,a,mischa85,yes,0.2,
+parasite,006060a0,_$E29,39,a,mischa85,yes,0.2,
+parasite,006060d0,_$E32,15,a,mischa85,yes,0.2,
+parasite,006060e0,_$E35,18,a,mischa85,yes,0.2,
+parasite,00606100,_$E38,23,a,mischa85,yes,0.2,
+parasite,00606120,_$E146,61,a,mischa85,yes,0.2,
+parasite,00606160,_$E144,59,a,mischa85,yes,0.2,
+parasite,006061a0,??0ParasiteClass@@QAE@XZ,145,a,mischa85,yes,0.2,
+parasite,00606240,??0ParasiteClass@@QAE@PAVFootClass@@@Z,216,a,mischa85,yes,0.2,
+parasite,00606320,??0ParasiteClass@@QAE@ABVNoInitClass@@@Z,72,a,mischa85,yes,0.2,
+parasite,00606370,??1ParasiteClass@@UAE@XZ,226,a,mischa85,yes,0.2,
+parasite,00606460,?Compute_CRC@ParasiteClass@@UBEXAAVCRCEngine@@@Z,88,a,mischa85,yes,0.2,
+parasite,006064c0,?Clear_Grapple@ParasiteClass@@QAEXXZ,119,a,mischa85,yes,0.2,
+parasite,00606540,?Load@ParasiteClass@@UAGJPAUIStream@@@Z,252,a,mischa85,yes,0.2,
+parasite,00606640,?Save@ParasiteClass@@UAGJPAUIStream@@H@Z,23,a,mischa85,yes,0.2,
+parasite,00606660,?GetClassID@ParasiteClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,yes,0.2,
+parasite,006066a0,?Reset_Grapple_Counters@ParasiteClass@@QAEXXZ,9,a,mischa85,yes,0.2,
+parasite,006066b0,?UpdateGrapple@ParasiteClass@@QAE_NXZ,198,a,mischa85,yes,0.2,
+parasite,00606780,?UpdateSquid@ParasiteClass@@QAEXXZ,1676,a,mischa85,yes,0.2,
+parasite,00606e10,?Make_Wakes@@YIXPAVFootClass@@VCoord@@@Z,311,a,mischa85,yes,0.2,
+parasite,00606f50,?AI@ParasiteClass@@UAEXXZ,674,a,mischa85,yes,0.2,
+parasite,00607200,?Detach@ParasiteClass@@UAEXPBVAbstractClass@@_N@Z,571,a,mischa85,yes,0.2,
+parasite,00607440,?ExitUnit@ParasiteClass@@QAEXXZ,1198,a,mischa85,yes,0.2,
+parasite,006078f0,?CanInfect@ParasiteClass@@QBE_NPAVFootClass@@@Z,137,a,mischa85,yes,0.2,
+parasite,00607980,?TryInfect@ParasiteClass@@QAEXPAVFootClass@@@Z,536,a,mischa85,yes,0.2,
+parasite,00607ba0,?CanExistOnVictimCell@ParasiteClass@@QBE_NXZ,133,a,mischa85,yes,0.2,
+parasite,00607c30,?Get_Exit_Coord@ParasiteClass@@QAE?AVCoord@@XZ,407,a,mischa85,yes,0.2,
+parasite,00607dd0,?Fetch_Object_Size@ParasiteClass@@UBEHXZ,6,a,mischa85,yes,0.2,
+parasite,00607de0,?Fetch_RTTI@ParasiteClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,yes,0.2,
+parasite,00607df0,??_GParasiteClass@@UAEPAXI@Z,246,a,mischa85,yes,0.2,
+parasite,00607ef0,?Clear@?$DynamicVectorClass@PAVParasiteClass@@@@UAEXXZ,42,a,mischa85,yes,0.2,
+parasite,00607f20,?ID@?$DynamicVectorClass@PAVParasiteClass@@@@UAEHPBQAVParasiteClass@@@Z,27,a,mischa85,yes,0.2,
+parasite,00607f40,?GetItem@?$VectorClass@PAVParasiteClass@@@@UBEPAVParasiteClass@@H@Z,13,a,mischa85,yes,0.2,
+parasite,00607f50,??8?$VectorClass@PAVParasiteClass@@@@UBE_NABV0@@Z,62,a,mischa85,yes,0.2,
+parasite,00607f90,?Resize@?$VectorClass@PAVParasiteClass@@@@UAE_NHPBQAVParasiteClass@@@Z,174,a,mischa85,yes,0.2,
+parasite,00608040,?Clear@?$VectorClass@PAVParasiteClass@@@@UAEXXZ,39,a,mischa85,yes,0.2,
+parasite,00608070,?ID@?$VectorClass@PAVParasiteClass@@@@UAEHABQAVParasiteClass@@@Z,51,a,mischa85,yes,0.2,
+parasite,006080b0,?ID@?$VectorClass@PAVParasiteClass@@@@UAEHPBQAVParasiteClass@@@Z,27,a,mischa85,yes,0.2,
+parasite,006080d0,?Resize@?$DynamicVectorClass@PAVParasiteClass@@@@UAE_NHPBQAVParasiteClass@@@Z,176,a,mischa85,yes,0.2,
+parasite,00608180,?ID@?$DynamicVectorClass@PAVParasiteClass@@@@UAEHABQAVParasiteClass@@@Z,38,a,mischa85,yes,0.2,
+parasite,006081b0,??_G?$VectorClass@PAVParasiteClass@@@@UAEPAXI@Z,73,a,mischa85,yes,0.2,
+parasite,00608200,??_G?$DynamicVectorClass@PAVParasiteClass@@@@UAEPAXI@Z,73,a,mischa85,yes,0.2,
 phoneed,0060d780,_$E2,23,a,mischa85,yes,,
 phoneed,0060d7a0,_$E5,40,a,mischa85,yes,,
 phoneed,0060d7d0,_$E8,19,a,mischa85,yes,,
@@ -3384,6 +3448,42 @@ tunnel,006f12f0,?Load@TunnelLocomotionClass@@UAGJPAUIStream@@@Z,71,a,mischa85,ye
 tunnel,006f1340,?In_Which_Layer@TunnelLocomotionClass@@UAG?AW4LayerType@@XZ,20,a,mischa85,yes,,
 tunnel,006f1360,?Can_Fire@TunnelLocomotionClass@@UAG?AW4FireErrorType@@XZ,31,a,mischa85,yes,,
 tunnel,006f1380,?Is_Surfacing@TunnelLocomotionClass@@UAGEXZ,30,a,mischa85,yes,,
+unittype,0070a410,_$E2,23,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a430,_$E5,40,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a460,_$E8,19,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a480,_$E11,19,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a4a0,_$E14,19,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a4c0,_$E17,19,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a4e0,_$E20,19,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a500,_$E23,49,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a540,_$E26,33,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a570,_$E29,44,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a5a0,_$E32,39,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a5d0,_$E35,15,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a5e0,_$E38,18,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a600,??0UnitTypeClass@@QAE@PBD@Z,468,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a7e0,??0UnitTypeClass@@QAE@ABVNoInitClass@@@Z,46,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a810,??1UnitTypeClass@@UAE@XZ,121,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a890,?From_Name@UnitTypeClass@@SI?AW4UnitType@@PBD@Z,65,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a8e0,?CanUseWaypoint@UnitTypeClass@@UBE_NXZ,5,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a8f0,?CanAttackMove@UnitTypeClass@@UBE_NXZ,5,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a900,?One_Time@UnitTypeClass@@SIXXZ,200,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070a9d0,?Create_And_Place@UnitTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,173,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070aa80,?Create_One_Of@UnitTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z,43,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070aab0,?Pixel_Dimensions@UnitTypeClass@@UBE?AV?$TPoint3D@H@@XZ,64,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070aaf0,?Lepton_Dimensions@UnitTypeClass@@UBE?AV?$TPoint3D@H@@XZ,36,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070ab20,?Turret_Adjust@UnitTypeClass@@QBE?AV?$TPoint2D@H@@W4Dir256@@ABV2@@Z,21,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b320,?Coord_Fixup@UnitTypeClass@@UBE?BVCoord@@ABV2@@Z,97,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b390,?Repair_Step@UnitTypeClass@@UBEHXZ,12,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b3a0,?GetClassID@UnitTypeClass@@UAGJPAU_GUID@@@Z,56,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b3e0,?Compute_CRC@UnitTypeClass@@UBEXAAVCRCEngine@@@Z,159,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b480,?Load@UnitTypeClass@@UAGJPAUIStream@@@Z,152,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b520,?Save@UnitTypeClass@@UAGJPAUIStream@@H@Z,29,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b540,?Find_Or_Make@UnitTypeClass@@SIPAV1@PBD@Z,131,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b5d0,?Fetch_Object_Size@UnitTypeClass@@UBEHXZ,6,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b5e0,?Fetch_RTTI@UnitTypeClass@@UBE?AW4RTTIType@@XZ,6,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b5f0,?Fetch_Heap_ID@UnitTypeClass@@UBEHXZ,7,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
+unittype,0070b600,??_GUnitTypeClass@@UAEPAXI@Z,141,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
 unvqtblc,0070b690,?Hicolor_Init_Table@@YI_NH@Z,320,a,mischa85,yes,0.600,Address-suffixed names 0; calibration not used
 unvqtblc,0070b7d0,?Hicolor_Clear_Table@@YIXXZ,29,a,mischa85,yes,0.600,Address-suffixed names 0; calibration not used
 unvqtblc,0070b7f0,?Hicolor_Translate@@YIXPAXH@Z,34,a,mischa85,yes,0.600,Address-suffixed names 0; calibration not used
@@ -3562,6 +3662,39 @@ voxdrsys,00717b90,?Clear_Buffer@VoxelDrawSystem@@YIXAAUSurfaceRegion@@@Z,123,a,m
 voxdrsys,00717c10,?Clear_Z_Buffer@VoxelDrawSystem@@YIXXZ,17,a,mischa85,yes,,
 voxdrsys,00717c30,?Clear_Z_Buffer@VoxelDrawSystem@@YIXHHHH@Z,71,a,mischa85,yes,,
 voxdrsys,00717c80,?Clear_Z_Buffer@VoxelDrawSystem@@YIXAAUSurfaceRegion@@@Z,76,a,mischa85,yes,,
+voxel,00717ce0,_$E2,40,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717d10,_$E5,19,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717d30,_$E8,19,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717d50,_$E11,19,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717d70,_$E14,19,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717d90,_$E17,19,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717db0,_$E20,49,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717df0,_$E23,33,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717e20,_$E26,44,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717e50,_$E29,39,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717e80,_$E32,15,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717e90,_$E35,18,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717eb0,_$E38,23,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717ed0,_$E52,1,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717ee0,_$E55,1,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717ef0,_$E58,39,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717f20,_$E61,39,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717f50,_$E64,1,b,old tree,yes,0.364,Address-suffixed names 0; calibration not used
+voxel,00717f60,_$E67,1,b,old tree,yes,0.364,Address-suffixed names 0; calibration not used
+voxel,00717f70,_$E70,1,b,old tree,yes,0.364,Address-suffixed names 0; calibration not used
+voxel,00717f80,_$E73,1,b,old tree,yes,0.364,Address-suffixed names 0; calibration not used
+voxel,00717f90,?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ,21,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00717fb0,?Set_Voxel_Light_Angle@@YIXM@Z,167,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00718d40,?Get_Screen_Slope_Matrix@@YIXHAAVMatrix3D@@@Z,26,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00718d60,?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z,28,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00718d80,?Get_Screen_Slope_Transition_Matrix@@YIXHHAAVMatrix3D@@N@Z,111,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00718df0,?Get_Slope_Transition_Matrix@@YI?AVMatrix3D@@HHN@Z,116,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00718e70,?Get_Some_Voxel_Number@@YIHH@Z,8,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00718e80,?_Direction256@@YIEABVCoord@@0@Z,87,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00718ee0,?Apply_Light_Transform@@YIXAAVMatrix3D@@HH@Z,180,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00718fa0,?Get_Light_Vector@@YI?AVVector3@@W4Dir256@@H@Z,86,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00719000,?Clear_Voxel_Indexes@@YIXXZ,5,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
+voxel,00719010,?Get_Bounce_Matrix@@YI?AVMatrix3D@@W4FacingType@@@Z,36,a,mischa85,edit,0.364,Address-suffixed names 0; calibration not used
 voxpal,0071bd00,??0VoxelPaletteLibrary@@QAE@PAURGBStruct@@PAX@Z,99,a,mischa85,yes,,
 voxpal,0071bd70,??1VoxelPaletteLibrary@@QAE@XZ,43,a,mischa85,yes,,
 voxpal,0071bda0,?Read_Colors@VoxelPaletteLibrary@@QAEHAAVFileClass@@@Z,63,a,mischa85,yes,,

@@ -172,16 +172,16 @@ long Select_Frame(VQAHandleP * vqap)
             frame->Flags |= VQAFRMF_HOLD;
             return VQAERR_NONE;
         }
-        if (config->OptionFlags & VQAOPTF_STEP) {
+        if (vqap->Config.OptionFlags & VQAOPTF_STEP) {
             drawer->LastFrameNum = frame->FrameNum;
-            VQA_SetTimer(vqap, (frame->FrameNum * VQA_TIMETICKS) / config->DrawRate);
+            VQA_SetTimer(vqap, (frame->FrameNum * VQA_TIMETICKS) / vqap->Config.DrawRate);
             return VQAERR_NONE;
         }
         long time = VQA_GetTime(vqap);
         long next;
         if (!(drawer->Flags & VQADRWF_STEP)) next = drawer->LastFrameNum + 1;
         else next = drawer->LastFrameNum + 2;
-        if (time < (next * VQA_TIMETICKS) / config->DrawRate) {
+        if (time < (next * VQA_TIMETICKS) / vqap->Config.DrawRate) {
             if (drawer->Flags & VQADRWF_REPAINT) {
             desired = VQA_ComputeDesiredFrame(vqap, config, drawer, frame, time);
             if (desired == drawer->LastFrameNum && (frame->Flags & VQAFRMF_HOLD)) {
@@ -196,11 +196,11 @@ long Select_Frame(VQAHandleP * vqap)
             return VQAERR_NOT_TIME;
         }
         desired = VQA_ComputeDesiredFrame(vqap, config, drawer, frame, time);
-        if (config->DrawFlags & VQACFGF_NOSKIP) {
+        if (vqap->Config.DrawFlags & VQACFGF_NOSKIP) {
             drawer->LastFrameNum = drawer->CurFrame->FrameNum;
             return VQAERR_NONE;
         } else {
-        long limit = config->FrameRate / 3 - 1;
+        long limit = vqap->Config.FrameRate / 3 - 1;
         if (limit < 0) limit = 0;
         while (frame->FrameNum != desired && !(frame->Flags & VQAFRMF_KEY)) {
             long current = drawer->CurFrame->FrameNum;
@@ -208,7 +208,7 @@ long Select_Frame(VQAHandleP * vqap)
             if (current >= drawer->LastFrameNum && current <= vqap->LoopEndFrame2) {
                 distance = current - drawer->LastFrameNum;
             } else {
-                long fallback = config->FrameRate / 3;
+                long fallback = vqap->Config.FrameRate / 3;
                 long tail = vqap->LoopEndFrame2 - drawer->LastFrameNum;
                 if (tail < 0) distance = fallback;
                 else {
@@ -242,8 +242,9 @@ long Select_Frame(VQAHandleP * vqap)
                 }
             }
             if (vqap->Config.DrawerCallback && vqap->Config.DrawerCallback(0, frame->FrameNum)) return VQAERR_EOF;
-            frame->PrevFlags = frame->Flags;
+            unsigned long previous_flags = frame->Flags;
             frame->Flags = 0;
+            frame->PrevFlags = previous_flags;
             frame = frame->Next;
             drawer->CurFrame = frame;
             vqap->SkippedFrames++;
@@ -262,6 +263,8 @@ long Select_Frame(VQAHandleP * vqap)
     return VQAERR_NONE;
 }
 #endif
+
+
 
 long VQA_ComputeDesiredFrame(VQAHandleP * vqap, VQAConfig * config, VQADrawer * drawer, VQAFrameNode * frame, unsigned long time)
 {

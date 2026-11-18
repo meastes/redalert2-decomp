@@ -39,7 +39,6 @@
 #include <cstddef>
 #include <cstring>
 #include <wchar.h> // RA2: wcslen, wcscpy for SubTitle
-#include "rect.h" // RA2: the unused rectangle after SubTitle
 #include "subtitle.h" // RA2: SubTitle
 
 

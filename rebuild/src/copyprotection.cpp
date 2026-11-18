@@ -10,7 +10,6 @@
 
 #include <mmsystem.h>
 
-extern VersionClass VerNum;
 
 namespace CopyProtection {
 
