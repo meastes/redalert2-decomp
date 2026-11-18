@@ -93,3 +93,10 @@ __Z12FUN_00622B50P6HWND__jyx	__ZN2UI15StandardWndProcEP6HWND__jyx
 __Z12FUN_005BF3906VQTypeb	__Z17Play_Ingame_Movie6VQTypeb
 # FUN_0041C610 (init.cpp Delete_All_Objects: the qsort compare of the object index) is IndexClass<int, AbstractClass *>::search_compfunc, gamemd.exe 0x0041C610 (lane Y12).
 __Z12FUN_0041C610PKvS0_	__ZN10IndexClassIiP13AbstractClassE15search_compfuncEPKvS4_
+# Bit_Stuff / Bit_Unstuff_String (bfiofile2.cpp, gamemd.exe 0x004335E0 / 0x00433770) as wstring.cpp declares them (wide source, char buffers; lane YW, the LAN names): one function each, the parameters pointers and ints either way.
+__Z9Bit_StuffPKtPci	__Z9Bit_StuffPhS_i
+__Z18Bit_Unstuff_StringPKcPti	__Z18Bit_Unstuff_StringPhPtj
+# Build_Number (winstub.h) is FUN_00777B50 (winstub.cpp, gamemd.exe 0x00777B50: the build number DAT_00822D1C), lane YW: the network packets carry it.
+__Z12Build_Numberv	__Z12FUN_00777B50v
+# OwnerDraw::Draw_Dialog_Back (netshare.cpp ODMessageBox_Proc, queue.cpp, worlddom.cpp) is OwnerDraw::Paint: gamemd.exe 0x005E2E64 calls 0x00621E90 there (lane YW, the network message box).
+__ZN9OwnerDraw16Draw_Dialog_BackEP6HWND__	__ZN9OwnerDraw5PaintEP6HWND__

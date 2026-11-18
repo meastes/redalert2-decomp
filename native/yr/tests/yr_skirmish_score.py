@@ -16,6 +16,8 @@ the skirmish setup, Single Player and the main menu are shown again after it.
 Skipped (77) without the installed game (RA2 with Yuri's Revenge: gamemd.exe in --data-dir).
 
   yr_skirmish_score.py --binary <yr-native> --data-dir <game folder> --work <dir>
+      [--wine-prefix <dir> [--wine <wine>]]: the Windows build under Wine (lane YW, yr_wine.py)
+                      [--wine-prefix <dir> [--wine <wine>]]   (the Windows build under Wine, lane YW: yr_wine.py)
 """
 import argparse
 import os
@@ -26,6 +28,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'tests'))
 import game_process  # noqa: E402  (native/tests: the game's process group, lane C19)
+import yr_wine  # noqa: E402  (the Windows build under Wine, lane YW)
 
 # 800x600 (RA2_NATIVE_DIALOG_LOG): Single Player (the main menu's first button), Skirmish (Single
 # Player's third), Start Game (the setup's first); in the game the band selection is held over a
@@ -58,6 +61,7 @@ def main():
     ap.add_argument('--binary', required=True)
     ap.add_argument('--data-dir', default='')
     ap.add_argument('--work', required=True)
+    yr_wine.add_arguments(ap)
     ap.add_argument('--seconds', type=int, default=110)
     a = ap.parse_args()
     if not a.data_dir or not os.path.exists(os.path.join(a.data_dir, 'gamemd.exe')):
@@ -74,8 +78,15 @@ def main():
                RA2_NATIVE_MSG_LOG='0')   # set (0: no message trace): the shown dialogs' controls are listed
     cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=never', '--run-seconds=%d' % a.seconds,
            '--write-dir=' + os.path.join(a.work, 'w'), '--input-script=' + script, '--game-args=-noaudio -CD.']
-    with open(os.path.join(a.work, 'run.log'), 'w') as log:
-        game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + 120)
+    prefix = yr_wine.open_prefix(a)
+    if prefix == yr_wine.SKIP:
+        return 77
+    cmd, env = yr_wine.wrap(prefix, cmd, env)
+    try:
+        with open(os.path.join(a.work, 'run.log'), 'w') as log:
+            game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + (240 if prefix else 120))
+    finally:
+        yr_wine.close(prefix)
     text = open(os.path.join(a.work, 'run.log'), errors='replace').read()
     lines = text.splitlines()
     failures = []

@@ -494,6 +494,34 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
 * **LAN, first look**: the main menu's Network button reaches `IPXManagerClass::Service` (a trap) and then a fault in
   `Select_Game`; YR's LAN also needs the `MultiplayerGameMode` entries the closure lists (about 40). Not started.
 
+### Lane YW (2026-11-17): the Windows tests and build command, LAN to the join request
+
+* **Windows**: `native/build.sh yr-windows` (build/release-yr-win: `YRNative.exe`, and `yr-native.exe` for the
+  tests). ctests on the Windows build, each under Wine in a fresh prefix deleted after the run
+  (`tests/yr_wine.py`): `yr-native-skirmish-smoke` (lane Y13), `yr-native-skirmish-score`, `yr-native-combat`:
+  all pass.
+* **LAN** (Network): Mac to Mac and Mac to Windows-under-Wine, the host screen and the guest's lobby listing the
+  host's game, its selection and the Join request. ctest `yr-native-lan-lobby` (`tests/yr_lan_lobby.py`, two
+  Mac instances; `--binary-b <yr-native.exe> --wine-prefix-b <dir>` runs the guest under Wine). On the way
+  (all NATIVE/NON-EXACT, native/yr only):
+  - drafts: `IPXManagerClass::Service` (0x00541820, from the RA2 tree's twin; the Internet game's NAT and
+    router branches left out, Westwood Online is not built), `UI::RegisterWindow` (0x00622820, the network
+    dialogs' preparation), `LBSaveSelections` (0x005E5F10), `FUN_005EC9F0` (0x005EC9F0, a slot's entry on the
+    host screen; the RA2 tree's Unknown_005cbf20 with YR's start/team arrays), `FUN_005EA3E0` (0x005EA3E0, the
+    setup screens' slot controls refresh);
+  - `WinsockInterfaceClass::Build_Packet_CRC` / `Passes_CRC_Check`: members calling the matched free functions
+    (wsproto.cpp); MultiplayerGameMode's 24 base virtuals from gamemd.exe's vtable 0x007EED60;
+  - `OriginalCheats` (0x00825C28) read from gamemd.exe after the data load (Cheat_Disable faulted on the
+    Network button); Westwood Online's tournament tests `FUN_0077D940`/`FUN_0077D970` false (glue/yr_lan.cpp);
+  - name aliases: `Build_Number` = FUN_00777B50, `OwnerDraw::Draw_Dialog_Back` = OwnerDraw::Paint, wstring.cpp's
+    `Bit_Stuff`/`Bit_Unstuff_String` = bfiofile2.cpp's.
+  Link closure (Mac) 183 -> 151.
+* **LAN, next**: the host does not seat the joining guest yet (the guest's Join shows its waiting box; the
+  host's slot stays Open): follow the join packet through `Process_Global_Packet` (netdlg2.cpp) on the host
+  and the guest's `MPlayer_Guest_Dialog_Proc`; then Start Game, the game in step (RA2's `native-lan-pair`
+  checks: per-frame CRCs, RA2_NATIVE_CRC_LOG) and the Mac + Windows pair. Closure entries likely on that path:
+  `DecodePubGameopt`, `FUN_005E6920`, `Send_Statistics_Packet`, `Draw_Sync_Bars`, `FUN_00637E00`.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

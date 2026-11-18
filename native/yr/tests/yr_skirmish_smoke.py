@@ -86,6 +86,7 @@ def main():
     finally:
         if prefix:
             prefix.close()
+            shutil.rmtree(prefix.folder, ignore_errors=True)   # Wine prefixes are large (lane YW)
     text = open(os.path.join(a.work, 'run.log'), errors='replace').read()
     failures = []
     stop = [l for l in text.splitlines() if 'stopped:' in l]

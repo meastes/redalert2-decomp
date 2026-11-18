@@ -6,7 +6,8 @@
 #   native/build.sh mac-one             RA2 + Yuri's Revenge for the Mac:   build/release-mac-one/RA2YR.app
 #   native/build.sh ios [simulator|device]   the iPhone/iPad one-game app:  build/ios-one-<platform>/RA2YR.app
 #   native/build.sh windows             Red Alert 2 for Windows (x86_64):   build/release-win/RA2Native.exe
-#   native/build.sh all                 mac, mac-one, ios simulator and windows in turn
+#   native/build.sh yr-windows          Yuri's Revenge for Windows (x86_64): build/release-yr-win/YRNative.exe
+#   native/build.sh all                 mac, mac-one, ios simulator, windows and yr-windows in turn
 #
 # Each configures its own build folder (Release where the platform has build types), builds the
 # game, packages it and prints the result's path. Rerunning only rebuilds what changed. Extra
@@ -118,6 +119,21 @@ build_windows() {
   echo "Built: $b/RA2Native.exe (self-contained: copy it to the Windows PC on its own)"
 }
 
+build_yr_windows() {
+  # Yuri's Revenge cross-built as Red Alert 2's Windows build is (lanes Y13, YW; native/yr/README.md):
+  # YRNative.exe for players and yr-native.exe, the console build the Wine tests run.
+  common_checks
+  local mingw; mingw=$(llvm_mingw)
+  local sdl; sdl=$(sdl_source)
+  local b="${RA2_BUILD_DIR:-build/release-yr-win}"
+  RA2_LLVM_MINGW="$mingw" cmake -S native -B "$b" -G Ninja \
+        -DCMAKE_TOOLCHAIN_FILE="$root/native/cmake/llvm-mingw-x86_64.cmake" -DRA2_LLVM_MINGW="$mingw" \
+        -DRA2_NATIVE_SDL_SOURCE="$sdl" -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON \
+        -DRA2_NATIVE_YR=ON -DRA2_NATIVE_YR_MINGW="$mingw/generic-w64-mingw32/include" "$@"
+  cmake --build "$b" --target YRNative yr-native
+  echo "Built: $b/YRNative.exe (self-contained: copy it to the Windows PC on its own)"
+}
+
 what="${1:-}"
 if [[ $# -gt 0 ]]; then shift; fi
 case "$what" in
@@ -125,6 +141,7 @@ case "$what" in
   mac-one) build_mac_one "$@" ;;
   ios) build_ios "$@" ;;
   windows) build_windows "$@" ;;
-  all) build_mac; build_mac_one; build_ios simulator; build_windows ;;
-  *) sed -n '3,9p' "$0" | sed 's/^# \{0,1\}//' >&2; exit 64 ;;
+  yr-windows) build_yr_windows "$@" ;;
+  all) build_mac; build_mac_one; build_ios simulator; build_windows; build_yr_windows ;;
+  *) sed -n '3,10p' "$0" | sed 's/^# \{0,1\}//' >&2; exit 64 ;;
 esac

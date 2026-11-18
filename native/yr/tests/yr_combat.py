@@ -11,6 +11,7 @@ target leaves the game ("harness-killed": a unit dies); no link-closure trap or 
 without the installed game (gamemd.exe in --data-dir).
 
   yr_combat.py --binary <yr-native> --data-dir <game folder> --work <dir> [--seconds 170]
+      [--wine-prefix <dir> [--wine <wine>]]: the Windows build under Wine (lane YW, yr_wine.py)
 """
 import argparse
 import os
@@ -21,6 +22,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'tests'))
 import game_process  # noqa: E402  (native/tests: the game's process group, lane C19)
+import yr_wine  # noqa: E402  (the Windows build under Wine, lane YW)
 
 SCRIPT = """\
 s1+1000 click 720 220
@@ -40,6 +42,7 @@ def main():
     ap.add_argument('--binary', required=True)
     ap.add_argument('--data-dir', default='')
     ap.add_argument('--work', required=True)
+    yr_wine.add_arguments(ap)
     ap.add_argument('--seconds', type=int, default=170)
     a = ap.parse_args()
     if not a.data_dir or not os.path.exists(os.path.join(a.data_dir, 'gamemd.exe')):
@@ -57,8 +60,15 @@ def main():
     env.pop('RA2_NATIVE_FORCE_END', None)
     cmd = [a.binary, '--data-dir', a.data_dir, '--run-to=never', '--run-seconds=%d' % a.seconds,
            '--write-dir=' + os.path.join(a.work, 'w'), '--input-script=' + script, '--game-args=-noaudio -CD.']
-    with open(os.path.join(a.work, 'run.log'), 'w') as log:
-        game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + 120)
+    prefix = yr_wine.open_prefix(a)
+    if prefix == yr_wine.SKIP:
+        return 77
+    cmd, env = yr_wine.wrap(prefix, cmd, env)
+    try:
+        with open(os.path.join(a.work, 'run.log'), 'w') as log:
+            game_process.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT, timeout=a.seconds + (240 if prefix else 120))
+    finally:
+        yr_wine.close(prefix)
     text = open(os.path.join(a.work, 'run.log'), errors='replace').read()
     failures = []
     shoot = re.search(r'^harness-shoot (\S+) &\S+ &\S+ s(\d+)$', text, re.M)

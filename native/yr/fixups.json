@@ -186,6 +186,26 @@
    "why": "A timer object passed to a debug print's %ld (save and load): VC6 pushed the object's bytes and the format read the first four as its value (the timer's first field); the cast reads the same four bytes."
   },
   {
+   "file": "src/netshare.cpp",
+   "append": "netshare_native.inc",
+   "why": "LBSaveSelections (0x005E5F10, the network lists' kept selections) is unmatched in the YR tree; a native draft from gamemd.exe's code (lane YW, LAN)."
+  },
+  {
+   "file": "src/wsproto.cpp",
+   "append": "wsproto_native.inc",
+   "why": "WinsockInterfaceClass::Build_Packet_CRC / Passes_CRC_Check: gamemd.exe's virtuals are matched in wsproto.cpp as free functions of the packet; the members (called by wspudp.cpp, wspipx.cpp) call them (lane YW, LAN)."
+  },
+  {
+   "file": "src/multiplayer.cpp",
+   "append": "mpgamemode_native.inc",
+   "why": "MultiplayerGameMode's base virtuals the YR tree leaves undefined (vt_entry_0C .. vt_entry_BC), from gamemd.exe's vtable 0x007EED60 (lane YW, LAN)."
+  },
+  {
+   "file": "src/ipxmgr.cpp",
+   "append": "ipxmgr_native.inc",
+   "why": "IPXManagerClass::Service (0x00541820) is unmatched in the YR tree; a native draft from the RA2 tree's twin (lane YW, LAN)."
+  },
+  {
    "file": "src/startup.cpp",
    "append": "startup_winmain.inc",
    "why": "WinMain (0x006BB9A0) is unmatched in the YR tree; a native draft from the RA2 tree's WinMain and gamemd.exe's code (lane Y2), appended to the startup unit."
@@ -599,6 +619,11 @@
    "file": "src/ownrdraw.cpp",
    "append": "ownrdraw_list_native.inc",
    "why": "OwnerDraw::ListBoxHandler (0x00618D40, the campaign dialog's and the load dialog's lists) is unmatched in the YR tree; a native draft from the RA2 tree's list rewrite, drawn as the YR combo's drop list (lane Y12), appended after the combo draft whose helpers it uses."
+  },
+  {
+   "file": "src/ownrdraw.cpp",
+   "append": "ui_register_native.inc",
+   "why": "UI::RegisterWindow (0x00622820, the network dialogs' preparation) is unmatched in the YR tree; a native draft from gamemd.exe's code and lane Y3's StandardWndProc draft (lane YW, LAN)."
   },
   {
    "file": "src/srfcache.cpp",

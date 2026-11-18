@@ -181,6 +181,18 @@ if(WIN32)
            --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-smoke"
            --wine-prefix "${CMAKE_CURRENT_BINARY_DIR}/wine/yr-smoke" --wine "${RA2_NATIVE_WINE}")
   set_tests_properties(yr-native-skirmish-smoke PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 420)
+  # yr-native-skirmish-score and yr-native-combat on the Windows build (lane YW): the Mac routes with
+  # yr-native.exe under Wine, each in a fresh prefix deleted after the run (yr/tests/yr_wine.py).
+  add_test(NAME yr-native-skirmish-score COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_skirmish_score.py"
+           --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+           --work "${CMAKE_CURRENT_BINARY_DIR}/yr-skirmish-score"
+           --wine-prefix "${CMAKE_CURRENT_BINARY_DIR}/wine/yr-score" --wine "${RA2_NATIVE_WINE}")
+  set_tests_properties(yr-native-skirmish-score PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+  add_test(NAME yr-native-combat COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_combat.py"
+           --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+           --work "${CMAKE_CURRENT_BINARY_DIR}/yr-combat"
+           --wine-prefix "${CMAKE_CURRENT_BINARY_DIR}/wine/yr-combat" --wine "${RA2_NATIVE_WINE}")
+  set_tests_properties(yr-native-combat PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
   return()   # the other ctests below run the Mac build
 endif()
 target_link_options(yr-native PRIVATE "LINKER:-alias_list,${RA2_NATIVE_YR_GEN}/alias_list.txt")
@@ -267,6 +279,14 @@ foreach(yr_campaign_side allied soviet)
            --work "${CMAKE_CURRENT_BINARY_DIR}/yr-campaign-${yr_campaign_side}" --seconds 600)
   set_tests_properties(yr-native-campaign-${yr_campaign_side} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
 endforeach()
+
+# ctest yr-native-lan-lobby (lane YW): two games on this Mac over UDP through the Network screens: the
+# host screen, the guest's lobby listing the host's game and its join request (first stage: the join's
+# answer and the game are not reached yet; yr/tests/yr_lan_lobby.py).
+add_test(NAME yr-native-lan-lobby COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_lan_lobby.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-lan-lobby")
+set_tests_properties(yr-native-lan-lobby PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300 RUN_SERIAL TRUE)
 
 # One game (lane Y5, -DRA2_NATIVE_COMBINED=ON): native/yr/combined.cmake.
 include("${CMAKE_CURRENT_SOURCE_DIR}/yr/combined.cmake")
