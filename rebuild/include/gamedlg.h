@@ -36,6 +36,9 @@
 #include "goptions.h"
 
 
+extern char const * const Game_Speed_Labels[OptionsClass::MAX_SPEED_SETTING]; // RA2: the speed slider's labels (also the in game options)
+
+
 class GameControlsClass
 {
 	public:

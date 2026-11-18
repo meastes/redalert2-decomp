@@ -148,14 +148,15 @@ PathStruct * FootClass::Find_Path(Cell const & dest, FacingType * final_moves, i
 /// <param name="max">The distance at which the search gives up.</param>
 /// <returns>Returns with the cell found. If nothing within range can be entered, then
 /// CELL_NONE is returned.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 556 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 40 bytes differ (the Y sums of the adjacent cells add in the other order at three of four sites)
 Cell FootClass::Safety_Point(Cell const & src, Cell const & dst, int start, int max)
 {
+	DirType facing;
 	FacingType dir;
 	Cell		  next;
 	int 		  lp;
 
-	dir = Facing_Sub((CELL_FACING(src, dst) ^ 4), 1);
+	dir = Facing_Sub((Dir_Facing(facing.Direction(src, dst)) ^ 4), 1);
 
 	/*
 	**	Loop through the different acceptable distances.

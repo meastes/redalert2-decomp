@@ -36,28 +36,72 @@
     "_BRIDGE_LEPTON_HEIGHT": 10751496,
     "_CELL_NONE": 10751392,
     "_COORD_NONE": 10751424,
-    "?Abort_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 5103504,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?MuteSWLaunches@@3HA": 10736968,
+    "?Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 5101728,
     "?Begin_Dialog@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZJ@Z": 6288912,
     "__imp__SetWindowLongA@12": 7971976,
     "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289344,
     "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ": 6291664,
     "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289120,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Restate_Mission@@YIXPAVScenarioClass@@@Z": 6533264,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z": 5114272,
     "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z": 6290176,
+    "?Game_Options_On_INITDIALOG@@YIXPAUHWND__@@@Z": 5103104,
     "__imp__GetDlgItem@8": 7971996,
+    "?Game_Speed_Labels@@3QBQBDB": 8225728,
+    "_?GameConnectionQualityNames@?1??Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z@4PAPBDA": 8231860,
     "??_C@_0BE@CLPH@D?3?2Ra2?2GOptions?4CPP?$AA@": 8232092,
-    "??_C@_09GNCJ@GUI?3Leave?$AA@": 8232136,
     "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
     "__imp__SendMessageA@16": 7972000,
+    "__imp__GetWindowLongA@8": 7971980,
+    "_?$S142@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4EA": 10751460,
+    "_?SpeedTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A": 10751448,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "_$E143": 5103088,
+    "_atexit": 7874954,
+    "_?LatencyTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A": 10751464,
+    "_$E144": 5103072,
+    "__imp__ShowWindow@8": 7971992,
+    "??0LoadOptionsClass@@QAE@XZ": 5484768,
+    "?Load@LoadOptionsClass@@QAE_NXZ": 5484944,
+    "??1LoadOptionsClass@@UAE@XZ": 5484848,
+    "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
+    "??0EventClass@@QAE@HE@Z": 4939728,
+    "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A": 10691384,
+    "?Add@?$QueueClass@VEventClass@@$0IA@@@QAEHABVEventClass@@@Z": 5104000,
+    "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@": 8232084,
+    "_swprintf": 7878500,
+    "?Save@LoadOptionsClass@@QAE_NPBG@Z": 5484976,
+    "?Delete@LoadOptionsClass@@QAE_NXZ": 5485024,
+    "__imp__UpdateWindow@4": 7971948,
+    "?SpecialDialog@@3W4SpecialDialogType@@A": 10751304,
+    "??B?$CDTimerClass@VSystemTimerClass@@@@QBEHXZ": 5104128,
+    "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@H@Z": 5104096,
+    "??0EventClass@@QAE@HEH@Z": 4939824,
+    "??_C@_0CB@KDKL@LATENCYFUDGE?5event?5created?5?9?5?$CFd?6@": 8232048,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "??_C@_0CL@OFHF@Ignoring?5latency?5change?5to?5avoid@": 8232004,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "??_C@_0CJ@JEPF@Ignoring?5speed?5change?5to?5avoid?5c@": 8231960,
+    "?WestwoodOnline_Tournament@@3HA": 11708396,
+    "?Files_Present@LoadOptionsClass@@QAE_NXZ": 5490112,
+    "__imp__EnableWindow@8": 7971984,
+    "?Abort_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 5103504,
+    "??_C@_09GNCJ@GUI?3Leave?$AA@": 8232136,
     "_LeaveResult": 10751516,
-    "?Session@@3VSessionClass@@A": 10736280,
     "_RestartResult": 10751520,
     "??_C@_0M@BIAC@GUI?3Restart?$AA@": 8232124,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
-    "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
     "??_C@_0M@HDJ@GUI?3Observe?$AA@": 8232112,
-    "__imp__ShowWindow@8": 7971992,
     "?Set_Control_Result@OwnerDraw@@YIXPAUHWND__@@H@Z": 6168640,
-    "__imp__GetWindowLongA@8": 7971980,
+    "__imp__timeGetTime@0": 7972132,
+    "??_C@_0BE@PBGL@TXT_BEST_CONNECTION?$AA@": 8231876,
+    "??_C@_0BE@HNMN@TXT_GOOD_CONNECTION?$AA@": 8231896,
+    "??_C@_0BE@KIHO@TXT_POOR_CONNECTION?$AA@": 8231916,
+    "??_C@_0BF@MEIE@TXT_WORST_CONNECTION?$AA@": 8231936,
     "_$E2": 5101024,
     "_$E5": 5101056,
     "_$E8": 5101104,
@@ -73,6 +117,7 @@
     "_$E38": 5101488,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "?Game_Options_Dialog@@YIXXZ": 5101520,
     "?Abort_Dialog@@YIHXZ": 5103392,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
@@ -144,7 +189,7 @@
           "resolved": 10751388
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101024,
@@ -212,7 +257,7 @@
           "resolved": 10751400
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101056,
@@ -264,7 +309,7 @@
           "resolved": 10751504
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101104,
@@ -316,7 +361,7 @@
           "resolved": 10751488
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101136,
@@ -368,7 +413,7 @@
           "resolved": 10751480
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101168,
@@ -420,7 +465,7 @@
           "resolved": 10751408
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101200,
@@ -472,7 +517,7 @@
           "resolved": 10751368
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101232,
@@ -556,7 +601,7 @@
           "resolved": 10751512
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101264,
@@ -616,7 +661,7 @@
           "resolved": 10751416
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101328,
@@ -676,7 +721,7 @@
           "resolved": 10751440
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101376,
@@ -736,7 +781,7 @@
           "resolved": 10751496
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101424,
@@ -780,7 +825,7 @@
           "resolved": 10751394
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101472,
@@ -832,10 +877,1020 @@
           "resolved": 10751432
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5101488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5101520,
+      "method": "004dd7d0",
+      "body_bytes": 196,
+      "body_sha256": "0d6895014db6d01a1111fe71df2ff613ec25729362eb6251eb3d950e2538a488",
+      "padding_bytes": 12,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "25cc1ae40181b9da5748085fb5d06721d22975bcfc8b37c02cd28939a5cebfc6",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Game_Options_Dialog@@YIXXZ",
+      "symbol_prefix": "?Game_Options_Dialog@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?MuteSWLaunches@@3HA",
+          "target": 10736968,
+          "addend": 0,
+          "resolved": 10736968
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 5101728,
+          "addend": 0,
+          "resolved": 5101728
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 5101728,
+          "addend": 0,
+          "resolved": 5101728
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 5101728,
+          "addend": 0,
+          "resolved": 5101728
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?Begin_Dialog@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZJ@Z",
+          "target": 6288912,
+          "addend": 0,
+          "resolved": 1187302
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "__imp__SetWindowLongA@12",
+          "target": 7971976,
+          "addend": 0,
+          "resolved": 7971976
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289344,
+          "addend": 0,
+          "resolved": 1187707
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ",
+          "target": 6291664,
+          "addend": 0,
+          "resolved": 1190014
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289120,
+          "addend": 0,
+          "resolved": 1187441
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "?Restate_Mission@@YIXPAVScenarioClass@@@Z",
+          "target": 6533264,
+          "addend": 0,
+          "resolved": 1431562
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 12558
+        }
+      ],
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
+      "source": "rebuild/src/goptions.cpp",
+      "population": "rebuild-goptions",
+      "source_order": 5101520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5101728,
+      "method": "004dd8a0",
+      "body_bytes": 1336,
+      "body_sha256": "fc9f5efa38b6e3d8f33674a4389739f56f5b90248209781a3655b0df3374cf37",
+      "padding_bytes": 8,
+      "full_extent_bytes": 1344,
+      "full_extent_sha256": "666f53a872c8f71f2a48775e2d98f91a95cf64a076c590c6cfbec12fec4819e7",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z",
+          "target": 6290176,
+          "addend": 0,
+          "resolved": 1188399
+        },
+        {
+          "offset": 89,
+          "kind": 20,
+          "symbol": "?Game_Options_On_INITDIALOG@@YIXPAUHWND__@@@Z",
+          "target": 5103104,
+          "addend": 0,
+          "resolved": 1283
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?Game_Speed_Labels@@3QBQBDB",
+          "target": 8225728,
+          "addend": 0,
+          "resolved": 8225728
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "_?GameConnectionQualityNames@?1??Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z@4PAPBDA",
+          "target": 8231860,
+          "addend": 0,
+          "resolved": 8231860
+        },
+        {
+          "offset": 200,
+          "kind": 6,
+          "symbol": "??_C@_0BE@CLPH@D?3?2Ra2?2GOptions?4CPP?$AA@",
+          "target": 8232092,
+          "addend": 0,
+          "resolved": 8232092
+        },
+        {
+          "offset": 209,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2213195
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "_?$S142@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4EA",
+          "target": 10751460,
+          "addend": 0,
+          "resolved": 10751460
+        },
+        {
+          "offset": 275,
+          "kind": 6,
+          "symbol": "_?SpeedTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751448,
+          "addend": 4,
+          "resolved": 10751452
+        },
+        {
+          "offset": 284,
+          "kind": 6,
+          "symbol": "_?$S142@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4EA",
+          "target": 10751460,
+          "addend": 0,
+          "resolved": 10751460
+        },
+        {
+          "offset": 289,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1821291
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "_$E143",
+          "target": 5103088,
+          "addend": 0,
+          "resolved": 5103088
+        },
+        {
+          "offset": 299,
+          "kind": 6,
+          "symbol": "_?SpeedTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751448,
+          "addend": 0,
+          "resolved": 10751448
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "_?SpeedTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751448,
+          "addend": 8,
+          "resolved": 10751456
+        },
+        {
+          "offset": 314,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2772908
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "_?$S142@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4EA",
+          "target": 10751460,
+          "addend": 0,
+          "resolved": 10751460
+        },
+        {
+          "offset": 333,
+          "kind": 6,
+          "symbol": "_?LatencyTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751464,
+          "addend": 4,
+          "resolved": 10751468
+        },
+        {
+          "offset": 342,
+          "kind": 6,
+          "symbol": "_?$S142@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4EA",
+          "target": 10751460,
+          "addend": 0,
+          "resolved": 10751460
+        },
+        {
+          "offset": 347,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1821233
+        },
+        {
+          "offset": 352,
+          "kind": 6,
+          "symbol": "_$E144",
+          "target": 5103072,
+          "addend": 0,
+          "resolved": 5103072
+        },
+        {
+          "offset": 357,
+          "kind": 6,
+          "symbol": "_?LatencyTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751464,
+          "addend": 0,
+          "resolved": 10751464
+        },
+        {
+          "offset": 363,
+          "kind": 6,
+          "symbol": "_?LatencyTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751464,
+          "addend": 8,
+          "resolved": 10751472
+        },
+        {
+          "offset": 372,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2772850
+        },
+        {
+          "offset": 447,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 460,
+          "kind": 20,
+          "symbol": "??0LoadOptionsClass@@QAE@XZ",
+          "target": 5484768,
+          "addend": 0,
+          "resolved": 382576
+        },
+        {
+          "offset": 467,
+          "kind": 20,
+          "symbol": "?Load@LoadOptionsClass@@QAE_NXZ",
+          "target": 5484944,
+          "addend": 0,
+          "resolved": 382745
+        },
+        {
+          "offset": 478,
+          "kind": 20,
+          "symbol": "??1LoadOptionsClass@@UAE@XZ",
+          "target": 5484848,
+          "addend": 0,
+          "resolved": 382638
+        },
+        {
+          "offset": 553,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 568,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 586,
+          "kind": 20,
+          "symbol": "??0EventClass@@QAE@HE@Z",
+          "target": 4939728,
+          "addend": 0,
+          "resolved": 4294804706
+        },
+        {
+          "offset": 592,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 0,
+          "resolved": 10691384
+        },
+        {
+          "offset": 597,
+          "kind": 20,
+          "symbol": "?Add@?$QueueClass@VEventClass@@$0IA@@@QAEHABVEventClass@@@Z",
+          "target": 5104000,
+          "addend": 0,
+          "resolved": 1671
+        },
+        {
+          "offset": 624,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 634,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 652,
+          "kind": 6,
+          "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
+          "target": 8232084,
+          "addend": 0,
+          "resolved": 8232084
+        },
+        {
+          "offset": 658,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 2776110
+        },
+        {
+          "offset": 678,
+          "kind": 20,
+          "symbol": "??0LoadOptionsClass@@QAE@XZ",
+          "target": 5484768,
+          "addend": 0,
+          "resolved": 382358
+        },
+        {
+          "offset": 685,
+          "kind": 20,
+          "symbol": "?Save@LoadOptionsClass@@QAE_NPBG@Z",
+          "target": 5484976,
+          "addend": 0,
+          "resolved": 382559
+        },
+        {
+          "offset": 717,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 733,
+          "kind": 20,
+          "symbol": "??0LoadOptionsClass@@QAE@XZ",
+          "target": 5484768,
+          "addend": 0,
+          "resolved": 382303
+        },
+        {
+          "offset": 740,
+          "kind": 20,
+          "symbol": "?Delete@LoadOptionsClass@@QAE_NXZ",
+          "target": 5485024,
+          "addend": 0,
+          "resolved": 382552
+        },
+        {
+          "offset": 752,
+          "kind": 20,
+          "symbol": "??1LoadOptionsClass@@UAE@XZ",
+          "target": 5484848,
+          "addend": 0,
+          "resolved": 382364
+        },
+        {
+          "offset": 759,
+          "kind": 20,
+          "symbol": "?Game_Options_On_INITDIALOG@@YIXPAUHWND__@@@Z",
+          "target": 5103104,
+          "addend": 0,
+          "resolved": 613
+        },
+        {
+          "offset": 771,
+          "kind": 6,
+          "symbol": "__imp__UpdateWindow@4",
+          "target": 7971948,
+          "addend": 0,
+          "resolved": 7971948
+        },
+        {
+          "offset": 801,
+          "kind": 6,
+          "symbol": "?SpecialDialog@@3W4SpecialDialogType@@A",
+          "target": 10751304,
+          "addend": 0,
+          "resolved": 10751304
+        },
+        {
+          "offset": 868,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 880,
+          "kind": 6,
+          "symbol": "?MuteSWLaunches@@3HA",
+          "target": 10736968,
+          "addend": 0,
+          "resolved": 10736968
+        },
+        {
+          "offset": 894,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 908,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 940,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10508,
+          "resolved": 10746788
+        },
+        {
+          "offset": 949,
+          "kind": 6,
+          "symbol": "_?LatencyTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751464,
+          "addend": 0,
+          "resolved": 10751464
+        },
+        {
+          "offset": 954,
+          "kind": 20,
+          "symbol": "??B?$CDTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 5104128,
+          "addend": 0,
+          "resolved": 1442
+        },
+        {
+          "offset": 972,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@H@Z",
+          "target": 5104096,
+          "addend": 0,
+          "resolved": 1392
+        },
+        {
+          "offset": 992,
+          "kind": 6,
+          "symbol": "_?LatencyTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751464,
+          "addend": 0,
+          "resolved": 10751464
+        },
+        {
+          "offset": 997,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 1003,
+          "kind": 6,
+          "symbol": "_?LatencyTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751464,
+          "addend": 4,
+          "resolved": 10751468
+        },
+        {
+          "offset": 1009,
+          "kind": 6,
+          "symbol": "_?LatencyTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751464,
+          "addend": 8,
+          "resolved": 10751472
+        },
+        {
+          "offset": 1025,
+          "kind": 20,
+          "symbol": "??0EventClass@@QAE@HEH@Z",
+          "target": 4939824,
+          "addend": 0,
+          "resolved": 4294804363
+        },
+        {
+          "offset": 1031,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 0,
+          "resolved": 10691384
+        },
+        {
+          "offset": 1036,
+          "kind": 20,
+          "symbol": "?Add@?$QueueClass@VEventClass@@$0IA@@@QAEHABVEventClass@@@Z",
+          "target": 5104000,
+          "addend": 0,
+          "resolved": 1232
+        },
+        {
+          "offset": 1042,
+          "kind": 6,
+          "symbol": "??_C@_0CB@KDKL@LATENCYFUDGE?5event?5created?5?9?5?$CFd?6@",
+          "target": 8232048,
+          "addend": 0,
+          "resolved": 8232048
+        },
+        {
+          "offset": 1047,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294085685
+        },
+        {
+          "offset": 1057,
+          "kind": 6,
+          "symbol": "??_C@_0CL@OFHF@Ignoring?5latency?5change?5to?5avoid@",
+          "target": 8232004,
+          "addend": 0,
+          "resolved": 8232004
+        },
+        {
+          "offset": 1062,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294085670
+        },
+        {
+          "offset": 1105,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 0,
+          "resolved": 10750744
+        },
+        {
+          "offset": 1118,
+          "kind": 6,
+          "symbol": "_?SpeedTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751448,
+          "addend": 0,
+          "resolved": 10751448
+        },
+        {
+          "offset": 1123,
+          "kind": 20,
+          "symbol": "??B?$CDTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 5104128,
+          "addend": 0,
+          "resolved": 1273
+        },
+        {
+          "offset": 1141,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@H@Z",
+          "target": 5104096,
+          "addend": 0,
+          "resolved": 1223
+        },
+        {
+          "offset": 1162,
+          "kind": 6,
+          "symbol": "_?SpeedTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751448,
+          "addend": 0,
+          "resolved": 10751448
+        },
+        {
+          "offset": 1168,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 1173,
+          "kind": 6,
+          "symbol": "_?SpeedTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751448,
+          "addend": 4,
+          "resolved": 10751452
+        },
+        {
+          "offset": 1179,
+          "kind": 6,
+          "symbol": "_?SpeedTimer@?1??Game_Options_On_COMMAND@@YIHPAUHWND__@@I@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10751448,
+          "addend": 8,
+          "resolved": 10751456
+        },
+        {
+          "offset": 1195,
+          "kind": 20,
+          "symbol": "??0EventClass@@QAE@HEH@Z",
+          "target": 4939824,
+          "addend": 0,
+          "resolved": 4294804193
+        },
+        {
+          "offset": 1201,
+          "kind": 6,
+          "symbol": "?OutList@@3V?$QueueClass@VEventClass@@$0IA@@@A",
+          "target": 10691384,
+          "addend": 0,
+          "resolved": 10691384
+        },
+        {
+          "offset": 1206,
+          "kind": 20,
+          "symbol": "?Add@?$QueueClass@VEventClass@@$0IA@@@QAEHABVEventClass@@@Z",
+          "target": 5104000,
+          "addend": 0,
+          "resolved": 1062
+        },
+        {
+          "offset": 1236,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@JEPF@Ignoring?5speed?5change?5to?5avoid?5c@",
+          "target": 8231960,
+          "addend": 0,
+          "resolved": 8231960
+        },
+        {
+          "offset": 1241,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294085491
+        },
+        {
+          "offset": 1279,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 1287,
+          "kind": 6,
+          "symbol": "?WestwoodOnline_Tournament@@3HA",
+          "target": 11708396,
+          "addend": 0,
+          "resolved": 11708396
+        },
+        {
+          "offset": 1293,
+          "kind": 6,
+          "symbol": "?SpecialDialog@@3W4SpecialDialogType@@A",
+          "target": 10751304,
+          "addend": 0,
+          "resolved": 10751304
+        },
+        {
+          "offset": 1307,
+          "kind": 6,
+          "symbol": "?SpecialDialog@@3W4SpecialDialogType@@A",
+          "target": 10751304,
+          "addend": 0,
+          "resolved": 10751304
+        }
+      ],
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
+      "source": "rebuild/src/goptions.cpp",
+      "population": "rebuild-goptions",
+      "source_order": 5101728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5103072,
+      "method": "004ddde0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E144",
+      "symbol_prefix": "_$E144",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
+      "source": "rebuild/src/goptions.cpp",
+      "population": "rebuild-goptions",
+      "source_order": 5103072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5103088,
+      "method": "004dddf0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E143",
+      "symbol_prefix": "_$E143",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
+      "source": "rebuild/src/goptions.cpp",
+      "population": "rebuild-goptions",
+      "source_order": 5103088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5103104,
+      "method": "004dde00",
+      "body_bytes": 284,
+      "body_sha256": "c9e8ad81e231c089feac7f1b148d2a8578adcd3b373914bf53c883471a6cfa98",
+      "padding_bytes": 4,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "0a681680923f44b5393921660f7ceb34967ea0e03be7e99c34cb6fb485c59efc",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Game_Options_On_INITDIALOG@@YIXPAUHWND__@@@Z",
+      "symbol_prefix": "?Game_Options_On_INITDIALOG@@YIXPAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?MuteSWLaunches@@3HA",
+          "target": 10736968,
+          "addend": 0,
+          "resolved": 10736968
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10508,
+          "resolved": 10746788
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 0,
+          "resolved": 10750744
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "??0LoadOptionsClass@@QAE@XZ",
+          "target": 5484768,
+          "addend": 0,
+          "resolved": 381470
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "?Files_Present@LoadOptionsClass@@QAE_NXZ",
+          "target": 5490112,
+          "addend": 0,
+          "resolved": 386807
+        },
+        {
+          "offset": 210,
+          "kind": 20,
+          "symbol": "??1LoadOptionsClass@@UAE@XZ",
+          "target": 5484848,
+          "addend": 0,
+          "resolved": 381530
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        }
+      ],
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
+      "source": "rebuild/src/goptions.cpp",
+      "population": "rebuild-goptions",
+      "source_order": 5103104,
       "source_quality_family": "rebuild"
     },
     {
@@ -908,7 +1963,7 @@
           "resolved": 1185632
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5103392,
@@ -1169,11 +2224,121 @@
           "resolved": 10751520
         }
       ],
-      "source_sha256": "b536dc61d5e10eb0386a1ccf9bf6d6d927ec5ecbd19717c2a0b9978732535aa0",
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
       "source": "rebuild/src/goptions.cpp",
       "population": "rebuild-goptions",
       "source_order": 5103504,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5104000,
+      "method": "004de180",
+      "body_bytes": 91,
+      "body_sha256": "7e2e35013f070e021df19ed2235e3256b230ca58cd023aaf2f8115567185d466",
+      "padding_bytes": 5,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "f15580db2782db3391f19c72e26d77fa79383f077d4a9beeee1d2e241f5d1e0f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@?$QueueClass@VEventClass@@$0IA@@@QAEHABVEventClass@@@Z",
+      "symbol_prefix": "?Add@?$QueueClass@VEventClass@@$0IA@@@QAEHABVEventClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        }
+      ],
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
+      "source": "rebuild/src/goptions.cpp",
+      "population": "rebuild-goptions",
+      "source_order": 5104000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5104096,
+      "method": "4de1e0",
+      "body_bytes": 26,
+      "body_sha256": "b90393aa99e952202eea7a242883ea42ed3895879622599443ca6b1323b0a7bf",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f25a0edaf5f2174f57b3b399e32b20d45b4e6f6eae612b9641d344852aa79696",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@H@Z",
+      "symbol_prefix": "??0?$CDTimerClass@VSystemTimerClass@@@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1819205
+        }
+      ],
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
+      "source": "rebuild/src/goptions.cpp",
+      "population": "rebuild-goptions",
+      "source_order": 5104096,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-02"
+    },
+    {
+      "entry": 5104128,
+      "method": "004de200",
+      "body_bytes": 49,
+      "body_sha256": "c819f548c3b68fbbb906beea1e56f2878afbd1650c113016b0e8624d41379ced",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "815b526ee11962d97d3fd481183590891d36b179cebc55e5c2745f1b2062ddf8",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??B?$CDTimerClass@VSystemTimerClass@@@@QBEHXZ",
+      "symbol_prefix": "??B?$CDTimerClass@VSystemTimerClass@@@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1819162
+        }
+      ],
+      "source_sha256": "1e3dce56cabe22fa253303d228085fe39aa0cd6988ba1b15758979e363b23832",
+      "source": "rebuild/src/goptions.cpp",
+      "population": "rebuild-goptions",
+      "source_order": 5104128,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3407"
     }
   ]
 }

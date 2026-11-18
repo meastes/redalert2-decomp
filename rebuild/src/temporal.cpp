@@ -109,7 +109,6 @@ HRESULT STDMETHODCALLTYPE TemporalClass::GetClassID(CLSID * retval)
 /*
 **	The target loses the warp of this beam and of every helper; at none left it is gone.
 */
-#ifdef RA2_NON_MATCHING // not exact: 589 of 573+ bytes differ (draft structure; the kill-credit and building branches unverified)
 void TemporalClass::AI(void)
 {
 	if (Target != NULL && Target->TemporalTargetingMe == this && NextTemporal != NULL) {
@@ -119,67 +118,60 @@ void TemporalClass::AI(void)
 		return;
 	}
 
-	int helpers = 0;
-	if (PrevTemporal != NULL) {
-		helpers = PrevTemporal->GetWarpPerStep(1);
-	}
-	WarpPerStep = Owner->Get_Class_Weapon_Data(Owner->What_Weapon_Should_I_Use(NULL))->Weapon->Attack;
-	WarpRemaining -= WarpPerStep + helpers;
-	if (WarpRemaining > 0) return;
+	WarpRemaining -= GetWarpPerStep(0);
+	if (WarpRemaining <= 0) {
+		if (Target == NULL) {
+			Target = NULL;
+			PrevTemporal = NULL;
+			NextTemporal = NULL;
+			SourceSW = NULL;
+			Unused_38 = NULL;
+		} else {
+			new AnimClass(Rule->WarpAway, Target->PositionCoord, 0, 1, ShapeFlags_Type(0x600), 0);
+		}
 
-	if (Target == NULL) {
+		if (Owner->Techno_Type_Class()->IsTrainable) {
+			TechnoTypeClass const * victim = Target->Techno_Type_Class();
+			TechnoTypeClass const * killer = Owner->Techno_Type_Class();
+			Owner->Veterancy.Made_A_Kill(killer->Cost_Of(Owner->House), victim->Cost_Of(Target->House));
+		}
+
+		if (Target != NULL) {
+			if (Target->Fetch_RTTI() == RTTI_BUILDING) {
+				BuildingClass * building = (BuildingClass *)Target;
+				if (building != NULL) {
+					if (building->GetOccupantCount() > 0) {
+						building->KillOccupants(NULL);
+					}
+					if (!ScenarioInit) {
+						while (building->Cargo.Is_Something_Attached()) {
+							FootClass * passenger = building->Cargo.Detach_Object();
+							delete passenger;
+						}
+					}
+				}
+				if (SourceSW != NULL) {
+					SourceSW->Suspend(false);
+					SourceSW = NULL;
+				}
+				Target->Death_Announcement(Owner);
+				Target->Record_The_Kill(Owner);
+				Target->Delete_Me();
+				building->House->IsRecalcNeeded = true;
+			} else {
+				Target->Death_Announcement(Owner);
+				Target->Record_The_Kill(Owner);
+				Target->Delete_Me();
+			}
+		}
+
 		Target = NULL;
 		PrevTemporal = NULL;
 		NextTemporal = NULL;
 		SourceSW = NULL;
 		Unused_38 = NULL;
-		return;
 	}
-
-	new AnimClass(Rule->WarpAway, Target->Position, 0, 1, ShapeFlags_Type(0x600), 0);
-
-	if (Owner->Techno_Type_Class()->IsTrainable) {
-		TechnoTypeClass const * victim = Target->Techno_Type_Class();
-		TechnoTypeClass const * killer = Owner->Techno_Type_Class();
-		Owner->Veterancy.Made_A_Kill(killer->Cost_Of(Owner->House), victim->Cost_Of(Target->House));
-	}
-
-	if (Target != NULL) {
-		if (Target->Fetch_RTTI() == RTTI_BUILDING) {
-			BuildingClass * building = (BuildingClass *)Target;
-			if (building != NULL) {
-				if (building->GetOccupantCount() > 0) {
-					building->KillOccupants(NULL);
-				}
-				if (!ScenarioInit) {
-					while (building->Cargo.Is_Something_Attached()) {
-						FootClass * passenger = building->Cargo.Detach_Object();
-						if (passenger != NULL) delete passenger;
-					}
-				}
-			}
-			if (SourceSW != NULL) {
-				SourceSW->Suspend(false);
-				SourceSW = NULL;
-			}
-			Target->Death_Announcement(Owner);
-			Target->Record_The_Kill(Owner);
-			Target->Delete_Me();
-			building->House->IsRecalcNeeded = true;
-		} else {
-			Target->Death_Announcement(Owner);
-			Target->Record_The_Kill(Owner);
-			Target->Delete_Me();
-		}
-	}
-
-	Target = NULL;
-	PrevTemporal = NULL;
-	NextTemporal = NULL;
-	SourceSW = NULL;
-	Unused_38 = NULL;
 }
-#endif
 
 
 /*
@@ -258,16 +250,14 @@ void TemporalClass::LetGo(void)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 1 byte differs (an encoding or length difference not resolved)
 void TemporalClass::Release_Target(void)
 {
 	if (Target != NULL) {
 		Target->TemporalTargetingMe = NULL;
 		Target->BeingWarpedOut = false;
+		Target = NULL;
 	}
-	Target = NULL;
 }
-#endif
 
 
 void TemporalClass::Restore_Target(void)

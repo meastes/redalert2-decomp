@@ -70,7 +70,8 @@
     "?Start_Flashing@ShapeButtonClass@@QAE_NHH_N@Z": 6771408,
     "?Stop_Flashing@ShapeButtonClass@@QAE_NXZ": 6771456,
     "?AI@ShapeButtonClass@@QAE_NXZ": 6771488,
-    "?Is_Flashing@ShapeButtonClass@@QAE_NXZ": 6771552
+    "?Is_Flashing@ShapeButtonClass@@QAE_NXZ": 6771552,
+    "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ": 6771568
   },
   "regions": [
     {
@@ -127,7 +128,7 @@
           "resolved": 11243916
         }
       ],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6770688,
@@ -179,7 +180,7 @@
           "resolved": 7997088
         }
       ],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6770720,
@@ -231,7 +232,7 @@
           "resolved": 7997088
         }
       ],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6770784,
@@ -283,7 +284,7 @@
           "resolved": 4293238618
         }
       ],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6770928,
@@ -319,7 +320,7 @@
           "resolved": 1100787
         }
       ],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6770992,
@@ -355,7 +356,7 @@
           "resolved": 1100675
         }
       ],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6771104,
@@ -382,7 +383,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6771152,
@@ -450,7 +451,7 @@
           "resolved": 4293041146
         }
       ],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6771168,
@@ -477,7 +478,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6771408,
@@ -504,7 +505,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6771456,
@@ -531,7 +532,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6771488,
@@ -558,10 +559,37 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3767d364b5f746fb6aa31ef7cb2089ea6f52912d3a64e17a5be29970c29babae",
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
       "source": "rebuild/src/shapebtn.cpp",
       "population": "rebuild-shapebtn",
       "source_order": 6771552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6771568,
+      "method": "00675370",
+      "body_bytes": 4,
+      "body_sha256": "0c34a72b93ec080179bccd1c1ee4ee2ab0a241bf951f0d934487c76f6818b8de",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9f34b4152096e345173825be1b4071703694b27905a8ac7aa299d938be1d2b2e",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Flash_On@ShapeButtonClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "fe766807c8b0f24c99f3af6bed402589eed43f6fa5b3e1956058e0db9eb8776b",
+      "source": "rebuild/src/shapebtn.cpp",
+      "population": "rebuild-shapebtn",
+      "source_order": 6771568,
       "source_quality_family": "rebuild"
     }
   ]

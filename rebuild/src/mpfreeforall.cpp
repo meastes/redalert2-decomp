@@ -3,16 +3,15 @@
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 
-#define GEOMETRY_H // geometry.h follows the code
 #include "always.h"
 #include "rect.h"
+#include "geometry.h"
 #include "mpfreeforall.h"
 #include "session.h"
 #include <windows.h>
 #undef LoadString
 #include <math.h>
 
-int __fastcall Clear_ComboBox(HWND list); // RA2: 0x006007F0
 
 FreeForAll::FreeForAll(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex) :
 	MultiplayerGameMode(title, tooltip, inifile, mapfilter, aiallowed, modeindex)
@@ -70,12 +69,10 @@ void FreeForAll::PopulateTeamDropdownForPlayer(HWND hwnd, int index)
 	SendMessage(hwnd, CB_SETCURSEL, 0, 0);
 }
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool FreeForAll::IsSkirmishAllowed(void)
 {
 	return(true);
 }
-#endif
 
 
 #include "geometry.h"

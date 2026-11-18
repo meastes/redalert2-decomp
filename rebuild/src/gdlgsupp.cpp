@@ -26,18 +26,11 @@
 #include "houstype.h" // RA2: as above
 #include "session.h" // RA2: as above
 #include "netshare.h" // RA2: as above
+#include "gdlgsupp.h"
 
 int __fastcall Combo_Selected_Data(HWND dialog, int id, int index); // RA2: 0x005C99D0 (netshare.cpp)
 namespace OwnerDraw { void __fastcall Set_Control_Image(HWND control, Surface * image); } // RA2: 0x005E1F30, as ownrdraw.cpp
 
-int __fastcall Player_Side_Combo_ID(int player); // RA2: 0x004D1350, defined below
-int __fastcall Side_Combo_Player(int id); // RA2: 0x004D13B0, as above
-int __fastcall Side_Combo_Data(HWND dialog, int id, int index); // RA2: 0x004D1C70, as above
-int __fastcall Color_Combo_Player(int id); // RA2: 0x004D1D10, as above
-int __fastcall Color_Combo_Data(HWND dialog, int id, int index); // RA2: 0x004D2900, as above
-void __fastcall Select_Side_Combo(HWND dialog, int id, int side); // RA2: 0x004D1A90, as above
-void __fastcall Select_Color_Combo(HWND dialog, int id, int color); // RA2: 0x004D2480, as above
-void __fastcall Show_Player_Flag(HWND dialog, int player); // RA2: 0x004D1230, as above
 
 /// <summary>The pictures of the flag controls: random, observer, then the nine countries.</summary>
 char const * FlagImages[11] = { // RA2: 0x007F86B0

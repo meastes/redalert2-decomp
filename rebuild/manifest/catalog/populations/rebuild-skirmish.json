@@ -44,6 +44,14 @@
     "??_C@_0BD@PLEH@STT?3PlayerGeniusAI?$AA@": 8287056,
     "?SkirmishDialog@@3PAUHWND__@@A": 11259388,
     "__imp__SendDlgItemMessageA@20": 7971972,
+    "__imp__GetDlgItem@8": 7971996,
+    "?Player_Control_ID@@YIHH@Z": 5050080,
+    "?Player_Color_Combo_ID@@YIHH@Z": 5053616,
+    "?Player_Side_Combo_ID@@YIHH@Z": 5051216,
+    "__imp__ShowWindow@8": 7971992,
+    "?Select_Color_Combo@@YIXPAUHWND__@@HH@Z": 5055616,
+    "?Select_Side_Combo@@YIXPAUHWND__@@HH@Z": 5053072,
+    "__imp__EnableWindow@8": 7971984,
     "?RuleINI@@3PAVCCINIClass@@A": 8623824,
     "?Rule@@3PAVRulesClass@@A": 8624200,
     "?Do_HouseTypes@RulesClass@@QAE_NABVCCINIClass@@@Z": 6601408,
@@ -62,6 +70,49 @@
     "?Session@@3VSessionClass@@A": 10736280,
     "?Write_MultiPlayer_Settings@SessionClass@@QAEXXZ": 6751104,
     "?Darken_Surface@@YIXPAVSurface@@_N@Z": 5331376,
+    "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z": 6290176,
+    "?Skirmish_On_WM_COMMAND@@YIXPAUHWND__@@H0H@Z": 6826480,
+    "?Is_Control_Disabled@OwnerDraw@@YI_NPAUHWND__@@@Z": 6178592,
+    "?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z": 6411360,
+    "__imp__ValidateRect@8": 7971832,
+    "?Skirmish_On_WM_INITDIALOG@@YIHPAUHWND__@@IJ@Z": 6832064,
+    "??4WideWstring@@QAEAAV0@PBG@Z": 7797616,
+    "__imp__GetDlgCtrlID@4": 7971828,
+    "?Side_Combo_Player@@YIHH@Z": 5051312,
+    "?Color_Combo_Player@@YIHH@Z": 5053712,
+    "?Color_Combo_Data@@YIHPAUHWND__@@HH@Z": 5056768,
+    "?Color_Name@@YIPBGH@Z": 5053824,
+    "?Side_Combo_Data@@YIHPAUHWND__@@HH@Z": 5053552,
+    "?Side_Name@@YIPBGH@Z": 5051424,
+    "?Reset_AI@GameOptionsType@@QAEXXZ": 6760464,
+    "__imp__SendMessageA@16": 7972000,
+    "?Narrow_To_Wide@@YIPAGPBD@Z": 7315840,
+    "??_C@_08DOEP@GUI?3None?$AA@": 8339464,
+    "??_C@_0L@JIHB@GUI?3AIEasy?$AA@": 8286932,
+    "??_C@_0N@GOPO@GUI?3AINormal?$AA@": 8286916,
+    "??_C@_0L@OJFC@GUI?3AIHard?$AA@": 8286904,
+    "?Fill_Side_Combos@@YIXPAUHWND__@@@Z": 5052112,
+    "?Init_Color_Entries@@YIXXZ": 5054112,
+    "?Fill_Color_Combos@@YIXPAUHWND__@@@Z": 5055232,
+    "?Select_Player_Side@@YIXPAUHWND__@@H@Z": 5052448,
+    "?Select_Player_Color@@YIXPAUHWND__@@H@Z": 5055424,
+    "?GetModeCount@MultiplayerGameMode@@SAHXZ": 5992320,
+    "?First_Game_Mode@@YIPAVMultiplayerGameMode@@XZ": 5992128,
+    "?Get_Current_Game_Mode@@YIPAVMultiplayerGameMode@@XZ": 6042832,
+    "?Set_Scenario_Info_From_Index@@YI_NH@Z": 6061104,
+    "?IsMapAllowed@MultiplayerGameMode@@QAE_NPBVMultiMission@@@Z": 5993584,
+    "?RandomMapWaypointCount@@YIHH@Z": 6055424,
+    "?Skirmish_Hide_Players@@YIXPAUHWND__@@H@Z": 6830368,
+    "?Skirmish_Show_Players@@YIXPAUHWND__@@HH@Z": 6829808,
+    "?Set_Item_Text@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z": 6042704,
+    "?Set_Skirmish_Dialog_Text@@YIXPAUHWND__@@@Z": 6042800,
+    "?Clear_Vector@@YIXPAV?$DynamicVectorClass@PAUNodeNameType@@@@@Z": 5928064,
+    "?Is_Random_Map@MultiMission@@QBE_NXZ": 6758592,
+    "??2@YAPAXI@Z": 7872535,
+    "??0MapPreviewClass@@QAE@XZ": 6411312,
+    "??_C@_0M@EOLM@RandMap?4img?$AA@": 8262976,
+    "?Read_PCX_Preview@MapPreviewClass@@QAE_NPBD@Z": 6414704,
+    "?Update_Network_Dialog_Preview@@YIXPAUHWND__@@@Z": 6059376,
     "_$E2": 6825472,
     "_$E5": 6825504,
     "_$E8": 6825552,
@@ -141,7 +192,7 @@
           "resolved": 11259292
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825472,
@@ -209,7 +260,7 @@
           "resolved": 11259304
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825504,
@@ -261,7 +312,7 @@
           "resolved": 11259376
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825552,
@@ -313,7 +364,7 @@
           "resolved": 11259360
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825584,
@@ -365,7 +416,7 @@
           "resolved": 11259352
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825616,
@@ -417,7 +468,7 @@
           "resolved": 11259312
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825648,
@@ -469,7 +520,7 @@
           "resolved": 11259272
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825680,
@@ -553,7 +604,7 @@
           "resolved": 11259384
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825712,
@@ -613,7 +664,7 @@
           "resolved": 11259320
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825776,
@@ -673,7 +724,7 @@
           "resolved": 11259344
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825824,
@@ -733,7 +784,7 @@
           "resolved": 11259368
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825872,
@@ -777,7 +828,7 @@
           "resolved": 11259298
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825920,
@@ -829,7 +880,7 @@
           "resolved": 11259336
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825936,
@@ -856,7 +907,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6825968,
@@ -883,7 +934,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6826064,
@@ -1007,7 +1058,7 @@
           "resolved": 488866
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6826160,
@@ -1051,7 +1102,7 @@
           "resolved": 7971972
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6826288,
@@ -1087,10 +1138,306 @@
           "resolved": 7971972
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6829744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6829808,
+      "method": "006836f0",
+      "body_bytes": 556,
+      "body_sha256": "cac3cc17e62427027a4f54c2256a22e76afcce95b289e161161f7e7fff08fcbd",
+      "padding_bytes": 4,
+      "full_extent_bytes": 560,
+      "full_extent_sha256": "50d72e0e0592386f7f92365c2adb7b250789be521ebf29327de18fc8eebb3d31",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Skirmish_Show_Players@@YIXPAUHWND__@@HH@Z",
+      "symbol_prefix": "?Skirmish_Show_Players@@YIXPAUHWND__@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "?Player_Control_ID@@YIHH@Z",
+          "target": 5050080,
+          "addend": 0,
+          "resolved": 4293187432
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "?Player_Color_Combo_ID@@YIHH@Z",
+          "target": 5053616,
+          "addend": 0,
+          "resolved": 4293190957
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?Player_Side_Combo_ID@@YIHH@Z",
+          "target": 5051216,
+          "addend": 0,
+          "resolved": 4293188546
+        },
+        {
+          "offset": 215,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 241,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 369,
+          "kind": 20,
+          "symbol": "?Player_Color_Combo_ID@@YIHH@Z",
+          "target": 5053616,
+          "addend": 0,
+          "resolved": 4293190731
+        },
+        {
+          "offset": 382,
+          "kind": 20,
+          "symbol": "?Player_Side_Combo_ID@@YIHH@Z",
+          "target": 5051216,
+          "addend": 0,
+          "resolved": 4293188318
+        },
+        {
+          "offset": 403,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        },
+        {
+          "offset": 451,
+          "kind": 20,
+          "symbol": "?Select_Color_Combo@@YIXPAUHWND__@@HH@Z",
+          "target": 5055616,
+          "addend": 0,
+          "resolved": 4293192649
+        },
+        {
+          "offset": 464,
+          "kind": 20,
+          "symbol": "?Select_Side_Combo@@YIXPAUHWND__@@HH@Z",
+          "target": 5053072,
+          "addend": 0,
+          "resolved": 4293190092
+        },
+        {
+          "offset": 510,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        },
+        {
+          "offset": 522,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        }
+      ],
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
+      "source": "rebuild/src/skirmish.cpp",
+      "population": "rebuild-skirmish",
+      "source_order": 6829808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6830368,
+      "method": "00683920",
+      "body_bytes": 712,
+      "body_sha256": "552fc22fdd5f3980381a8cf2f25ef4d47a3a06f17f48e907d6e84d479515da8c",
+      "padding_bytes": 8,
+      "full_extent_bytes": 720,
+      "full_extent_sha256": "a8f2114da32d8ca7e5617f287a0c55b1a9933a9fd551cc8074fdaebbc1342f74",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Skirmish_Hide_Players@@YIXPAUHWND__@@H@Z",
+      "symbol_prefix": "?Skirmish_Hide_Players@@YIXPAUHWND__@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        },
+        {
+          "offset": 303,
+          "kind": 20,
+          "symbol": "?Player_Color_Combo_ID@@YIHH@Z",
+          "target": 5053616,
+          "addend": 0,
+          "resolved": 4293190237
+        },
+        {
+          "offset": 312,
+          "kind": 20,
+          "symbol": "?Player_Side_Combo_ID@@YIHH@Z",
+          "target": 5051216,
+          "addend": 0,
+          "resolved": 4293187828
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        },
+        {
+          "offset": 381,
+          "kind": 20,
+          "symbol": "?Select_Color_Combo@@YIXPAUHWND__@@HH@Z",
+          "target": 5055616,
+          "addend": 0,
+          "resolved": 4293192159
+        },
+        {
+          "offset": 392,
+          "kind": 20,
+          "symbol": "?Select_Side_Combo@@YIXPAUHWND__@@HH@Z",
+          "target": 5053072,
+          "addend": 0,
+          "resolved": 4293189604
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 428,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        },
+        {
+          "offset": 472,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 582,
+          "kind": 20,
+          "symbol": "?Player_Control_ID@@YIHH@Z",
+          "target": 5050080,
+          "addend": 0,
+          "resolved": 4293186422
+        },
+        {
+          "offset": 593,
+          "kind": 20,
+          "symbol": "?Player_Side_Combo_ID@@YIHH@Z",
+          "target": 5051216,
+          "addend": 0,
+          "resolved": 4293187547
+        },
+        {
+          "offset": 604,
+          "kind": 20,
+          "symbol": "?Player_Color_Combo_ID@@YIHH@Z",
+          "target": 5053616,
+          "addend": 0,
+          "resolved": 4293189936
+        },
+        {
+          "offset": 615,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        }
+      ],
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
+      "source": "rebuild/src/skirmish.cpp",
+      "population": "rebuild-skirmish",
+      "source_order": 6830368,
       "source_quality_family": "rebuild"
     },
     {
@@ -1323,10 +1670,1258 @@
           "resolved": 4293467318
         }
       ],
-      "source_sha256": "dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1",
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
       "source": "rebuild/src/skirmish.cpp",
       "population": "rebuild-skirmish",
       "source_order": 6831088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6831376,
+      "method": "00683d10",
+      "body_bytes": 678,
+      "body_sha256": "26ab0486bdfb658248f80dbb5a8eabf4fccc74bcb668834aa781a261eba48cc3",
+      "padding_bytes": 10,
+      "full_extent_bytes": 688,
+      "full_extent_sha256": "591c85580eefbe87101b65c62c8561256dedf4d510f0e448ede3feefcb06b207",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Skirmish_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Skirmish_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z",
+          "target": 6290176,
+          "addend": 0,
+          "resolved": 4294426065
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "?Skirmish_On_WM_COMMAND@@YIXPAUHWND__@@H0H@Z",
+          "target": 6826480,
+          "addend": 0,
+          "resolved": 4294962312
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?MultiplayerMapPreview@@3PAVMapPreviewClass@@A",
+          "target": 10956008,
+          "addend": 0,
+          "resolved": 10956008
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?Is_Control_Disabled@OwnerDraw@@YI_NPAUHWND__@@@Z",
+          "target": 6178592,
+          "addend": 0,
+          "resolved": 4294314384
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?MultiplayerMapPreview@@3PAVMapPreviewClass@@A",
+          "target": 10956008,
+          "addend": 0,
+          "resolved": 10956008
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "?Blit_Preview@MapPreviewClass@@QAEXPAUHWND__@@@Z",
+          "target": 6411360,
+          "addend": 0,
+          "resolved": 4294547136
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "__imp__ValidateRect@8",
+          "target": 7971832,
+          "addend": 0,
+          "resolved": 7971832
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?Skirmish_On_WM_INITDIALOG@@YIHPAUHWND__@@IJ@Z",
+          "target": 6832064,
+          "addend": 0,
+          "resolved": 516
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@PBG@Z",
+          "target": 7797616,
+          "addend": 0,
+          "resolved": 966032
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "__imp__GetDlgCtrlID@4",
+          "target": 7971828,
+          "addend": 0,
+          "resolved": 7971828
+        },
+        {
+          "offset": 316,
+          "kind": 20,
+          "symbol": "?Side_Combo_Player@@YIHH@Z",
+          "target": 5051312,
+          "addend": 0,
+          "resolved": 4293186912
+        },
+        {
+          "offset": 328,
+          "kind": 20,
+          "symbol": "?Color_Combo_Player@@YIHH@Z",
+          "target": 5053712,
+          "addend": 0,
+          "resolved": 4293189300
+        },
+        {
+          "offset": 350,
+          "kind": 20,
+          "symbol": "?Color_Combo_Data@@YIHPAUHWND__@@HH@Z",
+          "target": 5056768,
+          "addend": 0,
+          "resolved": 4293192334
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "?Color_Name@@YIPBGH@Z",
+          "target": 5053824,
+          "addend": 0,
+          "resolved": 4293189383
+        },
+        {
+          "offset": 365,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@PBG@Z",
+          "target": 7797616,
+          "addend": 0,
+          "resolved": 965871
+        },
+        {
+          "offset": 390,
+          "kind": 20,
+          "symbol": "?Side_Combo_Data@@YIHPAUHWND__@@HH@Z",
+          "target": 5053552,
+          "addend": 0,
+          "resolved": 4293189078
+        },
+        {
+          "offset": 406,
+          "kind": 20,
+          "symbol": "?Side_Name@@YIPBGH@Z",
+          "target": 5051424,
+          "addend": 0,
+          "resolved": 4293186934
+        },
+        {
+          "offset": 414,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@PBG@Z",
+          "target": 7797616,
+          "addend": 0,
+          "resolved": 965822
+        },
+        {
+          "offset": 435,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        },
+        {
+          "offset": 480,
+          "kind": 6,
+          "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+          "target": 8339412,
+          "addend": 0,
+          "resolved": 8339412
+        },
+        {
+          "offset": 487,
+          "kind": 6,
+          "symbol": "??_C@_0P@IOHO@STT?3PlayerNone?$AA@",
+          "target": 8339396,
+          "addend": 0,
+          "resolved": 8339396
+        },
+        {
+          "offset": 492,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 483264
+        },
+        {
+          "offset": 500,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@PBG@Z",
+          "target": 7797616,
+          "addend": 0,
+          "resolved": 965736
+        },
+        {
+          "offset": 527,
+          "kind": 6,
+          "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+          "target": 8339412,
+          "addend": 0,
+          "resolved": 8339412
+        },
+        {
+          "offset": 534,
+          "kind": 6,
+          "symbol": "??_C@_0BB@FAHH@STT?3PlayerDumbAI?$AA@",
+          "target": 8287096,
+          "addend": 0,
+          "resolved": 8287096
+        },
+        {
+          "offset": 539,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 483217
+        },
+        {
+          "offset": 547,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@PBG@Z",
+          "target": 7797616,
+          "addend": 0,
+          "resolved": 965689
+        },
+        {
+          "offset": 574,
+          "kind": 6,
+          "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+          "target": 8339412,
+          "addend": 0,
+          "resolved": 8339412
+        },
+        {
+          "offset": 581,
+          "kind": 6,
+          "symbol": "??_C@_0BC@LDDH@STT?3PlayerSmartAI?$AA@",
+          "target": 8287076,
+          "addend": 0,
+          "resolved": 8287076
+        },
+        {
+          "offset": 586,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 483170
+        },
+        {
+          "offset": 594,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@PBG@Z",
+          "target": 7797616,
+          "addend": 0,
+          "resolved": 965642
+        },
+        {
+          "offset": 620,
+          "kind": 6,
+          "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+          "target": 8339412,
+          "addend": 0,
+          "resolved": 8339412
+        },
+        {
+          "offset": 627,
+          "kind": 6,
+          "symbol": "??_C@_0BD@PLEH@STT?3PlayerGeniusAI?$AA@",
+          "target": 8287056,
+          "addend": 0,
+          "resolved": 8287056
+        },
+        {
+          "offset": 632,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 483124
+        },
+        {
+          "offset": 640,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@PBG@Z",
+          "target": 7797616,
+          "addend": 0,
+          "resolved": 965596
+        },
+        {
+          "offset": 662,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@PBG@Z",
+          "target": 7797616,
+          "addend": 0,
+          "resolved": 965574
+        }
+      ],
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
+      "source": "rebuild/src/skirmish.cpp",
+      "population": "rebuild-skirmish",
+      "source_order": 6831376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6832064,
+      "method": "00683fc0",
+      "body_bytes": 1792,
+      "body_sha256": "e546676518e0aafab4bc617061a487d43046b365253d62e2e3b12189411fddf4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 1792,
+      "full_extent_sha256": "e546676518e0aafab4bc617061a487d43046b365253d62e2e3b12189411fddf4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Skirmish_On_WM_INITDIALOG@@YIHPAUHWND__@@IJ@Z",
+      "symbol_prefix": "?Skirmish_On_WM_INITDIALOG@@YIHPAUHWND__@@IJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 24,
+          "resolved": 10736304
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?Reset_AI@GameOptionsType@@QAEXXZ",
+          "target": 6760464,
+          "addend": 0,
+          "resolved": 4294895678
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 264,
+          "resolved": 10736544
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Narrow_To_Wide@@YIPAGPBD@Z",
+          "target": 7315840,
+          "addend": 0,
+          "resolved": 483712
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "??_C@_08DOEP@GUI?3None?$AA@",
+          "target": 8339464,
+          "addend": 0,
+          "resolved": 8339464
+        },
+        {
+          "offset": 215,
+          "kind": 6,
+          "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+          "target": 8339412,
+          "addend": 0,
+          "resolved": 8339412
+        },
+        {
+          "offset": 220,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 482848
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "??_C@_0L@JIHB@GUI?3AIEasy?$AA@",
+          "target": 8286932,
+          "addend": 0,
+          "resolved": 8286932
+        },
+        {
+          "offset": 259,
+          "kind": 6,
+          "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+          "target": 8339412,
+          "addend": 0,
+          "resolved": 8339412
+        },
+        {
+          "offset": 264,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 482804
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "??_C@_0N@GOPO@GUI?3AINormal?$AA@",
+          "target": 8286916,
+          "addend": 0,
+          "resolved": 8286916
+        },
+        {
+          "offset": 303,
+          "kind": 6,
+          "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+          "target": 8339412,
+          "addend": 0,
+          "resolved": 8339412
+        },
+        {
+          "offset": 308,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 482760
+        },
+        {
+          "offset": 337,
+          "kind": 6,
+          "symbol": "??_C@_0L@OJFC@GUI?3AIHard?$AA@",
+          "target": 8286904,
+          "addend": 0,
+          "resolved": 8286904
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "??_C@_0BE@OMOF@D?3?2Ra2?2Skirmish?4cpp?$AA@",
+          "target": 8339412,
+          "addend": 0,
+          "resolved": 8339412
+        },
+        {
+          "offset": 352,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 482716
+        },
+        {
+          "offset": 403,
+          "kind": 20,
+          "symbol": "?Fill_Side_Combos@@YIXPAUHWND__@@@Z",
+          "target": 5052112,
+          "addend": 0,
+          "resolved": 4293186937
+        },
+        {
+          "offset": 408,
+          "kind": 20,
+          "symbol": "?Init_Color_Entries@@YIXXZ",
+          "target": 5054112,
+          "addend": 0,
+          "resolved": 4293188932
+        },
+        {
+          "offset": 415,
+          "kind": 20,
+          "symbol": "?Fill_Color_Combos@@YIXPAUHWND__@@@Z",
+          "target": 5055232,
+          "addend": 0,
+          "resolved": 4293190045
+        },
+        {
+          "offset": 424,
+          "kind": 20,
+          "symbol": "?Select_Player_Side@@YIXPAUHWND__@@H@Z",
+          "target": 5052448,
+          "addend": 0,
+          "resolved": 4293187252
+        },
+        {
+          "offset": 433,
+          "kind": 20,
+          "symbol": "?Select_Player_Color@@YIXPAUHWND__@@H@Z",
+          "target": 5055424,
+          "addend": 0,
+          "resolved": 4293190219
+        },
+        {
+          "offset": 443,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 360,
+          "resolved": 10736640
+        },
+        {
+          "offset": 624,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        },
+        {
+          "offset": 648,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        },
+        {
+          "offset": 681,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        },
+        {
+          "offset": 699,
+          "kind": 20,
+          "symbol": "?Player_Side_Combo_ID@@YIHH@Z",
+          "target": 5051216,
+          "addend": 0,
+          "resolved": 4293185745
+        },
+        {
+          "offset": 708,
+          "kind": 20,
+          "symbol": "?Player_Color_Combo_ID@@YIHH@Z",
+          "target": 5053616,
+          "addend": 0,
+          "resolved": 4293188136
+        },
+        {
+          "offset": 730,
+          "kind": 20,
+          "symbol": "?Select_Side_Combo@@YIXPAUHWND__@@HH@Z",
+          "target": 5053072,
+          "addend": 0,
+          "resolved": 4293187570
+        },
+        {
+          "offset": 741,
+          "kind": 20,
+          "symbol": "?Select_Color_Combo@@YIXPAUHWND__@@HH@Z",
+          "target": 5055616,
+          "addend": 0,
+          "resolved": 4293190103
+        },
+        {
+          "offset": 749,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 759,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 770,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        },
+        {
+          "offset": 795,
+          "kind": 20,
+          "symbol": "?Select_Side_Combo@@YIXPAUHWND__@@HH@Z",
+          "target": 5053072,
+          "addend": 0,
+          "resolved": 4293187505
+        },
+        {
+          "offset": 812,
+          "kind": 20,
+          "symbol": "?Select_Color_Combo@@YIXPAUHWND__@@HH@Z",
+          "target": 5055616,
+          "addend": 0,
+          "resolved": 4293190032
+        },
+        {
+          "offset": 846,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 316,
+          "resolved": 10736596
+        },
+        {
+          "offset": 855,
+          "kind": 20,
+          "symbol": "?GetModeCount@MultiplayerGameMode@@SAHXZ",
+          "target": 5992320,
+          "addend": 0,
+          "resolved": 4294126693
+        },
+        {
+          "offset": 861,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 316,
+          "resolved": 10736596
+        },
+        {
+          "offset": 870,
+          "kind": 20,
+          "symbol": "?First_Game_Mode@@YIPAVMultiplayerGameMode@@XZ",
+          "target": 5992128,
+          "addend": 0,
+          "resolved": 4294126486
+        },
+        {
+          "offset": 879,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 316,
+          "resolved": 10736596
+        },
+        {
+          "offset": 885,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 24,
+          "resolved": 10736304
+        },
+        {
+          "offset": 890,
+          "kind": 20,
+          "symbol": "?Get_Current_Game_Mode@@YIPAVMultiplayerGameMode@@XZ",
+          "target": 6042832,
+          "addend": 0,
+          "resolved": 4294177170
+        },
+        {
+          "offset": 900,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 316,
+          "resolved": 10736596
+        },
+        {
+          "offset": 909,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 24,
+          "resolved": 10736304
+        },
+        {
+          "offset": 915,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 320,
+          "resolved": 10736600
+        },
+        {
+          "offset": 925,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 1616,
+          "resolved": 10737896
+        },
+        {
+          "offset": 935,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 320,
+          "resolved": 10736600
+        },
+        {
+          "offset": 940,
+          "kind": 20,
+          "symbol": "?Set_Scenario_Info_From_Index@@YI_NH@Z",
+          "target": 6061104,
+          "addend": 0,
+          "resolved": 4294195392
+        },
+        {
+          "offset": 946,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 320,
+          "resolved": 10736600
+        },
+        {
+          "offset": 952,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 1604,
+          "resolved": 10737884
+        },
+        {
+          "offset": 965,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 28,
+          "resolved": 10736308
+        },
+        {
+          "offset": 978,
+          "kind": 20,
+          "symbol": "?IsMapAllowed@MultiplayerGameMode@@QAE_NPBVMultiMission@@@Z",
+          "target": 5993584,
+          "addend": 0,
+          "resolved": 4294127834
+        },
+        {
+          "offset": 999,
+          "kind": 20,
+          "symbol": "?First_Game_Mode@@YIPAVMultiplayerGameMode@@XZ",
+          "target": 5992128,
+          "addend": 0,
+          "resolved": 4294126357
+        },
+        {
+          "offset": 1010,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 316,
+          "resolved": 10736596
+        },
+        {
+          "offset": 1019,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 24,
+          "resolved": 10736304
+        },
+        {
+          "offset": 1032,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 1604,
+          "resolved": 10737884
+        },
+        {
+          "offset": 1040,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 320,
+          "resolved": 10736600
+        },
+        {
+          "offset": 1049,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 28,
+          "resolved": 10736308
+        },
+        {
+          "offset": 1055,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 28,
+          "resolved": 10736308
+        },
+        {
+          "offset": 1062,
+          "kind": 20,
+          "symbol": "?RandomMapWaypointCount@@YIHH@Z",
+          "target": 6055424,
+          "addend": 0,
+          "resolved": 4294189590
+        },
+        {
+          "offset": 1083,
+          "kind": 20,
+          "symbol": "?Skirmish_Hide_Players@@YIXPAUHWND__@@H@Z",
+          "target": 6830368,
+          "addend": 0,
+          "resolved": 4294964513
+        },
+        {
+          "offset": 1101,
+          "kind": 20,
+          "symbol": "?Skirmish_Show_Players@@YIXPAUHWND__@@HH@Z",
+          "target": 6829808,
+          "addend": 0,
+          "resolved": 4294963935
+        },
+        {
+          "offset": 1125,
+          "kind": 20,
+          "symbol": "?Skirmish_Show_Players@@YIXPAUHWND__@@HH@Z",
+          "target": 6829808,
+          "addend": 0,
+          "resolved": 4294963911
+        },
+        {
+          "offset": 1138,
+          "kind": 20,
+          "symbol": "?Skirmish_Hide_Players@@YIXPAUHWND__@@H@Z",
+          "target": 6830368,
+          "addend": 0,
+          "resolved": 4294964458
+        },
+        {
+          "offset": 1144,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 4,
+          "resolved": 10736284
+        },
+        {
+          "offset": 1160,
+          "kind": 20,
+          "symbol": "?Set_Item_Text@@YIXPAUHWND__@@PAVMultiplayerGameMode@@@Z",
+          "target": 6042704,
+          "addend": 0,
+          "resolved": 4294176772
+        },
+        {
+          "offset": 1167,
+          "kind": 20,
+          "symbol": "?Set_Skirmish_Dialog_Text@@YIXPAUHWND__@@@Z",
+          "target": 6042800,
+          "addend": 0,
+          "resolved": 4294176861
+        },
+        {
+          "offset": 1172,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10212,
+          "resolved": 10746492
+        },
+        {
+          "offset": 1177,
+          "kind": 20,
+          "symbol": "?Clear_Vector@@YIXPAV?$DynamicVectorClass@PAUNodeNameType@@@@@Z",
+          "target": 5928064,
+          "addend": 0,
+          "resolved": 4294062115
+        },
+        {
+          "offset": 1182,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 324,
+          "resolved": 10736604
+        },
+        {
+          "offset": 1188,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 328,
+          "resolved": 10736608
+        },
+        {
+          "offset": 1194,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 332,
+          "resolved": 10736612
+        },
+        {
+          "offset": 1205,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 48,
+          "resolved": 10736328
+        },
+        {
+          "offset": 1211,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 36,
+          "resolved": 10736316
+        },
+        {
+          "offset": 1217,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 56,
+          "resolved": 10736336
+        },
+        {
+          "offset": 1223,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 1235,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 48,
+          "resolved": 10736328
+        },
+        {
+          "offset": 1280,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 1291,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1330,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 36,
+          "resolved": 10736316
+        },
+        {
+          "offset": 1347,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1370,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 1389,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1428,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 56,
+          "resolved": 10736336
+        },
+        {
+          "offset": 1445,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 336,
+          "resolved": 10736616
+        },
+        {
+          "offset": 1451,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 337,
+          "resolved": 10736617
+        },
+        {
+          "offset": 1456,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 338,
+          "resolved": 10736618
+        },
+        {
+          "offset": 1462,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 42,
+          "resolved": 10736322
+        },
+        {
+          "offset": 1468,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 339,
+          "resolved": 10736619
+        },
+        {
+          "offset": 1474,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 43,
+          "resolved": 10736323
+        },
+        {
+          "offset": 1480,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 340,
+          "resolved": 10736620
+        },
+        {
+          "offset": 1491,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 44,
+          "resolved": 10736324
+        },
+        {
+          "offset": 1497,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 168,
+          "resolved": 10736448
+        },
+        {
+          "offset": 1503,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 41,
+          "resolved": 10736321
+        },
+        {
+          "offset": 1515,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 42,
+          "resolved": 10736322
+        },
+        {
+          "offset": 1551,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 43,
+          "resolved": 10736323
+        },
+        {
+          "offset": 1587,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 44,
+          "resolved": 10736324
+        },
+        {
+          "offset": 1623,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 168,
+          "resolved": 10736448
+        },
+        {
+          "offset": 1660,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 41,
+          "resolved": 10736321
+        },
+        {
+          "offset": 1687,
+          "kind": 20,
+          "symbol": "?Is_Random_Map@MultiMission@@QBE_NXZ",
+          "target": 6758592,
+          "addend": 0,
+          "resolved": 4294892133
+        },
+        {
+          "offset": 1697,
+          "kind": 6,
+          "symbol": "?MultiplayerMapPreview@@3PAVMapPreviewClass@@A",
+          "target": 10956008,
+          "addend": 0,
+          "resolved": 10956008
+        },
+        {
+          "offset": 1708,
+          "kind": 20,
+          "symbol": "??1MapPreviewClass@@QAE@XZ",
+          "target": 6411328,
+          "addend": 0,
+          "resolved": 4294544848
+        },
+        {
+          "offset": 1714,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1038021
+        },
+        {
+          "offset": 1724,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1038743
+        },
+        {
+          "offset": 1738,
+          "kind": 20,
+          "symbol": "??0MapPreviewClass@@QAE@XZ",
+          "target": 6411312,
+          "addend": 0,
+          "resolved": 4294544802
+        },
+        {
+          "offset": 1747,
+          "kind": 6,
+          "symbol": "??_C@_0M@EOLM@RandMap?4img?$AA@",
+          "target": 8262976,
+          "addend": 0,
+          "resolved": 8262976
+        },
+        {
+          "offset": 1754,
+          "kind": 6,
+          "symbol": "?MultiplayerMapPreview@@3PAVMapPreviewClass@@A",
+          "target": 10956008,
+          "addend": 0,
+          "resolved": 10956008
+        },
+        {
+          "offset": 1759,
+          "kind": 20,
+          "symbol": "?Read_PCX_Preview@MapPreviewClass@@QAE_NPBD@Z",
+          "target": 6414704,
+          "addend": 0,
+          "resolved": 4294548173
+        },
+        {
+          "offset": 1765,
+          "kind": 6,
+          "symbol": "?MultiplayerMapPreview@@3PAVMapPreviewClass@@A",
+          "target": 10956008,
+          "addend": 0,
+          "resolved": 10956008
+        },
+        {
+          "offset": 1777,
+          "kind": 20,
+          "symbol": "?Update_Network_Dialog_Preview@@YIXPAUHWND__@@@Z",
+          "target": 6059376,
+          "addend": 0,
+          "resolved": 4294192827
+        }
+      ],
+      "source_sha256": "80908c3ea9ff9ce0448c0b013bc2734e160eb65d89ab1074294ce9dcc6166449",
+      "source": "rebuild/src/skirmish.cpp",
+      "population": "rebuild-skirmish",
+      "source_order": 6832064,
       "source_quality_family": "rebuild"
     }
   ]

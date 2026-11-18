@@ -36,10 +36,19 @@
     "_BRIDGE_LEPTON_HEIGHT": 11232976,
     "_CELL_NONE": 11232904,
     "_COORD_NONE": 11232936,
+    "??2@YAPAXI@Z": 7872535,
+    "??0TeamClass@@QAE@PBVTeamTypeClass@@PAVHouseClass@@PAX@Z": 7042096,
+    "?Has_Air_Transport@TeamClass@@QBE_NXZ": 7067664,
+    "?ScenarioInit@@3HA": 10749812,
+    "?Increase_Amount@StorageClass@@QAEMMH@Z": 6925904,
+    "?Set_Elite@VeterancyClass@@QAEX_N@Z": 7419216,
+    "?Set_Veteran@VeterancyClass@@QAEX_N@Z": 7419168,
+    "?Set_Dumbass@VeterancyClass@@QAEX_N@Z": 7419104,
+    "?Add@TeamClass@@QAE_NPAVFootClass@@@Z": 7048384,
+    "?Attach@CargoClass@@QAEXPAVFootClass@@@Z": 4622688,
     "_CLSID_TunnelLocomotion": 8003472,
     "?Map@@3VMouseClass@@A": 8594656,
     "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z": 5571296,
-    "?ScenarioInit@@3HA": 10749812,
     "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
     "?_com_issue_error@@YGXJ@Z": 7952704,
     "?RevealArea3@MapClass@@QAEXABVCoord@@HHH@Z": 5547344,
@@ -49,7 +58,6 @@
     "?AircraftTypes@@3V?$DynamicVectorClass@PAVAircraftTypeClass@@@@A": 10736248,
     "?Calculated_Cell@DisplayClass@@QBE?AVCell@@W4SourceType@@ABV2@1W4SpeedType@@_NW4MZoneType@@@Z": 4826880,
     "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A": 10748752,
-    "?Attach@CargoClass@@QAEXPAVFootClass@@@Z": 4622688,
     "_$E2": 6526832,
     "_$E5": 6526864,
     "_$E8": 6526912,
@@ -65,6 +73,7 @@
     "_$E38": 6527296,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "?_Create_Group@@YIPAVFootClass@@PBVTeamTypeClass@@@Z": 6528416,
     "?Create_Reinforcement@@YI_NPBVTeamTypeClass@@PAVFootClass@@ABVCell@@_N@Z": 6529104,
     "?Reinforcement_Refused@@YG_NHHH@Z": 6530688,
     "?Create_Air_Reinforcement@@YIHPAVHouseClass@@W4AircraftType@@HW4MissionType@@PAVAbstractClass@@3W4InfantryType@@H@Z": 6530704,
@@ -76,7 +85,6 @@
     "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
     "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
-    "??2@YAPAXI@Z": 7872535,
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
@@ -136,7 +144,7 @@
           "resolved": 11232900
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526832,
@@ -204,7 +212,7 @@
           "resolved": 11232912
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526864,
@@ -256,7 +264,7 @@
           "resolved": 11232984
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526912,
@@ -308,7 +316,7 @@
           "resolved": 11232968
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526944,
@@ -360,7 +368,7 @@
           "resolved": 11232960
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6526976,
@@ -412,7 +420,7 @@
           "resolved": 11232920
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527008,
@@ -464,7 +472,7 @@
           "resolved": 11232880
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527040,
@@ -548,7 +556,7 @@
           "resolved": 11232992
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527072,
@@ -608,7 +616,7 @@
           "resolved": 11232928
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527136,
@@ -668,7 +676,7 @@
           "resolved": 11232952
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527184,
@@ -728,7 +736,7 @@
           "resolved": 11232976
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527232,
@@ -772,7 +780,7 @@
           "resolved": 11232906
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527280,
@@ -824,10 +832,174 @@
           "resolved": 11232944
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6527296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6528416,
+      "method": "00639da0",
+      "body_bytes": 682,
+      "body_sha256": "c969ba2b250045937cbcd5d47ca740a90d2ffa499dfa30fa401619853ca0a5c8",
+      "padding_bytes": 6,
+      "full_extent_bytes": 688,
+      "full_extent_sha256": "6d6523ac289eb64b39ba4fb71f5d1c711be78dbb68584b3fd382d666a7740900",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?_Create_Group@@YIPAVFootClass@@PBVTeamTypeClass@@@Z",
+      "symbol_prefix": "?_Create_Group@@YIPAVFootClass@@PBVTeamTypeClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1344100
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??0TeamClass@@QAE@PBVTeamTypeClass@@PAVHouseClass@@PAX@Z",
+          "target": 7042096,
+          "addend": 0,
+          "resolved": 513637
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "?Has_Air_Transport@TeamClass@@QBE_NXZ",
+          "target": 7067664,
+          "addend": 0,
+          "resolved": 539109
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 238,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 300,
+          "kind": 20,
+          "symbol": "?Increase_Amount@StorageClass@@QAEMMH@Z",
+          "target": 6925904,
+          "addend": 0,
+          "resolved": 397184
+        },
+        {
+          "offset": 334,
+          "kind": 20,
+          "symbol": "?Set_Elite@VeterancyClass@@QAEX_N@Z",
+          "target": 7419216,
+          "addend": 0,
+          "resolved": 890462
+        },
+        {
+          "offset": 349,
+          "kind": 20,
+          "symbol": "?Set_Veteran@VeterancyClass@@QAEX_N@Z",
+          "target": 7419168,
+          "addend": 0,
+          "resolved": 890399
+        },
+        {
+          "offset": 364,
+          "kind": 20,
+          "symbol": "?Set_Dumbass@VeterancyClass@@QAEX_N@Z",
+          "target": 7419104,
+          "addend": 0,
+          "resolved": 890320
+        },
+        {
+          "offset": 377,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 389,
+          "kind": 20,
+          "symbol": "?Add@TeamClass@@QAE_NPAVFootClass@@@Z",
+          "target": 7048384,
+          "addend": 0,
+          "resolved": 519575
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 557,
+          "kind": 20,
+          "symbol": "?Attach@CargoClass@@QAEXPAVFootClass@@@Z",
+          "target": 4622688,
+          "addend": 0,
+          "resolved": 4293061007
+        }
+      ],
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
+      "source": "rebuild/src/reinf.cpp",
+      "population": "rebuild-reinf",
+      "source_order": 6528416,
       "source_quality_family": "rebuild"
     },
     {
@@ -1196,7 +1368,7 @@
           "resolved": 10749812
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6529104,
@@ -1223,7 +1395,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6530688,
@@ -1372,7 +1544,7 @@
           "resolved": 4293058875
         }
       ],
-      "source_sha256": "b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9",
+      "source_sha256": "3c6c5e598dd54650d038e9a0479ea9dfbe14b3a32697a89d3890bf328a1c63f1",
       "source": "rebuild/src/reinf.cpp",
       "population": "rebuild-reinf",
       "source_order": 6530704,

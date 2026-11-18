@@ -1249,7 +1249,7 @@ void WideWstring::removeSpaces(void) // RA2: as above
 /// <summary>
 /// RA2: Removes the leading characters found in delim.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 8 bytes differ (the string and the delimiter take each other's registers, as in trimTrailing)
 void WideWstring::trimLeading(WideWstring const& delim) // RA2: as above
 {
 	unsigned int i = 0; // RA2: the index is unsigned (unsigned compares in the executable)

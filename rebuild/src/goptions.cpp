@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -52,6 +53,7 @@
 
 #include "special.hh"
 
+#include "_timer.h" // RA2: the anti-cheat timers
 #include "house.h" // RA2: the live human count
 #include "stringtable.h" // RA2: button captions
 
@@ -64,12 +66,284 @@
 #define IDC_GOPTIONS_LEAVE		1737	// RA2: Leave / Observe
 #define IDC_GOPTIONS_RESTART	1810	// RA2: Restart / Observe
 #define IDC_GOPTIONS_RESUME		1670	// RA2: Resume
+#define IDD_OPT_CTRL_WOL_SLIDERS	255		// RA2: the online options dialog with the latency and speed sliders
 
 static int LeaveResult; // RA2: what the Leave button returns (0xA40E1C)
 static int RestartResult; // RA2: what the Restart button returns (0xA40E20)
 
 
+void Game_Options_On_INITDIALOG(HWND window);
+BOOL CALLBACK Game_Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 BOOL CALLBACK Abort_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: defined after the dialog
+
+
+/// <summary>
+/// Displays the in game options dialog.
+/// This routine is used by the special dialog handler when the player calls up the options
+/// screen. Which dialog appears depends on the kind of game in progress. If the player asked
+/// for the mission briefing it is restated on the way out.
+/// </summary>
+void Game_Options_Dialog(void)
+{
+	int rc = 0;
+
+	HWND dialog;
+	if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
+		dialog = OwnerDraw::Begin_Dialog(IDD_OPT_CTRL_SP, Game_Options_Dialog_Proc, 0);
+	} else if (Session.Type == GAME_INTERNET) {
+		if (MuteSWLaunches) {
+			dialog = OwnerDraw::Begin_Dialog(IDD_OPT_CTRL_MP, Game_Options_Dialog_Proc, 0);
+		} else {
+			dialog = OwnerDraw::Begin_Dialog(IDD_OPT_CTRL_WOL_SLIDERS, Game_Options_Dialog_Proc, 0);
+		}
+	} else {
+		dialog = OwnerDraw::Begin_Dialog(IDD_OPT_CTRL_MP, Game_Options_Dialog_Proc, 0);
+	}
+
+	if (dialog) {
+		SetWindowLong(dialog, DWL_USER, (LONG)&rc);
+		OwnerDraw::Display_Dialog(dialog);
+		while (rc == 0) {
+			if (OwnerDraw::Dialog_Message_Handler() == true) {
+				rc = IDOK;
+			}
+		}
+		OwnerDraw::End_Dialog(dialog);
+	}
+
+	if (rc == IDC_BRIEFING) {
+		Restate_Mission(Scen);
+	}
+
+	Map.Flag_To_Redraw(GS_REDRAW_ALL);
+}
+
+
+/// <summary>
+/// Services the option buttons of the in game options dialog: save, load, delete,
+/// briefing, settings, abort and resume. In an internet game a change of the latency or
+/// game speed slider is sent as an event when the dialog is resumed, at most once every
+/// fifteen seconds each so that it cannot be used to cheat.
+/// </summary>
+static BOOL Game_Options_On_COMMAND(HWND window, WPARAM wparam)
+{
+	HWND handle;
+
+	int code = HIWORD(wparam);
+	int * retval = (int *)GetWindowLong(window, DWL_USER);
+
+	static CDTimerClass<SystemTimerClass> SpeedTimer;
+	static CDTimerClass<SystemTimerClass> LatencyTimer;
+
+	switch (LOWORD(wparam)) {
+
+		case IDC_DELETE_GAME:
+			if (!code) {
+				ShowWindow(window, SW_HIDE);
+				LoadOptionsClass().Delete();
+				Game_Options_On_INITDIALOG(window);
+				ShowWindow(window, SW_SHOW);
+				UpdateWindow(window);
+			}
+			break;
+
+		case IDC_SAVE_GAME:
+			if (!code) {
+				if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
+					ShowWindow(window, SW_HIDE);
+					wchar_t description[512];
+					swprintf(description, L"%s", Scen->Description);
+					LoadOptionsClass().Save(description);
+					Game_Options_On_INITDIALOG(window);
+					ShowWindow(window, SW_SHOW);
+					UpdateWindow(window);
+				} else {
+					OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::SAVEGAME));
+					*retval = IDC_SAVE_GAME;
+				}
+			}
+			break;
+
+		case IDC_LOAD_GAME:
+			if (!code) {
+				ShowWindow(window, SW_HIDE);
+				if (LoadOptionsClass().Load()) {
+					*retval = IDC_LOAD_GAME;
+				} else {
+					ShowWindow(window, SW_SHOW);
+					UpdateWindow(window);
+				}
+			}
+			break;
+
+		case IDC_BRIEFING:
+			if (!code) {
+				*retval = IDC_BRIEFING;
+			}
+			break;
+
+		case IDC_GAME_CONTROLS:
+			if (!code) {
+				SpecialDialog = SDLG_SETTINGS;
+				*retval = IDOK;
+			}
+			break;
+
+		case IDC_ABORT_MISSION:
+			if (!code) {
+				if (Session.Type == GAME_INTERNET) {
+					SpecialDialog = SDLG_SURRENDER;
+					if (!WestwoodOnline_Tournament) {
+						SpecialDialog = SDLG_ABORT;
+					}
+				} else {
+					SpecialDialog = SDLG_ABORT;
+				}
+				*retval = IDCANCEL;
+			}
+			break;
+
+		case IDC_RESUME_MISSION:
+		case IDC_GOPTIONS_RESUME:
+			if (!code) {
+				if (Session.Type == GAME_INTERNET && !MuteSWLaunches) {
+					handle = GetDlgItem(window, IDC_CTRLWOL_CONNECTION);
+					if (handle) {
+						int fudge = 3 - SendMessage(handle, TBM_GETPOS, 0, 0);
+						if (fudge != Session.LatencyFudge) {
+							if (!LatencyTimer) {
+								LatencyTimer = 900;
+								OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::LATENCYFUDGE, fudge));
+								DebugString("LATENCYFUDGE event created - %d\n", fudge);
+							} else {
+								DebugString("Ignoring latency change to avoid cheating\n");
+							}
+						}
+					}
+					handle = GetDlgItem(window, IDC_GAME_SPEED_SLIDER);
+					if (handle) {
+						int speed = (OptionsClass::MAX_SPEED_SETTING-1) - SendMessage(handle, TBM_GETPOS, 0, 0);
+						if (Options.GameSpeed != speed) {
+							if (!SpeedTimer) {
+								SpeedTimer = 900;
+								OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::GAMESPEED, speed));
+							} else {
+								DebugString("Ignoring speed change to avoid cheating\n");
+							}
+						}
+					}
+				}
+				*retval = IDOK;
+			}
+			break;
+
+		default:
+			break;
+	}
+	return(FALSE);
+}
+
+
+/// <summary>
+/// Handles messages for the in game options dialog.
+/// This routine offers every message to the owner draw system first. What is left it uses
+/// to service the option buttons, and dragging the game speed or connection quality slider
+/// updates the label beside it.
+/// </summary>
+/// <returns>Returns with TRUE if the owner draw system consumed the message.</returns>
+BOOL CALLBACK Game_Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+{
+	static char const * GameConnectionQualityNames[] = {
+		"TXT_WORST_CONNECTION",
+		"TXT_POOR_CONNECTION",
+		"TXT_GOOD_CONNECTION",
+		"TXT_BEST_CONNECTION"
+	};
+
+	BOOL rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
+
+	HWND handle;
+
+	if (rc) {
+		return(rc);
+	}
+
+	switch (message) {
+
+		case OD_SUBCLASSED:
+			Game_Options_On_INITDIALOG(window);
+			break;
+
+		case WM_COMMAND:
+			return(Game_Options_On_COMMAND(window, wparam));
+
+		case WM_HSCROLL: {
+			if (LOWORD(wparam) == SB_THUMBTRACK) {
+				int pos = HIWORD(wparam);
+				char const * textid;
+
+				if ((HWND)lparam == GetDlgItem(window, IDC_GAME_SPEED_SLIDER)) {
+					textid = Game_Speed_Labels[pos];
+					handle = GetDlgItem(window, IDC_GAME_SPEED_LABEL);
+				} else if ((HWND)lparam == GetDlgItem(window, IDC_CTRLWOL_CONNECTION)) {
+					textid = GameConnectionQualityNames[pos];
+					handle = GetDlgItem(window, IDC_SCROLL_SPEED_LABEL);
+				} else {
+					break;
+				}
+
+				if (handle) {
+					SendMessage(handle, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString(textid, NULL, RA2_SOURCE, 196));
+				}
+			}
+			break;
+		}
+
+		default:
+			break;
+	}
+
+	return(FALSE);
+}
+
+
+/// <summary>
+/// Prepares the controls of the game options dialog.
+/// This routine is called when the dialog is created, and again whenever a save or delete
+/// has changed what is on disk. Load and delete need saved games; an internet game primes
+/// the latency and game speed sliders.
+/// </summary>
+void Game_Options_On_INITDIALOG(HWND window)
+{
+	HWND handle;
+
+	if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
+		bool present = LoadOptionsClass().Files_Present();
+
+		handle = GetDlgItem(window, IDC_LOAD_GAME);
+		if (handle) {
+			EnableWindow(handle, present);
+		}
+
+		handle = GetDlgItem(window, IDC_DELETE_GAME);
+		if (handle) {
+			EnableWindow(handle, present);
+		}
+	} else if (Session.Type == GAME_INTERNET && !MuteSWLaunches) {
+		handle = GetDlgItem(window, IDC_CTRLWOL_CONNECTION);
+		if (handle) {
+			int fudge = 3 - Session.LatencyFudge;
+			Slider_SetRange(handle, 0, 3);
+			Slider_SetPos(handle, fudge);
+		}
+
+		handle = GetDlgItem(window, IDC_GAME_SPEED_SLIDER);
+		if (handle) {
+			Slider_SetRange(handle, 0, OptionsClass::MAX_SPEED_SETTING-1);
+			Slider_SetPos(handle, (OptionsClass::MAX_SPEED_SETTING-1) - Options.GameSpeed);
+		}
+	}
+}
 
 
 /// <summary>

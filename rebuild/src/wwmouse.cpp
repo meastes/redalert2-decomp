@@ -833,20 +833,20 @@ void WWMouseClass::Low_Hide_Mouse(void)
  * HISTORY:                                                                                    *
  *   03/10/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 444 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 300 bytes differ; the original expands Matching_Rect inside the inlined Save_Background (its rectangle constructors out of line), this calls it
 void WWMouseClass::Show_Mouse(void)
 {
-	if (!Is_Captured()) {
-		ShowCursor(TRUE);
-	} else {
+	if (MouseState != 0) {
 		Block_Mouse();
 		MouseState++;
 		if (MouseState == 0) {
-			Low_Show_Mouse();
+			if (Is_Captured()) {
+				Low_Show_Mouse();
+			} else {
+				while (ShowCursor(TRUE) < 0) {
+				}
+			}
 		}
-		/*
-		 * assert(MouseState != 1); // temp until all the shows and hides are right
-		 */
 		if (MouseState > 0) MouseState = 0;
 		Unblock_Mouse();
 	}
@@ -902,18 +902,17 @@ void WWMouseClass::Hide_Mouse(void)
  * HISTORY:                                                                                    *
  *   03/10/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 446 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 270 bytes differ; the original expands Matching_Rect inside the inlined Save_Background (its rectangle constructors out of line), this calls it
 void WWMouseClass::Capture_Mouse(void)
 {
 	if (this != NULL && !Is_Captured()) {
 		DebugString("Capture_Mouse()\n");
 		Block_Mouse();
-		while (ShowCursor(FALSE) > -1) {}
-		while (ShowCursor(TRUE) < -1) {}
-		Hide_Mouse();
 		IsCaptured = true;
-
-		Show_Mouse();
+		if (!Is_Hidden()) {
+			Low_Show_Mouse();
+		}
+		ShowCursor(FALSE);
 		Unblock_Mouse();
 	}
 }

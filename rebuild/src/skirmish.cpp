@@ -33,6 +33,7 @@
 #undef LoadString
 #include "stringtable.h"
 #include "skirmish.h"
+#include "gdlgsupp.h"
 
 
 #include "geometry.h"
@@ -53,10 +54,6 @@ int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 int __fastcall Skirmish_On_WM_INITDIALOG(HWND dialog, WPARAM wparam, LPARAM lparam);
 
 
-void __fastcall Select_Player_Side(HWND dialog, int player);
-void __fastcall Select_Player_Color(HWND dialog, int player);
-void __fastcall Show_Player_Flag(HWND dialog, int player);
-void __fastcall Color_Combo_Changed(HWND dialog, int id);
 void __fastcall Set_Item_Text(HWND dialog, MultiplayerGameMode * mode);
 void __fastcall Set_Skirmish_Dialog_Text(HWND dialog);
 MultiplayerGameMode * Get_Current_Game_Mode(void);
@@ -160,7 +157,7 @@ bool __fastcall Skirmish_Has_Computer_After(int player)
 /// <summary>
 /// The commands of the skirmish dialog.
 /// </summary>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 2857 bytes differ (draft structure)
 void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int code)
 {
 	int * result = (int *)GetWindowLong(dialog, DWL_USER);
@@ -453,7 +450,6 @@ BOOL __fastcall Skirmish_Is_Computer(HWND dialog, int id)
 /// <summary>
 /// Shows the rows of some players.
 /// </summary>
-#if 0
 void __fastcall Skirmish_Show_Players(HWND dialog, int first, int count)
 {
 	for (int player = first; player < first + count; player++) {
@@ -485,13 +481,11 @@ void __fastcall Skirmish_Show_Players(HWND dialog, int first, int count)
 		EnableWindow(side_box, enable);
 	}
 }
-#endif
 
 
 /// <summary>
 /// Resets and hides the rows of the players from this one on.
 /// </summary>
-#if 0
 void __fastcall Skirmish_Hide_Players(HWND dialog, int first)
 {
 	int player;
@@ -534,7 +528,6 @@ void __fastcall Skirmish_Hide_Players(HWND dialog, int first)
 		ShowWindow(color_window, SW_HIDE);
 	}
 }
-#endif
 
 
 /// <summary>
@@ -576,7 +569,6 @@ bool Skirmish_Mode_Dialog(void)
 /// <summary>
 /// The dialog procedure of the skirmish dialog.
 /// </summary>
-#if 0
 int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
@@ -627,13 +619,11 @@ int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 	}
 	return(0);
 }
-#endif
 
 
 /// <summary>
 /// Fills the skirmish dialog from the saved settings.
 /// </summary>
-#if 0
 int __fastcall Skirmish_On_WM_INITDIALOG(HWND dialog, WPARAM wparam, LPARAM lparam)
 {
 	Session.Options.Reset_AI();
@@ -797,5 +787,4 @@ int __fastcall Skirmish_On_WM_INITDIALOG(HWND dialog, WPARAM wparam, LPARAM lpar
 	}
 	return(0);
 }
-#endif
 

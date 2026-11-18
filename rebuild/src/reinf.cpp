@@ -68,7 +68,7 @@
 #include "scenario.h" // RA2
 #include "rules.h" // RA2
 #include "infatype.h" // RA2
-static FootClass * _Create_Group(TeamTypeClass const * teamtype);
+FootClass * _Create_Group(TeamTypeClass const * teamtype);
 static bool _Pop_Group_Out_Of_Object(FootClass * group, TechnoClass * object);
 
 
@@ -145,6 +145,41 @@ static TechnoClass * _Who_Can_Pop_Out_Of(Cell origin)
 }
 
 
+static bool _Create_Paradrop(TeamTypeClass const * teamtype, FootClass * object, Cell origin)
+{
+	Cell dest;
+	TechnoTypeClass const * ptype = (TechnoTypeClass *)AircraftTypes[AircraftTypeClass::From_Name("PDPLANE")];
+	ScenarioInit++;
+	AircraftClass * plane = (AircraftClass *)ptype->Create_One_Of(object->House);
+	ScenarioInit--;
+	if (plane) {
+		plane->IsALoaner = true;
+		if (teamtype->IsUseTransportOrigin) {
+			dest = teamtype->Get_Transport_Origin();
+		} else {
+			int source = object->House->Control.Edge;
+			if (source < 0 || source > 3) source = SOURCE_NORTH;
+			dest = Map.Calculated_Cell((SourceType)source, CELL_NONE, CELL_NONE, SPEED_WINGED, true, MZONE_NORMAL);
+		}
+		plane->QueueMission(MISSION_PARADROP_APPROACH, false);
+		plane->Assign_Destination(NULL, true);
+		plane->Assign_Target(&Map[origin]);
+		ScenarioInit++;
+		int placed = plane->Unlimbo(Coord(dest), DIR_N);
+		ScenarioInit--;
+		if (placed) {
+			plane->Passenger = true;
+			plane->Cargo.Attach(object);
+			plane->Commence();
+			return(true);
+		} else {
+			delete plane;
+		}
+	}
+	return(false);
+}
+
+
 /***********************************************************************************************
  * Do_Reinforcements -- Create and place a reinforcement team.                                 *
  *                                                                                             *
@@ -165,55 +200,7 @@ static TechnoClass * _Who_Can_Pop_Out_Of(Cell origin)
  *   06/19/1995 JLB : Announces reinforcements.                                                *
  *   02/15/1996 JLB : Recognizes team reinforcement location.                                  *
  *=============================================================================================*/
-/// <summary>
-
-/// team's transport origin), told to approach the target cell and carries the group as cargo. The executable has
-/// no separate copy: it is inlined into Do_Reinforcements.
-/// </summary>
-static inline int _Place_Reinforcement(TechnoClass * plane, Cell const & dest)
-{
-	ScenarioInit++;
-	Coord location(dest);
-	int placed = plane->Unlimbo(location, DIR_N);
-	ScenarioInit--;
-	return(placed);
-}
-
-
-static bool _Create_Paradrop(TeamTypeClass const * teamtype, FootClass * object, Cell origin)
-{
-	Cell dest;
-	TechnoTypeClass const * ptype = (TechnoTypeClass *)AircraftTypes[AircraftTypeClass::From_Name("PDPLANE")];
-	ScenarioInit++;
-	AircraftClass * plane = (AircraftClass *)ptype->Create_One_Of(object->House);
-	ScenarioInit--;
-	if (plane) {
-		plane->IsALoaner = true;
-		if (teamtype->IsUseTransportOrigin) {
-			dest = teamtype->Get_Transport_Origin();
-		} else {
-			int source = object->House->Control.Edge;
-			if (source < 0 || source > 3) source = SOURCE_NORTH;
-			dest = Map.Calculated_Cell((SourceType)source, CELL_NONE, CELL_NONE, SPEED_WINGED, true, MZONE_NORMAL);
-		}
-		plane->QueueMission(MISSION_PARADROP_APPROACH, false);
-		plane->Assign_Destination(NULL, true);
-		plane->Assign_Target(&Map[origin]);
-		int placed = _Place_Reinforcement(plane, dest);
-		if (placed) {
-			plane->Passenger = true;
-			plane->Cargo.Attach(object);
-			plane->Commence();
-			return(true);
-		} else {
-			delete plane;
-		}
-	}
-	return(false);
-}
-
-
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 432 bytes differ; the original calls Coord's cell constructor (0x61EA80) out of line in the paradrop, where this expands it
 bool Do_Reinforcements(TeamTypeClass const * teamtype, WAYPOINT wp)
 {
 	if (!teamtype || !teamtype->TaskForce->ClassCount) return(false);
@@ -231,6 +218,7 @@ bool Do_Reinforcements(TeamTypeClass const * teamtype, WAYPOINT wp)
 		}
 	}
 
+	bool atwaypoint = false;
 	bool drop_pod = false;
 	if (teamtype->IsDroppod) {
 		drop_pod = true;
@@ -249,7 +237,7 @@ bool Do_Reinforcements(TeamTypeClass const * teamtype, WAYPOINT wp)
 		return(false);
 	}
 
-	bool atwaypoint = wp != -1;
+	atwaypoint = wp != -1;
 	Cell origin;
 	if (atwaypoint) {
 		origin = Scen->Get_Waypoint_Cell(wp);
@@ -311,8 +299,7 @@ bool Do_Reinforcements(TeamTypeClass const * teamtype, WAYPOINT wp)
  * HISTORY:                                                                                    *
  *   06/25/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#if 0
-static FootClass * _Create_Group(TeamTypeClass const * teamtype)
+FootClass * _Create_Group(TeamTypeClass const * teamtype)
 {
 	assert(teamtype != NULL);
 
@@ -333,13 +320,6 @@ static FootClass * _Create_Group(TeamTypeClass const * teamtype)
 	}
 
 	bool has_air_transport = team->Has_Air_Transport();
-
-	bool drop_pod = false;
-	if (teamtype->IsDroppod) {
-		if (teamtype->TaskForce->Has_Only_Infantry()) {
-			drop_pod = true;
-		}
-	}
 
 	/*
 	**	Now that the official source for the reinforcement has been determined, the
@@ -380,13 +360,13 @@ static FootClass * _Create_Group(TeamTypeClass const * teamtype)
 				*/
 				if (team != NULL) {
 					ScenarioInit++;
-					bool ok = team->Add(temp);
+					team->Add(temp);
 					ScenarioInit--;
 					temp->IsInitiated = true;
 				}
 
 				bool transporter = false;
-				if (tclass->Max_Passengers() > 0) {
+				if (tclass->Max_Passengers() > 0 && teamtype->IsFull) {
 					if (has_air_transport) {
 						if (temp->RTTI == RTTI_AIRCRAFT) {
 							transporter = true;
@@ -412,10 +392,6 @@ static FootClass * _Create_Group(TeamTypeClass const * teamtype)
 					temp->Next = transport;
 					transport = temp;
 				} else {
-					if (drop_pod) {
-						temp->Link_DropPod();
-					}
-
 					/*
 					**	Link to the list of normal objects.
 					*/
@@ -430,7 +406,7 @@ static FootClass * _Create_Group(TeamTypeClass const * teamtype)
 	**	If the group consists of transports and normal objects, then assign the normal
 	**	objects to be passengers on the transport.
 	*/
-	if (transport != NULL && object != NULL) {
+	if (transport != NULL && object != NULL && teamtype->IsFull) {
 		transport->Cargo.Attach(object);
 
 		/*
@@ -466,7 +442,6 @@ static FootClass * _Create_Group(TeamTypeClass const * teamtype)
 
 	return(transport);
 }
-#endif
 
 
 

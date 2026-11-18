@@ -158,7 +158,7 @@ MultiplayerGameMode * __fastcall MultiplayerGameMode::Get(int index) // RA2: 0x0
 /// Fills a combo box with the names of the game modes (each mode is the item's data) and
 /// selects the one with the mode index; a skirmish lists only the modes that allow it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 289 bytes differ (the original constructs the mode list's static vector out of line at both sites)
 void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 {
 	Clear_ComboBox(combo); // RA2: as above
@@ -182,7 +182,7 @@ void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 /// Online tournaments may not use while the channel is one, a mode that does not suit an
 /// observer when the local player is one, and in a skirmish the modes that do not allow it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 369 bytes differ (as Fill_Game_Mode_Combo)
 void __fastcall Fill_Game_Mode_List(HWND list, int index) // RA2: 0x005B71E0
 {
 	SendMessage(list, LB_RESETCONTENT, 0, 0); // RA2: as above

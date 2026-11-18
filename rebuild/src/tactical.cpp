@@ -1596,7 +1596,6 @@ void Tactical::Draw_Fence_Placement(bool drawtrans, Cell cell)
 /// </summary>
 /// <param name="drawtrans">Draw the preview translucent (valid) or opaque (invalid)?</param>
 /// <param name="cell">The cell the wall is being placed on.</param>
-#ifdef RA2_NON_MATCHING // not exact: 604 bytes differ (adopted text)
 void Tactical::Draw_Firestorm_Wall_Placement(bool drawtrans, Cell cell)
 {
 	for (int index = 0; index < FACING_COUNT; index += FACING_COUNT / 4) {
@@ -1604,9 +1603,6 @@ void Tactical::Draw_Firestorm_Wall_Placement(bool drawtrans, Cell cell)
 		int count = 0;
 		BuildingTypeClass * cls = ((BuildingClass *)Map.PendingObjectPtr)->Class;
 		int range = cls->ThreatRange >> 8;
-		if (range <= 0) {
-			continue;
-		}
 
 		/*
 		 * Walk outward until a matching wall is met, or the run is broken by a cell
@@ -1614,19 +1610,16 @@ void Tactical::Draw_Firestorm_Wall_Placement(bool drawtrans, Cell cell)
 		 */
 		FacingType facing = (FacingType)index;
 		bool found = false;
-		while (true) {
+		for (; count < range; count++) {
 			scan = Adjacent_Cell(scan, facing);
 			BuildingClass * building = Map[scan].Cell_Building();
 			if (building != NULL && building->Class->IsFirestormWall && building->House->Is_Player_Control()) {
 				found = true;
 				break;
 			}
-			if (Map[scan].Is_Clear_To_Build(cls->Speed, cls, PlayerPtr)) {
-				if (++count < range) {
-					continue;
-				}
+			if (!Map[scan].Is_Clear_To_Build(cls->Speed, cls, PlayerPtr)) {
+				break;
 			}
-			break;
 		}
 
 		/*
@@ -1636,22 +1629,24 @@ void Tactical::Draw_Firestorm_Wall_Placement(bool drawtrans, Cell cell)
 			int flags = drawtrans ? (SHAPE_ZERO_ALPHA | SHAPE_WIN_REL | SHAPE_CENTER | SHAPE_TRANSLUCENT75)
 								  : (SHAPE_NONZERO_ALPHA | SHAPE_WIN_REL | SHAPE_CENTER | SHAPE_TRANSLUCENT75);
 			Cell drawcell = Adjacent_Cell(cell, facing);
-			for (int i = count; i > 0; i--) {
-				int yoff = -1 - 15 * Map[drawcell].Height; // RA2: the per level pixel height is the constant 15 here
-				int zoff = -2 - 15 * Map[drawcell].Height; // RA2: as above
+			for (int i = 0; i < count; i++) {
+				int height = 15 * Map[drawcell].Height; // RA2: the per level pixel height is the constant 15 here
+				int zheight = 15 * Map[drawcell].Height; // RA2: as above
+				Point2D offset(0, -1 - height);
+				int zoff = -2 - zheight;
 				Coord coord = Coord_Whole(Coord(drawcell));
 				Point2D pixel;
 				Coord_To_Pixel(coord, pixel);
-				Point2D point;
-				point.X = ISO_TILE_PIXEL_W / -2 + pixel.X + ISO_TILE_PIXEL_W / 2;
-				point.Y = pixel.Y + yoff;
+				pixel.X -= ISO_TILE_PIXEL_W / 2; // RA2: the pixel is first moved to the tile's left corner, then back by the same amount
+				int px = pixel.X + ISO_TILE_PIXEL_W / 2;
+				int py = offset.Y + pixel.Y;
+				Point2D point(px, py);
 				Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)DisplayClass::PlacementShapes, 0, point, TacticalRect, (ShapeFlags_Type)flags, 0, zoff);
-				drawcell = Adjacent_Cell(drawcell, facing);
+				drawcell = Adjacent_Cell(drawcell, (FacingType)index); // RA2: the loop's own step names the direction by the loop index rather than the local
 			}
 		}
 	}
 }
-#endif
 
 
 

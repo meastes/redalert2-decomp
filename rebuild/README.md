@@ -54,6 +54,10 @@ Structure: 0 duplicate class definitions, 0 stray externs in landed sources (11 
 current text has a check here. Units with no text yet, or a worker's unit not merged, are not counted.
 The newest numbers are always the last `rebuild-trial` line of `manifest/progress.csv`, written only at a
 gated landing (column `tree`; older rows from worker branches are marked as such).
+Series break: before 2026-11-18T16:07Z `bytes_exact` counted only the lane's catalogued rows, while
+`source_share_of_text` and `reproduced_text` already used every catalogued row (workers included); from that
+row on, `bytes_exact` counts every catalogued row and divides out to the share. The two percentages are
+comparable across the whole series; `bytes_exact` is comparable only from 16:07Z.
 
 ## Rulings
 
@@ -176,3 +180,12 @@ when the unit's lines are rewritten. The census reports the flagged rows and the
   adoption index, progress, time log and worker rows.
 - `tools/`: adopt, check, catalog and census tools. They need this repository's private inputs (the
   original executable and the compiler), which are not published.
+  `tools/ptrbind.py UNIT` binds an unbound data symbol of the unit (.bss/.data) that a bound data section of
+  the same object points to, from the original pointer at that field (every pointer must agree; the audit
+  compares it again); first used for auddev's `_audioDataStruct` (codex2 landing, 2026-11-18).
+  `tools/keptcopy.py` also binds a select-any template copy when the image holds several copies byte-identical
+  to ours (every relocation bound and agreeing), in the unit's own table with the count in `kept_copies`.
+  `tools/tblbind.py UNIT` binds data tables made only of pointers to string literals (which databind cannot
+  place): each literal where its own bytes occur exactly once, then the table filled with those addresses where
+  it occurs exactly once; anything not unique is refused (owner ruling, 2026-11-18). First used for mainopt's
+  label tables and options' HotkeyName (codex2 landing).

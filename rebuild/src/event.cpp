@@ -197,6 +197,22 @@ char const * EventClass::EventNames[EventClass::LAST_EVENT] = {
 };
 
 
+/*
+**	RA2: numbers the events made within one frame, counting up from zero; a frame other than the
+**	one recorded starts the count again. The recorded frame is never updated here.
+*/
+unsigned char Event_Sequence(void)
+{
+	static int frame = -1;
+	static unsigned char sequence;
+
+	if (::Frame != frame) {
+		sequence = 0;
+	}
+	return(sequence++);
+}
+
+
 /***********************************************************************************************
  * EventClass::EventClass -- Constructs event to transfer special flags.                       *
  *                                                                                             *

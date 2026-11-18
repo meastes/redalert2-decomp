@@ -55,7 +55,7 @@ class ShapeButtonClass : public ToggleClass
 		bool Start_Flashing(int delay, int initdelay, bool start); // RA2: starts flashing
 		bool AI(void); // RA2: counts down the flash period
 		bool Is_Flashing(void); // RA2: a flash period is set
-		bool Is_Flash_On(void); // RA2: lit in this flash period
+		bool Is_Flash_On(void) const; // RA2: lit in this flash period
 
 		enum ShapeButtonClassEnums {
 			UP_SHAPE,				// Shape to use when button is "up".

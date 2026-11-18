@@ -37,8 +37,6 @@ Cell RecentRadarEventCells[8]; // RA2: at 0x00AB6788
 int RecentRadarEventNewest; // RA2: at 0x00AB67C8
 int RecentRadarEventCurrent; // RA2: at 0x00AB6818
 
-void Record_Event_Cell(Cell const & cell); // RA2: defined at the end of the file (0x0063C6C0), still expanded into the constructor
-
 /*
 **	RA2: the radar event kinds' parameters are a static table in the executable at 0x007A8D58
 **	(16 bytes per kind, 15 kinds), not rules.ini lists as in Tiberian Sun.

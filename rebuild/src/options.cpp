@@ -57,7 +57,7 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
-#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "geometry.h"
 #include "rect.h"
 
 #include "options.h"
@@ -80,14 +80,14 @@
 #include "ownrdraw.h"
 #include "rules.h"
 #include "session.h"
-#include "stringtable.h" // RA2: for the hotkey dialog texts
+#include "stringtable.h"
 #include "techno.h"
 #include "theme.h"
 #include "vector.h"
 #include "vox.h"
-#include "voc.h" // RA2: for the volume setters
-#include "audlevel.h" // RA2: for the volume setters
-#include "auddsnd.h" // RA2: for the volume setters
+#include "voc.h"
+#include "audlevel.h"
+#include "auddsnd.h"
 
 #include "diff.hh"
 
@@ -98,7 +98,7 @@ char const * const OptionsClass::HotkeyName = "WinHotkeys";
 /// <summary>
 /// RA2
 /// </summary>
-int __fastcall Hotkey_To_Key(int hotkey) // RA2: not in TibSun, at 0x005D87D0
+int __fastcall Hotkey_To_Key(int hotkey)
 {
 	int key = hotkey & 0xFF;
 	unsigned int mods = (hotkey >> 8) & 0xFF;
@@ -121,7 +121,7 @@ int __fastcall Hotkey_To_Key(int hotkey) // RA2: not in TibSun, at 0x005D87D0
 /// <summary>
 /// RA2
 /// </summary>
-int __fastcall Key_To_Hotkey(unsigned short key) // RA2: not in TibSun, at 0x005D8800
+int __fastcall Key_To_Hotkey(unsigned short key)
 {
 	int mods = 0;
 	if (key & KN_ALT_BIT) {
@@ -156,30 +156,30 @@ int __fastcall Key_To_Hotkey(unsigned short key) // RA2: not in TibSun, at 0x005
  *   07/21/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
 OptionsClass::OptionsClass(void) :
-	GameSpeed(3), // RA2: members are initialized in declaration order (0x5D8840)
+	GameSpeed(3),
 	Difficulty(DIFF_NORMAL),
-	ScrollMethod(0), // RA2: as above
+	ScrollMethod(0),
 	ScrollRate(3),
 	AutoScroll(true),
-	DetailLevel(2), // RA2: as above
+	DetailLevel(2),
 	IsSidebarOnRight(true),
 	SidebarCameoText(true),
 	ActionLines(true),
-	IsShowHidden(false), // RA2: +0x1B is cleared
+	IsShowHidden(false),
 	ToolTips(true),
 	ScreenWidth(-1),
 	ScreenHeight(-1),
-	StretchMovies(false), // RA2: as above
-	AllowHiResModes(false), // RA2: as above
-	AllowVRAMSidebar(false), // RA2: +0x2A is cleared
-	SoundVolume(.7f), // RA2: as above
-	VoiceVolume(1.0f), // RA2: as above
-	ScoreVolume(.5f), // RA2: as above
-	IsScoreRepeat(false), // RA2: as above
-	IsInGameMusic(true), // RA2: +0x39 is set
-	IsScoreShuffle(false), // RA2: as above
+	StretchMovies(false),
+	AllowHiResModes(false),
+	AllowVRAMSidebar(false),
+	SoundVolume(.7f),
+	VoiceVolume(1.0f),
+	ScoreVolume(.5f),
+	IsScoreRepeat(false),
+	IsInGameMusic(true),
+	IsScoreShuffle(false),
 	SoundLatency(9),
-	Socket(0xFFFF), // RA2: 0xFFFF as an unsigned short
+	Socket(0xFFFF),
 	NetCard(0),
 	KeyForceMove1(KN_LALT),
 	KeyForceMove2(KN_LALT),
@@ -190,8 +190,8 @@ OptionsClass::OptionsClass(void) :
 	KeyQueueMove1(KN_Q),
 	KeyQueueMove2(KN_Q)
 {
-	LastUnlockedSovMovie = -1; // RA2: both unlocked-movie indices start at -1
-	LastUnlockedAllMovie = -1; // RA2: as above
+	LastUnlockedSovMovie = -1;
+	LastUnlockedAllMovie = -1;
 	DestNet[0] = '\0';
 }
 
@@ -284,9 +284,9 @@ void OptionsClass::Set_Repeat(bool on)
 void OptionsClass::Set_Score_Volume(float volume, bool feedback)
 {
 	ScoreVolume = MIN(volume, 1.0);
-	AudioLevelSet(&AudioScoreAttribs->VolumeLevel, ScoreVolume * 16384.0f); // RA2: 0x5D8980 sets the score level, no feedback beep
+	AudioLevelSet(&AudioScoreAttribs->VolumeLevel, ScoreVolume * 16384.0f);
 	Theme.Set_Volume(ScoreVolume * 255.0);
-	DebugString("ScoreVolume = %f\n", ScoreVolume); // RA2: Set_Score_Volume at 0x5D8980 has no Theme, Rule, GenericBeep and 1 more
+	DebugString("ScoreVolume = %f\n", ScoreVolume);
 }
 
 
@@ -311,9 +311,9 @@ void OptionsClass::Set_Score_Volume(float volume, bool feedback)
 void OptionsClass::Set_Sound_Volume(float volume, bool feedback)
 {
 	SoundVolume = MIN(volume, 1.0);
-	AudioLevelSet(&AudioSoundAttribs->VolumeLevel, SoundVolume * 16384.0f); // RA2: 0x5D89F0 sets the sound level
+	AudioLevelSet(&AudioSoundAttribs->VolumeLevel, SoundVolume * 16384.0f);
 	if (feedback) {
-		VocClass::PlayGlobal(Rule->GenericBeep, 1.0f, 0x2000); // RA2: as above, beeps through PlayGlobal
+		VocClass::PlayGlobal(Rule->GenericBeep, 1.0f, 0x2000);
 	}
 	DebugString("SoundVolume = %f\n", SoundVolume);
 }
@@ -331,9 +331,9 @@ void OptionsClass::Set_Voice_Volume(float volume, bool feedback)
 {
 	VoiceVolume = MIN(volume, 1.0);
 	Set_Speech_Volume(VoiceVolume * 255.0);
-	AudioLevelSet(&AudioVoiceAttribs->VolumeLevel, VoiceVolume * 16384.0f); // RA2: 0x5D8A70 sets the voice level
+	AudioLevelSet(&AudioVoiceAttribs->VolumeLevel, VoiceVolume * 16384.0f);
 	if (feedback) {
-		VocClass::PlayGlobal(Rule->GenericBeep, VoiceVolume, 0x2000); // RA2: as above, beeps through PlayGlobal, no taunt
+		VocClass::PlayGlobal(Rule->GenericBeep, VoiceVolume, 0x2000);
 	}
 	DebugString("VoiceVolume = %f\n", VoiceVolume);
 }
@@ -367,8 +367,8 @@ void OptionsClass::Load_Settings(void)
 	DebugString("GameSpeed = %d\n", GameSpeed);
 
 	Difficulty = ConfigINI.Get_Int("Options", "Difficulty", Difficulty);
-	Difficulty = Difficulty < 4 ? Difficulty : 4; // RA2: clamps with ?: (MIN/MAX do not match here)
-	Difficulty = Difficulty > 0 ? Difficulty : 0; // RA2: as above
+	Difficulty = Difficulty < 4 ? Difficulty : 4;
+	Difficulty = Difficulty > 0 ? Difficulty : 0;
 	DebugString("Difficulty = %d\n", Difficulty);
 
 	ScrollMethod = ConfigINI.Get_Int("Options", "ScrollMethod", ScrollMethod);
@@ -381,12 +381,12 @@ void OptionsClass::Load_Settings(void)
 	DebugString("AutoScroll is %s\n", AutoScroll == true ? "ON" : "OFF");
 
 	DetailLevel = ConfigINI.Get_Int("Options", "DetailLevel", DetailLevel);
-	DetailLevel = DetailLevel < 2 ? DetailLevel : 2; // RA2: as above
-	DetailLevel = DetailLevel > 0 ? DetailLevel : 0; // RA2: as above
+	DetailLevel = DetailLevel < 2 ? DetailLevel : 2;
+	DetailLevel = DetailLevel > 0 ? DetailLevel : 0;
 	DebugString("DetailLevel = %d\n", DetailLevel);
 
 	IsSidebarOnRight = true;
-	DebugString("SideBar on %s\n", "RIGHT"); // RA2: the text is a constant
+	DebugString("SideBar on %s\n", "RIGHT");
 
 	SidebarCameoText = ConfigINI.Get_Bool("Options", "SidebarCameoText", SidebarCameoText);
 	DebugString("Sidebar Text is %s\n", SidebarCameoText == true ? "ON" : "OFF");
@@ -394,8 +394,8 @@ void OptionsClass::Load_Settings(void)
 	ActionLines = ConfigINI.Get_Bool("Options", "UnitActionLines", ActionLines);
 	DebugString("ActionLines are %s\n", ActionLines == true ? "ON" : "OFF");
 
-	IsShowHidden = ConfigINI.Get_Bool("Options", "ShowHidden", IsShowHidden); // RA2: [Options] ShowHidden
-	DebugString("ShowHidden is %s\n", IsShowHidden == true ? "ON" : "OFF"); // RA2: as above
+	IsShowHidden = ConfigINI.Get_Bool("Options", "ShowHidden", IsShowHidden);
+	DebugString("ShowHidden is %s\n", IsShowHidden == true ? "ON" : "OFF");
 
 	ToolTips = ConfigINI.Get_Bool("Options", "ToolTips", ToolTips);
 	DebugString("ToolTips are %s\n", ToolTips == true ? "ON" : "OFF");
@@ -413,7 +413,7 @@ void OptionsClass::Load_Settings(void)
 
 	Debug_IngameModeChange = ConfigINI.Get_Bool("Video", "AllowModeToggle", Debug_IngameModeChange);
 
-	AllowVRAMSidebar = ConfigINI.Get_Bool("Video", "AllowVRAMSidebar", AllowVRAMSidebar); // RA2: [Video] AllowVRAMSidebar
+	AllowVRAMSidebar = ConfigINI.Get_Bool("Video", "AllowVRAMSidebar", AllowVRAMSidebar);
 
 	Set_Sound_Volume(ConfigINI.Get_Float("Audio", "SoundVolume", SoundVolume), false);
 	Set_Voice_Volume(ConfigINI.Get_Float("Audio", "VoiceVolume", VoiceVolume), false);
@@ -421,36 +421,36 @@ void OptionsClass::Load_Settings(void)
 
 	Set_Repeat(ConfigINI.Get_Bool("Audio", "IsScoreRepeat", IsScoreRepeat));
 	Set_Shuffle(ConfigINI.Get_Bool("Audio", "IsScoreShuffle", IsScoreShuffle));
-	IsInGameMusic = ConfigINI.Get_Bool("Audio", "InGameMusic", IsInGameMusic); // RA2: [Audio] InGameMusic
+	IsInGameMusic = ConfigINI.Get_Bool("Audio", "InGameMusic", IsInGameMusic);
 
 	/*
 	**	RA2: the unlocked movies are kept in [Network] NetID as two inverted numbers.
 	*/
-	LastUnlockedSovMovie = -1; // RA2: as above
-	LastUnlockedAllMovie = -1; // RA2: as above
-	wchar_t buffer[200]; // RA2: as above
-	ConfigINI.Get_UnicodeString("Network", "NetID", L"", buffer, 200); // RA2: as above
-	if (buffer[0] != 0) { // RA2: as above
-		for (wchar_t * letter = buffer; *letter != 0; letter++) { // RA2: as above
-			*letter = ~*letter; // RA2: as above
-			if (*letter == 0) { // RA2: as above
-				*letter = 0xFFFF; // RA2: as above
+	LastUnlockedSovMovie = -1;
+	LastUnlockedAllMovie = -1;
+	wchar_t buffer[200];
+	ConfigINI.Get_UnicodeString("Network", "NetID", L"", buffer, 200);
+	if (buffer[0] != 0) {
+		for (wchar_t * letter = buffer; *letter != 0; letter++) {
+			*letter = ~*letter;
+			if (*letter == 0) {
+				*letter = 0xFFFF;
 			}
 		}
-		wchar_t * token = wcstok(buffer, L" "); // RA2: as above
-		if (token != NULL) { // RA2: as above
-			LastUnlockedSovMovie = wcstol(token, NULL, 10) - 1; // RA2: as above
-			token = wcstok(NULL, L" "); // RA2: as above
-			if (token != NULL) { // RA2: as above
-				LastUnlockedAllMovie = wcstol(token, NULL, 10) - 1; // RA2: as above
+		wchar_t * token = wcstok(buffer, L" ");
+		if (token != NULL) {
+			LastUnlockedSovMovie = wcstol(token, NULL, 10) - 1;
+			token = wcstok(NULL, L" ");
+			if (token != NULL) {
+				LastUnlockedAllMovie = wcstol(token, NULL, 10) - 1;
 			}
 		}
 	}
-	if (LastUnlockedSovMovie < -1 || LastUnlockedSovMovie >= 12) { // RA2: as above
-		LastUnlockedSovMovie = -1; // RA2: as above
+	if (LastUnlockedSovMovie < -1 || LastUnlockedSovMovie >= 12) {
+		LastUnlockedSovMovie = -1;
 	}
-	if (LastUnlockedAllMovie < -1 || LastUnlockedAllMovie >= 12) { // RA2: as above
-		LastUnlockedAllMovie = -1; // RA2: as above
+	if (LastUnlockedAllMovie < -1 || LastUnlockedAllMovie >= 12) {
+		LastUnlockedAllMovie = -1;
 	}
 
 	SoundLatency = ConfigINI.Get_Int("Audio", "SoundLatency", SoundLatency);
@@ -488,7 +488,7 @@ void OptionsClass::Load_Settings(void)
  *=============================================================================================*/
 void OptionsClass::Save_Settings (void)
 {
-	CCFileClass file("RA2.INI"); // RA2: the settings file is RA2.INI, not SUN.INI
+	CCFileClass file("RA2.INI");
 
 	DebugString("Saving game settings\n");
 
@@ -503,7 +503,7 @@ void OptionsClass::Save_Settings (void)
 	ConfigINI.Put_Int("Options", "DetailLevel", DetailLevel);
 	ConfigINI.Put_Bool("Options", "SidebarCameoText", SidebarCameoText);
 	ConfigINI.Put_Bool("Options", "UnitActionLines", ActionLines);
-	ConfigINI.Put_Bool("Options", "ShowHidden", IsShowHidden); // RA2: [Options] ShowHidden is saved
+	ConfigINI.Put_Bool("Options", "ShowHidden", IsShowHidden);
 	ConfigINI.Put_Bool("Options", "ToolTips", ToolTips);
 	ConfigINI.Put_Int("Video", "ScreenWidth", ScreenWidth);
 	ConfigINI.Put_Int("Video", "ScreenHeight", ScreenHeight);
@@ -514,7 +514,7 @@ void OptionsClass::Save_Settings (void)
 	ConfigINI.Put_Bool("Audio", "IsScoreRepeat", IsScoreRepeat);
 	ConfigINI.Put_Bool("Audio", "IsScoreShuffle", IsScoreShuffle);
 	ConfigINI.Put_Int("Audio", "SoundLatency", SoundLatency);
-	ConfigINI.Put_Bool("Audio", "InGameMusic", IsInGameMusic); // RA2: [Audio] InGameMusic is saved
+	ConfigINI.Put_Bool("Audio", "InGameMusic", IsInGameMusic);
 	ConfigINI.Put_Int("Network", "Socket", Socket);
 	ConfigINI.Put_Int("Network", "NetCard", NetCard);
 	ConfigINI.Put_String("Network", "DestNet", DestNet);
@@ -522,15 +522,15 @@ void OptionsClass::Save_Settings (void)
 	/*
 	**	RA2: the unlocked movies go to [Network] NetID as two inverted numbers.
 	*/
-	wchar_t buffer[200]; // RA2: as above
-	swprintf(buffer, L"%d %d", LastUnlockedSovMovie + 1, LastUnlockedAllMovie + 1); // RA2: as above
-	for (wchar_t * letter = buffer; *letter != 0; letter++) { // RA2: as above
-		*letter = ~*letter; // RA2: as above
-		if (*letter == 0) { // RA2: as above
-			*letter = 0xFFFF; // RA2: as above
+	wchar_t buffer[200];
+	swprintf(buffer, L"%d %d", LastUnlockedSovMovie + 1, LastUnlockedAllMovie + 1);
+	for (wchar_t * letter = buffer; *letter != 0; letter++) {
+		*letter = ~*letter;
+		if (*letter == 0) {
+			*letter = 0xFFFF;
 		}
 	}
-	ConfigINI.Put_UnicodeString("Network", "NetID", buffer); // RA2: as above
+	ConfigINI.Put_UnicodeString("Network", "NetID", buffer);
 
 	/*
 	**	Write the INI data out to a file.
@@ -594,7 +594,7 @@ void OptionsClass::Setup_Dest_Net(void)
 			if (i >= 4) {
 				Session.IsBridge = true;
 				memset(node, 0xff, sizeof(node));
-				Session.BridgeNet = IPXAddressClass(net, node, 0); // RA2: IPXAddressClass has only the (net, node, port) constructor
+				Session.BridgeNet = IPXAddressClass(net, node, 0);
 			}
 		}
 
@@ -698,15 +698,12 @@ int OptionsClass::Normalize_Volume(int volume) const
 #define HKD_SHOW_COMMAND	(WM_USER + 101)		/// refresh the description / assigned-key panel for the selected command
 #define HKD_APPLY_HOTKEY	(WM_USER + 102)		/// assign the hotkey edit's key to the selected command
 #define HKD_REINIT			(WM_USER + 103)		/// full refresh: repopulate the category combo and reset
-#define HKD_ERROR_TEXT		1597					// RA2: 0x63D, the dialog's error line
-#define HKD_OK_BUTTON		1670					// RA2: 0x686, the OK button
-#define OD_GETTEXTW			(WM_USER + 179)		// RA2: 0x4B3, copies a control's wide caption (wParam = size, lParam = buffer)
-#define OD_FINDSTRINGW		(WM_USER + 190)		// RA2: 0x4BE, finds a wide string in an owner-drawn combo box
-#define OD_COMBOADDSTRINGW	(WM_USER + 194)		// RA2: 0x4C2, adds a wide string to an owner-drawn combo box
-#define RA2_SOURCE "D:\\Ra2\\Options.CPP" // RA2: the file name RA2 passes to StringTable::LoadString
-bool __fastcall Can_Use_Modified_Key(CommandClass const & command, unsigned int key); // RA2: 0x480B20, whether the command accepts the key with its modifiers
-bool __fastcall Can_Use_Hotkey(unsigned int key); // RA2: 0x480B40, whether the key is free to be assigned
-namespace OwnerDraw { void __fastcall Get_Keyboard_Key_String(unsigned short hotkey, wchar_t * buffer); } // RA2: 0x5FC600 (YR: UI::GetKeyboardKeyString)
+#define HKD_ERROR_TEXT		1597
+#define HKD_OK_BUTTON		1670
+#define OD_GETTEXTW			(WM_USER + 179)
+#define OD_FINDSTRINGW		(WM_USER + 190)
+#define OD_COMBOADDSTRINGW	(WM_USER + 194)
+
 
 
 /// <summary>
@@ -716,9 +713,10 @@ namespace OwnerDraw { void __fastcall Get_Keyboard_Key_String(unsigned short hot
 /// KEYBOARD.INI; canceling puts the previous assignments back.
 /// </summary>
 /// <returns>Returns with TRUE if the message was consumed by this dialog.</returns>
+#if 0
 BOOL CALLBACK Hotkey_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
-	wchar_t buffer[64]; // RA2: wide text (0x5D97A0)
+	wchar_t buffer[64];
 	int * retval;
 	static int current_selection = -1;
 
@@ -734,27 +732,27 @@ BOOL CALLBACK Hotkey_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 			HWND list_commands = GetDlgItem(window, IDC_KEY_COMMANDS);
 			int selection = ListBox_GetCurSel(list_commands);
 			if (selection != LB_ERR) {
-				CommandClass * cmd = (CommandClass *)ListBox_GetItemData(list_commands, selection); // RA2: as above
+				CommandClass * cmd = (CommandClass *)ListBox_GetItemData(list_commands, selection);
 				HWND hotkey = GetDlgItem(window, IDC_KEY_HOTKEY);
-				int key = Hotkey_To_Key(SendMessage(hotkey, HKM_GETHOTKEY, 0, 0)); // RA2: the control's value is converted to a key number
-				if (!Can_Use_Modified_Key(*cmd, key)) { // RA2: the command refuses the key with its modifiers
-					HWND error = GetDlgItem(window, HKD_ERROR_TEXT); // RA2: error line
-					SendMessage(error, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("Error:CannotMap", NULL, RA2_SOURCE, 987)); // RA2: as above
-				} else if (!Can_Use_Hotkey(key)) { // RA2: the key is reserved
-					HWND error = GetDlgItem(window, HKD_ERROR_TEXT); // RA2: as above
-					SendMessage(error, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("Error:CannotRemap", NULL, RA2_SOURCE, 995)); // RA2: as above
+				int key = Hotkey_To_Key(SendMessage(hotkey, HKM_GETHOTKEY, 0, 0));
+				if (!Can_Use_Modified_Key(*cmd, key)) {
+					HWND error = GetDlgItem(window, HKD_ERROR_TEXT);
+					SendMessage(error, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("Error:CannotMap", NULL, "D:\\Ra2\\Options.CPP", 987));
+				} else if (!Can_Use_Hotkey(key)) {
+					HWND error = GetDlgItem(window, HKD_ERROR_TEXT);
+					SendMessage(error, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("Error:CannotRemap", NULL, "D:\\Ra2\\Options.CPP", 995));
 					return(TRUE);
 				} else {
-					for (int i = 0; i < HotkeyCommands.Count(); i++) { // RA2: as above
-						if (HotkeyCommands.Fetch_By_Position(i) == cmd) { // RA2: as above
-							HotkeyCommands.Remove_Index(HotkeyCommands.Fetch_ID_By_Position(i)); // RA2: as above
-							break; // RA2: as above
+					for (int i = 0; i < HotkeyCommands.Count(); i++) {
+						if (HotkeyCommands.Fetch_By_Position(i) == cmd) {
+							HotkeyCommands.Remove_Index(HotkeyCommands.Fetch_ID_By_Position(i));
+							break;
 						}
 					}
-					if (key != 0) { // RA2: as above
-						HotkeyCommands.Remove_Index(key); // RA2: as above
-						HotkeyCommands.Add_Index(key, cmd); // RA2: as above
-						return(TRUE); // RA2: as above
+					if (key != 0) {
+						HotkeyCommands.Remove_Index(key);
+						HotkeyCommands.Add_Index(key, cmd);
+						return(TRUE);
 					}
 				}
 			}
@@ -767,7 +765,7 @@ BOOL CALLBACK Hotkey_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 			if (selection != LB_ERR) {
 				CommandClass const * cmd = (CommandClass const *)ListBox_GetItemData(list_commands, selection);
 				HWND description = GetDlgItem(window, IDC_KEY_DESCRIPTION);
-				SendMessage(description, OD_SETTEXTW, 0, (LPARAM)cmd->Get_Description()); // RA2: wide text through OD_SETTEXTW
+				SendMessage(description, OD_SETTEXTW, 0, (LPARAM)cmd->Get_Description());
 
 				int key = 0;
 				for (int i = 0; i < HotkeyCommands.Count(); i++) {
@@ -778,14 +776,14 @@ BOOL CALLBACK Hotkey_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 				}
 
 				HWND key_label = GetDlgItem(window, IDC_KEY_CURRENT_SHORTCUT);
-				OwnerDraw::Get_Keyboard_Key_String(Key_To_Hotkey(key), buffer); // RA2: as above
-				SendMessage(key_label, OD_SETTEXTW, 0, (LPARAM)buffer); // RA2: as above
+				OwnerDraw::Get_Keyboard_Key_String(Key_To_Hotkey(key), buffer);
+				SendMessage(key_label, OD_SETTEXTW, 0, (LPARAM)buffer);
 
 				HWND hotkey = GetDlgItem(window, IDC_KEY_HOTKEY);
 				SendMessage(hotkey, HKM_SETHOTKEY, 0, 0);
 
 				HWND hotkey_name = GetDlgItem(window, IDC_KEY_ASSIGNED_TO);
-				SendMessage(hotkey_name, OD_SETTEXTW, 0, (LPARAM)L""); // RA2: as above
+				SendMessage(hotkey_name, OD_SETTEXTW, 0, (LPARAM)L"");
 				return(TRUE);
 			}
 			return(TRUE);
@@ -795,25 +793,25 @@ BOOL CALLBACK Hotkey_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 			HWND cmb_category = GetDlgItem(window, IDC_KEY_CATEGORY);
 			if (ComboBox_GetCurSel(cmb_category) != current_selection) {
 				current_selection = ComboBox_GetCurSel(cmb_category);
-				SendMessage(cmb_category, OD_GETTEXTW, 64, (LPARAM)buffer); // RA2: the category's wide caption
+				SendMessage(cmb_category, OD_GETTEXTW, 64, (LPARAM)buffer);
 				HWND list_commands = GetDlgItem(window, IDC_KEY_COMMANDS);
 				ListBox_ResetContent(list_commands);
 				for (int i = 0; i < AllCommands.Count(); i++) {
 					CommandClass const * cmd = AllCommands[i];
-					if (_wcsicmp(cmd->Get_Category(), buffer) == 0) { // RA2: wide compare
-						int index = SendMessage(list_commands, OD_ADDSTRINGW, 0, (LPARAM)cmd->Get_Display_Name()); // RA2: as above
+					if (_wcsicmp(cmd->Get_Category(), buffer) == 0) {
+						int index = SendMessage(list_commands, OD_ADDSTRINGW, 0, (LPARAM)cmd->Get_Display_Name());
 						if (index != LB_ERR) {
 							ListBox_SetItemData(list_commands, index, (LPARAM)cmd);
 						}
 					}
 				}
 				HWND description = GetDlgItem(window, IDC_KEY_DESCRIPTION);
-				SendMessage(description, OD_SETTEXTW, 0, (LPARAM)L""); // RA2: as above
-				HWND key_label = GetDlgItem(window, IDC_KEY_CURRENT_SHORTCUT); // RA2: the shortcut text is cleared too
-				SendMessage(key_label, OD_SETTEXTW, 0, (LPARAM)L""); // RA2: as above
-				HWND hotkey_name = GetDlgItem(window, IDC_KEY_ASSIGNED_TO); // RA2: as above
-				SendMessage(hotkey_name, OD_SETTEXTW, 0, (LPARAM)L""); // RA2: as above
-				ListBox_SetCurSel(hotkey_name, 0); // RA2: sent to the assigned-to control
+				SendMessage(description, OD_SETTEXTW, 0, (LPARAM)L"");
+				HWND key_label = GetDlgItem(window, IDC_KEY_CURRENT_SHORTCUT);
+				SendMessage(key_label, OD_SETTEXTW, 0, (LPARAM)L"");
+				HWND hotkey_name = GetDlgItem(window, IDC_KEY_ASSIGNED_TO);
+				SendMessage(hotkey_name, OD_SETTEXTW, 0, (LPARAM)L"");
+				ListBox_SetCurSel(hotkey_name, 0);
 				SendMessage(window, HKD_SHOW_COMMAND, 0, 0);
 				return(TRUE);
 			}
@@ -825,103 +823,103 @@ BOOL CALLBACK Hotkey_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 			ComboBox_ResetContent(cmb_category);
 			for (int i = 0; i < AllCommands.Count(); i++) {
 				CommandClass const * cmd = AllCommands[i];
-				if (SendMessage(cmb_category, OD_FINDSTRINGW, 0, (LPARAM)cmd->Get_Category()) == CB_ERR) { // RA2: wide find
-					SendMessage(cmb_category, OD_COMBOADDSTRINGW, 0, (LPARAM)cmd->Get_Category()); // RA2: wide add
+				if (SendMessage(cmb_category, OD_FINDSTRINGW, 0, (LPARAM)cmd->Get_Category()) == CB_ERR) {
+					SendMessage(cmb_category, OD_COMBOADDSTRINGW, 0, (LPARAM)cmd->Get_Category());
 				}
 			}
 			ComboBox_SetCurSel(cmb_category, 0);
 			current_selection = -1;
-			SendMessage(window, HKD_FILL_COMMANDS, 0, 0); // RA2: as above
+			SendMessage(window, HKD_FILL_COMMANDS, 0, 0);
 			return(TRUE);
 		}
 
-		case OD_SUBCLASSED: // RA2: message 0x497 refills the categories and lets the dialog go on
+		case OD_SUBCLASSED:
 			SendMessage(window, HKD_REINIT, 0, 0);
 			return(FALSE);
 
-		case WM_COMMAND: // RA2: handled after the private messages (same code as TibSun's, moved)
-			switch (LOWORD(wparam)) { // RA2: as above
-				case HKD_OK_BUTTON: // RA2: control 0x686 is the OK button
-					if (HIWORD(wparam) == BN_CLICKED) { // RA2: as above
-						CCINIClass ini; // RA2: as above
-						ini.Clear(); // RA2: as above
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case HKD_OK_BUTTON:
+					if (HIWORD(wparam) == BN_CLICKED) {
+						CCINIClass ini;
+						ini.Clear();
 
-						for (int i = 0; i < HotkeyCommands.Count(); i++) { // RA2: as above
-							CommandClass const * cmd = HotkeyCommands.Fetch_By_Position(i); // RA2: as above
-							int key = HotkeyCommands.Fetch_ID_By_Position(i); // RA2: as above
-							ini.Put_Int("Hotkey", cmd->Get_Unique_Name(), key); // RA2: as above
+						for (int i = 0; i < HotkeyCommands.Count(); i++) {
+							CommandClass const * cmd = HotkeyCommands.Fetch_By_Position(i);
+							int key = HotkeyCommands.Fetch_ID_By_Position(i);
+							ini.Put_Int("Hotkey", cmd->Get_Unique_Name(), key);
 						}
 
-						RawFileClass file("Keyboard.ini"); // RA2: as above
-						ini.Save(file, false); // RA2: as above
-						*retval = 1; // RA2: result 1
-						return(TRUE); // RA2: as above
+						RawFileClass file("Keyboard.ini");
+						ini.Save(file, false);
+						*retval = 1;
+						return(TRUE);
 					}
-					break; // RA2: as above
+					break;
 
-				case IDCANCEL: // RA2: as above
-					if (HIWORD(wparam) == BN_CLICKED) { // RA2: as above
-						Init_Hotkeys(); // RA2: as above
+				case IDCANCEL:
+					if (HIWORD(wparam) == BN_CLICKED) {
+						Init_Hotkeys();
 						*retval = 2;
-						return(TRUE); // RA2: as above
+						return(TRUE);
 					}
-					break; // RA2: as above
+					break;
 
-				case IDC_KEY_COMMANDS: // RA2: as above
-					if (HIWORD(wparam) == LBN_SELCHANGE) { // RA2: as above
-						SendMessage(window, HKD_SHOW_COMMAND, 0, 0); // RA2: as above
-						HWND hotkey = GetDlgItem(window, IDC_KEY_HOTKEY); // RA2: as above
-						if (hotkey != NULL) { // RA2: as above
-							SetFocus(hotkey); // RA2: as above
-							return(TRUE); // RA2: as above
+				case IDC_KEY_COMMANDS:
+					if (HIWORD(wparam) == LBN_SELCHANGE) {
+						SendMessage(window, HKD_SHOW_COMMAND, 0, 0);
+						HWND hotkey = GetDlgItem(window, IDC_KEY_HOTKEY);
+						if (hotkey != NULL) {
+							SetFocus(hotkey);
+							return(TRUE);
 						}
 					}
-					break; // RA2: as above
+					break;
 
-				case IDC_KEY_ASSIGN: // RA2: as above
-					SendMessage(window, HKD_APPLY_HOTKEY, 0, 0); // RA2: as above
-					SendMessage(window, HKD_SHOW_COMMAND, 0, 0); // RA2: as above
-					return(TRUE); // RA2: as above
+				case IDC_KEY_ASSIGN:
+					SendMessage(window, HKD_APPLY_HOTKEY, 0, 0);
+					SendMessage(window, HKD_SHOW_COMMAND, 0, 0);
+					return(TRUE);
 
-				case IDC_KEY_HOTKEY: // RA2: as above
-					if (HIWORD(wparam) == EN_CHANGE) { // RA2: as above
-						HWND error = GetDlgItem(window, HKD_ERROR_TEXT); // RA2: the error line is cleared first
-						SendMessage(error, OD_SETTEXTW, 0, (LPARAM)L""); // RA2: as above
-						int key = Hotkey_To_Key(SendMessage((HWND)lparam, HKM_GETHOTKEY, 0, 0)); // RA2: as above
-						wchar_t const * key_name; // RA2: wide text
-						if (HotkeyCommands.Is_Present(key)) { // RA2: as above
-							key_name = HotkeyCommands[key]->Get_Display_Name(); // RA2: as above
-							if (key_name == NULL) { // RA2: as above
-								key_name = L""; // RA2: as above
+				case IDC_KEY_HOTKEY:
+					if (HIWORD(wparam) == EN_CHANGE) {
+						HWND error = GetDlgItem(window, HKD_ERROR_TEXT);
+						SendMessage(error, OD_SETTEXTW, 0, (LPARAM)L"");
+						int key = Hotkey_To_Key(SendMessage((HWND)lparam, HKM_GETHOTKEY, 0, 0));
+						wchar_t const * key_name;
+						if (HotkeyCommands.Is_Present(key)) {
+							key_name = HotkeyCommands[key]->Get_Display_Name();
+							if (key_name == NULL) {
+								key_name = L"";
 							}
 						} else {
-							key_name = L""; // RA2: as above
+							key_name = L"";
 						}
-						HWND hotkey_name = GetDlgItem(window, IDC_KEY_ASSIGNED_TO); // RA2: as above
-						SendMessage(hotkey_name, OD_SETTEXTW, 0, (LPARAM)key_name); // RA2: as above
-						return(TRUE); // RA2: as above
+						HWND hotkey_name = GetDlgItem(window, IDC_KEY_ASSIGNED_TO);
+						SendMessage(hotkey_name, OD_SETTEXTW, 0, (LPARAM)key_name);
+						return(TRUE);
 					}
-					break; // RA2: as above
+					break;
 
-				case IDC_KEY_RESET_ALL: // RA2: as above
-					if (HIWORD(wparam) == BN_CLICKED) { // RA2: as above
-						DebugString("Deleting users KEYBOARD.INI\n"); // RA2: as above
-						CCFileClass file("KEYBOARD.INI"); // RA2: as above
-						file.Delete(); // RA2: as above
-						Init_Hotkeys(); // RA2: as above
-						SendMessage(window, HKD_REINIT, 0, 0); // RA2: as above
-						return(TRUE); // RA2: as above
+				case IDC_KEY_RESET_ALL:
+					if (HIWORD(wparam) == BN_CLICKED) {
+						DebugString("Deleting users KEYBOARD.INI\n");
+						CCFileClass file("KEYBOARD.INI");
+						file.Delete();
+						Init_Hotkeys();
+						SendMessage(window, HKD_REINIT, 0, 0);
+						return(TRUE);
 					}
-					break; // RA2: as above
+					break;
 
-				case IDC_KEY_CATEGORY: // RA2: as above
-					if (HIWORD(wparam) == CBN_SELCHANGE) { // RA2: as above
-						SendMessage(window, HKD_FILL_COMMANDS, 0, 0); // RA2: as above
-						return(TRUE); // RA2: as above
+				case IDC_KEY_CATEGORY:
+					if (HIWORD(wparam) == CBN_SELCHANGE) {
+						SendMessage(window, HKD_FILL_COMMANDS, 0, 0);
+						return(TRUE);
 					}
-					break; // RA2: as above
+					break;
 			}
-			return(TRUE); // RA2: as above
+			return(TRUE);
 	}
 
 	return(FALSE);
@@ -938,9 +936,9 @@ BOOL CALLBACK Hotkey_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 /// </summary>
 bool OptionsClass::Hotkey_Dialog(void)
 {
-	int res = -1; // RA2: Hotkey_Dialog at 0x5DA360 has no HWND
+	int res = -1;
 
-	HWND handle = OwnerDraw::Begin_Dialog(163, Hotkey_Dialog_Proc, 0); // RA2: Hotkey_Dialog at 0x5DA360 matches only so
+	HWND handle = OwnerDraw::Begin_Dialog(163, Hotkey_Dialog_Proc, 0);
 	if (handle != NULL) {
 		SetWindowLong(handle, DWL_USER, (LONG)&res);
 		OwnerDraw::Display_Dialog(handle);
@@ -963,6 +961,8 @@ bool OptionsClass::Hotkey_Dialog(void)
 /// <summary>
 /// Fetches the tactical map scrolling method the player prefers.
 /// </summary>
+#endif
+
 int OptionsClass::Get_Scroll_Method(void) const
 {
 	return(ScrollMethod);
@@ -980,71 +980,30 @@ int OptionsClass::Get_Scroll_Method(void) const
 **	RA2: a campaign movie the movies dialog lists. Name is the movie file, Label the string table entry shown
 **	and Side the campaign (-1 the intro, 0 Allied, 1 Soviet). The tables are 0x007E8248-0x007E8394.
 */
-struct MovieEntry { // RA2: as above
-	char const * Name; // RA2: +0x00, the file's base name (the lists end with a null name)
-	char const * Label; // RA2: +0x04, the string table label
-	int Side; // RA2: +0x08, the campaign
-};
-
-MovieEntry IntroMovieEntry = { "A00_F00E", "Name:IntroMovie", -1 }; // RA2: 0x007E8248, the intro movie (its name is the shared string at 0x007DB5F8)
-MovieEntry AlliedMovieList[] = { // RA2: 0x007E8258, the Allied campaign's movies, ended by a null entry
-	{ "A01_F00e", "Name:All01", 0 }, // RA2: as above
-	{ "A02_F00e", "Name:All02", 0 }, // RA2: as above
-	{ "A03_F00e", "Name:All03", 0 }, // RA2: as above
-	{ "A04_F00e", "Name:All04", 0 }, // RA2: as above
-	{ "A05_F00e", "Name:All05", 0 }, // RA2: as above
-	{ "A06_F00e", "Name:All06", 0 }, // RA2: as above
-	{ "A07_F00e", "Name:All07", 0 }, // RA2: as above
-	{ "A08_F00e", "Name:All08", 0 }, // RA2: as above
-	{ "A09_F00e", "Name:All09", 0 }, // RA2: as above
-	{ "A10_F00e", "Name:All10", 0 }, // RA2: as above
-	{ "A11_F00e", "Name:All11", 0 }, // RA2: as above
-	{ "A12_F00e", "Name:All12", 0 }, // RA2: as above
-	{ NULL, NULL, 0 } // RA2: as above
-};
-MovieEntry SovietMovieList[] = { // RA2: 0x007E82F8, the Soviet campaign's movies, ended by a null entry
-	{ "S01_F00e", "Name:Sov01", 1 }, // RA2: as above
-	{ "S02_F00e", "Name:Sov02", 1 }, // RA2: as above
-	{ "S03_F00e", "Name:Sov03", 1 }, // RA2: as above
-	{ "S04_F00e", "Name:Sov04", 1 }, // RA2: as above
-	{ "S05_F00e", "Name:Sov05", 1 }, // RA2: as above
-	{ "S06_F00e", "Name:Sov06", 1 }, // RA2: as above
-	{ "S07_F00e", "Name:Sov07", 1 }, // RA2: as above
-	{ "S08_F00e", "Name:Sov08", 1 }, // RA2: as above
-	{ "S09_F00e", "Name:Sov09", 1 }, // RA2: as above
-	{ "S10_F00e", "Name:Sov10", 1 }, // RA2: as above
-	{ "S11_F00e", "Name:Sov11", 1 }, // RA2: as above
-	{ "S12_F00e", "Name:Sov12", 1 }, // RA2: as above
-	{ NULL, NULL, 0 } // RA2: as above
-};
-
-
-/// <summary>
-/// Finds a movie in a list by its file name; -1 when it is not there.
-/// </summary>
-inline int Movie_Index(MovieEntry const * movies, char const * name) // RA2: not in TibSun
+#if 0
+inline int Movie_Index(MovieEntry const * movies, char const * name)
 {
-	for (int index = 0; movies->Name != NULL; index++, movies++) { // RA2: as above
-		if (stricmp(name, movies->Name) == 0) { // RA2: as above
-			return(index); // RA2: as above
+	for (int index = 0; movies->Name != NULL; index++, movies++) {
+		if (stricmp(name, movies->Name) == 0) {
+			return(index);
 		}
 	}
-	return(-1); // RA2: as above
+	return(-1);
 }
 
 
 /// <summary>
 /// Notes that a campaign movie has been seen, so that the movies dialog lists it from now on.
 /// </summary>
-void OptionsClass::Unlock_Movie(char const * name) // RA2: 0x005DA3F0, not in TibSun
+void OptionsClass::Unlock_Movie(char const * name)
 {
-	int index = Movie_Index(SovietMovieList, name); // RA2: the Soviet list is searched first
-	if (index > LastUnlockedSovMovie) { // RA2: as above
-		LastUnlockedSovMovie = index; // RA2: as above
+	int index = Movie_Index(SovietMovieList, name);
+	if (index > LastUnlockedSovMovie) {
+		LastUnlockedSovMovie = index;
 	}
-	index = Movie_Index(AlliedMovieList, name); // RA2: then the Allied one
-	if (index > LastUnlockedAllMovie) { // RA2: as above
-		LastUnlockedAllMovie = index; // RA2: as above
+	index = Movie_Index(AlliedMovieList, name);
+	if (index > LastUnlockedAllMovie) {
+		LastUnlockedAllMovie = index;
 	}
 }
 
@@ -1052,12 +1011,12 @@ void OptionsClass::Unlock_Movie(char const * name) // RA2: 0x005DA3F0, not in Ti
 /// <summary>
 /// Puts one movie's name into the list box, with the movie as the item's data.
 /// </summary>
-inline void Add_Movie(HWND list, MovieEntry const * movie) // RA2: not in TibSun
+inline void Add_Movie(HWND list, MovieEntry const * movie)
 {
-	if (movie->Name != NULL && movie->Label != NULL) { // RA2: as above
-		int index = SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)StringTable::LoadString(movie->Label, NULL, RA2_SOURCE, 1248)); // RA2: as above
-		if (index != LB_ERR) { // RA2: as above
-			SendMessage(list, LB_SETITEMDATA, index, (LPARAM)movie); // RA2: as above
+	if (movie->Name != NULL && movie->Label != NULL) {
+		int index = SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)StringTable::LoadString(movie->Label, NULL, "D:\\Ra2\\Options.CPP", 1248));
+		if (index != LB_ERR) {
+			SendMessage(list, LB_SETITEMDATA, index, (LPARAM)movie);
 		}
 	}
 }
@@ -1066,19 +1025,21 @@ inline void Add_Movie(HWND list, MovieEntry const * movie) // RA2: not in TibSun
 /// <summary>
 /// Fills the movies dialog's list box with the intro and each campaign's movies that have been unlocked.
 /// </summary>
-void OptionsClass::Fill_Movie_List(HWND list) // RA2: 0x005DA470, not in TibSun
+void OptionsClass::Fill_Movie_List(HWND list)
 {
-	Add_Movie(list, &IntroMovieEntry); // RA2: the intro is always listed
-	if (LastUnlockedSovMovie >= 0) { // RA2: as above
-		int count = LastUnlockedSovMovie + 1; // RA2: as above
-		for (MovieEntry * movie = SovietMovieList; movie->Name != NULL && count > 0; movie++, count--) { // RA2: as above
-			Add_Movie(list, movie); // RA2: as above
+	Add_Movie(list, &IntroMovieEntry);
+	if (LastUnlockedSovMovie >= 0) {
+		int count = LastUnlockedSovMovie + 1;
+		for (MovieEntry * movie = SovietMovieList; movie->Name != NULL && count > 0; movie++, count--) {
+			Add_Movie(list, movie);
 		}
 	}
-	if (LastUnlockedAllMovie >= 0) { // RA2: as above
-		int count = LastUnlockedAllMovie + 1; // RA2: as above
-		for (MovieEntry * movie = AlliedMovieList; movie->Name != NULL && count > 0; movie++, count--) { // RA2: as above
-			Add_Movie(list, movie); // RA2: as above
+	if (LastUnlockedAllMovie >= 0) {
+		int count = LastUnlockedAllMovie + 1;
+		for (MovieEntry * movie = AlliedMovieList; movie->Name != NULL && count > 0; movie++, count--) {
+			Add_Movie(list, movie);
 		}
 	}
 }
+
+#endif
