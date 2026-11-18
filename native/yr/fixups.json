@@ -1484,6 +1484,72 @@
    "old": "\t\tLightningStorm_RequestStop();",
    "new": "\t\tFUN_0053A090();",
    "why": "The team script's ion storm actions (TMission_ION_STORM_START 0x006EE0A0, _END 0x006EE0E0) call gamemd.exe's LightningStorm::Start (0x00539EB0) and ::RequestStop (0x0053A090), which ion.cpp matches as FUN_00539EB0(int, int, Cell, HouseClass *) and FUN_0053A090; team.cpp declared them under other names (link-closure traps on a campaign's play path) and Start with (int center, bool flag), where gamemd.exe pushes the cell DAT_00B0E948 as a dword and a null owner. The calls name the matched functions with their types (lane Y14)."
+  },
+  {
+   "file": "src/netdlg2.cpp",
+   "old": "Get_Serial_From_Registry(serial, \"SOFTWARE\\\\Westwood\\\\Yuri's Revenge\");",
+   "new": "Get_Serial_From_Registry(serial, \"SOFTWARE\\\\Westwood\\\\Yuri's Revenge\");\n\tif (serial[0] == 0) { void Yr_Installation_Serial(char * serial); Yr_Installation_Serial(serial); }",
+   "why": "The installation's serial (Decrypt_Serial 0x005DC170): gamemd.exe reads it from the registry the installer wrote, and a LAN host refuses a joining player whose serial it already has (Get_Join_Responses: TXT_SERIAL_DUP). The native game has no installer registry, so every copy read the same empty serial and no guest could join; without one, the installation's own serial comes from its settings folder (glue/yr_lan.cpp, made once, at random; lane YW2)."
+  },
+  {
+   "file": "src/queue.cpp",
+   "old": "DAT_00B04474[Frame & 0xff] = DAT_00AC51FC;\n",
+   "new": "DAT_00B04474[Frame & 0xff] = DAT_00AC51FC;\n\t\tYr_Native_Log_Frame_CRC(Frame, DAT_00AC51FC);   // NATIVE: RA2_NATIVE_CRC_LOG (glue/queue_native.inc)\n",
+   "why": "Native diagnostic only (lane YW2, LAN tests): with RA2_NATIVE_CRC_LOG set each network frame's game CRC goes to the log, so two games' logs can be compared frame by frame (as the RA2 game's port/fixups.json row); otherwise nothing, and the game state is untouched."
+  },
+  {
+   "file": "src/queue.cpp",
+   "old": "void __fastcall FUN_0064DAB0(void);\n",
+   "new": "void __fastcall FUN_0064DAB0(void);\nvoid Yr_Native_Log_Frame_CRC(int frame, unsigned int crc);\n",
+   "why": "The declaration of the CRC log above (lane YW2)."
+  },
+  {
+   "file": "src/netshare.cpp",
+   "old": "GameModeOptionsClass::Instance",
+   "new": "Session.Options.MPModeIndex",
+   "why": "The name is a field of Session in gamemd.exe (GameModeOptionsClass::Instance at 0x00A8B250 is Session.Options.MPModeIndex), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the host's game mode was written to the copy and the options sent to the guests carried mode 0 (no game mode: the guest faulted in Read_Scenario_INI))."
+  },
+  {
+   "file": "src/netshare.cpp",
+   "old": "Game::PlayerColor",
+   "new": "Session.PrefColor",
+   "why": "The name is a field of Session in gamemd.exe (Game::PlayerColor at 0x00A8B394 is Session.PrefColor), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the colour sent with the public options)."
+  },
+  {
+   "file": "src/netdlg2.cpp",
+   "old": "Game::PlayerColor",
+   "new": "Session.PrefColor",
+   "why": "The name is a field of Session in gamemd.exe (Game::PlayerColor at 0x00A8B394 is Session.PrefColor), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the colour chosen in the setup screens)."
+  },
+  {
+   "file": "src/session.cpp",
+   "old": "Game::PlayerColor",
+   "new": "Session.PrefColor",
+   "why": "The name is a field of Session in gamemd.exe (Game::PlayerColor at 0x00A8B394 is Session.PrefColor), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the player's colour)."
+  },
+  {
+   "file": "src/house.cpp",
+   "old": "Game::PlayerColor",
+   "new": "Session.PrefColor",
+   "why": "The name is a field of Session in gamemd.exe (Game::PlayerColor at 0x00A8B394 is Session.PrefColor), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the colour of the player's chat messages)."
+  },
+  {
+   "file": "src/house.cpp",
+   "old": "Game::ChatMask",
+   "new": "Session.PlayerChatEnabled",
+   "why": "The name is a field of Session in gamemd.exe (Game::ChatMask at 0x00A8D108 is Session.PlayerChatEnabled), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: which players a chat message goes to)."
+  },
+  {
+   "file": "src/netdlg.cpp",
+   "old": "Game::PlayerCount",
+   "new": "Session.NumPlayers",
+   "why": "The name is a field of Session in gamemd.exe (Game::PlayerCount at 0x00A8B54C is Session.NumPlayers), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the player count)."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": "Game::Network::PreCalcFrameRate",
+   "new": "Session.PrecalcDesiredFrameRate",
+   "why": "The name is a field of Session in gamemd.exe (Game::Network::PreCalcFrameRate at 0x00A8B570 is Session.PrecalcDesiredFrameRate), but the native build kept a separate variable for it (yr_data.py gives every global no unit defines its own storage), so writes through one name were never seen through the other (lane YW2, LAN: the precalculated frame rate)."
   }
  ]
 }

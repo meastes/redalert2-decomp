@@ -296,3 +296,476 @@ void __fastcall FUN_005EA3E0(HWND dialog, bool full)
 		FUN_005EAE40(dialog);
 	}
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE DRAFT (lane YW2, LAN): DecodePubGameopt, YR 0x005E3D10 (8,702 bytes, unmatched in
+// ra2-decomp), from gamemd.exe's code; the RA2 tree's twin is Decode_Pub_Gameopt_005c3ff0 (RA2
+// 0x005C3FF0, src/recovered/netshare.cpp, a parked draft) and TibSun's netshare.cpp DecodePubGameopt
+// the shape. A public options string from another player of the network game, by its first letter:
+//   W  the random map's size and start points (Scen's Width .. HouseHomeCells), the setup screen redrawn;
+//   O  the observer slot moved: the slot's side, colour and combo boxes follow (DAT_008316A4);
+//   A  a player's accept state (Net2SetAccept);
+//   K  a joiner's map state (K0 no map, K1 has it, K2 needs a transfer: FUN_005E39C0), host only;
+//   G  (Westwood Online's game screen only) the host asks to start;
+//   L  the slot names (FUN_005E8EA0);
+//   anything else: the host's full options (FUN_005DBB60's encoding): seed, speeds, money, units, the
+//   flags, the mode, difficulty, the map (name, players, official, length, file, digest), each player's
+//   name, country, colour, start and team, then the five AI slot arrays. A map not present is
+//   reported (K0/K2 back to the host), changes clear this player's accept, and the screen is redrawn.
+// Returns whether the map changed. Westwood Online's parts are left out, as Westwood Online is not
+// built (the Internet game, Session.Type GAME_INTERNET, is never set natively): the NAT state Z, the
+// pings P, the co-op campaign C (its game mode's slots take the score blocks as 32-bit words), the
+// chat-channel users (g_pChat), the Internet players' addresses in the full options and the
+// channel's game screen (dialog 0xC9) in L.
+// Behaviour code for the native build; never part of an exact build.
+// ---------------------------------------------------------------------------------------------
+extern int DAT_00AC1178;
+extern int Frame;
+int __fastcall FUN_004E37D0(int side);
+int __fastcall FUN_004E41D0(int side);
+void __fastcall FUN_004E3A00(HWND dialog, int id);
+void __fastcall FUN_004E3B00(HWND dialog, int id);
+void __fastcall FUN_004E45A0(HWND dialog, int id);
+void __fastcall FUN_004E4770(HWND dialog, int id);
+void __fastcall FUN_004E49A0(HWND dialog, int id, int wanted);
+void __fastcall FUN_004E4FC0(int count);
+void __fastcall FUN_004E5310(HWND dialog);
+void __fastcall FUN_004E5D60(HWND dialog);
+void __fastcall Net2SetAccept(char * who, int status);
+int __fastcall Net2SetHouseAndColor(char * who, int house, int color, int start, int team);
+void Net2DisplayUsers(void);
+void FUN_005E2340(void);
+WideWstring __fastcall FUN_007B83E0(Wstring const & text);
+
+// A setup screen's slot control (0x411 .. 0x418 for slots 0 .. 7).
+static int Yr_Slot_Control_Id(int slot)
+{
+	return (slot >= 0 && slot < 8) ? 0x411 + slot : -1;
+}
+
+// The options last decoded (gamemd.exe 0x008316EC .. 0x008316F8 and 0x00AC11C3 .. 0x00AC11C7).
+static int Yr_Last_Game_Speed = -1;
+static int Yr_Last_Credits = -1;
+static int Yr_Last_Unit_Count = -1;
+static int Yr_Last_Camp_Difficulty = -1;
+static bool Yr_Last_Short_Game;
+static bool Yr_Last_SW_Allowed;
+static bool Yr_Last_Build_Off_Ally;
+static bool Yr_Last_MCV_Redeploy;
+static bool Yr_Last_Goodies;
+
+// The AI slots' countries, starts and allies as text, to see whether they changed.
+static void Yr_AI_Slots_Text(char * out)
+{
+	out[0] = 0;
+	for (int i = 0; i < 8; i++) {
+		char number[40];
+		sprintf(number, "%d,%d,%d,", Session.Options.AISlots.Countries[i], Session.Options.AISlots.Starts[i],
+			Session.Options.AISlots.Allies[i]);
+		strcat(out, number);
+	}
+}
+
+bool DecodePubGameopt(char * options, char * name)
+{
+	bool changed = false;
+	char * copy = strdup(options);
+	char * token;
+
+	if (copy[0] == 'Z') {
+		FUN_004068E0("Decoding public OPTION_NAT\n");
+		free(copy);
+		return(false);
+	}
+
+	if (copy[0] == 'W') {
+		FUN_004068E0("Saw Waypoint info [%s]\n", copy);
+		int width = 0, height = 0, x = 0, y = 0, count = 0;
+		int px[8] = {}, py[8] = {}, cx[8] = {}, cy[8] = {};
+		token = strtok(copy + 1, ",");
+		if (token) width = atol(token);
+		token = strtok(NULL, ",");
+		if (token) height = atol(token);
+		token = strtok(NULL, ",");
+		if (token) x = atol(token);
+		token = strtok(NULL, ",");
+		if (token) y = atol(token);
+		token = strtok(NULL, ",");
+		if (token) count = atol(token);
+		for (int i = 0; i < 8; i++) {
+			token = strtok(NULL, ",");
+			if (token) px[i] = atol(token);
+			token = strtok(NULL, ",");
+			if (token) py[i] = atol(token);
+			token = strtok(NULL, ",");
+			if (token) cx[i] = atol(token);
+			token = strtok(NULL, ",");
+			if (token) cy[i] = atol(token);
+		}
+		if (token && Scen) {
+			Scen->Width = width;
+			Scen->Height = height;
+			Scen->StartX = x;
+			Scen->StartY = y;
+			Scen->NumberStartingPoints = count;
+			for (int i = 0; i < 8; i++) {
+				Scen->StartingPoints[i].X = px[i];
+				Scen->StartingPoints[i].Y = py[i];
+				Scen->HouseHomeCells[i].X = (short)cx[i];
+				Scen->HouseHomeCells[i].Y = (short)cy[i];
+			}
+			HWND dialog = WS_Find_Dialog(0xC9);
+			if (!dialog) dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST);
+			if (dialog) InvalidateRect(dialog, NULL, FALSE);
+		}
+		free(copy);
+		return(false);
+	}
+
+	if (copy[0] == 'O') {
+		HWND dialog = WS_Find_Dialog(0xC9);
+		if (!dialog) dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST);
+		if (!dialog) {
+			free(copy);
+			return(false);
+		}
+		int old = DAT_008316A4;
+		DAT_008316A4 = copy[1] == '8' ? -1 : copy[1] - '0';
+		if (DAT_008316A4 != old) {
+			FUN_005EBA00(dialog);
+			wchar_t who[256];
+			wcscpy(who, FUN_00735120(copy + 2));
+			if (who[0]) {
+				NodeNameType * entry;
+				{
+					WideWstring wide(who);
+					entry = FUN_005EDFC0(&wide);
+				}
+				if (!entry) {
+					entry = FUN_005E8BF0(who);
+					if (!entry) {
+						free(copy);
+						return(false);
+					}
+				}
+				int slot = DAT_008316A4;
+				if (Yr_Slot_Is_Observer(entry)) {
+					Session.Slots[slot] = entry;
+					FUN_004E3B00(dialog, FUN_004E37D0(slot));
+					SendMessage(GetDlgItem(dialog, Yr_Slot_Control_Id(slot)), 0x4F1, 0, 1);
+					int id = FUN_004E41D0(slot);
+					FUN_004E4770(dialog, id);
+					FUN_004E49A0(dialog, id, 8);
+				} else {
+					FUN_004E3A00(dialog, FUN_004E37D0(slot));
+					SendMessage(GetDlgItem(dialog, Yr_Slot_Control_Id(slot)), 0x4F1, 0, 0);
+					int id = FUN_004E41D0(slot);
+					FUN_004E45A0(dialog, id);
+					FUN_004E49A0(dialog, id, -2);
+				}
+				Session.Slots[DAT_008316A4] = entry;
+			}
+		}
+		if (DAT_008316A4 >= 0 && DAT_008316A4 != Session.unknown_2854) {
+			FUN_005E9E70(dialog, DAT_008316A4, false);
+		}
+		free(copy);
+		return(false);
+	}
+
+	if (copy[0] == 'A') {
+		Net2SetAccept(name, atol(copy + 1));
+		free(copy);
+		return(false);
+	}
+
+	if (copy[0] == 'C') {
+		FUN_004068E0("@@@@ Decoding cooperative campaign game options %s\n", options);
+		free(copy);
+		return(false);
+	}
+
+	if (copy[0] == 'L') {
+		WideWstring names = FUN_007B83E0(Wstring(options + 1));
+		FUN_005E8EA0(names.get());
+		free(copy);
+		return(false);
+	}
+
+	if (copy[0] == 'G') {
+		if (WS_Find_Dialog(0xC9)) {
+			Session.unknown_2878 = true;
+			FUN_005E2340();
+		}
+		free(copy);
+		return(false);
+	}
+
+	if (copy[0] == 'K') {
+		if (WS_Find_Dialog(0xC2) || WS_Find_Dialog(IDD_MPLAYER_HOST)) {
+			FUN_005E39C0(name, copy[1] == '1' ? 1 : (copy[1] == '2' ? 2 : 0));
+		}
+		free(copy);
+		return(false);
+	}
+
+	if (copy[0] == 'P') {
+		FUN_004068E0("Got Ping game options string. %s\n", copy);
+		free(copy);
+		return(false);
+	}
+
+	int top = WS_Top_Window_ID();
+	if (top != IDD_MPLAYER_HOST && top != IDD_MPLAYER_GUEST) {
+		SendDlgItemMessage(GameoptWindow(), 0x53E, 0x49D, 0, 1);
+	}
+	FUN_004068E0("Decoding game options %s\n", options);
+
+	token = strtok(copy, ",");
+	if (token) Seed = atol(token);
+	token = strtok(NULL, ",");
+	if (token) Options.GameSpeed = atol(token);
+	token = strtok(NULL, ",");
+	if (token) Session.Options.GameSpeed = atol(token);
+	token = strtok(NULL, ",");
+	if (token) Session.Options.Credits = atol(token);
+	token = strtok(NULL, ",");
+	if (token) Session.Options.UnitCount = atol(token);
+	token = strtok(NULL, ",");
+	if (token) Session.Options.ShortGame = atol(token) != 0;
+	token = strtok(NULL, ",");
+	if (token) Session.Options.SWAllowed = atol(token) != 0;
+	token = strtok(NULL, ",");
+	if (token) Session.Options.BuildOffAlly = atol(token) != 0;
+	token = strtok(NULL, ",");
+	if (token) Session.Options.MCVRedeploy = atoi(token) != 0;
+	token = strtok(NULL, ",");
+	if (token) Session.Options.Goodies = atoi(token) != 0;
+	token = strtok(NULL, ",");
+	if (token) Session.Options.MPModeIndex = atol(token);
+	token = strtok(NULL, ",");
+	if (!token) {
+		free(copy);
+		return(false);
+	}
+	Options.CampDifficulty = atol(token);
+
+	bool same = true;
+	token = strtok(NULL, ",");
+	WideWstring scenario_name(token ? FUN_007B83E0(Wstring(token)) : WideWstring(L""));
+
+	int old_players = Session.unknown_8D4;
+	token = strtok(NULL, ",");
+	if (token) {
+		Session.unknown_8D4 = atoi(token);
+		if (Session.unknown_8D4 != old_players) same = false;
+	}
+	bool old_official = Session.ScenarioIsOfficial;
+	token = strtok(NULL, ",");
+	if (token) {
+		Session.ScenarioIsOfficial = atoi(token) != 0;
+		if (Session.ScenarioIsOfficial != old_official) same = false;
+	}
+	unsigned int old_length = Session.ScenarioFileLength;
+	token = strtok(NULL, ",");
+	if (token) {
+		Session.ScenarioFileLength = atoi(token);
+		if (Session.ScenarioFileLength != old_length) same = false;
+	}
+	token = strtok(NULL, ",");
+	if (token) {
+		if (stricmp(Session.ScenarioFileName, token) != 0) same = false;
+		strncpy(Session.ScenarioFileName, token, 0x202);
+		strcpy(Scen->ScenarioName, Session.ScenarioFileName);
+	}
+	char * digest = strtok(NULL, ":");
+	if (digest) {
+		if (strcmp(Session.ScenarioDigest, digest) != 0) same = false;
+		strncpy(Session.ScenarioDigest, digest, 0x21);
+	}
+
+	MultiplayerGameMode * mode = MultiplayerGameMode::Get(Session.Options.MPModeIndex);
+	if (mode != Session.MPGameMode) same = false;
+	if (top == IDD_MPLAYER_GUEST || top == 0xC9) {
+		FUN_005EBDD0(GameoptWindow(), old_players, Session.unknown_8D4, mode);
+	}
+
+	bool found = true;
+	if (!same || wcslen(Session.Options.ScenarioDescription) == 0) {
+		found = false;
+		same = false;
+		for (int i = 0; i < Session.Scenarios.Count(); i++) {
+			MultiMission * scenario = Session.Scenarios[i];
+			if (stricmp(Session.ScenarioFileName, scenario->Get_Filename()) != 0) continue;
+			CCFileClass file(scenario->Get_Filename());
+			if (file.Is_Available(false) && (unsigned int)file.Size() == Session.ScenarioFileLength) {
+				INIClass ini;
+				ini.Load(file, false);
+				char buffer[32];
+				ini.Get_String("Digest", "1", "No digest here mate. Nope.", buffer, sizeof(buffer));
+				if (Session.ScenarioDigest[0] == 0 || strcmp(Session.ScenarioDigest, buffer) == 0) {
+					wcscpy(Session.Options.ScenarioDescription, scenario->Description());
+					found = true;
+				}
+			}
+		}
+		if (!found && scenario_name.length() > 0) {
+			wcscpy(Session.Options.ScenarioDescription, scenario_name.get());
+		}
+		if (Session.MPGameMode) Session.MPGameMode->vt_entry_24();
+	}
+
+	mode = MultiplayerGameMode::Get(Session.Options.MPModeIndex);
+	if (mode != Session.MPGameMode) {
+		if (Session.MPGameMode) Session.MPGameMode->vt_entry_9C();
+		if (mode) mode->vt_entry_20();
+	}
+	Session.MPGameMode = mode;
+	if (mode && !same) {
+		mode->UnfixAlliances();
+		FUN_005EE3A0();
+	}
+	HWND dialog = GameoptWindow();
+	if (mode) SendMessage(GetDlgItem(dialog, 0x6EC), 0x4B2, 0, (LPARAM)mode->UIName.text());
+	SendMessage(GetDlgItem(dialog, 0x5A8), 0x4B2, 0, (LPARAM)Session.Options.ScenarioDescription);
+	Scen->Scenario = -1;
+	Frame = 0;
+	Session.CommProtocol = (CommProtocolType)2;
+
+	if (old_official != Session.ScenarioIsOfficial || old_length != Session.ScenarioFileLength) same = false;
+	if (!same) {
+		FUN_004068E0("Not same scenario...\n");
+		bool random = stricmp(Session.ScenarioFileName, "RandMap.Sed") == 0;
+		char const * state;
+		if (Session.ScenarioIsOfficial && !found && !random) {
+			if (GameoptWindow()) {
+				PMessagePrintf(-1, StringTable::LoadString("GUI:JoinerNoMap", NULL, "D:\\ra2mdpost\\netshare.cpp", 0x814),
+					Session.Options.ScenarioDescription);
+			}
+			DAT_00AC11C2 = false;
+			EnableWindow(GetDlgItem(GameoptWindow(), 0x59F), FALSE);
+			InvalidateRect(GetDlgItem(GameoptWindow(), 0x59F), NULL, FALSE);
+			state = "K0";
+		} else {
+			DAT_00AC11C2 = true;
+			EnableWindow(GetDlgItem(GameoptWindow(), 0x59F), TRUE);
+			InvalidateRect(GetDlgItem(GameoptWindow(), 0x59F), NULL, FALSE);
+			if (!Session.ScenarioIsOfficial && !found && !random) {
+				if (GameoptWindow()) {
+					PMessagePrintf(-1, StringTable::LoadString("GUI:JoinerMapTransfer", NULL, "D:\\ra2mdpost\\netshare.cpp", 0x824),
+						Session.Options.ScenarioDescription);
+				}
+				state = "K2";
+			} else {
+				state = "K1";
+			}
+		}
+		SendPublicGameopts(state);
+		Update_Network_Dialog_Preview(GameoptWindow());
+		int count = Session.unknown_8D4;
+		if (Session.MPGameMode && Session.MPGameMode->vt_entry_04() && Scen->NumCoopHumanStartSpots <= count) {
+			count = Scen->NumCoopHumanStartSpots;
+		}
+		FUN_004E4FC0(count);
+		if (top == IDD_MPLAYER_GUEST || top == 0xC9) {
+			FUN_004E5310(WS_Top_Window());
+			FUN_004E5D60(WS_Top_Window());
+			FUN_005EE510(-1);
+		}
+	}
+	if (!digest) {
+		PMessagePrintf(-1, L"Gameopt parse failed");
+	}
+
+	for (char * who = strtok(NULL, ",:"); who && strcmp(who, "@") != 0; who = strtok(NULL, ",:")) {
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		int country = atol(token);
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		int color = atol(token);
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		int start = atol(token);
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		int team = atol(token);
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		// The player's address and two more words: an Internet game's only (the NAT relay).
+		strtok(NULL, ",:");
+		strtok(NULL, ",:");
+		DAT_00AC1178 = 1;
+		if (stricmp(who, Session.Handle) == 0 && color != Session.PrefColor) {
+			if (DAT_00AC1178 == 0) {
+				PMessagePrintf(-1, StringTable::LoadString("TXT_COLOR_IN_USE", NULL, "D:\\ra2mdpost\\netshare.cpp", 0x8b6));
+			}
+			Session.PrefColor = color;
+		}
+		if (stricmp(who, Session.Handle) == 0) {
+			DAT_00AC1178 = 0;
+		}
+		if (Net2SetHouseAndColor(who, country, color, start, team)) {
+			changed = true;
+		}
+	}
+
+	char before[200];
+	Yr_AI_Slots_Text(before);
+	int ai = 0;
+	for (int k = 0; k < 8; k++) {
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		Session.Options.AISlots.Difficulties[k] = atol(token);
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		Session.Options.AISlots.Countries[k] = atol(token);
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		Session.Options.AISlots.Colors[k] = atol(token);
+		if (Session.Options.AISlots.Countries[k] != -1) ai++;
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		Session.Options.AISlots.Starts[k] = atol(token);
+		token = strtok(NULL, ",:");
+		if (!token) break;
+		Session.Options.AISlots.Allies[k] = atol(token);
+	}
+	Session.Options.AIPlayers = ai;
+	char after[200];
+	Yr_AI_Slots_Text(after);
+	if (strcmp(before, after) != 0) changed = true;
+	free(copy);
+
+	DisplayGameopts(GameoptWindow(), FALSE);
+
+	if (Yr_Last_Game_Speed != Session.Options.GameSpeed) changed = true;
+	if (Yr_Last_Credits != Session.Options.Credits) changed = true;
+	if (Yr_Last_Unit_Count != Session.Options.UnitCount) changed = true;
+	if (Yr_Last_Short_Game != Session.Options.ShortGame) changed = true;
+	if (Yr_Last_SW_Allowed != Session.Options.SWAllowed) changed = true;
+	if (Yr_Last_Build_Off_Ally != Session.Options.BuildOffAlly) changed = true;
+	if (Yr_Last_MCV_Redeploy != Session.Options.MCVRedeploy) changed = true;
+	if (Yr_Last_Goodies != Session.Options.Goodies) changed = true;
+	if (Yr_Last_Camp_Difficulty != Options.CampDifficulty) changed = true;
+
+	if (!same || changed) {
+		FUN_005E3AB0();
+	}
+	if (top != IDD_MPLAYER_HOST && top != IDD_MPLAYER_GUEST) {
+		SendDlgItemMessage(GameoptWindow(), 0x53E, 0x49D, 0, 0);
+	}
+	Net2DisplayUsers();
+
+	Yr_Last_Game_Speed = Session.Options.GameSpeed;
+	Yr_Last_Credits = Session.Options.Credits;
+	Yr_Last_Unit_Count = Session.Options.UnitCount;
+	Yr_Last_Short_Game = Session.Options.ShortGame;
+	Yr_Last_SW_Allowed = Session.Options.SWAllowed;
+	Yr_Last_Build_Off_Ally = Session.Options.BuildOffAlly;
+	Yr_Last_MCV_Redeploy = Session.Options.MCVRedeploy;
+	Yr_Last_Goodies = Session.Options.Goodies;
+	Yr_Last_Camp_Difficulty = Options.CampDifficulty;
+
+	return(!same);
+}

@@ -565,6 +565,42 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
 * **Open from Y12**: the campaign dialog's Difficulty label `MISSING:''` (StringTable::LoadString given an empty
   label; the dialog's code was not found in the time box) and the LTNK position (not investigated).
 
+### Lane YW2 (2026-11-17): a LAN game in step
+
+* **The game**: two Macs (or two games on one Mac) play a Network game: the host seats the guest, chat works
+  both ways in the setup screens, the guest's Accept and the host's Start Game load the map on both, and the
+  frames run in step: 3,000 frames with every frame's game CRC equal. ctest `yr-native-lan-pair`
+  (`tests/yr_lan_pair.py`; RA2_NATIVE_CRC_LOG gives each frame's "crc <frame> <value>", fixups.json's
+  queue.cpp row). `yr-native-lan-pair-wine`: the guest is the Windows build under Wine
+  (`-DRA2_NATIVE_YR_WINDOWS_EXE=<build/release-yr-win/yr-native.exe>`; skipped without it; Wine from
+  RA2_NATIVE_WINE, PATH or the main checkout's private/tools bundle): passes, 3,000 frames, CRCs equal.
+* **Why the guest was never seated**: the host refuses a player whose serial it already has
+  (TXT_SERIAL_DUP), and every native copy read the same empty serial from the registry the installer would
+  have written. Without one, the installation keeps its own 22-digit serial, made once at random, in its
+  settings folder (`YRSERIAL.TXT`; glue/yr_lan.cpp `Yr_Installation_Serial`, called from Decrypt_Serial by a
+  fixup).
+* **Globals that are Session's fields**: gamemd.exe names some of Session's fields as globals
+  (`GameModeOptionsClass::Instance` = Session.Options.MPModeIndex, `Game::PlayerColor` = PrefColor,
+  `Game::PlayerCount` = NumPlayers, `Game::ChatMask` = PlayerChatEnabled,
+  `Game::Network::PreCalcFrameRate` = PrecalcDesiredFrameRate); yr_data.py gave each its own storage, so the
+  host's game mode never reached the options it sent (mode 0: the guest faulted in Read_Scenario_INI). Fixups
+  name the fields in netshare, netdlg2, netdlg, session, house and scenario. Still separate storage, not on the
+  LAN path: `Unsorted::SWAllowed` (Options.SWAllowed, house.cpp), `Unsorted::MuteSWLaunches` (0x00A8B538,
+  Session+0x300, many units), `Game::RecordingFlag` (0x00A8D5F8, init/sidebar): a general fix belongs in
+  yr_data.py (an address inside a defined object becomes that object's field).
+* **NON-EXACT drafts** (native/yr only): `DecodePubGameopt` (0x005E3D10; the RA2 twin's draft and TibSun's
+  shape; Westwood Online's Z/P/C options and chat-channel parts left out), `FUN_006475F0` Queue_AI_Multiplayer
+  and `Wait_For_Players` (0x00648710) from the RA2 tree's exact text (gamemd.exe repeats it) with YR's names,
+  `FUN_0064BDD0` Extract_Compressed_Events (the RA2 draft's text and fixes; same 414 instructions),
+  `Draw_Sync_Bars` (0x0064A7B0), `FUN_00650A90` Game::LogFrameCRC (PARTIAL: the -MPDEBUG sync record keeps only
+  the CRC, random number and frame). OwnerDraw::NewEditHandler (Y? draft): a chat line's Return now also sends
+  the 0x501 notification the setup screens answer by sending the line (the RA2 rewrite's C20 fix).
+* Link closure (Mac) 151 -> 137 (with Y14's landing).
+* The Windows build with lane Y14's landing (harness orders, drafts, bink.cpp, host.cpp) cross-builds and links
+  under llvm-mingw unchanged.
+* **Next**: the -MPDEBUG sync record's object lists; longer games with orders (RA2's native-lan-pair gives orders
+  and control groups); the both-games app on Windows (engines as DLLs).
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

@@ -295,5 +295,34 @@ add_test(NAME yr-native-lan-lobby COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CU
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-lan-lobby")
 set_tests_properties(yr-native-lan-lobby PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300 RUN_SERIAL TRUE)
 
+# ctest yr-native-lan-pair (lane YW2): two games on this Mac play a LAN game: the host seats the guest,
+# chat both ways in the setup screens, Accept and Start Game, then 3,000 frames in step with every
+# frame's game CRC equal (yr/tests/yr_lan_pair.py). yr-native-lan-pair-wine: the guest is the Windows
+# build under Wine (RA2_NATIVE_YR_WINDOWS_EXE: its yr-native.exe, from native/build.sh yr-windows; the
+# Wine prefix is deleted after the run); skipped without it or without Wine.
+add_test(NAME yr-native-lan-pair COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_lan_pair.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-lan-pair" --frames 3000)
+set_tests_properties(yr-native-lan-pair PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1200 RUN_SERIAL TRUE)
+if(NOT RA2_NATIVE_WINE)
+  # The Mac build's Wine for the guest (as cmake/windows.cmake looks for it): RA2_NATIVE_WINE, else `wine` on
+  # PATH, else the Wine bundle kept under the main checkout's private/tools.
+  find_program(yr_wine_found wine)
+  get_filename_component(yr_checkout "${CMAKE_CURRENT_SOURCE_DIR}/.." ABSOLUTE)
+  string(REGEX REPLACE "/\\.claude/worktrees/[^/]+$" "" yr_main_checkout "${yr_checkout}")
+  set(yr_wine_bundle "${yr_main_checkout}/private/tools/wine-11.18/Wine Devel.app/Contents/Resources/wine/bin/wine")
+  if(yr_wine_found)
+    set(RA2_NATIVE_WINE "${yr_wine_found}")
+  elseif(EXISTS "${yr_wine_bundle}")
+    set(RA2_NATIVE_WINE "${yr_wine_bundle}")
+  endif()
+endif()
+set(RA2_NATIVE_YR_WINDOWS_EXE "" CACHE FILEPATH "The Windows build's yr-native.exe for yr-native-lan-pair-wine (optional)")
+add_test(NAME yr-native-lan-pair-wine COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_lan_pair.py"
+         --binary $<TARGET_FILE:yr-native> --binary-b "${RA2_NATIVE_YR_WINDOWS_EXE}" --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-lan-pair-wine" --frames 3000
+         --wine-prefix-b "${CMAKE_CURRENT_BINARY_DIR}/wine/yr-lan-pair" --wine "${RA2_NATIVE_WINE}")
+set_tests_properties(yr-native-lan-pair-wine PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1800 RUN_SERIAL TRUE)
+
 # One game (lane Y5, -DRA2_NATIVE_COMBINED=ON): native/yr/combined.cmake.
 include("${CMAKE_CURRENT_SOURCE_DIR}/yr/combined.cmake")

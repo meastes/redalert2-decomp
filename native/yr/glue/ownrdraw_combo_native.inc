@@ -788,7 +788,8 @@ LRESULT CALLBACK FUN_0060D540(HWND window, UINT message, WPARAM wparam, LPARAM l
 // behaviour rewrite (native/link/behaviour_m14_ownerdraw.cpp) with the YR record names: the text
 // is Wide.editText, its limit Wide.textLimit, the caret Wide.caretIndex, the scroll
 // Wide.scrollStart, the blink state Wide.caretBlink (published in DAT_00AC48C8 for the drawer
-// FUN_00623880, as gamemd.exe does); Return and Tab notify the dialog (0x4DA, 0x4DB).
+// FUN_00623880, as gamemd.exe does); Return and Tab notify the dialog (0x4DA, 0x4DB; a chat line's
+// Return also sends notification 0x501, lane YW2).
 void __fastcall FUN_00623880(Surface *surface, Rect *rect, wchar_t *text, int caret, BitFont *font, unsigned color,
 	int *scroll, int focus, int password, int p10, int p11);
 extern int DAT_00AC48C8;
@@ -811,7 +812,15 @@ LRESULT CALLBACK OwnerDraw::NewEditHandler(HWND window, UINT message, WPARAM wpa
 			return 0;
 		}
 		if (message == WM_KEYDOWN && wparam == VK_RETURN) {
+			// Return (gamemd.exe 0x00614DDD): 0x4DA to the dialog; a multi-line edit (styleFlags 4:
+			// the setup screens' and the lobby's chat lines 0x540) then appends "\r\n" and sends the
+			// WM_COMMAND notification 0x501, which the network dialogs answer by sending the chat line
+			// (lane YW2: without it the LAN chat sent nothing, as the RA2 tree's rewrite found, C20).
 			SendMessage(parent, 0x4DA, 0, (LPARAM)window);
+			if (data->Wide.styleFlags & 4) {
+				text += L"\r\n";
+				SendMessage(parent, WM_COMMAND, (WPARAM)((GetWindowLong(window, GWL_ID) & 0xFFFF) | 0x5010000), (LPARAM)window);
+			}
 			return 0;
 		}
 		break;
