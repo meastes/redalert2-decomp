@@ -513,6 +513,7 @@ namespace WorldDominationTour
 			int Get_Layout(void) const; // RA2: 0x0072D2A0; the key into [LAYOUTS]
 			int Get_Map_ID(void) const; // RA2: 0x0072D2B0; 1 without a state
 			int Get_Current_Tick(void) const; // RA2: 0x0072D2D0; the state's conflict count less one
+			Wstring Get_Web_URL(void) const; // RA2: 0x0072D2E0; empty without a state
 
 		public:
 			rc_ptr<WDTState> TourState; // RA2: +0x08

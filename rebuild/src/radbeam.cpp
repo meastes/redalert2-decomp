@@ -193,7 +193,7 @@ void RadBeam::Draw_Line(Coord const & start, Coord const & end, short color)
 
 
 /// <summary>One frame of a type 1 beam: the line is drawn step by step; true once the period is over.</summary>
-#ifdef RA2_NON_MATCHING // not exact: 17 bytes differ (written fresh)
+#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (the pixel takes blue first and red last in the original)
 bool RadBeam::Draw_Pulse(void)
 {
 	if (!Prepared) {
@@ -201,7 +201,21 @@ bool RadBeam::Draw_Pulse(void)
 		Compute_Delta();
 	}
 	if (IsActive) {
-		Start_Pass();
+		Steps = Length / StepLength;
+		int x = Delta.X;
+		int y = Delta.Y;
+		int z = Delta.Z;
+		if (Steps != 0) {
+			x /= Steps;
+			y /= Steps;
+			z /= Steps;
+		}
+		StepDelta = Coord(x, y, z);
+		Current = Source;
+		double phase = Time;
+		phase /= Period;
+		Wave = phase * Amplitude;
+		CurrentColor = Color;
 		for (StepIndex = 0; StepIndex * StepLength < Length; StepIndex++) {
 			Compute_Pulse_Step();
 			Draw_Line(Current, Next, DSurface::Build_Hicolor_Pixel(CurrentColor));
@@ -221,7 +235,6 @@ void RadBeam::Compute_Delta(void)
 
 
 /// <summary>Starts a pass along the beam: the number of steps and the step, the start, the wave and the color.</summary>
-#ifdef RA2_NON_MATCHING // not exact: 17 bytes differ (written fresh)
 void RadBeam::Start_Pass(void)
 {
 	Steps = Length / StepLength;
@@ -235,10 +248,11 @@ void RadBeam::Start_Pass(void)
 	}
 	StepDelta = Coord(x, y, z);
 	Current = Source;
-	Wave = Time / (double)Period * Amplitude;
+	double phase = Time;
+	phase /= Period;
+	Wave = phase * Amplitude;
 	CurrentColor = Color;
 }
-#endif
 
 
 #ifdef RA2_NON_MATCHING // not exact: not yet written (no independent bound for 0x635C30)

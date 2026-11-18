@@ -195,6 +195,20 @@
     "?Restore_Timer_Delay@ToolTipManager@@QAEXXZ": 7256096,
     "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z": 5894736,
     "?Abandon_Production@StripClass@SidebarClass@@QAE_NPBVFactoryClass@@@Z": 6821840,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?SpecialDialog@@3W4SpecialDialogType@@A": 10751304,
+    "?Reposition_Sidebar@PowerClass@@UAEXXZ": 6410544,
+    "??_C@_0N@JNGJ@SIDEGDI1?4SHP?$AA@": 8339268,
+    "??_C@_0N@HNAG@SIDEGDI2?4SHP?$AA@": 8339252,
+    "??_C@_0N@NNCD@SIDEGDI3?4SHP?$AA@": 8339236,
+    "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
+    "?Flag_To_Redraw@GadgetClass@@UAEXXZ": 5043616,
+    "?RadarButton@RadarClass@@1VRTacticalClass@1@A": 11232376,
+    "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
+    "?Remove@ToolTipManager@@QAEXI@Z": 7256592,
+    "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z": 7256160,
+    "??_C@_0O@IOEL@TXT_SELL_MODE?$AA@": 8245008,
+    "??_C@_0BA@IOHI@TXT_REPAIR_MODE?$AA@": 8244956,
     "?Instance@BitFont@@2PAV1@A": 8710632,
     "??_C@_07MMLF@DarkRed?$AA@": 8306640,
     "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z": 6700336,
@@ -236,13 +250,10 @@
     "?Mouse_Leave@GadgetClass@@UAEXXZ": 5042704,
     "?Mouse_Enter@GadgetClass@@UAEXXZ": 5042688,
     "?Draw_Me@GadgetClass@@UAEHH@Z": 5042752,
-    "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
-    "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
     "?Is_List_To_Redraw@GadgetClass@@UAEHXZ": 5043776,
     "?Has_Focus@GadgetClass@@UAE_NXZ": 5043760,
     "?Clear_Focus@GadgetClass@@UAEXXZ": 5043728,
     "?Set_Focus@GadgetClass@@UAEXXZ": 5043680,
-    "?Flag_To_Redraw@GadgetClass@@UAEXXZ": 5043616,
     "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
     "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
     "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
@@ -290,7 +301,6 @@
     "?RevealFogShroud@RadarClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z": 6487200,
     "?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 6487168,
     "?Abort_Drag_Select@DisplayClass@@UAEXXZ": 4844528,
-    "?Reposition_Sidebar@SidebarClass@@UAEXXZ": 6822304,
     "?Help_Text@SidebarClass@@UAEPBDH@Z": 6823632,
     "?Read_INI@DisplayClass@@UAEXABVCCINIClass@@@Z": 4837328,
     "?Set_Local_Dimensions@RadarClass@@UAEXABV?$TRect@H@@@Z": 6490176,
@@ -361,8 +371,10 @@
     "?Factory_Link@StripClass@SidebarClass@@QAE_NPAVFactoryClass@@W4RTTIType@@H@Z": 6821584,
     "?Has_Buildables@StripClass@SidebarClass@@QBE_NXZ": 6821680,
     "?Abandon_Production@SidebarClass@@QAE_NW4RTTIType@@HPAVFactoryClass@@@Z": 6821696,
+    "?Zoom_Mode_Control@SidebarClass@@QAEXXZ": 6822064,
     "?Sidebar_Which_Tab_By_Category@@YIHW4RTTIType@@H_N@Z": 6822208,
     "?First_Used_Column@SidebarClass@@QAEHXZ": 6822272,
+    "?Reposition_Sidebar@SidebarClass@@UAEXXZ": 6822304,
     "?Print_Cameo_Text@@YIXPBGABVPoint2D@@ABV?$TRect@H@@H@Z": 6824256,
     "?Load@SidebarClass@@UAEJPAUIStream@@@Z": 6824592,
     "?Save@SidebarClass@@UAEJPAUIStream@@@Z": 6824608,
@@ -432,7 +444,7 @@
           "resolved": 11245204
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6795968,
@@ -499,7 +511,7 @@
           "resolved": 11245216
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796000,
@@ -550,7 +562,7 @@
           "resolved": 11258960
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796048,
@@ -601,7 +613,7 @@
           "resolved": 11258848
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796080,
@@ -652,7 +664,7 @@
           "resolved": 11258840
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796112,
@@ -703,7 +715,7 @@
           "resolved": 11245224
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796144,
@@ -754,7 +766,7 @@
           "resolved": 11244664
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796176,
@@ -837,7 +849,7 @@
           "resolved": 11259064
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796208,
@@ -896,7 +908,7 @@
           "resolved": 11245232
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796272,
@@ -955,7 +967,7 @@
           "resolved": 11258832
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796320,
@@ -1014,7 +1026,7 @@
           "resolved": 11258952
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796368,
@@ -1057,7 +1069,7 @@
           "resolved": 11245210
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796416,
@@ -1108,7 +1120,7 @@
           "resolved": 11258824
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796432,
@@ -1183,7 +1195,7 @@
           "resolved": 1078448
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796464,
@@ -1242,7 +1254,7 @@
           "resolved": 4293213058
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796512,
@@ -1301,7 +1313,7 @@
           "resolved": 1078390
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796544,
@@ -1360,7 +1372,7 @@
           "resolved": 4294941618
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796576,
@@ -1419,7 +1431,7 @@
           "resolved": 1078326
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796608,
@@ -1478,7 +1490,7 @@
           "resolved": 4294941554
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796640,
@@ -1537,7 +1549,7 @@
           "resolved": 1078247
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796672,
@@ -1596,7 +1608,7 @@
           "resolved": 4294941462
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796720,
@@ -1655,7 +1667,7 @@
           "resolved": 1078166
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796768,
@@ -1714,7 +1726,7 @@
           "resolved": 4294941394
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796800,
@@ -1773,7 +1785,7 @@
           "resolved": 1078102
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796832,
@@ -1832,7 +1844,7 @@
           "resolved": 4294941330
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796864,
@@ -1899,7 +1911,7 @@
           "resolved": 1077998
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796896,
@@ -1958,7 +1970,7 @@
           "resolved": 4293212582
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796976,
@@ -2001,7 +2013,7 @@
           "resolved": 8041204
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797024,
@@ -2076,7 +2088,7 @@
           "resolved": 11971
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797056,
@@ -2102,7 +2114,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797440,
@@ -2161,7 +2173,7 @@
           "resolved": 11244672
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797456,
@@ -2204,7 +2216,7 @@
           "resolved": 11918
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797488,
@@ -2455,7 +2467,7 @@
           "resolved": 11259264
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797584,
@@ -2578,7 +2590,7 @@
           "resolved": 11259252
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797920,
@@ -3189,7 +3201,7 @@
           "resolved": 10908
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6798032,
@@ -3768,7 +3780,7 @@
           "resolved": 11259180
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6798736,
@@ -4147,7 +4159,7 @@
           "resolved": 4294938802
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6799296,
@@ -4198,7 +4210,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6799616,
@@ -4305,7 +4317,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6799696,
@@ -4348,7 +4360,7 @@
           "resolved": 4293281431
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800080,
@@ -4399,7 +4411,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800144,
@@ -4450,7 +4462,7 @@
           "resolved": 4293281119
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800240,
@@ -4476,7 +4488,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800464,
@@ -4502,7 +4514,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800576,
@@ -4809,7 +4821,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800688,
@@ -4988,7 +5000,7 @@
           "resolved": 4293208129
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6801488,
@@ -5199,7 +5211,7 @@
           "resolved": 4293207824
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6801680,
@@ -5770,7 +5782,7 @@
           "resolved": 4293206936
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6802000,
@@ -5837,7 +5849,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6802896,
@@ -5896,7 +5908,7 @@
           "resolved": 11259236
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6803088,
@@ -6611,7 +6623,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6803328,
@@ -7126,7 +7138,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6804512,
@@ -7401,7 +7413,7 @@
           "resolved": 4293203921
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6805472,
@@ -7748,7 +7760,7 @@
           "resolved": 4293203297
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6805904,
@@ -7823,7 +7835,7 @@
           "resolved": 4293274941
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6806528,
@@ -7866,7 +7878,7 @@
           "resolved": 4294932091
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6806640,
@@ -7901,7 +7913,7 @@
           "resolved": 8440
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6808000,
@@ -7936,7 +7948,7 @@
           "resolved": 11259240
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809152,
@@ -7971,7 +7983,7 @@
           "resolved": 11259244
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809168,
@@ -8046,7 +8058,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809184,
@@ -8097,7 +8109,7 @@
           "resolved": 11244672
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809376,
@@ -8140,7 +8152,7 @@
           "resolved": 10748732
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809408,
@@ -8175,7 +8187,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809456,
@@ -8274,7 +8286,7 @@
           "resolved": 8600128
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809568,
@@ -8381,7 +8393,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809840,
@@ -8464,7 +8476,7 @@
           "resolved": 4293271786
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6810016,
@@ -8547,7 +8559,7 @@
           "resolved": 1067737
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6810144,
@@ -8598,7 +8610,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6810896,
@@ -8665,7 +8677,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811120,
@@ -8724,7 +8736,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811232,
@@ -8783,7 +8795,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811376,
@@ -8842,7 +8854,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811504,
@@ -8885,7 +8897,7 @@
           "resolved": 4293269856
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811696,
@@ -9409,7 +9421,7 @@
           "resolved": 6812702
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811728,
@@ -9588,7 +9600,7 @@
           "resolved": 11244676
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813056,
@@ -9695,7 +9707,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813312,
@@ -9778,7 +9790,7 @@
           "resolved": 4293268310
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813488,
@@ -9813,7 +9825,7 @@
           "resolved": 4293107987
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813632,
@@ -9856,7 +9868,7 @@
           "resolved": 8041340
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6818208,
@@ -9882,7 +9894,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6818256,
@@ -9973,7 +9985,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821376,
@@ -10048,7 +10060,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821456,
@@ -10091,7 +10103,7 @@
           "resolved": 4294040466
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821552,
@@ -10135,7 +10147,7 @@
           "resolved": 4293259902
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821584,
@@ -10161,7 +10173,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821680,
@@ -10204,11 +10216,55 @@
           "resolved": 6
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821696,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6822064,
+      "method": "006818b0",
+      "body_bytes": 20,
+      "body_sha256": "cbca8f830650aeda22376725f5ee8b2459e8ead834da2da2ba21cdab4658e94b",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1b45335780dde0de7253cf78afb5f8dd8ea9f4330ee270e800e46e4041236109",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Zoom_Mode_Control@SidebarClass@@QAEXXZ",
+      "symbol_prefix": "?Zoom_Mode_Control@SidebarClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?SpecialDialog@@3W4SpecialDialogType@@A",
+          "target": 10751304,
+          "addend": 0,
+          "resolved": 10751304
+        }
+      ],
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
+      "source": "rebuild/src/sidebar.cpp",
+      "population": "rebuild-sidebar",
+      "source_order": 6822064,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
     },
     {
       "entry": 6822208,
@@ -10230,7 +10286,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822208,
@@ -10257,10 +10313,1133 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6822304,
+      "method": "006819a0",
+      "body_bytes": 1314,
+      "body_sha256": "0e700bfaed750ed91253c9af92bd1a085086a5c774e73a097be560e6aa31e526",
+      "padding_bytes": 14,
+      "full_extent_bytes": 1328,
+      "full_extent_sha256": "087df45ff690c3c93a18f4a5d841a78c5101dbb84ea13a381c7660a55e0424e9",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reposition_Sidebar@SidebarClass@@UAEXXZ",
+      "symbol_prefix": "?Reposition_Sidebar@SidebarClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Reposition_Sidebar@PowerClass@@UAEXXZ",
+          "target": 6410544,
+          "addend": 0,
+          "resolved": 4294555528
+        },
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 24,
+          "resolved": 10750768
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 8,
+          "resolved": 8623672
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 0,
+          "resolved": 8623648
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?StripLeft@SidebarClass@@2HA",
+          "target": 11259232,
+          "addend": 0,
+          "resolved": 11259232
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?TopButtonX@SidebarClass@@2HA",
+          "target": 11259208,
+          "addend": 0,
+          "resolved": 11259208
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?TabButtonX@SidebarClass@@2HA",
+          "target": 11259220,
+          "addend": 0,
+          "resolved": 11259220
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?PowerBarLeft@SidebarClass@@2HA",
+          "target": 11259252,
+          "addend": 0,
+          "resolved": 11259252
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?TopButtonX@SidebarClass@@2HA",
+          "target": 11259208,
+          "addend": 0,
+          "resolved": 11259208
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?TabButtonX@SidebarClass@@2HA",
+          "target": 11259220,
+          "addend": 0,
+          "resolved": 11259220
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?PowerBarLeft@SidebarClass@@2HA",
+          "target": 11259252,
+          "addend": 0,
+          "resolved": 11259252
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "?SidebarShapes@SidebarClass@@2PAPBVShapeSet@@A",
+          "target": 11259168,
+          "addend": 0,
+          "resolved": 11259168
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "??_C@_0N@JNGJ@SIDEGDI1?4SHP?$AA@",
+          "target": 8339268,
+          "addend": 0,
+          "resolved": 8339268
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 4293999764
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "??_C@_0N@HNAG@SIDEGDI2?4SHP?$AA@",
+          "target": 8339252,
+          "addend": 0,
+          "resolved": 8339252
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "?SidebarShapes@SidebarClass@@2PAPBVShapeSet@@A",
+          "target": 11259168,
+          "addend": 0,
+          "resolved": 11259168
+        },
+        {
+          "offset": 151,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 4293999749
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "??_C@_0N@NNCD@SIDEGDI3?4SHP?$AA@",
+          "target": 8339236,
+          "addend": 0,
+          "resolved": 8339236
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?SidebarShapes@SidebarClass@@2PAPBVShapeSet@@A",
+          "target": 11259168,
+          "addend": 4,
+          "resolved": 11259172
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 4293999734
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "?SidebarShapes@SidebarClass@@2PAPBVShapeSet@@A",
+          "target": 11259168,
+          "addend": 8,
+          "resolved": 11259176
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 0,
+          "resolved": 8623648
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "?Background@SidebarClass@@2VSBGadgetClass@1@A",
+          "target": 11245336,
+          "addend": 0,
+          "resolved": 11245336
+        },
+        {
+          "offset": 201,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293188595
+        },
+        {
+          "offset": 206,
+          "kind": 6,
+          "symbol": "?Background@SidebarClass@@2VSBGadgetClass@1@A",
+          "target": 11245336,
+          "addend": 0,
+          "resolved": 11245336
+        },
+        {
+          "offset": 211,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+          "target": 5043616,
+          "addend": 0,
+          "resolved": 4293188393
+        },
+        {
+          "offset": 216,
+          "kind": 6,
+          "symbol": "?RadarButton@RadarClass@@1VRTacticalClass@1@A",
+          "target": 11232376,
+          "addend": 16,
+          "resolved": 11232392
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "?RadarButton@RadarClass@@1VRTacticalClass@1@A",
+          "target": 11232376,
+          "addend": 24,
+          "resolved": 11232400
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 24,
+          "resolved": 10750768
+        },
+        {
+          "offset": 241,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 246,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 8,
+          "resolved": 8623672
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "?Background@SidebarClass@@2VSBGadgetClass@1@A",
+          "target": 11245336,
+          "addend": 0,
+          "resolved": 11245336
+        },
+        {
+          "offset": 263,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293188533
+        },
+        {
+          "offset": 269,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "?Background@SidebarClass@@2VSBGadgetClass@1@A",
+          "target": 11245336,
+          "addend": 0,
+          "resolved": 11245336
+        },
+        {
+          "offset": 302,
+          "kind": 20,
+          "symbol": "?Set_Size@GadgetClass@@UAEXHH@Z",
+          "target": 5043840,
+          "addend": 0,
+          "resolved": 4293188526
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "?TopButtonY@SidebarClass@@2HA",
+          "target": 11259212,
+          "addend": 0,
+          "resolved": 11259212
+        },
+        {
+          "offset": 314,
+          "kind": 6,
+          "symbol": "?TopButtonX@SidebarClass@@2HA",
+          "target": 11259208,
+          "addend": 0,
+          "resolved": 11259208
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 0,
+          "resolved": 11258968
+        },
+        {
+          "offset": 326,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293188470
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 0,
+          "resolved": 11258968
+        },
+        {
+          "offset": 336,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+          "target": 5043616,
+          "addend": 0,
+          "resolved": 4293188268
+        },
+        {
+          "offset": 341,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 0,
+          "resolved": 8623648
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 12,
+          "resolved": 11258980
+        },
+        {
+          "offset": 353,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 16,
+          "resolved": 11258984
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 68,
+          "resolved": 11259036
+        },
+        {
+          "offset": 365,
+          "kind": 6,
+          "symbol": "?TopButtonSpacing@SidebarClass@@2HA",
+          "target": 11259216,
+          "addend": 0,
+          "resolved": 11259216
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "?Repair@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11245240,
+          "addend": 0,
+          "resolved": 11245240
+        },
+        {
+          "offset": 379,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293188417
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "?Repair@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11245240,
+          "addend": 0,
+          "resolved": 11245240
+        },
+        {
+          "offset": 389,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+          "target": 5043616,
+          "addend": 0,
+          "resolved": 4293188215
+        },
+        {
+          "offset": 395,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 0,
+          "resolved": 8623648
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "?TabButton@SidebarClass@@2PAVShapeButtonClass@@A",
+          "target": 11244808,
+          "addend": 0,
+          "resolved": 11244808
+        },
+        {
+          "offset": 408,
+          "kind": 6,
+          "symbol": "?Repair@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11245240,
+          "addend": 68,
+          "resolved": 11245308
+        },
+        {
+          "offset": 415,
+          "kind": 6,
+          "symbol": "?TabButtonSpacing@SidebarClass@@2HA",
+          "target": 11259228,
+          "addend": 0,
+          "resolved": 11259228
+        },
+        {
+          "offset": 421,
+          "kind": 6,
+          "symbol": "?TabButtonX@SidebarClass@@2HA",
+          "target": 11259220,
+          "addend": 0,
+          "resolved": 11259220
+        },
+        {
+          "offset": 430,
+          "kind": 6,
+          "symbol": "?TabButtonY@SidebarClass@@2HA",
+          "target": 11259224,
+          "addend": 0,
+          "resolved": 11259224
+        },
+        {
+          "offset": 441,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293188355
+        },
+        {
+          "offset": 448,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+          "target": 5043616,
+          "addend": 0,
+          "resolved": 4293188156
+        },
+        {
+          "offset": 454,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 0,
+          "resolved": 8623648
+        },
+        {
+          "offset": 469,
+          "kind": 6,
+          "symbol": "?TabButton@SidebarClass@@2PAVShapeButtonClass@@A",
+          "target": 11244808,
+          "addend": 384,
+          "resolved": 11245192
+        },
+        {
+          "offset": 477,
+          "kind": 6,
+          "symbol": "?SidebarBottomY@SidebarClass@@2HA",
+          "target": 11259256,
+          "addend": 0,
+          "resolved": 11259256
+        },
+        {
+          "offset": 482,
+          "kind": 6,
+          "symbol": "?PowerBarLeft@SidebarClass@@2HA",
+          "target": 11259252,
+          "addend": 0,
+          "resolved": 11259252
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "?ScrollDownButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258856,
+          "addend": 0,
+          "resolved": 11258856
+        },
+        {
+          "offset": 494,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293188302
+        },
+        {
+          "offset": 499,
+          "kind": 6,
+          "symbol": "?ScrollDownButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258856,
+          "addend": 0,
+          "resolved": 11258856
+        },
+        {
+          "offset": 504,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+          "target": 5043616,
+          "addend": 0,
+          "resolved": 4293188100
+        },
+        {
+          "offset": 510,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 0,
+          "resolved": 8623648
+        },
+        {
+          "offset": 515,
+          "kind": 6,
+          "symbol": "?PowerBarLeft@SidebarClass@@2HA",
+          "target": 11259252,
+          "addend": 0,
+          "resolved": 11259252
+        },
+        {
+          "offset": 521,
+          "kind": 6,
+          "symbol": "?SidebarBottomY@SidebarClass@@2HA",
+          "target": 11259256,
+          "addend": 0,
+          "resolved": 11259256
+        },
+        {
+          "offset": 529,
+          "kind": 6,
+          "symbol": "?ScrollDownButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258856,
+          "addend": 68,
+          "resolved": 11258924
+        },
+        {
+          "offset": 535,
+          "kind": 6,
+          "symbol": "?SidebarEdgeWidth@SidebarClass@@2HA",
+          "target": 11259260,
+          "addend": 0,
+          "resolved": 11259260
+        },
+        {
+          "offset": 544,
+          "kind": 6,
+          "symbol": "?ScrollUpButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11259072,
+          "addend": 0,
+          "resolved": 11259072
+        },
+        {
+          "offset": 549,
+          "kind": 20,
+          "symbol": "?Set_Position@GadgetClass@@UAEXHH@Z",
+          "target": 5043808,
+          "addend": 0,
+          "resolved": 4293188247
+        },
+        {
+          "offset": 554,
+          "kind": 6,
+          "symbol": "?ScrollUpButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11259072,
+          "addend": 0,
+          "resolved": 11259072
+        },
+        {
+          "offset": 559,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GadgetClass@@UAEXXZ",
+          "target": 5043616,
+          "addend": 0,
+          "resolved": 4293188045
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 0,
+          "resolved": 8623648
+        },
+        {
+          "offset": 570,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 578,
+          "kind": 6,
+          "symbol": "?ScrollUpButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11259072,
+          "addend": 68,
+          "resolved": 11259140
+        },
+        {
+          "offset": 590,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 12,
+          "resolved": 8623660
+        },
+        {
+          "offset": 596,
+          "kind": 6,
+          "symbol": "?StripTop@SidebarClass@@2HA",
+          "target": 11259236,
+          "addend": 0,
+          "resolved": 11259236
+        },
+        {
+          "offset": 606,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 4,
+          "resolved": 8623652
+        },
+        {
+          "offset": 614,
+          "kind": 6,
+          "symbol": "?SelectButton@StripClass@SidebarClass@@2PAVSelectClass@12@A",
+          "target": 11245376,
+          "addend": 0,
+          "resolved": 11245376
+        },
+        {
+          "offset": 668,
+          "kind": 6,
+          "symbol": "?CameoHeight@SidebarClass@@2HA",
+          "target": 11259244,
+          "addend": 0,
+          "resolved": 11259244
+        },
+        {
+          "offset": 674,
+          "kind": 6,
+          "symbol": "?StripTop@SidebarClass@@2HA",
+          "target": 11259236,
+          "addend": 0,
+          "resolved": 11259236
+        },
+        {
+          "offset": 689,
+          "kind": 6,
+          "symbol": "?CameoWidth@SidebarClass@@2HA",
+          "target": 11259240,
+          "addend": 0,
+          "resolved": 11259240
+        },
+        {
+          "offset": 698,
+          "kind": 6,
+          "symbol": "?StripLeft@SidebarClass@@2HA",
+          "target": 11259232,
+          "addend": 0,
+          "resolved": 11259232
+        },
+        {
+          "offset": 743,
+          "kind": 6,
+          "symbol": "?SelectButton@StripClass@SidebarClass@@2PAVSelectClass@12@A",
+          "target": 11245376,
+          "addend": 13440,
+          "resolved": 11258816
+        },
+        {
+          "offset": 754,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 778,
+          "kind": 6,
+          "symbol": "?TabButton@SidebarClass@@2PAVShapeButtonClass@@A",
+          "target": 11244808,
+          "addend": 16,
+          "resolved": 11244824
+        },
+        {
+          "offset": 803,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 825,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 433459
+        },
+        {
+          "offset": 836,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 841,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 433011
+        },
+        {
+          "offset": 872,
+          "kind": 6,
+          "symbol": "?SelectButton@StripClass@SidebarClass@@2PAVSelectClass@12@A",
+          "target": 11245376,
+          "addend": 16,
+          "resolved": 11245392
+        },
+        {
+          "offset": 899,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 929,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 433355
+        },
+        {
+          "offset": 940,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 945,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 432907
+        },
+        {
+          "offset": 970,
+          "kind": 6,
+          "symbol": "?Repair@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11245240,
+          "addend": 12,
+          "resolved": 11245252
+        },
+        {
+          "offset": 976,
+          "kind": 6,
+          "symbol": "?Repair@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11245240,
+          "addend": 16,
+          "resolved": 11245256
+        },
+        {
+          "offset": 982,
+          "kind": 6,
+          "symbol": "?Repair@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11245240,
+          "addend": 20,
+          "resolved": 11245260
+        },
+        {
+          "offset": 991,
+          "kind": 6,
+          "symbol": "?Repair@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11245240,
+          "addend": 24,
+          "resolved": 11245264
+        },
+        {
+          "offset": 1001,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 1024,
+          "kind": 6,
+          "symbol": "??_C@_0O@IOEL@TXT_SELL_MODE?$AA@",
+          "target": 8245008,
+          "addend": 0,
+          "resolved": 8245008
+        },
+        {
+          "offset": 1037,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 433247
+        },
+        {
+          "offset": 1048,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 1053,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 432799
+        },
+        {
+          "offset": 1059,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 12,
+          "resolved": 11258980
+        },
+        {
+          "offset": 1065,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 20,
+          "resolved": 11258988
+        },
+        {
+          "offset": 1070,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 16,
+          "resolved": 11258984
+        },
+        {
+          "offset": 1080,
+          "kind": 6,
+          "symbol": "?Upgrade@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258968,
+          "addend": 24,
+          "resolved": 11258992
+        },
+        {
+          "offset": 1090,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 1108,
+          "kind": 6,
+          "symbol": "??_C@_0BA@IOHI@TXT_REPAIR_MODE?$AA@",
+          "target": 8244956,
+          "addend": 0,
+          "resolved": 8244956
+        },
+        {
+          "offset": 1121,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 433163
+        },
+        {
+          "offset": 1127,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 1137,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 432715
+        },
+        {
+          "offset": 1143,
+          "kind": 6,
+          "symbol": "?ScrollUpButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11259072,
+          "addend": 12,
+          "resolved": 11259084
+        },
+        {
+          "offset": 1149,
+          "kind": 6,
+          "symbol": "?ScrollUpButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11259072,
+          "addend": 16,
+          "resolved": 11259088
+        },
+        {
+          "offset": 1154,
+          "kind": 6,
+          "symbol": "?ScrollUpButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11259072,
+          "addend": 20,
+          "resolved": 11259092
+        },
+        {
+          "offset": 1164,
+          "kind": 6,
+          "symbol": "?ScrollUpButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11259072,
+          "addend": 24,
+          "resolved": 11259096
+        },
+        {
+          "offset": 1179,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 1204,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 433080
+        },
+        {
+          "offset": 1210,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 1220,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 432632
+        },
+        {
+          "offset": 1225,
+          "kind": 6,
+          "symbol": "?ScrollDownButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258856,
+          "addend": 12,
+          "resolved": 11258868
+        },
+        {
+          "offset": 1231,
+          "kind": 6,
+          "symbol": "?ScrollDownButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258856,
+          "addend": 16,
+          "resolved": 11258872
+        },
+        {
+          "offset": 1237,
+          "kind": 6,
+          "symbol": "?ScrollDownButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258856,
+          "addend": 20,
+          "resolved": 11258876
+        },
+        {
+          "offset": 1246,
+          "kind": 6,
+          "symbol": "?ScrollDownButton@SidebarClass@@2VShapeButtonClass@@A",
+          "target": 11258856,
+          "addend": 24,
+          "resolved": 11258880
+        },
+        {
+          "offset": 1256,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 1286,
+          "kind": 20,
+          "symbol": "?Remove@ToolTipManager@@QAEXI@Z",
+          "target": 7256592,
+          "addend": 0,
+          "resolved": 432998
+        },
+        {
+          "offset": 1297,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 1302,
+          "kind": 20,
+          "symbol": "?Add@ToolTipManager@@QAE_NPBVToolTip@@@Z",
+          "target": 7256160,
+          "addend": 0,
+          "resolved": 432550
+        }
+      ],
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
+      "source": "rebuild/src/sidebar.cpp",
+      "population": "rebuild-sidebar",
+      "source_order": 6822304,
       "source_quality_family": "rebuild"
     },
     {
@@ -10316,7 +11495,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824096,
@@ -10375,7 +11554,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824176,
@@ -10546,7 +11725,7 @@
           "resolved": 4292543001
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824256,
@@ -10581,7 +11760,7 @@
           "resolved": 4294642006
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824592,
@@ -10617,7 +11796,7 @@
           "resolved": 4294642534
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824608,
@@ -10661,7 +11840,7 @@
           "resolved": 1046758
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825024,
@@ -10704,7 +11883,7 @@
           "resolved": 1046726
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825056,
@@ -10739,7 +11918,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825088,
@@ -10798,7 +11977,7 @@
           "resolved": 1046623
         }
       ],
-      "source_sha256": "bb412faea54bd6c55571b9b7740a432d304734a3b302c6743f4b114e3c628a77",
+      "source_sha256": "a0acb753971623c304f59ebff69b41967e87b1073bcaf0f1d5c8a63173492e13",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825120,

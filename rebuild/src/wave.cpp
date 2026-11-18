@@ -1086,7 +1086,7 @@ static const float WaveLengthFactor[] = { 1.0f, 1.05f, 1.05f };
 /// template for its wave type, rotating it to lie along the line of fire, and converting
 /// each corner into the screen points that the drawing routines rasterize from.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 253 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 94 bytes differ (the first Coord_To_Pixel and the end corners are scheduled differently)
 void WaveClass::Build_Wave_Shape(Coord const & source_coord, Coord const & target_coord) // RA2: defined before Wave_Shape_AI, at 0x7238B0
 {
 	static Vector3 WaveSize[WAVE_COUNT][4] = {

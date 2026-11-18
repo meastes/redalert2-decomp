@@ -6284,7 +6284,7 @@ void MapClass::Repair_Bridge(Cell const & cell)
 #endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: 438 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (the last span step adds the cell first in X and the table entry first in Y)
 void MapClass::Destroy_Bridge2_Near(Cell const &cell) // RA2: RA2's form
 {
 	for (int x = -2; x < 3; ++x) { // RA2: as above
@@ -6354,7 +6354,7 @@ void MapClass::Destroy_Bridge2_Near(Cell const &cell) // RA2: RA2's form
 					goto destroy_span; // RA2: as above
 				}
 			}
-			spancell = Adjacent_Cell(spancell, FacingType(shared_direction)); // RA2: as above
+			spancell = Adjacent_Cell_L(spancell, FacingType(shared_direction)); // RA2: as above
 		}
 	}
 	goto finished; // RA2: as above
@@ -6368,7 +6368,7 @@ destroy_span: // RA2: as above
 			if (Damage_Bridge(spancell)) break; // RA2: as above
 		}
 		while (true) {
-			end = Adjacent_Cell(end, FacingType(step)); // RA2: as above
+			end = Adjacent_Cell_L(end, FacingType(step)); // RA2: as above
 			spanptr = &Map[end]; // RA2: as above
 			if (end.X < MapRect.X || end.X > MapRect.X + MapRect.Width || // RA2: as above
 				end.Y < MapRect.Y || end.Y > MapRect.Y + MapRect.Height) // RA2: as above
@@ -6377,7 +6377,7 @@ destroy_span: // RA2: as above
 			if (Is_Bridge_Span_End(tile, step, spanptr)) break; // RA2: as above
 		}
 		if (tile != -1) { // RA2: as above
-			end = end + AdjacentCell[(step - 4) & 7]; // RA2: as above
+			end = AdjacentCell[(step - 4) & 7] + end; // RA2: as above
 			for (hits = 0; hits < 3; ++hits) { // RA2: as above
 				if (Damage_Bridge(end)) break; // RA2: as above
 			}
@@ -6480,7 +6480,7 @@ void MapClass::Destroy_Low_Bridge2_Span(Cell const &cell) // RA2: RA2's form
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 438 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (the last span step adds the cell first in X and the table entry first in Y)
 void MapClass::Destroy_Low_Bridge_Near(Cell const &cell) // RA2: RA2's form
 {
 	for (int x = -2; x < 3; ++x) { // RA2: as above
@@ -6550,7 +6550,7 @@ void MapClass::Destroy_Low_Bridge_Near(Cell const &cell) // RA2: RA2's form
 					goto destroy_span; // RA2: as above
 				}
 			}
-			spancell = Adjacent_Cell(spancell, FacingType(shared_direction)); // RA2: as above
+			spancell = Adjacent_Cell_L(spancell, FacingType(shared_direction)); // RA2: as above
 		}
 	}
 	goto finished; // RA2: as above
@@ -6564,7 +6564,7 @@ destroy_span: // RA2: as above
 			if (Damage_Bridge(spancell)) break; // RA2: as above
 		}
 		while (true) {
-			end = Adjacent_Cell(end, FacingType(step)); // RA2: as above
+			end = Adjacent_Cell_L(end, FacingType(step)); // RA2: as above
 			spanptr = &Map[end]; // RA2: as above
 			if (end.X < MapRect.X || end.X > MapRect.X + MapRect.Width || // RA2: as above
 				end.Y < MapRect.Y || end.Y > MapRect.Y + MapRect.Height) // RA2: as above
@@ -6573,7 +6573,7 @@ destroy_span: // RA2: as above
 			if (Is_Bridge_Span_End(tile, step, spanptr)) break; // RA2: as above
 		}
 		if (tile != -1) { // RA2: as above
-			end = end + AdjacentCell[(step - 4) & 7]; // RA2: as above
+			end = AdjacentCell[(step - 4) & 7] + end; // RA2: as above
 			for (hits = 0; hits < 3; ++hits) { // RA2: as above
 				if (Damage_Bridge(end)) break; // RA2: as above
 			}

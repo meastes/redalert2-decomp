@@ -3846,7 +3846,6 @@ void AircraftClass::Write_INI(CCINIClass & ini)
  * HISTORY:                                                                                    *
  *   07/26/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 10 bytes differ (the type pointer loads before the strength; main's form did not carry over)
 void AircraftClass::Read_INI(CCINIClass const & ini)
 {
 	AircraftClass	* air;      // Working unit pointer.
@@ -3922,7 +3921,8 @@ void AircraftClass::Read_INI(CCINIClass const & ini)
 					}
 
 					if (air->Unlimbo(coord, dir)) {
-						air->Strength = ((double)strength) * air->Class->MaxStrength / 256.0; // RA2: the strength is scaled first
+						double fs;
+						air->Strength = (fs = strength) * air->Class->MaxStrength / 256.0; // RA2: the strength is scaled first
 						if (air->Strength > air->Class->MaxStrength-3) air->Strength = air->Class->MaxStrength;
 						if (air->Strength == 0) air->Strength = 1;
 						air->EstimatedHealth = air->Strength; // RA2: the health the owner last saw
@@ -3944,7 +3944,6 @@ void AircraftClass::Read_INI(CCINIClass const & ini)
 		}
 	}
 }
-#endif
 
 
 

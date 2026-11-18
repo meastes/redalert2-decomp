@@ -152,6 +152,7 @@ aircraft,0041a1c0,?Assign_Destination@AircraftClass@@UAEXPAVAbstractClass@@_N@Z,
 aircraft,0041a500,?In_Which_Layer@AircraftClass@@UBE?AW4LayerType@@XZ,37,a,mischa85,yes,,released by lane R4 tooling
 aircraft,0041a530,?Look@AircraftClass@@UAEX_N0@Z,398,a,mischa85,yes,,released by lane R4 tooling
 aircraft,0041a6c0,?Write_INI@AircraftClass@@SIXAAVCCINIClass@@@Z,381,a,mischa85,yes,,released by lane R4 tooling
+aircraft,0041a840,?Read_INI@AircraftClass@@SIXABVCCINIClass@@@Z,830,a,ra2-decomp,edit,2,ra2-decomp's strength line (src/aircraft.cpp:2344): the conversion through a double local puts fild before the type load
 aircraft,0041ab80,?Load@AircraftClass@@UAGJPAUIStream@@@Z,395,a,mischa85,yes,,released by lane R4 tooling
 aircraft,0041ad10,?Save@AircraftClass@@UAGJPAUIStream@@H@Z,23,a,mischa85,yes,,released by lane R4 tooling
 aircraft,0041ad30,?Ready_To_Commence@AircraftClass@@UAE_NXZ,41,a,mischa85,yes,,released by lane R4 tooling
@@ -5887,6 +5888,7 @@ radbeam,006357f0,?Is_Active@RadBeam@@QBE_NXZ,4,c,seed,yes,1,written from the ins
 radbeam,00635800,?Set_Step_Length@RadBeam@@QAEXH@Z,10,c,seed,yes,1,written from the instructions and decompiler output
 radbeam,00635810,?Draw_Line@RadBeam@@QAEXABVCoord@@0F@Z,187,c,seed,edit,2,depth arguments computed into locals first
 radbeam,00635b30,?Compute_Delta@RadBeam@@QAEXXZ,100,c,seed,yes,1,written from the instructions and decompiler output
+radbeam,00635ba0,?Start_Pass@RadBeam@@QAEXXZ,133,b,old tree,edit,3,main's wave: the phase divided in a double local
 radbeam,00635e00,?Draw_Swing@RadBeam@@QAE_NXZ,370,c,seed,yes,1,written from the instructions and decompiler output
 radbeam,00635f80,?Setup_Swing@RadBeam@@QAEXXZ,159,c,seed,edit,1,Delta read into ints before the division
 radbeam,00636020,?Update_Swing@RadBeam@@QAEXXZ,258,c,seed,edit,3,time as a double; Delta = Delta + SwingDelta * shift; shift from StartDelay * Time * Phase
@@ -6355,8 +6357,10 @@ sidebar,006816b0,?Action@SBGadgetClass@SidebarClass@@MAEHIAAW4KeyNumType@@@Z,22,
 sidebar,006816d0,?Factory_Link@StripClass@SidebarClass@@QAE_NPAVFactoryClass@@W4RTTIType@@H@Z,90,a,mischa85,yes,,
 sidebar,00681730,?Has_Buildables@StripClass@SidebarClass@@QBE_NXZ,11,a,mischa85,yes,,
 sidebar,00681740,?Abandon_Production@SidebarClass@@QAE_NW4RTTIType@@HPAVFactoryClass@@@Z,142,a,mischa85,yes,,
+sidebar,006818b0,?Zoom_Mode_Control@SidebarClass@@QAEXXZ,20,c,seed,edit,4,RA2's body: the special dialog in a multiplayer game
 sidebar,00681940,?Sidebar_Which_Tab_By_Category@@YIHW4RTTIType@@H_N@Z,53,a,mischa85,yes,,
 sidebar,00681980,?First_Used_Column@SidebarClass@@QAEHXZ,29,a,mischa85,yes,,
+sidebar,006819a0,?Reposition_Sidebar@SidebarClass@@UAEXXZ,1314,b,old tree,edit,6,"main's forms: string-table labels as text, the strip top read before the side's bottom piece"
 sidebar,006820a0,?Get_Row_Count@SidebarClass@@QAEHXZ,67,a,mischa85,yes,,
 sidebar,006820f0,?Get_Doubled_Row_Count@SidebarClass@@QAEHXZ,69,a,mischa85,yes,,
 sidebar,00682140,?Print_Cameo_Text@@YIXPBGABVPoint2D@@ABV?$TRect@H@@H@Z,321,a,mischa85,yes,,
@@ -7347,6 +7351,7 @@ temporal,006e24c0,?Detach_Techno@TemporalClass@@QAEXPBVAbstractClass@@@Z,64,c,se
 temporal,006e2500,?LetGo@TemporalClass@@QAEXXZ,234,b,old tree,edit,3,"main's form of the unlink when this weapon is not the last in the chain: the next link's back pointer tested under the previous link, otherwise cleared"
 temporal,006e2610,?Restore_Target@TemporalClass@@QAEXXZ,93,c,seed,yes,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e2670,?Empty@TemporalClass@@QAEXXZ,1,c,seed,yes,2,written from the instructions; class header adopted (temporal.h)
+temporal,006e2680,?JustLetGo@TemporalClass@@QAEXXZ,98,b,old tree,edit,2,main's order: each link cleared inside its own branch
 temporal,006e26f0,?Clear_Links@TemporalClass@@QAEXXZ,18,c,seed,edit,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e2710,?Detach@TemporalClass@@QAEXXZ,88,c,seed,edit,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e2770,?CanWarpTarget@TemporalClass@@QAE_NPAVTechnoClass@@@Z,60,c,seed,yes,2,written from the instructions; class header adopted (temporal.h)
@@ -8683,6 +8688,28 @@ wdtnet,0072cbd0,?Resize@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAE_NHPBV?$rc
 wdtnet,0072ccf0,?Clear@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEXXZ,40,a,mischa85,yes,,released by lane R4 tooling
 wdtnet,0072cd20,?ID@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHABV?$rc_ptr@VWDTTerritory@@@@@Z,55,a,mischa85,yes,,released by lane R4 tooling
 wdtnet,0072cd60,?ID@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHPBV?$rc_ptr@VWDTTerritory@@@@@Z,27,a,mischa85,yes,,released by lane R4 tooling
+wdtprops,0072cf90,_$E2,23,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072cfb0,_$E5,40,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072cfe0,_$E8,19,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d000,_$E11,19,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d020,_$E14,19,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d040,_$E17,19,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d060,_$E20,19,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d080,_$E23,49,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d0c0,_$E26,33,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d0f0,_$E29,44,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d120,_$E32,39,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d150,_$E35,15,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d160,_$E38,18,a,mischa85,yes,,the unit's header-static initializers (geometry constants of the adopted headers)
+wdtprops,0072d180,?Create@CampaignProperties@WorldDominationTour@@SI?AV?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@@Z,60,c,seed,yes,,
+wdtprops,0072d1c0,??1CampaignProperties@WorldDominationTour@@UAE@XZ,48,c,seed,yes,,
+wdtprops,0072d1f0,??0CampaignProperties@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@@Z,147,c,seed,edit,7,"edit: each description a conditional between two LoadString calls of the same line, not one call on a conditional label"
+wdtprops,0072d290,?Get_Cycle_ID@CampaignProperties@WorldDominationTour@@QBEHXZ,14,c,seed,yes,,
+wdtprops,0072d2a0,?Get_Layout@CampaignProperties@WorldDominationTour@@QBEHXZ,6,c,seed,yes,,
+wdtprops,0072d2b0,?Get_Map_ID@CampaignProperties@WorldDominationTour@@QBEHXZ,21,c,seed,yes,,
+wdtprops,0072d2d0,?Get_Current_Tick@CampaignProperties@WorldDominationTour@@QBEHXZ,15,c,seed,yes,,
+wdtprops,0072d2e0,?Get_Web_URL@CampaignProperties@WorldDominationTour@@QBE?AVWstring@@XZ,53,c,seed,edit,,"edit: one Wstring built from a conditional, not two returns"
+wdtprops,0072d320,??_GCampaignProperties@WorldDominationTour@@UAEPAXI@Z,68,c,seed,yes,,compiler-emitted with the class
 wdtstate,00730510,_$E2,23,a,mischa85,edit,,lane R8
 wdtstate,00730530,_$E5,40,a,mischa85,edit,,lane R8
 wdtstate,00730560,_$E8,19,a,mischa85,edit,,lane R8

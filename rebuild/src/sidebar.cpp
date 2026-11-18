@@ -3005,31 +3005,15 @@ bool SidebarClass::StripClass::Abandon_Production(FactoryClass const * factory)
  * HISTORY:                                                                                    *
  *   07/31/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 75 bytes differ (adopted text)
 void SidebarClass::Zoom_Mode_Control(void)
 {
 	/*
-	**	If radar is active, cycle as follows:
-	**	Zoomed => not zoomed
-	**	not zoomed => player status (multiplayer only)
-	**	player status => radar spying readout
-	**	radar spying readout => zoomed
+	**	RA2: the radar no longer cycles; in a multiplayer game the key brings up the special dialog.
 	*/
-	if (Session.Type!=GAME_NORMAL) {
-		if (Is_Radar_Existing()) {
-			if (Is_Player_Names()) {
-				Radar_Activate(1, true); // RA2: as above
-				return;
-			}
-		} else if (Is_Player_Names()) {
-			Radar_Activate(0, true); // RA2: as above
-			return;
-		}
-
-		Radar_Activate(2, true); // RA2: as above
+	if (Session.Type != GAME_NORMAL) {
+		SpecialDialog = SDLG_SPECIAL;
 	}
 }
-#endif
 
 /// <summary>
 /// Determines which sidebar tab an object type is built from, when the build category is known already.
@@ -3072,7 +3056,6 @@ int SidebarClass::First_Used_Column() // RA2: as above
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 296 bytes differ (adopted text)
 void SidebarClass::Reposition_Sidebar() // RA2: as above
 {
 	PowerClass::Reposition_Sidebar(); // RA2: as above
@@ -3140,7 +3123,14 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 	/*
 	 * Create the tooltips for the sidebar.
 	 */
-	int rows = Get_Row_Count(); // RA2: as above
+	int strip_top = StripTop; // RA2: the strip top is read before the side's bottom piece
+	int extra;
+	if (Scen->IsGDI) {
+		extra = 26;
+	} else {
+		extra = 18;
+	}
+	int rows = (SidebarRect.Y + SidebarRect.Height - strip_top - extra - 7) / 50;
 	int count = rows * 2; // RA2: as above
 	for (int column = 0; column < 4; column++) { // RA2: as above
 		StripClass::SelectClass *button = &StripClass::SelectButton[column * 60]; // RA2: as above
@@ -3177,7 +3167,7 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 		}
 		tip.IsAnchored = false; // RA2: as above
 		tip.ID = 0x66; // RA2: as above
-		tip.Text = TXT_SELL_MODE; // RA2: as above
+		tip.Text = (int)"TXT_SELL_MODE"; // RA2: the label of the string table
 		tip.Region.X = Repair.X; // RA2: as above
 		tip.Region.Y = Repair.Y; // RA2: as above
 		tip.Region.Width = Repair.Width; // RA2: as above
@@ -3185,7 +3175,7 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 		ToolTips->Remove(0x66); // RA2: as above
 		ToolTips->Add(&tip); // RA2: as above
 		tip.ID = 0x65; // RA2: as above
-		tip.Text = TXT_REPAIR_MODE; // RA2: as above
+		tip.Text = (int)"TXT_REPAIR_MODE"; // RA2: as above
 		tip.Region.X = Upgrade.X; // RA2: as above
 		tip.Region.Y = Upgrade.Y; // RA2: as above
 		tip.Region.Width = Upgrade.Width; // RA2: as above
@@ -3210,7 +3200,6 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 		ToolTips->Add(&tip); // RA2: as above
 	}
 }
-#endif
 
 
 /// <summary>

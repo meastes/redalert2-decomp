@@ -294,34 +294,32 @@ void TemporalClass::Empty(void)
 /*
 **	Lets go of the target at once and detaches both neighbours of the chain.
 */
-#ifdef RA2_NON_MATCHING // not exact: 25 bytes differ (the order of the target store and the chain loads)
 void TemporalClass::JustLetGo(void)
 {
 	if (Target != NULL) {
 		Target->BeingWarpedOut = false;
 		Target->TemporalTargetingMe = NULL;
+		Target = NULL;
 	}
-	Target = NULL;
 	if (PrevTemporal != NULL) {
 		if (PrevTemporal->NextTemporal == this) {
 			PrevTemporal->NextTemporal = NULL;
 		}
 		PrevTemporal->Detach();
+		PrevTemporal = NULL;
 	}
-	PrevTemporal = NULL;
 	if (NextTemporal != NULL) {
 		if (NextTemporal->PrevTemporal == this) {
 			NextTemporal->PrevTemporal = NULL;
 		}
 		NextTemporal->Detach();
+		NextTemporal = NULL;
 	}
-	NextTemporal = NULL;
 	PrevTemporal = NULL;
 	NextTemporal = NULL;
 	SourceSW = NULL;
 	Unused_38 = NULL;
 }
-#endif
 
 
 void TemporalClass::Clear_Links(void)
