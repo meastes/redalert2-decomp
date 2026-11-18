@@ -47,12 +47,14 @@
     "?Pick_Arrival@TeleportLocomotionClass@@QAE_NABVCoord@@@Z": 7210672,
     "?Rule@@3PAVRulesClass@@A": 8624200,
     "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
-    "?Is_Tile_With_Water@CellClass@@QBE_NXZ": 4700128,
-    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
-    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
-    "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z": 4678832,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
     "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z": 5568752,
     "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z": 5571296,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "?Is_Tile_With_Water@CellClass@@QBE_NXZ": 4700128,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z": 4678832,
     "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
     "?Remove_Target@TechnoClass@@SIXPAVAbstractClass@@@Z": 7175296,
     "?Bullets@@3V?$DynamicVectorClass@PAVBulletClass@@@@A": 10751208,
@@ -191,15 +193,15 @@
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
-    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
-    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
-    "?Release@LocomotionClass@@W3AGKXZ": 4979904,
     "?QueryInterface@TeleportLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 7216160,
     "?AddRef@TeleportLocomotionClass@@W3AGKXZ": 7216176,
     "?Release@TeleportLocomotionClass@@W3AGKXZ": 7216192,
     "?QueryInterface@TeleportLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z": 7216208,
     "?AddRef@TeleportLocomotionClass@@WBI@AGKXZ": 7216224,
-    "?Release@TeleportLocomotionClass@@WBI@AGKXZ": 7216240
+    "?Release@TeleportLocomotionClass@@WBI@AGKXZ": 7216240,
+    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
+    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
+    "?Release@LocomotionClass@@W3AGKXZ": 4979904
   },
   "regions": [
     {
@@ -264,7 +266,7 @@
           "resolved": 11272808
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207600,
@@ -316,7 +318,7 @@
           "resolved": 11272880
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207648,
@@ -368,7 +370,7 @@
           "resolved": 11272864
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207680,
@@ -420,7 +422,7 @@
           "resolved": 11272856
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207712,
@@ -472,7 +474,7 @@
           "resolved": 11272816
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207744,
@@ -524,7 +526,7 @@
           "resolved": 11272776
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207776,
@@ -608,7 +610,7 @@
           "resolved": 11272888
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207808,
@@ -668,7 +670,7 @@
           "resolved": 11272824
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207872,
@@ -728,7 +730,7 @@
           "resolved": 11272848
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207920,
@@ -788,7 +790,7 @@
           "resolved": 11272872
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7207968,
@@ -832,7 +834,7 @@
           "resolved": 11272802
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7208016,
@@ -884,7 +886,7 @@
           "resolved": 11272840
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7208032,
@@ -944,7 +946,7 @@
           "resolved": 11272796
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7208064,
@@ -1060,7 +1062,7 @@
           "resolved": 8049028
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7208096,
@@ -1087,7 +1089,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7208224,
@@ -1114,7 +1116,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7208240,
@@ -1141,7 +1143,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7208256,
@@ -1233,7 +1235,7 @@
           "resolved": 11272840
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7208352,
@@ -1285,10 +1287,358 @@
           "resolved": 11272840
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7208656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208704,
+      "method": "006dff00",
+      "body_bytes": 1325,
+      "body_sha256": "7b529e3be4f7efd8023212c49b1a76b40076621b333169101e024521f3b3eb0e",
+      "padding_bytes": 3,
+      "full_extent_bytes": 1328,
+      "full_extent_sha256": "2f67177f3a9ad9323e573b8d23c618bb459d5cc272e016b52985f83c6e636131",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z",
+      "symbol_prefix": "?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293296348
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293296322
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293296299
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293296278
+        },
+        {
+          "offset": 240,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 335,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 476,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 482,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293295898
+        },
+        {
+          "offset": 502,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 508,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293295872
+        },
+        {
+          "offset": 596,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 601,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293295891
+        },
+        {
+          "offset": 610,
+          "kind": 6,
+          "symbol": "?Is_Bridge_Here@CellClass@@QBE_NXZ",
+          "target": 4688080,
+          "addend": 0,
+          "resolved": 4688080
+        },
+        {
+          "offset": 630,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 813,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 822,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293295670
+        },
+        {
+          "offset": 854,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 859,
+          "kind": 20,
+          "symbol": "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z",
+          "target": 5568752,
+          "addend": 0,
+          "resolved": 4293326481
+        },
+        {
+          "offset": 876,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 881,
+          "kind": 20,
+          "symbol": "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z",
+          "target": 5571296,
+          "addend": 0,
+          "resolved": 4293329003
+        },
+        {
+          "offset": 893,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 902,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293295478
+        },
+        {
+          "offset": 950,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 955,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293295537
+        },
+        {
+          "offset": 1019,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 1034,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 1046,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        },
+        {
+          "offset": 1136,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1141,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293369607
+        },
+        {
+          "offset": 1147,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1155,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293295225
+        },
+        {
+          "offset": 1186,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11272872,
+          "addend": 0,
+          "resolved": 11272872
+        },
+        {
+          "offset": 1219,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 1235,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 1248,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        }
+      ],
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208704,
       "source_quality_family": "rebuild"
     },
     {
@@ -1465,7 +1815,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7210032,
@@ -1965,7 +2315,7 @@
           "resolved": 11272840
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7210672,
@@ -2001,7 +2351,7 @@
           "resolved": 4292705329
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7212512,
@@ -2453,7 +2803,7 @@
           "resolved": 4294924175
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7212560,
@@ -2489,7 +2839,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7214832,
@@ -2549,7 +2899,7 @@
           "resolved": 8003548
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7214896,
@@ -2649,7 +2999,7 @@
           "resolved": 7972332
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7214960,
@@ -2717,7 +3067,7 @@
           "resolved": 7972328
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7215120,
@@ -2744,7 +3094,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7215344,
@@ -2788,7 +3138,7 @@
           "resolved": 8003664
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7215360,
@@ -2815,7 +3165,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7215456,
@@ -2842,7 +3192,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7215536,
@@ -2869,7 +3219,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7215600,
@@ -2945,7 +3295,7 @@
           "resolved": 736805
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7215680,
@@ -2972,7 +3322,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7215952,
@@ -3008,7 +3358,7 @@
           "resolved": 4293244582
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7216032,
@@ -3044,7 +3394,7 @@
           "resolved": 4293244598
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7216048,
@@ -3071,7 +3421,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7216064,
@@ -3098,7 +3448,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7216096,
@@ -3142,7 +3492,7 @@
           "resolved": 655655
         }
       ],
-      "source_sha256": "7e5a4a0d1369359ded7f8da9e399a24949ae08c26631f631c80c2fdae2f16d35",
+      "source_sha256": "b361a3f2c81a1f069f97f2b2942f2d64ba3cc615e4e2a9d4101f8dcee3b3a96f",
       "source": "rebuild/src/teleport.cpp",
       "population": "rebuild-teleport",
       "source_order": 7216112,

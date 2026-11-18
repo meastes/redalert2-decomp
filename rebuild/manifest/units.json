@@ -28658,7 +28658,7 @@
     "entry": "005aaa40",
     "body": 148,
     "padding": 12,
-    "symbol": "?Presentation_005AAA40@MPScoreScreen@@QAEXXZ",
+    "symbol": "?Presentation@MPScoreScreen@@QAEXXZ",
     "main_symbol": "?Presentation_005AAA40@UnknownScore_005AAA20@@QAEXXZ",
     "main_source": "src/recovered/mpscore.cpp"
    },
@@ -77082,7 +77082,7 @@
   },
   "partial_ok": true,
   "build_refused": {
-   "source_sha256": "4c2c88d65543281bf1907949c8b34938280030cb0da2b16d9441ff6def3433ad",
+   "source_sha256": "f8718884b00827ed8f993cfd84fdea8d97f32d822e0e8d62fb1c4319e3e64587",
    "reason": "Unsupported allocatable data section .rdata #3 in accepted.obj (['.rdata', '_?_approach_angles@?FG@??Approach_Target@FootClass@@UAEXXZ@4QBHB', '_?_simple_mzone@?1??Basic_Path@FootClass@@QAE_NVCell@@HH"
   }
  },
@@ -79269,7 +79269,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00413800",
    "0041b750"
@@ -80959,7 +80959,8 @@
    "_?TIME_SCALE@?1??Adjust_To_CPU_Timing@@YIHH@Z@4NB": "007a9210",
    "_?VARIABLE_NAMES@?1??Write_INI@ScenarioClass@@QBE_NAAVCCINIClass@@_N@Z@4PBDB": "007a9200"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "holder": "codex2"
  },
  "team": {
   "core": [
@@ -84343,7 +84344,8 @@
    "_RAD_90": "00ab6310",
    "_RECT_NONE": "00ab6320"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "holder": "codex2"
  },
  "display": {
   "core": [
@@ -84937,7 +84939,8 @@
    "_?_layers@?4??Prev_Object@DisplayClass@@QBEPAVObjectClass@@PAV3@@Z@4PAW4LayerType@@A": "007d5ce8",
    "_LEVEL_LEPTON_H": "00852948"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "holder": "codex2"
  },
  "session": {
   "core": [
@@ -87202,7 +87205,8 @@
    }
   ],
   "references": {},
-  "partial_ok": true
+  "partial_ok": true,
+  "holder": "codex2"
  },
  "ship": {
   "core": [
@@ -98503,12 +98507,12 @@
     "entry": "00777c90",
     "symbol": "?Select_Frame@@YIJPAU_VQAHandleP@@@Z",
     "body": 921,
-    "best_differing": 764,
+    "best_differing": 763,
     "note": "Guarded non-exact draft; no credit; original bytes remain",
     "class": "c",
     "text_source": "seed/layout only",
-    "draft": "build/class-work/codex2/drawer-flow-probes/previous_flags_value.cpp",
-    "result": "build/class-work/codex2/drawer-flow-probes/previous_flags_value.json",
+    "draft": "build/class-work/codex2/drawer-frame-link-probes/last_link_from_frame.cpp",
+    "result": "build/class-work/codex2/drawer-frame-link-probes/last_link_from_frame.json",
     "guard": "#if 0"
    }
   ]
@@ -101382,7 +101386,7 @@
  "teleport": {
   "core": [
    "006dfca0",
-   "006e1c20"
+   "006e1bf0"
   ],
   "symbol_overrides": {},
   "source": "rebuild/src/teleport.cpp",
@@ -101399,7 +101403,7 @@
    "006dfab0",
    "006e1c20"
   ],
-  "mischa85": "tibsun: functions compiled from src/teleport.cpp, without gaps; matched except ?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z; ?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z placed at their function starts; inline ?AddRef@TeleportLocomotionClass@@UAGKXZ at 0x006E1BA0; inline ?AddRef@TeleportLocomotionClass@@UAGKXZ at 0x006E1BB0; inline ?Is_Piggybacking@TeleportLocomotionClass@@UAGEXZ at 0x006E1BC0; one copy the compiler emitted after the last function",
+  "mischa85": "tibsun: functions compiled from src/teleport.cpp, without gaps; matched except ?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z; ?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z placed at their function starts; inline ?AddRef@TeleportLocomotionClass@@UAGKXZ at 0x006E1BA0; inline ?AddRef@TeleportLocomotionClass@@UAGKXZ at 0x006E1BB0; inline ?Is_Piggybacking@TeleportLocomotionClass@@UAGEXZ at 0x006E1BC0",
   "main_options": [
    [
     "/O2",
@@ -101769,8 +101773,7 @@
    "?Fetch_Object_Size@TeleportLocomotionClass@@UBEHXZ": "006e1be0",
    "?Process_Delay@TeleportLocomotionClass@@UAGXXZ": "006e16f0",
    "?Is_Stationary@TeleportLocomotionClass@@UAEEXZ": "006dfd30"
-  },
-  "partial_ok": true
+  }
  },
  "campscor": {
   "core": [
@@ -103557,7 +103560,7 @@
     "entry": "0047e2c0",
     "body": 4611,
     "padding": 13,
-    "symbol": "?Explosion_Damage@@YIXABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+    "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
     "main_symbol": "?Explosion_Damage@@YIHABUCoordStruct@@HPAVTechnoClass@@PAVWarheadTypeClass@@_N@Z",
     "main_source": "src/recovered/combat.cpp"
    },
@@ -103661,7 +103664,7 @@
     "entry": "0047fd40",
     "body": 13,
     "padding": 3,
-    "symbol": "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z",
+    "symbol": "?GetItem@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z",
     "main_symbol": "?Fetch@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z",
     "main_source": "src/recovered/combat.cpp"
    },
@@ -103741,7 +103744,7 @@
     "entry": "00480050",
     "body": 74,
     "padding": 6,
-    "symbol": "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z",
+    "symbol": "??0?$VectorClass@PAUDamageGroup@@@@QAE@HPBQAUDamageGroup@@@Z",
     "main_symbol": "??0?$VectorClass@PAUDamageGroup@@@@QAE@IPBQAUDamageGroup@@@Z",
     "main_source": "src/recovered/combat.cpp"
    }
@@ -105845,6 +105848,18 @@
    }
   ],
   "references": {
+   "?GetClassID@VoxelAnimClass@@UAGJPAU_GUID@@@Z": "0070df10",
+   "?Load@VoxelAnimClass@@UAGJPAUIStream@@@Z": "0070ddb0",
+   "?Save@VoxelAnimClass@@UAGJPAUIStream@@H@Z": "0070de50",
+   "?Fetch_RTTI@VoxelAnimClass@@UBE?AW4RTTIType@@XZ": "0070df60",
+   "?Fetch_Object_Size@VoxelAnimClass@@UBEHXZ": "0070df50",
+   "?Compute_CRC@VoxelAnimClass@@UBEXAAVCRCEngine@@@Z": "0070de70",
+   "?AI@VoxelAnimClass@@UAEXXZ": "0070d380",
+   "?In_Which_Layer@VoxelAnimClass@@UBE?AW4LayerType@@XZ": "0070dda0",
+   "?Class_Of@VoxelAnimClass@@UBEPBVObjectTypeClass@@XZ": "0070df70",
+   "?Render@VoxelAnimClass@@UBE_NAAV?$TRect@H@@_N1@Z": "0070cf70",
+   "?Occupy_List@VoxelAnimClass@@UBEPBVCell@@_N@Z": "0070df80",
+   "?Draw_It@VoxelAnimClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": "0070cfc0",
    "_BRIDGE_LEPTON_HEIGHT": "00ad0678",
    "_CELL_DIAG_SLOPE_ANGLE": "00ad0660",
    "_CELL_LEPTON_DIAG": "00ad0638",
@@ -105859,21 +105874,23 @@
    "_RAD_45": "00ad0668",
    "_RAD_60": "00ad0640",
    "_RAD_90": "00ad0618",
-   "_RECT_NONE": "00ad0620",
-   "?GetClassID@VoxelAnimClass@@UAGJPAU_GUID@@@Z": "0070df10",
-   "?Load@VoxelAnimClass@@UAGJPAUIStream@@@Z": "0070ddb0",
-   "?Save@VoxelAnimClass@@UAGJPAUIStream@@H@Z": "0070de50",
-   "?Fetch_RTTI@VoxelAnimClass@@UBE?AW4RTTIType@@XZ": "0070df60",
-   "?Fetch_Object_Size@VoxelAnimClass@@UBEHXZ": "0070df50",
-   "?Compute_CRC@VoxelAnimClass@@UBEXAAVCRCEngine@@@Z": "0070de70",
-   "?AI@VoxelAnimClass@@UAEXXZ": "0070d380",
-   "?In_Which_Layer@VoxelAnimClass@@UBE?AW4LayerType@@XZ": "0070dda0",
-   "?Class_Of@VoxelAnimClass@@UBEPBVObjectTypeClass@@XZ": "0070df70",
-   "?Render@VoxelAnimClass@@UBE_NAAV?$TRect@H@@_N1@Z": "0070cf70",
-   "?Occupy_List@VoxelAnimClass@@UBEPBVCell@@_N@Z": "0070df80",
-   "?Draw_It@VoxelAnimClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": "0070cfc0"
+   "_RECT_NONE": "00ad0620"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "parked_rows": [
+   {
+    "entry": "0070d380",
+    "symbol": "?AI@VoxelAnimClass@@UAEXXZ",
+    "body": 2590,
+    "best_differing": 94,
+    "note": "Guarded non-exact draft; no credit; original bytes remain",
+    "class": "a",
+    "text_source": "mischa85",
+    "draft": "build/class-work/codex2/vanim-accessor-probes/cell_accessor_copy.cpp",
+    "result": "build/class-work/codex2/vanim-accessor-probes/cell_accessor_copy.json",
+    "guard": "#if 0"
+   }
+  ]
  },
  "wdtmap": {
   "core": [
@@ -114218,7 +114235,9 @@
    "006fa400",
    "0070a330"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "00707f60": "?Plan_Route@UnitClass@@QAEPAVAbstractClass@@PAV2@@Z"
+  },
   "source": "rebuild/src/unit.cpp",
   "options": [
    "/O2",
@@ -114920,7 +114939,7 @@
     "entry": "00707f60",
     "body": 6185,
     "padding": 7,
-    "symbol": "?Plan_Route_00707f60@UnitClass@@QAEPAVAbstractClass@@PAV2@@Z",
+    "symbol": "?Plan_Route@UnitClass@@QAEPAVAbstractClass@@PAV2@@Z",
     "main_symbol": "?Plan_Route_00707f60@UnitClass@@QAEPAVAbstractClass@@PAV2@@Z",
     "main_source": "src/recovered/unit.cpp"
    },
@@ -115648,5 +115667,71 @@
    "?ID@?$VectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z": "006364a0"
   },
   "partial_ok": true
+ },
+ "vqalib_buffer_": {
+  "core": [
+   "007768a0",
+   "00777850"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/vqalib_buffer_.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "007768a0",
+   "00777850"
+  ],
+  "mischa85": "source: functions compiled from src/vqalib_buffer_.cpp, matched, without gaps",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "007768a0",
+    "body": 2274,
+    "padding": 14,
+    "symbol": "?AllocBuffers@@YIJPAU_VQAHandleP@@@Z",
+    "main_symbol": "?AllocBuffers@@YIJPAUVQAHandleP@@@Z",
+    "main_source": "src/recovered/vqalib_buffer_.cpp"
+   },
+   {
+    "entry": "00777190",
+    "body": 1309,
+    "padding": 3,
+    "symbol": "?FreeBuffers@@YIXPAU_VQAHandleP@@@Z",
+    "main_symbol": "?FreeBuffers@@YIXPAUVQAHandleP@@@Z",
+    "main_source": "src/recovered/vqalib_buffer_.cpp"
+   },
+   {
+    "entry": "007776b0",
+    "body": 300,
+    "padding": 4,
+    "symbol": "?VQA_Configure_Buffer@@YIJPAU_VQAHandleP@@@Z",
+    "main_symbol": "?VQA_Configure_Buffer@@YIJPAUVQAHandleP@@@Z",
+    "main_source": "src/recovered/vqalib_buffer_.cpp"
+   },
+   {
+    "entry": "007777e0",
+    "body": 100,
+    "padding": 12,
+    "symbol": "?VQA_Memory_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+    "main_symbol": "?VQA_Memory_Handler@@YAHPAUVQAHandle@@HHH@Z",
+    "main_source": "src/recovered/vqalib_buffer_.cpp"
+   }
+  ],
+  "references": {}
  }
 }

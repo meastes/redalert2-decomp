@@ -48,6 +48,7 @@ abuffer,00411090,?Fill@ABuffer@@QAE_NGV?$TRect@H@@@Z,27,a,mischa85,yes,,
 abuffer,004110b0,?Update@ABuffer@@QAEXV?$TRect@H@@@Z,377,a,mischa85,yes,,
 abuffer,00411230,?Get_Buffer_Offset@ABuffer@@QAEIVPoint2D@@@Z,52,a,mischa85,yes,,
 ahtoi,00412390,?ahtoi@@YIHPBD@Z,74,a,mischa85,yes,,
+aircraft,004193d0,?Do_MISSION_ENTER@AircraftClass@@UAEHXZ,1248,b,old tree,edit,8,"inner switch as main's (default and attach return, roger breaks to the carryall code); INITIAL falls through"
 alphashp,0041e970,_$E2,23,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
 alphashp,0041e990,_$E5,40,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
 alphashp,0041e9c0,_$E8,19,a,mischa85,edit,0.171,Address-suffixed names 0; calibration not used
@@ -3264,6 +3265,7 @@ teleport,006dfd30,?Is_Stationary@TeleportLocomotionClass@@UAEEXZ,15,a,mischa85,y
 teleport,006dfd40,?Destination@TeleportLocomotionClass@@UAG?AUCoordStruct@@XZ,82,a,mischa85,yes,,
 teleport,006dfda0,?Move_To@TeleportLocomotionClass@@UAGXUCoordStruct@@@Z,291,a,mischa85,yes,,
 teleport,006dfed0,?Stop_Moving@TeleportLocomotionClass@@UAGXXZ,45,a,mischa85,yes,,
+teleport,006dff00,?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z,1325,a,mischa85,edit,5,Explicit coordinate value from landed Get_Coord passed to occupancy APIs; no new headers or address-suffixed names; calibration not used
 teleport,006e0430,?Check_Landing@TeleportLocomotionClass@@QAEXVCoord@@@Z,627,a,mischa85,yes,,
 teleport,006e06b0,?Pick_Arrival@TeleportLocomotionClass@@QAE_NABVCoord@@@Z,1837,a,mischa85,yes,,
 teleport,006e0de0,?Do_Turn@TeleportLocomotionClass@@UAGXUDirStruct@@@Z,34,a,mischa85,yes,,
@@ -3493,6 +3495,102 @@ tunnel,006f12f0,?Load@TunnelLocomotionClass@@UAGJPAUIStream@@@Z,71,a,mischa85,ye
 tunnel,006f1340,?In_Which_Layer@TunnelLocomotionClass@@UAG?AW4LayerType@@XZ,20,a,mischa85,yes,,
 tunnel,006f1360,?Can_Fire@TunnelLocomotionClass@@UAG?AW4FireErrorType@@XZ,31,a,mischa85,yes,,
 tunnel,006f1380,?Is_Surfacing@TunnelLocomotionClass@@UAGEXZ,30,a,mischa85,yes,,
+unit,006fa1e0,_$E2,40,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa210,_$E5,19,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa230,_$E8,19,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa250,_$E11,19,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa270,_$E14,19,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa290,_$E17,19,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa2b0,_$E20,49,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa2f0,_$E23,33,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa320,_$E26,44,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa350,_$E29,39,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa380,_$E32,15,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa390,_$E35,18,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa3b0,_$E38,23,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa3d0,_$E298,45,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fa400,??0UnitClass@@QAE@PBVUnitTypeClass@@PAVHouseClass@@@Z,948,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fb100,?AI@UnitClass@@UAEXXZ,1924,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fb890,?Rotation_AI@UnitClass@@QAEXXZ,544,b,old tree,yes,2,Class-b carry: landed TechnoClass::Is_Weapon_Valid member; no source-local ABI declaration
+unit,006fbab0,?Edge_Of_World_AI@UnitClass@@QAE_NXZ,129,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fbb40,?Reload@UnitClass@@UAEXXZ,169,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fbbf0,?Deploy_To_Fire@UnitClass@@UBE_NXZ,160,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fbc90,?Firing_AI@UnitClass@@QAEXXZ,688,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fc1f0,?Receive_Message@UnitClass@@UAE?AW4RadioMessageType@@PAVRadioClass@@W42@AAH@Z,1858,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fc940,?Unlimbo@UnitClass@@UAE_NABVCoord@@W4Dir256@@@Z,232,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fca30,?Take_Damage@UnitClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z,2410,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fd3a0,?Explode@UnitClass@@QAEXXZ,512,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fd5a0,?Active_Click_With@UnitClass@@UAE_NW4ActionType@@PAVObjectClass@@_N@Z,107,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fd610,?Active_Click_With@UnitClass@@UAE_NW4ActionType@@ABVCell@@1_N@Z,28,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fd630,?Enter_Idle_Mode@UnitClass@@UAE_N_N0@Z,761,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fd930,?Goto_Clear_Spot@UnitClass@@QAE_NXZ,1650,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fdfc0,?Try_To_Deploy@UnitClass@@QAE_NXZ,1584,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006ff350,?Render@UnitClass@@UBE_NAAV?$TRect@H@@_N1@Z,140,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006ff3e0,?Unit_Blit_Voxel@UnitClass@@UBEXAAVSurface@@VPoint2D@@V?$TRect@H@@H@Z,688,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00700e70,?Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,1326,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,007013a0,?Harvesting@UnitClass@@QAE_NXZ,477,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00702f60,?Do_MISSION_HUNT@UnitClass@@UAEHXZ,212,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00703040,?Can_Enter_Cell@UnitClass@@UBE?AW4MoveType@@PBVCellClass@@W4FacingType@@H0_N@Z,2952,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00703bd0,?What_Action@UnitClass@@UBE?AW4ActionType@@PBVObjectClass@@_N@Z,1559,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,007041f0,?What_Action@UnitClass@@UBE?AW4ActionType@@ABVCell@@_N1@Z,581,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704440,?Do_MISSION_GUARD@UnitClass@@UAEHXZ,576,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704680,?Do_MISSION_MOVE@UnitClass@@UAEHXZ,94,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,007046e0,?Do_MISSION_PATROL@UnitClass@@UAEHXZ,65,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704730,?Desired_Load_Dir@UnitClass@@UBE?AW4FacingType@@PAVObjectClass@@AAVCell@@@Z,656,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,007049c0,?Flag_Attach@UnitClass@@QAE_NW4HousesType@@@Z,44,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,007049f0,?Flag_Remove@UnitClass@@QAE_NXZ,35,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704a20,?Pip_Count@UnitClass@@UBEHXZ,92,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704a80,?APC_Close_Door@UnitClass@@QAEXXZ,32,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704aa0,?APC_Open_Door@UnitClass@@QAEXXZ,82,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704b00,?Crew_Type@UnitClass@@UBEPBVInfantryTypeClass@@XZ,5,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704b10,?Do_MISSION_REPAIR@UnitClass@@UAEHXZ,156,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704bb0,?Fire_Direction@UnitClass@@UBE?AVDirType@@XZ,67,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704c00,?Can_Fire@UnitClass@@UBE?AW4FireErrorType@@PAVAbstractClass@@H_N@Z,707,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00704ed0,?Fire_At@UnitClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z,331,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00705020,?Class_Of@UnitClass@@UBEPBVObjectTypeClass@@XZ,7,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00705030,?Tiberium_Load@UnitClass@@UBENXZ,62,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00705070,?Approach_Target@UnitClass@@UAEXXZ,233,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00705160,?Overrun_Square@UnitClass@@UAEXABVCell@@_N@Z,648,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00706a10,?Greatest_Threat@UnitClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z,194,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00706ae0,?Read_INI@UnitClass@@SIXABVCCINIClass@@@Z,1147,b,old tree,rematch,7,"Class-b carry: real health-scaling and follower-resolution helpers from accepted main; VC6 native FP result, no portable float32 store contract"
+unit,00706f60,?Write_INI@UnitClass@@SIXAAVCCINIClass@@@Z,450,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707130,?Credit_Load@UnitClass@@QBEHXZ,50,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707170,?Should_Crush_It@UnitClass@@QBE_NPBVTechnoClass@@@Z,347,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,007078f0,?Limbo@UnitClass@@UAE_NXZ,80,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707940,?Do_MISSION_GUARD_AREA@UnitClass@@UAEHXZ,5,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707950,?Is_Ready_To_Move@UnitClass@@UBE_NXZ,48,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707980,?Set_Occupy_Bit@UnitClass@@UAEXABVCoord@@@Z,94,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,007079e0,?Clear_Occupy_Bit@UnitClass@@UAEXABVCoord@@@Z,83,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707a40,?Ready_To_Commence@UnitClass@@UAE_NXZ,479,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707c20,?Load@UnitClass@@UAGJPAUIStream@@@Z,391,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707db0,?Save@UnitClass@@UAGJPAUIStream@@H@Z,50,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707df0,?Compute_CRC@UnitClass@@UBEXAAVCRCEngine@@@Z,159,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707e90,?Detach@UnitClass@@UAEXPBVAbstractClass@@_N@Z,56,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707ed0,?Record_The_Kill@UnitClass@@UAEXPAVTechnoClass@@@Z,122,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00707f50,?Do_MISSION_ATTACK@UnitClass@@UAEHXZ,5,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709790,?Is_Route_Broken@UnitClass@@QBE_NABVCell@@0@Z,254,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709890,?Unknown_Virtual_0@UnitClass@@UAE_NHH@Z,258,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,007099a0,?Captured@UnitClass@@UAE_NPAVHouseClass@@_N@Z,83,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709a00,?Considered_Vehicle@UnitClass@@UBE_NXZ,22,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709a20,?ReceiveGunner@UnitClass@@UAEXPAVFootClass@@@Z,188,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709ae0,?RemoveGunner@UnitClass@@UAEXPAVFootClass@@@Z,196,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709bb0,?GetDisguise@UnitClass@@UBEPAVObjectTypeClass@@_N@Z,52,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709bf0,?GetDisguiseHouse@UnitClass@@UBEPAVHouseClass@@_N@Z,52,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709c30,?Disguise_As_Type@UnitClass@@QAEXPAVObjectTypeClass@@@Z,53,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709c70,?DisguiseAs@UnitClass@@UAEIPAVAbstractClass@@@Z,167,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709d20,?ClearDisguise@UnitClass@@UAEXXZ,40,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709d50,?IsDisguisedAs@UnitClass@@UBE_NPAVHouseClass@@@Z,185,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709e10,?Init@UnitClass@@UAEXXZ,167,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,00709ec0,?UpdateDisguise@UnitClass@@QAEXXZ,537,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,0070a0e0,?Full_Name@UnitClass@@UBEPBGXZ,346,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,0070a240,?Is_Immobilized@UnitClass@@QBE_NXZ,27,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,0070a260,?CanUseWaypoint@UnitClass@@UBE_NXZ,5,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,0070a270,?CanAttackOnTheMove@UnitClass@@UBE_NXZ,5,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,0070a280,?Fetch_Object_Size@UnitClass@@UBEHXZ,6,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,0070a290,?GetClassID@UnitClass@@UAGJPAU_GUID@@@Z,56,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,0070a2d0,?Fetch_RTTI@UnitClass@@UBE?AW4RTTIType@@XZ,6,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,0070a2e0,?Turret_Facing@UnitClass@@UBE?AVDirType@@XZ,73,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,0070a330,??_GUnitClass@@UAEPAXI@Z,30,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
 unittype,0070a410,_$E2,23,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
 unittype,0070a430,_$E5,40,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
 unittype,0070a460,_$E8,19,a,mischa85,edit,0.278,Address-suffixed names 0; calibration not used
@@ -3756,6 +3854,10 @@ vqalib_audio,007764c0,?VQA_StopAudio@@YIXPAU_VQAHandleP@@@Z,32,a,mischa85,yes,0.
 vqalib_audio,007764e0,?CopyAudio@@YIJPAU_VQAHandleP@@@Z,406,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
 vqalib_audio,00776680,?VQA_AudioFillCallback@@YAJPAU_VQAHandleP@@@Z,330,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
 vqalib_audio,007767d0,?VQA_AudioDoneCallback@@YAJPAU_VQAHandleP@@K@Z,197,a,mischa85,yes,0.250,Address-suffixed names 0; calibration not used
+vqalib_buffer_,007768a0,?AllocBuffers@@YIJPAU_VQAHandleP@@@Z,2274,a,mischa85,edit,1.500,Address-suffixed names 0; calibration not used
+vqalib_buffer_,00777190,?FreeBuffers@@YIXPAU_VQAHandleP@@@Z,1309,a,mischa85,edit,1.500,Address-suffixed names 0; calibration not used
+vqalib_buffer_,007776b0,?VQA_Configure_Buffer@@YIJPAU_VQAHandleP@@@Z,300,a,mischa85,edit,1.500,Address-suffixed names 0; calibration not used
+vqalib_buffer_,007777e0,?VQA_Memory_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z,100,a,mischa85,edit,1.500,Address-suffixed names 0; calibration not used
 vqalib_drawer,00777870,?VQA_ResetLastFrameNum@@YIJPAU_VQAHandle@@@Z,10,c,seed,yes,0.417,Address-suffixed names 0; calibration not used
 vqalib_drawer,00777880,?VQA_Configure_Drawer@@YIJPAU_VQAHandleP@@@Z,447,c,seed,rematch,0.417,Address-suffixed names 0; calibration not used
 vqalib_drawer,00777a40,?VQA_DispatchFrameChunks@@YIXPAU_VQAHandleP@@J@Z,269,c,seed,rematch,0.417,Address-suffixed names 0; calibration not used

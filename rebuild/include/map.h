@@ -248,7 +248,9 @@ class MapClass: public GScreenClass
 		void Destroy_Low_Bridge_NS(Cell const & cell); // RA2: 0x5579C0, the north-south low bridge around the cell is blown up piece by piece
 		void Destroy_Low_Bridge2_EW(Cell const & cell); // RA2: 0x557CE0, as Destroy_Low_Bridge_EW for the second low bridge kind
 		void Destroy_Low_Bridge2_NS(Cell const & cell); // RA2: 0x558010, as Destroy_Low_Bridge_NS for the second low bridge kind
+	public: // RA2: Explosion_Damage (0x47E2C0) calls it
 		bool Damage_Low_Bridge2(Cell const & cell); // RA2: 0x55EDB0, as Damage_Low_Bridge for the second low bridge kind
+	private:
 		bool Damage_Low_Bridge_NS(Cell const & cell);
 		bool Damage_Low_Bridge2_EW(Cell const & cell); // RA2: 0x55F020, as Damage_Low_Bridge_EW for the second low bridge kind
 		bool Damage_Low_Bridge2_NS(Cell const & cell); // RA2: 0x55F540, as Damage_Low_Bridge_NS for the second low bridge kind

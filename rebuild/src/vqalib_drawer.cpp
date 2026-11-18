@@ -251,7 +251,7 @@ long Select_Frame(VQAHandleP * vqap)
             if (!(frame->Flags & VQAFRMF_LOADED)) {
                 drawer->WaitsOnLoader++;
                 if (!(drawer->Flags & VQADRWF_REPAINT) || (vqap->Flags & VQADATF_LDONE)) return VQAERR_NOBUFFER;
-                frame = drawer->CurFrame->Prev;
+                frame = frame->Prev;
                 drawer->CurFrame = frame;
                 frame->Flags = frame->PrevFlags;
                 return VQAERR_NONE;
@@ -263,6 +263,7 @@ long Select_Frame(VQAHandleP * vqap)
     return VQAERR_NONE;
 }
 #endif
+
 
 
 

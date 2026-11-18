@@ -18,7 +18,7 @@ class MPScoreScreen // RA2: the screen (YR: MPScoreScreen, ctor 0x5AAA20)
 {
 	public:
 		MPScoreScreen(void);
-		void Presentation_005AAA40(void); // RA2: 0x5AAA40, shows the screen (placeholder name)
+		void Presentation(void); // RA2: 0x5AAA40, shows the screen (named after TibSun's ScoreClass::Presentation)
 };
 
 

@@ -175,7 +175,6 @@
 #include "ftimer.h"
 #include "temporal.h" // RA2
 
-int __stdcall Is_Weapon_Present(WeaponDataStruct const * wdata); // RA2: techno.cpp, at 0x6D8640
 #include "capmgr.h" // RA2: CaptureManagerClass, read by Receive_Message
 
 
@@ -329,7 +328,7 @@ UnitClass::UnitClass(UnitTypeClass const * type, HouseClass * house) :
  * HISTORY:                                                                                    *
  *   08/15/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 645 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 645 bytes differ (class-b carry)
 UnitClass::~UnitClass(void)
 {
 	if (ElectricBolt != NULL) { // RA2: a live electric bolt is destroyed first
@@ -761,7 +760,6 @@ void UnitClass::AI(void)
  * HISTORY:                                                                                    *
  *   07/30/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 456 bytes differ (adopted text)
 void UnitClass::Rotation_AI(void)
 {
 	if (TarCom != NULL && !IsRotating) {
@@ -769,7 +767,7 @@ void UnitClass::Rotation_AI(void)
 
 		if (Class->IsTurretEquipped) {
 			WeaponDataStruct const * weapon = GetTurretWeapon(); // RA2: the turret turns only for a present, non-omni weapon
-			if (Is_Weapon_Present(weapon) && !weapon->Weapon->OmniFire) { // RA2: as above
+			if (Is_Weapon_Valid(weapon) && !weapon->Weapon->OmniFire) { // RA2: as above
 				if (weapon->TurretLocked) { // RA2: a locked turret stays on the body facing
 					SecondaryFacing.Set_Desired(PrimaryFacing.Current()); // RA2: as above
 				} else {
@@ -802,7 +800,7 @@ void UnitClass::Rotation_AI(void)
 				}
 			} else if (TarCom == NULL) { // RA2: an idle turret follows the destination or realigns with the body
 				WeaponDataStruct const * weapon = GetTurretWeapon(); // RA2: as above
-				bool locked = Is_Weapon_Present(weapon) && weapon->TurretLocked; // RA2: as above
+				bool locked = Is_Weapon_Valid(weapon) && weapon->TurretLocked; // RA2: as above
 				if (NavCom != NULL && !locked) { // RA2: as above
 					SecondaryFacing.Set_Desired(Direction(NavCom)); // RA2: as above
 				} else {
@@ -816,7 +814,6 @@ void UnitClass::Rotation_AI(void)
 		TurretIsRotating = SecondaryFacing.Is_Rotating(); // RA2: as above
 	}
 }
-#endif
 
  // RA2: no IsRadarEquipped (not in RA2's layout)
 
@@ -913,9 +910,9 @@ static inline bool Draw_It_Coord_Pixel(Coord coord, Point2D & pixel) // RA2: the
 /// <summary>
 /// RA2
 /// </summary>
-inline Cell Adjacent_Cell_By_Value(Cell cell, FacingType dir)
+inline Cell Adjacent_Cell_By_Value(Cell cell, int dir)
 {
-	return(cell + AdjacentCell[(int)dir & 0x07]);
+	return(cell + AdjacentCell[dir & 0x07]);
 }
 
 
@@ -1018,67 +1015,49 @@ void UnitClass::Firing_AI(void)
 /// merge with any neighbor it stumbles across, and steers a wounded one onto Tiberium so
 /// that it can heal.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 34 bytes differ (adopted text)
-void UnitClass::Visceroid_AI(void)
+#ifdef RA2_NON_MATCHING // not exact: 26 bytes differ (class-b carry)
+void UnitClass::Visceroid_AI()
 {
-	Cell cell = PositionCell;
-	int stage = Fetch_Stage();
-
-	if (stage >= 90) {
-		if (stage % 5 != 4) { // RA2: the long stages restart only on their last step
-			return; // RA2: as above
-		}
-		Set_Stage(TICKS_PER_SECOND * 2 * Random_Pick(0, 2)); // RA2: as above
-		Set_Rate(1); // RA2: as above
-		return; // RA2: as above
-	}
-
-	if (stage % 30 == 29) {
-		Set_Stage(TICKS_PER_SECOND * 2 * Random_Pick(0, 2));
-	}
-	Set_Rate(1);
-
-	if (Locomotion->Is_Moving()) { // RA2: a moving visceroid does nothing else
-		return; // RA2: as above
-	}
-
-	if (Class->IsSmallVisceroid) {
-		int direction = 7; // RA2: the neighbors are scanned starting after the last facing
-		for (int i = 0; i < FACING_COUNT; i++) {
-			direction = (direction + 1) & 7; // RA2: as above
-			Cell adjacent = Adjacent_Cell_By_Value(cell, (FacingType)direction); // RA2: the neighbor is cell plus the offset table entry
-			CellClass * cellptr = &Map[adjacent];
-			ObjectClass * occupier = cellptr->Cell_Occupier();
-			if (occupier != NULL && occupier->RTTI == RTTI_UNIT && ((UnitClass *)occupier)->Class->IsSmallVisceroid) {
-				UnitClass * visceroid = (UnitClass *)occupier;
-				if (visceroid->NavCom != NULL || visceroid->TarCom != NULL) { // RA2: a busy neighbor ends the search
-					return; // RA2: as above
-				}
-				visceroid->Assign_Destination(this, true); // RA2: the neighbor is sent to this unit at once
-				VisceroidFacing = FACING_NONE;
-				return;
-			}
-		}
-	}
-
-	if (NavCom != NULL || TarCom != NULL) { // RA2: no wandering while a destination or target is set
-		return; // RA2: as above
-	}
-
-	FacingType dir;
-	if (VisceroidFacing == FACING_NONE || Random_Pick(0, 2) == 0) { // RA2: as above
-		dir = Random_Pick(FACING_FIRST, FacingType(FACING_COUNT - 1));
-		VisceroidFacing = dir;
-	} else {
-		dir = VisceroidFacing;
-	}
-	Cell adjacent = Adjacent_Cell_By_Value(cell, dir); // RA2: as above
-	CellClass * cellptr = &Map[adjacent];
-	if (Can_Enter_Cell(cellptr, dir, Get_Cell_Height(), &Map[cell], true) == MOVE_OK) { // RA2: no healing logic; the neighbor cell is simply entered
-		Assign_Destination(cellptr, true); // RA2: as above
-		return; // RA2: as above
-	}
-	VisceroidFacing = FACING_NONE;
+    Cell position = Get_Cell();
+    if (Fetch_Stage() >= 90) {
+        if (Fetch_Stage() % 5 != 4) return;
+        Set_Stage(Random_Pick(0, 2) * 30);
+        StageClass::Set_Rate(1);
+        return;
+    }
+    if (Fetch_Stage() % 30 == 29) {
+        Set_Stage(Random_Pick(0, 2) * 30);
+    }
+    StageClass::Set_Rate(1);
+    if (Locomotion->Is_Moving()) return;
+    if (Class->IsSmallVisceroid) {
+        int direction = 7;
+        for (int index = 0; index < 8; index++) {
+            direction = (direction + 1) & 7;
+            ObjectClass *object = Map[Adjacent_Cell_By_Value(position, direction)].Cell_Occupier();
+            if (object && object->Fetch_RTTI() == 1 && ((UnitClass *)object)->Class->IsSmallVisceroid) {
+                UnitClass *other = (UnitClass *)object;
+                if (other->NavCom || other->TarCom) return;
+                other->Assign_Destination(this, true);
+                VisceroidFacing = FACING_NONE;
+                return;
+            }
+        }
+    }
+    if (NavCom || TarCom) return;
+    int direction;
+    if (VisceroidFacing == -1 || Random_Pick(0, 2) == 0) {
+        direction = Random_Pick(0, 7);
+        VisceroidFacing = (FacingType)direction;
+    } else {
+        direction = VisceroidFacing;
+    }
+    CellClass *destination = &Map[Adjacent_Cell_By_Value(position, direction)];
+    if (Can_Enter_Cell(destination, (FacingType)direction, Get_Cell_Height(), &Map[position], 1) == 0) {
+        Assign_Destination(destination, true);
+        return;
+    }
+    VisceroidFacing = FACING_NONE;
 }
 #endif
 
@@ -5166,7 +5145,7 @@ void UnitClass::Assign_Destination(AbstractClass * target, bool immediate)
 		}
 
 		if (useplan) { // RA2: the plan is made here, the immediate branch is separate
-			target = Plan_Route(*target); // RA2: as above
+			target = Plan_Route(target); // RA2: as above
 			surface = true; // RA2: as above
 		} else if (immediate) { // RA2: as above
 			RouteQueue.Clear(); // RA2: as above
@@ -5430,7 +5409,25 @@ AbstractClass * UnitClass::Greatest_Threat(ThreatType threat, Coord const & coor
  * HISTORY:                                                                                    *
  *   05/24/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 15 bytes differ (adopted text)
+static inline UnitTypeClass * Read_Unit_Health(UnitClass & unit, float health)
+{
+	UnitTypeClass * type = unit.Class;
+	unit.Strength = (int)((double)health * type->MaxStrength * (1.0 / 256.0));
+	return type;
+}
+
+static inline void Resolve_Unit_Link(int index, unsigned follower_index)
+{
+	UnitClass * unit = Units[index];
+	if (follower_index == (unsigned)-1 || follower_index >= (unsigned)Units.Count()) {
+		unit->FollowingMe = 0;
+	} else {
+		UnitClass * follower = Units[follower_index];
+		unit->FollowingMe = follower;
+		follower->IsFollowing = true;
+	}
+}
+
 void UnitClass::Read_INI(CCINIClass const & ini)
 {
 	UnitClass	* unit;         // Working unit pointer.
@@ -5519,8 +5516,7 @@ void UnitClass::Read_INI(CCINIClass const & ini)
 					}
 
 					if (unit->Unlimbo(coord, dir)) {
-						UnitTypeClass const * type = unit->Class; // RA2: the type is read once
-						unit->Strength = (int)((double)strength * type->MaxStrength * (1.0 / 256.0)); // RA2: the health byte scaled by the maximum, multiplied as integers first
+						UnitTypeClass * type = Read_Unit_Health(*unit, (float)strength);
 						if (unit->Strength > type->MaxStrength-3) unit->Strength = type->MaxStrength; // RA2: as above
 						if (unit->Strength == 0) unit->Strength = 1;
 						unit->EstimatedHealth = unit->Strength; // RA2: the estimated health starts equal to the real one
@@ -5547,18 +5543,10 @@ void UnitClass::Read_INI(CCINIClass const & ini)
 	}
 
 	for (int i = 0; i < Units.Count(); i++) {
-		int followerid = followers[i];
-		UnitClass * unit = Units[i];
-		if ((UnitType)followerid != UNIT_NONE && (unsigned)followerid < (unsigned)Units.Count()) {
-			UnitClass * follower = Units[followerid];
-			unit->FollowingMe = follower;
-			follower->IsFollowing = true;
-		} else {
-			unit->FollowingMe = NULL;
-		}
+		unsigned follower_index = (unsigned)followers[i];
+		Resolve_Unit_Link(i, follower_index);
 	}
 }
-#endif
 
 
 
@@ -5707,89 +5695,90 @@ bool UnitClass::Should_Crush_It(TechnoClass const * it) const
  * HISTORY:                                                                                    *
  *   10/02/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1528 bytes differ (adopted text)
-void UnitClass::Scatter(Coord const & threat, bool forced, bool nokidding)
+#ifdef RA2_NON_MATCHING // not exact: 843 bytes differ (class-b carry)
+void UnitClass::Scatter(Coord const &threat, bool forced, bool nokidding)
 {
-	if (!Can_Scatter()) return;
-
-	/*
-	**	Certain missions prevent scattering regardless of whether it would be
-	**	a good idea or not.
-	*/
-	if (!Current_Mission_Control().IsScatter && !forced) return;
-
-	if (PrimaryFacing.Is_Rotating()) return;
-
-	if (NavCom != NULL && !nokidding) return;
-
-	if (threat == COORD_NONE) {
-		Cell nearby = Map.Nearby_Location(Destination_Coord().As_Cell(), Class->Speed, -1, MZONE_NORMAL, IsOnBridge, Point2D(1,1), false, true);
-		if (nearby != CELL_NONE) {
-			Assign_Destination(&Map[nearby]);
-		}
-		return;
-	}
-
-	/*
-	**	Certain missions prevent scattering regardless of whether it would be
-	**	a good idea or not.
-	*/
-	if (Current_Mission_Control().IsParalyzed) return;
-
-	if ((Fetch_RTTI() != RTTI_UNIT || !((UnitClass *)this)->IsDumping) && (NavCom == NULL || (nokidding && !IsRotating))) {
-		if (TarCom == NULL || forced || Random_Pick(1, 4) == 1) {
-			FacingType	toface;
-
-			if (threat != COORD_NONE) {
-				toface = Dir_Facing(::Direction(threat, PositionCoord));
-				toface = Facing_Add(toface, Random_Pick(FACING_0, FACING_90)-FACING_45);
-			} else {
-				toface = (PrimaryFacing.Current().As_Dir8());
-				toface = Facing_Add(toface, Random_Pick(FACING_0, FACING_90)-FACING_45);
-			}
-
-			Cell altcell(0, 0);
-			Cell newcell(0, 0);
-			Cell destcell(Destination_Coord());
-
-			CellClass *cellptr = &Map[destcell];
-
-			int z = cellptr->Height + Is_Moving_Onto_Bridge() ? BRIDGE_CELL_HEIGHT : 0;
-			Coord destcoord = Destination_Coord();
-			destcoord.Z = z * LEVEL_LEPTON_H;
-
-			FacingType face;
-			for (face = FACING_N; face < FACING_COUNT; face++) {
-				FacingType newface = Facing_Add(toface, face);
-				Cell checkcell = Adjacent_Cell(destcell, newface);
-				CellClass *cptr = &Map[checkcell];
-
-				if (Map.In_Local_Radar(checkcell) && Can_Enter_Cell(cptr, newface, Get_Cell_Height()) == MOVE_OK) {
-					if (altcell == CELL_NONE) altcell = checkcell;
-					if (CELL_NONE == Cell(0,0)) {
-						Coord checkcoord = checkcell.As_Coord();
-						checkcoord.Z = destcoord.Z;
-						if (checkcell == TacticalMap->Coord_To_Cell(checkcoord) && !Map[checkcell].IsUnderBridge) {
-							newcell = checkcell;
-							break;
-						}
-					}
-				}
-			}
-
-			Cell destination = newcell;
-			if (destination == CELL_NONE) {
-				destination = altcell;
-			}
-
-			if (destination != CELL_NONE) {
-				Assign_Mission(MISSION_MOVE);
-				Assign_Destination(&Map[destination]);
-			}
-		}
-	}
+    if (!Can_Scatter()) {
+        return;
+    }
+    IPersistPtr persist(Locomotion);
+    GUID clsid;
+    persist->GetClassID(&clsid);
+    if (memcmp(&clsid, &CLSID_TeleportLocomotion, sizeof(GUID)) == 0) {
+        return;
+    }
+    if (!Current_Mission_Control().IsScatter && !forced) {
+        return;
+    }
+    if (PrimaryFacing.Is_Rotating()) {
+        return;
+    }
+    if (NavCom != 0 && !nokidding) {
+        return;
+    }
+    if (Deployed) {
+        return;
+    }
+    if (threat == COORD_NONE) {
+        Cell found = Map.Nearby_Location(Destination_Coord().As_Cell(),Class->Speed,-1,MZONE_NORMAL,IsOnBridge,Point2D(1, 1),0,1,0,1,Cell(0, 0),0);
+        if (found != CELL_NONE) {
+            Assign_Destination(&Map[found], true);
+        }
+    } else {
+        if (Current_Mission_Control().IsParalyzed) {
+            return;
+        }
+        if ((Fetch_RTTI() != 1 || !IsDumping)
+            && (NavCom == 0 || (nokidding && !IsRotating))
+            && (TarCom == 0 || forced || Random_Pick(1, 4) == 1)) {
+            int facing;
+            if (threat != COORD_NONE) {
+                DirType direction = ::Direction(threat, PositionCoord);
+                facing = (direction.As_Dir8() + Random_Pick(0, 2) - 1) & 7;
+            } else {
+                facing = (PrimaryFacing.Current().As_Dir8() + Random_Pick(0, 2) - 1) & 7;
+            }
+            Cell alt(0, 0);
+            Cell found(0, 0);
+            Cell center = Destination_Coord().As_Cell();
+            CellClass *cell = &Map[center];
+            int level = (Is_Moving_Onto_Bridge() + cell->Height) ? 4 : 0;
+            Coord here = Destination_Coord();
+            here.Z = LEVEL_LEPTON_H * level;
+            for (int index = 0; index < 8; index++) {
+                int dir = (facing + index) & 7;
+                Cell adjacent = center + AdjacentCell[dir & 7];
+                CellClass *next = &Map[adjacent];
+                if (Map.In_Local_Radar(adjacent, true) && Can_Enter_Cell(next, (FacingType)dir, Get_Cell_Height(), 0, 1) == 0) {
+                    if (alt.X == CELL_NONE.X) {
+                        if (alt.Y == CELL_NONE.Y) {
+                            alt = adjacent;
+                        }
+                    }
+                    if (found == CELL_NONE) {
+                        Coord coord = adjacent.As_Coord();
+                        coord.Z = here.Z;
+                        if (adjacent == TacticalMap->Coord_To_Cell(coord)
+                            && !Map[adjacent].IsUnderBridge) {
+                            found = adjacent;
+                            break;
+                        }
+                    }
+                }
+            }
+            Cell dest = found;
+            if (found == CELL_NONE) {
+                dest = alt;
+            }
+            if (dest != CELL_NONE) {
+                QueueMission(MISSION_MOVE, false);
+                Assign_Destination(&Map[dest], true);
+            }
+        }
+    }
 }
 #endif
+
 
 
 /***********************************************************************************************
@@ -6089,10 +6078,10 @@ int UnitClass::Do_MISSION_ATTACK(void)
 /// </summary>
 /// <param name="object">The desired final movement target.</param>
 /// <returns>The first leg of the planned route, or NULL if no route is possible.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
-AbstractClass * UnitClass::Plan_Route(AbstractClass const & object) const
+#ifdef RA2_NON_MATCHING // not exact: 5775 bytes differ (class-b carry)
+AbstractClass * UnitClass::Plan_Route(AbstractClass * object)
 {
-	DynamicVectorClass<AbstractClass *> & route = ((UnitClass *)this)->RouteQueue;
+	DynamicVectorClass<AbstractClass *> & route = RouteQueue;
 	route.Clear();
 
 	bool onbridge = Is_Moving_Onto_Bridge();
@@ -6101,7 +6090,7 @@ AbstractClass * UnitClass::Plan_Route(AbstractClass const & object) const
 
 	bool canburrowfrom = Map[from].Can_Burrow_Here() || Get_Height_AGL() < 0;
 
-	AbstractClass * dest = (AbstractClass *)&object;
+	AbstractClass * dest = object;
 	Cell to = dest->Center_Coord().As_Cell();
 
 	CellClass * toptr = &Map[to];
@@ -6895,6 +6884,7 @@ DirType UnitClass::Turret_Facing(void) const
 /// <param name="xdrawpoint">The pixel position to center the unit's model upon.</param>
 /// <param name="xcliprect">The clipping rectangle to draw within.</param>
 /// <param name="brightness">The lighting level to draw the unit at.</param>
+#ifdef RA2_NON_MATCHING // not exact: emitted voxel draw member has no resolved original row
 void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightness) const
 {
 	VoxelDataStruct *voxl;
@@ -7057,6 +7047,7 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 	}
 
 }
+#endif
 
 
 /***********************************************************************************************

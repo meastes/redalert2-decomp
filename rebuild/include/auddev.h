@@ -120,6 +120,16 @@ AudioChannel * __fastcall AudioDeviceNextChannel(AudioSearch * sh);
 AudioChannel * __fastcall AudioDeviceGetChannel(AudioDevice * dev, int type);
 AudioChannel * __fastcall AudioDeviceReserveChannel(AudioDevice * dev, int newType);
 int __fastcall AudioDeviceDestroyAllChannels(AudioDevice * dev, int type);
+// The audio library's own state: its loaded systems, its devices and the standard channel attributes
+// (auddev.cpp holds the one instance).
+struct AudioData
+{
+	ListHead systemList;
+	ListHead devList;
+	Lock devListAccess;
+	AudioAttribs stdChannelAttribs;
+};
+
 void __fastcall AudioDeviceStopAllChannels(AudioDevice * dev, int type);
 void __fastcall AudioDevicePauseAllChannels(AudioDevice * dev, int type);
 void __fastcall AudioDeviceResumeAllChannels(AudioDevice * dev, int type);

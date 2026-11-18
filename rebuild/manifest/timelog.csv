@@ -25,3 +25,6 @@ start_utc,end_utc,class,activity
 01:10,01:20,c,radbeam written fresh from the seed and radbeam.h (45 of 48 rows; Update_All/Draw_Pulse/Start_Pass parked)
 01:20,01:40,support,worker merge (codex1 r2068-r2074, codex2 r2889-r2899) gated (wfm1), mirror sync, codex1 slice 2 (class-b carry on planmgr taction queue unit)
 01:40,02:06,tooling,phase 2 over 183 held units (trailing copies, prologue, re-guard); lane work rebased onto the merge; build-refused holds; whole-file exact wf28
+02:06,02:20,support,worker merges (codex2 r2900-r2903, codex1 unit) gated; codex2 slice 3; codex2 audio header closures (AudioData, vqalib/iff.h)
+02:20,02:26,a,aircraft lands (TibSun FootClass::On_Ground override dropped; Fire_At guarded; GotHijacked slot binding dropped); review items: progress tree column, parked defined, address-suffixed total budgeted (Presentation renamed), README wording
+02:26,02:52,b,class b over the largest and the nearest parked functions of landed units: 7 attempted (Explosion_Damage, AI_Unit, Do_MISSION_ENTER, Read_INI, TMission_LOSE, Presentation (campscor), removeChar), 1 exact after edits (Do_MISSION_ENTER), 6 parked with reasons; recheck of all landed units after the combat.h/map.h changes

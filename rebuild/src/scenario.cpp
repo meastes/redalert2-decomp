@@ -1512,10 +1512,10 @@ void Do_Win(void)
 				if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode->vt_entry_08()) { // RA2: as above
 					Darken_Surface(NULL, true); // RA2: as above
 				} else {
-					MPScoreScreen().Presentation_005AAA40(); // RA2: 0x5AAA20, 0x5AAA40 (in place of Multi_Score_Presentation)
+					MPScoreScreen().Presentation(); // RA2: 0x5AAA20, 0x5AAA40 (in place of Multi_Score_Presentation)
 				}
 			} else {
-				MPScoreScreen().Presentation_005AAA40(); // RA2: as above
+				MPScoreScreen().Presentation(); // RA2: as above
 			}
 			if (Session.MPGameMode != NULL) { // RA2: as above
 				next = Session.MPGameMode->vt_entry_90(); // RA2: slot 0x90, whether another round is played
@@ -1742,10 +1742,10 @@ void Do_Lose(void)
 				if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode->vt_entry_08()) { // RA2: as above
 					Darken_Surface(NULL, true); // RA2: as above
 				} else {
-					MPScoreScreen().Presentation_005AAA40(); // RA2: 0x5AAA20, 0x5AAA40 (in place of Multi_Score_Presentation)
+					MPScoreScreen().Presentation(); // RA2: 0x5AAA20, 0x5AAA40 (in place of Multi_Score_Presentation)
 				}
 			} else {
-				MPScoreScreen().Presentation_005AAA40(); // RA2: as above
+				MPScoreScreen().Presentation(); // RA2: as above
 			}
 			if (Session.MPGameMode != NULL) { // RA2: as above
 				replay = Session.MPGameMode->vt_entry_90(); // RA2: slot 0x90, whether another round is played

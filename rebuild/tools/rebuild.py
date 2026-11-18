@@ -571,6 +571,7 @@ def check(unit, asm=(), learn=False):
             if exact_names:
                 found = max(exact_names, key=lambda n: difflib.SequenceMatcher(None, n, row['main_symbol']).ratio())
                 row['symbol'] = found
+                result['symbol'] = found
         if found is None:
             result.update(status='missing')
         else:

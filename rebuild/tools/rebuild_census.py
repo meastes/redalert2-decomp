@@ -86,7 +86,7 @@ def gate(measures):
     """Violations of the budget (empty when the tree may land)."""
     budget = json.loads(BUDGET.read_text()) if BUDGET.exists() else {}
     return ['%s %d over budget %d' % (k, measures[k], budget.get(k, 0)) for k in
-            ('duplicates', 'outside', 'free_vs_member', 'tool_data', 'address_suffixed_headers')
+            ('duplicates', 'outside', 'free_vs_member', 'tool_data', 'address_suffixed_headers', 'address_suffixed')
             if measures[k] > budget.get(k, 0)]
 
 

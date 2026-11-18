@@ -1,6 +1,7 @@
-# Rebuild trial tree
+# Rebuild tree
 
-This folder holds a three-day trial (started 2026-11-17). It rebuilds the Red Alert 2 1.006 `game.exe`
+This folder holds the standing rebuild effort (started 2026-11-17 as a three-day trial; the branch keeps
+the name `rebuild-trial`). It rebuilds the Red Alert 2 1.006 `game.exe`
 from a new source tree laid out like the original: one source file per original translation unit
 (`src/<unit>.cpp`), one header per class (`include/`), and no per-unit views or feature switches. A
 function counts only when the original compiler (VC6) turns its source into the exact original bytes,
@@ -9,7 +10,7 @@ and the tree as a whole must pass the whole-file exact build.
 ## How it relates to the rest of this repository
 
 - **Main tree** (`src/` on `main`): this project's exact-match record, and the code the native ports build
-  from. The trial never edits it. It serves as the answer key: function bodies taken from it are
+  from. The rebuild never edits it. It serves as the answer key: function bodies taken from it are
   provenance class b.
 - **mischa85/RedAlert2**: a separate matching decompilation of the same executable. Most of the text here
   is adopted from it, whole files, credited per file. Its module map decides where each unit's functions
@@ -35,19 +36,24 @@ The percentage this tree reproduces is mostly adopted work (class a). Read it to
 below.
 
 <!-- numbers: updated at each gated landing -->
-**At the last gated landing (2026-11-18 02:06Z):** 226 units, 5,270 functions exact; 19.90% of `.text`
-built from source, 22.72% reproduced with the linked library and assembled bytes.
+**At the last gated landing (2026-11-18 02:46Z):** 228 units, 5,401 functions exact; 20.84% of `.text`
+built from source, 23.66% reproduced with the linked library and assembled bytes.
 
 | Class | Functions | Bytes |
 | --- | ---: | ---: |
-| a, adopted | 4,512 | 656,428 |
-| b, reshaped from main | 8 | 11,120 |
+| a, adopted | 4,638 | 686,684 |
+| b, reshaped from main | 9 | 12,368 |
 | c, fresh | 81 | 8,576 |
-| Windows workers (mostly adopted) | 669 | 74,128 |
+| Windows workers (mostly adopted) | 673 | 78,144 |
 
-Structure: 0 duplicate class definitions, 0 stray externs in landed sources (11 in held units), 5 address-suffixed names,
-156 units held, 726 functions not yet exact (449,365 bytes; 120 functions of 1 KB or more, 361,475 bytes).
-The newest numbers are always the last line of `manifest/progress.csv`.
+Structure: 0 duplicate class definitions, 0 stray externs in landed sources (11 in held units), 4 address-suffixed names
+(budgeted: an increase fails the gate), 155 units held, 709 functions not yet exact (436,231 bytes; 113 functions of
+1 KB or more, 351,522 bytes).
+
+"Not yet exact" (parked) counts the functions that are not exact inside processed units: units whose
+current text has a check here. Units with no text yet, or a worker's unit not merged, are not counted.
+The newest numbers are always the last `rebuild-trial` line of `manifest/progress.csv`, written only at a
+gated landing (column `tree`; older rows from worker branches are marked as such).
 
 ## Structure gate
 

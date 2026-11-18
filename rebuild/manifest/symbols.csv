@@ -733,6 +733,7 @@ symbol,address,evidence
 ?Exit_Coord@ObjectClass@@UBE?AVCoord@@H@Z,0x0041B2A0,slot +b4 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?unknown_slot44@ObjectClass@@UAE?AUCoordStruct@@H@Z
 ?Exit_Object@ObjectClass@@UAEHPAVTechnoClass@@@Z,0x005D2C70,slot +fc of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Exit_Object@ObjectClass@@UAEHPAVTechnoClass@@@Z
 ?Exit_Object@TechnoClass@@UAEHPAV1@@Z,0x006D4880,slot +fc of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_6d4880@@QAEII@Z
+?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z,0x0047E2C0,inferred: combat rows 0047f6e0 differ only at its sites
 ?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z,0x004CF560,slot +34 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z
 ?Fall_From_Height@ObjectClass@@UAEXXZ,0x005D2AC0,slot +e8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Fall_From_Height@ObjectClass@@UAEXXZ
 ?Fetch_Heap_ID@AbstractClass@@UBEHXZ,0x00410250,slot +44 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Fetch_Heap_ID@AbstractClass@@UBEHXZ
@@ -905,7 +906,6 @@ symbol,address,evidence
 ?Get_Z_Adjust@FootClass@@UBEHXZ,0x004C9930,slot +2c4 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot176@FootClass@@UAEHXZ
 ?Get_Z_Gradient@FootClass@@UBE?AW4ZGradientType@@XZ,0x004C9A10,slot +2c8 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot177@FootClass@@UAEHXZ
 ?Get_Z_Gradient@TechnoClass@@UBE?AW4ZGradientType@@XZ,0x00453B70,slot +2c8 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_453b70@@QAEIXZ
-?GotHijacked@TechnoClass@@UAEXXZ,0x004528C0,slot +2b8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot173@BuildingClass@@UAEXXZ
 ?Greatest_Threat@FootClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z,0x004C8420,slot +370 of ??_7AircraftClass@@6BIPersistStream@@@ at 0079b128; main row ?unknown_slot219@FootClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z
 ?Group_Box_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FC020,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Has_Finished@MSAnim@@UBE_NXZ,0x005AFC80,slot +1c of ??_7MSFrameAnim@@6B@ at 007af1bc; main row ?Has_Finished@MSAnim@@UAE_NXZ
@@ -1301,6 +1301,7 @@ symbol,address,evidence
 ?Occupy_List@ObjectTypeClass@@UBEPBVCell@@_N@Z,0x005D5D90,slot +90 of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z
 ?Offload_Tiberium_Bail@FootClass@@UAEHXZ,0x004C86D0,slot +4ac of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot298@FootClass@@UAEHXZ
 ?On_Ground@AbstractClass@@UBE_NXZ,0x004102C0,slot +54 of ??_7TeamClass@@6BIPersistStream@@@ at 007ac94c; main row ?On_Ground@AbstractClass@@UBE_NXZ
+?On_Ground@FootClass@@UBE_NXZ,0x005D53E0,inferred: aircraft rows 0041b0b0 differ only at its sites
 ?On_Ground@ObjectClass@@UBE_NXZ,0x005D53E0,slot +54 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?On_Ground@ObjectClass@@UBE_NXZ
 ?On_Movement_Blocked@FootClass@@UAEXXZ,0x004CA880,slot +484 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?On_Movement_Blocked@FootClass@@UAEXXZ
 ?One_Time@DisplayClass@@UAEXXZ,0x00498B70,slot +18 of ??_7DisplayClass@@6B@ at 0079e918; main row ?One_Time@DisplayClass@@UAEXXZ

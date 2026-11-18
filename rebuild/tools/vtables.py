@@ -53,6 +53,15 @@ if '--learn' in sys.argv:
                 continue
             if n in known: continue
             if refs.get(n) == target: continue
+            import guard
+            a, b = guard.demangle(n) or '', guard.demangle(main.get(target, '')) or ''
+            if target in main and '::' in a and '::' in b and a.rsplit('::', 1)[0] != b.rsplit('::', 1)[0] and \
+                    not b.startswith(('Leaf_', 'seed_')):
+                # The slot names a base class's function where the original holds a derived class's
+                # own: the header lacks that override. Binding the base name here would misplace it
+                # everywhere (lane R3).
+                print('  header lacks an override: %s slot holds %s' % (n[:60], main[target][:60]))
+                continue
             if target in main:
                 rows.append(dict(symbol=n, address='0x%08X' % target,
                                  evidence='slot +%02x of %s at %08x; main row %s' % (o, names[0], base, main[target])))

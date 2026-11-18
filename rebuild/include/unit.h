@@ -181,7 +181,7 @@ class UnitClass : public FootClass
 		void UpdateDisguise(void); // RA2: 0x709EC0
 		virtual bool CanUseWaypoint(void) const override; // RA2: 0x70A260
 		virtual bool CanAttackOnTheMove(void) const override; // RA2: 0x70A270
-		AbstractClass * Plan_Route(AbstractClass const & object) const;
+		AbstractClass * Plan_Route(AbstractClass * object);
 
 		/*
 		**	Object entry and exit from the game system.

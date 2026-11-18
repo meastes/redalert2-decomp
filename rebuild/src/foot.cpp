@@ -5913,23 +5913,3 @@ bool FootClass::RefreshMegaMission(void) // RA2: 0x4CDD70
 }
 
 
-/// <summary>
-/// Determines if this object is resting on the ground.
-/// A hover driven object floats a short distance above the terrain, but as long as it is
-/// placed down on the map it still counts as being on the ground.
-/// </summary>
-/// <returns>bool; Is the object on the ground?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
-bool FootClass::On_Ground(void) const
-{
-	if (BASECLASS::On_Ground()) {
-		return(true);
-	}
-	IPersistPtr loco(Locomotion);
-
-	CLSID clsid;
-	loco->GetClassID(&clsid);
-
-	return(IsDown && clsid == CLSID_HoverLocomotion);
-}
-#endif

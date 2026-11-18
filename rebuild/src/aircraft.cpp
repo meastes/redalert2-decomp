@@ -1146,6 +1146,7 @@ int AircraftClass::Paradrop_Cargo(void)
 /// <param name="which">Which of the weapons to fire.</param>
 /// <returns>Returns with a pointer to the projectile created, or NULL if the aircraft
 /// did not fire.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 1155 bytes differ (adopted text)
 BulletClass * AircraftClass::Fire_At(AbstractClass * target, int which)
 {
 	/*
@@ -1207,6 +1208,7 @@ BulletClass * AircraftClass::Fire_At(AbstractClass * target, int which)
 	}
 	return(bullet);
 }
+#endif
 
 
 
@@ -3086,7 +3088,6 @@ bool AircraftClass::Cell_Seems_Ok(Cell const & cell, bool strict) const
  *   06/12/1995 JLB : Created.                                                                 *
  *   07/04/1995 JLB : Ground controller gives orders.                                          *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 5 bytes differ (adopted text)
 int AircraftClass::Do_MISSION_ENTER(void)
 {
 	enum {
@@ -3132,16 +3133,14 @@ int AircraftClass::Do_MISSION_ENTER(void)
 
 	switch (Status) {
 		case INITIAL:
-			Status = TRAVEL;
-			IsCarryallNotLanding = true; // RA2: RA2's flag where TibSun sets IsReadyToCommence
-			return(1);
+			Status = TRAVEL; // RA2: and on as the other approach states
 
 		case TAKEOFF:
 		case ALTITUDE:
 		case STACK:
 		case DOWNWIND:
 		case CROSSWIND:
-			IsCarryallNotLanding = true; // RA2: as above
+			IsCarryallNotLanding = true; // RA2: RA2's flag where TibSun sets IsReadyToCommence
 			return(1);
 
 		case TRAVEL:
@@ -3191,32 +3190,33 @@ int AircraftClass::Do_MISSION_ENTER(void)
 			} else {
 				IsCarryallNotLanding = true; // RA2: as above
 				switch (Transmit_Message(RADIO_IM_IN)) {
-					case RADIO_ROGER:
-						if (Class->IsCarryall && Cargo.Is_Something_Attached()) {
-							TechnoClass * contact = Radio_Link(0); // RA2: Radio_Link(0), not Contact_With_Whom
-							TechnoClass * cargo = Cargo.Detach_Object();
-							Transmit_Message(RADIO_OVER_OUT);
-							if (cargo->Transmit_Message(RADIO_HELLO, contact) == RADIO_ROGER) {
-								Cargo.Attach((FootClass *)cargo);
-								Mark(MARK_UP);
-								Drop_Off_Cargo();
-								Mark(MARK_DOWN);
-							} else {
-								Assign_Destination(Good_LZ(), true); // RA2: explicit second argument
-							}
-							QueueMission(MISSION_MOVE, false); // RA2: QueueMission in place of Assign_Mission
-						} else {
-							QueueMission(MISSION_GUARD, false); // RA2: as above
-						}
-						break;
+					default:
+						Enter_Idle_Mode(false, true); // RA2: explicit arguments
+						return(1);
 
 					case RADIO_ATTACH:
 						Limbo();
 						Radio_Link(0)->Cargo.Attach(this); // RA2: Radio_Link(0), not Contact_With_Whom
-						break;
+						return(1);
 
-					default:
-						Enter_Idle_Mode(false, true); // RA2: explicit arguments
+					case RADIO_ROGER:
+						break;
+				}
+				if (Class->IsCarryall && Cargo.Is_Something_Attached()) {
+					TechnoClass * contact = Radio_Link(0); // RA2: Radio_Link(0), not Contact_With_Whom
+					TechnoClass * cargo = Cargo.Detach_Object();
+					Transmit_Message(RADIO_OVER_OUT);
+					if (cargo->Transmit_Message(RADIO_HELLO, contact) == RADIO_ROGER) {
+						Cargo.Attach((FootClass *)cargo);
+						Mark(MARK_UP);
+						Drop_Off_Cargo();
+						Mark(MARK_DOWN);
+					} else {
+						Assign_Destination(Good_LZ(), true); // RA2: explicit second argument
+					}
+					QueueMission(MISSION_MOVE, false); // RA2: QueueMission in place of Assign_Mission
+				} else {
+					QueueMission(MISSION_GUARD, false); // RA2: as above
 				}
 			}
 			break;
@@ -3226,7 +3226,6 @@ int AircraftClass::Do_MISSION_ENTER(void)
 	}
 	return(1);
 }
-#endif
 
 
 
@@ -3868,7 +3867,7 @@ static inline bool Aircraft_Fire_Shrouded(Coord const & coord)
  * HISTORY:                                                                                    *
  *   07/26/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 10 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 10 bytes differ (the type pointer loads before the strength; main's form did not carry over)
 void AircraftClass::Read_INI(CCINIClass const & ini)
 {
 	AircraftClass	* air;      // Working unit pointer.

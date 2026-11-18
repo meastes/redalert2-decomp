@@ -58,6 +58,7 @@
 #include "infatype.h"
 #include "inline.h"
 #include "isotype.h"
+#include "tracker.h"
 #include "mouse.h"
 #include "overtype.h"
 #include "ovrlight.h"
@@ -73,6 +74,7 @@
 #include "unit.h"
 #include "unittype.h"
 #include "vanim.h"
+#include "vector3.h"
 #include "vein.h"
 #include "warhead.h"
 
@@ -178,206 +180,236 @@ void Chain_Reaction_Damage(Cell const & cell)
  *   06/20/1994 JLB : Source is a pointer.                                                     *
  *   06/18/1996 JLB : Strength could be negative for healing effects.                          *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 4442 bytes differ (adopted text)
-void Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, WarheadTypeClass const * warhead, bool dochainreaction)
+/*
+**	RA2: the helpers Explosion_Damage expands inline: distances to a victim, the iron curtain test and the
+**	bridge middle tiles.
+*/
+static inline int Explosion_Group_Distance(Coord const & a, Coord b)
 {
-	Cell								cell;		// Cell number under explosion.
-	ObjectClass *						object;		// Working object pointer.
-	DynamicVectorClass<ObjectClass *>	objects;	// Maximum number of objects that can be damaged.
-	int									distance;	// Distance to unit.
-	int									range;		// Damage effect radius.
+	return((a - b).Length());
+}
 
-	if (Scen->Special.IsInert || warhead == NULL) return;
+static inline int Explosion_Length(Point3D const & d)
+{
+	double x = d.X;
+	double y = d.Y;
+	double z = d.Z;
+	return((int)fastmath::sqrt(x * x + y * y + z * z));
+}
+
+static inline bool Is_Techno_Object(ObjectClass * object)
+{
+	bool const & result = (object->AbstractFlags & ABSTRACT_TECHNO) != 0;
+	return(result);
+}
+
+static inline bool Is_Iron_Curtained(ObjectClass * object)
+{
+	if (object) {
+		if (Is_Techno_Object(object) && ((TechnoClass *)object)->Unknown_Virtual_32C()) {
+			return(true);
+		}
+	}
+	return(false);
+}
+
+static inline bool Is_Bridge_Middle(int ittype)
+{
+	return(ittype == IsometricTileTypeClass::BridgeMiddle1 + 0 ||
+		ittype == IsometricTileTypeClass::BridgeMiddle1 + 1 ||
+		ittype == IsometricTileTypeClass::BridgeMiddle1 + 2 ||
+		ittype == IsometricTileTypeClass::BridgeMiddle1 + 3 ||
+		ittype == IsometricTileTypeClass::BridgeMiddle2 + 0 ||
+		ittype == IsometricTileTypeClass::BridgeMiddle2 + 1 ||
+		ittype == IsometricTileTypeClass::BridgeMiddle2 + 2 ||
+		ittype == IsometricTileTypeClass::BridgeMiddle2 + 3);
+}
 
 
-	range = CELL_LEPTON_W + (CELL_LEPTON_W >> 1); // RA2: no IsWebby (not in RA2's layout)
-	cell = coord.As_Cell();
+/// <summary>
+/// Inflicts an explosion's damage on everything around it.
+/// Aircraft in the blast radius are found through the aircraft tracker, everything on the ground
+/// through the cells in reach; each victim then takes damage by its distance from the blast. A
+/// victim under an iron curtain close to the blast shields the others (the result is 2). Rocker
+/// warheads rock the vehicles around, bridges and exploding overlays in the cell are damaged, and
+/// the warhead's particle system is spawned.
+/// </summary>
+/// <returns>2 when an iron curtained object blocked the blast, 1 when nothing was hit, else 0.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 4429 bytes differ (main's body carried; the original calls TPoint3D<int>(x, y, z) and Length out of line, 0x41B630 and 0x41B780)
+int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, WarheadTypeClass const * warhead, bool dochainreaction)
+{
+	int distance;
+	ObjectClass * object;
+	DynamicVectorClass<DamageGroup *> groups;
+	int i;
 
+	if (!strength || Scen->Special.IsInert || warhead == NULL) {
+		return(1);
+	}
+
+	int range = (int)(warhead->SpreadFactor * 256.0f);
+	Cell cell = coord.As_Cell();
 	CellClass * cellptr = &Map[cell];
+	bool isbridge = false;
+	bool hit = false;
+	bool blocked = false;
+	bool close = true;
+	if (warhead->SpreadFactor > 0.5f) {
+		close = false;
+	}
 
-	if (Map.Get_Height_GL(cell) < coord.Z) {
-		int index;
+	int cell_height = Map.Get_Height_GL(Coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0));
+	if (cell_height < coord.Z) {
+		AircraftTracker.Append_Radius_Bins(cellptr, (int)warhead->SpreadFactor);
+		TechnoClass * techno;
+		while ((techno = AircraftTracker.Get()) != NULL) {
+			if (techno->IsActive && techno->IsDown && techno->Strength > 0) {
+				distance = Explosion_Group_Distance(coord, techno->Position);
+				if (distance <= range) {
+					if (close && distance < 0x55 && techno->Unknown_Virtual_32C()) {
+						blocked = true;
+					}
+					DamageGroup * group = new DamageGroup;
+					group->Target = techno;
+					group->Distance = Explosion_Group_Distance(coord, techno->Position);
+					groups.Add(group);
+				}
+			}
+		}
+	}
 
-		for (index = 0; index < Aircraft.Count(); index++) {
-			AircraftClass * aircraft = Aircraft[index];
+	if (cellptr->IsUnderBridge && coord.Z > Map.Get_Height_GL(coord) + BRIDGE_LEPTON_HEIGHT / 2) {
+		isbridge = true;
+	}
 
-			if (aircraft->IsActive) {
-				if (aircraft->IsDown && aircraft->Strength > 0) {
-					distance = coord.Distance_To(aircraft->PositionCoord);
-					if (distance < CELL_LEPTON_W) {
-						objects.Delete(aircraft);
-						objects.Add(aircraft);
+	int rings = (int)(warhead->SpreadFactor + 0.99);
+	for (int m = 0; m < MapClass::RadiusCount[rings]; m++) {
+		Cell tcell = cell + MapClass::RadiusOffset[m];
+		cellptr = &Map[tcell];
+		if (cellptr->Overlay != OVERLAY_NONE) {
+			OverlayTypeClass * overlay = OverlayTypes[cellptr->Overlay];
+			if (overlay->IsChainReaction && (!overlay->IsTiberium || warhead->IsTiberiumDestroyer) && dochainreaction) {
+				cellptr->Reduce_Tiberium(strength / 10);
+			}
+			if (overlay->IsWall) {
+				if (warhead->WallAbsoluteDestroyer) {
+					cellptr->Reduce_Wall(-1);
+				} else if (warhead->IsWallDestroyer || (warhead->IsWoodDestroyer && overlay->Armor == ARMOR_WOOD)) {
+					cellptr->Reduce_Wall(strength);
+				}
+			}
+			if (cellptr->Overlay == OVERLAY_NONE) {
+				TechnoClass::Remove_Target(cellptr);
+			}
+		}
+
+		object = cellptr->Cell_Occupier(isbridge);
+		for (; object; object = object->Next) {
+			if (object != source && object->IsActive) {
+				if (object->Fetch_RTTI() == RTTI_UNIT && Scen->Special.IsHarvesterImmune) {
+					if (Rule->HarvesterUnit.Is_In_List((UnitTypeClass const *)object->Class_Of())) {
+						continue;
 					}
 				}
-			}
-		}
-
-		for (index = 0; index < Infantry.Count(); index++) {
-			InfantryClass * infantry = Infantry[index];
-
-		} // RA2: no IsJumpJet (not in RA2's layout)
-
-		for (index = 0; index < Units.Count(); index++) {
-			UnitClass * unit = Units[index];
-
-		} // RA2: no IsJellyfish (not in RA2's layout)
-
-	}
-
-	CellClass *cptr = cellptr;
-	ObjectClass *impacto;
-	bool isbridge = false;
-	if (cptr->IsUnderBridge && coord.Z > Map.Get_Height_GL(coord) + BRIDGE_LEPTON_HEIGHT / 2) {
-		impacto = cptr->Cell_Bridge_Occupier();
-		isbridge = true;
-	} else {
-		impacto = cptr->Cell_Occupier(false);
-	}
-
-	/*
-	**	Fill the list of unit IDs that will have damage
-	**	assessed upon them. The units can be lifted from
-	**	the cell data directly.
-	*/
-	for (FacingType i = FACING_NONE; i < FACING_COUNT; i++) {
-
-		/*
-		**	Fetch a pointer to the cell to examine. This is either
-		**	an adjacent cell or the center cell. Damage never spills
-		**	further than one cell away.
-		*/
-		if (i != FACING_NONE) {
-			cptr = &Map[cell].Adjacent_Cell(i);
-		}
-
-		/*
-		**	Add all objects in this cell to the list of objects to possibly apply
-		**	damage to. The list stops building when the object pointer list becomes
-		**	full.  Do not include overlapping objects; selection state can affect
-		**	the overlappers, and this causes multiplayer games to go out of sync.
-		*/
-		object = cptr->Cell_Occupier(isbridge);
-		while (object) {
-			if (object != source) {
-				if (object->RTTI != RTTI_UNIT || !Scen->Special.IsHarvesterImmune || !Rule->HarvesterUnit.Is_In_List((UnitTypeClass *)object->Class_Of())) {
-					objects.Delete(object);
-					objects.Add(object);
+				DamageGroup * group = new DamageGroup;
+				group->Target = object;
+				if (object->Fetch_RTTI() == RTTI_BUILDING) {
+					if (m == 0) {
+						if (coord.Z - cellptr->Center_Coord().Z > LEVEL_LEPTON_H * 2) {
+							group->Distance = Explosion_Length(coord - cellptr->Center_Coord()) - LEVEL_LEPTON_H * 2;
+						} else {
+							group->Distance = 0;
+						}
+					} else {
+						group->Distance = Explosion_Length(coord - cellptr->Center_Coord());
+					}
+				} else {
+					group->Distance = Explosion_Length(coord - object->Target_Coord());
 				}
-			}
-			object = object->Next;
-		}
-
-		if (cptr->Overlay != OVERLAY_NONE) {
-			if (OverlayTypes[cptr->Overlay]->IsVeinholeMonster) {
-				VeinholeMonsterClass * veinhole = VeinholeMonsterClass::Get_Monster_At(cell);
-				if (veinhole != NULL) {
-					objects.Add(veinhole);
+				if (close && m == 0 && object) {
+					if (Is_Techno_Object(object) && ((TechnoClass *)object)->Unknown_Virtual_32C() && group->Distance < 0x55) {
+						blocked = true;
+					}
 				}
+				groups.Add(group);
 			}
 		}
 	}
 
-	/*
-	**	Sweep through the units to be damaged and damage them. When damaging
-	**	buildings, consider a hit on any cell the building occupies as if it
-	**	were a direct hit on the building's center.
-	*/
-	for (int index = 0; index < objects.Count(); index++) {
-		object = objects[index];
-
-		if (object->IsActive && (object->RTTI != RTTI_BUILDING || !((BuildingClass *)object)->Class->IsInvisibleInGame)) { // RA2: no IsToDamage (TibSun's use does not compile against RA2's declaration)
-			if (object->RTTI == RTTI_BUILDING && impacto == object) {
-				distance = 0;
-			} else {
-				distance = Explosion_Distance(coord, object->Target_Coord());
-				if (object->RTTI == RTTI_AIRCRAFT) {
+	for (int j = 0; j < groups.Count(); j++) {
+		object = groups[j]->Target;
+		distance = groups[j]->Distance;
+		if (object->IsActive && (object->Fetch_RTTI() != RTTI_BUILDING || !((BuildingClass *)object)->Class->IsInvisibleInGame)) {
+			if (!blocked || Is_Iron_Curtained(object)) {
+				if (object->Fetch_RTTI() == RTTI_AIRCRAFT && object->In_Air()) {
 					distance /= 2;
 				}
+				if (object->Strength > 0 && object->IsDown && !object->IsInLimbo && distance <= range) {
+					int damage = strength;
+					object->Take_Damage(damage, distance, warhead, source, false, false);
+					hit = true;
+				}
 			}
-			if (object->Strength > 0 && object->IsDown && !object->IsInLimbo && distance < range) {
-				int damage = strength;
-			} // RA2: no IonStormWarhead (not in RA2's layout)
 		}
 	}
 
-	double rocking_force = MIN(strength * 0.01, 4.0);
-	if (warhead->IsRocker && rocking_force > 0.3) {
+	for (int k = 0; k < groups.Count(); k++) {
+		delete groups[k];
+	}
+	groups.Clear();
+
+	if (blocked) {
+		return(2);
+	}
+
+	double force = strength * 0.01 < 4.0 ? strength * 0.01 : 4.0;
+	if (warhead->IsRocker && force > 0.3) {
 		for (int x = cell.X - 3; x <= cell.X + 3; x++) {
 			for (int y = cell.Y - 3; y <= cell.Y + 3; y++) {
 				object = isbridge ? Map[Cell(x, y)].Cell_Occupier(true) : Map[Cell(x, y)].Cell_Occupier(false);
-
-				while (object) {
+				for (; object; object = object->Next) {
 					TechnoClass * techno = Dynamic_Cast<TechnoClass *>(object);
-					if (techno != NULL) {
-						if (Cell(x, y) == cell && source) {
-							Coord tcoord = techno->PositionCoord;
-
-							Coord scoord = source->PositionCoord;
-							TPoint3D<float> rockdirf((float)(scoord.X - tcoord.X), (float)(scoord.Y - tcoord.Y), (float)(scoord.Z - tcoord.Z));
-							rockdirf = rockdirf.Normalize() * 10;
-
-							tcoord += Coord(rockdirf.X, rockdirf.Y, rockdirf.Z);
-							techno->Rock(tcoord, rocking_force);
+					if (techno) {
+						if ((short)x == cell.X && (short)y == cell.Y && source) {
+							Coord tcoord = techno->Position;
+							Coord scoord = source->Position;
+							Vector3 dir((float)(scoord.X - tcoord.X), (float)(scoord.Y - tcoord.Y), (float)(scoord.Z - tcoord.Z));
+							dir.Normalize();
+							dir = dir * 10.0f;
+							tcoord += Coord((int)dir.X, (int)dir.Y, (int)dir.Z);
+							techno->Rock(tcoord, (float)force);
 						} else {
-							techno->Rock(coord, rocking_force);
+							techno->Rock(coord, (float)force);
 						}
 					}
-					object = object->Next;
 				}
 			}
 		}
 	}
 
-	/*
-	**	If there is a wall present at this location, it may be destroyed. Check to
-	**	make sure that the warhead is of the kind that can destroy walls.
-	*/
+	bool ion = warhead == Rule->IonCannonWarhead;
 	cellptr = &Map[cell];
-	if (cellptr->Overlay != OVERLAY_NONE) {
-		OverlayTypeClass const * optr = OverlayTypes[cellptr->Overlay];
-
-		if (optr->IsChainReaction && (!optr->IsTiberium || warhead->IsTiberiumDestroyer) && dochainreaction) {
-			Chain_Reaction_Damage(cell);
-			cellptr->Reduce_Tiberium(strength / 10);
-		}
-
-		if (optr->IsWall && (warhead->IsWallDestroyer || (warhead->IsWoodDestroyer && optr->Armor == ARMOR_WOOD))) {
-			cellptr->Reduce_Wall(strength);
-		}
-
-		if (cellptr->Overlay == OVERLAY_NONE) {
-			TechnoClass::Remove_Target(cellptr);
-		}
-	}
-
-	/*
-	**	If there is a bridge at this location, then it may be destroyed by the
-	**	combat damage.
-	*/
-	bool ion_cannon = warhead == Rule->IonCannonWarhead;
 	if (Scen->Special.IsDestroyBridges && warhead->IsWallDestroyer) {
+		int ittype = cellptr->ITType - IsometricTileTypeClass::BridgeSet + 1;
+		CellClass * deck = NULL;
+		if (cellptr->IsUnderBridge) {
+			if (cellptr->IsBridgeDeck) {
+				deck = &Map[cellptr->Fetch_CellID()];
+			} else {
+				deck = &Map[cellptr->BridgeDeckCell->Fetch_CellID()];
+			}
+		}
 
-		IsometricTileType ittype1 = IsometricTileType(cellptr->ITType - IsometricTileTypeClass::BridgeSet + 1);
-		CellClass * bridge_deck = cellptr->Get_Bridge_Deck_CellClass();
-
-		if (bridge_deck && bridge_deck->Is_Overlay_Bridge() ||
-			ittype1 == IsometricTileTypeClass::BridgeMiddle1 + 0 || ittype1 == IsometricTileTypeClass::BridgeMiddle1 + 1 ||
-			ittype1 == IsometricTileTypeClass::BridgeMiddle1 + 2 || ittype1 == IsometricTileTypeClass::BridgeMiddle1 + 3 ||
-			ittype1 == IsometricTileTypeClass::BridgeMiddle2 + 0 || ittype1 == IsometricTileTypeClass::BridgeMiddle2 + 1 ||
-			ittype1 == IsometricTileTypeClass::BridgeMiddle2 + 2 || ittype1 == IsometricTileTypeClass::BridgeMiddle2 + 3) {
-			if (!cellptr->IsUnderBridge || coord.Z <= BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height + 1) && coord.Z > BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height - 2)) {
+		if ((deck != NULL && (deck->Overlay == OVERLAY_BRIDGE1 || deck->Overlay == OVERLAY_BRIDGE2)) || Is_Bridge_Middle(ittype)) {
+			if (!cellptr->IsUnderBridge || (coord.Z <= BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height + 1) && coord.Z > BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height - 2))) {
 				if (warhead->IsWallDestroyer && (warhead == Rule->IonCannonWarhead || Random_Pick(1, Rule->BridgeStrength) < strength)) {
-					bool bridge_damaged = false;
-					int tries=4;
-					do {
-						bridge_damaged = Map.Damage_Bridge(cell);
+					bool damaged = Map.Damage_Bridge(cell);
+					int tries = 3;
+					while (!damaged && ion && tries > 0) {
+						damaged = Map.Damage_Bridge(cell);
 						tries--;
-						if (bridge_damaged) {
-							break;
-						}
-					} while (ion_cannon && tries > 0);
-
-					if (bridge_damaged) {
+					}
+					if (damaged) {
 						TechnoClass::Remove_Target(cellptr);
 					}
 					Point2D point;
@@ -387,26 +419,17 @@ void Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, W
 			}
 		}
 
-		IsometricTileType ittype2 = IsometricTileType(cellptr->ITType - IsometricTileTypeClass::TrainBridgeSet + 1);
-
-		if (bridge_deck && bridge_deck->Is_Overlay_Rail_Bridge() ||
-			ittype2 == IsometricTileTypeClass::BridgeMiddle1 + 0 || ittype2 == IsometricTileTypeClass::BridgeMiddle1 + 1 ||
-			ittype2 == IsometricTileTypeClass::BridgeMiddle1 + 2 || ittype2 == IsometricTileTypeClass::BridgeMiddle1 + 3 ||
-			ittype2 == IsometricTileTypeClass::BridgeMiddle2 + 0 || ittype2 == IsometricTileTypeClass::BridgeMiddle2 + 1 ||
-			ittype2 == IsometricTileTypeClass::BridgeMiddle2 + 2 || ittype2 == IsometricTileTypeClass::BridgeMiddle2 + 3) {
-			if (!cellptr->IsUnderBridge || coord.Z <= BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height + 1) && coord.Z > BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height - 2)) {
+		int ittype2 = cellptr->ITType - IsometricTileTypeClass::TrainBridgeSet + 1;
+		if ((deck != NULL && (deck->Overlay == OVERLAY_RAIL_BRIDGE1 || deck->Overlay == OVERLAY_RAIL_BRIDGE2)) || Is_Bridge_Middle(ittype2)) {
+			if (!cellptr->IsUnderBridge || (coord.Z <= BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height + 1) && coord.Z > BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height - 2))) {
 				if (warhead->IsWallDestroyer && (warhead == Rule->IonCannonWarhead || Random_Pick(1, Rule->BridgeStrength) < strength)) {
-					bool bridge_damaged = false;
-					int tries=4;
-					do {
-						bridge_damaged = Map.Damage_Bridge(cell);
+					bool damaged = Map.Damage_Bridge(cell);
+					int tries = 3;
+					while (!damaged && ion && tries > 0) {
+						damaged = Map.Damage_Bridge(cell);
 						tries--;
-						if (bridge_damaged) {
-							break;
-						}
-					} while (ion_cannon && tries > 0);
-
-					if (bridge_damaged) {
+					}
+					if (damaged) {
 						TechnoClass::Remove_Target(cellptr);
 					}
 					Point2D point;
@@ -416,11 +439,16 @@ void Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, W
 			}
 		}
 
-		if (cellptr->Overlay >= OVERLAY_LOWBRIDGE_01 && cellptr->Overlay <= OVERLAY_LOWBRIDGE_26) {
+		if (cellptr->Is_Overlay_Low_Bridge()) {
 			if (warhead == Rule->IonCannonWarhead || Random_Pick(1, Rule->BridgeStrength) < strength) {
-				bool destroyed = Map.Damage_Low_Bridge(cell);
-				Map.Damage_Low_Bridge(cell);
-				if (destroyed) {
+				if (Map.Damage_Low_Bridge(cell)) {
+					TechnoClass::Remove_Target(cellptr);
+				}
+			}
+		}
+		if (cellptr->Overlay >= 0xCD && cellptr->Overlay <= 0xE6) {
+			if (warhead == Rule->IonCannonWarhead || Random_Pick(1, Rule->BridgeStrength) < strength) {
+				if (Map.Damage_Low_Bridge2(cell)) {
 					TechnoClass::Remove_Target(cellptr);
 				}
 			}
@@ -430,61 +458,35 @@ void Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, W
 	if (cellptr->Overlay != OVERLAY_NONE && OverlayTypes[cellptr->Overlay]->IsExplosive) {
 		cellptr->Register_For_Redraw();
 		cellptr->Overlay = OVERLAY_NONE;
-		cellptr->Recalc_Attributes();
+		cellptr->Recalc_Attributes(-1);
 		Map.Update_Cell_Zone(cellptr->CellID);
 		Map.Update_Cell_Subzones(cellptr->CellID);
 		TechnoClass::Remove_Target(cellptr);
 
-		new AnimClass(Rule->BarrelExplode, coord);
+		new AnimClass(Rule->BarrelExplode, coord, 0, 1, ShapeFlags_Type(0x600), 0);
 		Explosion_Damage(coord, Rule->AmmoCrateDamage, NULL, Rule->C4Warhead, true);
-		for (int i = 0; i < Rule->BarrelDebris.Count(); i++) {
+		for (i = 0; i < Rule->BarrelDebris.Count(); i++) {
 			if (Percent_Chance(15)) {
-				new VoxelAnimClass(Rule->BarrelDebris[i], coord);
+				new VoxelAnimClass(Rule->BarrelDebris[i], coord, NULL);
 				break;
 			}
 		}
 		if (Percent_Chance(25)) {
-			ParticleSystemClass * psys = new ParticleSystemClass(Rule->BarrelParticle, coord);
-			psys->Spawn_Held_Particle(coord, coord);
-		}
-
-		static FacingType _part_facings[] = { FACING_N, FACING_E, FACING_S, FACING_W };
-
-		for (int f = 0; f < ARRAY_SIZE(_part_facings); f++) {
-			Coord adjacent = Adjacent_Coord_With_Height(coord, _part_facings[f]);
-			if (Map[adjacent].Overlay != OVERLAY_NONE && OverlayTypes[Map[adjacent].Overlay]->IsExplosive) {
-				new AnimClass(AnimTypes[AnimTypeClass::From_Name("FIRE3")], adjacent, Random_Pick(1, 3) + 3);
-			}
+			(new ParticleSystemClass(Rule->BarrelParticle, coord, NULL, NULL, COORD_NONE))->Spawn_Held_Particle(coord, coord);
 		}
 	}
 
-	if (strength > warhead->DeformThreshhold) {
-		if (Percent_Chance((strength * 0.01) * warhead->Deform * 100.0) && !(Map[coord].IsUnderBridge && coord.Z >= BRIDGE_LEPTON_HEIGHT + Map.Get_Height_GL(coord))) {
-			Map.Deform_Terrain(coord.As_Cell(), false);
-		}
-	}
-
-	if (cellptr->Is_Tile_Destroyable_Cliff()) {
-		if (Percent_Chance(Rule->CollapseChance)) {
-			Map.Collapse_Cliff(cellptr);
-		}
-	}
-
-	if (warhead->Particle) {
+	if (warhead->Particle != NULL) {
 		ParticleSystemClass * psys;
-		if (warhead->Particle->BehavesLike == PSYS_BEHAVIOR_GAS) {
+		if (warhead->Particle->BehavesLike == 1) {
 			psys = GasSystem;
 		} else {
-			psys = new ParticleSystemClass(warhead->Particle, coord);
+			psys = new ParticleSystemClass(warhead->Particle, coord, NULL, NULL, COORD_NONE);
 		}
 		psys->Spawn_Held_Particle(coord, coord);
 	}
 
-	if ((warhead->IsWallDestroyer || warhead->IsFire) && !(Map[coord].IsUnderBridge && coord.Z >= BRIDGE_LEPTON_HEIGHT + Map.Get_Height_GL(coord))) {
-		if (Map.Crack_Ice(cellptr, NULL)) { // RA2: no DirtyIceCells (TibSun's use does not compile against RA2's declaration)
-			Map.Recalc_Ice_Cells();
-		}
-	}
+	return(!hit);
 }
 #endif
 

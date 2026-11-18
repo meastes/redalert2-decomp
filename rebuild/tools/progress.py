@@ -1,4 +1,4 @@
-"""progress.py: append one line to rebuild/manifest/progress.csv from the rebuild catalog (rows the
+"""progress.py (written only at a gated landing on rebuild-trial; worker branches do not run it): append one line to rebuild/manifest/progress.csv from the rebuild catalog (rows the
 whole-file build accepts) and provenance.csv (class a/b/c). Bytes are main's frozen extents (body
 and padding). Lane-hours count from the trial's start, 2026-11-17 18:17Z (lane R)."""
 import csv, json, time, datetime
@@ -37,16 +37,23 @@ import cleanup_census as C
 ext_landed = sum(len(C.extern_names(C.code_only((R.ROOT / i['source']).read_text(errors='replace'))))
                  for i in units_info.values() if i['source'] in landed)
 parked_f = parked_b = large_b = large_f = 0
+# Parked: functions not exact inside processed units (a unit whose current text has a check);
+# units never checked here (no text yet, or a worker's unit not merged) are not counted (lane R3).
+import hashlib
 for u, i in units_info.items():
     last = R.load_json(R.WORK / 'last' / (u + '.json'), None)
-    res = {r['entry']: r['status'] for r in last['results']} if last else {}
+    src = R.ROOT / i['source']
+    if not last or not src.exists() or last.get('source_sha256') != hashlib.sha256(src.read_bytes()).hexdigest():
+        continue
+    res = {r['entry']: r['status'] for r in last['results']}
     for r in i['rows']:
         if res.get(r['entry']) != 'exact':
             parked_f += 1; parked_b += r['body']
             if r['body'] >= 1024: large_f += 1; large_b += r['body']
 line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m['externs'],
             address_suffixed=m['address_suffixed'], parked_units=sum(i['source'] not in landed for i in units_info.values()),
-            parked_functions=parked_f, parked_bytes=parked_b, parked_large_functions=large_f, parked_large_bytes=large_b)
+            parked_functions=parked_f, parked_bytes=parked_b, parked_large_functions=large_f, parked_large_bytes=large_b,
+            tree='rebuild-trial')
 path = R.MANIFEST / 'progress.csv'
 rows = list(csv.DictReader(open(path))) if path.exists() else []
 rows.append({k: str(v) for k, v in line.items()})

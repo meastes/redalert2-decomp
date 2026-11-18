@@ -106,7 +106,7 @@ MPScoreScreen::MPScoreScreen(void) // RA2: 0x005AAA20
 /// before and after the dialog, so the dialog's background is right whichever way the
 /// surfaces are flipped.
 /// </summary>
-void MPScoreScreen::Presentation_005AAA40(void) // RA2: 0x005AAA40
+void MPScoreScreen::Presentation(void) // RA2: 0x005AAA40
 {
 	Load_MP_Score_Art(Scen->IsGDI == false); // RA2: the side of the art is 1 unless the scenario is GDI's
 	Rect rect(0, 0, VideoModeWidth, VideoModeHeight); // RA2: the whole screen
