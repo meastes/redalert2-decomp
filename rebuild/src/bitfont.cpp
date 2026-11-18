@@ -22,34 +22,47 @@
 /*
 **	The state of a font with nothing loaded.
 */
-static inline void Reset_Defaults(BitFont * font)
-{
-	font->Data = 0;
-	font->Color = 0x7FFF;
-	font->ShadowColor = 0x3555;
-	font->TabWidth = 0x40;
-	font->IsBold = true;
-	font->IsClipped = true;
-	font->Stride = 1;
-	font->LineHeight = 1;
-	font->TabOrigin = 0;
-	font->Buffer = 0;
-	font->MissingChar = 0;
-	SetRect((RECT *)&font->Bounds, 0, 0, 0, 0);
-	font->Spacing = 1;
-}
+
 
 
 BitFont::BitFont(char const * filename)
 {
-	Reset_Defaults(this);
+	{
+	Data = 0;
+	Color = 0x7FFF;
+	ShadowColor = 0x3555;
+	TabWidth = 0x40;
+	IsBold = true;
+	IsClipped = true;
+	Stride = 1;
+	LineHeight = 1;
+	TabOrigin = 0;
+	Buffer = 0;
+	MissingChar = 0;
+	SetRect((RECT *)&Bounds, 0, 0, 0, 0);
+	Spacing = 1;
+	}
 	Data = Load_Data(filename);
 	if (Data) {
 		Stride = Data->Stride;
 		LineHeight = Data->Lines;
 		Make_Missing_Char();
 	} else {
-		Reset_Defaults(this);
+		{
+	Data = 0;
+	Color = 0x7FFF;
+	ShadowColor = 0x3555;
+	TabWidth = 0x40;
+	IsBold = true;
+	IsClipped = true;
+	Stride = 1;
+	LineHeight = 1;
+	TabOrigin = 0;
+	Buffer = 0;
+	MissingChar = 0;
+	SetRect((RECT *)&Bounds, 0, 0, 0, 0);
+	Spacing = 1;
+	}
 	}
 }
 
@@ -64,47 +77,23 @@ BitFont::~BitFont(void)
 /*
 **	The header of a "fonT" file: the symbol table follows it.
 */
-struct FontHeaderType
-{
-	int Magic;
-	int FontWidth;		// RA2: laid out like the "FoNt" header
-	int Stride;
-	int FontHeight;
-	int Lines;
-	int Count;
-	int SymbolDataSize;
-};
+
 
 /*
 **	The header of a "FoNt" file: the symbol table is given as ranges of characters.
 */
-struct FontHeader2Type
-{
-	int Magic;
-	int FontWidth;
-	int Stride;
-	int FontHeight;
-	int Lines;
-	int RangeCount;
-	int SymbolDataSize;
-	int RangeOffset;
-	int BitmapOffset;
-};
+
 
 /*
 **	Consecutive characters whose glyphs follow each other from Index on.
 */
-struct FontRangeType
-{
-	unsigned short Index;
-	int First;
-	int Last;
-};
+
 
 
 /*
 **	Reads a font file; null if it cannot be read.
 */
+#if 0
 BitFont::InternalData * BitFont::Load_Data(char const * filename)
 {
 	InternalData * data = NULL;
@@ -179,6 +168,8 @@ loaded:
 	return(data);
 }
 
+
+#endif
 
 void BitFont::InternalData::Destroy(void)
 {

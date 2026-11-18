@@ -1,0 +1,2854 @@
+{
+  "id": "rebuild-ddraw",
+  "population": {
+    "id": "rebuild-ddraw",
+    "inventory_sha256": "a6fa5040276c8a87835330773cb8289f8f76475425ac7110e76567ef15e35bb8",
+    "gaps_sha256": "51c163e8aaad4ddd7f5198944ab5f4b03e4f654a7edbf704d1d86bb87aa9f56e",
+    "historical_population_sha256": "9cdbe39182701840e4641e7d61ab67a5e1e96543453772e35de0e3912c81a45e",
+    "historical_acceptance_sha256": "8f511e1f1ff88e4d7ec41eba25e4e7c628856ff1ec60976b78dfbb4fb45daf6c"
+  },
+  "references": {
+    "_RECT_NONE": 8723640,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "?CurrentPalette@@3PAEA": 8723656,
+    "?Adjust@PaletteClass@@QAEXHABV1@@Z": 6303952,
+    "?Set_Palette@@YIXPBX@Z": 4808992,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "??_C@_04PAEN@Note?$AA@": 8215028,
+    "??_C@_0CO@GHLL@Direct?5Draw?5operation?5processed?5@": 8214980,
+    "__imp__MessageBoxA@16": 7971964,
+    "?DirectDrawErrorHandler@@3P6IHJ@ZA": 8725484,
+    "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@": 8214952,
+    "_sprintf": 7872756,
+    "??_C@_08DENO@Direct?5X?$AA@": 8214940,
+    "??0DSurface@@QAE@HH_N@Z": 4891808,
+    "??_C@_0CM@KBM@Checking?5hardware?5region?5fill?5ca@": 8215108,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "?AllowHWFill@DSurface@@2_NA": 8217236,
+    "?Fill@XSurface@@UAE_NH@Z": 7818784,
+    "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z": 7815632,
+    "??_C@_02HAGF@OK?$AA@": 8215104,
+    "??_C@_07OGEP@Failed?$CB?$AA@": 8215096,
+    "??_C@_03HHKO@?$CFs?6?$AA@": 8215092,
+    "?DebugStringNoPrefix@@YAXPBDZZ": 4809824,
+    "??_C@_0CH@MEPI@Checking?5overlapped?5blit?5capabil@": 8215052,
+    "?OverlappedVideoBlits@DSurface@@2_NA": 8217237,
+    "?Put_Pixel@XSurface@@UAE_NABVPoint2D@@H@Z": 7815712,
+    "?Blit_From@DSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 4894592,
+    "??_C@_08IJHA@Failed?$CB?6?$AA@": 8215040,
+    "??1DSurface@@UAE@XZ": 4892064,
+    "??_C@_03IOOG@OK?6?$AA@": 8215036,
+    "??_C@_0BD@EEDM@Prep?5direct?5draw?4?6?$AA@": 8215180,
+    "?DirectDrawObject@@3PAUIDirectDraw@@A": 8725452,
+    "_DirectDrawCreate@12": 7871448,
+    "??_C@_0BK@OEAL@DirectDrawCreate?5failed?$CB?6?$AA@": 8215152,
+    "?WindowedMode@@3_NA": 8723632,
+    "??_C@_0DA@NONH@DDraw?5returnded?5actual?5VRAM?5of?5?$CF@": 8215288,
+    "??_C@_0CP@LDAL@Current?5display?5size?5is?5?$CFdx?$CFdx?$CFd@": 8215240,
+    "??_C@_0CH@GOEL@Adjusted?5VRAM?5size?5is?5?$CFd?5bytes?5?$CI@": 8215200,
+    "??_C@_0BK@GKKH@SetDisplayMode?3?5?$CFdx?$CFdx?$CFd?6?$AA@": 8215420,
+    "??_C@_0BH@GNJG@SetDisplayMode?5failed?6?$AA@": 8215396,
+    "?VideoModeWidth@@3HA": 8725472,
+    "?VideoModeHeight@@3HA": 8725476,
+    "?VideoModeBitsPerPixel@@3HA": 8725480,
+    "??_C@_0P@JAII@CreatePalette?6?$AA@": 8215380,
+    "_PalettePtr": 8724424,
+    "_PaletteEntries": 8724428,
+    "??_C@_0BG@IFHH@CreatePalette?5failed?6?$AA@": 8215356,
+    "?Check_Overlapped_Blit_Capability@@YIXXZ": 4806624,
+    "??_C@_0BC@PKN@Display?5mode?5set?6?$AA@": 8215336,
+    "??_C@_0DD@ICON@In?5Get_Free_Video_Memory?4?5About?5@": 8215448,
+    "_CanVblankSync": 8214936,
+    "_memmove": 7877264,
+    "?PaletteSurface@@3PAUIDirectDrawSurface@@A": 8725464,
+    "_FirstPaletteSet": 8725460,
+    "??2@YAPAXI@Z": 7872535,
+    "??0?$VectorClass@PAU_DDSURFACEDESC@@@@QAE@HPBQAU_DDSURFACEDESC@@@Z": 4810704,
+    "?EnumDisplayModesCallback@@YGJPAU_DDSURFACEDESC@@PAX@Z": 4809200,
+    "??_7?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@6B@": 7989092,
+    "??3@YAXPAX@Z": 7871803,
+    "??_7?$VectorClass@PAU_DDSURFACEDESC@@@@6B@": 7989060,
+    "?CompareModes@@YAHPBX0@Z": 4809312,
+    "_qsort": 7871814,
+    "?SurfacesRestored@@3_NA": 8725468,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E2": 4806064,
+    "?Set_Palette@@YIXABVPaletteClass@@HP6IXXZ@Z": 4806096,
+    "?Process_DD_Result@@YIXJH@Z": 4806512,
+    "?Prep_Direct_Draw@@YIXXZ": 4807024,
+    "?Destroy_Direct_Draw@@YIXXZ": 4807264,
+    "?GetVideoMemory@@YIKXZ": 4807376,
+    "?Set_Video_Mode@@YI_NPAUHWND__@@HHH@Z": 4807824,
+    "?Reset_Video_Mode@@YIXXZ": 4808336,
+    "?Get_Free_Video_Memory@@YIIXZ": 4808544,
+    "?Get_Video_Hardware_Capabilities@@YIIXZ": 4808640,
+    "@Wait_Vert_Blank@0": 4808864,
+    "?Wait_Blit@@YIXXZ": 4809168,
+    "?EnumDisplayModes@@YIPAHKKKKK@Z": 4809376,
+    "??_G?$VectorClass@PAU_DDSURFACEDESC@@@@UAEPAXI@Z": 4810544,
+    "??_G?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEPAXI@Z": 4810624,
+    "?Clear@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEXXZ": 4809840,
+    "?ID@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEHPBQAU_DDSURFACEDESC@@@Z": 4809888,
+    "?GetItem@?$VectorClass@PAU_DDSURFACEDESC@@@@UBEPAU_DDSURFACEDESC@@H@Z": 4809920,
+    "??8?$VectorClass@PAU_DDSURFACEDESC@@@@UBE_NABV0@@Z": 4809936,
+    "?Resize@?$VectorClass@PAU_DDSURFACEDESC@@@@UAE_NHPBQAU_DDSURFACEDESC@@@Z": 4810000,
+    "?Clear@?$VectorClass@PAU_DDSURFACEDESC@@@@UAEXXZ": 4810176,
+    "?ID@?$VectorClass@PAU_DDSURFACEDESC@@@@UAEHABQAU_DDSURFACEDESC@@@Z": 4810224,
+    "?ID@?$VectorClass@PAU_DDSURFACEDESC@@@@UAEHPBQAU_DDSURFACEDESC@@@Z": 4810288,
+    "?Resize@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAE_NHPBQAU_DDSURFACEDESC@@@Z": 4810320,
+    "?ID@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEHABQAU_DDSURFACEDESC@@@Z": 4810496
+  },
+  "regions": [
+    {
+      "entry": 4806064,
+      "method": "4955b0",
+      "body_bytes": 23,
+      "body_sha256": "6d1013865acd72c570123a6ccbd050f5c65c76a6b3dbd82befbc78ceec4573a8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "884689c0b3a50a1fbc07c98e0ce1a265ff9abefe3b73bba038b767a034bdcf8e",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8723640,
+          "addend": 0,
+          "resolved": 8723640
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8723640,
+          "addend": 4,
+          "resolved": 8723644
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8723640,
+          "addend": 8,
+          "resolved": 8723648
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8723640,
+          "addend": 12,
+          "resolved": 8723652
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4806064,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 4806096,
+      "method": "004955d0",
+      "body_bytes": 401,
+      "body_sha256": "720c15dbcecf01a91835cd9474df7c2483799d7e858f7306da91332b82df2461",
+      "padding_bytes": 15,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "c0b0ed8ca0439fed10b4b56a7777b571980df1f282b4a67b9b2be02436f1c552",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Palette@@YIXABVPaletteClass@@HP6IXXZ@Z",
+      "symbol_prefix": "?Set_Palette@@YIXABVPaletteClass@@HP6IXXZ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 2117169
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?CurrentPalette@@3PAEA",
+          "target": 8723656,
+          "addend": 0,
+          "resolved": 8723656
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 2117075
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 2117015
+        },
+        {
+          "offset": 258,
+          "kind": 20,
+          "symbol": "?Adjust@PaletteClass@@QAEXHABV1@@Z",
+          "target": 6303952,
+          "addend": 0,
+          "resolved": 1497594
+        },
+        {
+          "offset": 278,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 2116934
+        },
+        {
+          "offset": 302,
+          "kind": 20,
+          "symbol": "?Set_Palette@@YIXPBX@Z",
+          "target": 4808992,
+          "addend": 0,
+          "resolved": 2590
+        },
+        {
+          "offset": 330,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 2116882
+        },
+        {
+          "offset": 384,
+          "kind": 20,
+          "symbol": "?Set_Palette@@YIXPBX@Z",
+          "target": 4808992,
+          "addend": 0,
+          "resolved": 2508
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4806096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4806512,
+      "method": "00495770",
+      "body_bytes": 100,
+      "body_sha256": "b9d2efc0e652f069ccf3b05861a5dc797a21a0dfe998d9ab9586362d91639514",
+      "padding_bytes": 12,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "fe87789c8780c20bbf628d28a83c69e8178cd4829b3fb7db0785bed197341317",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_DD_Result@@YIXJH@Z",
+      "symbol_prefix": "?Process_DD_Result@@YIXJH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_C@_04PAEN@Note?$AA@",
+          "target": 8215028,
+          "addend": 0,
+          "resolved": 8215028
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "??_C@_0CO@GHLL@Direct?5Draw?5operation?5processed?5@",
+          "target": 8214980,
+          "addend": 0,
+          "resolved": 8214980
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3066175
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4806512,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 4806624,
+      "method": "004957e0",
+      "body_bytes": 386,
+      "body_sha256": "94c2552aed32e1b47916349e3c973edc8810488905cc7596c8747ac5a80965ea",
+      "padding_bytes": 14,
+      "full_extent_bytes": 400,
+      "full_extent_sha256": "8845de235bd18fb9a5de37248c8c0889878327bd907be106e6c5f9b137012c98",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Check_Overlapped_Blit_Capability@@YIXXZ",
+      "symbol_prefix": "?Check_Overlapped_Blit_Capability@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??0DSurface@@QAE@HH_N@Z",
+          "target": 4891808,
+          "addend": 0,
+          "resolved": 85163
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_C@_0CM@KBM@Checking?5hardware?5region?5fill?5ca@",
+          "target": 8215108,
+          "addend": 0,
+          "resolved": 8215108
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294381809
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?AllowHWFill@DSurface@@2_NA",
+          "target": 8217236,
+          "addend": 0,
+          "resolved": 8217236
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Fill@XSurface@@UAE_NH@Z",
+          "target": 7818784,
+          "addend": 0,
+          "resolved": 3012109
+        },
+        {
+          "offset": 74,
+          "kind": 20,
+          "symbol": "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z",
+          "target": 7815632,
+          "addend": 0,
+          "resolved": 3008930
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?AllowHWFill@DSurface@@2_NA",
+          "target": 8217236,
+          "addend": 0,
+          "resolved": 8217236
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "?Fill@XSurface@@UAE_NH@Z",
+          "target": 7818784,
+          "addend": 0,
+          "resolved": 3012059
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z",
+          "target": 7815632,
+          "addend": 0,
+          "resolved": 3008885
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?AllowHWFill@DSurface@@2_NA",
+          "target": 8217236,
+          "addend": 0,
+          "resolved": 8217236
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "?AllowHWFill@DSurface@@2_NA",
+          "target": 8217236,
+          "addend": 0,
+          "resolved": 8217236
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "??_C@_02HAGF@OK?$AA@",
+          "target": 8215104,
+          "addend": 0,
+          "resolved": 8215104
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "??_C@_07OGEP@Failed?$CB?$AA@",
+          "target": 8215096,
+          "addend": 0,
+          "resolved": 8215096
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "??_C@_03HHKO@?$CFs?6?$AA@",
+          "target": 8215092,
+          "addend": 0,
+          "resolved": 8215092
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?DebugStringNoPrefix@@YAXPBDZZ",
+          "target": 4809824,
+          "addend": 0,
+          "resolved": 3034
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "??_C@_0CH@MEPI@Checking?5overlapped?5blit?5capabil@",
+          "target": 8215052,
+          "addend": 0,
+          "resolved": 8215052
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294381664
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?OverlappedVideoBlits@DSurface@@2_NA",
+          "target": 8217237,
+          "addend": 0,
+          "resolved": 8217237
+        },
+        {
+          "offset": 192,
+          "kind": 20,
+          "symbol": "?Fill@XSurface@@UAE_NH@Z",
+          "target": 7818784,
+          "addend": 0,
+          "resolved": 3011964
+        },
+        {
+          "offset": 219,
+          "kind": 20,
+          "symbol": "?Put_Pixel@XSurface@@UAE_NABVPoint2D@@H@Z",
+          "target": 7815712,
+          "addend": 0,
+          "resolved": 3008865
+        },
+        {
+          "offset": 294,
+          "kind": 20,
+          "symbol": "?Blit_From@DSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z",
+          "target": 4894592,
+          "addend": 0,
+          "resolved": 87670
+        },
+        {
+          "offset": 316,
+          "kind": 20,
+          "symbol": "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z",
+          "target": 7815632,
+          "addend": 0,
+          "resolved": 3008688
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "??_C@_08IJHA@Failed?$CB?6?$AA@",
+          "target": 8215040,
+          "addend": 0,
+          "resolved": 8215040
+        },
+        {
+          "offset": 330,
+          "kind": 20,
+          "symbol": "?DebugStringNoPrefix@@YAXPBDZZ",
+          "target": 4809824,
+          "addend": 0,
+          "resolved": 2866
+        },
+        {
+          "offset": 343,
+          "kind": 6,
+          "symbol": "?OverlappedVideoBlits@DSurface@@2_NA",
+          "target": 8217237,
+          "addend": 0,
+          "resolved": 8217237
+        },
+        {
+          "offset": 348,
+          "kind": 20,
+          "symbol": "??1DSurface@@UAE@XZ",
+          "target": 4892064,
+          "addend": 0,
+          "resolved": 85088
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "??_C@_03IOOG@OK?6?$AA@",
+          "target": 8215036,
+          "addend": 0,
+          "resolved": 8215036
+        },
+        {
+          "offset": 364,
+          "kind": 20,
+          "symbol": "?DebugStringNoPrefix@@YAXPBDZZ",
+          "target": 4809824,
+          "addend": 0,
+          "resolved": 2832
+        },
+        {
+          "offset": 376,
+          "kind": 20,
+          "symbol": "??1DSurface@@UAE@XZ",
+          "target": 4892064,
+          "addend": 0,
+          "resolved": 85060
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4806624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4807024,
+      "method": "00495970",
+      "body_bytes": 238,
+      "body_sha256": "071cf312e47fddca62fc38ac071ff5f92fae2c9ae30b44a0b3893c173fae9efd",
+      "padding_bytes": 2,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "04e161f5b23bf7eece40a7425e1dd970792d3831ffac7fe39d4dad53a6aa3364",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Prep_Direct_Draw@@YIXXZ",
+      "symbol_prefix": "?Prep_Direct_Draw@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "??_C@_0BD@EEDM@Prep?5direct?5draw?4?6?$AA@",
+          "target": 8215180,
+          "addend": 0,
+          "resolved": 8215180
+        },
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294381427
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "_DirectDrawCreate@12",
+          "target": 7871448,
+          "addend": 0,
+          "resolved": 3064385
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "??_C@_0BK@OEAL@DirectDrawCreate?5failed?$CB?6?$AA@",
+          "target": 8215152,
+          "addend": 0,
+          "resolved": 8215152
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294381373
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3065642
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "??_C@_0BK@OEAL@DirectDrawCreate?5failed?$CB?6?$AA@",
+          "target": 8215152,
+          "addend": 0,
+          "resolved": 8215152
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294381312
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "?WindowedMode@@3_NA",
+          "target": 8723632,
+          "addend": 0,
+          "resolved": 8723632
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 202,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3065526
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4807024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4807264,
+      "method": "00495a60",
+      "body_bytes": 108,
+      "body_sha256": "adf7a0aee959475f442fd472313eda0e6a8b3a6b8e6d8de809fcd9ce7b97b42c",
+      "padding_bytes": 4,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "586148639e1dbf45ce2191f4f6b252cd52f83d1d419123a835f46535ccd67259",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destroy_Direct_Draw@@YIXXZ",
+      "symbol_prefix": "?Destroy_Direct_Draw@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3065426
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4807264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4807376,
+      "method": "00495ad0",
+      "body_bytes": 439,
+      "body_sha256": "303dd08b17bc80887f3f5253f1f0b35876f253e9e8bc23c4cc7b26ea40462ab5",
+      "padding_bytes": 9,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "e94037332098696ddefa794719e21fd89be991e51202fee444e3905fcc8d64be",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetVideoMemory@@YIKXZ",
+      "symbol_prefix": "?GetVideoMemory@@YIKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "_DirectDrawCreate@12",
+          "target": 7871448,
+          "addend": 0,
+          "resolved": 3064032
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "??_C@_0DA@NONH@DDraw?5returnded?5actual?5VRAM?5of?5?$CF@",
+          "target": 8215288,
+          "addend": 0,
+          "resolved": 8215288
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380944
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "??_C@_0CP@LDAL@Current?5display?5size?5is?5?$CFdx?$CFdx?$CFd@",
+          "target": 8215240,
+          "addend": 0,
+          "resolved": 8215240
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380869
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "??_C@_0CH@GOEL@Adjusted?5VRAM?5size?5is?5?$CFd?5bytes?5?$CI@",
+          "target": 8215200,
+          "addend": 0,
+          "resolved": 8215200
+        },
+        {
+          "offset": 266,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380818
+        },
+        {
+          "offset": 274,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 306,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 326,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 332,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3065044
+        },
+        {
+          "offset": 338,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 352,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 366,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 389,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3064987
+        },
+        {
+          "offset": 395,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 409,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4807376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4807824,
+      "method": "00495c90",
+      "body_bytes": 507,
+      "body_sha256": "6cb6848e61ef1347e052880f591141813adb297450fe362df42207cd72f826b9",
+      "padding_bytes": 5,
+      "full_extent_bytes": 512,
+      "full_extent_sha256": "27eb120fd6f08a4a6f1b845652581bab7d7739fe3a70bbf05b0caf0ecb2aec14",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Video_Mode@@YI_NPAUHWND__@@HHH@Z",
+      "symbol_prefix": "?Set_Video_Mode@@YI_NPAUHWND__@@HHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_C@_0BD@EEDM@Prep?5direct?5draw?4?6?$AA@",
+          "target": 8215180,
+          "addend": 0,
+          "resolved": 8215180
+        },
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380621
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "_DirectDrawCreate@12",
+          "target": 7871448,
+          "addend": 0,
+          "resolved": 3063573
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "??_C@_0BK@OEAL@DirectDrawCreate?5failed?$CB?6?$AA@",
+          "target": 8215152,
+          "addend": 0,
+          "resolved": 8215152
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380557
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "??_C@_0BK@GKKH@SetDisplayMode?3?5?$CFdx?$CFdx?$CFd?6?$AA@",
+          "target": 8215420,
+          "addend": 0,
+          "resolved": 8215420
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380533
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "??_C@_0BH@GNJG@SetDisplayMode?5failed?6?$AA@",
+          "target": 8215396,
+          "addend": 0,
+          "resolved": 8215396
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380498
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3064759
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 200,
+          "kind": 6,
+          "symbol": "?WindowedMode@@3_NA",
+          "target": 8723632,
+          "addend": 0,
+          "resolved": 8723632
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 271,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3064657
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 315,
+          "kind": 6,
+          "symbol": "?VideoModeHeight@@3HA",
+          "target": 8725476,
+          "addend": 0,
+          "resolved": 8725476
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "?VideoModeBitsPerPixel@@3HA",
+          "target": 8725480,
+          "addend": 0,
+          "resolved": 8725480
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "??_C@_0P@JAII@CreatePalette?6?$AA@",
+          "target": 8215380,
+          "addend": 0,
+          "resolved": 8215380
+        },
+        {
+          "offset": 337,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380299
+        },
+        {
+          "offset": 342,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 354,
+          "kind": 6,
+          "symbol": "_PalettePtr",
+          "target": 8724424,
+          "addend": 0,
+          "resolved": 8724424
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "_PaletteEntries",
+          "target": 8724428,
+          "addend": 0,
+          "resolved": 8724428
+        },
+        {
+          "offset": 375,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 388,
+          "kind": 6,
+          "symbol": "??_C@_0BG@IFHH@CreatePalette?5failed?6?$AA@",
+          "target": 8215356,
+          "addend": 0,
+          "resolved": 8215356
+        },
+        {
+          "offset": 393,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380243
+        },
+        {
+          "offset": 418,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 424,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3064504
+        },
+        {
+          "offset": 430,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 444,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 453,
+          "kind": 6,
+          "symbol": "??_C@_0BG@IFHH@CreatePalette?5failed?6?$AA@",
+          "target": 8215356,
+          "addend": 0,
+          "resolved": 8215356
+        },
+        {
+          "offset": 458,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380178
+        },
+        {
+          "offset": 478,
+          "kind": 20,
+          "symbol": "?Check_Overlapped_Blit_Capability@@YIXXZ",
+          "target": 4806624,
+          "addend": 0,
+          "resolved": 4294965614
+        },
+        {
+          "offset": 483,
+          "kind": 6,
+          "symbol": "??_C@_0BC@PKN@Display?5mode?5set?6?$AA@",
+          "target": 8215336,
+          "addend": 0,
+          "resolved": 8215336
+        },
+        {
+          "offset": 488,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294380148
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4807824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4808336,
+      "method": "00495e90",
+      "body_bytes": 203,
+      "body_sha256": "e3ee682772a364c2ec922fb4972e73c3b7b466a4bfc594650f1cbb53ede8b802",
+      "padding_bytes": 5,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "36d38e2a7d643e8e15f56e35c9add75f441127090184d3fd3fb3a4fa21470179",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reset_Video_Mode@@YIXXZ",
+      "symbol_prefix": "?Reset_Video_Mode@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3064352
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "?VideoModeHeight@@3HA",
+          "target": 8725476,
+          "addend": 0,
+          "resolved": 8725476
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?VideoModeBitsPerPixel@@3HA",
+          "target": 8725480,
+          "addend": 0,
+          "resolved": 8725480
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3064253
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4808336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4808544,
+      "method": "00495f60",
+      "body_bytes": 86,
+      "body_sha256": "8e5b5a9c7bc9120097293fc57293d4a6076a2eba7201dc6d39af5c5c1b989383",
+      "padding_bytes": 10,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "6e513bb511f2d37e3115d4b84ece93ba12927b2935e063b4631bc90c9d2d5e03",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Free_Video_Memory@@YIIXZ",
+      "symbol_prefix": "?Get_Free_Video_Memory@@YIIXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "??_C@_0DD@ICON@In?5Get_Free_Video_Memory?4?5About?5@",
+          "target": 8215448,
+          "addend": 0,
+          "resolved": 8215448
+        },
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3064149
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4808544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4808640,
+      "method": "00495fc0",
+      "body_bytes": 218,
+      "body_sha256": "5efb11405896f8cbea9f99ccf823ff5fa2c588932f5c95a3da554a134f7cc7a4",
+      "padding_bytes": 6,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "ea3604b71a66580770247b3cfc8e081ea704814a50ec1d84f3f7370c9f56c6a5",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Video_Hardware_Capabilities@@YIIXZ",
+      "symbol_prefix": "?Get_Video_Hardware_Capabilities@@YIIXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3064012
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4808640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4808864,
+      "method": "004960a0",
+      "body_bytes": 115,
+      "body_sha256": "2e853fafc7088fdd7b5e4575933d213c3709dcd0814cd36e6ae13f14f713ebbf",
+      "padding_bytes": 13,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "1fff27b78a18b7870f705b3cc7a08e9f98d01513b85bbeca15120adb4ef9e308",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "@Wait_Vert_Blank@0",
+      "symbol_prefix": "@Wait_Vert_Blank@0",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_CanVblankSync",
+          "target": 8214936,
+          "addend": 0,
+          "resolved": 8214936
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CanVblankSync",
+          "target": 8214936,
+          "addend": 0,
+          "resolved": 8214936
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?DirectDrawErrorHandler@@3P6IHJ@ZA",
+          "target": 8725484,
+          "addend": 0,
+          "resolved": 8725484
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NOOJ@DDRAW?4DLL?5Error?5code?5?$DN?5?$CF08X?$AA@",
+          "target": 8214952,
+          "addend": 0,
+          "resolved": 8214952
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3063809
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "??_C@_08DENO@Direct?5X?$AA@",
+          "target": 8214940,
+          "addend": 0,
+          "resolved": 8214940
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4808864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4808992,
+      "method": "00496120",
+      "body_bytes": 166,
+      "body_sha256": "d4623d2340fba29b0242e7bc7175b056948a0c5e4a12d1077299b29b7667fa7f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "bfab9fb573d1b6f3ad55563b5f538f9e5f1ce9a679252e7cbb1721a728067a1f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Palette@@YIXPBX@Z",
+      "symbol_prefix": "?Set_Palette@@YIXPBX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "?CurrentPalette@@3PAEA",
+          "target": 8723656,
+          "addend": 0,
+          "resolved": 8723656
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?CurrentPalette@@3PAEA",
+          "target": 8723656,
+          "addend": 0,
+          "resolved": 8723656
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 3068243
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?PaletteSurface@@3PAUIDirectDrawSurface@@A",
+          "target": 8725464,
+          "addend": 0,
+          "resolved": 8725464
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "_PaletteEntries",
+          "target": 8724428,
+          "addend": 1,
+          "resolved": 8724429
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "_PaletteEntries",
+          "target": 8724428,
+          "addend": 1025,
+          "resolved": 8725453
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "_PalettePtr",
+          "target": 8724424,
+          "addend": 0,
+          "resolved": 8724424
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "_FirstPaletteSet",
+          "target": 8725460,
+          "addend": 0,
+          "resolved": 8725460
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "_PalettePtr",
+          "target": 8724424,
+          "addend": 0,
+          "resolved": 8724424
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "_FirstPaletteSet",
+          "target": 8725460,
+          "addend": 0,
+          "resolved": 8725460
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "_PaletteEntries",
+          "target": 8724428,
+          "addend": 0,
+          "resolved": 8724428
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4808992,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1890"
+    },
+    {
+      "entry": 4809168,
+      "method": "004961d0",
+      "body_bytes": 25,
+      "body_sha256": "d360bc3b12a64945d4ef2b446a1536297cc9649512acdbb84400834c0ce8f83d",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "209469fde634ac7eaa2383797b8feb532bc60fe9766782409c48b25ca59e1e40",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Wait_Blit@@YIXXZ",
+      "symbol_prefix": "?Wait_Blit@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?PaletteSurface@@3PAUIDirectDrawSurface@@A",
+          "target": 8725464,
+          "addend": 0,
+          "resolved": 8725464
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4809168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4809200,
+      "method": "004961f0",
+      "body_bytes": 102,
+      "body_sha256": "f0f4165568b2f3792a182e0504ad7a44aa8fff6244581b9a1752d930fa4b1c30",
+      "padding_bytes": 10,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "0560b319130d650659b8a71f4350bfe078a7c177ed632f90f13f977b8646ce9b",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?EnumDisplayModesCallback@@YGJPAU_DDSURFACEDESC@@PAX@Z",
+      "symbol_prefix": "?EnumDisplayModesCallback@@YGJPAU_DDSURFACEDESC@@PAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3063325
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4809200,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4809312,
+      "method": "00496260",
+      "body_bytes": 55,
+      "body_sha256": "524661da6ce03b2bc6151d4eba07b31c5fec4b5ef813acb15b5ba5714e71c2c8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "9ac3caaa2efdbacd7d06c41aaf9ecf3160d36973ad720da24977ed3de05ab181",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?CompareModes@@YAHPBX0@Z",
+      "symbol_prefix": "?CompareModes@@YAHPBX0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4809312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4809376,
+      "method": "004962a0",
+      "body_bytes": 443,
+      "body_sha256": "780bfd673ffaa73e068cd7e3c8f4fe71105c1d0fbf91c5bf3bd941e628596291",
+      "padding_bytes": 5,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "bce319d7c53d1f2f5622621e42809f9957c52238d50e651c14982dc4cbc27c60",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?EnumDisplayModes@@YIPAHKKKKK@Z",
+      "symbol_prefix": "?EnumDisplayModes@@YIPAHKKKKK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAU_DDSURFACEDESC@@@@QAE@HPBQAU_DDSURFACEDESC@@@Z",
+          "target": 4810704,
+          "addend": 0,
+          "resolved": 1288
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?EnumDisplayModesCallback@@YGJPAU_DDSURFACEDESC@@PAX@Z",
+          "target": 4809200,
+          "addend": 0,
+          "resolved": 4809200
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@6B@",
+          "target": 7989092,
+          "addend": 0,
+          "resolved": 7989092
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3063037
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3062163
+        },
+        {
+          "offset": 283,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3062140
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAU_DDSURFACEDESC@@@@6B@",
+          "target": 7989060,
+          "addend": 0,
+          "resolved": 7989060
+        },
+        {
+          "offset": 316,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3062107
+        },
+        {
+          "offset": 339,
+          "kind": 6,
+          "symbol": "?CompareModes@@YAHPBX0@Z",
+          "target": 4809312,
+          "addend": 0,
+          "resolved": 4809312
+        },
+        {
+          "offset": 348,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 3062086
+        },
+        {
+          "offset": 365,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAU_DDSURFACEDESC@@@@6B@",
+          "target": 7989060,
+          "addend": 0,
+          "resolved": 7989060
+        },
+        {
+          "offset": 381,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3062042
+        },
+        {
+          "offset": 407,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAU_DDSURFACEDESC@@@@6B@",
+          "target": 7989060,
+          "addend": 0,
+          "resolved": 7989060
+        },
+        {
+          "offset": 425,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3061998
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4809376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4809824,
+      "method": "00496460",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?DebugStringNoPrefix@@YAXPBDZZ",
+      "symbol_prefix": "?DebugStringNoPrefix@@YAXPBDZZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4809824,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 4809840,
+      "method": "496470",
+      "body_bytes": 42,
+      "body_sha256": "635ece46415db75dbc5d6feef3e809f7cc29a05288ede980f376ce2470305309",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c73bb974f3fdbbb66a0ff1a81c19b99e545d40e6128c1c6ce05fef5c3beb2d4f",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3061936
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4809840,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-10"
+    },
+    {
+      "entry": 4809888,
+      "method": "004964a0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEHPBQAU_DDSURFACEDESC@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEHPBQAU_DDSURFACEDESC@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4809888,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4489"
+    },
+    {
+      "entry": 4809920,
+      "method": "004964c0",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAU_DDSURFACEDESC@@@@UBEPAU_DDSURFACEDESC@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAU_DDSURFACEDESC@@@@UBEPAU_DDSURFACEDESC@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4809920,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4809936,
+      "method": "004964d0",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAU_DDSURFACEDESC@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAU_DDSURFACEDESC@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4809936,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4810000,
+      "method": "00496510",
+      "body_bytes": 174,
+      "body_sha256": "7949d44233ef2ab247b1cb5328c13c400e99af4a55b6d26daa6e485af69b24c3",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "7e39a822f4031f4eb092dca77207657b64afd8cdd37c44fcde9342a0b69b87ee",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAU_DDSURFACEDESC@@@@UAE_NHPBQAU_DDSURFACEDESC@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAU_DDSURFACEDESC@@@@UAE_NHPBQAU_DDSURFACEDESC@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3062492
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3061680
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4810000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4810176,
+      "method": "004965c0",
+      "body_bytes": 39,
+      "body_sha256": "c830f99d82f6e13a5fd26f5de20d66e39f56997a333c78ca5b28be93db561368",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e01dd113636324fb90ab581004f7a93f9f51ba312e88a6811d734629748fb55c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAU_DDSURFACEDESC@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAU_DDSURFACEDESC@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3061603
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4810176,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4810224,
+      "method": "004965f0",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAU_DDSURFACEDESC@@@@UAEHABQAU_DDSURFACEDESC@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAU_DDSURFACEDESC@@@@UAEHABQAU_DDSURFACEDESC@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4810224,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4810288,
+      "method": "00496630",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAU_DDSURFACEDESC@@@@UAEHPBQAU_DDSURFACEDESC@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAU_DDSURFACEDESC@@@@UAEHPBQAU_DDSURFACEDESC@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4810288,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4810320,
+      "method": "00496650",
+      "body_bytes": 176,
+      "body_sha256": "9d0ae5c6a1df049af4bda1044177566dde486e4248ae8f496df1d91a05c31715",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "9d0ae5c6a1df049af4bda1044177566dde486e4248ae8f496df1d91a05c31715",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAE_NHPBQAU_DDSURFACEDESC@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAE_NHPBQAU_DDSURFACEDESC@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3062176
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3061373
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4810320,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1709"
+    },
+    {
+      "entry": 4810496,
+      "method": "00496700",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEHABQAU_DDSURFACEDESC@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEHABQAU_DDSURFACEDESC@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4810496,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4490"
+    },
+    {
+      "entry": 4810544,
+      "method": "496730",
+      "body_bytes": 73,
+      "body_sha256": "ccf6df3c73fcc51471569ccd0dd3f9cc65fb323458cf105df03ca4b1045e4154",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d598b5403955a584d9a32fb445df29cf64d4ea0ac25179c91911c4f87a6250ac",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAU_DDSURFACEDESC@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAU_DDSURFACEDESC@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAU_DDSURFACEDESC@@@@6B@",
+          "target": 7989060,
+          "addend": 0,
+          "resolved": 7989060
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3061230
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3061195
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4810544,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4810624,
+      "method": "496780",
+      "body_bytes": 73,
+      "body_sha256": "41bf71a8a7479e3ba105da156d6f1460a91fd4d921dec0ae1055c11263206845",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d609a1c3528e4b6b99efe0823069ea3fd623c9732720e8db1362bd6da6eacc6c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAU_DDSURFACEDESC@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAU_DDSURFACEDESC@@@@6B@",
+          "target": 7989060,
+          "addend": 0,
+          "resolved": 7989060
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3061150
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3061115
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4810624,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4810704,
+      "method": "4967d0",
+      "body_bytes": 74,
+      "body_sha256": "2dd41bf9ba1252e4d9721675b46f4017a523bf62ea62e9b524d9a0fa8804fd61",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "217363dcfe01ca1f0ed68c7b41aeb85eaa15a671e20d94ba87d6013e376fd445",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAU_DDSURFACEDESC@@@@QAE@HPBQAU_DDSURFACEDESC@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAU_DDSURFACEDESC@@@@QAE@HPBQAU_DDSURFACEDESC@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAU_DDSURFACEDESC@@@@6B@",
+          "target": 7989060,
+          "addend": 0,
+          "resolved": 7989060
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3061773
+        }
+      ],
+      "source_sha256": "e798f82d7537a932bae5fe54f31e589868de3e4cddc4513d5af287f16451ff32",
+      "source": "rebuild/src/ddraw.cpp",
+      "population": "rebuild-ddraw",
+      "source_order": 4810704,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-16"
+    }
+  ]
+}

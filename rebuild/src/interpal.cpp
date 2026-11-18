@@ -47,16 +47,10 @@
 #include "surface.h"
 
 bool	InterpolationPaletteChanged = false;
-extern "C" {
 
 
-
-}
-
-extern "C"{
-	unsigned char PaletteInterpolationTable[SIZE_OF_PALETTE][SIZE_OF_PALETTE];
-	unsigned char * InterpolationPalette;
-}
+unsigned char PaletteInterpolationTable[SIZE_OF_PALETTE][SIZE_OF_PALETTE];
+unsigned char * InterpolationPalette;
 
 
 /***********************************************************************************************

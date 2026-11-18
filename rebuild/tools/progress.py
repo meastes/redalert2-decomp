@@ -20,13 +20,14 @@ for row in cat['regions']:
 units = len({r['source'] for r in cat['regions']})
 now = datetime.datetime.now(datetime.timezone.utc)
 total_b = sum(v[1] for v in split.values())    # this lane's rows; worker rows are in workers_*
+all_b = total_b + workers[1]                   # every catalogued row (as functions_exact counts them)
 line = dict(time_utc=now.strftime('%Y-%m-%dT%H:%MZ'), units=units, functions_exact=len(cat['regions']),
-            bytes_exact=total_b, a_functions=split['a'][0], a_bytes=split['a'][1], b_functions=split['b'][0],
+            bytes_exact=all_b, a_functions=split['a'][0], a_bytes=split['a'][1], b_functions=split['b'][0],
             b_bytes=split['b'][1], c_functions=split['c'][0], c_bytes=split['c'][1],
             workers_functions=workers[0], workers_bytes=workers[1],
             lane_hours='%.2f' % ((now - START).total_seconds() / 3600),
-            source_share_of_text='%.3f%%' % (100.0 * (total_b + workers[1]) / TEXT),
-            reproduced_text='%.3f%%' % (100.0 * (total_b + workers[1] + LIBRARY + ASSEMBLY) / TEXT))
+            source_share_of_text='%.3f%%' % (100.0 * all_b / TEXT),
+            reproduced_text='%.3f%%' % (100.0 * (all_b + LIBRARY + ASSEMBLY) / TEXT))
 # Structure beside the percent (user, 2026-11-17): the census gate's measures, the units still held
 # (pending), and the functions not exact in any unit with their bytes (1 KB and over apart: the trend).
 import rebuild_census

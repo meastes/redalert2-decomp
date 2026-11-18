@@ -46,7 +46,7 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
-#include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "rect.h"
 #include "geometry.h"
 
 #include "dsurface.h"
@@ -58,11 +58,10 @@
 #include "swap.h"
 
 #include <math.h>
-#include <d3d.h> // RA2: the 3D device query
+#include <d3d.h>
 #include "globals.h"
 #include "win.h"
 
-namespace DirectDrawWrap { extern bool DoSmth; extern LPDIRECTDRAW lpDD; }
 
 
 
@@ -90,7 +89,6 @@ int DSurface::PrimaryColorMode = -1;
 bool DSurface::AllowHWFill = true;
 bool DSurface::OverlappedVideoBlits = true;	// Can video driver blit overlapped regions?
 
-extern int PrimaryColorMode;
 
 
 /***********************************************************************************************
@@ -151,8 +149,8 @@ DSurface::DSurface(int width, int height, bool system_memory) :
 			Description->ddsCaps.dwCaps |= DDSCAPS_SYSTEMMEMORY;
 		}
 
-		if (UseDirect3D) { // RA2: reads the Direct3D flag
-			Description->ddsCaps.dwCaps = DDSCAPS_3DDEVICE | DDSCAPS_OFFSCREENPLAIN; // RA2: a Direct3D device makes the surface a 3D-device offscreen plain one (0x2040), replacing the flags above
+		if (UseDirect3D) {
+			Description->ddsCaps.dwCaps = DDSCAPS_3DDEVICE | DDSCAPS_OFFSCREENPLAIN;
 		}
 
 
@@ -289,10 +287,10 @@ DSurface * DSurface::Create_Primary(DSurface ** backsurface1)
 	**	dimensions.
 	*/
 	surface->Description->dwFlags = DDSD_CAPS;
-	if (UseDirect3D) { // RA2: reads the Direct3D flag
-		surface->Description->ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE | DDSCAPS_3DDEVICE; // RA2: with a Direct3D device the primary surface also gets 3DDEVICE (0x2200)
-	} else { // RA2: as above
-		surface->Description->ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE; // RA2: as above
+	if (UseDirect3D) {
+		surface->Description->ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE | DDSCAPS_3DDEVICE;
+	} else {
+		surface->Description->ddsCaps.dwCaps = DDSCAPS_PRIMARYSURFACE;
 	}
 	if (backcount > 0) {
 		surface->Description->ddsCaps.dwCaps |= DDSCAPS_FLIP | DDSCAPS_COMPLEX;
@@ -524,12 +522,12 @@ HDC DSurface::GetDC(void)
 	HDC hdc = NULL;
 	HRESULT hr;
 
-	if (!Is_Locked()) { // RA2: GetDC at 0x4AABF0 matches only so
-		hr = SurfacePtr->GetDC(&hdc); // RA2: as above
-		if (hr == DD_OK) { // RA2: as above
-			LockCount++; // RA2: as above
+	if (!Is_Locked()) {
+		hr = SurfacePtr->GetDC(&hdc);
+		if (hr == DD_OK) {
+			LockCount++;
 		} else {
-			hdc = NULL; // RA2: as above
+			hdc = NULL;
 		}
 	}
 
@@ -631,7 +629,7 @@ int DSurface::Stride(void) const
  *=============================================================================================*/
 void * DSurface::Lock(Point2D point) const
 {
-	if (!Restore_Surface(this)) return(NULL); // RA2: Lock at 0x4AAC80 matches only so
+	if (!Restore_Surface(this)) return(NULL);
 	if (point.X < 0 || point.Y < 0) return(NULL);
 
 	if (LockCount == 0) {
@@ -701,7 +699,7 @@ bool DSurface::Can_Blit(void) const
  *=============================================================================================*/
 bool DSurface::Unlock(void) const
 {
-	Restore_Surface(this); // RA2: Unlock at 0x4AAE40 matches only so
+	Restore_Surface(this);
 	if (LockCount > 0) {
 		BASECLASS::Unlock();
 		if (LockCount == 0) {
@@ -717,7 +715,7 @@ bool DSurface::Unlock(void) const
 /// <summary>
 /// RA2
 /// </summary>
-bool DSurface::Is_Lost(void) const // RA2: not in TibSun, at 0x004AAEE0
+bool DSurface::Is_Lost(void) const
 {
 	return(SurfacePtr != NULL && SurfacePtr->IsLost() == DDERR_SURFACELOST);
 }
@@ -740,8 +738,8 @@ bool DSurface::Is_Lost(void) const // RA2: not in TibSun, at 0x004AAEE0
  *=============================================================================================*/
 bool DSurface::Restore_Check(void) const
 {
-	return(Restore_Surface(this)); // RA2: Restore_Check at 0x4AAF00 matches only so
-} // RA2: Restore_Check at 0x4AAF00 has no SurfacePtr, IsLost, Restore and 3 more
+	return(Restore_Surface(this));
+}
 
 
 /***********************************************************************************************
@@ -827,7 +825,7 @@ bool DSurface::Blit_From(Rect const & dcliprect, Rect const & destrect, Surface 
 		sourcerect.Height == destrect.Height) {
 		use_xsurface = true;
 	}
-	if (Restore_Surface(this) == false) { // RA2: Blit_From at 0x4AAFD0 matches only so
+	if (Restore_Surface(this) == false) {
 		return(false);
 	}
 
@@ -839,7 +837,7 @@ bool DSurface::Blit_From(Rect const & dcliprect, Rect const & destrect, Surface 
 
 	Rect drect = destrect;
 	Rect srect = sourcerect;
-	Rect swindow(Intersect(scliprect, ssource.Get_Rect())); // RA2: as above
+	Rect swindow(Intersect(scliprect, ssource.Get_Rect()));
 	Rect dwindow = Intersect(dcliprect, Get_Rect());
 	if (Blit_Clip(drect, dwindow, srect, swindow)) {
 		RECT xdestrect;
@@ -977,7 +975,7 @@ bool DSurface::Fill_Rect_Trans(Rect const & xcliprect, const RGBClass & color, u
 	/*
 	**	Ensure that the clipping rectangle is legal.
 	*/
-	
+
 	Rect cliprect = Intersect(Get_Rect(), xcliprect);
 
 	if (!cliprect.Is_Valid()) {
@@ -1212,10 +1210,10 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 	*/
 	start = Bias_To(startpoint, rect);
 	end = Bias_To(endpoint, rect);
-	int z2 = end_depth; // RA2: Draw_Depth_Glow_Line at 0x4ABBA0 matches only so
+	int z2 = end_depth;
 	int z1 = start_depth;
 
-	/* // RA2: Draw_Depth_Glow_Line at 0x4ABBA0 has no int z2 = end_depth;
+	/*
 	 * Sort the endpoints left-to-right, carrying the depth values with them.
 	 */
 	if (start.X > end.X) {
@@ -1241,7 +1239,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 	 * Re-interpolate the far depth value if the far endpoint was clipped.
 	 */
 	if (end.X != origend.X || end.Y != origend.Y) {
-		unsigned int amount = abs((int)((double)Distance(Point2D(px, py), end) / (double)Distance(Point2D(px, py), origend) * (double)(z1 - z2))); // RA2: as above
+		unsigned int amount = abs((int)((double)Distance(Point2D(px, py), end) / (double)Distance(Point2D(px, py), origend) * (double)(z1 - z2)));
 		if (z1 < z2) {
 			zend = z1 + amount;
 		} else {
@@ -1256,7 +1254,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 		Point2D clipped_point(start.X - origend.X, start.Y - origend.Y);
 		int clipped = clipped_point.Length();
 		Point2D full_point(px - origend.X, py - origend.Y);
-		unsigned int amount = abs((int)((double)clipped / (double)full_point.Length() * (double)(z1 - z2))); // RA2: as above
+		unsigned int amount = abs((int)((double)clipped / (double)full_point.Length() * (double)(z1 - z2)));
 		if (z2 > z1) {
 			zstart = z2 - amount;
 		} else {
@@ -1320,12 +1318,12 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 
 				if ((unsigned short)z < *zbuffer) {
 					RGBClass rgb = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + offset));
-					int red = rgb.Get_Red(); // RA2: as above
-					int green = rgb.Get_Green(); // RA2: as above
-					red += (glow_strength * red) >> 8; // RA2: as above
-					green += (glow_strength * green) >> 8; // RA2: as above
-					int blue = rgb.Get_Blue(); // RA2: as above
-					blue += (glow_strength * blue) >> 8; // RA2: as above
+					int red = rgb.Get_Red();
+					int green = rgb.Get_Green();
+					red += (glow_strength * red) >> 8;
+					green += (glow_strength * green) >> 8;
+					int blue = rgb.Get_Blue();
+					blue += (glow_strength * blue) >> 8;
 					*(unsigned short *)((char *)buffer + offset) = (unsigned short)Build_Hicolor_Pixel((red > 255) ? 255 : red, (green > 255) ? 255 : green, (blue > 255) ? 255 : blue);
 					if (write_depth) {
 						*zbuffer = (unsigned short)z;
@@ -1337,7 +1335,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 					xdelta -= dz2;
 					zbuffer += zwidth;
 					if (zwidth > 0) {
-						zbuffer = Blit_Wrap_Z_Buffer(zbuffer); // RA2: as above
+						zbuffer = Blit_Wrap_Z_Buffer(zbuffer);
 					} else {
 						zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
 					}
@@ -1347,7 +1345,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 				if (ydelta > 0) {
 					zbuffer++;
 					offset += 2;
-					zbuffer = Blit_Wrap_Z_Buffer(zbuffer); // RA2: as above
+					zbuffer = Blit_Wrap_Z_Buffer(zbuffer);
 					ydelta -= dz2;
 				}
 
@@ -1370,12 +1368,12 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 
 				if ((unsigned short)z < *zbuffer) {
 					RGBClass rgb = Deconstruct_Hicolor_Pixel(*((unsigned short *)buffer + offset));
-					int red = rgb.Get_Red(); // RA2: as above
-					int green = rgb.Get_Green(); // RA2: as above
-					red += (glow_strength * red) >> 8; // RA2: as above
-					green += (glow_strength * green) >> 8; // RA2: as above
-					int blue = rgb.Get_Blue(); // RA2: as above
-					blue += (glow_strength * blue) >> 8; // RA2: as above
+					int red = rgb.Get_Red();
+					int green = rgb.Get_Green();
+					red += (glow_strength * red) >> 8;
+					green += (glow_strength * green) >> 8;
+					int blue = rgb.Get_Blue();
+					blue += (glow_strength * blue) >> 8;
 					*((unsigned short *)buffer + offset) = (unsigned short)Build_Hicolor_Pixel((red > 255) ? 255 : red, (green > 255) ? 255 : green, (blue > 255) ? 255 : blue);
 					if (write_depth) {
 						*zbuffer = (unsigned short)z;
@@ -1387,7 +1385,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 					ydelta -= dx2;
 					zbuffer += zwidth;
 					if (zwidth > 0) {
-						zbuffer = Blit_Wrap_Z_Buffer(zbuffer); // RA2: as above
+						zbuffer = Blit_Wrap_Z_Buffer(zbuffer);
 					} else {
 						zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
 					}
@@ -1402,7 +1400,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 				zbuffer++;
 				ydelta += dy2;
 				zdelta += dz2;
-				zbuffer = Blit_Wrap_Z_Buffer(zbuffer); // RA2: as above
+				zbuffer = Blit_Wrap_Z_Buffer(zbuffer);
 
 			} while (++offset < xcount);
 		}
@@ -1419,12 +1417,12 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 
 				if ((unsigned short)z < *zbuffer) {
 					RGBClass rgb = Deconstruct_Hicolor_Pixel(*(unsigned short *)((char *)buffer + offset));
-					int red = rgb.Get_Red(); // RA2: as above
-					int green = rgb.Get_Green(); // RA2: as above
-					red += (glow_strength * red) >> 8; // RA2: as above
-					green += (glow_strength * green) >> 8; // RA2: as above
-					int blue = rgb.Get_Blue(); // RA2: as above
-					blue += (glow_strength * blue) >> 8; // RA2: as above
+					int red = rgb.Get_Red();
+					int green = rgb.Get_Green();
+					red += (glow_strength * red) >> 8;
+					green += (glow_strength * green) >> 8;
+					int blue = rgb.Get_Blue();
+					blue += (glow_strength * blue) >> 8;
 					*(unsigned short *)((char *)buffer + offset) = (unsigned short)Build_Hicolor_Pixel((red > 255) ? 255 : red, (green > 255) ? 255 : green, (blue > 255) ? 255 : blue);
 					if (write_depth) {
 						*zbuffer = (unsigned short)z;
@@ -1434,7 +1432,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 				if (xdelta > 0) {
 					zbuffer++;
 					offset += 2;
-					zbuffer = Blit_Wrap_Z_Buffer(zbuffer); // RA2: as above
+					zbuffer = Blit_Wrap_Z_Buffer(zbuffer);
 					xdelta -= dy2;
 				}
 
@@ -1448,7 +1446,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 				buffer = (unsigned char *)buffer + pitch;
 				zbuffer += zwidth;
 				if (zwidth > 0) {
-					zbuffer = Blit_Wrap_Z_Buffer(zbuffer); // RA2: as above
+					zbuffer = Blit_Wrap_Z_Buffer(zbuffer);
 				} else {
 					zbuffer = (unsigned short *)DepthBuffer->Wrap_Underflow((unsigned int)zbuffer);
 				}
@@ -1487,6 +1485,7 @@ bool DSurface::Draw_Depth_Glow_Line(Rect const & cliprect, Point2D const & start
 /// <param name="blend_blue">Should the blue channel be blended?</param>
 /// <param name="intensity">The weight used when sampling the falloff gradient.</param>
 /// <returns>bool; Was any part of the line drawn?</returns>
+#if 0
 bool DSurface::Draw_Depth_Antialiased_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass & color, int start_depth, int end_depth, bool write_depth, bool blend_red, bool blend_green, bool blend_blue, float intensity)
 {
 	static int GradientTable[257];
@@ -2062,10 +2061,12 @@ bool DSurface::Draw_Depth_Antialiased_Line(Rect const & cliprect, Point2D const 
 
 	return(false);
 }
+#endif
 
-int __fastcall Brighten_Hicolor_Pixel(RGBClass const * rgb, int red_add, int green_add, int blue_add); // RA2: 0x4AE8D0, defined below
 
-bool DSurface::Draw_RGB_Multiplying_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass const & color, float intensity, int start_depth, int end_depth) // RA2: not in TibSun, at 0x4ADE00 (YR's DrawRGBMultiplyingLine)
+int __fastcall Brighten_Hicolor_Pixel(RGBClass const * rgb, int red_add, int green_add, int blue_add);
+
+bool DSurface::Draw_RGB_Multiplying_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass const & color, float intensity, int start_depth, int end_depth)
 {
 	int r = (int)(color.Get_Red() * intensity);
 	int g = (int)(color.Get_Green() * intensity);
@@ -2338,7 +2339,7 @@ bool DSurface::Draw_RGB_Multiplying_Line(Rect const & cliprect, Point2D const & 
 /// <summary>
 /// RA2
 /// </summary>
-int __fastcall Brighten_Hicolor_Pixel(RGBClass const * rgb, int red_add, int green_add, int blue_add) // RA2: not in TibSun, at 0x004AE8D0
+int __fastcall Brighten_Hicolor_Pixel(RGBClass const * rgb, int red_add, int green_add, int blue_add)
 {
 	int red = rgb->Get_Red() + red_add;
 	int green = rgb->Get_Green() + green_add;
@@ -2382,7 +2383,7 @@ static inline int Alpha_Hicolor_Pixel(RGBClass const & rgb, int v, int inv_alpha
 }
 
 
-bool DSurface::Draw_Trail_Line(Rect const & cliprect, Point2D & startpoint, Point2D & endpoint, RGBClass & color, int alpha, int start_height, int end_height) // RA2: not in TibSun, at 0x4AE9C0
+bool DSurface::Draw_Trail_Line(Rect const & cliprect, Point2D & startpoint, Point2D & endpoint, RGBClass & color, int alpha, int start_height, int end_height)
 {
 	Point2D start;
 	Point2D end;
@@ -2647,11 +2648,11 @@ unsigned short DSurface::Blend_Pixel(unsigned short src_color, unsigned short ds
 {
 	switch (level) {
 		case 100:
-			goto done; // RA2: Blend_Pixel at 0x4AF550 matches only so
+			goto done;
 		case 75:
 			return(((src_color / 4) & DSurface::QuarterbrightMask) * 4);
 		case 50:
-			return(((src_color / 2) & HalfbrightMask) + ((dst_color / 2) & HalfbrightMask)); // RA2: as above
+			return(((src_color / 2) & HalfbrightMask) + ((dst_color / 2) & HalfbrightMask));
 		case 25:
 			return(((src_color / 4) & DSurface::QuarterbrightMask) * 4);
 		case 0:
@@ -2659,7 +2660,7 @@ unsigned short DSurface::Blend_Pixel(unsigned short src_color, unsigned short ds
 		default:
 			break;
 	}
-done: // RA2: as above
+done:
 	return(src_color);
 }
 
@@ -2707,7 +2708,7 @@ bool DSurface::Draw_Ping_Pong_Gradient_Line(Rect const & cliprect, Point2D const
 				 * Simplest of the blits, straight horizontal line.
 				 */
 				for (int i = 0; i <= end.X - start.X; i++) {
-					RGBClass gradient_color = RGBClass(NoInitClass()).Lerp(start_color, end_color, gradient_position); // RA2: Draw_Ping_Pong_Gradient_Line at 0x4AF650 matches only so
+					RGBClass gradient_color = RGBClass(NoInitClass()).Lerp(start_color, end_color, gradient_position);
 
 					*((unsigned short *)buffer + i) = (unsigned short)DSurface::Build_Hicolor_Pixel(gradient_color);
 
@@ -2729,7 +2730,7 @@ bool DSurface::Draw_Ping_Pong_Gradient_Line(Rect const & cliprect, Point2D const
 				 */
 				int dy = abs(end.Y - start.Y);
 				for (int i = 0; i <= dy; i++) {
-					RGBClass gradient_color = RGBClass(NoInitClass()).Lerp(start_color, end_color, gradient_position); // RA2: as above
+					RGBClass gradient_color = RGBClass(NoInitClass()).Lerp(start_color, end_color, gradient_position);
 
 					*(unsigned short *)buffer = (unsigned short)DSurface::Build_Hicolor_Pixel(gradient_color);
 
@@ -2773,7 +2774,7 @@ bool DSurface::Draw_Ping_Pong_Gradient_Line(Rect const & cliprect, Point2D const
 					 * Plot low line.
 					 */
 					for (int i = 0; i <= dx; i++) {
-						RGBClass gradient_color = RGBClass(NoInitClass()).Lerp(start_color, end_color, gradient_position); // RA2: as above
+						RGBClass gradient_color = RGBClass(NoInitClass()).Lerp(start_color, end_color, gradient_position);
 
 						*((unsigned short *)buffer + i) = (unsigned short)DSurface::Build_Hicolor_Pixel(gradient_color);
 
@@ -2806,7 +2807,7 @@ bool DSurface::Draw_Ping_Pong_Gradient_Line(Rect const & cliprect, Point2D const
 					 * Plot high line.
 					 */
 					for (int i = 0; i <= dy; i++) {
-						RGBClass gradient_color = RGBClass(NoInitClass()).Lerp(start_color, end_color, gradient_position); // RA2: as above
+						RGBClass gradient_color = RGBClass(NoInitClass()).Lerp(start_color, end_color, gradient_position);
 
 						*((unsigned short *)buffer + k) = (unsigned short)DSurface::Build_Hicolor_Pixel(gradient_color);
 
@@ -3846,19 +3847,20 @@ bool DSurface::Draw_Masked_Line(Point2D const & startpoint, Point2D const & endp
 
 
 
-struct DeviceDesc : D3DDEVICEDESC {
-	DWORD dx6_fields[12];
-};
+
 
 
 /// <summary>
 /// RA2
 /// </summary>
+#if 0
 static inline void Clear_Desc(DeviceDesc * desc)
 {
 	memset(desc, 0, sizeof(DeviceDesc));
 	desc->dwSize = sizeof(DeviceDesc);
 }
+#endif
+
 
 
 

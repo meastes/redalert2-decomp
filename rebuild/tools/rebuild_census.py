@@ -137,9 +137,20 @@ def unplaced_objects(regions):
         last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
         if not names or info['source'] not in sources or not last:
             continue
+        # The unit's last check must be of its current text; a stale or missing object is checked again
+        # (the census never counts a symbol it cannot find in the object).
+        import hashlib
+        current = hashlib.sha256((R.ROOT / info['source']).read_bytes()).hexdigest()
+        if last.get('source_sha256') != current or not Path(last['object']).exists():
+            R.check(unit)
+            last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
         coff = Coff(open(last['object'], 'rb').read())
         for name in names:
-            index = data_bindings.defining_section(coff, name)
+            try:
+                index = data_bindings.defining_section(coff, name)
+            except data_bindings.BindingRefused as error:
+                print('  unplaced: %s: %s (not counted)' % (unit, error))
+                continue
             symbols = data_bindings.section_symbols(coff, index)
             values = [v for v, _ in symbols] + [coff.sections[index - 1]['size']]
             position = [n for _, n in symbols].index(name)

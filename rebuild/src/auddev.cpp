@@ -608,12 +608,10 @@ void __fastcall AudioDeviceResumeAllChannels(AudioDevice * dev, int type)
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: 10 bytes differ (adopted text)
 int __fastcall AudioDeviceService(AudioDevice * dev)
 {
 	return dev->deviceHandler(dev);
 }
-#endif
 
 void __fastcall AudioServiceInfoInit(AudioServiceInfo * info)
 {

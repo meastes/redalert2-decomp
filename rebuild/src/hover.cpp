@@ -428,6 +428,19 @@ void STDMETHODCALLTYPE HoverLocomotionClass::Move_To(CoordStruct to)
 }
 
 
+static inline Cell Hover_Adjacent_Cell(Cell const & cell, FacingType dir) // RA2: an adjacent cell with the table entry first
+{
+	return(AdjacentCell[(int)dir & 0x07] + cell);
+}
+
+
+static inline int Tube_Height_Step(Coord const & exit, TubeClass const * tube, int current_height) // RA2: the height change per tube step
+{
+	int count = tube->Count;
+	return((Map.Get_Height_GL(exit) - current_height) / count);
+}
+
+
 /***********************************************************************************************
  * DriveClass::While_Moving -- Processes unit movement.                                        *
  *                                                                                             *
@@ -445,7 +458,6 @@ void STDMETHODCALLTYPE HoverLocomotionClass::Move_To(CoordStruct to)
  *   02/02/1992 JLB : Created.                                                                 *
  *   04/15/1994 JLB : Converted to member function.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3486 bytes differ (adopted text)
 MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 {
 	assert(LinkedTo->IsActive);
@@ -456,6 +468,10 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 	if (HeadToCoord != COORD_NONE) {
 		LinkedTo->Clear_Occupy_Bit(HeadToCoord);
 		HeadToCoord = COORD_NONE;
+	}
+
+	if (LinkedTo->IsParalyzed()) {
+		return(MOVE_NO);
 	}
 
 	/*
@@ -481,12 +497,14 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 			LinkedTo->Path[CONQUER_PATH_MAX-1] = FACING_NONE;
 			LinkedTo->CurrentTube = tubenum;
 			LinkedTo->CurrentTubeDir = FACING_FIRST;
-			LinkedTo->LastTubeCoord = Map[Adjacent_Cell((Cell)tube->Enter, tube->Dirs[0])].Cell_Coord() - Coord((Cell)tube->Enter) + LinkedTo->PositionCoord;
+			TPoint2D<short> const & enter = tube->Enter;
+			Coord diff = Map[Hover_Adjacent_Cell(Cell(enter), tube->Dirs[0])].Cell_Coord() - Coord(Cell(enter));
+			LinkedTo->LastTubeCoord = diff + LinkedTo->PositionCoord;
 			int height = LinkedTo->Height;
 			int current_height = Map.Get_Height_GL(LinkedTo->PositionCoord);
-			int count = tube->Count;
-			exit = tube->Exit;
-			LinkedTo->LastTubeCoord.Z = height + (Map.Get_Height_GL(exit) - current_height) / count;
+			Cell exit2 = tube->Exit;
+			int z = height + Tube_Height_Step(exit2, tube, current_height);
+			LinkedTo->LastTubeCoord.Z = z;
 		} else {
 			LinkedTo->Path[0] = FACING_NONE;
 			HeadToCoord = COORD_NONE;
@@ -497,7 +515,7 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 	}
 
 	if (nextface != FACING_NONE) {
-		HeadToCoord = Adjacent_Cell(LinkedTo->PositionCell, nextface).As_Coord();
+		HeadToCoord = Cell(LinkedTo->PositionCell + AdjacentCell[nextface & 7]).As_Coord();
 		HeadToCoord.Z = Map.Get_Height_GL(HeadToCoord);
 		if (LinkedTo->PositionCoord.Z >= HeadToCoord.Z + 2 * LEVEL_LEPTON_H + LEVEL_LEPTON_H) {
 			HeadToCoord.Z += BRIDGE_LEPTON_HEIGHT;
@@ -511,22 +529,26 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 				LinkedTo->Path[0] = FACING_NONE;
 				HeadToCoord = COORD_NONE;
 				Stop();
+				return(MOVE_NO);
 			}
 			return(MOVE_NO);
 		}
 
-		if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(MOVE_NO);
+		if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
+			return(MOVE_NO);
+		}
 
-		if (LinkedTo->IsOnBridge != (int)Map[Adjacent_Cell(LinkedTo->PositionCoord, nextface)].IsUnderBridge) {
+		CellClass & adjacent = Map[Adjacent_Cell(LinkedTo->PositionCoord, nextface)];
+		if (adjacent.IsUnderBridge ^ LinkedTo->IsOnBridge) {
 			LinkedTo->IsPlanningToLook = true;
 		}
 
-		Cell c = HeadToCoord;
-		MoveType ok = LinkedTo->Can_Enter_Cell(&Map[c], nextface, LinkedTo->Get_Cell_Height());
+		Cell c = HeadToCoord.As_Cell();
+		int ok = LinkedTo->Can_Enter_Cell(&Map[c], nextface, LinkedTo->Get_Cell_Height());
 
 		switch (ok) {
-		case MOVE_CLOAK:
 		case MOVE_NO:
+		case MOVE_CLOAK:
 			Map[HeadToCoord].Shimmer();
 			if (first_pass) {
 				Stop_Driver();
@@ -539,23 +561,27 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 				HeadToCoord = COORD_NONE;
 				Stop_Driver();
 			}
-			return(ok);
+			return((MoveType)ok);
 
 		case MOVE_CLOSED_GATE:
 			HeadToCoord = COORD_NONE;
 			Map.Try_Open_Gate(LinkedTo, c);
 			Stop_Driver();
-			return(ok);
+			break;
 
 		case MOVE_TEMP:
 			if (first_pass) {
+				HeadToCoord = COORD_NONE;
 				Stop_Driver();
 				LinkedTo->PathDelay = 0;
 				LinkedTo->Path[0] = FACING_NONE;
 				Start_Of_Move(0);
 				ok = While_Moving(false);
+				break;
 			} else {
-				if (LinkedTo->Center_Coord().Distance_To(DestinationCoord) < Rule->CloseEnoughDistance && abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H && Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
+				if (LinkedTo->Center_Coord().Distance_To(DestinationCoord) < Rule->CloseEnoughDistance
+					&& abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H
+					&& Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
 					Stop_Moving();
 					LinkedTo->Assign_Destination(NULL);
 					return(MOVE_NO);
@@ -569,20 +595,21 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 				Map[HeadToCoord].Incoming(COORD_NONE, true, true, bridge);
 				HeadToCoord = COORD_NONE;
 				Stop_Driver();
-				return(ok);
+				break;
 			}
-			break;
 
 		case MOVE_OK:
 			LinkedTo->Per_Cell_Process(PCP_END);
-			if (LinkedTo == NULL || !LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(MOVE_NO);
+			if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) {
+				return(MOVE_NO);
+			}
 			if (LinkedTo->IsLocked) {
 				LinkedTo->Set_Occupy_Bit(HeadToCoord);
 			}
 			memcpy((char *)&LinkedTo->Path, (char *)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 1));
 			LinkedTo->Path[CONQUER_PATH_MAX - 1] = FACING_NONE;
 			LinkedTo->LastPathingCell = HeadToCoord.As_Cell();
-			return(ok);
+			break;
 
 		case MOVE_FRIENDLY_DESTROYABLE:
 		case MOVE_DESTROYABLE:
@@ -593,7 +620,7 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 				LinkedTo->Path[0] = FACING_NONE;
 				Start_Of_Move(0);
 				ok = While_Moving(false);
-				return(ok);
+				break;
 			}
 			if (Map[c].Cell_Object() != NULL) {
 				if (!LinkedTo->House->Is_Ally(Map[c].Cell_Object())) {
@@ -604,7 +631,7 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 					LinkedTo->Override_Mission(MISSION_ATTACK, &Map[c], NULL);
 				}
 			}
-			return(ok);
+			break;
 
 		case MOVE_MOVING_BLOCK:
 			HeadToCoord = COORD_NONE;
@@ -618,15 +645,14 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 			}
 			bool blocked = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
 			Start_Of_Move((blocked != 0) + 1);
-			return(ok);
+			break;
 		}
-		return(ok);
+		return((MoveType)ok);
 	}
 
 	Start_Of_Move(0);
 	return(MOVE_OK);
 }
-#endif
 
 
 /// <summary>
@@ -850,18 +876,13 @@ bool HoverLocomotionClass::Reduce_Path_Length(void)
  *   09/22/1995 JLB : Breaks out of hopeless hunt mode.                                        *
  *   07/10/1996 JLB : Sets scan limit if necessary.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 375 bytes differ (adopted text)
 void HoverLocomotionClass::Start_Of_Move(int num)
 {
 	assert(LinkedTo->IsActive);
 
-	FacingType		facing;				// Direction movement will commence.
-	Cell			destcell;			// Cell of destination.
-	Coord			dest;				// Destination coordinate.
-
 	Reduce_Path_Length();
 
-	facing = LinkedTo->Path[0];
+	FacingType facing = LinkedTo->Path[0];	// Direction movement will commence.
 
 	if (DestinationCoord != COORD_NONE) {
 		if (LinkedTo->PositionCell == DestinationCoord.As_Cell() && abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) {
@@ -875,77 +896,79 @@ void HoverLocomotionClass::Start_Of_Move(int num)
 	**	If the path is invalid at this point, then generate one. If
 	**	generating a new path fails, then abort NavCom.
 	*/
-	if (facing == FACING_NONE) {
-		if (DestinationCoord == COORD_NONE) {
-			return;
-		}
+	if (facing != FACING_NONE) {
+		return;
+	}
 
-		if (LinkedTo->PositionCell == DestinationCoord.As_Cell() && abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) <= 2 * LEVEL_LEPTON_H) {
+	if (DestinationCoord == COORD_NONE) {
+		return;
+	}
+
+	if (LinkedTo->PositionCell == DestinationCoord.As_Cell() && abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) <= 2 * LEVEL_LEPTON_H) {
+		return;
+	}
+
+	/*
+	**	If after a path search, there is still no valid path, then set the
+	**	NavCom to null and let the script take care of assigning a new
+	**	navigation target.
+	*/
+	if (LinkedTo->PathDelay != 0) {
+		return;
+	}
+
+	if (!LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, num)) {
+		LinkedTo->PathDelay = Rule->PathDelay * TICKS_PER_MINUTE;
+
+		if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
+			LinkedTo->Assign_Destination(NULL);
 			return;
 		}
 
 		/*
-		**	If after a path search, there is still no valid path, then set the
-		**	NavCom to null and let the script take care of assigning a new
-		**	navigation target.
+		**	If the unit is close enough to the target then just stop
+		**	driving now. This prevents the fidgeting that would occur
+		**	if they mindlessly kept trying to get to the exact location
+		**	desired. This is quite necessary since it is typical to move
+		**	several units with the same mouse click.
 		*/
-		if (LinkedTo->PathDelay != 0) {
-			return;
-		}
-
-		if (!LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, num)) {
-			LinkedTo->PathDelay = Rule->PathDelay * TICKS_PER_MINUTE;
-
-			if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
-				LinkedTo->Assign_Destination(NULL);
-				return;
-			}
-
-			/*
-			**	If the unit is close enough to the target then just stop
-			**	driving now. This prevents the fidgeting that would occur
-			**	if they mindlessly kept trying to get to the exact location
-			**	desired. This is quite necessary since it is typical to move
-			**	several units with the same mouse click.
-			*/
-			if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && (LinkedTo->Mission == MISSION_MOVE || LinkedTo->Mission == MISSION_GUARD_AREA)) {
+		if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && (LinkedTo->Mission == MISSION_MOVE || LinkedTo->Mission == MISSION_GUARD_AREA)) {
+			LinkedTo->Assign_Destination(NULL);
+			if (!LinkedTo->IsActive) return;
+		} else {
+			if (LinkedTo->TryTryAgain > 0) {
+				LinkedTo->TryTryAgain--;
+			} else {
 				LinkedTo->Assign_Destination(NULL);
 				if (!LinkedTo->IsActive) return;
-			} else {
-				if (LinkedTo->TryTryAgain > 0) {
-					LinkedTo->TryTryAgain--;
-				} else {
-					LinkedTo->Assign_Destination(NULL);
-					if (!LinkedTo->IsActive) return;
-					if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000); // RA2: played through VocClass::PlayGlobal
-					LinkedTo->IsNewNavCom = false;
-				}
+				if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000); // RA2: played through VocClass::PlayGlobal
+				LinkedTo->IsNewNavCom = false;
 			}
-
-			/*
-			**	Since the path was blocked, check to make sure that it was completely
-			**	blocked. If so and it has a valid TarCom and it is out of range of the
-			**	TarCom, then give this unit a range limit so that it might not pick
-			**	a "can't reach" target again.
-			*/
-			if (!Is_Moving() && LinkedTo->TarCom != NULL && !LinkedTo->IsCloseEnoughToAttack(LinkedTo->TarCom)) { // RA2: IsCloseEnoughToAttack, not In_Range
-				LinkedTo->IsScanLimited = true;
-				if (LinkedTo->Team != NULL) LinkedTo->Team->Scan_Limit();
-				LinkedTo->Assign_Target(NULL);
-			}
-
-			/*
-			**	Stop the movement, for now, and let the subsequent logic in later game
-			**	frames resume movement as appropriate.
-			*/
-			if (HeadToCoord != COORD_NONE) {
-				LinkedTo->Clear_Occupy_Bit(HeadToCoord);
-				HeadToCoord = COORD_NONE;
-			}
-			Stop_Moving();
-			return;
 		}
 
+		/*
+		**	Since the path was blocked, check to make sure that it was completely
+		**	blocked. If so and it has a valid TarCom and it is out of range of the
+		**	TarCom, then give this unit a range limit so that it might not pick
+		**	a "can't reach" target again.
+		*/
+		if (!Is_Moving() && LinkedTo->TarCom != NULL && !LinkedTo->IsCloseEnoughToAttack(LinkedTo->TarCom)) { // RA2: IsCloseEnoughToAttack, not In_Range
+			LinkedTo->IsScanLimited = true;
+			if (LinkedTo->Team != NULL) LinkedTo->Team->Scan_Limit();
+			LinkedTo->Assign_Target(NULL);
+		}
+
+		/*
+		**	Stop the movement, for now, and let the subsequent logic in later game
+		**	frames resume movement as appropriate.
+		*/
+		if (HeadToCoord != COORD_NONE) {
+			LinkedTo->Clear_Occupy_Bit(HeadToCoord);
+			HeadToCoord = COORD_NONE;
+		}
+		Stop_Moving();
+		return;
+	} else {
 		LinkedTo->PathDelay = Rule->PathDelay * TICKS_PER_MINUTE;
 
 		/*
@@ -958,7 +981,7 @@ void HoverLocomotionClass::Start_Of_Move(int num)
 			MoveType ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->Path[0], LinkedTo->Get_Cell_Height());
 			if (ok == MOVE_TEMP) {
 				CellClass * cellptr = &Map[cell];
-				ObjectClass * blockage = cellptr->Cell_Techno(Point2D(0, 0), LinkedTo->PositionCoord.Z > Map.Get_Height_GL(cell) + 3 * LEVEL_LEPTON_H);
+				ObjectClass * blockage = cellptr->Cell_Techno(Point2D(0, 0), LinkedTo->PositionCoord.Z > Map.Get_Height_GL(Coord(cell)) + 3 * LEVEL_LEPTON_H);
 				if (blockage && LinkedTo->House->Is_Ally(blockage)) {
 
 					/*
@@ -966,7 +989,7 @@ void HoverLocomotionClass::Start_Of_Move(int num)
 					**	to do so if we aren't very close to the target and this
 					**	object can just say "good enough" and stop here.
 					*/
-					if (LinkedTo->Center_Coord().Distance_To(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->In_Radio_Contact() &&
+					if (LinkedTo->Center_Coord().Distance_To(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink() &&
 						abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H && Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
 
 						Stop_Moving();
@@ -981,10 +1004,8 @@ void HoverLocomotionClass::Start_Of_Move(int num)
 		}
 
 		LinkedTo->TryTryAgain = FootClass::PATH_RETRY;
-		facing = LinkedTo->Path[0];
 	}
 }
-#endif
 
 
 /// <summary>

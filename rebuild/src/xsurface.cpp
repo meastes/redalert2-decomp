@@ -463,12 +463,10 @@ bool XSurface::Draw_Depth_Antialiased_Line(Rect const & cliprect, Point2D const 
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no exact match yet (row 00773ef0)
 bool XSurface::Draw_RGB_Multiplying_Line(Rect const & cliprect, Point2D const & startpoint, Point2D const & endpoint, RGBClass const & color, float intensity, int start_depth, int end_depth) // RA2
 {
-	return(false); // RA2: XSurface's version returns false
+	return(false);
 }
-#endif
 
 
 /// <summary>
@@ -480,6 +478,7 @@ bool XSurface::Draw_RGB_Multiplying_Line(Rect const & cliprect, Point2D const & 
 /// <param name="xcliprect">The clipping rectangle to plot within.</param>
 /// <param name="drawer_callback">The routine to call for each point along the line.</param>
 /// <returns>bool; Did any part of the line survive the clipping?</returns>
+#if 0
 bool XSurface::Plot_Line(Rect const & xcliprect, Point2D & startpoint, Point2D & endpoint, void(*drawer_callback)(Point2D const &))
 {
 	//assert(xcliprect.Is_Valid());
@@ -600,6 +599,8 @@ bool XSurface::Plot_Line(Rect const & xcliprect, Point2D & startpoint, Point2D &
 
 	return(true);
 }
+#endif
+
 
 
 /***********************************************************************************************
@@ -798,9 +799,6 @@ bool XSurface::Fill_Rect(Rect const & fillrect, int color)
 }
 
 
-/// inline asm functions don't have a return statement
-#pragma warning(disable: 4035)
-
 /// <summary>
 /// Fills a run of longwords with a color value.
 /// This is the low level filler that the surface rectangle fill routines use for the bulk
@@ -812,25 +810,13 @@ bool XSurface::Fill_Rect(Rect const & fillrect, int color)
 /// <returns>Returns with a pointer to just past the last longword written.</returns>
 static void *surface_quick_fill(void *buf, int count, int color)
 {
-	_asm {
-		push edi /// Bug fixed in TS but not in ShapeSet
-
-		mov ecx, [count]
-		mov edi, [buf]
-
-		cmp ecx, 0
-		jle short $end
-
-		mov eax, [color]
-		rep stosd
-
-	$end:
-		mov eax, edi
-		pop edi /// Bug fixed in TS but not in ShapeSet
-	}
-	// return is in eax
+    unsigned int *pixel = static_cast<unsigned int *>(buf);
+    while (count > 0) {
+        *pixel++ = static_cast<unsigned int>(color);
+        --count;
+    }
+    return pixel;
 }
-#pragma warning(default: 4035)
 
 
 /***********************************************************************************************
@@ -854,6 +840,7 @@ static void *surface_quick_fill(void *buf, int count, int color)
  * HISTORY:                                                                                    *
  *   05/27/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
+#if 0
 bool XSurface::Fill_Rect(Rect const & cliprect, Rect const & fillrect, int color)
 {
 	if (!fillrect.Is_Valid()) return(false);
@@ -937,6 +924,8 @@ bool XSurface::Fill_Rect(Rect const & cliprect, Rect const & fillrect, int color
 	}
 	return(false);
 }
+#endif
+
 
 
 /// <summary>
@@ -962,6 +951,7 @@ bool XSurface::Fill_Rect_Trans(Rect const & rect, RGBClass const & color, unsign
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
 /// <param name="color">The raw color value to draw the ellipse with.</param>
 /// <returns>bool; Was the ellipse drawn?</returns>
+#if 0
 bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, int color)
 {
 	int pitch = Stride() >> 1;
@@ -1127,6 +1117,8 @@ bool XSurface::Draw_Ellipse(Point2D point, int radx, int rady, Rect cliprect, in
 
 	return(Unlock());
 }
+#endif
+
 
 
 /// <summary>

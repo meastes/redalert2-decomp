@@ -1,0 +1,2836 @@
+{
+  "id": "rebuild-auddev",
+  "population": {
+    "id": "rebuild-auddev",
+    "inventory_sha256": "02e2e7d6a9667dfb0d2cd8bcd84eaf305cf499e34f5896da9c6c956b26ac5f16",
+    "gaps_sha256": "671d73875583eb5b7cbd22694f5aaa4955581fbcc6dfafae7b739061c73bd2c8",
+    "historical_population_sha256": "7f1ac0e2055223b038e31df383120471d4bfd0dd858efd842551dc38d2e8b8f0",
+    "historical_acceptance_sha256": "057d744ae0b2802be0da8335734a6651988f1f9e4be6d2c03cb943937b23dfb7"
+  },
+  "references": {
+    "?ListNodeInsert@@YIXPAUListNode@@0@Z": 4223824,
+    "?ListNodeRemove@@YIXPAUListNode@@@Z": 4223872,
+    "?audioInitialized@@3HA": 8588108,
+    "_audioData": 8178024,
+    "?ListInit@@YIXPAUListNode@@@Z": 4223472,
+    "?audioStdChannelAttribs@@3PAUAudioAttribs@@A": 8588112,
+    "?AudioAttribsInit@@YIXPAUAudioAttribs@@@Z": 4198400,
+    "?ListFirstItem@@YIPAUListNode@@PAU1@@Z": 4223728,
+    "?ListNextItem@@YIPAUListNode@@PAU1@@Z": 4223760,
+    "?AudioDeviceNextChannel@@YIPAUAudioChannel@@PAUAudioSearch@@@Z": 4208080,
+    "?AudioChannelDestroy@@YIXPAUAudioChannel@@@Z": 4203856,
+    "??3@YAXPAX@Z": 7871803,
+    "_audioExclusiveSystemLoaded": 8588104,
+    "??2@YAPAXI@Z": 7872535,
+    "?ListNodeInit@@YIXPAUListNode@@@Z": 4223488,
+    "?audioDeviceHandler@@YIHPAUAudioDevice@@@Z": 4206432,
+    "__allmul": 7872704,
+    "?AudioServiceInfoInit@@YIXPAUAudioServiceInfo@@@Z": 4208672,
+    "?AudioServiceSetInterval@@YIXPAUAudioServiceInfo@@_K@Z": 4208752,
+    "?AudioFormatInit@@YIXPAUAudioFormat@@@Z": 4228288,
+    "?audioDestroyDevice@@YIXPAUAudioDevice@@@Z": 4206320,
+    "?AudioGetTime@@YI_KXZ": 4231888,
+    "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z": 4198528,
+    "?AudioAttribsChanged@@YIHPAUAudioAttribs@@@Z": 4198560,
+    "?audioChannelRecalcAttribs@@YIXPAUAudioChannel@@@Z": 4203040,
+    "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z": 4198768,
+    "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z": 4223104,
+    "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z": 4223136,
+    "?audioChannelCreate@@YIPAUAudioChannel@@PAUAudioDevice@@@Z": 4202560,
+    "?AudioDeviceGetChannel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z": 4208112,
+    "?AudioChannelReserve@@YIXPAUAudioChannel@@H@Z": 4203584,
+    "?AudioChannelStop@@YIXPAUAudioChannel@@@Z": 4203952,
+    "?AudioChannelPause@@YIXPAUAudioChannel@@@Z": 4204032,
+    "?AudioChannelResume@@YIXPAUAudioChannel@@@Z": 4204112,
+    "_anim": 8178028,
+    "??_C@_0CC@IMPB@?$CF05dms?5?$CI?$CF04d?0?$CF04d?0?$CF04d?0?$HO?$CF2d?$CJ?5?$CFc?5@": 8178040,
+    "_sprintf": 7872756,
+    "??_C@_0CJ@LPLO@Audio?5Device?5Dump?5?9?9?9?9?9?9?9?9?9?9?9?9?9?9@": 8178364,
+    "??_C@_08NDLN@?$CFs?5?$CI?$CFd?$CJ?6?$AA@": 8178352,
+    "?AudioServiceInfoDump@@YIXPAUAudioServiceInfo@@PAD@Z": 4209088,
+    "??_C@_08ICON@mixer?3?$CFs?$AA@": 8178340,
+    "??_C@_08HEKE@level?3?$CFs?$AA@": 8178328,
+    "??_C@_0CA@IHB@Frames?3?5?$CFd?5Oversamp?3?5?$CFd?5Lag?3?5?$CFd?$AA@": 8178296,
+    "??_C@_0CM@EFID@Chan?3TYPE?3?5STATE?5?3?5FORMAT?5?5?3PRI?5@": 8178252,
+    "??_C@_0CH@CEHA@Chan?3TYPE?3?5STATE?5?3?5FORMAT?5?5?3PRI?5@": 8178212,
+    "??_C@_07KHIP@PLAYING?$AA@": 8178204,
+    "??_C@_07MJHB@PAUSED?5?$AA@": 8178196,
+    "??_C@_07FDEC@FREE?5?5?5?$AA@": 8178188,
+    "??_C@_04FMHO@USER?$AA@": 8178180,
+    "??_C@_04CACH@STD?5?$AA@": 8178172,
+    "??_C@_04FLDM@?$DP?$DP?$DP?5?$AA@": 8178164,
+    "??_C@_0BA@KCCG@?$CF02d?9?$CF2d?9?$CFc?$CFc?$CFc?$AA@": 8178148,
+    "??_C@_0BO@FFP@?$CD?$CF2d?5?3?$CFs?3?$CFs?3?$CFs?3?$CF4d?3?$CF3d?3?$CF?410s?6?$AA@": 8178116,
+    "??_C@_0CI@ONHE@?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9@": 8178076,
+    "??_C@_04KGGN@?$HM?1?9?2?$AA@": 8178032,
+    "_audioDataStruct": 8587944,
+    "?audioAddChannel@@YIXPAUAudioDevice@@PAUAudioChannel@@@Z": 4204640,
+    "?audioRemoveChannel@@YIXPAUAudioChannel@@@Z": 4204720,
+    "?AudioServiceAllDevices@@YIXXZ": 4204800,
+    "?AudioSetUp@@YIHXZ": 4204864,
+    "?AudioCloseDown@@YIXXZ": 4204944,
+    "?AudioLoadSystem@@YIPAUAudioSystem@@PAUAudioSystemMaster@@@Z": 4205296,
+    "?AudioUnloadSystem@@YIXPAUAudioSystem@@@Z": 4205440,
+    "?AudioUnloadAllSystems@@YIXXZ": 4205488,
+    "?AudioFirstSystem@@YIPAUAudioSystem@@PAUAudioSearch@@@Z": 4205568,
+    "?AudioNextSystem@@YIPAUAudioSystem@@PAUAudioSearch@@@Z": 4205600,
+    "?AudioNumberOfDevices@@YIHXZ": 4205632,
+    "?AudioOpenDevice@@YIPAUAudioDevice@@HPAUAudioFormat@@@Z": 4205680,
+    "?AudioDeviceSetDefaultFormat@@YIXPAUAudioDevice@@PAUAudioFormat@@@Z": 4207024,
+    "?AudioFirstDevice@@YIPAUAudioDevice@@PAUAudioSearch@@@Z": 4207056,
+    "?AudioNextDevice@@YIPAUAudioDevice@@PAUAudioSearch@@@Z": 4207088,
+    "?AudioDestroyAllDevices@@YIXXZ": 4207120,
+    "?AudioDeviceClose@@YIXPAUAudioDevice@@@Z": 4207376,
+    "?AudioDeviceDestroy@@YIXPAUAudioDevice@@@Z": 4207552,
+    "?AudioDeviceSetFormat@@YIHPAUAudioDevice@@PAUAudioFormat@@@Z": 4207712,
+    "?AudioDeviceSetVolume@@YIXPAUAudioDevice@@H@Z": 4207728,
+    "?AudioDeviceAdjustVolume@@YIXPAUAudioDevice@@H@Z": 4207744,
+    "?AudioDeviceMaxChannels@@YIHPAUAudioDevice@@@Z": 4207760,
+    "?AudioDeviceChannels@@YIHPAUAudioDevice@@@Z": 4207776,
+    "?AudioDeviceCreateChannel@@YIPAUAudioChannel@@PAUAudioDevice@@@Z": 4207792,
+    "?AudioDeviceCreateChannels@@YIHPAUAudioDevice@@H@Z": 4207920,
+    "?AudioDeviceFirstChannel@@YIPAUAudioChannel@@PAUAudioDevice@@PAUAudioSearch@@@Z": 4208048,
+    "?AudioDeviceReserveChannel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z": 4208320,
+    "?AudioDeviceDestroyAllChannels@@YIHPAUAudioDevice@@H@Z": 4208368,
+    "?AudioDeviceStopAllChannels@@YIXPAUAudioDevice@@H@Z": 4208432,
+    "?AudioDevicePauseAllChannels@@YIXPAUAudioDevice@@H@Z": 4208496,
+    "?AudioDeviceResumeAllChannels@@YIXPAUAudioDevice@@H@Z": 4208576,
+    "?AudioDeviceService@@YIHPAUAudioDevice@@@Z": 4208656,
+    "?AudioServiceSetMustServiceInterval@@YIXPAUAudioServiceInfo@@_K@Z": 4208800,
+    "?AudioServiceSetResetInterval@@YIXPAUAudioServiceInfo@@_K@Z": 4208832,
+    "?AudioServiceNeeded@@YIHPAUAudioServiceInfo@@_K@Z": 4208864,
+    "?AudioServicePerform@@YIXPAUAudioServiceInfo@@_K@Z": 4208928,
+    "?AudioDeviceDump@@YIXPAUAudioDevice@@P6IXPBD@ZH@Z": 4209280
+  },
+  "regions": [
+    {
+      "entry": 4204640,
+      "method": "00402860",
+      "body_bytes": 75,
+      "body_sha256": "20d4b6cb708ca5a91563b709709fc11677b2f6e3d29466013bc3c771c28c1bd8",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "e0beeeff19add773ef2b5205380dc53b83f3f0776a484cb6488e2b6e110b677d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioAddChannel@@YIXPAUAudioDevice@@PAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioAddChannel@@YIXPAUAudioDevice@@PAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "?ListNodeInsert@@YIXPAUListNode@@0@Z",
+          "target": 4223824,
+          "addend": 0,
+          "resolved": 19138
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4204640,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4204720,
+      "method": "004028b0",
+      "body_bytes": 78,
+      "body_sha256": "503bda738cfeb2e81070990dd2f74cdce1a648cb7ea53590cb04dc572e104e10",
+      "padding_bytes": 2,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "b7a3ea5426a2af0f6c3059bedf706707c2d05f061c2cfbc19cbab0c7b972c49f",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioRemoveChannel@@YIXPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioRemoveChannel@@YIXPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 19137
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 19104
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4204720,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4204800,
+      "method": "00402900",
+      "body_bytes": 56,
+      "body_sha256": "ac1798982f2241a828677ccff37e814759ae5981a79d08d3993de2f0f988a56b",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "157ef702bbb1cefbd6795fbf83ec38aa4df11b2bca9dcbe17b539c5b83c6b7e9",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioServiceAllDevices@@YIXXZ",
+      "symbol_prefix": "?AudioServiceAllDevices@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?audioInitialized@@3HA",
+          "target": 8588108,
+          "addend": 0,
+          "resolved": 8588108
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4204800,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-995"
+    },
+    {
+      "entry": 4204864,
+      "method": "402940",
+      "body_bytes": 70,
+      "body_sha256": "25ccb15320a6fa7b5f8a07540e5c4466c05915fed6b00f6670ab0061b1cdd91f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "587a9881087a8efae58b8ca1e75961f696bc918e88a3b789c5f7566e976038f2",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioSetUp@@YIHXZ",
+      "symbol_prefix": "?AudioSetUp@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?ListInit@@YIXPAUListNode@@@Z",
+          "target": 4223472,
+          "addend": 0,
+          "resolved": 18597
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "?ListInit@@YIXPAUListNode@@@Z",
+          "target": 4223472,
+          "addend": 0,
+          "resolved": 18584
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?audioStdChannelAttribs@@3PAUAudioAttribs@@A",
+          "target": 8588112,
+          "addend": 0,
+          "resolved": 8588112
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?AudioAttribsInit@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198400,
+          "addend": 0,
+          "resolved": 4294960775
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?audioInitialized@@3HA",
+          "target": 8588108,
+          "addend": 0,
+          "resolved": 8588108
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4204864,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-03"
+    },
+    {
+      "entry": 4204944,
+      "method": "00402990",
+      "body_bytes": 347,
+      "body_sha256": "389fdba56a736ed2b50724c18713902cc57f959409819d1e7ba942057c37fb17",
+      "padding_bytes": 5,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "820a0466d489ef4c48e65601acb728c70c1fa5e6e8fbe3dd44566bc02555bb8b",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCloseDown@@YIXXZ",
+      "symbol_prefix": "?AudioCloseDown@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?audioInitialized@@3HA",
+          "target": 8588108,
+          "addend": 0,
+          "resolved": 8588108
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 18736
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 18745
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 18832
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 18651
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "?AudioDeviceNextChannel@@YIPAUAudioChannel@@PAUAudioSearch@@@Z",
+          "target": 4208080,
+          "addend": 0,
+          "resolved": 2984
+        },
+        {
+          "offset": 157,
+          "kind": 20,
+          "symbol": "?AudioChannelDestroy@@YIXPAUAudioChannel@@@Z",
+          "target": 4203856,
+          "addend": 0,
+          "resolved": 4294966047
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3666641
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 263,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 18517
+        },
+        {
+          "offset": 285,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 18527
+        },
+        {
+          "offset": 294,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 18630
+        },
+        {
+          "offset": 314,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3666541
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "_audioExclusiveSystemLoaded",
+          "target": 8588104,
+          "addend": 0,
+          "resolved": 8588104
+        },
+        {
+          "offset": 337,
+          "kind": 6,
+          "symbol": "?audioInitialized@@3HA",
+          "target": 8588108,
+          "addend": 0,
+          "resolved": 8588108
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4204944,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4133"
+    },
+    {
+      "entry": 4205296,
+      "method": "00402af0",
+      "body_bytes": 142,
+      "body_sha256": "d6d7f0abc30dac3e65deadf0a0b5a65d5e190bc1d03a826681e11613a8132735",
+      "padding_bytes": 2,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "2c9ea49ea77650175f9491b55b11ee4938120b4083cfefb3f2938ac0abab96b9",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioLoadSystem@@YIPAUAudioSystem@@PAUAudioSystemMaster@@@Z",
+      "symbol_prefix": "?AudioLoadSystem@@YIPAUAudioSystem@@PAUAudioSystemMaster@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3667227
+        },
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "?ListNodeInit@@YIXPAUListNode@@@Z",
+          "target": 4223488,
+          "addend": 0,
+          "resolved": 18157
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3666428
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "?ListNodeInsert@@YIXPAUListNode@@0@Z",
+          "target": 4223824,
+          "addend": 0,
+          "resolved": 18404
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "_audioExclusiveSystemLoaded",
+          "target": 8588104,
+          "addend": 0,
+          "resolved": 8588104
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4205296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3592"
+    },
+    {
+      "entry": 4205440,
+      "method": "00402b80",
+      "body_bytes": 44,
+      "body_sha256": "6f32e33d77db72a14d398cd6aefee9d081d68cce4a45d05db45274734b1304e8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "751afae41849b65345dd148587e8c08e8226345a2abefdcdb3ffb546075c49cc",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioUnloadSystem@@YIXPAUAudioSystem@@@Z",
+      "symbol_prefix": "?AudioUnloadSystem@@YIXPAUAudioSystem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 18424
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3666334
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_audioExclusiveSystemLoaded",
+          "target": 8588104,
+          "addend": 0,
+          "resolved": 8588104
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4205440,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4133"
+    },
+    {
+      "entry": 4205488,
+      "method": "00402bb0",
+      "body_bytes": 80,
+      "body_sha256": "0a987015ff44d370be099db3be57991549dd024351638f6946ab22476f3e63d4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "0a987015ff44d370be099db3be57991549dd024351638f6946ab22476f3e63d4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioUnloadAllSystems@@YIXXZ",
+      "symbol_prefix": "?AudioUnloadAllSystems@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 18227
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 18244
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 18347
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3666257
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "_audioExclusiveSystemLoaded",
+          "target": 8588104,
+          "addend": 0,
+          "resolved": 8588104
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4205488,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4133"
+    },
+    {
+      "entry": 4205568,
+      "method": "402c00",
+      "body_bytes": 18,
+      "body_sha256": "6ec4c31f1988b5734042861f1fd2821dc137e171869bf7dbcf09a643cb0c0792",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e5d91365f2fb59d57462b8a902c0bf8af587683695fdf71ded5913b95df9dbdf",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioFirstSystem@@YIPAUAudioSystem@@PAUAudioSearch@@@Z",
+      "symbol_prefix": "?AudioFirstSystem@@YIPAUAudioSystem@@PAUAudioSearch@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 18146
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4205568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-02"
+    },
+    {
+      "entry": 4205600,
+      "method": "00402c20",
+      "body_bytes": 20,
+      "body_sha256": "863d1db10992d409913d4acb33f2d65bf397df98cf08fc0020c2d893ea988e9e",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "94d2d2f6f72ad9e9416c169dce19fe857ba25f7800397826ec44479b305ba92a",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioNextSystem@@YIPAUAudioSystem@@PAUAudioSearch@@@Z",
+      "symbol_prefix": "?AudioNextSystem@@YIPAUAudioSystem@@PAUAudioSearch@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 18146
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4205600,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4364"
+    },
+    {
+      "entry": 4205632,
+      "method": "00402c40",
+      "body_bytes": 40,
+      "body_sha256": "374f89065f33c4168796bcf77482c96fd27735e341bb1026c6178b67fcf80220",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c7f05cf6b2bb00e9a7f2298a37146c0d3c138128e605e70f570be5e40a7ccbd0",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioNumberOfDevices@@YIHXZ",
+      "symbol_prefix": "?AudioNumberOfDevices@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 18082
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 18096
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4205632,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4364"
+    },
+    {
+      "entry": 4205680,
+      "method": "00402c70",
+      "body_bytes": 632,
+      "body_sha256": "9e1ff1e4262dad08bdc9411590c8035f8cc91e8b75c73b2fcae34d72159580b5",
+      "padding_bytes": 8,
+      "full_extent_bytes": 640,
+      "full_extent_sha256": "77ef01d6ade449ae09c70dfc6e1feab1d05a8201be09bb25e275db8c73df4b62",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioOpenDevice@@YIPAUAudioDevice@@HPAUAudioFormat@@@Z",
+      "symbol_prefix": "?AudioOpenDevice@@YIPAUAudioDevice@@HPAUAudioFormat@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 18003
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 18005
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3666719
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?ListNodeInit@@YIXPAUListNode@@@Z",
+          "target": 4223488,
+          "addend": 0,
+          "resolved": 17649
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "?ListInit@@YIXPAUListNode@@@Z",
+          "target": 4223472,
+          "addend": 0,
+          "resolved": 17585
+        },
+        {
+          "offset": 211,
+          "kind": 20,
+          "symbol": "?AudioAttribsInit@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198400,
+          "addend": 0,
+          "resolved": 4294959801
+        },
+        {
+          "offset": 227,
+          "kind": 6,
+          "symbol": "?audioDeviceHandler@@YIHPAUAudioDevice@@@Z",
+          "target": 4206432,
+          "addend": 0,
+          "resolved": 4206432
+        },
+        {
+          "offset": 402,
+          "kind": 20,
+          "symbol": "__allmul",
+          "target": 7872704,
+          "addend": 0,
+          "resolved": 3666618
+        },
+        {
+          "offset": 456,
+          "kind": 20,
+          "symbol": "?AudioServiceInfoInit@@YIXPAUAudioServiceInfo@@@Z",
+          "target": 4208672,
+          "addend": 0,
+          "resolved": 2532
+        },
+        {
+          "offset": 465,
+          "kind": 20,
+          "symbol": "?AudioServiceSetInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+          "target": 4208752,
+          "addend": 0,
+          "resolved": 2603
+        },
+        {
+          "offset": 475,
+          "kind": 20,
+          "symbol": "?AudioFormatInit@@YIXPAUAudioFormat@@@Z",
+          "target": 4228288,
+          "addend": 0,
+          "resolved": 22129
+        },
+        {
+          "offset": 483,
+          "kind": 20,
+          "symbol": "?AudioFormatInit@@YIXPAUAudioFormat@@@Z",
+          "target": 4228288,
+          "addend": 0,
+          "resolved": 22121
+        },
+        {
+          "offset": 522,
+          "kind": 20,
+          "symbol": "?audioDestroyDevice@@YIXPAUAudioDevice@@@Z",
+          "target": 4206320,
+          "addend": 0,
+          "resolved": 114
+        },
+        {
+          "offset": 563,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 575,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 585,
+          "kind": 20,
+          "symbol": "?ListNodeInsert@@YIXPAUListNode@@0@Z",
+          "target": 4223824,
+          "addend": 0,
+          "resolved": 17555
+        },
+        {
+          "offset": 591,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 608,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4205680,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4133"
+    },
+    {
+      "entry": 4206320,
+      "method": "00402ef0",
+      "body_bytes": 108,
+      "body_sha256": "3f447aed637aad1b38b7ef86a9584c65c5b2dc17692d6f6ece691fc8f0543338",
+      "padding_bytes": 4,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "55f8aee2be9989b12eafb7d0be58d5c3f7324266a1d77d998326b17231b59b8c",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioDestroyDevice@@YIXPAUAudioDevice@@@Z",
+      "symbol_prefix": "?audioDestroyDevice@@YIXPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 17392
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 17409
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?AudioChannelDestroy@@YIXPAUAudioChannel@@@Z",
+          "target": 4203856,
+          "addend": 0,
+          "resolved": 4294964792
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3665382
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4206320,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3592"
+    },
+    {
+      "entry": 4206432,
+      "method": "00402f60",
+      "body_bytes": 585,
+      "body_sha256": "c7820a9c164ca47c10b2a52f62a4d1c0b352ba119630dfc254af25f776050d44",
+      "padding_bytes": 7,
+      "full_extent_bytes": 592,
+      "full_extent_sha256": "5b76d9a6857d31fe8ab53bfac4f704c32f8288b23a4d2b9cfb7ee843704c80f5",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioDeviceHandler@@YIHPAUAudioDevice@@@Z",
+      "symbol_prefix": "?audioDeviceHandler@@YIHPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 25419
+        },
+        {
+          "offset": 309,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294959079
+        },
+        {
+          "offset": 324,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294959064
+        },
+        {
+          "offset": 339,
+          "kind": 20,
+          "symbol": "?AudioAttribsChanged@@YIHPAUAudioAttribs@@@Z",
+          "target": 4198560,
+          "addend": 0,
+          "resolved": 4294959081
+        },
+        {
+          "offset": 354,
+          "kind": 20,
+          "symbol": "?AudioAttribsChanged@@YIHPAUAudioAttribs@@@Z",
+          "target": 4198560,
+          "addend": 0,
+          "resolved": 4294959066
+        },
+        {
+          "offset": 414,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294958974
+        },
+        {
+          "offset": 429,
+          "kind": 20,
+          "symbol": "?AudioAttribsChanged@@YIHPAUAudioAttribs@@@Z",
+          "target": 4198560,
+          "addend": 0,
+          "resolved": 4294958991
+        },
+        {
+          "offset": 448,
+          "kind": 20,
+          "symbol": "?AudioAttribsChanged@@YIHPAUAudioAttribs@@@Z",
+          "target": 4198560,
+          "addend": 0,
+          "resolved": 4294958972
+        },
+        {
+          "offset": 467,
+          "kind": 20,
+          "symbol": "?AudioAttribsChanged@@YIHPAUAudioAttribs@@@Z",
+          "target": 4198560,
+          "addend": 0,
+          "resolved": 4294958953
+        },
+        {
+          "offset": 486,
+          "kind": 20,
+          "symbol": "?AudioAttribsChanged@@YIHPAUAudioAttribs@@@Z",
+          "target": 4198560,
+          "addend": 0,
+          "resolved": 4294958934
+        },
+        {
+          "offset": 505,
+          "kind": 20,
+          "symbol": "?AudioAttribsChanged@@YIHPAUAudioAttribs@@@Z",
+          "target": 4198560,
+          "addend": 0,
+          "resolved": 4294958915
+        },
+        {
+          "offset": 516,
+          "kind": 20,
+          "symbol": "?audioChannelRecalcAttribs@@YIXPAUAudioChannel@@@Z",
+          "target": 4203040,
+          "addend": 0,
+          "resolved": 4294963384
+        },
+        {
+          "offset": 564,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294959064
+        },
+        {
+          "offset": 571,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294959057
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4206432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4207024,
+      "method": "004031b0",
+      "body_bytes": 17,
+      "body_sha256": "d32a7109887cf81f2061b4ad538e1878ebc2590ec41a46386fc3658a0fdb5e4f",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5f06bd993e64ec207f602fd127b7c6e301db57fbf4ed64a8abcd62fad6ac99ec",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceSetDefaultFormat@@YIXPAUAudioDevice@@PAUAudioFormat@@@Z",
+      "symbol_prefix": "?AudioDeviceSetDefaultFormat@@YIXPAUAudioDevice@@PAUAudioFormat@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207024,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3592"
+    },
+    {
+      "entry": 4207056,
+      "method": "004031d0",
+      "body_bytes": 20,
+      "body_sha256": "78dc0d2d0132bbbf64afb3e1d18d41a3df2a5354a60aa31f3648e1cafc10b304",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d179b48d839f105a16b46feb5a8fb23b6aa8bd9cdbd5ef71986fbbe383444398",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioFirstDevice@@YIPAUAudioDevice@@PAUAudioSearch@@@Z",
+      "symbol_prefix": "?AudioFirstDevice@@YIPAUAudioDevice@@PAUAudioSearch@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 16656
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207056,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4133"
+    },
+    {
+      "entry": 4207088,
+      "method": "004031f0",
+      "body_bytes": 20,
+      "body_sha256": "fd16f69ad14c656077e04d8f093d476c8d06ea69eb7fdcaf9549d7d9e93c9adf",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "46835707d7fa01804deaaf8e1a5a48ddcb686898c8d7262b1458e556285d7bc3",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioNextDevice@@YIPAUAudioDevice@@PAUAudioSearch@@@Z",
+      "symbol_prefix": "?AudioNextDevice@@YIPAUAudioDevice@@PAUAudioSearch@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 16658
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207088,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4133"
+    },
+    {
+      "entry": 4207120,
+      "method": "00403210",
+      "body_bytes": 251,
+      "body_sha256": "e5ae703fb12f30566b39f69c1bf3733513ea1cec3100685dfaba7f24f11bd6e8",
+      "padding_bytes": 5,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "9f229b75aed1b1e2aec28b0955207e9b30f1a1953a3d3ed4a2735390f7845977",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDestroyAllDevices@@YIXXZ",
+      "symbol_prefix": "?AudioDestroyAllDevices@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 16577
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 16574
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 16663
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 16482
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 16499
+        },
+        {
+          "offset": 146,
+          "kind": 20,
+          "symbol": "?AudioChannelDestroy@@YIXPAUAudioChannel@@@Z",
+          "target": 4203856,
+          "addend": 0,
+          "resolved": 4294963882
+        },
+        {
+          "offset": 199,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3664480
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 238,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207120,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4133"
+    },
+    {
+      "entry": 4207376,
+      "method": "00403310",
+      "body_bytes": 174,
+      "body_sha256": "27f3de26acc9ce268327eab1ed8a5899bfb350ac28d58ab3dcdb4919dd0588a0",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "b0bb87a1208d353982b113810a107b4d5bb2c010a38e587e70ce62862a1a2e80",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceClose@@YIXPAUAudioDevice@@@Z",
+      "symbol_prefix": "?AudioDeviceClose@@YIXPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 16446
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 16263
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 16280
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "?AudioChannelDestroy@@YIXPAUAudioChannel@@@Z",
+          "target": 4203856,
+          "addend": 0,
+          "resolved": 4294963663
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3664259
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3592"
+    },
+    {
+      "entry": 4207552,
+      "method": "004033c0",
+      "body_bytes": 157,
+      "body_sha256": "c7935089b902f9ec75cd6545225b1c1c0a23d66711cf81c9901c8547e051fc36",
+      "padding_bytes": 3,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "b45ee747d9f9dfddeba38b259ae7d9ae7cb25361acac7817146bbe4e51ec2032",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceDestroy@@YIXPAUAudioDevice@@@Z",
+      "symbol_prefix": "?AudioDeviceDestroy@@YIXPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 16298
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_audioData",
+          "target": 8178024,
+          "addend": 0,
+          "resolved": 8178024
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 16111
+        },
+        {
+          "offset": 76,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 16128
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?AudioChannelDestroy@@YIXPAUAudioChannel@@@Z",
+          "target": 4203856,
+          "addend": 0,
+          "resolved": 4294963511
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3664099
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207552,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3592"
+    },
+    {
+      "entry": 4207712,
+      "method": "00403460",
+      "body_bytes": 6,
+      "body_sha256": "b2b7978d5d548f0933fc054ba2e7657de5e245a5b800da344066a18f5387ad08",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b104013911922f6e1c31264a6f2e4cfe70e0cae8e45c4aa6ea3aee274cfdcf13",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceSetFormat@@YIHPAUAudioDevice@@PAUAudioFormat@@@Z",
+      "symbol_prefix": "?AudioDeviceSetFormat@@YIHPAUAudioDevice@@PAUAudioFormat@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4207728,
+      "method": "00403470",
+      "body_bytes": 8,
+      "body_sha256": "587ee8948b8af991d5acdfeda981c2ed78f56565ffda720957585cfa0ab7c05d",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "4fff59e81920486eedc6adf0aee4ed9cb8eff4896c0f9b78ab9d11e688528add",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceSetVolume@@YIXPAUAudioDevice@@H@Z",
+      "symbol_prefix": "?AudioDeviceSetVolume@@YIXPAUAudioDevice@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 15368
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207728,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3592"
+    },
+    {
+      "entry": 4207744,
+      "method": "00403480",
+      "body_bytes": 8,
+      "body_sha256": "356a9abfcafafb549792ed76257eee9a5edacf7b8ac863ed9c394b094774cb16",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3f58b342a9ccde0dada963d93715738cdd7f77f4182ef31636b0908c4cb71681",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceAdjustVolume@@YIXPAUAudioDevice@@H@Z",
+      "symbol_prefix": "?AudioDeviceAdjustVolume@@YIXPAUAudioDevice@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223136,
+          "addend": 0,
+          "resolved": 15384
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207744,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3592"
+    },
+    {
+      "entry": 4207760,
+      "method": "00403490",
+      "body_bytes": 7,
+      "body_sha256": "77f985978f92a713f60f849133828747b08eb10d3b8ef6c6a5d17d1d3deaf962",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1c963f41e3d4d3d17ef97c646b724d33415d2bc2a6f34d073f695dccde3bc073",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceMaxChannels@@YIHPAUAudioDevice@@@Z",
+      "symbol_prefix": "?AudioDeviceMaxChannels@@YIHPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207760,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4207776,
+      "method": "004034a0",
+      "body_bytes": 7,
+      "body_sha256": "0cfed9bd5dacd9397d968e3ec10546faeaa236d5b3c54ebc18ade09625c75817",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1a3d0a29b61bb6d49e7cb332c89649bca5939b4dad5878ab0ca83f400415bef1",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceChannels@@YIHPAUAudioDevice@@@Z",
+      "symbol_prefix": "?AudioDeviceChannels@@YIHPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207776,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4207792,
+      "method": "004034b0",
+      "body_bytes": 115,
+      "body_sha256": "0ae2c20b1557c8eef8d8d5da2433e9a8facfecb74bbd77f3f9898af3ccec80f4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "e20e64e9ae5b0801c6dc0a14afb03d07b19c5cf09c147c3b3b9daee7dfe435e7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceCreateChannel@@YIPAUAudioChannel@@PAUAudioDevice@@@Z",
+      "symbol_prefix": "?AudioDeviceCreateChannel@@YIPAUAudioChannel@@PAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?audioChannelCreate@@YIPAUAudioChannel@@PAUAudioDevice@@@Z",
+          "target": 4202560,
+          "addend": 0,
+          "resolved": 4294962037
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?ListNodeInsert@@YIXPAUListNode@@0@Z",
+          "target": 4223824,
+          "addend": 0,
+          "resolved": 15949
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207792,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4207920,
+      "method": "00403530",
+      "body_bytes": 118,
+      "body_sha256": "50ec2bb22467e452dadd12601652e8136b65e219f0bb04fecc82c236a86197bb",
+      "padding_bytes": 10,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "6c0e7cf846075873ecd3d67e0d10f192868ad6ce20cc93c4fb3d8c280ac1f764",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceCreateChannels@@YIHPAUAudioDevice@@H@Z",
+      "symbol_prefix": "?AudioDeviceCreateChannels@@YIHPAUAudioDevice@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?audioChannelCreate@@YIPAUAudioChannel@@PAUAudioDevice@@@Z",
+          "target": 4202560,
+          "addend": 0,
+          "resolved": 4294961904
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?ListNodeInsert@@YIXPAUListNode@@0@Z",
+          "target": 4223824,
+          "addend": 0,
+          "resolved": 15823
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4207920,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4208048,
+      "method": "004035b0",
+      "body_bytes": 18,
+      "body_sha256": "7c055d4e8ab04fd8747822ec8e46ff1930535520f254752a1cad7d5a4d403245",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8a92bbf7cbc3d6b328fd992da502337caafc388e52d27688614f5e52a2283880",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceFirstChannel@@YIPAUAudioChannel@@PAUAudioDevice@@PAUAudioSearch@@@Z",
+      "symbol_prefix": "?AudioDeviceFirstChannel@@YIPAUAudioChannel@@PAUAudioDevice@@PAUAudioSearch@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 15666
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208048,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-953"
+    },
+    {
+      "entry": 4208080,
+      "method": "004035d0",
+      "body_bytes": 20,
+      "body_sha256": "f37e14891ed84246d7ca57bbc866532b0f6eb226d2667df3bf61d23ddf529987",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6e394d53e5798e80e2b9cb3d233aa7cf91ee3279763c0fd0e41fef3e2e3cdf08",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceNextChannel@@YIPAUAudioChannel@@PAUAudioSearch@@@Z",
+      "symbol_prefix": "?AudioDeviceNextChannel@@YIPAUAudioChannel@@PAUAudioSearch@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 15666
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208080,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4208112,
+      "method": "004035f0",
+      "body_bytes": 202,
+      "body_sha256": "0d21eb915ce0d05e1f47ab3065d3a46e481a1345367e4467fb3e37e3d1f89e54",
+      "padding_bytes": 6,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "b372d48b16ed6dca8863926d0970b5c47b6ba8cd5f78c37dac0a5a7b43e4e6f7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceGetChannel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z",
+      "symbol_prefix": "?AudioDeviceGetChannel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 15560
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 15480
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208112,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4208320,
+      "method": "004036c0",
+      "body_bytes": 34,
+      "body_sha256": "f09ec219dfe5f1194d3b2ca21be197a06749e91453dda677338d2913cb115f99",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "276333cfd711b59a6b8b47f21d3f5df507dbce67ff648340ed918bdbdd0c4b05",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceReserveChannel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z",
+      "symbol_prefix": "?AudioDeviceReserveChannel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?AudioDeviceGetChannel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z",
+          "target": 4208112,
+          "addend": 0,
+          "resolved": 4294967074
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?AudioChannelReserve@@YIXPAUAudioChannel@@H@Z",
+          "target": 4203584,
+          "addend": 0,
+          "resolved": 4294962531
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208320,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4208368,
+      "method": "004036f0",
+      "body_bytes": 62,
+      "body_sha256": "a30c28dbc40f6c78ac45026c51f36c2935717400bc1583b5e5d53783811b7e82",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a1aceddbd4acad91941561c0d61f868265380f658702050bebd571ac1eaf2034",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceDestroyAllChannels@@YIHPAUAudioDevice@@H@Z",
+      "symbol_prefix": "?AudioDeviceDestroyAllChannels@@YIHPAUAudioDevice@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 15344
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 15361
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?AudioChannelDestroy@@YIXPAUAudioChannel@@@Z",
+          "target": 4203856,
+          "addend": 0,
+          "resolved": 4294962734
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208368,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4208432,
+      "method": "00403730",
+      "body_bytes": 60,
+      "body_sha256": "6f76993d6082251cfb4238e58446a1474554568456909160a70279dd26a4a969",
+      "padding_bytes": 4,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "90eb6cb2ed1153e7cbe6854773f917862fdd4f971daaf745761cb63273d56e36",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceStopAllChannels@@YIXPAUAudioDevice@@H@Z",
+      "symbol_prefix": "?AudioDeviceStopAllChannels@@YIXPAUAudioDevice@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 15280
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 15297
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?AudioChannelStop@@YIXPAUAudioChannel@@@Z",
+          "target": 4203952,
+          "addend": 0,
+          "resolved": 4294962766
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4208496,
+      "method": "00403770",
+      "body_bytes": 67,
+      "body_sha256": "ed5c4d2f64549322bd448d56c3c2b24c5ee1c53bcc180d93b2ba638ba16fb5d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "90b5ce8d9c1272dcb51559384a8008db9d561e79865551f99b02fcc6a3d25f4c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDevicePauseAllChannels@@YIXPAUAudioDevice@@H@Z",
+      "symbol_prefix": "?AudioDevicePauseAllChannels@@YIXPAUAudioDevice@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 15217
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "?AudioChannelPause@@YIXPAUAudioChannel@@@Z",
+          "target": 4204032,
+          "addend": 0,
+          "resolved": 4294962785
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 15206
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208496,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4208576,
+      "method": "004037c0",
+      "body_bytes": 67,
+      "body_sha256": "484c231a12810df9c7d71a8867bf81f4ed488a025446b80b8f29ddd27e835f57",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "53db183e63cfe9604db96e1fb831def18140de696d0857af216b40f09b832a11",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceResumeAllChannels@@YIXPAUAudioDevice@@H@Z",
+      "symbol_prefix": "?AudioDeviceResumeAllChannels@@YIXPAUAudioDevice@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 15137
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "?AudioChannelResume@@YIXPAUAudioChannel@@@Z",
+          "target": 4204112,
+          "addend": 0,
+          "resolved": 4294962785
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 15126
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208576,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1331"
+    },
+    {
+      "entry": 4208656,
+      "method": "00403810",
+      "body_bytes": 6,
+      "body_sha256": "e386488e1be8deb9ff2bd193f8413aff1cb9d4f76ae9ad5c981bd47a2de4bad4",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "18471c714c9b5950ae64c1cade34c93628e2f588333475f5970a635b0febeae1",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceService@@YIHPAUAudioDevice@@@Z",
+      "symbol_prefix": "?AudioDeviceService@@YIHPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
+    },
+    {
+      "entry": 4208672,
+      "method": "00403820",
+      "body_bytes": 66,
+      "body_sha256": "ea627a7a6b06b95d5d9816e530d07e099dd57da3e93302966a6a0a1135488be8",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "fcbc512431cdc8f824c47b09b671771ea9787d65ab2915ba02dede43341cc4bd",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioServiceInfoInit@@YIXPAUAudioServiceInfo@@@Z",
+      "symbol_prefix": "?AudioServiceInfoInit@@YIXPAUAudioServiceInfo@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4208752,
+      "method": "00403870",
+      "body_bytes": 48,
+      "body_sha256": "0524265726d0580839aedc2df676f57e18ed431739fd862e21026162a861e3f3",
+      "padding_bytes": 0,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0524265726d0580839aedc2df676f57e18ed431739fd862e21026162a861e3f3",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioServiceSetInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+      "symbol_prefix": "?AudioServiceSetInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "__allmul",
+          "target": 7872704,
+          "addend": 0,
+          "resolved": 3663914
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4208800,
+      "method": "004038a0",
+      "body_bytes": 17,
+      "body_sha256": "84e0c40fc4193d9c7a539f9a125f92ba2d5313d796d0b7563e8fc77696abf7a7",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "057910d2c0c45e58465522d17d74ee4a8ac4a3188fbf9468f2c1431823b630a7",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioServiceSetMustServiceInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+      "symbol_prefix": "?AudioServiceSetMustServiceInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4208832,
+      "method": "004038c0",
+      "body_bytes": 17,
+      "body_sha256": "e714fc3a750e748bf8c641253e82f5c654b9f87a04fcff9617880205ae3a2dd4",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "adee4d78b8a193428366ef21c4b3378ec239380bfd6a6c11e1789ea15d9fae5f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioServiceSetResetInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+      "symbol_prefix": "?AudioServiceSetResetInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4208864,
+      "method": "004038e0",
+      "body_bytes": 52,
+      "body_sha256": "31f33be7932418066403384a5aeefb94bd8b203a3e165c954ac06d0a010677c4",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "7b20fb4568173920de68aa8ae810d73041921b76fcb23346efbc24533928354d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioServiceNeeded@@YIHPAUAudioServiceInfo@@_K@Z",
+      "symbol_prefix": "?AudioServiceNeeded@@YIHPAUAudioServiceInfo@@_K@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4208928,
+      "method": "00403920",
+      "body_bytes": 149,
+      "body_sha256": "ae27444278ba013cb94326552e34dff079a06bb119b86aead762e9ba4a7a5488",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "d616213db12e56993812664b16ad324d8507457bbb784e856747077f065f699a",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioServicePerform@@YIXPAUAudioServiceInfo@@_K@Z",
+      "symbol_prefix": "?AudioServicePerform@@YIXPAUAudioServiceInfo@@_K@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4208928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4209088,
+      "method": "004039c0",
+      "body_bytes": 177,
+      "body_sha256": "f3e18f9a5b129fb5dfa9498b9851fc3c890ad18f87a61b004aa6f86e981aef50",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "21ed353b73a09f0a6cbfea06971641dcd19519ef56924972ac52d6f6eb3e345e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioServiceInfoDump@@YIXPAUAudioServiceInfo@@PAD@Z",
+      "symbol_prefix": "?AudioServiceInfoDump@@YIXPAUAudioServiceInfo@@PAD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 22784
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_anim",
+          "target": 8178028,
+          "addend": 0,
+          "resolved": 8178028
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "_anim",
+          "target": 8178028,
+          "addend": 0,
+          "resolved": 8178028
+        },
+        {
+          "offset": 158,
+          "kind": 6,
+          "symbol": "??_C@_0CC@IMPB@?$CF05dms?5?$CI?$CF04d?0?$CF04d?0?$CF04d?0?$HO?$CF2d?$CJ?5?$CFc?5@",
+          "target": 8178040,
+          "addend": 0,
+          "resolved": 8178040
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3663500
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4209088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4209280,
+      "method": "00403a80",
+      "body_bytes": 606,
+      "body_sha256": "65928776262cc839924696efc9283b965e038f644dce5b9af9a89aa1c1a9e5cd",
+      "padding_bytes": 2,
+      "full_extent_bytes": 608,
+      "full_extent_sha256": "23c6e98c848375de0ab2cd9c38c21fe2f281058978d28937c11693f29ddc235e",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioDeviceDump@@YIXPAUAudioDevice@@P6IXPBD@ZH@Z",
+      "symbol_prefix": "?AudioDeviceDump@@YIXPAUAudioDevice@@P6IXPBD@ZH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@LPLO@Audio?5Device?5Dump?5?9?9?9?9?9?9?9?9?9?9?9?9?9?9@",
+          "target": 8178364,
+          "addend": 0,
+          "resolved": 8178364
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "??_C@_08NDLN@?$CFs?5?$CI?$CFd?$CJ?6?$AA@",
+          "target": 8178352,
+          "addend": 0,
+          "resolved": 8178352
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3663421
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?AudioServiceInfoDump@@YIXPAUAudioServiceInfo@@PAD@Z",
+          "target": 4209088,
+          "addend": 0,
+          "resolved": 4294967022
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "??_C@_08ICON@mixer?3?$CFs?$AA@",
+          "target": 8178340,
+          "addend": 0,
+          "resolved": 8178340
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3663371
+        },
+        {
+          "offset": 128,
+          "kind": 20,
+          "symbol": "?AudioServiceInfoDump@@YIXPAUAudioServiceInfo@@PAD@Z",
+          "target": 4209088,
+          "addend": 0,
+          "resolved": 4294966972
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "??_C@_08HEKE@level?3?$CFs?$AA@",
+          "target": 8178328,
+          "addend": 0,
+          "resolved": 8178328
+        },
+        {
+          "offset": 151,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3663321
+        },
+        {
+          "offset": 190,
+          "kind": 6,
+          "symbol": "??_C@_0CA@IHB@Frames?3?5?$CFd?5Oversamp?3?5?$CFd?5Lag?3?5?$CFd?$AA@",
+          "target": 8178296,
+          "addend": 0,
+          "resolved": 8178296
+        },
+        {
+          "offset": 196,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3663276
+        },
+        {
+          "offset": 225,
+          "kind": 6,
+          "symbol": "??_C@_0CM@EFID@Chan?3TYPE?3?5STATE?5?3?5FORMAT?5?5?3PRI?5@",
+          "target": 8178252,
+          "addend": 0,
+          "resolved": 8178252
+        },
+        {
+          "offset": 237,
+          "kind": 6,
+          "symbol": "??_C@_0CH@CEHA@Chan?3TYPE?3?5STATE?5?3?5FORMAT?5?5?3PRI?5@",
+          "target": 8178212,
+          "addend": 0,
+          "resolved": 8178212
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3663229
+        },
+        {
+          "offset": 263,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 14181
+        },
+        {
+          "offset": 290,
+          "kind": 6,
+          "symbol": "??_C@_07KHIP@PLAYING?$AA@",
+          "target": 8178204,
+          "addend": 0,
+          "resolved": 8178204
+        },
+        {
+          "offset": 303,
+          "kind": 6,
+          "symbol": "??_C@_07MJHB@PAUSED?5?$AA@",
+          "target": 8178196,
+          "addend": 0,
+          "resolved": 8178196
+        },
+        {
+          "offset": 312,
+          "kind": 6,
+          "symbol": "??_C@_07FDEC@FREE?5?5?5?$AA@",
+          "target": 8178188,
+          "addend": 0,
+          "resolved": 8178188
+        },
+        {
+          "offset": 327,
+          "kind": 6,
+          "symbol": "??_C@_04FMHO@USER?$AA@",
+          "target": 8178180,
+          "addend": 0,
+          "resolved": 8178180
+        },
+        {
+          "offset": 337,
+          "kind": 6,
+          "symbol": "??_C@_04CACH@STD?5?$AA@",
+          "target": 8178172,
+          "addend": 0,
+          "resolved": 8178172
+        },
+        {
+          "offset": 344,
+          "kind": 6,
+          "symbol": "??_C@_04FLDM@?$DP?$DP?$DP?5?$AA@",
+          "target": 8178164,
+          "addend": 0,
+          "resolved": 8178164
+        },
+        {
+          "offset": 476,
+          "kind": 6,
+          "symbol": "??_C@_0BA@KCCG@?$CF02d?9?$CF2d?9?$CFc?$CFc?$CFc?$AA@",
+          "target": 8178148,
+          "addend": 0,
+          "resolved": 8178148
+        },
+        {
+          "offset": 482,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3662990
+        },
+        {
+          "offset": 539,
+          "kind": 6,
+          "symbol": "??_C@_0BO@FFP@?$CD?$CF2d?5?3?$CFs?3?$CFs?3?$CFs?3?$CF4d?3?$CF3d?3?$CF?410s?6?$AA@",
+          "target": 8178116,
+          "addend": 0,
+          "resolved": 8178116
+        },
+        {
+          "offset": 545,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3662927
+        },
+        {
+          "offset": 568,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 13908
+        },
+        {
+          "offset": 588,
+          "kind": 6,
+          "symbol": "??_C@_0CI@ONHE@?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9?9@",
+          "target": 8178076,
+          "addend": 0,
+          "resolved": 8178076
+        }
+      ],
+      "source_sha256": "6d20301b9387e42c08a9c6a789832597a44c15d1f35ad9f67b339e838d5caed4",
+      "source": "rebuild/src/auddev.cpp",
+      "population": "rebuild-auddev",
+      "source_order": 4209280,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}
