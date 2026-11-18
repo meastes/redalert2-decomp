@@ -704,6 +704,12 @@
    "why": "DAT_00886FA8 is TacticalRect.Width (gamemd.exe's TacticalRect at 0x00886FA0): natively the name reads the unit's TacticalRect, not a separate zero-filled store the link closure would make (lane Y4)."
   },
   {
+   "file": "src/gscreen.cpp",
+   "old": "extern bool DAT_00884D2E;",
+   "new": "#define DAT_00884D2E (Map.unknown_byte_5546)\t// NATIVE (lane Y14)",
+   "why": "DAT_00884D2E is Map's TabClass::unknown_byte_5546 (0x0087F7E8 + 0x5546 = 0x00884D2E): TabClass::Draw_It sets it after drawing the command bar on the composite surface, and Update_Visible_Surface (0x004F4A26) then copies the bar's 32 rows to the screen. Natively the name was a separate global that stayed false, so the bar's rows were never copied (the user's report: no bottom bar in Yuri's Revenge); it reads the member, as gamemd.exe does."
+  },
+  {
    "file": "src/tab.cpp",
    "old": "extern int DAT_00886FA8;",
    "new": "extern Rect TacticalRect;\n#define DAT_00886FA8 (TacticalRect.Width)",
@@ -1454,6 +1460,30 @@
    "old": "extern int DAT_00ABDE88;\n",
    "new": "#define DAT_00ABDE88 LEVEL_LEPTON_H   // the map unit's own copy of geometry.h's LEVEL_LEPTON_H (gamemd.exe 0x00ABDE88, set by its initialiser 0x005617E0)\n",
    "why": "DAT_00ABDE88 is the map unit's copy of geometry.h's LEVEL_LEPTON_H (gamemd.exe's initialiser 0x005617E0 stores (int)(tan(RAD_90 - RAD_60) * CELL_LEPTON_DIAG * 0.5) there). Natively nothing set it: Is_Shrouded and the cell-height reads divided by zero (0 on arm64, a fault on x86-64; lane Y13)."
+  },
+  {
+   "file": "src/team.cpp",
+   "old": "void __fastcall LightningStorm_Start(int duration, int deferment, int center, bool flag);",
+   "new": "void __fastcall FUN_00539EB0(int duration, int deferment, Cell cell, HouseClass * owner);",
+   "why": "The team script's ion storm actions (TMission_ION_STORM_START 0x006EE0A0, _END 0x006EE0E0) call gamemd.exe's LightningStorm::Start (0x00539EB0) and ::RequestStop (0x0053A090), which ion.cpp matches as FUN_00539EB0(int, int, Cell, HouseClass *) and FUN_0053A090; team.cpp declared them under other names (link-closure traps on a campaign's play path) and Start with (int center, bool flag), where gamemd.exe pushes the cell DAT_00B0E948 as a dword and a null owner. The calls name the matched functions with their types (lane Y14)."
+  },
+  {
+   "file": "src/team.cpp",
+   "old": "void __cdecl LightningStorm_RequestStop(void);",
+   "new": "void FUN_0053A090(void);",
+   "why": "The team script's ion storm actions (TMission_ION_STORM_START 0x006EE0A0, _END 0x006EE0E0) call gamemd.exe's LightningStorm::Start (0x00539EB0) and ::RequestStop (0x0053A090), which ion.cpp matches as FUN_00539EB0(int, int, Cell, HouseClass *) and FUN_0053A090; team.cpp declared them under other names (link-closure traps on a campaign's play path) and Start with (int center, bool flag), where gamemd.exe pushes the cell DAT_00B0E948 as a dword and a null owner. The calls name the matched functions with their types (lane Y14)."
+  },
+  {
+   "file": "src/team.cpp",
+   "old": "LightningStorm_Start(mission->Data.Value, Rule->LightningDeferment, DAT_00B0E948, false);",
+   "new": "FUN_00539EB0(mission->Data.Value, Rule->LightningDeferment, *(Cell const *)&DAT_00B0E948, NULL);",
+   "why": "The team script's ion storm actions (TMission_ION_STORM_START 0x006EE0A0, _END 0x006EE0E0) call gamemd.exe's LightningStorm::Start (0x00539EB0) and ::RequestStop (0x0053A090), which ion.cpp matches as FUN_00539EB0(int, int, Cell, HouseClass *) and FUN_0053A090; team.cpp declared them under other names (link-closure traps on a campaign's play path) and Start with (int center, bool flag), where gamemd.exe pushes the cell DAT_00B0E948 as a dword and a null owner. The calls name the matched functions with their types (lane Y14)."
+  },
+  {
+   "file": "src/team.cpp",
+   "old": "\t\tLightningStorm_RequestStop();",
+   "new": "\t\tFUN_0053A090();",
+   "why": "The team script's ion storm actions (TMission_ION_STORM_START 0x006EE0A0, _END 0x006EE0E0) call gamemd.exe's LightningStorm::Start (0x00539EB0) and ::RequestStop (0x0053A090), which ion.cpp matches as FUN_00539EB0(int, int, Cell, HouseClass *) and FUN_0053A090; team.cpp declared them under other names (link-closure traps on a campaign's play path) and Start with (int center, bool flag), where gamemd.exe pushes the cell DAT_00B0E948 as a dword and a null owner. The calls name the matched functions with their types (lane Y14)."
   }
  ]
 }

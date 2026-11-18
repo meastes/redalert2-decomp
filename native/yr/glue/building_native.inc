@@ -1151,7 +1151,7 @@ bool BuildingClass::Captured(HouseClass * newowner, bool announce)
 
 	TechnoClass::Captured(newowner, true);
 
-	if (Class->IsCloakGenerator && Is_Powered_On()) {
+	if (Class->IsCloakGenerator && IsPowerOnline()) {	// gamemd.exe 0x00448C01: vtable slot 0x350 (lane Y14)
 		Enable_Cloak_Generator();
 	}
 	oldowner->ToCapture = this;

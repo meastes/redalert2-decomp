@@ -7,7 +7,12 @@ Skirmish -> Start Game -> the loading screen -> a short play with taps (select, 
 (the game's own pictures; simctl's screenshots of the Metal layer are black) every second go to
 --work/<game>/shots; the touch controls' and dialogs' lines are in each run.log. Checks: no trap or
 fault in either game; on Options and Enhancements the backdrop region is drawn and is not noise
-(menu_backdrop.py's measure). Not a ctest (it needs the Simulator). Only "RA2 Duo Validation" is
+(menu_backdrop.py's measure); the touch Skip button is not left showing on the start-up loading screen
+(lane Y14, the user's report: Yuri's Revenge keeps its intro movie open through the load, so the button
+stayed until the main menu: in Yuri's Revenge a "movie" touch-controls state must give way before the
+first "menu"; Red Alert 2 loads before its intro and goes from the movie straight to its menu); in
+Yuri's Revenge the command bar is laid out under the tactical view and drawn on the screen (lane Y14, the
+user's "missing bottom bar"; the harness's `rects` at frame 600). Not a ctest (it needs the Simulator). Only "RA2 Duo Validation" is
 used; booted when shut down and shut down again afterwards.
 
   ios_sim_menus.py --app build/ios-one-simulator/RA2YR.app --data-dir <RA2 + YR folder> --work <dir>
@@ -110,6 +115,8 @@ def main():
             os.makedirs(shots, exist_ok=True)
             env = {'RA2_NATIVE_ENHANCEMENTS': a.enhancements, 'RA2_NATIVE_WINDOW_DUMP': os.path.join(shots, 'w'),
                    'RA2_NATIVE_MOVIE_SKIP': '0' if a.movies else '1'}
+            if game == 'yr':
+                env['RA2_NATIVE_ORDERS'] = '600 rects'
             text = one.launch(a, game, ['--game=' + game], [script(a.play_w)], a.play_seconds, env)
             if 'unrecovered ' in text or 'crash: signal' in text:
                 failures.append('%s: a trap or fault: %s' % (game, [l for l in text.splitlines() if 'unrecovered' in l or 'crash:' in l][:2]))
@@ -129,6 +136,25 @@ def main():
                         failures.append('%s: %s: no backdrop (black)' % (game, step))
                     elif red < 0.6:
                         failures.append('%s: %s: the backdrop is noise' % (game, step))
+            states = re.findall(r'^host: touch controls: (\w+)', text, re.M)
+            # Red Alert 2 loads before its intro and goes from the movie straight to the menu; Yuri's
+            # Revenge loads after its intro, behind its loading screen.
+            if game == 'yr' and 'menu' in states and 'movie' in states[:states.index('menu')]:
+                before = states[:states.index('menu')]
+                if before[-1] == 'movie':
+                    failures.append('%s: the Skip button stayed on until the main menu (start-up loading screen)' % game)
+            if game == 'yr':
+                rects = re.search(r'^harness-rects tactical (-?\d+),(-?\d+) (\d+)x(\d+) visible (\d+)x(\d+) commandbar (\d+),(\d+) (\d+)x(\d+)', text, re.M)
+                shown = re.search(r'^harness-rects commandbar on screen (-?\d+)% drawn', text, re.M)
+                if not rects or not shown:
+                    failures.append('yr: no command bar report (harness rects at frame 600)')
+                else:
+                    ty, th, vh, by, bh = (int(rects.group(i)) for i in (2, 4, 6, 8, 10))
+                    print('yr: %s; %s' % (rects.group(0), shown.group(0)))
+                    if bh != 32 or by != vh - 32 or ty + th != by:
+                        failures.append('yr: the command bar is not under the tactical view')
+                    if int(shown.group(1)) < 10:
+                        failures.append('yr: the command bar is not drawn (%s%%)' % shown.group(1))
             for l in text.splitlines():
                 if l.startswith('host: touch controls:') or l.startswith('host: on-screen keyboard'):
                     print('%s: %s' % (game, l))

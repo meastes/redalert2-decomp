@@ -521,6 +521,49 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   and the guest's `MPlayer_Guest_Dialog_Proc`; then Start Game, the game in step (RA2's `native-lan-pair`
   checks: per-frame CRCs, RA2_NATIVE_CRC_LOG) and the Mac + Windows pair. Closure entries likely on that path:
   `DecodePubGameopt`, `FUN_005E6920`, `Send_Statistics_Packet`, `Draw_Sync_Bars`, `FUN_00637E00`.
+### Lane Y14 (2026-11-17): the user's graphics reports, the command bar, the Skip button, stand-ins
+
+* **Vehicle noise on a new picture** (the user's iPhone reports: a deploying MCV and a Grizzly's first move drawn as
+  pink, green and white noise, gone once the vehicle had moved): a vehicle composites its voxels on the eight-bit
+  surface (UnitClass::Unit_Draw_Voxel); a picture not yet in the voxel cache is rendered directly by
+  TechnoClass::Techno_Render_Voxel_Object (glue/techno_native.inc, NON-EXACT, gamemd.exe 0x00706ED0), whose draft drew
+  it through the house's 16-bit converter: 16-bit pixels written into an 8-bit surface. It now picks EightBitDrawer
+  while compositing, as gamemd.exe (0x0070717D) and the tree's Techno_Blit_Voxel do; Techno_Draw_Object's TibSun text
+  had lost the same choice. ctest `yr-native-graphics` (yr/tests/yr_graphics.py): the harness watches the composed
+  tactical view for noise-coloured pixels for 900 frames while the MCV deploys and a Grizzly first moves (0-24 pixels a
+  frame now; 75-210 with the old draft).
+* **The command bar** (the user's "missing bottom bar"): TabClass::Draw_It draws it on the composite surface and sets
+  Map's TabClass::unknown_byte_5546 (0x0087F7E8 + 0x5546 = gamemd.exe's DAT_00884D2E); Update_Visible_Surface copies
+  the bar's 32 rows only while that flag is set. Natively DAT_00884D2E was a separate global that stayed false, so the
+  bar never reached the screen. fixups.json: gscreen.cpp reads the member. `yr-native-graphics` checks the layout (the
+  tactical view ends where the bar starts) and the bar's rows on the screen; `ios_sim_menus.py` does the same on
+  "RA2 Duo Validation" (interface size 1.25x, HD vehicles off: tactical 656x568, bar 656x32 at 568, 29% drawn).
+  Likely also the cause of lane Y10's "a loaded game redraws its command bar only once the mouse passes over it".
+* **The Skip button on the loading screen** (the user's screenshot): Yuri's Revenge keeps its intro movie open through
+  the start-up load, and the touch controls counted any open full movie as playing. port/src/bink.cpp: a full movie
+  counts only while the game polls it (BinkWait/BinkDoFrame within the last second of the game clock); host.cpp also
+  updates the touch controls when presenting (the load presents without pumping events). `ios_sim_menus.py` checks the
+  Skip button gives way before the main menu in Yuri's Revenge.
+* **Stand-ins** (link closure 184 -> 175):
+  - NON-EXACT HouseClass::Fire_PsyDom (glue/house_native.inc, gamemd.exe 0x0050A150, in the shape of its matched
+    siblings);
+  - the team script's ion storm actions call the matched FUN_00539EB0 / FUN_0053A090 (LightningStorm::Start /
+    RequestStop) with their real types (fixups.json; team.cpp had (int center, bool flag) where gamemd.exe pushes a
+    cell and a null owner);
+  - bindings (data/name_aliases.tsv): TechnoClass::GotHijacked is the slot gamemd.exe fills with the tree's empty
+    Scatter_Incoming_Infantry (0x0070D980); BuildingClass::Spied_By is Infiltrate (0x004571E0, what gamemd.exe's
+    Per_Cell_Process calls); BuildingClass::Power_Off is DisableStuff (0x00452480, what Turn_Off calls);
+  - BuildingClass::Captured's draft asks IsPowerOnline (vtable slot 0x350, as gamemd.exe 0x00448C01), not the
+    undefined Is_Powered_On;
+  - NON-EXACT MapClass::Repair_Train_Bridge and Repair_Bridge (TibSun's text, glue/map_native.inc; not compared with
+    gamemd.exe's RepairWoodBridgeAt 0x00570050 / RepairConcreteBridgeAt 0x00573540; no test reaches them yet).
+  Still open on play paths: BuildingClass::Do_MISSION_UNLOAD (0x0044D880, 2,848 bytes; RA2 twin 0x00449290 in
+  src/recovered/building.cpp), ParticleClass::Gas_Behavior_AI, TechnoClass::Draw_A_Link_To (needs
+  DSurface::Draw_Depth_Antialiased_Line, also open), RadBeam FUN_00659AC0/FUN_00659FF0, WaveClass::Draw_Laser /
+  Draw_Sonic / FUN_007602E0, MechLocomotionClass::Movement_AI, UnitClass::Is_Route_Broken.
+* **Harness** (glue/yr_harness.cpp): `deploy <ID>`, `move <ID> <dx> <dy>`, `where <ID>`, `rects`, `noise <frames>`.
+* **Open from Y12**: the campaign dialog's Difficulty label `MISSING:''` (StringTable::LoadString given an empty
+  label; the dialog's code was not found in the time box) and the LTNK position (not investigated).
 
 ## Next: iOS and Windows
 

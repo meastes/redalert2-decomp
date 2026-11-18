@@ -324,6 +324,11 @@ struct NativeBink {
 // at least 400 pixels wide. The menus' Bink animations are silent (the main menu's
 // 632x570 background) and the radar's in-game movies are small.
 int full_movies = 0;
+// Game-clock time a full movie was last polled (BinkOpen, BinkWait, BinkDoFrame). Yuri's Revenge
+// keeps its intro movie open after the last frame (or a skip) through the start-up load, whose
+// loading screen then showed the touch Skip button (user report 2026-11-17, lane Y14): a full movie
+// counts as playing only while the game is still polling it.
+double full_movie_polled = 0;
 const char *last_error = "";
 bool sound_system = false;           // BinkSetSoundSystem was given a DirectSound
 int volume = 32768;
@@ -477,7 +482,7 @@ void decode_sound(NativeBink *bink, unsigned n)
 }  // namespace
 
 namespace ra2port {
-bool movie_playing() { return full_movies > 0; }
+bool movie_playing() { return full_movies > 0 && now() - full_movie_polled < 1.0; }
 }
 
 namespace { bool skip_startup_movies = false; }
@@ -570,6 +575,7 @@ void *BinkOpen(const char *name, DWORD flags)
     if (bink->tracks > 0 && bink->Width >= 400) {
         bink->full_movie = true;
         ++full_movies;
+        full_movie_polled = now();
     }
     trace("BinkOpen: '%c' %dx%d, %u frames at %u/%u fps, %u audio tracks (%u Hz, flags 0x%X)%s", header[3],
           bink->Width, bink->Height, bink->Frames, bink->FrameRate, bink->FrameRateDiv, bink->tracks, rate, aflags,
@@ -615,6 +621,7 @@ int BinkDDSurfaceType(void *) { return 10; }   // BINKSURFACE565: the port's Dir
 int BinkDoFrame(void *handle)
 {
     NativeBink *bink = (NativeBink *)handle;
+    if (bink && bink->full_movie) full_movie_polled = now();
     if (bink && (bink->stream || bink->wav)) decode_sound(bink, bink->FrameNum);
     if (bink && bink->video) decode_video(bink, bink->FrameNum);
     return 0;
@@ -674,6 +681,7 @@ int BinkWait(void *handle)
 {
     NativeBink *bink = (NativeBink *)handle;
     if (!bink) return 0;
+    if (bink->full_movie) full_movie_polled = now();
     if (skip_movies()) {
         if (bink->held) { bink->held = false; return 1; }
         return 0;

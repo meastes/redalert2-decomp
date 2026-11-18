@@ -13,7 +13,20 @@
 //                   Logs `harness-shoot <ID> &<attacker> &<target> s<target strength>`;
 //   watch           from then on, every 50 frames, the shoot target's strength (`harness-watch s<n>`)
 //                   and `harness-killed <ID> at frame <f>` once it has left the game;
-//   hunt            every combat unit of the player's gets MISSION_HUNT (the AI attack teams' order).
+//   hunt            every combat unit of the player's gets MISSION_HUNT (the AI attack teams' order);
+//   deploy <ID>     the player's first unit of type ID deploys (MISSION_UNLOAD, as EventClass DEPLOY queues
+//                   it: an MCV unpacks into its Construction Yard) (lane Y14);
+//   move <ID> <dx> <dy>  the player's first unit of type ID moves dx,dy cells from its cell (MISSION_MOVE);
+//   where <ID>      logs `harness-where <ID> px<x>,<y> &<addr>`: the player's first techno of type ID on the
+//                   tactical view (window pixels of the 800x600 view, TacticalClass::Coord_To_Pixel), or
+//                   `off` when not on the view;
+//   rects           logs the layout (`harness-rects tactical ... commandbar ...`) and how much of the command
+//                   bar's rows on the screen are drawn (`harness-rects commandbar on screen <n>% drawn`);
+//   noise <frames>  for that many frames, counts in the composed tactical view (CompositeSurface, RGB565)
+//                   the pixels coloured as a broken draw's noise (saturated magenta, pure green: 16-bit
+//                   pixels written into the eight-bit compositing surface show as random palette entries);
+//                   logs `harness-noise <n> at frame <f>` for each frame over 60 and at the end
+//                   `harness-noise-max <n> over <frames> frames` (lane Y14).
 // RA2_NATIVE_FORCE_END=<f1>[,<f2>...][,lose]: at the first loop frame at or past each entry the game
 // ends as the house AI ends it on a win or defeat (PlayerWins / PlayerLoses, read by the main loop);
 // logs `force-end: win|loss at frame <f> in <scenario>`, so a campaign goes on mission by mission.
@@ -27,10 +40,19 @@
 #include "scenario.h"
 #include "mission.hh"
 #include "rtti.hh"
+#include "_tactica.h"
+#include "_surface.h"
+#include "surface.h"
+#include "tactical.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+extern Rect TacticalRect;
+extern Rect VisibleRect;
+extern Rect * DAT_00B0FC58;	// the command bar's area (FUN_0072FC60)
+extern bool DAT_00B0FC0C;	// the command bar laid out
 
 namespace {
 
@@ -41,6 +63,9 @@ int order_done = 0;
 
 TechnoClass * shoot_target = NULL;
 char shoot_type[32] = "";
+int noise_frames = 0;
+int noise_total = 0;
+int noise_max = 0;
 bool watching = false;
 bool killed = false;
 
@@ -75,6 +100,26 @@ bool Is_Live(TechnoClass * techno)
 		if (Technos[i] == techno) return(true);
 	}
 	return(false);
+}
+
+// The share (percent) of the command bar's rows on the screen (VisibleSurface) that are not black.
+int Bar_Drawn(Rect const & bar)
+{
+	Surface * surface = VisibleSurface;
+	if (surface == NULL || surface->Bytes_Per_Pixel() != 2 || bar.Height < 8) return(-1);
+	unsigned char * base = (unsigned char *)surface->Lock();
+	if (base == NULL) return(-1);
+	int lit = 0, total = 0;
+	for (int y = bar.Y + 2; y < bar.Y + bar.Height - 2 && y < surface->Get_Height(); ++y) {
+		unsigned short const * row = (unsigned short const *)(base + (size_t)y * surface->Stride());
+		for (int x = bar.X; x < bar.X + bar.Width && x < surface->Get_Width(); x += 2) {
+			int r = (row[x] >> 11) << 3, g = ((row[x] >> 5) & 63) << 2, b = (row[x] & 31) << 3;
+			++total;
+			if (r > 24 || g > 24 || b > 24) ++lit;
+		}
+	}
+	surface->Unlock();
+	return(total ? lit * 100 / total : -1);
 }
 
 int Run_Order(int frame, char const * text)
@@ -163,7 +208,73 @@ int Run_Order(int frame, char const * text)
 		}
 		return(count);
 	}
+	if (!strcmp(word[0], "rects")) {
+		Rect bar = DAT_00B0FC58 != NULL ? *DAT_00B0FC58 : Rect(0, 0, 0, 0);
+		fprintf(stderr, "harness-rects tactical %d,%d %dx%d visible %dx%d commandbar %d,%d %dx%d (%s) composite %dx%d\n",
+			TacticalRect.X, TacticalRect.Y, TacticalRect.Width, TacticalRect.Height, VisibleRect.Width, VisibleRect.Height,
+			bar.X, bar.Y, bar.Width, bar.Height, DAT_00B0FC0C ? "laid out" : "not laid out",
+			CompositeSurface ? CompositeSurface->Get_Width() : 0, CompositeSurface ? CompositeSurface->Get_Height() : 0);
+		fprintf(stderr, "harness-rects commandbar on screen %d%% drawn\n", Bar_Drawn(bar));
+		return(1);
+	}
+	if (!strcmp(word[0], "noise") && words >= 2) {
+		noise_frames = noise_total = atoi(word[1]);
+		noise_max = 0;
+		return(noise_frames);
+	}
+	if ((!strcmp(word[0], "deploy") || !strcmp(word[0], "move") || !strcmp(word[0], "where")) && words >= 2) {
+		TechnoClass * found = NULL;
+		for (int i = 0; i < Technos.Count() && found == NULL; ++i) {
+			TechnoClass * techno = Technos[i];
+			if (techno != NULL && techno->House == PlayerPtr && !techno->IsInLimbo && !strcmp(Type_Name(techno), word[1])) {
+				found = techno;
+			}
+		}
+		if (found == NULL) {
+			fprintf(stderr, "harness-%s: no unit of type %s\n", word[0], word[1]);
+			return(-1);
+		}
+		if (word[0][0] == 'w') {
+			Point2D pixel;
+			if (TacticalMap->Coord_To_Pixel(found->Center_Coord(), pixel)) {
+				fprintf(stderr, "harness-where %s px%d,%d &%p\n", word[1], pixel.X, pixel.Y, (void *)found);
+			} else {
+				fprintf(stderr, "harness-where %s off &%p\n", word[1], (void *)found);
+			}
+			return(1);
+		}
+		TargetClass none;
+		TargetClass none2;
+		if (word[0][0] == 'd') {
+			Queue_Mission(TargetClass(found), MISSION_UNLOAD, none, none2);
+		} else {
+			if (words < 4) return(-1);
+			Coord coord = found->Center_Coord();
+			Cell cell(coord.X / 256 + atoi(word[2]), coord.Y / 256 + atoi(word[3]));
+			TargetClass dest(cell);
+			Queue_Mission(TargetClass(found), MISSION_MOVE, none, dest);
+		}
+		fprintf(stderr, "harness-%s %s &%p\n", word[0], word[1], (void *)found);
+		return(1);
+	}
 	return(-1);
+}
+
+int Noise_Pixels(Surface * surface)
+{
+	if (surface == NULL || surface->Bytes_Per_Pixel() != 2) return(-1);
+	unsigned char * base = (unsigned char *)surface->Lock();
+	if (base == NULL) return(-1);
+	int count = 0;
+	for (int y = 0; y < surface->Get_Height(); ++y) {
+		unsigned short const * row = (unsigned short const *)(base + (size_t)y * surface->Stride());
+		for (int x = 0; x < surface->Get_Width(); ++x) {
+			int r = (row[x] >> 11) << 3, g = ((row[x] >> 5) & 63) << 2, b = (row[x] & 31) << 3;
+			if ((r > 180 && b > 180 && g < 110) || (g > 190 && r < 110 && b < 110)) ++count;
+		}
+	}
+	surface->Unlock();
+	return(count);
 }
 
 void Force_End(int frame)
@@ -207,6 +318,12 @@ void yr_native_harness_frame(int frame)
 		} else if (frame % 50 == 0) {
 			fprintf(stderr, "harness-watch s%d at frame %d\n", shoot_target->Strength, frame);
 		}
+	}
+	if (noise_frames > 0) {
+		int n = Noise_Pixels(CompositeSurface);
+		if (n > noise_max) noise_max = n;
+		if (n > 60) fprintf(stderr, "harness-noise %d at frame %d\n", n, frame);
+		if (--noise_frames == 0) fprintf(stderr, "harness-noise-max %d over %d frames\n", noise_max, noise_total);
 	}
 	Force_End(frame);
 }

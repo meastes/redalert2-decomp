@@ -100,3 +100,11 @@ __Z18Bit_Unstuff_StringPKcPti	__Z18Bit_Unstuff_StringPhPtj
 __Z12Build_Numberv	__Z12FUN_00777B50v
 # OwnerDraw::Draw_Dialog_Back (netshare.cpp ODMessageBox_Proc, queue.cpp, worlddom.cpp) is OwnerDraw::Paint: gamemd.exe 0x005E2E64 calls 0x00621E90 there (lane YW, the network message box).
 __ZN9OwnerDraw16Draw_Dialog_BackEP6HWND__	__ZN9OwnerDraw5PaintEP6HWND__
+# TechnoClass::GotHijacked is TechnoClass vtable slot 0x2E0, which gamemd.exe fills with 0x0070D980, the tree's (empty)
+# TechnoClass::Scatter_Incoming_Infantry; BuildingClass's override 0x004576F0 scatters the infantry heading into it (lane Y14).
+__ZN11TechnoClass11GotHijackedEv	__ZNK11TechnoClass25Scatter_Incoming_InfantryEv
+# BuildingClass::Spied_By (the TibSun-text Per_Cell_Process draft's spy entry) is gamemd.exe's BuildingClass::Infiltrate,
+# 0x004571E0, which InfantryClass::Per_Cell_Process (0x00519630) calls there (lane Y14).
+__ZN13BuildingClass8Spied_ByEP10HouseClass	__ZN13BuildingClass10InfiltrateEP10HouseClass
+# BuildingClass::Power_Off (called by Turn_Off, 0x00452360) is gamemd.exe 0x00452480, the tree's BuildingClass::DisableStuff (lane Y14).
+__ZN13BuildingClass9Power_OffEv	__ZN13BuildingClass12DisableStuffEv

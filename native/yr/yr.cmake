@@ -270,6 +270,13 @@ add_test(NAME yr-native-combat COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRE
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-combat")
 set_tests_properties(yr-native-combat PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
 
+# ctest yr-native-graphics (lane Y14): no noise drawn while the MCV deploys and a Grizzly first moves
+# (a vehicle's uncached voxel picture through the eight-bit drawer; yr/tests/yr_graphics.py)
+add_test(NAME yr-native-graphics COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_graphics.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-graphics")
+set_tests_properties(yr-native-graphics PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
+
 # ctest yr-native-campaign-allied / -soviet (lane Y12): each side's campaign through the menus, its seven
 # missions won in turn (RA2_NATIVE_FORCE_END) through their score screens, the final movie, the credits
 # and the main menu again (yr/tests/yr_campaign_chain.py; about 6 minutes a side).

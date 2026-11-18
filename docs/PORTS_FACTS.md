@@ -1,6 +1,6 @@
 # Native ports: facts for an update
 
-Plain facts about the native Mac, iPhone and Windows ports as of 2026-11-17, each with how
+Plain facts about the native Mac, iPhone and Windows ports as of 2026-11-17 (lane Y14), each with how
 it was checked. "Not verified" marks anything nobody has confirmed. Numbers for the exact
 decompilation are in [STATUS.md](STATUS.md); this file covers only the ports.
 
@@ -81,34 +81,48 @@ A separate native build made from the ra2-decomp project's source (GPL), sharing
 platform layer. It earns no exact-match credit.
 
 - Mac: skirmishes play from the main menu through a full game to the score screen; a
-  10-minute game against three hard AI players runs without a fault (ctest
-  `yr-native-skirmish-long`).
+  45-minute game against three hard AI players (Russia, Russia, Yuri) runs without a fault
+  (lane Y13; ctest `yr-native-skirmish-long` runs 10 minutes). Combat: TechnoClass::Fire_At is
+  written (a clearly labelled stand-in, not exact) and a forced attack deals damage and kills
+  (ctest `yr-native-combat`).
+- Campaigns: both campaigns pass a test that forces each win in turn: all 14 missions start
+  and end, both endings, the credits and the return to the main menu (ctests
+  `yr-native-campaign-allied`/`-soviet`). Real wins are not played yet (left to the user).
 - Saves: Yuri's Revenge saves in the original game's format (gamemd.exe's), as Red Alert 2 does
   (ctest `yr-native-save`: save, load from the menus, play on, save again). Not verified: the
   installed Yuri's Revenge on Windows loading a save the port wrote, and the reverse.
-- iPhone (in the one-game app): skirmish, sound, touch and building placement. Fixed on
-  2026-11-17 (lane Y11): the menus' backdrops (Options was black, Enhancements showed noise) and
-  a crash when the app went to the background in the menus. Also added: the game's own text
-  fields raise the on-screen keyboard, and the loading screen draws the map preview.
-- Still open on iPhone:
-  - the loading screen lacks its title, the player names and its texts (it is a partial
-    stand-in so far);
-  - the on-screen keyboard in Yuri's Revenge's text fields: not verified on the device;
-  - unit animation glitches and a Skip button on the loading screen were reported by the user and
-    not reproduced (not verified; no record in the repository yet);
-  - in longer games combat reaches TechnoClass::Fire_At, which is not written yet for Yuri's
-    Revenge and stops the game there (first seen about 16 minutes into a 20-minute game against
-    three hard opponents).
-- Not working or not verified yet: campaigns not tried; Modern controls not wired on iPhone
-  (Classic only); one crash at game start seen in 1 of 10 simulator runs (not re-checked since);
-  longer games may reach other functions not recovered yet (written as clearly labelled stand-in
-  code); no Windows build yet.
+- iPhone (in the one-game app): skirmish, sound, touch and building placement; Modern controls
+  are wired (two-finger tap gives Modern's order; checked on the simulator, lane Y12); the
+  loading screen draws the map preview, the country's name and texts, and the campaign
+  loading screen its picture and briefing.
+- Windows: a Yuri's Revenge build exists (cross-built on the Mac, `YRNative.exe`; lane Y13).
+  Checked only under Wine (ctest `yr-native-skirmish-smoke`: menus, a skirmish, abort); not
+  run on a real PC yet. No one-game (both games in one app) build on Windows yet.
+- Fixed 2026-11-17 (lane Y14), from the user's iPhone reports:
+  - noise in place of a deploying MCV and of a Grizzly on its first move (any vehicle drawn
+    at a new facing before the game had cached that picture): checked on the Mac by ctest
+    `yr-native-graphics` (no noise while an MCV deploys and a Grizzly first moves); not yet
+    checked by the user on the device;
+  - the bottom command bar was missing: it is drawn now (ctest `yr-native-graphics`, and the
+    simulator walk `ios_sim_menus.py` on "RA2 Duo Validation", with the user's interface size
+    1.25x and HD vehicles off);
+  - the Skip button showed on the start-up loading screen: it now shows only while a movie
+    plays (Mac run and the same simulator walk).
+- Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
+  idle animations: WalkRate, the infantry action table MasterDoControls) and the lane Y14
+  fixes above; the on-screen keyboard in Yuri's Revenge's text fields.
+- Still open: the campaign dialog's Difficulty label shows `MISSING:''`; a Lasher tank (LTNK)
+  in two campaign missions gets a garbage position from its drive locomotor (guarded: the map
+  ignores the bad cell and logs it); LAN play (lane YW); longer games may still reach
+  functions not recovered yet (written as clearly labelled stand-in code when found; about
+  40 such functions remain on play paths, native/yr/README.md lane Y14).
 
 ## Not done or not supported
 
 - Internet play: held. The Internet button is disabled.
-- Open faults: the Yuri's Revenge items above (Fire_At in longer games, the loading screen, the
-  start crash seen once in the simulator).
+- Open faults: the Yuri's Revenge items above (the Difficulty label, the Lasher tank's position);
+  the start crash seen once in the simulator (1 of 10 runs, lane Y7) has not recurred in 12 later
+  starts (lane Y12).
 - Unchecked code: 124 rewritten functions are not reached by any test or play so far (lane C21). Lane N1
   (2026-11-17) labelled each from game.exe's callers: 110 reachable in the base game but on paths no
   test takes yet (each statically checked), 6 unreachable in the base game, 8 unreachable in the port

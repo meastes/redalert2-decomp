@@ -845,3 +845,55 @@ Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 	}
 	return(cell);
 }
+
+// NON-EXACT NATIVE DRAFT (lane Y14): HouseClass::Fire_PsyDom, gamemd.exe 0x0050A150 (497 bytes, unmatched in
+// ra2-decomp; a link-closure trap on the play paths: an AI house firing its Psychic Dominator). Written from
+// gamemd.exe's code in the shape of its matched siblings Fire_GenMutator (0x00509F60) and FUN_0050A350: with
+// no dominator already active (FUN_0053B400, PsyDom::Active) and an enemy chosen, and no preferred target
+// cell, every foot unit out of limbo scores the cells of its spread (CellSpreadTable up to entry
+// DAT_007ED3D0[3]) by the foot units there that are not allied, not in the air and can be permanently mind
+// controlled; the best cell, if it is in the usable map, is the target of Place_Special_Blast.
+bool FUN_0053B400(void);
+
+void HouseClass::Fire_PsyDom(SuperClass * super)
+{
+	if (FUN_0053B400()) {
+		return;
+	}
+	if (Enemy == HOUSE_NONE) {
+		return;
+	}
+
+	Cell target = CELL_NONE;
+	int bestcount = 0;
+
+	if (PreferredTargetCell == CELL_NONE) {
+		for (int i = Feet.Count() - 1; i >= 0; i--) {
+			FootClass * foot = Feet[i];
+			if (foot->IsInLimbo) {
+				continue;
+			}
+			CellClass * cellptr = foot->Get_Cell_Ptr();
+			int count = 0;
+			for (int j = 0; j <= DAT_007ED3D0[3]; j++) {
+				Cell cell = cellptr->CellID + Unsorted::CellSpreadTable[j];
+				CellClass * cc = &Map[cell];
+				for (ObjectClass * object = cc->Cell_Occupier(); object != NULL && object->Is_Foot(); object = object->Next) {
+					if (!Is_Ally(object) && !object->In_Air() && ((TechnoClass *)object)->CanBePermaMindControlled()) {
+						count++;
+					}
+				}
+			}
+			if (count > bestcount) {
+				bestcount = count;
+				target = cellptr->CellID;
+			}
+		}
+
+		if (bestcount != 0) {
+			if (target != CELL_NONE && Map.In_Local_Radar(target, true)) {
+				Place_Special_Blast((SuperWeaponType)SuperWeapon.ID(super), target);
+			}
+		}
+	}
+}

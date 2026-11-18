@@ -57,7 +57,13 @@ void TechnoClass::Techno_Draw_Object(ShapeSet const * shapefile, int shapenum, P
 			}
 			brightness = cptr->TileBrightness;
 		} else {
-			converter = ColorSchemes[House->Scheme]->Converter;	// NATIVE: YR has no eight-bit unit compositing
+			// TibSun's text: a vehicle compositing on the eight-bit surface draws through EightBitDrawer
+			// (YR's tree calls the flag TerrainPalette; lane Y14: the draft had dropped it).
+			if (RTTI == RTTI_UNIT && ((UnitClass const *)this)->TerrainPalette) {
+				converter = EightBitDrawer;
+			} else {
+				converter = ColorSchemes[House->Scheme]->Converter;
+			}
 		}
 
 		Point2D drawpoint = xdrawpoint;
@@ -188,8 +194,18 @@ SurfaceRegion TechnoClass::Techno_Render_Voxel_Object(VoxelDataStruct const & vo
 	}
 
 	flags = ShapeFlags_Type(flags & ~SHAPE_REMAP);
+	// A vehicle composites its voxels on the eight-bit surface (UnitClass::Unit_Draw_Voxel swaps
+	// LogicalSurface for it and Unit_Blit_Voxel draws the result): drawn there through
+	// EightBitDrawer, as Techno_Blit_Voxel and gamemd.exe 0x0070717D do. Lane Y14: the draft drew
+	// through the house's 16-bit converter, writing 16-bit pixels into the 8-bit surface: every
+	// vehicle's first picture at a new facing or frame (before the voxel cache held it) was noise
+	// (the user's MCV deploy and a Grizzly's first move).
 	ConvertClass * converter = NULL;
-	converter = ColorSchemes[House->Scheme]->Converter;	// NATIVE: YR has no eight-bit unit compositing
+	if (RTTI == RTTI_UNIT && ((UnitClass const *)this)->TerrainPalette) {
+		converter = EightBitDrawer;
+	} else {
+		converter = GetRemapColour();
+	}
 
 	int predoffset = 0;
 	if (flags & SHAPE_PREDATOR) {

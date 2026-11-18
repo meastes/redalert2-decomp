@@ -827,6 +827,9 @@ void present_deferred()
     // the dialogs have repainted).
     if (ra2port_presents_held && ra2port_presents_held()) return;
     if (!deferred_pending.exchange(false)) return;
+    // A start-up load presents without pumping events (Yuri's Revenge's loading screen after its
+    // intro): the touch controls follow the picture shown (lane Y14).
+    show_controls();
     Deferred d;
     SDL_LockMutex(deferred_lock);
     d = deferred;
