@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "rect.h"
+#include "trect.h"
 
 class Surface;
 

@@ -902,6 +902,34 @@
       "population": "rebuild-drop",
       "source_order": 4871392,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4871504,
+      "method": "4a5550",
+      "body_bytes": 4,
+      "body_sha256": "3b2eded1bf6b0f7390191ad1371a956a736f9d18c2a7de0db7e90886555b69e1",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3500270645271a553625b69eaea7002580a82d5d7dd2eb604d73fd1537a3ca09",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Text@EditClass@@UAEPAGXZ",
+      "symbol_prefix": "?Get_Text@EditClass@@UAEPAGXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3cbb262b2d06c77295c07966834400593ff100f94bbd6769f5cce9aa2e453c06",
+      "source": "rebuild/src/drop.cpp",
+      "population": "rebuild-drop",
+      "source_order": 4871504,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
     }
   ]
 }

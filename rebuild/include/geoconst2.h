@@ -10,3 +10,4 @@ const double CELL_DIAG_SLOPE_ANGLE = fastmath::atan((LEVEL_LEPTON_H * 2) / CELL_
 const int BRIDGE_LEPTON_HEIGHT = (int)((LEVEL_LEPTON_H * 4) + 0.5);
 const Cell CELL_NONE(0, 0);
 const Coord COORD_NONE(0, 0, 0);
+#define GEOMETRY_NONE_DEFINED // globals.h then leaves these two alone

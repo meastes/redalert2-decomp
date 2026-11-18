@@ -2577,7 +2577,6 @@ void SidebarClass::StripClass::SelectClass::Set_Owner(StripClass & strip, int in
  *   01/19/1995 JLB : Created.                                                                 *
  *   10/09/1996 JLB : Sonar pulse converted to regular event type.                             *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact as a unit: exact alone (3083 bytes), but compiling it flips Reposition_Sidebar's operand-order tie (4 bytes)
 int SidebarClass::StripClass::SelectClass::Action(unsigned flags, KeyNumType & key)
 {
 	if (Strip == NULL) {
@@ -2874,7 +2873,6 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, KeyNumType & k
 
 	return(true);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -3137,6 +3135,7 @@ int SidebarClass::First_Used_Column() // RA2: as above
 }
 
 
+#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (calibrated to an incomplete unit; flipped by sidebar Action and the trect.h split)
 void SidebarClass::Reposition_Sidebar() // RA2: as above
 {
 	PowerClass::Reposition_Sidebar(); // RA2: as above
@@ -3281,6 +3280,7 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 		ToolTips->Add(&tip); // RA2: as above
 	}
 }
+#endif
 
 
 /// <summary>

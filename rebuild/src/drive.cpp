@@ -368,7 +368,6 @@ void STDMETHODCALLTYPE DriveLocomotionClass::Force_New_Slope(int ramp)
 /// between cells, even if it is not making any headway at this moment.
 /// </summary>
 /// <returns>bool; Is the unit under way or owing a move?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 boolean STDMETHODCALLTYPE DriveLocomotionClass::Is_Moving(void)
 {
 	if (DestinationCoord != COORD_NONE) {
@@ -379,7 +378,6 @@ boolean STDMETHODCALLTYPE DriveLocomotionClass::Is_Moving(void)
 	}
 	return(false);
 }
-#endif
 
 
 /// <summary>
@@ -388,7 +386,6 @@ boolean STDMETHODCALLTYPE DriveLocomotionClass::Is_Moving(void)
 /// has been given a destination but has not gotten rolling yet does not.
 /// </summary>
 /// <returns>bool; Is the unit moving right now?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 boolean STDMETHODCALLTYPE DriveLocomotionClass::Is_Moving_Now(void)
 {
 	if (LinkedTo->PrimaryFacing.Is_Rotating()) {
@@ -399,7 +396,6 @@ boolean STDMETHODCALLTYPE DriveLocomotionClass::Is_Moving_Now(void)
 	}
 	return(false);
 }
-#endif
 
 
 /// <summary>
@@ -418,7 +414,6 @@ CoordStruct STDMETHODCALLTYPE DriveLocomotionClass::Destination(void)
 /// </summary>
 /// <returns>Returns with the coordinate being driven toward. A unit that is not under
 /// way returns its current position instead.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 CoordStruct STDMETHODCALLTYPE DriveLocomotionClass::Head_To_Coord(void)
 {
 	if (HeadToCoord != COORD_NONE) {
@@ -426,7 +421,6 @@ CoordStruct STDMETHODCALLTYPE DriveLocomotionClass::Head_To_Coord(void)
 	}
 	return(LinkedTo->PositionCoord);
 }
-#endif
 
 
 /// <summary>
@@ -435,7 +429,6 @@ CoordStruct STDMETHODCALLTYPE DriveLocomotionClass::Head_To_Coord(void)
 /// raised to the deck, since that is where the vehicle will actually end up driving.
 /// </summary>
 /// <param name="to">The location to drive to.</param>
-#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text)
 void STDMETHODCALLTYPE DriveLocomotionClass::Move_To(CoordStruct to)
 {
 	if (!LinkedTo->IsUnderEMP() && !LinkedTo->IsParalyzed() && !LinkedTo->IsBeingWarpedOut() && !LinkedTo->IsWarpingIn()) { // RA2: as YR's; TibSun's form does not match (Drive's and Ship's copies match only so)
@@ -447,7 +440,6 @@ void STDMETHODCALLTYPE DriveLocomotionClass::Move_To(CoordStruct to)
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -455,7 +447,6 @@ void STDMETHODCALLTYPE DriveLocomotionClass::Move_To(CoordStruct to)
 /// The destination is given up and the driver begins slowing down. A train engine passes
 /// the order back along the line so that every car it is pulling stops with it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 18 bytes differ (adopted text)
 void STDMETHODCALLTYPE DriveLocomotionClass::Stop_Moving(void)
 {
 	if (HeadToCoord != COORD_NONE) {
@@ -478,7 +469,6 @@ void STDMETHODCALLTYPE DriveLocomotionClass::Stop_Moving(void)
 	TargetSpeed = TargetSpeed < _deaccel ? TargetSpeed : _deaccel;
 	DestinationCoord = COORD_NONE;
 }
-#endif
 
 
 /// <summary>
@@ -622,7 +612,6 @@ void STDMETHODCALLTYPE DriveLocomotionClass::Unlimbo(void)
  *   09/26/1993 JLB : Created.                                                                 *
  *   04/15/1994 JLB : Converted to member function.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 48 bytes differ (adopted text)
 boolean STDMETHODCALLTYPE DriveLocomotionClass::Process(void)
 {
 	Set_Slope(LinkedTo->Get_Cell_Ptr()->Ramp);
@@ -733,7 +722,6 @@ boolean STDMETHODCALLTYPE DriveLocomotionClass::Process(void)
 
 	return(Is_Moving());
 }
-#endif
 
 
 
@@ -754,7 +742,6 @@ boolean STDMETHODCALLTYPE DriveLocomotionClass::Process(void)
  * HISTORY:                                                                                    *
  *   07/30/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 void DriveLocomotionClass::Mark_Track(Coord const & headto, MarkType type)
 {
 	if (headto != COORD_NONE) {
@@ -791,7 +778,6 @@ void DriveLocomotionClass::Mark_Track(Coord const & headto, MarkType type)
 		}
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -813,7 +799,6 @@ void DriveLocomotionClass::Mark_Track(Coord const & headto, MarkType type)
  * HISTORY:                                                                                    *
  *   03/17/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 36 bytes differ (adopted text)
 void STDMETHODCALLTYPE DriveLocomotionClass::Force_Track(int track, CoordStruct coord)
 {
 	TrackNumber = track;
@@ -825,7 +810,6 @@ void STDMETHODCALLTYPE DriveLocomotionClass::Force_Track(int track, CoordStruct 
 		}
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -843,7 +827,6 @@ void STDMETHODCALLTYPE DriveLocomotionClass::Force_Track(int track, CoordStruct 
  * HISTORY:                                                                                    *
  *   12/22/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 15 bytes differ (adopted text)
 bool DriveLocomotionClass::Stop_Driver(void)
 {
 	if (HeadToCoord != COORD_NONE) {
@@ -853,7 +836,6 @@ bool DriveLocomotionClass::Stop_Driver(void)
 	}
 	return(false);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -873,7 +855,6 @@ bool DriveLocomotionClass::Stop_Driver(void)
  *   10/17/1994 JLB : Created.                                                                 *
  *   12/12/1994 JLB : Uses simple spot index finder.                                           *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 33 bytes differ (adopted text)
 bool DriveLocomotionClass::Start_Driver(Coord const & headto)
 {
 	Stop_Driver();
@@ -892,7 +873,6 @@ bool DriveLocomotionClass::Start_Driver(Coord const & headto)
 	}
 	return(false);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2235,14 +2215,12 @@ bool DriveLocomotionClass::Abandon_Navigation(void)
 /// be told about every cell of the track it is committed to.
 /// </summary>
 /// <param name="mark">The MarkType to apply to the cells occupied.</param>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 void STDMETHODCALLTYPE DriveLocomotionClass::Mark_All_Occupation_Bits(int mark)
 {
 	if (HeadToCoord != COORD_NONE) {
 		Mark_Track(HeadToCoord, (MarkType)mark);
 	}
 }
-#endif
 
 
 /// <summary>
@@ -2253,7 +2231,6 @@ void STDMETHODCALLTYPE DriveLocomotionClass::Mark_All_Occupation_Bits(int mark)
 /// </summary>
 /// <param name="to">The location to test against.</param>
 /// <returns>bool; Is the unit moving there?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 15 bytes differ (adopted text)
 boolean STDMETHODCALLTYPE DriveLocomotionClass::Is_Moving_Here(CoordStruct to)
 {
 	Coord coord = Head_To_Coord();
@@ -2287,7 +2264,6 @@ boolean STDMETHODCALLTYPE DriveLocomotionClass::Is_Moving_Here(CoordStruct to)
 
 	return(false);
 }
-#endif
 
 
 /// <summary>

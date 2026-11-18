@@ -1020,6 +1020,7 @@ void BuildingClass::Draw_It(Point2D const & xdrawpoint, Rect const & xcliprect) 
 /// </summary>
 /// <param name="xy">Pixel position to draw the building at.</param>
 /// <param name="rect">Clipping rectangle to draw within.</param>
+#ifdef RA2_NON_MATCHING // not exact: 61 bytes differ (adopted text)
 void BuildingClass::Draw_Extras(Point2D & xy, Rect & rect)
 {
 	Cell cell = Get_Cell(); // RA2: Get_Cell
@@ -1200,6 +1201,7 @@ void BuildingClass::Draw_Extras(Point2D & xy, Rect & rect)
 		}
 	}
 }
+#endif
 
 
 
@@ -1530,6 +1532,7 @@ int BuildingClass::Shape_Number(void) const
  *   12/23/1994 JLB : Calls low level check before proceeding.                                 *
  *   01/27/1995 JLB : Special road spacer template added.                                      *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 59 bytes differ (adopted text)
 bool BuildingClass::Mark(MarkType mark)
 {
 	if (BASECLASS::Mark(mark)) {
@@ -1668,6 +1671,7 @@ bool BuildingClass::Mark(MarkType mark)
 	}
 	return(false);
 }
+#endif
 
 
 
@@ -2324,6 +2328,7 @@ inline void Register_Dirty(Rect const & area)
 /// <param name="forced">Should the destruction be forced, leaving no survivors?</param>
 /// <param name="offset">Pointer to the REFRESH_EOL terminated list of cell offsets that
 /// make up the building's footprint.</param>
+#ifdef RA2_NON_MATCHING // not exact: 2205 bytes differ (adopted text)
 void BuildingClass::Do_Destruction(TechnoClass *last_contact, TechnoClass *source, bool forced, Cell const *offset)
 {
 	int shakes;
@@ -2442,6 +2447,7 @@ void BuildingClass::Do_Destruction(TechnoClass *last_contact, TechnoClass *sourc
 
 	Drop_Debris(WhomToRepay);
 }
+#endif
 
 
 
@@ -2524,6 +2530,7 @@ void BuildingClass::Leave_Rubble(void) // RA2: not in TibSun, at 0x43EBA0
  *   11/22/1994 JLB : Shares base damage handler for techno objects.                           *
  *   07/15/1995 JLB : Power ratio gets adjusted.                                               *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 1334 bytes differ (adopted text)
 ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source, bool forced, bool no_crew)
 {
 	ResultType res = RESULT_NONE;
@@ -2744,6 +2751,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 
 	return(res);
 }
+#endif
 
 
 
@@ -3090,6 +3098,7 @@ none: // RA2: as above
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00440520 has no row)
 int BuildingClass::Exit_Object(TechnoClass * base)
 {
 	if (!base) return(0);
@@ -3537,6 +3546,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 	*/
 	return(0);
 }
+#endif
 
 
 /***********************************************************************************************
@@ -4182,6 +4192,7 @@ void BuildingClass::Sell_Back(int control)
  * HISTORY:                                                                                    *
  *   01/18/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 715 bytes differ (adopted text)
 ActionType BuildingClass::What_Action(ObjectClass const * object, bool disallow_force) const
 {
 	if (Class->IsInvisibleInGame) {
@@ -4261,6 +4272,7 @@ ActionType BuildingClass::What_Action(ObjectClass const * object, bool disallow_
 
 	return(action);
 }
+#endif
 
 
 
@@ -4280,6 +4292,7 @@ ActionType BuildingClass::What_Action(ObjectClass const * object, bool disallow_
  * HISTORY:                                                                                    *
  *   01/18/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 436 bytes differ (adopted text)
 ActionType BuildingClass::What_Action(Cell const & cell, bool check_fog, bool disallow_force) const
 {
 	if (Class->IsInvisibleInGame) {
@@ -4311,6 +4324,7 @@ ActionType BuildingClass::What_Action(Cell const & cell, bool check_fog, bool di
 
 	return(action);
 }
+#endif
 
 
 /***********************************************************************************************
@@ -4404,6 +4418,7 @@ Coord BuildingClass::Center_Coord(void) const
  * HISTORY:                                                                                    *
  *   09/21/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 399 bytes differ (adopted text)
 Coord BuildingClass::Docking_Coord(TechnoClass * docker) const // RA2: the docking object
 {
 	if (Class->IsWeeder) {
@@ -4436,6 +4451,7 @@ Coord BuildingClass::Docking_Coord(TechnoClass * docker) const // RA2: the docki
 			return(Center_Coord());
 	}
 }
+#endif
 
 
 
@@ -4640,6 +4656,7 @@ struct ReestablishRecord { // RA2: the 8-byte record Captured allocates per capt
  *   05/03/1995 JLB : Created.                                                                 *
  *   07/05/1995 JLB : Fixed production problem with capturing enemy buildings.                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 2366 bytes differ (adopted text)
 bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: announce
 {
 	if (newowner != House) {
@@ -4896,6 +4913,7 @@ bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: annou
 	}
 	return(false);
 }
+#endif
 
 
 
@@ -5037,6 +5055,7 @@ bool BuildingClass::Clear_Weapons_Factory_Bib(void)
  * HISTORY:                                                                                    *
  *   06/25/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 768 bytes differ (adopted text)
 int BuildingClass::Do_MISSION_GUARD(void)
 {
 	bool isfacility;
@@ -5140,6 +5159,7 @@ int BuildingClass::Do_MISSION_GUARD(void)
 
 	return(Current_Mission_Control().AA_Delay() + Random_Pick(0, 2));
 }
+#endif
 
 
 /// <summary>
@@ -9499,6 +9519,7 @@ static inline Coord Ground_Fire_Offset(Point2D const & point)
 /// </summary>
 /// <param name="slot">The weapon slot that is doing the firing.</param>
 /// <returns>Returns with the coordinate that the projectile should appear at.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 381 bytes differ (adopted text)
 Coord BuildingClass::Fire_Coord(int slot) const
 {
 	if (Class->CanBeOccupied && Occupants.Count() > 0) { // RA2: an occupied garrison fires from the occupant's muzzle flash
@@ -9525,6 +9546,7 @@ Coord BuildingClass::Fire_Coord(int slot) const
 	}
 	return(coord);
 }
+#endif
 
 
 /// <summary>
@@ -9535,6 +9557,7 @@ Coord BuildingClass::Fire_Coord(int slot) const
 /// </summary>
 /// <param name="slot">The weapon slot to fetch the mounting for.</param>
 /// <returns>Returns with the coordinate that the projectile should appear at.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 230 bytes differ (adopted text)
 Coord BuildingClass::Turret_Coord(int slot) const
 {
 	if (Class->CanBeOccupied && Occupants.Count() > 0) { // RA2: an occupied garrison uses the occupant's muzzle flash
@@ -9557,6 +9580,7 @@ Coord BuildingClass::Turret_Coord(int slot) const
 	}
 	return(coord);
 }
+#endif
 
 
 /// <summary>
@@ -12038,6 +12062,7 @@ int BuildingClass::Get_Collateral_Damage(void) const
 /// which is what warns everyone nearby that the obelisk is about to fire. The request is
 /// ignored if the turret is already charged.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void BuildingClass::Charge_Turret(void)
 {
 	if (!IsCharged) {
@@ -12047,6 +12072,7 @@ void BuildingClass::Charge_Turret(void)
 		IsCharging = true;
 	} // RA2: no IsTurretAnimExclusive (not in RA2's layout)
 }
+#endif
 
 
 /// <summary>
@@ -12055,6 +12081,7 @@ void BuildingClass::Charge_Turret(void)
 /// be abandoned. Buildings whose turret animation locks out the active animation have
 /// that animation started up again here.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void BuildingClass::Discharge_Turret(void)
 {
 	IsCharging = false;
@@ -12062,4 +12089,5 @@ void BuildingClass::Discharge_Turret(void)
 	BuildingStage.Set_Stage(0);
 	BuildingStage.Set_Rate(0);
 } // RA2: no IsTurretAnimExclusive (not in RA2's layout)
+#endif
 

@@ -4,8 +4,10 @@
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 
 #include "always.h"
-#include "geozero.h"
+#include "rect.h"
 #include "geoconst1.h"
+#include "coord.h"
+#include "geoconst2.h"
 #include "movies.h"
 #include "multiplayer.h"
 #include "_map.h"
@@ -21,7 +23,6 @@
 #include "ccfile.h"
 #include "goptions.h"
 #include "globals.h"
-#include "geoconst2.h"
 #include <string.h>
 #include <cmath>
 
@@ -554,13 +555,3 @@ void __fastcall Game::BlitMovie(void)
 		ActiveMovieHandle->Blit();
 	}
 }
-
-
-template class DynamicVectorClass<MovieHandle *>;
-
-template class VectorClass<MovieHandle *>;
-
-template class VectorClass<char const *>;
-
-template class DynamicVectorClass<char const *>;
-

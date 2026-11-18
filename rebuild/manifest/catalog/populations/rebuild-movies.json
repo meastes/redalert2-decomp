@@ -1,0 +1,4409 @@
+{
+  "id": "rebuild-movies",
+  "population": {
+    "id": "rebuild-movies",
+    "inventory_sha256": "9b8eb02ecb80b6423ced77282142d072c50191403a46461a36c785c05d162440",
+    "gaps_sha256": "c3018d206b8641e5fc154e9d77bd1e09f064ed44933cc1360dbb679091634db5",
+    "historical_population_sha256": "941271c14d8bc5b2fb815ae6dcc8a2fc32b2055a63a81b8ecbb1328696225c86",
+    "historical_acceptance_sha256": "2295be46b116f5cd72fe56782f783dff2394afcafd36de7d861093e041b845c5"
+  },
+  "references": {
+    "_RECT_NONE": 10948648,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10948672,
+    "_ISO_TILE_SIZE": 8021456,
+    "_LEPTONS_PER_PIXEL": 10948768,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10948752,
+    "_ONE_RAD": 8021464,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10948744,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10948680,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10948640,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10948776,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10948712,
+    "_CELL_DIAG_SLOPE_ANGLE": 10948736,
+    "_BRIDGE_LEPTON_HEIGHT": 10948760,
+    "_CELL_NONE": 10948664,
+    "_COORD_NONE": 10948720,
+    "_$E138": 5901696,
+    "?Movies@@3V?$DynamicVectorClass@PBD@@A": 10948688,
+    "??_7?$DynamicVectorClass@PBD@@6B@": 8021476,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PBD@@6B@": 8021508,
+    "??3@YAXPAX@Z": 7871803,
+    "?CurrentVQ@@3PAUVQHandle@@A": 10948780,
+    "?Set_Draw_Buffer@VQAClass@@QAE_NPAXHHHH@Z": 7459392,
+    "?Get_Option@@YI_NH@Z": 7461792,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "__imp__GetClientRect@8": 7972024,
+    "__imp__ClientToScreen@8": 7972012,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
+    "??2@YAPAXI@Z": 7872535,
+    "??0?$TRect@H@@QAE@HHHH@Z": 4373712,
+    "??0CCFileClass@@QAE@PBD@Z": 4624208,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "?AudioDeviceAvailable@@YIHXZ": 4222768,
+    "?Set_Option@@YIXH@Z": 7461728,
+    "?MovieUseLoops@@3HA": 10948788,
+    "?Movie_Blit_Subtitled@@YIXXZ": 5902016,
+    "?Movie_Unlock_Surface@@YI_NXZ": 5901856,
+    "?Movie_Lock_Surface@@YIPAXXZ": 5901760,
+    "??0VQAClass@@QAE@PBDHP6IPAXXZP6I_NXZP6IXXZHH@Z": 7456240,
+    "?Set_VQA_Volume@VQAClass@@QAEHH@Z": 7457728,
+    "?Open_And_Load_Buffers@VQAClass@@QAE_NXZ": 7457584,
+    "??1VQHandle@@QAE@XZ": 5904224,
+    "?Get_VQA_Width@VQAClass@@QBEHXZ": 7459584,
+    "?Get_VQA_Height@VQAClass@@QBEHXZ": 7459600,
+    "?Get_Desired_Color_Mode@VQAClass@@QAEHXZ": 7459376,
+    "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z": 4324848,
+    "?Get_Primary_Color_Mode@DSurface@@SIHXZ": 4897680,
+    "?Set_Primary_Color_Mode@VQAClass@@QAEXH@Z": 7459504,
+    "?Subtitles_Open@@YIPAVMovieSubtitles@@PBD@Z": 6926736,
+    "?Close_And_Free_VQA@VQAClass@@QAEXXZ": 7459312,
+    "??1VQAClass@@QAE@XZ": 7456928,
+    "??1MovieSubtitles@@QAE@XZ": 6927008,
+    "?Set_Loop@VQAClass@@QAE_NHH@Z": 7457760,
+    "?Set_Loop@VQAClass@@QAE_NHHH@Z": 7457808,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Theme@@3VThemeClass@@A": 10706296,
+    "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z": 7241248,
+    "?Seek_To_Frame@VQAClass@@QAEXH@Z": 7457888,
+    "?Play_VQA@VQAClass@@QAEHH_N@Z": 7458000,
+    "?Reset_VQA@VQAClass@@QAEXXZ": 7459344,
+    "?Advance_Frame@VQAClass@@QAE_NAA_N@Z": 7458752,
+    "?Pause_VQA@VQAClass@@QAEXXZ": 7459232,
+    "?Resume_VQA@VQAClass@@QAEXXZ": 7459296,
+    "?AlternateSurface@@3PAVSurface@@A": 8624472,
+    "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z": 5115024,
+    "??_7VQMovieHandle@@6B@": 8021540,
+    "?ActiveMovieHandle@@3PAVMovieHandle@@A": 10948784,
+    "?Movie_Play@@YIXPAUVQHandle@@_NW4ThemeType@@1@Z": 5903568,
+    "?SetCallback@MovieSubtitles@@QAEXP6IXPAX@Z@Z": 6927600,
+    "??_7MovieHandle@@6B@": 8021588,
+    "??_7BinkMovieHandle@@6B@": 8021636,
+    "?Pause@BinkHandle@@QAEX_N@Z": 4391936,
+    "?Play@BinkHandle@@QAEXXZ": 4391984,
+    "?Is_Finished@BinkHandle@@QBE_NXZ": 4391968,
+    "?Render_Frame@BinkHandle@@QAE_NXZ": 4392960,
+    "?Check_Frame_Ready@BinkHandle@@QAEXXZ": 4392928,
+    "?Set_Position@BinkHandle@@QAEXHH@Z": 4391552,
+    "?Set_Subtitle_Callback@BinkHandle@@QAEXP6IXPAX@Z@Z": 4391904,
+    "?Goto_Frame@BinkHandle@@QAEXH@Z": 4391840,
+    "?Frame_Time@BinkHandle@@QAEHXZ": 4391872,
+    "?Redraw@BinkHandle@@QAEXXZ": 4392992,
+    "??1BinkHandle@@QAE@XZ": 4390624,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "?Unlock_Movie@OptionsClass@@QAEXPBD@Z": 6136816,
+    "??_C@_04HJCD@?4BIK?$AA@": 8232308,
+    "??_C@_04MOHI@?4VQA?$AA@": 8232316,
+    "?Find_Movie_File@@YI_NPBDPAD_N@Z": 5905328,
+    "_strrchr": 7872496,
+    "??_C@_04LMEE@?4bik?$AA@": 8270492,
+    "_stricmp": 7872288,
+    "??_C@_0BH@CNON@Play_Movie?$CI?$CJ?5as?5Bink?$CB?6?$AA@": 8270468,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "??0BinkHandle@@QAE@PBDPAVSurface@@@Z": 4390560,
+    "?Movie_Create@@YIPAUVQHandle@@PBDPAVSurface@@V?$TRect@H@@2H_N@Z": 5902352,
+    "_$E2": 5901136,
+    "_$E5": 5901168,
+    "_$E8": 5901216,
+    "_$E11": 5901248,
+    "_$E14": 5901280,
+    "_$E17": 5901312,
+    "_$E20": 5901344,
+    "_$E23": 5901376,
+    "_$E26": 5901440,
+    "_$E29": 5901488,
+    "_$E32": 5901536,
+    "_$E35": 5901584,
+    "_$E38": 5901600,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E140": 5901632,
+    "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z": 5907152,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PBD@@UAEPAXI@Z": 5907072,
+    "?Movie_Blit_To_Screen@@YIXXZ": 5901872,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "??_R0?AVCCFileClass@@@8": 8177840,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "?Movie_Destroy@@YIXPAUVQHandle@@@Z": 5903472,
+    "?Movie_Advance_Frame@@YI_NPAUVQHandle@@AA_N@Z": 5903856,
+    "?Movie_Is_Playing@@YI_NXZ": 5903904,
+    "?Movie_Pause@@YIXPAUVQHandle@@@Z": 5903920,
+    "?Movie_Resume@@YIXPAUVQHandle@@@Z": 5903936,
+    "?Movie_Update_Visible_Surface@@YIXXZ": 5903952,
+    "??0VQHandle@@QAE@XZ": 5904144,
+    "??0VQMovieHandle@@QAE@PAUVQHandle@@@Z": 5904304,
+    "??_GVQMovieHandle@@UAEPAXI@Z": 5906176,
+    "??_R0?AVMovieHandle@@@8": 8270576,
+    "??_R0?AVVQMovieHandle@@@8": 8270608,
+    "__purecall": 4950368,
+    "?Pause@VQMovieHandle@@UAEX_N@Z": 5904368,
+    "?Stop@VQMovieHandle@@UAEXXZ": 5904432,
+    "?FramesLeft@VQMovieHandle@@UAE_NXZ": 5904464,
+    "?AdvanceFrame@VQMovieHandle@@UAE_NXZ": 5904480,
+    "?Waiting@VQMovieHandle@@UAEXXZ": 5904544,
+    "?SetPosition@VQMovieHandle@@UAEXHH@Z": 5904560,
+    "?InitSubtitles@VQMovieHandle@@UAEXP6IXPAX@Z@Z": 5904624,
+    "?SeekToFrame@VQMovieHandle@@UAEXH@Z": 5904656,
+    "?Timing@VQMovieHandle@@UAEHXZ": 5904688,
+    "?Blit@VQMovieHandle@@UAEXXZ": 5904704,
+    "??1VQMovieHandle@@UAE@XZ": 5904896,
+    "??0BinkMovieHandle@@QAE@PAVBinkHandle@@@Z": 5905024,
+    "??_GBinkMovieHandle@@UAEPAXI@Z": 5906304,
+    "??_R0?AVBinkMovieHandle@@@8": 8270640,
+    "?Pause@BinkMovieHandle@@UAEX_N@Z": 5905072,
+    "?Stop@BinkMovieHandle@@UAEXXZ": 5905088,
+    "?FramesLeft@BinkMovieHandle@@UAE_NXZ": 5905120,
+    "?AdvanceFrame@BinkMovieHandle@@UAE_NXZ": 5905136,
+    "?Waiting@BinkMovieHandle@@UAEXXZ": 5905152,
+    "?SetPosition@BinkMovieHandle@@UAEXHH@Z": 5905168,
+    "?InitSubtitles@BinkMovieHandle@@UAEXP6IXPAX@Z@Z": 5905200,
+    "?SeekToFrame@BinkMovieHandle@@UAEXH@Z": 5905216,
+    "?Timing@BinkMovieHandle@@UAEHXZ": 5905232,
+    "?Blit@BinkMovieHandle@@UAEXXZ": 5905248,
+    "??1BinkMovieHandle@@UAE@XZ": 5905264,
+    "??1MovieHandle@@UAE@XZ": 5905312,
+    "?OwnerDraw_InitMovieHandle@@YIPAVMovieHandle@@PBDPAVSurface@@PAV?$TRect@H@@@Z": 5905712,
+    "?IsMoviePlaying@Game@@YI_NXZ": 5906128,
+    "?BlitMovie@Game@@YIXXZ": 5906160,
+    "?Clear@?$DynamicVectorClass@PBD@@UAEXXZ": 5906368,
+    "?ID@?$DynamicVectorClass@PBD@@UAEHPBQBD@Z": 5906416,
+    "?GetItem@?$VectorClass@PBD@@UBEPBDH@Z": 5906448,
+    "??8?$VectorClass@PBD@@UBE_NABV0@@Z": 5906464,
+    "?Resize@?$VectorClass@PBD@@UAE_NHPBQBD@Z": 5906528,
+    "?Clear@?$VectorClass@PBD@@UAEXXZ": 5906704,
+    "?ID@?$VectorClass@PBD@@UAEHABQBD@Z": 5906752,
+    "?ID@?$VectorClass@PBD@@UAEHPBQBD@Z": 5906816,
+    "?Resize@?$DynamicVectorClass@PBD@@UAE_NHPBQBD@Z": 5906848,
+    "?ID@?$DynamicVectorClass@PBD@@UAEHABQBD@Z": 5907024,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
+  },
+  "regions": [
+    {
+      "entry": 5901136,
+      "method": "005a0b50",
+      "body_bytes": 23,
+      "body_sha256": "1a8258c90b3b181373900031d9296a7189d5ccec8042ff21015f76d9b607ab2a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0dc2f9048b32e9345cfe292d38486ac498c7f957a6456a9ac9a69e16bb569a7d",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948648,
+          "addend": 0,
+          "resolved": 10948648
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948648,
+          "addend": 4,
+          "resolved": 10948652
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948648,
+          "addend": 8,
+          "resolved": 10948656
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948648,
+          "addend": 12,
+          "resolved": 10948660
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901168,
+      "method": "005a0b70",
+      "body_bytes": 40,
+      "body_sha256": "94a10fecb3b7586a127611921cc715d89660ece56aa8cf2996de33d33e77a15f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "12cef6128a0d1ec501c1773c3c4ace4c7dc17abba500a57c82b03f6bf82f22fa",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1971759
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294023298
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948672,
+          "addend": 0,
+          "resolved": 10948672
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901216,
+      "method": "005a0ba0",
+      "body_bytes": 19,
+      "body_sha256": "03420823112819381a3f926b276adc1294e8370506c1e166bed0449c7f780964",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0c167e5c0ce9cf2385899df5f3558313d5799eab398d4f8a8af529127bace2a6",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948672,
+          "addend": 0,
+          "resolved": 10948672
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8021456,
+          "addend": 0,
+          "resolved": 8021456
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10948768,
+          "addend": 0,
+          "resolved": 10948768
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901248,
+      "method": "005a0bc0",
+      "body_bytes": 19,
+      "body_sha256": "076ebb126fb31c0ccd1fffb4d766ae3b9ae5b396a3728a53c52a32d2e83899cd",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e91a5d8a9b024733b74f8cbff457cc7b4bbaebd3f249cc8f7fe33a5abdf43538",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10948768,
+          "addend": 0,
+          "resolved": 10948768
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10948752,
+          "addend": 0,
+          "resolved": 10948752
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901280,
+      "method": "005a0be0",
+      "body_bytes": 19,
+      "body_sha256": "5c6243e4163d9695a0f856d25ca7e7a6b8dbd7b4d3faab05ded8aa428d9b64b4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "67ecc779afd257fd7cefd171325f05ced890db9d2d84a0193ee0237198885004",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8021464,
+          "addend": 0,
+          "resolved": 8021464
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10948744,
+          "addend": 0,
+          "resolved": 10948744
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901312,
+      "method": "005a0c00",
+      "body_bytes": 19,
+      "body_sha256": "691298c58c8e0acb4979e7b5e50fa6df66f202cbfddf2ba16f6be9bf0edf413b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "700664934a53be49259fe5e546d513ec4f3096002700fa74e2556e731741d529",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8021464,
+          "addend": 0,
+          "resolved": 8021464
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10948680,
+          "addend": 0,
+          "resolved": 10948680
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901344,
+      "method": "005a0c20",
+      "body_bytes": 19,
+      "body_sha256": "41e4689f77a5b31d19d5d917396a7e0ae22f2ffc9f4e5fe8738fbb2d27ab977e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7c66d40645ef7200329b21148aaac3dea64ab4012ff0d67ddc316b789bac0928",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8021464,
+          "addend": 0,
+          "resolved": 8021464
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10948640,
+          "addend": 0,
+          "resolved": 10948640
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901376,
+      "method": "005a0c40",
+      "body_bytes": 49,
+      "body_sha256": "cf52a0b298898b7b8640a933bd631005b7fbf1c6fbe041445079315075ef9f9f",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a3ef200baa66900e2c6c1cc93f044121ac9bb5049b47cc735c1b25c404277af4",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10948640,
+          "addend": 0,
+          "resolved": 10948640
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10948680,
+          "addend": 0,
+          "resolved": 10948680
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294023369
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948672,
+          "addend": 0,
+          "resolved": 10948672
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1959077
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948776,
+          "addend": 0,
+          "resolved": 10948776
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901440,
+      "method": "005a0c80",
+      "body_bytes": 33,
+      "body_sha256": "de0efcc5358907dbf181666e115569e7f7b60a57ef333a672e10f2d993cbcb83",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cd79926955cf0d7bf08a33f725206f45d942aa9fb0be530fe3ee7d124bfbf14a",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948776,
+          "addend": 0,
+          "resolved": 10948776
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294023449
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10948712,
+          "addend": 0,
+          "resolved": 10948712
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901488,
+      "method": "005a0cb0",
+      "body_bytes": 44,
+      "body_sha256": "aced02a8b622096aeb3bbb0e3befec0cc7251735a22192d7f13c22147e76d337",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6ed2ca9281437c331f22ad136fcab8dff7fc8cda2c660b1d1f4c8e3af89f3aa4",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948776,
+          "addend": 0,
+          "resolved": 10948776
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948672,
+          "addend": 0,
+          "resolved": 10948672
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294023390
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10948736,
+          "addend": 0,
+          "resolved": 10948736
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901536,
+      "method": "005a0ce0",
+      "body_bytes": 39,
+      "body_sha256": "1b2d2610318397da976a3a75e5a9bd31631e71163692ebf2b10767a8073cd5b8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "fe1f7a4f547b0329b3132df34a2a58d8271be4bf9015c1fb44471790cf2231d6",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948776,
+          "addend": 0,
+          "resolved": 10948776
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1958928
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10948760,
+          "addend": 0,
+          "resolved": 10948760
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901584,
+      "method": "005a0d10",
+      "body_bytes": 15,
+      "body_sha256": "10b9ce45c289ebe69589fd0e6e173ec46ceae0191b27554a9e16fc6f67461dd8",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b554e97d3df5cab12d2894ca56757c7144261cef0091cbb03c54a27ffd53edaf",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10948664,
+          "addend": 0,
+          "resolved": 10948664
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10948664,
+          "addend": 2,
+          "resolved": 10948666
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901600,
+      "method": "005a0d20",
+      "body_bytes": 18,
+      "body_sha256": "d737b1088295ee7259bd9669d5580eac76db9867f21b8331ba3486615b1b38a7",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "31b31d32b901abd5a5fcae43860ac28ff542edf2a66d78256acf2ef5cb0a0802",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10948720,
+          "addend": 0,
+          "resolved": 10948720
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10948720,
+          "addend": 4,
+          "resolved": 10948724
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10948720,
+          "addend": 8,
+          "resolved": 10948728
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901632,
+      "method": "005a0d40",
+      "body_bytes": 61,
+      "body_sha256": "eaa450717ee5e0ad2a772356f1e3a7893c9357455351b25a18465ef801657256",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "88e176d663b9c624d08524bf407ef8200a7e273b43513435885d1792af20b2ba",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E140",
+      "symbol_prefix": "_$E140",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E138",
+          "target": 5901696,
+          "addend": 0,
+          "resolved": 5901696
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 4,
+          "resolved": 10948692
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 8,
+          "resolved": 10948696
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 12,
+          "resolved": 10948700
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 13,
+          "resolved": 10948701
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 0,
+          "resolved": 10948688
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PBD@@6B@",
+          "target": 8021476,
+          "addend": 0,
+          "resolved": 8021476
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 20,
+          "resolved": 10948708
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 16,
+          "resolved": 10948704
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1973263
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901696,
+      "method": "005a0d80",
+      "body_bytes": 59,
+      "body_sha256": "1cd4ea7168f7103c1b004b563b10fa9afa6cf92d778ccf44330e0ec21432c56b",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "48bbe3f209065c6f68e709e5878dfe2e447c201eaca22324844eb6104e4e4cce",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E138",
+      "symbol_prefix": "_$E138",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 4,
+          "resolved": 10948692
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 0,
+          "resolved": 10948688
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBD@@6B@",
+          "target": 8021508,
+          "addend": 0,
+          "resolved": 8021508
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 13,
+          "resolved": 10948701
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1970071
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 4,
+          "resolved": 10948692
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 13,
+          "resolved": 10948701
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Movies@@3V?$DynamicVectorClass@PBD@@A",
+          "target": 10948688,
+          "addend": 8,
+          "resolved": 10948696
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901760,
+      "method": "005a0dc0",
+      "body_bytes": 93,
+      "body_sha256": "ecc920a4f5fdbd51c1604af0af6ba31fe5ae59ccc5b92b3a7d21b9adf5e34fbe",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "e92b04d2d39d0175737bfb1d3c125a98971a299aa3e61aab0906a392a7dc5fe4",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Lock_Surface@@YIPAXXZ",
+      "symbol_prefix": "?Movie_Lock_Surface@@YIPAXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Set_Draw_Buffer@VQAClass@@QAE_NPAXHHHH@Z",
+          "target": 7459392,
+          "addend": 0,
+          "resolved": 1557546
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901856,
+      "method": "005a0e20",
+      "body_bytes": 13,
+      "body_sha256": "3c6a82b23f4081f5c98f5091f298e73a35e51a037548e8efc46a3c0a2ecdd725",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b66311dfdf90ee2c838709e22b5aef1c61b85e10391d307b26d1ac3a482d6d15",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Unlock_Surface@@YI_NXZ",
+      "symbol_prefix": "?Movie_Unlock_Surface@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5901872,
+      "method": "005a0e30",
+      "body_bytes": 135,
+      "body_sha256": "163d8d091bb0bc5831fa352f7fc0e4f6aafabb23c6d0eaf2795adb5c78a839e1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "bc92eb58bf42e0adc8149add7b4ae809e252231e486894a98fd0f47bc9d85337",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Blit_To_Screen@@YIXXZ",
+      "symbol_prefix": "?Movie_Blit_To_Screen@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Get_Option@@YI_NH@Z",
+          "target": 7461792,
+          "addend": 0,
+          "resolved": 1559907
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__imp__GetClientRect@8",
+          "target": 7972024,
+          "addend": 0,
+          "resolved": 7972024
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "__imp__ClientToScreen@8",
+          "target": 7972012,
+          "addend": 0,
+          "resolved": 7972012
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5901872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5902016,
+      "method": "005a0ec0",
+      "body_bytes": 329,
+      "body_sha256": "2bd8dce110168121df6de502b4f52b040215b32b57e8a658c2a535683a12b486",
+      "padding_bytes": 7,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "18369a053e2d23bbb0a0b130ab9c51feb9fe8ba18d5568f8887c08ae7d52416c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Blit_Subtitled@@YIXXZ",
+      "symbol_prefix": "?Movie_Blit_Subtitled@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Get_Option@@YI_NH@Z",
+          "target": 7461792,
+          "addend": 0,
+          "resolved": 1559763
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "__imp__GetClientRect@8",
+          "target": 7972024,
+          "addend": 0,
+          "resolved": 7972024
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 243,
+          "kind": 6,
+          "symbol": "__imp__ClientToScreen@8",
+          "target": 7972012,
+          "addend": 0,
+          "resolved": 7972012
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5902016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5902352,
+      "method": "005a1010",
+      "body_bytes": 1107,
+      "body_sha256": "16777ef5ab16498120d0558e739b03400817239d7c969eca5e4af3299393447d",
+      "padding_bytes": 13,
+      "full_extent_bytes": 1120,
+      "full_extent_sha256": "2f76baa4df68f4ac1b7a2c811f020b471a9ea8ecf9c68d165d9b6fa38ce20111",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Create@@YIPAUVQHandle@@PBDPAVSurface@@V?$TRect@H@@2H_N@Z",
+      "symbol_prefix": "?Movie_Create@@YIPAUVQHandle@@PBDPAVSurface@@V?$TRect@H@@2H_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1970152
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4293438554
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 4293689031
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 159,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293489501
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 176,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4293452428
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?AudioDeviceAvailable@@YIHXZ",
+          "target": 4222768,
+          "addend": 0,
+          "resolved": 4293287513
+        },
+        {
+          "offset": 209,
+          "kind": 20,
+          "symbol": "?Set_Option@@YIXH@Z",
+          "target": 7461728,
+          "addend": 0,
+          "resolved": 1559163
+        },
+        {
+          "offset": 216,
+          "kind": 20,
+          "symbol": "?Get_Option@@YI_NH@Z",
+          "target": 7461792,
+          "addend": 0,
+          "resolved": 1559220
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "?MovieUseLoops@@3HA",
+          "target": 10948788,
+          "addend": 0,
+          "resolved": 10948788
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "?Movie_Blit_Subtitled@@YIXXZ",
+          "target": 5902016,
+          "addend": 0,
+          "resolved": 5902016
+        },
+        {
+          "offset": 275,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1969904
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?Movie_Unlock_Surface@@YI_NXZ",
+          "target": 5901856,
+          "addend": 0,
+          "resolved": 5901856
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "?Movie_Lock_Surface@@YIPAXXZ",
+          "target": 5901760,
+          "addend": 0,
+          "resolved": 5901760
+        },
+        {
+          "offset": 314,
+          "kind": 20,
+          "symbol": "??0VQAClass@@QAE@PBDHP6IPAXXZP6I_NXZP6IXXZHH@Z",
+          "target": 7456240,
+          "addend": 0,
+          "resolved": 1553570
+        },
+        {
+          "offset": 339,
+          "kind": 20,
+          "symbol": "?Set_VQA_Volume@VQAClass@@QAEHH@Z",
+          "target": 7457728,
+          "addend": 0,
+          "resolved": 1555033
+        },
+        {
+          "offset": 346,
+          "kind": 20,
+          "symbol": "?Open_And_Load_Buffers@VQAClass@@QAE_NXZ",
+          "target": 7457584,
+          "addend": 0,
+          "resolved": 1554882
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "??1VQHandle@@QAE@XZ",
+          "target": 5904224,
+          "addend": 0,
+          "resolved": 1511
+        },
+        {
+          "offset": 363,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1969084
+        },
+        {
+          "offset": 388,
+          "kind": 20,
+          "symbol": "?Get_VQA_Width@VQAClass@@QBEHXZ",
+          "target": 7459584,
+          "addend": 0,
+          "resolved": 1556840
+        },
+        {
+          "offset": 399,
+          "kind": 20,
+          "symbol": "?Get_VQA_Height@VQAClass@@QBEHXZ",
+          "target": 7459600,
+          "addend": 0,
+          "resolved": 1556845
+        },
+        {
+          "offset": 412,
+          "kind": 20,
+          "symbol": "?Get_Desired_Color_Mode@VQAClass@@QAEHXZ",
+          "target": 7459376,
+          "addend": 0,
+          "resolved": 1556608
+        },
+        {
+          "offset": 672,
+          "kind": 20,
+          "symbol": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+          "target": 4324848,
+          "addend": 0,
+          "resolved": 4293389116
+        },
+        {
+          "offset": 1005,
+          "kind": 20,
+          "symbol": "?Get_Primary_Color_Mode@DSurface@@SIHXZ",
+          "target": 4897680,
+          "addend": 0,
+          "resolved": 4293961615
+        },
+        {
+          "offset": 1013,
+          "kind": 20,
+          "symbol": "?Set_Primary_Color_Mode@VQAClass@@QAEXH@Z",
+          "target": 7459504,
+          "addend": 0,
+          "resolved": 1556135
+        },
+        {
+          "offset": 1064,
+          "kind": 20,
+          "symbol": "?Set_Draw_Buffer@VQAClass@@QAE_NPAXHHHH@Z",
+          "target": 7459392,
+          "addend": 0,
+          "resolved": 1555972
+        },
+        {
+          "offset": 1073,
+          "kind": 20,
+          "symbol": "?Subtitles_Open@@YIPAVMovieSubtitles@@PBD@Z",
+          "target": 6926736,
+          "addend": 0,
+          "resolved": 1023307
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5902352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5903472,
+      "method": "005a1470",
+      "body_bytes": 84,
+      "body_sha256": "b42316088929247c1a05eb8e4c79f0381fca5cc2ad047a4cfe6d74cae8ead6f4",
+      "padding_bytes": 12,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "593f004f83c3ac8ba10cd2728a2024ef2f9740465e8c881046e514cbe056dd3c",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Destroy@@YIXPAUVQHandle@@@Z",
+      "symbol_prefix": "?Movie_Destroy@@YIXPAUVQHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Close_And_Free_VQA@VQAClass@@QAEXXZ",
+          "target": 7459312,
+          "addend": 0,
+          "resolved": 1555821
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "??1VQAClass@@QAE@XZ",
+          "target": 7456928,
+          "addend": 0,
+          "resolved": 1553424
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1968293
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??1MovieSubtitles@@QAE@XZ",
+          "target": 6927008,
+          "addend": 0,
+          "resolved": 1023475
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1968264
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5903472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5903568,
+      "method": "005a14d0",
+      "body_bytes": 274,
+      "body_sha256": "c054cdded84f558268118a5dda9b7c7fbc42ed058517b36e5616cb9984f46f42",
+      "padding_bytes": 14,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "81b290c112213fc981af6b3ee0c3a5cf03e1cf416d832d88e6b9efb96cffe303",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Play@@YIXPAUVQHandle@@_NW4ThemeType@@1@Z",
+      "symbol_prefix": "?Movie_Play@@YIXPAUVQHandle@@_NW4ThemeType@@1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?Get_Option@@YI_NH@Z",
+          "target": 7461792,
+          "addend": 0,
+          "resolved": 1558165
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "?Set_Loop@VQAClass@@QAE_NHH@Z",
+          "target": 7457760,
+          "addend": 0,
+          "resolved": 1554083
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "?Set_Loop@VQAClass@@QAE_NHHH@Z",
+          "target": 7457808,
+          "addend": 0,
+          "resolved": 1554116
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 159,
+          "kind": 20,
+          "symbol": "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z",
+          "target": 7241248,
+          "addend": 0,
+          "resolved": 1337517
+        },
+        {
+          "offset": 185,
+          "kind": 20,
+          "symbol": "?Seek_To_Frame@VQAClass@@QAEXH@Z",
+          "target": 7457888,
+          "addend": 0,
+          "resolved": 1554131
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?Play_VQA@VQAClass@@QAEHH_N@Z",
+          "target": 7458000,
+          "addend": 0,
+          "resolved": 1554230
+        },
+        {
+          "offset": 217,
+          "kind": 20,
+          "symbol": "?Reset_VQA@VQAClass@@QAEXXZ",
+          "target": 7459344,
+          "addend": 0,
+          "resolved": 1555555
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 259,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5903568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5903856,
+      "method": "005a15f0",
+      "body_bytes": 37,
+      "body_sha256": "93508f51941b0d36bbd1745b61f945ebd288694a68ae1b738f4377c26653ba31",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5f76368082dae0c9832ebc2948f0bf3eb32aa50b678d53524027aac8e8e55236",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Advance_Frame@@YI_NPAUVQHandle@@AA_N@Z",
+      "symbol_prefix": "?Movie_Advance_Frame@@YI_NPAUVQHandle@@AA_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?Advance_Frame@VQAClass@@QAE_NAA_N@Z",
+          "target": 7458752,
+          "addend": 0,
+          "resolved": 1554870
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5903856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5903904,
+      "method": "005a1620",
+      "body_bytes": 14,
+      "body_sha256": "8e7a9c397879be9223c05a873f68ac005d16b38442f561605d045bf18f1802a4",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f080d1e235c6aa33a686ec3ed473294b49f06e59b4aeafb17cc1ad3326c06997",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Is_Playing@@YI_NXZ",
+      "symbol_prefix": "?Movie_Is_Playing@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5903904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5903920,
+      "method": "005a1630",
+      "body_bytes": 16,
+      "body_sha256": "8a482edca791588e619ba7f3e1e84155ea30fe9e2b275104c989b11814c55ca5",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8a482edca791588e619ba7f3e1e84155ea30fe9e2b275104c989b11814c55ca5",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Pause@@YIXPAUVQHandle@@@Z",
+      "symbol_prefix": "?Movie_Pause@@YIXPAUVQHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?Pause_VQA@VQAClass@@QAEXXZ",
+          "target": 7459232,
+          "addend": 0,
+          "resolved": 1555297
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5903920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5903936,
+      "method": "005a1640",
+      "body_bytes": 16,
+      "body_sha256": "f965afca89653be25c32896fe3807d3fceb4a155b53065838d8b46196853417b",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f965afca89653be25c32896fe3807d3fceb4a155b53065838d8b46196853417b",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Resume@@YIXPAUVQHandle@@@Z",
+      "symbol_prefix": "?Movie_Resume@@YIXPAUVQHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?Resume_VQA@VQAClass@@QAEXXZ",
+          "target": 7459296,
+          "addend": 0,
+          "resolved": 1555345
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5903936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5903952,
+      "method": "005a1650",
+      "body_bytes": 177,
+      "body_sha256": "324718fa0f68805f9dd2153267231ed14bcd3e9100807e36c0769551c2b39662",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "2c02aad3c0d94b46b96974bb5db0ca5c2dfb85d0c65a06ed485c54ebabe2126f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Movie_Update_Visible_Surface@@YIXXZ",
+      "symbol_prefix": "?Movie_Update_Visible_Surface@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z",
+          "target": 5115024,
+          "addend": 0,
+          "resolved": 4294178324
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "?Get_Option@@YI_NH@Z",
+          "target": 7461792,
+          "addend": 0,
+          "resolved": 1557786
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "__imp__GetClientRect@8",
+          "target": 7972024,
+          "addend": 0,
+          "resolved": 7972024
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "__imp__ClientToScreen@8",
+          "target": 7972012,
+          "addend": 0,
+          "resolved": 7972012
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5903952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904144,
+      "method": "005a1710",
+      "body_bytes": 72,
+      "body_sha256": "0c5127d1fea6d8c50bfde9807cbcafd6d195188ae013bb3b0be7cfe763187cae",
+      "padding_bytes": 8,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "2dd5c5610a839539bdc8535291520cca4a92dcfeb358640d9b11d01c87f277fe",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0VQHandle@@QAE@XZ",
+      "symbol_prefix": "??0VQHandle@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904224,
+      "method": "005a1760",
+      "body_bytes": 70,
+      "body_sha256": "b1868c21b2fcb8ff54471ccd5dca58f5af129cd6abe3202664209c098bcdf94c",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "db80a590031844cd4e3bc08640aa8599be83c01298acda8d54d7b95aa175e053",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1VQHandle@@QAE@XZ",
+      "symbol_prefix": "??1VQHandle@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?Close_And_Free_VQA@VQAClass@@QAEXXZ",
+          "target": 7459312,
+          "addend": 0,
+          "resolved": 1555073
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??1VQAClass@@QAE@XZ",
+          "target": 7456928,
+          "addend": 0,
+          "resolved": 1552676
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1967545
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "??1MovieSubtitles@@QAE@XZ",
+          "target": 6927008,
+          "addend": 0,
+          "resolved": 1022733
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1967522
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904304,
+      "method": "005a17b0",
+      "body_bytes": 49,
+      "body_sha256": "39980d4d30c5b8e8f592f9a1582d1a599ed73230d1e6e32e473b6c98679b2a5d",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "2a7b9dc06de5ff277c0076f6933a1f51c35af17a71b9b3255f23e13f639ba1c9",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0VQMovieHandle@@QAE@PAUVQHandle@@@Z",
+      "symbol_prefix": "??0VQMovieHandle@@QAE@PAUVQHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_7VQMovieHandle@@6B@",
+          "target": 8021540,
+          "addend": 0,
+          "resolved": 8021540
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?Get_VQA_Width@VQAClass@@QBEHXZ",
+          "target": 7459584,
+          "addend": 0,
+          "resolved": 1555253
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?Get_VQA_Height@VQAClass@@QBEHXZ",
+          "target": 7459600,
+          "addend": 0,
+          "resolved": 1555256
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904368,
+      "method": "005a17f0",
+      "body_bytes": 51,
+      "body_sha256": "e4dadd6c04665d98bb867e12b0285e372a7ded21112d9e097b99869cbd55696f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "73daf5d613b88b6ad2f737a6d576acabe80280400630f7fd1c88206f47080d4b",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pause@VQMovieHandle@@UAEX_N@Z",
+      "symbol_prefix": "?Pause@VQMovieHandle@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?Pause_VQA@VQAClass@@QAEXXZ",
+          "target": 7459232,
+          "addend": 0,
+          "resolved": 1554836
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?Resume_VQA@VQAClass@@QAEXXZ",
+          "target": 7459296,
+          "addend": 0,
+          "resolved": 1554880
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904432,
+      "method": "005a1830",
+      "body_bytes": 31,
+      "body_sha256": "1e470003d04fc5cffe62434a2ee7d6aed33e7fcbd697f32ff5bd0d3ef8757b49",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ccc2c5edbb2042e7d0659358dede7557686da5d49a9b86b389b25b8560091a29",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop@VQMovieHandle@@UAEXXZ",
+      "symbol_prefix": "?Stop@VQMovieHandle@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?ActiveMovieHandle@@3PAVMovieHandle@@A",
+          "target": 10948784,
+          "addend": 0,
+          "resolved": 10948784
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Movie_Play@@YIXPAUVQHandle@@_NW4ThemeType@@1@Z",
+          "target": 5903568,
+          "addend": 0,
+          "resolved": 4294966412
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?ActiveMovieHandle@@3PAVMovieHandle@@A",
+          "target": 10948784,
+          "addend": 0,
+          "resolved": 10948784
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904464,
+      "method": "005a1850",
+      "body_bytes": 4,
+      "body_sha256": "bc29e77cf9f63e4f2ee3f89f7d24872b50e9c4a50820b39016f3194edda5e499",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "59526fce2b74a9bd8625d3d5629c439d94851e5234c4deb460e7abc40e69df6e",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?FramesLeft@VQMovieHandle@@UAE_NXZ",
+      "symbol_prefix": "?FramesLeft@VQMovieHandle@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904480,
+      "method": "005a1860",
+      "body_bytes": 64,
+      "body_sha256": "a2c9f2c488543455da770d75889a93aef7a23ac99eb76e207273e67ee233d3b2",
+      "padding_bytes": 0,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a2c9f2c488543455da770d75889a93aef7a23ac99eb76e207273e67ee233d3b2",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AdvanceFrame@VQMovieHandle@@UAE_NXZ",
+      "symbol_prefix": "?AdvanceFrame@VQMovieHandle@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Advance_Frame@VQAClass@@QAE_NAA_N@Z",
+          "target": 7458752,
+          "addend": 0,
+          "resolved": 1554222
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904544,
+      "method": "005a18a0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Waiting@VQMovieHandle@@UAEXXZ",
+      "symbol_prefix": "?Waiting@VQMovieHandle@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904560,
+      "method": "005a18b0",
+      "body_bytes": 54,
+      "body_sha256": "9a96b59ceaac24cb76cc33ac2dae4fb333502f94336c6a7d5807b9536d3f5a6f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e61ff31e6dbf297ef1d0462bb27a936a6c35309986b95684592017e851502d26",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetPosition@VQMovieHandle@@UAEXHH@Z",
+      "symbol_prefix": "?SetPosition@VQMovieHandle@@UAEXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904624,
+      "method": "005a18f0",
+      "body_bytes": 19,
+      "body_sha256": "59423355278b3688103c05699f7ce07e9dd498a075831e3b5021148a0eaba778",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c77e671dfef79ee57cd64e108bef4a3bc01f190b2e89f639f25797460be3401e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?InitSubtitles@VQMovieHandle@@UAEXP6IXPAX@Z@Z",
+      "symbol_prefix": "?InitSubtitles@VQMovieHandle@@UAEXP6IXPAX@Z@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?SetCallback@MovieSubtitles@@QAEXP6IXPAX@Z@Z",
+          "target": 6927600,
+          "addend": 0,
+          "resolved": 1022960
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904656,
+      "method": "005a1910",
+      "body_bytes": 32,
+      "body_sha256": "f5c49794dd458fbbcbf1a6f5b902fff877916913a20fa1f51bf6497d5e74da37",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f5c49794dd458fbbcbf1a6f5b902fff877916913a20fa1f51bf6497d5e74da37",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SeekToFrame@VQMovieHandle@@UAEXH@Z",
+      "symbol_prefix": "?SeekToFrame@VQMovieHandle@@UAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Reset_VQA@VQAClass@@QAEXXZ",
+          "target": 7459344,
+          "addend": 0,
+          "resolved": 1554675
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?Seek_To_Frame@VQAClass@@QAEXH@Z",
+          "target": 7457888,
+          "addend": 0,
+          "resolved": 1553204
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904688,
+      "method": "005a1930",
+      "body_bytes": 6,
+      "body_sha256": "f98d08691646914db28cedcf7743fd82ba7c323184fd63f58d45c5c6fb791eb8",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6d6b16c4d472c6358de7822265d3c9f8a0ff34c64ba4c7910b90625028f3803a",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Timing@VQMovieHandle@@UAEHXZ",
+      "symbol_prefix": "?Timing@VQMovieHandle@@UAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904704,
+      "method": "005a1940",
+      "body_bytes": 177,
+      "body_sha256": "53b785f714cfe1fbcad32e3f2c4b2b75edd0484eb7293882181791dc4be226b4",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "8fca719523de0ea8c0fda8a51b12165236045f2fb7ea681f29cd9cd6ea884c43",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Blit@VQMovieHandle@@UAEXXZ",
+      "symbol_prefix": "?Blit@VQMovieHandle@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z",
+          "target": 5115024,
+          "addend": 0,
+          "resolved": 4294177572
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "?Get_Option@@YI_NH@Z",
+          "target": 7461792,
+          "addend": 0,
+          "resolved": 1557034
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "__imp__GetClientRect@8",
+          "target": 7972024,
+          "addend": 0,
+          "resolved": 7972024
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "__imp__ClientToScreen@8",
+          "target": 7972012,
+          "addend": 0,
+          "resolved": 7972012
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5904896,
+      "method": "005a1a00",
+      "body_bytes": 113,
+      "body_sha256": "35332c4fa2c47287e70ce34fb02750552cb8d2ca1895abd7701168672675e5ae",
+      "padding_bytes": 15,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "8a9a7251f48468b7272f465087b575fb09d65a3875c8c25c5643ea0c4144783f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1VQMovieHandle@@UAE@XZ",
+      "symbol_prefix": "??1VQMovieHandle@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_7VQMovieHandle@@6B@",
+          "target": 8021540,
+          "addend": 0,
+          "resolved": 8021540
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?Close_And_Free_VQA@VQAClass@@QAEXXZ",
+          "target": 7459312,
+          "addend": 0,
+          "resolved": 1554386
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??1VQAClass@@QAE@XZ",
+          "target": 7456928,
+          "addend": 0,
+          "resolved": 1551989
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1966858
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "??1MovieSubtitles@@QAE@XZ",
+          "target": 6927008,
+          "addend": 0,
+          "resolved": 1022040
+        },
+        {
+          "offset": 74,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1966829
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "??_7MovieHandle@@6B@",
+          "target": 8021588,
+          "addend": 0,
+          "resolved": 8021588
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "??_7MovieHandle@@6B@",
+          "target": 8021588,
+          "addend": 0,
+          "resolved": 8021588
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5904896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905024,
+      "method": "005a1a80",
+      "body_bytes": 35,
+      "body_sha256": "9662bd970e6228187e698262c58f6d021e41057b67a5510f9de75fd9bf211394",
+      "padding_bytes": 13,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9ff033bad4f886ebbc9e420f3a1403f0f2ca5e8556076821e33babb62832f61f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0BinkMovieHandle@@QAE@PAVBinkHandle@@@Z",
+      "symbol_prefix": "??0BinkMovieHandle@@QAE@PAVBinkHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7BinkMovieHandle@@6B@",
+          "target": 8021636,
+          "addend": 0,
+          "resolved": 8021636
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905072,
+      "method": "005a1ab0",
+      "body_bytes": 16,
+      "body_sha256": "8f7ae6f7cd41e901389d988b40a055f4d1e730a7cf50fa6a223d019bcf710e02",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8f7ae6f7cd41e901389d988b40a055f4d1e730a7cf50fa6a223d019bcf710e02",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pause@BinkMovieHandle@@UAEX_N@Z",
+      "symbol_prefix": "?Pause@BinkMovieHandle@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Pause@BinkHandle@@QAEX_N@Z",
+          "target": 4391936,
+          "addend": 0,
+          "resolved": 4293454147
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905088,
+      "method": "005a1ac0",
+      "body_bytes": 25,
+      "body_sha256": "e40c974944513b26519053b1cffcf15074f2822cf050067b38cf74dab87becf8",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "142c71a64918ae0de0da63b5d51579ba90bf44949e1785ab5aa532db1d4f7fc8",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop@BinkMovieHandle@@UAEXXZ",
+      "symbol_prefix": "?Stop@BinkMovieHandle@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?ActiveMovieHandle@@3PAVMovieHandle@@A",
+          "target": 10948784,
+          "addend": 0,
+          "resolved": 10948784
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Play@BinkHandle@@QAEXXZ",
+          "target": 4391984,
+          "addend": 0,
+          "resolved": 4293454178
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?ActiveMovieHandle@@3PAVMovieHandle@@A",
+          "target": 10948784,
+          "addend": 0,
+          "resolved": 10948784
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905120,
+      "method": "005a1ae0",
+      "body_bytes": 8,
+      "body_sha256": "ed66b6c4445f813679dc57e77534fb83d0bc1d20c679006ede83a3251cc8a74e",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5b357d6608065e7dd5e4cc6e76e5a9aba07de89605ea766c1b7ed6d2d82971cf",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?FramesLeft@BinkMovieHandle@@UAE_NXZ",
+      "symbol_prefix": "?FramesLeft@BinkMovieHandle@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Is_Finished@BinkHandle@@QBE_NXZ",
+          "target": 4391968,
+          "addend": 0,
+          "resolved": 4293454136
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905136,
+      "method": "005a1af0",
+      "body_bytes": 8,
+      "body_sha256": "011981e583a5339cedc18a3d6a47cc3c65cdaf399801155d8dbc513d187bbec9",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f62da95ebcc5a8a78431f7831baeea4a89c14b97a24ea2614e9add187e3468f6",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AdvanceFrame@BinkMovieHandle@@UAE_NXZ",
+      "symbol_prefix": "?AdvanceFrame@BinkMovieHandle@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Render_Frame@BinkHandle@@QAE_NXZ",
+          "target": 4392960,
+          "addend": 0,
+          "resolved": 4293455112
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905152,
+      "method": "005a1b00",
+      "body_bytes": 8,
+      "body_sha256": "cff8128cfce4b46176085d6b91455867e545adf5a1bebecba7d697f242b6d766",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c330578b440bab4ed225553e1e6afab22c1b943c0286b095bc32ea4c3086cd1b",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Waiting@BinkMovieHandle@@UAEXXZ",
+      "symbol_prefix": "?Waiting@BinkMovieHandle@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Check_Frame_Ready@BinkHandle@@QAEXXZ",
+          "target": 4392928,
+          "addend": 0,
+          "resolved": 4293455064
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905168,
+      "method": "005a1b10",
+      "body_bytes": 21,
+      "body_sha256": "53dbeb742f8fe7eea1bf3dc21c77716f894a5b7a06bf55930969ad6528e5987c",
+      "padding_bytes": 11,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "594ccca711897d731ba47047bcad2e520af6be61b3b74df0fc1bdd896eb3c44e",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetPosition@BinkMovieHandle@@UAEXHH@Z",
+      "symbol_prefix": "?SetPosition@BinkMovieHandle@@UAEXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?Set_Position@BinkHandle@@QAEXHH@Z",
+          "target": 4391552,
+          "addend": 0,
+          "resolved": 4293453662
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905200,
+      "method": "005a1b30",
+      "body_bytes": 16,
+      "body_sha256": "9b4c336b2309f0e47260fdd952f5b3b14f7619ca2fc2a30c83bd2060c54e535a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9b4c336b2309f0e47260fdd952f5b3b14f7619ca2fc2a30c83bd2060c54e535a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?InitSubtitles@BinkMovieHandle@@UAEXP6IXPAX@Z@Z",
+      "symbol_prefix": "?InitSubtitles@BinkMovieHandle@@UAEXP6IXPAX@Z@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Set_Subtitle_Callback@BinkHandle@@QAEXP6IXPAX@Z@Z",
+          "target": 4391904,
+          "addend": 0,
+          "resolved": 4293453987
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905200,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905216,
+      "method": "005a1b40",
+      "body_bytes": 16,
+      "body_sha256": "ed0fcd42550b99707bd7130eaf91c3dc30d1c3b63438c21e54ef9b22cccbb4ec",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ed0fcd42550b99707bd7130eaf91c3dc30d1c3b63438c21e54ef9b22cccbb4ec",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SeekToFrame@BinkMovieHandle@@UAEXH@Z",
+      "symbol_prefix": "?SeekToFrame@BinkMovieHandle@@UAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Goto_Frame@BinkHandle@@QAEXH@Z",
+          "target": 4391840,
+          "addend": 0,
+          "resolved": 4293453907
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905232,
+      "method": "005a1b50",
+      "body_bytes": 8,
+      "body_sha256": "a566d2aa36457d4157bd363af45d9a465c60af6445f8f753ef2003c112c5d5b2",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "cdea894a7a4391092be1d7ad60def581e4f43e29ca600e172e5580dc7c71573b",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Timing@BinkMovieHandle@@UAEHXZ",
+      "symbol_prefix": "?Timing@BinkMovieHandle@@UAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Frame_Time@BinkHandle@@QAEHXZ",
+          "target": 4391872,
+          "addend": 0,
+          "resolved": 4293453928
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905248,
+      "method": "005a1b60",
+      "body_bytes": 8,
+      "body_sha256": "9311c14e076127a51900f940e19e40b102ac36e638703a6c38bf770f5f99bdc9",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "d2bb31ba3c7bba897f39cf833c9d3592a624944acf40c2e3df4c302e10fff6fc",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Blit@BinkMovieHandle@@UAEXXZ",
+      "symbol_prefix": "?Blit@BinkMovieHandle@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Redraw@BinkHandle@@QAEXXZ",
+          "target": 4392992,
+          "addend": 0,
+          "resolved": 4293455032
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905264,
+      "method": "005a1b70",
+      "body_bytes": 42,
+      "body_sha256": "5e01a68a3b27baea42e8478fb0153a1ff5102bd81125dc83c1ba90807f888280",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d2af149b79733f33a75e6993a887339c846673b202d05189f25c08bf411f9ff7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1BinkMovieHandle@@UAE@XZ",
+      "symbol_prefix": "??1BinkMovieHandle@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7BinkMovieHandle@@6B@",
+          "target": 8021636,
+          "addend": 0,
+          "resolved": 8021636
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??1BinkHandle@@QAE@XZ",
+          "target": 4390624,
+          "addend": 0,
+          "resolved": 4293452632
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1966509
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7MovieHandle@@6B@",
+          "target": 8021588,
+          "addend": 0,
+          "resolved": 8021588
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905312,
+      "method": "005a1ba0",
+      "body_bytes": 7,
+      "body_sha256": "f5dc46729dc344bbbe3ea842188333f3bb4b05a39d48382062744f24ee6a9855",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9ca029f2db6559366f2a640471f1686781073e94e641de88ec81deea3c88f7a7",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1MovieHandle@@UAE@XZ",
+      "symbol_prefix": "??1MovieHandle@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7MovieHandle@@6B@",
+          "target": 8021588,
+          "addend": 0,
+          "resolved": 8021588
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905328,
+      "method": "005a1bb0",
+      "body_bytes": 373,
+      "body_sha256": "fbc91ddd3ac746873b1d5313291b6f8708e1489eb960f2c0a63160c216051ea0",
+      "padding_bytes": 11,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "586187188c988d3ea8a44ef9bf82e6b6b0c47db4590c74fb39000e0c27cb8604",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Find_Movie_File@@YI_NPBDPAD_N@Z",
+      "symbol_prefix": "?Find_Movie_File@@YI_NPBDPAD_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 0,
+          "resolved": 10750744
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "?Unlock_Movie@OptionsClass@@QAEXPBD@Z",
+          "target": 6136816,
+          "addend": 0,
+          "resolved": 231396
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "??_C@_04HJCD@?4BIK?$AA@",
+          "target": 8232308,
+          "addend": 0,
+          "resolved": 8232308
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 4293686036
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293486512
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4293449439
+        },
+        {
+          "offset": 198,
+          "kind": 6,
+          "symbol": "??_C@_04MOHI@?4VQA?$AA@",
+          "target": 8232316,
+          "addend": 0,
+          "resolved": 8232316
+        },
+        {
+          "offset": 241,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 4293685931
+        },
+        {
+          "offset": 264,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 277,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293486407
+        },
+        {
+          "offset": 289,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 294,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4293449334
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5905712,
+      "method": "005a1d30",
+      "body_bytes": 411,
+      "body_sha256": "1e063fc23323f6d6c327805fa9be77beca96ec365e36de393ed64a8683d6d97c",
+      "padding_bytes": 5,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "bdd7333eb9d9ce568a140fb6e35a004f50c82bf7262d3b697cdd9d21a9e7d622",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?OwnerDraw_InitMovieHandle@@YIPAVMovieHandle@@PBDPAVSurface@@PAV?$TRect@H@@@Z",
+      "symbol_prefix": "?OwnerDraw_InitMovieHandle@@YIPAVMovieHandle@@PBDPAVSurface@@PAV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Find_Movie_File@@YI_NPBDPAD_N@Z",
+          "target": 5905328,
+          "addend": 0,
+          "resolved": 4294966881
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "_strrchr",
+          "target": 7872496,
+          "addend": 0,
+          "resolved": 1966673
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "??_C@_04LMEE@?4bik?$AA@",
+          "target": 8270492,
+          "addend": 0,
+          "resolved": 8270492
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 1966447
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "??_C@_0BH@CNON@Play_Movie?$CI?$CJ?5as?5Bink?$CB?6?$AA@",
+          "target": 8270468,
+          "addend": 0,
+          "resolved": 8270468
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293282606
+        },
+        {
+          "offset": 149,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1966670
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "??0BinkHandle@@QAE@PBDPAVSurface@@@Z",
+          "target": 4390560,
+          "addend": 0,
+          "resolved": 4293451971
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1966637
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "??_7BinkMovieHandle@@6B@",
+          "target": 8021636,
+          "addend": 0,
+          "resolved": 8021636
+        },
+        {
+          "offset": 302,
+          "kind": 20,
+          "symbol": "?Movie_Create@@YIPAUVQHandle@@PBDPAVSurface@@V?$TRect@H@@2H_N@Z",
+          "target": 5902352,
+          "addend": 0,
+          "resolved": 4294963630
+        },
+        {
+          "offset": 315,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1966504
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "??_7VQMovieHandle@@6B@",
+          "target": 8021540,
+          "addend": 0,
+          "resolved": 8021540
+        },
+        {
+          "offset": 344,
+          "kind": 20,
+          "symbol": "?Get_VQA_Width@VQAClass@@QBEHXZ",
+          "target": 7459584,
+          "addend": 0,
+          "resolved": 1553524
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "?Get_VQA_Height@VQAClass@@QBEHXZ",
+          "target": 7459600,
+          "addend": 0,
+          "resolved": 1553527
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5905712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5906128,
+      "method": "005a1ed0",
+      "body_bytes": 27,
+      "body_sha256": "3841fb9bdb594950e978623e85c4b4a75c819bf211a5da6a268ac37346410e0e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7494c4f77bf28dd0ebe412e63d3178e82fdfc1cd74cae2ca1005dfe5d55c9f0e",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?IsMoviePlaying@Game@@YI_NXZ",
+      "symbol_prefix": "?IsMoviePlaying@Game@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?CurrentVQ@@3PAUVQHandle@@A",
+          "target": 10948780,
+          "addend": 0,
+          "resolved": 10948780
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?ActiveMovieHandle@@3PAVMovieHandle@@A",
+          "target": 10948784,
+          "addend": 0,
+          "resolved": 10948784
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5906160,
+      "method": "005a1ef0",
+      "body_bytes": 16,
+      "body_sha256": "c001157e35a579a1c9fb0e49ae9ddd3a69b84d1990bcaf425f350cf535a3667a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c001157e35a579a1c9fb0e49ae9ddd3a69b84d1990bcaf425f350cf535a3667a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?BlitMovie@Game@@YIXXZ",
+      "symbol_prefix": "?BlitMovie@Game@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?ActiveMovieHandle@@3PAVMovieHandle@@A",
+          "target": 10948784,
+          "addend": 0,
+          "resolved": 10948784
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5906176,
+      "method": "005a1f00",
+      "body_bytes": 124,
+      "body_sha256": "8c7f9d3c7b91d8fc646d39206a94ea25bf994492559c305e696c25ce7d9840b8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "0d9da964993f007b694b2bc7d2808699abe940c329aee9a94afe0575a8993b69",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GVQMovieHandle@@UAEPAXI@Z",
+      "symbol_prefix": "??_GVQMovieHandle@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_7VQMovieHandle@@6B@",
+          "target": 8021540,
+          "addend": 0,
+          "resolved": 8021540
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?Close_And_Free_VQA@VQAClass@@QAEXXZ",
+          "target": 7459312,
+          "addend": 0,
+          "resolved": 1553106
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??1VQAClass@@QAE@XZ",
+          "target": 7456928,
+          "addend": 0,
+          "resolved": 1550709
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1965578
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "??1MovieSubtitles@@QAE@XZ",
+          "target": 6927008,
+          "addend": 0,
+          "resolved": 1020760
+        },
+        {
+          "offset": 74,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1965549
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "??_7MovieHandle@@6B@",
+          "target": 8021588,
+          "addend": 0,
+          "resolved": 8021588
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1965513
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5906304,
+      "method": "005a1f80",
+      "body_bytes": 63,
+      "body_sha256": "de6078ffcdf8a1375e81a535628c586f385995301672db5b4cdce9130fc82379",
+      "padding_bytes": 1,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "643fee571ab0118d0c0e3d60e96131266720fb97a1763089deacecd9b17a624f",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GBinkMovieHandle@@UAEPAXI@Z",
+      "symbol_prefix": "??_GBinkMovieHandle@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7BinkMovieHandle@@6B@",
+          "target": 8021636,
+          "addend": 0,
+          "resolved": 8021636
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??1BinkHandle@@QAE@XZ",
+          "target": 4390624,
+          "addend": 0,
+          "resolved": 4293451592
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1965469
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_7MovieHandle@@6B@",
+          "target": 8021588,
+          "addend": 0,
+          "resolved": 8021588
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1965446
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5906368,
+      "method": "005a1fc0",
+      "body_bytes": 42,
+      "body_sha256": "0920e27896e3be80bbf0ea31c060644a2a91ca50cf4bb4f830d43400163a01fe",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4c451d6f245f93baefa32c96dab958ba4e9aba3b2a7f3b6fca6caf6c743d7699",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PBD@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PBD@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1965408
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906368,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5906416,
+      "method": "005a1ff0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PBD@@UAEHPBQBD@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PBD@@UAEHPBQBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906416,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5906448,
+      "method": "005a2010",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PBD@@UBEPBDH@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PBD@@UBEPBDH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5906464,
+      "method": "005a2020",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PBD@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PBD@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906464,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5906528,
+      "method": "005a2060",
+      "body_bytes": 174,
+      "body_sha256": "098cd8711917062a21b699ffd352ebdbb689a02d1d4361e533da70a23a62f2e7",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "c01e4e213d5842e54126518000435c577b90207522523d9418fd44c6a0bcf34e",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PBD@@UAE_NHPBQBD@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PBD@@UAE_NHPBQBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1965964
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1965152
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5906704,
+      "method": "005a2110",
+      "body_bytes": 39,
+      "body_sha256": "959026711abb6f76bfe56fa078e6653fd8a6aaa3b4ebba2fc4c6a6a484dba8a3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "00ccc6025f8fec261c2ce0b124ceb6778299c9deb6dfc52b30236068f365e426",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PBD@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PBD@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1965075
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906704,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5906752,
+      "method": "005a2140",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PBD@@UAEHABQBD@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PBD@@UAEHABQBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906752,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5906816,
+      "method": "005a2180",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PBD@@UAEHPBQBD@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PBD@@UAEHPBQBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906816,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5906848,
+      "method": "005a21a0",
+      "body_bytes": 176,
+      "body_sha256": "7f224dca5dfb05c981a506b83612e4e1814b86a3973aa66480abf8b2c685bf6a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "7f224dca5dfb05c981a506b83612e4e1814b86a3973aa66480abf8b2c685bf6a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PBD@@UAE_NHPBQBD@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PBD@@UAE_NHPBQBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1965648
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1964845
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5906848,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5907024,
+      "method": "005a2250",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PBD@@UAEHABQBD@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PBD@@UAEHABQBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907024,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2644"
+    },
+    {
+      "entry": 5907072,
+      "method": "5a2280",
+      "body_bytes": 73,
+      "body_sha256": "ad398ea4b0513c0461374874ab3c376bdd86108668531d666dd17df1587655e7",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "dd17bdb9899f7f3b49d4b3059db33409e40441dfbebeb6dbc93979f57c218f56",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PBD@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PBD@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBD@@6B@",
+          "target": 8021508,
+          "addend": 0,
+          "resolved": 8021508
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1964702
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1964667
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907072,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 5907152,
+      "method": "005a22d0",
+      "body_bytes": 73,
+      "body_sha256": "1d3b3015d2294427639112333974a3d57d30e8656cc6a81d06f6f0214c01306c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "71e974c613666630e557bd7eff6a515ae305b03d11b7fa94beb43717a551e220",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBD@@6B@",
+          "target": 8021508,
+          "addend": 0,
+          "resolved": 8021508
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1964622
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1964587
+        }
+      ],
+      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907152,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    }
+  ]
+}

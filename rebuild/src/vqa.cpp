@@ -6,8 +6,10 @@
 #include "always.h"
 #include "vqa.h"
 
-#include "geozero.h"
+#include "rect.h"
 #include "geoconst1.h"
+#include "coord.h"
+#include "geoconst2.h"
 
 #include "_keyboar.h"
 #include "ccfile.h"
@@ -34,7 +36,6 @@ long __cdecl VQACCFileHandler(VQAHandle * vqa, long action, void * buffer, long 
 long __cdecl VQAEventHandler(VQAHandle * vqa, long action, void * buffer, long nbytes);
 long __cdecl VQAMemoryHandler(VQAHandle * vqa, long action, void * buffer, long nbytes);
 
-#include "geoconst2.h"
 
 DynamicVectorClass<MovieHandle *> IngameVQ; // RA2: holds MovieHandle, not VQHandle
 
@@ -888,6 +889,3 @@ void vqanoop3(void)
 	return;
 }
 #endif
-
-
-template class DynamicVectorClass<MovieHandle *>;

@@ -13,8 +13,10 @@
 
 #include "always.h"
 
-#include "geozero.h"
+#include "rect.h"
 #include "geoconst1.h" // RA2: this module holds its own copy of the geometry constants
+#include "coord.h"
+#include "geoconst2.h" // RA2: as above; CELL_NONE
 #include "voc.h"
 
 #include "_rect.h"
@@ -24,7 +26,6 @@
 #include "ccini.h"
 #include "cell.h" // RA2: the includes this file needs
 #include "globals.h"
-#include "geoconst2.h" // RA2: as above; CELL_NONE
 #include "map.h" // RA2: the includes this file needs
 #include "tactical.h"
 #include "vector.h"

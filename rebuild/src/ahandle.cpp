@@ -5,7 +5,7 @@
 
 #include "always.h"
 #include "ahandle.h"
-#include "geozero.h"
+#include "rect.h"
 #include <ctype.h>
 #include <math.h>
 #include "dsaudio.h"

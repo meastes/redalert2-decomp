@@ -1,0 +1,2797 @@
+{
+  "id": "rebuild-startup",
+  "population": {
+    "id": "rebuild-startup",
+    "inventory_sha256": "85447646f57a298137828c1d68c9974a5382b19b354a03e854273947f262caf1",
+    "gaps_sha256": "25149f11ea60fd451156aecdeaa58236fd884bb7481f458011be849aea822183",
+    "historical_population_sha256": "897f2781cf548e15c072476c26127ded65e7a92a9146655add7e0c8f333ab7d3",
+    "historical_acceptance_sha256": "29f20006b058c5833b8854f8b74f2c31f9fa60a614d5dab9c51da85faa3b7f19"
+  },
+  "references": {
+    "_RECT_NONE": 11260920,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11260944,
+    "_ISO_TILE_SIZE": 8042872,
+    "_LEPTONS_PER_PIXEL": 11261040,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11261024,
+    "_ONE_RAD": 8042880,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11261016,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11260952,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11260912,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11261048,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11260960,
+    "_CELL_DIAG_SLOPE_ANGLE": 11261008,
+    "_BRIDGE_LEPTON_HEIGHT": 11261032,
+    "_CELL_NONE": 11260936,
+    "_COORD_NONE": 11260992,
+    "_$E324": 6871936,
+    "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A": 11260968,
+    "??_7?$DynamicVectorClass@K@@6B@": 8042912,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@K@@6B@": 8042944,
+    "??3@YAXPAX@Z": 7871803,
+    "__imp__lstrcpyA@8": 7971128,
+    "__imp__lstrcatA@8": 7971120,
+    "??_C@_01PCFE@?2?$AA@": 8177988,
+    "__imp__RegCreateKeyExA@36": 7970840,
+    "__imp__lstrlenA@4": 7971228,
+    "__imp__RegSetValueExA@24": 7970836,
+    "__imp__RegCloseKey@4": 7970820,
+    "?ProgramInstance@@3PAUHINSTANCE__@@A": 11690368,
+    "__imp__GetModuleFileNameA@12": 7971224,
+    "__imp__StringFromGUID2@12": 7972308,
+    "_CLSID_TiberianSun": 8002192,
+    "__imp__WideCharToMultiByte@32": 7971388,
+    "_LIBID_TiberianSun": 8002176,
+    "??_C@_06HFAC@CLSID?2?$AA@": 8342984,
+    "??_C@_0BB@PJMD@WW?4TiberianSun?41?$AA@": 8342964,
+    "??_C@_0N@BBON@Tiberian?5Sun?$AA@": 8342948,
+    "??_C@_05FGFK@CLSID?$AA@": 8342940,
+    "??_C@_0P@ICEP@WW?4TiberianSun?$AA@": 8342924,
+    "??_C@_06GIIO@CurVer?$AA@": 8342916,
+    "?SetRegKeyValue@@YI_NQBD00@Z": 6872000,
+    "??_C@_06CMNK@ProgID?$AA@": 8342908,
+    "??_C@_0BJ@LMLI@VersionIndependentProgID?$AA@": 8342880,
+    "??_C@_0O@GBJK@NotInsertable?$AA@": 8342864,
+    "??_C@_0P@IIOA@InprocServer32?$AA@": 8342848,
+    "??_C@_07GICL@Typelib?$AA@": 8342840,
+    "??_C@_1BA@KIKB@?$AAR?$AAA?$AA2?$AA?4?$AAT?$AAL?$AAB?$AA?$AA@": 8342824,
+    "__imp__LoadTypeLib@8": 7971672,
+    "__imp__RegDeleteKeyA@8": 7970848,
+    "??_C@_0BG@HCLN@WW?4TiberianSun?2CurVer?$AA@": 8343048,
+    "??_C@_0BF@GFPO@WW?4TiberianSun?2CLSID?$AA@": 8343024,
+    "??_C@_0BH@CMHC@WW?4TiberianSun?41?2CLSID?$AA@": 8343000,
+    "__imp__wsprintfA": 7972004,
+    "??_C@_05KEJO@?$CFs?2?$CFs?$AA@": 8342992,
+    "?UseDirect3D@@3_NA": 8728535,
+    "?Release_Direct3D@@YIXXZ": 4920432,
+    "_?surfaces_reset@?1??Reset_Surfaces@@YIXXZ@4_NA": 11261069,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
+    "?AlternateSurface@@3PAVSurface@@A": 8624472,
+    "?TileSurface@@3PAVSurface@@A": 8624452,
+    "?SidebarSurface@@3PAVSurface@@A": 8624456,
+    "?CompositeSurface@@3PAVSurface@@A": 8624484,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "?Reset_Video_Mode@@YIXXZ": 4808336,
+    "?Exception_Handler@@YIHHPAU_EXCEPTION_POINTERS@@@Z": 4950000,
+    "_exit": 7884508,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "?ReadyToQuit@@3HA": 10751360,
+    "__imp__PostMessageA@16": 7971952,
+    "?Windows_Message_Handler@@YIXXZ": 5988064,
+    "?dwRegisterMap@@3KA": 8342732,
+    "__imp__RevokeActiveObject@8": 7971668,
+    "?ApplicationInstance@@3VApplicationClass@@A": 8701916,
+    "__imp__CoDisconnectObject@8": 7972304,
+    "__imp__OleUninitialize@0": 7972292,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?MouseShapesAllocated@@3_NA": 11261068,
+    "?MouseShapes@@3PAXA": 11261064,
+    "__imp__PostQuitMessage@4": 7971900,
+    "?Shutdown_Network@@YIXXZ": 6010272,
+    "?Prog_End@@YAXXZ": 6883808,
+    "??2@YAPAXI@Z": 7872535,
+    "_$E2": 6871376,
+    "_$E5": 6871408,
+    "_$E8": 6871456,
+    "_$E11": 6871488,
+    "_$E14": 6871520,
+    "_$E17": 6871552,
+    "_$E20": 6871584,
+    "_$E23": 6871616,
+    "_$E26": 6871680,
+    "_$E29": 6871728,
+    "_$E32": 6871776,
+    "_$E35": 6871824,
+    "_$E38": 6871840,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E326": 6871872,
+    "??_G?$DynamicVectorClass@K@@UAEPAXI@Z": 6915824,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@K@@UAEPAXI@Z": 6915744,
+    "?RegisterServer@@YIJXZ": 6872176,
+    "?UnregisterServer@@YIJXZ": 6873152,
+    "?Reset_Surfaces@@YIXXZ": 6873536,
+    "?Top_Level_Exception_Filter@@YIJPAU_EXCEPTION_POINTERS@@@Z": 6873712,
+    "?Exit_Process@@YIXH@Z": 6886160,
+    "?Emergency_Exit@@YIXXZ": 6886176,
+    "?Clear@?$DynamicVectorClass@K@@UAEXXZ": 6886384,
+    "?ID@?$DynamicVectorClass@K@@UAEHPBK@Z": 6886432,
+    "?GetItem@?$VectorClass@K@@UBEKH@Z": 6886464,
+    "??8?$VectorClass@K@@UBE_NABV0@@Z": 6915056,
+    "?Resize@?$VectorClass@K@@UAE_NHPBK@Z": 6915120,
+    "?Clear@?$VectorClass@K@@UAEXXZ": 6915296,
+    "?ID@?$VectorClass@K@@UAEHABK@Z": 6915344,
+    "?ID@?$VectorClass@K@@UAEHPBK@Z": 6915408,
+    "?Resize@?$DynamicVectorClass@K@@UAE_NHPBK@Z": 6915440,
+    "?ID@?$DynamicVectorClass@K@@UAEHABK@Z": 6915696,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_EWaypointClass@@QAEPAXI@Z": 4307088,
+    "??1WaypointClass@@QAE@XZ": 7490304
+  },
+  "regions": [
+    {
+      "entry": 6871376,
+      "method": "0068d950",
+      "body_bytes": 23,
+      "body_sha256": "519ed1caf0e9bf14ad47c4a2f31b4532d1a2967a535aad7dc406b446a5b6063b",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5c2dd5436662f604ff0f4d67a54df5225b15ee851da1d4cc1b87fd524837e7f0",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11260920,
+          "addend": 0,
+          "resolved": 11260920
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11260920,
+          "addend": 4,
+          "resolved": 11260924
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11260920,
+          "addend": 8,
+          "resolved": 11260928
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11260920,
+          "addend": 12,
+          "resolved": 11260932
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871408,
+      "method": "0068d970",
+      "body_bytes": 40,
+      "body_sha256": "d4f764b997b897520a21afb946fb9e067a6c851d5e2f81a915a47fd4e33588f0",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "03ae8c5e49f4e07264568a52e2a18a4bde14dd8b7c2293d803e7c9d53b448eee",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1001519
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293053058
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11260944,
+          "addend": 0,
+          "resolved": 11260944
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871456,
+      "method": "0068d9a0",
+      "body_bytes": 19,
+      "body_sha256": "a90e5d5ae8b930a6872b7fd5b49cd46f42a8dab773c8bf60725d5109732b8dde",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f4b3d597acf80abc852ec9294f857f45ac8e7fc0afded20a23881bf8c3ed7787",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11260944,
+          "addend": 0,
+          "resolved": 11260944
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8042872,
+          "addend": 0,
+          "resolved": 8042872
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11261040,
+          "addend": 0,
+          "resolved": 11261040
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871488,
+      "method": "0068d9c0",
+      "body_bytes": 19,
+      "body_sha256": "b46a42c9983a303df9362682e06a81aa3e36d5590d687cec2065f18c03bff45e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "78e3473c708b59e7d2fde7324f7e65db57785011bee0045bffdc7294e885ca50",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11261040,
+          "addend": 0,
+          "resolved": 11261040
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11261024,
+          "addend": 0,
+          "resolved": 11261024
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871520,
+      "method": "0068d9e0",
+      "body_bytes": 19,
+      "body_sha256": "5af289969da09401ebc684bba097d0b724ce72b20a41716aea3d4d9e6758430c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "beb4b5b114133393d452c9b02823ffad50dc63df033fbb81285248a369485e53",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8042880,
+          "addend": 0,
+          "resolved": 8042880
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11261016,
+          "addend": 0,
+          "resolved": 11261016
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871552,
+      "method": "0068da00",
+      "body_bytes": 19,
+      "body_sha256": "9a038e9fc2a5dd0eff52cc1542af761a6ca5b664710c3de84904dafc11e3ef5e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "87a4e9f0e02016c84b34013072f784e16ba37d6fa7fbdae1a54a455521309805",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8042880,
+          "addend": 0,
+          "resolved": 8042880
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11260952,
+          "addend": 0,
+          "resolved": 11260952
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871584,
+      "method": "0068da20",
+      "body_bytes": 19,
+      "body_sha256": "c61a5d24d82a0053e5b9086446230768558771efa18c279fb338ed831f2dfc10",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b52b572b545a89bb5c9b0ee4f0a8d2adfc709ac98712603e69911f3701492652",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8042880,
+          "addend": 0,
+          "resolved": 8042880
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11260912,
+          "addend": 0,
+          "resolved": 11260912
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871616,
+      "method": "0068da40",
+      "body_bytes": 49,
+      "body_sha256": "8a4a6a17b3b79bd8c968089036d795c472285a327b8e0c626559e805005bbd51",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0263425247e9be7ce3dddd08cd053e5a6cb5c5da052590ae495c6ec0e4866152",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11260912,
+          "addend": 0,
+          "resolved": 11260912
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11260952,
+          "addend": 0,
+          "resolved": 11260952
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293053129
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11260944,
+          "addend": 0,
+          "resolved": 11260944
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 988837
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11261048,
+          "addend": 0,
+          "resolved": 11261048
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871680,
+      "method": "0068da80",
+      "body_bytes": 33,
+      "body_sha256": "528135f3cb927bd1c5b3f68bd51c41d6ab77f4c5af10895df5c8bcbae6ab2765",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "02117706aeedb11028c006d0eb3671b2352d9ffad709b9965e655f04ad1928e8",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11261048,
+          "addend": 0,
+          "resolved": 11261048
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293053209
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11260960,
+          "addend": 0,
+          "resolved": 11260960
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871728,
+      "method": "0068dab0",
+      "body_bytes": 44,
+      "body_sha256": "11e1d45a9fb449088a42ce3b5e88180aba79c4a07e60dffec9a63e65ea11e5c8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1aac70777f748e98f8b0e1641d31389fbfee24adc963f2f583cb75d0a09d3755",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11261048,
+          "addend": 0,
+          "resolved": 11261048
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11260944,
+          "addend": 0,
+          "resolved": 11260944
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293053150
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11261008,
+          "addend": 0,
+          "resolved": 11261008
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871776,
+      "method": "0068dae0",
+      "body_bytes": 39,
+      "body_sha256": "f19e31ab97f0c535c27ab9d4080aa98d95fa490d01cda1a2706117fb2e7b659d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "dbf158b6e4a16f70db4387a7640ed4a3d0fb988c629e4f25d83fd1e1d3fbdd0a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11261048,
+          "addend": 0,
+          "resolved": 11261048
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 988688
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11261032,
+          "addend": 0,
+          "resolved": 11261032
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871824,
+      "method": "0068db10",
+      "body_bytes": 15,
+      "body_sha256": "f2f6180e3912a4debc5ccf6c9400b3aff98f1fbc4b9aa7fc0bcd9b7efdf3beec",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "544d2d08617a729beb209a34a6abf339fb44773aa6d03bd7ec619f608977123a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11260936,
+          "addend": 0,
+          "resolved": 11260936
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11260936,
+          "addend": 2,
+          "resolved": 11260938
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871840,
+      "method": "0068db20",
+      "body_bytes": 18,
+      "body_sha256": "ab6a82018ce2820c3e54426fd424b1d5bebec7a7c4201b31f75bfcce833a36ed",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7433875df3a58b136a2a4dba135d0d272f97ca8c7bfb2a7629f816e7f4f9de7d",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11260992,
+          "addend": 0,
+          "resolved": 11260992
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11260992,
+          "addend": 4,
+          "resolved": 11260996
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11260992,
+          "addend": 8,
+          "resolved": 11261000
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871872,
+      "method": "0068db40",
+      "body_bytes": 61,
+      "body_sha256": "f4583baa988eb1bccee73e26d2fd40838e9d6b2e2e170b8ce241cb82def34034",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "bd536b3fd2ba220e34129122962033288ceeb284fca59e41f718be8437600a31",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E326",
+      "symbol_prefix": "_$E326",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E324",
+          "target": 6871936,
+          "addend": 0,
+          "resolved": 6871936
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 4,
+          "resolved": 11260972
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 8,
+          "resolved": 11260976
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 12,
+          "resolved": 11260980
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 13,
+          "resolved": 11260981
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 0,
+          "resolved": 11260968
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@K@@6B@",
+          "target": 8042912,
+          "addend": 0,
+          "resolved": 8042912
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 20,
+          "resolved": 11260988
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 16,
+          "resolved": 11260984
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1003023
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871936,
+      "method": "0068db80",
+      "body_bytes": 59,
+      "body_sha256": "4cf34ad31cd89051f39dfb32a6bb9f3d26b995b1b4387cf669512b64b22aa16e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ad6d76b648342e81293d3828f3718c1751e195971670a0f4bfe9b91ca12e21e9",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E324",
+      "symbol_prefix": "_$E324",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 4,
+          "resolved": 11260972
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 0,
+          "resolved": 11260968
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@K@@6B@",
+          "target": 8042944,
+          "addend": 0,
+          "resolved": 8042944
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 13,
+          "resolved": 11260981
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 999831
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 4,
+          "resolved": 11260972
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 13,
+          "resolved": 11260981
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?RegisteredClasses@@3V?$DynamicVectorClass@K@@A",
+          "target": 11260968,
+          "addend": 8,
+          "resolved": 11260976
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6871936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6872000,
+      "method": "0068dbc0",
+      "body_bytes": 164,
+      "body_sha256": "ffd1af83d4df0f51d71d2eeacddd2fc466b49fa1bc4046a028dfea5b76b0d467",
+      "padding_bytes": 12,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "d92c01b25653c07e80d38107ddd21ef066da9c1b0b5da20cec67a96e0475e8ab",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetRegKeyValue@@YI_NQBD00@Z",
+      "symbol_prefix": "?SetRegKeyValue@@YI_NQBD00@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "__imp__lstrcpyA@8",
+          "target": 7971128,
+          "addend": 0,
+          "resolved": 7971128
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "??_C@_01PCFE@?2?$AA@",
+          "target": 8177988,
+          "addend": 0,
+          "resolved": 8177988
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "__imp__RegCreateKeyExA@36",
+          "target": 7970840,
+          "addend": 0,
+          "resolved": 7970840
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "__imp__lstrlenA@4",
+          "target": 7971228,
+          "addend": 0,
+          "resolved": 7971228
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "__imp__RegSetValueExA@24",
+          "target": 7970836,
+          "addend": 0,
+          "resolved": 7970836
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6872000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6872176,
+      "method": "0068dc70",
+      "body_bytes": 961,
+      "body_sha256": "5b6771dbcf0c15f2e555c089b3c5302396b4f8df41caf5ea70c7afeeb9bc2622",
+      "padding_bytes": 15,
+      "full_extent_bytes": 976,
+      "full_extent_sha256": "68b1871b0754a8cade6f5b107692e95a5e5d2d7b35af3ab0876141e590056457",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?RegisterServer@@YIJXZ",
+      "symbol_prefix": "?RegisterServer@@YIJXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?ProgramInstance@@3PAUHINSTANCE__@@A",
+          "target": 11690368,
+          "addend": 0,
+          "resolved": 11690368
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "__imp__GetModuleFileNameA@12",
+          "target": 7971224,
+          "addend": 0,
+          "resolved": 7971224
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "__imp__StringFromGUID2@12",
+          "target": 7972308,
+          "addend": 0,
+          "resolved": 7972308
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "_CLSID_TiberianSun",
+          "target": 8002192,
+          "addend": 0,
+          "resolved": 8002192
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "__imp__WideCharToMultiByte@32",
+          "target": 7971388,
+          "addend": 0,
+          "resolved": 7971388
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "_LIBID_TiberianSun",
+          "target": 8002176,
+          "addend": 0,
+          "resolved": 8002176
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "__imp__lstrcpyA@8",
+          "target": 7971128,
+          "addend": 0,
+          "resolved": 7971128
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "??_C@_06HFAC@CLSID?2?$AA@",
+          "target": 8342984,
+          "addend": 0,
+          "resolved": 8342984
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "??_C@_0BB@PJMD@WW?4TiberianSun?41?$AA@",
+          "target": 8342964,
+          "addend": 0,
+          "resolved": 8342964
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "__imp__RegCreateKeyExA@36",
+          "target": 7970840,
+          "addend": 0,
+          "resolved": 7970840
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "__imp__RegSetValueExA@24",
+          "target": 7970836,
+          "addend": 0,
+          "resolved": 7970836
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "??_C@_0N@BBON@Tiberian?5Sun?$AA@",
+          "target": 8342948,
+          "addend": 0,
+          "resolved": 8342948
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "??_C@_0N@BBON@Tiberian?5Sun?$AA@",
+          "target": 8342948,
+          "addend": 0,
+          "resolved": 8342948
+        },
+        {
+          "offset": 255,
+          "kind": 6,
+          "symbol": "__imp__lstrlenA@4",
+          "target": 7971228,
+          "addend": 0,
+          "resolved": 7971228
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "??_C@_0N@BBON@Tiberian?5Sun?$AA@",
+          "target": 8342948,
+          "addend": 0,
+          "resolved": 8342948
+        },
+        {
+          "offset": 286,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        },
+        {
+          "offset": 295,
+          "kind": 6,
+          "symbol": "??_C@_0BB@PJMD@WW?4TiberianSun?41?$AA@",
+          "target": 8342964,
+          "addend": 0,
+          "resolved": 8342964
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "??_C@_05FGFK@CLSID?$AA@",
+          "target": 8342940,
+          "addend": 0,
+          "resolved": 8342940
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "??_C@_01PCFE@?2?$AA@",
+          "target": 8177988,
+          "addend": 0,
+          "resolved": 8177988
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "??_C@_05FGFK@CLSID?$AA@",
+          "target": 8342940,
+          "addend": 0,
+          "resolved": 8342940
+        },
+        {
+          "offset": 389,
+          "kind": 6,
+          "symbol": "__imp__lstrlenA@4",
+          "target": 7971228,
+          "addend": 0,
+          "resolved": 7971228
+        },
+        {
+          "offset": 420,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        },
+        {
+          "offset": 429,
+          "kind": 6,
+          "symbol": "??_C@_0P@ICEP@WW?4TiberianSun?$AA@",
+          "target": 8342924,
+          "addend": 0,
+          "resolved": 8342924
+        },
+        {
+          "offset": 476,
+          "kind": 6,
+          "symbol": "??_C@_0N@BBON@Tiberian?5Sun?$AA@",
+          "target": 8342948,
+          "addend": 0,
+          "resolved": 8342948
+        },
+        {
+          "offset": 483,
+          "kind": 6,
+          "symbol": "??_C@_0N@BBON@Tiberian?5Sun?$AA@",
+          "target": 8342948,
+          "addend": 0,
+          "resolved": 8342948
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "__imp__lstrlenA@4",
+          "target": 7971228,
+          "addend": 0,
+          "resolved": 7971228
+        },
+        {
+          "offset": 500,
+          "kind": 6,
+          "symbol": "??_C@_0N@BBON@Tiberian?5Sun?$AA@",
+          "target": 8342948,
+          "addend": 0,
+          "resolved": 8342948
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        },
+        {
+          "offset": 529,
+          "kind": 6,
+          "symbol": "??_C@_0P@ICEP@WW?4TiberianSun?$AA@",
+          "target": 8342924,
+          "addend": 0,
+          "resolved": 8342924
+        },
+        {
+          "offset": 540,
+          "kind": 6,
+          "symbol": "??_C@_06GIIO@CurVer?$AA@",
+          "target": 8342916,
+          "addend": 0,
+          "resolved": 8342916
+        },
+        {
+          "offset": 551,
+          "kind": 6,
+          "symbol": "??_C@_01PCFE@?2?$AA@",
+          "target": 8177988,
+          "addend": 0,
+          "resolved": 8177988
+        },
+        {
+          "offset": 563,
+          "kind": 6,
+          "symbol": "??_C@_06GIIO@CurVer?$AA@",
+          "target": 8342916,
+          "addend": 0,
+          "resolved": 8342916
+        },
+        {
+          "offset": 613,
+          "kind": 6,
+          "symbol": "??_C@_0BB@PJMD@WW?4TiberianSun?41?$AA@",
+          "target": 8342964,
+          "addend": 0,
+          "resolved": 8342964
+        },
+        {
+          "offset": 620,
+          "kind": 6,
+          "symbol": "??_C@_0BB@PJMD@WW?4TiberianSun?41?$AA@",
+          "target": 8342964,
+          "addend": 0,
+          "resolved": 8342964
+        },
+        {
+          "offset": 626,
+          "kind": 6,
+          "symbol": "__imp__lstrlenA@4",
+          "target": 7971228,
+          "addend": 0,
+          "resolved": 7971228
+        },
+        {
+          "offset": 637,
+          "kind": 6,
+          "symbol": "??_C@_0BB@PJMD@WW?4TiberianSun?41?$AA@",
+          "target": 8342964,
+          "addend": 0,
+          "resolved": 8342964
+        },
+        {
+          "offset": 657,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        },
+        {
+          "offset": 666,
+          "kind": 6,
+          "symbol": "??_C@_0P@ICEP@WW?4TiberianSun?$AA@",
+          "target": 8342924,
+          "addend": 0,
+          "resolved": 8342924
+        },
+        {
+          "offset": 677,
+          "kind": 6,
+          "symbol": "??_C@_05FGFK@CLSID?$AA@",
+          "target": 8342940,
+          "addend": 0,
+          "resolved": 8342940
+        },
+        {
+          "offset": 688,
+          "kind": 6,
+          "symbol": "??_C@_01PCFE@?2?$AA@",
+          "target": 8177988,
+          "addend": 0,
+          "resolved": 8177988
+        },
+        {
+          "offset": 700,
+          "kind": 6,
+          "symbol": "??_C@_05FGFK@CLSID?$AA@",
+          "target": 8342940,
+          "addend": 0,
+          "resolved": 8342940
+        },
+        {
+          "offset": 761,
+          "kind": 6,
+          "symbol": "__imp__lstrlenA@4",
+          "target": 7971228,
+          "addend": 0,
+          "resolved": 7971228
+        },
+        {
+          "offset": 792,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        },
+        {
+          "offset": 797,
+          "kind": 6,
+          "symbol": "??_C@_0N@BBON@Tiberian?5Sun?$AA@",
+          "target": 8342948,
+          "addend": 0,
+          "resolved": 8342948
+        },
+        {
+          "offset": 808,
+          "kind": 20,
+          "symbol": "?SetRegKeyValue@@YI_NQBD00@Z",
+          "target": 6872000,
+          "addend": 0,
+          "resolved": 4294966308
+        },
+        {
+          "offset": 813,
+          "kind": 6,
+          "symbol": "??_C@_06CMNK@ProgID?$AA@",
+          "target": 8342908,
+          "addend": 0,
+          "resolved": 8342908
+        },
+        {
+          "offset": 822,
+          "kind": 6,
+          "symbol": "??_C@_0BB@PJMD@WW?4TiberianSun?41?$AA@",
+          "target": 8342964,
+          "addend": 0,
+          "resolved": 8342964
+        },
+        {
+          "offset": 827,
+          "kind": 20,
+          "symbol": "?SetRegKeyValue@@YI_NQBD00@Z",
+          "target": 6872000,
+          "addend": 0,
+          "resolved": 4294966289
+        },
+        {
+          "offset": 832,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@LMLI@VersionIndependentProgID?$AA@",
+          "target": 8342880,
+          "addend": 0,
+          "resolved": 8342880
+        },
+        {
+          "offset": 841,
+          "kind": 6,
+          "symbol": "??_C@_0P@ICEP@WW?4TiberianSun?$AA@",
+          "target": 8342924,
+          "addend": 0,
+          "resolved": 8342924
+        },
+        {
+          "offset": 846,
+          "kind": 20,
+          "symbol": "?SetRegKeyValue@@YI_NQBD00@Z",
+          "target": 6872000,
+          "addend": 0,
+          "resolved": 4294966270
+        },
+        {
+          "offset": 851,
+          "kind": 6,
+          "symbol": "??_C@_0O@GBJK@NotInsertable?$AA@",
+          "target": 8342864,
+          "addend": 0,
+          "resolved": 8342864
+        },
+        {
+          "offset": 862,
+          "kind": 20,
+          "symbol": "?SetRegKeyValue@@YI_NQBD00@Z",
+          "target": 6872000,
+          "addend": 0,
+          "resolved": 4294966254
+        },
+        {
+          "offset": 874,
+          "kind": 6,
+          "symbol": "??_C@_0P@IIOA@InprocServer32?$AA@",
+          "target": 8342848,
+          "addend": 0,
+          "resolved": 8342848
+        },
+        {
+          "offset": 884,
+          "kind": 20,
+          "symbol": "?SetRegKeyValue@@YI_NQBD00@Z",
+          "target": 6872000,
+          "addend": 0,
+          "resolved": 4294966232
+        },
+        {
+          "offset": 896,
+          "kind": 6,
+          "symbol": "??_C@_07GICL@Typelib?$AA@",
+          "target": 8342840,
+          "addend": 0,
+          "resolved": 8342840
+        },
+        {
+          "offset": 906,
+          "kind": 20,
+          "symbol": "?SetRegKeyValue@@YI_NQBD00@Z",
+          "target": 6872000,
+          "addend": 0,
+          "resolved": 4294966210
+        },
+        {
+          "offset": 924,
+          "kind": 6,
+          "symbol": "??_C@_1BA@KIKB@?$AAR?$AAA?$AA2?$AA?4?$AAT?$AAL?$AAB?$AA?$AA@",
+          "target": 8342824,
+          "addend": 0,
+          "resolved": 8342824
+        },
+        {
+          "offset": 930,
+          "kind": 6,
+          "symbol": "__imp__LoadTypeLib@8",
+          "target": 7971672,
+          "addend": 0,
+          "resolved": 7971672
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6872176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6873152,
+      "method": "0068e040",
+      "body_bytes": 378,
+      "body_sha256": "941939291c817c37958e494c00a21135121629886486a79824b9a1ab0ccdc14a",
+      "padding_bytes": 6,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "eb40d8b7de9c55cc38f51728a48fe9418e233de3124ed23265a385a976fb2ce6",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?UnregisterServer@@YIJXZ",
+      "symbol_prefix": "?UnregisterServer@@YIJXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_CLSID_TiberianSun",
+          "target": 8002192,
+          "addend": 0,
+          "resolved": 8002192
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "__imp__StringFromGUID2@12",
+          "target": 7972308,
+          "addend": 0,
+          "resolved": 7972308
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "__imp__WideCharToMultiByte@32",
+          "target": 7971388,
+          "addend": 0,
+          "resolved": 7971388
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "??_C@_06HFAC@CLSID?2?$AA@",
+          "target": 8342984,
+          "addend": 0,
+          "resolved": 8342984
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "__imp__lstrcpyA@8",
+          "target": 7971128,
+          "addend": 0,
+          "resolved": 7971128
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "__imp__RegDeleteKeyA@8",
+          "target": 7970848,
+          "addend": 0,
+          "resolved": 7970848
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "??_C@_0BG@HCLN@WW?4TiberianSun?2CurVer?$AA@",
+          "target": 8343048,
+          "addend": 0,
+          "resolved": 8343048
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "??_C@_0BF@GFPO@WW?4TiberianSun?2CLSID?$AA@",
+          "target": 8343024,
+          "addend": 0,
+          "resolved": 8343024
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "??_C@_0P@ICEP@WW?4TiberianSun?$AA@",
+          "target": 8342924,
+          "addend": 0,
+          "resolved": 8342924
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "??_C@_0BH@CMHC@WW?4TiberianSun?41?2CLSID?$AA@",
+          "target": 8343000,
+          "addend": 0,
+          "resolved": 8343000
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "??_C@_0BB@PJMD@WW?4TiberianSun?41?$AA@",
+          "target": 8342964,
+          "addend": 0,
+          "resolved": 8342964
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "??_C@_06CMNK@ProgID?$AA@",
+          "target": 8342908,
+          "addend": 0,
+          "resolved": 8342908
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "??_C@_05KEJO@?$CFs?2?$CFs?$AA@",
+          "target": 8342992,
+          "addend": 0,
+          "resolved": 8342992
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@LMLI@VersionIndependentProgID?$AA@",
+          "target": 8342880,
+          "addend": 0,
+          "resolved": 8342880
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "??_C@_05KEJO@?$CFs?2?$CFs?$AA@",
+          "target": 8342992,
+          "addend": 0,
+          "resolved": 8342992
+        },
+        {
+          "offset": 250,
+          "kind": 6,
+          "symbol": "??_C@_0O@GBJK@NotInsertable?$AA@",
+          "target": 8342864,
+          "addend": 0,
+          "resolved": 8342864
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "??_C@_05KEJO@?$CFs?2?$CFs?$AA@",
+          "target": 8342992,
+          "addend": 0,
+          "resolved": 8342992
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "??_C@_0P@IIOA@InprocServer32?$AA@",
+          "target": 8342848,
+          "addend": 0,
+          "resolved": 8342848
+        },
+        {
+          "offset": 296,
+          "kind": 6,
+          "symbol": "??_C@_05KEJO@?$CFs?2?$CFs?$AA@",
+          "target": 8342992,
+          "addend": 0,
+          "resolved": 8342992
+        },
+        {
+          "offset": 327,
+          "kind": 6,
+          "symbol": "??_C@_07GICL@Typelib?$AA@",
+          "target": 8342840,
+          "addend": 0,
+          "resolved": 8342840
+        },
+        {
+          "offset": 333,
+          "kind": 6,
+          "symbol": "??_C@_05KEJO@?$CFs?2?$CFs?$AA@",
+          "target": 8342992,
+          "addend": 0,
+          "resolved": 8342992
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6873152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6873536,
+      "method": "0068e1c0",
+      "body_bytes": 175,
+      "body_sha256": "9b67cbc74731f49b1334f7157111f3259984b9e5e846250a4f9cbce3d36df83d",
+      "padding_bytes": 1,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "da6e0d422096760665a9d54922a65ef5ed2fdfde7057fbd1cb950eaa1ce1b441",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reset_Surfaces@@YIXXZ",
+      "symbol_prefix": "?Reset_Surfaces@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?UseDirect3D@@3_NA",
+          "target": 8728535,
+          "addend": 0,
+          "resolved": 8728535
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?Release_Direct3D@@YIXXZ",
+          "target": 4920432,
+          "addend": 0,
+          "resolved": 4293014175
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_?surfaces_reset@?1??Reset_Surfaces@@YIXXZ@4_NA",
+          "target": 11261069,
+          "addend": 0,
+          "resolved": 11261069
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?TileSurface@@3PAVSurface@@A",
+          "target": 8624452,
+          "addend": 0,
+          "resolved": 8624452
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?TileSurface@@3PAVSurface@@A",
+          "target": 8624452,
+          "addend": 0,
+          "resolved": 8624452
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?Reset_Video_Mode@@YIXXZ",
+          "target": 4808336,
+          "addend": 0,
+          "resolved": 4292901930
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "_?surfaces_reset@?1??Reset_Surfaces@@YIXXZ@4_NA",
+          "target": 11261069,
+          "addend": 0,
+          "resolved": 11261069
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6873536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2809"
+    },
+    {
+      "entry": 6873712,
+      "method": "0068e270",
+      "body_bytes": 11,
+      "body_sha256": "74d908c378a6fc8834cf6bdb8136c567b009c29898e174f61c3fbd565b18a2d0",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b144177911c62b9bc7a384f01a6a1908977782c91ade9d7983866b9b75ed1d62",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Top_Level_Exception_Filter@@YIJPAU_EXCEPTION_POINTERS@@@Z",
+      "symbol_prefix": "?Top_Level_Exception_Filter@@YIJPAU_EXCEPTION_POINTERS@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?Exception_Handler@@YIHHPAU_EXCEPTION_POINTERS@@@Z",
+          "target": 4950000,
+          "addend": 0,
+          "resolved": 4293043573
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6873712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4391"
+    },
+    {
+      "entry": 6886160,
+      "method": "00691310",
+      "body_bytes": 6,
+      "body_sha256": "63d32b6b17948125bf9471633dc0210e0f7bc8bc2ca5fa801a320382a83f2575",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b2cf50dd0d2069b8d4b1969de703fd47db0930b3eab7a0e764396617ccbd069f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Exit_Process@@YIXH@Z",
+      "symbol_prefix": "?Exit_Process@@YIXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 20,
+          "symbol": "_exit",
+          "target": 7884508,
+          "addend": 0,
+          "resolved": 998342
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6886160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6886176,
+      "method": "00691320",
+      "body_bytes": 198,
+      "body_sha256": "ce98547616a1823d9ac7ac4942bd288751b0b5085bca5436018ef0d9040c9065",
+      "padding_bytes": 10,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "69b49f57e8f09e945848381a5d76f866c87d57366b53511aadae8e12ba164236",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Emergency_Exit@@YIXXZ",
+      "symbol_prefix": "?Emergency_Exit@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?ReadyToQuit@@3HA",
+          "target": 10751360,
+          "addend": 0,
+          "resolved": 10751360
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "__imp__PostMessageA@16",
+          "target": 7971952,
+          "addend": 0,
+          "resolved": 7971952
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 4294069142
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?ReadyToQuit@@3HA",
+          "target": 10751360,
+          "addend": 0,
+          "resolved": 10751360
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?dwRegisterMap@@3KA",
+          "target": 8342732,
+          "addend": 0,
+          "resolved": 8342732
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "__imp__RevokeActiveObject@8",
+          "target": 7971668,
+          "addend": 0,
+          "resolved": 7971668
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?dwRegisterMap@@3KA",
+          "target": 8342732,
+          "addend": 0,
+          "resolved": 8342732
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?ApplicationInstance@@3VApplicationClass@@A",
+          "target": 8701916,
+          "addend": 0,
+          "resolved": 8701916
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "__imp__CoDisconnectObject@8",
+          "target": 7972304,
+          "addend": 0,
+          "resolved": 7972304
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "__imp__OleUninitialize@0",
+          "target": 7972292,
+          "addend": 0,
+          "resolved": 7972292
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "?MouseShapesAllocated@@3_NA",
+          "target": 11261068,
+          "addend": 0,
+          "resolved": 11261068
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "?MouseShapes@@3PAXA",
+          "target": 11261064,
+          "addend": 0,
+          "resolved": 11261064
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 985457
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "?MouseShapesAllocated@@3_NA",
+          "target": 11261068,
+          "addend": 0,
+          "resolved": 11261068
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "__imp__PostQuitMessage@4",
+          "target": 7971900,
+          "addend": 0,
+          "resolved": 7971900
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "?Shutdown_Network@@YIXXZ",
+          "target": 6010272,
+          "addend": 0,
+          "resolved": 4294091199
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "?Prog_End@@YAXXZ",
+          "target": 6883808,
+          "addend": 0,
+          "resolved": 4294964730
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6886176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6886384,
+      "method": "006913f0",
+      "body_bytes": 42,
+      "body_sha256": "2e36bad05e22f1ecfd2bec295814fc03f856022ef4d16482f716ee7459376d78",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "fc656e9379d4db1abb87ce6035b8aded8961f930856a42ccad9c25084f94910a",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@K@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@K@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 985392
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6886384,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6886432,
+      "method": "00691420",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@K@@UAEHPBK@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@K@@UAEHPBK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6886432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6886464,
+      "method": "00691440",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@K@@UBEKH@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@K@@UBEKH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6886464,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6915056,
+      "method": "006983f0",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@K@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@K@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6915056,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6915120,
+      "method": "00698430",
+      "body_bytes": 174,
+      "body_sha256": "f015d7eda61f2ea3c7be4dbfaf3056ec920ac4f35cc6ce08165912851ac091e8",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "b72164a7c6cfaeebbd2a19fac36beb83c66801f06a5575e564981b0e1af0d877",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@K@@UAE_NHPBK@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@K@@UAE_NHPBK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 957372
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 956560
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6915120,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6915296,
+      "method": "006984e0",
+      "body_bytes": 39,
+      "body_sha256": "cc92836d280841a3e6ea034e2f679f87a2e8625e41496c6257700786055aa02d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "827f2a9b7b1e979a5d71166df213b8757d11ceba7f26a321d16bca4efb9631df",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@K@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@K@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 956483
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6915296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6915344,
+      "method": "00698510",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@K@@UAEHABK@Z",
+      "symbol_prefix": "?ID@?$VectorClass@K@@UAEHABK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6915344,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6915408,
+      "method": "00698550",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@K@@UAEHPBK@Z",
+      "symbol_prefix": "?ID@?$VectorClass@K@@UAEHPBK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6915408,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6915440,
+      "method": "00698570",
+      "body_bytes": 176,
+      "body_sha256": "c12870b55374436318863390c85c3cc5b4b9a421a8292aa09e5764886027b752",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "c12870b55374436318863390c85c3cc5b4b9a421a8292aa09e5764886027b752",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@K@@UAE_NHPBK@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@K@@UAE_NHPBK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 957056
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 956253
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6915440,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6915696,
+      "method": "00698670",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@K@@UAEHABK@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@K@@UAEHABK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6915696,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6915744,
+      "method": "6986a0",
+      "body_bytes": 73,
+      "body_sha256": "af9af9f3c268060c8881bf61c27edf18c70fbe6ff6f6aeb23518ad67839878ab",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "498d4056e7dd406c41cc94db49d38b27bca44d9979ed11430056003e256dd140",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@K@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@K@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@K@@6B@",
+          "target": 8042944,
+          "addend": 0,
+          "resolved": 8042944
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 956030
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 955995
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6915744,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6915824,
+      "method": "6986f0",
+      "body_bytes": 73,
+      "body_sha256": "55f498ff0bb4e188fcceb4f34ef36d19ab6164bf84353dbb174f55b7b324c7a8",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "bcc325ac7042d0a0264b79d19b3f9c935f35fceceb880a29c7dee8b4daa8aa57",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@K@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@K@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@K@@6B@",
+          "target": 8042944,
+          "addend": 0,
+          "resolved": 8042944
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 955950
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 955915
+        }
+      ],
+      "source_sha256": "4e8c731f779a49433dc04c8cdc10c3c9973855f66ba527802b0c24ce13efdbaa",
+      "source": "rebuild/src/startup.cpp",
+      "population": "rebuild-startup",
+      "source_order": 6915824,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

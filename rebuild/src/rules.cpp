@@ -143,6 +143,7 @@ RulesClass::RulesClass(NoInitClass const & x) :
  * HISTORY:                                                                                    *
  *   06/17/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 1477 bytes differ (adopted text)
 RulesClass::RulesClass(void) :
 	DetailMinFrameRateNormal(15), // RA2: the executable's initializer list, in RA2's member order and values
 	DetailMinFrameRateMovie(20), // RA2: as above
@@ -703,6 +704,7 @@ RulesClass::RulesClass(void) :
 	DMisl.LazyCurve = false; // RA2: as above
 	DMisl.Type = 0; // RA2: as above
 }
+#endif
 
 
 
@@ -885,6 +887,7 @@ static inline int Read_Sound(CCINIClass const & ini, char const * section, char 
 /// and the extra lighting the various object kinds are drawn with.
 /// </summary>
 /// <returns>bool; Was an audio visual section found in the control file?</returns>
+#ifdef RA2_NON_MATCHING // not exact: 10402 bytes differ (adopted text)
 bool RulesClass::Audio_Visual_Rules(CCINIClass const & ini)
 {
 	static char const * const RulesSection_AudioVisual = "AudioVisual"; // RA2: the executable's section name, a file-static pointer at 0x007A903C
@@ -1158,6 +1161,7 @@ bool RulesClass::Audio_Visual_Rules(CCINIClass const & ini)
 	}
 	return(false);
 }
+#endif
 
 
 
@@ -1199,6 +1203,7 @@ bool RulesClass::Crate_Rules(CCINIClass const & ini)
 /// suppression distances, and the scorches, craters and smoke systems left behind.
 /// </summary>
 /// <returns>bool; Was a combat damage section found in the control file?</returns>
+#ifdef RA2_NON_MATCHING // not exact: 2611 bytes differ (adopted text)
 bool RulesClass::Combat_Damage(CCINIClass const & ini)
 {
 	static char const * const RulesSection_CombatDamage = "CombatDamage"; // RA2: the executable's section name, a file-static pointer at 0x007A9044
@@ -1284,6 +1289,7 @@ bool RulesClass::Combat_Damage(CCINIClass const & ini)
 	}
 	return(false);
 }
+#endif
 
 
 
@@ -1424,6 +1430,7 @@ bool RulesClass::Color_Schemes(CCINIClass const & ini)
  * HISTORY:                                                                                    *
  *   08/08/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 5734 bytes differ (adopted text)
 bool RulesClass::General(CCINIClass const & ini)
 {
 	static char const * const RulesSection_General = "General"; // RA2: the executable's section name, a file-static pointer at 0x007A9058
@@ -1709,6 +1716,7 @@ bool RulesClass::General(CCINIClass const & ini)
 	}
 	return(false);
 }
+#endif
 
 
 

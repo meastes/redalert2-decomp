@@ -189,3 +189,7 @@ when the unit's lines are rewritten. The census reports the flagged rows and the
   place): each literal where its own bytes occur exactly once, then the table filled with those addresses where
   it occurs exactly once; anything not unique is refused (owner ruling, 2026-11-18). First used for mainopt's
   label tables and options' HotkeyName (codex2 landing).
+  `tools/held.py CATALOG_LOG [--write] [--note UNIT=KIND:TEXT]` refreshes `held_reason` and `held_note` on
+  every pending unit of `units.json` from a catalog run's "left out" lines (worker, header, tooling,
+  mismatch, binding, owner) and prints the breakdown by kind with bytes; header and tooling notes are set by
+  hand with `--note` and kept until the unit lands.

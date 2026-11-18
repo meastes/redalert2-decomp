@@ -614,6 +614,7 @@ bool SuperClass::Can_Place() // RA2: is not const (0x0069D820)
 /// <param name="cell">The cell that was designated as the target.</param>
 /// <param name="player">Is this for a player owned super weapon? If so, then the
 /// targeting cursor gets cleared.</param>
+#ifdef RA2_NON_MATCHING // not exact: 3465 bytes differ (adopted text)
 void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon type's effect here; not a byte match yet, see the report (0x0069D850)
 {
 	switch (Class->Type) {
@@ -885,6 +886,7 @@ void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon t
 		break;
 	}
 }
+#endif
 
 
 /// <summary>

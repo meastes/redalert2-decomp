@@ -2806,6 +2806,443 @@
       "population": "rebuild-radsite",
       "source_order": 6520720,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6520752,
+      "method": "00637fb0",
+      "body_bytes": 42,
+      "body_sha256": "4406b11945c8de8d96ecb36b2ab3d8cead8dd205a712ce464dde615e2d59389b",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4b4a25b9bd50c99bb8e7f7c2e378a543865fa350931b7041eff1b6c487ff71ee",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVRadSiteClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVRadSiteClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1351024
+        }
+      ],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6520752,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-130"
+    },
+    {
+      "entry": 6520800,
+      "method": "00637fe0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVRadSiteClass@@@@UAEHPBQAVRadSiteClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVRadSiteClass@@@@UAEHPBQAVRadSiteClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6520800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6520832,
+      "method": "00638000",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVRadSiteClass@@@@UBEPAVRadSiteClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVRadSiteClass@@@@UBEPAVRadSiteClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6520832,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6520848,
+      "method": "00638010",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVRadSiteClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVRadSiteClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6520848,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6520912,
+      "method": "00638050",
+      "body_bytes": 174,
+      "body_sha256": "aacb557cb895172e35776f78d9f155b8b7f4270d99db2d07b429286481d88727",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "9648355640d80353080efdc7b7bae5a8a3cf107d4e0c690cfe9fb691a4d8f71a",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVRadSiteClass@@@@UAE_NHPBQAVRadSiteClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVRadSiteClass@@@@UAE_NHPBQAVRadSiteClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1351580
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1350768
+        }
+      ],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6520912,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6521088,
+      "method": "00638100",
+      "body_bytes": 39,
+      "body_sha256": "76a6951cf00582f33745e4a0b95b215ea67d36a7e25517d7514701c16a3cd608",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c9fb8a6fdfc409897c47039963c937f72d268bb6e3423fafe7fb0991d2a39512",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVRadSiteClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVRadSiteClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1350691
+        }
+      ],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6521088,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6521136,
+      "method": "00638130",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVRadSiteClass@@@@UAEHABQAVRadSiteClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVRadSiteClass@@@@UAEHABQAVRadSiteClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6521136,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6521200,
+      "method": "00638170",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVRadSiteClass@@@@UAEHPBQAVRadSiteClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVRadSiteClass@@@@UAEHPBQAVRadSiteClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6521200,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6521232,
+      "method": "00638190",
+      "body_bytes": 176,
+      "body_sha256": "f496e131d18669f2aebcb8e65f4ee1f8aec4e4aa68abf7b104ba22fbd0aa44fd",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "f496e131d18669f2aebcb8e65f4ee1f8aec4e4aa68abf7b104ba22fbd0aa44fd",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVRadSiteClass@@@@UAE_NHPBQAVRadSiteClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVRadSiteClass@@@@UAE_NHPBQAVRadSiteClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1351264
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1350461
+        }
+      ],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6521232,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6521408,
+      "method": "00638240",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVRadSiteClass@@@@UAEHABQAVRadSiteClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVRadSiteClass@@@@UAEHABQAVRadSiteClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6521408,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6521456,
+      "method": "638270",
+      "body_bytes": 73,
+      "body_sha256": "42e21c9e1e8690886d02a2704a2839a0e61c3438f62bd1648e15abc94f2ec32b",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "b600d767ea3d4e6bd4633828245c1e83e3fde87bf536785743f2907f36bed0bd",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVRadSiteClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVRadSiteClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVRadSiteClass@@@@6B@",
+          "target": 8031108,
+          "addend": 0,
+          "resolved": 8031108
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1350318
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1350283
+        }
+      ],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6521456,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6521536,
+      "method": "6382c0",
+      "body_bytes": 73,
+      "body_sha256": "e9f3c3d49101136a07d93139959bed1dca4b61c7b977f13d605640334ad2b451",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "05228ca993ec32f51c7102a25a238637bc630f574e4878586deb10dac73d5413",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVRadSiteClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVRadSiteClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVRadSiteClass@@@@6B@",
+          "target": 8031108,
+          "addend": 0,
+          "resolved": 8031108
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1350238
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1350203
+        }
+      ],
+      "source_sha256": "b8c884adddf5888a81b9c9257592a8da911b6a7ae2e2551b8d59497ffde613b0",
+      "source": "rebuild/src/radsite.cpp",
+      "population": "rebuild-radsite",
+      "source_order": 6521536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
     }
   ]
 }

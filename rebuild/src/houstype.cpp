@@ -74,6 +74,7 @@
  * HISTORY:                                                                                    *
  *   06/21/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 531 bytes differ (adopted text)
 HouseTypeClass::HouseTypeClass(char const * ininame) :
 	BASECLASS(ininame),
 	House(HOUSE_NONE),
@@ -99,6 +100,7 @@ HouseTypeClass::HouseTypeClass(char const * ininame) :
 	House = (HousesType)HouseTypes.ID(this);
 	HeapID = (HousesType)HouseTypes.ID(this);
 }
+#endif
 
 
 /// <summary>
@@ -247,6 +249,7 @@ static inline TypeList<AircraftTypeClass const *> Get_Aircraft_List(CCINIClass c
  * HISTORY:                                                                                    *
  *   09/04/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 803 bytes differ (adopted text)
 bool HouseTypeClass::Read_INI(CCINIClass const & ini)
 {
 	if (BASECLASS::Read_INI(ini)) {
@@ -324,6 +327,7 @@ bool HouseTypeClass::Read_INI(CCINIClass const & ini)
 	}
 	return(false);
 }
+#endif
 
 
 
@@ -368,6 +372,7 @@ HRESULT STDMETHODCALLTYPE HouseTypeClass::IsDirty(void)
 /// announces itself to the swizzler so that saved references can be resolved to it.
 /// </summary>
 /// <returns>Returns with S_OK if the house type was read, otherwise a failure code.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 479 bytes differ (adopted text)
 HRESULT STDMETHODCALLTYPE HouseTypeClass::Load(IStream * stream)
 {
 	HRESULT result;
@@ -391,6 +396,7 @@ HRESULT STDMETHODCALLTYPE HouseTypeClass::Load(IStream * stream)
 	}
 	return(result);
 }
+#endif
 
 
 /// <summary>

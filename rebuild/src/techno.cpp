@@ -10039,7 +10039,7 @@ bool TechnoClass::Is_On_Elevation(void) const
 /// <param name="weapon">The weapon supplying the ambient damage and the warhead.</param>
 /// <returns>Returns with the point the beam came to rest at -- the blocking ground, or the
 /// target's own center if nothing got in the way.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 19 bytes differ (adopted text; the original reserves the sqrt argument after the third product)
 Coord TechnoClass::Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, WeaponTypeClass *weapon)
 {
 	Coord center = abstract->Center_Coord();

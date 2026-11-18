@@ -27,7 +27,10 @@ for i, s in enumerate(c.sections, 1):
         ts = c.sections[t['section'] - 1]
         if ts['flags'] & 0x20:      # code
             continue
-        owner = [d for d in defined if d[0] <= o][-1]
+        owners = [d for d in defined if d[0] <= o]
+        if not owners:      # a field before the section's first defined symbol has no owner to read
+            continue
+        owner = owners[-1]
         base, _ = resolve(owner[1])
         if base is None:
             continue

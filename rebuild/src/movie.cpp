@@ -5,8 +5,10 @@
 
 #include "always.h"
 #include "movie.h"
-#include "geozero.h"
+#include "rect.h"
 #include "geoconst1.h"
+#include "coord.h"
+#include "geoconst2.h"
 #include "_keyboar.h"
 #include "_map.h"
 #include "_rect.h"
@@ -27,7 +29,6 @@
 #include "vq.hh"
 #include "_xmouse.h"
 #include "msglist.h"
-#include "geoconst2.h"
 #include <math.h>
 #include "auddsnd.h"
 

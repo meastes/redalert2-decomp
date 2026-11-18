@@ -647,6 +647,7 @@ double MapRegionClass::Get_Angle_Score(const Cell & cell1, const Cell & cell2, d
 /// <param name="cptr">The cell to grow the region out from.</param>
 /// <returns>Returns with the region created. NULL is returned when the patch was
 /// dissolved rather than kept.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 1401 bytes differ (adopted text)
 MapRegionClass *MapRegionClass::Create_Region_From_Cell(CellClass *cptr) // RA2: RA2's form (0x56E100): green-LAT ground counts as water-like and the wipes call Clear_Region_Cells; near miss, the exe calls TPoint2D::operator+ out of line
 {
 	int i;
@@ -740,6 +741,7 @@ MapRegionClass *MapRegionClass::Create_Region_From_Cell(CellClass *cptr) // RA2:
 	region->Recount_Cells();
 	return(region);
 }
+#endif
 
 
 
@@ -1019,6 +1021,7 @@ void MapRegionClass::Increase_Height(char cell_height)
 /// neighbor instead. A region marked unsplittable is left well alone.
 /// </summary>
 /// <returns>bool; Was the region split?</returns>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0056ef20 has no row)
 bool MapRegionClass::Split_Region(void)
 {
 	int i, j;
@@ -1270,6 +1273,7 @@ bool MapRegionClass::Split_Region(void)
 	SplitCount++;
 	return(true);
 }
+#endif
 
 
 /// <summary>
@@ -1315,6 +1319,7 @@ DynamicVectorClass<Cell> *MapRegionClass::Build_Border_Cell_List2(void)
 /// </summary>
 /// <param name="rings">How far out to grow, in rings.</param>
 /// <returns>bool; Did the region grow without running into a neighbor?</returns>
+#ifdef RA2_NON_MATCHING // not exact: 470 bytes differ (adopted text)
 bool MapRegionClass::Grow(int rings) // RA2: RA2's form of Grow (0x570040); near miss (the inlined Adjacent_Cell sum is scheduled differently)
 {
 	DynamicVectorClass<Cell> * cells = Build_Border_Cell_List();
@@ -1351,6 +1356,7 @@ bool MapRegionClass::Grow(int rings) // RA2: RA2's form of Grow (0x570040); near
 	delete cells;
 	return(true);
 }
+#endif
 
 
 
@@ -2282,6 +2288,7 @@ bool MapRegionClass::Build_East_Ramp(Cell const &first,Cell const &second,int lo
 /// <param name="cell2">West endpoint of the ramp.</param>
 /// <param name="region_id">The region whose height the leveled ground adopts.</param>
 /// <returns>bool; Was the ramp carved?</returns>
+#ifdef RA2_NON_MATCHING // not exact: 376 bytes differ (adopted text)
 bool MapRegionClass::Build_North_Ramp(Cell const &first,Cell const &second,int lowRegion) // RA2: RA2's form of the north ramp (0x573680); near miss, 341 bytes differ from offset 1026 (register choice of the inlined Cell sum)
 {
 	static int RampHeights[] = {3, 2, 1, 0, 0}; // RA2: the table at 0x7E0A64
@@ -2342,6 +2349,7 @@ bool MapRegionClass::Build_North_Ramp(Cell const &first,Cell const &second,int l
 	}
 	return(true);
 }
+#endif
 
 
 
@@ -2428,6 +2436,7 @@ bool MapRegionClass::Build_West_Ramp(Cell const &first,Cell const &second,int lo
 /// <param name="region_id">The region on the low side, whose height the leveled ground
 /// takes.</param>
 /// <returns>bool; Was the corner ramp carved?</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool MapRegionClass::Build_Corner_Ramp_SE(Cell const & cell1, Cell const & cell2, int region_id)
 {
 	int dx = cell2.X - cell1.X;
@@ -2480,6 +2489,7 @@ bool MapRegionClass::Build_Corner_Ramp_SE(Cell const & cell1, Cell const & cell2
 	}
 	return(false);
 }
+#endif
 
 
 /// <summary>
@@ -2909,6 +2919,8 @@ void MapRegionClass::Place_Start_Points(int first_waypoint) // RA2: not in TibSu
 /// tech building.
 /// </summary>
 /// <returns>bool; Was a start location found for every player? RA2 always says so.</returns>
+bool Generate_Starting_Points(void); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00576420 has no row)
 bool Generate_Starting_Points(void)
 {
 	MZoneType mzones[5] = {MZONE_AMPHIBIOUS, MZONE_AMPHIBIOUS, MZONE_AMPHIBIOUS, MZONE_NORMAL, MZONE_NORMAL}; // RA2: RA2's form (zone regions, shared out by size)
@@ -2978,6 +2990,7 @@ bool Generate_Starting_Points(void)
 
 	return(true);
 }
+#endif
 
 
 /// <summary>
@@ -3183,6 +3196,7 @@ void MapSeedClass::Set_Default_Description(void) // RA2: not in TibSun, at 0x576
 /// The game keeps a single generator for its whole run; this routine merely puts it into the
 /// idle state it must be in before the first map is asked of it.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00577010 has no row)
 MapGeneratorClass::MapGeneratorClass(void) :
 	SeedData(),
 	MapSeeder(NULL),
@@ -3198,6 +3212,7 @@ MapGeneratorClass::MapGeneratorClass(void) :
 	PlaceWaterfall(false) // RA2: as above
 {
 }
+#endif
 
 
 /// <summary>
@@ -3492,6 +3507,7 @@ namespace OwnerDraw { bool __fastcall Is_Control_Disabled(HWND control); } // RA
 /// <param name="wparam">Message-specific first parameter.</param>
 /// <param name="lparam">Message-specific second parameter.</param>
 /// <returns>TRUE if the message was processed, FALSE otherwise.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no exact match yet (row 00577bd0)
 BOOL CALLBACK Map_Seed_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: RA2's form (0x577BD0); near miss, 5 bytes short: after LoadOptionsClass::Load the exe normalizes the result (test al, al / setne al / test al, al), which no source form tried reproduces
 {
 	BOOL result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: as above
@@ -3773,6 +3789,7 @@ BOOL CALLBACK Map_Seed_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 	}
 	return(0); // RA2: as above
 }
+#endif
 
 
 
@@ -4568,6 +4585,7 @@ inline double Sample_Truncated_Normal_Inline(double mean, double scale, double l
 /// Reads the random map generator's settings from RMG.INI's General section: the tiberium limits, the level light
 /// and theater ambient light lists, the vegetation limits, the tree count and the buildings that light ore patches.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00579960 has no row)
 void MapGeneratorClass::Read_RMG_INI(void) // RA2: not in TibSun, at 0x579960; near miss, exact size: the exe expands the second Get_IntList assignment inline (copying three fields) where this build still calls DynamicVectorClass<int>::operator= for it, so the exe keeps the second and third list address in registers
 {
 	static char const * section = "General"; // RA2: the section name is a static pointer (0x7E0BE4), read for every key
@@ -4604,6 +4622,7 @@ void MapGeneratorClass::Read_RMG_INI(void) // RA2: not in TibSun, at 0x579960; n
 	delete ini; // RA2: as above
 	file.Close(); // RA2: as above
 }
+#endif
 
 
 
@@ -5421,6 +5440,7 @@ void MapGeneratorClass::Partition_Rect(DynamicVectorClass<Rect> & rects, int cou
 /// RA2: lays the land down as one chunk per player plus a few spare ones, each grown from the middle of its share
 /// of the map.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 18 bytes differ (adopted text)
 void MapGeneratorClass::Seed_Land_Type0(void) // RA2: RA2's form of Seed_Land_Type0 (0x57C4F0); near miss, 8 bytes differ (an integer shift is scheduled before the 0.45 addition)
 {
 	WorkingRegionID = 1; // RA2: as above
@@ -5460,6 +5480,7 @@ void MapGeneratorClass::Seed_Land_Type0(void) // RA2: RA2's form of Seed_Land_Ty
 		regions.Delete_Index(0); // RA2: as above
 	}
 }
+#endif
 
 
 
@@ -6305,6 +6326,7 @@ double MapGeneratorClass::Get_Spread_Score(const Cell & cell1, const Cell & cell
 /// <param name="start_angle">Initial heading angle in radians (used when cell is given).</param>
 /// <param name="is_branch">True when invoked recursively as a branch sub-call.</param>
 /// <returns>True if enough water was painted, false otherwise.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 3059 bytes differ (adopted text)
 bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool is_branch) // RA2: RA2's form (0x57ECF0): one water tile, the draws inline, the shores built before the region grows; near miss, 32 bytes short: same instructions but a frame 8 bytes smaller and the zero constant kept in another register
 {
 	bool orig_subcall = is_branch;
@@ -6586,6 +6608,7 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 
 	return(false);
 }
+#endif
 
 
 
@@ -6645,6 +6668,7 @@ void MapGeneratorClass::Increase_Height_Of_ID(int id, char cell_height)
 /// <param name="head_x">The river head X, carried past the waterfall on success.</param>
 /// <param name="head_y">The river head Y, carried past the waterfall on success.</param>
 /// <returns>bool; Was the waterfall placed?</returns>
+#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text)
 bool MapGeneratorClass::Place_Waterfall(int region_id, Cell const & cell1, Cell const & cell2, int direction, bool & placed, double & head_x, double & head_y) // RA2: RA2's form (0x57FF20): the areas are rectangles; near miss, 2 bytes differ (the south case adds the base to the offset, the exe adds the offset to the base)
 {
 	placed = false; // RA2: RA2's form
@@ -7023,6 +7047,7 @@ bool MapGeneratorClass::Place_Waterfall(int region_id, Cell const & cell1, Cell 
 	placed = success; // RA2: RA2's form
 	return(success); // RA2: RA2's form
 }
+#endif
 
 
 
@@ -8327,6 +8352,7 @@ void MapGeneratorClass::Seed_Arctic_Vegetation(void)
 /// against the chances that Seed_Vegetation left on each cell, then litters the result with
 /// rocks. A mutated map is given its mold and crystal growths first.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 2 bytes differ (adopted text)
 void MapGeneratorClass::Generate_Vegetation(void)
 {
 	CellClass * cptr;
@@ -8394,6 +8420,7 @@ void MapGeneratorClass::Generate_Vegetation(void)
 		}
 	}
 }
+#endif
 
 
 /// <summary>
@@ -8402,6 +8429,7 @@ void MapGeneratorClass::Generate_Vegetation(void)
 /// then walks the map planting rough patches, woods and rock fields against the chances that
 /// Seed_Arctic_Vegetation left on each cell.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text)
 void MapGeneratorClass::Generate_Arctic_Vegetation(void)
 {
 	CellClass * cptr;
@@ -8437,6 +8465,7 @@ void MapGeneratorClass::Generate_Arctic_Vegetation(void)
 		tree_count -= Place_Forest(&Map[cell], Sample_Truncated_Normal_Inline(25, 10, 10, 35), Sample_Truncated_Normal_Inline(0.2, 0.1, 0.05, 0.4)); // RA2: as above
 	}
 }
+#endif
 
 
 /// <summary>
@@ -9860,6 +9889,7 @@ void MapGeneratorClass::Generate_Rural_Units(const Cell & cell)
 /// </summary>
 /// <param name="cell">The cell the road network should start from.</param>
 /// <returns>bool; Was anything more than a lone junction laid down?</returns>
+#ifdef RA2_NON_MATCHING // not exact: 1114 bytes differ (adopted text)
 bool MapGeneratorClass::Generate_Rural_Roads(const Cell & cell)
 {
 	QueueClass<DirtRoadNode, 1024> queue;
@@ -10020,6 +10050,7 @@ bool MapGeneratorClass::Generate_Rural_Roads(const Cell & cell)
 	}
 	return(processed > 1);
 }
+#endif
 
 
 // --- FACING 0 (NORTH) ---
@@ -10670,6 +10701,7 @@ double MapGeneratorClass::Get_Tile_Patch_Score(const Cell & cell1, const Cell & 
 /// <param name="max">The highest value the slider may be dragged to.</param>
 /// <param name="position">Where the thumb should sit.</param>
 /// <param name="enable">Should the player be allowed to move this slider?</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapSeedClass::Set_Scroll_Bar(HWND handle, unsigned int min, unsigned int max, int position, bool enable)
 {
 	if (max <= min) {
@@ -10682,6 +10714,7 @@ void MapSeedClass::Set_Scroll_Bar(HWND handle, unsigned int min, unsigned int ma
 		Slider_SetPos(handle, position);
 	}
 }
+#endif
 
 
 /// <summary>
@@ -10693,11 +10726,13 @@ void MapSeedClass::Set_Scroll_Bar(HWND handle, unsigned int min, unsigned int ma
 /// <param name="handle">The checkbox control to set up.</param>
 /// <param name="state">Should the box be shown checked?</param>
 /// <param name="enable">Should the player be allowed to change this setting?</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapSeedClass::Set_Checkbox(HWND handle, bool state, bool enable)
 {
 	Button_SetCheck(handle, state != 0);
 	Button_Enable(handle, enable);
 }
+#endif
 
 
 /// <summary>
@@ -10710,6 +10745,7 @@ void MapSeedClass::Set_Checkbox(HWND handle, bool state, bool enable)
 /// <param name="max">The highest legal value.</param>
 /// <param name="use_midpoint">Should an illegal value land in the middle of the range rather
 /// than on the boundary it broke?</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapSeedClass::Clamp_Setting(int & setting, int min, int max, bool use_midpoint) const
 {
 	int value = setting;
@@ -10730,6 +10766,7 @@ void MapSeedClass::Clamp_Setting(int & setting, int min, int max, bool use_midpo
 		setting = value;
 	}
 }
+#endif
 
 
 /// <summary>
@@ -10885,6 +10922,7 @@ void MapGeneratorClass::Generate_Swamp(DynamicVectorClass<Cell> &cells, int last
 /// <param name="cell">The cell to grow the lake from, or Cell(0,0) to let the routine choose
 /// one.</param>
 /// <returns>bool; Was a lake of usable size seeded?</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool MapGeneratorClass::Seed_Arctic_Lake(const Cell & cell)
 {
 	float ratios[BIOME_COUNT] = {
@@ -11038,6 +11076,7 @@ bool MapGeneratorClass::Seed_Arctic_Lake(const Cell & cell)
 	Clear_Region_Cells(WorkingRegionID, 0, -1, ISOTILE_CLEAR); // RA2: the fourth argument
 	return(false);
 }
+#endif
 
 
 /// <summary>
@@ -11118,6 +11157,7 @@ void MapGeneratorClass::Seed_Ice(DynamicVectorClass<Cell> & cells, IsometricTile
 /// <param name="cell2">The candidate cell being scored.</param>
 /// <param name="random_range">How much randomness to allow into the score.</param>
 /// <returns>Returns with the candidate's priority. Lower is claimed first.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 double MapGeneratorClass::Get_Ice_Score(const Cell & cell1, const Cell & cell2, double random_range) const
 {
 	int x = cell1.X - cell2.X;
@@ -11125,6 +11165,7 @@ double MapGeneratorClass::Get_Ice_Score(const Cell & cell1, const Cell & cell2, 
 	double dist = fastmath::sqrt(x * x + y * y);
 	return(RMG_RANDOM_DOUBLE(random_range) + dist);
 }
+#endif
 
 
 /// <summary>
@@ -11136,6 +11177,7 @@ double MapGeneratorClass::Get_Ice_Score(const Cell & cell1, const Cell & cell2, 
 /// <param name="cell">Seed cell, or Cell(0, 0) to pick a random edge seed.</param>
 /// <param name="start_angle">Initial heading angle in radians (used when cell is given).</param>
 /// <returns>True if enough ice was painted, false otherwise.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool MapGeneratorClass::Seed_Arctic_River(const Cell & cell, double start_angle)
 {
 	bool success = true;
@@ -11274,6 +11316,7 @@ bool MapGeneratorClass::Seed_Arctic_River(const Cell & cell, double start_angle)
 	Clear_Region_Cells(WorkingRegionID, 0, -1, ISOTILE_CLEAR); // RA2: the fourth argument
 	return(false);
 }
+#endif
 
 
 /// <summary>
@@ -11282,6 +11325,7 @@ bool MapGeneratorClass::Seed_Arctic_River(const Cell & cell, double start_angle)
 /// patch into the surrounding ground and dresses it with a little foliage. If nowhere suitable
 /// turns up it does nothing rather than force a patch into a bad place.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapGeneratorClass::Generate_Mold(void)
 {
 	Cell mold_origin = CELL_NONE;
@@ -11397,6 +11441,7 @@ void MapGeneratorClass::Generate_Mold(void)
 	delete queue;
 	delete[] nodes;
 }
+#endif
 
 
 /// <summary>
@@ -11406,6 +11451,7 @@ void MapGeneratorClass::Generate_Mold(void)
 /// into its surroundings and dressed with a little foliage.
 /// </summary>
 /// <param name="cell">The cell to seed the deposit at.</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapGeneratorClass::Generate_Crystals(const Cell & cell)
 {
 	bool on_cliff = false;
@@ -11547,6 +11593,7 @@ void MapGeneratorClass::Generate_Crystals(const Cell & cell)
 	delete queue;
 	delete[] nodes;
 }
+#endif
 
 
 /// <summary>
@@ -11589,6 +11636,7 @@ bool MapGeneratorClass::Is_Cell_Area_Clear(Rect const & rect, bool check_data)
 /// This routine runs once the ice is in place, so that every sheet of it meets the ground
 /// around it with the proper transition tiles rather than a hard edge.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapGeneratorClass::Smooth_Ice(void)
 {
 	int frst = IsometricTileTypeClass::Ice1Set;
@@ -11604,6 +11652,7 @@ void MapGeneratorClass::Smooth_Ice(void)
 		cptr = Map.Iterate();
 	}
 }
+#endif
 
 
 /// <summary>
@@ -11612,6 +11661,7 @@ void MapGeneratorClass::Smooth_Ice(void)
 /// it starts out with. A crowded map simply gets fewer monsters rather than holding the
 /// generator up.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapGeneratorClass::Generate_Veinholes(void)
 {
 	int tries = 0;
@@ -11623,4 +11673,5 @@ void MapGeneratorClass::Generate_Veinholes(void)
 
 	ScenarioInit = save_init; // RA2: no count (TibSun's use does not compile against RA2's declaration)
 }
+#endif
 

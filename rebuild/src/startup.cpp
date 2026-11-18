@@ -169,7 +169,6 @@
 
 
 
-bool VideoBackBufferAllowed = true;
 
 
 #define APP_GUID "29e3bb2a-2f36-11d3-a72c-0090272fa661"
@@ -180,12 +179,8 @@ bool VideoBackBufferAllowed = true;
 
 #endif
 
-HANDLE AppMutex;
-HANDLE AutoPlayMutex;
 
-DWORD dwRegisterTiberianSun;
 DWORD dwRegisterMap = -1;
-DWORD pTiberianSun;
 
 DynamicVectorClass<DWORD> RegisteredClasses;
 
@@ -1446,7 +1441,6 @@ void Exit_Process(int code)
  * HISTORY:                                                                                    *
  *    3/13/97 1:32AM ST : Created                                                              *
  *=============================================================================================*/
-#if 0
 void Emergency_Exit(void)
 {
 
@@ -1490,6 +1484,5 @@ void Emergency_Exit(void)
 
 	Prog_End();
 }
-#endif
 
 

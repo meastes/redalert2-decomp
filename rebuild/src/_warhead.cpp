@@ -12,8 +12,7 @@
  ******************************************************************************/
 
 #include "always.h"
-#include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
-#include "geometry.h"
+#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
 
 #include "_warhead.h"
 
