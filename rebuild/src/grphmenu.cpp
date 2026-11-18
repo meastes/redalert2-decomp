@@ -176,7 +176,6 @@ void GraphicMenu::Set_Item_Enabled(int id, bool enabled)
 /// The chosen item performs its action before control is handed back.
 /// </summary>
 /// <returns>Returns with the identifier of the menu item the player chose.</returns>
-#if 0
 int GraphicMenu::Presentation(void)
 {
 	Theme.Play_Song(Theme.From_Name(ThemeName.get()));
@@ -250,7 +249,6 @@ int GraphicMenu::Presentation(void)
 
 	return(-1);
 }
-#endif
 
 
 
@@ -298,16 +296,11 @@ void GraphicMenu::Add_Item(GraphicMenuItem * item)
 /// is over none of them.</returns>
 GraphicMenuItem * GraphicMenu::Get_Item_Under_Mouse(Point2D const & mouse)
 {
-	ITEM_ITER it = Items;
-	for (; it; it++) {
-		if (it->Is_Mouse_Over(mouse)) {
-			break;
-		}
+	ITEM_ITER it(Items);
+	while (it && !(*it)->Is_Mouse_Over(mouse)) {
+		it++;
 	}
-	if (it) {
-		return(*it);
-	}
-	return(NULL);
+	return it ? *it : NULL;
 }
 
 
@@ -318,16 +311,11 @@ GraphicMenuItem * GraphicMenu::Get_Item_Under_Mouse(Point2D const & mouse)
 /// item claims it.</returns>
 GraphicMenuItem * GraphicMenu::Get_Item_For_Key(KeyNumType key)
 {
-	ITEM_ITER it = Items;
-	for (; it; it++) {
-		if (it->Is_Input_Key(key)) {
-			break;
-		}
+	ITEM_ITER it(Items);
+	while (it && !(*it)->Is_Input_Key(key)) {
+		it++;
 	}
-	if (it) {
-		return(*it);
-	}
-	return(NULL);
+	return it ? *it : NULL;
 }
 
 

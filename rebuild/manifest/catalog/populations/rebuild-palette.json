@@ -30,14 +30,27 @@
     "??_7?$DynamicVectorClass@VHSVClass@@@@6B@": 8026968,
     "??_F?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAEXXZ": 6313712,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "?Find@SchemeTable@@QAEPAPAVSchemeNode@@ABVHashString@@@Z": 6312128,
+    "??1SchemeLibrary@@QAE@XZ": 6308432,
+    "??0?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@IPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6314672,
+    "?Theaters@@3QBUTheaterDataType@@B": 7973736,
+    "??_C@_01PJCK@?4?$AA@": 8240708,
+    "?PaletteExtension@@3PBDB": 8304100,
+    "_strupr": 7954916,
+    "??0RGBClass@@QAE@XZ": 4889328,
+    "?Retrieve@MixFileClass@@SIPBXPBD@Z": 5854912,
+    "??_7?$VectorClass@PAVColorScheme@@@@6B@": 8027064,
+    "??_7?$DynamicVectorClass@PAVColorScheme@@@@6B@": 8027032,
+    "?GamePalette@@3VPaletteClass@@A": 8617488,
+    "??0ColorScheme@@QAE@PBDAAVHSVClass@@ABVPaletteClass@@2H_N@Z": 6699504,
+    "??0HashString@@QAE@ABV0@@Z": 5116288,
+    "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
     "??_7?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@": 8027096,
     "??_7?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@": 8027000,
     "??9HSVClass@@QBE_NABV0@@Z": 5239200,
     "??8@YI_NAAVHSVClass@@ABV0@@Z": 5239264,
     "??_7?$VectorClass@VHSVClass@@@@6B@": 8027128,
-    "??0HashString@@QAE@ABV0@@Z": 5116288,
     "??0HashString@@QAE@XZ": 5116208,
-    "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
     "??0PaletteClass@@QAE@ABVRGBClass@@@Z": 6303696,
     "??0PaletteClass@@QAE@PAE@Z": 6303776,
     "??8PaletteClass@@QBE_NABV0@@Z": 6303824,
@@ -59,14 +72,31 @@
     "??_G?$DynamicVectorClass@VHSVClass@@@@UAEPAXI@Z": 6313824,
     "?SchemeLibrary_Add@@YIXPBDABVHSVClass@@@Z": 6306400,
     "?Scheme_List_Count@@YIHXZ": 6306832,
-    "?Find@SchemeTable@@QAEPAPAVSchemeNode@@ABVHashString@@@Z": 6312128,
+    "?Palette_Scheme_Count@@YIHXZ": 6307152,
+    "?SchemeLibrary_Destroy@@YIXXZ": 6307744,
+    "?SchemeLibrary_Create@@YIXXZ": 6307792,
+    "?Lookup@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z": 6309024,
+    "??_G?$DynamicVectorClass@PAVColorScheme@@@@UAEPAXI@Z": 6313456,
+    "??_G?$VectorClass@PAVColorScheme@@@@UAEPAXI@Z": 6313376,
+    "?Add@SchemeLibrary@@QAEXPBD@Z": 6310000,
+    "?Replace@SchemeLibrary@@QAEXPBD@Z": 6310336,
     "?Next@SchemeTable@@QAEPAVHashString@@PAUHashIterator@@@Z": 6312224,
+    "?Clear@?$DynamicVectorClass@PAVColorScheme@@@@UAEXXZ": 6311120,
+    "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z": 6311168,
+    "?GetItem@?$VectorClass@PAVColorScheme@@@@UBEPAVColorScheme@@H@Z": 6311200,
     "?Clear@?$DynamicVectorClass@PAD@@UAEXXZ": 4788320,
     "?ID@?$DynamicVectorClass@PAD@@UAEHPBQAD@Z": 4788368,
     "?GetItem@?$VectorClass@PAD@@UBEPADH@Z": 4788400,
     "?Clear@?$DynamicVectorClass@VHSVClass@@@@UAEXXZ": 6311216,
     "?ID@?$DynamicVectorClass@VHSVClass@@@@UAEHPBVHSVClass@@@Z": 6311264,
     "?GetItem@?$VectorClass@VHSVClass@@@@UBE?AVHSVClass@@H@Z": 6311312,
+    "??8?$VectorClass@PAVColorScheme@@@@UBE_NABV0@@Z": 6311360,
+    "?Resize@?$VectorClass@PAVColorScheme@@@@UAE_NHPBQAVColorScheme@@@Z": 6311424,
+    "?Clear@?$VectorClass@PAVColorScheme@@@@UAEXXZ": 6311600,
+    "?ID@?$VectorClass@PAVColorScheme@@@@UAEHABQAVColorScheme@@@Z": 6311648,
+    "?ID@?$VectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z": 6311712,
+    "?Resize@?$DynamicVectorClass@PAVColorScheme@@@@UAE_NHPBQAVColorScheme@@@Z": 6311744,
+    "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHABQAVColorScheme@@@Z": 6311920,
     "??_G?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z": 6315568,
     "?Clear@?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEXXZ": 6313904,
     "?ID@?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEHPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6313952,
@@ -119,7 +149,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303696,
@@ -147,7 +177,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303776,
@@ -175,7 +205,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303824,
@@ -203,7 +233,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303872,
@@ -248,7 +278,7 @@
           "resolved": 237157
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303904,
@@ -285,7 +315,7 @@
           "resolved": 237090
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303952,
@@ -330,7 +360,7 @@
           "resolved": 237021
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304032,
@@ -367,7 +397,7 @@
           "resolved": 236936
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304096,
@@ -404,7 +434,7 @@
           "resolved": 237023
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304176,
@@ -432,7 +462,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304256,
@@ -476,7 +506,7 @@
           "resolved": 1567429
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304320,
@@ -520,7 +550,7 @@
           "resolved": 1567333
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304416,
@@ -564,7 +594,7 @@
           "resolved": 1567205
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304544,
@@ -776,7 +806,7 @@
           "resolved": 4293778476
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304640,
@@ -803,7 +833,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6305296,
@@ -863,7 +893,7 @@
           "resolved": 4293778150
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6305344,
@@ -1011,7 +1041,7 @@
           "resolved": 10970132
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6306128,
@@ -1175,7 +1205,7 @@
           "resolved": 10970132
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6306400,
@@ -1323,11 +1353,813 @@
           "resolved": 10970132
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6306832,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6307152,
+      "method": "00603d50",
+      "body_bytes": 592,
+      "body_sha256": "dd9193938894a30ddc1dc105428dd24b4b8156a7536ae4f8cbdf53bfa45d980b",
+      "padding_bytes": 0,
+      "full_extent_bytes": 592,
+      "full_extent_sha256": "dd9193938894a30ddc1dc105428dd24b4b8156a7536ae4f8cbdf53bfa45d980b",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Palette_Scheme_Count@@YIHXZ",
+      "symbol_prefix": "?Palette_Scheme_Count@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1565353
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1565331
+        },
+        {
+          "offset": 66,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAD@@QAE@HPBQAD@Z",
+          "target": 4789216,
+          "addend": 0,
+          "resolved": 4293449290
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAD@@6B@",
+          "target": 7988572,
+          "addend": 0,
+          "resolved": 7988572
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1565283
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z",
+          "target": 6312432,
+          "addend": 0,
+          "resolved": 5164
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1565253
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?SchemeHash@@YIHABVHashString@@@Z",
+          "target": 6305296,
+          "addend": 0,
+          "resolved": 6305296
+        },
+        {
+          "offset": 149,
+          "kind": 20,
+          "symbol": "??0?$HashTableClass@VHashString@@PAVSchemeNode@@@@QAE@HHP6IHABVHashString@@@Z@Z",
+          "target": 6311968,
+          "addend": 0,
+          "resolved": 4663
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "??7HashString@@QBE_NXZ",
+          "target": 5116336,
+          "addend": 0,
+          "resolved": 4293776246
+        },
+        {
+          "offset": 296,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 368,
+          "kind": 20,
+          "symbol": "??8HashString@@QBE_NABV0@@Z",
+          "target": 5116400,
+          "addend": 0,
+          "resolved": 4293776172
+        },
+        {
+          "offset": 438,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 502,
+          "kind": 20,
+          "symbol": "??7HashString@@QBE_NXZ",
+          "target": 5116336,
+          "addend": 0,
+          "resolved": 4293775974
+        },
+        {
+          "offset": 547,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 556,
+          "kind": 20,
+          "symbol": "?Find@SchemeTable@@QAEPAPAVSchemeNode@@ABVHashString@@@Z",
+          "target": 6312128,
+          "addend": 0,
+          "resolved": 4416
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6307152,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4483"
+    },
+    {
+      "entry": 6307744,
+      "method": "00603fa0",
+      "body_bytes": 39,
+      "body_sha256": "aa2e10cd1418e0946306ff285cd3a4d9e146b11c0773a3931aefd399ced05997",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8d1691c878911540b2510279472b9889e8e99d445ce8c09db39f42e51561fd17",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SchemeLibrary_Destroy@@YIXXZ",
+      "symbol_prefix": "?SchemeLibrary_Destroy@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??1SchemeLibrary@@QAE@XZ",
+          "target": 6308432,
+          "addend": 0,
+          "resolved": 670
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1564035
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6307744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6307792,
+      "method": "00603fd0",
+      "body_bytes": 330,
+      "body_sha256": "5b4663064ce0d17b66ac56b6a102e7298fab7f418ee8626beba3194c2157e655",
+      "padding_bytes": 6,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "1ea311eb9e708ab72c939d8e95da79393741277955d5144a049b7dba3c85cd52",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SchemeLibrary_Create@@YIXXZ",
+      "symbol_prefix": "?SchemeLibrary_Create@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564716
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564686
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAD@@6B@",
+          "target": 7988572,
+          "addend": 0,
+          "resolved": 7988572
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564636
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VHSVClass@@@@6B@",
+          "target": 8026968,
+          "addend": 0,
+          "resolved": 8026968
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564585
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?SchemeHash@@YIHABVHashString@@@Z",
+          "target": 6305296,
+          "addend": 0,
+          "resolved": 6305296
+        },
+        {
+          "offset": 200,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564539
+        },
+        {
+          "offset": 227,
+          "kind": 20,
+          "symbol": "??0?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@IPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z",
+          "target": 6314672,
+          "addend": 0,
+          "resolved": 6649
+        },
+        {
+          "offset": 289,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6307792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6309024,
+      "method": "006044a0",
+      "body_bytes": 160,
+      "body_sha256": "d31b2e0465b421b6f923a67fd3764d4b63befc767722d8cc2fb284224bbdf6c6",
+      "padding_bytes": 0,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "d31b2e0465b421b6f923a67fd3764d4b63befc767722d8cc2fb284224bbdf6c6",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Lookup@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
+      "symbol_prefix": "?Lookup@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "??0HashString@@QAE@PBD@Z",
+          "target": 5116224,
+          "addend": 0,
+          "resolved": 4293774470
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "??8HashString@@QBE_NABV0@@Z",
+          "target": 5116400,
+          "addend": 0,
+          "resolved": 4293774588
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6309024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6309184,
+      "method": "00604540",
+      "body_bytes": 808,
+      "body_sha256": "fdf02796f39361407071d2adb3291dc6b46e5f17ec3989965776294d93618381",
+      "padding_bytes": 8,
+      "full_extent_bytes": 816,
+      "full_extent_sha256": "6a3d6dc360cfdc3aec9d20b27127324c4e64419b29335481056bc65a64750840",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Generate@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
+      "symbol_prefix": "?Generate@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?Theaters@@3QBUTheaterDataType@@B",
+          "target": 7973736,
+          "addend": 68,
+          "resolved": 7973804
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "??_C@_01PJCK@?4?$AA@",
+          "target": 8240708,
+          "addend": 0,
+          "resolved": 8240708
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "?PaletteExtension@@3PBDB",
+          "target": 8304100,
+          "addend": 0,
+          "resolved": 8304100
+        },
+        {
+          "offset": 228,
+          "kind": 20,
+          "symbol": "_strupr",
+          "target": 7954916,
+          "addend": 0,
+          "resolved": 1645500
+        },
+        {
+          "offset": 250,
+          "kind": 20,
+          "symbol": "??0RGBClass@@QAE@XZ",
+          "target": 4889328,
+          "addend": 0,
+          "resolved": 4293547186
+        },
+        {
+          "offset": 265,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 4294512755
+        },
+        {
+          "offset": 394,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1562953
+        },
+        {
+          "offset": 429,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVColorScheme@@@@6B@",
+          "target": 8027064,
+          "addend": 0,
+          "resolved": 8027064
+        },
+        {
+          "offset": 434,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1562913
+        },
+        {
+          "offset": 450,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVColorScheme@@@@6B@",
+          "target": 8027032,
+          "addend": 0,
+          "resolved": 8027032
+        },
+        {
+          "offset": 540,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1562807
+        },
+        {
+          "offset": 563,
+          "kind": 6,
+          "symbol": "?GamePalette@@3VPaletteClass@@A",
+          "target": 8617488,
+          "addend": 0,
+          "resolved": 8617488
+        },
+        {
+          "offset": 577,
+          "kind": 20,
+          "symbol": "??0ColorScheme@@QAE@PBDAAVHSVClass@@ABVPaletteClass@@2H_N@Z",
+          "target": 6699504,
+          "addend": 0,
+          "resolved": 389739
+        },
+        {
+          "offset": 654,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1562693
+        },
+        {
+          "offset": 677,
+          "kind": 6,
+          "symbol": "?GamePalette@@3VPaletteClass@@A",
+          "target": 8617488,
+          "addend": 0,
+          "resolved": 8617488
+        },
+        {
+          "offset": 691,
+          "kind": 20,
+          "symbol": "??0ColorScheme@@QAE@PBDAAVHSVClass@@ABVPaletteClass@@2H_N@Z",
+          "target": 6699504,
+          "addend": 0,
+          "resolved": 389625
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6309184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6310000,
+      "method": "00604870",
+      "body_bytes": 321,
+      "body_sha256": "c451abca83ef683091ad73843d0b3a050ee23b15f170c678971921971d4596b9",
+      "padding_bytes": 15,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "630009ec0cc74e3e7eced7966f908d0270390fbae6ff7f072f81e0bfaa51f1a1",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@SchemeLibrary@@QAEXPBD@Z",
+      "symbol_prefix": "?Add@SchemeLibrary@@QAEXPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?Generate@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
+          "target": 6309184,
+          "addend": 0,
+          "resolved": 4294966455
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1562496
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "??0HashString@@QAE@PBD@Z",
+          "target": 5116224,
+          "addend": 0,
+          "resolved": 4293773407
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "??8HashString@@QBE_NABV0@@Z",
+          "target": 5116400,
+          "addend": 0,
+          "resolved": 4293773529
+        },
+        {
+          "offset": 199,
+          "kind": 20,
+          "symbol": "??0HashString@@QAE@ABV0@@Z",
+          "target": 5116288,
+          "addend": 0,
+          "resolved": 4293773381
+        },
+        {
+          "offset": 291,
+          "kind": 20,
+          "symbol": "??4HashString@@QAEAAV0@ABV0@@Z",
+          "target": 5116352,
+          "addend": 0,
+          "resolved": 4293773353
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6310000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6310336,
+      "method": "006049c0",
+      "body_bytes": 272,
+      "body_sha256": "469ae724fbbbdd681d9df7461f144336b3259c659c71139b32c5b3b4b9de9562",
+      "padding_bytes": 0,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "469ae724fbbbdd681d9df7461f144336b3259c659c71139b32c5b3b4b9de9562",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Replace@SchemeLibrary@@QAEXPBD@Z",
+      "symbol_prefix": "?Replace@SchemeLibrary@@QAEXPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "??0HashString@@QAE@PBD@Z",
+          "target": 5116224,
+          "addend": 0,
+          "resolved": 4293773151
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "??8HashString@@QBE_NABV0@@Z",
+          "target": 5116400,
+          "addend": 0,
+          "resolved": 4293773269
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "?Generate@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
+          "target": 6309184,
+          "addend": 0,
+          "resolved": 4294966013
+        },
+        {
+          "offset": 175,
+          "kind": 20,
+          "symbol": "??1ColorScheme@@QAE@XZ",
+          "target": 6699952,
+          "addend": 0,
+          "resolved": 389437
+        },
+        {
+          "offset": 181,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1561282
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6310336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6311120,
+      "method": "00604cd0",
+      "body_bytes": 42,
+      "body_sha256": "da99c521b300dc6f0c843cdf51f165038885f471d8ef8aebb37c99b46dc2d8af",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "eb4b07c33133229b2588ce4da840d72cd7f821a42aa06ac26c25dfd4687ac5b2",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVColorScheme@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVColorScheme@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1560656
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311120,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6311168,
+      "method": "00604d00",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311168,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6311200,
+      "method": "00604d20",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVColorScheme@@@@UBEPAVColorScheme@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVColorScheme@@@@UBEPAVColorScheme@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311200,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
     },
     {
       "entry": 6311216,
@@ -1359,7 +2191,7 @@
           "resolved": 1560560
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311216,
@@ -1386,7 +2218,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311264,
@@ -1413,11 +2245,250 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311312,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6311360,
+      "method": "00604dc0",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVColorScheme@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVColorScheme@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311360,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6311424,
+      "method": "00604e00",
+      "body_bytes": 174,
+      "body_sha256": "f6e4b6a18a58fb2919e221794746484e0b7e818972e92f15a3eccd8828bdb9b4",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "fe2ec8680fbc67276fa650250804ad73231306a8b248636818b847b837e9b41d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVColorScheme@@@@UAE_NHPBQAVColorScheme@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVColorScheme@@@@UAE_NHPBQAVColorScheme@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1561068
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1560256
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311424,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6311600,
+      "method": "00604eb0",
+      "body_bytes": 39,
+      "body_sha256": "86c49679e43fa323a787367460119931f287dc8034c89a4dff7299fb655b3c4d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8e51b3476c19c3b606dc4477c23efa405b873ec64bec2cf1aff193d9561b42ed",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVColorScheme@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVColorScheme@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1560179
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311600,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6311648,
+      "method": "00604ee0",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVColorScheme@@@@UAEHABQAVColorScheme@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVColorScheme@@@@UAEHABQAVColorScheme@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311648,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6311712,
+      "method": "00604f20",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6311744,
+      "method": "00604f40",
+      "body_bytes": 176,
+      "body_sha256": "685105c065d633807a7f2b2bc92365bd47f0a50bafcc379736ee4c65a076be76",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "685105c065d633807a7f2b2bc92365bd47f0a50bafcc379736ee4c65a076be76",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVColorScheme@@@@UAE_NHPBQAVColorScheme@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVColorScheme@@@@UAE_NHPBQAVColorScheme@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1560752
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1559949
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311744,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6311920,
+      "method": "00604ff0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHABQAVColorScheme@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHABQAVColorScheme@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6311920,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
     },
     {
       "entry": 6311968,
@@ -1465,7 +2536,7 @@
           "resolved": 8027000
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311968,
@@ -1501,7 +2572,7 @@
           "resolved": 4293771509
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312128,
@@ -1537,7 +2608,7 @@
           "resolved": 4293771337
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312224,
@@ -1573,7 +2644,7 @@
           "resolved": 4293894100
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312352,
@@ -1617,7 +2688,7 @@
           "resolved": 1559020
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312592,
@@ -1653,7 +2724,7 @@
           "resolved": 1558931
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312848,
@@ -1689,7 +2760,7 @@
           "resolved": 4293893615
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312896,
@@ -1716,7 +2787,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312992,
@@ -1760,7 +2831,7 @@
           "resolved": 1558581
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313040,
@@ -1796,11 +2867,117 @@
           "resolved": 4293893231
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313296,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6313376,
+      "method": "6055a0",
+      "body_bytes": 73,
+      "body_sha256": "72af7f21c9dea3929096c7fb69cd2a15b60b78033f7ec50d1f116024d6661f54",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c0f0262416f666abe192a4656d96ae46f254fb20a4aadc59ba7c615ef0a5f607",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVColorScheme@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVColorScheme@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVColorScheme@@@@6B@",
+          "target": 8027064,
+          "addend": 0,
+          "resolved": 8027064
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1558398
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1558363
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6313376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6313456,
+      "method": "6055f0",
+      "body_bytes": 73,
+      "body_sha256": "8e9c69e5a4847810a8eacd0c7494bcfe249e0b062156bbba8cc1ebef52d4dddf",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "bd297f27ebe5106f05b40b46277c6cd038329b87b3e5fa35ab920f1a253457e1",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVColorScheme@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVColorScheme@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVColorScheme@@@@6B@",
+          "target": 8027064,
+          "addend": 0,
+          "resolved": 8027064
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1558318
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1558283
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6313456,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
     },
     {
       "entry": 6313536,
@@ -1872,7 +3049,7 @@
           "resolved": 1558114
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313536,
@@ -1908,7 +3085,7 @@
           "resolved": 8027000
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313712,
@@ -1960,7 +3137,7 @@
           "resolved": 1557995
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313744,
@@ -2012,7 +3189,7 @@
           "resolved": 1557915
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313824,
@@ -2048,7 +3225,7 @@
           "resolved": 1557872
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313904,
@@ -2075,7 +3252,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313952,
@@ -2111,7 +3288,7 @@
           "resolved": 4293769553
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314000,
@@ -2179,7 +3356,7 @@
           "resolved": 1557393
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314144,
@@ -2215,7 +3392,7 @@
           "resolved": 1557299
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314480,
@@ -2242,10 +3419,78 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6314672,
+      "method": "00605ab0",
+      "body_bytes": 172,
+      "body_sha256": "9ff777b9fd9a31b3c0c8333e9230cc5aa73661410f2b1951c3c1009adeaef135",
+      "padding_bytes": 4,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "e86b6f067692770015292827e680ad3140207fc2101a0e79daafefb089cedf9b",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@IPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z",
+      "symbol_prefix": "??0?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@IPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@",
+          "target": 8027096,
+          "addend": 0,
+          "resolved": 8027096
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??0HashString@@QAE@XZ",
+          "target": 5116208,
+          "addend": 0,
+          "resolved": 4293768767
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1557768
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??0HashString@@QAE@XZ",
+          "target": 5116208,
+          "addend": 0,
+          "resolved": 4293768709
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@",
+          "target": 8027000,
+          "addend": 0,
+          "resolved": 8027000
+        }
+      ],
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6314672,
       "source_quality_family": "rebuild"
     },
     {
@@ -2310,7 +3555,7 @@
           "resolved": 1556697
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314848,
@@ -2346,7 +3591,7 @@
           "resolved": 4293768360
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6315200,
@@ -2383,7 +3628,7 @@
           "resolved": 4293768179
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6315392,
@@ -2428,7 +3673,7 @@
           "resolved": 1557024
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6315424,
@@ -2481,7 +3726,7 @@
           "resolved": 1556171
         }
       ],
-      "source_sha256": "45fc1f9a0930700b8fd36cf32447a4bf7f72e16309d6f5fe04357a3e9a89aac5",
+      "source_sha256": "2cd5d870bd39143d4b414c3e15cdcbf2bccc9bb330dea3fea614bd97d3d4baef",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6315568,

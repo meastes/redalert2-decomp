@@ -614,6 +614,10 @@ rebuild/include/xsurface.h,mischa85,32ed14c,include/xsurface.h,31d3d204cb6e49043
 rebuild/include/zbuffer.h,mischa85,32ed14c,include/zbuffer.h,4725a281bc0a370ea2443f162b5d6dcbbcfd60f031cfda2e8792f155acbf8af7
 rebuild/include/zgrad.hh,mischa85,32ed14c,include/zgrad.hh,d39b325bdb1ee4b6b9de352dbc982aa5dbd9485e50ae8b3605855589988e67fa
 rebuild/include/zone.hh,mischa85,32ed14c,include/zone.hh,ac347a61b6baf5cfbcabfe9825e9dc8c3ad9eaccf0555172f8eb02aa1c1da9d6
+rebuild/src/_palette.cpp,tibsun,dbfbfbf,code/_palette.cpp,877e5023a8a7d1e66d64ffea49d89226b47879fa113807eda8637067c40a2bbe
+rebuild/src/_pk.cpp,tibsun,dbfbfbf,code/_pk.cpp,0be2f54c09986f5bf031cc33aec6bf87aa22ad881831bb1b33240576e0c30411
+rebuild/src/_rand.cpp,tibsun,dbfbfbf,code/_rand.cpp,23847613009e88be7843019ee9c13cbe0eaad28a95285dfacce2414a9ed7bfff
+rebuild/src/_rect.cpp,tibsun,dbfbfbf,code/_rect.cpp,7a812d118d7fd0ff876d678e373f413d81315e9b1dae02d5a0e5bc3a8a535e5e
 rebuild/src/_rtti.cpp,mischa85,32ed14c,src/_rtti.cpp,79fa69688b83a5913404d335f16f88ea1f316e89ea22aba9a9b9bd11d37a900a
 rebuild/src/_warhead.cpp,mischa85,32ed14c,src/_warhead.cpp,267a1c6df552dc70fa89f86320757261adfb0eeed8408855ffd7dcd17ffabbb4
 rebuild/src/abstract.cpp,mischa85,32ed14c,src/abstract.cpp,5432ad250293d58299f346c622ec0d8fac555911a366631deb4e8a603255be5f
@@ -635,11 +639,15 @@ rebuild/src/atracker.cpp,mischa85,6dee74a,src/atracker.cpp,7e9524fd163ddc5eec290
 rebuild/src/audattr.cpp,mischa85,32ed14c,src/audattr.cpp,ca9eb6cdc50b9c9af5504fffb49cedb8487657bf4410f72a22868d537ed8d98b
 rebuild/src/audbag.cpp,mischa85,32ed14c,src/audbag.cpp,25bb846a4a2658162e05792ac7fbda36825fe1929f4a55fbb1b241557d544d45
 rebuild/src/audchanl.cpp,mischa85,32ed14c,src/audchanl.cpp,cf5696d59a4053f785f5319149e7020aac000583ace83701a3ded2cb5188ea54
+rebuild/src/auddev.cpp,mischa85,32ed14c,src/auddev.cpp,49ebf7a452fe739e2b6dcec9a54b6ac2d5fbf9ccb413c985a3dec2f0293eda26
+rebuild/src/audevent.cpp,mischa85,32ed14c,src/audevent.cpp,b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934
 rebuild/src/audfile.cpp,mischa85,32ed14c,src/audfile.cpp,1bbbe3f5344b233b3969ff48d06edc3a1d51d69fa2ff0277c2e987f079c42c53
 rebuild/src/audio.cpp,mischa85,32ed14c,src/audio.cpp,7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2
 rebuild/src/audlevel.cpp,mischa85,32ed14c,src/audlevel.cpp,dcf10a71b4ad748bc80ad61a9ac692b793f726d330ba485e887c38389aa1604a
 rebuild/src/audlists.cpp,mischa85,32ed14c,src/audlists.cpp,a96929502173eac4293112a9542550ca4bece4b0ce20284448b9fe7ad7bd0adb
 rebuild/src/audmpool.cpp,mischa85,32ed14c,src/audmpool.cpp,5415388ee3bc4c07d8cc3519cc91b55e3383f3d5e65ebf4126a58501117e8815
+rebuild/src/audplay.cpp,mischa85,0132d21,src/audplay.cpp,ce3773ee8b620a093f1631d914956502e8a24478e59078269751603d8c540052
+rebuild/src/audsrc.cpp,mischa85,32ed14c,src/audsrc.cpp,8381a1543ef94f8a26035244ff0f04b92c5af1d936df737383c80e13d39ae711
 rebuild/src/audstrm.cpp,mischa85,32ed14c,src/audstrm.cpp,6296641c2e69895b4647f5b376bd7a74a57abd32f75b43e621919b4336d4af1c
 rebuild/src/audtimer.cpp,mischa85,32ed14c,src/audtimer.cpp,b5b689bbca8025aac099a7789745526e426856c252467adbed6e512695c9f136
 rebuild/src/b64pipe.cpp,mischa85,32ed14c,src/b64pipe.cpp,d446ae677e5a75030854d44522e8681cbf27b6b0172ed88339f27bb8615d1804
@@ -671,6 +679,7 @@ rebuild/src/campaign.cpp,mischa85,32ed14c,src/campaign.cpp,51fd6a5bdecadedd59515
 rebuild/src/campscor.cpp,mischa85,6dee74a,src/campscor.cpp,fe76a3a71edd29494f477f671473383052cbe45d087f88d8bd5efc03002c3062
 rebuild/src/cargo.cpp,mischa85,32ed14c,src/cargo.cpp,70d6269b2316d3e2115303a9f6e4de53f3284fcdfbf0189559b303627b5ab035
 rebuild/src/carry.cpp,mischa85,32ed14c,src/carry.cpp,15d0f2ce0cf309e329aa410c41f875567fc399d4b7d6a9107e253e1e05220512
+rebuild/src/category.cpp,mischa85,0132d21,src/category.cpp,50de45adc37cfb40f5788ec7584bb78ed6b4e9a6acf103ad52b249ff67c7fda6
 rebuild/src/ccfile.cpp,mischa85,32ed14c,src/ccfile.cpp,cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f
 rebuild/src/ccini.cpp,mischa85,32ed14c,src/ccini.cpp,72f11ce50115367a3081f8d25f8a304f20620ac609720d9b44eee8ba13428177
 rebuild/src/cctooltip.cpp,mischa85,32ed14c,src/cctooltip.cpp,34be2d38dab2b96f5bd51c555bc4fbae6a8a8dc5d733d7d9504ba199dac7cd71
@@ -704,6 +713,7 @@ rebuild/src/ddraw.cpp,mischa85,32ed14c,src/ddraw.cpp,d85fb3c2d10f002fcc21087aecb
 rebuild/src/delay.cpp,mischa85,32ed14c,src/delay.cpp,b1d857c90767e958bd60692237d397bb9509176ae00044ee7675f972ed73ab5b
 rebuild/src/dial8.cpp,mischa85,32ed14c,src/dial8.cpp,de2a05daaa186c9787fb276cecba2c2a6673eab9374921bc901fcaed809e4b0f
 rebuild/src/dialog.cpp,mischa85,32ed14c,src/dialog.cpp,2753abf65e99f1283268599d0b87a2c54f8006dfdcf9eb8be2bc4a69a4295f07
+rebuild/src/dib.cpp,mischa85,32ed14c,src/dib.cpp,85777b23cc66954657cff0aa1b569db4d4aef17a55663f374feae2760da19029
 rebuild/src/diskswap.cpp,mischa85,32ed14c,src/diskswap.cpp,61eb59680dfe54150801aa05a3098136342e60acad929d0c20cc2cfb61f3c2f2
 rebuild/src/display.cpp,mischa85,6dee74a,src/display.cpp,71a55db96a9c0cc045b18bacaab0759074115b49187f45a07a2c649047b435bc
 rebuild/src/dllver.cpp,mischa85,32ed14c,src/dllver.cpp,35a61958af0c61c658d24b614f4acbe06bec353c7649899d8758d068af6a086f
@@ -712,6 +722,7 @@ rebuild/src/drive.cpp,mischa85,6dee74a,src/drive.cpp,92a8d37fd58801928b7af550dad
 rebuild/src/drop.cpp,mischa85,32ed14c,src/drop.cpp,3cbb262b2d06c77295c07966834400593ff100f94bbd6769f5cce9aa2e453c06
 rebuild/src/droppod.cpp,mischa85,32ed14c,src/droppod.cpp,28ef4c42025dadda9b757ca2b1f7210b8bac6e98bd2eebd54b4baee9cacabed1
 rebuild/src/dropship.cpp,mischa85,32ed14c,src/dropship.cpp,f2ade34d99da709e9ac03e8070853ab02ec7b0528c13a95a07158c5946378929
+rebuild/src/drv_dsnd.cpp,mischa85,32ed14c,src/drv_dsnd.cpp,25b5beee22ab04884aa14875c9527e8fad14d6c8f7c339e832ba6f0957308d09
 rebuild/src/dsurface.cpp,mischa85,6dee74a,src/dsurface.cpp,e18151e76582e81717ab4eb96d5b53d849148bab48beef42bb832640fa441144
 rebuild/src/ebolt.cpp,mischa85,6dee74a,src/ebolt.cpp,cb513ebb428e97af724d78a600b72d0102abe688c46465cab11c4f01577e1cd8
 rebuild/src/edit.cpp,mischa85,32ed14c,src/edit.cpp,2e0182975c5818d3bd8c4638ab5114e16a261ebd8eaee25111149159484a66ff
@@ -720,6 +731,7 @@ rebuild/src/egos.cpp,mischa85,32ed14c,src/egos.cpp,45969717bb8b26766cf9d31b2f6a9
 rebuild/src/emember.cpp,mischa85,32ed14c,src/emember.cpp,01bee2631758ba71ed9b1903f7eaa26771487a26675a03eedb32da5e4cf66281
 rebuild/src/empulse.cpp,mischa85,32ed14c,src/empulse.cpp,1c3eadd0da8265eb7ace1a964ed363b3acc5e224457c531f283ff8f8a86eb1c8
 rebuild/src/enviro.cpp,mischa85,32ed14c,src/enviro.cpp,b32420bbdf9a1b9f3896b6983f33ea7ceb43bf2f20fab94447653390bf4d11c8
+rebuild/src/event.cpp,mischa85,32ed14c,src/event.cpp,05051f6047d5595ab7a595c6e10e0fffa6e3c9cd02c104091ea8e8fa5864e932
 rebuild/src/except.cpp,mischa85,32ed14c,src/except.cpp,bd84751bc7241a06e798d58c5f7bd9977558ddd750620d1551f24b755c2e5a31
 rebuild/src/expand.cpp,mischa85,32ed14c,src/expand.cpp,86a7d4d1ad69114f486e670e359659b6ee03bb82c948ce7dfe0f269aa9d835dc
 rebuild/src/facing.cpp,mischa85,32ed14c,src/facing.cpp,5671e0416cc521154827194bf0ddb75d0283d60cd9ef90b33d183c7dde9307e6
@@ -727,6 +739,7 @@ rebuild/src/factory.cpp,mischa85,32ed14c,src/factory.cpp,b4e39349d34168d028a5ed3
 rebuild/src/fastmath.cpp,mischa85,32ed14c,src/fastmath.cpp,d859d606a120412578d440f602e554f6391d365fcc17077708594658d1300736
 rebuild/src/field.cpp,mischa85,32ed14c,src/field.cpp,f55cbb23fc80838a03f07ec808382366a81f0c3eafdf23306a827b10f4810d81
 rebuild/src/findpath.cpp,mischa85,32ed14c,src/findpath.cpp,9cd38d4408d317185112be46eecae40388ee38b979a26dfa7e917bca46b93db1
+rebuild/src/findpath2.cpp,mischa85,32ed14c,src/findpath2.cpp,cbc1685ff85de7c3d4365695c98181fdf0a462de1faa5179f2b01d71e9b4b208
 rebuild/src/firewall.cpp,mischa85,32ed14c,src/firewall.cpp,e913a7b63cc7cbfcb8800fa94a0dc19bf01b51f8df506071e4bc4df43739b7c9
 rebuild/src/flasher.cpp,mischa85,32ed14c,src/flasher.cpp,541f17a30470c0c77d9f236fa01f5165390a72f68dab27dc3530977ebf768db9
 rebuild/src/fly.cpp,mischa85,6dee74a,src/fly.cpp,8ed66ec69771da7ccfee2142a16aefa22f9404e9357a9126f8885ef2aafab878
@@ -741,6 +754,7 @@ rebuild/src/gdlgsupp.cpp,mischa85,6dee74a,src/gdlgsupp.cpp,88d86b92147cc68c06981
 rebuild/src/getcd.cpp,mischa85,32ed14c,src/getcd.cpp,f6978cc8c4763fd223126dd5def5e811882b3de8d1f5fd0922c637c6831c5e4c
 rebuild/src/getcpu.cpp,mischa85,32ed14c,src/getcpu.cpp,8e5881e58698b50898a172deed845a313f65a9b8e25789bfd63e0776a9c9dd8f
 rebuild/src/goptions.cpp,mischa85,32ed14c,src/goptions.cpp,d14e089ec4f253a4a47412f3f4c108897bd78d97f82412089ba13114d1e0799c
+rebuild/src/grphmenu.cpp,mischa85,32ed14c,src/grphmenu.cpp,4400d17eec799a098ec91005da2950a82bae47a696128343e0b651b5cd7b8b2f
 rebuild/src/grphmenu2.cpp,mischa85,32ed14c,src/grphmenu2.cpp,17b149e135fef9e3a4568bdb8e0b16c1db322a74104229896e594c26c05eaf21
 rebuild/src/grphmimg.cpp,mischa85,32ed14c,src/grphmimg.cpp,6613cb0023297ae3132f6ca94d151f7d0cd8d6f77ba3aa2b3bf8a0d8790cabeb
 rebuild/src/grphmitm.cpp,mischa85,32ed14c,src/grphmitm.cpp,6dbd12b3fce81964d0765cb4843ca0406c3962f11acb4ac242ab8db1dc90276d
@@ -750,6 +764,7 @@ rebuild/src/hicolor.cpp,mischa85,32ed14c,src/hicolor.cpp,faa20f779ba8b15fa7f9722
 rebuild/src/house.cpp,mischa85,32ed14c,src/house.cpp,7422ddab572d0370ab0264b8f18e2d951ae7fec4836d6c73fc26193d55dadb05
 rebuild/src/houstype.cpp,mischa85,6dee74a,src/houstype.cpp,813db62189acaebbd9592e83efba3cde1acdd7a72c2a378f1aeb9334006c69ec
 rebuild/src/hover.cpp,mischa85,6dee74a,src/hover.cpp,2eaf301ae6099a1b34579b9eca68b3883a18a1cb506f64d3d10970476534c414
+rebuild/src/hsv.cpp,mischa85,32ed14c,src/hsv.cpp,075cbba76b511a74e1d8966b11604aa4a6fb683138e9a491f3c235c001ac6a30
 rebuild/src/infantry.cpp,mischa85,6dee74a,src/infantry.cpp,b585b2aed2a4e5556cc61afd34d06fccc4ff86040e5c8f48a617695a4dbef10b
 rebuild/src/infatype.cpp,mischa85,32ed14c,src/infatype.cpp,e735ac45b48f3c074a173cfed6b1a88804377baab02e0be893c153a67b0ab644
 rebuild/src/ini.cpp,mischa85,32ed14c,src/ini.cpp,bfaefa49162cf6dc9393ab3a5a7611c7ba37d7fcc6e2c2a4dd834517f7e33d3d
@@ -772,6 +787,7 @@ rebuild/src/lcw.cpp,mischa85,32ed14c,src/lcw.cpp,ef9cb7a2e4583e87ba3fb4ca85e4cd6
 rebuild/src/lcwpipe.cpp,mischa85,32ed14c,src/lcwpipe.cpp,48c7d2ab97c5ac6caa8d0be2c518d12e5e311a3887e791aa11bb4c8d7b6a2c51
 rebuild/src/lcwstraw.cpp,mischa85,32ed14c,src/lcwstraw.cpp,363fe61c358c8ee89b0459aab5ec1aa2c09010d9c861b2e523c22eba4ae280c0
 rebuild/src/lcwuncmp.cpp,mischa85,32ed14c,src/lcwuncmp.cpp,339029c879853aefe5c48164bcff76f07a6547ebe6990b6d4136fdc91373d6c8
+rebuild/src/ldprgmgr.cpp,mischa85,32ed14c,src/ldprgmgr.cpp,6ee49ed53dd136f492fb0c72a6c45704d16013692710e6e72f62632bad4bd531
 rebuild/src/light.cpp,mischa85,32ed14c,src/light.cpp,fbf138ae204be63bd9c4caecdc995e62ea9d182c998b7bb887a838953c4e0228
 rebuild/src/lightcalc.cpp,mischa85,32ed14c,src/lightcalc.cpp,13a5522e4db46cc791b1f70f9211be475ea3a63353941c51c21446252a316d92
 rebuild/src/lightcon.cpp,mischa85,32ed14c,src/lightcon.cpp,eeae741b29ec0c2f8c0e20994f62f0fafc37c46ace976b0d62823316645c2d11
@@ -781,6 +797,7 @@ rebuild/src/list.cpp,mischa85,32ed14c,src/list.cpp,a5fa4c89e72b0328ac6b55ed9cea1
 rebuild/src/load.cpp,mischa85,32ed14c,src/load.cpp,ff3141d18c1f0534c1e2cc4e9bcf9486430d7e9f2bb6404705243ae6ec588ea6
 rebuild/src/loaddlg.cpp,mischa85,32ed14c,src/loaddlg.cpp,7fc1c5ab04e8225e739d80fa65a0e47214478f370f1b2426de71a9cb27adc78a
 rebuild/src/loco.cpp,mischa85,32ed14c,src/loco.cpp,4b897b20d1f14cbe4df4cdbb4804c3d91a4d3c0db1fdcf4adfc25db3f8004c54
+rebuild/src/logic.cpp,mischa85,32ed14c,src/logic.cpp,6cf4d9bbdff6490bb4c05210ab4ee2e1b96093a6ccaf679be178b1b858e1d2d4
 rebuild/src/lzo1x_c.cpp,mischa85,32ed14c,src/lzo1x_c.cpp,062ed2747e6107e847ed0e0435dd28953b96ad04ac42add81f0e1169cba9f8cc
 rebuild/src/lzo1x_d.cpp,mischa85,32ed14c,src/lzo1x_d.cpp,bb05527bb534ed4444a2a0052bdcc95d7c5f27b4cd5c277834db528b6568a1c2
 rebuild/src/lzopipe.cpp,mischa85,32ed14c,src/lzopipe.cpp,10f8bdbff9f2812922b50618099c6235f64e6efa1571932ba31d10aaebe9338a
@@ -861,6 +878,7 @@ rebuild/src/ramfile.cpp,mischa85,32ed14c,src/ramfile.cpp,5a31106ec799c5066b2dffc
 rebuild/src/rawfile.cpp,mischa85,32ed14c,src/rawfile.cpp,513719eff653cd3a3d92c56238c7e7dcaa57ad1f4c6b8f0128f959036e1b95ca
 rebuild/src/rc_ptr_base.cpp,mischa85,32ed14c,src/rc_ptr_base.cpp,b38a936079414608943fa97f2d2ac53ef34a742cf5482607ff49b338ad35c4fa
 rebuild/src/readline.cpp,mischa85,32ed14c,src/readline.cpp,fc5dc634a3a2d4743ce0de80fc96ba3d1f4cc1ba5745c7446367752cd4551b93
+rebuild/src/reinf.cpp,mischa85,32ed14c,src/reinf.cpp,b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9
 rebuild/src/restate.cpp,mischa85,32ed14c,src/restate.cpp,5ab007f260952aaea0678f9f0bbcbf7b5162a572ff566a5687f4078851b12429
 rebuild/src/revent.cpp,mischa85,32ed14c,src/revent.cpp,320760d05d5dec19b0bc65de84018caea9369b6bf590ae482113872d7881c69d
 rebuild/src/rgb.cpp,mischa85,32ed14c,src/rgb.cpp,6556b8f846b15a9519bb220db2790bb514417f99c240d154e2b84f59f5a7c738
@@ -884,6 +902,7 @@ rebuild/src/shapipe.cpp,mischa85,32ed14c,src/shapipe.cpp,ecac550a21dba5f6a654e73
 rebuild/src/shastraw.cpp,mischa85,32ed14c,src/shastraw.cpp,215686f32fe39dd92f821c90636319907e574b44a9283018ce6f445dbe37affd
 rebuild/src/ship.cpp,mischa85,6dee74a,src/ship.cpp,05cb887fa6c8a0dd582317691003d4daeca653358b1c1d0b872cf1caaa1e71ca
 rebuild/src/side.cpp,mischa85,32ed14c,src/side.cpp,73bb5840a0dcea5bc050cf42ef28aa6add26e79ecb348f1c64188998f3e9bb7f
+rebuild/src/skirmish.cpp,mischa85,32ed14c,src/skirmish.cpp,dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1
 rebuild/src/slider.cpp,mischa85,32ed14c,src/slider.cpp,c31a7c51a47de4e429117e5a08c7515acc23fab04fbe1ca3b186ecad071bc130
 rebuild/src/smartdeform.cpp,mischa85,32ed14c,src/smartdeform.cpp,1432598df2684c0d5d5caf549a4f2f36c325ea6e27b81e03659f731fdf228c0d
 rebuild/src/smudge.cpp,mischa85,32ed14c,src/smudge.cpp,9f58a49f5fe09178f2e92701b6b5c8876db194993f19aa30d75984027eb0cfc9
@@ -891,9 +910,12 @@ rebuild/src/smudtype.cpp,mischa85,32ed14c,src/smudtype.cpp,22913cc23252d34b801c6
 rebuild/src/sounddlg.cpp,mischa85,32ed14c,src/sounddlg.cpp,7dce964afea9a2ec77b305c3d4ec208fcec8d912a50151f0bedaeb433721cade
 rebuild/src/special.cpp,mischa85,32ed14c,src/special.cpp,46d1a750957eb3cb0209af6c81aaf950ae451d74329b989c0934d98002d6e71f
 rebuild/src/sprite.cpp,mischa85,32ed14c,src/sprite.cpp,ba093fbf24ce41d446787b50b6b04cffbfed4c9ccff0a195a352a5851ddda511
+rebuild/src/srfcache.cpp,mischa85,32ed14c,src/srfcache.cpp,f0d7b6e5b71617059beabd22e8e563fa98ad8b5922bc9ff97f9d877600db9770
+rebuild/src/startup.cpp,mischa85,32ed14c,src/startup.cpp,4a1128df7f67cca7101b0ab6ec4a44f7f60c09b8d60e98ecbf84c4f87e9d870f
 rebuild/src/statbtn.cpp,mischa85,32ed14c,src/statbtn.cpp,3231cbea08aee13fdefe66948f2049d4e6ed6883cdb24d812fd440a260575b8e
 rebuild/src/stats.cpp,mischa85,32ed14c,src/stats.cpp,1f3da64fa9aca555376acc2557d3086d9bc643c62866a92d74792f73a19e80f9
 rebuild/src/stbuffer.cpp,mischa85,32ed14c,src/stbuffer.cpp,a3cf7fb9f79fc67f9cda14baf90a37424c12edbdc513594da40e2bef2dfabc42
+rebuild/src/stimer.cpp,mischa85,32ed14c,src/stimer.cpp,c5c7b6c78c96b31a62dacf8e507df321065eab671740646930dc7caccba65b73
 rebuild/src/storage.cpp,mischa85,32ed14c,src/storage.cpp,7d6bc4e59c61c3bdf6a35b10ae455269840248a409de50e302c5e994643fc4c7
 rebuild/src/straw.cpp,mischa85,32ed14c,src/straw.cpp,dad2bd3977a984ab45dad0cc7d087be61c7821c7a4048c69a2c003324e501965
 rebuild/src/strtable.cpp,mischa85,6dee74a,src/strtable.cpp,d04656465e4af1fdddbc7ab99f23779b424d5acb308304b58733575e4734feea
@@ -930,6 +952,7 @@ rebuild/src/tube.cpp,mischa85,32ed14c,src/tube.cpp,0a56b0bb9558a04ad225303eea726
 rebuild/src/tunnel.cpp,mischa85,6dee74a,src/tunnel.cpp,6689dc00e8944869abc6b6e7cbb2543f4af7af162843b21c7031691147d68349
 rebuild/src/txtlabel.cpp,mischa85,32ed14c,src/txtlabel.cpp,4a6ae7f567308639980859beac3fbee1f03907048ecd77b4aab3cbc90c127625
 rebuild/src/txtlabel2.cpp,mischa85,6dee74a,src/txtlabel2.cpp,f511e07d3fa1c94533b8aa0e4306f0605c281cb0c94d39afc310601b6dc539c0
+rebuild/src/uicmnds.cpp,mischa85,32ed14c,src/uicmnds.cpp,2f708c27737200bbaa21949a31e0f6124ffecd50996570093dd4468a529b67a9
 rebuild/src/unit.cpp,mischa85,6dee74a,src/unit.cpp,152b272b698d80c2742bfc1d494ca8ce440ac794cfc3fa4feaa3ac87013407a8
 rebuild/src/unittype.cpp,mischa85,32ed14c,src/unittype.cpp,b3e4a0b96d35b494ef28e9587f70ed94e67db58df6889908ff53e909ffe70779
 rebuild/src/unvqtblc.cpp,mischa85,32ed14c,src/unvqtblc.cpp,20aae9501686da08cbd2f5a04c12a71c7887b1f7760a08a85bae9cf37a74f159
@@ -952,6 +975,8 @@ rebuild/src/vqalib_audio.cpp,mischa85,32ed14c,src/vqalib_audio.cpp,b31c51205cd6f
 rebuild/src/vqalib_buffer_.cpp,mischa85,32ed14c,src/vqalib_buffer_.cpp,099c6149a2302621a55c72b40480b89d5b289be6ae06c8f6aa9db0a182cb55e0
 rebuild/src/vqalib_config.cpp,mischa85,6dee74a,src/vqalib_config.cpp,ed0628d848eafa00e1369374dcd773385c89f2a20eca6ffef3eea49af9f57b57
 rebuild/src/vqalib_dstream.cpp,mischa85,32ed14c,src/vqalib_dstream.cpp,c46324d142d9988af31012b0f4d822483e1bbd6d2e835082ae852e15dea56789
+rebuild/src/vqalib_loader.cpp,mischa85,32ed14c,src/vqalib_loader.cpp,9277e950875e2c60ffbc9bb7065127b91ad7d56a24f482742bbb9b15a8d862e1
+rebuild/src/vqalib_task.cpp,mischa85,32ed14c,src/vqalib_task.cpp,405b13cdadc5f3bed95c32c708ce9f440629a2c2cafdb0837076071b9508eceb
 rebuild/src/vqalib_timer.cpp,mischa85,32ed14c,src/vqalib_timer.cpp,056155eb1c0d43710987565800d205dc0c8ff20c222e86dca1d4415404c9cf95
 rebuild/src/vqalib_unvq.cpp,mischa85,32ed14c,src/vqalib_unvq.cpp,9dddc2c6acb7a418c5e452b822d8f3400c88f92ec8a9fe7c0f927c91ead57935
 rebuild/src/vqalib_unvqtran.cpp,mischa85,32ed14c,src/vqalib_unvqtran.cpp,b26c2fa7309c8345ffa26b22bb18238a6ded7fc69e1f0fe5e1024af0e39245cc
@@ -977,6 +1002,7 @@ rebuild/src/winfix.cpp,mischa85,32ed14c,src/winfix.cpp,6b127846064dd79c869f5f9ab
 rebuild/src/winstub.cpp,mischa85,32ed14c,src/winstub.cpp,7d3845cc047cc38fbea9f3c738291d885c87a8b673ad45172a4009f66b09aea2
 rebuild/src/wolpersonainformation.cpp,mischa85,32ed14c,src/wolpersonainformation.cpp,afd4bd3b0ff4fb32f5d2f8917f6573aaff4ee85d947a04dd37b155c159298855
 rebuild/src/wolstart.cpp,mischa85,32ed14c,src/wolstart.cpp,eb6cf7891af9e0b4f6b0e28e96f46ff76228b75fac7c2dd9006896ce146b3bcd
+rebuild/src/wonline.cpp,mischa85,0132d21,src/wonline.cpp,ae8858059dd6961bea4c44dd19ca851a83d0280d89ca3a170d2819c1e26c88aa
 rebuild/src/worlddom.cpp,mischa85,32ed14c,src/worlddom.cpp,f19e4976651024acf7f99e6ddd3045d52be03d4bc24b17ffa4512aa3c334a813
 rebuild/src/writepcx.cpp,mischa85,32ed14c,src/writepcx.cpp,2a0addcd50d54bac7ff33e1ee41c769417779551572b65493fac162a0314ea81
 rebuild/src/wspipx.cpp,mischa85,32ed14c,src/wspipx.cpp,0ab3ce284f51568a34a12389c4e4838b305ffdcd6b2a2885293ead122336fb31
@@ -988,23 +1014,3 @@ rebuild/src/xpipe.cpp,mischa85,32ed14c,src/xpipe.cpp,5e61804a4631cc81ff93f4f7dbb
 rebuild/src/xstraw.cpp,mischa85,32ed14c,src/xstraw.cpp,04ac281f04a57727d644b9097ecdde076b32864ff7f3b276aaecfd52cfbb292d
 rebuild/src/xsurface.cpp,mischa85,6dee74a,src/xsurface.cpp,4ac67159d820e524691d67187722b24f3978278ce6135ca5cdbdd9eecc361640
 rebuild/src/zbuffer.cpp,mischa85,32ed14c,src/zbuffer.cpp,69c84073c0089844e7244e2138fa0cfe6c5104dbd7a8bdc40bbadb27c7235e1c
-rebuild/src/auddev.cpp,mischa85,32ed14c,src/auddev.cpp,49ebf7a452fe739e2b6dcec9a54b6ac2d5fbf9ccb413c985a3dec2f0293eda26
-rebuild/src/hsv.cpp,mischa85,32ed14c,src/hsv.cpp,075cbba76b511a74e1d8966b11604aa4a6fb683138e9a491f3c235c001ac6a30
-rebuild/src/stimer.cpp,mischa85,32ed14c,src/stimer.cpp,c5c7b6c78c96b31a62dacf8e507df321065eab671740646930dc7caccba65b73
-rebuild/src/dib.cpp,mischa85,32ed14c,src/dib.cpp,85777b23cc66954657cff0aa1b569db4d4aef17a55663f374feae2760da19029
-rebuild/src/grphmenu.cpp,mischa85,32ed14c,src/grphmenu.cpp,4400d17eec799a098ec91005da2950a82bae47a696128343e0b651b5cd7b8b2f
-rebuild/src/reinf.cpp,mischa85,32ed14c,src/reinf.cpp,b4fc70d2321978ee692638d552705e54befe9da265d8dcc475c760c430a048e9
-rebuild/src/srfcache.cpp,mischa85,32ed14c,src/srfcache.cpp,f0d7b6e5b71617059beabd22e8e563fa98ad8b5922bc9ff97f9d877600db9770
-rebuild/src/logic.cpp,mischa85,32ed14c,src/logic.cpp,6cf4d9bbdff6490bb4c05210ab4ee2e1b96093a6ccaf679be178b1b858e1d2d4
-rebuild/src/ldprgmgr.cpp,mischa85,32ed14c,src/ldprgmgr.cpp,6ee49ed53dd136f492fb0c72a6c45704d16013692710e6e72f62632bad4bd531
-rebuild/src/skirmish.cpp,mischa85,32ed14c,src/skirmish.cpp,dedf35e57f2399f1343cb405c5c36e68fe073c55b4dbb7c2821a978067bf80c1
-rebuild/src/event.cpp,mischa85,32ed14c,src/event.cpp,05051f6047d5595ab7a595c6e10e0fffa6e3c9cd02c104091ea8e8fa5864e932
-rebuild/src/uicmnds.cpp,mischa85,32ed14c,src/uicmnds.cpp,2f708c27737200bbaa21949a31e0f6124ffecd50996570093dd4468a529b67a9
-rebuild/src/startup.cpp,mischa85,32ed14c,src/startup.cpp,4a1128df7f67cca7101b0ab6ec4a44f7f60c09b8d60e98ecbf84c4f87e9d870f
-rebuild/src/wonline.cpp,mischa85,0132d21,src/wonline.cpp,ae8858059dd6961bea4c44dd19ca851a83d0280d89ca3a170d2819c1e26c88aa
-rebuild/src/findpath2.cpp,mischa85,32ed14c,src/findpath2.cpp,cbc1685ff85de7c3d4365695c98181fdf0a462de1faa5179f2b01d71e9b4b208
-rebuild/src/audsrc.cpp,mischa85,32ed14c,src/audsrc.cpp,8381a1543ef94f8a26035244ff0f04b92c5af1d936df737383c80e13d39ae711
-rebuild/src/vqalib_loader.cpp,mischa85,32ed14c,src/vqalib_loader.cpp,9277e950875e2c60ffbc9bb7065127b91ad7d56a24f482742bbb9b15a8d862e1
-rebuild/src/vqalib_task.cpp,mischa85,32ed14c,src/vqalib_task.cpp,405b13cdadc5f3bed95c32c708ce9f440629a2c2cafdb0837076071b9508eceb
-rebuild/src/audevent.cpp,mischa85,32ed14c,src/audevent.cpp,b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934
-rebuild/src/drv_dsnd.cpp,mischa85,32ed14c,src/drv_dsnd.cpp,25b5beee22ab04884aa14875c9527e8fad14d6c8f7c339e832ba6f0957308d09

@@ -2269,6 +2269,7 @@ symbol,address,evidence
 ?Owner_Button_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F0320,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ,0x00410240,slot +40 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ
 ?Owner_HouseClass@TechnoClass@@UBEPAVHouseClass@@XZ,0x006C7430,slot +40 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Owning_House@TechnoClass@@UBEPAVHouseClass@@XZ
+?PaletteExtension@@3PBDB,0x007EB5E4,"inferred: palette 00604540 (SchemeLibrary::Generate) appends the string it points to (""PAL"") as the scheme palette file extension; main binds it as ?Scheme_Palette_Extension_007eb5e4@@3PBDB (modules/palette.json)"
 ?Paradrop@ObjectClass@@UAE_NABVCoord@@@Z,0x005D4240,slot +e4 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot56@ObjectClass@@UAE_NABUCoordStruct@@@Z
 ?Passes_CRC_Check@WinsockInterfaceClass@@MAE_NPAUWinsockBufferType@1@@Z,0x0076B310,slot +5c of ??_7IPXInterfaceClass@@6B@ at 007afa08; main row ?Passes_CRC_Check@WinsockInterfaceClass@@UAE_NPAVWinsockBufferType@1@@Z
 ?Pause@MSAnim@@UAEXXZ,0x005AFC10,slot +08 of ??_7MSFrameAnim@@6B@ at 007af1bc; main row ?Pause@MSAnim@@UAEXXZ
@@ -2379,6 +2380,7 @@ symbol,address,evidence
 ?Release@TeleportLocomotionClass@@WBI@AGKXZ,0x006E1C70,slot +0c of ??_7TeleportLocomotionClass@@6B@ at 007ad180; main row ?Release@TeleportLocomotionClass@@WBI@AGKXZ
 ?Release@WalkLocomotionClass@@W3AGKXZ,0x0071FEB0,slot +0c of ??_7WalkLocomotionClass@@6BILocomotion@@@ at 007aead4; main row ?Release@WalkLocomotionClass@@W3AGKXZ
 ?Release@WalkLocomotionClass@@WBI@AGKXZ,0x0071FEE0,slot +0c of ??_7WalkLocomotionClass@@6B@ at 007aeab0; main row ?Release@WalkLocomotionClass@@WBI@AGKXZ
+?Release_Mouse@OwnerDraw@@YIHXZ,0x005FF5D0,inferred: grphmenu rows 004de9e0 differ only at its sites
 ?Reload@TechnoClass@@UAEXXZ,0x006C8290,slot +3c0 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Reload@TechnoClass@@UAEXXZ
 ?Remove@GadgetClass@@UAEPAVLinkClass@@XZ,0x004CF170,slot +24 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Remove@GadgetClass@@UAEPAVLinkClass@@XZ
 ?Remove@LinkClass@@UAEPAV1@XZ,0x00539110,slot +28 of ??_7LinkClass@@6B@ at 007a18b0; main row ?Remove@LinkClass@@UAEPAV1@XZ
@@ -2610,6 +2612,7 @@ symbol,address,evidence
 ?Scatter@ObjectClass@@UAEXABVCoord@@_N1@Z,0x005D2CF0,slot +160 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Scatter@ObjectClass@@UAEXABUCoordStruct@@_N1@Z
 ?ScenUnusedTimer@@3V?$CDTimerClass@VSystemTimerClass@@@@A,0x00AB6EA8,inferred: scenario rows 0065b4b0 0065b4b0 0065b4b0 differ only at its sites
 ?Scenario_DlgProc@@YGHPAUHWND__@@IIJ@Z,0x005C69E0,inferred: netshare rows 005c6960 differ only at its sites
+?ScorePalette@@3VPaletteClass@@A,0x00837B10,"inferred: _palette 0040d850 (its seventh initializer, TibSun _palette.cpp order) constructs it"
 ?Scroll_Bar_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F9FB0,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Scroll_Map@DisplayClass@@UAE_NW4FacingType@@AAH_N@Z,0x00499B60,slot +a4 of ??_7RadarClass@@6B@ at 007a871c; main row ?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z
 ?Seek@BufferIOFileClass@@UAEHHH@Z,0x0042FC90,slot +2c of ??_7CDFileClass@@6B@ at 0079a654; main row ?Seek@BufferIOFileClass@@UAEJJH@Z
@@ -2755,6 +2758,7 @@ symbol,address,evidence
 ?Visual_Character@FootClass@@UBE?AW4VisualType@@_NPBVHouseClass@@@Z,0x004C8FA0,slot +68 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot25@FootClass@@UAEH_NH@Z
 ?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z,0x0053D4C0,slot +38 of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Visual_Character@LocomotionClass@@UAGH_N@Z
 ?Visual_Character@ObjectClass@@UBE?AW4VisualType@@_NPBVHouseClass@@@Z,0x00423D20,slot +68 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?get@Leaf_423d20@@QAEIII@Z
+?VoxelPalette@@3VPaletteClass@@A,0x00838D10,"inferred: _palette 0040d870 (its eighth initializer, TibSun _palette.cpp order) constructs it"
 ?VoxelZSurface@@3VBSurface@@A,0x00AE0C80,inferred: voxdrsys rows 00716e20 00716e20 00716e20 00716e20 differ only at its sites
 ?WDT_Get_Tech_Level@WorldDominationTour@@YIHPBVWDTTerritory@@@Z,0x00727B80,inferred: wdtconflict rows 00727480 differ only at its sites
 ?WDT_Get_Unit_Count@WorldDominationTour@@YIHPBVWDTTerritory@@@Z,0x00727B70,inferred: wdtconflict rows 00727480 differ only at its sites

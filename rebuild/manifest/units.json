@@ -7304,7 +7304,7 @@
   ],
   "status": "catalogued",
   "range": [
-   "0040d770",
+   "0040d950",
    "0040dc70"
   ],
   "mischa85": "tibsun: functions compiled from src/_rtti.cpp, matched, without gaps; two placed by definition order; one placed by the gap",
@@ -7318,118 +7318,6 @@
    ]
   ],
   "rows": [
-   {
-    "entry": "0040d770",
-    "body": 27,
-    "padding": 5,
-    "symbol": "_$E8",
-    "main_symbol": "_$E8",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d790",
-    "body": 27,
-    "padding": 5,
-    "symbol": "_$E11",
-    "main_symbol": "_$E11",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d7b0",
-    "body": 27,
-    "padding": 5,
-    "symbol": "_$E14",
-    "main_symbol": "_$E14",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d7d0",
-    "body": 32,
-    "padding": 0,
-    "symbol": "_$E17",
-    "main_symbol": "_$E17",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d7f0",
-    "body": 32,
-    "padding": 0,
-    "symbol": "_$E20",
-    "main_symbol": "_$E20",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d810",
-    "body": 27,
-    "padding": 5,
-    "symbol": "_$E23",
-    "main_symbol": "_$E23",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d830",
-    "body": 27,
-    "padding": 5,
-    "symbol": "_$E26",
-    "main_symbol": "_$E26",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d850",
-    "body": 27,
-    "padding": 5,
-    "symbol": "_$E29",
-    "main_symbol": "_$E29",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d870",
-    "body": 27,
-    "padding": 5,
-    "symbol": "_$E32",
-    "main_symbol": "_$E32",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d890",
-    "body": 39,
-    "padding": 9,
-    "symbol": "_$E35",
-    "main_symbol": "_$E35",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d8c0",
-    "body": 13,
-    "padding": 3,
-    "symbol": "_$E38",
-    "main_symbol": "_$E38",
-    "main_source": "src/recovered/_palette.cpp"
-   },
-   {
-    "entry": "0040d8d0",
-    "body": 23,
-    "padding": 9,
-    "symbol": "_$E41",
-    "main_symbol": "_$E41",
-    "main_source": "src/recovered/globals/unknown_rect_init.cpp"
-   },
-   {
-    "entry": "0040d8f0",
-    "body": 33,
-    "padding": 15,
-    "symbol": "_$E44",
-    "main_symbol": "_$E44",
-    "main_source": "src/recovered/_rect.cpp"
-   },
-   {
-    "entry": "0040d920",
-    "body": 33,
-    "padding": 15,
-    "symbol": "_$E47",
-    "main_symbol": "_$E47",
-    "main_source": "src/recovered/_rect.cpp"
-   },
    {
     "entry": "0040d950",
     "body": 23,
@@ -23257,7 +23145,18 @@
    "00603750"
   ],
   "symbol_overrides": {
-   "00605da0": "??0?$VectorClass@VHSVClass@@@@QAE@HPBVHSVClass@@@Z"
+   "00605da0": "??0?$VectorClass@VHSVClass@@@@QAE@HPBVHSVClass@@@Z",
+   "00603d50": "?Palette_Scheme_Count@@YIHXZ",
+   "00603fa0": "?SchemeLibrary_Destroy@@YIXXZ",
+   "00603fd0": "?SchemeLibrary_Create@@YIXXZ",
+   "00604120": "??0SchemeLibrary@@QAE@XZ",
+   "00604250": "??1SchemeLibrary@@QAE@XZ",
+   "006044a0": "?Lookup@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
+   "00604870": "?Add@SchemeLibrary@@QAEXPBD@Z",
+   "006049c0": "?Replace@SchemeLibrary@@QAEXPBD@Z",
+   "00604ad0": "?Set_Mode@SchemeLibrary@@QAEXH@Z",
+   "00604d20": "?GetItem@?$VectorClass@PAVColorScheme@@@@UBEPAVColorScheme@@H@Z",
+   "00605e80": "??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@HPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z"
   },
   "source": "rebuild/src/palette.cpp",
   "options": [
@@ -23446,7 +23345,7 @@
     "entry": "00603d50",
     "body": 592,
     "padding": 0,
-    "symbol": "?Unknown_00603D50@@YAHXZ",
+    "symbol": "?Palette_Scheme_Count@@YIHXZ",
     "main_symbol": "?Unknown_00603D50@@YAHXZ",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23454,7 +23353,7 @@
     "entry": "00603fa0",
     "body": 39,
     "padding": 9,
-    "symbol": "?Unknown_00603FA0@@YAXXZ",
+    "symbol": "?SchemeLibrary_Destroy@@YIXXZ",
     "main_symbol": "?Unknown_00603FA0@@YAXXZ",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23462,7 +23361,7 @@
     "entry": "00603fd0",
     "body": 330,
     "padding": 6,
-    "symbol": "?Unknown_00603FD0@@YAXXZ",
+    "symbol": "?SchemeLibrary_Create@@YIXXZ",
     "main_symbol": "?Unknown_00603FD0@@YAXXZ",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23470,7 +23369,7 @@
     "entry": "00604120",
     "body": 293,
     "padding": 11,
-    "symbol": "??0SchemeTable@@QAE@XZ",
+    "symbol": "??0SchemeLibrary@@QAE@XZ",
     "main_symbol": "??0SchemeTable@@QAE@XZ",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23478,7 +23377,7 @@
     "entry": "00604250",
     "body": 582,
     "padding": 10,
-    "symbol": "??1SchemeTable@@QAE@XZ",
+    "symbol": "??1SchemeLibrary@@QAE@XZ",
     "main_symbol": "??1SchemeTable@@QAE@XZ",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23486,7 +23385,7 @@
     "entry": "006044a0",
     "body": 160,
     "padding": 0,
-    "symbol": "?Find_Schemes@SchemeTable@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
+    "symbol": "?Lookup@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
     "main_symbol": "?Find_Schemes@SchemeTable@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23502,7 +23401,7 @@
     "entry": "00604870",
     "body": 321,
     "padding": 15,
-    "symbol": "?Add_Node@SchemeTable@@QAEXPBD@Z",
+    "symbol": "?Add@SchemeLibrary@@QAEXPBD@Z",
     "main_symbol": "?Add_Node@SchemeTable@@QAEXPBD@Z",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23510,7 +23409,7 @@
     "entry": "006049c0",
     "body": 272,
     "padding": 0,
-    "symbol": "?Rebuild_Node@SchemeTable@@QAEXPBD@Z",
+    "symbol": "?Replace@SchemeLibrary@@QAEXPBD@Z",
     "main_symbol": "?Rebuild_Node@SchemeTable@@QAEXPBD@Z",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23518,7 +23417,7 @@
     "entry": "00604ad0",
     "body": 511,
     "padding": 1,
-    "symbol": "?Set_Theater@SchemeTable@@QAEXH@Z",
+    "symbol": "?Set_Mode@SchemeLibrary@@QAEXH@Z",
     "main_symbol": "?Set_Theater@SchemeTable@@QAEXH@Z",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23542,7 +23441,7 @@
     "entry": "00604d20",
     "body": 13,
     "padding": 3,
-    "symbol": "?Fetch@?$VectorClass@PAVColorScheme@@@@UBEPAVColorScheme@@H@Z",
+    "symbol": "?GetItem@?$VectorClass@PAVColorScheme@@@@UBEPAVColorScheme@@H@Z",
     "main_symbol": "?Fetch@?$VectorClass@PAVColorScheme@@@@UBEPAVColorScheme@@H@Z",
     "main_source": "src/recovered/palette.cpp"
    },
@@ -23886,7 +23785,7 @@
     "entry": "00605e80",
     "body": 173,
     "padding": 3,
-    "symbol": "??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@IPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z",
+    "symbol": "??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@HPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z",
     "main_symbol": "??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@IPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z",
     "main_source": "src/recovered/palette.cpp"
    }
@@ -25805,7 +25704,7 @@
   "status": "catalogued",
   "range": [
    "004b4970",
-   "004b5600"
+   "004b5810"
   ],
   "mischa85": "tibsun: functions compiled from src/empulse.cpp, matched, without gaps; five placed by the gap; one copy the compiler emitted after the last function",
   "main_options": [
@@ -26103,6 +26002,62 @@
     "symbol": "?Resize@?$VectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
     "main_symbol": "?Resize@?$VectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
     "main_source": "src/recovered/classes/VectorClass_EMPulseClass_ptr/Resize.cpp"
+   },
+   {
+    "entry": "004b5600",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAVEMPulseClass@@@@UAEXXZ",
+    "main_symbol": "?get@Cleanup_4b5600@@QAEXXZ",
+    "main_source": "src/recovered/empulse.cpp"
+   },
+   {
+    "entry": "004b5630",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_EMPulseClass_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "004b5670",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_EMPulseClass_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "004b5690",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z",
+    "main_source": "src/recovered/empulse.cpp"
+   },
+   {
+    "entry": "004b5740",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_EMPulseClass_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "004b5770",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAVEMPulseClass@@@@UAEPAXI@Z",
+    "main_symbol": "?get@Leaf_4b5770@@QAEPAXI@Z",
+    "main_source": "src/recovered/empulse.cpp"
+   },
+   {
+    "entry": "004b57c0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAVEMPulseClass@@@@UAEPAXI@Z",
+    "main_symbol": "?unknown_scalar_deleting_destructor_004b57c0@Owner_004b57c0@seed_004b57c0@@QAEPAIE@Z",
+    "main_source": "src/recovered/empulse.cpp"
    }
   ],
   "references": {
@@ -26132,7 +26087,12 @@
    "?Fetch_RTTI@EMPulseClass@@UBE?AW4RTTIType@@XZ": "004b5400",
    "?Fetch_Object_Size@EMPulseClass@@UBEHXZ": "004b53f0",
    "?Compute_CRC@EMPulseClass@@UBEXAAVCRCEngine@@@Z": "004b52f0",
-   "_$S163": "008559d0"
+   "_$S163": "008559d0",
+   "?Resize@?$DynamicVectorClass@PAVEMPulseClass@@@@UAE_NHPBQAVEMPulseClass@@@Z": "004b5690",
+   "?ID@?$DynamicVectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z": "004b5740",
+   "?Clear@?$VectorClass@PAVEMPulseClass@@@@UAEXXZ": "004b5600",
+   "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHABQAVEMPulseClass@@@Z": "004b5630",
+   "?ID@?$VectorClass@PAVEMPulseClass@@@@UAEHPBQAVEMPulseClass@@@Z": "004b5670"
   },
   "partial_ok": true
  },
@@ -30401,7 +30361,7 @@
   "status": "catalogued",
   "range": [
    "00536f30",
-   "00537d40"
+   "005383a0"
   ],
   "mischa85": "tibsun: functions compiled from src/light.cpp, matched, without gaps; six placed by the gap; one copy the compiler emitted after the last function",
   "main_options": [
@@ -30514,7 +30474,7 @@
     "entry": "00537100",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E40",
+    "symbol": "_$E38",
     "main_symbol": "_$E38",
     "main_source": "src/recovered/light.cpp"
    },
@@ -30709,6 +30669,174 @@
     "symbol": "?GetItem@?$VectorClass@PAVLightSourceClass@@@@UBEPAVLightSourceClass@@H@Z",
     "main_symbol": "?Fetch@?$VectorClass@PAVLightSourceClass@@@@UBEPAVLightSourceClass@@H@Z",
     "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537d40",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEXXZ",
+    "main_symbol": "?Clear_00537d40@@YIXH@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537d70",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHPBQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHPBQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537d90",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UBEPAVPendingCellClass@LightSourceClass@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UBEPAVPendingCellClass@LightSourceClass@@H@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537da0",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PAVLightSourceClass@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVLightSourceClass@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537de0",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PAVLightSourceClass@@@@UAE_NHPBQAVLightSourceClass@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVLightSourceClass@@@@UAE_NHPBQAVLightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537e90",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAVLightSourceClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@PAVLightSourceClass@@@@UAEXXZ",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537ec0",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAVLightSourceClass@@@@UAEHABQAVLightSourceClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVLightSourceClass@@@@UAEHABQAVLightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537f00",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAVLightSourceClass@@@@UAEHPBQAVLightSourceClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVLightSourceClass@@@@UAEHPBQAVLightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537f20",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAVLightSourceClass@@@@UAE_NHPBQAVLightSourceClass@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVLightSourceClass@@@@UAE_NHPBQAVLightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00537fd0",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAVLightSourceClass@@@@UAEHABQAVLightSourceClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVLightSourceClass@@@@UAEHABQAVLightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00538000",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00538040",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAE_NHPBQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAE_NHPBQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "005380f0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEXXZ",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00538120",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHABQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHABQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00538160",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHPBQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHPBQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00538180",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAE_NHPBQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAE_NHPBQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00538230",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHABQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHABQAVPendingCellClass@LightSourceClass@@@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00538260",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAVLightSourceClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@PAVLightSourceClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "005382b0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAVLightSourceClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAVLightSourceClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00538300",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/light.cpp"
+   },
+   {
+    "entry": "00538350",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/light.cpp"
    }
   ],
   "references": {
@@ -30734,7 +30862,33 @@
    "_RAD_60": "00a6e7f8",
    "_RAD_90": "00a6e7d0",
    "_RECT_NONE": "00a6e7d8",
-   "_$S208": "00a6e7c8"
+   "_$S208": "00a6e7c8",
+   "??8?$VectorClass@PAVLightSourceClass@@@@UBE_NABV0@@Z": "00537da0",
+   "?Resize@?$DynamicVectorClass@PAVLightSourceClass@@@@UAE_NHPBQAVLightSourceClass@@@Z": "00537f20",
+   "?Clear@?$DynamicVectorClass@PAVLightSourceClass@@@@UAEXXZ": "00537ce0",
+   "?ID@?$DynamicVectorClass@PAVLightSourceClass@@@@UAEHABQAVLightSourceClass@@@Z": "00537fd0",
+   "?ID@?$DynamicVectorClass@PAVLightSourceClass@@@@UAEHPBQAVLightSourceClass@@@Z": "00537d10",
+   "?GetItem@?$VectorClass@PAVLightSourceClass@@@@UBEPAVLightSourceClass@@H@Z": "00537d30",
+   "?Resize@?$VectorClass@PAVLightSourceClass@@@@UAE_NHPBQAVLightSourceClass@@@Z": "00537de0",
+   "?Clear@?$VectorClass@PAVLightSourceClass@@@@UAEXXZ": "00537e90",
+   "?ID@?$VectorClass@PAVLightSourceClass@@@@UAEHABQAVLightSourceClass@@@Z": "00537ec0",
+   "?ID@?$VectorClass@PAVLightSourceClass@@@@UAEHPBQAVLightSourceClass@@@Z": "00537f00",
+   "??8?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UBE_NABV0@@Z": "00538000",
+   "?Resize@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAE_NHPBQAVPendingCellClass@LightSourceClass@@@Z": "00538180",
+   "?Clear@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEXXZ": "00537d40",
+   "?ID@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHABQAVPendingCellClass@LightSourceClass@@@Z": "00538230",
+   "?ID@?$DynamicVectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHPBQAVPendingCellClass@LightSourceClass@@@Z": "00537d70",
+   "?GetItem@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UBEPAVPendingCellClass@LightSourceClass@@H@Z": "00537d90",
+   "?Resize@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAE_NHPBQAVPendingCellClass@LightSourceClass@@@Z": "00538040",
+   "?Clear@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEXXZ": "005380f0",
+   "?ID@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHABQAVPendingCellClass@LightSourceClass@@@Z": "00538120",
+   "?ID@?$VectorClass@PAVPendingCellClass@LightSourceClass@@@@UAEHPBQAVPendingCellClass@LightSourceClass@@@Z": "00538160",
+   "?GetClassID@LightSourceClass@@UAGJPAU_GUID@@@Z": "00537b60",
+   "?Load@LightSourceClass@@UAGJPAUIStream@@@Z": "00537ba0",
+   "?Save@LightSourceClass@@UAGJPAUIStream@@H@Z": "00537bf0",
+   "?Fetch_RTTI@LightSourceClass@@UBE?AW4RTTIType@@XZ": "00537c20",
+   "?Fetch_Object_Size@LightSourceClass@@UBEHXZ": "00537c10",
+   "?Compute_CRC@LightSourceClass@@UBEXAAVCRCEngine@@@Z": "00537b50"
   },
   "partial_ok": true
  },
@@ -38448,7 +38602,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005dd320",
    "005de660"
@@ -38773,7 +38927,8 @@
    "?Clear@?$VectorClass@PAVSpotLightClass@@@@UAEXXZ": "005de450",
    "?ID@?$VectorClass@PAVSpotLightClass@@@@UAEHABQAVSpotLightClass@@@Z": "005de480",
    "?ID@?$VectorClass@PAVSpotLightClass@@@@UAEHPBQAVSpotLightClass@@@Z": "005de4c0"
-  }
+  },
+  "partial_ok": true
  },
  "voxdrsys": {
   "core": [
@@ -50166,7 +50321,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00698ae0",
    "0069a180"
@@ -50370,7 +50525,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005cdd10",
    "005cfdd0"
@@ -52462,7 +52617,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0042d770",
    "0042f0a0"
@@ -52816,7 +52971,21 @@
    }
   ],
   "references": {
-   "_RECT_NONE": "0084e8a0"
+   "_RECT_NONE": "0084e8a0",
+   "_BRIDGE_LEPTON_HEIGHT": "0084e978",
+   "_CELL_DIAG_SLOPE_ANGLE": "0084e960",
+   "_CELL_LEPTON_DIAG": "0084e8b8",
+   "_CELL_NONE": "0084e8b0",
+   "_CELL_SLOPE_ANGLE": "0084e8c8",
+   "_COORD_NONE": "0084e950",
+   "_ISO_TILE_SIZE": "0079c728",
+   "_LEPTONS_PER_PIXEL": "0084e980",
+   "_LEVEL_LEPTON_H": "0084e988",
+   "_ONE_RAD": "0079c730",
+   "_PIXELS_PER_LEPTON": "0084e970",
+   "_RAD_45": "0084e968",
+   "_RAD_60": "0084e8c0",
+   "_RAD_90": "0084e898"
   },
   "partial_ok": true
  },
@@ -109459,7 +109628,7 @@
   "status": "catalogued",
   "range": [
    "00532e80",
-   "00534340"
+   "005346b0"
   ],
   "mischa85": "tibsun: functions compiled from src/laser.cpp, without gaps; matched except ?Draw_It@LaserDrawClass@@QAEXXZ; three placed by the gap",
   "main_options": [
@@ -109572,7 +109741,7 @@
     "entry": "00533050",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E39",
+    "symbol": "_$E38",
     "main_symbol": "_$E38",
     "main_source": "src/recovered/laser.cpp"
    },
@@ -109663,6 +109832,110 @@
     "symbol": "?Draw_House_Color@LaserDrawClass@@QAEXXZ",
     "main_symbol": "?Draw_House_Color@LaserDrawClass@@QAEXXZ",
     "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "00534340",
+    "body": 1,
+    "padding": 15,
+    "symbol": "_$E146",
+    "main_symbol": "?unknown_empty_00534340@@YAXXZ",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "00534350",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEXXZ",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "00534380",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEHPBQAVLaserDrawClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEHPBQAVLaserDrawClass@@@Z",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "005343a0",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PAVLaserDrawClass@@@@UBEPAVLaserDrawClass@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVLaserDrawClass@@@@UBEPAVLaserDrawClass@@H@Z",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "005343b0",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PAVLaserDrawClass@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVLaserDrawClass@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "005343f0",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PAVLaserDrawClass@@@@UAE_NHPBQAVLaserDrawClass@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVLaserDrawClass@@@@UAE_NHPBQAVLaserDrawClass@@@Z",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "005344a0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAVLaserDrawClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@PAVLaserDrawClass@@@@UAEXXZ",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "005344d0",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAVLaserDrawClass@@@@UAEHABQAVLaserDrawClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVLaserDrawClass@@@@UAEHABQAVLaserDrawClass@@@Z",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "00534510",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAVLaserDrawClass@@@@UAEHPBQAVLaserDrawClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVLaserDrawClass@@@@UAEHPBQAVLaserDrawClass@@@Z",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "00534530",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAE_NHPBQAVLaserDrawClass@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAE_NHPBQAVLaserDrawClass@@@Z",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "005345e0",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEHABQAVLaserDrawClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEHABQAVLaserDrawClass@@@Z",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "00534610",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAVLaserDrawClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@PAVLaserDrawClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/laser.cpp"
+   },
+   {
+    "entry": "00534660",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/laser.cpp"
    }
   ],
   "references": {
@@ -109685,7 +109958,17 @@
    "_RAD_60": "00a6e5e8",
    "_RAD_90": "00a6e540",
    "_$S141": "00a6e538",
-   "_RECT_NONE": "00a6e548"
+   "_RECT_NONE": "00a6e548",
+   "??8?$VectorClass@PAVLaserDrawClass@@@@UBE_NABV0@@Z": "005343b0",
+   "?Resize@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAE_NHPBQAVLaserDrawClass@@@Z": "00534530",
+   "?Clear@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEXXZ": "00534350",
+   "?ID@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEHABQAVLaserDrawClass@@@Z": "005345e0",
+   "?ID@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEHPBQAVLaserDrawClass@@@Z": "00534380",
+   "?GetItem@?$VectorClass@PAVLaserDrawClass@@@@UBEPAVLaserDrawClass@@H@Z": "005343a0",
+   "?Resize@?$VectorClass@PAVLaserDrawClass@@@@UAE_NHPBQAVLaserDrawClass@@@Z": "005343f0",
+   "?Clear@?$VectorClass@PAVLaserDrawClass@@@@UAEXXZ": "005344a0",
+   "?ID@?$VectorClass@PAVLaserDrawClass@@@@UAEHABQAVLaserDrawClass@@@Z": "005344d0",
+   "?ID@?$VectorClass@PAVLaserDrawClass@@@@UAEHPBQAVLaserDrawClass@@@Z": "00534510"
   },
   "partial_ok": true
  },
@@ -111108,7 +111391,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00520fa0",
    "00522557"
@@ -111238,7 +111521,7 @@
     "entry": "00521190",
     "body": 31,
     "padding": 1,
-    "symbol": "_$E42",
+    "symbol": "_$E163",
     "main_symbol": "_$E42",
     "main_source": "src/recovered/ionblast.cpp"
    },
@@ -111246,7 +111529,7 @@
     "entry": "005211b0",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E45",
+    "symbol": "_$E166",
     "main_symbol": "_$E45",
     "main_source": "src/recovered/ionblast.cpp"
    },
@@ -111254,7 +111537,7 @@
     "entry": "005211d0",
     "body": 61,
     "padding": 3,
-    "symbol": "_$E51",
+    "symbol": "_$E172",
     "main_symbol": "_$E51",
     "main_source": "src/recovered/ionblast.cpp"
    },
@@ -111262,7 +111545,7 @@
     "entry": "00521210",
     "body": 88,
     "padding": 8,
-    "symbol": "_$E48",
+    "symbol": "_$E169",
     "main_symbol": "_$E48",
     "main_source": "src/recovered/ionblast.cpp"
    },
@@ -111474,7 +111757,18 @@
    "_RAD_45": "00a51f78",
    "_RAD_60": "00a51e08",
    "_RAD_90": "00a51950",
-   "_RECT_NONE": "00a51de0"
+   "_RECT_NONE": "00a51de0",
+   "_$S170": "00a51948",
+   "??8?$VectorClass@PAVIonBlastClass@@@@UBE_NABV0@@Z": "00522200",
+   "?Resize@?$DynamicVectorClass@PAVIonBlastClass@@@@UAE_NHPBQAVIonBlastClass@@@Z": "00522380",
+   "?Clear@?$DynamicVectorClass@PAVIonBlastClass@@@@UAEXXZ": "005221a0",
+   "?ID@?$DynamicVectorClass@PAVIonBlastClass@@@@UAEHABQAVIonBlastClass@@@Z": "00522430",
+   "?ID@?$DynamicVectorClass@PAVIonBlastClass@@@@UAEHPBQAVIonBlastClass@@@Z": "005221d0",
+   "?GetItem@?$VectorClass@PAVIonBlastClass@@@@UBEPAVIonBlastClass@@H@Z": "005221f0",
+   "?Resize@?$VectorClass@PAVIonBlastClass@@@@UAE_NHPBQAVIonBlastClass@@@Z": "00522240",
+   "?Clear@?$VectorClass@PAVIonBlastClass@@@@UAEXXZ": "005222f0",
+   "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHABQAVIonBlastClass@@@Z": "00522320",
+   "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHPBQAVIonBlastClass@@@Z": "00522360"
   },
   "partial_ok": true
  },
@@ -119022,7 +119316,9 @@
    "0067b6e0",
    "006802d0"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "006809f0": "?Action@SelectClass@StripClass@SidebarClass@@MAEHIAAW4KeyNumType@@@Z"
+  },
   "source": "rebuild/src/sidebar.cpp",
   "options": [
    "/O2",
@@ -119720,7 +120016,7 @@
     "entry": "006809f0",
     "body": 3083,
     "padding": 5,
-    "symbol": "?Action@SelectClass@StripClass@SidebarClass@@UAEHIAAI@Z",
+    "symbol": "?Action@SelectClass@StripClass@SidebarClass@@MAEHIAAW4KeyNumType@@@Z",
     "main_symbol": "?Action@SelectClass@StripClass@SidebarClass@@UAEHIAAI@Z",
     "main_source": "src/recovered/sidebar.cpp"
    },
@@ -128123,7 +128419,7 @@
   "status": "catalogued",
   "range": [
    "0068bc50",
-   "0068cce0"
+   "0068d8a0"
   ],
   "mischa85": "tibsun: functions compiled from src/srfcache.cpp, without gaps; matched except ?CacheBMP@SurfaceCacheClass@@QAE_NPBDPAXHH@Z and ?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z; one placed by the gap; ?CacheBMP@SurfaceCacheClass@@QAE_NPBDPAXHH@Z and ?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z placed at their function starts; ?DrawNullsub@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1@Z not placed; ?Draw@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1HH@Z not placed; ?DrawTrans@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1F@Z not placed; ?DrawMasked@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@11PAX_NHH@Z not placed",
   "main_options": [
@@ -128229,6 +128525,38 @@
     "symbol": "?Remove@SurfaceCacheClass@@QAEXPBD@Z",
     "main_symbol": "?Unload_Image_0068cb30@SurfaceCacheClass@@QAEXPBD@Z",
     "main_source": "src/recovered/srfcache.cpp"
+   },
+   {
+    "entry": "0068ce80",
+    "body": 250,
+    "padding": 6,
+    "symbol": "?DrawTrans@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1F@Z",
+    "main_symbol": "?DrawTrans@SurfaceCacheClass@@QAE_NABVRect@@PAVSurface@@1H@Z",
+    "main_source": "src/recovered/srfcache.cpp"
+   },
+   {
+    "entry": "0068cf80",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?unknown_return_false_0068cf80@seed_0068cf80@@YGEHHH@Z",
+    "main_symbol": "?unknown_return_false_0068cf80@seed_0068cf80@@YGEHHH@Z",
+    "main_source": "src/recovered/srfcache.cpp"
+   },
+   {
+    "entry": "0068d540",
+    "body": 684,
+    "padding": 4,
+    "symbol": "?Remove_Entry@?$WolDictionary@VWstring@@UUnknownBitmapEntry@@@@QAE_NABVWstring@@PAUUnknownBitmapEntry@@@Z",
+    "main_symbol": "?Remove_Entry@?$WolDictionary@VWstring@@UUnknownBitmapEntry@@@@QAE_NABVWstring@@PAUUnknownBitmapEntry@@@Z",
+    "main_source": "src/recovered/srfcache.cpp"
+   },
+   {
+    "entry": "0068d7f0",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?shrink@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@AAEXXZ",
+    "main_symbol": "?Shrink_Table@?$WolDictionary@VWstring@@UUnknownBitmapEntry@@@@QAEXXZ",
+    "main_source": "src/recovered/srfcache.cpp"
    }
   ],
   "references": {
@@ -128237,20 +128565,7 @@
    "_?_x@?1??GetSurface@SurfaceCacheClass@@QAEPAVSurface@@PBDPAX@Z@4USurfaceCacheEntry@@A": "00abd0e8",
    "_RECT_NONE": "00abd0d0"
   },
-  "holder": "codex2",
-  "partial_ok": true,
-  "parked_rows": [
-   {
-    "entry": "0068c600",
-    "symbol": "?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z",
-    "body": 1046,
-    "best_differing": 1252,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "CachePCX guarded; dictionary/DNode template closure differs; no credit"
-   }
-  ],
-  "note": "MSBitmap source-private layout omitted; CacheBMP needs landed header and lacks independent main row. Draw/DrawTrans/DrawMasked/DrawNullsub have no bounded row in this unit and remain guarded. GetSurface destructor _$E symbol proven at original direct atexit call; original full bounds unchanged."
+  "partial_ok": true
  },
  "vqalib_loader": {
   "core": [
@@ -128737,7 +129052,7 @@
   "status": "catalogued",
   "range": [
    "004de240",
-   "004def90"
+   "004df2e0"
   ],
   "mischa85": "tibsun: functions compiled from src/grphmenu.cpp, without gaps; matched except ?_Graphic_Menu@@YIPAVGraphicMenu@@AAVINIClass@@ABVWstring@@@Z and ?Presentation@GraphicMenu@@QAEHXZ",
   "main_options": [
@@ -128893,36 +129208,129 @@
     "symbol": "?GetItem@?$VectorClass@PAVGraphicMenuItem@@@@UBEPAVGraphicMenuItem@@H@Z",
     "main_symbol": "?Fetch@?$VectorClass@PAVGraphicMenuItem@@@@UBEPAVGraphicMenuItem@@H@Z",
     "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004def90",
+    "body": 14,
+    "padding": 2,
+    "symbol": "??B?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UBE_NXZ",
+    "main_symbol": "?VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90@@YI_NH@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004defa0",
+    "body": 32,
+    "padding": 0,
+    "symbol": "??_G?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEPAXI@Z",
+    "main_symbol": "?VectorCursor_GraphicMenuItemPtr_Scalar_Deleting_Destructor_004defa0@Owner_004defa0@seed_004defa0@@QAEPAIE@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004defc0",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PAVGraphicMenuItem@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVGraphicMenuItem@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df000",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df0b0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAVGraphicMenuItem@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@PAVGraphicMenuItem@@@@UAEXXZ",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df0e0",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df120",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df140",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df1f0",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df220",
+    "body": 6,
+    "padding": 10,
+    "symbol": "??E?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ",
+    "main_symbol": "?get@Leaf_4df220@@QAEIXZ",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df230",
+    "body": 6,
+    "padding": 10,
+    "symbol": "??F?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ",
+    "main_symbol": "?get@Leaf_4df230@@QAEIXZ",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df240",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df290",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
    }
   ],
   "references": {
    "_RECT_NONE": "00a40e28",
    "?Clear@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEXXZ": "004def30",
    "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z": "004def60",
-   "?GetItem@?$VectorClass@PAVGraphicMenuItem@@@@UBEPAVGraphicMenuItem@@H@Z": "004def80"
+   "?GetItem@?$VectorClass@PAVGraphicMenuItem@@@@UBEPAVGraphicMenuItem@@H@Z": "004def80",
+   "??8?$VectorClass@PAVGraphicMenuItem@@@@UBE_NABV0@@Z": "004defc0",
+   "?Resize@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z": "004df140",
+   "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z": "004df1f0",
+   "?Resize@?$VectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z": "004df000",
+   "?Clear@?$VectorClass@PAVGraphicMenuItem@@@@UAEXXZ": "004df0b0",
+   "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z": "004df0e0",
+   "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z": "004df120",
+   "??B?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UBE_NXZ": "004def90",
+   "??E?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ": "004df220",
+   "??F?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ": "004df230"
   },
-  "holder": "codex2",
-  "partial_ok": true,
-  "parked_rows": [
-   {
-    "entry": "004de380",
-    "symbol": "?_Graphic_Menu@@YIPAVGraphicMenu@@AAVINIClass@@ABVWstring@@@Z",
-    "body": 1173,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Missing landed GM_Create_Item_From_INI declaration; source draft guarded, no credit"
-   },
-   {
-    "entry": "004de9e0",
-    "symbol": "?Presentation@GraphicMenu@@QAEHXZ",
-    "body": 826,
-    "best_differing": 667,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Adopted Presentation guarded; vector-cursor frame and OwnerDraw::Release_Mouse declaration/binding mismatch; no credit"
-   }
-  ]
+  "partial_ok": true
  },
  "uicmnds": {
   "core": [
@@ -128942,7 +129350,7 @@
   "status": "catalogued",
   "range": [
    "006f55f0",
-   "006f7360"
+   "006f8a80"
   ],
   "mischa85": "source: functions compiled from src/uicmnds.cpp, without gaps; matched except ?Select_All_Combatants@@YIX_N@Z; four placed by the gap; ?Matches_Any_Name@@YI_NPAVTechnoClass@@ABV?$DynamicVectorClass@PBD@@@Z not placed; ?Type_Select_Key_Down@@YIXXZ not placed; ?Is_Type_Select_Key_Held@@YI_NXZ not placed; ?Collect_Selected_Type_Names@@YIPAV?$DynamicVectorClass@PBD@@XZ not placed; ?For_Each_Of_Type@@YIXPBDP6IXPAVTechnoClass@@H@ZH@Z not placed; ?Detach_From_Command_List@@YIXPAVAbstractClass@@@Z not placed; ?Refresh_Type_Select_List@@YAXXZ not placed; ?Is_Selectable_Player_Techno@@YIHPAVTechnoClass@@H@Z not placed; ?Health_Message@@YIPBGH@Z not placed; ?Next_Health_Kind@@YIHH@Z not placed; ?Rank_Message@@YIPBGH@Z not placed; ?Next_Rank_Kind@@YIHH@Z not placed; ?Collect_Type_Names@@YIPAV?$DynamicVectorClass@PBD@@ABV?$DynamicVectorClass@PAVTechnoClass@@@@@Z not placed; ?Pick_Type_By_Cost@@YIPADABV?$DynamicVectorClass@PAVTechnoClass@@@@PBDHPAH@Z not placed; ?Reset_Group_Select@@YIXXZ not placed; ?Set_Tab_Building@@YIXPAVBuildingClass@@@Z not placed; ?Clear_Sidebar_Tab_Object@@YIXPAVTechnoClass@@@Z not placed; ?Get_Structure_Tab_Object@@YIPAVTechnoClass@@XZ not placed; ?Get_Defense_Tab_Object@@YIPAVTechnoClass@@XZ not placed; ?Is_Techno@AbstractClass@@QBE_NXZ not placed",
   "main_options": [
@@ -129456,6 +129864,198 @@
     "symbol": "?Select_Type@@YIXPBD@Z",
     "main_symbol": "?Unknown_006F71E0@@YIXPBD@Z",
     "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f7610",
+    "body": 54,
+    "padding": 10,
+    "symbol": "?unknown_matches_any_name@@YI_NPAUUnknownObject_006f7610@@ABUUnknownNameList_006f7610@@@Z",
+    "main_symbol": "?unknown_matches_any_name@@YI_NPAUUnknownObject_006f7610@@ABUUnknownNameList_006f7610@@@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f7650",
+    "body": 28,
+    "padding": 4,
+    "symbol": "?Unknown_Stopwatch_Start_006F7650@@YAXXZ",
+    "main_symbol": "?Unknown_Stopwatch_Start_006F7650@@YAXXZ",
+    "main_source": "src/recovered/uicmnds/Unknown_Stopwatch_Start.cpp"
+   },
+   {
+    "entry": "006f7670",
+    "body": 58,
+    "padding": 6,
+    "symbol": "?Unknown_006F7670@@YIXXZ",
+    "main_symbol": "?Unknown_006F7670@@YIXXZ",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f76b0",
+    "body": 6,
+    "padding": 10,
+    "symbol": "?Is_Type_Select_Key_Held@@YI_NXZ",
+    "main_symbol": "?Unknown_006F76B0@@YA_NXZ",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f76c0",
+    "body": 307,
+    "padding": 13,
+    "symbol": "?Unknown_006F76C0@@YAPAV?$DynamicVectorClass@PBD@@XZ",
+    "main_symbol": "?Unknown_006F76C0@@YAPAV?$DynamicVectorClass@PBD@@XZ",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f7800",
+    "body": 365,
+    "padding": 3,
+    "symbol": "?Unknown_006F7800@@YIXPBDP6IXPAXH@ZH@Z",
+    "main_symbol": "?Unknown_006F7800@@YIXPBDP6IXPAXH@ZH@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f7970",
+    "body": 74,
+    "padding": 6,
+    "symbol": "?Detach_From_Command_List@@YIXPAVAbstractClass@@@Z",
+    "main_symbol": "?Detach_From_Command_List@@YIXPAX@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f79c0",
+    "body": 447,
+    "padding": 1,
+    "symbol": "?Unknown_006F79C0@@YAXXZ",
+    "main_symbol": "?Unknown_006F79C0@@YAXXZ",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f7b80",
+    "body": 614,
+    "padding": 10,
+    "symbol": "?Unknown_006F7B80@@YIX_N@Z",
+    "main_symbol": "?Unknown_006F7B80@@YIX_N@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f7df0",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Unknown_006F7DF0@@YIHPAVTechnoClass@@H@Z",
+    "main_symbol": "?Unknown_006F7DF0@@YIHPAVTechnoClass@@H@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f7e40",
+    "body": 89,
+    "padding": 7,
+    "symbol": "?Unknown_Health_Message_006F7E40@@YIPBGH@Z",
+    "main_symbol": "?Unknown_Health_Message_006F7E40@@YIPBGH@Z",
+    "main_source": "src/recovered/uicmnds/Unknown_Health_Message.cpp"
+   },
+   {
+    "entry": "006f7ea0",
+    "body": 31,
+    "padding": 1,
+    "symbol": "?unknown_health_state_index_6f7ea0@@YIHH@Z",
+    "main_symbol": "?unknown_health_state_index_6f7ea0@@YIHH@Z",
+    "main_source": "src/recovered/uicmnds/unknown_health_state_index.cpp"
+   },
+   {
+    "entry": "006f7ec0",
+    "body": 624,
+    "padding": 0,
+    "symbol": "?Unknown_006F7EC0@@YIX_N@Z",
+    "main_symbol": "?Unknown_006F7EC0@@YIX_N@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f8130",
+    "body": 89,
+    "padding": 7,
+    "symbol": "?Unknown_Veterancy_Message_006F8130@@YIPBGH@Z",
+    "main_symbol": "?Unknown_Veterancy_Message_006F8130@@YIPBGH@Z",
+    "main_source": "src/recovered/uicmnds/Unknown_Veterancy_Message.cpp"
+   },
+   {
+    "entry": "006f8190",
+    "body": 31,
+    "padding": 1,
+    "symbol": "?unknown_veterancy_rank_index_6f8190@@YIHH@Z",
+    "main_symbol": "?unknown_veterancy_rank_index_6f8190@@YIHH@Z",
+    "main_source": "src/recovered/uicmnds/unknown_veterancy_rank_index.cpp"
+   },
+   {
+    "entry": "006f84a0",
+    "body": 307,
+    "padding": 13,
+    "symbol": "?Unknown_Type_Names_006F84A0@@YIPAV?$DynamicVectorClass@PBD@@ABV?$DynamicVectorClass@PAVObjectClass@@@@@Z",
+    "main_symbol": "?Unknown_Type_Names_006F84A0@@YIPAV?$DynamicVectorClass@PBD@@ABV?$DynamicVectorClass@PAVObjectClass@@@@@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f85e0",
+    "body": 776,
+    "padding": 8,
+    "symbol": "?Unknown_006F85E0@@YIPADABV?$DynamicVectorClass@PAVTechnoClass@@@@PBDHPAH@Z",
+    "main_symbol": "?Unknown_006F85E0@@YIPADABV?$DynamicVectorClass@PAVTechnoClass@@@@PBDHPAH@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f88f0",
+    "body": 232,
+    "padding": 8,
+    "symbol": "?Unknown_006F88F0@@YAXXZ",
+    "main_symbol": "?Unknown_006F88F0@@YAXXZ",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f89e0",
+    "body": 26,
+    "padding": 6,
+    "symbol": "?Reset_Group_Select@@YIXXZ",
+    "main_symbol": "?Unknown_006F89E0@@YAXXZ",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f8a00",
+    "body": 29,
+    "padding": 3,
+    "symbol": "?Set_Tab_Building@@YIXPAVBuildingClass@@@Z",
+    "main_symbol": "?unknown_file_pending_building_006f8a00@@YIXPAVBuildingClass@@@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f8a20",
+    "body": 45,
+    "padding": 3,
+    "symbol": "?Clear_Sidebar_Tab_Object@@YIXPAVTechnoClass@@@Z",
+    "main_symbol": "?Unknown_006F8A20@@YIXPAVBuildingClass@@@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f8a50",
+    "body": 6,
+    "padding": 10,
+    "symbol": "?get@Leaf_6f8a50@@QAEIXZ",
+    "main_symbol": "?get@Leaf_6f8a50@@QAEIXZ",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f8a60",
+    "body": 6,
+    "padding": 10,
+    "symbol": "?get@Leaf_6f8a60@@QAEIXZ",
+    "main_symbol": "?get@Leaf_6f8a60@@QAEIXZ",
+    "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f8a70",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?Is_Techno@AbstractClass@@QBE_NXZ",
+    "main_symbol": "?Is_Techno@AbstractClass@@QBE_NXZ",
+    "main_source": "src/recovered/uicmnds.cpp"
    }
   ],
   "references": {
@@ -129476,74 +130076,7 @@
    "_RECT_NONE": "00ac12c0",
    "?TypeSelectKeyTime@@3KA": "00ac1340"
   },
-  "holder": "codex2",
-  "partial_ok": true,
-  "parked_rows": [
-   {
-    "entry": "006f5b10",
-    "symbol": "?Command_Guard@@YIXXZ",
-    "body": 176,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Missing landed MuteSWLaunches and Planning_Selected_Node/Planning_Show_Help/Planning_Refuse_Area_Guard declarations; ten helpers with no original binding guarded; draft guarded, no credit"
-   },
-   {
-    "entry": "006f5c50",
-    "symbol": "?Command_Cheer@@YAXXZ",
-    "body": 177,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Missing landed MuteSWLaunches and Planning_Selected_Node/Planning_Show_Help/Planning_Refuse_Area_Guard declarations; ten helpers with no original binding guarded; draft guarded, no credit"
-   },
-   {
-    "entry": "006f6490",
-    "symbol": "?Command_Delete_Plan_Or_Beacon@@YAXXZ",
-    "body": 31,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Missing landed MuteSWLaunches and Planning_Selected_Node/Planning_Show_Help/Planning_Refuse_Area_Guard declarations; ten helpers with no original binding guarded; draft guarded, no credit"
-   },
-   {
-    "entry": "006f64b0",
-    "symbol": "?Command_Beacon@@YAXXZ",
-    "body": 22,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Missing landed MuteSWLaunches and Planning_Selected_Node/Planning_Show_Help/Planning_Refuse_Area_Guard declarations; ten helpers with no original binding guarded; draft guarded, no credit"
-   },
-   {
-    "entry": "006f64d0",
-    "symbol": "?Command_Planning_Mode_On@@YIX_N@Z",
-    "body": 28,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Missing landed MuteSWLaunches and Planning_Selected_Node/Planning_Show_Help/Planning_Refuse_Area_Guard declarations; ten helpers with no original binding guarded; draft guarded, no credit"
-   },
-   {
-    "entry": "006f64f0",
-    "symbol": "?Command_Planning_Mode_Off@@YIX_N@Z",
-    "body": 28,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Missing landed MuteSWLaunches and Planning_Selected_Node/Planning_Show_Help/Planning_Refuse_Area_Guard declarations; ten helpers with no original binding guarded; draft guarded, no credit"
-   },
-   {
-    "entry": "006f6d00",
-    "symbol": "?Unknown_006F6D00@@YIX_N@Z",
-    "body": 725,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Missing landed MuteSWLaunches and Planning_Selected_Node/Planning_Show_Help/Planning_Refuse_Area_Guard declarations; ten helpers with no original binding guarded; draft guarded, no credit"
-   }
-  ],
-  "note": "Missing landed MuteSWLaunches and Planning_Selected_Node/Planning_Show_Help/Planning_Refuse_Area_Guard declarations; ten helpers with no original binding guarded; source extern declarations/private layouts/RA2 geometry switches omitted; original initializer ordering complete; function bounds unchanged. Four additional unbound free helpers with template signatures guarded after standard guard.py skipped their names; no exact row lost; total14 unbound helper guards. No acceptance tools changed. TypeSelectKeyTime is the reference timeGetTime timestamp at00ac1340; binding matches main frozen module reference unknown_time_ac1340. Single real timestamp definition, no alias or synthesized constant. Four additional unbound free helpers with template signatures guarded after standard guard.py skipped their names; no exact row lost; total14 unbound helper guards. No acceptance tools changed."
+  "partial_ok": true
  },
  "ldprgmgr": {
   "core": [
@@ -136934,6 +137467,636 @@
     "symbol": "??_GMultiplayerManBattle@@UAEPAXI@Z",
     "main_symbol": "?MultiplayerManBattle_Scalar_Deleting_Destructor_005a7500@Owner_005a7500@seed_005a7500@@QAEPAIE@Z",
     "main_source": "src/recovered/classes/MultiplayerManBattle/MultiplayerManBattle_Scalar_Deleting_Destructor.cpp"
+   }
+  ],
+  "references": {}
+ },
+ "_palette": {
+  "core": [
+   "0040d770",
+   "0040d890"
+  ],
+  "symbol_overrides": {
+   "0040d770": "_$E2",
+   "0040d790": "_$E5",
+   "0040d7b0": "_$E8",
+   "0040d7d0": "_$E11",
+   "0040d7f0": "_$E14",
+   "0040d810": "_$E17",
+   "0040d830": "_$E20",
+   "0040d850": "_$E23",
+   "0040d870": "_$E26"
+  },
+  "source": "rebuild/src/_palette.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0040d770",
+   "0040d890"
+  ],
+  "mischa85": "none: no mischa85 module (its unk_0040D7D0 holds two of the palette initializers as TibSun text); range from main's unit map and TibSun's file layout (_palette.cpp, _pk.cpp, _rand.cpp, _rect.cpp, linked in name order before _rtti.cpp; each initializer stores to that file's globals)",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0040d770",
+    "body": 27,
+    "padding": 5,
+    "symbol": "_$E2",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/_palette.cpp"
+   },
+   {
+    "entry": "0040d790",
+    "body": 27,
+    "padding": 5,
+    "symbol": "_$E5",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/_palette.cpp"
+   },
+   {
+    "entry": "0040d7b0",
+    "body": 27,
+    "padding": 5,
+    "symbol": "_$E8",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/_palette.cpp"
+   },
+   {
+    "entry": "0040d7d0",
+    "body": 32,
+    "padding": 0,
+    "symbol": "_$E11",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/_palette.cpp"
+   },
+   {
+    "entry": "0040d7f0",
+    "body": 32,
+    "padding": 0,
+    "symbol": "_$E14",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/_palette.cpp"
+   },
+   {
+    "entry": "0040d810",
+    "body": 27,
+    "padding": 5,
+    "symbol": "_$E17",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/_palette.cpp"
+   },
+   {
+    "entry": "0040d830",
+    "body": 27,
+    "padding": 5,
+    "symbol": "_$E20",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/_palette.cpp"
+   },
+   {
+    "entry": "0040d850",
+    "body": 27,
+    "padding": 5,
+    "symbol": "_$E23",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/_palette.cpp"
+   },
+   {
+    "entry": "0040d870",
+    "body": 27,
+    "padding": 5,
+    "symbol": "_$E26",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/_palette.cpp"
+   }
+  ],
+  "references": {}
+ },
+ "_pk": {
+  "core": [
+   "0040d890",
+   "0040d8c0"
+  ],
+  "symbol_overrides": {
+   "0040d890": "_$E6"
+  },
+  "source": "rebuild/src/_pk.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0040d890",
+   "0040d8c0"
+  ],
+  "mischa85": "none: no mischa85 module (its unk_0040D7D0 holds two of the palette initializers as TibSun text); range from main's unit map and TibSun's file layout (_palette.cpp, _pk.cpp, _rand.cpp, _rect.cpp, linked in name order before _rtti.cpp; each initializer stores to that file's globals)",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0040d890",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E6",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/_palette.cpp"
+   }
+  ],
+  "references": {
+   "?Keys@@3QBDB": "0079aa70"
+  }
+ },
+ "_rand": {
+  "core": [
+   "0040d8c0",
+   "0040d8d0"
+  ],
+  "symbol_overrides": {
+   "0040d8c0": "_$E4"
+  },
+  "source": "rebuild/src/_rand.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0040d8c0",
+   "0040d8d0"
+  ],
+  "mischa85": "none: no mischa85 module (its unk_0040D7D0 holds two of the palette initializers as TibSun text); range from main's unit map and TibSun's file layout (_palette.cpp, _pk.cpp, _rand.cpp, _rect.cpp, linked in name order before _rtti.cpp; each initializer stores to that file's globals)",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0040d8c0",
+    "body": 13,
+    "padding": 3,
+    "symbol": "_$E4",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/_palette.cpp"
+   }
+  ],
+  "references": {}
+ },
+ "_rect": {
+  "core": [
+   "0040d8d0",
+   "0040d950"
+  ],
+  "symbol_overrides": {
+   "0040d8d0": "_$E2",
+   "0040d8f0": "_$E5",
+   "0040d920": "_$E8"
+  },
+  "source": "rebuild/src/_rect.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0040d8d0",
+   "0040d950"
+  ],
+  "mischa85": "none: no mischa85 module (its unk_0040D7D0 holds two of the palette initializers as TibSun text); range from main's unit map and TibSun's file layout (_palette.cpp, _pk.cpp, _rand.cpp, _rect.cpp, linked in name order before _rtti.cpp; each initializer stores to that file's globals)",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0040d8d0",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E41",
+    "main_source": "src/recovered/globals/unknown_rect_init.cpp"
+   },
+   {
+    "entry": "0040d8f0",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E5",
+    "main_symbol": "_$E44",
+    "main_source": "src/recovered/_rect.cpp"
+   },
+   {
+    "entry": "0040d920",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E8",
+    "main_symbol": "_$E47",
+    "main_source": "src/recovered/_rect.cpp"
+   }
+  ],
+  "references": {
+   "_RECT_NONE": "00839610"
+  }
+ },
+ "audplay": {
+  "core": [
+   "00407480",
+   "00408380"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/audplay.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr"
+  ],
+  "status": "catalogued",
+  "range": [
+   "00407480",
+   "00408380"
+  ],
+  "mischa85": "source: functions compiled from src/audplay.cpp, matched, without gaps; two placed by the gap",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "00407480",
+    "body": 302,
+    "padding": 2,
+    "symbol": "?AudioStreamerInit@@YIHXZ",
+    "main_symbol": "?Audio_Streamer_Init@@YIHXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "004075b0",
+    "body": 254,
+    "padding": 2,
+    "symbol": "?streamerThread@@YGKPAX@Z",
+    "main_symbol": "?Audio_Streamer_Proc@@YGKPAX@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "004076b0",
+    "body": 218,
+    "padding": 6,
+    "symbol": "?AudioStreamerDeinit@@YIXXZ",
+    "main_symbol": "?Audio_Streamer_Shutdown@@YAXXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407790",
+    "body": 347,
+    "padding": 5,
+    "symbol": "?AudioStreamerCreate@@YIPAUAudioStreamer@@PAUAudioDevice@@_K@Z",
+    "main_symbol": "?Audio_Stream_Create@@YIPAUAudioStreamPlayer@@PAUAudioDevice@@_J@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "004078f0",
+    "body": 97,
+    "padding": 15,
+    "symbol": "?streamNextFrame@@YIHPAUAudioChannel@@@Z",
+    "main_symbol": "?Audio_Stream_Next_Block@@YIHPAUAudioChannel@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407960",
+    "body": 46,
+    "padding": 2,
+    "symbol": "?streamSampleDone@@YIHPAUAudioChannel@@@Z",
+    "main_symbol": "?Audio_Stream_Channel_Done@@YIHPAUAudioChannel@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407990",
+    "body": 46,
+    "padding": 2,
+    "symbol": "?streamStop@@YIHPAUAudioChannel@@@Z",
+    "main_symbol": "?Audio_Stream_Channel_End@@YIHPAUAudioChannel@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "004079c0",
+    "body": 170,
+    "padding": 6,
+    "symbol": "?AudioStreamerDestroy@@YIXPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Destroy@@YIXPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407a70",
+    "body": 10,
+    "padding": 6,
+    "symbol": "?AudioStreamerSetAttribs@@YIXPAUAudioStreamer@@PAUAudioAttribs@@@Z",
+    "main_symbol": "?Audio_Stream_Set_Levels_94@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407a80",
+    "body": 10,
+    "padding": 6,
+    "symbol": "?AudioStreamerSetFadeAttribs@@YIXPAUAudioStreamer@@PAUAudioAttribs@@@Z",
+    "main_symbol": "?Audio_Stream_Set_Levels_9c@@YIXPAUAudioStreamPlayer@@PAUAudioLevelSet@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407a90",
+    "body": 975,
+    "padding": 1,
+    "symbol": "?AudioStreamerPlayWAV@@YIHPAUAudioStreamer@@PBDH@Z",
+    "main_symbol": "?Audio_Stream_Open@@YIHPAUAudioStreamPlayer@@PBDH@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407e60",
+    "body": 52,
+    "padding": 12,
+    "symbol": "?AudioStreamerStop@@YIXPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Stop@@YIXPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407ea0",
+    "body": 14,
+    "padding": 2,
+    "symbol": "?AudioStreamerLock@@YIXPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Hold@@YIXPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407eb0",
+    "body": 28,
+    "padding": 4,
+    "symbol": "?AudioStreamerUnlock@@YIXPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Release@@YIXPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407ed0",
+    "body": 79,
+    "padding": 1,
+    "symbol": "?AudioStreamerPause@@YIXPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Pause@@YIXPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407f20",
+    "body": 103,
+    "padding": 9,
+    "symbol": "?AudioStreamerResume@@YIXPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Resume@@YIXPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407f90",
+    "body": 7,
+    "padding": 9,
+    "symbol": "?AudioStreamerIsPlaying@@YIHPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Is_Playing@@YIHPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407fa0",
+    "body": 30,
+    "padding": 2,
+    "symbol": "?AudioStreamerSetName@@YIXPAUAudioStreamer@@PBD@Z",
+    "main_symbol": "?Audio_Stream_Set_Name@@YIXPAUAudioStreamPlayer@@PBD@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407fc0",
+    "body": 7,
+    "padding": 9,
+    "symbol": "?AudioStreamerName@@YIPBDPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Name@@YIPADPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407fd0",
+    "body": 16,
+    "padding": 0,
+    "symbol": "?AudioStreamerFadeIn@@YIXPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Fade_In@@YIXPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407fe0",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?AudioStreamerFadeOut@@YIXPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Fade_Out@@YIXPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00407ff0",
+    "body": 28,
+    "padding": 4,
+    "symbol": "?AudioStreamerIsFading@@YIHPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Is_Fading@@YIHPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00408010",
+    "body": 68,
+    "padding": 12,
+    "symbol": "?AudioStreamerWaitForFade@@YIXPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Wait@@YIXPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00408060",
+    "body": 7,
+    "padding": 9,
+    "symbol": "?AudioStreamerEndTimeStamp@@YI_KPAUAudioStreamer@@@Z",
+    "main_symbol": "?Audio_Stream_Stop_Time@@YI_JPAUAudioStreamPlayer@@@Z",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00408070",
+    "body": 72,
+    "padding": 8,
+    "symbol": "?AudioStreamerStarve@@YIXXZ",
+    "main_symbol": "?Audio_Streams_Stop_Filling@@YIXXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "004080c0",
+    "body": 96,
+    "padding": 0,
+    "symbol": "?AudioStreamerStopAllStreams@@YIXXZ",
+    "main_symbol": "?Audio_Streams_Stop@@YAXXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00408120",
+    "body": 48,
+    "padding": 0,
+    "symbol": "?AudioStreamerLockAllStreams@@YIXXZ",
+    "main_symbol": "?Audio_Streams_Hold@@YAXXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00408150",
+    "body": 62,
+    "padding": 2,
+    "symbol": "?AudioStreamerUnlockAllStreams@@YIXXZ",
+    "main_symbol": "?Audio_Streams_Release@@YAXXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00408190",
+    "body": 123,
+    "padding": 5,
+    "symbol": "?AudioStreamerPauseAllStreams@@YIXXZ",
+    "main_symbol": "?Audio_Streams_Pause@@YAXXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00408210",
+    "body": 151,
+    "padding": 9,
+    "symbol": "?AudioStreamerResumeAllStreams@@YIXXZ",
+    "main_symbol": "?Audio_Streams_Resume@@YAXXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "004082b0",
+    "body": 54,
+    "padding": 10,
+    "symbol": "?AudioStreamerFadeOutAllStreams@@YIXXZ",
+    "main_symbol": "?Audio_Streams_Fade_Out@@YAXXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "004082f0",
+    "body": 57,
+    "padding": 7,
+    "symbol": "?AudioStreamerFadeInAllStreams@@YIXXZ",
+    "main_symbol": "?Audio_Streams_Fade_In@@YAXXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   },
+   {
+    "entry": "00408330",
+    "body": 67,
+    "padding": 13,
+    "symbol": "?AudioStreamerAllFaded@@YIHXZ",
+    "main_symbol": "?Audio_Streams_Done_Fading@@YAHXZ",
+    "main_source": "src/recovered/audplay.cpp"
+   }
+  ],
+  "references": {}
+ },
+ "category": {
+  "core": [
+   "00468ea0",
+   "00468f30"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/category.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr"
+  ],
+  "status": "catalogued",
+  "range": [
+   "00468ea0",
+   "00468f30"
+  ],
+  "mischa85": "tibsun: functions compiled from src/category.cpp, matched, without gaps; two placed by definition order",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ],
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "00468ea0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "?Description_From_Category@@YIPBDW4CategoryType@@@Z",
+    "main_symbol": "?Description_From_Category@@YIPBDW4CategoryType@@@Z",
+    "main_source": "src/recovered/category.cpp"
+   },
+   {
+    "entry": "00468ec0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "?Name_From_Category@@YIPBDW4CategoryType@@@Z",
+    "main_symbol": "?Name_From_Category@@YIPBDW4CategoryType@@@Z",
+    "main_source": "src/recovered/category.cpp"
+   },
+   {
+    "entry": "00468ee0",
+    "body": 74,
+    "padding": 6,
+    "symbol": "?Category_From_Name@@YI?AW4CategoryType@@PBD@Z",
+    "main_symbol": "?Category_From_Name@@YI?AW4CategoryType@@PBD@Z",
+    "main_source": "src/recovered/category.cpp"
    }
   ],
   "references": {}

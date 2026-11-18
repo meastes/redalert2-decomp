@@ -37,20 +37,8 @@ landed = {r['source'] for r in cat['regions']}
 import cleanup_census as C
 ext_landed = sum(len(C.extern_names(C.code_only((R.ROOT / i['source']).read_text(errors='replace'))))
                  for i in units_info.values() if i['source'] in landed)
-parked_f = parked_b = large_b = large_f = 0
-# Parked: functions not exact inside processed units (a unit whose current text has a check);
-# units never checked here (no text yet, or a worker's unit not merged) are not counted (lane R3).
-import hashlib
-for u, i in units_info.items():
-    last = R.load_json(R.WORK / 'last' / (u + '.json'), None)
-    src = R.ROOT / i['source']
-    if not last or not src.exists() or last.get('source_sha256') != hashlib.sha256(src.read_bytes()).hexdigest():
-        continue
-    res = {r['entry']: r['status'] for r in last['results']}
-    for r in i['rows']:
-        if res.get(r['entry']) != 'exact':
-            parked_f += 1; parked_b += r['body']
-            if r['body'] >= 1024: large_f += 1; large_b += r['body']
+# Parked: rebuild_census.parked_tail, the one definition the census prints (owner, 2026-11-18).
+parked_f, parked_b, large_f, large_b = rebuild_census.parked_tail()
 # External functions the audit would omit as kept copies (review ruling 2026-11-18; budgeted, lane R7).
 import rebuild_catalog
 from coff import Coff

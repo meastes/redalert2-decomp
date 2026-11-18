@@ -292,6 +292,7 @@ bool SurfaceCacheClass::CacheBMP(char const * name, void * bitmap, int bytes, in
 #if 0
 bool SurfaceCacheClass::CachePCX(char const *name, int bpp, int red_channel)
 {
+    int i;
 	/*
 	 * The 16-bit palette scratch buffer doubles as the storage for the old
 	 * cache entry fetched below.
@@ -313,7 +314,6 @@ bool SurfaceCacheClass::CachePCX(char const *name, int bpp, int red_channel)
 		 * Convert the palette into a table of ready-made 16-bit pixels, then
 		 * blit the paletted image into a new 16-bit surface through it.
 		 */
-		int i;
 		for (i = 0; i < 256; i++) {
 			RGBClass & rgb = pal[i];
 			pal16[i] = ((rgb.Get_Red() >> DSurface::RedLeft) << DSurface::RedRight)
@@ -345,7 +345,7 @@ bool SurfaceCacheClass::CachePCX(char const *name, int bpp, int red_channel)
 	if (red_channel && bpp == 1) {
 		Rect rect = surf->Get_Rect();
 		unsigned char *s = (unsigned char *)surf->Lock();
-		for (int i = 0; i < rect.Width * rect.Height; i++) {
+		for (i = 0; i < rect.Width * rect.Height; i++) {
 			s[i] = pal[s[i]].Get_Red();
 		}
 		surf->Unlock();
@@ -360,12 +360,8 @@ bool SurfaceCacheClass::CachePCX(char const *name, int bpp, int red_channel)
 	 */
 	old_entry.surf = NULL;
 	if (getValue(key, old_entry)) {
-		Surface *oldsurf = old_entry.surf;
-		old_entry.surf = NULL;
-		remove(key, old_entry);
-		if (oldsurf != NULL) {
-			delete oldsurf;
-		}
+		remove(key);
+		delete old_entry.surf;
 	}
 
 	add(key, new_entry);
@@ -373,6 +369,7 @@ bool SurfaceCacheClass::CachePCX(char const *name, int bpp, int red_channel)
 	return(true);
 }
 #endif
+
 
 
 

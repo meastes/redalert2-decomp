@@ -27,3 +27,5 @@ extern PaletteClass 				OriginalPalette;
 extern PaletteClass					SchemePalette;
 extern PaletteClass					VoxelPalette;
 extern PaletteClass					WaypointPalette;
+
+extern char const *					PaletteExtension; // RA2: 0x007EB5E4, "PAL", the extension of the scheme palette files

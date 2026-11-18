@@ -8,7 +8,8 @@
  ******************************************************************************/
 
 #include "always.h"
-#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "geometry.h"
+#include "rect.h"
 
 #include "laser.h"
 
@@ -27,8 +28,9 @@
 #include "scenario.h"
 #include "tactical.h"
 
-namespace FPSCounter { extern unsigned CurrentFrameRate; } // RA2: declared as RA2's code uses it
-namespace Detail { unsigned GetMinFrameRate(void); } // RA2: as above
+#include "fpscounter.h"
+#include "detail.h"
+
 
 DynamicVectorClass<LaserDrawClass *> LaserDrawClass::LaserDraws;
 
@@ -150,16 +152,16 @@ void LaserDrawClass::Draw_All(void)
 /// specified, a pair of parallel glow lines flanking it. A beam that lies under the fog
 /// of war, or that is currently blinked off, draws nothing at all. At the lowest detail
 /// level the beam degrades to a plain depth shaded line.
-/// RA2: this routine does not look at the fog of war, a beam with no duration left draws
+
 /// nothing, and a beam with IsHouseColor set is drawn by Draw_House_Color instead.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 195 bytes differ (adopted text)
+#if 0
 void LaserDrawClass::Draw_It(void)
 {
-	if (Duration > 0) { // RA2: a beam without a duration is not drawn
-		if (IsHouseColor) { // RA2: the house colored beam has its own drawing routine
-			Draw_House_Color(); // RA2: as above
-			return; // RA2: as above
+	if (Duration > 0) {
+		if (IsHouseColor) {
+			Draw_House_Color();
+			return;
 		}
 
 		static Point2D _glow_offsets[16] = {
@@ -255,7 +257,7 @@ void LaserDrawClass::Draw_It(void)
 						LogicalSurface->Draw_Depth_Antialiased_Line(
 							TacticalRect,
 							start_pixel + _glow_offsets[2 * facing],
-							_glow_offsets[2 * facing] + end_pixel, // RA2: the offset is the left operand of the sum here; the executable's register order shows it
+							_glow_offsets[2 * facing] + end_pixel,
 							outer_color,
 							start_z, end_z, false, true, true, true, 1.0
 						);
@@ -263,27 +265,27 @@ void LaserDrawClass::Draw_It(void)
 						LogicalSurface->Draw_Depth_Antialiased_Line(
 							TacticalRect,
 							start_pixel + _glow_offsets[2 * facing + 1],
-							_glow_offsets[2 * facing + 1] + end_pixel, // RA2: as above
+							end_pixel + _glow_offsets[2 * facing + 1],
 							outer_color,
 							start_z, end_z, false, true, true, true, 1.0
 						);
 					}
-				} else if (has_outer_glow) { // RA2: a steady beam with a glow draws the glow first and the core over it, with the RGB multiplying line
-					LogicalSurface->Draw_RGB_Multiplying_Line( // RA2: as above
-						TacticalRect, // RA2: as above
-						_glow_offsets[2 * facing] + start_pixel, // RA2: as above
-						_glow_offsets[2 * facing] + end_pixel, // RA2: as above
-						outer_color, current_intensity, start_z, end_z // RA2: as above
-					); // RA2: as above
+				} else if (has_outer_glow) {
+					LogicalSurface->Draw_RGB_Multiplying_Line(
+						TacticalRect,
+						_glow_offsets[2 * facing] + start_pixel,
+						_glow_offsets[2 * facing] + end_pixel,
+						outer_color, current_intensity, start_z, end_z
+					);
 
-					LogicalSurface->Draw_RGB_Multiplying_Line( // RA2: as above
-						TacticalRect, // RA2: as above
-						start_pixel + _glow_offsets[2 * facing + 1], // RA2: as above
-						end_pixel + _glow_offsets[2 * facing + 1], // RA2: as above
-						outer_color, current_intensity, start_z, end_z // RA2: as above
-					); // RA2: as above
+					LogicalSurface->Draw_RGB_Multiplying_Line(
+						TacticalRect,
+						start_pixel + _glow_offsets[2 * facing + 1],
+						end_pixel + _glow_offsets[2 * facing + 1],
+						outer_color, current_intensity, start_z, end_z
+					);
 
-					LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start_pixel, end_pixel, InnerColor, current_intensity, start_z, end_z); // RA2: as above
+					LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start_pixel, end_pixel, InnerColor, current_intensity, start_z, end_z);
 				} else {
 					LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect, start_pixel, end_pixel, InnerColor, start_z, end_z, false, has_r, has_g, has_b, current_intensity);
 				}
@@ -314,131 +316,134 @@ void LaserDrawClass::Draw_It(void)
 		}
 	}
 }
-#endif
+
 
 
 /// <summary>
 /// Draws the house colored laser beam onto the logical surface.
-/// RA2: not in TibSun, at 0x533C80. The beam is drawn as a core line with up to Thickness
+
 /// pairs of glow lines around it, each pair half as bright as the one before. Below the
 /// minimum frame rate, or at the lowest detail level, the lines are plain shaded lines.
 /// </summary>
-void LaserDrawClass::Draw_House_Color(void) // RA2: as above
+#endif
+void LaserDrawClass::Draw_House_Color(void)
 {
-	static Point2D _house_offsets[16] = { // RA2: the offsets of the two glow lines, per compass facing
-		Point2D(-1, -1), // RA2: as above
-		Point2D(1, 1), // RA2: as above
-		Point2D(0, -1), // RA2: as above
-		Point2D(0, 1), // RA2: as above
-		Point2D(-1, 1), // RA2: as above
-		Point2D(1, -1), // RA2: as above
-		Point2D(-1, 0), // RA2: as above
-		Point2D(1, 0), // RA2: as above
-		Point2D(-1, -1), // RA2: as above
-		Point2D(1, 1), // RA2: as above
-		Point2D(0, -1), // RA2: as above
-		Point2D(0, 1), // RA2: as above
-		Point2D(-1, 1), // RA2: as above
-		Point2D(1, -1), // RA2: as above
-		Point2D(-1, 0), // RA2: as above
-		Point2D(1, 0) // RA2: as above
+	static Point2D _house_offsets[16] = {
+		Point2D(-1, -1),
+		Point2D(1, 1),
+		Point2D(0, -1),
+		Point2D(0, 1),
+		Point2D(-1, 1),
+		Point2D(1, -1),
+		Point2D(-1, 0),
+		Point2D(1, 0),
+		Point2D(-1, -1),
+		Point2D(1, 1),
+		Point2D(0, -1),
+		Point2D(0, 1),
+		Point2D(-1, 1),
+		Point2D(1, -1),
+		Point2D(-1, 0),
+		Point2D(1, 0)
 	};
 
-	DirType dir = Direction(Start, End); // RA2: as above
-	FacingType facing = dir.As_Facing(); // RA2: as above
+	DirType dir = Direction(Start, End);
+	FacingType facing = dir.As_Facing();
 
-	Point2D start_pixel; // RA2: as above
-	TacticalMap->Coord_To_Pixel(Start, start_pixel); // RA2: as above
-	Point2D end_pixel; // RA2: as above
-	TacticalMap->Coord_To_Pixel(End, end_pixel); // RA2: as above
+	Point2D start_pixel;
+	TacticalMap->Coord_To_Pixel(Start, start_pixel);
+	Point2D end_pixel;
+	TacticalMap->Coord_To_Pixel(End, end_pixel);
 
-	int start_z = ZAdjust - TacticalMap->Z_Lepton_To_Pixel(Start.Z) - 2; // RA2: as above
-	int end_z = -TacticalMap->Z_Lepton_To_Pixel(End.Z) - 2; // RA2: as above
+	int start_z = ZAdjust - TacticalMap->Z_Lepton_To_Pixel(Start.Z) - 2;
+	int end_z = -TacticalMap->Z_Lepton_To_Pixel(End.Z) - 2;
 
-	bool high_detail = FPSCounter::CurrentFrameRate >= Detail::GetMinFrameRate() && Options.DetailLevel != 0; // RA2: as above
+	bool high_detail = FPSCounter::CurrentFrameRate >= Detail::GetMinFrameRate() && Options.DetailLevel != 0;
 
-	float intensity = 1.0; // RA2: as above
-	if (Fades) { // RA2: as above
-		intensity = (StartIntensity - EndIntensity) * (Duration - Fetch_Stage()) / Duration + EndIntensity; // RA2: as above
+	float intensity = 1.0;
+	if (Fades) {
+		intensity = (StartIntensity - EndIntensity) * (Duration - Fetch_Stage()) / Duration + EndIntensity;
 	}
-	int ratio = (int)(intensity * 255.0f); // RA2: as above
+	int ratio = (int)(intensity * 255.0f);
 
-	RGBClass adjusted_color; // RA2: as above
-	RGBClass white(255, 255, 255); // RA2: as above
-	RGBClass glow_color; // RA2: as above
-	RGBClass core_color; // RA2: as above
+	RGBClass adjusted_color;
+	RGBClass white(255, 255, 255);
+	RGBClass glow_color;
+	RGBClass core_color;
 
-	if (IsSupported) { // RA2: as above
-		unsigned int red = InnerColor.Get_Red() * 2; // RA2: as above
-		unsigned int green = InnerColor.Get_Green() * 2; // RA2: as above
-		unsigned int blue = InnerColor.Get_Blue() * 2; // RA2: as above
-		core_color.Set(red > 255 ? 255 : red, green > 255 ? 255 : green, blue > 255 ? 255 : blue); // RA2: as above
-		glow_color = core_color; // RA2: as above
+	if (IsSupported) {
+		unsigned int red = InnerColor.Get_Red() * 2;
+		unsigned int green = InnerColor.Get_Green() * 2;
+		unsigned int blue = InnerColor.Get_Blue() * 2;
+		core_color.Set(red > 255 ? 255 : red, green > 255 ? 255 : green, blue > 255 ? 255 : blue);
+		glow_color = core_color;
 	} else {
-		core_color = InnerColor; // RA2: as above
-		glow_color.Set(InnerColor.Get_Red() >> 1, InnerColor.Get_Green() >> 1, InnerColor.Get_Blue() >> 1); // RA2: as above
+		core_color = InnerColor;
+		glow_color.Set(InnerColor.Get_Red() >> 1, InnerColor.Get_Green() >> 1, InnerColor.Get_Blue() >> 1);
 	}
 
-	Point2D start2 = start_pixel; // RA2: as above
-	Point2D start1 = start_pixel; // RA2: as above
-	Point2D end2 = end_pixel; // RA2: as above
-	Point2D end1 = end_pixel; // RA2: as above
+	Point2D start2 = start_pixel;
+	Point2D start1 = start_pixel;
+	Point2D end2 = end_pixel;
+	Point2D end1 = end_pixel;
 
-	for (int layer = 1; layer <= Thickness; layer++) { // RA2: as above
-		if (facing & 1) { // RA2: as above
-			start1.X += _house_offsets[2 * facing].X; // RA2: as above
-			start1.Y += _house_offsets[2 * facing].Y; // RA2: as above
-			start2.X += _house_offsets[2 * facing + 1].X; // RA2: as above
-			start2.Y += _house_offsets[2 * facing + 1].Y; // RA2: as above
-			end1.X += _house_offsets[2 * facing].X; // RA2: as above
-			end1.Y += _house_offsets[2 * facing].Y; // RA2: as above
-			end2.X += _house_offsets[2 * facing + 1].X; // RA2: as above
-			end2.Y += _house_offsets[2 * facing + 1].Y; // RA2: as above
-		} else if (layer & 1) { // RA2: as above
-			start1.X += _house_offsets[2 * facing].X; // RA2: as above
-			start2.Y += _house_offsets[2 * facing + 1].Y; // RA2: as above
-			end1.X += _house_offsets[2 * facing].X; // RA2: as above
-			end2.Y += _house_offsets[2 * facing + 1].Y; // RA2: as above
+	for (int layer = 1; layer <= Thickness; layer++) {
+		if (facing & 1) {
+			start1.X += _house_offsets[2 * facing].X;
+			start1.Y += _house_offsets[2 * facing].Y;
+			start2.X += _house_offsets[2 * facing + 1].X;
+			start2.Y += _house_offsets[2 * facing + 1].Y;
+			end1.X += _house_offsets[2 * facing].X;
+			end1.Y += _house_offsets[2 * facing].Y;
+			end2.X += _house_offsets[2 * facing + 1].X;
+			end2.Y += _house_offsets[2 * facing + 1].Y;
+		} else if (layer & 1) {
+			start1.X += _house_offsets[2 * facing].X;
+			start2.Y += _house_offsets[2 * facing + 1].Y;
+			end1.X += _house_offsets[2 * facing].X;
+			end2.Y += _house_offsets[2 * facing + 1].Y;
 		} else {
-			start1.Y += _house_offsets[2 * facing].Y; // RA2: as above
-			start2.X += _house_offsets[2 * facing + 1].X; // RA2: as above
-			end1.Y += _house_offsets[2 * facing].Y; // RA2: as above
-			end2.X += _house_offsets[2 * facing + 1].X; // RA2: as above
+			start1.Y += _house_offsets[2 * facing].Y;
+			start2.X += _house_offsets[2 * facing + 1].X;
+			end1.Y += _house_offsets[2 * facing].Y;
+			end2.X += _house_offsets[2 * facing + 1].X;
 		}
 
-		if (high_detail) { // RA2: as above
-			LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start1, end1, glow_color, intensity, start_z, end_z); // RA2: as above
-			LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start2, end2, glow_color, intensity, start_z, end_z); // RA2: as above
+		if (high_detail) {
+			LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start1, end1, glow_color, intensity, start_z, end_z);
+			LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start2, end2, glow_color, intensity, start_z, end_z);
 		} else {
-			adjusted_color = glow_color; // RA2: as above
-			adjusted_color.Adjust(ratio, white); // RA2: as above
-			int pixel = DSurface::Build_Hicolor_Pixel(adjusted_color.Get_Red(), adjusted_color.Get_Green(), adjusted_color.Get_Blue()); // RA2: as above
-			LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start1, end1, pixel, start_z, end_z); // RA2: as above
-			LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start2, end2, pixel, start_z, end_z); // RA2: as above
+			adjusted_color = glow_color;
+			adjusted_color.Adjust(ratio, white);
+			int pixel = DSurface::Build_Hicolor_Pixel(adjusted_color.Get_Red(), adjusted_color.Get_Green(), adjusted_color.Get_Blue());
+			LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start1, end1, pixel, start_z, end_z);
+			LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start2, end2, pixel, start_z, end_z);
 		}
 
-		if (IsSupported && layer == 1) { // RA2: as above
-			glow_color = InnerColor; // RA2: as above
+		if (IsSupported && layer == 1) {
+			glow_color = InnerColor;
 		} else {
-			unsigned int red = glow_color.Get_Red() >> 1; // RA2: as above
-			unsigned int green = glow_color.Get_Green() >> 1; // RA2: as above
-			unsigned int blue = glow_color.Get_Blue() >> 1; // RA2: as above
-			unsigned int threshold = high_detail ? 8 : 64; // RA2: as above
-			if (red < threshold && green < threshold && blue < threshold) { // RA2: as above
-				break; // RA2: as above
+			unsigned int red = glow_color.Get_Red() >> 1;
+			unsigned int green = glow_color.Get_Green() >> 1;
+			unsigned int blue = glow_color.Get_Blue() >> 1;
+			unsigned int threshold = high_detail ? 8 : 64;
+			if (red < threshold && green < threshold && blue < threshold) {
+				break;
 			}
-			glow_color.Set(red, green, blue); // RA2: as above
+			glow_color.Set(red, green, blue);
 		}
 	}
 
-	if (high_detail) { // RA2: as above
-		LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start_pixel, end_pixel, core_color, intensity, start_z, end_z); // RA2: as above
+	if (high_detail) {
+		LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start_pixel, end_pixel, core_color, intensity, start_z, end_z);
 	} else {
-		adjusted_color = core_color; // RA2: as above
-		adjusted_color.Adjust(ratio, white); // RA2: as above
-		LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start_pixel, end_pixel, // RA2: as above
-			DSurface::Build_Hicolor_Pixel(adjusted_color.Get_Red(), adjusted_color.Get_Green(), adjusted_color.Get_Blue()), // RA2: as above
-			start_z, end_z // RA2: as above
-		); // RA2: as above
+		adjusted_color = core_color;
+		adjusted_color.Adjust(ratio, white);
+		LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start_pixel, end_pixel,
+			DSurface::Build_Hicolor_Pixel(adjusted_color.Get_Red(), adjusted_color.Get_Green(), adjusted_color.Get_Blue()),
+			start_z, end_z
+		);
 	}
 }
+
+

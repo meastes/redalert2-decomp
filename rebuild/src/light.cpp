@@ -10,7 +10,8 @@
 
 #define INCLUDE_COM
 #include "always.h"
-#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "geometry.h"
+#include "rect.h"
 
 #include "light.h"
 
@@ -118,7 +119,7 @@ void LightSourceClass::Reset(void)
 		LightSources.Delete_Index(0);
 	}
 
-	while (PendingCells.Count() != 0) { // RA2: the deferred cell updates too
+	while (PendingCells.Count() != 0) {
 		delete PendingCells[0];
 		PendingCells.Delete_Index(0);
 	}
@@ -184,7 +185,7 @@ void LightSourceClass::ChangeLevels(int intensity, int red, int green, int blue,
 /// <param name="defer">Should the affected cells be queued rather than updated here?</param>
 void LightSourceClass::Recalculate_Affected_Cells(bool defer)
 {
-	if (Recalc && Options.DetailLevel >= DetailLevel) { // RA2: lights above the detail setting are skipped
+	if (Recalc && Options.DetailLevel >= DetailLevel) {
 		if (defer && PendingCells.Count() != 0) {
 			LightSourceClass::Process_Lighting(0, true);
 		}
@@ -304,7 +305,7 @@ void LightSourceClass::Process_Lighting(int time_budget_ms, bool force)
 /// <param name="crc">The checksum engine to feed this object's state into.</param>
 void LightSourceClass::Compute_CRC(CRCEngine & crc) const
 {
-	BASECLASS::Compute_CRC(crc); // RA2: the light's own values are not part of the CRC
+	BASECLASS::Compute_CRC(crc);
 }
 
 
@@ -361,7 +362,7 @@ HRESULT STDMETHODCALLTYPE LightSourceClass::Save(IStream * stream, BOOL cleardir
 /// Fetches the size of this object as it appears in a save file.
 /// </summary>
 /// <returns>Returns with the number of bytes this object occupies when saved.</returns>
-int LightSourceClass::Fetch_Object_Size(void) const // RA2: no argument
+int LightSourceClass::Fetch_Object_Size(void) const
 {
 	return(sizeof(*this));
 }

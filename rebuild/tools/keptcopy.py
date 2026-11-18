@@ -44,6 +44,7 @@ def masked(data, relocs):
 
 
 rows = []
+unit_refs = []
 for index, section in enumerate(coff.sections, 1):
     if not section['flags'] & 0x20 or not section['flags'] & 0x1000 or not section['size']:
         continue
@@ -84,6 +85,17 @@ for index, section in enumerate(coff.sections, 1):
         return bad
     # A copy whose relocation operands name other targets (another instance with the same code) is not ours.
     agreeing = [h for h in hits if not disagreements(h)]
+    # Several copies, each byte-identical to ours (no relocation, or every relocation bound and agreeing):
+    # the copy is kept elsewhere whichever address it is, so ours is omitted and compared with the first
+    # (owner ruling 2026-11-18 on mouse's ~BasicTimerClass<FrameTimerClass>). Bound in the unit's own table,
+    # so no other unit's references change; the count goes into the evidence.
+    if len(agreeing) > 1 and all(resolve(t)[0] is not None for _, t, _ in relocs):
+        address = agreeing[0]
+        evidence = ('kept copy: %d byte-identical copies in the image (first %08x), every relocation bound and '
+                    'agreeing; ours is a linker-discarded duplicate, omitted and compared with the first' % (len(agreeing), address))
+        print('%s: (1) %s' % (name, evidence))
+        unit_refs.append((name, address, evidence))
+        continue
     if len(agreeing) != 1:
         print('%s: (2) %s' % (name, 'no copy in the image: a source question' if not hits else
                                   'copies at %s, %d agreeing at the relocations: not bound' % (
@@ -106,3 +118,9 @@ for index, section in enumerate(coff.sections, 1):
     rows.append(dict(symbol=name, address='0x%08X' % address, evidence=evidence))
 if write and rows:
     R.save_symbols(rows)
+if write and unit_refs:
+    units = R.load_json(R.UNITS, {})
+    for name, address, evidence in unit_refs:
+        units[unit].setdefault('references', {})[name] = '%08x' % address
+        units[unit].setdefault('kept_copies', {})[name] = evidence
+    R.save_units(units, [unit])

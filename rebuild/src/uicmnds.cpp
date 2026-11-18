@@ -466,14 +466,12 @@ void __cdecl Command_Delete_Plan_Or_Beacon(void)
 /// <summary>
 /// Starts placing a beacon.
 /// </summary>
-#if 0
 void __cdecl Command_Beacon(void)
 {
 	if (MuteSWLaunches == 0) {
 		Map.Place_Beacon_Mode_Control(-1);
 	}
 }
-#endif
 
 
 /// <summary>

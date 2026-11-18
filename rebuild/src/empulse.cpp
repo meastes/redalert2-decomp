@@ -91,7 +91,7 @@ void EMPulseClass::Create(TechnoClass * source)
 			AircraftClass * aircraft = Aircraft[i];
 			if (aircraft->IsDown && !aircraft->IsInLimbo && !aircraft->In_Air() && aircraft->Strength > 0) {
 				if (aircraft->Center_Coord().Distance_To(CellID.As_Coord()) < Spread * CELL_LEPTON) {
-					((TechnoClass *)aircraft)->Crash(source); // RA2: virtual TechnoClass::Crash
+					((TechnoClass *)aircraft)->Crash(source);
 				}
 			}
 		}
@@ -110,7 +110,7 @@ void EMPulseClass::Create(TechnoClass * source)
 							if (building != NULL) {
 								if (building->Center_Coord().As_Cell() == cell) {
 									if (!building->Class->IsInvisibleInGame) {
-										building->Power_Off(); // RA2: 0x44D6C0
+										building->Power_Off();
 										building->StunDuration = Duration;
 										if (building->Class->IsRadar) {
 											building->House->RecalcRadar = true;

@@ -4,7 +4,7 @@
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 
 #include "always.h"
-#include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "rect.h"
 #include "geometry.h"
 #undef LoadString
 #include "nulldlg.h"
@@ -589,4 +589,4 @@ void Modem_Echo(char c)
 	}
 }
 
-template class TTimerClass<SystemTimerClass>;
+

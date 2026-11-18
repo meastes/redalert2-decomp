@@ -99,18 +99,32 @@ PLACEHOLDER_KEYS = ('process_chatter', 'unknown_names', 'vt_entry_names', 'field
                     'inherited_geometry_define', 'inherited_auto_inline_off', 'extern_c_in_sources')
 
 
+LARGE = 1024    # a parked function of 1 KB or more (the checkpoint measure: "parked large functions pass 500 KB")
+
+
 def parked_tail():
-    """(rows, body bytes) not exact in the last checks: the parked tail behind the guards."""
-    rows = total = 0
-    for path in (R.WORK / 'last').glob('*.json'):
-        if path.stem.endswith('preguard'):
-            continue
-        last = json.loads(path.read_text())
-        results = last['results'] if isinstance(last['results'], list) else []
-        parked = [r for r in results if r.get('status') != 'exact']
-        rows += len(parked)
-        total += sum(r['body'] for r in parked)
-    return rows, total
+    """(rows, body bytes, rows of LARGE bytes or more, their bytes) not exact: the parked tail behind the
+    guards. One definition for the census and progress.py (owner, 2026-11-18): every row of every unit in
+    units.json that its check of the unit's current text does not find exact. A unit whose last check is
+    missing or of older text is checked again first; a unit that does not compile counts all its rows."""
+    import hashlib, io, contextlib
+    rows = total = large = large_total = 0
+    for unit, info in R.load_json(R.UNITS, {}).items():
+        source = R.ROOT / info['source']
+        last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
+        current = hashlib.sha256(source.read_bytes()).hexdigest() if source.exists() else None
+        if current and (last is None or last.get('source_sha256') != current):
+            with contextlib.redirect_stdout(io.StringIO()):
+                R.check(unit)
+            last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
+        fresh = bool(last) and last.get('source_sha256') == current
+        status = {r['entry']: r['status'] for r in last['results']} if fresh else {}
+        for r in info['rows']:
+            if status.get(r['entry']) != 'exact':
+                rows += 1; total += r['body']
+                if r['body'] >= LARGE:
+                    large += 1; large_total += r['body']
+    return rows, total, large, large_total
 
 
 def judgment_calls(regions):
@@ -228,8 +242,8 @@ def main(quiet=False):
     print('Gate (placeholders, only fall): process chatter %d; Unknown* names %d; vt_entry_NN %d; field_NN in headers %d; '
           'FUN_ in headers %d' % (measures['process_chatter'], measures['unknown_names'], measures['vt_entry_names'],
                                   measures['field_names_headers'], measures['fun_names_headers']))
-    print('Parked tail (reported, not gated): RA2_NON_MATCHING guards %d; %d rows not exact, %d body bytes' % (
-        (measures['draft_guards'],) + parked_tail()))
+    print('Parked tail (reported, not gated): RA2_NON_MATCHING guards %d; %d rows not exact, %d body bytes; '
+          '1 KB or more: %d rows, %d body bytes' % ((measures['draft_guards'],) + parked_tail()))
     print('Judgment calls (reported, not gated): %d rows, %d body bytes' % (
         measures['judgment_rows'], measures['judgment_bytes']))
     print('Unplaced unreferenced objects (data_bound_by: unplaced-unreferenced; earn nothing): %d symbols, %d bytes' % (

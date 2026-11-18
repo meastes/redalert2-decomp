@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -43,6 +44,9 @@
 
 #include <cstring>
 #include "globals.h"
+#include "_theater.h" // RA2: as above
+#include "_palette.h" // RA2: as above
+#include "mixfile.h" // RA2: as above
 
 
 /***********************************************************************************************
@@ -342,22 +346,11 @@ class SchemeLibrary { // RA2: the table of palette files and the list of player 
 		}
 		~SchemeLibrary(void); // RA2: 0x00604250
 
-		DynamicVectorClass<ColorScheme *> * Lookup(char const * name) // RA2: the schemes of a palette file, NULL when it is not in the table
-		{
-			HashString key(name); // RA2: as above
-			SchemeNode ** node = Table->Find(key); // RA2: as above
-			if (node == NULL) { // RA2: as above
-				return(NULL); // RA2: as above
-			}
-			return((*node)->Schemes); // RA2: as above
-		}
+		DynamicVectorClass<ColorScheme *> * Lookup(char const * name); // RA2: 0x006044A0
 		DynamicVectorClass<ColorScheme *> * Generate(char const * name); // RA2: 0x00604540
-		void Add(char const * name) // RA2: generates the schemes of a palette file and files them under its name
-		{
-			DynamicVectorClass<ColorScheme *> * schemes = Generate(name); // RA2: as above
-			SchemeNode * node = new SchemeNode(name, schemes); // RA2: as above
-			Add_Node(Table, name, node); // RA2: as above
-		}
+		void Add(char const * name); // RA2: 0x00604870
+		void Replace(char const * name); // RA2: 0x006049C0
+		void Set_Mode(int mode); // RA2: 0x00604AD0
 
 		int Mode; // RA2: +0x0, the theater, -1 before the first Set_Scheme_Table_Theater
 		DynamicVectorClass<char *> * Names; // RA2: +0x4, the names of the player colors
@@ -473,7 +466,6 @@ int Scheme_List_Count(void) // RA2: 0x00603C10, how many player colors there are
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int Palette_Scheme_Count(void) // RA2: 0x00603D50, how many palettes have a scheme list
 {
 	SchemeLibrary * library = Scheme_Library(); // RA2: the executable keeps the library in a local here (the loop's register use depends on it)
@@ -485,6 +477,129 @@ int Palette_Scheme_Count(void) // RA2: 0x00603D50, how many palettes have a sche
 		schemes = it.Next(); // RA2: as above
 	}
 	return(count); // RA2: as above
+}
+
+
+void SchemeLibrary_Destroy(void) // RA2: 0x00603FA0, deletes the library
+{
+	if (TheSchemeLibrary != NULL) {
+		delete TheSchemeLibrary;
+		TheSchemeLibrary = NULL;
+	}
+}
+
+
+void SchemeLibrary_Create(void) // RA2: 0x00603FD0, makes the library unless it exists
+{
+	Scheme_Library();
+}
+
+
+#ifdef RA2_NON_MATCHING // not exact: 241 bytes differ (the inlined walk keeps the bucket base in another register)
+SchemeLibrary::~SchemeLibrary(void) // RA2: 0x00604250, frees the player colors, every node and its schemes, then the table
+{
+	if (Table != NULL) {
+		SchemeLibrary_Free();
+		delete Names;
+		delete Colors;
+
+		HashIterator it = {0, 0, false};
+		HashString * key = Table->Next(&it);
+		while (key != NULL) {
+			SchemeNode ** node = Table->Find(*key);
+			delete *node;
+			key = Table->Next(&it);
+		}
+		Table->Clear();
+		delete Table;
+	}
+}
+#endif
+
+
+DynamicVectorClass<ColorScheme *> * SchemeLibrary::Lookup(char const * name) // RA2: 0x006044A0, the schemes of a palette file, NULL when it is not in the table
+{
+	HashString key(name);
+	SchemeNode ** node = Table->Find(key);
+	if (node == NULL) {
+		return(NULL);
+	}
+	return((*node)->Schemes);
+}
+
+
+DynamicVectorClass<ColorScheme *> * SchemeLibrary::Generate(char const * name) // RA2: 0x00604540, the schemes of a palette file for the theater
+{
+	if (Mode == -1) {
+		return(NULL);
+	}
+
+	char path[256];
+	strcpy(path, name);
+	strcat(path, Theaters[Mode].Suffix);
+	strcat(path, ".");
+	strcat(path, PaletteExtension);
+	strupr(path);
+
+	PaletteClass pal;
+	void const * file = MixFileClass::Retrieve(path);
+	if (file == NULL) {
+		return(NULL);
+	}
+	memcpy(&pal, file, sizeof(pal));
+
+	for (int slot = 0; slot < 256; slot++) {
+		RGBClass & entry = pal[slot];
+		RGBClass color = entry;
+		entry.Set_Red(color.Get_Red() << 2);
+		entry.Set_Green(color.Get_Green() << 2);
+		entry.Set_Blue(color.Get_Blue() << 2);
+	}
+
+	int count = Colors->Count();
+	DynamicVectorClass<ColorScheme *> * schemes = new DynamicVectorClass<ColorScheme *>(20);
+	for (int index = 0; index < count; index++) {
+		char * id = (*Names)[index];
+		HSVClass base = (*Colors)[index];
+		ColorScheme * scheme = new ColorScheme(id, base, pal, GamePalette, 1, false);
+		scheme->ID = index * 2;
+		schemes->Add(scheme);
+		scheme = new ColorScheme(id, base, pal, GamePalette, 53, false);
+		scheme->ID = index * 2 + 1;
+		schemes->Add(scheme);
+	}
+	return(schemes);
+}
+
+
+void SchemeLibrary::Add(char const * name) // RA2: 0x00604870, generates the schemes of a palette file and files them under its name
+{
+	DynamicVectorClass<ColorScheme *> * schemes = Generate(name);
+	SchemeNode * node = new SchemeNode(name, schemes);
+	Add_Node(Table, name, node);
+}
+
+
+void SchemeLibrary::Replace(char const * name) // RA2: 0x006049C0, generates the schemes of a filed palette again
+{
+	HashString key(name);
+	SchemeNode * node = *Table->Find(key);
+	node->Replace(Generate(name));
+}
+
+
+#ifdef RA2_NON_MATCHING // not exact: 123 bytes differ (the inlined walk keeps the bucket base in another register)
+void SchemeLibrary::Set_Mode(int mode) // RA2: 0x00604AD0, the theater; every filed palette's schemes are generated again
+{
+	Mode = mode;
+	HashIterator it = {0, 0, false};
+	HashString * key = Table->Next(&it);
+	while (key != NULL) {
+		HashString name(key->Str);
+		SchemeNode * node = *Table->Find(name);
+		node->Replace(Generate(key->Str));
+		key = Table->Next(&it);
+	}
 }
 #endif
 
