@@ -1745,6 +1745,7 @@ void TechnoClass::Draw_Pre_Render(Point2D const & point, Rect const & cliprect) 
 /// it. An ally, or a house that has spied on the object, is also shown its cargo pips.
 /// </summary>
 /// <param name="sensed_underground">Should the select graphic be drawn only when the object is selected?</param>
+#ifdef RA2_NON_MATCHING // not exact: no row yet (main has no accepted bound between Draw_Pre_Render and Limbo)
 void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect, bool sensed_underground) const
 {
 	UnitClass const * unit = (RTTI == RTTI_UNIT) ? dynamic_cast<UnitClass const *>(this) : NULL;
@@ -1887,6 +1888,7 @@ void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect,
 		}
 	}
 }
+#endif
 
 
 /// <summary>
@@ -7501,6 +7503,7 @@ void TechnoClass::Techno_Draw_Voxel_Shadow(VoxelDataStruct const & voxeldata, in
 /// </summary>
 /// <param name="voxeldata">The voxel and motion libraries to render from.</param>
 /// <returns>Returns with the surface region the object was rendered into.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 716 bytes differ (adopted text)
 SurfaceRegion TechnoClass::Techno_Render_Voxel_Object(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & xcliprect, int frame, ShapeFlags_Type flags, int brightness) const
 {
 	Matrix3D mtx = matrix;
@@ -7548,6 +7551,7 @@ SurfaceRegion TechnoClass::Techno_Render_Voxel_Object(VoxelDataStruct const & vo
 
 	return(region);
 }
+#endif
 
 
 /// <summary>

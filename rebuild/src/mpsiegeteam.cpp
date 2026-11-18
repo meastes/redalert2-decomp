@@ -27,11 +27,11 @@ MultiplayerSiegeDefenderTeam::~MultiplayerSiegeDefenderTeam(void)
 {
 }
 
-// RA2: true when no player other than self is on the defender team
-bool __stdcall Is_Last_Defender(int self)
+// RA2: true when no player other than the one at index is on the defender team
+bool MultiplayerSiegeDefenderTeam::IsTeamIncluded(int index)
 {
 	for (int i = 0; i < Session.Players.Count(); i++) {
-		if (self != i && Session.Players[i]->Slot.SpectatorFlag == 1) {
+		if (index != i && Session.Players[i]->Slot.SpectatorFlag == 1) {
 			return(false);
 		}
 	}

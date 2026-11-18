@@ -125,29 +125,29 @@ DeformPointStruct * DeformPoints = NULL;
 }
 
 
-struct DeformUndoStruct {
+struct UndoInfoStruct {
 
-	DeformUndoStruct(void)
+	UndoInfoStruct(void)
 	{
 		CellPoint = Point2D(0, 0);
 		OldHeight = 0;
 	};
 
-	DeformUndoStruct(const Point2D & point, int oldheight)
+	UndoInfoStruct(const Point2D & point, int oldheight)
 	{
 		CellPoint = point;
 		OldHeight = oldheight;
 	};
 
-	bool operator==(DeformUndoStruct const & rvalue) const { return(CellPoint == rvalue.CellPoint && OldHeight == rvalue.OldHeight); }
-	bool operator!=(DeformUndoStruct const & rvalue) const { return(CellPoint != rvalue.CellPoint || OldHeight != rvalue.OldHeight); }
+	bool operator==(UndoInfoStruct const & rvalue) const { return(CellPoint == rvalue.CellPoint && OldHeight == rvalue.OldHeight); }
+	bool operator!=(UndoInfoStruct const & rvalue) const { return(CellPoint != rvalue.CellPoint || OldHeight != rvalue.OldHeight); }
 
 	Point2D CellPoint;
 	int OldHeight;
 };
 
 
-DynamicVectorClass<DeformUndoStruct> UndoRecords;
+DynamicVectorClass<UndoInfoStruct> UndoRecords;
 
 
 /// <summary>
@@ -159,7 +159,7 @@ DynamicVectorClass<DeformUndoStruct> UndoRecords;
 /// <param name="oldheight">The height the point holds at the moment.</param>
 void Record_Deform_Undo(const Point2D & point, int oldheight)
 {
-	UndoRecords.Add(DeformUndoStruct(point, oldheight));
+	UndoRecords.Add(UndoInfoStruct(point, oldheight));
 }
 
 

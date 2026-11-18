@@ -238,7 +238,7 @@ class ObjectClass : public AbstractClass
 		bool Is_Infantry(void) const {return(Fetch_RTTI() == RTTI_INFANTRY);}
 		bool Is_Foot(void) const {if (this == NULL) return(false); unsigned char flag = (AbstractFlags >> 2) & 1; return(flag != 0);} // RA2: inline; bit 2 of the abstract flags
 		virtual int Get_Ownable(void) const;
-		virtual wchar_t const * Full_Name(void) const {return(L"");} // RA2: wide
+		virtual wchar_t const * Full_Name(void) const {return(L"No name");} // RA2: wide, and "No name" (the one copy, 0x423D40, returns it)
 		virtual bool Can_Repair(void) const;
 		virtual bool Can_Demolish(void) const;
 		virtual bool Can_Player_Fire(void) const;

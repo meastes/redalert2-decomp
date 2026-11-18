@@ -26,9 +26,6 @@ int __fastcall AudioDeviceAvailable(void); // RA2: 0x00406F30
 
 Ahandle _handles[Ahandle::MAX_HANDLES];
 
-bool _restore_primary = false;
-WAVEFORMATEX _restore_format;
-
 AHANDLE_CALLBACK_1 _AHandleCallbackFunc1;
 AHANDLE_CALLBACK_2 _AHandleCallbackFunc2;
 

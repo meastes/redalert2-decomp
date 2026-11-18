@@ -639,7 +639,7 @@ class TechnoClass :	public RadioClass,
 		virtual DirType Barrel_Pitch(AbstractClass * target) const;
 		virtual bool Is_In_Same_Zone(Coord const & coord) const;
 		virtual int How_Many_Survivors(void) const;
-		virtual void GotHijacked(void); // RA2
+		virtual void Scatter_Incoming_Infantry(void) const;
 		virtual int What_Weapon_Should_I_Use(AbstractClass * target) const; // RA2: virtual
 		virtual int SelectNavalTargeting(AbstractClass * target) const; // RA2
 		virtual int Get_Z_Adjust(void) const;
@@ -782,7 +782,6 @@ class TechnoClass :	public RadioClass,
 
 		double Weed_Load(void) const; // RA2: not a virtual
 
-		void Scatter_Incoming_Infantry(void) const; // RA2: not a virtual
 		int Get_Collateral_Damage(void) const; // RA2: not a virtual
 		bool Is_Z_Fudge_Bridge(void) const;
 		bool Was_Z_Fudge_Bridge(void) const;

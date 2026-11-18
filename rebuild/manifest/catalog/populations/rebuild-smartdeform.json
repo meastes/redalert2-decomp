@@ -1,0 +1,4324 @@
+{
+  "id": "rebuild-smartdeform",
+  "population": {
+    "id": "rebuild-smartdeform",
+    "inventory_sha256": "5f17f605ef23d01400633b4fdd4e3e666fca25b528a879ec6248e8f8186986a7",
+    "gaps_sha256": "25cd7c89287c6d0094ff95b6dee49c300b1a09bc7c6d1e735c6108f3c07ac80e",
+    "historical_population_sha256": "2b4da4bdd1c094a5410560611ad1e3ddf3718fa6ff61c73edb0cbe3e2b8fff26",
+    "historical_acceptance_sha256": "625013c315d0f72759adcead3c3078ef944f53bd7f1179f48e0b13d1e2ce6676"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11259464,
+    "_ISO_TILE_SIZE": 8041720,
+    "_LEPTONS_PER_PIXEL": 11259536,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11259520,
+    "_ONE_RAD": 8041728,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11259512,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11259472,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11259408,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11259544,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11259480,
+    "_CELL_DIAG_SLOPE_ANGLE": 11259504,
+    "_BRIDGE_LEPTON_HEIGHT": 11259528,
+    "_CELL_NONE": 11259456,
+    "_COORD_NONE": 11259488,
+    "_RECT_NONE": 11259440,
+    "_$E228": 6836096,
+    "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A": 11259416,
+    "??_7?$DynamicVectorClass@UUndoInfoStruct@@@@6B@": 8041740,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@UUndoInfoStruct@@@@6B@": 8041772,
+    "??3@YAXPAX@Z": 7871803,
+    "?DeformPointWidth@@3HA": 8554212,
+    "_DeformPoints": 11259564,
+    "?MapStartDiagonal@MapRegionClass@@2HA": 10947100,
+    "?MapEndDiagonal@MapRegionClass@@2HA": 10947104,
+    "?Get_Cell_Data@MapRegionClass@@SIAAUCellData@1@ABVCell@@@Z": 5692320,
+    "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A": 10751184,
+    "?AdjacentCell@@3QBVCell@@B": 8723056,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?In_Radar@MapClass@@QBE_NABVCell@@@Z": 5548720,
+    "??2@YAPAXI@Z": 7872535,
+    "?DeformPointHeight@@3HA": 8554208,
+    "?DeformPointYAdd@@3HA": 8554220,
+    "?DeformPointXAdd@@3HA": 8554216,
+    "__ramp_corners": 8339828,
+    "?Can_Deform_Cell@@YI_NPAVCellClass@@_N@Z": 6836560,
+    "?My_In_Radar@@YI_NABVCell@@@Z": 5822992,
+    "??H?$TPoint2D@F@@QBE?BV0@ABV0@@Z": 4369872,
+    "?Can_Deform_Cell_RMG@@YI_NPAVCellClass@@_N@Z": 6836400,
+    "??0?$VectorClass@PAVObjectClass@@@@QAE@HPBQAVObjectClass@@@Z": 4979664,
+    "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@": 7986044,
+    "?Cell_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ": 4674224,
+    "?Lower_Max_Level@MapClass@@QAEXH@Z": 5679216,
+    "?Remove_Fogged_Objects@CellClass@@QAEXXZ": 4701792,
+    "?Recalc_Attributes@CellClass@@QAEXH@Z": 4662592,
+    "?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A": 10750920,
+    "?Radar_Background@RadarClass@@QAEXABVCell@@@Z": 6493552,
+    "?ClearTile@IsometricTileTypeClass@@2W4IsometricTileType@@A": 10825472,
+    "?RampStart@IsometricTileTypeClass@@2W4IsometricTileType@@A": 10936344,
+    "?TacticalRect@@3V?$TRect@H@@A": 8623664,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z": 6959136,
+    "?Fixup_LAT@CellClass@@QAE_NXZ": 4660496,
+    "??_7?$VectorClass@PAVObjectClass@@@@6B@": 7973148,
+    "?Reset_Iterator@MapClass@@QAEXXZ": 5612880,
+    "?Iterate@MapClass@@QAEPAVCellClass@@XZ": 5612688,
+    "?Ripple_Deform_Points@@YI_NVPoint2D@@H_N@Z": 6841872,
+    "?Init_Deform_Grid@@YIXVCell@@_N@Z": 6836880,
+    "?Commit_Deform_Grid@@YI_NVCell@@_N@Z": 6838976,
+    "__ramp_corners20": 8339812,
+    "__ramp_corners19": 8339796,
+    "__ramp_corners18": 8339780,
+    "__ramp_corners17": 8339764,
+    "__ramp_corners16": 8339748,
+    "__ramp_corners15": 8339732,
+    "__ramp_corners14": 8339716,
+    "__ramp_corners13": 8339700,
+    "__ramp_corners12": 8339684,
+    "__ramp_corners11": 8339668,
+    "__ramp_corners10": 8339652,
+    "__ramp_corners9": 8339636,
+    "__ramp_corners8": 8339620,
+    "__ramp_corners7": 8339604,
+    "__ramp_corners6": 8339588,
+    "__ramp_corners5": 8339572,
+    "__ramp_corners4": 8339556,
+    "__ramp_corners3": 8339540,
+    "__ramp_corners2": 8339524,
+    "__ramp_corners1": 8339508,
+    "__ramp_corners0": 11259548,
+    "_$E2": 6835536,
+    "_$E5": 6835584,
+    "_$E8": 6835616,
+    "_$E11": 6835648,
+    "_$E14": 6835680,
+    "_$E17": 6835712,
+    "_$E20": 6835744,
+    "_$E23": 6835808,
+    "_$E26": 6835856,
+    "_$E29": 6835904,
+    "_$E32": 6835952,
+    "_$E35": 6835968,
+    "_$E38": 6836000,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E230": 6836032,
+    "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845312,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z": 6845232,
+    "?Record_Deform_Undo@@YIXABVPoint2D@@H@Z": 6836160,
+    "?Undo_Deform@@YIXXZ": 6836272,
+    "?Init_Deform_Grid_RMG@@YIXXZ": 6837760,
+    "??_G?$DynamicVectorClass@PAVObjectClass@@@@UAEPAXI@Z": 4706448,
+    "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z": 4247072,
+    "?Commit_Deform_Grid_RMG@@YI_NXZ": 6841312,
+    "?Deform_Cell@@YI_NVCell@@H_NH@Z": 6842464,
+    "?Deform_Cell_RMG@@YI_NVCell@@H_NH@Z": 6842864,
+    "?Get_Deformed_Cell_Height@@YIHPAVCellClass@@@Z": 6843536,
+    "?Get_Deformable_Cell_Corners@@YIHPAVCellClass@@H@Z": 6843856,
+    "?Clear@?$DynamicVectorClass@PAVObjectClass@@@@UAEXXZ": 4246368,
+    "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z": 4246416,
+    "?GetItem@?$VectorClass@PAVObjectClass@@@@UBEPAVObjectClass@@H@Z": 4246448,
+    "?Clear@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEXXZ": 6844224,
+    "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z": 6844272,
+    "?GetItem@?$VectorClass@UUndoInfoStruct@@@@UBE?AUUndoInfoStruct@@H@Z": 6844320,
+    "??8?$VectorClass@PAVObjectClass@@@@UBE_NABV0@@Z": 4246464,
+    "?Resize@?$VectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z": 4246528,
+    "?Clear@?$VectorClass@PAVObjectClass@@@@UAEXXZ": 4246704,
+    "?ID@?$VectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z": 4246752,
+    "?ID@?$VectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z": 4246816,
+    "?Resize@?$DynamicVectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z": 4246848,
+    "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z": 4247024,
+    "??8?$VectorClass@UUndoInfoStruct@@@@UBE_NABV0@@Z": 6844368,
+    "?Resize@?$VectorClass@UUndoInfoStruct@@@@UAE_NHPBUUndoInfoStruct@@@Z": 6844464,
+    "?Clear@?$VectorClass@UUndoInfoStruct@@@@UAEXXZ": 6844720,
+    "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6844768,
+    "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z": 6844848,
+    "?Resize@?$DynamicVectorClass@UUndoInfoStruct@@@@UAE_NHPBUUndoInfoStruct@@@Z": 6844896,
+    "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z": 6845168,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024
+  },
+  "regions": [
+    {
+      "entry": 6835536,
+      "method": "00684d50",
+      "body_bytes": 40,
+      "body_sha256": "1bb91789ac9dc62afd27c02d1492fd873d012900a50f5ec144622c863af0a536",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "780f3426e471072b2b2b8c029df25afb0e70be51f716489d9ee4486e54450592",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1037391
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293088930
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259464,
+          "addend": 0,
+          "resolved": 11259464
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835584,
+      "method": "00684d80",
+      "body_bytes": 19,
+      "body_sha256": "acd0c1c1bd951ca2160e932b2d836c1595e2168934605463551dd86cc03e9ca8",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e68d5e92fd94ab73e41f381a7992d3ac7b9937367cf7bde63895b3753e5348b0",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259464,
+          "addend": 0,
+          "resolved": 11259464
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8041720,
+          "addend": 0,
+          "resolved": 8041720
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11259536,
+          "addend": 0,
+          "resolved": 11259536
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835616,
+      "method": "00684da0",
+      "body_bytes": 19,
+      "body_sha256": "f5fd3c12dbda718e192cb0381813452e6e4786fcfeba2dbb8bee50777731bfaf",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "fd59be34defa1b12d772cc1c4b9a62b673b427bdd5aa941a15ffc0c5483c0983",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11259536,
+          "addend": 0,
+          "resolved": 11259536
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11259520,
+          "addend": 0,
+          "resolved": 11259520
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835648,
+      "method": "00684dc0",
+      "body_bytes": 19,
+      "body_sha256": "58ef6c1df0a3aeacbba086f01b99311d5a2233f0deca8ef8e5ead7cc944c360a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "42fba5a9a5915240fd3d11def77202e281a055fb4217a6c956c5a98bf7fb291a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8041728,
+          "addend": 0,
+          "resolved": 8041728
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11259512,
+          "addend": 0,
+          "resolved": 11259512
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835680,
+      "method": "00684de0",
+      "body_bytes": 19,
+      "body_sha256": "18fe4d095993c82b8c01c4641f5c670ea7e3f8419ff8cf9f7a7dc64023882b02",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1a22ef012fca793012d9e333cb07ebaf540c93cbf034534fb7d2502487dfbd0f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8041728,
+          "addend": 0,
+          "resolved": 8041728
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11259472,
+          "addend": 0,
+          "resolved": 11259472
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835712,
+      "method": "00684e00",
+      "body_bytes": 19,
+      "body_sha256": "268144e23cc464a9e8ae4f24984a7769a1ad8d025194755701e51912c42956a3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "277774001cc836d35732772efc2301fb12f713872c64c61fba953df965419861",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8041728,
+          "addend": 0,
+          "resolved": 8041728
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11259408,
+          "addend": 0,
+          "resolved": 11259408
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835744,
+      "method": "00684e20",
+      "body_bytes": 49,
+      "body_sha256": "a8c4ba5498342e9eb4693689ef43d589400fc146806cc49c3288b36e55507bf5",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "95610235700573379170343cfe1f4c00af8e006a702207dd672b96f30aa23746",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11259408,
+          "addend": 0,
+          "resolved": 11259408
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11259472,
+          "addend": 0,
+          "resolved": 11259472
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293089001
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259464,
+          "addend": 0,
+          "resolved": 11259464
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1024709
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259544,
+          "addend": 0,
+          "resolved": 11259544
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835808,
+      "method": "00684e60",
+      "body_bytes": 33,
+      "body_sha256": "7ad494b119cdfdb87de8508276f9c506e748a5bdb14ce88ac487a1c96573d559",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "2166ef1cc86f5beddee8b9c45939010a2290a211a80654e9cca4bd91b7c4e938",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259544,
+          "addend": 0,
+          "resolved": 11259544
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293089081
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11259480,
+          "addend": 0,
+          "resolved": 11259480
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835856,
+      "method": "00684e90",
+      "body_bytes": 44,
+      "body_sha256": "83221a41f38bb2538d1a21b203fd169a7c95f2ef63ebec4a6f11f5a0647c7574",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "bc9cf96d8466e0e06e70356aa4c90e7017303cfb5b83491c7e8da78d4811b0fd",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259544,
+          "addend": 0,
+          "resolved": 11259544
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11259464,
+          "addend": 0,
+          "resolved": 11259464
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293089022
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11259504,
+          "addend": 0,
+          "resolved": 11259504
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835904,
+      "method": "00684ec0",
+      "body_bytes": 39,
+      "body_sha256": "3f76af08113d7ead18d99117bd1615a0700b2f1ee5b550f922265373f0c41316",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "615e1e36d0dde0e3f09b7be5a594168a59c8baba10645d6cc1058fb712160d06",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11259544,
+          "addend": 0,
+          "resolved": 11259544
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1024560
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11259528,
+          "addend": 0,
+          "resolved": 11259528
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835952,
+      "method": "00684ef0",
+      "body_bytes": 15,
+      "body_sha256": "a9c731dd1b83c99913e2a90860f8bdfe24bc2f8e107f867a2fab0dad5fba70c5",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6aa0e40e1add674ff75c6388843b29df0f063986386b4efd4c69b99824d3332c",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11259456,
+          "addend": 0,
+          "resolved": 11259456
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11259456,
+          "addend": 2,
+          "resolved": 11259458
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6835968,
+      "method": "00684f00",
+      "body_bytes": 18,
+      "body_sha256": "e5e96f94485a5d13de52b4e87d7a6f891355b0852ac611964b6b263679055cf9",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "817b9d1cb4eb58437f7e22190594feb88726b352b161ba4bb22d327955840bb8",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259488,
+          "addend": 0,
+          "resolved": 11259488
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259488,
+          "addend": 4,
+          "resolved": 11259492
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11259488,
+          "addend": 8,
+          "resolved": 11259496
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6835968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6836000,
+      "method": "00684f20",
+      "body_bytes": 23,
+      "body_sha256": "0d0c3c9b7364678f3e3497d3c027083794ed369f77ef7a5aca0591d3bee7d28f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "de35c6d4d36072825c0de686ab852f59a39d48987ae904f8002911e5346d0fdb",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259440,
+          "addend": 0,
+          "resolved": 11259440
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259440,
+          "addend": 4,
+          "resolved": 11259444
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259440,
+          "addend": 8,
+          "resolved": 11259448
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11259440,
+          "addend": 12,
+          "resolved": 11259452
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6836000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6836032,
+      "method": "00684f40",
+      "body_bytes": 61,
+      "body_sha256": "422f9ef2309b0d01fd8c4d5fddcedfac098600f93ac28f68ba0480c6286ff0b7",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f5ec125c03d1a9882c550c06df4eab40a7978c086c34b622d3fd05e5561d8675",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E230",
+      "symbol_prefix": "_$E230",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E228",
+          "target": 6836096,
+          "addend": 0,
+          "resolved": 6836096
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 12,
+          "resolved": 11259428
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@UUndoInfoStruct@@@@6B@",
+          "target": 8041740,
+          "addend": 0,
+          "resolved": 8041740
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 20,
+          "resolved": 11259436
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1038863
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6836032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6836096,
+      "method": "00684f80",
+      "body_bytes": 59,
+      "body_sha256": "5658ea07f2d00fa775bd12861b9881adee8eaa02695329b9c019249dd6b59c99",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "122261ff43b15d10fc87776f28633b0b4222470f8b31291f4bf31dbea0113a13",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E228",
+      "symbol_prefix": "_$E228",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UUndoInfoStruct@@@@6B@",
+          "target": 8041772,
+          "addend": 0,
+          "resolved": 8041772
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1035671
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6836096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6836160,
+      "method": "00684fc0",
+      "body_bytes": 111,
+      "body_sha256": "b591406ea1e750112be2d9cf233a08585f4ce8035fade80592510eb61c46ac48",
+      "padding_bytes": 1,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "1850757589da78fceaac3c4ead973c0caa012e1acfa27aebfef0da6fdbc3bdf3",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Record_Deform_Undo@@YIXABVPoint2D@@H@Z",
+      "symbol_prefix": "?Record_Deform_Undo@@YIXABVPoint2D@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 20,
+          "resolved": 11259436
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6836160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6836272,
+      "method": "00685030",
+      "body_bytes": 122,
+      "body_sha256": "22f04b831e0d2acdcdd5e3a1cf59bb3334508e394a900ecc1932960f31c819e9",
+      "padding_bytes": 6,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "73a99cd94757cde18112a1bdbce32deed047aeb76e81c15d9f43e6997a24bec9",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Undo_Deform@@YIXXZ",
+      "symbol_prefix": "?Undo_Deform@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1035432
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6836272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6836400,
+      "method": "006850b0",
+      "body_bytes": 149,
+      "body_sha256": "7280ead85419b477d5c9163a5e62f245dc479379efb933a828797232e7b223dd",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "e3a395b0010ae029a36567cf4a1f6198427973a3ed5fbda85d56110741b9aed0",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Can_Deform_Cell_RMG@@YI_NPAVCellClass@@_N@Z",
+      "symbol_prefix": "?Can_Deform_Cell_RMG@@YI_NPAVCellClass@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?MapStartDiagonal@MapRegionClass@@2HA",
+          "target": 10947100,
+          "addend": 0,
+          "resolved": 10947100
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?MapEndDiagonal@MapRegionClass@@2HA",
+          "target": 10947104,
+          "addend": 0,
+          "resolved": 10947104
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?Get_Cell_Data@MapRegionClass@@SIAAUCellData@1@ABVCell@@@Z",
+          "target": 5692320,
+          "addend": 0,
+          "resolved": 4293823127
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 16,
+          "resolved": 10751200
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6836400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6836560,
+      "method": "00685150",
+      "body_bytes": 306,
+      "body_sha256": "d8bb118ade7cccfa63ab8aa798b197377b4a59235408567f186b588424715e23",
+      "padding_bytes": 14,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "c3b1ed6b09d1216df290ab7f781eea11595c36a9270cc546ebba6ba74d0c2e73",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Can_Deform_Cell@@YI_NPAVCellClass@@_N@Z",
+      "symbol_prefix": "?Can_Deform_Cell@@YI_NPAVCellClass@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 2,
+          "resolved": 8723058
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293668496
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 24,
+          "resolved": 8723080
+        },
+        {
+          "offset": 181,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 26,
+          "resolved": 8723082
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293668422
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 247,
+          "kind": 20,
+          "symbol": "?In_Radar@MapClass@@QBE_NABVCell@@@Z",
+          "target": 5548720,
+          "addend": 0,
+          "resolved": 4293679205
+        },
+        {
+          "offset": 259,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 16,
+          "resolved": 10751200
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6836560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6836880,
+      "method": "00685290",
+      "body_bytes": 866,
+      "body_sha256": "59fea4c7e38bea242b29a688b60c576e531c2d40fe35a84038417b2ac9baba9b",
+      "padding_bytes": 14,
+      "full_extent_bytes": 880,
+      "full_extent_sha256": "8c4ecc5fe79f0549d861cdeabfebae274f4c37f7c7cd9dbdbfbdfb67ceb84fa0",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Deform_Grid@@YIXVCell@@_N@Z",
+      "symbol_prefix": "?Init_Deform_Grid@@YIXVCell@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1034895
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1035587
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?DeformPointHeight@@3HA",
+          "target": 8554208,
+          "addend": 0,
+          "resolved": 8554208
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 292,
+          "resolved": 8594948
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 288,
+          "resolved": 8594944
+        },
+        {
+          "offset": 237,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        },
+        {
+          "offset": 276,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 292,
+          "resolved": 8594948
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 376,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 382,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 401,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 288,
+          "resolved": 8594944
+        },
+        {
+          "offset": 420,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 436,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 292,
+          "resolved": 8594948
+        },
+        {
+          "offset": 453,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        },
+        {
+          "offset": 472,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 478,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293667838
+        },
+        {
+          "offset": 498,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 503,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293667813
+        },
+        {
+          "offset": 517,
+          "kind": 6,
+          "symbol": "__ramp_corners",
+          "target": 8339828,
+          "addend": 0,
+          "resolved": 8339828
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 542,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293667774
+        },
+        {
+          "offset": 555,
+          "kind": 20,
+          "symbol": "?Can_Deform_Cell@@YI_NPAVCellClass@@_N@Z",
+          "target": 6836560,
+          "addend": 0,
+          "resolved": 4294966417
+        },
+        {
+          "offset": 596,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 606,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293667710
+        },
+        {
+          "offset": 615,
+          "kind": 20,
+          "symbol": "?Can_Deform_Cell@@YI_NPAVCellClass@@_N@Z",
+          "target": 6836560,
+          "addend": 0,
+          "resolved": 4294966357
+        },
+        {
+          "offset": 653,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 662,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293667654
+        },
+        {
+          "offset": 671,
+          "kind": 20,
+          "symbol": "?Can_Deform_Cell@@YI_NPAVCellClass@@_N@Z",
+          "target": 6836560,
+          "addend": 0,
+          "resolved": 4294966301
+        },
+        {
+          "offset": 713,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 718,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293667598
+        },
+        {
+          "offset": 727,
+          "kind": 20,
+          "symbol": "?Can_Deform_Cell@@YI_NPAVCellClass@@_N@Z",
+          "target": 6836560,
+          "addend": 0,
+          "resolved": 4294966245
+        },
+        {
+          "offset": 829,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6836880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6837760,
+      "method": "00685600",
+      "body_bytes": 1209,
+      "body_sha256": "c3c04110824179ba6d278fc625d7bfa488a3f6b5035f72382a62fd7cc3d90d21",
+      "padding_bytes": 7,
+      "full_extent_bytes": 1216,
+      "full_extent_sha256": "02add4d5d40dd79d08ef04f9a55120e6f73fa732bb2dd521c057c4b287287baa",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Deform_Grid_RMG@@YIXXZ",
+      "symbol_prefix": "?Init_Deform_Grid_RMG@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1034021
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1034713
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 288,
+          "resolved": 8594944
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 292,
+          "resolved": 8594948
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?DeformPointHeight@@3HA",
+          "target": 8554208,
+          "addend": 0,
+          "resolved": 8554208
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 299,
+          "kind": 6,
+          "symbol": "?MapStartDiagonal@MapRegionClass@@2HA",
+          "target": 10947100,
+          "addend": 0,
+          "resolved": 10947100
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "?MapEndDiagonal@MapRegionClass@@2HA",
+          "target": 10947104,
+          "addend": 0,
+          "resolved": 10947104
+        },
+        {
+          "offset": 465,
+          "kind": 6,
+          "symbol": "?MapEndDiagonal@MapRegionClass@@2HA",
+          "target": 10947104,
+          "addend": 0,
+          "resolved": 10947104
+        },
+        {
+          "offset": 481,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 486,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293666950
+        },
+        {
+          "offset": 493,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 511,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293666925
+        },
+        {
+          "offset": 525,
+          "kind": 6,
+          "symbol": "__ramp_corners",
+          "target": 8339828,
+          "addend": 0,
+          "resolved": 8339828
+        },
+        {
+          "offset": 552,
+          "kind": 6,
+          "symbol": "?MapStartDiagonal@MapRegionClass@@2HA",
+          "target": 10947100,
+          "addend": 0,
+          "resolved": 10947100
+        },
+        {
+          "offset": 601,
+          "kind": 6,
+          "symbol": "?MapEndDiagonal@MapRegionClass@@2HA",
+          "target": 10947104,
+          "addend": 0,
+          "resolved": 10947104
+        },
+        {
+          "offset": 631,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 640,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293666796
+        },
+        {
+          "offset": 658,
+          "kind": 20,
+          "symbol": "?My_In_Radar@@YI_NABVCell@@@Z",
+          "target": 5822992,
+          "addend": 0,
+          "resolved": 4293951866
+        },
+        {
+          "offset": 694,
+          "kind": 20,
+          "symbol": "?Get_Cell_Data@MapRegionClass@@SIAAUCellData@1@ABVCell@@@Z",
+          "target": 5692320,
+          "addend": 0,
+          "resolved": 4293821158
+        },
+        {
+          "offset": 709,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 16,
+          "resolved": 10751200
+        },
+        {
+          "offset": 727,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 753,
+          "kind": 6,
+          "symbol": "?MapStartDiagonal@MapRegionClass@@2HA",
+          "target": 10947100,
+          "addend": 0,
+          "resolved": 10947100
+        },
+        {
+          "offset": 812,
+          "kind": 6,
+          "symbol": "?MapEndDiagonal@MapRegionClass@@2HA",
+          "target": 10947104,
+          "addend": 0,
+          "resolved": 10947104
+        },
+        {
+          "offset": 842,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 851,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293666585
+        },
+        {
+          "offset": 869,
+          "kind": 20,
+          "symbol": "?My_In_Radar@@YI_NABVCell@@@Z",
+          "target": 5822992,
+          "addend": 0,
+          "resolved": 4293951655
+        },
+        {
+          "offset": 905,
+          "kind": 20,
+          "symbol": "?Get_Cell_Data@MapRegionClass@@SIAAUCellData@1@ABVCell@@@Z",
+          "target": 5692320,
+          "addend": 0,
+          "resolved": 4293820947
+        },
+        {
+          "offset": 920,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 16,
+          "resolved": 10751200
+        },
+        {
+          "offset": 938,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 964,
+          "kind": 6,
+          "symbol": "?MapStartDiagonal@MapRegionClass@@2HA",
+          "target": 10947100,
+          "addend": 0,
+          "resolved": 10947100
+        },
+        {
+          "offset": 1004,
+          "kind": 6,
+          "symbol": "?MapEndDiagonal@MapRegionClass@@2HA",
+          "target": 10947104,
+          "addend": 0,
+          "resolved": 10947104
+        },
+        {
+          "offset": 1039,
+          "kind": 20,
+          "symbol": "??H?$TPoint2D@F@@QBE?BV0@ABV0@@Z",
+          "target": 4369872,
+          "addend": 0,
+          "resolved": 4292498365
+        },
+        {
+          "offset": 1055,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1060,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293666376
+        },
+        {
+          "offset": 1069,
+          "kind": 20,
+          "symbol": "?Can_Deform_Cell_RMG@@YI_NPAVCellClass@@_N@Z",
+          "target": 6836400,
+          "addend": 0,
+          "resolved": 4294964863
+        },
+        {
+          "offset": 1090,
+          "kind": 20,
+          "symbol": "?My_In_Radar@@YI_NABVCell@@@Z",
+          "target": 5822992,
+          "addend": 0,
+          "resolved": 4293951434
+        },
+        {
+          "offset": 1104,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1109,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293666327
+        },
+        {
+          "offset": 1118,
+          "kind": 20,
+          "symbol": "?Can_Deform_Cell_RMG@@YI_NPAVCellClass@@_N@Z",
+          "target": 6836400,
+          "addend": 0,
+          "resolved": 4294964814
+        },
+        {
+          "offset": 1159,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 1178,
+          "kind": 6,
+          "symbol": "?DeformPointHeight@@3HA",
+          "target": 8554208,
+          "addend": 0,
+          "resolved": 8554208
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6837760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6838976,
+      "method": "00685ac0",
+      "body_bytes": 2327,
+      "body_sha256": "49ab018897404f5b0309d9bd7dfa4ccd3aefffb3c8ca7200d5c431eac5ac0148",
+      "padding_bytes": 9,
+      "full_extent_bytes": 2336,
+      "full_extent_sha256": "8d36368c9f058b84fec962c427e0e0be1c90773cc622435ff6f72af5b1656abe",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Commit_Deform_Grid@@YI_NVCell@@_N@Z",
+      "symbol_prefix": "?Commit_Deform_Grid@@YI_NVCell@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 288,
+          "resolved": 8594944
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 292,
+          "resolved": 8594948
+        },
+        {
+          "offset": 212,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAVObjectClass@@@@QAE@HPBQAVObjectClass@@@Z",
+          "target": 4979664,
+          "addend": 0,
+          "resolved": 4293107768
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVObjectClass@@@@6B@",
+          "target": 7986044,
+          "addend": 0,
+          "resolved": 7986044
+        },
+        {
+          "offset": 284,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293665863
+        },
+        {
+          "offset": 370,
+          "kind": 20,
+          "symbol": "?Can_Deform_Cell@@YI_NPAVCellClass@@_N@Z",
+          "target": 6836560,
+          "addend": 0,
+          "resolved": 4294964506
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 409,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 572,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1032251
+        },
+        {
+          "offset": 726,
+          "kind": 20,
+          "symbol": "?Cell_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ",
+          "target": 4674224,
+          "addend": 0,
+          "resolved": 4292801814
+        },
+        {
+          "offset": 788,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 803,
+          "kind": 20,
+          "symbol": "?Lower_Max_Level@MapClass@@QAEXH@Z",
+          "target": 5679216,
+          "addend": 0,
+          "resolved": 4293806729
+        },
+        {
+          "offset": 821,
+          "kind": 20,
+          "symbol": "?Remove_Fogged_Objects@CellClass@@QAEXXZ",
+          "target": 4701792,
+          "addend": 0,
+          "resolved": 4292829287
+        },
+        {
+          "offset": 830,
+          "kind": 20,
+          "symbol": "?Recalc_Attributes@CellClass@@QAEXH@Z",
+          "target": 4662592,
+          "addend": 0,
+          "resolved": 4292790078
+        },
+        {
+          "offset": 848,
+          "kind": 6,
+          "symbol": "?SmudgeTypes@@3V?$DynamicVectorClass@PAVSmudgeTypeClass@@@@A",
+          "target": 10750920,
+          "addend": 4,
+          "resolved": 10750924
+        },
+        {
+          "offset": 964,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 969,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293665251
+        },
+        {
+          "offset": 1014,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1028,
+          "kind": 20,
+          "symbol": "?Radar_Background@RadarClass@@QAEXABVCell@@@Z",
+          "target": 6493552,
+          "addend": 0,
+          "resolved": 4294620840
+        },
+        {
+          "offset": 1135,
+          "kind": 6,
+          "symbol": "__ramp_corners",
+          "target": 8339828,
+          "addend": 0,
+          "resolved": 8339828
+        },
+        {
+          "offset": 1180,
+          "kind": 6,
+          "symbol": "__ramp_corners",
+          "target": 8339828,
+          "addend": 76,
+          "resolved": 8339904
+        },
+        {
+          "offset": 1219,
+          "kind": 6,
+          "symbol": "?ClearTile@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10825472,
+          "addend": 0,
+          "resolved": 10825472
+        },
+        {
+          "offset": 1226,
+          "kind": 6,
+          "symbol": "?RampStart@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936344,
+          "addend": 0,
+          "resolved": 10936344
+        },
+        {
+          "offset": 1242,
+          "kind": 20,
+          "symbol": "?Recalc_Attributes@CellClass@@QAEXH@Z",
+          "target": 4662592,
+          "addend": 0,
+          "resolved": 4292789666
+        },
+        {
+          "offset": 1255,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1264,
+          "kind": 20,
+          "symbol": "?Radar_Background@RadarClass@@QAEXABVCell@@@Z",
+          "target": 6493552,
+          "addend": 0,
+          "resolved": 4294620604
+        },
+        {
+          "offset": 1279,
+          "kind": 20,
+          "symbol": "?Cell_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ",
+          "target": 4674224,
+          "addend": 0,
+          "resolved": 4292801261
+        },
+        {
+          "offset": 1727,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 1783,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 1789,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1031034
+        },
+        {
+          "offset": 1802,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 1819,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 1846,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1851,
+          "kind": 20,
+          "symbol": "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z",
+          "target": 6959136,
+          "addend": 0,
+          "resolved": 118305
+        },
+        {
+          "offset": 1950,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1960,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293664260
+        },
+        {
+          "offset": 1977,
+          "kind": 20,
+          "symbol": "?Cell_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ",
+          "target": 4674224,
+          "addend": 0,
+          "resolved": 4292800563
+        },
+        {
+          "offset": 2002,
+          "kind": 20,
+          "symbol": "?Fixup_LAT@CellClass@@QAE_NXZ",
+          "target": 4660496,
+          "addend": 0,
+          "resolved": 4292786810
+        },
+        {
+          "offset": 2025,
+          "kind": 20,
+          "symbol": "?Cell_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ",
+          "target": 4674224,
+          "addend": 0,
+          "resolved": 4292800515
+        },
+        {
+          "offset": 2186,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 2192,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 2219,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 2233,
+          "kind": 20,
+          "symbol": "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z",
+          "target": 6959136,
+          "addend": 0,
+          "resolved": 117923
+        },
+        {
+          "offset": 2287,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
+          "target": 7973148,
+          "addend": 0,
+          "resolved": 7973148
+        },
+        {
+          "offset": 2305,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1030518
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6838976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6841312,
+      "method": "006863e0",
+      "body_bytes": 557,
+      "body_sha256": "a817f28605a63dae3a31dc4f6a7de6c8dd69aae93d216dca2b91aa3245aec4b9",
+      "padding_bytes": 3,
+      "full_extent_bytes": 560,
+      "full_extent_sha256": "0a6dc417ee9ee0a4389d7dff49d0f61bd0f7c5a453c1b3559569650cc7a1d582",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Commit_Deform_Grid_RMG@@YI_NXZ",
+      "symbol_prefix": "?Commit_Deform_Grid_RMG@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+          "target": 5612880,
+          "addend": 0,
+          "resolved": 4293738851
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4293738649
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "?MapStartDiagonal@MapRegionClass@@2HA",
+          "target": 10947100,
+          "addend": 0,
+          "resolved": 10947100
+        },
+        {
+          "offset": 263,
+          "kind": 6,
+          "symbol": "?MapEndDiagonal@MapRegionClass@@2HA",
+          "target": 10947104,
+          "addend": 0,
+          "resolved": 10947104
+        },
+        {
+          "offset": 310,
+          "kind": 20,
+          "symbol": "?Get_Cell_Data@MapRegionClass@@SIAAUCellData@1@ABVCell@@@Z",
+          "target": 5692320,
+          "addend": 0,
+          "resolved": 4293817990
+        },
+        {
+          "offset": 330,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 16,
+          "resolved": 10751200
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 426,
+          "kind": 6,
+          "symbol": "__ramp_corners",
+          "target": 8339828,
+          "addend": 0,
+          "resolved": 8339828
+        },
+        {
+          "offset": 465,
+          "kind": 6,
+          "symbol": "__ramp_corners",
+          "target": 8339828,
+          "addend": 76,
+          "resolved": 8339904
+        },
+        {
+          "offset": 485,
+          "kind": 6,
+          "symbol": "?ClearTile@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10825472,
+          "addend": 0,
+          "resolved": 10825472
+        },
+        {
+          "offset": 492,
+          "kind": 6,
+          "symbol": "?RampStart@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936344,
+          "addend": 0,
+          "resolved": 10936344
+        },
+        {
+          "offset": 504,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 509,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4293738159
+        },
+        {
+          "offset": 531,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 537,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1029950
+        },
+        {
+          "offset": 543,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6841312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6841872,
+      "method": "00686610",
+      "body_bytes": 587,
+      "body_sha256": "13618d2527ced39d3a3f4d53d8b42c3b91cc5ee52a936dfa1ef9f4dab4702e9b",
+      "padding_bytes": 5,
+      "full_extent_bytes": 592,
+      "full_extent_sha256": "e4967f9fdd9486486ef15e659e3a25f2c84a36f1b7c3b7123acb6bb0f6022d08",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Ripple_Deform_Points@@YI_NVPoint2D@@H_N@Z",
+      "symbol_prefix": "?Ripple_Deform_Points@@YI_NVPoint2D@@H_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "?DeformPointHeight@@3HA",
+          "target": 8554208,
+          "addend": 0,
+          "resolved": 8554208
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 276,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 290,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 20,
+          "resolved": 11259436
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 323,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 338,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 371,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        },
+        {
+          "offset": 377,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 387,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 401,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 20,
+          "resolved": 11259436
+        },
+        {
+          "offset": 411,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 421,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 434,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 443,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 449,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 509,
+          "kind": 20,
+          "symbol": "?Ripple_Deform_Points@@YI_NVPoint2D@@H_N@Z",
+          "target": 6841872,
+          "addend": 0,
+          "resolved": 4294966783
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6841872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6842464,
+      "method": "00686860",
+      "body_bytes": 393,
+      "body_sha256": "9e04f91d8405076ac741e69fac6f55c45d9d28773c473e3a9f1157ae82df5c10",
+      "padding_bytes": 7,
+      "full_extent_bytes": 400,
+      "full_extent_sha256": "c9bf7051ef0573ca7d4bb24e1ac7a6204c227a0408f9d786d676df82bd8de47c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Deform_Cell@@YI_NVCell@@H_NH@Z",
+      "symbol_prefix": "?Deform_Cell@@YI_NVCell@@H_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1029293
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?Init_Deform_Grid@@YIXVCell@@_N@Z",
+          "target": 6836880,
+          "addend": 0,
+          "resolved": 4294961630
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 250,
+          "kind": 20,
+          "symbol": "?Ripple_Deform_Points@@YI_NVPoint2D@@H_N@Z",
+          "target": 6841872,
+          "addend": 0,
+          "resolved": 4294966450
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1029031
+        },
+        {
+          "offset": 313,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 340,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1028995
+        },
+        {
+          "offset": 349,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 379,
+          "kind": 20,
+          "symbol": "?Commit_Deform_Grid@@YI_NVCell@@_N@Z",
+          "target": 6838976,
+          "addend": 0,
+          "resolved": 4294963425
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6842464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6842864,
+      "method": "006869f0",
+      "body_bytes": 669,
+      "body_sha256": "7050200ced0f964d7cfaf728c6331d39b35ed004f90db664dbae1b0a67d7cdf4",
+      "padding_bytes": 3,
+      "full_extent_bytes": 672,
+      "full_extent_sha256": "38510bd343666bbf2e24d5e5effacc37a3f1c6673ce365a81e716d3714ff02fd",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Deform_Cell_RMG@@YI_NVCell@@H_NH@Z",
+      "symbol_prefix": "?Deform_Cell_RMG@@YI_NVCell@@H_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1028889
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 280,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 20,
+          "resolved": 11259436
+        },
+        {
+          "offset": 290,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 0,
+          "resolved": 11259416
+        },
+        {
+          "offset": 313,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 372,
+          "kind": 20,
+          "symbol": "?Ripple_Deform_Points@@YI_NVPoint2D@@H_N@Z",
+          "target": 6841872,
+          "addend": 0,
+          "resolved": 4294965928
+        },
+        {
+          "offset": 474,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 498,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 516,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 528,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 542,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 564,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 582,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 594,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 605,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 611,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 16,
+          "resolved": 11259432
+        },
+        {
+          "offset": 621,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        },
+        {
+          "offset": 631,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1028304
+        },
+        {
+          "offset": 640,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 4,
+          "resolved": 11259420
+        },
+        {
+          "offset": 646,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 8,
+          "resolved": 11259424
+        },
+        {
+          "offset": 655,
+          "kind": 6,
+          "symbol": "?UndoRecords@@3V?$DynamicVectorClass@UUndoInfoStruct@@@@A",
+          "target": 11259416,
+          "addend": 13,
+          "resolved": 11259429
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6842864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6843536,
+      "method": "00686c90",
+      "body_bytes": 306,
+      "body_sha256": "a2bbb6a7bef7b16a22522c5decf04d723d1769b9c8b791d075f5e80796cfa88b",
+      "padding_bytes": 14,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "344dc00599d753d54d2dcf1f0adc21d1ff53095721f5995438e16e56bfdffb51",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Deformed_Cell_Height@@YIHPAVCellClass@@@Z",
+      "symbol_prefix": "?Get_Deformed_Cell_Height@@YIHPAVCellClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?MapStartDiagonal@MapRegionClass@@2HA",
+          "target": 10947100,
+          "addend": 0,
+          "resolved": 10947100
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "?MapEndDiagonal@MapRegionClass@@2HA",
+          "target": 10947104,
+          "addend": 0,
+          "resolved": 10947104
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "?Get_Cell_Data@MapRegionClass@@SIAAUCellData@1@ABVCell@@@Z",
+          "target": 5692320,
+          "addend": 0,
+          "resolved": 4293815868
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 16,
+          "resolved": 10751200
+        },
+        {
+          "offset": 241,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6843536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6843856,
+      "method": "00686dd0",
+      "body_bytes": 365,
+      "body_sha256": "7d17fd6e198f09f59d51d6a9270b43ccacef65ac8380d93dffc7c8ad0fdcaf9a",
+      "padding_bytes": 3,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "9ab6c11308839b8d15c90adfb8370d8f0e06b38fd4bd865575e6e90d4f84495b",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Deformable_Cell_Corners@@YIHPAVCellClass@@H@Z",
+      "symbol_prefix": "?Get_Deformable_Cell_Corners@@YIHPAVCellClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?DeformPointWidth@@3HA",
+          "target": 8554212,
+          "addend": 0,
+          "resolved": 8554212
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?DeformPointXAdd@@3HA",
+          "target": 8554216,
+          "addend": 0,
+          "resolved": 8554216
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "?DeformPointYAdd@@3HA",
+          "target": 8554220,
+          "addend": 0,
+          "resolved": 8554220
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "_DeformPoints",
+          "target": 11259564,
+          "addend": 0,
+          "resolved": 11259564
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6843856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6844224,
+      "method": "00686f40",
+      "body_bytes": 42,
+      "body_sha256": "7eb184790f2dbcf4d3efdac218d9b4cf46a176604a848b32c88342d4843fb7d0",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ff23806f079c0ef75f7d4e1a1b5ad8fffa8377175ab9c25b30bb58bd48527f7f",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1027552
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6844224,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6844272,
+      "method": "00686f70",
+      "body_bytes": 36,
+      "body_sha256": "9dcefccc4d67c0cb9c6f89fd70c7f511db358042a092bd600df3de62832feb54",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "68ffc8ce258c8e5594dacacb26abcaff55e8620a198e68d48fba0c8b750352fd",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6844272,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6844320,
+      "method": "00686fa0",
+      "body_bytes": 40,
+      "body_sha256": "0a628aea233e5e008872b6299e87205d87498a61c1deb0804f83daa179addb82",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e55485338a5167962b08348dfa4c034063dffa5fff41bb840289861761102e8f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@UUndoInfoStruct@@@@UBE?AUUndoInfoStruct@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@UUndoInfoStruct@@@@UBE?AUUndoInfoStruct@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6844320,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6844368,
+      "method": "00686fd0",
+      "body_bytes": 92,
+      "body_sha256": "7fecea8addb8c18895818c1b28b6f6a75c66def1aa8aebd06920f05826f3b8f4",
+      "padding_bytes": 4,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "ab430173e2f0ea084db3e80dee6a16a5ab45e25bd68622cc75e01269bf5ca1da",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@UUndoInfoStruct@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@UUndoInfoStruct@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6844368,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 6844464,
+      "method": "00687030",
+      "body_bytes": 253,
+      "body_sha256": "4431e5c7f1ffcc6128b65db3e525c67454e4dee8db2973a9ac078e03d95fb331",
+      "padding_bytes": 3,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "f9b31be20e6b7d8b1e090f74c0babd201fdbc8f4de918de3e8fd8d728e8f8e43",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@UUndoInfoStruct@@@@UAE_NHPBUUndoInfoStruct@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@UUndoInfoStruct@@@@UAE_NHPBUUndoInfoStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1028027
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1027137
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6844464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6844720,
+      "method": "00687130",
+      "body_bytes": 39,
+      "body_sha256": "8a8ab8f3c78c9581ceaeaad253d7be4669af06acae0313f465b3af11e8d53b09",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "617496588ae55e89ae290c33d0e2015b9718ceedf1820c1a83c6463c3b441371",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@UUndoInfoStruct@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@UUndoInfoStruct@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1027059
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6844720,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6844768,
+      "method": "00687160",
+      "body_bytes": 80,
+      "body_sha256": "ce7929f88c214ac4b7ce4d0c5450c8214825282f86e39e892c56d631b8f5a1ec",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ce7929f88c214ac4b7ce4d0c5450c8214825282f86e39e892c56d631b8f5a1ec",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6844768,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 6844848,
+      "method": "006871b0",
+      "body_bytes": 36,
+      "body_sha256": "9dcefccc4d67c0cb9c6f89fd70c7f511db358042a092bd600df3de62832feb54",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "68ffc8ce258c8e5594dacacb26abcaff55e8620a198e68d48fba0c8b750352fd",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@UUndoInfoStruct@@@@UAEHPBUUndoInfoStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6844848,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6844896,
+      "method": "006871e0",
+      "body_bytes": 259,
+      "body_sha256": "d245226be6a2a62c98118111521b4302260734f9b027af0430a5e6e4ad7d1b29",
+      "padding_bytes": 13,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "45641f31f96e6a47a9cdb80596b1ecc232923e159d6e4d70298a5425e6881112",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@UUndoInfoStruct@@@@UAE_NHPBUUndoInfoStruct@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@UUndoInfoStruct@@@@UAE_NHPBUUndoInfoStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1027595
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1026714
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6844896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6845168,
+      "method": "006872f0",
+      "body_bytes": 64,
+      "body_sha256": "1ad91110d3e1316a78594bfa7522d2620215b24e678d7a4ee725d11b58a81bb7",
+      "padding_bytes": 0,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1ad91110d3e1316a78594bfa7522d2620215b24e678d7a4ee725d11b58a81bb7",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@UUndoInfoStruct@@@@UAEHABUUndoInfoStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6845168,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 6845232,
+      "method": "687330",
+      "body_bytes": 73,
+      "body_sha256": "5c6855cd6d071a9db30543d29d7fc581e39d5e52a37b662a93b714f70390c67c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "e4a36d34363fd42cc320c8b0e4c678c8f9a51039e851bfd1d1e23cde07f28d64",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UUndoInfoStruct@@@@6B@",
+          "target": 8041772,
+          "addend": 0,
+          "resolved": 8041772
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1026542
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1026507
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6845232,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6845312,
+      "method": "687380",
+      "body_bytes": 73,
+      "body_sha256": "054233516109ac046ac054999f65abefd19fe7e561cf7b3298369f9cca9a99a9",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "3e71dade4f25c37ced682eec8e07a8d6ba60f6e69a69554c05d9442456ab277d",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@UUndoInfoStruct@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UUndoInfoStruct@@@@6B@",
+          "target": 8041772,
+          "addend": 0,
+          "resolved": 8041772
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1026462
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1026427
+        }
+      ],
+      "source_sha256": "449aa153b87c9e20e955f861cbb4b1f6e360cf7de721d1311135242fd6b4040e",
+      "source": "rebuild/src/smartdeform.cpp",
+      "population": "rebuild-smartdeform",
+      "source_order": 6845312,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ original lacks), tooling (a tool cannot yet audit the unit), mismatch (own rows 
 (an emitted function, initializer or data section is not bound to a row), owner (anything else).
 Worker and the catalog-derived kinds are recomputed every run; a header or tooling note is written by
 hand (--note) and kept until the unit lands or a new note replaces it, because the catalog line alone
-does not say why a header is wrong. Units that are no longer pending lose both fields.
+does not say why a header is wrong; any kind set with --note is kept the same way (held_manual). Units that are no longer pending lose both fields.
 """
 import collections
 import csv
@@ -59,14 +59,16 @@ def main(argv):
         if info['status'] != 'pending':
             info.pop('held_reason', None)
             info.pop('held_note', None)
+            info.pop('held_manual', None)
             continue
         r0 = (reasons.get(u) or ['no catalog line'])[0]
         holder = info.get('holder') or workers.get(u) or IN_TRANSIT.get(u)
         if u in notes:
             kind, note = notes[u]
+            info['held_manual'] = True
         elif holder:
             kind, note = 'worker', '%s; catalog: %s' % (holder, r0[:120])
-        elif info.get('held_reason') in MANUAL and info.get('held_note'):
+        elif (info.get('held_manual') or info.get('held_reason') in MANUAL) and info.get('held_note'):
             kind, note = info['held_reason'], info['held_note']
         else:
             kind, note = classify(r0), r0[:160]

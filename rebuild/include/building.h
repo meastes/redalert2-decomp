@@ -394,7 +394,7 @@ class BuildingClass : public TechnoClass
 		virtual void Compute_CRC(CRCEngine &) const override;
 		virtual void const * Get_Image_Data(void) const override;
 		virtual int How_Many_Survivors(void) const override;
-		void Scatter_Incoming_Infantry(void) const; // RA2: not a virtual
+		virtual void Scatter_Incoming_Infantry(void) const override;
 		int Get_Collateral_Damage(void) const; // RA2: not a virtual
 		virtual int Get_Z_Adjust(void) const override;
 		virtual bool Is_Move_Override(void) const override;

@@ -18,6 +18,7 @@ class MultiplayerSiegeDefenderTeam : public MultiplayerTeam
 	public:
 		MultiplayerSiegeDefenderTeam(void);
 		virtual ~MultiplayerSiegeDefenderTeam(void);
+		virtual bool IsTeamIncluded(int index) override;
 };
 
 class MultiplayerSiegeAttackerTeam : public MultiplayerTeam

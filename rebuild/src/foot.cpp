@@ -395,7 +395,7 @@ bool FootClass::Is_In_Same_Zone(Coord const & coord) const
 bool FootClass::Basic_Path(Cell cell, int path_offset, int avoidance)
 {
 	/// simplifies movement zone types
-	static const MZoneType _simple_mzone[MZONE_COUNT] = {
+	static const MZoneType _simple_mzone[] = { // RA2: twelve entries, the water zones map to themselves
 		MZONE_NORMAL,
 		MZONE_NORMAL,
 		MZONE_NORMAL,
@@ -406,6 +406,8 @@ bool FootClass::Basic_Path(Cell cell, int path_offset, int avoidance)
 		MZONE_INFANTRY,
 		MZONE_INFANTRY,
 		MZONE_FLYER,
+		MZONE_WATER,
+		MZONE_WATER_BEACH,
 	};
 
 	PathStruct		* path;			// Pointer to path control structure.
@@ -1351,7 +1353,7 @@ void FootClass::Approach_Target(void)
 				floating_radius = (double)range; // RA2: as above
 				do { // RA2: as above
 					for (int index = 0; index < 25; index++) { // RA2: 25 angles in the table at 0x7D8178
-						static const int _approach_angles[25] = {0, 1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6, 8, -8, 16, -16, 24, -24, 32, -32, 48, -48, 64, -64}; // RA2: as above
+						static int _approach_angles[25] = {0, 1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6, 8, -8, 16, -16, 24, -24, 32, -32, 48, -48, 64, -64}; // RA2: as above
 						DirType angle((Dir256)(dir + _approach_angles[index])); // RA2: as above
 						trycoord = Coord(Approach_Move_Coord(tcoord, angle.Snap_To_256(), floating_radius).As_Cell(), 0); // RA2: as above
 

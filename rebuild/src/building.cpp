@@ -3829,7 +3829,6 @@ AbstractClass * BuildingClass::Greatest_Threat(ThreatType threat, Coord const & 
 
 
 
-extern int MuteSWLaunches; // RA2: 0x00A3D548, nonzero while the launch announcements are muted
 
 /***********************************************************************************************
  * BuildingClass::Grand_Opening -- Handles construction completed special operations.          *

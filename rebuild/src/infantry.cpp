@@ -151,9 +151,9 @@
 static ShapeSet const * InfantryShadowShape = NULL; // RA2: 0x00A41134; INFSHDW.SHP, loaded on first use
 
 
-int const InfantryClass::HumanShape[32] = {7,7,6,6,6,6,5,5,5,5,4,4,4,4,3,3,3,3,2,2,2,2,1,1,1,1,0,0,0,0,7,7};
-
 char const * const InfantryClass::INI_Name = "Infantry";
+
+int const InfantryClass::HumanShape[32] = {7,7,6,6,6,6,5,5,5,5,4,4,4,4,3,3,3,3,2,2,2,2,1,1,1,1,0,0,0,0,7,7};
 
 
 /***********************************************************************************************
@@ -689,7 +689,7 @@ void InfantryClass::Draw_It(Point2D const & xpoint, Rect const & cliprect) const
 **	specifies the frame rate as well as if the animation can be aborted.
 */
 // interruptible, mobile, randomstart, rate
-DoStruct const InfantryClass::MasterDoControls[DO_COUNT] = {
+DoStruct const InfantryClass::MasterDoControls[] = { // RA2: one entry per art sequence (infatype.cpp, SequenceName)
 	{true,	false,	false,	0},	// DO_STAND_READY
 	{true,	false,	false,	0},	// DO_STAND_GUARD
 	{true,	false,	false,	6},	// DO_PRONE
@@ -699,18 +699,35 @@ DoStruct const InfantryClass::MasterDoControls[DO_COUNT] = {
 	{true,	true,	true,	1},	// DO_CRAWL
 	{false,	false,	false,	1},	// DO_GET_UP
 	{true,	false,	false,	1},	// DO_FIRE_PRONE
-	{true,	false,	false,	1},	// DO_IDLE1
-	{true,	false,	false,	1},	// DO_IDLE2
+	{true,	false,	false,	3},	// DO_IDLE1
+	{true,	false,	false,	3},	// DO_IDLE2
 	{false,	false,	false,	1},	// DO_GUN_DEATH
 	{false,	false,	false,	1},	// DO_EXPLOSION_DEATH
 	{false,	false,	false,	1},	// DO_EXPLOSION2_DEATH
 	{false,	false,	false,	1},	// DO_GRENADE_DEATH
 	{false,	false,	false,	1},	// DO_FIRE_DEATH
-	{true,	true,	false,	1},	/// DO_HOVER
-	{true,	true,	false,	1},	/// DO_FLY
-	{true,	true,	false,	1},	/// DO_TUMBLE
-	{true,	true,	false,	1},	/// DO_FIREFLY
-	{false,	false,	true,	3},	/// DO_STRUGGLE
+	{true,	false,	false,	3},	// DO_TREAD
+	{true,	true,	true,	1},	// DO_SWIM
+	{true,	false,	false,	3},	// DO_WET_IDLE1
+	{true,	false,	false,	3},	// DO_WET_IDLE2
+	{false,	false,	false,	1},	// DO_WET_DIE1
+	{false,	false,	false,	1},	// DO_WET_DIE2
+	{true,	false,	false,	1},	// DO_WET_ATTACK
+	{true,	true,	false,	2},	// DO_HOVER
+	{true,	true,	false,	1},	// DO_FLY
+	{true,	true,	false,	1},	// DO_TUMBLE
+	{true,	true,	false,	1},	// DO_FIREFLY
+	{false,	false,	false,	1},	// DO_DEPLOY
+	{true,	false,	false,	1},	// DO_DEPLOYED
+	{true,	false,	false,	1},	// DO_DEPLOYED_FIRE
+	{true,	false,	false,	1},	// DO_DEPLOYED_IDLE
+	{false,	false,	false,	1},	// DO_UNDEPLOY
+	{true,	false,	false,	3},	// DO_CHEER
+	{true,	false,	false,	1},	// DO_PARADROP
+	{false,	false,	false,	3},	// DO_AIR_DEATH_START
+	{false,	false,	false,	1},	// DO_AIR_DEATH_FALLING
+	{false,	false,	false,	3},	// DO_AIR_DEATH_FINISH
+	{true,	true,	true,	4},	// DO_PANIC
 };
 
 

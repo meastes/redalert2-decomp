@@ -275,7 +275,7 @@ class InfantryClass : public FootClass
 
 	private:
 
-		static DoStruct const MasterDoControls[DO_COUNT];
+		static DoStruct const MasterDoControls[]; // RA2: 38 entries, the art sequences
 
 		/*
 		 * This is the name of the scenario INI section that the preplaced infantry are

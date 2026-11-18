@@ -56,7 +56,7 @@ static VQAConfig _defaultconfig = {
 
 	-1,
 
-	0x00FF00FF,
+	0x7FFF7FFF, // RA2: full volume on both channels (the original's table holds 0x7FFF7FFF)
 
 	0,
 

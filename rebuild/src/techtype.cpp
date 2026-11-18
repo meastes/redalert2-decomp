@@ -56,11 +56,6 @@ void Emergency_Exit(void); // RA2: 0x00691320 (as in conquer.h)
 DynamicVectorClass<ColorScheme *> * __fastcall Generate_Palette(char const * name); // RA2: 0x00603380, the schemes built from the palette file of that name (declared the same way in anim.cpp)
 
 
-/***************************************************************************
-**	These are the pointers to the special shape data that the units may need.
-*/
-void const * TechnoTypeClass::WakeShapes = NULL;
-
 
 //**********************************************************************************************
 // MODULE SEPARATION -- TechnoTypeClass member functions follow.
