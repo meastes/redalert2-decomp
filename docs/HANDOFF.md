@@ -40,7 +40,7 @@ rough"; STATUS "Structure:" rows from `cleanup_census.py --structure`). Stopped,
   Estimate: 140-225 lane-days for everything we match that they lack, 90-120 after a week of their
   growth, plus 25-35 to move the native ports. Their process overlays matched COMDATs onto the original
   (no strict audit, bounds, flags or per-population options). Not pursued; the user chose the ports
-  plus a rebuild trial (AGENTS.md 2026-11-17). Resume: pull `private/reference/mischa85-RedAlert2`, rerun S2's `build/s2/tier0.py` and
+  plus the rebuild, now the standing matching effort (AGENTS.md 2026-11-18). Resume: pull `private/reference/mischa85-RedAlert2`, rerun S2's `build/s2/tier0.py` and
   `mcmp.py`, adopt with attribution per THIRD_PARTY.md.
 - **Field-name batches** (lanes CA2 a-l and CB2 m-z: `unknown_` fields take mischa85's names by class,
   offset and size through `member_rename.py`/`apply_rename.py` `member_renames`; last landed CA2 b3
