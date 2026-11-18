@@ -49,7 +49,9 @@ there as a 24-bit BMP (the file holds the last one; test runs only).
 | `native/build.sh ios simulator` | `build/ios-one-simulator/RA2YR.app`: the iPhone/iPad one-game app for the Simulator |
 | `RA2_IOS_TEAM=<team id> native/build.sh ios device` | `build/ios-one-device/RA2YR.app`, signed for your devices |
 | `native/build.sh windows` | `build/release-win/RA2Native.exe`: Red Alert 2 for Windows 10/11 (x86_64), one self-contained file |
-| `native/build.sh all` | the four above in turn (mac, mac-one, ios simulator, windows) |
+| `native/build.sh yr-windows` | `build/release-yr-win/YRNative.exe`: Yuri's Revenge alone for Windows, one self-contained file |
+| `native/build.sh windows-one` | `build/release-win-one/RA2YRNative/`: both games in one Windows app, the folder to copy (`RA2YRNative.exe`, `ra2-engine.dll`, `yr-engine.dll`, `SDL3.dll`, SDL's licence) |
+| `native/build.sh all` | all of the above in turn (mac, mac-one, ios simulator, windows, yr-windows, windows-one) |
 
 Prerequisites (nothing is downloaded or installed by the script):
 
@@ -58,12 +60,13 @@ Prerequisites (nothing is downloaded or installed by the script):
   later, Ninja and Python 3 (`brew install cmake ninja`).
 - mac and mac-one: SDL3 from Homebrew (`brew install sdl3`); the app bundles its library and
   licence.
-- mac-one, ios and windows: the llvm-mingw 20261020 macOS release
+- mac-one, ios and the Windows builds: the llvm-mingw 20261020 macOS release
   (`llvm-mingw-20261020-ucrt-macos-universal`, github.com/mstorsjo/llvm-mingw) extracted, either
   at `private/toolchains/llvm-mingw-20261020/` in the checkout or wherever `RA2_LLVM_MINGW`
   points. Yuri's Revenge reads its Win32/DirectX headers; Windows uses it as the compiler.
-- ios and windows: the SDL 3.4.2 source, `private/vendor/SDL3-3.4.2.tar.gz` (SHA-256 checked) or
-  an extracted folder in `RA2_SDL_SOURCE`. It is built statically into the app.
+- ios and the Windows builds: the SDL 3.4.2 source, `private/vendor/SDL3-3.4.2.tar.gz` (SHA-256 checked) or
+  an extracted folder in `RA2_SDL_SOURCE`. It is built statically into the app (windows-one: as
+  the one `SDL3.dll` the host and both engines share).
 - ios device: your Apple team id in `RA2_IOS_TEAM` and a development profile Xcode has already
   made for it (`packaging/ios_sign.py`); install with
   `xcrun devicectl device install app --device <udid> build/ios-one-device/RA2YR.app`.

@@ -1,6 +1,6 @@
 # Native ports: facts for an update
 
-Plain facts about the native Mac, iPhone and Windows ports as of 2026-11-17 (lane Y14), each with how
+Plain facts about the native Mac, iPhone and Windows ports as of 2026-11-18 (lanes Y14-Y16, written by lane P1), each with how
 it was checked. "Not verified" marks anything nobody has confirmed. Numbers for the exact
 decompilation are in [STATUS.md](STATUS.md); this file covers only the ports.
 
@@ -11,7 +11,7 @@ decompilation are in [STATUS.md](STATUS.md); this file covers only the ports.
 | Mac (Apple silicon, arm64) | macOS 26.0 | The app binary's build version (`otool -l`, minos 26.0); played on the owner's Mac |
 | iPhone | iOS 17.0 (build default) | Built and installed on the user's foldable iPhone ("Duo"); played there. One app holds both games (see "One app, two games") |
 | iPad | iOS 17.0 | Simulator only (lane N1, 2026-11-17, iPad Air 11-inch (M4) Simulator, iOS 27): the one-game app imports the game, plays at 1040x720, the main menu, Options and back, Single Player, Skirmish, Start Game, then touch play (pan, hold-and-drag box, two-finger tap, the toolbar's Deploy, a sidebar build) at 62 frames/s with no fault. Not verified on a real iPad |
-| Windows (x86_64) | Windows 10 or later (needs the UCRT that ships with Windows 10) | Cross-built on the Mac; played by the user on a real Windows PC (LAN game, 2026-11-15/16); test runs under Wine |
+| Windows (x86_64) | Windows 10 or later (needs the UCRT that ships with Windows 10) | Cross-built on the Mac; Red Alert 2 played by the user on a real Windows PC (LAN game, 2026-11-15/16); test runs under Wine. Yuri's Revenge and the both-games app run only under Wine so far: packages for the user's PC are in `C:\ra2\for-user` (lane P1, 2026-11-18); needs a user check on the device |
 
 No Rosetta, Wine, virtual machine or emulation is used by the shipped ports: the game code is
 the recovered C/C++ compiled natively for each platform.
@@ -38,6 +38,7 @@ the recovered C/C++ compiled natively for each platform.
 | Old port saves | Saves from earlier port builds still load for one release and are re-saved in the original format | ctest `native-port-save-transition` |
 | Movies and sound | Intro and mission movies play; sound and music work | ctests run with audio on; played |
 | Touch (iPhone) | Tap to select and move, box select, pan, pinch zoom, an on-screen toolbar, a Keys button for the keyboard | Played on the Duo |
+| Team buttons on touch (both games) | Holding a command-bar team button (400 ms) makes that team the selection; a tap and a mouse are unchanged (lane Y15) | ctests `native-touch-team-hold` (RA2) and `yr-native-touch-team` on the Mac; the Simulator walk `ios_sim_skirmish.py --team-hold` on "RA2 Duo Validation" passed. Needs a user check on the device |
 
 ### LAN pairings
 
@@ -46,6 +47,8 @@ the recovered C/C++ compiled natively for each platform.
 | Mac + Windows (real PC) | Worked, no issues | The user, 2026-11-16 |
 | Mac + iPhone | Worked; lobby, hosting and joining both ways after a fix on 2026-11-16. One "Reconnection Error" when the Mac ran an old build; none with the current build | The user, 2026-11-16 |
 | Mac + Windows under Wine | 30,000 frames in step, no desync | ctest-style run (lane C16) |
+| Yuri's Revenge, two Mac instances | The host seats the guest, chat both ways, both load the map; 3,000 frames with orders (the ctest) and a 12,000-frame game (6 min 20 s: both sides' vehicles grouped as team 1, 36 group moves a side, then every combat unit hunting for the last 2,000 frames) with every frame's game CRC equal (lanes YW2, Y16) | ctest `yr-native-lan-pair` (`--frames 12000` for the long game) |
+| Yuri's Revenge, Mac + Windows under Wine | 3,000 frames in step, CRCs equal (lane YW2) | ctest `yr-native-lan-pair-wine`. Not tried between real machines |
 | Two Mac instances | 18,000+ frames in step | ctest `native-lan-pair` |
 | Lobby chat | Fixed (sends on Return) | ctest `native-lan-lobby`; the user's Mac + iPhone retest on 2026-11-16 passed, chat included (HANDOFF) |
 | Tank damage in LAN games | Fixed 2026-11-16 (tank shells did no damage; a renamed table had lost its native rule) | ctest `native-tank-damage` (commit de761bc78); confirmed by the user on the iPhone, 2026-11-16 (commit 9594b9353); guard ctest `native-name-rules` |
@@ -95,33 +98,54 @@ platform layer. It earns no exact-match credit.
   are wired (two-finger tap gives Modern's order; checked on the simulator, lane Y12); the
   loading screen draws the map preview, the country's name and texts, and the campaign
   loading screen its picture and briefing.
-- Windows: a Yuri's Revenge build exists (cross-built on the Mac, `YRNative.exe`; lane Y13).
-  Checked only under Wine (ctest `yr-native-skirmish-smoke`: menus, a skirmish, abort); not
-  run on a real PC yet. No one-game (both games in one app) build on Windows yet.
+- Windows: a Yuri's Revenge build (`YRNative.exe`, lane Y13) and the both-games app
+  (`RA2YRNative.exe` with `ra2-engine.dll`, `yr-engine.dll` and `SDL3.dll` beside it, lane Y16; the
+  toggle as on the Mac, each start loads a fresh copy of the game's DLL) are cross-built on the Mac
+  (`native/build.sh yr-windows`, `native/build.sh windows-one`). Checked under Wine only: ctests
+  `yr-native-skirmish-smoke` (menus, a skirmish, abort) and `one-game-toggle-wine` (RA2 -> YR -> RA2
+  with a skirmish, RA2 -> YR with a YR skirmish, the game chosen last starts next). Packages are on
+  the user's PC (`C:\ra2\for-user\RA2Native`, `C:\ra2\for-user\RA2YRNative`, lane P1); needs a
+  user check on the device.
 - Fixed 2026-11-17 (lane Y14), from the user's iPhone reports:
-  - noise in place of a deploying MCV and of a Grizzly on its first move (any vehicle drawn
-    at a new facing before the game had cached that picture): checked on the Mac by ctest
-    `yr-native-graphics` (no noise while an MCV deploys and a Grizzly first moves); not yet
-    checked by the user on the device;
-  - the bottom command bar was missing: it is drawn now (ctest `yr-native-graphics`, and the
-    simulator walk `ios_sim_menus.py` on "RA2 Duo Validation", with the user's interface size
-    1.25x and HD vehicles off);
+  - graphics noise in place of a deploying MCV and of a Grizzly on its first move (a vehicle
+    drawn at a new facing before the game had cached that picture was drawn with 16-bit pixels
+    on the 8-bit surface): ctest `yr-native-graphics` watches the tactical view for 900 frames
+    while an MCV deploys and a Grizzly first moves (0-24 noise-coloured pixels a frame now,
+    75-210 before). Needs a user check on the device;
+  - the bottom command bar was missing: it is drawn now (ctest `yr-native-graphics` checks the
+    layout and the bar's rows on screen; the Simulator walk `ios_sim_menus.py` on "RA2 Duo
+    Validation", interface size 1.25x, HD vehicles off). Needs a user check on the device;
   - the Skip button showed on the start-up loading screen: it now shows only while a movie
-    plays (Mac run and the same simulator walk).
+    plays (a Mac run and the same Simulator walk, which checks the button is gone before the
+    main menu). Needs a user check on the device.
+- Fixed 2026-11-17 (lane Y15): the campaign dialog's Difficulty label showed `MISSING:''`
+  (three pointer tables were loaded with the wrong extent); checked by lane Y15 on the Mac (no
+  ctest names it). Needs a user check on the device.
+- Fixed 2026-11-18 (lane Y16): the Lasher tank (LTNK) driven off the map in Allied 2 and Soviet 7.
+  Yuri's Revenge has 72 drive turn tracks and 15 raw tracks where the tree had Tiberian Sun's 67
+  and 13; a unit leaving a factory diagonally used a track past the table's end. The full tables
+  are now loaded from the player's gamemd.exe. Checked: ctests `yr-native-campaign-allied/-soviet`
+  now fail on any off-map line, and pass.
+- Stand-in code (clearly labelled, not exact) for functions not recovered yet, reached in play:
+  ctest `yr-native-standins` (lane Y16) has a Magnetron, a Prism Tank and a Mirage Tank fire on
+  enemy Apocalypse tanks, makes sonic and magnetron waves, sends a spy into a power plant and
+  fires the Psychic Dominator and the Lightning Storm through the map click's path: no fault, the
+  tanks destroyed, the spy inside. Since lane P1 the same test hijacks a vehicle: no unit in Yuri's
+  Revenge's rules is a vehicle thief, so the harness makes a civilian one and sends it at an enemy
+  truck, which becomes the player's (3 of 3 runs). Not covered by a test yet: bridge repair, the War
+  Factory's unload through the harness (the AI's factories run it in every long skirmish).
 - Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
-  idle animations: WalkRate, the infantry action table MasterDoControls) and the lane Y14
-  fixes above; the on-screen keyboard in Yuri's Revenge's text fields.
-- Still open: the campaign dialog's Difficulty label shows `MISSING:''`; a Lasher tank (LTNK)
-  in two campaign missions gets a garbage position from its drive locomotor (guarded: the map
-  ignores the bad cell and logs it); LAN play (lane YW); longer games may still reach
-  functions not recovered yet (written as clearly labelled stand-in code when found; about
-  40 such functions remain on play paths, native/yr/README.md lane Y14).
+  idle animations), the lane Y14 fixes above, the team-button hold, and the on-screen keyboard
+  in Yuri's Revenge's text fields.
+- Still open: longer games may still reach functions not recovered yet (written as clearly
+  labelled stand-in code when found; the Mac link closure, functions still missing, was 175
+  after lane Y14 and 126 after lane Y16); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
 
 ## Not done or not supported
 
 - Internet play: held. The Internet button is disabled.
-- Open faults: the Yuri's Revenge items above (the Difficulty label, the Lasher tank's position);
-  the start crash seen once in the simulator (1 of 10 runs, lane Y7) has not recurred in 12 later
+- Open faults: none known in Red Alert 2 or Yuri's Revenge beyond the untested items above; the
+  start crash seen once in the simulator (1 of 10 runs, lane Y7) has not recurred in 12 later
   starts (lane Y12).
 - Unchecked code: 124 rewritten functions are not reached by any test or play so far (lane C21). Lane N1
   (2026-11-17) labelled each from game.exe's callers: 110 reachable in the base game but on paths no
@@ -138,7 +162,9 @@ platform layer. It earns no exact-match credit.
 
 ## How to get it today
 
-From source only; there are no binary downloads. The repository's
+From source only; there are no binary downloads.
+`native/build.sh mac`, `mac-one`, `ios`, `windows`, `yr-windows` and `windows-one` build each app with
+one command (native/README.md "Building the apps"). The repository's
 [native/README.md](../native/README.md) has the build steps for Mac, iPhone and Windows (the
 Windows build is cross-compiled on a Mac). The iPhone build needs the builder's own Apple
 developer signing.

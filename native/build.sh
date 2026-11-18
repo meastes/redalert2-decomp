@@ -7,7 +7,8 @@
 #   native/build.sh ios [simulator|device]   the iPhone/iPad one-game app:  build/ios-one-<platform>/RA2YR.app
 #   native/build.sh windows             Red Alert 2 for Windows (x86_64):   build/release-win/RA2Native.exe
 #   native/build.sh yr-windows          Yuri's Revenge for Windows (x86_64): build/release-yr-win/YRNative.exe
-#   native/build.sh all                 mac, mac-one, ios simulator, windows and yr-windows in turn
+#   native/build.sh windows-one         RA2 + Yuri's Revenge for Windows:    build/release-win-one/RA2YRNative/
+#   native/build.sh all                 mac, mac-one, ios simulator, windows, yr-windows and windows-one in turn
 #
 # Each configures its own build folder (Release where the platform has build types), builds the
 # game, packages it and prints the result's path. Rerunning only rebuilds what changed. Extra
@@ -134,6 +135,31 @@ build_yr_windows() {
   echo "Built: $b/YRNative.exe (self-contained: copy it to the Windows PC on its own)"
 }
 
+build_windows_one() {
+  # Both games in one Windows app (lane Y16; native/yr/README.md "One game on Windows"): the thin host
+  # RA2YRNative.exe loads ra2-engine.dll or yr-engine.dll from its own folder; all three share SDL3.dll.
+  # ra2yr-native.exe is the console host the Wine tests run. The folder RA2YRNative/ in the build
+  # folder holds only what a PC needs (the four files and SDL's licence): copy it whole.
+  common_checks
+  local mingw; mingw=$(llvm_mingw)
+  local sdl; sdl=$(sdl_source)
+  local b="${RA2_BUILD_DIR:-build/release-win-one}"
+  RA2_LLVM_MINGW="$mingw" cmake -S native -B "$b" -G Ninja \
+        -DCMAKE_TOOLCHAIN_FILE="$root/native/cmake/llvm-mingw-x86_64.cmake" -DRA2_LLVM_MINGW="$mingw" \
+        -DRA2_NATIVE_SDL_SOURCE="$sdl" -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_LINK_CLOSURE=ON \
+        -DRA2_NATIVE_YR=ON -DRA2_NATIVE_COMBINED=ON -DRA2_NATIVE_YR_MINGW="$mingw/generic-w64-mingw32/include" "$@"
+  cmake --build "$b" --target RA2YRNative ra2yr-native ra2-engine yr-engine
+  local pkg="$b/RA2YRNative"
+  rm -rf "$pkg"; mkdir -p "$pkg"
+  local f
+  for f in RA2YRNative.exe ra2-engine.dll yr-engine.dll SDL3.dll; do
+    [[ -f "$b/$f" ]] || die "$b/$f was not built"
+    /bin/cp -f "$b/$f" "$pkg/$f"
+  done
+  /bin/cp -f "$sdl/LICENSE.txt" "$pkg/SDL3-LICENSE.txt"
+  echo "Built: $pkg (RA2YRNative.exe, ra2-engine.dll, yr-engine.dll, SDL3.dll: copy the folder to the Windows PC)"
+}
+
 what="${1:-}"
 if [[ $# -gt 0 ]]; then shift; fi
 case "$what" in
@@ -142,6 +168,7 @@ case "$what" in
   ios) build_ios "$@" ;;
   windows) build_windows "$@" ;;
   yr-windows) build_yr_windows "$@" ;;
-  all) build_mac; build_mac_one; build_ios simulator; build_windows; build_yr_windows ;;
-  *) sed -n '3,10p' "$0" | sed 's/^# \{0,1\}//' >&2; exit 64 ;;
+  windows-one) build_windows_one "$@" ;;
+  all) build_mac; build_mac_one; build_ios simulator; build_windows; build_yr_windows; build_windows_one ;;
+  *) sed -n '3,11p' "$0" | sed 's/^# \{0,1\}//' >&2; exit 64 ;;
 esac

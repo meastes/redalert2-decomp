@@ -33,14 +33,15 @@
 //                   MISSION_MOVE event each in one frame: a group's move click; lane Y16);
 //   groups <ID>     logs `harness-groups <ID> <g>[*] ...`: the team (-1 none, 0 Team 1) of each of the player's
 //                   units of type ID in order, * when selected (lane Y15).
-//   spawn <ID> [enemy|<dx> <dy>]  a techno of type ID (a vehicle, infantry or a building) for the player, or with
+//   spawn <ID> [enemy] [<dx> <dy>]  a techno of type ID (a vehicle, infantry or a building) for the player, or with
 //                   `enemy` for the strongest house that is not the player's ally (most buildings, not the civilians), placed on the first
 //                   free cell near the player's first building (2 cells and further off, or dx,dy); logs
 //                   `harness-spawn <ID> h<house> @x,y &<addr>` (lane Y16: the stand-ins' tests);
 //   fire <ID> <TARGET>  the player's first unit of type ID attacks the nearest techno of type TARGET (the enemy's,
 //                   else any house's) (MISSION_ATTACK: a force-fire click's order); logs `harness-fire ...`;
-//   enter <ID> <TARGET> [capture|enter]  the player's first unit of type ID is sent into the nearest techno of type
-//                   TARGET not the player's (MISSION_CAPTURE, a hijacker's or spy's click; or MISSION_ENTER);
+//   enter <ID> <TARGET> [capture|enter|hijack]  the player's first unit of type ID is sent into the nearest techno of
+//                   type TARGET not the player's (MISSION_CAPTURE, a spy's click; or MISSION_ENTER; hijack: MISSION_CAPTURE
+//                   with the vehicle as the destination only, a vehicle thief's click);
 //   owner <ID>      logs `harness-owner <ID> h<house> p|e &<addr>` for each techno of type ID (p: the player's);
 //   waves           logs `harness-waves <n> lasers <n>`: the waves (WaveClass::Array) and lasers being drawn;
 //   super <name> enemy  the player's superweapon whose type ID starts with name is granted, charged and placed at
@@ -49,6 +50,9 @@
 //   wave <type>     a wave of that type (0 sonic, 3 magnetron) from the player's first vehicle to its first building
 //                   (else the enemy's first techno);
 //   money           logs `harness-money <credits>` (the player's);
+//   thief <ID>      infantry type ID becomes a vehicle thief (InfantryTypeClass::IsThief and IsVehicleThief: no type in
+//                   Yuri's Revenge's rules sets Thief= or VehicleThief=, so a hijack is only seen this way); logs
+//                   `harness-thief <ID>` (lane P1);
 // RA2_NATIVE_FORCE_END=<f1>[,<f2>...][,lose]: at the first loop frame at or past each entry the game
 // ends as the house AI ends it on a win or defeat (PlayerWins / PlayerLoses, read by the main loop);
 // logs `force-end: win|loss at frame <f> in <scenario>`, so a campaign goes on mission by mission.
@@ -75,6 +79,7 @@
 #include "wave.h"
 #include "laser.h"
 #include "objtype.h"
+#include "infatype.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -292,8 +297,9 @@ int Run_Order(int frame, char const * text)
 	}
 	if (!strcmp(word[0], "spawn") && words >= 2) {
 		bool enemy = words >= 3 && !strcmp(word[2], "enemy");
-		bool offset = words >= 4;
-		return(Spawn(word[1], enemy, offset ? atoi(word[2]) : 0, offset ? atoi(word[3]) : 0, offset));
+		int first = enemy ? 3 : 2;		// `spawn <ID> enemy <dx> <dy>`: the enemy's, placed at the offset (lane P1)
+		bool offset = words >= first + 2;
+		return(Spawn(word[1], enemy, offset ? atoi(word[first]) : 0, offset ? atoi(word[first + 1]) : 0, offset));
 	}
 	if ((!strcmp(word[0], "fire") || !strcmp(word[0], "enter")) && words >= 3) {
 		TechnoClass * unit = First_Of(word[1], PlayerPtr);
@@ -318,7 +324,10 @@ int Run_Order(int frame, char const * text)
 		}
 		MissionType mission = !enter ? MISSION_ATTACK : (words >= 4 && !strcmp(word[3], "enter")) ? MISSION_ENTER : MISSION_CAPTURE;
 		TargetClass who(unit);
-		TargetClass tarcom(target);
+		// hijack: the capture click's assignment (FootClass::Active_Click_With: MISSION_CAPTURE, no target, the
+		// vehicle as the destination; a target as well would keep it a firing target)
+		bool hijack = enter && words >= 4 && !strcmp(word[3], "hijack");
+		TargetClass tarcom = hijack ? TargetClass() : TargetClass(target);
 		TargetClass navcom = enter ? TargetClass(target) : TargetClass();
 		Queue_Mission(who, mission, tarcom, navcom);
 		fprintf(stderr, "harness-%s %s &%p -> %s h%d &%p\n", word[0], word[1], (void *)unit, word[2],
@@ -378,6 +387,19 @@ int Run_Order(int frame, char const * text)
 		}
 		fprintf(stderr, "harness-go %d units %s,%s\n", count, word[1], word[2]);
 		return(count ? count : -1);
+	}
+	if (!strcmp(word[0], "thief") && words >= 2) {
+		ObjectTypeClass const * type = ObjectTypeClass::From_Name(word[1]);
+		if (type == NULL || type->Fetch_RTTI() != RTTI_INFANTRYTYPE) {
+			fprintf(stderr, "harness-thief: no infantry type %s\n", word[1]);
+			return(-1);
+		}
+		// Both flags: InfantryClass::Theft_AI (gamemd.exe 0x005202F0, the walk-up hijack) tests the one the tree
+		// reads from "Thief", the movement and target choice the one from "VehicleThief".
+		((InfantryTypeClass *)type)->IsThief = true;
+		((InfantryTypeClass *)type)->IsVehicleThief = true;
+		fprintf(stderr, "harness-thief %s\n", word[1]);
+		return(1);
 	}
 	if (!strcmp(word[0], "money")) {
 		fprintf(stderr, "harness-money %d\n", PlayerPtr ? PlayerPtr->Available_Money() : -1);

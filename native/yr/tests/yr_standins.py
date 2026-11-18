@@ -12,9 +12,15 @@ Player, Skirmish, Start Game; The Alamo against one easy opponent, as yr-native-
   spy         a Spy (SPY: BuildingClass::Spied_By) is sent into an enemy Allied power plant (GAPOWR): the spy
               leaves the map (it went in);
   superweapons the Psychic Dominator (HouseClass::Fire_PsyDom) and the Lightning Storm (LightningStorm::Start)
-              are granted, charged and placed on the enemy's base.
+              are granted, charged and placed on the enemy's base;
+  hijack      (lane P1) no infantry in Yuri's Revenge's rules is a vehicle thief, so a civilian (CIV1) is made one
+              (`thief`: IsThief and IsVehicleThief) and sent, as a thief's click sends it, at an enemy truck
+              (TRUCKA, unarmed and not deployable) spawned away from the base and its guns: the truck becomes the
+              player's and the thief has gone into it (InfantryClass::Theft_AI / Per_Cell_Process; TechnoClass::GotHijacked is gamemd.exe's empty
+              slot).
 
-Checks: each order found its units; waves in flight; the targets were destroyed; the both superweapons placed; no link-closure trap or fault for the whole run. Skipped (77) without
+Checks: each order found its units; waves in flight; the targets were destroyed; both superweapons placed; the
+truck hijacked; no link-closure trap or fault for the whole run. Skipped (77) without
 the installed game (gamemd.exe in --data-dir).
 
   yr_standins.py --binary <yr-native> --data-dir <game folder> --work <dir> [--seconds 170]
@@ -44,7 +50,9 @@ ORDERS = ['60 spawn TELE', '61 spawn SREF', '62 spawn MGTK', '63 spawn HTNK enem
           '80 fire TELE HTNK', '80 fire SREF HTNK', '80 fire MGTK HTNK', '82 enter SPY GAPOWR',
           '90 wave 0', '91 wave 3', '95 waves', '120 waves', '150 waves', '200 waves', '260 owner HTNK',
           '300 owner SPY', '320 super PsychicDominator enemy', '500 super LightningStorm enemy',
-          '700 owner SPY', '900 owner HTNK']
+          '700 owner SPY', '900 owner HTNK',
+          '950 spawn CIV1 9 0', '950 thief CIV1', '951 spawn TRUCKA enemy 13 0', '952 owner TRUCKA',
+          '953 enter CIV1 TRUCKA hijack', '1250 owner TRUCKA', '1250 owner CIV1']
 BAD = re.compile(r'unrecovered|SIG(SEGV|BUS|ILL|ABRT|FPE)|crash:', re.I)
 
 
@@ -100,6 +108,16 @@ def main():
     print('standins spy: spies at frame 700 %s' % (spy or 'none'))
     if any(not x[2] for x in spy):
         failures.append('the spy is still on the map')
+    truck_before, truck_after = owners(952, 'TRUCKA'), owners(1250, 'TRUCKA')
+    thief_after = owners(1250, 'CIV1')
+    print('standins hijack: enemy truck %s at frame 952, %s at frame 1250; thieves left %d'
+          % (truck_before or 'none', truck_after or 'none', len([x for x in thief_after if not x[2]])))
+    if not re.search(r'^harness-thief CIV1$', text, re.M) or not re.search(r'^harness-enter CIV1 ', text, re.M):
+        failures.append('no thief or no hijack order')
+    if len(truck_before) != 1 or truck_before[0][1] != 'e':
+        failures.append('the enemy truck was not spawned')
+    elif not any(x[3] == truck_before[0][3] and x[1] == 'p' for x in truck_after):
+        failures.append('the thief did not take the truck')
     for name in ('PsychicDominator', 'LightningStorm'):
         if not re.search(r'^harness-super %s\S* @' % name, text, re.M):
             failures.append('%s not placed' % name)

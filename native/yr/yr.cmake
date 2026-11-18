@@ -277,7 +277,8 @@ set_tests_properties(yr-native-combat PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360
 
 # ctest yr-native-standins (lane Y16): the newer stand-ins at work in one skirmish: Magnetron, Prism and Mirage
 # tanks fire on spawned enemies, sonic and magnetron waves (WaveClass::FUN_007602E0), a spy goes into an
-# enemy power plant, the Psychic Dominator and the Lightning Storm are placed (yr/tests/yr_standins.py)
+# enemy power plant, the Psychic Dominator and the Lightning Storm are placed, a thief hijacks a truck (lane P1)
+# (yr/tests/yr_standins.py)
 add_test(NAME yr-native-standins COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_standins.py"
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-standins" --seconds 120)

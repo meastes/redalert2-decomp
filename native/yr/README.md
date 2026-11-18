@@ -694,6 +694,27 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   whose three picks were all in another movement zone (cliff tops, water: the path finder refuses them, the scout
   never moves) failed. Destinations are now in the scout's own zone (MapClass::Zone with its MovementZone).
 
+### Lane P1 (2026-11-18): packages for a real PC, build commands, the hijacker
+
+* **Builds**: `native/build.sh windows-one` (new) builds the both-games Windows app and gathers what a PC needs in
+  `build/release-win-one/RA2YRNative/` (RA2YRNative.exe, ra2-engine.dll, yr-engine.dll, SDL3.dll, SDL's licence;
+  only system DLLs, the UCRT and SDL3.dll imported). `one-game-toggle-wine` passed on that build (374 s).
+  `native/build.sh mac-one` (lane N1) already produced the owner's hand-made RA2YR.app: the same layout, SDL paths
+  and ad-hoc signature (identifier local.ra2native.ra2yr); both engines reach the main menu from the bundle.
+* **The hijacker** (ctest `yr-native-standins`, now also a hijack): no infantry in Yuri's Revenge's rules
+  (RULESMD.INI in ra2md.mix and the patch's expandmd01.mix, read in place) sets `VehicleThief=` or `Thief=`; only the
+  comment block describing the keys names them, so there is no rules ID to spawn. New harness orders: `thief <ID>`
+  (sets IsThief, which InfantryClass::Theft_AI tests, and IsVehicleThief, which movement and the click's action test),
+  `enter <ID> <TARGET> hijack` (MISSION_CAPTURE with the vehicle as the destination only, as
+  FootClass::Active_Click_With's capture click) and `spawn <ID> enemy <dx> <dy>`. The test makes a civilian (CIV1) a
+  thief nine cells from the base and sends it at an enemy truck (TRUCKA) thirteen cells out: by frame 1250 the truck
+  is the player's and the thief has gone into it (3 of 3 runs). Found on the way: a thief spawned on the vehicle's
+  own cell never hijacks (WalkLocomotionClass::Movement_AI's no-path branch clears its destination, and the vehicle
+  then drives over it); a walking thief is the normal case. An enemy MCV as the target was flaky (the AI deploys or
+  loses it).
+* **Bridge repair**: not started. Many multiplayer maps carry a CABHUT (multimd.mix); a test needs a harness order
+  that breaks the bridge next to the hut and the skirmish map index of such a map.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both
@@ -1002,8 +1023,9 @@ redraws its command bar only once the mouse passes over it.
 
 ## Next
 
-0. The Windows builds on a real PC (YRNative.exe, RA2YRNative.exe with its two DLLs and SDL3.dll); the stand-ins
-   not yet seen at work (a hijacker, bridge repair, the War Factory's unload through the harness); the -MPDEBUG sync
+0. The Windows builds on a real PC (RA2YRNative.exe with its two DLLs and SDL3.dll is on the user's PC, lane P1;
+   YRNative.exe alone is not); the stand-ins not yet seen at work (bridge repair; the War Factory's unload through
+   the harness; the hijacker is in yr-native-standins since lane P1); the -MPDEBUG sync
    record's object lists.
 
 1. The buttons' targets (input not yet exercised; the runs are unattended): each submenu
