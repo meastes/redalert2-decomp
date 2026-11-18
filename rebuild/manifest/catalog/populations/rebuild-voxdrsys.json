@@ -2603,6 +2603,34 @@
       "source_order": 7437440,
       "source_quality_family": "rebuild",
       "bound_population": "population-1642"
+    },
+    {
+      "entry": 7437520,
+      "method": "00717cd0",
+      "body_bytes": 3,
+      "body_sha256": "58367ffa2a0179375018fa0f5c26da24391e42ebe0ed8fdda35a21fc7bdc396f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "29f4ac27c274a9f1c52a282cbe6f8a57ec6e073cc0936fc0a2cbac85290fbfd4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Vector3@@QAE@XZ",
+      "symbol_prefix": "??0Vector3@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9ec3c1d0d79a12378df03fd1f5ce38b254fbdc3d39e18d8c3e0fc57025c73072",
+      "source": "rebuild/src/voxdrsys.cpp",
+      "population": "rebuild-voxdrsys",
+      "source_order": 7437520,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3516"
     }
   ]
 }

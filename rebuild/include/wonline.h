@@ -50,6 +50,10 @@ extern int g_MaxPlayers;
 
 extern char g_GameServerHost[128];
 extern int g_GameServerPort;
+extern char g_LadderAddress[]; // RA2: 0x00B29018, the address of the ladder server (empty when there is none)
+extern char LastFindName[]; // RA2: 0x00B29CD8, the nick the last /find command asked for
+extern int g_LadderPort; // RA2: 0x00B2A8AC, the port of the ladder server
+extern wchar_t * g_TerritoryName; // RA2: 0x00B28CC8, the name of the WDT territory of this player (a copy made by _wcsdup)
 
 
 void DoFindPage(void);

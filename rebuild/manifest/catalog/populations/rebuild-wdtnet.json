@@ -72,6 +72,7 @@
     "??0?$rc_ptr@VWDTTerritory@@@@QAE@PAVWDTTerritory@@@Z": 7522976,
     "??1rc_ptr_base@@UAE@XZ": 6526224,
     "??1WDTState@@UAE@XZ": 7520976,
+    "??0?$rc_ptr@VWDTTerritory@@@@QAE@XZ": 7524208,
     "_$E2": 7519184,
     "_$E5": 7519232,
     "_$E8": 7519264,
@@ -123,8 +124,7 @@
     "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@": 8057052,
     "??_EWstring@@QAEPAXI@Z": 4239168,
     "??1Wstring@@QAE@XZ": 7789024,
-    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "??0?$rc_ptr@VWDTTerritory@@@@QAE@XZ": 7524208
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
   },
   "regions": [
     {
@@ -2370,6 +2370,191 @@
       "source_order": 7523680,
       "source_quality_family": "rebuild",
       "bound_population": "population-1622"
+    },
+    {
+      "entry": 7523712,
+      "method": "0072cd80",
+      "body_bytes": 285,
+      "body_sha256": "9c4eb8a43792966ce8b86c9e8d032ebbee6a1d5d97ba5ad78a92b105055b24ba",
+      "padding_bytes": 3,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "1435919040efee8d8f06c72f36262917ddb2d403b0f77613edd5c08231982fbf",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAE_NHPBV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAE_NHPBV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 348779
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "??0?$rc_ptr@VWDTTerritory@@@@QAE@XZ",
+          "target": 7524208,
+          "addend": 0,
+          "resolved": 419
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293969637
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+          "target": 8013100,
+          "addend": 0,
+          "resolved": 8013100
+        },
+        {
+          "offset": 183,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293969653
+        }
+      ],
+      "source_sha256": "983f7fffd4e27f55295a58432f263df662448c7a28b5756cece7005b730b07e9",
+      "source": "rebuild/src/wdtnet.cpp",
+      "population": "rebuild-wdtnet",
+      "source_order": 7523712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7524000,
+      "method": "0072cea0",
+      "body_bytes": 42,
+      "body_sha256": "6d44d001684a46726dc9a11537f6686d603d332f214242f118cd18b3e79a8c3f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c84547dff1b025a60d5660761515556d1870fae7871674926429b30bbb308ef2",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "983f7fffd4e27f55295a58432f263df662448c7a28b5756cece7005b730b07e9",
+      "source": "rebuild/src/wdtnet.cpp",
+      "population": "rebuild-wdtnet",
+      "source_order": 7524000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7524048,
+      "method": "0072ced0",
+      "body_bytes": 74,
+      "body_sha256": "f950ace39b77abd067905b44c3b1e4183df8d7e8fda551fa468d3ef86e205cae",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "55ebcafab17eaa465d5b5d8a06764982ce2dcd8c594baddc892d3367817defef",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
+          "target": 8057576,
+          "addend": 0,
+          "resolved": 8057576
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 347690
+        }
+      ],
+      "source_sha256": "983f7fffd4e27f55295a58432f263df662448c7a28b5756cece7005b730b07e9",
+      "source": "rebuild/src/wdtnet.cpp",
+      "population": "rebuild-wdtnet",
+      "source_order": 7524048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524128,
+      "method": "0072cf20",
+      "body_bytes": 74,
+      "body_sha256": "879f9e31a04f8de1f0737df0eca8b2e72e473dd9a8eccd0b3665abbc7e95f278",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "58aeb75c40c501a83724a2f32a3d3290a929734baa0e44dfe09a48320436a385",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@6B@",
+          "target": 8057576,
+          "addend": 0,
+          "resolved": 8057576
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 347610
+        }
+      ],
+      "source_sha256": "983f7fffd4e27f55295a58432f263df662448c7a28b5756cece7005b730b07e9",
+      "source": "rebuild/src/wdtnet.cpp",
+      "population": "rebuild-wdtnet",
+      "source_order": 7524128,
+      "source_quality_family": "rebuild"
     }
   ]
 }

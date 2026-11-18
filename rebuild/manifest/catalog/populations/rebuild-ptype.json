@@ -3131,6 +3131,59 @@
       "population": "rebuild-ptype",
       "source_order": 6430336,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6430784,
+      "method": "622040",
+      "body_bytes": 73,
+      "body_sha256": "204cd35bcf147822e618bf78704be3b4d445ae2ea89baec48668594aa99e4bbd",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "fe839aa0d85098c0b728bf55a16f596ae18c8346a88eb1827eba1d64a84d4aeb",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@VRGBClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@VRGBClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VRGBClass@@@@6B@",
+          "target": 7985748,
+          "addend": 0,
+          "resolved": 7985748
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1440990
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1440955
+        }
+      ],
+      "source_sha256": "271cafcded2b6460c3326c8368176d901da03d26d2b5178bad0e9ca22da3849b",
+      "source": "rebuild/src/ptype.cpp",
+      "population": "rebuild-ptype",
+      "source_order": 6430784,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
     }
   ]
 }

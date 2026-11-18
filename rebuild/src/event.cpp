@@ -69,11 +69,13 @@
 #include "msgbox.h"
 #include "queue.h" // RA2
 #include "planning.h" // RA2
+#include "planmgr.h"
 #include "ownertalk.h" // RA2
 #include "rules.h"
 #include "saveload.h"
 #include "scenario.h"
 #include "session.h"
+#include "spawnmanager.h"
 #include "stringtable.h" // RA2
 #include "surface.h"
 #include "techno.h"
@@ -743,7 +745,7 @@ EventClass::EventClass(int index, IPXAddressClass & addr, signed char value)
  * HISTORY:                                                                                    *
  *   12/27/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 264 bytes differ (adopted text)
 void EventClass::Execute(void)
 {
 	TechnoClass * techno = NULL;
@@ -902,7 +904,7 @@ void EventClass::Execute(void)
 		**	exact factory and real object pointer to use.
 		*/
 		case PLACE:
-			((EventHouse *)house)->Place_Object(Data.Place.Type, Data.Place.ID, Data.Place.IsNaval != 0, Cell(Data.Place.Where.X, Data.Place.Where.Y));
+			house->Place_Object(Data.Place.Type, Data.Place.ID, Data.Place.IsNaval != 0, Cell(Data.Place.Where.X, Data.Place.Where.Y));
 			break;
 
 		/*
@@ -919,7 +921,7 @@ void EventClass::Execute(void)
 		**	object type, the factory can be inferred.
 		*/
 		case SUSPEND:
-			((EventHouse *)house)->Suspend_Production(Data.Specific.Type, Data.Specific.ID, Data.Specific.IsNaval != 0);
+			house->Suspend_Production(Data.Specific.Type, Data.Specific.ID, Data.Specific.IsNaval != 0);
 			break;
 
 		/*
@@ -1356,7 +1358,7 @@ void EventClass::Execute(void)
 
 			if (Data.Timing.MaxAhead > Session.MaxAhead || Data.Timing.FrameSendRate > Session.FrameSendRate) {
 				NewMaxAheadFrame1 = Frame;
-				NewMaxAheadFrame2 = Data.Timing.FrameSendRate * ((Data.Timing.FrameSendRate + Data.Timing.MaxAhead + Frame - 1) / Data.Timing.FrameSendRate);
+				NewMaxAheadFrame2 = Data.Timing.FrameSendRate * ((Frame + Data.Timing.MaxAhead + Data.Timing.FrameSendRate - 1) / Data.Timing.FrameSendRate);
 			} else {
 				NewMaxAheadFrame1 = 0;
 				NewMaxAheadFrame2 = 0;

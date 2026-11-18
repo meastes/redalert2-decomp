@@ -2218,7 +2218,7 @@ bool MapRegionClass::Build_South_Ramp(Cell const & cell1, Cell const & cell2, in
 /// <param name="cell2">Top endpoint of the ramp.</param>
 /// <param name="region_id">The region whose height the leveled ground adopts.</param>
 /// <returns>bool; Was the ramp carved?</returns>
-bool MapRegionClass::Build_East_Ramp(Cell const &first,Cell const &second,int lowRegion) // RA2: RA2's form of the east ramp (0x573040), with the ramp height and shape tables of 0x7E0A64 / 0x7E0A78
+bool MapRegionClass::Build_East_Ramp(Cell const &first,Cell const &second,int lowRegion) // RA2: RA2's form of the east ramp (0x573040), with the ramp height and shape tables of 0x7E0A28 / 0x7E0A3C
 {
 	static int RampHeights[] = {3, 2, 1, 0, 0}; // RA2: the table at 0x7E0A28
 	static int RampShapes[] = {10, 14, 14, 14, 6, 11, 15, 15, 15, 7}; // RA2: the table at 0x7E0A3C
@@ -2288,8 +2288,7 @@ bool MapRegionClass::Build_East_Ramp(Cell const &first,Cell const &second,int lo
 /// <param name="cell2">West endpoint of the ramp.</param>
 /// <param name="region_id">The region whose height the leveled ground adopts.</param>
 /// <returns>bool; Was the ramp carved?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 376 bytes differ (adopted text)
-bool MapRegionClass::Build_North_Ramp(Cell const &first,Cell const &second,int lowRegion) // RA2: RA2's form of the north ramp (0x573680); near miss, 341 bytes differ from offset 1026 (register choice of the inlined Cell sum)
+bool MapRegionClass::Build_North_Ramp(Cell const &first,Cell const &second,int lowRegion) // RA2: RA2's form of the north ramp (0x573680), with the ramp height and shape tables of 0x7E0A64 / 0x7E0A78
 {
 	static int RampHeights[] = {3, 2, 1, 0, 0}; // RA2: the table at 0x7E0A64
 	static int RampShapes[] = {10, 14, 14, 14, 6, 9, 13, 13, 13, 5}; // RA2: the table at 0x7E0A78
@@ -2329,7 +2328,8 @@ bool MapRegionClass::Build_North_Ramp(Cell const &first,Cell const &second,int l
 				Cell position=Cell(second.X+3,second.Y)+Cell(forward,-row)+bias; // RA2: as above
 				position=Cell(position.X,position.Y+offset); // RA2: as above
 				CellClass &target=Map[position]; // RA2: as above
-				target.Height=(char)(RampHeights[row] + CellHeight - 4); // RA2: as above
+				short height=RampHeights[row]; // RA2: ra2-decomp src/mapgen.cpp keeps the height in a short
+				target.Height=height + CellHeight - 4; // RA2: as above
 				target.Ramp=(unsigned char)RampShapes[5*down+row]; // RA2: as above
 				target.ITType=(IsometricTileType)((unsigned)IsometricTileTypeClass::RampStart + target.Ramp - 1); // RA2: as above
 				target.SubTile=0; // RA2: as above
@@ -2349,7 +2349,6 @@ bool MapRegionClass::Build_North_Ramp(Cell const &first,Cell const &second,int l
 	}
 	return(true);
 }
-#endif
 
 
 
@@ -3867,6 +3866,7 @@ done: // RA2: as above
 */
 static char const * _map_type_names[5] = {"TXT_MAP_ARCHIPELAGO", "TXT_MAP_CONTINENT", "TXT_MAP_TEAM_CONTINENTS", "TXT_MAP_INLAND", "TXT_MAP_MOUNTAINOUS"}; // RA2
 static char const * _resource_names[4] = {"TXT_RESOURCE_LOW", "TXT_RESOURCE_MODERATE", "TXT_RESOURCE_HIGH", "TXT_RESOURCE_EXTREME"}; // RA2
+static char const * _theater_names[2] = {"TXT_THEATER_TEMPERATE", "TXT_THEATER_SNOW"}; // RA2: no code reads it
 static char const * _time_names[4] = {"TXT_TIME_MORNING", "TXT_TIME_AFTERNOON", "TXT_TIME_DUSK", "TXT_TIME_NIGHT"}; // RA2
 static char const * _map_size_names[4] = {"TXT_MAPSIZE_SMALL", "TXT_MAPSIZE_MEDIUM", "TXT_MAPSIZE_LARGE", "TXT_MAPSIZE_VERY_LARGE"}; // RA2
 
@@ -6557,7 +6557,8 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 
 	if (waterfall_count == 0 && success && CellHeight == 4 && !orig_subcall) {
 
-		if (Random_Fraction() < 0.7) { // RA2: no biome test
+		static const double _raise_chance = 0.7; // RA2: a named constant of the function: the executable reads this 0.7 at 0x7A5CB0, among the function statics
+		if (Random_Fraction() < _raise_chance) { // RA2: no biome test
 
 			Rect bounds(0, 0, MAP_CELL_W, MAP_CELL_H);
 			if (Grow_Water_Region(WorkingRegionID, 0.01f, bounds, seed_cell, true)) {
@@ -7945,9 +7946,10 @@ void MapGeneratorClass::Create_Tiberium(void)
 			if (distances[i] < closest) closest = distances[i]; // RA2: as above
 		} // RA2: as above
 
+		static const double _distance_scale = 15.0; // RA2: the extra field cells per cell of distance beyond the closest start
 		bool rich = Rich_Starts(SeedData); // RA2: as above
 		for (int spot = 0; spot < Start_Count(region); spot++) { // RA2: as above
-			int size = (int)((distances[spot] - closest) * 15.0); // RA2: as above
+			int size = (int)((distances[spot] - closest) * _distance_scale); // RA2: a named constant of the function: the executable reads this 15.0 at 0x7A5CE8, among the function statics, while the literal 15.0 elsewhere in this file is the copy kept from an earlier object (0x7A5398)
 			Create_Tiberium_Patch(Scen->Get_Waypoint_Cell((WAYPOINT)(spot + waypoint)), size + 500, spot + waypoint + 1, rich); // RA2: as above
 		} // RA2: as above
 		waypoint += Start_Count(region); // RA2: as above
@@ -8354,7 +8356,6 @@ void MapGeneratorClass::Seed_Arctic_Vegetation(void)
 /// against the chances that Seed_Vegetation left on each cell, then litters the result with
 /// rocks. A mutated map is given its mold and crystal growths first.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 2 bytes differ (adopted text)
 void MapGeneratorClass::Generate_Vegetation(void)
 {
 	CellClass * cptr;
@@ -8422,7 +8423,6 @@ void MapGeneratorClass::Generate_Vegetation(void)
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -8431,7 +8431,6 @@ void MapGeneratorClass::Generate_Vegetation(void)
 /// then walks the map planting rough patches, woods and rock fields against the chances that
 /// Seed_Arctic_Vegetation left on each cell.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text)
 void MapGeneratorClass::Generate_Arctic_Vegetation(void)
 {
 	CellClass * cptr;
@@ -8467,7 +8466,6 @@ void MapGeneratorClass::Generate_Arctic_Vegetation(void)
 		tree_count -= Place_Forest(&Map[cell], Sample_Truncated_Normal_Inline(25, 10, 10, 35), Sample_Truncated_Normal_Inline(0.2, 0.1, 0.05, 0.4)); // RA2: as above
 	}
 }
-#endif
 
 
 /// <summary>
@@ -8607,9 +8605,6 @@ void MapGeneratorClass::Place_Tile_Patch(CellClass * cellptr, IsometricTileType 
 	delete queue;
 }
 
-
-double ConditionRedChances[BIOME_COUNT] = {0.5, 0.2, 0.2, 0.6, 0.8};
-double ConditionYellowChances[BIOME_COUNT] = {0.5, 0.3, 0.2, 0.5, 0.95};
 
 
 /// <summary>
@@ -10159,11 +10154,12 @@ bool MapGeneratorClass::Find_Dirt_Road_Tile(FacingType facing, Cell const & targ
 		current_conn_count = roll; // RA2: RA2's form
 		initial_conn_count = current_conn_count; // RA2: as above
 	}
+	static const double _offset_chance = 0.7; // RA2: the chance that a two-way piece is looked for from the eighth piece on
 	while (true) {
 		int tile_count = RoadTileCounts[facing][current_conn_count - 1];
 		int * tile_list = RoadTileLibrary[facing][current_conn_count - 1];
 		int start_index;
-		if (current_conn_count == 2 && (unsigned)RMGRandom()* (1.0 / 4294967296.0) < 0.7) { // RA2: as above
+		if (current_conn_count == 2 && (unsigned)RMGRandom()* (1.0 / 4294967296.0) < _offset_chance) { // RA2: a named constant of the function: the executable reads this 0.7 at 0x7A5D70, among the function statics, while Generate_Vegetation's literal 0.7 lies in the literal pool (0x7A6000)
 			start_index = Pick_Random_UInt(7, tile_count - 1);
 		} else {
 			start_index = Pick_Random_UInt(0, tile_count - 1);

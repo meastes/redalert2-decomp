@@ -2828,6 +2828,182 @@
       "population": "rebuild-blight",
       "source_order": 4409312,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4409376,
+      "method": "00434820",
+      "body_bytes": 25,
+      "body_sha256": "66f50239e7eca922033451ce5bfdf4e3e44cdc54514dbac3e5ad6a7f5d93a90d",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "86d602c279b3d518baa9c9a9c1b95b383526f63f7d48accb01dff0369658b3be",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Coord@@QAE@HHH@Z",
+      "symbol_prefix": "??0Coord@@QAE@HHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "c8760f67f62d7a8fc9e2ec57f47bd45d532b9fddc150787136476484c1b6699e",
+      "source": "rebuild/src/blight.cpp",
+      "population": "rebuild-blight",
+      "source_order": 4409376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1943"
+    },
+    {
+      "entry": 4409424,
+      "method": "00434850",
+      "body_bytes": 154,
+      "body_sha256": "4c33d3df537005bcb9bfd0aa014c341eb33bc4328e3d47af53e3088f53cf0b31",
+      "padding_bytes": 6,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "800bed056ac320affea5e6fc8242ae1f63437a066eb7507dc1ef953adc1d03a3",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GBuildingLightClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GBuildingLightClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "??_7BuildingLightClass@@6BIPersistStream@@@",
+          "target": 7981024,
+          "addend": 0,
+          "resolved": 7981024
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_7BuildingLightClass@@6BIRTTITypeInfo@@@",
+          "target": 7980996,
+          "addend": 0,
+          "resolved": 7980996
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7BuildingLightClass@@6BINoticeSink@@@",
+          "target": 7980988,
+          "addend": 0,
+          "resolved": 7980988
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "??_7BuildingLightClass@@6BINoticeSource@@@",
+          "target": 7980980,
+          "addend": 0,
+          "resolved": 7980980
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "?Limbo@ObjectClass@@UAE_NXZ",
+          "target": 6108928,
+          "addend": 0,
+          "resolved": 1699468
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?Logic@@3VLogicClass@@A",
+          "target": 8594544,
+          "addend": 0,
+          "resolved": 8594544
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Remove@LogicClass@@QAEXPAVObjectClass@@@Z",
+          "target": 5497712,
+          "addend": 0,
+          "resolved": 1088237
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?BuildingLights@@3V?$DynamicVectorClass@PAVBuildingLightClass@@@@A",
+          "target": 8806944,
+          "addend": 0,
+          "resolved": 8806944
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?BuildingLights@@3V?$DynamicVectorClass@PAVBuildingLightClass@@@@A",
+          "target": 8806944,
+          "addend": 0,
+          "resolved": 8806944
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?BuildingLights@@3V?$DynamicVectorClass@PAVBuildingLightClass@@@@A",
+          "target": 8806944,
+          "addend": 16,
+          "resolved": 8806960
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?BuildingLights@@3V?$DynamicVectorClass@PAVBuildingLightClass@@@@A",
+          "target": 8806944,
+          "addend": 16,
+          "resolved": 8806960
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "?BuildingLights@@3V?$DynamicVectorClass@PAVBuildingLightClass@@@@A",
+          "target": 8806944,
+          "addend": 4,
+          "resolved": 8806948
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?BuildingLights@@3V?$DynamicVectorClass@PAVBuildingLightClass@@@@A",
+          "target": 8806944,
+          "addend": 16,
+          "resolved": 8806960
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "??1ObjectClass@@UAE@XZ",
+          "target": 6104368,
+          "addend": 0,
+          "resolved": 1694813
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3462235
+        }
+      ],
+      "source_sha256": "c8760f67f62d7a8fc9e2ec57f47bd45d532b9fddc150787136476484c1b6699e",
+      "source": "rebuild/src/blight.cpp",
+      "population": "rebuild-blight",
+      "source_order": 4409424,
+      "source_quality_family": "rebuild"
     }
   ]
 }

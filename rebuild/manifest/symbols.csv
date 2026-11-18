@@ -850,6 +850,7 @@ symbol,address,evidence
 ?Abandon_Production@StripClass@SidebarClass@@QAE_NPBVFactoryClass@@@Z,0x006817D0,inferred: sidebar rows 00681740 differ only at its sites
 ?Abort_Drag_Select@DisplayClass@@UAEXXZ,0x0049EBF0,slot +8c of ??_7RadarClass@@6B@ at 007a871c; main row ?Abort_Drag_Select@DisplayClass@@UAEXXZ
 ?Abort_Drag_Select@ScrollClass@@UAEXXZ,0x0066AC20,slot +8c of ??_7MouseClass@@6BSidebarClass@@@ at 0079a954; main row ?Abort_Drag_Select@ScrollClass@@UAEXXZ
+?Account_Details_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,0x007498E0,inferred: wonline rows 00744a00 differ only at its sites
 ?Acquire_Hunter_Seeker_Target@LocomotionClass@@UAGXXZ,0x004A4C30,slot +98 of ??_7ShipLocomotionClass@@6BILocomotion@@@ at 007ab138; main row ?Acquire_Hunter_Seeker_Target@LocomotionClass@@UAGXXZ
 ?Action@GadgetClass@@MAEHIAAW4KeyNumType@@@Z,0x004CF220,slot +80 of ??_7StaticButtonClass@@6B@ at 007ac0cc; main row ?Action@GadgetClass@@MAEHIAAI@Z
 ?Action@GraphicMenuItem@@UAEXPAVMSEngine@@@Z,0x004E01E0,slot +10 of ??_7GraphicMenuShortcutItem@@6B@ at 007a2be8; main row ?Play_Sound@GraphicMenuItem@@UAEXH@Z
@@ -912,6 +913,7 @@ symbol,address,evidence
 ?BRIDGE_LEPTON_HEIGHT@@3HB,0x00A71768,inferred: mpsiegeteam rows 005abd60 differ only at its sites
 ?Barrel_Pitch@TechnoClass@@UBE?AVDirType@@PAVAbstractClass@@@Z,0x006CA540,slot +2ac of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot170@TechnoClass@@UAE?AUUnknownFacingDir@@PAVAbstractClass@@@Z
 ?Berzerk@FootClass@@UAEXXZ,0x0041B4F0,slot +49c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b4f0@@QAEXXZ
+?Birthdate_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,0x007494D0,inferred: wonline rows 00744a00 differ only at its sites
 ?BlackColor@HSVClass@@0V1@B,0x00A410BC,inferred: hsv rows 004fef50 004fef50 004fef50 differ only at its sites
 ?Blit@?$RLEBlitTransDarken@G@@UBEXPAXPBXHHH00HH0@Z,0x00489940,slot +08 of ??_7?$RLEBlitTransDarken@G@@6B@ at 0079e124; main row ?Blit@?$RLEBlitTransDarken@G@@UBEXPAXPBXHHH00HH0@Z
 ?Blit@?$RLEBlitTransDarkenZRead@G@@UBEXPAXPBXHHH00HH0@Z,0x00489D90,slot +08 of ??_7?$RLEBlitTransDarkenZRead@G@@6B@ at 0079e0dc; main row ?Blit@?$RLEBlitTransDarkenZRead@G@@UBEXPAXPBXHHH00HH0@Z
@@ -1276,6 +1278,7 @@ symbol,address,evidence
 ?Create_And_Place@AnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,0x004267A0,slot +84 of ??_7AnimTypeClass@@6BIPersistStream@@@ at 0079c314; main row ?Create_And_Place@AnimTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z
 ?Create_And_Place@InfantryTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,0x00509F20,slot +80 of ??_7InfantryTypeClass@@6BIPersistStream@@@ at 007a3a78; main row ?Create_And_Place@InfantryTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z
 ?Create_And_Place@ParticleSystemTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,0x00620EA0,slot +84 of ??_7ParticleSystemTypeClass@@6BIPersistStream@@@ at 007a847c; main row ?Create_And_Place@ParticleSystemTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z
+?Create_Game_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,0x00748E10,inferred: wonline rows 007459a0 differ only at its sites
 ?Create_ID@AbstractClass@@UAGXXZ,0x0040FFD0,slot +18 of ??_7BuildingClass@@6BIRTTITypeInfo@@@ at 0079cb9c; main row ?Create_ID@AbstractClass@@UAGXXZ
 ?Create_One_Of@AnimTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z,0x004267B0,slot +90 of ??_7AnimTypeClass@@6BIPersistStream@@@ at 0079c314; main row ?Create_One_Of@AnimTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z
 ?Create_One_Of@ParticleSystemTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z,0x00620EB0,slot +90 of ??_7ParticleSystemTypeClass@@6BIPersistStream@@@ at 007a847c; main row ?Create_One_Of@ParticleSystemTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z
@@ -2813,6 +2816,10 @@ symbol,address,evidence
 ?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z,0x005D5FC0,slot +94 of ??_7BuildingTypeClass@@6BIPersistStream@@@ at 0079d1f8; main row ?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z
 ?Will_Jump_Tracks@LocomotionClass@@UAGEXZ,0x004A65C0,slot +a8 of ??_7FlyLocomotionClass@@6BILocomotion@@@ at 007a1000; main row ?Will_Jump_Tracks@LocomotionClass@@UAG_NXZ
 ?WolOptionsLocked@@3HA,0x00B2AC40,inferred: wonline rows 00741750 00741750 00741750 differ only at its sites
+?Wonline_Account_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,0x007540A0,inferred: wonline rows 00742fd0 differ only at its sites
+?Wonline_Autologin_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,0x00755070,inferred: wonline rows 00742fd0 differ only at its sites
+?Wonline_Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,0x0074A710,inferred: wonline rows 007459a0 differ only at its sites
+?Wonline_Password_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,0x007492D0,inferred: wonline rows 00745780 differ only at its sites
 ?Write@BufferIOFileClass@@UAEHPBXH@Z,0x0042F830,slot +34 of ??_7CDFileClass@@6B@ at 0079a654; main row ?Write@BufferIOFileClass@@UAEJPBXJ@Z
 ?Write@CCFileClass@@UAEHPBXH@Z,0x00469030,slot +34 of ??_7CCFileClass@@6B@ at 0079a69c; main row ?Write@CCFileClass@@UAEJPBXJ@Z
 ?Write@RawFileClass@@UAEHPBXH@Z,0x00638E80,slot +34 of ??_7RawFileClass@@6B@ at 007a8cc0; main row ?Write@RawFileClass@@UAEJPBXJ@Z
