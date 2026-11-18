@@ -64,6 +64,8 @@ def main(unit, dry):
         a, label = resolve(n)
         if a is not None and lo <= a < hi and a in rows and results.get('%08x' % a, {}).get('status') != 'exact':
             targets[n] = 'no exact match yet (row %08x)' % a
+        elif a is None and '?$' not in n and not n.startswith('??_'):
+            targets[n] = 'no row of the original matches it yet (unplaced)'
     src = R.ROOT / info['source']
     text = src.read_text(encoding='latin-1')
     edits, left = [], []
@@ -72,8 +74,10 @@ def main(unit, dry):
         if not name:
             left.append((sym, 'not demangled')); continue
         pat = re.compile(r'^(?![ \t#/])[^\n;{}]*?(?<![\w:])%s\s*\(' % re.escape(name), re.M)
-        hits = [m for m in pat.finditer(text) if body_end(text, text.find('{', m.start())) > 0 and
-                text.find(';', m.start(), text.find('{', m.start())) < 0]
+        def no_semicolon(m):
+            seg = text[m.start():text.find('{', m.start())]
+            return ';' not in re.sub(r'//[^\n]*', '', seg)
+        hits = [m for m in pat.finditer(text) if body_end(text, text.find('{', m.start())) > 0 and no_semicolon(m)]
         hits = [m for m in hits if not text[:m.start()].rstrip().endswith('#ifdef RA2_NON_MATCHING') and
                 not re.search(r'#ifdef RA2_NON_MATCHING[^\n]*\n$', text[:m.start()])]
         if len(hits) > 1:

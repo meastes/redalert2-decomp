@@ -1,0 +1,4115 @@
+{
+  "id": "rebuild-campscor",
+  "population": {
+    "id": "rebuild-campscor",
+    "inventory_sha256": "320aab6d613f4a1467fc31a56703d9e27106bc0f2ad135d1b5ffe709eb687e4d",
+    "gaps_sha256": "1a2726f929648256b0bf422f328001458ee9551bc1f0b3e9ed56da4d85b3d9a9",
+    "historical_population_sha256": "5b92eb76a62dc7b37b5a2622b90baf24076d912b5fb47c1ceea28b68f7de8e8f",
+    "historical_acceptance_sha256": "1dc1b5382fd4a41be6caecd9f13fde5e6af4eab9e041a41cc9bcad516ef596e0"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8717424,
+    "_ISO_TILE_SIZE": 7984912,
+    "_LEPTONS_PER_PIXEL": 8717560,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8717536,
+    "_ONE_RAD": 7984920,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8717528,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8717432,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8717360,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8717568,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8717440,
+    "_CELL_DIAG_SLOPE_ANGLE": 8717472,
+    "_BRIDGE_LEPTON_HEIGHT": 8717548,
+    "_CELL_NONE": 8717416,
+    "_COORD_NONE": 8717456,
+    "_RECT_NONE": 8717368,
+    "??_7CampaignScoreClass@@6B@": 7984932,
+    "_ScoreTime": 8717576,
+    "_CampaignDifficulty": 8197248,
+    "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@": 8197508,
+    "??_C@_0BG@MFEO@TXT_TIME_FORMAT_HOURS?$AA@": 8197484,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "_swprintf": 7878500,
+    "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@": 8197528,
+    "__imp__GetDlgItem@8": 7971996,
+    "__imp__SendMessageA@16": 7972000,
+    "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "_wcscpy": 7878281,
+    "?Total@CounterClass@@QBEHXZ": 4791696,
+    "??_C@_06POBF@Winner?$AA@": 8197612,
+    "??_C@_05IOKF@Loser?$AA@": 8197604,
+    "??_C@_0ED@CLLE@?$CFs?3?5?$CFs?6?5Scheme?3?5?$CFd?6?5Lost?5?$DN?5?$CFd?6?5K@": 8197536,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "_CampaignSortedScores": 8717384,
+    "?Campaign_Score_Compare@@YAHPBX0@Z": 4611872,
+    "_qsort": 7871814,
+    "_ScoreReady": 8717512,
+    "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z": 6290176,
+    "__imp__GetWindowLongA@8": 7971980,
+    "??_C@_0P@CEJM@GUI?3Difficulty?$AA@": 8197804,
+    "??_C@_19GKBP@?$AA?$CF?$AAs?$AA?3?$AA?5?$AA?$AA@": 8197792,
+    "??_C@_0BE@HEHO@TXT_DIFFICULTY_EASY?$AA@": 8197772,
+    "??_C@_0BF@JAMI@GUI?3DifficultyString?$AA@": 8197748,
+    "??_C@_0BG@CKEG@TXT_DIFFICULTY_MEDIUM?$AA@": 8197724,
+    "??_C@_0BG@EMPM@TXT_DIFFICULTY_BRUTAL?$AA@": 8197700,
+    "_ScoreName": 8717588,
+    "_CampScoreControls": 8197252,
+    "??_C@_0N@LAJB@TXT_COMPUTER?$AA@": 8197684,
+    "_wcscmp": 7878611,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "??BHSVClass@@QBE?AVRGBClass@@XZ": 5238864,
+    "??_C@_0M@MHCJ@TXT_WAITING?$AA@": 8197672,
+    "??_C@_0M@LCFM@TXT_ABORTED?$AA@": 8197660,
+    "__imp__EnableWindow@8": 7971984,
+    "_ScoreIsReady": 8717584,
+    "?Dialog_On_WM_PAINT@@YIXPAUHWND__@@@Z": 6286960,
+    "?Slide_Pending_Dialog@@YIXPAUHWND__@@@Z": 6184736,
+    "?Wide_To_Narrow@@YIPADPBG@Z": 7315744,
+    "?Ipx@@3VIPXManagerClass@@A": 10750328,
+    "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z": 5396896,
+    "?Service@IPXManagerClass@@UAEHXZ": 5398368,
+    "??_C@_09IMGH@TXT_READY?$AA@": 8197648,
+    "??_C@_0L@EJFF@GUI?3Cancel?$AA@": 8197636,
+    "__imp__InvalidateRect@12": 7971988,
+    "??_C@_0N@LECO@GUI?3Continue?$AA@": 8197620,
+    "?CampaignScoreDone@@3_NA": 8717572,
+    "?Darken_Surface@@YIXPAVSurface@@_N@Z": 5331376,
+    "?Set_Paint_Disabled@OwnerDraw@@YGHPAUHWND__@@J@Z": 6213440,
+    "__imp__ShowWindow@8": 7971992,
+    "?Net2Callback@@YI_NXZ": 6012176,
+    "?WOL_Wait_Callback@@YI_NXZ": 7594240,
+    "?Call_Back@@YIXXZ": 4726704,
+    "??_7CampaignEndScoreClass@@6B@": 7984944,
+    "_EndScoreDifficulty": 8717520,
+    "_EndScoreCount": 8717544,
+    "_EndScoreTime": 8717468,
+    "_EndScoreName": 8717652,
+    "_EndScoreCampaign": 8717448,
+    "??_C@_0BC@IKBK@GUI?3CampaignLabel?$AA@": 8197872,
+    "??_C@_09NHCJ@GUI?3Blank?$AA@": 8197860,
+    "_EndScores": 8717480,
+    "__imp__PostMessageA@16": 7971952,
+    "__imp__SendDlgItemMessageA@20": 7971972,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Load_Score_Art@@YIXH@Z": 7284496,
+    "?Load_MP_Score_Art@@YIXH@Z": 7285296,
+    "?Campaign_End_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 4617008,
+    "?Dialog_Box@@YIHHP6GHPAUHWND__@@IIJ@Z_N@Z": 6204256,
+    "?Free_MP_Score_Art@@YIXXZ": 7285424,
+    "?Free_Score_Art@@YAXXZ": 7284560,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 4610560,
+    "_$E5": 4610608,
+    "_$E8": 4610640,
+    "_$E11": 4610672,
+    "_$E14": 4610704,
+    "_$E17": 4610736,
+    "_$E20": 4610768,
+    "_$E23": 4610832,
+    "_$E26": 4610880,
+    "_$E29": 4610928,
+    "_$E32": 4610976,
+    "_$E35": 4610992,
+    "_$E51": 4611024,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0CampaignScoreClass@@QAE@XZ": 4611056,
+    "?Presentation@CampaignScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@H_NHPBG@Z": 4614736,
+    "??_GCampaignScoreClass@@UAEPAXI@Z": 4619008,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVCampaignScoreClass@@@8": 8197448,
+    "??1CampaignScoreClass@@UAE@XZ": 4611088,
+    "?Campaign_Score_Format_Time@@YIXPAGH@Z": 4611104,
+    "?Campaign_Score_Set_Number@@YIXPAUHWND__@@HH@Z": 4611264,
+    "?Tally_Scores@CampaignScoreClass@@QAEXXZ": 4611344,
+    "?Campaign_Score_Sort@@YIXXZ": 4611808,
+    "?Campaign_Score_Reset_Ready@@YIXH@Z": 4611920,
+    "?Campaign_Score_All_Ready@@YI_NXZ": 4611968,
+    "?Campaign_Score_Set_Ready@@YIXH_N@Z": 4612000,
+    "?Campaign_Score_Is_Ready@@YI_NH@Z": 4612016,
+    "?Campaign_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 4612032,
+    "?Campaign_Score_Service@@YI_NXZ": 4614688,
+    "??0CampaignEndScoreClass@@QAE@XZ": 4616704,
+    "??_GCampaignEndScoreClass@@UAEPAXI@Z": 4619040,
+    "??_R0?AVCampaignEndScoreClass@@@8": 8197824,
+    "??1CampaignEndScoreClass@@UAE@XZ": 4616752,
+    "?Campaign_End_Score_Set_Number@@YIXPAUHWND__@@HH@Z": 4616768,
+    "?Campaign_End_Score_Format_Time@@YIXPAGH@Z": 4616848,
+    "?Campaign_End_Score_Sort@@YIXXZ": 4618752,
+    "?Presentation@CampaignEndScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@HHHPBG@Z": 4618784,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 4610560,
+      "method": "00465a00",
+      "body_bytes": 40,
+      "body_sha256": "8d05f732284dbc10c5b78f76f2162236222b33c8be1421e4a6f1d21b9ece2938",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "28c0d865ff4dfb981121f5b81a2f382f6bc6e0ccf7d282a04c4c9fd622687e0f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 3262367
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 346610
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8717424,
+          "addend": 0,
+          "resolved": 8717424
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610608,
+      "method": "00465a30",
+      "body_bytes": 19,
+      "body_sha256": "c65564c5e6fe761033a0b59711d340e96dc0f906e80da1dce9287908550debeb",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b086dc5866d5306556a29d2e23b46014e86b580e3ac9b7eef7ea93939e3f0b8b",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8717424,
+          "addend": 0,
+          "resolved": 8717424
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7984912,
+          "addend": 0,
+          "resolved": 7984912
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8717560,
+          "addend": 0,
+          "resolved": 8717560
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610640,
+      "method": "00465a50",
+      "body_bytes": 19,
+      "body_sha256": "ebffbafecd2e6eca108235e3445d8993ac27d998498779d0591c63490472ab34",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "77ae8df9735b72a98e21844e9cd8c599edf11decbd852cb1017eeef51dfd32aa",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8717560,
+          "addend": 0,
+          "resolved": 8717560
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8717536,
+          "addend": 0,
+          "resolved": 8717536
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610672,
+      "method": "00465a70",
+      "body_bytes": 19,
+      "body_sha256": "73d657184e93ee295937c3c1f7b272f8351ee6c3e561c44a92f77575dae08dfc",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bb8de1166bdc62d93ac440b9ec1ea2f4ee2c17896356772841ed1afee0f642a7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7984920,
+          "addend": 0,
+          "resolved": 7984920
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8717528,
+          "addend": 0,
+          "resolved": 8717528
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610704,
+      "method": "00465a90",
+      "body_bytes": 19,
+      "body_sha256": "c49223424bcf51665c17e0b4f99d73676333c1f2f04978686305ce4610d7370b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "52c2196419686787a92b78a4b8401330f266a3c6818f048e87d6f04f25f6aadb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7984920,
+          "addend": 0,
+          "resolved": 7984920
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8717432,
+          "addend": 0,
+          "resolved": 8717432
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610736,
+      "method": "00465ab0",
+      "body_bytes": 19,
+      "body_sha256": "6ab56fa64e5c81b800f2c7af1392b9ee1f3782525a4aea6978513e696eb68e00",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6d5ed3770c330683464e9935d64e367c6a1051b95864a5c7c41b744329ff347f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7984920,
+          "addend": 0,
+          "resolved": 7984920
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8717360,
+          "addend": 0,
+          "resolved": 8717360
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610768,
+      "method": "00465ad0",
+      "body_bytes": 49,
+      "body_sha256": "d271067b82a9127a488b7b1311f90ed52ffb82352ae526a414c7270c6ccf353a",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "8843b7a303d6307180db0d89ec03956bdc4cb27d459c072394b3ad964a1bb686",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8717360,
+          "addend": 0,
+          "resolved": 8717360
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8717432,
+          "addend": 0,
+          "resolved": 8717432
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 346681
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8717424,
+          "addend": 0,
+          "resolved": 8717424
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3249685
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8717568,
+          "addend": 0,
+          "resolved": 8717568
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610832,
+      "method": "00465b10",
+      "body_bytes": 33,
+      "body_sha256": "9297377d1fc3dd5d7ed6574ac09448d07481fe0fe2afe92be2bb50244005a4dc",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4aa67ef0bbc9e1581b8a29b374cc8331ae9c0f0f7938c62a6c59a2d87c32ae04",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8717568,
+          "addend": 0,
+          "resolved": 8717568
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 346761
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8717440,
+          "addend": 0,
+          "resolved": 8717440
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610880,
+      "method": "00465b40",
+      "body_bytes": 44,
+      "body_sha256": "650d0dff061a91c9dae4076075090e572dfe9e8ad5449301771ed6442facec93",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b25e15fc33607f64e943c5edff2e696b4787124b708187b01e129b787fe72958",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8717568,
+          "addend": 0,
+          "resolved": 8717568
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8717424,
+          "addend": 0,
+          "resolved": 8717424
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 346702
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8717472,
+          "addend": 0,
+          "resolved": 8717472
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610928,
+      "method": "00465b70",
+      "body_bytes": 39,
+      "body_sha256": "2f4312366234b040ef2ca67a42d05eda35de669673d90afc3cff199c0c149c88",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "2edcfaecd1a64d5811ce29abbaf1adcbf495dea03815ac5c4963f78209f54658",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8717568,
+          "addend": 0,
+          "resolved": 8717568
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3249536
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8717548,
+          "addend": 0,
+          "resolved": 8717548
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610976,
+      "method": "00465ba0",
+      "body_bytes": 15,
+      "body_sha256": "b08582e83345ec9042a545fef68ea7067a9479c125569ca34e28bd1d8b8df723",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "4adc642d291584c368c2c6e39675a10b039171050e855f87445a9c62155699cb",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8717416,
+          "addend": 0,
+          "resolved": 8717416
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8717416,
+          "addend": 2,
+          "resolved": 8717418
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4610992,
+      "method": "00465bb0",
+      "body_bytes": 18,
+      "body_sha256": "cf65b27a838951f381d0bfac120b5afd32199b717032e1c229144572918a796e",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6cd92f9b73a7e737f7b2174b30950609c58eb534c88200fe917f107ea553b831",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717456,
+          "addend": 0,
+          "resolved": 8717456
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717456,
+          "addend": 4,
+          "resolved": 8717460
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8717456,
+          "addend": 8,
+          "resolved": 8717464
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4610992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4611024,
+      "method": "00465bd0",
+      "body_bytes": 23,
+      "body_sha256": "f53c72fd3546e509123d2da1f0959794779e60be012c3dbadb75862e21b0c326",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "15ebf80c05dcefa63151d57643e1237e756bf5e02cf91254b2a1e87b49621375",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E51",
+      "symbol_prefix": "_$E51",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8717368,
+          "addend": 0,
+          "resolved": 8717368
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8717368,
+          "addend": 4,
+          "resolved": 8717372
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8717368,
+          "addend": 8,
+          "resolved": 8717376
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8717368,
+          "addend": 12,
+          "resolved": 8717380
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4611056,
+      "method": "00465bf0",
+      "body_bytes": 30,
+      "body_sha256": "9c7d81891d86a8aa0ec45bfc75d176c73c7eafb5e3934b85251e707f470f7d23",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d70e9cb83b118a082ec8699f4c1ae1272d7252c1234d7706ecceb80a4f6cc021",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0CampaignScoreClass@@QAE@XZ",
+      "symbol_prefix": "??0CampaignScoreClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "??_7CampaignScoreClass@@6B@",
+          "target": 7984932,
+          "addend": 0,
+          "resolved": 7984932
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_ScoreTime",
+          "target": 8717576,
+          "addend": 0,
+          "resolved": 8717576
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "_CampaignDifficulty",
+          "target": 8197248,
+          "addend": 0,
+          "resolved": 8197248
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4611088,
+      "method": "00465c10",
+      "body_bytes": 7,
+      "body_sha256": "ac234f738da281957adb10f60fdeb63060d637300764dc6dea1757b250aa2115",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "fa1e67b46414bae1bc6ef05c34f7a8412672239337dbe0c875a4335297f278f5",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1CampaignScoreClass@@UAE@XZ",
+      "symbol_prefix": "??1CampaignScoreClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7CampaignScoreClass@@6B@",
+          "target": 7984932,
+          "addend": 0,
+          "resolved": 7984932
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4611104,
+      "method": "00465c20",
+      "body_bytes": 149,
+      "body_sha256": "71929b0eebfc08087722afca578c84737bef936d0ea08fda562827c103cfa358",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "dc786604f1ebe36f242aaaead6fca58cb2245ae678e9b766f4fe7642fd473f7c",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_Format_Time@@YIXPAGH@Z",
+      "symbol_prefix": "?Campaign_Score_Format_Time@@YIXPAGH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "??_C@_0BG@MFEO@TXT_TIME_FORMAT_HOURS?$AA@",
+          "target": 8197484,
+          "addend": 0,
+          "resolved": 8197484
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2703896
+        },
+        {
+          "offset": 139,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3267253
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4611264,
+      "method": "00465cc0",
+      "body_bytes": 67,
+      "body_sha256": "ed83d7f3f32af82e5616d7213c4f42a60d538318313f735674c33e1904083f26",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f888f33e87a5d5fe4f65196248e540a8245804aca699d0f80c5e5b34fcde2d35",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_Set_Number@@YIXPAUHWND__@@HH@Z",
+      "symbol_prefix": "?Campaign_Score_Set_Number@@YIXPAUHWND__@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3267207
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4611344,
+      "method": "00465d10",
+      "body_bytes": 449,
+      "body_sha256": "fb2e0b24f54540cf7cd971a4c7ca64669dc1c72c1c538e888da1207a5ed1f202",
+      "padding_bytes": 15,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "cefc9dd64876e584771645e91c43464d2450a11798707e568194a7c012589044",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Tally_Scores@CampaignScoreClass@@QAEXXZ",
+      "symbol_prefix": "?Tally_Scores@CampaignScoreClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 16,
+          "resolved": 10691240
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8052,
+          "resolved": 10744332
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8096,
+          "resolved": 10744376
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 3266814
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8100,
+          "resolved": 10744380
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8116,
+          "resolved": 10744396
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8132,
+          "resolved": 10744412
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8148,
+          "resolved": 10744428
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8092,
+          "resolved": 10744372
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8096,
+          "resolved": 10744376
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8096,
+          "resolved": 10744376
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8956,
+          "resolved": 10745236
+        },
+        {
+          "offset": 236,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8116,
+          "resolved": 10744396
+        },
+        {
+          "offset": 262,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8100,
+          "resolved": 10744380
+        },
+        {
+          "offset": 267,
+          "kind": 20,
+          "symbol": "?Total@CounterClass@@QBEHXZ",
+          "target": 4791696,
+          "addend": 0,
+          "resolved": 180081
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "?Total@CounterClass@@QBEHXZ",
+          "target": 4791696,
+          "addend": 0,
+          "resolved": 180068
+        },
+        {
+          "offset": 293,
+          "kind": 20,
+          "symbol": "?Total@CounterClass@@QBEHXZ",
+          "target": 4791696,
+          "addend": 0,
+          "resolved": 180055
+        },
+        {
+          "offset": 306,
+          "kind": 20,
+          "symbol": "?Total@CounterClass@@QBEHXZ",
+          "target": 4791696,
+          "addend": 0,
+          "resolved": 180042
+        },
+        {
+          "offset": 330,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8132,
+          "resolved": 10744412
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8148,
+          "resolved": 10744428
+        },
+        {
+          "offset": 352,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8096,
+          "resolved": 10744376
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "??_C@_06POBF@Winner?$AA@",
+          "target": 8197612,
+          "addend": 0,
+          "resolved": 8197612
+        },
+        {
+          "offset": 366,
+          "kind": 6,
+          "symbol": "??_C@_05IOKF@Loser?$AA@",
+          "target": 8197604,
+          "addend": 0,
+          "resolved": 8197604
+        },
+        {
+          "offset": 372,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8148,
+          "resolved": 10744428
+        },
+        {
+          "offset": 378,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8132,
+          "resolved": 10744412
+        },
+        {
+          "offset": 385,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8116,
+          "resolved": 10744396
+        },
+        {
+          "offset": 392,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8100,
+          "resolved": 10744380
+        },
+        {
+          "offset": 399,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8092,
+          "resolved": 10744372
+        },
+        {
+          "offset": 408,
+          "kind": 6,
+          "symbol": "??_C@_0ED@CLLE@?$CFs?3?5?$CFs?6?5Scheme?3?5?$CFd?6?5Lost?5?$DN?5?$CFd?6?5K@",
+          "target": 8197536,
+          "addend": 0,
+          "resolved": 8197536
+        },
+        {
+          "offset": 413,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294576703
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4611808,
+      "method": "00465ee0",
+      "body_bytes": 62,
+      "body_sha256": "5973ae3d6f3c18099236068d50b32245148f58cb0b746576bf67a8d25981fea7",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "8781e9964adaad2462863e39f001a3bc373572fdf7ac2044169779effc83f5ea",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_Sort@@YIXXZ",
+      "symbol_prefix": "?Campaign_Score_Sort@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8052,
+          "resolved": 10744332
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Campaign_Score_Compare@@YAHPBX0@Z",
+          "target": 4611872,
+          "addend": 0,
+          "resolved": 4611872
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 3259949
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4611872,
+      "method": "00465f20",
+      "body_bytes": 40,
+      "body_sha256": "27bd237874190473444f9aba173bc8543fbe35c7680f2d891b9d35a895a948d2",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d82b65889d24c6e49280a79d0a37721835e2374024e17dee64149d6c44ffe1b3",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_Compare@@YAHPBX0@Z",
+      "symbol_prefix": "?Campaign_Score_Compare@@YAHPBX0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611872,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4244"
+    },
+    {
+      "entry": 4611920,
+      "method": "00465f50",
+      "body_bytes": 43,
+      "body_sha256": "cea76ddb95e06562660824ede922dcf066b251340821bae8dd174d9fa2f71489",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "fa27ed5106f9b7d71a65502119865221ef3b7d53bb98eff576b952af14567da3",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_Reset_Ready@@YIXH@Z",
+      "symbol_prefix": "?Campaign_Score_Reset_Ready@@YIXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 4,
+          "resolved": 8717516
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4611968,
+      "method": "00465f80",
+      "body_bytes": 29,
+      "body_sha256": "f7bde9dcc10f4d3260df5b0d30d453e04412103f4b44307365d3c210e79596bf",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0ab5fec4accefd373a58125e0ccb1bd5f8fd420a2d629f370352da819f544f1d",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_All_Ready@@YI_NXZ",
+      "symbol_prefix": "?Campaign_Score_All_Ready@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4611968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4612000,
+      "method": "00465fa0",
+      "body_bytes": 7,
+      "body_sha256": "681a780744e2a0a92db5430e286f93410330e090922d82cadc73a129d1d33d2e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "01aa3236570fd2cc6b2505a322c9bcf9c8e1db853b79c6f2fde2be0b5fd97356",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_Set_Ready@@YIXH_N@Z",
+      "symbol_prefix": "?Campaign_Score_Set_Ready@@YIXH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4612000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4612016,
+      "method": "00465fb0",
+      "body_bytes": 7,
+      "body_sha256": "2f7b1c568d31bcd5bfe21dfea6cba665ba7b8e51f32f6abb3419c7cc9c5991af",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8a869de27e1fb748e945bab15a552a05c13a6155364c90b33a8401fbceee1c5d",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_Is_Ready@@YI_NH@Z",
+      "symbol_prefix": "?Campaign_Score_Is_Ready@@YI_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4612016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4612032,
+      "method": "00465fc0",
+      "body_bytes": 2656,
+      "body_sha256": "3c2a668d1cded19a42afea83401436416c8e2c9505ed4798d11adc5589bee297",
+      "padding_bytes": 0,
+      "full_extent_bytes": 2656,
+      "full_extent_sha256": "3c2a668d1cded19a42afea83401436416c8e2c9505ed4798d11adc5589bee297",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Campaign_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z",
+          "target": 6290176,
+          "addend": 0,
+          "resolved": 1678098
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 170,
+          "resolved": 10736450
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "??_C@_0P@CEJM@GUI?3Difficulty?$AA@",
+          "target": 8197804,
+          "addend": 0,
+          "resolved": 8197804
+        },
+        {
+          "offset": 161,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2702939
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "??_C@_19GKBP@?$AA?$CF?$AAs?$AA?3?$AA?5?$AA?$AA@",
+          "target": 8197792,
+          "addend": 0,
+          "resolved": 8197792
+        },
+        {
+          "offset": 177,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3266287
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "_CampaignDifficulty",
+          "target": 8197248,
+          "addend": 0,
+          "resolved": 8197248
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 206,
+          "kind": 6,
+          "symbol": "??_C@_0BE@HEHO@TXT_DIFFICULTY_EASY?$AA@",
+          "target": 8197772,
+          "addend": 0,
+          "resolved": 8197772
+        },
+        {
+          "offset": 211,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2702889
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 229,
+          "kind": 6,
+          "symbol": "??_C@_0BF@JAMI@GUI?3DifficultyString?$AA@",
+          "target": 8197748,
+          "addend": 0,
+          "resolved": 8197748
+        },
+        {
+          "offset": 234,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2702866
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 264,
+          "kind": 6,
+          "symbol": "??_C@_0BG@CKEG@TXT_DIFFICULTY_MEDIUM?$AA@",
+          "target": 8197724,
+          "addend": 0,
+          "resolved": 8197724
+        },
+        {
+          "offset": 269,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2702831
+        },
+        {
+          "offset": 280,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "??_C@_0BF@JAMI@GUI?3DifficultyString?$AA@",
+          "target": 8197748,
+          "addend": 0,
+          "resolved": 8197748
+        },
+        {
+          "offset": 292,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2702808
+        },
+        {
+          "offset": 315,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "??_C@_0BG@EMPM@TXT_DIFFICULTY_BRUTAL?$AA@",
+          "target": 8197700,
+          "addend": 0,
+          "resolved": 8197700
+        },
+        {
+          "offset": 327,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2702773
+        },
+        {
+          "offset": 338,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "??_C@_0BF@JAMI@GUI?3DifficultyString?$AA@",
+          "target": 8197748,
+          "addend": 0,
+          "resolved": 8197748
+        },
+        {
+          "offset": 350,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2702750
+        },
+        {
+          "offset": 361,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3266103
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "_ScoreName",
+          "target": 8717588,
+          "addend": 0,
+          "resolved": 8717588
+        },
+        {
+          "offset": 416,
+          "kind": 6,
+          "symbol": "_ScoreTime",
+          "target": 8717576,
+          "addend": 0,
+          "resolved": 8717576
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 566,
+          "kind": 6,
+          "symbol": "??_C@_0BG@MFEO@TXT_TIME_FORMAT_HOURS?$AA@",
+          "target": 8197484,
+          "addend": 0,
+          "resolved": 8197484
+        },
+        {
+          "offset": 571,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2702529
+        },
+        {
+          "offset": 582,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3265882
+        },
+        {
+          "offset": 618,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 631,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 4,
+          "resolved": 8717516
+        },
+        {
+          "offset": 636,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 649,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 657,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 4,
+          "resolved": 8197256
+        },
+        {
+          "offset": 677,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 684,
+          "kind": 6,
+          "symbol": "??_C@_0N@LAJB@TXT_COMPUTER?$AA@",
+          "target": 8197684,
+          "addend": 0,
+          "resolved": 8197684
+        },
+        {
+          "offset": 689,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2702411
+        },
+        {
+          "offset": 698,
+          "kind": 20,
+          "symbol": "_wcscmp",
+          "target": 7878611,
+          "addend": 0,
+          "resolved": 3265877
+        },
+        {
+          "offset": 715,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 724,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 746,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 626082
+        },
+        {
+          "offset": 892,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 898,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3265566
+        },
+        {
+          "offset": 979,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 985,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3265479
+        },
+        {
+          "offset": 1063,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 1069,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3265395
+        },
+        {
+          "offset": 1147,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 1153,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3265311
+        },
+        {
+          "offset": 1206,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1237,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1253,
+          "kind": 20,
+          "symbol": "_wcscmp",
+          "target": 7878611,
+          "addend": 0,
+          "resolved": 3265322
+        },
+        {
+          "offset": 1313,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 1320,
+          "kind": 6,
+          "symbol": "??_C@_0M@MHCJ@TXT_WAITING?$AA@",
+          "target": 8197672,
+          "addend": 0,
+          "resolved": 8197672
+        },
+        {
+          "offset": 1325,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2701775
+        },
+        {
+          "offset": 1364,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 1378,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 1385,
+          "kind": 6,
+          "symbol": "??_C@_0M@LCFM@TXT_ABORTED?$AA@",
+          "target": 8197660,
+          "addend": 0,
+          "resolved": 8197660
+        },
+        {
+          "offset": 1390,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2701710
+        },
+        {
+          "offset": 1434,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        },
+        {
+          "offset": 1459,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 1507,
+          "kind": 6,
+          "symbol": "_ScoreIsReady",
+          "target": 8717584,
+          "addend": 0,
+          "resolved": 8717584
+        },
+        {
+          "offset": 1527,
+          "kind": 20,
+          "symbol": "?Dialog_On_WM_PAINT@@YIXPAUHWND__@@@Z",
+          "target": 6286960,
+          "addend": 0,
+          "resolved": 1673397
+        },
+        {
+          "offset": 1534,
+          "kind": 20,
+          "symbol": "?Slide_Pending_Dialog@@YIXPAUHWND__@@@Z",
+          "target": 6184736,
+          "addend": 0,
+          "resolved": 1571166
+        },
+        {
+          "offset": 1583,
+          "kind": 6,
+          "symbol": "_ScoreIsReady",
+          "target": 8717584,
+          "addend": 0,
+          "resolved": 8717584
+        },
+        {
+          "offset": 1590,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 1632,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1653,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2702055
+        },
+        {
+          "offset": 1691,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1711,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1726,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 1737,
+          "kind": 20,
+          "symbol": "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z",
+          "target": 5396896,
+          "addend": 0,
+          "resolved": 783123
+        },
+        {
+          "offset": 1742,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 1747,
+          "kind": 20,
+          "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+          "target": 5398368,
+          "addend": 0,
+          "resolved": 784585
+        },
+        {
+          "offset": 1752,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1762,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 1768,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 1782,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 1787,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 20,
+          "resolved": 8197272
+        },
+        {
+          "offset": 1803,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1814,
+          "kind": 20,
+          "symbol": "_wcscmp",
+          "target": 7878611,
+          "addend": 0,
+          "resolved": 3264761
+        },
+        {
+          "offset": 1830,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 1857,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 1864,
+          "kind": 6,
+          "symbol": "??_C@_09IMGH@TXT_READY?$AA@",
+          "target": 8197648,
+          "addend": 0,
+          "resolved": 8197648
+        },
+        {
+          "offset": 1869,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2701231
+        },
+        {
+          "offset": 1894,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 1904,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 1911,
+          "kind": 6,
+          "symbol": "??_C@_0L@EJFF@GUI?3Cancel?$AA@",
+          "target": 8197636,
+          "addend": 0,
+          "resolved": 8197636
+        },
+        {
+          "offset": 1916,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2701184
+        },
+        {
+          "offset": 1941,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 1958,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        },
+        {
+          "offset": 1979,
+          "kind": 6,
+          "symbol": "_ScoreIsReady",
+          "target": 8717584,
+          "addend": 0,
+          "resolved": 8717584
+        },
+        {
+          "offset": 1986,
+          "kind": 6,
+          "symbol": "__imp__InvalidateRect@12",
+          "target": 7971988,
+          "addend": 0,
+          "resolved": 7971988
+        },
+        {
+          "offset": 2035,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 2058,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2701650
+        },
+        {
+          "offset": 2096,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 2116,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 2131,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 2142,
+          "kind": 20,
+          "symbol": "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z",
+          "target": 5396896,
+          "addend": 0,
+          "resolved": 782718
+        },
+        {
+          "offset": 2147,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 2152,
+          "kind": 20,
+          "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+          "target": 5398368,
+          "addend": 0,
+          "resolved": 784180
+        },
+        {
+          "offset": 2157,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 2167,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 2173,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 2187,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 2192,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 20,
+          "resolved": 8197272
+        },
+        {
+          "offset": 2208,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 2219,
+          "kind": 20,
+          "symbol": "_wcscmp",
+          "target": 7878611,
+          "addend": 0,
+          "resolved": 3264356
+        },
+        {
+          "offset": 2235,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 2262,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 2269,
+          "kind": 6,
+          "symbol": "??_C@_0M@MHCJ@TXT_WAITING?$AA@",
+          "target": 8197672,
+          "addend": 0,
+          "resolved": 8197672
+        },
+        {
+          "offset": 2274,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2700826
+        },
+        {
+          "offset": 2299,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 2309,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 2316,
+          "kind": 6,
+          "symbol": "??_C@_0N@LECO@GUI?3Continue?$AA@",
+          "target": 8197620,
+          "addend": 0,
+          "resolved": 8197620
+        },
+        {
+          "offset": 2321,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2700779
+        },
+        {
+          "offset": 2346,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 2363,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        },
+        {
+          "offset": 2384,
+          "kind": 6,
+          "symbol": "_ScoreIsReady",
+          "target": 8717584,
+          "addend": 0,
+          "resolved": 8717584
+        },
+        {
+          "offset": 2391,
+          "kind": 6,
+          "symbol": "__imp__InvalidateRect@12",
+          "target": 7971988,
+          "addend": 0,
+          "resolved": 7971988
+        },
+        {
+          "offset": 2417,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 2426,
+          "kind": 6,
+          "symbol": "?CampaignScoreDone@@3_NA",
+          "target": 8717572,
+          "addend": 0,
+          "resolved": 8717572
+        },
+        {
+          "offset": 2458,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 2481,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2701227
+        },
+        {
+          "offset": 2519,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 2539,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 2554,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 2565,
+          "kind": 20,
+          "symbol": "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z",
+          "target": 5396896,
+          "addend": 0,
+          "resolved": 782295
+        },
+        {
+          "offset": 2570,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 2575,
+          "kind": 20,
+          "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+          "target": 5398368,
+          "addend": 0,
+          "resolved": 783757
+        },
+        {
+          "offset": 2580,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 2620,
+          "kind": 20,
+          "symbol": "?Darken_Surface@@YIXPAVSurface@@_N@Z",
+          "target": 5331376,
+          "addend": 0,
+          "resolved": 716720
+        },
+        {
+          "offset": 2628,
+          "kind": 20,
+          "symbol": "?Set_Paint_Disabled@OwnerDraw@@YGHPAUHWND__@@J@Z",
+          "target": 6213440,
+          "addend": 0,
+          "resolved": 1598776
+        },
+        {
+          "offset": 2637,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4612032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4614688,
+      "method": "00466a20",
+      "body_bytes": 33,
+      "body_sha256": "e78d4ada7e2e7e991f179f8228c28e97c982fa0350e5009312eb73ffd4c62c62",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "fb7874153a756ff47b936fffa475670106600f6d0242e833668e77689afb4ac9",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_Score_Service@@YI_NXZ",
+      "symbol_prefix": "?Campaign_Score_Service@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?Net2Callback@@YI_NXZ",
+          "target": 6012176,
+          "addend": 0,
+          "resolved": 1397473
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?WOL_Wait_Callback@@YI_NXZ",
+          "target": 7594240,
+          "addend": 0,
+          "resolved": 2979527
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?Call_Back@@YIXXZ",
+          "target": 4726704,
+          "addend": 0,
+          "resolved": 111986
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4614688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4616704,
+      "method": "00467200",
+      "body_bytes": 33,
+      "body_sha256": "f02c408f7f8229501f84e6b92f5fb58cf946371bcc7ad1dde557f9a0100f3b41",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "06f0618ddfee4331001a9820b94f9a9b3b4ee81e71c99411391a18129051284e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0CampaignEndScoreClass@@QAE@XZ",
+      "symbol_prefix": "??0CampaignEndScoreClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "??_7CampaignEndScoreClass@@6B@",
+          "target": 7984944,
+          "addend": 0,
+          "resolved": 7984944
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_EndScoreDifficulty",
+          "target": 8717520,
+          "addend": 0,
+          "resolved": 8717520
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_EndScoreCount",
+          "target": 8717544,
+          "addend": 0,
+          "resolved": 8717544
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "_EndScoreTime",
+          "target": 8717468,
+          "addend": 0,
+          "resolved": 8717468
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4616704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4616752,
+      "method": "00467230",
+      "body_bytes": 7,
+      "body_sha256": "11c8e8acdfbf72694bbd4f45a2a5936f991f88d95e40ce044202be3cecbe9766",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "21fe5d8ceca5379fab788f6e1882dff552a3e5ad14af4c188b09d1625248ed90",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1CampaignEndScoreClass@@UAE@XZ",
+      "symbol_prefix": "??1CampaignEndScoreClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7CampaignEndScoreClass@@6B@",
+          "target": 7984944,
+          "addend": 0,
+          "resolved": 7984944
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4616752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4616768,
+      "method": "00467240",
+      "body_bytes": 67,
+      "body_sha256": "86568c0af9b42b38991c949b06ac4942e54e085565f6963f9474f507c517ac6c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "267c281ccd2349a1a2b9cd2e0d3f72e5ec5bf8d6b781f553a9a24bb5f90b7d67",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_End_Score_Set_Number@@YIXPAUHWND__@@HH@Z",
+      "symbol_prefix": "?Campaign_End_Score_Set_Number@@YIXPAUHWND__@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3261703
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4616768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4616848,
+      "method": "00467290",
+      "body_bytes": 152,
+      "body_sha256": "3b44bdd90127ef296b32f4665eb9d05e85d82d890318432afbeeb6a54437b221",
+      "padding_bytes": 8,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "510ac8965ec9082b1a8e707f02c0506b711490304a6646af639168681087febe",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_End_Score_Format_Time@@YIXPAGH@Z",
+      "symbol_prefix": "?Campaign_End_Score_Format_Time@@YIXPAGH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "??_C@_0BG@MFEO@TXT_TIME_FORMAT_HOURS?$AA@",
+          "target": 8197484,
+          "addend": 0,
+          "resolved": 8197484
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2698149
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3261506
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4616848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4617008,
+      "method": "00467330",
+      "body_bytes": 1731,
+      "body_sha256": "5b63e7bf0bda51b3a96e1c08e20452fd855a667b893edd9dafd831e53ac1784a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 1744,
+      "full_extent_sha256": "9cfe5f5e0e40d3d140f287b1e126092b5296bf3912b695e9358650443a99c79d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_End_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Campaign_End_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z",
+          "target": 6290176,
+          "addend": 0,
+          "resolved": 1673123
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "_EndScoreName",
+          "target": 8717652,
+          "addend": 0,
+          "resolved": 8717652
+        },
+        {
+          "offset": 181,
+          "kind": 6,
+          "symbol": "_EndScoreCampaign",
+          "target": 8717448,
+          "addend": 0,
+          "resolved": 8717448
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "??_C@_0BC@IKBK@GUI?3CampaignLabel?$AA@",
+          "target": 8197872,
+          "addend": 0,
+          "resolved": 8197872
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2697920
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3261273
+        },
+        {
+          "offset": 246,
+          "kind": 6,
+          "symbol": "_EndScoreDifficulty",
+          "target": 8717520,
+          "addend": 0,
+          "resolved": 8717520
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 267,
+          "kind": 6,
+          "symbol": "??_C@_0BE@HEHO@TXT_DIFFICULTY_EASY?$AA@",
+          "target": 8197772,
+          "addend": 0,
+          "resolved": 8197772
+        },
+        {
+          "offset": 272,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2697852
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 290,
+          "kind": 6,
+          "symbol": "??_C@_0BF@JAMI@GUI?3DifficultyString?$AA@",
+          "target": 8197748,
+          "addend": 0,
+          "resolved": 8197748
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2697829
+        },
+        {
+          "offset": 306,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3261182
+        },
+        {
+          "offset": 329,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 336,
+          "kind": 6,
+          "symbol": "??_C@_0BG@CKEG@TXT_DIFFICULTY_MEDIUM?$AA@",
+          "target": 8197724,
+          "addend": 0,
+          "resolved": 8197724
+        },
+        {
+          "offset": 341,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2697783
+        },
+        {
+          "offset": 352,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "??_C@_0BF@JAMI@GUI?3DifficultyString?$AA@",
+          "target": 8197748,
+          "addend": 0,
+          "resolved": 8197748
+        },
+        {
+          "offset": 364,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2697760
+        },
+        {
+          "offset": 375,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3261113
+        },
+        {
+          "offset": 395,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 402,
+          "kind": 6,
+          "symbol": "??_C@_0BG@EMPM@TXT_DIFFICULTY_BRUTAL?$AA@",
+          "target": 8197700,
+          "addend": 0,
+          "resolved": 8197700
+        },
+        {
+          "offset": 407,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2697717
+        },
+        {
+          "offset": 418,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 425,
+          "kind": 6,
+          "symbol": "??_C@_0BF@JAMI@GUI?3DifficultyString?$AA@",
+          "target": 8197748,
+          "addend": 0,
+          "resolved": 8197748
+        },
+        {
+          "offset": 430,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2697694
+        },
+        {
+          "offset": 441,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3261047
+        },
+        {
+          "offset": 456,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 463,
+          "kind": 6,
+          "symbol": "??_C@_09NHCJ@GUI?3Blank?$AA@",
+          "target": 8197860,
+          "addend": 0,
+          "resolved": 8197860
+        },
+        {
+          "offset": 468,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2697656
+        },
+        {
+          "offset": 479,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3261009
+        },
+        {
+          "offset": 511,
+          "kind": 6,
+          "symbol": "_EndScoreTime",
+          "target": 8717468,
+          "addend": 0,
+          "resolved": 8717468
+        },
+        {
+          "offset": 657,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 664,
+          "kind": 6,
+          "symbol": "??_C@_0BG@MFEO@TXT_TIME_FORMAT_HOURS?$AA@",
+          "target": 8197484,
+          "addend": 0,
+          "resolved": 8197484
+        },
+        {
+          "offset": 669,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2697455
+        },
+        {
+          "offset": 680,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3260808
+        },
+        {
+          "offset": 711,
+          "kind": 6,
+          "symbol": "_EndScoreCount",
+          "target": 8717544,
+          "addend": 0,
+          "resolved": 8717544
+        },
+        {
+          "offset": 738,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 743,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 765,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 621087
+        },
+        {
+          "offset": 826,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 845,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 0,
+          "resolved": 8197252
+        },
+        {
+          "offset": 907,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 4,
+          "resolved": 8197256
+        },
+        {
+          "offset": 914,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 931,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 937,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3260551
+        },
+        {
+          "offset": 996,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 8,
+          "resolved": 8197260
+        },
+        {
+          "offset": 1007,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 1023,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 1029,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3260459
+        },
+        {
+          "offset": 1091,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 12,
+          "resolved": 8197264
+        },
+        {
+          "offset": 1098,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 1118,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 1124,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3260364
+        },
+        {
+          "offset": 1186,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 16,
+          "resolved": 8197268
+        },
+        {
+          "offset": 1193,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 1213,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 1219,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3260269
+        },
+        {
+          "offset": 1281,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 1332,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 1345,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 1351,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3260137
+        },
+        {
+          "offset": 1395,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 4,
+          "resolved": 8717484
+        },
+        {
+          "offset": 1447,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 4,
+          "resolved": 8717484
+        },
+        {
+          "offset": 1460,
+          "kind": 6,
+          "symbol": "??_C@_15KLDP@?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8197528,
+          "addend": 0,
+          "resolved": 8197528
+        },
+        {
+          "offset": 1466,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 3260022
+        },
+        {
+          "offset": 1521,
+          "kind": 6,
+          "symbol": "_EndScoreCount",
+          "target": 8717544,
+          "addend": 0,
+          "resolved": 8717544
+        },
+        {
+          "offset": 1556,
+          "kind": 20,
+          "symbol": "?Dialog_On_WM_PAINT@@YIXPAUHWND__@@@Z",
+          "target": 6286960,
+          "addend": 0,
+          "resolved": 1668392
+        },
+        {
+          "offset": 1563,
+          "kind": 20,
+          "symbol": "?Slide_Pending_Dialog@@YIXPAUHWND__@@@Z",
+          "target": 6184736,
+          "addend": 0,
+          "resolved": 1566161
+        },
+        {
+          "offset": 1590,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 1605,
+          "kind": 6,
+          "symbol": "__imp__PostMessageA@16",
+          "target": 7971952,
+          "addend": 0,
+          "resolved": 7971952
+        },
+        {
+          "offset": 1645,
+          "kind": 20,
+          "symbol": "?Darken_Surface@@YIXPAVSurface@@_N@Z",
+          "target": 5331376,
+          "addend": 0,
+          "resolved": 712719
+        },
+        {
+          "offset": 1654,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 1662,
+          "kind": 20,
+          "symbol": "?Set_Paint_Disabled@OwnerDraw@@YGHPAUHWND__@@J@Z",
+          "target": 6213440,
+          "addend": 0,
+          "resolved": 1594766
+        },
+        {
+          "offset": 1712,
+          "kind": 6,
+          "symbol": "__imp__SendDlgItemMessageA@20",
+          "target": 7971972,
+          "addend": 0,
+          "resolved": 7971972
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4617008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4618752,
+      "method": "00467a00",
+      "body_bytes": 32,
+      "body_sha256": "4d21f335e8ac4558ea811d64d39287cc20f9e8ace84079b27d41a77597acdd9f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4d21f335e8ac4558ea811d64d39287cc20f9e8ace84079b27d41a77597acdd9f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Campaign_End_Score_Sort@@YIXXZ",
+      "symbol_prefix": "?Campaign_End_Score_Sort@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_EndScoreCount",
+          "target": 8717544,
+          "addend": 0,
+          "resolved": 8717544
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?Campaign_Score_Compare@@YAHPBX0@Z",
+          "target": 4611872,
+          "addend": 0,
+          "resolved": 4611872
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 3253034
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4618752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4618784,
+      "method": "00467a20",
+      "body_bytes": 218,
+      "body_sha256": "a71617d7643e7e943006231d967b8a658c761e2ff64f740d714ed985d50898b6",
+      "padding_bytes": 6,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "fd22a262e41c7c054f2f8af9bb3050b7a4462fa4c99bd8c90edcda2ab435051b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Presentation@CampaignEndScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@HHHPBG@Z",
+      "symbol_prefix": "?Presentation@CampaignEndScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@HHHPBG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_EndScoreName",
+          "target": 8717652,
+          "addend": 0,
+          "resolved": 8717652
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_EndScoreCount",
+          "target": 8717544,
+          "addend": 0,
+          "resolved": 8717544
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 3259470
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "_EndScoreCount",
+          "target": 8717544,
+          "addend": 0,
+          "resolved": 8717544
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?Campaign_Score_Compare@@YAHPBX0@Z",
+          "target": 4611872,
+          "addend": 0,
+          "resolved": 4611872
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "_EndScores",
+          "target": 8717480,
+          "addend": 0,
+          "resolved": 8717480
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 3252941
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "_EndScoreDifficulty",
+          "target": 8717520,
+          "addend": 0,
+          "resolved": 8717520
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "_EndScoreCampaign",
+          "target": 8717448,
+          "addend": 0,
+          "resolved": 8717448
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "_EndScoreTime",
+          "target": 8717468,
+          "addend": 0,
+          "resolved": 8717468
+        },
+        {
+          "offset": 144,
+          "kind": 20,
+          "symbol": "?Load_Score_Art@@YIXH@Z",
+          "target": 7284496,
+          "addend": 0,
+          "resolved": 2665564
+        },
+        {
+          "offset": 151,
+          "kind": 20,
+          "symbol": "?Load_MP_Score_Art@@YIXH@Z",
+          "target": 7285296,
+          "addend": 0,
+          "resolved": 2666357
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "?Darken_Surface@@YIXPAVSurface@@_N@Z",
+          "target": 5331376,
+          "addend": 0,
+          "resolved": 712428
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "?Campaign_End_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 4617008,
+          "addend": 0,
+          "resolved": 4617008
+        },
+        {
+          "offset": 177,
+          "kind": 20,
+          "symbol": "?Dialog_Box@@YIHHP6GHPAUHWND__@@IIJ@Z_N@Z",
+          "target": 6204256,
+          "addend": 0,
+          "resolved": 1585291
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "?Free_MP_Score_Art@@YIXXZ",
+          "target": 7285424,
+          "addend": 0,
+          "resolved": 2666454
+        },
+        {
+          "offset": 187,
+          "kind": 20,
+          "symbol": "?Free_Score_Art@@YAXXZ",
+          "target": 7284560,
+          "addend": 0,
+          "resolved": 2665585
+        },
+        {
+          "offset": 205,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3252810
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4618784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4619008,
+      "method": "00467b00",
+      "body_bytes": 32,
+      "body_sha256": "cc62cab6b784287a48f514c8c32c3e7ab0f674d4686b9e1efdac93af1de8cc71",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cc62cab6b784287a48f514c8c32c3e7ab0f674d4686b9e1efdac93af1de8cc71",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GCampaignScoreClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GCampaignScoreClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7CampaignScoreClass@@6B@",
+          "target": 7984932,
+          "addend": 0,
+          "resolved": 7984932
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3252772
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4619008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4619040,
+      "method": "00467b20",
+      "body_bytes": 32,
+      "body_sha256": "0cec34f52033da664e16f67c08b8cd2ee3d2a558bf4f8e9da285599038bce120",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0cec34f52033da664e16f67c08b8cd2ee3d2a558bf4f8e9da285599038bce120",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GCampaignEndScoreClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GCampaignEndScoreClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7CampaignEndScoreClass@@6B@",
+          "target": 7984944,
+          "addend": 0,
+          "resolved": 7984944
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3252740
+        }
+      ],
+      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4619040,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

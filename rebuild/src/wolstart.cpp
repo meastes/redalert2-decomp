@@ -13,7 +13,7 @@
 **	logs out again. TibSun has no such file; the code is the executable's from 0x0073A300.
 */
 
-#define RA2_GEOMETRY_H // RA2: geometry.h follows the rectangle below, as the executable initializes the rectangle first (0x0073A0F0) and the geometry constants after it (0x0073A110 to 0x0073A2D0)
+#define GEOMETRY_H // RA2: geometry.h follows the rectangle below, as the executable initializes the rectangle first (0x0073A0F0) and the geometry constants after it (0x0073A110 to 0x0073A2D0)
 #include "always.h" // RA2: the includes this file needs
 #include "_xmouse.h" // RA2: MouseCursor
 #include "globals.h" // RA2: as above

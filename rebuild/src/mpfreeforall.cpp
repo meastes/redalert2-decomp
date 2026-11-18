@@ -3,7 +3,7 @@
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 
-#define RA2_GEOMETRY_H // geometry.h follows the code
+#define GEOMETRY_H // geometry.h follows the code
 #include "always.h"
 #include "rect.h"
 #include "mpfreeforall.h"

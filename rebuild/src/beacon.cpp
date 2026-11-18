@@ -16,7 +16,7 @@
 **	file; the code is the executable's from 0x0042D9E0.
 */
 
-#define RA2_GEOMETRY_H // RA2: geometry.h follows the includes, as its constants take their initializers after those of the other headers
+#define GEOMETRY_H // RA2: geometry.h follows the includes, as its constants take their initializers after those of the other headers
 #include "always.h" // RA2: the includes this file needs
 #include <string.h> // RA2: the includes this file needs
 #include <wchar.h> // RA2: the includes this file needs

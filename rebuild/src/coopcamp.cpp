@@ -17,7 +17,7 @@
 **	is the executable's from 0x0048DE60.
 */
 
-#define RA2_GEOMETRY_H // RA2: this module has no copy of the geometry constants (the executable has no initializer before its first function)
+#define GEOMETRY_H // RA2: this module has no copy of the geometry constants (the executable has no initializer before its first function)
 #include "always.h" // RA2: the includes this file needs
 #include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
 #include "rect.h"

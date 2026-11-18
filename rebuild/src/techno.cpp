@@ -2484,6 +2484,7 @@ void TechnoClass::Draw_It(int x, int y, int /*WindowNumberType*/ window) const
  * HISTORY:                                                                                    *
  *   08/23/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 double TechnoClass::Area_Modify(Cell const & cell) const
 {
 //	assert(PrimaryWeapon != NULL);
@@ -2548,6 +2549,7 @@ double TechnoClass::Area_Modify(Cell const & cell) const
 	}
 	return(odds);
 }
+#endif
 
 
 /***********************************************************************************************
@@ -3732,6 +3734,7 @@ void TechnoClass::Start_Reload_Timer(void) // RA2: not in TibSun, at 0x6C8300
 /// Starts this gap generator: shrouds the cells within its radius for everyone but the player's side and
 /// counts the gap on each of them.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 433 bytes differ (adopted text)
 void TechnoClass::CreateGap(void) // RA2: not in TibSun; does not match (RA2 sums the cell's X before its Y)
 {
 	if (PlayerPtr != NULL && !GeneratingGap && IsPowerOnline()) {
@@ -3771,11 +3774,13 @@ void TechnoClass::CreateGap(void) // RA2: not in TibSun; does not match (RA2 sum
 		Map.Flag_To_Redraw(GS_REDRAW_ALL);
 	}
 }
+#endif
 
 /// <summary>
 /// Stops this gap generator: takes its count off the cells within its radius and reveals the ones no gap
 /// covers any more when the player's spy satellite is up.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 419 bytes differ (adopted text)
 void TechnoClass::DestroyGap(void) // RA2: not in TibSun; does not match (RA2 sums the cell's X before its Y)
 {
 	if (PlayerPtr != NULL && GeneratingGap) {
@@ -3815,6 +3820,7 @@ void TechnoClass::DestroyGap(void) // RA2: not in TibSun; does not match (RA2 su
 		Map.Flag_To_Redraw(GS_REDRAW_ALL);
 	}
 }
+#endif
 
 /// <summary>
 /// RA2
@@ -4514,6 +4520,7 @@ int TechnoClass::Rearm_Delay(int which) const
  *   09/30/1996 BWG : Created.                                                                 *
  *   09/30/1996 JLB : Uses standard facing conversion and distance routines.                   *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void TechnoClass::Laser_Zap(AbstractClass * target, int which, WeaponTypeClass const * weapon, Coord const & source_coord)
 {
 	RGBClass half; // RA2: the house colour halved, zeroed on entry
@@ -4555,6 +4562,7 @@ void TechnoClass::Laser_Zap(AbstractClass * target, int which, WeaponTypeClass c
 		laser->IsHouseColor = true; // RA2: as above
 	}
 }
+#endif
 
 
 
@@ -5576,6 +5584,7 @@ bool TechnoClass::Can_Attack_Now(void) const
 /// overrides all of that, but nothing at all may deploy against a tunnel mouth.
 /// </summary>
 /// <returns>bool; Can the object deploy now?</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool TechnoClass::Can_Deploy_Now(void) const
 {
 	UnitClass const * unit = dynamic_cast<UnitClass const *>(this);
@@ -5626,6 +5635,7 @@ bool TechnoClass::Can_Deploy_Now(void) const
 	}
 	return(true);
 }
+#endif
 
 
 /***********************************************************************************************
@@ -6987,6 +6997,7 @@ void TechnoClass::Draw_Link_Line(Coord start, Coord end, RGBClass color) const /
 /// Draws a line between two spots in 64 pieces that fade from the colour to black, with end markers
 /// and an optional drop shadow.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void TechnoClass::Draw_Shaded_Line(Coord start, Coord end, RGBClass color, bool shadow) const // RA2: not in TibSun, at 0x6D0DC0
 {
 	RGBClass shade; // RA2: the fade colour is zeroed on entry and assigned in the loop
@@ -7031,6 +7042,7 @@ void TechnoClass::Draw_Shaded_Line(Coord start, Coord end, RGBClass color, bool 
 		last = next;
 	}
 }
+#endif
 
 
 
@@ -9555,6 +9567,7 @@ void TechnoClass::RemoveSight(bool incremental, bool dontmap, bool for_house, Ho
 /// </summary>
 /// <param name="coord">Where the jolt came from.</param>
 /// <param name="force">How violent the jolt was.</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void TechnoClass::Rock(Coord const & coord, float force)
 {
 	if (TClass->Voxel.VoxLib != NULL && !TClass->Voxel.VoxLib->Load_Failed()) {
@@ -9594,6 +9607,7 @@ void TechnoClass::Rock(Coord const & coord, float force)
 		}
 	}
 }
+#endif
 
 
 /// <summary>
@@ -10023,6 +10037,7 @@ bool TechnoClass::Is_On_Elevation(void) const
 /// <param name="weapon">The weapon supplying the ambient damage and the warhead.</param>
 /// <returns>Returns with the point the beam came to rest at -- the blocking ground, or the
 /// target's own center if nothing got in the way.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 Coord TechnoClass::Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, WeaponTypeClass *weapon)
 {
 	Coord center = abstract->Center_Coord();
@@ -10126,6 +10141,7 @@ Coord TechnoClass::Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, W
 
 	return(center);
 }
+#endif
 
 
 
@@ -11632,6 +11648,7 @@ bool TechnoClass::TargetingTimerFinished(void) // RA2: 0x6D9710 (YR's name)
  *   07/18/1995 JLB : Created.                                                                 *
  *   08/13/1995 JLB : Recognizes the "IsLeader" method of building preference.                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 BuildingClass * TechnoClass::Find_Docking_Bay(BuildingTypeClass const * b, bool friendly, bool evenoccupied) const
 {
 	BuildingClass * best = 0;
@@ -11677,6 +11694,7 @@ BuildingClass * TechnoClass::Find_Docking_Bay(BuildingTypeClass const * b, bool 
 	}
 	return(best);
 } // RA2: last, no copy in game.exe
+#endif
 
 
 /// <summary>
@@ -11684,7 +11702,9 @@ BuildingClass * TechnoClass::Find_Docking_Bay(BuildingTypeClass const * b, bool 
 /// Base implementation always returns 0; overridden by derived classes that carry weed.
 /// </summary>
 /// <returns>Current weed load (always 0.0 in this base implementation).</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 double TechnoClass::Weed_Load(void) const
 {
 	return(0.0);
 } // RA2: last, no copy in game.exe
+#endif

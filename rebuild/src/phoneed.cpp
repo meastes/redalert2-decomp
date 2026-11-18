@@ -11,7 +11,7 @@
  * disclaimers apply; see LICENSE.md.
  ******************************************************************************/
 
-#define RA2_GEOMETRY_H // RA2: this module has no initializer for the geometry constants of globals.h (nothing runs before its first function at 0x0060D970), so they stay undefined
+#define GEOMETRY_H // RA2: this module has no initializer for the geometry constants of globals.h (nothing runs before its first function at 0x0060D970), so they stay undefined
 #include "always.h"
 #include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
 #include "geometry.h"

@@ -1568,6 +1568,7 @@ bool TActionClass::TAction_PLAY_SOUND_RANDOM(HouseClass * , ObjectClass * , Trig
 /// <summary>
 /// Fetches the building, or else the terrain object, in the cell at the given spot.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 ObjectClass * __fastcall Coord_Object(Coord const & coord) // RA2: not in TibSun, at 0x6B0E40
 {
 	Cell cell = Cell(coord);
@@ -1581,6 +1582,7 @@ ObjectClass * __fastcall Coord_Object(Coord const & coord) // RA2: not in TibSun
 	}
 	return(object);
 }
+#endif
 
 
 #ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)

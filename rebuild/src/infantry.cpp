@@ -765,6 +765,7 @@ void InfantryClass::Debug_Dump(MonoClass * mono) const
  *   03/01/1995 JLB : Capture building options.                                                *
  *   05/31/1995 JLB : Capture is always successful now.                                        *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void InfantryClass::Per_Cell_Process(PCPType why)
 {
 	BStart(BENCH_PCP);
@@ -1090,6 +1091,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 	}
 	BEnd(BENCH_PCP);
 }
+#endif
 
 
 /***********************************************************************************************
@@ -5156,8 +5158,10 @@ RTTIType InfantryClass::Fetch_RTTI(void) const
 /// until it has finished doing so.
 /// </summary>
 /// <returns>bool; Is the infantry immobilized?</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool InfantryClass::Is_Immobilized(void) const
 {
 	return(BASECLASS::Is_Immobilized()); // RA2: no ProneStruggleTimer
 }
+#endif
 

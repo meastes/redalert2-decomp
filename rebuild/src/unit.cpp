@@ -6089,6 +6089,7 @@ int UnitClass::Do_MISSION_ATTACK(void)
 /// </summary>
 /// <param name="object">The desired final movement target.</param>
 /// <returns>The first leg of the planned route, or NULL if no route is possible.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 AbstractClass * UnitClass::Plan_Route(AbstractClass const & object) const
 {
 	DynamicVectorClass<AbstractClass *> & route = ((UnitClass *)this)->RouteQueue;
@@ -6369,6 +6370,7 @@ AbstractClass * UnitClass::Plan_Route(AbstractClass const & object) const
 	route.Delete_Index(0);
 	return(next);
 }
+#endif
 
 
 /// <summary>
@@ -7072,9 +7074,11 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
  * HISTORY:                                                                                    *
  *   07/30/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void UnitClass::Reload_AI(void)
 {
 } // RA2: no IsNoFireWhileMoving (not in RA2's layout)
+#endif
 
 
 /// <summary>
@@ -7082,6 +7086,7 @@ void UnitClass::Reload_AI(void)
 /// This routine lets the jellyfish sting anything hostile that drifts into the cells
 /// around it, and drives its animation between the idle and stinging states.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void UnitClass::Jellyfish_AI(void)
 {
 	Cell pos = PositionCell;
@@ -7181,6 +7186,7 @@ void UnitClass::Jellyfish_AI(void)
 
 	Locomotion->Is_Moving();
 }
+#endif
 
 
 /***********************************************************************************************
@@ -7197,6 +7203,7 @@ void UnitClass::Jellyfish_AI(void)
  * HISTORY:                                                                                    *
  *   03/17/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 double UnitClass::Weed_Load(void) const
 {
 	if (Class->IsToVeinHarvest) {
@@ -7204,6 +7211,7 @@ double UnitClass::Weed_Load(void) const
 	}
 	return(0.0);
 }
+#endif
 
 
 /// <summary>
@@ -7223,7 +7231,9 @@ int UnitClass::Get_Max_Speed(void) const
 /// This routine is used by the mobile EM pulse cannon once it has built up a full charge.
 /// The pulse goes off at the vehicle's own position and the charge is spent.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void UnitClass::EMPulse_Blast(void)
 {
 } // RA2: no MaxCharge, ProjectileRange (not in RA2's layout)
+#endif
 

@@ -18,3 +18,6 @@ start_utc,end_utc,class,activity
 21:56,22:20,support,lane R2: stale per-unit bindings found as the initializer blocker (reset_refs, reinit over 167 held units); duplicate classes 18 to 0 (no row lost); structure gate in the catalog step
 22:20,22:39,support,91 large mischa85 units adopted to a stage, their 7 duplicate classes conformed; 117 stray externs moved to headers (0 rows lost); whole-file exact with 129 units; README, LICENSE, THIRD_PARTY for publishing
 22:41,23:45,a,large mischa85 units: extern mover with type-aware homes, per-unit inline-virtual binding from vtable slots, initializer runs filed under the unit in main, draft guards with refinement; 50 units through the pipeline, 11 land whole (143 units whole-file exact); build-refused units held
+23:45,00:00,support,worker merges (codex1 r2060-r2067, codex2 r2876-r2888) gated, sync to the Windows mirror
+00:00,00:28,a,last 40 staged units through the pipeline (worker-claimed units dropped), guard fixes (comment semicolons, file statics, take-back), build-refused holds; 190 units whole-file exact
+00:28,00:45,support,guard.py also guards functions no original row matches (unplaced); re-guard of techno, unit, infantry, aircraft, rules, netshare, foot; foot held by the build (a function-local static table unbound); assessment

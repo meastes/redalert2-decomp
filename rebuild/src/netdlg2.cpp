@@ -1342,6 +1342,7 @@ bool Net2ReadyToGo(int load_game)
 /// host when it is happy for the game to begin.
 /// </summary>
 /// <returns>Returns with TRUE if the message was consumed by this dialog.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no exact match yet (row 005be6b0)
 LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BE6B0; the join dialog of the LAN lobby
 {
 	switch (message) {
@@ -1509,6 +1510,7 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 	}
 	return(0);
 }
+#endif
 
 
 void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE20; sends the text of the chat line to the lobby

@@ -1,0 +1,3145 @@
+{
+  "id": "rebuild-tunnel",
+  "population": {
+    "id": "rebuild-tunnel",
+    "inventory_sha256": "485b092d5b87135b0babcf0dadccf6bdb77f25d1165a844f13d4dac7d7fd896b",
+    "gaps_sha256": "8b1bf65ff6c857e10b73481db364645274d1756d77a33acf54a1d3dc27a45cf0",
+    "historical_population_sha256": "9faae77b56b2e53e910f13e54888260a7c6fa4058cc2d41753b689190d4d9721",
+    "historical_acceptance_sha256": "55b067a2692df2c83a095c4ef9e03cb3af1b77ead01189b30388bbe0de5ffa94"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11276056,
+    "_ISO_TILE_SIZE": 8051608,
+    "_LEPTONS_PER_PIXEL": 11276128,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11276112,
+    "_ONE_RAD": 8051616,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11276104,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11276064,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11276024,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11276136,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11276072,
+    "_CELL_DIAG_SLOPE_ANGLE": 11276096,
+    "_BRIDGE_LEPTON_HEIGHT": 11276120,
+    "_CELL_NONE": 11276048,
+    "_COORD_NONE": 11276080,
+    "_RECT_NONE": 11276032,
+    "??0LocomotionClass@@QAE@XZ": 5492672,
+    "?Frame@@3HA": 10751276,
+    "??_7TunnelLocomotionClass@@6BIPersistStream@@@": 8051828,
+    "??_7TunnelLocomotionClass@@6BILocomotion@@@": 8051628,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z": 5568752,
+    "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z": 5571296,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?Process_Turning@TunnelLocomotionClass@@QAEXXZ": 7275440,
+    "??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ": 4869408,
+    "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z": 7421536,
+    "??2@YAPAXI@Z": 7872535,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "?Process_Tunneling@TunnelLocomotionClass@@QAEXXZ": 7276336,
+    "?Process_Ascending@TunnelLocomotionClass@@QAEXXZ": 7277216,
+    "?Abort_Motion@FootClass@@QAEXXZ": 5036464,
+    "?Is_Player_Control@HouseClass@@QBE_NXZ": 5198512,
+    "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z": 5669184,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Is_Fogged@MapClass@@QAE_NABVCoord@@@Z": 5669824,
+    "?Remove_Damage_Particle@TechnoClass@@QAEXXZ": 7175984,
+    "?Is_Rotating@FacingClass@@QBE_NXZ": 4951184,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
+    "__real@8@40058000000000000000": 8051872,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
+    "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492784,
+    "??0Matrix3D@@QAE@ABUMatrix3DStruct@@@Z": 5832208,
+    "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z": 7441760,
+    "??D@YI?AVMatrix3D@@ABV0@0@Z": 5837184,
+    "__real@8@bfffc90fdaa22168c000": 8032208,
+    "__real@8@40048000000000000000": 8051888,
+    "?Rotate_Y@Matrix3D@@QAEXM@Z": 5834880,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
+    "_?tunnel_Z_Adjust@?1??Z_Adjust@TunnelLocomotionClass@@UAGHXZ@4PAHA": 8357472,
+    "__real@8@3ffdccccccccccccd000": 7979624,
+    "?Z_Adjust@LocomotionClass@@UAGHXZ": 5493920,
+    "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
+    "?Debug_Map@@3_NA": 10751251,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Can_Burrow_Here@CellClass@@QBE_NXZ": 4702720,
+    "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "_CLSID_TunnelLocomotion": 8003472,
+    "?Load@LocomotionClass@@UAGJPAUIStream@@@Z": 5493696,
+    "??_7LocomotionClass@@6BIPersistStream@@@": 8008628,
+    "??_7LocomotionClass@@6BILocomotion@@@": 8008428,
+    "?Can_Fire@LocomotionClass@@UAG?AW4FireErrorType@@XZ": 5494272,
+    "_$E2": 7272944,
+    "_$E5": 7272992,
+    "_$E8": 7273024,
+    "_$E11": 7273056,
+    "_$E14": 7273088,
+    "_$E17": 7273120,
+    "_$E20": 7273152,
+    "_$E23": 7273216,
+    "_$E26": 7273264,
+    "_$E29": 7273312,
+    "_$E32": 7273360,
+    "_$E35": 7273376,
+    "_$E38": 7273408,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??0TunnelLocomotionClass@@QAE@XZ": 7273440,
+    "?Drawing_Code@LocomotionClass@@UAGHXZ": 5494256,
+    "?Apparent_Speed@LocomotionClass@@UAGHXZ": 5494288,
+    "?Force_New_Slope@LocomotionClass@@UAGXH@Z": 5494240,
+    "?Force_Immediate_Destination@LocomotionClass@@UAGXUCoordStruct@@@Z": 5494016,
+    "?Force_Track@LocomotionClass@@UAGXHUCoordStruct@@@Z": 5494032,
+    "?Shove@LocomotionClass@@UAGEUDirStruct@@@Z": 5493888,
+    "?Push@LocomotionClass@@UAGEUDirStruct@@@Z": 5493872,
+    "?Is_Ion_Sensitive@LocomotionClass@@UAGEXZ": 5493312,
+    "?Is_Powered@LocomotionClass@@UAGEXZ": 5493296,
+    "?Power_Off@LocomotionClass@@UAGEXZ": 5493264,
+    "?Power_On@LocomotionClass@@UAGEXZ": 5493232,
+    "?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ": 5493904,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Shadow_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493184,
+    "?Draw_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493968,
+    "?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492944,
+    "?Head_To_Coord@LocomotionClass@@UAG?AUCoordStruct@@XZ": 5494176,
+    "?Link_To_Object@LocomotionClass@@UAGJPAX@Z": 5492752,
+    "??_GTunnelLocomotionClass@@UAEPAXI@Z": 7279536,
+    "?GetSizeMax@LocomotionClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 5493824,
+    "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z": 5493600,
+    "?Release@LocomotionClass@@UAGKXZ": 5493360,
+    "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
+    "?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 5493424,
+    "??_R0?AUILocomotion@@@8": 8216272,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVLocomotionClass@@@8": 8216304,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVTunnelLocomotionClass@@@8": 8357480,
+    "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
+    "?Get_Status@LocomotionClass@@UAGHXZ": 4869152,
+    "?Acquire_Hunter_Seeker_Target@LocomotionClass@@UAGXXZ": 4869168,
+    "?Mark_All_Occupation_Bits@LocomotionClass@@UAGXH@Z": 4875680,
+    "?Is_Moving_Here@LocomotionClass@@UAGEUCoordStruct@@@Z": 4875696,
+    "?Will_Jump_Tracks@LocomotionClass@@UAGEXZ": 4875712,
+    "?Is_Really_Moving_Now@LocomotionClass@@UAGEXZ": 4869136,
+    "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ": 4869200,
+    "?Lock@LocomotionClass@@UAGXXZ": 4875728,
+    "?Unlock@LocomotionClass@@UAGXXZ": 4875744,
+    "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
+    "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
+    "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
+    "?Fetch_Object_Size@TunnelLocomotionClass@@UBEHXZ": 7279520,
+    "??3@YAXPAX@Z": 7871803,
+    "??1LocomotionClass@@UAE@XZ": 5492720,
+    "?Is_Moving@TunnelLocomotionClass@@UAGEXZ": 7273520,
+    "?Is_Moving_Now@TunnelLocomotionClass@@UAGEXZ": 7273536,
+    "?Destination@TunnelLocomotionClass@@UAG?AUCoordStruct@@XZ": 7273584,
+    "?Move_To@TunnelLocomotionClass@@UAGXUCoordStruct@@@Z": 7273680,
+    "?Stop_Moving@TunnelLocomotionClass@@UAGXXZ": 7273952,
+    "?Process@TunnelLocomotionClass@@UAGEXZ": 7274496,
+    "?Visual_Character@TunnelLocomotionClass@@UAG?AW4VisualType@@E@Z": 7275408,
+    "?Process_Digging_In@TunnelLocomotionClass@@QAEXXZ": 7275824,
+    "?Process_Aborting@TunnelLocomotionClass@@QAEXXZ": 7276080,
+    "?Process_Descending@TunnelLocomotionClass@@QAEXXZ": 7276176,
+    "?Process_Emerging@TunnelLocomotionClass@@QAEXXZ": 7277648,
+    "?Draw_Matrix@TunnelLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 7277792,
+    "?Z_Adjust@TunnelLocomotionClass@@UAGHXZ": 7278576,
+    "?Z_Gradient@TunnelLocomotionClass@@UAG?AW4ZGradientType@@XZ": 7279040,
+    "?Is_To_Have_Shadow@TunnelLocomotionClass@@UAGEXZ": 7279104,
+    "?Can_Enter_Cell@TunnelLocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z": 7279152,
+    "?Do_Turn@TunnelLocomotionClass@@UAGXUDirStruct@@@Z": 7279232,
+    "?GetClassID@TunnelLocomotionClass@@UAGJPAU_GUID@@@Z": 7279280,
+    "?Load@TunnelLocomotionClass@@UAGJPAUIStream@@@Z": 7279344,
+    "?Do_Turn@LocomotionClass@@UAGXUDirStruct@@@Z": 5494064,
+    "?Stop_Moving@LocomotionClass@@UAGXXZ": 5494080,
+    "?Move_To@LocomotionClass@@UAGXUCoordStruct@@@Z": 5494096,
+    "?Process@LocomotionClass@@UAGEXZ": 5494112,
+    "?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z": 5493952,
+    "?Is_To_Have_Shadow@LocomotionClass@@UAGEXZ": 5493984,
+    "?Can_Enter_Cell@LocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z": 5494000,
+    "?Destination@LocomotionClass@@UAG?AUCoordStruct@@XZ": 5494128,
+    "?Is_Moving@LocomotionClass@@UAGEXZ": 5494224,
+    "??_GLocomotionClass@@UAEPAXI@Z": 5238528,
+    "__purecall": 4950368,
+    "?Is_Moving_Now@LocomotionClass@@UAGEXZ": 4875664,
+    "?Is_Surfacing@LocomotionClass@@UAGEXZ": 4869184,
+    "?In_Which_Layer@TunnelLocomotionClass@@UAG?AW4LayerType@@XZ": 7279424,
+    "?Can_Fire@TunnelLocomotionClass@@UAG?AW4FireErrorType@@XZ": 7279456,
+    "?Is_Surfacing@TunnelLocomotionClass@@UAGEXZ": 7279488,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4371568,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
+    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
+    "?Release@LocomotionClass@@W3AGKXZ": 4979904
+  },
+  "regions": [
+    {
+      "entry": 7272944,
+      "method": "006ef9f0",
+      "body_bytes": 40,
+      "body_sha256": "97a08b5a45dd3a3c6f46c545fae386dd1f6380257846c2a83a2d039f2c22ff80",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d94e7e8e8f0a008d61f6bf81efd12b81d781234cf5d7a565dde7105253339264",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 599983
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292651522
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11276056,
+          "addend": 0,
+          "resolved": 11276056
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7272944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7272992,
+      "method": "006efa20",
+      "body_bytes": 19,
+      "body_sha256": "a5a55899c14d73d8376a8969a39a364a413a34a193a40746f3cbdc344ac69717",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7ca22bd6c879aff3f5389a23e5b2416a4146fa2ba99bd9ce54eabb705c38d837",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11276056,
+          "addend": 0,
+          "resolved": 11276056
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8051608,
+          "addend": 0,
+          "resolved": 8051608
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11276128,
+          "addend": 0,
+          "resolved": 11276128
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7272992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273024,
+      "method": "006efa40",
+      "body_bytes": 19,
+      "body_sha256": "5cab2a158ca4c7f9a4d0859c9bf118edd75dd36e2af737ed3b45463be23087f1",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2180d52b4b72b84da6ff6639490c0dcfcdb4680d19cbc1e0078381c6b65a6f1c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11276128,
+          "addend": 0,
+          "resolved": 11276128
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11276112,
+          "addend": 0,
+          "resolved": 11276112
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273056,
+      "method": "006efa60",
+      "body_bytes": 19,
+      "body_sha256": "b9b026e76a0d21786eee6eb0b376ddadc82c7b0a966d7b76603a1c853b1aafe1",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "225be249f43048fb7eb1b5018cdc9e4b411605afe39110299841764855acbbb1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8051616,
+          "addend": 0,
+          "resolved": 8051616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11276104,
+          "addend": 0,
+          "resolved": 11276104
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273088,
+      "method": "006efa80",
+      "body_bytes": 19,
+      "body_sha256": "e23b8c0589c9d556160332b0f1ea653ce434233c9fd32f0652f788913b3e57b2",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7e2ec149f6ab5222c8c3ab6339eb5031c99363298a707cad9977c03770cb36b3",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8051616,
+          "addend": 0,
+          "resolved": 8051616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11276064,
+          "addend": 0,
+          "resolved": 11276064
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273120,
+      "method": "006efaa0",
+      "body_bytes": 19,
+      "body_sha256": "dc21a98f365317d391f6a40e305714a5b0abf7ad1ce8e6533fe8a606ffbc2e24",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e3afe7be0dfee6532e0a8969f4d6117a8c7fb9573c669cf77102a2374bdcb515",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8051616,
+          "addend": 0,
+          "resolved": 8051616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11276024,
+          "addend": 0,
+          "resolved": 11276024
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273152,
+      "method": "006efac0",
+      "body_bytes": 49,
+      "body_sha256": "1ad095400dc12b8fa8333369917e99c5aaa5a7bc6976413491467f4b38cd892e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "969640cc76191338ce9901141fdd30e50ff0efffa647043acc6c4b8bdb185293",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11276024,
+          "addend": 0,
+          "resolved": 11276024
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11276064,
+          "addend": 0,
+          "resolved": 11276064
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292651593
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11276056,
+          "addend": 0,
+          "resolved": 11276056
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 587301
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11276136,
+          "addend": 0,
+          "resolved": 11276136
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273216,
+      "method": "006efb00",
+      "body_bytes": 33,
+      "body_sha256": "7540a912c822ec7d1afa8479416e2ff949ba0072acbcf3fd596dd25915e05af8",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4bd27a0d6de3b08c11f863d87647b3c44fc515ef810dcf7a9544b3368314a078",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11276136,
+          "addend": 0,
+          "resolved": 11276136
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292651673
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11276072,
+          "addend": 0,
+          "resolved": 11276072
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273264,
+      "method": "006efb30",
+      "body_bytes": 44,
+      "body_sha256": "ba3c13d2d4cdde462f71d599c0a31780b6e9978b0d441c55622e7a502e1572e6",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "723128234c8c46e9eb25a27a7ef991f170945a6e8251e8156c8d935bf4198db0",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11276136,
+          "addend": 0,
+          "resolved": 11276136
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11276056,
+          "addend": 0,
+          "resolved": 11276056
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292651614
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11276096,
+          "addend": 0,
+          "resolved": 11276096
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273312,
+      "method": "006efb60",
+      "body_bytes": 39,
+      "body_sha256": "3c34bc7f2ba0f7055026c84922ac3819e530b6f6e37b7223293491356c5505d9",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9f6d511d49f95aaa838aeafafd96b6481f76efd76da87369c07f048aac3a62da",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11276136,
+          "addend": 0,
+          "resolved": 11276136
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 587152
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11276120,
+          "addend": 0,
+          "resolved": 11276120
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273360,
+      "method": "006efb90",
+      "body_bytes": 15,
+      "body_sha256": "dc9b3cf335b604a69399d96e3e6dde80ff34b9bdb960c4b8aa0b708ff9f0a9c0",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "872a0418954d12135d37b12dfbd48318f35b7c44a771fc59834dd77b4fe851aa",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11276048,
+          "addend": 0,
+          "resolved": 11276048
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11276048,
+          "addend": 2,
+          "resolved": 11276050
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273376,
+      "method": "006efba0",
+      "body_bytes": 18,
+      "body_sha256": "e4c24e75bd44ab1d8c6a9ba6d2d60dbae31c9ac81bb8f0270fee8eae313231e6",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "08236f00e753cb45e267885e3ed4227ea1e7d75e6bba780d2e2f139deeafb1dc",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 0,
+          "resolved": 11276080
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 4,
+          "resolved": 11276084
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 8,
+          "resolved": 11276088
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273408,
+      "method": "006efbc0",
+      "body_bytes": 23,
+      "body_sha256": "9860c7439663785e87c57705db437aac0c59fc1598d776de1f953d41ac97e480",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "af6fbc3942a1106cf386e20dc288633e4b73ae1f9b09fd21e8c8bfcbb7562b84",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11276032,
+          "addend": 0,
+          "resolved": 11276032
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11276032,
+          "addend": 4,
+          "resolved": 11276036
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11276032,
+          "addend": 8,
+          "resolved": 11276040
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11276032,
+          "addend": 12,
+          "resolved": 11276044
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273440,
+      "method": "006efbe0",
+      "body_bytes": 77,
+      "body_sha256": "38ce69d7b3c48314314fae1727fee77d3662148645812f964cf18a8c0301d2b1",
+      "padding_bytes": 3,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f89e932a394340727b225d94b3d37e5611cb4012b33f85fb1e1dcc5eab9a2ceb",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TunnelLocomotionClass@@QAE@XZ",
+      "symbol_prefix": "??0TunnelLocomotionClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0LocomotionClass@@QAE@XZ",
+          "target": 5492672,
+          "addend": 0,
+          "resolved": 4293186520
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 0,
+          "resolved": 11276080
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 4,
+          "resolved": 11276084
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 8,
+          "resolved": 11276088
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "??_7TunnelLocomotionClass@@6BIPersistStream@@@",
+          "target": 8051828,
+          "addend": 0,
+          "resolved": 8051828
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "??_7TunnelLocomotionClass@@6BILocomotion@@@",
+          "target": 8051628,
+          "addend": 0,
+          "resolved": 8051628
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273520,
+      "method": "006efc30",
+      "body_bytes": 15,
+      "body_sha256": "515dd61a46af47e7877df66966c9adbede6e094d37c98076540d2cb0697c7635",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "23c5f11b98e69262a2c5761a0fb58712fefa48d9495cbe7ee855f945a925fde8",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving@TunnelLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving@TunnelLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273536,
+      "method": "006efc40",
+      "body_bytes": 33,
+      "body_sha256": "f60e4d045e0411f5e60d8051fa21c53714d3ac59e973a97030265432cc1c9337",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "123d4e7f6df0b34941b5c12716a6c182c54f7d75bce4427edec96416b39d66b1",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving_Now@TunnelLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving_Now@TunnelLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273584,
+      "method": "006efc70",
+      "body_bytes": 82,
+      "body_sha256": "08cb08464531989d9b933fff2efaa2b0c204e546c9d5046ebc2b2646a8c8f4bf",
+      "padding_bytes": 14,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "ca3df6f9a1e2af295845ba04b62096f0deb6df9fdd6c19a9c2abfe1a5c0103d7",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destination@TunnelLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Destination@TunnelLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273680,
+      "method": "006efcd0",
+      "body_bytes": 271,
+      "body_sha256": "5f32591ed93521fbc2f9e28abb1f8a1e576dd48f21e920c31220738c5dc02809",
+      "padding_bytes": 1,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "dd6650ac16dcfddcd7173e77aef2a69139b51dc20135d6455695ce6370a78e7c",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Move_To@TunnelLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "symbol_prefix": "?Move_To@TunnelLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 0,
+          "resolved": 11276080
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 4,
+          "resolved": 11276084
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 8,
+          "resolved": 11276088
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7273952,
+      "method": "006efde0",
+      "body_bytes": 544,
+      "body_sha256": "4b81811859ee5ba92733487e1259709c8ce2dc2e7bdbd81d47280c4a8a47aa13",
+      "padding_bytes": 0,
+      "full_extent_bytes": 544,
+      "full_extent_sha256": "4b81811859ee5ba92733487e1259709c8ce2dc2e7bdbd81d47280c4a8a47aa13",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 28,
+      "symbol": "?Stop_Moving@TunnelLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Stop_Moving@TunnelLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274468,
+          "addend": 0,
+          "resolved": 7274468
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292650439
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 586431
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11276056,
+          "addend": 0,
+          "resolved": 11276056
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 206,
+          "kind": 20,
+          "symbol": "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z",
+          "target": 5568752,
+          "addend": 0,
+          "resolved": 4293261886
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 229,
+          "kind": 20,
+          "symbol": "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z",
+          "target": 5571296,
+          "addend": 0,
+          "resolved": 4293264407
+        },
+        {
+          "offset": 238,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11276048,
+          "addend": 0,
+          "resolved": 11276048
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11276048,
+          "addend": 2,
+          "resolved": 11276050
+        },
+        {
+          "offset": 301,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 316,
+          "kind": 20,
+          "symbol": "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z",
+          "target": 5571296,
+          "addend": 0,
+          "resolved": 4293264320
+        },
+        {
+          "offset": 329,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11276048,
+          "addend": 0,
+          "resolved": 11276048
+        },
+        {
+          "offset": 338,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11276048,
+          "addend": 2,
+          "resolved": 11276050
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 0,
+          "resolved": 11276080
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 4,
+          "resolved": 11276084
+        },
+        {
+          "offset": 402,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 8,
+          "resolved": 11276088
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 0,
+          "resolved": 11276080
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 4,
+          "resolved": 11276084
+        },
+        {
+          "offset": 498,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11276080,
+          "addend": 8,
+          "resolved": 11276088
+        },
+        {
+          "offset": 516,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274429,
+          "addend": 0,
+          "resolved": 7274429
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274422,
+          "addend": 0,
+          "resolved": 7274422
+        },
+        {
+          "offset": 524,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274413,
+          "addend": 0,
+          "resolved": 7274413
+        },
+        {
+          "offset": 528,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7273982,
+          "addend": 0,
+          "resolved": 7273982
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274429,
+          "addend": 0,
+          "resolved": 7274429
+        },
+        {
+          "offset": 536,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274429,
+          "addend": 0,
+          "resolved": 7274429
+        },
+        {
+          "offset": 540,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274429,
+          "addend": 0,
+          "resolved": 7274429
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7273952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7274496,
+      "method": "006f0000",
+      "body_bytes": 912,
+      "body_sha256": "39114b9dd11f6b518045f65a407066ec5c468e8a459edd69fa854953874e72e4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 912,
+      "full_extent_sha256": "39114b9dd11f6b518045f65a407066ec5c468e8a459edd69fa854953874e72e4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 36,
+      "symbol": "?Process@TunnelLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Process@TunnelLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7275372,
+          "addend": 0,
+          "resolved": 7275372
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Process_Turning@TunnelLocomotionClass@@QAEXXZ",
+          "target": 7275440,
+          "addend": 0,
+          "resolved": 853
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ",
+          "target": 4869408,
+          "addend": 0,
+          "resolved": 4292562075
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 236,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 146800
+        },
+        {
+          "offset": 246,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 597789
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292018126
+        },
+        {
+          "offset": 422,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 434,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 585562
+        },
+        {
+          "offset": 519,
+          "kind": 20,
+          "symbol": "?Process_Tunneling@TunnelLocomotionClass@@QAEXXZ",
+          "target": 7276336,
+          "addend": 0,
+          "resolved": 1317
+        },
+        {
+          "offset": 532,
+          "kind": 20,
+          "symbol": "?Process_Ascending@TunnelLocomotionClass@@QAEXXZ",
+          "target": 7277216,
+          "addend": 0,
+          "resolved": 2184
+        },
+        {
+          "offset": 558,
+          "kind": 20,
+          "symbol": "??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ",
+          "target": 4869408,
+          "addend": 0,
+          "resolved": 4292561646
+        },
+        {
+          "offset": 578,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 653,
+          "kind": 20,
+          "symbol": "??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ",
+          "target": 4869408,
+          "addend": 0,
+          "resolved": 4292561551
+        },
+        {
+          "offset": 673,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 695,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 4292728565
+        },
+        {
+          "offset": 721,
+          "kind": 20,
+          "symbol": "?Is_Player_Control@HouseClass@@QBE_NXZ",
+          "target": 5198512,
+          "addend": 0,
+          "resolved": 4292890587
+        },
+        {
+          "offset": 757,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 769,
+          "kind": 20,
+          "symbol": "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z",
+          "target": 5669184,
+          "addend": 0,
+          "resolved": 4293361211
+        },
+        {
+          "offset": 779,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 818,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 830,
+          "kind": 20,
+          "symbol": "?Is_Fogged@MapClass@@QAE_NABVCoord@@@Z",
+          "target": 5669824,
+          "addend": 0,
+          "resolved": 4293361790
+        },
+        {
+          "offset": 853,
+          "kind": 20,
+          "symbol": "?Remove_Damage_Particle@TechnoClass@@QAEXXZ",
+          "target": 7175984,
+          "addend": 0,
+          "resolved": 4294867927
+        },
+        {
+          "offset": 876,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274563,
+          "addend": 0,
+          "resolved": 7274563
+        },
+        {
+          "offset": 880,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274592,
+          "addend": 0,
+          "resolved": 7274592
+        },
+        {
+          "offset": 884,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7274836,
+          "addend": 0,
+          "resolved": 7274836
+        },
+        {
+          "offset": 888,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7275011,
+          "addend": 0,
+          "resolved": 7275011
+        },
+        {
+          "offset": 892,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7275024,
+          "addend": 0,
+          "resolved": 7275024
+        },
+        {
+          "offset": 896,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7275037,
+          "addend": 0,
+          "resolved": 7275037
+        },
+        {
+          "offset": 900,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7275132,
+          "addend": 0,
+          "resolved": 7275132
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7274496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7275408,
+      "method": "006f0390",
+      "body_bytes": 32,
+      "body_sha256": "fb0409222d96e1d3a065db79066b0344c427d9bc3cd3e3f944e712f52f94c58c",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "fb0409222d96e1d3a065db79066b0344c427d9bc3cd3e3f944e712f52f94c58c",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Visual_Character@TunnelLocomotionClass@@UAG?AW4VisualType@@E@Z",
+      "symbol_prefix": "?Visual_Character@TunnelLocomotionClass@@UAG?AW4VisualType@@E@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7275408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7275440,
+      "method": "006f03b0",
+      "body_bytes": 380,
+      "body_sha256": "c63be4c5a7acc8e9a9eb1099f4f66f70bee2caadd7410ca3c23ac08e000b8bb0",
+      "padding_bytes": 4,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "117b7596cbcf5cbaadbe57aa0b74be33007ec968d134f308766ee957abb754d7",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Turning@TunnelLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Process_Turning@TunnelLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Is_Rotating@FacingClass@@QBE_NXZ",
+          "target": 4951184,
+          "addend": 0,
+          "resolved": 4292643020
+        },
+        {
+          "offset": 93,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4292649455
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 584939
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4292642720
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 195,
+          "kind": 6,
+          "symbol": "__real@8@40058000000000000000",
+          "target": 8051872,
+          "addend": 0,
+          "resolved": 8051872
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 584849
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 285,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 145807
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 596796
+        },
+        {
+          "offset": 353,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 367,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292017133
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7275440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7275824,
+      "method": "006f0530",
+      "body_bytes": 255,
+      "body_sha256": "8e8208f0fa24ef97627fca59c3fac46fc9b5392e81ea196802090339289ca929",
+      "padding_bytes": 1,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "930bf529f657432c11012b9f9950c4641f207f0d15cbe42ff0ce84b41a3c45e0",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Digging_In@TunnelLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Process_Digging_In@TunnelLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 145558
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 596547
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 232,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292016884
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7275824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7276080,
+      "method": "006f0630",
+      "body_bytes": 93,
+      "body_sha256": "b2e2c12966043d2d1b1f74609cb6892036571e6ce3b20b1a419c920101505c77",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "f56fc139ccc3ec926669e2cec6f27250cd6a969c55a309d39f7da72149c3067d",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Aborting@TunnelLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Process_Aborting@TunnelLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 4292727592
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7276080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7276176,
+      "method": "006f0690",
+      "body_bytes": 155,
+      "body_sha256": "bcbc5b2f34d50a4e778a1b7110692398e98bb2a38885c8c89fe662edd508b170",
+      "padding_bytes": 5,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "28c3804572b07c1c0d91b777b39ca8548b23699f5f08febbccf035bad920966d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Descending@TunnelLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Process_Descending@TunnelLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 584244
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7276176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7277216,
+      "method": "006f0aa0",
+      "body_bytes": 423,
+      "body_sha256": "99b09fa2f1c51d770f3aa6604f36cb7fcc86a58b439c7665d341e1756ea6d0a0",
+      "padding_bytes": 9,
+      "full_extent_bytes": 432,
+      "full_extent_sha256": "96b6233814b3fa39cd3d8c7808b9c51bb27111b596285014d282cdb149ed7c14",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Ascending@TunnelLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Process_Ascending@TunnelLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293302190
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 583169
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 232,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 144084
+        },
+        {
+          "offset": 242,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 595073
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292015406
+        },
+        {
+          "offset": 362,
+          "kind": 6,
+          "symbol": "__real@8@40058000000000000000",
+          "target": 8051872,
+          "addend": 0,
+          "resolved": 8051872
+        },
+        {
+          "offset": 367,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 582909
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7277216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7277648,
+      "method": "006f0c50",
+      "body_bytes": 142,
+      "body_sha256": "9a597d011fc76f4cb24dbc566ab4e1842a95518e8245b590098217318738e5f7",
+      "padding_bytes": 2,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "f72fb10efb8697ae9fcd5d1e5033856d4326523e767d313eab63af6152015083",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Emerging@TunnelLocomotionClass@@QAEXXZ",
+      "symbol_prefix": "?Process_Emerging@TunnelLocomotionClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 4292725976
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7277648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7277792,
+      "method": "006f0ce0",
+      "body_bytes": 780,
+      "body_sha256": "cb7bb870298995c7622c325d2795ecd4857b43d8285d5c7abfa41d518e6bffcd",
+      "padding_bytes": 4,
+      "full_extent_bytes": 784,
+      "full_extent_sha256": "7c5ebf61fee2c0317134c0dccecf6ced0a68f28b733ea8bebc957b3e7e382c40",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 24,
+      "symbol": "?Draw_Matrix@TunnelLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "symbol_prefix": "?Draw_Matrix@TunnelLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293227224
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293522194
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+          "target": 5492784,
+          "addend": 0,
+          "resolved": 4293182159
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABUMatrix3DStruct@@@Z",
+          "target": 5832208,
+          "addend": 0,
+          "resolved": 4293521573
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z",
+          "target": 7441760,
+          "addend": 0,
+          "resolved": 163810
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "??D@YI?AVMatrix3D@@ABV0@0@Z",
+          "target": 5837184,
+          "addend": 0,
+          "resolved": 4293526516
+        },
+        {
+          "offset": 220,
+          "kind": 20,
+          "symbol": "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+          "target": 5492784,
+          "addend": 0,
+          "resolved": 4293182064
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABUMatrix3DStruct@@@Z",
+          "target": 5832208,
+          "addend": 0,
+          "resolved": 4293521478
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278548,
+          "addend": 0,
+          "resolved": 7278548
+        },
+        {
+          "offset": 361,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 367,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 425,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 461,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 480,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 512,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "__real@8@bfffc90fdaa22168c000",
+          "target": 8032208,
+          "addend": 0,
+          "resolved": 8032208
+        },
+        {
+          "offset": 555,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 574,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 606,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 614,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 653,
+          "kind": 20,
+          "symbol": "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+          "target": 5492784,
+          "addend": 0,
+          "resolved": 4293181631
+        },
+        {
+          "offset": 666,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABUMatrix3DStruct@@@Z",
+          "target": 5832208,
+          "addend": 0,
+          "resolved": 4293521042
+        },
+        {
+          "offset": 687,
+          "kind": 6,
+          "symbol": "__real@8@40048000000000000000",
+          "target": 8051888,
+          "addend": 0,
+          "resolved": 8051888
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 582008
+        },
+        {
+          "offset": 722,
+          "kind": 20,
+          "symbol": "?Rotate_Y@Matrix3D@@QAEXM@Z",
+          "target": 5834880,
+          "addend": 0,
+          "resolved": 4293523658
+        },
+        {
+          "offset": 756,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278130,
+          "addend": 0,
+          "resolved": 7278130
+        },
+        {
+          "offset": 760,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278088,
+          "addend": 0,
+          "resolved": 7278088
+        },
+        {
+          "offset": 764,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278418,
+          "addend": 0,
+          "resolved": 7278418
+        },
+        {
+          "offset": 768,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278109,
+          "addend": 0,
+          "resolved": 7278109
+        },
+        {
+          "offset": 772,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278230,
+          "addend": 0,
+          "resolved": 7278230
+        },
+        {
+          "offset": 776,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278324,
+          "addend": 0,
+          "resolved": 7278324
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7277792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7278576,
+      "method": "006f0ff0",
+      "body_bytes": 452,
+      "body_sha256": "c98b6c2daf24a6e3e91cf959c9d573e165bf04daea4d3953f5ddad6e4983d99c",
+      "padding_bytes": 12,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "67b300254395469d4971d858ef245ea03f1126f5c9cecbfdc57a52e3ec3481d7",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 20,
+      "symbol": "?Z_Adjust@TunnelLocomotionClass@@UAGHXZ",
+      "symbol_prefix": "?Z_Adjust@TunnelLocomotionClass@@UAGHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294646181
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293300806
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294646141
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 200,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4292639524
+        },
+        {
+          "offset": 236,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7279008,
+          "addend": 0,
+          "resolved": 7279008
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "_?tunnel_Z_Adjust@?1??Z_Adjust@TunnelLocomotionClass@@UAGHXZ@4PAHA",
+          "target": 8357472,
+          "addend": 4,
+          "resolved": 8357476
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "_?tunnel_Z_Adjust@?1??Z_Adjust@TunnelLocomotionClass@@UAGHXZ@4PAHA",
+          "target": 8357472,
+          "addend": 0,
+          "resolved": 8357472
+        },
+        {
+          "offset": 279,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 581637
+        },
+        {
+          "offset": 298,
+          "kind": 6,
+          "symbol": "__real@8@3ffdccccccccccccd000",
+          "target": 7979624,
+          "addend": 0,
+          "resolved": 7979624
+        },
+        {
+          "offset": 335,
+          "kind": 6,
+          "symbol": "_?tunnel_Z_Adjust@?1??Z_Adjust@TunnelLocomotionClass@@UAGHXZ@4PAHA",
+          "target": 8357472,
+          "addend": 4,
+          "resolved": 8357476
+        },
+        {
+          "offset": 352,
+          "kind": 6,
+          "symbol": "_?tunnel_Z_Adjust@?1??Z_Adjust@TunnelLocomotionClass@@UAGHXZ@4PAHA",
+          "target": 8357472,
+          "addend": 4,
+          "resolved": 8357476
+        },
+        {
+          "offset": 365,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 581551
+        },
+        {
+          "offset": 382,
+          "kind": 6,
+          "symbol": "_?tunnel_Z_Adjust@?1??Z_Adjust@TunnelLocomotionClass@@UAGHXZ@4PAHA",
+          "target": 8357472,
+          "addend": 4,
+          "resolved": 8357476
+        },
+        {
+          "offset": 399,
+          "kind": 6,
+          "symbol": "_?tunnel_Z_Adjust@?1??Z_Adjust@TunnelLocomotionClass@@UAGHXZ@4PAHA",
+          "target": 8357472,
+          "addend": 0,
+          "resolved": 8357472
+        },
+        {
+          "offset": 416,
+          "kind": 20,
+          "symbol": "?Z_Adjust@LocomotionClass@@UAGHXZ",
+          "target": 5493920,
+          "addend": 0,
+          "resolved": 4293182220
+        },
+        {
+          "offset": 432,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278868,
+          "addend": 0,
+          "resolved": 7278868
+        },
+        {
+          "offset": 436,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278956,
+          "addend": 0,
+          "resolved": 7278956
+        },
+        {
+          "offset": 440,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278816,
+          "addend": 0,
+          "resolved": 7278816
+        },
+        {
+          "offset": 444,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278974,
+          "addend": 0,
+          "resolved": 7278974
+        },
+        {
+          "offset": 448,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7278834,
+          "addend": 0,
+          "resolved": 7278834
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7278576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7279040,
+      "method": "006f11c0",
+      "body_bytes": 49,
+      "body_sha256": "5cff8f57065b6e964ad65721eda07985286fda8b1fc81ac0afd9fe63510a66fe",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "9dd3dd5f5cbc4a0e557353cffdb164f0c46398a335c82e664109111968c7d245",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Z_Gradient@TunnelLocomotionClass@@UAG?AW4ZGradientType@@XZ",
+      "symbol_prefix": "?Z_Gradient@TunnelLocomotionClass@@UAG?AW4ZGradientType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ",
+          "target": 5493936,
+          "addend": 0,
+          "resolved": 4293182154
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7279040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7279104,
+      "method": "006f1200",
+      "body_bytes": 41,
+      "body_sha256": "e056f5cf7ac3dac0231373ddbde02f337823988e3e5ff2796837e32ab304bcaa",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d9aaefeae3394cdbe08d26d14a45fd5aee3f8f0f5cf92514f81273d471fc7d5b",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_To_Have_Shadow@TunnelLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_To_Have_Shadow@TunnelLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7279104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7279152,
+      "method": "006f1230",
+      "body_bytes": 71,
+      "body_sha256": "ef633787892d9590172b2da2b2894160e40c4bd7be286fbba7107b4d89942b73",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "bd35ab09ee326af13ac6e88fd866a1267d23a6b2dfa09d887eb5a130f35ee480",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Can_Enter_Cell@TunnelLocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z",
+      "symbol_prefix": "?Can_Enter_Cell@TunnelLocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Debug_Map@@3_NA",
+          "target": 10751251,
+          "addend": 0,
+          "resolved": 10751251
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293226003
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?Can_Burrow_Here@CellClass@@QBE_NXZ",
+          "target": 4702720,
+          "addend": 0,
+          "resolved": 4292390812
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7279152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7279232,
+      "method": "006f1280",
+      "body_bytes": 34,
+      "body_sha256": "6791e6701226c916dd16f40dd3908a0fe1b4d5b56626241a2f71317b711838fe",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e6c67d0a892ac6972373c1ff91b94af446402fe9f77335343c067e1ddc7c68cf",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Do_Turn@TunnelLocomotionClass@@UAGXUDirStruct@@@Z",
+      "symbol_prefix": "?Do_Turn@TunnelLocomotionClass@@UAGXUDirStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950576,
+          "addend": 0,
+          "resolved": 4292638609
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7279232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7279280,
+      "method": "006f12b0",
+      "body_bytes": 56,
+      "body_sha256": "161d4d2e185bde8e20ed095110d0cd179f2cb246aace1654f363080120a38c45",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "aa88b26f61452cab9fe93b645ea4761b47969d94af4d60880c29075e69cbe3e2",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@TunnelLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@TunnelLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_TunnelLocomotion",
+          "target": 8003472,
+          "addend": 0,
+          "resolved": 8003472
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_TunnelLocomotion",
+          "target": 8003472,
+          "addend": 4,
+          "resolved": 8003476
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_TunnelLocomotion",
+          "target": 8003472,
+          "addend": 8,
+          "resolved": 8003480
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_TunnelLocomotion",
+          "target": 8003472,
+          "addend": 12,
+          "resolved": 8003484
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7279280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7279344,
+      "method": "006f12f0",
+      "body_bytes": 71,
+      "body_sha256": "8d57351073e11b26376cd72acff66747035c2b5aac860338317154f35712c745",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "e0f5aaece52c62c94d023f7d90925e06e4097ac3fbabb74e99fc3b638cc851de",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@TunnelLocomotionClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@TunnelLocomotionClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Load@LocomotionClass@@UAGJPAUIStream@@@Z",
+          "target": 5493696,
+          "addend": 0,
+          "resolved": 4293181632
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7LocomotionClass@@6BIPersistStream@@@",
+          "target": 8008628,
+          "addend": 0,
+          "resolved": 8008628
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7LocomotionClass@@6BILocomotion@@@",
+          "target": 8008428,
+          "addend": 0,
+          "resolved": 8008428
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "??_7TunnelLocomotionClass@@6BIPersistStream@@@",
+          "target": 8051828,
+          "addend": 0,
+          "resolved": 8051828
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "??_7TunnelLocomotionClass@@6BILocomotion@@@",
+          "target": 8051628,
+          "addend": 0,
+          "resolved": 8051628
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7279344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7279424,
+      "method": "006f1340",
+      "body_bytes": 20,
+      "body_sha256": "61ee339929d4c2f6be56306e9eaf96db783d79b5e7d64af82cedf0ec8402122c",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "895c85061bff067153fb5dbad71d5cc57fc68b6612ac2bd33e191352a011da59",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?In_Which_Layer@TunnelLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "symbol_prefix": "?In_Which_Layer@TunnelLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7279424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7279456,
+      "method": "006f1360",
+      "body_bytes": 31,
+      "body_sha256": "b8fb29a3f15828c503d75d8a1f8d04882c3a61a6870fbd1f78707fe15923983e",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d674e0276e20a9a2492d09fb628cd3836dcd8b10b6b794f4a58249eb70ec92d6",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Can_Fire@TunnelLocomotionClass@@UAG?AW4FireErrorType@@XZ",
+      "symbol_prefix": "?Can_Fire@TunnelLocomotionClass@@UAG?AW4FireErrorType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?Can_Fire@LocomotionClass@@UAG?AW4FireErrorType@@XZ",
+          "target": 5494272,
+          "addend": 0,
+          "resolved": 4293182101
+        }
+      ],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7279456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7279488,
+      "method": "006f1380",
+      "body_bytes": 30,
+      "body_sha256": "1acb9be8ca8efa1a4819c2f8dfd0bd49d7e4458b138b1f797783fda48b6d2e36",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bfb18853d77e87c2d0ea539e14966fceb950a6b732e4911608085ef036d9ae22",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Surfacing@TunnelLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Surfacing@TunnelLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7a595f3345481e2c31ff27d40d1dfe16fad6ee8c8d94919da87d9c0ceca09108",
+      "source": "rebuild/src/tunnel.cpp",
+      "population": "rebuild-tunnel",
+      "source_order": 7279488,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -18,7 +18,7 @@
 **	copies and three empty functions (0x0058FCF0, 0x0058FD70, 0x0058FD80) whose source is not known.
 */
 
-#define RA2_GEOMETRY_H // RA2: geometry.h follows the includes, as its constants take their initializers after those of the other headers
+#define GEOMETRY_H // RA2: geometry.h follows the includes, as its constants take their initializers after those of the other headers
 #include "always.h" // RA2: as above
 #include "mapsel.h" // RA2: as above
 #include "_surface.h" // RA2: as above

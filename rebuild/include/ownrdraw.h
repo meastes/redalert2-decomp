@@ -525,3 +525,5 @@ struct ToolTipTextRequest { // RA2: what a combo box asks for with message 0x4E9
 	WideWstring Text; // RA2: the answer
 };
 
+// Declarations moved from the units that used them (one declaration per name).
+extern bool __fastcall Focus_Next_Tab_Item(long lparam, bool flag); // RA2: 0x005DEF80

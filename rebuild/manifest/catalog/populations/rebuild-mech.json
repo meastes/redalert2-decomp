@@ -1,0 +1,1831 @@
+{
+  "id": "rebuild-mech",
+  "population": {
+    "id": "rebuild-mech",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "403a3638c872ce0736d0bcf3912cd1b772090ad5e03cd9dd472504313dc5f782",
+    "historical_acceptance_sha256": "1ab330fb2a23e47af57100268fbd30224871526809828cb019282c1122b6acb3"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10947328,
+    "_ISO_TILE_SIZE": 8020120,
+    "_LEPTONS_PER_PIXEL": 10947400,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10947384,
+    "_ONE_RAD": 8020128,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10947376,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10947336,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10947296,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10947408,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10947344,
+    "_CELL_DIAG_SLOPE_ANGLE": 10947368,
+    "_BRIDGE_LEPTON_HEIGHT": 10947392,
+    "_CELL_NONE": 10947320,
+    "_COORD_NONE": 10947352,
+    "_RECT_NONE": 10947304,
+    "??0LocomotionClass@@QAE@XZ": 5492672,
+    "??_7MechLocomotionClass@@6BIPersistStream@@@": 8020340,
+    "??_7MechLocomotionClass@@6BILocomotion@@@": 8020140,
+    "??1LocomotionClass@@UAE@XZ": 5492720,
+    "?Movement_AI@MechLocomotionClass@@AAEX_N@Z": 5839264,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Pixel_To_Z_Lepton@Tactical@@SIHH@Z": 6957488,
+    "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z": 4680896,
+    "_CLSID_MechLocomotion": 8003552,
+    "?Load@LocomotionClass@@UAGJPAUIStream@@@Z": 5493696,
+    "?Is_Rotating@FacingClass@@QBE_NXZ": 4951184,
+    "_$E2": 5838048,
+    "_$E5": 5838096,
+    "_$E8": 5838128,
+    "_$E11": 5838160,
+    "_$E14": 5838192,
+    "_$E17": 5838224,
+    "_$E20": 5838256,
+    "_$E23": 5838320,
+    "_$E26": 5838368,
+    "_$E29": 5838416,
+    "_$E32": 5838464,
+    "_$E35": 5838480,
+    "_$E38": 5838512,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??0MechLocomotionClass@@QAE@XZ": 5838544,
+    "?Can_Fire@LocomotionClass@@UAG?AW4FireErrorType@@XZ": 5494272,
+    "?Drawing_Code@LocomotionClass@@UAGHXZ": 5494256,
+    "?Apparent_Speed@LocomotionClass@@UAGHXZ": 5494288,
+    "?Force_New_Slope@LocomotionClass@@UAGXH@Z": 5494240,
+    "?Force_Track@LocomotionClass@@UAGXHUCoordStruct@@@Z": 5494032,
+    "?Shove@LocomotionClass@@UAGEUDirStruct@@@Z": 5493888,
+    "?Push@LocomotionClass@@UAGEUDirStruct@@@Z": 5493872,
+    "?Is_Ion_Sensitive@LocomotionClass@@UAGEXZ": 5493312,
+    "?Is_Powered@LocomotionClass@@UAGEXZ": 5493296,
+    "?Power_Off@LocomotionClass@@UAGEXZ": 5493264,
+    "?Power_On@LocomotionClass@@UAGEXZ": 5493232,
+    "?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ": 5493904,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
+    "?Z_Adjust@LocomotionClass@@UAGHXZ": 5493920,
+    "?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z": 5493952,
+    "?Shadow_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493184,
+    "?Draw_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493968,
+    "?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492944,
+    "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492784,
+    "?Is_To_Have_Shadow@LocomotionClass@@UAGEXZ": 5493984,
+    "?Can_Enter_Cell@LocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z": 5494000,
+    "?Link_To_Object@LocomotionClass@@UAGJPAX@Z": 5492752,
+    "??_GMechLocomotionClass@@UAEPAXI@Z": 5845776,
+    "?GetSizeMax@LocomotionClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 5493824,
+    "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z": 5493600,
+    "?Release@LocomotionClass@@UAGKXZ": 5493360,
+    "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
+    "?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 5493424,
+    "??_R0?AUILocomotion@@@8": 8216272,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVLocomotionClass@@@8": 8216304,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVMechLocomotionClass@@@8": 8264928,
+    "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
+    "?Get_Status@LocomotionClass@@UAGHXZ": 4869152,
+    "?Acquire_Hunter_Seeker_Target@LocomotionClass@@UAGXXZ": 4869168,
+    "?Is_Surfacing@LocomotionClass@@UAGEXZ": 4869184,
+    "?Will_Jump_Tracks@LocomotionClass@@UAGEXZ": 4875712,
+    "?Is_Really_Moving_Now@LocomotionClass@@UAGEXZ": 4869136,
+    "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ": 4869200,
+    "?Lock@LocomotionClass@@UAGXXZ": 4875728,
+    "?Unlock@LocomotionClass@@UAGXXZ": 4875744,
+    "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
+    "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
+    "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
+    "?Fetch_Object_Size@MechLocomotionClass@@UBEHXZ": 5845760,
+    "??3@YAXPAX@Z": 7871803,
+    "??1MechLocomotionClass@@UAE@XZ": 5838640,
+    "?Is_Moving@MechLocomotionClass@@UAGEXZ": 5838672,
+    "?Destination@MechLocomotionClass@@UAG?AUCoordStruct@@XZ": 5838688,
+    "?Head_To_Coord@MechLocomotionClass@@UAG?AUCoordStruct@@XZ": 5838784,
+    "?Process@MechLocomotionClass@@UAGEXZ": 5838912,
+    "?Move_To@MechLocomotionClass@@UAGXUCoordStruct@@@Z": 5838944,
+    "?Stop_Moving@MechLocomotionClass@@UAGXXZ": 5839104,
+    "?Do_Turn@MechLocomotionClass@@UAGXUDirStruct@@@Z": 5839184,
+    "?Force_Immediate_Destination@MechLocomotionClass@@UAGXUCoordStruct@@@Z": 5839232,
+    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
+    "?cos@fastmath@@YANN@Z": 4957392,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "__real@8@bff1c9116cc4faf2b800": 7976480,
+    "__real@8@00000000000000000000": 7976464,
+    "?Has_Ability@TechnoClass@@QBE_NW4AbilityType@@@Z": 7174416,
+    "?Shimmer@CellClass@@QAEXXZ": 4687680,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
+    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
+    "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z": 4659248,
+    "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
+    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
+    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
+    "?AdjacentCell@@3QBVCell@@B": 8723056,
+    "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": 8806856,
+    "?Is_Same_Cell_Zone@MapClass@@QAE_NABVCell@@0W4MZoneType@@_N22@Z": 5568448,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z": 4993024,
+    "__real@8@4008e100000000000000": 7976456,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?Frame@@3HA": 10751276,
+    "?Mark_Head_To@MechLocomotionClass@@AAE_NABVCoord@@@Z": 5844848,
+    "?GetClassID@MechLocomotionClass@@UAGJPAU_GUID@@@Z": 5845280,
+    "?Load@MechLocomotionClass@@UAGJPAUIStream@@@Z": 5845344,
+    "?In_Which_Layer@MechLocomotionClass@@UAG?AW4LayerType@@XZ": 5845392,
+    "?Is_Moving_Now@MechLocomotionClass@@UAGEXZ": 5845408,
+    "?Mark_All_Occupation_Bits@MechLocomotionClass@@UAGXH@Z": 5845520,
+    "?Is_Moving_Here@MechLocomotionClass@@UAGEUCoordStruct@@@Z": 5845600,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4371568,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
+    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
+    "?Release@LocomotionClass@@W3AGKXZ": 4979904
+  },
+  "regions": [
+    {
+      "entry": 5838048,
+      "method": "005914e0",
+      "body_bytes": 40,
+      "body_sha256": "0ad6356477b38a04d21b93592981f94c6781c13a3870c630e88c06d166c11106",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e2be6bcf7be80eff0c762ee44405df54ad73c7ccf6f6d66a4c3b94de9b677d01",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2034879
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294086418
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10947328,
+          "addend": 0,
+          "resolved": 10947328
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838096,
+      "method": "00591510",
+      "body_bytes": 19,
+      "body_sha256": "236d1bd96b5b1e77924fa724b632800879e6e5015ed401a4ec752232385642e3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "468e23ad1c5a01b62d4af11bc641f1089579999ce5691e68160bc120a8fae4f7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10947328,
+          "addend": 0,
+          "resolved": 10947328
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8020120,
+          "addend": 0,
+          "resolved": 8020120
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10947400,
+          "addend": 0,
+          "resolved": 10947400
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838128,
+      "method": "00591530",
+      "body_bytes": 19,
+      "body_sha256": "f4ce410a5c560c022d15acbe5b6fc74eceb64959a92a12d5f7dfb5f4b752c50a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4a57c3709f5ff6e28bcb62ade413db15da50f0df63c111c06513e38b0e3a12a4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10947400,
+          "addend": 0,
+          "resolved": 10947400
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10947384,
+          "addend": 0,
+          "resolved": 10947384
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838160,
+      "method": "00591550",
+      "body_bytes": 19,
+      "body_sha256": "347dbd2782a5f0e6de39e5d85d1910e945fa18bfe841eefaf2c6692dfc8c2a2f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e4ccf5749751c2311e1fff92d5483358b71c36e24331f501198c11b22efef91c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8020128,
+          "addend": 0,
+          "resolved": 8020128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10947376,
+          "addend": 0,
+          "resolved": 10947376
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838192,
+      "method": "00591570",
+      "body_bytes": 19,
+      "body_sha256": "10b7c52c1b5536771434d417fd02fd254563f2343c7edc7eba9c855e8161d243",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2698b58b92741d6eecffb5843441d43f13ff2f791b9301dff1bbf62a775fba31",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8020128,
+          "addend": 0,
+          "resolved": 8020128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10947336,
+          "addend": 0,
+          "resolved": 10947336
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838224,
+      "method": "00591590",
+      "body_bytes": 19,
+      "body_sha256": "5217edbcf7c5b320eb7ab649e41914d4d44f051e3ac6a25190bb799e8de9fa41",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "eeea6689721af67841b14f8b8ebccc7c20724d644e5ab5a6e5dcf7d223695e31",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8020128,
+          "addend": 0,
+          "resolved": 8020128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10947296,
+          "addend": 0,
+          "resolved": 10947296
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838256,
+      "method": "005915b0",
+      "body_bytes": 49,
+      "body_sha256": "625488e61642c79d100b2c0c1c4a0a96ccdb2e07784d4a2099b29e9f3317c639",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a9c895bf6c8a115e1d6b78765ea5b682c06170e3d68d03e9cee893976bc7899e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10947296,
+          "addend": 0,
+          "resolved": 10947296
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10947336,
+          "addend": 0,
+          "resolved": 10947336
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294086489
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10947328,
+          "addend": 0,
+          "resolved": 10947328
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2022197
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10947408,
+          "addend": 0,
+          "resolved": 10947408
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838320,
+      "method": "005915f0",
+      "body_bytes": 33,
+      "body_sha256": "021fdaa444db7856f55972db4a2effe86e502159be45ebf6b5bccd7c44c48360",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "473ba9a222b28887f9f85d11762f05735be381344008a41bb99a6bb0558874c6",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10947408,
+          "addend": 0,
+          "resolved": 10947408
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294086569
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10947344,
+          "addend": 0,
+          "resolved": 10947344
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838368,
+      "method": "00591620",
+      "body_bytes": 44,
+      "body_sha256": "dd134bcace9f1e7777ba00ee676354c3a561c5db73aa27695835536404ab174f",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "bb7fda7ee4e6601bd7367d32ad71cce3e479eb04dcf7a786f9a199a7c8a899d1",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10947408,
+          "addend": 0,
+          "resolved": 10947408
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10947328,
+          "addend": 0,
+          "resolved": 10947328
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294086510
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10947368,
+          "addend": 0,
+          "resolved": 10947368
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838416,
+      "method": "00591650",
+      "body_bytes": 39,
+      "body_sha256": "c84274d6adaf0f8c4280242af381e994945a50c1257f3a523d912fac0b7b991b",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5beae20338e344de99be60db3ece7a3124983455ea2f40756e5e4a7d879312e2",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10947408,
+          "addend": 0,
+          "resolved": 10947408
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2022048
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10947392,
+          "addend": 0,
+          "resolved": 10947392
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838464,
+      "method": "00591680",
+      "body_bytes": 15,
+      "body_sha256": "65267e80495ef628952311f70c137036cca552006b70549aca42e3e009f0ec6a",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9db43c32be677ef9661f9ee215571a65c72b40a43a7c5b08bfd8b0081e9a3a80",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10947320,
+          "addend": 0,
+          "resolved": 10947320
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10947320,
+          "addend": 2,
+          "resolved": 10947322
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838480,
+      "method": "00591690",
+      "body_bytes": 18,
+      "body_sha256": "b75eb4f87962d924c3425825edad1b2a22a4095c58de8fa12fa2017d2f92d027",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4fc15245201b874986b6463fc4b3d828459ccfbcce460f4521d236ae76db0142",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838512,
+      "method": "005916b0",
+      "body_bytes": 23,
+      "body_sha256": "807f5e4f785812dd1f9be27c06090def1aec4d53b25de323ebeaadbe1c4789d6",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bf60e601efd25fa5ea149eb80dafe5a2d341f52e92960329a29bb57877dd02b5",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10947304,
+          "addend": 0,
+          "resolved": 10947304
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10947304,
+          "addend": 4,
+          "resolved": 10947308
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10947304,
+          "addend": 8,
+          "resolved": 10947312
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10947304,
+          "addend": 12,
+          "resolved": 10947316
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838544,
+      "method": "005916d0",
+      "body_bytes": 86,
+      "body_sha256": "545eabf6a01ff9cccdec1f725678fd8bd9b5a33ded4096434896a313de677dce",
+      "padding_bytes": 10,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "bc5cde5cd133a69a1d816406edf848444c893093194b7b1537129148885251a2",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MechLocomotionClass@@QAE@XZ",
+      "symbol_prefix": "??0MechLocomotionClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0LocomotionClass@@QAE@XZ",
+          "target": 5492672,
+          "addend": 0,
+          "resolved": 4294621416
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "??_7MechLocomotionClass@@6BIPersistStream@@@",
+          "target": 8020340,
+          "addend": 0,
+          "resolved": 8020340
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "??_7MechLocomotionClass@@6BILocomotion@@@",
+          "target": 8020140,
+          "addend": 0,
+          "resolved": 8020140
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838640,
+      "method": "00591730",
+      "body_bytes": 18,
+      "body_sha256": "f7a97b3382890c00ba10225873da5b45bc229d584755615f7c584b322787f109",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7769d80db7238195b8444c75a410e27c76e598f928628191deb9b25d9dd84e3e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1MechLocomotionClass@@UAE@XZ",
+      "symbol_prefix": "??1MechLocomotionClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7MechLocomotionClass@@6BIPersistStream@@@",
+          "target": 8020340,
+          "addend": 0,
+          "resolved": 8020340
+        },
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7MechLocomotionClass@@6BILocomotion@@@",
+          "target": 8020140,
+          "addend": 0,
+          "resolved": 8020140
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 4294621358
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838672,
+      "method": "00591750",
+      "body_bytes": 10,
+      "body_sha256": "0e8c42a60c12bba02bba1465303b9d51c9f52905ab43498af6b1cf042437b76b",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "af3612d79a2f2e9c1e6b8eb314ab70d8faae94629ac0dcd595b5d1a86077fa65",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving@MechLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving@MechLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838688,
+      "method": "00591760",
+      "body_bytes": 81,
+      "body_sha256": "1f97e4b9ced6fdf0adc022a9b043aa3af629001846f145d991c8b82f3c0ed233",
+      "padding_bytes": 15,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "6699dd8da963abe1972e82c8dc216bbc684de4af83c8a0e82bf351b5e2a1b6e8",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destination@MechLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Destination@MechLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838784,
+      "method": "005917c0",
+      "body_bytes": 113,
+      "body_sha256": "84d54076045600ccfefcceee9ecbaffc5e78e23afd5091478cfbdc0af3d389f0",
+      "padding_bytes": 15,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "de14214d759e56a3dbcd2a1a4da0a0b123f8340fae941a29c547044231b30f11",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Head_To_Coord@MechLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Head_To_Coord@MechLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838912,
+      "method": "00591840",
+      "body_bytes": 25,
+      "body_sha256": "b8f1d48c653bd3fa751dfa537c3480679146256841a7f178cd3a9373f1ee09c1",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b02e0cf6fb6da534db904e0c979c4d2041ab6f80e29b57e9ff3c33222c207a69",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process@MechLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Process@MechLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "?Movement_AI@MechLocomotionClass@@AAEX_N@Z",
+          "target": 5839264,
+          "addend": 0,
+          "resolved": 337
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5838944,
+      "method": "00591860",
+      "body_bytes": 149,
+      "body_sha256": "f54fe28cb374b64b8ca04dd3932abbb9256e34687466fdba844d869b315cb77b",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "20affc2957c4e51460031eee2f98a1cbc9d30ffd2d0524b8c53244a9f90cf3f6",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Move_To@MechLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "symbol_prefix": "?Move_To@MechLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4294666028
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "?Pixel_To_Z_Lepton@Tactical@@SIHH@Z",
+          "target": 6957488,
+          "addend": 0,
+          "resolved": 1118406
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5838944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5839104,
+      "method": "00591900",
+      "body_bytes": 78,
+      "body_sha256": "7c0a838893d52d0f9f5a0cbf267c62aee7675a351a6e3c11105d7d96c2326431",
+      "padding_bytes": 2,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "cff797fa9c47e3da718f7171d59011d17a075a7491161c43b641549ea558b3f6",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Moving@MechLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Stop_Moving@MechLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5839104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5839184,
+      "method": "00591950",
+      "body_bytes": 34,
+      "body_sha256": "a6f92ac80ef10fb4e7c46e61946404b951df499e467319f236d8c4d63354da17",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c7b9dc1b05470eccb4b59c8818ccf7e7b2a2b8730c2232aebae35019a4b576ec",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Do_Turn@MechLocomotionClass@@UAGXUDirStruct@@@Z",
+      "symbol_prefix": "?Do_Turn@MechLocomotionClass@@UAGXUDirStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950576,
+          "addend": 0,
+          "resolved": 4294078657
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5839184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5839232,
+      "method": "00591980",
+      "body_bytes": 32,
+      "body_sha256": "54e81d6e4dcbb722f6f64e5f1bf3756d81d415b9d9c7496ce8b95a4495647819",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "54e81d6e4dcbb722f6f64e5f1bf3756d81d415b9d9c7496ce8b95a4495647819",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Force_Immediate_Destination@MechLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "symbol_prefix": "?Force_Immediate_Destination@MechLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5839232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5844848,
+      "method": "00592f70",
+      "body_bytes": 419,
+      "body_sha256": "01e31b4eb50cb6af785e0155fe22cd0e6243de5adb02e5b2b0ef93026418f8af",
+      "padding_bytes": 13,
+      "full_extent_bytes": 432,
+      "full_extent_sha256": "bc6b497e1c2454a44d696ebd4c4aee5fac9d2e84ebaf00cb8f4513b33204a281",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mark_Head_To@MechLocomotionClass@@AAE_NABVCoord@@@Z",
+      "symbol_prefix": "?Mark_Head_To@MechLocomotionClass@@AAE_NABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4294734533
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4294660150
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10947408,
+          "addend": 0,
+          "resolved": 10947408
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10947392,
+          "addend": 0,
+          "resolved": 10947392
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        },
+        {
+          "offset": 217,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 222,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4294660014
+        },
+        {
+          "offset": 229,
+          "kind": 20,
+          "symbol": "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z",
+          "target": 4680896,
+          "addend": 0,
+          "resolved": 4293803111
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 282,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        },
+        {
+          "offset": 312,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 324,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 337,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5844848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5845280,
+      "method": "00593120",
+      "body_bytes": 56,
+      "body_sha256": "17e41df146927a43ed5a234b3a70cc1ddb9fde088732917dc9c4f0a9069cd350",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "837cf8a6a1c5d902d60b59df0da2d7f927d8f9e4dd64e9fa0f515b1906993320",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@MechLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@MechLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_MechLocomotion",
+          "target": 8003552,
+          "addend": 0,
+          "resolved": 8003552
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_MechLocomotion",
+          "target": 8003552,
+          "addend": 4,
+          "resolved": 8003556
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_MechLocomotion",
+          "target": 8003552,
+          "addend": 8,
+          "resolved": 8003560
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_MechLocomotion",
+          "target": 8003552,
+          "addend": 12,
+          "resolved": 8003564
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5845280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5845344,
+      "method": "00593160",
+      "body_bytes": 41,
+      "body_sha256": "589759c30e07b512b0fd0e0630ff6c77a834f30067a031a0d0b96c91f702207a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a6cccd18d966a1ac2d2e13593d995adf4d5553d67996dadb747d96b9d22b5ae7",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@MechLocomotionClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@MechLocomotionClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Load@LocomotionClass@@UAGJPAUIStream@@@Z",
+          "target": 5493696,
+          "addend": 0,
+          "resolved": 4294615632
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7MechLocomotionClass@@6BIPersistStream@@@",
+          "target": 8020340,
+          "addend": 0,
+          "resolved": 8020340
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7MechLocomotionClass@@6BILocomotion@@@",
+          "target": 8020140,
+          "addend": 0,
+          "resolved": 8020140
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5845344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5845392,
+      "method": "00593190",
+      "body_bytes": 8,
+      "body_sha256": "7ed463946b38cd0ba3a93864b2a1645cbebc5c5f2b63caf2d8a10bb2ad836d21",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c826b0c38d0fc905554442fe25640d95c7e8b7e66c0d87901741ed9127171155",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?In_Which_Layer@MechLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "symbol_prefix": "?In_Which_Layer@MechLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5845392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5845408,
+      "method": "005931a0",
+      "body_bytes": 103,
+      "body_sha256": "bc89802dc538154df0c50729dac3076e1a55b85675d6b2475c1ed3b3841e0622",
+      "padding_bytes": 9,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "25f73d5854081c0766c515f5d1efd85a7176b70c5406d0def735b4eb8f2cf9f0",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving_Now@MechLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving_Now@MechLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Is_Rotating@FacingClass@@QBE_NXZ",
+          "target": 4951184,
+          "addend": 0,
+          "resolved": 4294073053
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 0,
+          "resolved": 10947352
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 4,
+          "resolved": 10947356
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10947352,
+          "addend": 8,
+          "resolved": 10947360
+        }
+      ],
+      "source_sha256": "9a9d6b5bd2409bda009addb0c0ce4ea9638ee0aa83967d6fbe031f86a309e418",
+      "source": "rebuild/src/mech.cpp",
+      "population": "rebuild-mech",
+      "source_order": 5845408,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

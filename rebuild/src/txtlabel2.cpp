@@ -17,7 +17,7 @@
 **	0x006F1A00.
 */
 
-#define RA2_GEOMETRY_H // RA2: this module initializes none of the geometry constants (no initializer for them stands before its own)
+#define GEOMETRY_H // RA2: this module initializes none of the geometry constants (no initializer for them stands before its own)
 #include "always.h" // RA2: the includes this file needs
 #include "convert.h" // RA2: as above
 #include "data.h" // RA2: as above

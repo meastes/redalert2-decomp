@@ -40,7 +40,7 @@ PY
   for i in 1 2; do (cd rebuild/tools && $P vtables.py $u --learn >/dev/null 2>&1); $P -B rebuild/tools/rebuild.py check $u --learn >/dev/null 2>&1; done
   (cd rebuild/tools && $P xcu.py $u >/dev/null 2>&1)
   before=$($P -B rebuild/tools/rebuild.py check $u --learn 2>&1 | grep -o "[0-9]*/[0-9]* rows exact" | head -1)
-  /bin/cp -f build/r/last/$u.json build/r/last/$u.preguard.json
+  /bin/cp -f build/r/last/$u.json build/r/last/$u.preguard.json; /bin/cp -f rebuild/src/$u.cpp build/r/$u.preguard.cpp
   g=$(cd rebuild/tools && $P -B guard.py $u 2>&1 | head -1)
   for i in 1 2 3; do
     $P -B rebuild/tools/rebuild.py check $u --learn >/dev/null 2>&1; (cd rebuild/tools && $P xcu.py $u >/dev/null 2>&1)
@@ -51,6 +51,12 @@ PY
   g="$g; $r"
   $P -B rebuild/tools/rebuild.py check $u --learn >/dev/null 2>&1; (cd rebuild/tools && $P xcu.py $u >/dev/null 2>&1)
   after=$($P -B rebuild/tools/rebuild.py check $u --learn 2>&1 | grep -o "[0-9]*/[0-9]* rows exact\|error C[0-9]*: .*" | head -1)
+  # Guards that break the compile or cost exact rows are taken back: the drafts stay unguarded.
+  if [[ $after == error* || ${after%%/*} -lt ${before%%/*} ]]; then
+    /bin/cp -f build/r/$u.preguard.cpp rebuild/src/$u.cpp
+    $P -B rebuild/tools/rebuild.py check $u --learn >/dev/null 2>&1; (cd rebuild/tools && $P xcu.py $u >/dev/null 2>&1)
+    after="$($P -B rebuild/tools/rebuild.py check $u --learn 2>&1 | grep -o "[0-9]*/[0-9]* rows exact" | head -1) (guards taken back)"
+  fi
   echo "$u: first $first; settled $before; $g; final $after"
 done
 $P -B rebuild/tools/rebuild.py catalog 2>&1 | head -1
