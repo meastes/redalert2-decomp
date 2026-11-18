@@ -668,6 +668,32 @@ class Audit:
             references[name] = address
             self.__dict__.setdefault('data_bound_by', {})[name] = dict(address='%08x' % address, kind=kind,
                                                                          bytes=extents.get(name, 0))
+        # Unplaced-unreferenced objects (opt-in per source): no address, nothing compared or credited;
+        # zero_fill_duplicate leaves them out of its bound-symbol test for this object only.
+        names = [n for n, k in declared.items() if k == data_bindings.UNPLACED]
+        if names:
+            found = data_bindings.unplaced(coff, names, references, data_bindings.evidence_rows(candidates.values()),
+                                           {c['entry'] for c in candidates.values()}, self.image_pointers)
+            for name, detail in found.items():
+                self.__dict__.setdefault('data_unplaced', set()).add((id(coff), name))
+                self.__dict__.setdefault('data_bound_by', {})[name] = dict(detail, address=None, kind=data_bindings.UNPLACED,
+                                                                             bytes=0)
+
+    def image_pointers(self, low, high):
+        """Addresses in [low, high) that some 4-byte little-endian value of the original image's
+        sections equals, at any byte offset (an over-approximation of the references to them)."""
+        from array import array
+        cache = self.__dict__.setdefault('_image_pointers', {})
+        if (low, high) not in cache:
+            found = set()
+            for section in self.pe.sections:
+                data = section.get_data()
+                for shift in range(4):
+                    words = array('I')
+                    words.frombytes(data[shift:shift + (len(data) - shift) // 4 * 4])
+                    found.update(v for v in words if low <= v < high)
+            cache[(low, high)] = found
+        return cache[(low, high)]
 
     def defined_data_duplicate(self, coff, index, section, candidates):
         """Initialized data a unit defines (a table written out in source).
@@ -835,7 +861,10 @@ class Audit:
         if not defined or defined[0][0] != 0:
             return False
         references = self.merged_references(candidates)
+        unplaced = getattr(self, 'data_unplaced', ())
         for position, (value, name) in enumerate(defined):
+            if (id(coff), name) in unplaced:
+                continue        # data_bindings.unplaced: no address, nothing compared
             size = (defined[position + 1][0] if position + 1 < len(defined) else section['size']) - value
             address = references.get(name)
             if address is None or address < self.base or size <= 0:

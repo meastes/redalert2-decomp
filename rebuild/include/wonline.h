@@ -26,6 +26,8 @@ enum WonlineResult
 	WONLINE_OK = 1,
 };
 
+extern int g_BuddyColumns[6]; // RA2: 0x007FD308, the column positions of the buddy list
+
 extern Wstring g_NickName; // RA2: a Wstring, the persona of the login (0x00B26CB8)
 
 extern char WestwoodOnline_Clan1_Players[];

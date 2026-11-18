@@ -673,6 +673,7 @@ symbol,address,evidence
 ??_EMovieHandle@@UAEPAXI@Z,0x004B8960,slot +04 of ??_7MovieHandle@@6B@ at 007a6650; main row ?get@Leaf_4b8960@@QAEHXZ
 ??_EMultiplayerDebugCommandClass@@UAEPAXI@Z,0x0051DA40,slot +00 of ??_7MultiplayerDebugCommandClass@@6B@ at 007a43c4; main row ??_GMultiplayerDebugCommandClass@@UAEPAXI@Z
 ??_EMultiplayerGameMode@@UAEPAXI@Z,0x005B8E10,slot +00 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ??_GMultiplayerGameMode@@UAEPAXI@Z
+??_EMultiplayerManBattle@@UAEPAXI@Z,0x005A7500,slot +00 of ??_7MultiplayerManBattle@@6B@ at 007a69dc; main row ?MultiplayerManBattle_Scalar_Deleting_Destructor_005a7500@Owner_005a7500@seed_005a7500@@QAEPAIE@Z
 ??_EMultiplayerObserverTeam@@UAEPAXI@Z,0x005AA810,slot +04 of ??_7MultiplayerObserverTeam@@6B@ at 007a6b58; main row ?scalar_deleting_destructor_005aa810@Owner_005aa810@seed_005aa810@@QAEIE@Z
 ??_EMultiplayerSiegeAttackerTeam@@UAEPAXI@Z,0x005ABEF0,slot +04 of ??_7MultiplayerSiegeAttackerTeam@@6B@ at 007a6c60; main row ?MultiplayerSiegeAttackerTeam_Scalar_Deleting_Destructor_005abef0@Owner_005abef0@seed_005abef0@@QAEPAIE@Z
 ??_EMultiplayerSiegeDefenderTeam@@UAEPAXI@Z,0x005ABEC0,slot +04 of ??_7MultiplayerSiegeDefenderTeam@@6B@ at 007a6c50; main row ?MultiplayerSiegeDefenderTeam_Scalar_Deleting_Destructor_005abec0@Owner_005abec0@seed_005abec0@@QAEPAIE@Z
@@ -802,6 +803,8 @@ symbol,address,evidence
 ??_EWinsockInterfaceClass@@UAEPAXI@Z,0x0076BA40,slot +00 of ??_7WinsockInterfaceClass@@6B@ at 007afa7c; main row ??_GWinsockInterfaceClass@@UAEPAXI@Z
 ??_EXSurface@@UAEPAXI@Z,0x00411320,slot +04 of ??_7XSurface@@6B@ at 0079af88; main row ??_GXSurface@@UAEPAXI@Z
 ??_Erc_ptr_base@@UAEPAXI@Z,0x00639580,slot +04 of ??_7rc_ptr_base@@6B@ at 007a8d08; main row ??_Grc_ptr_base@@UAEPAXI@Z
+??_G?$DNode@VWstring@@UChannel@@@@QAEPAXI@Z,0x007667E0,inferred: wonline rows 0073e8d0 differ only at its sites
+??_G?$DNode@VWstring@@ULadder@@@@QAEPAXI@Z,0x00766780,inferred: wonline rows 0073e8d0 0073e8d0 differ only at its sites
 ??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z,0x0040B230,Original SubzoneConnectionStruct VectorClass vtable destructor at0079a76c points0040b230; alias of landed ??_E; frozen population-12 body73 padding7 exact. Avoid unrelated unsigned-short vector row0042b470 collision.
 ?AI@AbstractClass@@UAEXXZ,0x00410310,slot +60 of ??_7CellClass@@6BIPersistStream@@@ at 0079db00; main row ?AI@AbstractClass@@UAEXXZ
 ?AI@AnimClass@@UAEXXZ,0x00421710,slot +60 of ??_7AnimClass@@6BIPersistStream@@@ at 0079c080; main row ?AI@AnimClass@@UAEXXZ
@@ -2167,6 +2170,7 @@ symbol,address,evidence
 ?Is_Voxel_Loaded@TechnoClass@@UBE_NXZ,0x006C7480,slot +27c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot158@TechnoClass@@UAE_NXZ
 ?Is_Weapon_Equipped@TechnoClass@@UBE_NXZ,0x006CD670,slot +290 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot163@TechnoClass@@UAE_NXZ
 ?Is_Weapon_Valid@TechnoClass@@QBE_NPBUWeaponDataStruct@@@Z,0x006D8640,inferred: building rows 00451930 differ only at its sites
+?Join_Selected_Lobby@@YIH_N@Z,0x00744930,inferred: wonline rows 00741750 00741750 differ only at its sites
 ?JumpJet_To_Walk@FootClass@@UAE_NXZ,0x0041B480,slot +488 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b480@@QAE_NXZ
 ?Jump_To_Radar_Event@@YIXXZ,0x006F88F0,inferred: init rows 0051c640 differ only at its sites
 ?LastAdjacentZone@@3HA,0x00A6FC34,main: the accepted map.cpp rows name this global unknown_zone_a6fc34 (0x00A6FC34) (lane R5)
@@ -2687,6 +2691,7 @@ symbol,address,evidence
 ?Stop_Moving@DriveLocomotionClass@@UAGXXZ,0x0049FEF0,slot +4c of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Stop_Moving@DriveLocomotionClass@@UAGXXZ
 ?Stop_Moving@JumpjetLocomotionClass@@UAGXXZ,0x0052F960,slot +4c of ??_7JumpjetLocomotionClass@@6BILocomotion@@@ at 007a52a0; main row ?Stop_Moving@JumpjetLocomotionClass@@UAGXXZ
 ?Stop_Moving@LocomotionClass@@UAGXXZ,0x0053D540,slot +4c of ??_7LocomotionClass@@6BILocomotion@@@ at 007a32e8; main row ?Stop_Moving@LocomotionClass@@UAGXXZ
+?Store_User_Ping@@YIXPBDH@Z,0x0075B110,inferred: wonline rows 00741750 differ only at its sites
 ?Stride@BSurface@@UBEHXZ,0x004113C0,slot +78 of ??_7BSurface@@6B@ at 0079aef4; main row ?Stride@BSurface@@UAEHXZ
 ?Structure_Tab_Building@@YIPAVBuildingClass@@XZ,0x006F8A50,inferred: init rows 0051b030 differ only at its sites
 ?Stun@FootClass@@UAEXXZ,0x004C4C00,slot +34c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot210@FootClass@@UAEXXZ
@@ -2753,6 +2758,8 @@ symbol,address,evidence
 ?VoxelZSurface@@3VBSurface@@A,0x00AE0C80,inferred: voxdrsys rows 00716e20 00716e20 00716e20 00716e20 differ only at its sites
 ?WDT_Get_Tech_Level@WorldDominationTour@@YIHPBVWDTTerritory@@@Z,0x00727B80,inferred: wdtconflict rows 00727480 differ only at its sites
 ?WDT_Get_Unit_Count@WorldDominationTour@@YIHPBVWDTTerritory@@@Z,0x00727B70,inferred: wdtconflict rows 00727480 differ only at its sites
+?WDT_TERRITORY_LOBBY_INDEXES@@3PAHA,0x00B26540,inferred: wonline rows 0073e8d0 differ only at its sites
+?WOL_Find_Page_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,0x007485D0,inferred: wonline rows 0073c230 differ only at its sites
 ?Weapon_Range@ObjectClass@@UBEHH@Z,0x005D2CE0,slot +158 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Weapon_Range@ObjectClass@@UAEHH@Z
 ?Weapon_Range@TechnoClass@@UBEHH@Z,0x006CD810,slot +158 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Weapon_Range@TechnoClass@@UAEHH@Z
 ?What_Action@ObjectClass@@UBE?AW4ActionType@@ABVCell@@_N1@Z,0x005D2BB0,slot +70 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?What_Action@ObjectClass@@UAEHPBVCell@@_N1@Z
@@ -2762,6 +2769,7 @@ symbol,address,evidence
 ?Who_Can_Build_Me@ObjectClass@@UBEPAVBuildingClass@@_N0@Z,0x005D4500,slot +17c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Who_Can_Build_Me@ObjectClass@@UAEPAVBuildingClass@@_N0@Z
 ?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z,0x005D5FC0,slot +94 of ??_7BuildingTypeClass@@6BIPersistStream@@@ at 0079d1f8; main row ?Who_Can_Build_Me@ObjectTypeClass@@UBEPAVBuildingClass@@_N00PAVHouseClass@@@Z
 ?Will_Jump_Tracks@LocomotionClass@@UAGEXZ,0x004A65C0,slot +a8 of ??_7FlyLocomotionClass@@6BILocomotion@@@ at 007a1000; main row ?Will_Jump_Tracks@LocomotionClass@@UAG_NXZ
+?WolOptionsLocked@@3HA,0x00B2AC40,inferred: wonline rows 00741750 00741750 00741750 differ only at its sites
 ?Write@BufferIOFileClass@@UAEHPBXH@Z,0x0042F830,slot +34 of ??_7CDFileClass@@6B@ at 0079a654; main row ?Write@BufferIOFileClass@@UAEJPBXJ@Z
 ?Write@CCFileClass@@UAEHPBXH@Z,0x00469030,slot +34 of ??_7CCFileClass@@6B@ at 0079a69c; main row ?Write@CCFileClass@@UAEJPBXJ@Z
 ?Write@RawFileClass@@UAEHPBXH@Z,0x00638E80,slot +34 of ??_7RawFileClass@@6B@ at 007a8cc0; main row ?Write@RawFileClass@@UAEJPBXJ@Z
@@ -2772,6 +2780,67 @@ symbol,address,evidence
 ?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ,0x0053D4B0,slot +40 of ??_7FlyLocomotionClass@@6BILocomotion@@@ at 007a1000; main row ?Z_Gradient@LocomotionClass@@UAGHXZ
 ?Zap@LinkClass@@UAEXXZ,0x00538FF0,slot +20 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Zap@LinkClass@@UAEXXZ
 ?entry_64@Surface@@UBE_NVPoint2D@@@Z,0x00411280,slot +6c of ??_7BSurface@@6B@ at 0079aef4; main row ?Unknown_Slot26@Surface@@UAE_NUPoint2D@@@Z
+?g_AccountBirthDay@@3VWstring@@A,0x00B2909C,inferred: wonline rows 0073be30 differ only at its sites
+?g_AccountBirthMonth@@3VWstring@@A,0x00B269A8,inferred: wonline rows 0073be00 differ only at its sites
+?g_AccountBirthYear@@3VWstring@@A,0x00B297C4,inferred: wonline rows 0073be60 differ only at its sites
+?g_AccountEmail@@3VWstring@@A,0x00B29CE4,inferred: wonline rows 0073bdd0 differ only at its sites
+?g_AccountExtra@@3VWstring@@A,0x00B297BC,inferred: wonline rows 0073bf50 differ only at its sites
+?g_AccountName@@3VWstring@@A,0x00B2A640,inferred: wonline rows 0073be90 differ only at its sites
+?g_AccountParentEmail@@3VWstring@@A,0x00B2945C,inferred: wonline rows 0073bf20 differ only at its sites
+?g_AccountPassword@@3VWstring@@A,0x00B2A71C,inferred: wonline rows 0073bec0 differ only at its sites
+?g_AccountPasswordCheck@@3VWstring@@A,0x00B2A724,inferred: wonline rows 0073bef0 differ only at its sites
+?g_BattleClansLadderDict@@3V?$Dictionary@VWstring@@ULadder@@@@A,0x00B296F8,inferred: wonline rows 0073aa80 0073aa80 0073aa80 0073aa80 differ only at its sites
+?g_BuddyAddQueue@@3V?$ArrayList@VWstring@@@@A,0x00B2A7D8,inferred: wonline rows 0073b810 0073b810 0073b810 differ only at its sites
+?g_BuddyChannels@@3V?$Dictionary@VWstring@@UChannel@@@@A,0x00B29478,inferred: wonline rows 0073baa0 0073baa0 0073baa0 0073baa0 differ only at its sites
+?g_BuddyColumns@@3PAHA,0x007FD308,inferred: wonline rows 0073bc80 0073bc80 0073bca0 0073bca0 differ only at its sites
+?g_BuddyFindName@@3VWstring@@A,0x00B26944,inferred: wonline rows 0073b870 differ only at its sites
+?g_BuddyList@@3V?$ArrayList@VWstring@@@@A,0x00B26920,inferred: wonline rows 0073b750 0073b750 0073b750 differ only at its sites
+?g_BuddyNameWidth@@3HA,0x00B29460,inferred: wonline rows 0073bc80 differ only at its sites
+?g_BuddyRequests@@3V?$ArrayList@VWstring@@@@A,0x00B29838,inferred: wonline rows 0073b7b0 0073b7b0 0073b7b0 differ only at its sites
+?g_BuddyStatus@@3V?$Dictionary@VWstring@@I@@A,0x00B29848,inferred: wonline rows 0073b8d0 0073b8d0 0073b8d0 0073b8d0 differ only at its sites
+?g_BuddyStatusWidth@@3HA,0x00B26CB4,inferred: wonline rows 0073bca0 differ only at its sites
+?g_GameServer@@3UServer@@A,0x00B28CD0,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_GeneralLadderDict@@3V?$Dictionary@VWstring@@ULadder@@@@A,0x00B2AB98,inferred: wonline rows 0073ae20 0073ae20 0073ae20 0073ae20 differ only at its sites
+?g_InstalledLadderSKU@@3HA,0x00B2A7F0,inferred: wonline rows 0073e8d0 0073e8d0 differ only at its sites
+?g_JoinLobbyNow@@3HA,0x00B2ABF0,inferred: wonline rows 00741750 differ only at its sites
+?g_LadderPos@@3HA,0x00B29CE8,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_LastChannelLocaleRequestTime@@3IA,0x00B28FF4,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_LastChatListTime@@3HA,0x00B2ABD0,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_LastGameListTime@@3HA,0x00B2ABD4,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_LastWDTUserTeamRequestTime@@3IA,0x00B28FF8,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_MatchOpponent@@3VWstring@@A,0x00B2997C,inferred: wonline rows 0073bd80 differ only at its sites
+?g_MessageOfTheDay@@3VWstring@@A,0x00B26954,inferred: wonline rows 0073a910 differ only at its sites
+?g_NextWDTStatePollTime@@3HA,0x00B292DC,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_OwnSquadID@@3HA,0x00B2ABFC,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_OwnSquadName@@3PADA,0x00B2A8B0,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_PageTimer@@3V?$CDTimerClass@VSystemTimerClass@@@@A,0x00B292E8,inferred: wonline rows 0073bfc0 0073bfc0 0073bfc0 differ only at its sites
+?g_PingQueue@@3V?$ArrayList@VWstring@@@@A,0x00B29980,inferred: wonline rows 0073bcc0 0073bcc0 0073bcc0 differ only at its sites
+?g_PingsPending@@3V?$ArrayList@VWstring@@@@A,0x00B29828,inferred: wonline rows 0073bd20 0073bd20 0073bd20 differ only at its sites
+?g_PlayerPings@@3PAHA,0x00B292AC,inferred: wonline rows 00741750 00741750 differ only at its sites
+?g_RequestingOwnSquadInfo@@3HA,0x00B2ABF8,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_SelectedBuddy@@3VWstring@@A,0x00B29CD4,inferred: wonline rows 0073b8a0 differ only at its sites
+?g_SelectedLadderSKU@@3HA,0x00B26564,inferred: wonline rows 0073e8d0 0073e8d0 differ only at its sites
+?g_ServerType@@3HA,0x007FD300,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_ShowMOTD@@3_NA,0x007FD2FC,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_SquadInfoRequests@@3HA,0x00B2ABF4,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_StartGameReceived@@3_NA,0x00B2AC45,WOL_Wait_Callback (0x73E100) reads it there at the site our copy refers to it; mischa85's wonline.cpp notes the same address
+?g_StartGameRunning@@3_NA,0x00B2AC44,WOL_Wait_Callback (0x73E100) reads it there at the site our copy refers to it; mischa85's wonline.cpp notes the same address
+?g_TargetServerIndex@@3HA,0x00B2A7F4,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_UserAge@@3HA,0x00B2AC6C,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_UserConsent@@3HA,0x00B2AC70,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_UserLocaleLookupQueue@@3V?$ArrayList@VWstring@@@@A,0x00B29468,inferred: wonline rows 0073b3f0 0073b3f0 0073b3f0 differ only at its sites
+?g_WDTLadderDict@@3V?$Dictionary@VWstring@@ULadder@@@@A,0x00B26970,inferred: wonline rows 0073ac50 0073ac50 0073ac50 0073ac50 differ only at its sites
+?g_WDTServer@@3UServer@@A,0x00B29880,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_WDTTeamLookupQueue@@3V?$ArrayList@VWstring@@@@A,0x00B2A648,inferred: wonline rows 0073b1c0 0073b1c0 0073b1c0 differ only at its sites
+?g_WDT_GDILoseEmphasisSounds@@3V?$ArrayList@VWstring@@@@A,0x00B29380,inferred: wonline rows 0073b570 0073b570 0073b570 differ only at its sites
+?g_WDT_GDITerritoryLoseSounds@@3V?$ArrayList@VWstring@@@@A,0x00B29000,inferred: wonline rows 0073b6f0 0073b6f0 0073b6f0 differ only at its sites
+?g_WDT_GDITerritoryWinSounds@@3V?$ArrayList@VWstring@@@@A,0x00B2A6C8,inferred: wonline rows 0073b630 0073b630 0073b630 differ only at its sites
+?g_WDT_GDIWinEmphasisSounds@@3V?$ArrayList@VWstring@@@@A,0x00B26570,inferred: wonline rows 0073b4b0 0073b4b0 0073b4b0 differ only at its sites
+?g_WDT_NodLoseEmphasisSounds@@3V?$ArrayList@VWstring@@@@A,0x00B299B0,inferred: wonline rows 0073b510 0073b510 0073b510 differ only at its sites
+?g_WDT_NodTerritoryLoseSounds@@3V?$ArrayList@VWstring@@@@A,0x00B26580,inferred: wonline rows 0073b690 0073b690 0073b690 differ only at its sites
+?g_WDT_NodTerritoryWinSounds@@3V?$ArrayList@VWstring@@@@A,0x00B26960,inferred: wonline rows 0073b5d0 0073b5d0 0073b5d0 differ only at its sites
+?g_WDT_NodWinEmphasisSounds@@3V?$ArrayList@VWstring@@@@A,0x00B26A50,inferred: wonline rows 0073b450 0073b450 0073b450 differ only at its sites
+?remove@?$ArrayList@VWstring@@@@QAEDH@Z,0x007661F0,wonline's copy equals the image's 208 bytes at 0x7661F0 with its relocations resolved; WOL_Wait_Callback (0x73E100) calls it there
 ?search_compfunc@?$IndexClass@HPAVAbstractClass@@@@CAHPBX0@Z,0x0041BA10,unit destructor qsort target; comparator independently exact against main aircraft frozen34body+14padding; int/long signed32
 ?shrink@?$Dictionary@IUWinData@OwnerDraw@@@@AAEXXZ,0x006027E0,"main row ?Shrink_Table@?$WolDictionary@IUWinData@OwnerDraw@@@@QAEXXZ (population-4450): the same template instance, wlib Dictionary::shrink for the control registry"
 ?vt_entry_04@MultiplayerGameMode@@UAE_NXZ,0x005A2380,slot +04 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot1@MultiplayerGameMode@@UAE_NXZ

@@ -67,7 +67,8 @@ line.update(external_omitted=ext_omitted)
 line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m['externs'],
             address_suffixed=m['address_suffixed'], parked_units=sum(i['source'] not in landed for i in units_info.values()),
             parked_functions=parked_f, parked_bytes=parked_b, parked_large_functions=large_f, parked_large_bytes=large_b,
-            tree='rebuild-trial')
+            judgment_rows=m['judgment_rows'], judgment_bytes=m['judgment_bytes'],
+            unplaced_symbols=m['unplaced_symbols'], unplaced_bytes=m['unplaced_bytes'], tree='rebuild-trial')
 path = R.MANIFEST / 'progress.csv'
 rows = list(csv.DictReader(open(path))) if path.exists() else []
 rows.append({k: str(v) for k, v in line.items()})

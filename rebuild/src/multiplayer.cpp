@@ -22,6 +22,7 @@
 #include "vector.h" // RA2: the includes this file needs
 #include "multiplayer.h" // RA2: the includes this file needs
 #include "mpsiege.h" // RA2: the includes this file needs
+#include "mpmanbattle.h"
 #include "mpfreeforall.h" // RA2: the includes this file needs
 #include "mpcoop.h" // RA2: the real MPCooperative class (this file only constructs it)
 #include "ccini.h" // RA2: the includes this file needs
@@ -55,11 +56,6 @@ class MultiplayerBattle : public MultiplayerGameMode // RA2: constructed at 0x00
 		MultiplayerBattle(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex); // RA2: as above
 };
 
-class MultiplayerManBattle : public MultiplayerGameMode // RA2: constructed at 0x005A74B0; as above
-{
-	public:
-		MultiplayerManBattle(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex); // RA2: as above
-};
 
 
 

@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -138,12 +139,6 @@
 #include "waypoint.h"
 #include "weapon.h"
 #include "globals.h"
-static inline Point3D Coord_Difference(Coord const & to, Coord const & from)
-{
-	return(Point3D(to.X - from.X, to.Y - from.Y, to.Z - from.Z));
-}
-
-
 static inline Cell Aircraft_Adjacent_Cell(Cell const & cell, FacingType dir) // RA2: an adjacent cell by value, the table entry first
 {
 	return(AdjacentCell[(int)dir & 0x07] + cell); // RA2: as above
@@ -1139,6 +1134,15 @@ int AircraftClass::Paradrop_Cargo(void)
 
 
 
+/*
+**	Reveals the area around a coordinate for the house (RA2; ra2-decomp's helper).
+*/
+static inline void Reveal_Aircraft_Coord(Coord coord, int range, HouseClass * house, bool overbridge)
+{
+	Map.Sight_From(coord, range, house, false, false, false, true, overbridge);
+}
+
+
 /// <summary>
 /// Fires this aircraft's weapon at the target specified.
 /// An aircraft with passengers aboard paradrops them instead of firing. The projectile
@@ -1149,7 +1153,6 @@ int AircraftClass::Paradrop_Cargo(void)
 /// <param name="which">Which of the weapons to fire.</param>
 /// <returns>Returns with a pointer to the projectile created, or NULL if the aircraft
 /// did not fire.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1114 bytes differ (the fifth shroud test and the coordinate difference keep their constructors out of line in the original)
 BulletClass * AircraftClass::Fire_At(AbstractClass * target, int which)
 {
 	/*
@@ -1187,8 +1190,8 @@ BulletClass * AircraftClass::Fire_At(AbstractClass * target, int which)
 		}
 
 		if (bullet->Class->ROT == 1) {
-			Point3D diff = Coord_Difference(target->Center_Coord(), Center_Coord());
-			TVelocity3D<double> dir(diff.X, diff.Y, diff.Z);
+			Point3D diff = target->Center_Coord() - Center_Coord();
+			TVelocity3D<double> dir = TVelocity3D<double>(diff.X, diff.Y, diff.Z);
 			bullet->Velocity.Set_Yaw(dir.Get_Yaw());
 			bullet->Velocity.Set_Pitch(dir.Get_Pitch());
 			bullet->Velocity.Set_Speed(PrimaryWeapon->MaxSpeed);
@@ -1201,8 +1204,8 @@ BulletClass * AircraftClass::Fire_At(AbstractClass * target, int which)
 				Map.Is_Shrouded(PositionCoord + Coord(2 * CELL_LEPTON_W, -2 * CELL_LEPTON_H)) ||
 				Map.Is_Shrouded(PositionCoord + Coord(2 * CELL_LEPTON_W, -2 * CELL_LEPTON_H)) ||
 				Map.Is_Shrouded(target->Center_Coord())) {
-				Map.Sight_From(PositionCoord, Rule->AttackingAircraftSightRange, House, false, false, false, true, false); // RA2: the sight is revealed twice, the second time with the last flag set
-				Map.Sight_From(PositionCoord, Rule->AttackingAircraftSightRange, House, false, false, false, true, true); // RA2: as above
+				Reveal_Aircraft_Coord(PositionCoord, Rule->AttackingAircraftSightRange, House, false);
+				Reveal_Aircraft_Coord(PositionCoord, Rule->AttackingAircraftSightRange, House, true);
 			}
 		}
 	}
@@ -1211,7 +1214,6 @@ BulletClass * AircraftClass::Fire_At(AbstractClass * target, int which)
 	}
 	return(bullet);
 }
-#endif
 
 
 

@@ -135,12 +135,24 @@
     "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z": 4678832,
     "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z": 7421536,
     "?Attach@CargoClass@@QAEXPAVFootClass@@@Z": 4622688,
+    "?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z": 7121040,
+    "?Nonzero_Check@?$TVelocity3D@N@@QAEXXZ": 4306928,
+    "?Speed@?$TVelocity3D@N@@QBENXZ": 4306880,
+    "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ": 4306656,
+    "?Nonzero_Check@?$TVelocity2D@N@@QAEXXZ": 4307040,
+    "?Speed@?$TVelocity2D@N@@QBENXZ": 4306992,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ": 4306768,
+    "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z": 5669184,
+    "?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z": 5546256,
     "?Take_Damage@FootClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z": 5005312,
     "??RRandom2Class@@QAEHXZ": 6522944,
     "??0ParticleSystemClass@@QAE@PBVParticleSystemTypeClass@@ABVCoord@@PAVAbstractClass@@21@Z": 6335088,
     "?Do_MISSION_MOVE_Carryall@AircraftClass@@AAEHXZ": 4286064,
     "?Do_MISSION_MOVE_Normal@AircraftClass@@AAEHXZ": 4284432,
-    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
     "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
     "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
     "?Get_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@H@Z": 7490912,
@@ -184,9 +196,6 @@
     "?Good_Fire_Location@AircraftClass@@QBEPAVAbstractClass@@PAV2@@Z": 4296464,
     "?Direction@ObjectClass@@QBE?AVDirType@@PBVAbstractClass@@@Z": 6104880,
     "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
-    "?atan2@fastmath@@YANNN@Z": 4957696,
-    "__real@8@3fffc90fdaa22168c000": 7976496,
-    "__real@8@c00ca2f83d7b47677800": 7976488,
     "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
     "?Is_Leaving_Map@TeamClass@@QBE_NXZ": 7055760,
     "?ScenarioInit@@3HA": 10749812,
@@ -198,7 +207,6 @@
     "?Is_Clear_To_Move@CellClass@@QBE_NW4SpeedType@@_N1HW4MZoneType@@H1@Z": 4687712,
     "?In_Local_Radar@MapClass@@QBE_NPBVCellClass@@_N@Z": 5613376,
     "?Is_Ally@HouseClass@@QBE_NPBV1@@Z": 5133632,
-    "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z": 5669184,
     "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z": 4658784,
     "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A": 8806200,
     "?Move_To_Object_Nearby@TechnoClass@@QAE_NXZ": 7176320,
@@ -215,7 +223,6 @@
     "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z": 7171664,
     "?ContainsLink@RadioClass@@QBE_NPBVTechnoClass@@@Z": 6516272,
     "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ": 5373056,
-    "?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z": 5546256,
     "?INI_NAME@AircraftClass@@0QBDB": 7975120,
     "?Clear@INIClass@@QAE_NPBD0@Z": 5290400,
     "??_C@_02MECO@?$CFd?$AA@": 8186300,
@@ -352,7 +359,6 @@
     "?IsAreaFire@TechnoClass@@UBE_NXZ": 7177424,
     "?Crash@FootClass@@UAE_NPAVObjectClass@@@Z": 5035184,
     "?Captured@FootClass@@UAE_NPAVHouseClass@@_N@Z": 5023696,
-    "?Fire_At@AircraftClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z": 4282256,
     "?Assign_Target@TechnoClass@@UAEXPAVAbstractClass@@@Z": 7117552,
     "?Greatest_Threat@FootClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z": 5014560,
     "?GetFireErrorWithoutRange@TechnoClass@@UBEHPAVAbstractClass@@H@Z": 7115328,
@@ -562,6 +568,7 @@
     "?Do_MISSION_PARADROP_OVERFLY@AircraftClass@@UAEHXZ": 4280848,
     "?Do_MISSION_RETREAT@AircraftClass@@UAEHXZ": 4281088,
     "?Exit_Object@AircraftClass@@UAEHPAVTechnoClass@@@Z": 4281280,
+    "?Fire_At@AircraftClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z": 4282256,
     "?Take_Damage@AircraftClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z": 4284016,
     "?Do_MISSION_MOVE@AircraftClass@@UAEHXZ": 4284400,
     "?Do_MISSION_PATROL@AircraftClass@@UAEHXZ": 4287520,
@@ -699,7 +706,7 @@
           "resolved": 8635520
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274176,
@@ -751,7 +758,7 @@
           "resolved": 8635592
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274224,
@@ -803,7 +810,7 @@
           "resolved": 8635576
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274256,
@@ -855,7 +862,7 @@
           "resolved": 8635568
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274288,
@@ -907,7 +914,7 @@
           "resolved": 8635528
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274320,
@@ -959,7 +966,7 @@
           "resolved": 8635488
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274352,
@@ -1043,7 +1050,7 @@
           "resolved": 8635600
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274384,
@@ -1103,7 +1110,7 @@
           "resolved": 8635536
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274448,
@@ -1163,7 +1170,7 @@
           "resolved": 8635560
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274496,
@@ -1223,7 +1230,7 @@
           "resolved": 8635584
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274544,
@@ -1267,7 +1274,7 @@
           "resolved": 8635514
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274592,
@@ -1319,7 +1326,7 @@
           "resolved": 8635552
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274608,
@@ -1379,7 +1386,7 @@
           "resolved": 8635508
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274640,
@@ -1406,7 +1413,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274672,
@@ -1770,7 +1777,7 @@
           "resolved": 11272028
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4274752,
@@ -1854,7 +1861,7 @@
           "resolved": 879587
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4275360,
@@ -2186,7 +2193,7 @@
           "resolved": 716059
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4275616,
@@ -2230,7 +2237,7 @@
           "resolved": 8003712
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4276128,
@@ -2266,7 +2273,7 @@
           "resolved": 4294951062
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4276224,
@@ -2302,7 +2309,7 @@
           "resolved": 4294951062
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4276240,
@@ -2402,7 +2409,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4276256,
@@ -2774,7 +2781,7 @@
           "resolved": 742691
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4276672,
@@ -2801,7 +2808,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4277936,
@@ -2886,7 +2893,7 @@
           "resolved": 10736280
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4277952,
@@ -3186,7 +3193,7 @@
           "resolved": 343202
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4278256,
@@ -3503,7 +3510,7 @@
           "resolved": 4280677
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4279696,
@@ -3547,7 +3554,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4280720,
@@ -3615,7 +3622,7 @@
           "resolved": 608
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4280848,
@@ -3707,7 +3714,7 @@
           "resolved": 1256696
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4281088,
@@ -3807,7 +3814,7 @@
           "resolved": 1256354
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4281280,
@@ -4019,10 +4026,638 @@
           "resolved": 340468
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4281616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4282256,
+      "method": "00415790",
+      "body_bytes": 1757,
+      "body_sha256": "bc459f1feb490b1bafbbe5bf18cb998c16c68076d1ea8b94f91d197153068c88",
+      "padding_bytes": 3,
+      "full_extent_bytes": 1760,
+      "full_extent_sha256": "67eee2c7393d10dedcc537604a5a8c25650a0a537029196e44ce31fb22147089",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fire_At@AircraftClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
+      "symbol_prefix": "?Fire_At@AircraftClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Paradrop_Cargo@AircraftClass@@QAEHXZ",
+          "target": 4281616,
+          "addend": 0,
+          "resolved": 4294966627
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z",
+          "target": 7121040,
+          "addend": 0,
+          "resolved": 2838729
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 3670339
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?Nonzero_Check@?$TVelocity3D@N@@QAEXXZ",
+          "target": 4306928,
+          "addend": 0,
+          "resolved": 24523
+        },
+        {
+          "offset": 152,
+          "kind": 20,
+          "symbol": "?Speed@?$TVelocity3D@N@@QBENXZ",
+          "target": 4306880,
+          "addend": 0,
+          "resolved": 24468
+        },
+        {
+          "offset": 188,
+          "kind": 20,
+          "symbol": "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ",
+          "target": 4306656,
+          "addend": 0,
+          "resolved": 24208
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 222,
+          "kind": 20,
+          "symbol": "?Speed@?$TVelocity3D@N@@QBENXZ",
+          "target": 4306880,
+          "addend": 0,
+          "resolved": 24398
+        },
+        {
+          "offset": 236,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 258,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674874
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674859
+        },
+        {
+          "offset": 297,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674835
+        },
+        {
+          "offset": 316,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674816
+        },
+        {
+          "offset": 337,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 674715
+        },
+        {
+          "offset": 363,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 668385
+        },
+        {
+          "offset": 372,
+          "kind": 20,
+          "symbol": "?Nonzero_Check@?$TVelocity2D@N@@QAEXXZ",
+          "target": 4307040,
+          "addend": 0,
+          "resolved": 24408
+        },
+        {
+          "offset": 379,
+          "kind": 20,
+          "symbol": "?Speed@?$TVelocity2D@N@@QBENXZ",
+          "target": 4306992,
+          "addend": 0,
+          "resolved": 24353
+        },
+        {
+          "offset": 409,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 417,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674715
+        },
+        {
+          "offset": 445,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 453,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 674599
+        },
+        {
+          "offset": 551,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 23669
+        },
+        {
+          "offset": 649,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 674787
+        },
+        {
+          "offset": 655,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 664,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 669,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3577567
+        },
+        {
+          "offset": 689,
+          "kind": 20,
+          "symbol": "?Nonzero_Check@?$TVelocity2D@N@@QAEXXZ",
+          "target": 4307040,
+          "addend": 0,
+          "resolved": 24091
+        },
+        {
+          "offset": 696,
+          "kind": 20,
+          "symbol": "?Speed@?$TVelocity2D@N@@QBENXZ",
+          "target": 4306992,
+          "addend": 0,
+          "resolved": 24036
+        },
+        {
+          "offset": 723,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 742,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674390
+        },
+        {
+          "offset": 759,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 674293
+        },
+        {
+          "offset": 780,
+          "kind": 20,
+          "symbol": "?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ",
+          "target": 4306768,
+          "addend": 0,
+          "resolved": 23728
+        },
+        {
+          "offset": 801,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 674635
+        },
+        {
+          "offset": 807,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 816,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 821,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3577415
+        },
+        {
+          "offset": 836,
+          "kind": 20,
+          "symbol": "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ",
+          "target": 4306656,
+          "addend": 0,
+          "resolved": 23560
+        },
+        {
+          "offset": 861,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 870,
+          "kind": 20,
+          "symbol": "?Speed@?$TVelocity3D@N@@QBENXZ",
+          "target": 4306880,
+          "addend": 0,
+          "resolved": 23750
+        },
+        {
+          "offset": 884,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 906,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674226
+        },
+        {
+          "offset": 925,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674207
+        },
+        {
+          "offset": 956,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 975,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674157
+        },
+        {
+          "offset": 990,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 674142
+        },
+        {
+          "offset": 1007,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 674045
+        },
+        {
+          "offset": 1048,
+          "kind": 20,
+          "symbol": "?Nonzero_Check@?$TVelocity3D@N@@QAEXXZ",
+          "target": 4306928,
+          "addend": 0,
+          "resolved": 23620
+        },
+        {
+          "offset": 1055,
+          "kind": 20,
+          "symbol": "?Speed@?$TVelocity3D@N@@QBENXZ",
+          "target": 4306880,
+          "addend": 0,
+          "resolved": 23565
+        },
+        {
+          "offset": 1094,
+          "kind": 20,
+          "symbol": "?Is_Player_Control@HouseClass@@QBE_NXZ",
+          "target": 5198512,
+          "addend": 0,
+          "resolved": 915158
+        },
+        {
+          "offset": 1140,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1145,
+          "kind": 20,
+          "symbol": "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z",
+          "target": 5669184,
+          "addend": 0,
+          "resolved": 1385779
+        },
+        {
+          "offset": 1174,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 23046
+        },
+        {
+          "offset": 1214,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 23006
+        },
+        {
+          "offset": 1232,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1249,
+          "kind": 20,
+          "symbol": "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z",
+          "target": 5669184,
+          "addend": 0,
+          "resolved": 1385675
+        },
+        {
+          "offset": 1278,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 22942
+        },
+        {
+          "offset": 1318,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 22902
+        },
+        {
+          "offset": 1336,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1353,
+          "kind": 20,
+          "symbol": "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z",
+          "target": 5669184,
+          "addend": 0,
+          "resolved": 1385571
+        },
+        {
+          "offset": 1382,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 22838
+        },
+        {
+          "offset": 1422,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 22798
+        },
+        {
+          "offset": 1440,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1457,
+          "kind": 20,
+          "symbol": "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z",
+          "target": 5669184,
+          "addend": 0,
+          "resolved": 1385467
+        },
+        {
+          "offset": 1486,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 22734
+        },
+        {
+          "offset": 1526,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 22694
+        },
+        {
+          "offset": 1544,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1561,
+          "kind": 20,
+          "symbol": "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z",
+          "target": 5669184,
+          "addend": 0,
+          "resolved": 1385363
+        },
+        {
+          "offset": 1584,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1589,
+          "kind": 20,
+          "symbol": "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z",
+          "target": 5669184,
+          "addend": 0,
+          "resolved": 1385335
+        },
+        {
+          "offset": 1629,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1651,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1656,
+          "kind": 20,
+          "symbol": "?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z",
+          "target": 5546256,
+          "addend": 0,
+          "resolved": 1262340
+        },
+        {
+          "offset": 1676,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1713,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1718,
+          "kind": 20,
+          "symbol": "?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z",
+          "target": 5546256,
+          "addend": 0,
+          "resolved": 1262278
+        }
+      ],
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
+      "source": "rebuild/src/aircraft.cpp",
+      "population": "rebuild-aircraft",
+      "source_order": 4282256,
       "source_quality_family": "rebuild"
     },
     {
@@ -4143,7 +4778,7 @@
           "resolved": 41302
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4284016,
@@ -4187,7 +4822,7 @@
           "resolved": 6
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4284400,
@@ -4416,7 +5051,7 @@
           "resolved": 4285181
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4284432,
@@ -4612,7 +5247,7 @@
           "resolved": 1251877
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4285472,
@@ -5089,7 +5724,7 @@
           "resolved": 4287102
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4286064,
@@ -5318,7 +5953,7 @@
           "resolved": 4288336
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4287520,
@@ -5442,7 +6077,7 @@
           "resolved": 2226877
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4288528,
@@ -5535,7 +6170,7 @@
           "resolved": 4289833
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4289712,
@@ -5571,7 +6206,7 @@
           "resolved": 717943
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4289888,
@@ -5607,7 +6242,7 @@
           "resolved": 2837767
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4289920,
@@ -5731,7 +6366,7 @@
           "resolved": 368660
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4289952,
@@ -5775,7 +6410,7 @@
           "resolved": 740833
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4290624,
@@ -5811,7 +6446,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4290704,
@@ -6576,7 +7211,7 @@
           "resolved": 4293576
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4290720,
@@ -6740,7 +7375,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4294064,
@@ -6985,7 +7620,7 @@
           "resolved": 4294998
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4294720,
@@ -7093,7 +7728,7 @@
           "resolved": 8185064
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4295920,
@@ -7193,7 +7828,7 @@
           "resolved": 1372760
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4296192,
@@ -7429,7 +8064,7 @@
           "resolved": 1240636
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4296464,
@@ -7537,7 +8172,7 @@
           "resolved": 8806216
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4297296,
@@ -7750,7 +8385,7 @@
           "resolved": 4298329
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4297680,
@@ -8034,7 +8669,7 @@
           "resolved": 1237853
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4298928,
@@ -8070,7 +8705,7 @@
           "resolved": 651039
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4299952,
@@ -8106,7 +8741,7 @@
           "resolved": 1553400
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4299984,
@@ -8302,7 +8937,7 @@
           "resolved": 697840
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4300032,
@@ -8346,7 +8981,7 @@
           "resolved": 702438
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4300928,
@@ -8398,7 +9033,7 @@
           "resolved": 1803679
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4301088,
@@ -8586,7 +9221,7 @@
           "resolved": 711479
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4301248,
@@ -8622,7 +9257,7 @@
           "resolved": 3650601
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4302080,
@@ -8746,7 +9381,7 @@
           "resolved": 1243739
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4302128,
@@ -8918,7 +9553,7 @@
           "resolved": 10748840
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4302528,
@@ -9394,7 +10029,7 @@
           "resolved": 894920
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4302912,
@@ -9686,7 +10321,7 @@
           "resolved": 2641437
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4303744,
@@ -9722,7 +10357,7 @@
           "resolved": 717500
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304144,
@@ -9749,7 +10384,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304176,
@@ -9817,7 +10452,7 @@
           "resolved": 496009
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304224,
@@ -9853,7 +10488,7 @@
           "resolved": 710301
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304304,
@@ -9905,7 +10540,7 @@
           "resolved": 2212002
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304368,
@@ -9965,7 +10600,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304560,
@@ -9992,7 +10627,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304672,
@@ -10019,7 +10654,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304704,
@@ -10046,7 +10681,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304784,
@@ -10073,7 +10708,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304816,
@@ -10109,7 +10744,7 @@
           "resolved": 1547396
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304832,
@@ -10145,7 +10780,7 @@
           "resolved": 2750832
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304848,
@@ -10172,7 +10807,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304944,
@@ -10199,7 +10834,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304960,
@@ -10251,7 +10886,7 @@
           "resolved": 3647668
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4304976,
@@ -10303,7 +10938,7 @@
           "resolved": 3647572
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305072,
@@ -10330,7 +10965,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305168,
@@ -10366,7 +11001,7 @@
           "resolved": 1545666
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305184,
@@ -10402,7 +11037,7 @@
           "resolved": 1547037
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305248,
@@ -10438,7 +11073,7 @@
           "resolved": 706792
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305312,
@@ -10474,7 +11109,7 @@
           "resolved": 730868
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305376,
@@ -10501,7 +11136,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305472,
@@ -10528,7 +11163,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305520,
@@ -10555,7 +11190,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305568,
@@ -10582,7 +11217,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305616,
@@ -10610,7 +11245,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305632,
@@ -10638,7 +11273,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305648,
@@ -10666,7 +11301,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305664,
@@ -10694,7 +11329,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305680,
@@ -10722,7 +11357,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305696,
@@ -10749,7 +11384,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305760,
@@ -10777,7 +11412,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305776,
@@ -10804,7 +11439,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305792,
@@ -10841,7 +11476,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305808,
@@ -10868,7 +11503,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305904,
@@ -10896,7 +11531,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305920,
@@ -10924,7 +11559,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305936,
@@ -10952,7 +11587,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305952,
@@ -10979,7 +11614,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305968,
@@ -11007,7 +11642,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4305984,
@@ -11035,7 +11670,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306000,
@@ -11063,7 +11698,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306016,
@@ -11091,7 +11726,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306032,
@@ -11119,7 +11754,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306048,
@@ -11156,7 +11791,7 @@
           "resolved": 2842672
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306064,
@@ -11183,7 +11818,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306160,
@@ -11211,7 +11846,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306176,
@@ -11239,7 +11874,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306192,
@@ -11267,7 +11902,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306208,
@@ -11295,7 +11930,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306224,
@@ -11323,7 +11958,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306240,
@@ -11351,7 +11986,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306256,
@@ -11378,7 +12013,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306272,
@@ -11406,7 +12041,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306288,
@@ -11433,7 +12068,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306304,
@@ -11493,7 +12128,7 @@
           "resolved": 8002524
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306320,
@@ -11520,7 +12155,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306384,
@@ -11556,7 +12191,7 @@
           "resolved": 644591
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306400,
@@ -11583,7 +12218,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306432,
@@ -11627,7 +12262,7 @@
           "resolved": 3565334
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306448,
@@ -11654,7 +12289,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306480,
@@ -11730,11 +12365,80 @@
           "resolved": 7972336
         }
       ],
-      "source_sha256": "2ec117297ed1e03ff8af60b463a8744fbe44d059b66b371962927395001076e9",
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4306512,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4306656,
+      "method": "0041b6e0",
+      "body_bytes": 99,
+      "body_sha256": "ea816bd83415cb8f06c4d603a66955c60c6574dd145290f6df2dcc7f6e95be33",
+      "padding_bytes": 13,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "bd3495a7d9e91420a66a7906b72f51083cddd9b055da2045ae43c712c68ac0c2",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ",
+      "symbol_prefix": "?Get_Pitch@?$TVelocity3D@N@@QBE?AVDirType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 650508
+        },
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 650977
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3553757
+        }
+      ],
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
+      "source": "rebuild/src/aircraft.cpp",
+      "population": "rebuild-aircraft",
+      "source_order": 4306656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3927"
     }
   ]
 }

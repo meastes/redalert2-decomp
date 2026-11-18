@@ -122152,7 +122152,10 @@
    "0073c040",
    "007424c0"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "0073c030": "?Is_Cancelled@SimpleWonlineDialogControl@@UAE_NXZ",
+   "00741750": "?Handle_User_Leave@@YIXAAUUser@@@Z"
+  },
   "source": "rebuild/src/wonline.cpp",
   "options": [
    "/O2",
@@ -122162,7 +122165,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0073a6f0",
    "007424c0"
@@ -122181,7 +122184,7 @@
     "entry": "0073a6f0",
     "body": 40,
     "padding": 8,
-    "symbol": "_$E7",
+    "symbol": "_$E2",
     "main_symbol": "_$E7",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122189,7 +122192,7 @@
     "entry": "0073a720",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E10",
+    "symbol": "_$E5",
     "main_symbol": "_$E10",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122197,7 +122200,7 @@
     "entry": "0073a740",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E13",
+    "symbol": "_$E8",
     "main_symbol": "_$E13",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122205,7 +122208,7 @@
     "entry": "0073a760",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E16",
+    "symbol": "_$E11",
     "main_symbol": "_$E16",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122213,7 +122216,7 @@
     "entry": "0073a780",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E19",
+    "symbol": "_$E14",
     "main_symbol": "_$E19",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122221,7 +122224,7 @@
     "entry": "0073a7a0",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E22",
+    "symbol": "_$E17",
     "main_symbol": "_$E22",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122229,7 +122232,7 @@
     "entry": "0073a7c0",
     "body": 49,
     "padding": 15,
-    "symbol": "_$E25",
+    "symbol": "_$E20",
     "main_symbol": "_$E25",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122237,7 +122240,7 @@
     "entry": "0073a800",
     "body": 33,
     "padding": 15,
-    "symbol": "_$E28",
+    "symbol": "_$E23",
     "main_symbol": "_$E28",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122245,7 +122248,7 @@
     "entry": "0073a830",
     "body": 44,
     "padding": 4,
-    "symbol": "_$E31",
+    "symbol": "_$E26",
     "main_symbol": "_$E31",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122253,7 +122256,7 @@
     "entry": "0073a860",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E34",
+    "symbol": "_$E29",
     "main_symbol": "_$E34",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122261,7 +122264,7 @@
     "entry": "0073a890",
     "body": 15,
     "padding": 1,
-    "symbol": "_$E37",
+    "symbol": "_$E32",
     "main_symbol": "_$E37",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122269,7 +122272,7 @@
     "entry": "0073a8a0",
     "body": 18,
     "padding": 14,
-    "symbol": "_$E40",
+    "symbol": "_$E35",
     "main_symbol": "_$E40",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122277,7 +122280,7 @@
     "entry": "0073a8c0",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E43",
+    "symbol": "_$E38",
     "main_symbol": "_$E43",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122285,7 +122288,7 @@
     "entry": "0073a8e0",
     "body": 20,
     "padding": 12,
-    "symbol": "_$E50",
+    "symbol": "_$E155",
     "main_symbol": "_$E50",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122293,7 +122296,7 @@
     "entry": "0073a900",
     "body": 6,
     "padding": 10,
-    "symbol": "_$E48",
+    "symbol": "_$E153",
     "main_symbol": "_$E48",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122301,7 +122304,7 @@
     "entry": "0073a910",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E55",
+    "symbol": "_$E160",
     "main_symbol": "_$E55",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122309,7 +122312,7 @@
     "entry": "0073a930",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E53",
+    "symbol": "_$E158",
     "main_symbol": "_$E53",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122317,7 +122320,7 @@
     "entry": "0073a940",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E60",
+    "symbol": "_$E165",
     "main_symbol": "_$E60",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122325,7 +122328,7 @@
     "entry": "0073a960",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E58",
+    "symbol": "_$E163",
     "main_symbol": "_$E58",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122333,7 +122336,7 @@
     "entry": "0073a980",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E65",
+    "symbol": "_$E170",
     "main_symbol": "_$E65",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122341,7 +122344,7 @@
     "entry": "0073a9a0",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E63",
+    "symbol": "_$E168",
     "main_symbol": "_$E63",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122349,7 +122352,7 @@
     "entry": "0073a9c0",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E70",
+    "symbol": "_$E175",
     "main_symbol": "_$E70",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122357,7 +122360,7 @@
     "entry": "0073a9e0",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E68",
+    "symbol": "_$E173",
     "main_symbol": "_$E68",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122365,7 +122368,7 @@
     "entry": "0073aa00",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E75",
+    "symbol": "_$E180",
     "main_symbol": "_$E75",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122373,7 +122376,7 @@
     "entry": "0073aa20",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E73",
+    "symbol": "_$E178",
     "main_symbol": "_$E73",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122381,7 +122384,7 @@
     "entry": "0073aa40",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E80",
+    "symbol": "_$E185",
     "main_symbol": "_$E80",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122389,7 +122392,7 @@
     "entry": "0073aa60",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E78",
+    "symbol": "_$E183",
     "main_symbol": "_$E78",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122397,7 +122400,7 @@
     "entry": "0073aa80",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E85",
+    "symbol": "_$E190",
     "main_symbol": "_$E85",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122405,7 +122408,7 @@
     "entry": "0073ab20",
     "body": 302,
     "padding": 2,
-    "symbol": "_$E83",
+    "symbol": "_$E188",
     "main_symbol": "_$E83",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122413,7 +122416,7 @@
     "entry": "0073ac50",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E90",
+    "symbol": "_$E195",
     "main_symbol": "_$E90",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122421,7 +122424,7 @@
     "entry": "0073acf0",
     "body": 302,
     "padding": 2,
-    "symbol": "_$E88",
+    "symbol": "_$E193",
     "main_symbol": "_$E88",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122429,7 +122432,7 @@
     "entry": "0073ae20",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E95",
+    "symbol": "_$E200",
     "main_symbol": "_$E95",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122437,7 +122440,7 @@
     "entry": "0073aec0",
     "body": 302,
     "padding": 2,
-    "symbol": "_$E93",
+    "symbol": "_$E198",
     "main_symbol": "_$E93",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122445,7 +122448,7 @@
     "entry": "0073aff0",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E100",
+    "symbol": "_$E205",
     "main_symbol": "_$E100",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122453,7 +122456,7 @@
     "entry": "0073b090",
     "body": 302,
     "padding": 2,
-    "symbol": "_$E98",
+    "symbol": "_$E203",
     "main_symbol": "_$E98",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122461,7 +122464,7 @@
     "entry": "0073b1c0",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E105",
+    "symbol": "_$E210",
     "main_symbol": "_$E105",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122469,7 +122472,7 @@
     "entry": "0073b1e0",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E103",
+    "symbol": "_$E208",
     "main_symbol": "_$E103",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122477,7 +122480,7 @@
     "entry": "0073b220",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E110",
+    "symbol": "_$E215",
     "main_symbol": "_$E110",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122485,7 +122488,7 @@
     "entry": "0073b2c0",
     "body": 302,
     "padding": 2,
-    "symbol": "_$E108",
+    "symbol": "_$E213",
     "main_symbol": "_$E108",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122493,7 +122496,7 @@
     "entry": "0073b3f0",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E115",
+    "symbol": "_$E220",
     "main_symbol": "_$E115",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122501,7 +122504,7 @@
     "entry": "0073b410",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E113",
+    "symbol": "_$E218",
     "main_symbol": "_$E113",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122509,7 +122512,7 @@
     "entry": "0073b450",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E120",
+    "symbol": "_$E225",
     "main_symbol": "_$E120",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122517,7 +122520,7 @@
     "entry": "0073b470",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E118",
+    "symbol": "_$E223",
     "main_symbol": "_$E118",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122525,7 +122528,7 @@
     "entry": "0073b4b0",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E125",
+    "symbol": "_$E230",
     "main_symbol": "_$E125",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122533,7 +122536,7 @@
     "entry": "0073b4d0",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E123",
+    "symbol": "_$E228",
     "main_symbol": "_$E123",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122541,7 +122544,7 @@
     "entry": "0073b510",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E130",
+    "symbol": "_$E235",
     "main_symbol": "_$E130",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122549,7 +122552,7 @@
     "entry": "0073b530",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E128",
+    "symbol": "_$E233",
     "main_symbol": "_$E128",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122557,7 +122560,7 @@
     "entry": "0073b570",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E135",
+    "symbol": "_$E240",
     "main_symbol": "_$E135",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122565,7 +122568,7 @@
     "entry": "0073b590",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E133",
+    "symbol": "_$E238",
     "main_symbol": "_$E133",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122573,7 +122576,7 @@
     "entry": "0073b5d0",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E140",
+    "symbol": "_$E245",
     "main_symbol": "_$E140",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122581,7 +122584,7 @@
     "entry": "0073b5f0",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E138",
+    "symbol": "_$E243",
     "main_symbol": "_$E138",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122589,7 +122592,7 @@
     "entry": "0073b630",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E145",
+    "symbol": "_$E250",
     "main_symbol": "_$E145",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122597,7 +122600,7 @@
     "entry": "0073b650",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E143",
+    "symbol": "_$E248",
     "main_symbol": "_$E143",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122605,7 +122608,7 @@
     "entry": "0073b690",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E150",
+    "symbol": "_$E255",
     "main_symbol": "_$E150",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122613,7 +122616,7 @@
     "entry": "0073b6b0",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E148",
+    "symbol": "_$E253",
     "main_symbol": "_$E148",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122621,7 +122624,7 @@
     "entry": "0073b6f0",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E155",
+    "symbol": "_$E260",
     "main_symbol": "_$E155",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122629,7 +122632,7 @@
     "entry": "0073b710",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E153",
+    "symbol": "_$E258",
     "main_symbol": "_$E153",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122637,7 +122640,7 @@
     "entry": "0073b750",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E160",
+    "symbol": "_$E265",
     "main_symbol": "_$E160",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122645,7 +122648,7 @@
     "entry": "0073b770",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E158",
+    "symbol": "_$E263",
     "main_symbol": "_$E158",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122653,7 +122656,7 @@
     "entry": "0073b7b0",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E165",
+    "symbol": "_$E270",
     "main_symbol": "_$E165",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122661,7 +122664,7 @@
     "entry": "0073b7d0",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E163",
+    "symbol": "_$E268",
     "main_symbol": "_$E163",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122669,7 +122672,7 @@
     "entry": "0073b810",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E170",
+    "symbol": "_$E275",
     "main_symbol": "_$E170",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122677,7 +122680,7 @@
     "entry": "0073b830",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E168",
+    "symbol": "_$E273",
     "main_symbol": "_$E168",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122685,7 +122688,7 @@
     "entry": "0073b870",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E175",
+    "symbol": "_$E280",
     "main_symbol": "_$E175",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122693,7 +122696,7 @@
     "entry": "0073b890",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E173",
+    "symbol": "_$E278",
     "main_symbol": "_$E173",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122701,7 +122704,7 @@
     "entry": "0073b8a0",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E180",
+    "symbol": "_$E285",
     "main_symbol": "_$E180",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122709,7 +122712,7 @@
     "entry": "0073b8c0",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E178",
+    "symbol": "_$E283",
     "main_symbol": "_$E178",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122717,7 +122720,7 @@
     "entry": "0073b8d0",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E185",
+    "symbol": "_$E290",
     "main_symbol": "_$E185",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122725,7 +122728,7 @@
     "entry": "0073b970",
     "body": 302,
     "padding": 2,
-    "symbol": "_$E183",
+    "symbol": "_$E288",
     "main_symbol": "_$E183",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122733,7 +122736,7 @@
     "entry": "0073baa0",
     "body": 148,
     "padding": 12,
-    "symbol": "_$E190",
+    "symbol": "_$E295",
     "main_symbol": "_$E190",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122741,7 +122744,7 @@
     "entry": "0073bb40",
     "body": 311,
     "padding": 9,
-    "symbol": "_$E188",
+    "symbol": "_$E293",
     "main_symbol": "_$E188",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122749,7 +122752,7 @@
     "entry": "0073bc80",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E193",
+    "symbol": "_$E298",
     "main_symbol": "_$E193",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122757,7 +122760,7 @@
     "entry": "0073bca0",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E196",
+    "symbol": "_$E301",
     "main_symbol": "_$E196",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122765,7 +122768,7 @@
     "entry": "0073bcc0",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E201",
+    "symbol": "_$E306",
     "main_symbol": "_$E201",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122773,7 +122776,7 @@
     "entry": "0073bce0",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E199",
+    "symbol": "_$E304",
     "main_symbol": "_$E199",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122781,7 +122784,7 @@
     "entry": "0073bd20",
     "body": 29,
     "padding": 3,
-    "symbol": "_$E206",
+    "symbol": "_$E311",
     "main_symbol": "_$E206",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122789,7 +122792,7 @@
     "entry": "0073bd40",
     "body": 62,
     "padding": 2,
-    "symbol": "_$E204",
+    "symbol": "_$E309",
     "main_symbol": "_$E204",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122797,7 +122800,7 @@
     "entry": "0073bd80",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E211",
+    "symbol": "_$E316",
     "main_symbol": "_$E211",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122805,7 +122808,7 @@
     "entry": "0073bda0",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E209",
+    "symbol": "_$E314",
     "main_symbol": "_$E209",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122813,7 +122816,7 @@
     "entry": "0073bdb0",
     "body": 24,
     "padding": 8,
-    "symbol": "?unknown_mode_1_or_2_0073bdb0@seed_0073bdb0@@YAIXZ",
+    "symbol": "?Is_Tournament_Session@@YI_NXZ",
     "main_symbol": "?unknown_mode_1_or_2_0073bdb0@seed_0073bdb0@@YAIXZ",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122821,7 +122824,7 @@
     "entry": "0073bdd0",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E216",
+    "symbol": "_$E321",
     "main_symbol": "_$E216",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122829,7 +122832,7 @@
     "entry": "0073bdf0",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E214",
+    "symbol": "_$E319",
     "main_symbol": "_$E214",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122837,7 +122840,7 @@
     "entry": "0073be00",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E221",
+    "symbol": "_$E326",
     "main_symbol": "_$E221",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122845,7 +122848,7 @@
     "entry": "0073be20",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E219",
+    "symbol": "_$E324",
     "main_symbol": "_$E219",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122853,7 +122856,7 @@
     "entry": "0073be30",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E226",
+    "symbol": "_$E331",
     "main_symbol": "_$E226",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122861,7 +122864,7 @@
     "entry": "0073be50",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E224",
+    "symbol": "_$E329",
     "main_symbol": "_$E224",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122869,7 +122872,7 @@
     "entry": "0073be60",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E231",
+    "symbol": "_$E336",
     "main_symbol": "_$E231",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122877,7 +122880,7 @@
     "entry": "0073be80",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E229",
+    "symbol": "_$E334",
     "main_symbol": "_$E229",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122885,7 +122888,7 @@
     "entry": "0073be90",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E236",
+    "symbol": "_$E341",
     "main_symbol": "_$E236",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122893,7 +122896,7 @@
     "entry": "0073beb0",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E234",
+    "symbol": "_$E339",
     "main_symbol": "_$E234",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122901,7 +122904,7 @@
     "entry": "0073bec0",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E241",
+    "symbol": "_$E346",
     "main_symbol": "_$E241",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122909,7 +122912,7 @@
     "entry": "0073bee0",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E239",
+    "symbol": "_$E344",
     "main_symbol": "_$E239",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122917,7 +122920,7 @@
     "entry": "0073bef0",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E246",
+    "symbol": "_$E351",
     "main_symbol": "_$E246",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122925,7 +122928,7 @@
     "entry": "0073bf10",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E244",
+    "symbol": "_$E349",
     "main_symbol": "_$E244",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122933,7 +122936,7 @@
     "entry": "0073bf20",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E251",
+    "symbol": "_$E356",
     "main_symbol": "_$E251",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122941,7 +122944,7 @@
     "entry": "0073bf40",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E249",
+    "symbol": "_$E354",
     "main_symbol": "_$E249",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122949,7 +122952,7 @@
     "entry": "0073bf50",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E256",
+    "symbol": "_$E361",
     "main_symbol": "_$E256",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122957,7 +122960,7 @@
     "entry": "0073bf70",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E254",
+    "symbol": "_$E359",
     "main_symbol": "_$E254",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122965,7 +122968,7 @@
     "entry": "0073bf80",
     "body": 32,
     "padding": 0,
-    "symbol": "_$E261",
+    "symbol": "_$E366",
     "main_symbol": "_$E261",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122973,7 +122976,7 @@
     "entry": "0073bfa0",
     "body": 20,
     "padding": 12,
-    "symbol": "_$E259",
+    "symbol": "_$E364",
     "main_symbol": "_$E259",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122981,7 +122984,7 @@
     "entry": "0073bfc0",
     "body": 37,
     "padding": 11,
-    "symbol": "_$E266",
+    "symbol": "_$E371",
     "main_symbol": "_$E266",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -122989,7 +122992,7 @@
     "entry": "0073bff0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E264",
+    "symbol": "_$E369",
     "main_symbol": "_$E264",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -123013,7 +123016,7 @@
     "entry": "0073c030",
     "body": 5,
     "padding": 11,
-    "symbol": "?unknown_slot4@SimpleWonlineDialogControl@@UAE_NXZ",
+    "symbol": "?Is_Cancelled@SimpleWonlineDialogControl@@UAE_NXZ",
     "main_symbol": "?unknown_slot4@SimpleWonlineDialogControl@@UAE_NXZ",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -123149,7 +123152,7 @@
     "entry": "0073c420",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E271",
+    "symbol": "_$E376",
     "main_symbol": "_$E271",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -123157,7 +123160,7 @@
     "entry": "0073c440",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E269",
+    "symbol": "_$E374",
     "main_symbol": "_$E269",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -123165,7 +123168,7 @@
     "entry": "0073c450",
     "body": 22,
     "padding": 10,
-    "symbol": "_$E276",
+    "symbol": "_$E381",
     "main_symbol": "_$E276",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -123173,7 +123176,7 @@
     "entry": "0073c470",
     "body": 10,
     "padding": 6,
-    "symbol": "_$E274",
+    "symbol": "_$E379",
     "main_symbol": "_$E274",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -123429,7 +123432,7 @@
     "entry": "00741750",
     "body": 1858,
     "padding": 14,
-    "symbol": "?Handle_User_Leave_00741750@@YIXPAUUser@WOL@@@Z",
+    "symbol": "?Handle_User_Leave@@YIXAAUUser@@@Z",
     "main_symbol": "?Handle_User_Leave_00741750@@YIXPAUUser@WOL@@@Z",
     "main_source": "src/recovered/wonline/Handle_User_Leave.cpp"
    },
@@ -123466,7 +123469,49 @@
     "main_source": "src/recovered/wonline.cpp"
    }
   ],
-  "references": {},
+  "references": {
+   "_?localestring@?O@??Draw_Player_List@@YIXH_N@Z@4PAGA": "00b29738",
+   "_?sel_user_indexes@?1??Send_Chat_Action@@YIHABVWideWstring@@@Z@4PAHA": "00b26694",
+   "_?sel_user_indexes@?1??Send_Chat_Message@@YIHABVWideWstring@@@Z@4PAHA": "00b294f4",
+   "_BRIDGE_LEPTON_HEIGHT": "00b2aaec",
+   "_CELL_DIAG_SLOPE_ANGLE": "00b299a8",
+   "_CELL_LEPTON_DIAG": "00b28dd8",
+   "_CELL_NONE": "00b28dc8",
+   "_CELL_SLOPE_ANGLE": "00b292d0",
+   "_COORD_NONE": "00b29818",
+   "_ISO_TILE_SIZE": "007af570",
+   "_LEPTONS_PER_PIXEL": "00b2aaf0",
+   "_LEVEL_LEPTON_H": "00b2ab8c",
+   "_ONE_RAD": "007af578",
+   "_PIXELS_PER_LEPTON": "00b2a710",
+   "_RAD_45": "00b2a6e8",
+   "_RAD_60": "00b29010",
+   "_RAD_90": "00b26938",
+   "_RECT_NONE": "00b26c70",
+   "_?useroptions@?1??Encode_Game_Options@@YIXPAD@Z@4PADA": "00b29ad4",
+   "??_C@_0BA@BABJ@Channel?5Leave?5?6?$AA@": "007fe410",
+   "??_C@_0BM@NECH@Local?5user?5leaving?5channel?6?$AA@": "007fe45c",
+   "??_C@_0BO@MOPH@Setting?5g_JoinLobbyNow?0?5Host?6?$AA@": "007fe3d0",
+   "??_C@_0BP@IEFF@Setting?5g_JoinLobbyNow?0?5Guest?6?$AA@": "007fe3f0",
+   "??_C@_0CN@GLBG@Local?5user?5leaving?5channel?5after@": "007fe42c",
+   "??_C@_0DB@LCCO@other?5player?5leaving?5channel?5aft@": "007fe39c",
+   "??_C@_0M@EDBB@TXT_YOULEFT?$AA@": "007fe420",
+   "??_C@_09DEAO@TXT_LOB_5?$AA@": "007fd7a0",
+   "??_C@_09GAHN@TXT_LOB_8?$AA@": "007fd77c",
+   "??_C@_09GBCA@TXT_LOB_7?$AA@": "007fd788",
+   "??_C@_09GBOL@TXT_LOB_2?$AA@": "007fd7c4",
+   "??_C@_09JOFC@TXT_LOB_1?$AA@": "007fd7d0",
+   "??_C@_09JOJJ@TXT_LOB_4?$AA@": "007fd7ac",
+   "??_C@_09MLHM@TXT_LOB_3?$AA@": "007fd7b8",
+   "??_C@_09MLLH@TXT_LOB_6?$AA@": "007fd794",
+   "?clear@?$ArrayList@I@@QAEXXZ": "00766060",
+   "?clear@?$ArrayList@VWstring@@@@QAEXXZ": "007661c0",
+   "?clear@?$Dictionary@VWstring@@I@@QAEXXZ": "007662f0",
+   "?shrink@?$Dictionary@VWstring@@UChannel@@@@AAEXXZ": "00768010",
+   "?shrink@?$Dictionary@VWstring@@ULadder@@@@AAEXXZ": "00767400",
+   "_?prev_exinfo@?1??WOL_Wait_Callback@@YI_NXZ@4HA": "00b2ac78",
+   "_?prev_ping@?1??WOL_Wait_Callback@@YI_NXZ@4HA": "00b2ac7c"
+  },
   "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
@@ -124812,7 +124857,17 @@
     "note": "Missing landed ChannelUserInfo/lobby globals and COM service APIs; unbounded later helpers guarded; draft guarded, no credit"
    }
   ],
-  "note": "12 independent lobby helpers exact; source-private ChannelUserInfo/SessionPortAllocator and source externs/prototypes omitted; dependent and unbounded functions guarded. Original initializer table incomplete (13 versus 60): R3 header/data closure, zero catalog credit unless separately accepted. Frozen bounds unchanged."
+  "note": "12 independent lobby helpers exact; source-private ChannelUserInfo/SessionPortAllocator and source externs/prototypes omitted; dependent and unbounded functions guarded. Original initializer table incomplete (13 versus 60): R3 header/data closure, zero catalog credit unless separately accepted. Frozen bounds unchanged.",
+  "data_bound_by": {
+   "?g_OLEInitializer@@3VOLEInitializer@@A": "unplaced-unreferenced"
+  },
+  "data_bound_by_rows": {
+   "?g_OLEInitializer@@3VOLEInitializer@@A": [
+    "0073a8e0",
+    "0073a900"
+   ]
+  },
+  "data_bound_by_note": "g_OLEInitializer (TibSun wonline.cpp:141-150, empty class): its initializer 0x73A8E0 (OleInitialize, atexit) and destructor 0x73A900 (OleUninitialize) are exact rows; no instruction or data of the image refers to the 1-byte object, and VC6's hash-ordered .bss leaves its slot unknowable. Candidate gaps (wonline bss span 0xB264F8-0xB2AC85, no 4-byte value of the image points into them): 13 aligned 4-byte gaps 0xB26940 0xB2696C 0xB26A5C 0xB2900C 0xB292CC 0xB2938C 0xB2939C 0xB29464 0xB296F4 0xB29834 0xB299A4 0xB29CEC 0xB2A6FC, and larger ones 0xB2689C+132 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15; with alignment fill under 8 bytes excluded the audit keeps 0xB2689C+132 0xB26940+4 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15. User decision 2026-11-18 (DECISIONS, last row), owner-approved use."
  },
  "skirmish": {
   "core": [
@@ -136659,5 +136714,61 @@
    "?CELL_NONE@@3VCell@@B": "00b258e8",
    "?COORD_NONE@@3VCoord@@B": "00b25908"
   }
+ },
+ "mpmanbattle": {
+  "core": [
+   "005a74b0",
+   "005a7530"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/mpmanbattle.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr"
+  ],
+  "status": "catalogued",
+  "range": [
+   "005a74b0",
+   "005a7530"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "005a74b0",
+    "body": 52,
+    "padding": 12,
+    "symbol": "??0MultiplayerManBattle@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z",
+    "main_symbol": "??0MultiplayerManBattle@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+    "main_source": "src/recovered/classes/MultiplayerManBattle/Constructor.cpp"
+   },
+   {
+    "entry": "005a74f0",
+    "body": 11,
+    "padding": 5,
+    "symbol": "??1MultiplayerManBattle@@UAE@XZ",
+    "main_symbol": "?MultiplayerManBattle_Destructor_005a74f0@seed_005a74f0@@YIXPAI@Z",
+    "main_source": "src/recovered/classes/MultiplayerManBattle/MultiplayerManBattle_Destructor.cpp"
+   },
+   {
+    "entry": "005a7500",
+    "body": 36,
+    "padding": 12,
+    "symbol": "??_GMultiplayerManBattle@@UAEPAXI@Z",
+    "main_symbol": "?MultiplayerManBattle_Scalar_Deleting_Destructor_005a7500@Owner_005a7500@seed_005a7500@@QAEPAIE@Z",
+    "main_source": "src/recovered/classes/MultiplayerManBattle/MultiplayerManBattle_Scalar_Deleting_Destructor.cpp"
+   }
+  ],
+  "references": {}
  }
 }

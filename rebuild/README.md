@@ -120,6 +120,27 @@ gated landing (column `tree`; older rows from worker branches are marked as such
   them the other way round (its own header); `manifest/symbols.csv` binds them by this order. No exact row
   elsewhere calls either.
 
+- **A unit defines its own globals** (lane R13). wonline's text declared about ninety globals `extern` that
+  the original keeps in wonline's own data (TibSun's wonline.cpp defines the same names); they are defined in
+  wonline.cpp, with TibSun's initial values, and the dynamic-initialized ones in the order of the unit's
+  initializer table (ra2-decomp's wonline.cpp gives the order, main's population confirms it). Names already
+  declared in globals.h are not redeclared. The chat event sinks, Startup_Chat and Shutdown_Chat need the ATL
+  headers, which this tree does not pin (DECISIONS row 22), and stay guarded.
+
+- **wonline's g_OLEInitializer stays unplaced** (user decision 2026-11-18, `docs/DECISIONS.md` on main, last
+  row; lane R14). TibSun's empty OLE object exists in the original: its initializer 0x73A8E0 (OleInitialize,
+  atexit) and destructor 0x73A900 (OleUninitialize) are exact rows. Nothing in the image refers to the
+  1-byte object, and VC6's hash-ordered .bss gives no unique slot for it among wonline's unreferenced gaps.
+  The unit declares it `data_bound_by: unplaced-unreferenced` with the evidencing rows
+  (`data_bound_by_rows` in `units.json`, copied to the catalog rows); the audit
+  (`tools/original_target/data_bindings.py`, `unplaced`) refuses unless no relocation targets it, the rows
+  are accepted rows of the source, it lies in .bss, and the unit's unclaimed, unreferenced bss gaps
+  (recomputed at every build) hold all such symbols jointly. It earns nothing; the census and the progress
+  line count it. Each further use needs the owner.
+- **`TVelocity3D(T x, T y, T z)` builds its base from x and y directly** (lane R14; ra2-decomp's
+  include/velocity.h:74). TibSun's form, through a `TVelocity2D<T>(x, y)` temporary, leaves
+  `AircraftClass::Fire_At` (0x415790) 8 bytes of frame short; every other row of the tree is unchanged.
+
 ## Structure gate
 
 `tools/rebuild.py catalog` refuses to land a tree that breaks the structure budget in
@@ -139,6 +160,13 @@ names in headers, and the inherited constructs still to be evidenced: `#define G
 and a new guarded draft is a legitimate parked attempt, so a merge that adds guarded drafts is never
 refused for it. The census reports the guard count on its own line beside the parked tail (rows not
 exact and their body bytes).
+
+Judgment calls are flagged as main flags them (AGENTS.md Decision policy; owner ruling, 2026-11-18): a real
+computed or looked-up value kept in the form that matches carries a `judgment` note in
+`manifest/provenance.csv` naming its evidence (a twin's text or main's accepted form); a new flagged form
+without such evidence is not landed. `tools/provenance.py --judgment=ENTRY:NOTE` sets the flag and keeps it
+when the unit's lines are rewritten. The census reports the flagged rows and their body bytes on the
+"Judgment calls" line, and the progress line carries them.
 
 ## Layout
 

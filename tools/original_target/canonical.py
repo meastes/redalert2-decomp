@@ -411,7 +411,7 @@ def references_container_member(row):
 # layout / bss by elimination"): `data_bound_by` {symbol: "layout" | "elimination"} with a
 # non-empty `data_bound_by_note` (the split into declarations is a hypothesis), the same on
 # every row of the source; the strict audit (data_bindings.py) checks the conditions.
-DATA_BOUND_BY_KEYS = ('data_bound_by', 'data_bound_by_note')
+DATA_BOUND_BY_KEYS = ('data_bound_by', 'data_bound_by_note', 'data_bound_by_rows')
 
 
 def validate_data_bound_by(row, source_rows):
@@ -425,7 +425,8 @@ def validate_data_bound_by(row, source_rows):
     except data_bindings.BindingRefused as error:
         raise ValueError('%s: %08x' % (error, row['entry']))
     require(all(r.get('data_bound_by') == row['data_bound_by'] and
-                r.get('data_bound_by_note') == row['data_bound_by_note'] for r in source_rows),
+                r.get('data_bound_by_note') == row['data_bound_by_note'] and
+                r.get('data_bound_by_rows') == row.get('data_bound_by_rows') for r in source_rows),
             'data_bound_by differs between rows of one source: %08x' % row['entry'])
 
 

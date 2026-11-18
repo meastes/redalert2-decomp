@@ -78,3 +78,12 @@ start_utc,end_utc,class,activity
 13:43,13:46,tooling,catalog 332 units / 8,959 rows; whole-file exact (wf01)
 13:46,13:59,b,parked sweep in non-worker units: Start_Pass, JustLetGo, Reposition_Sidebar exact (class b), Zoom_Mode_Control (class c); Draw_Pulse 17 -> 9, Build_Wave_Shape 253 -> 94; campscor, Update_All, SidebarClass(NoInitClass), Start_Of_Move parked (b_log_r12.csv)
 13:59,14:03,tooling,catalog 332 units / 8,963 rows; whole-file exact (wf02)
+13:58,14:06,tooling,judgment-call flags: provenance judgment column, census and progress line (b_log_r13.csv)
+14:06,14:31,b,wonline 12 -> 159/161: current mischa85 text, the file's globals in initializer order, Encode_Game_Options / Handle_User_Leave / Reset_WOL_Globals exact from main's forms; held on its OLEInitializer object (b_log_r13.csv)
+14:31,14:45,tooling,inline_probe.py: Fire_At, RadBeam::Update_All, Reset_WOL_Globals probed (b_log_r13.csv)
+14:45,14:53,tooling,all 413 units re-checked, catalog 332 units / 8,963 rows; whole-file exact (wf01)
+14:55,15:10,tooling,lane R14 worktree; lane-r13's config copied; all 413 units re-checked (b_log_r14.csv)
+14:57,15:00,tooling,wonline g_OLEInitializer: case B evidence and the no-unique-slot report to the owner
+15:00,15:20,a,Fire_At exact with ra2-decomp's forms (TVelocity3D constructor in velocity.h; Reveal_Aircraft_Coord); tree-wide re-check (b_log_r14.csv)
+15:05,15:25,tooling,unplaced-unreferenced binding (verify_manifest/data_bindings/canonical/status; rebuild catalog, census, progress); wonline lands; whole-file exact (wf01); negative test
+15:13,15:25,c,mpmanbattle (MultiplayerManBattle) new unit 3/3

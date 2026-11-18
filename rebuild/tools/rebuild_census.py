@@ -113,6 +113,41 @@ def parked_tail():
     return rows, total
 
 
+def judgment_calls(regions):
+    """(rows, body bytes) of the accepted rows flagged as judgment calls in provenance.csv (AGENTS.md
+    Decision policy: real computed or looked-up values kept and flagged, each with its evidence)."""
+    import csv
+    accepted = {'%08x' % r['entry'] for r in regions}
+    path = R.MANIFEST / 'provenance.csv'
+    flagged = [r for r in csv.DictReader(open(path)) if (r.get('judgment') or '').strip() and r['entry'] in accepted] \
+        if path.exists() else []
+    return len(flagged), sum(int(r['body_bytes']) for r in flagged)
+
+
+def unplaced_objects(regions):
+    """(symbols, bytes) of the zero-initialised objects catalogued units leave unplaced and unreferenced
+    (data_bound_by: unplaced-unreferenced; DECISIONS, user 2026-11-18): no address, nothing earned. Bytes are
+    each symbol's extent in its unit's last checked object."""
+    import data_bindings
+    from coff import Coff
+    sources = {r['source'] for r in regions}
+    count = size = 0
+    for unit, info in R.load_json(R.UNITS, {}).items():
+        names = [n for n, k in (info.get('data_bound_by') or {}).items() if k == data_bindings.UNPLACED]
+        last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
+        if not names or info['source'] not in sources or not last:
+            continue
+        coff = Coff(open(last['object'], 'rb').read())
+        for name in names:
+            index = data_bindings.defining_section(coff, name)
+            symbols = data_bindings.section_symbols(coff, index)
+            values = [v for v, _ in symbols] + [coff.sections[index - 1]['size']]
+            position = [n for _, n in symbols].index(name)
+            count += 1
+            size += values[position + 1] - values[position]
+    return count, size
+
+
 def unit_faults(unit, source_text):
     """Per-unit structure faults over the unit's budget: (externs, budget), (suffixed, budget)."""
     budget = json.loads(BUDGET.read_text()) if BUDGET.exists() else {}
@@ -158,6 +193,8 @@ def main(quiet=False):
                                    several_functions=0, no_row=len(outside))
     measures = structure_measures(tree, read, result)
     measures.update(placeholder_measures(tree, read))
+    measures['judgment_rows'], measures['judgment_bytes'] = judgment_calls(cat['regions'])
+    measures['unplaced_symbols'], measures['unplaced_bytes'] = unplaced_objects(cat['regions'])
     if quiet:
         return measures
     print(C.structure_block(result).replace('under src/', 'under rebuild/').replace('src/recovered/', 'rebuild/src/'))
@@ -182,6 +219,10 @@ def main(quiet=False):
                                   measures['field_names_headers'], measures['fun_names_headers']))
     print('Parked tail (reported, not gated): RA2_NON_MATCHING guards %d; %d rows not exact, %d body bytes' % (
         (measures['draft_guards'],) + parked_tail()))
+    print('Judgment calls (reported, not gated): %d rows, %d body bytes' % (
+        measures['judgment_rows'], measures['judgment_bytes']))
+    print('Unplaced unreferenced objects (data_bound_by: unplaced-unreferenced; earn nothing): %d symbols, %d bytes' % (
+        measures['unplaced_symbols'], measures['unplaced_bytes']))
     print('Gate (inherited, to be evidenced): #define GEOMETRY_H in sources %d; #pragma auto_inline(off) %d; '
           'extern "C" in sources %d' % (measures['inherited_geometry_define'], measures['inherited_auto_inline_off'],
                                          measures['extern_c_in_sources']))

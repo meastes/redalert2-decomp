@@ -11,10 +11,9 @@
  * disclaimers apply; see LICENSE.md.
  ******************************************************************************/
 
-
 #include "always.h"
-#include "rect.h"
 #include "geometry.h"
+#include "rect.h"
 
 #include "_keyboar.h"
 #include "_map.h"
@@ -45,9 +44,8 @@
 #include "winstub.h"
 #include "wolapi.h"
 #include "wonline.h"
+#include "wonlinecontrol.h"
 #include "wstring.h"
-
-
 
 #include <cstdio>
 #include <cstdlib>
@@ -57,16 +55,207 @@
 #undef LoadString
 #include "stringtable.h"
 
+struct ChannelUserInfo
+{
+	char name[20];
+	int color;
+	int house;
+	int Unknown_1C;
+	int accepted;
+	char pad[0x70];
+};
 
+ChannelUserInfo g_UserInfo[16];
+int g_RuleCRC;
+int g_ArtCRC;
+int g_AICRC;
+HANDLE g_WaitEventHandles[18];
+unsigned int g_ActiveWaitFlags;
+wchar_t g_LastErrorMessage[256];
+int g_IsChannelCreator;
+bool g_GameStartRequested;
+int g_MatchState;
+int g_MatchTimeout;
+int g_MatchResult;
+long g_MatchStartTime;
+Channel g_CurrentChannel;
+int g_AllowPage;
+int g_AllowFind;
+int g_LangFilter;
+int g_LobbyMusic;
+int g_ShowAllChannels;
+int g_DisplayAsian;
+int g_DisplayLatin;
+int g_LanguageCode;
+unsigned g_LastWDTUserTeamRequestTime;
+unsigned g_LastChannelLocaleRequestTime;
+int g_NextWDTStatePollTime;
+bool g_StartGameReceived;
+bool g_StartGameRunning;
+void Start_Game_Now(void);
+Dictionary<Wstring, Ladder> * g_ActiveLadder;
+int g_InstalledLadderSKU;
+int g_SelectedLadderSKU;
+Channel g_PendingChannel;
+Server g_GameServer;
+Server g_WDTServer;
+int g_CurrentServerIndex;
+int g_TargetServerIndex;
+bool g_IgnoreNetStatus;
+bool g_ShowMOTD = true;
+int g_ServerType = -1;
+int g_LastChatListTime;
+int g_LastGameListTime;
+unsigned short const * g_Lobbies[8];
+int WDT_TERRITORY_LOBBY_INDEXES[8];
+DWORD g_dwChatAdvise;
+DWORD g_dwNetUtilAdvise;
+DWORD g_dwDownloadAdvise;
+int g_SquadInfoRequests;
+int g_RequestingOwnSquadInfo;
+int g_OwnSquadID;
+char g_OwnSquadName[41];
+int g_ChannelCount;
+int g_LadderPos;
+int g_JoinLobbyNow;
+int g_UserAge;
+int g_UserConsent;
+int g_Col_ChanName;
+int g_Col_GameName;
+int g_Col_GameIcon;
+int g_Col_GamePrivate;
+int g_Col_GameObserver;
+int g_Col_GamePingTime;
+bool g_GameListRefreshing;
+void __fastcall Clear_Listbox(HWND list);
+void __fastcall Get_Window_Item_Text(HWND list, int row, Wstring & text);
+/*
+**	Initializes OLE and COM for the life of the program.
+*/
+class OLEInitializer
+{
+	public:
+		OLEInitializer(void) { OleInitialize(NULL); }
+		~OLEInitializer(void) { OleUninitialize(); }
+};
+OLEInitializer g_OLEInitializer;
 
+Wstring g_MessageOfTheDay;
 
+ArrayList<Server> g_Servers;
+ArrayList<Channel> g_UserChannels;
+ArrayList<Channel> g_GameChannelList;
+ArrayList<User> g_UserList;
+ArrayList<unsigned int> g_ChanListQueue;
+
+Dictionary<Wstring, Ladder> g_BattleClansLadderDict(Wstring_Hash);
+Dictionary<Wstring, Ladder> g_WDTLadderDict(Wstring_Hash);
+Dictionary<Wstring, Ladder> g_GeneralLadderDict(Wstring_Hash);
+Dictionary<Wstring, int> g_WDTTeams(Wstring_Hash);
+ArrayList<Wstring> g_WDTTeamLookupQueue;
+Dictionary<Wstring, int> g_UserLocales(Wstring_Hash);
+ArrayList<Wstring> g_UserLocaleLookupQueue;
+
+ArrayList<Wstring> g_WDT_NodWinEmphasisSounds;
+ArrayList<Wstring> g_WDT_GDIWinEmphasisSounds;
+ArrayList<Wstring> g_WDT_NodLoseEmphasisSounds;
+ArrayList<Wstring> g_WDT_GDILoseEmphasisSounds;
+ArrayList<Wstring> g_WDT_NodTerritoryWinSounds;
+ArrayList<Wstring> g_WDT_GDITerritoryWinSounds;
+ArrayList<Wstring> g_WDT_NodTerritoryLoseSounds;
+ArrayList<Wstring> g_WDT_GDITerritoryLoseSounds;
+
+ArrayList<Wstring> g_BuddyList;
+ArrayList<Wstring> g_BuddyRequests;
+ArrayList<Wstring> g_BuddyAddQueue;
+Wstring g_BuddyFindName;
+Wstring g_SelectedBuddy;
+Dictionary<Wstring, unsigned int> g_BuddyStatus(Wstring_Hash);
+Dictionary<Wstring, Channel> g_BuddyChannels(Wstring_Hash);
+
+int g_BuddyNameWidth = g_BuddyColumns[1] - g_BuddyColumns[0] - 4;
+int g_BuddyStatusWidth = g_BuddyColumns[5] - g_BuddyColumns[4] - 4;
+
+ArrayList<Wstring> g_PingQueue;
+ArrayList<Wstring> g_PingsPending;
+Wstring g_MatchOpponent;
+
+bool Is_Tournament_Session(void)
+{
+	return(Online_Session_State == 2 || Online_Session_State == 1);
+}
+
+Wstring g_AccountEmail;
+Wstring g_AccountBirthMonth;
+Wstring g_AccountBirthDay;
+Wstring g_AccountBirthYear;
+Wstring g_AccountName;
+Wstring g_AccountPassword;
+Wstring g_AccountPasswordCheck;
+Wstring g_AccountParentEmail;
+Wstring g_AccountExtra; // the account form's ninth string: no function of the program reads it
+
+rc_ptr<PlayerProfile> g_PlayerProfile;
+CDTimerClass<SystemTimerClass> g_PageTimer;
+
+SimpleWonlineDialogControl::SimpleWonlineDialogControl(void)
+{
+}
+
+SimpleWonlineDialogControl::~SimpleWonlineDialogControl(void)
+{
+}
+
+bool SimpleWonlineDialogControl::Is_Cancelled(void)
+{
+	return(WOL_Wait_Callback());
+}
 
 #define OD_INSERTSTRING (WM_USER + 199)
 #define OD_FINDSTRING (WM_USER + 197)
+WideWstring WideWstring_FromInt(int value);
+WideWstring operator+(wchar_t const * first, WideWstring const & second);
 
+int Count_AI_Slots(void);
+bool Is_Observer_Slot_Occupied(void);
+bool Is_Observer_Slot_Full(void);
+bool Is_Real_Player_Entry(NodeNameType * entry);
+Wstring Lobby_Entry_Name(NodeNameType * entry);
+void Load_Observer_Mode(void);
+void Save_Observer_Mode(void);
+void Update_Observer_Buttons(HWND dialog);
+void Enable_Player_Combos(HWND dialog, bool value);
+int Player_Side_Combo_ID(int player);
+int Player_Color_Combo_ID(int player);
+int Side_Combo_Data(HWND dialog, int id, int index);
+void Fill_Observer_Combo(HWND dialog, int id);
+void Fill_Random_Color_Combo(HWND dialog, int id);
+void Select_Color_Combo(HWND dialog, int id, int color);
+void Fill_Side_Combo(HWND dialog, int id);
+void Fill_Color_Combo(HWND dialog, int id);
+int Get_Slot_Control_Id(int slot);
+char * Wide_To_Narrow(wchar_t const * text);
+Wstring Wstring_FromWide(WideWstring const & text);
+Wstring Wstring_Narrow(WideWstring const & text);
+void Draw_Player_List(int keep_selection, bool force);
 #define OD_INSERTSTRINGW (WM_USER + 204)
 #define OD_SETTEXT (WM_USER + 180)
 #define APP_REG_KEY "SOFTWARE\\Westwood\\Red Alert 2"
+void __fastcall Refresh_Slot_Settings(HWND dialog, bool force);
+void __fastcall Fill_Buddy_List(HWND dialog);
+void Char_To_Wide(wchar_t * wide, char const * narrow, int length);
+wchar_t * Narrow_To_Wide(char const * narrow);
+int g_Col_Username;
+int g_Col_Rank;
+int g_Col_Chanop;
+int g_Col_Gameinfo;
+int g_Col_House;
+int g_Col_Accept;
+int g_Col_GamePing;
+void Show_Wait_Window(unsigned int event, WideWstring const & text, bool block);
+BOOL CALLBACK WOL_Find_Page_Dialog_Proc(HWND win, UINT uMsg, WPARAM wParam, LPARAM lParam);
+bool Wait_Callback_Thunk(void);
+bool Is_Channel_Flag_8(Channel const * channel);
 
 void Spaces_To_Underscores(char * text)
 {
@@ -75,7 +264,6 @@ void Spaces_To_Underscores(char * text)
 	}
 }
 
-#if 0
 bool Is_User_Message_Shown(User const * user)
 {
 	if (!user) return(false);
@@ -84,10 +272,7 @@ bool Is_User_Message_Shown(User const * user)
 	if (WS_Find_Dialog(0xC9)) return(true);
 	return g_DisplayLatin != 0;
 }
-#endif
 
-
-#if 0
 bool Is_Text_Shown(unsigned char const * flags, WideWstring const & text)
 {
 	if (flags == NULL) {
@@ -107,8 +292,6 @@ bool Is_Text_Shown(unsigned char const * flags, WideWstring const & text)
 	}
 	return(g_DisplayAsian != 0);
 }
-#endif
-
 
 bool Wait_Callback_Thunk(void)
 {
@@ -148,8 +331,6 @@ void Set_Lobby_Music(bool online)
 	}
 }
 
-
-#if 0
 inline void Set_Match_State(int state, int timeout, int result)
 {
 	g_MatchResult = result;
@@ -157,14 +338,11 @@ inline void Set_Match_State(int state, int timeout, int result)
 	g_MatchTimeout = timeout;
 	g_MatchStartTime = time(0);
 }
-#endif
-
 
 /// <summary>
 /// Opens the Find Page dialog, waits for it to close, then restores the input-ignore flag
 /// and forces the tactical map to fully redraw.
 /// </summary>
-#if 0
 void DoFindPage(void)
 {
 	HWND dlg = OwnerDraw::Begin_Dialog(0xCF, (DLGPROC)WOL_Find_Page_Dialog_Proc, 0);
@@ -176,8 +354,6 @@ void DoFindPage(void)
 	IgnoreInput = Scen->IsInputLocked;
 	Map.Flag_To_Redraw(GS_REDRAW_ALL);
 }
-#endif
-
 
 /// <summary>
 /// Searches the global user list for an entry whose name matches the given name
@@ -190,17 +366,13 @@ void Open_Tournament_Page(void)
 	ViewHTML("http://www.westwood.com/westwoodonline/tournaments/redalert2/", 0);
 }
 
-#if 0
 void Open_Registration_Page(void)
 {
 	char url[256];
 	sprintf(url, "http://games2.westwood.com/cgi-bin/cgiclient?register&request=reg_menu&LANGCODE=%d", g_LanguageCode);
 	ViewHTML(url, 0);
 }
-#endif
 
-
-#if 0
 int Player_Name_To_Index(Wstring const & name)
 {
 	int i;
@@ -213,42 +385,28 @@ int Player_Name_To_Index(Wstring const & name)
 	}
 	return(-1);
 }
-#endif
 
-
-#if 0
 bool Is_Channel_Tournament(Channel const * channel)
 {
 	if (Session.Type != GAME_INTERNET) return(false);
 	return(channel->tournament || Is_Channel_Flag_8(channel));
 }
-#endif
 
-
-#if 0
 bool Is_Current_Channel_Tournament(void)
 {
 	return(Is_Channel_Tournament(&g_CurrentChannel));
 }
-#endif
 
-
-#if 0
 bool Is_Current_Channel_Flag_8(void)
 {
 	return(Is_Channel_Flag_8(&g_CurrentChannel));
 }
-#endif
 
-
-#if 0
 bool Is_Channel_Flag_8(Channel const * channel)
 {
 	if (Session.Type != GAME_INTERNET) return(false);
 	return((channel->reserved >> 8) & 1);
 }
-#endif
-
 
 bool Is_Channel_Flag_11(Channel const * channel)
 {
@@ -262,10 +420,9 @@ bool Is_Channel_Flag_12(Channel const * channel)
 	return((channel->reserved >> 12) & 1);
 }
 
+Wstring g_NickName;
+Wstring g_LoginPassword;
 
-
-
-#if 0
 void Send_Player_List(void)
 {
 	char text[256];
@@ -283,8 +440,6 @@ void Send_Player_List(void)
 	}
 	g_pChat->RequestPublicGameOptions(text);
 }
-#endif
-
 
 /// <summary>
 /// Displays a web page in the player's own browser.
@@ -321,7 +476,7 @@ void ViewHTML(const char * name, int no_ask)
 
 		char commandLine[MAX_PATH + 10];
 		sprintf(commandLine, "[open] %s", name);
-
+		
 		STARTUPINFO startupInfo;
 		memset(&startupInfo, 0, sizeof(startupInfo));
 		startupInfo.cb = sizeof(startupInfo);
@@ -360,7 +515,7 @@ void ViewHTML(const char * name, int no_ask)
 				 * Bring the game window back to the foreground now that the browser is done.
 				 */
 				WOL_Wait_Callback();
-
+	
 				if (GetTopWindow(NULL) != MainWindow) {
 					WOL_Wait_Callback();
 					SetForegroundWindow(MainWindow);
@@ -391,7 +546,6 @@ void ViewHTML(const char * name, int no_ask)
 /// </summary>
 /// <returns>Returns with a negative value if the u1 user sorts first, a positive value if
 /// the u2 one does, and zero if the two cannot be told apart.</returns>
-#if 0
 void Read_WOL_Settings(void)
 {
 	g_AllowPage = ConfigINI.Get_Int("WOnline", "AllowPage", TRUE);
@@ -403,14 +557,11 @@ void Read_WOL_Settings(void)
 	g_DisplayLatin = ConfigINI.Get_Int("WOnline", "DisplayLatin", TRUE);
 	Load_Observer_Mode();
 }
-#endif
-
 
 /// <summary>
 /// Writes the current WOL lobby settings (paging, finding, language filter, lobby music,
 /// show-all) to the config INI and saves it to disk.
 /// </summary>
-#if 0
 void Write_WOL_Settings(void)
 {
 	RawFileClass file("RA2.INI");
@@ -424,15 +575,12 @@ void Write_WOL_Settings(void)
 	ConfigINI.Save(file, false);
 	Save_Observer_Mode();
 }
-#endif
-
 
 /// <summary>
 /// Applies the current WOL settings to the active chat session: pushes the language filter
 /// and find/page flags to the chat client, and starts, continues, or fades out the lobby
 /// music depending on the LobMusic setting.
 /// </summary>
-#if 0
 void Apply_WOL_Settings(void)
 {
 	if (g_pChat) {
@@ -455,8 +603,6 @@ void Apply_WOL_Settings(void)
 		Theme.Queue_Song((ThemeType)-3);
 	}
 }
-#endif
-
 
 /// <summary>
 /// Sends a chat message on the player's behalf.
@@ -466,7 +612,6 @@ void Apply_WOL_Settings(void)
 /// <param name="msg">Text of the message to send.</param>
 /// <returns>Returns with 0 if the message went to the whole channel, or 1 if it went
 /// privately to the selected users.</returns>
-#if 0
 int Send_Chat_Message(WideWstring const & msg)
 {
 	static int sel_user_indexes[128];
@@ -509,8 +654,6 @@ int Send_Chat_Message(WideWstring const & msg)
 		return(1);
 	}
 }
-#endif
-
 
 /// <summary>
 /// Sends a chat action on the player's behalf.
@@ -520,7 +663,6 @@ int Send_Chat_Message(WideWstring const & msg)
 /// <param name="msg">Text of the action to send.</param>
 /// <returns>Returns with 0 if the action went to the whole channel, or 1 if it went
 /// privately to the selected users.</returns>
-#if 0
 int Send_Chat_Action(WideWstring const & msg)
 {
 	static int sel_user_indexes[128];
@@ -563,35 +705,31 @@ int Send_Chat_Action(WideWstring const & msg)
 		return(1);
 	}
 }
-#endif
 
-
-#if 0
 static inline bool Same_Player_Name(wchar_t const * first, wchar_t const * second)
 {
 	char * name = Wide_To_Narrow(first);
 	return(stricmp(name, Wide_To_Narrow(second)) == 0);
 }
-#endif
-
 
 /// <summary>
 /// Encodes the current game options and scenario info, followed by each user's name,
 /// house, and color, into a single comma-separated string for transmission over WOL.
 /// </summary>
 /// <param name="out">Buffer that receives the encoded options string.</param>
-#if 0
 void Encode_Game_Options(char * out)
 {
 	static char useroptions[512];
 
 	Wstring name = Session.Options.ScenarioDescription ? Wstring_FromWide(Session.Options.ScenarioDescription) : "";
 
+	int max_players = Session.ScenarioMaxPlayers;
+
 	/// Encode the game options and scenario info.
 	sprintf(out, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%s,%d,%d,%d,%s,%s:",
 			Seed, Options.GameSpeed, Session.Options.GameSpeed, Session.Options.Credits, Session.Options.UnitCount,
 			Session.Options.ShortGame, Session.Options.SWAllowed, Session.Options.BuildOffAlly, Session.Options.MCVRedeploy,
-			Session.Options.Goodies, Session.Options.MPModeIndex, name.get(), Session.ScenarioMaxPlayers, Session.ScenarioIsOfficial,
+			Session.Options.Goodies, Session.Options.MPModeIndex, name.get(), max_players, Session.ScenarioIsOfficial,
 			Session.ScenarioFileLength, Session.ScenarioFileName, Session.ScenarioDigest);
 
 	/*
@@ -631,21 +769,16 @@ void Encode_Game_Options(char * out)
 
 	strcat(out, useroptions);
 }
-#endif
-
 
 /// <summary>
 /// Combines the rules, AI, and art CRCs into a single hash used to verify that all players
 /// are running matching game data.
 /// </summary>
 /// <returns>Combined CRC hash.</returns>
-#if 0
 int GetINIHash(void)
 {
 	return(g_RuleCRC ^ g_AICRC ^ g_ArtCRC);
 }
-#endif
-
 
 /// <summary>
 /// Encodes extended game/session info -- build number, data hash, options, and a flag
@@ -653,7 +786,6 @@ int GetINIHash(void)
 /// transmission over WOL.
 /// </summary>
 /// <param name="out">Buffer that receives the encoded info string.</param>
-#if 0
 void Encode_Channel_ExInfo(char * out)
 {
 	int i = 0;
@@ -681,8 +813,6 @@ void Encode_Channel_ExInfo(char * out)
 
 	sprintf(out, "%d,%d,%d,%d,%d,%s", Build_Number(), GetINIHash(), Count_AI_Slots(), Is_Observer_Slot_Occupied(), !Is_Observer_Slot_Full(), Session.ScenarioFileName);
 }
-#endif
-
 
 /// <summary>
 /// Records whether the given user (or the local player if who is NULL) has accepted an
@@ -713,7 +843,6 @@ void Parse_Channel_ExInfo(char * text, int * build, int * hash, int * ai_count, 
 /// </summary>
 /// <param name="who">Name of the user to update, empty for the local player.</param>
 /// <param name="status">New accepted status to store.</param>
-#if 0
 void SetPlayerAccepted(Wstring const & who, int status)
 {
 	Wstring const nick(who.length() > 0 ? who : g_NickName);
@@ -768,8 +897,6 @@ void SetPlayerAccepted(Wstring const & who, int status)
 	}
 	Draw_Player_List(0, false);
 }
-#endif
-
 
 /// <summary>
 /// Looks up whether the given user (or the local player if who is NULL) has accepted an
@@ -777,7 +904,6 @@ void SetPlayerAccepted(Wstring const & who, int status)
 /// </summary>
 /// <param name="who">Name of the user to query, or NULL for the local player.</param>
 /// <returns>The user's accepted status, or -1 if the user could not be found.</returns>
-#if 0
 int GetPlayerAccepted(Wstring const & who)
 {
 	Wstring const nick(who.length() > 0 ? who : g_NickName);
@@ -795,8 +921,6 @@ int GetPlayerAccepted(Wstring const & who)
 	}
 	return(-1);
 }
-#endif
-
 
 /// <summary>
 /// Leaves the current channel (waiting for the leave to complete) and joins the lobby channel
@@ -808,7 +932,6 @@ int GetPlayerAccepted(Wstring const & who)
 /// <param name="house">New country selection.</param>
 /// <param name="color">New color selection.</param>
 /// <returns>1 if the player's country actually changed, 0 otherwise.</returns>
-#if 0
 int Assign_House_And_Color(Wstring const & who, int house, int color)
 {
 	int found = -1;
@@ -855,8 +978,6 @@ int Assign_House_And_Color(Wstring const & who, int house, int color)
 	Draw_Player_List(0, false);
 	return(changed);
 }
-#endif
-
 
 /// <summary>
 /// Fills a login dialog in from a remembered login.
@@ -889,6 +1010,13 @@ enum {
 	EV_COUNT,
 };
 
+inline void Reset_Wait_Events(void)
+{
+	for (int i = 0; i < EV_COUNT; i++) {
+		ResetEvent(g_WaitEventHandles[i]);
+	}
+}
+
 /// <summary>
 /// Saves a login's nickname, password, and locale into one of the 32 stored login slots.
 /// Reuses whichever slot already stores this nickname if one exists, otherwise the first
@@ -903,7 +1031,6 @@ enum {
 /// <param name="channel_type">0 for the chat channels, 0x21 for the game channels.</param>
 /// <param name="autoping">Should the server ping the channels?</param>
 /// <returns>True if the request was sent.</returns>
-#if 0
 bool Request_Channel_List(int channel_type, unsigned char autoping)
 {
 	DebugString("Requesting channel list type = %d, ping = %d\n", channel_type, autoping);
@@ -915,8 +1042,22 @@ bool Request_Channel_List(int channel_type, unsigned char autoping)
 	g_ChanListQueue.addTail(type);
 	return(true);
 }
-#endif
 
+inline void Close_Wait_Window(unsigned int event)
+{
+	HWND dialog = WS_Find_Dialog(0xC4);
+	if (dialog) {
+		g_ActiveWaitFlags &= ~event;
+		if (g_ActiveWaitFlags == 0) {
+			WS_Destroy_Dialog(dialog, 0);
+		}
+	}
+	HWND top = WS_Top_Window();
+	HWND input = GetDlgItem(top, 0x540);
+	if (input) {
+		SetFocus(input);
+	}
+}
 
 /// <summary>
 /// Dialog procedure for the "New Game" creation dialog. Handles owner-draw
@@ -930,7 +1071,6 @@ bool Request_Channel_List(int channel_type, unsigned char autoping)
 /// <param name="lParam">Message-specific second parameter.</param>
 /// <returns>TRUE if the message was handled, FALSE otherwise.</returns>
 /// <returns>True if the channel list arrived.</returns>
-#if 0
 bool Wait_Channel_List(void)
 {
 	{
@@ -971,15 +1111,12 @@ bool Wait_Channel_List(void)
 	}
 	return(false);
 }
-#endif
-
 
 /// <summary>
 /// Nudges the host with a NET_PING packet while waiting in a live game channel as a guest.
 /// Sets up the session's player/host address from the channel's first user, then sends a
 /// single ping packet to the host address.
 /// </summary>
-#if 0
 bool Queue_Channel_List_Request(int channel_type, unsigned char autoping, bool wait)
 {
 	if (g_ChanListQueue.length()) {
@@ -998,14 +1135,11 @@ bool Queue_Channel_List_Request(int channel_type, unsigned char autoping, bool w
 	}
 	return(true);
 }
-#endif
-
 
 /// <summary>
 /// Shows the World Domination Tour "available servers" dialog and waits for it to close.
 /// </summary>
 /// <returns>Result code returned by the dialog (see WS_Wait_Dialog/WS_Destroy_Dialog).</returns>
-#if 0
 bool Request_Chat_Channel_List(bool wait)
 {
 	if (g_ChanListQueue.length()) {
@@ -1020,8 +1154,6 @@ bool Request_Chat_Channel_List(bool wait)
 	if (wait) return(Wait_Channel_List());
 	return(true);
 }
-#endif
-
 
 /// <summary>
 /// Dialog procedure for the World Domination Tour "available servers" list. Populates the
@@ -1034,7 +1166,6 @@ bool Request_Chat_Channel_List(bool wait)
 /// <param name="wParam">Message-specific parameter.</param>
 /// <param name="lParam">Message-specific parameter.</param>
 /// <returns>TRUE if the message was handled, FALSE otherwise.</returns>
-#if 0
 bool Request_Game_Channel_List(unsigned char autoping, bool wait)
 {
 	if (g_ChanListQueue.length()) {
@@ -1049,18 +1180,13 @@ bool Request_Game_Channel_List(unsigned char autoping, bool wait)
 	if (wait) return(Wait_Channel_List());
 	return(true);
 }
-#endif
 
-
-#if 0
 inline bool Is_Tournament_Session_Inline(void)
 {
 	return(Online_Session_State == 2 || Online_Session_State == 1);
 }
-#endif
 
-
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: differs from the original at 0x0073E100 (main has no row for it, so no independent bound)
 bool WOL_Wait_Callback(void)
 {
 	Title_Screen_Restore(false);
@@ -1077,7 +1203,6 @@ bool WOL_Wait_Callback(void)
 		counter++;
 		if (counter == 100) break;
 	}
-
 
 	if (Is_Tournament_Session_Inline() && g_MatchTimeout != -1 && g_MatchState != 1 && g_MatchState != 0 && g_MatchState != 11 && (unsigned)(time(NULL) - g_MatchStartTime) > (unsigned)g_MatchTimeout) {
 		if (g_MatchState >= 2 && g_MatchState <= 5) {
@@ -1239,8 +1364,6 @@ bool WOL_Wait_Callback(void)
 }
 #endif
 
-
-#if 0
 void Reset_WOL_Globals(void)
 {
 	g_PlayerProfile = PlayerProfile::Load_Default();
@@ -1300,7 +1423,7 @@ void Reset_WOL_Globals(void)
 
 	g_IgnoreNetStatus = false;
 	g_ShowMOTD = true;
-	g_Motd.clear();
+	g_MessageOfTheDay.clear();
 
 	memset(&g_WaitEventHandles, 0, sizeof(g_WaitEventHandles));
 
@@ -1335,8 +1458,8 @@ void Reset_WOL_Globals(void)
 
 	g_SquadInfoRequests = 0;
 	g_RequestingOwnSquadInfo = 0;
-	g_OwnSquadID = 0;
 	memset(g_OwnSquadName, 0, 41);
+	g_OwnSquadID = 0;
 
 	g_ChannelCount = 0;
 
@@ -1344,7 +1467,7 @@ void Reset_WOL_Globals(void)
 
 	g_JoinLobbyNow = 0;
 
-	g_ChanListQueue.setEmpty();
+	g_ChanListQueue.clear();
 
 	WolOptionsLocked = 0;
 
@@ -1358,10 +1481,7 @@ void Reset_WOL_Globals(void)
 
 	ManglerIndex = 0;
 }
-#endif
 
-
-#if 0
 void Refresh_Lobby_List(void)
 {
 	HWND dialog = WS_Find_Dialog(0x113);
@@ -1413,8 +1533,6 @@ void Refresh_Lobby_List(void)
 	SendMessageA(list, OD_DISABLEPAINT, 0, 0);
 	InvalidateRect(list, NULL, false);
 }
-#endif
-
 
 WideWstring Get_Locale_Name(int locale)
 {
@@ -1427,7 +1545,6 @@ WideWstring Get_Locale_Name(int locale)
 	}
 }
 
-#if 0
 WideWstring User_Tooltip(User const & user)
 {
 	Wstring name((char *)user.name);
@@ -1453,8 +1570,6 @@ WideWstring User_Tooltip(User const & user)
 	}
 	return(text);
 }
-#endif
-
 
 WideWstring Get_Mission_Description(Wstring const & filename)
 {
@@ -1470,7 +1585,6 @@ WideWstring Get_Mission_Description(Wstring const & filename)
 	return(WideWstring(L""));
 }
 
-#if 0
 WideWstring Game_List_Tooltip(HWND list, int row)
 {
 	if (row == -1) {
@@ -1515,10 +1629,7 @@ WideWstring Game_List_Tooltip(HWND list, int row)
 	}
 	return(WideWstring(StringTable::LoadString("STT:LobbyListGames", NULL, "D:\\Ra2\\wonline.cpp", 2729)));
 }
-#endif
 
-
-#if 0
 WideWstring User_List_Tooltip(HWND list, int row)
 {
 	if (row == -1) {
@@ -1533,10 +1644,7 @@ WideWstring User_List_Tooltip(HWND list, int row)
 	}
 	return(WideWstring(StringTable::LoadString("STT:LobbyListUsers", NULL, "D:\\Ra2\\wonline.cpp", 2790)));
 }
-#endif
 
-
-#if 0
 void Refresh_Game_List(void)
 {
 	HWND dialog = WS_Find_Dialog(0x113);
@@ -1652,10 +1760,7 @@ void Refresh_Game_List(void)
 	InvalidateRect(list, NULL, false);
 	if (dialog == WS_Top_Window()) SetFocus(GetDlgItem(dialog, 0x540));
 }
-#endif
 
-
-#if 0
 void Draw_Player_List(int keep_selection, bool force)
 {
 	HWND win = GameoptWindow();
@@ -1942,28 +2047,93 @@ void Draw_Player_List(int keep_selection, bool force)
 	SendDlgItemMessageA(win, 0x53E, OD_DISABLEPAINT, 0, 0);
 	InvalidateRect(GetDlgItem(win, 0x53E), NULL, 0);
 }
+
+
+#ifdef RA2_NON_MATCHING // not exact: the chat event sinks are ATL classes (no ATL headers here)
+class CChatEventSink : public CComObjectRoot, public IChatEvent
+{
+	public:
+		CChatEventSink(void) {}
+		BEGIN_COM_MAP(CChatEventSink)
+		COM_INTERFACE_ENTRY(IChatEvent)
+		END_COM_MAP()
+		STDMETHOD(OnServerList)(HRESULT res, Server *servers);
+		STDMETHOD(OnUpdateList)(HRESULT res, Update *updates);
+		STDMETHOD(OnServerError)(HRESULT res, LPCSTR ircmsg);
+		STDMETHOD(OnConnection)(HRESULT res, LPCSTR motd);
+		STDMETHOD(OnMessageOfTheDay)(HRESULT res, LPCSTR motd);
+		STDMETHOD(OnChannelList)(HRESULT res, Channel *channels);
+		STDMETHOD(OnChannelCreate)(HRESULT res, Channel *channel);
+		STDMETHOD(OnChannelJoin)(HRESULT res, Channel *channel, User *user);
+		STDMETHOD(OnChannelLeave)(HRESULT res, Channel *channel, User *user);
+		STDMETHOD(OnChannelTopic)(HRESULT res, Channel *channel, LPCSTR topic);
+		STDMETHOD(OnPrivateAction)(HRESULT res, User *user, LPCSTR action);
+		STDMETHOD(OnPublicAction)(HRESULT res, Channel *channel, User *user, LPCSTR action);
+		STDMETHOD(OnUserList)(HRESULT res, Channel *channel, User *users);
+		STDMETHOD(OnPublicMessage)(HRESULT res, Channel *channel, User *user, LPCSTR message);
+		STDMETHOD(OnPrivateMessage)(HRESULT res, User *user, LPCSTR message);
+		STDMETHOD(OnSystemMessage)(HRESULT res, LPCSTR message);
+		STDMETHOD(OnNetStatus)(HRESULT res);
+		STDMETHOD(OnLogout)(HRESULT status, User *user);
+		STDMETHOD(OnPrivateGameOptions)(HRESULT res, User *user, LPCSTR options);
+		STDMETHOD(OnPublicGameOptions)(HRESULT res, Channel *channel, User *user, LPCSTR options);
+		STDMETHOD(OnGameStart)(HRESULT res, Channel *channel, User *users, int gameid);
+		STDMETHOD(OnUserKick)(HRESULT res, Channel *channel, User *kicked, User *kicker);
+		STDMETHOD(OnUserIP)(HRESULT res, User *user);
+		STDMETHOD(OnFind)(HRESULT res, Channel *chan);
+		STDMETHOD(OnPageSend)(HRESULT res);
+		STDMETHOD(OnPaged)(HRESULT res, User *user, LPCSTR message);
+		STDMETHOD(OnServerBannedYou)(HRESULT res, time_t bannedTill);
+		STDMETHOD(OnUserFlags)(HRESULT res, LPCSTR name, unsigned int flags, unsigned int mask);
+		STDMETHOD(OnChannelBan)(HRESULT res, LPCSTR name, int banned);
+		STDMETHOD(OnSquadInfo)(HRESULT res, unsigned long id, Squad *squad);
+		STDMETHOD(OnUserLocale)(HRESULT res, User *users);
+		STDMETHOD(OnUserTeam)(HRESULT res, User *users);
+		STDMETHOD(OnSetLocale)(HRESULT res, Locale newlocale);
+		STDMETHOD(OnSetTeam)(HRESULT res, int newteam);
+};
+
+class CNetUtilEventSink : public CComObjectRoot, public INetUtilEvent
+{
+	public:
+		CNetUtilEventSink(void) {}
+		BEGIN_COM_MAP(CNetUtilEventSink)
+		COM_INTERFACE_ENTRY(INetUtilEvent)
+		END_COM_MAP()
+		STDMETHOD(OnPing)(HRESULT res, int time, unsigned long ip, int handle);
+		STDMETHOD(OnLadderList)(HRESULT res, Ladder *list, int totalCount, long timeStamp, int keyRung);
+		STDMETHOD(OnGameresSent)(HRESULT res);
+		STDMETHOD(OnNewNick)(HRESULT res, LPCSTR message, LPCSTR nick, LPCSTR pass);
+		STDMETHOD(OnAgeCheck)(HRESULT res, int years, int consent);
+		STDMETHOD(OnWDTState)(HRESULT res, unsigned char *state, int length);
+};
+
+class CDownloadEventSink : public CComObjectRoot, public IDownloadEvent
+{
+	public:
+		CDownloadEventSink(void) {}
+		BEGIN_COM_MAP(CDownloadEventSink)
+		COM_INTERFACE_ENTRY(IDownloadEvent)
+		END_COM_MAP()
+		STDMETHOD(OnEnd)(void);
+		STDMETHOD(OnError)(int error);
+		STDMETHOD(OnProgressUpdate)(int bytesread, int totalsize, int timetaken, int timeleft);
+		STDMETHOD(OnQueryResume)(void);
+		STDMETHOD(OnStatusUpdate)(int status);
+};
+
+CComObject<CChatEventSink> * g_pChatSink;
+CComObject<CNetUtilEventSink> * g_pNetUtilSink;
+CComObject<CDownloadEventSink> * g_pDownloadSink;
 #endif
 
-
-
-
-
-
-
-
-
-
-
-#if 0
 void Redraw_Player_List(void)
 {
 	Draw_Player_List(0, false);
 }
-#endif
 
 
-
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: needs the ATL module and CComObject
 int Startup_Chat(HINSTANCE hInstance)
 {
 	HRESULT hresult = NULL;
@@ -2034,7 +2204,6 @@ int Startup_Chat(HINSTANCE hInstance)
 }
 #endif
 
-
 /// <summary>
 /// Determines the sort order of two channel users.
 /// Channel owners come first, then users with voice, then everyone else; equals are listed
@@ -2065,6 +2234,14 @@ int Compare_Users(User * u1, User * u2)
 
 #include "multiplayer.h"
 
+namespace OwnerDraw { BOOL __stdcall Set_Paint_Disabled(HWND window, LPARAM lparam); }
+void __fastcall Set_Player_Ping(HWND dialog, int player, int ping);
+void __fastcall Enable_Start_Button(void);
+void __fastcall Release_Slot_By_Name(char const * name);
+int Join_Selected_Lobby(bool join);
+int Pick_Lobby(bool require_room);
+void __fastcall Store_User_Ping(char const * name, int ping);
+int g_PlayerPings[8];
 
 /// <summary>
 /// Handles a user leaving the current channel. If the departing user is ourselves, resets all
@@ -2073,7 +2250,6 @@ int Compare_Users(User * u1, User * u2)
 /// game-options acceptance state before refreshing the user list display.
 /// </summary>
 /// <param name="user">The user who left the channel.</param>
-#if 0
 void Handle_User_Leave(User & user)
 {
 	stricmp(g_NickName.get(), (char *)user.name);
@@ -2104,18 +2280,7 @@ void Handle_User_Leave(User & user)
 		memset(g_UserInfo, 0, sizeof(ChannelUserInfo) * 16);
 		g_UserList.clear();
 		g_IsChannelCreator = 0;
-		HWND wait_dlg = WS_Find_Dialog(0xC4);
-		if (wait_dlg) {
-			g_ActiveWaitFlags &= ~0x40;
-			if (g_ActiveWaitFlags == 0) {
-				WS_Destroy_Dialog(wait_dlg, 0);
-			}
-		}
-		HWND top = WS_Top_Window();
-		HWND control = GetDlgItem(top, 0x540);
-		if (control) {
-			SetFocus(control);
-		}
+		Close_Wait_Window(0x40);
 
 		++Session.Suspended;
 		Session.Options.ScenarioDescription[0] = 0;
@@ -2255,24 +2420,17 @@ void Handle_User_Leave(User & user)
 	}
 	Draw_Player_List(0, false);
 }
-#endif
 
+bool g_WOLInitialized;
+void __fastcall Free_Lobby_Entries(void);
 
-
-#if 0
 static inline void Reset_Wait_Event_At(int index) { ResetEvent(g_WaitEventHandles[index]); }
-#endif
-
-#if 0
 static inline void Reset_All_Wait_Events(void) { for (int i = 0; i < EV_COUNT; i++) { Reset_Wait_Event_At(i); } }
-#endif
-
 /// <summary>
 /// Logs the local player out of the WOL chat session. Sends a logout request to the Chat
 /// interface and waits (with timeout retries) for it to complete or be aborted, then, for
 /// World Domination Tour sessions, also closes the event handles and fully shuts down chat.
 /// </summary>
-#if 0
 void Logout_WOnline(void)
 {
 	int i;
@@ -2311,14 +2469,12 @@ void Logout_WOnline(void)
 		Close_Wait_Window(0x20);
 	}
 }
-#endif
 
-
+#ifdef RA2_NON_MATCHING // not exact: needs the ATL module
 /// <summary>
 /// Tears down the WOL COM interfaces: unadvises each event sink, releases the Chat, NetUtil,
 /// and Download interfaces, clears the global pointers, and terminates the ATL module.
 /// </summary>
-#if 0
 void Shutdown_Chat(void)
 {
 	if (MultiplayerMapPreview) {
@@ -2353,7 +2509,8 @@ void Shutdown_Chat(void)
 }
 #endif
 
-
+char g_WDTHost[128];
+int g_WDTPort;
 
 /// <summary>
 /// Requests the World Domination Tour state.
@@ -2363,7 +2520,6 @@ void Shutdown_Chat(void)
 /// </summary>
 /// <returns>Returns with true if a request was issued, or false if there is no NetUtil connection
 /// to issue it on.</returns>
-#if 0
 bool Get_WDT_State_Silent(void)
 {
 	DWORD value = 0;
@@ -2387,16 +2543,16 @@ bool Get_WDT_State_Silent(void)
 
 	if (g_pNetUtil != NULL) {
 		DebugString("Get_WDT_State_Silent: WDTHost is %s, port is %d\n", g_WDTHost, g_WDTPort);
-		g_pNetUtil->RequestWDTState(g_WDTHost, g_WDTPort, 3 /* RA2: everything, as WDT_REQ_STATE_EVERYTHING of wdtnet.h */);
+		g_pNetUtil->RequestWDTState(g_WDTHost, g_WDTPort, 3);
 		return(true);
 	}
 	return(false);
 }
-#endif
 
+void __fastcall Init_Lobby_Entries(void);
+void __fastcall Clear_Slot_Lists(void);
+void __fastcall Reset_Slots(void);
 
-
-#if 0
 int Init_Wonline(void)
 {
 	if (g_WOLInitialized) return(1);
@@ -2429,1500 +2585,4 @@ int Init_Wonline(void)
 	}
 	return(Startup_Chat(ProgramInstance));
 }
-#endif
-
-
-#include "wolopt.h"
-
-namespace OwnerDraw {
-
-
-}
-
-
-
-#if 0
-static inline char Get_Locale_Pointer(Wstring const & name, int ** value) { return g_UserLocales.getPointer(name, value); }
-#endif
-
-
-#if 0
-static inline int Ask_Locale(void)
-{
-	SimpleWonlineDialogControl control;
-	int answer = Run_Dialog_Control(0xFE, Locale_Dialog_Proc, &control);
-	if (answer < 0) {
-		return(0);
-	}
-	return(answer);
-}
-#endif
-
-
-
-#if 0
-bool Connect_To_Server(Server * server)
-{
-	strcpy((char *)server->login, g_NickName.get());
-	strcpy((char *)server->password, g_LoginPassword.get());
-	for (int i = 0; i < EV_COUNT; i++) {
-		ResetEvent(g_WaitEventHandles[i]);
-	}
-	{
-		WideWstring connecting(StringTable::LoadString("TXT_CONNECTING_SERVER", NULL, "D:\\Ra2\\wonline.cpp", 8397));
-		Show_Wait_Window(0x10, connecting, false);
-	}
-	g_pChat->RequestConnection(server, 20, ((int &)g_PlaintextPassword) & 0xFF);
-
-	int attempts = 20;
-	for (;;) {
-		int remaining = 30000;
-		DWORD event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100);
-		while (event == WAIT_TIMEOUT) {
-			remaining -= 100;
-			if (remaining <= 0) {
-				goto connect_failed;
-			}
-			WOL_Wait_Callback();
-			event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100);
-		}
-		{
-			ResetEvent(g_WaitEventHandles[event]);
-			if (event == EV_ABORT) {
-				Close_Wait_Window(0xFFFFFFFF);
-				return(false);
-			}
-			if (event == EV_ERROR) {
-				ODMessageBox(StringTable::LoadString("TXT_CANT_CONNECT", NULL, "D:\\Ra2\\wonline.cpp", 8410), 0, Wait_Callback_Thunk);
-				Close_Wait_Window(0xFFFFFFFF);
-				return(false);
-			}
-		}
-		if (event == EV_COUNT) {
-connect_failed:
-			Close_Wait_Window(0xFFFFFFFF);
-			return(false);
-		}
-		if (attempts-- < 0) {
-			ODMessageBox(StringTable::LoadString("TXT_CANT_CONNECT", NULL, "D:\\Ra2\\wonline.cpp", 8417), 0, Wait_Callback_Thunk);
-			Close_Wait_Window(0xFFFFFFFF);
-			return(false);
-		}
-		if (event == EV_CONNECTED) {
-			break;
-		}
-	}
-	Close_Wait_Window(0xFFFFFFFF);
-	g_pChat->SetClientVersion(0x1000E);
-	g_IgnoreNetStatus = false;
-	Session.Read_MultiPlayer_Settings();
-
-	WOLOptionsClass options;
-	options.Load();
-	rc_ptr<PlayerProfile> profile;
-	if (options.Is_Bit1_Clear()) {
-		profile = PlayerProfile::Load(g_NickName);
-	} else {
-		profile = g_PlayerProfile.Get();
-	}
-	if (Online_Session_State == 3 || Online_Session_State == 4) {
-		{
-			Wstring name(Server_Name_Without_Prefix(server));
-			profile->SetName(&name);
-		}
-		if (options.Is_Bit1_Clear()) {
-			profile->Save(&g_NickName);
-		}
-	}
-	strcpy(Session.Handle, g_NickName.get());
-	Session.Set_Side(profile->Country, false);
-	Session.Set_Color(profile->Color, false);
-	Session.Write_MultiPlayer_Settings();
-	WOL_Set_Last_Valid_Persona(g_NickName);
-	if (g_pNetUtil && strlen(g_LadderAddress)) {
-		g_pNetUtil->RequestLadderList(g_LadderAddress, g_LadderPort, g_NickName.get(), g_GameSKU & 0xFFFF00, -1, 0, 0);
-	}
-	for (int j = 0; j < EV_COUNT; j++) {
-		ResetEvent(g_WaitEventHandles[j]);
-	}
-	User user;
-	memset(&user, 0, sizeof(user));
-	strcpy((char *)user.name, g_NickName.get());
-	g_pChat->RequestUserLocale(&user);
-	for (;;) {
-		int remaining = 30000;
-		DWORD event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100);
-		while (event == WAIT_TIMEOUT) {
-			remaining -= 100;
-			if (remaining <= 0) {
-				goto locale_wait_failed;
-			}
-			WOL_Wait_Callback();
-			event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100);
-		}
-		{
-			ResetEvent(g_WaitEventHandles[event]);
-			if (event == EV_ABORT) {
-				Close_Wait_Window(0xFFFFFFFF);
-				break;
-			}
-			if (event == EV_ERROR) {
-				ODMessageBox(StringTable::LoadString("TXT_WDT_NET_ERR", NULL, "D:\\Ra2\\wonline.cpp", 8501), 0, Wait_Callback_Thunk);
-				Close_Wait_Window(0xFFFFFFFF);
-				break;
-			}
-		}
-		if (event == EV_COUNT) {
-locale_wait_failed:
-			Close_Wait_Window(0xFFFFFFFF);
-			break;
-		}
-		if (event == EV_LOCALE) {
-			break;
-		}
-	}
-
-	Wstring const & nick_source = g_NickName;
-	Wstring nick = nick_source.toLower();
-	if (g_UserLocales.contains(nick)) {
-		int locale = 0;
-		int * value = NULL;
-		if (Get_Locale_Pointer(nick, &value) && value != NULL) {
-			locale = *value;
-		}
-		if (locale != 0) {
-			if (profile.Get() != NULL && profile->Locale != locale) {
-				if (profile->Locale == 0) {
-					profile->SetLocale(locale, 2);
-					profile->Save(&g_NickName);
-				}
-				locale = profile->Locale;
-				g_pChat->RequestSetLocale((Locale)locale);
-				g_pChat->RequestUserLocale(&user);
-				g_UserLocales.updateValue(nick, locale);
-			}
-			return(true);
-		}
-	}
-	int chosen = 0;
-	if (profile.Get() == NULL || (chosen = profile->Locale) == 0) {
-		chosen = Ask_Locale();
-		if (profile.Get() != NULL) {
-			profile->SetLocale(chosen, 3);
-			profile->Save(&g_NickName);
-		}
-	}
-	if (chosen != 0) {
-		g_pChat->RequestSetLocale((Locale)chosen);
-		g_pChat->RequestUserLocale(&user);
-		int stored = chosen;
-		g_UserLocales.updateValue(nick, stored);
-	}
-	return(true);
-}
-#endif
-
-
-
-#if 0
-bool Connect_To_Selected_Server(void)
-{
-	if (g_CurrentServerIndex >= 1 && g_CurrentServerIndex < g_Servers.length()) {
-		Server * server = NULL;
-		g_Servers.getPointer(&server, g_CurrentServerIndex);
-		return(Connect_To_Server(server));
-	}
-	return(false);
-}
-#endif
-
-
-#if 0
-bool Recall_Stored_Login(Wstring const & name)
-{
-	g_LoginPassword.clear();
-	for (int index = 1; index <= 32; index++) {
-		char const * nickname;
-		char const * password;
-		if (g_pChat->GetNick(index, &nickname, &password) == 0 && nickname && strlen(nickname) && !stricmp(name.text(), nickname)) {
-			g_NickName = nickname;
-			g_LoginPassword = password;
-			g_PlaintextPassword = false;
-			return(true);
-		}
-	}
-	g_NickName.clear();
-	return(false);
-}
-#endif
-
-
-#if 0
-int Find_Server_Suffix(Wstring const & name)
-{
-	if (name.length() != 0) {
-		for (int i = 1; i < g_Servers.length(); i++) {
-			Server * server = NULL;
-			g_Servers.getPointer(&server, i);
-			char * separator = strchr((char *)server->name, ':');
-			if (separator && *separator && name == (separator + 1)) {
-				return(i);
-			}
-		}
-	}
-	return(-1);
-}
-#endif
-
-
-static const HRESULT CHAT_E_BANNED = (HRESULT)0x80040072;
-static const HRESULT CHAT_E_DISABLED = (HRESULT)0x80040074;
-static const HRESULT CHAT_E_SERIALBANNED = (HRESULT)0x80040075;
-static const HRESULT CHAT_E_SERIALDUP = (HRESULT)0x80040076;
-static const HRESULT CHAT_E_SERIALUNKNOWN = (HRESULT)0x80040077;
-static const HRESULT CHAT_E_SKUSERIALMISMATCH = (HRESULT)0x80040078;
-
-#if 0
-bool Handle_Connection_Error(void)
-{
-	bool handled = false;
-	char url[260];
-	if (g_OnConnectionResult == CHAT_E_SERIALUNKNOWN || g_OnConnectionResult == CHAT_E_SKUSERIALMISMATCH || g_OnConnectionResult == CHAT_E_BANNED || g_OnConnectionResult == CHAT_E_DISABLED || g_OnConnectionResult == CHAT_E_SERIALBANNED || g_OnConnectionResult == CHAT_E_SERIALDUP) {
-		handled = true;
-		if (ODMessageBox(g_LastErrorMessage, 4, Wait_Callback_Thunk, false) == 6) {
-			int language = g_LanguageCode;
-			switch (g_OnConnectionResult) {
-			case CHAT_E_SERIALUNKNOWN: sprintf(url, "http://apiregister.westwood.com/support/serialunknown_%d.html", language); break;
-			case CHAT_E_SKUSERIALMISMATCH: sprintf(url, "http://apiregister.westwood.com/support/skuserialmismatch_%d.html", language); break;
-			case CHAT_E_BANNED: sprintf(url, "http://apiregister.westwood.com/support/banned_%d.html", language); break;
-			case CHAT_E_DISABLED: sprintf(url, "http://apiregister.westwood.com/support/disabled_%d.html", language); break;
-			case CHAT_E_SERIALBANNED: sprintf(url, "http://apiregister.westwood.com/support/serialbanned_%d.html", language); break;
-			case CHAT_E_SERIALDUP: sprintf(url, "http://apiregister.westwood.com/support/serialdup_%d.html", language); break;
-			}
-			ViewHTML(url, 1);
-		}
-	} else {
-		ODMessageBox(g_LastErrorMessage, 0, Wait_Callback_Thunk, false);
-	}
-	return(handled);
-}
-#endif
-
-
-#if 0
-void Close_Wait_Window(unsigned int event)
-{
-	HWND win = WS_Find_Dialog(196);
-	if (win) {
-		g_ActiveWaitFlags &= ~event;
-		if (g_ActiveWaitFlags == 0) {
-			WS_Destroy_Dialog(win, 0);
-		}
-	}
-	HWND top = WS_Top_Window();
-	HWND control = GetDlgItem(top, 1344);
-	if (control) {
-		SetFocus(control);
-	}
-}
-#endif
-
-
-#if 0
-void Reset_Wait_Events(void)
-{
-	for (int i = 0; i < EV_COUNT; i++) {
-		ResetEvent(g_WaitEventHandles[i]);
-	}
-}
-#endif
-
-
-
-#include "ccfile.h"
-#include "mixfile.h"
-#include "_pk.h"
-#include "wdtnet.h"
-
-#if 0
-int Pick_Lobby(bool require_room)
-{
-	int count = g_UserChannels.length();
-	Channel channel;
-	memset(&channel, 0, sizeof(channel));
-	char section[32];
-	char entry[32];
-	char fallback[32];
-	char name[32];
-	wchar_t territory[32];
-	if (Session.Type == GAME_INTERNET && Online_Session_State == 2) {
-		memset(section, 0, sizeof(section));
-		memset(territory, 0, 32);
-		memset(entry, 0, sizeof(entry));
-		memset(fallback, 0, sizeof(fallback));
-		MixFileClass * archive = new MixFileClass("WDT.MIX", &FastKey);
-		{
-			INIClass ini;
-			CCFileClass file("WDTMAP.INI");
-			ini.Load(file, false);
-			sprintf(entry, "Territory%02d", Session.TournamentTerritory);
-			strcpy(fallback, entry);
-			if (Current_WDT_State()->MapID == 0) {
-				ini.Get_String("NorthAmerica", entry, fallback, section, sizeof(section));
-			} else {
-				ini.Get_String("Europe", entry, fallback, section, sizeof(section));
-			}
-			ini.Get_String(section, "Name", "A territory", name, sizeof(name));
-			Char_To_Wide(territory, name, -1);
-			g_TerritoryName = _wcsdup(territory);
-			delete archive;
-		}
-	}
-	Wstring lobby_name = Wstring("Lob_33_") + Wstring_FromInt(g_LobbyNumber, 1);
-	int i;
-	for (i = 0; i < count; i++) {
-		g_UserChannels.get(channel, i);
-		if (Session.Type == GAME_INTERNET && Online_Session_State == 2) {
-			if (wcscmp((wchar_t const *)g_Lobbies[i], territory) != 0) {
-				continue;
-			}
-			if (!require_room || (int)channel.currentUsers <= 25) {
-				return(i);
-			}
-		}
-		Wstring channel_name((char const *)channel.name);
-		if (channel_name == lobby_name) {
-			if (!require_room || (int)channel.currentUsers <= 25) {
-				return(i);
-			}
-		}
-	}
-	int best = -1;
-	unsigned int smallest = 10000;
-	for (i = 0; i < count; i++) {
-		g_UserChannels.get(channel, i);
-		if (Session.Type == GAME_INTERNET && Online_Session_State == 2) {
-			if (wcsncmp((wchar_t const *)g_Lobbies[i], territory, wcslen(territory)) != 0) {
-				continue;
-			}
-			if (!require_room || (int)channel.currentUsers <= 25) {
-				g_LobbyNumber = atol((char const *)channel.name + strlen("Lob_33_"));
-				return(i);
-			}
-			if (channel.currentUsers < smallest) {
-				best = i;
-				smallest = channel.currentUsers;
-			}
-		}
-		if (strncmp((char const *)channel.name, "Lob_33_", strlen("Lob_33_")) == 0) {
-			if (!require_room || (int)channel.currentUsers <= 25) {
-				g_LobbyNumber = atol((char const *)channel.name + strlen("Lob_33_"));
-				return(i);
-			}
-			if (channel.currentUsers < smallest) {
-				best = i;
-				smallest = channel.currentUsers;
-			}
-		}
-	}
-	if (best != -1) {
-		g_UserChannels.get(channel, best);
-		g_LobbyNumber = atol((char const *)channel.name + strlen("Lob_33_"));
-	}
-	return(best);
-}
-#endif
-
-
-#if 0
-bool Leave_Current_Channel(unsigned int event, bool block)
-{
-	if (g_ChannelCount) {
-		DebugString("Leave_Channel, channel %s type %d\n", g_CurrentChannel.name, g_CurrentChannel.type);
-		g_pChat->RequestChannelLeave();
-		{
-			WideWstring title(StringTable::LoadString("WOL:LeavingChannel", NULL, "D:\\Ra2\\wonline.cpp", 9379));
-			Show_Wait_Window(event, title, block);
-		}
-		for (int i = 0; g_ChannelCount && i < 150; i++) {
-			Sleep(100);
-			WOL_Wait_Callback();
-		}
-		Close_Wait_Window(0x40);
-	}
-	return(g_ChannelCount == 0);
-}
-#endif
-
-
-#if 0
-int Request_Channel_Join(Channel * channel, Wstring const & password, WideWstring title)
-{
-	char const * name = (char const *)channel->name;
-	if (strcmp(name, (char const *)g_CurrentChannel.name) && strcmp(name, (char const *)g_PendingChannel.name)) {
-		if (g_ChannelCount) {
-			DebugString("Leave_Channel, channel %s type %d\n", g_CurrentChannel.name, g_CurrentChannel.type);
-			g_pChat->RequestChannelLeave();
-			{
-				WideWstring leaving(StringTable::LoadString("WOL:LeavingChannel", NULL, "D:\\Ra2\\wonline.cpp", 9379));
-				Show_Wait_Window(0x40, leaving, true);
-			}
-			for (int i = 0; g_ChannelCount && i < 150; i++) {
-				Sleep(100);
-				WOL_Wait_Callback();
-			}
-			Close_Wait_Window(0x40);
-			if (g_ChannelCount) {
-				return(1);
-			}
-		}
-		strcpy((char *)channel->key, password.text());
-		g_PendingChannel = *channel;
-		{
-			WideWstring message(title.text());
-			Show_Wait_Window(2, message, false);
-		}
-		DebugString("Requesting channel join %s\n", name);
-		return g_pChat->RequestChannelJoin(channel);
-	}
-	return(0);
-}
-#endif
-
-
-#if 0
-int Join_Selected_Lobby(bool join)
-{
-	int choice = Pick_Lobby(join);
-	if (choice != -1) {
-		Channel channel;
-		g_UserChannels.get(channel, choice);
-		int result;
-		{
-			Wstring password("zotclot9");
-			result = Request_Channel_Join(&channel, password, WideWstring(StringTable::LoadString("TXT_JOINLOB", NULL, "D:\\Ra2\\wonline.cpp", 9428)));
-		}
-		if (!result) {
-			HWND dialog = WS_Find_Dialog(0x113);
-			if (dialog) {
-				SetFocus(GetDlgItem(dialog, 1344));
-			}
-			Refresh_Game_List();
-			return(choice);
-		}
-	}
-	Refresh_Game_List();
-	return(-1);
-}
-#endif
-
-
-#if 0
-int Save_Nickname(char const * name, char const * password, bool mangle, int locale)
-{
-	int slot = 0;
-	char const * nick;
-	char const * stored;
-	for (int i = 1; i <= 32; i++) {
-		nick = NULL;
-		stored = NULL;
-		if (g_pChat->GetNick(i, &nick, &stored) == 0 && nick && !strcmp(nick, name)) {
-			slot = i;
-			break;
-		}
-	}
-	if (slot == 0) {
-		for (int i = 1; i <= 32; i++) {
-			nick = NULL;
-			stored = NULL;
-			if (g_pChat->GetNick(i, &nick, &stored) != 0 || !nick || strlen(nick) == 0) {
-				slot = i;
-				break;
-			}
-		}
-	}
-	if (slot == 0) {
-		int next = Session.LastNicknameSlot;
-		if (next == -1) {
-			next = 1;
-		}
-		slot = next++;
-		Session.LastNicknameSlot = next;
-		if (next > 32) {
-			Session.LastNicknameSlot = 1;
-		}
-	}
-	if (slot) {
-		g_pChat->SetNick(slot, name, password, mangle);
-		g_pChat->SetNickLocale(slot, (Locale)locale);
-	}
-	return(slot);
-}
-#endif
-
-
-#if 0
-Wstring Server_Name_Without_Prefix(Server const * server)
-{
-	Wstring name((char const *)server->name);
-	Wstring token;
-	int position = name.getToken(0, ":", token);
-	if (position >= 0) {
-		name.remove(0, position + 1);
-	}
-	return(name);
-}
-#endif
-
-
-#define OD_ADDSTRING_COMBO (WM_USER + 188)
-#define OD_ADDSTRING_LIST (WM_USER + 200)
-
-#if 0
-bool Populate_Server_Choices(HWND list, bool combo)
-{
-	if (combo) {
-		Clear_ComboBox(list);
-	} else {
-		Clear_Listbox(list);
-	}
-	if (g_Servers.length() == 1) {
-		if (combo) {
-			SendMessage(list, OD_ADDSTRING_COMBO, 0, (LPARAM)"GUI:NoServersAvailable");
-		} else {
-			SendMessage(list, OD_ADDSTRING_LIST, 0, (LPARAM)"GUI:NoServersAvailable");
-		}
-		EnableWindow(list, FALSE);
-		return(false);
-	}
-	Wstring preferred;
-	WOLOptionsClass options;
-	options.Load();
-	rc_ptr<PlayerProfile> profile;
-	if (options.Is_Bit1_Clear()) {
-		profile = PlayerProfile::Load(g_NickName);
-	} else {
-		profile = g_PlayerProfile.Get();
-	}
-	if (profile.Get()) {
-		preferred = profile->Name;
-	}
-	EnableWindow(list, TRUE);
-	int selected = -1;
-	for (int i = 1; i < g_Servers.length(); i++) {
-		Server * server = NULL;
-		g_Servers.getPointer(&server, i);
-		DebugString("Server found %s\n", (char *)server->name);
-		Wstring display = Server_Name_Without_Prefix(server);
-		int row;
-		if (combo) {
-			row = SendMessage(list, OD_ADDSTRING_COMBO, 0, (LPARAM)display.text());
-			SendMessage(list, CB_SETITEMDATA, row, i);
-		} else {
-			row = SendMessage(list, OD_ADDSTRING_LIST, 0, (LPARAM)display.text());
-			SendMessage(list, LB_SETITEMDATA, row, i);
-		}
-		if (preferred.length() > 0) {
-			bool match = ((Wstring const &)preferred).toLower() == ((Wstring const &)display).toLower();
-			if (match) {
-				selected = row;
-				g_CurrentServerIndex = i;
-				g_TargetServerIndex = i;
-			}
-		}
-	}
-	if (selected == -1) {
-		selected = 0;
-	}
-	if (combo) {
-		SendMessage(list, CB_SETCURSEL, selected, 0);
-	} else {
-		SendMessage(list, LB_SETCURSEL, selected, 0);
-		SendMessage(list, LB_SETTOPINDEX, selected, 0);
-	}
-	return(true);
-}
-#endif
-
-
-
-#include "misc.h"
-
-#if 0
-bool __fastcall Join_Game_Channel(Channel const * channel, bool observer)
-{
-	if (!Can_Join_Channel(channel, true, observer)) {
-		return(false);
-	}
-	unsigned int mode = channel->reserved;
-	int maximum = (mode & 0x400) ? 800 : ((mode & 0x200) ? 640 : 1024);
-	if (VideoModeWidth > maximum) {
-		{
-			WideWstring warning((mode & 0x400) ? StringTable::LoadString("WOL:ResolutionLimited800", NULL, "D:\\Ra2\\wonline.cpp", 10143) : StringTable::LoadString("WOL:ResolutionLimited640", NULL, "D:\\Ra2\\wonline.cpp", 10144));
-			if (ODMessageBox(warning.get(), 4, Wait_Callback_Thunk, true) == 6) {
-				int width = (maximum == 800) ? 800 : 640;
-				int height = (width == 800) ? 600 : 480;
-				if (Test_Display_Mode_Dialog(width, height)) {
-					Options.ScreenWidth = width;
-					Options.ScreenHeight = height;
-					Options.Save_Settings();
-				}
-			}
-		}
-		if (VideoModeWidth > maximum) {
-			return(false);
-		}
-	}
-	Wstring password;
-	if (channel->flags & 0x100) {
-		Darken_Surface(NULL, true);
-		WonlineStringDialogControl control;
-		if (Run_Dialog_Control(0xE1, (DLGPROC)Wonline_Password_Dialog_Proc, &control) == 2) {
-			return(false);
-		}
-		password = control.Text;
-		password.replace(" ", "_");
-	}
-	return(Request_Channel_Join((Channel *)channel, password, WideWstring(StringTable::LoadString("TXT_JOINLOB", NULL, "D:\\Ra2\\wonline.cpp", 10199))) == 0);
-}
-#endif
-
-
-
-#if 0
-void Update_Channel_Player_Limit(void)
-{
-	int limit = Get_Scenario_Slot_Limit(Session.Options.ScenarioIndex);
-	if (ObserverMode == 1) {
-		++limit;
-	}
-	int fixed_slots = 0;
-	int open_slots = 0;
-	int player_slots = 0;
-	int i = 1;
-	for (; i < limit; ++i) {
-		NodeNameType * entry = Session.Slots[i];
-		if (entry != LobbyEntries[0] && entry != LobbyEntries[6]) {
-			if (Is_Real_Player_Entry(entry)) {
-				++fixed_slots;
-			} else if (Is_AI_Entry(entry)) {
-				++player_slots;
-			}
-		} else {
-			++open_slots;
-		}
-	}
-	for (; i < 8; ++i) {
-		NodeNameType * entry = Session.Slots[i];
-		if (entry == LobbyEntries[6]) {
-			++open_slots;
-		} else if (Is_Real_Player_Entry(entry)) {
-			++fixed_slots;
-		}
-	}
-	if (g_pChat) {
-		int capacity = open_slots + fixed_slots + 1;
-		Wstring command = Wstring("mode #") + Wstring((char const *)g_CurrentChannel.name) + Wstring(" +l ") + Wstring_FromInt(capacity) + Wstring("\r\n");
-		g_pChat->RequestRawMessage(command.get());
-		char info[80];
-		memset(info, 0, sizeof(info));
-		Encode_Channel_ExInfo(info);
-		info[40] = 0;
-		g_pChat->SetChannelExInfo(info);
-		g_pChat->Unknown_Virtual_FC(1, capacity + player_slots);
-	}
-}
-#endif
-
-
-
-#if 0
-wchar_t * __fastcall Player_Ping_Tooltip(wchar_t const * name)
-{
-	int ping = g_PlayerPings[Find_Slot_By_Name(name)];
-	if (ping < 0) {
-		swprintf(g_PingTooltip, StringTable::LoadString("TXT_LATENCY_ICON_TOOLTIP_NOPING", NULL, "D:\\Ra2\\wonline.cpp", 14063), name, StringTable::LoadString("TXT_UNKNOWN", NULL, "D:\\Ra2\\wonline.cpp", 14063), StringTable::LoadString("TXT_UNKNOWN_PING", NULL, "D:\\Ra2\\wonline.cpp", 14063));
-	} else if (ping < 300) {
-		swprintf(g_PingTooltip, StringTable::LoadString("TXT_LATENCY_ICON_TOOLTIP_PING", NULL, "D:\\Ra2\\wonline.cpp", 14065), name, StringTable::LoadString("TXT_GOOD", NULL, "D:\\Ra2\\wonline.cpp", 14065), ping);
-	} else if (ping < 500) {
-		swprintf(g_PingTooltip, StringTable::LoadString("TXT_LATENCY_ICON_TOOLTIP_PING", NULL, "D:\\Ra2\\wonline.cpp", 14067), name, StringTable::LoadString("TXT_FAIR", NULL, "D:\\Ra2\\wonline.cpp", 14067), ping);
-	} else {
-		swprintf(g_PingTooltip, StringTable::LoadString("TXT_LATENCY_ICON_TOOLTIP_PING", NULL, "D:\\Ra2\\wonline.cpp", 14069), name, StringTable::LoadString("TXT_POOR", NULL, "D:\\Ra2\\wonline.cpp", 14069), ping);
-	}
-	return(g_PingTooltip);
-}
-#endif
-
-
-#if 0
-int __fastcall Slot_From_Control_Id(int id)
-{
-	if (id == 0x754) {
-		return(0);
-	}
-	if (id == 0x755) {
-		return(1);
-	}
-	if (id == 0x756) {
-		return(2);
-	}
-	if (id == 0x757) {
-		return(3);
-	}
-	if (id == 0x758) {
-		return(4);
-	}
-	if (id == 0x759) {
-		return(5);
-	}
-	if (id == 0x75A) {
-		return(6);
-	}
-	return(id == 0x75B ? 7 : -1);
-}
-#endif
-
-
-#if 0
-void __fastcall Enforce_Tournament_Options(HWND dialog)
-{
-	if (Is_Channel_Tournament(&g_CurrentChannel)) {
-		EnableWindow(GetDlgItem(dialog, 0x552), FALSE);
-		EnableWindow(GetDlgItem(dialog, 0x553), FALSE);
-		EnableWindow(GetDlgItem(dialog, 0x597), FALSE);
-		Session.Options.AIPlayers = 0;
-		Session.Options.AlliesAllowed = false;
-		HWND first = GetDlgItem(dialog, 0x54E);
-		SendMessage(first, BM_SETCHECK, 1, 0);
-		EnableWindow(first, FALSE);
-		HWND second = GetDlgItem(dialog, 0x54B);
-		SendMessage(second, BM_SETCHECK, 1, 0);
-		EnableWindow(second, FALSE);
-		Session.Options.ShortGame = true;
-		Session.Options.Bases = true;
-	}
-}
-#endif
-
-
-#if 0
-void __fastcall Leave_Channel_With_Message(HWND dialog)
-{
-	if (dialog) {
-		if (ObserverMode == 0) {
-			ODMessageBox(StringTable::LoadString("TXT_CHANNEL_FULL", NULL, "D:\\Ra2\\wonline.cpp", 15375), 0, Wait_Callback_Thunk, false);
-		} else {
-			ODMessageBox(StringTable::LoadString("TXT_OBSERVER_FULL", NULL, "D:\\Ra2\\wonline.cpp", 15377), 0, Wait_Callback_Thunk, false);
-		}
-		if (g_pChat->RequestChannelLeave() < 0) {
-			WS_Destroy_Dialog(dialog, 2);
-		}
-	}
-}
-#endif
-
-
-#define OD_SETLABEL (WM_USER + 178)
-
-#if 0
-void Show_Wait_Window(unsigned int event, WideWstring const & text, bool block)
-{
-	HWND dialog = WS_Find_Dialog(0xC4);
-	if (dialog) {
-		g_ActiveWaitFlags |= event;
-		if (text.length() > 0) {
-			HWND label = GetDlgItem(dialog, 0x5B2);
-			SendMessage(label, OD_SETLABEL, 0, (LPARAM)text.text());
-		}
-	} else if (event) {
-		HWND focus = WS_Top_Window();
-		focus = GetDlgItem(focus, 0x540);
-		dialog = WS_Create_Dialog(ProgramInstance, 0xC4, MainWindow, (DLGPROC)Wonline_Wait_Dialog_Proc, 0);
-		Show_Dialog(dialog, 0xC4);
-		HWND label = GetDlgItem(dialog, 0x5B2);
-		SendMessage(label, OD_SETLABEL, 0, (LPARAM)text.text());
-		g_ActiveWaitFlags = event;
-		if (focus) {
-			SetFocus(focus);
-		}
-	}
-	if (block && g_ActiveWaitFlags) {
-		WS_Wait_Dialog(dialog, Wait_Callback_Thunk, false, true, false);
-	}
-}
-#endif
-
-
-
-#if 0
-LRESULT CALLBACK Wonline_Wait_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
-{
-	switch (message) {
-	case WM_DESTROY:
-		KillTimer(window, 0x45);
-		break;
-	case WM_DRAWITEM:
-		Dialog_On_WM_DRAWITEM(lparam);
-		return(1);
-	case WM_PAINT:
-		Dialog_On_WM_PAINT(window);
-		Slide_Pending_Dialog(window);
-		ValidateRect(window, NULL);
-		break;
-	case WM_ERASEBKGND:
-		return(1);
-	case WM_INITDIALOG:
-		return(0);
-	case WM_COMMAND:
-		switch ((unsigned short)wparam) {
-		case 0x58D: // the abort button
-			SetEvent(g_WaitEventHandles[0]);
-			WS_Destroy_Dialog(window, 1);
-			break;
-		case 0x58E: // the status button
-			ViewHTML("http://networkstatus.westwood.com", 0);
-			break;
-		}
-		break;
-	case WM_TIMER:
-		if (wparam == 0x45) {
-			ShowWindow(window, SW_SHOW);
-			KillTimer(window, 0x45);
-		}
-		break;
-	case 0x497:
-		SendMessage(window, 0x4A9, 0, 1);
-		SetTimer(window, 0x45, g_WaitDialogDelay, NULL);
-		OwnerDraw::Set_Dialog_Waiting(window);
-		break;
-	}
-	return(0);
-}
-#endif
-
-
-#if 0
-void Set_Wait_Window_Text(LPARAM text)
-{
-	HWND dialog = WS_Find_Dialog(0xC4);
-	if (dialog != NULL) {
-		SendDlgItemMessage(dialog, 0x5B2, OD_SETLABEL, 0, text);
-	}
-}
-#endif
-
-
-#include "wsproto.h"
-
-#if 0
-void __fastcall User_List_To_Session_Players(User * user)
-{
-	Session.NumPlayers = 1;
-	User entry;
-	for (int i = 0; i < g_UserList.length(); i++) {
-		g_UserList.get(entry, i);
-		NodeNameType * player = Find_Lobby_Name(Narrow_To_Wide((char const *)entry.name));
-		if (player && Is_Real_Player_Entry(player)) {
-			player->Player.SquadID = entry.squadID;
-		}
-		if (stricmp((char const *)entry.name, g_NickName.get())) {
-			if (entry.flags & 1) {
-				NodeNameType * owner = Find_Lobby_Name(Narrow_To_Wide((char const *)entry.name));
-				NetNumType network;
-				NetNodeType node;
-				owner->Address.Get_Address(network, node);
-				Session.HostAddress.Set_Address(network, node, 0);
-			}
-			int ping = 0;
-			g_pNetUtil->GetAvgPing(entry.ipaddr, &ping);
-			if (ping < 0) {
-				ping = 0;
-			}
-			PlayerPings[Session.NumPlayers++] = ping;
-		}
-	}
-	PacketTransport->Clear_Broadcast_Addresses();
-	for (int n = 1; n < Session.Players.Count(); n++) {
-		DebugString("Adding broadcast address %s\n", Session.Players[n]->Address.As_String());
-		PacketTransport->Set_Broadcast_Address((char const *)&Session.Players[n]->Address, 0);
-	}
-	DebugString("User_List_To_Session_Players: Session.HostAddress = %s\n", Session.HostAddress.As_String());
-}
-#endif
-
-
-
-#if 0
-bool __fastcall Local_User_Is_Channel_Owner(void)
-{
-	return(User_Is_Channel_Owner(g_NickName));
-}
-#endif
-
-
-#if 0
-bool User_Is_Channel_Owner(Wstring const & name)
-{
-	User * owner = Find_Owner_User();
-	if (owner == NULL) {
-		return(false);
-	}
-	bool same = stricmp((char *)owner->name, name.text()) == 0;
-	return(same);
-}
-#endif
-
-
-#if 0
-User * Find_Owner_User(void)
-{
-	for (int i = 0; i < g_UserList.length(); i++) {
-		g_UserList.get(g_OwnerUser, i);
-		if (g_OwnerUser.flags & 1) {
-			return(&g_OwnerUser);
-		}
-	}
-	return(NULL);
-}
-#endif
-
-
-#if 0
-void __fastcall Mark_Player_Checked(int index)
-{
-	if (index >= 0 && index < Session.Players.Count()) {
-		HWND dialog = WS_Find_Dialog(0x12C);
-		if (dialog) {
-			HWND box = GetDlgItem(dialog, g_PlayerCheckBoxIDs[index]);
-			g_PlayerChecked[index] = true;
-			SendMessage(box, BM_SETCHECK, 1, 0);
-			PostMessage(dialog, WM_PAINT, 0, 0);
-		}
-	}
-}
-#endif
-
-
-
-#if 0
-void Open_Readiness_Dialog(void)
-{
-	HWND dialog = WS_Create_Dialog(ProgramInstance, 300, MainWindow, (DLGPROC)Player_Readiness_Dialog_Proc, 0);
-	if (dialog != NULL) {
-		Show_Dialog(dialog, 300);
-	}
-}
-#endif
-
-
-
-#if 0
-LRESULT CALLBACK Player_Readiness_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
-{
-	switch (message) {
-	case WM_PAINT:
-		Dialog_On_WM_PAINT(window);
-		ValidateRect(window, NULL);
-		return(0);
-	case WM_ERASEBKGND:
-		return(1);
-	case WM_DRAWITEM:
-		Dialog_On_WM_DRAWITEM(lparam);
-		return(1);
-	case WM_COMMAND:
-		wparam &= 0xFFFF;
-		switch (wparam) {
-		case 0x761: case 0x762: case 0x764: case 0x765:
-		case 0x766: case 0x767: case 0x768: case 0x769:
-			if (g_PlayerReady[wparam - 0x761]) {
-				if (SendDlgItemMessage(window, wparam, BM_GETCHECK, 0, 0) == 0) {
-					SendDlgItemMessage(window, wparam, BM_SETCHECK, 1, 0);
-				}
-			} else {
-				if (SendDlgItemMessage(window, wparam, BM_GETCHECK, 0, 0) == 1) {
-					SendDlgItemMessage(window, wparam, BM_SETCHECK, 0, 0);
-					return(0);
-				}
-			}
-		}
-		break;
-	case WM_CTLCOLORMSGBOX: case WM_CTLCOLOREDIT: case WM_CTLCOLORLISTBOX: case WM_CTLCOLORBTN:
-	case WM_CTLCOLORDLG: case WM_CTLCOLORSCROLLBAR: case WM_CTLCOLORSTATIC:
-		return((long)GetStockObject(BLACK_BRUSH));
-	case 0x497:
-		for (int i = 0; i < 8; ++i) {
-			HWND control = GetDlgItem(window, g_PlayerCheckBoxIDs[i]);
-			memset(g_PlayerChecked, 0, 8);
-			if (i > Session.Players.Count() - 1) {
-				DestroyWindow(control);
-			}
-		}
-		for (int player = 0; player < Session.Players.Count(); ++player) {
-			HWND control = GetDlgItem(window, g_PlayerCheckBoxIDs[player]);
-			SendMessage(control, 0x4B2, 0, (LPARAM)Session.Players[player]->Name);
-			SendMessage(control, BM_SETCHECK, 0, 0);
-		}
-		SendMessage(window, 0x4A9, 0, 1);
-		OwnerDraw::Set_Dialog_Waiting(window);
-		ShowWindow(window, SW_SHOW);
-		break;
-	}
-	return(0);
-}
-#endif
-
-
-
-#if 0
-void __fastcall Set_Connection_Status(int index, int status)
-{
-	if (index < Session.Players.Count() && g_ConnectionStatus[index] < g_ConnectionStatusRank[index]) {
-		g_ConnectionStatus[index] = status;
-	}
-}
-#endif
-
-
-#if 0
-void Report_Connection_Errors(void)
-{
-	wchar_t message[256];
-	User * owner = Find_Owner_User();
-	if (owner) {
-		int owner_index = -1;
-		int i;
-		for (i = 0; i < Session.Players.Count(); i++) {
-			if (!stricmp(Wide_To_Narrow(Session.Players[i]->Name), (char const *)owner->name)) {
-				owner_index = i;
-				break;
-			}
-		}
-		bool reported = false;
-		for (i = 0; i < Session.Players.Count(); i++) {
-			switch (g_ConnectionStatus[i]) {
-			case 0:
-				reported = true;
-				DebugString("Player %s was unable to establish a connection\n", Wide_To_Narrow(Session.Players[i]->Name));
-				swprintf(message, StringTable::LoadString("TXT_TALK_REPORTED_PROBLEM", NULL, "D:\\Ra2\\wonline.cpp", 16894), Session.Players[i]->Name);
-				Lobby_Chat_Printf(ColorSystem, message);
-				break;
-			case 1:
-				reported = true;
-				DebugString("Unable to connect to player %s\n", Wide_To_Narrow(Session.Players[i]->Name));
-				swprintf(message, StringTable::LoadString("TXT_TALK_LOCAL_PROBLEM", NULL, "D:\\Ra2\\wonline.cpp", 16904), Session.Players[i]->Name);
-				Lobby_Chat_Printf(ColorSystem, message);
-				break;
-			case 2:
-				reported = true;
-				if (i == owner_index) {
-					DebugString("Unable to talk to the pserver port\n");
-					Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_TALK_FORWARDER_PROBLEM_GUES", NULL, "D:\\Ra2\\wonline.cpp", 16915));
-				} else {
-					DebugString("Player %s was unable to connect to the pserver port\n", Wide_To_Narrow(Session.Players[i]->Name));
-					swprintf(message, StringTable::LoadString("TXT_TALK_FORWARDER_PROBLEM_HOST", NULL, "D:\\Ra2\\wonline.cpp", 16918), Session.Players[i]->Name);
-					Lobby_Chat_Printf(ColorSystem, message);
-				}
-				break;
-			case 3:
-				reported = true;
-				DebugString("The game host reported a connection problem between players\n");
-				Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_TALK_HOST_ABORTED", NULL, "D:\\Ra2\\wonline.cpp", 16929));
-				break;
-			}
-		}
-		if (!reported) {
-			Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_FAILED_TO_TALK", NULL, "D:\\Ra2\\wonline.cpp", 16942));
-		}
-	}
-}
-#endif
-
-
-#if 0
-unsigned short __fastcall Get_Port_Blitz_Port_Number(int send_port, int mangled_port, int unused, int port_spread)
-{
-	int port = send_port + mangled_port;
-	if (port_spread != 1) {
-		if (port_spread == 2) {
-			port = mangled_port + send_port * 2;
-		} else if (port_spread > 1) {
-			port = send_port % 2 + mangled_port + (send_port / 2) * port_spread;
-		} else if (port_spread < 0) {
-			if (port_spread == -100) {
-				port = mangled_port + send_port * 100;
-			} else {
-				port = send_port % 2 - (send_port / 2) * port_spread + mangled_port;
-			}
-		}
-	}
-	DebugString("Get_Port_Blitz_Port_Number - send port = %d, mangled_port = %d, port_spread = %d, port = %d\n", send_port, mangled_port, port_spread, port);
-	if ((unsigned short)port < 1024) {
-		port = 1024;
-	}
-	return((unsigned short)port);
-}
-#endif
-
-
-#include "firewall.h"
-
-#if 0
-int __fastcall Build_Connection_Pairs(int (* pairs)[2])
-{
-	int order[8];
-	memset(order, 0, sizeof(order));
-	int i = 0;
-	int * out = order;
-	for (; i < 8; i++) {
-		if (Is_Real_Player_Entry(Session.Slots[i])) {
-			*out++ = i;
-		}
-	}
-	for (int a = 0; a < Session.Players.Count(); a++) {
-		for (int b = 0; b < Session.Players.Count() - 1; b++) {
-			int current = Session.WolPlayerState[order[b]];
-			int next = Session.WolPlayerState[order[b + 1]];
-			if (FirewallHelper.Rank_A(current) < FirewallHelper.Rank_A(next)) {
-				int temp = order[b];
-				order[b] = order[b + 1];
-				order[b + 1] = temp;
-			}
-		}
-	}
-	DebugString("Connection order = %d, %d, %d, %d, %d, %d\n", order[0], order[1], order[2], order[3], order[4], order[5]);
-	int n = 0;
-	DebugString("Connection pairs....\n");
-	for (int x = 0; x < Session.Players.Count(); x++) {
-		for (int y = x + 1; y < Session.Players.Count(); y++) {
-			pairs[n][0] = order[x];
-			pairs[n][1] = order[y];
-			DebugString("\t%d & %d\n", order[x], order[y]);
-			n++;
-		}
-	}
-	return(n);
-}
-#endif
-
-
-#if 0
-void __fastcall Register_Connection_State(char const * sender, char const * receiver, int state)
-{
-	int sender_slot = -1;
-	int receiver_slot = -1;
-	DebugString("Registering connection state from %s to %s. conn_state = %d\n", sender, receiver, state);
-	int i = 0;
-	for (NodeNameType ** slot = Session.Slots; (long)slot < (long)(Session.Slots + 8); ++slot, ++i) {
-		if (stricmp(Wide_To_Narrow((*slot)->Name), sender) == 0) {
-			sender_slot = i;
-		}
-		if (stricmp(Wide_To_Narrow((*slot)->Name), receiver) == 0) {
-			receiver_slot = i;
-		}
-	}
-	for (i = 0; i < Session.ConnectionResultCount; ++i) {
-		if (Session.PeerProbeData[i][0] == sender_slot && Session.PeerProbeData[i][1] == receiver_slot) {
-			Session.ConnectionResults[i][0] = state;
-			return;
-		}
-		if (Session.PeerProbeData[i][0] == receiver_slot && Session.PeerProbeData[i][1] == sender_slot) {
-			Session.ConnectionResults[i][1] = state;
-			return;
-		}
-	}
-}
-#endif
-
-
-#if 0
-void __fastcall Store_Player_Port(char const * name, unsigned short port)
-{
-	DebugString("Player %s is telling us we should send to port %d\n", name, port);
-	for (int i = 0; i < 8; ++i) {
-		if (!stricmp(Wide_To_Narrow(Session.Slots[i]->Name), name)) {
-			Session.PeerPorts[i] = port;
-			return;
-		}
-	}
-}
-#endif
-
-
-#if 0
-void __fastcall Send_User_Port(char const * name, unsigned short port)
-{
-	User * user = NULL;
-	char text[256];
-	for (int i = 0; i < g_UserList.length(); ++i) {
-		g_UserList.getPointer(&user, i);
-		if (stricmp(name, (char const *)user->name) == 0) {
-			text[0] = 'Z';
-			text[1] = '4';
-			sprintf(text + 2, "%d", port);
-			DebugString("Sending string %s to user %s\n", text, name);
-			g_pChat->RequestPrivateGameOptions(user, text);
-		}
-	}
-}
-#endif
-
-
-#if 0
-void __fastcall Send_Public_Options(char kind, char const * text)
-{
-	char options[256];
-	options[0] = 'Z';
-	options[1] = '1';
-	options[2] = kind + '0';
-	if (text) {
-		strcpy(options + 3, text);
-	} else {
-		options[3] = 0;
-	}
-	DebugString("Sending public options string %s\n", options);
-	g_pChat->RequestPublicGameOptions(options);
-}
-#endif
-
-
-#if 0
-void Resend_Pending_Requests(void)
-{
-	for (int index = 0; index < Session.KeepAliveCount; ++index) {
-		if (Session.KeepAliveTimer[index] == 0) {
-			GlobalPacketType packet;
-			memset(&packet, 0, sizeof(packet));
-			packet.Command = NET_PING;
-			strcpy(packet.Name, g_NickName.get());
-			char const * name = Wide_To_Narrow(Session.Slots[Session.KeepAliveSlot[index]]->Name);
-			DebugString("Sending keepalive NET_PING packet to %s\n", name);
-			Ipx.Send_Global_Message_To_Name(&packet, 0x2F, 0, Session.Slots[Session.KeepAliveSlot[index]]->Name);
-			Session.KeepAliveTimer[index] = 1200;
-		}
-	}
-}
-#endif
-
-
-#if 0
-void __fastcall Queue_Peer_Timeout(int peer)
-{
-	Session.KeepAliveSlot[Session.KeepAliveCount] = peer;
-	Session.KeepAliveTimer[Session.KeepAliveCount] = 1200;
-	++Session.KeepAliveCount;
-}
-#endif
-
-
-
-
-#if 0
-bool Connect_Player_Pairs(void)
-{
-	CDTimerClass<SystemTimerClass> timer;
-	Session.KeepAliveCount = 0;
-	memset(&Session.PeerAttemptBlock[3], 0, 0x20);
-	int pair_slot = -1;
-	g_SuspendChatPump = 0;
-	if (Session.ConnectionResultCount == 0) {
-		return(false);
-	}
-	((SessionPortAllocator &)Session).Allocate_Player_Ports();
-	if (Session.Players.Count() > 0) {
-		HWND window = WS_Find_Dialog(300);
-		if (window) {
-			HWND control = GetDlgItem(window, g_PlayerCheckBoxIDs[0]);
-			g_PlayerChecked[0] = true;
-			SendMessage(control, BM_SETCHECK, 1, 0);
-			PostMessage(window, WM_PAINT, 0, 0);
-		}
-	}
-	for (int pair = 0; pair < Session.ConnectionResultCount; ++pair) {
-		int first = Session.PeerProbeData[pair][0];
-		int second = Session.PeerProbeData[pair][1];
-		int peer = -1;
-		NodeNameType * first_player = Session.Slots[first];
-		NodeNameType * second_player = Session.Slots[second];
-		char const * first_name = Wide_To_Narrow(first_player->Name);
-		char const * second_name = Wide_To_Narrow(second_player->Name);
-		DebugString("Connecting pair %d, %s and %s\n", pair, first_name, second_name);
-		char const * name = Wide_To_Narrow(Session.Slots[first]->Name);
-		if (stricmp(name, g_NickName.get()) == 0) {
-			peer = second;
-			pair_slot = pair * 2 + 1;
-			Session.ConnectionResults[pair][0] = 11;
-		}
-		name = Wide_To_Narrow(Session.Slots[second]->Name);
-		if (stricmp(name, g_NickName.get()) == 0) {
-			peer = first;
-			pair_slot = pair * 2;
-			Session.ConnectionResults[pair][1] = 11;
-		}
-		if (peer != -1) {
-			int step;
-			if (FirewallHelper.Rank_B(Session.WolPlayerState[first]) > FirewallHelper.Rank_B(Session.WolPlayerState[second])) {
-				step = FirewallHelper.Rank_B(Session.WolPlayerState[first]);
-			} else {
-				step = FirewallHelper.Rank_B(Session.WolPlayerState[second]);
-			}
-			if (!Start_Talking_To(peer, pair_slot, step)) {
-				return(false);
-			}
-		} else {
-			DebugString("Waiting for other guys to connect\n");
-			timer = CDTimerClass<SystemTimerClass>(960);
-			int progress = 0;
-			do {
-				Sleep(5);
-				WOL_Wait_Callback();
-				Resend_Pending_Requests();
-				int first_status = Session.ConnectionResults[pair][0];
-				int second_status = Session.ConnectionResults[pair][1];
-				if ((first_status == 11 || first_status == 0) && (second_status == 11 || second_status == 0)) {
-					DebugString("Got both results - woohoo!\n");
-					break;
-				}
-				if (first_status >= 1 && first_status < 11 && first_status - 1 > progress) {
-					DebugString("Connecting player 1 is trying again - try_now = %d\n", first_status - 1);
-					progress = first_status - 1;
-					timer = CDTimerClass<SystemTimerClass>(840);
-				}
-				if (second_status >= 1 && second_status < 11 && second_status - 1 > progress) {
-					DebugString("Connecting player 2 is trying again - try_now = %d\n", second_status - 1);
-					progress = second_status - 1;
-					timer = CDTimerClass<SystemTimerClass>(840);
-				}
-			} while (timer.Value() != 0);
-		}
-		if (Session.ConnectionResults[pair][0] != 11) {
-			return(false);
-		}
-		if (Session.ConnectionResults[pair][1] != 11) {
-			return(false);
-		}
-		DebugString("Connection good, next pair\n");
-	}
-	return(true);
-}
-#endif
-
-
-
-#if 0
-bool Receive_Host_Map_Preview(void)
-{
-	IPXAddressClass address;
-	if (g_CurrentChannel.type && g_UserList.length() >= 2) {
-		User * owner = Find_Owner_User();
-		if (owner && !stricmp((char const *)owner->name, g_NickName.text())) {
-			return(false);
-		}
-		if (WolOptionsLocked == 0 && Ipx.Global_Num_Receive()) {
-			Call_Back();
-			GlobalPacketType packet;
-			int length = sizeof(packet);
-			unsigned short product;
-			if (Ipx.Peek_Global_Message(0, &packet, &length, &address, &product, NULL) && packet.Command == NET_PREVIEW_MODE) {
-				HWND dialog = WS_Find_Dialog(0xC9);
-				if (dialog) {
-					ShowWindow(GetDlgItem(dialog, 0x468), SW_SHOWNORMAL);
-				}
-				User user;
-				g_UserList.get(user, 0);
-				user.next = NULL;
-				User_List_To_Session_Players(&user);
-				if (Ipx.Get_Global_Message(&packet, &length, &address, &product) && packet.Command == NET_PREVIEW_MODE && address.Is_Same_Node(Session.HostAddress) && product == 0xAA03) {
-					owner = Find_Owner_User();
-					if (owner && !stricmp(packet.Name, (char const *)owner->name)) {
-						DebugString("Received NET_PREVIEW_MODE packet from host\n");
-						Ipx.Set_Timing(50, (unsigned long)-1, 5000, true);
-						g_ReceivingHostPreview = true;
-						Receive_Random_Map_Preview();
-						g_ReceivingHostPreview = false;
-						Ipx.Set_Timing(30, (unsigned long)-1, 600, true);
-						return(true);
-					}
-				}
-			}
-		}
-	}
-	return(false);
-}
-#endif
-
-
-#if 0
-void Add_Test_Player_Ol_Cruddy(void)
-{
-	NodeNameType * player = new NodeNameType;
-	Char_To_Wide(player->Name, "Ol Cruddy", -1);
-	player->Player.SquadID = -1;
-	player->Player.House = 0;
-	player->Player.Color = 3;
-	NetNumType network;
-	NetNodeType node;
-	memset(network, 0, sizeof(network));
-	node[5] = 0;
-	node[4] = 0;
-	node[3] = 82;
-	node[2] = 81;
-	node[1] = 2;
-	node[0] = 10;
-	player->Address.Set_Address(network, node, 0);
-	Session.Players.Add(player);
-	PlayerPings[Session.NumPlayers] = 100;
-	++Session.NumPlayers;
-}
-#endif
-
-
-#if 0
-void Add_Test_Player_Potato(void)
-{
-	NodeNameType * player = new NodeNameType;
-	Char_To_Wide(player->Name, "Potato", -1);
-	player->Player.SquadID = -1;
-	player->Player.House = 0;
-	player->Player.Color = 0;
-	NetNumType network;
-	NetNodeType node;
-	memset(network, 0, sizeof(network));
-	node[5] = 0;
-	node[4] = 0;
-	node[3] = 97;
-	node[2] = 20;
-	node[1] = 2;
-	node[0] = 10;
-	player->Address.Set_Address(network, node, 0);
-	Session.Players.Add(player);
-	PlayerPings[Session.NumPlayers] = 100;
-	++Session.NumPlayers;
-}
-#endif
-
-
-#if 0
-void Add_Test_Player_Potato_Too(void)
-{
-	NodeNameType * player = new NodeNameType;
-	Char_To_Wide(player->Name, "PotatoToo", -1);
-	player->Player.SquadID = -1;
-	player->Player.House = 1;
-	player->Player.Color = 2;
-	NetNumType network;
-	NetNodeType node;
-	memset(network, 0, sizeof(network));
-	node[5] = 0;
-	node[4] = 0;
-	node[3] = 250;
-	node[2] = 80;
-	node[1] = 2;
-	node[0] = 10;
-	player->Address.Set_Address(network, node, 0);
-	Session.Players.Add(player);
-	PlayerPings[Session.NumPlayers] = 100;
-	++Session.NumPlayers;
-	Session.HostAddress = player->Address;
-}
-#endif
 

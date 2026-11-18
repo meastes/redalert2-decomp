@@ -32,11 +32,23 @@ elimination The symbol is the only symbol of a zero-filled (.bss) section of the
             It earns nothing by itself (zero bytes); it only lets a pointer to
             the symbol resolve.
 
+unplaced-unreferenced (docs/DECISIONS.md, "A zero-initialised .bss object whose existence is
+            evidenced by exact code rows but whose address nothing references"; user decision
+            2026-11-18, opt-in per source, each use an owner decision) The symbol stays
+            without an address. It must be defined in a zero-filled (.bss) section of the
+            object; no relocation of the object may target it; the rows that evidence it
+            (row field `data_bound_by_rows`: {symbol: [entry, ...]}) must be accepted rows of
+            the same source; and at every audit the unit's unclaimed, unreferenced bss gaps
+            (holes in the span of its reference-bound bss symbols, alignment fill excluded,
+            that no 4-byte value of the original image points into) must hold all such
+            symbols of the object jointly, one symbol per gap. It earns nothing and compares
+            no byte of the image.
+
 Extents are never taken from the candidate's bytes: the anchors are independent and
 every byte between them is compared.
 """
-LAYOUT, ELIMINATION = 'layout', 'elimination'
-KINDS = (LAYOUT, ELIMINATION)
+LAYOUT, ELIMINATION, UNPLACED = 'layout', 'elimination', 'unplaced-unreferenced'
+KINDS = (LAYOUT, ELIMINATION, UNPLACED)
 
 
 class BindingRefused(ValueError):
@@ -51,15 +63,30 @@ def declared(rows):
         if value is None:
             continue
         if not isinstance(value, dict) or not value or any(v not in KINDS for v in value.values()):
-            raise BindingRefused('data_bound_by must map symbols to "layout" or "elimination"')
+            raise BindingRefused('data_bound_by must map symbols to "layout", "elimination" or "%s"' % UNPLACED)
         note = row.get('data_bound_by_note')
         if not isinstance(note, str) or not note.strip():
             raise BindingRefused('data_bound_by needs a non-empty data_bound_by_note')
+        evidence = row.get('data_bound_by_rows') or {}
         for name, kind in value.items():
             if found.get(name, kind) != kind:
                 raise BindingRefused('data_bound_by differs between rows for %s' % name)
+            if (kind == UNPLACED) != bool(evidence.get(name)):
+                raise BindingRefused('%s: data_bound_by_rows names the evidencing rows of an %s symbol, and only those'
+                                     % (name, UNPLACED))
             found[name] = kind
+        if set(evidence) - set(value):
+            raise BindingRefused('data_bound_by_rows names undeclared symbols')
     return found
+
+
+def evidence_rows(rows):
+    """{symbol: [entry, ...]} of the `data_bound_by_rows` declaration of a source's rows."""
+    for row in rows:
+        if row.get('data_bound_by_rows'):
+            return {name: [int(e, 16) if isinstance(e, str) else e for e in entries]
+                    for name, entries in row['data_bound_by_rows'].items()}
+    return {}
 
 
 def alignment(flags):
@@ -173,6 +200,61 @@ def bind(coff, declared_bindings, references, original, below_ends, above_starts
             if not (last_in_object and end == high or first_in_object and start == low):
                 raise BindingRefused('%s: the object does not put it where the hole lies' % name)
             out[name] = (start, ELIMINATION, dict(section=index, span=(low, high), hole=(start, end)))
+    return out
+
+
+def unplaced(coff, names, references, evidence, accepted_entries, referenced):
+    """{symbol: detail} for the declared unplaced-unreferenced symbols, or BindingRefused.
+
+    evidence: symbol -> [entry, ...] (data_bound_by_rows); accepted_entries: entries of the
+    source's accepted rows; referenced(low, high) -> the set of addresses in [low, high) that a
+    4-byte value of the original image equals."""
+    out = {}
+    if not names:
+        return out
+    targeted = {coff.symbols[x]['name'] for s in coff.sections for _, x, _ in s['relocs']}
+    gaps_of = {}
+    for name in names:
+        if name in references:
+            raise BindingRefused('%s: declared %s but bound by a reference' % (name, UNPLACED))
+        if name in targeted:
+            raise BindingRefused('%s: a relocation of the object targets it' % name)
+        rows = evidence.get(name) or []
+        missing = [e for e in rows if e not in accepted_entries]
+        if not rows or missing:
+            raise BindingRefused('%s: evidencing rows not accepted rows of the source: %s' %
+                                 (name, ' '.join('%08x' % e for e in missing) or 'none named'))
+        index = defining_section(coff, name)
+        section = coff.sections[index - 1]
+        if not section['flags'] & 0x80 or section['flags'] & 0x60 or section['relocs']:
+            raise BindingRefused('%s: not in a zero-filled (.bss) section' % name)
+        symbols = section_symbols(coff, index)
+        extents = {n: (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - v
+                   for i, (v, n) in enumerate(symbols)}
+        if index not in gaps_of:
+            bound = sorted((references[n], n) for v, n in symbols if n in references)
+            if not bound:
+                raise BindingRefused('%s: no symbol of its bss section is bound' % name)
+            holes = []
+            for (address, n), (following, _) in zip(bound, bound[1:] + [(None, None)]):
+                end = address + extents[n] if following is None else min(address + extents[n], following)
+                if following is not None and following > end:
+                    holes.append((end, following))
+            low, high = bound[0][0], bound[-1][0] + extents[bound[-1][1]]
+            pointed = referenced(low, high)
+            free = [(a, b) for a, b in holes if not (b - a < 8 and b % 8 == 0 and a % 8)
+                    and not any(a <= p < b for p in pointed)]
+            gaps_of[index] = (free, (low, high))
+        out[name] = dict(section=index, extent=extents[name], rows=['%08x' % e for e in rows])
+    for index, (free, span) in gaps_of.items():
+        mine = sorted((d['extent'], n) for n, d in out.items() if d['section'] == index)[::-1]
+        sizes = sorted((b - a for a, b in free), reverse=True)
+        if len(sizes) < len(mine) or any(size < need for size, (need, _) in zip(sizes, mine)):
+            raise BindingRefused('%s: the unit\'s %d unclaimed, unreferenced bss gaps in %08x-%08x cannot hold '
+                                 'them jointly' % (' '.join(n for _, n in mine), len(free), span[0], span[1]))
+        for _, n in mine:
+            out[n].update(span=['%08x' % span[0], '%08x' % span[1]],
+                          gaps=['%08x+%d' % (a, b - a) for a, b in free])
     return out
 
 

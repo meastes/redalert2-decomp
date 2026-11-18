@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
  ******************************************************************************/
@@ -92,7 +93,7 @@ class TVelocity3D : public TVelocity2D<T>
 		TVelocity3D(Dir256 pitch, Dir256 yaw, T magnitude);
 		TVelocity3D(DirType const & yaw, DirType const & pitch, T magnitude);
 		TVelocity3D(double angle, T magnitude);
-		TVelocity3D(T x, T y, T z) : BASECLASS(TVelocity2D<T>(x, y)), Z(z) {}
+		TVelocity3D(T x, T y, T z) : BASECLASS(x, y), Z(z) {} // RA2: the base from x and y directly (ra2-decomp's form)
 
 		void Set(T x, T y, T z)
 		{
