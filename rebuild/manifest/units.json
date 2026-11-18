@@ -136228,5 +136228,207 @@
    "_RAD_90": "00a71690",
    "_RECT_NONE": "00a71698"
   }
+ },
+ "stlscore": {
+  "core": [
+   "0069a450",
+   "0069abd0"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/stlscore.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0069a450",
+   "0069abd0"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ],
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0069a450",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a470",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a4a0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a4c0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a4e0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a500",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a520",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a540",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a580",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a5b0",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a5e0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a610",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a620",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a640",
+    "body": 3,
+    "padding": 13,
+    "symbol": "??0STLScoreScreen@@QAE@XZ",
+    "main_symbol": "?get@Leaf_69a640@@QAEPAXXZ",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a650",
+    "body": 148,
+    "padding": 12,
+    "symbol": "?Present@STLScoreScreen@@QAEXXZ",
+    "main_symbol": "?Presentation_0069A650@UnknownScore_0069A640@@QAEXXZ",
+    "main_source": "src/recovered/stlscore.cpp"
+   },
+   {
+    "entry": "0069a6f0",
+    "body": 133,
+    "padding": 11,
+    "symbol": "?Set_Time_Text@@YIXPAUHWND__@@HH@Z",
+    "main_symbol": "?Unknown_Set_Time_Text_0069A6F0@@YIJPAUHWND__@@HH@Z",
+    "main_source": "src/recovered/stlscore/Unknown_Set_Time_Text.cpp"
+   },
+   {
+    "entry": "0069a780",
+    "body": 67,
+    "padding": 13,
+    "symbol": "?Set_Number_Text@@YIXPAUHWND__@@HH@Z",
+    "main_symbol": "?unknown_set_item_number_0069a780@seed_0069a780@@YIXPAUHWND__@@HI@Z",
+    "main_source": "src/recovered/stlscore/unknown_set_item_number.cpp"
+   },
+   {
+    "entry": "0069a7d0",
+    "body": 1020,
+    "padding": 4,
+    "symbol": "?Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+    "main_symbol": "?Score_Dialog_Proc_0069A7D0@@YGHPAUHWND__@@IIJ@Z",
+    "main_source": "src/recovered/unowned/Score_Dialog_Proc.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00abd6c0",
+   "_CELL_DIAG_SLOPE_ANGLE": "00abd690",
+   "_CELL_LEPTON_DIAG": "00abd668",
+   "_CELL_NONE": "00abd660",
+   "_CELL_SLOPE_ANGLE": "00abd678",
+   "_COORD_NONE": "00abd680",
+   "_ISO_TILE_SIZE": "007ac170",
+   "_LEPTONS_PER_PIXEL": "00abd6c8",
+   "_LEVEL_LEPTON_H": "00abd6d0",
+   "_ONE_RAD": "007ac178",
+   "_PIXELS_PER_LEPTON": "00abd6b8",
+   "_RAD_45": "00abd698",
+   "_RAD_60": "00abd670",
+   "_RAD_90": "00abd648",
+   "_RECT_NONE": "00abd650",
+   "_ScoreAudio": "00abd6a0",
+   "_ScoreAudioOn": "00abd6d4"
+  }
  }
 }

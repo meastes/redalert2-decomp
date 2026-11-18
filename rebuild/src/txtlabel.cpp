@@ -51,6 +51,8 @@
 
 #include "color.hh"
 
+namespace OwnerDraw { void __fastcall Draw_Edit_Text(Surface * surface, Rect & rect, wchar_t const * text, int caret, BitFont * font, unsigned int color, int * scroll, int ime, int password, int frame, int shown); } // RA2: 0x00600830, defined in ownrdraw.cpp
+
 
 /***********************************************************************************************
  * TextLableClass::TextLabelClass -- Constructor                                               *
@@ -104,41 +106,42 @@ TextLabelClass::TextLabelClass(wchar_t *txt, int x, int y, int color, TextPrintT
  * HISTORY:                                                                                    *
  *   03/24/1995 BRR : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 178 bytes differ (adopted text)
 int TextLabelClass::Draw_Me(int forced)
 {
 	/*
 	**	RA2: the label is clipped to the right edge of the screen and drawn as a text field;
 	**	when animated, the text is typed out one character every 16 milliseconds with a sound.
 	*/
-	if (!SkipDraw && BASECLASS::Draw_Me(forced) && ColorSchemes.Count() != 0) {
+	if (!SkipDraw && BASECLASS::Draw_Me(forced)) {
 		int color = Color;
-		if (color <= 0 || color >= ColorSchemes.Count()) color = 0;
-		ColorScheme * scheme = ColorSchemes[color];
-		if (scheme != NULL) {
-			BitFont * font = Font_From_TPF(Style);
-			Rect rect;
-			rect.X = X;
-			rect.Y = Y;
-			rect.Width = PixWidth;
-			if (rect.Width < 0) rect.Width = LogicalSurface->Get_Width();
-			rect.Height = font->LineHeight;
-			int overhang = rect.X + rect.Width - LogicalSurface->Get_Width();
-			if (overhang > 0) {
-				rect.Width -= overhang;
-			}
-			if (overhang <= 0 || rect.Is_Valid()) {
+		if (ColorSchemes.Count() != 0) {
+			if (color <= 0 || color >= ColorSchemes.Count()) color = 0;
+			ColorScheme * scheme = ColorSchemes[color];
+			if (scheme != NULL) {
+				BitFont * font = Font_From_TPF(Style);
+				Rect rect;
+				rect.X = X;
+				rect.Y = Y;
+				rect.Width = PixWidth < 0 ? LogicalSurface->Get_Width() : PixWidth;
+				rect.Height = font->LineHeight;
+				int overhang = rect.X + rect.Width - LogicalSurface->Get_Width();
+				if (overhang > 0) {
+					rect.Width -= overhang;
+					if (!rect.Is_Valid()) {
+						return(false);
+					}
+				}
 				RGBClass rgb = scheme->HSV;
-				int textcolor = (((rgb.Get_Blue() << 8) | rgb.Get_Green()) << 8) | rgb.Get_Red();
+				int textcolor = rgb.Get_Red() | (rgb.Get_Green() << 8) | (rgb.Get_Blue() << 16);
 				int len = wcslen(Text);
 
 				if (Animate) {
 					unsigned time = timeGetTime();
 					int oldpos = AnimPos;
-					if (oldpos == 0) {
+					if (AnimPos == 0) {
 						AnimPos = 1;
 					} else {
-						AnimPos = (time - AnimTiming) / 16 + oldpos;
+						AnimPos += (time - AnimTiming) >> 4;
 					}
 					if (oldpos != AnimPos) {
 						AnimTiming = time;
@@ -148,11 +151,10 @@ int TextLabelClass::Draw_Me(int forced)
 					}
 				}
 
-				Draw_Text_Field(*LogicalSurface, rect, Text, len, font, textcolor, FirstChar, Has_Focus(), 0, 1, AnimPos);
+				OwnerDraw::Draw_Edit_Text(LogicalSurface, rect, Text, len, font, textcolor, &FirstChar, Has_Focus(), 0, 1, AnimPos);
 				return(true);
 			}
 		}
 	}
 	return(false);
 }
-#endif

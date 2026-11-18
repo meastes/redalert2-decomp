@@ -355,8 +355,8 @@ void TunnelLocomotionClass::Process_Descending(void)
 /// RA2: Move_Coord through a 2D point.
 static inline Coord Tunnel_Move_Coord(Coord const & start, DirType const & dir, int distance)
 {
-	double radians = dir.As_Radian();
 	Point2D point(start.X, start.Y);
+	double radians = dir.As_Radian();
 	return(Coord((point.X + fastmath::cos(radians) * distance), (point.Y - fastmath::sin(radians) * distance), start.Z));
 }
 
@@ -367,7 +367,6 @@ static inline Coord Tunnel_Move_Coord(Coord const & start, DirType const & dir, 
 /// surface cell and begins surfacing (or self-destructs if none is reachable);
 /// otherwise it advances its position toward the destination.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 void TunnelLocomotionClass::Process_Tunneling(void)
 {
 	Coord coord = LinkedTo->PositionCoord;
@@ -403,12 +402,12 @@ void TunnelLocomotionClass::Process_Tunneling(void)
 		}
 
 	} else {
-		coord = Tunnel_Move_Coord(coord, TVelocity2D<int>(DestinationCoord.X - coord.X, DestinationCoord.Y - coord.Y).Get_Yaw(), 19); // RA2
+		DirType dir = TVelocity2D<int>(DestinationCoord.X - coord.X, DestinationCoord.Y - coord.Y).Get_Yaw();
+		coord = Tunnel_Move_Coord(coord, dir, 19); // RA2
 	}
 
 	LinkedTo->PositionCoord = coord;
 }
-#endif
 
 
 /// <summary>

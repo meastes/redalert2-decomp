@@ -2,10 +2,10 @@
   "id": "rebuild-txtlabel",
   "population": {
     "id": "rebuild-txtlabel",
-    "inventory_sha256": "61e342d91983358eebf0f940bb7c39413d25aa8bdfa97e83d43990945b75ee54",
-    "gaps_sha256": "30053f16d4928d9a13f3d46dd386c2308ae9c8249c4e15181eb2f1f16f4b2112",
-    "historical_population_sha256": "275af5c4c4a3250770a868cdf6c75a81bb531c8becb5fe91dc563ac760b07dd3",
-    "historical_acceptance_sha256": "0f7ad67d87f7c864c9c32f4de9662a594536f0586cf7d2c2bc114150b14e6d4e"
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "f448f35d4758e97ce7cc68fc4c0d5147041db6887071fc9f2b40ac451d5eb388",
+    "historical_acceptance_sha256": "3bb84fc87ae5e189448a4bb0acc2784f8956dd11b17947bab9ee67f73f8fec0c"
   },
   "references": {
     "_RECT_NONE": 11276152,
@@ -38,6 +38,16 @@
     "_COORD_NONE": 11276200,
     "??0GadgetClass@@QAE@HHHHI_N@Z": 5042144,
     "??_7TextLabelClass@@6B@": 8051916,
+    "?Draw_Me@GadgetClass@@UAEHH@Z": 5042752,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z": 4815440,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "??BHSVClass@@QBE?AVRGBClass@@XZ": 5238864,
+    "_wcslen": 7878149,
+    "__imp__timeGetTime@0": 7972132,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "?Draw_Edit_Text@OwnerDraw@@YIXPAVSurface@@AAV?$TRect@H@@PBGHPAVBitFont@@IPAHHHHH@Z": 6293552,
     "_$E2": 7279568,
     "_$E5": 7279600,
     "_$E8": 7279648,
@@ -58,7 +68,6 @@
     "?Sticky_Process@GadgetClass@@MAEXI@Z": 5043632,
     "?Mouse_Leave@GadgetClass@@UAEXXZ": 5042704,
     "?Mouse_Enter@GadgetClass@@UAEXXZ": 5042688,
-    "?Draw_Me@TextLabelClass@@UAEHH@Z": 7280160,
     "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
     "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
     "?Is_List_To_Redraw@GadgetClass@@UAEHXZ": 5043776,
@@ -93,7 +102,8 @@
     "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
     "?Set_Text@TextLabelClass@@UAEXPAG@Z": 7280608,
     "??3@YAXPAX@Z": 7871803,
-    "??1GadgetClass@@UAE@XZ": 5042304
+    "??1GadgetClass@@UAE@XZ": 5042304,
+    "?Draw_Me@TextLabelClass@@UAEHH@Z": 7280160
   },
   "regions": [
     {
@@ -150,11 +160,12 @@
           "resolved": 11276164
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279568,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279600,
@@ -218,11 +229,12 @@
           "resolved": 11276176
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279600,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279648,
@@ -270,11 +282,12 @@
           "resolved": 11276248
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279648,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279680,
@@ -322,11 +335,12 @@
           "resolved": 11276232
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279680,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279712,
@@ -374,11 +388,12 @@
           "resolved": 11276224
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279712,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279744,
@@ -426,11 +441,12 @@
           "resolved": 11276184
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279744,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279776,
@@ -478,11 +494,12 @@
           "resolved": 11276144
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279776,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279808,
@@ -562,11 +579,12 @@
           "resolved": 11276256
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279808,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279872,
@@ -622,11 +640,12 @@
           "resolved": 11276192
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279872,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279920,
@@ -682,11 +701,12 @@
           "resolved": 11276216
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279920,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7279968,
@@ -742,11 +762,12 @@
           "resolved": 11276240
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7279968,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7280016,
@@ -786,11 +807,12 @@
           "resolved": 11276170
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7280016,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7280032,
@@ -838,11 +860,12 @@
           "resolved": 11276208
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7280032,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-369"
     },
     {
       "entry": 7280064,
@@ -882,12 +905,143 @@
           "resolved": 8051916
         }
       ],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7280064,
-      "source_quality_family": "rebuild",
-      "bound_population": "population-3627"
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7280160,
+      "method": "006f1620",
+      "body_bytes": 439,
+      "body_sha256": "8c9bcf809bda5053041b045e67559cbf38d4e9fa010946c5bbf5cd545f9fc5b2",
+      "padding_bytes": 9,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "5bedc1c40a43e3897fc64cdf7e0ee45db629a37ddd93b4baee943ab477cdbc37",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Me@TextLabelClass@@UAEHH@Z",
+      "symbol_prefix": "?Draw_Me@TextLabelClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Draw_Me@GadgetClass@@UAEHH@Z",
+          "target": 5042752,
+          "addend": 0,
+          "resolved": 4292729859
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z",
+          "target": 4815440,
+          "addend": 0,
+          "resolved": 4292502487
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+          "target": 5238864,
+          "addend": 0,
+          "resolved": 4292925792
+        },
+        {
+          "offset": 267,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 597718
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        },
+        {
+          "offset": 339,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 362,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 140834
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 409,
+          "kind": 20,
+          "symbol": "?Draw_Edit_Text@OwnerDraw@@YIXPAVSurface@@AAV?$TRect@H@@PBGHPAVBitFont@@IPAHHHHH@Z",
+          "target": 6293552,
+          "addend": 0,
+          "resolved": 4293980275
+        }
+      ],
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
+      "source": "rebuild/src/txtlabel.cpp",
+      "population": "rebuild-txtlabel",
+      "source_order": 7280160,
+      "source_quality_family": "rebuild"
     },
     {
       "entry": 7280608,
@@ -910,12 +1064,11 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0771c55ad6074f6ae72b93b516fb1acb27681c5f147a0d5f7de30f25b0220096",
+      "source_sha256": "ee6592837c8131532d374ab028b16ed290fcfbed5543e987e7e52c7e1624543f",
       "source": "rebuild/src/txtlabel.cpp",
       "population": "rebuild-txtlabel",
       "source_order": 7280608,
-      "source_quality_family": "rebuild",
-      "bound_population": "population-3627"
+      "source_quality_family": "rebuild"
     }
   ]
 }

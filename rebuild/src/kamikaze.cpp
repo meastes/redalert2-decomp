@@ -55,7 +55,6 @@ void KamikazeClass::Add(AircraftClass * missile, AbstractClass * target)
 /*
 **	Every thirty frames each missile is aimed at its cell again.
 */
-#ifdef RA2_NON_MATCHING // not exact: 50 of 187 bytes differ (the null-cell branch should push its own argument)
 void KamikazeClass::Update(void)
 {
 	if (UpdateTimer != 0) return;
@@ -66,11 +65,18 @@ void KamikazeClass::Update(void)
 		CellClass * cell = node->Cell;
 		AircraftClass * missile = node->Unit;
 		missile->Ammo = 1;
-		missile->Assign_Target(cell != NULL ? cell : &missile->Get_Cell_Ptr()->Adjacent_Cell(missile->PrimaryFacing.Current().As_Dir8()));
-		missile->QueueMission(MISSION_ATTACK, false);
+		if (cell == NULL) {
+			FacingType facing = missile->PrimaryFacing.Current().As_Dir8();
+			CellClass * here = missile->Get_Cell_Ptr();
+			CellClass * adjacent = &here->Adjacent_Cell(facing);
+			missile->Assign_Target(adjacent);
+			missile->QueueMission(MISSION_ATTACK, false);
+		} else {
+			missile->Assign_Target(cell);
+			missile->QueueMission(MISSION_ATTACK, false);
+		}
 	}
 }
-#endif
 
 
 /*

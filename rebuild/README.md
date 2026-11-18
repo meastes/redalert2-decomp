@@ -111,6 +111,15 @@ gated landing (column `tree`; older rows from worker branches are marked as such
   sized by the unit's DOINFO_COUNT; ra2-decomp's YR list is the same with four more. TibSun's 21-entry
   array was the build-refused data section.
 
+- **Byte-identical template copies are bound by the order the unit emits them** (lane R11).
+  `TVelocity2D<double>::Speed` and `TVelocity3D<double>::Horizontal_Speed` compile to the same bytes, and
+  aircraft's object carries one copy of each (0x41B750, 0x41B830). The compiler emits a copy right after the
+  first function that calls it, in reverse call order, as the 3D pair shows (Set_Speed calls Nonzero_Check,
+  then Speed: Speed 0x41B7C0, Nonzero_Check 0x41B7F0): Get_Pitch (0x41B6E0) is followed by Horizontal_Speed
+  (0x41B750) and Set_Yaw's Nonzero_Check (0x41B860) is preceded by Speed (0x41B830). Main's population names
+  them the other way round (its own header); `manifest/symbols.csv` binds them by this order. No exact row
+  elsewhere calls either.
+
 ## Structure gate
 
 `tools/rebuild.py catalog` refuses to land a tree that breaks the structure budget in
@@ -121,9 +130,15 @@ address-suffixed names.
 
 Budgets that may only fall (review session, 2026-11-18; the census prints them on two `Gate` lines):
 process chatter in rebuild/src and rebuild/include (lane, worker, manifest or tool mentions: zero),
-`Unknown*` names, `vt_entry_NN` slots, `field_NN` and `FUN_` names in headers, `RA2_NON_MATCHING`
-draft guards (shown with the parked body bytes), and the inherited constructs still to be evidenced:
-`#define GEOMETRY_H` in sources, `#pragma auto_inline(off)` and hand-written `extern "C"` blocks in sources.
+`Unknown*` names (distinct identifiers that begin with `Unknown` or `unknown`, outside comments, in src
+and include; COM names such as `IUnknown` are not counted), `vt_entry_NN` slots, `field_NN` and `FUN_`
+names in headers, and the inherited constructs still to be evidenced: `#define GEOMETRY_H` in sources,
+`#pragma auto_inline(off)` and hand-written `extern "C"` blocks in sources.
+
+`RA2_NON_MATCHING` draft guards are not a budget (owner ruling, 2026-11-18): they are the parked tail,
+and a new guarded draft is a legitimate parked attempt, so a merge that adds guarded drafts is never
+refused for it. The census reports the guard count on its own line beside the parked tail (rows not
+exact and their body bytes).
 
 ## Layout
 

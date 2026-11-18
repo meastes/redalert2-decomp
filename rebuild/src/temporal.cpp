@@ -220,7 +220,6 @@ void TemporalClass::Detach_Techno(AbstractClass const * target)
 **	Lets go of the target: the chain closes up behind this beam, or (the last beam) the target
 **	is free again and a building is powered.
 */
-#ifdef RA2_NON_MATCHING // not exact: 174 bytes differ (the original loads both chain links first)
 void TemporalClass::LetGo(void)
 {
 	if (NextTemporal == NULL) {
@@ -244,9 +243,11 @@ void TemporalClass::LetGo(void)
 	} else {
 		if (PrevTemporal != NULL) {
 			PrevTemporal->NextTemporal = NextTemporal;
-		}
-		if (NextTemporal != NULL) {
-			NextTemporal->PrevTemporal = PrevTemporal;
+			if (NextTemporal != NULL) {
+				NextTemporal->PrevTemporal = PrevTemporal;
+			}
+		} else {
+			NextTemporal->PrevTemporal = NULL;
 		}
 	}
 	Target = NULL;
@@ -255,7 +256,6 @@ void TemporalClass::LetGo(void)
 	SourceSW = NULL;
 	Unused_38 = NULL;
 }
-#endif
 
 
 #ifdef RA2_NON_MATCHING // not exact: 1 byte differs (an encoding or length difference not resolved)
@@ -370,12 +370,23 @@ bool TemporalClass::CanWarpTarget(TechnoClass * target)
 }
 
 
+static inline UnitClass * As_Unit(TechnoClass * object)
+{
+	return((object == NULL) ? NULL : ((object->Fetch_RTTI() == RTTI_UNIT) ? (UnitClass *)object : NULL));
+}
+
+
+static inline BuildingClass * As_Building(TechnoClass * object)
+{
+	return((object == NULL) ? NULL : ((object->Fetch_RTTI() == RTTI_BUILDING) ? (BuildingClass *)object : NULL));
+}
+
+
 /*
 **	Fires at a target: its spawned aircraft and captured units are let go, this beam joins the
 **	chain on the target (or starts it), a harvester's owner is warned and a building's owner is
 **	told it is attacked; the target stops being an active object.
 */
-#ifdef RA2_NON_MATCHING // not exact: 371 bytes differ (draft)
 void TemporalClass::Fire(TechnoClass * target)
 {
 	if (target != NULL) {
@@ -399,7 +410,7 @@ void TemporalClass::Fire(TechnoClass * target)
 	if (target->TemporalTargetingMe == NULL) {
 		target->TemporalTargetingMe = this;
 		WarpRemaining = Target->Techno_Type_Class()->MaxStrength * 10;
-		if (Target != NULL && Target->Fetch_RTTI() == RTTI_UNIT && Target->As_UnitClass()->Class->IsToHarvest &&
+		if (Target != NULL && Target->Fetch_RTTI() == RTTI_UNIT && As_Unit(Target)->Class->IsToHarvest &&
 			Target->House == PlayerPtr) {
 			if (Submit_Radar_Event(RADAREVENT_HARVESTER_ATTACKED, Target->Destination_Coord(NULL).As_Cell())) {
 				Queue_Speech("EVA_OreMinerUnderAttack", -1, -1);
@@ -407,7 +418,7 @@ void TemporalClass::Fire(TechnoClass * target)
 		}
 		if (Target->Fetch_RTTI() == RTTI_BUILDING && !Target->Techno_Type_Class()->IsInsignificant &&
 			!Target->Considered_Vehicle()) {
-			Target->House->Attacked(Target->As_BuildingClass());
+			Target->House->Attacked(As_Building(Target));
 		}
 	} else {
 		NextTemporal = target->TemporalTargetingMe;
@@ -430,7 +441,6 @@ void TemporalClass::Fire(TechnoClass * target)
 		Target->TemporalImUsing->LetGo();
 	}
 }
-#endif
 
 
 int TemporalClass::Fetch_Object_Size(void) const

@@ -67,7 +67,7 @@ class TextLabelClass : public GadgetClass
 		int Color;
 		int PixWidth;
 
-		int FirstChar; // RA2: index of the first character shown, kept by Draw_Text_Field when the text scrolls
+		int FirstChar; // RA2: index of the first character shown, kept by OwnerDraw::Draw_Edit_Text when the text scrolls
 		bool SkipDraw; // RA2: +0x40
 		bool Animate; // RA2: +0x41
 		int AnimPos; // RA2: +0x44

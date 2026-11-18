@@ -253,7 +253,6 @@ int CheerFrame;
 /// <summary>
 /// Queues a cheer event once the cheer rate allows another one.
 /// </summary>
-#if 0
 void __cdecl Command_Cheer(void)
 {
 	if (Frame >= CheerFrame && MuteSWLaunches == 0) {
@@ -261,7 +260,6 @@ void __cdecl Command_Cheer(void)
 		CheerFrame = Rule->MaximumCheerRate + Frame;
 	}
 }
-#endif
 
 
 /// <summary>

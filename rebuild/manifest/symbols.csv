@@ -1671,6 +1671,7 @@ symbol,address,evidence
 ?Help_Text@TabClass@@UAEPBDH@Z,0x006A20B0,slot +84 of ??_7MouseClass@@6BSidebarClass@@@ at 0079a954; main row ?Help_Text@TabClass@@UAEPBGH@Z
 ?Hidden@ObjectClass@@UAEXXZ,0x005D2C80,slot +118 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Hidden@ObjectClass@@UAEXXZ
 ?Hidden@TechnoClass@@UAEXXZ,0x006C2520,slot +118 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Hidden@TechnoClass@@UAEXXZ
+?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ,0x0041B750,"aircraft emission order: TVelocity3D::Get_Pitch (0x41B6E0) calls this copy, emitted right after it; see TVelocity2D::Speed"
 ?Hotkey_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FC330,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?How_Many_Survivors@TechnoClass@@UBEHXZ,0x006C16D0,slot +2b4 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot172@TechnoClass@@UAEHXZ
 ?ID@?$DynamicVectorClass@G@@UAEHABG@Z,0x0042B3A0,slot +14 of ??_7?$DynamicVectorClass@G@@6B@ at 0079c550; main row ?ID@?$DynamicVectorClass@G@@UAEHABG@Z
@@ -2667,6 +2668,7 @@ symbol,address,evidence
 ?Size@RawFileClass@@UAEHXZ,0x00639180,slot +30 of ??_7RawFileClass@@6B@ at 007a8cc0; main row ?Size@RawFileClass@@UAEJXZ
 ?Sort_Y@ObjectClass@@UBEHXZ,0x005D5450,slot +b8 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Sort_Y@ObjectClass@@UBEHXZ
 ?SpawnBaseUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@I@Z,0x005B7F90,slot +b0 of ??_7FreeForAll@@6B@ at 007a6910; main row ?SpawnBaseUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@PAH@Z
+?Speed@?$TVelocity2D@N@@QBENXZ,0x0041B830,"aircraft emission order: TVelocity2D::Set_Yaw in AircraftClass::Fire_At calls Nonzero_Check (0x41B860) then this copy, emitted just before it as the 3D pair is (Speed 0x41B7C0, Nonzero_Check 0x41B7F0); main names the byte-identical copies the other way round (its own header), so its population binding is not ours"
 ?Start_Driver@FootClass@@UAE_NAAVCoord@@@Z,0x004C4B90,slot +48c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot290@FootClass@@UAE_NAAUCoordStruct@@@Z
 ?Start_Driver@InfantryClass@@UAE_NAAVCoord@@@Z,0x00504BC0,slot +48c of ??_7InfantryClass@@6BIPersistStream@@@ at 007a353c; main row ?unknown_slot290@InfantryClass@@UAE_NAAUCoordStruct@@@Z
 ?Start_Fear@FootClass@@UAEXXZ,0x0041B500,slot +4a0 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b500@@QAEXXZ

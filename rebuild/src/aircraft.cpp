@@ -138,7 +138,10 @@
 #include "waypoint.h"
 #include "weapon.h"
 #include "globals.h"
-static inline bool Aircraft_Fire_Shrouded(Coord const & coord); // RA2: defined after its first caller
+static inline Point3D Coord_Difference(Coord const & to, Coord const & from)
+{
+	return(Point3D(to.X - from.X, to.Y - from.Y, to.Z - from.Z));
+}
 
 
 static inline Cell Aircraft_Adjacent_Cell(Cell const & cell, FacingType dir) // RA2: an adjacent cell by value, the table entry first
@@ -1146,7 +1149,7 @@ int AircraftClass::Paradrop_Cargo(void)
 /// <param name="which">Which of the weapons to fire.</param>
 /// <returns>Returns with a pointer to the projectile created, or NULL if the aircraft
 /// did not fire.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1155 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 1114 bytes differ (the fifth shroud test and the coordinate difference keep their constructors out of line in the original)
 BulletClass * AircraftClass::Fire_At(AbstractClass * target, int which)
 {
 	/*
@@ -1184,7 +1187,7 @@ BulletClass * AircraftClass::Fire_At(AbstractClass * target, int which)
 		}
 
 		if (bullet->Class->ROT == 1) {
-			Coord diff = target->Center_Coord() - Center_Coord();
+			Point3D diff = Coord_Difference(target->Center_Coord(), Center_Coord());
 			TVelocity3D<double> dir(diff.X, diff.Y, diff.Z);
 			bullet->Velocity.Set_Yaw(dir.Get_Yaw());
 			bullet->Velocity.Set_Pitch(dir.Get_Pitch());
@@ -1196,7 +1199,7 @@ BulletClass * AircraftClass::Fire_At(AbstractClass * target, int which)
 				Map.Is_Shrouded(PositionCoord + Coord(2 * CELL_LEPTON_W, 2 * CELL_LEPTON_H)) ||
 				Map.Is_Shrouded(PositionCoord + Coord(-2 * CELL_LEPTON_W, -2 * CELL_LEPTON_H)) ||
 				Map.Is_Shrouded(PositionCoord + Coord(2 * CELL_LEPTON_W, -2 * CELL_LEPTON_H)) ||
-				Aircraft_Fire_Shrouded(PositionCoord) ||
+				Map.Is_Shrouded(PositionCoord + Coord(2 * CELL_LEPTON_W, -2 * CELL_LEPTON_H)) ||
 				Map.Is_Shrouded(target->Center_Coord())) {
 				Map.Sight_From(PositionCoord, Rule->AttackingAircraftSightRange, House, false, false, false, true, false); // RA2: the sight is revealed twice, the second time with the last flag set
 				Map.Sight_From(PositionCoord, Rule->AttackingAircraftSightRange, House, false, false, false, true, true); // RA2: as above
@@ -3824,30 +3827,6 @@ void AircraftClass::Write_INI(CCINIClass & ini)
 			ini.Put_String(INI_NAME, uname, buf);
 		}
 	}
-}
-
-
-/***********************************************************************************************
- * AircraftClass::Fire_At -- Handles firing a projectile from an aircraft.                     *
- *                                                                                             *
- *    Sometimes, aircraft firing needs special handling. Example: for napalm bombs, the        *
- *    bomb travels forward at nearly the speed of the delivery aircraft, not necessarily the   *
- *    default speed defined in the BulletTypeClass structure.                                  *
- *                                                                                             *
- * INPUT:   target   -- The target that the projectile is heading for.                         *
- *                                                                                             *
- *          which    -- Which weapon to use in the attack. 0=primary, 1=secondary.             *
- *                                                                                             *
- * OUTPUT:  Returns with a pointer to the bullet that was created as a result of this attack.  *
- *                                                                                             *
- * WARNINGS:   none                                                                            *
- *                                                                                             *
- * HISTORY:                                                                                    *
- *   03/19/1995 JLB : Created.                                                                 *
- *=============================================================================================*/
-static inline bool Aircraft_Fire_Shrouded(Coord const & coord)
-{
-	return(Map.Is_Shrouded(coord + Coord(2 * CELL_LEPTON_W, -2 * CELL_LEPTON_H)));
 }
 
 

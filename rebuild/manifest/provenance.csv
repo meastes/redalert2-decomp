@@ -1196,6 +1196,7 @@ capmgr,00467e40,??0CaptureManagerClass@@QAE@XZ,132,c,seed,edit,2,body assignment
 capmgr,00467ed0,??0CaptureManagerClass@@QAE@ABVNoInitClass@@@Z,46,c,seed,yes,2,written from the instructions; class header adopted (capmgr.h)
 capmgr,00467f00,??1CaptureManagerClass@@UAE@XZ,114,c,seed,yes,2,written from the instructions; class header adopted (capmgr.h)
 capmgr,00467f80,?Can_Capture@CaptureManagerClass@@QAE_NPAVTechnoClass@@@Z,109,c,seed,edit,2,if/return form
+capmgr,00467ff0,?Capture@CaptureManagerClass@@QAE_NPAVTechnoClass@@@Z,299,b,old tree,edit,3,main's form: the capture test kept in a bool (capture) before the early return
 capmgr,00468120,?Detach_Target@CaptureManagerClass@@QAE_NPBVAbstractClass@@@Z,24,c,seed,edit,2,always returns true (misread)
 capmgr,00468140,?Detach_Unused@CaptureManagerClass@@QAE_NPAVAbstractClass@@@Z,5,c,seed,yes,2,written from the instructions; class header adopted (capmgr.h)
 capmgr,00468150,?Draw_Link@CaptureManagerClass@@QBEXXZ,139,c,seed,yes,2,written from the instructions; class header adopted (capmgr.h)
@@ -2295,6 +2296,7 @@ fly,004bc2b0,?Process@FlyLocomotionClass@@UAGEXZ,303,a,mischa85,yes,,
 fly,004bc730,?Stop_Moving@FlyLocomotionClass@@UAGXXZ,705,a,mischa85,yes,,
 fly,004bca00,?Landing_Takeoff_AI@FlyLocomotionClass@@QAE_NXZ,604,a,mischa85,yes,,
 fly,004bcc60,?Edge_Of_World_AI@FlyLocomotionClass@@QAE_NXZ,238,a,mischa85,yes,,
+fly,004bcd50,?Movement_AI@FlyLocomotionClass@@QAEXXZ,3783,b,old tree,edit,14,"main's forms: the off-map cell named before Cell_To_LocalRect, the pitch clamp as MIN(TClass->PitchAngle, factor * TClass->PitchAngle), the direction to the cell centre taken into a DirType before Move_Coord"
 fly,004bdc20,?Physics@FlyLocomotionClass@@QAE?AW4ImpactType@@AAVCoord@@VDirType@@@Z,236,a,mischa85,yes,,
 fly,004bdd10,?Rotation_AI@FlyLocomotionClass@@QAEXXZ,210,a,mischa85,yes,,
 fly,004bddf0,?Process_Take_Off@FlyLocomotionClass@@QAE_NXZ,435,a,mischa85,yes,,
@@ -3658,6 +3660,7 @@ kamikaze,00531550,_$E149,112,c,seed,yes,4,written from the instructions and deco
 kamikaze,005315c0,_$E147,129,c,seed,yes,4,written from the instructions and decompiler output; layout from the executable
 kamikaze,00531650,??0KamikazeTrackerClass@@QAE@XZ,79,c,seed,yes,4,written from the instructions and decompiler output; layout from the executable
 kamikaze,005316a0,?Add@KamikazeTrackerClass@@QAEXPAVAircraftClass@@PAVAbstractClass@@@Z,288,c,seed,yes,4,written from the instructions and decompiler output; layout from the executable
+kamikaze,005317c0,?Update@KamikazeClass@@QAEXXZ,187,b,old tree,edit,4,"main's form: the missing target cell handled in its own branch (facing, the cell under the missile and its neighbour named), each branch assigning the target and queueing the attack"
 kamikaze,00531880,?Detach@KamikazeTrackerClass@@QAEXPAVAbstractClass@@@Z,253,c,seed,edit,3,operand order of the two compares
 kamikaze,00531980,??1KamikazeTrackerClass@@QAE@XZ,94,c,seed,yes,4,written from the instructions and decompiler output; layout from the executable
 kamikaze,005319e0,?Clear@KamikazeTrackerClass@@QAEXXZ,85,c,seed,yes,4,written from the instructions and decompiler output; layout from the executable
@@ -4109,6 +4112,8 @@ map,00548490,?Init_Cells@MapClass@@UAEXXZ,67,a,mischa85,yes,,
 map,005499c0,?Fresh_Map@MapClass@@QAEXXZ,280,a,mischa85,yes,,
 map,00549ae0,?Set_Local_Dimensions@MapClass@@UAEXABV?$TRect@H@@@Z,309,a,mischa85,yes,,
 map,00549c20,?RevealArea0@MapClass@@QAEXHHABVCoord@@HPAVHouseClass@@_N222@Z,45,a,mischa85,yes,,
+map,00549c50,?RevealArea1@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z,1208,b,old tree,edit,2,"main's clamp (sightrange >= 11 || > 10, as ra2-decomp's twin) and the height shift / -30 (main and ra2-decomp)"
+map,0054a110,?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z,1088,b,old tree,edit,4,"main's clamp and / -30, and main's else arm: RevealFogShroud(newcell, house, increase) unconditionally (the adopted test and Map_Cell were not the original's)"
 map,0054a550,?RevealArea3@MapClass@@QAEXABVCoord@@HHH@Z,452,a,mischa85,yes,,
 map,0054a720,?Shroud_Gap_Area@MapClass@@QAEXABVCoord@@H@Z,464,a,mischa85,yes,,
 map,0054a8f0,?Unshroud_Gap_Area@MapClass@@QAEXABVCoord@@H@Z,446,a,mischa85,yes,,
@@ -4749,6 +4754,30 @@ mpscore,005aabd0,?MP_Score_Tally@@YIXXZ,498,a,mischa85,yes,,
 mpscore,005aadd0,?MP_Score_Sort@@YIXXZ,62,a,mischa85,yes,,
 mpscore,005aae10,?MP_Score_Compare@@YAHPBX0@Z,40,a,mischa85,yes,,
 mpscore,005aae40,?MP_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,1392,a,mischa85,yes,,
+mpsiege,005ab3b0,_$E2,40,a,mischa85,yes,,
+mpsiege,005ab3e0,_$E5,19,a,mischa85,yes,,
+mpsiege,005ab400,_$E8,19,a,mischa85,yes,,
+mpsiege,005ab420,_$E11,19,a,mischa85,yes,,
+mpsiege,005ab440,_$E14,19,a,mischa85,yes,,
+mpsiege,005ab460,_$E17,19,a,mischa85,yes,,
+mpsiege,005ab480,_$E20,49,a,mischa85,yes,,
+mpsiege,005ab4c0,_$E23,33,a,mischa85,yes,,
+mpsiege,005ab4f0,_$E26,44,a,mischa85,yes,,
+mpsiege,005ab520,_$E29,39,a,mischa85,yes,,
+mpsiege,005ab550,_$E32,15,a,mischa85,yes,,
+mpsiege,005ab560,_$E35,18,a,mischa85,yes,,
+mpsiege,005ab580,_$E38,23,a,mischa85,yes,,
+mpsiege,005ab5a0,??0MultiplayerSiege@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z,52,c,seed,yes,3,constructor
+mpsiege,005ab5e0,??1MultiplayerSiege@@UAE@XZ,11,c,seed,yes,1,destructor
+mpsiege,005ab5f0,?AssignTeams@MultiplayerSiege@@UAE_NXZ,79,c,seed,edit,6,teams: first player defends
+mpsiege,005ab640,?CheckStartConditions@MultiplayerSiege@@UAE_NPAVWideWstring@@@Z,242,c,seed,yes,4,"one defender, at least one attacker"
+mpsiege,005ab740,?AssignTeamsAtStart@MultiplayerSiege@@UAE_NXZ,5,c,seed,yes,1,base call
+mpsiege,005ab750,?IsAIAllowed@MultiplayerSiege@@UAE_NXZ,3,c,seed,yes,1,no AI
+mpsiege,005ab760,?UnfixAlliances@MultiplayerSiege@@UAE_NXZ,5,c,seed,yes,1,base call
+mpsiege,005ab770,?StartingPositionsToHouseBaseCells@MultiplayerSiege@@UAE_ND@Z,499,c,seed,edit,6,defender on the first waypoint
+mpsiege,005ab970,?CreateMPTeams@MultiplayerSiege@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z,269,c,seed,yes,2,three teams
+mpsiege,005aba80,?SpawnBaseUnits@MultiplayerSiege@@UAE_NPAVHouseClass@@I@Z,278,c,seed,edit,6,construction yard for the defender
+mpsiege,005abba0,??_GMultiplayerSiege@@UAEPAXI@Z,36,c,seed,yes,0,compiler-generated deleting destructor
 mpu,005abf20,?Get_CPU_Rate@@YIIAAI@Z,49,a,mischa85,edit,3.000,Address-suffixed names 0; calibration not used
 mpunholyalliance,005ac140,_$E2,40,a,mischa85,yes,,
 mpunholyalliance,005ac170,_$E5,19,a,mischa85,yes,,
@@ -6558,6 +6587,24 @@ stbuffer,0069a1d0,?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABUSurfaceRe
 stbuffer,0069a300,?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABV?$TRect@H@@FF@Z,304,a,mischa85,yes,,
 stimer,0069a430,??RSystemTimerClass@@QBEHXZ,10,a,mischa85,yes,1.000,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
 stimer,0069a440,??BSystemTimerClass@@QBEHXZ,10,a,mischa85,yes,1.000,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
+stlscore,0069a450,_$E2,23,a,mischa85,yes,,
+stlscore,0069a470,_$E5,40,a,mischa85,yes,,
+stlscore,0069a4a0,_$E8,19,a,mischa85,yes,,
+stlscore,0069a4c0,_$E11,19,a,mischa85,yes,,
+stlscore,0069a4e0,_$E14,19,a,mischa85,yes,,
+stlscore,0069a500,_$E17,19,a,mischa85,yes,,
+stlscore,0069a520,_$E20,19,a,mischa85,yes,,
+stlscore,0069a540,_$E23,49,a,mischa85,yes,,
+stlscore,0069a580,_$E26,33,a,mischa85,yes,,
+stlscore,0069a5b0,_$E29,44,a,mischa85,yes,,
+stlscore,0069a5e0,_$E32,39,a,mischa85,yes,,
+stlscore,0069a610,_$E35,15,a,mischa85,yes,,
+stlscore,0069a620,_$E38,18,a,mischa85,yes,,
+stlscore,0069a640,??0STLScoreScreen@@QAE@XZ,3,c,seed,yes,1,constructor
+stlscore,0069a650,?Present@STLScoreScreen@@QAEXXZ,148,c,seed,yes,4,"the art, the screen, the dialog, the screen again"
+stlscore,0069a6f0,?Set_Time_Text@@YIXPAUHWND__@@HH@Z,133,c,seed,edit,4,"hours, minutes and seconds from the minutes"
+stlscore,0069a780,?Set_Number_Text@@YIXPAUHWND__@@HH@Z,67,c,seed,edit,1,a number
+stlscore,0069a7d0,?Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,1020,c,seed,edit,14,"par time, time taken, under or over par texts, kills, the counting sound"
 storage,0069abd0,_$E2,40,a,mischa85,yes,,released by lane R4 tooling
 storage,0069ac00,_$E5,19,a,mischa85,yes,,released by lane R4 tooling
 storage,0069ac20,_$E8,19,a,mischa85,yes,,released by lane R4 tooling
@@ -6782,6 +6829,7 @@ tactical,006aab60,?Detach@Tactical@@UAEXPBVAbstractClass@@_N@Z,82,a,mischa85,yes
 tactical,006aabc0,?Select_These@Tactical@@QAEXABV?$TRect@H@@P6IXPAVObjectClass@@@Z@Z,378,a,mischa85,yes,,
 tactical,006aad40,?Unselect_All@Tactical@@QAEXXZ,40,a,mischa85,yes,,
 tactical,006aad70,?Unselect_Foreign_Object@Tactical@@QAE_NXZ,87,a,mischa85,yes,,
+tactical,006aadd0,?Flag_Cell@Tactical@@QAEXAAVCellClass@@@Z,424,b,old tree,edit,3,"main's form: both branches convert through Coord_To_Pixel(ground, pixel), which this unit defines earlier and the compiler expands"
 tactical,006aaf80,?Reset_Dirty_Rectangles@Tactical@@QAEXXZ,70,a,mischa85,yes,,
 tactical,006aafd0,?Draw_Rally_Points@Tactical@@QAEX_N@Z,904,a,mischa85,yes,,
 tactical,006ab360,?Draw_Waypoints@Tactical@@QAEX_N@Z,1196,a,mischa85,yes,,
@@ -7296,11 +7344,13 @@ temporal,006e21d0,?Save@TemporalClass@@UAGJPAUIStream@@H@Z,23,c,seed,yes,2,writt
 temporal,006e21f0,?GetClassID@TemporalClass@@UAGJPAU_GUID@@@Z,56,c,seed,yes,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e2470,?GetWarpPerStep@TemporalClass@@QAEHH@Z,74,c,seed,edit,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e24c0,?Detach_Techno@TemporalClass@@QAEXPBVAbstractClass@@@Z,64,c,seed,edit,2,written from the instructions; class header adopted (temporal.h)
+temporal,006e2500,?LetGo@TemporalClass@@QAEXXZ,234,b,old tree,edit,3,"main's form of the unlink when this weapon is not the last in the chain: the next link's back pointer tested under the previous link, otherwise cleared"
 temporal,006e2610,?Restore_Target@TemporalClass@@QAEXXZ,93,c,seed,yes,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e2670,?Empty@TemporalClass@@QAEXXZ,1,c,seed,yes,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e26f0,?Clear_Links@TemporalClass@@QAEXXZ,18,c,seed,edit,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e2710,?Detach@TemporalClass@@QAEXXZ,88,c,seed,edit,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e2770,?CanWarpTarget@TemporalClass@@QAE_NPAVTechnoClass@@@Z,60,c,seed,yes,2,written from the instructions; class header adopted (temporal.h)
+temporal,006e27b0,?Fire@TemporalClass@@QAEXPAVTechnoClass@@@Z,591,b,old tree,edit,10,"main's casts: the unit and building pointers taken by a kind test (RTTI) rather than dynamic_cast, as main's As_Building; here two file-local inline helpers"
 temporal,006e2a00,?Fetch_Object_Size@TemporalClass@@UBEHXZ,6,c,seed,yes,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e2a10,?Fetch_RTTI@TemporalClass@@UBE?AW4RTTIType@@XZ,6,c,seed,yes,2,written from the instructions; class header adopted (temporal.h)
 temporal,006e2a20,??_GTemporalClass@@UAEPAXI@Z,134,a,mischa85,yes,,
@@ -7704,6 +7754,7 @@ tunnel,006f03b0,?Process_Turning@TunnelLocomotionClass@@QAEXXZ,380,a,mischa85,ye
 tunnel,006f0530,?Process_Digging_In@TunnelLocomotionClass@@QAEXXZ,255,a,mischa85,yes,,
 tunnel,006f0630,?Process_Aborting@TunnelLocomotionClass@@QAEXXZ,93,a,mischa85,yes,,
 tunnel,006f0690,?Process_Descending@TunnelLocomotionClass@@QAEXXZ,155,a,mischa85,yes,,
+tunnel,006f0730,?Process_Tunneling@TunnelLocomotionClass@@QAEXXZ,871,b,old tree,edit,6,"main's forms: the move helper takes the point before the radians, and the heading is taken into a DirType before the move (main's separate direction helper)"
 tunnel,006f0aa0,?Process_Ascending@TunnelLocomotionClass@@QAEXXZ,423,a,mischa85,yes,,
 tunnel,006f0c50,?Process_Emerging@TunnelLocomotionClass@@QAEXXZ,142,a,mischa85,yes,,
 tunnel,006f0ce0,?Draw_Matrix@TunnelLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z,780,a,mischa85,yes,,
@@ -7731,6 +7782,7 @@ txtlabel,006f1560,_$E32,39,a,mischa85,yes,,released by lane R4 tooling
 txtlabel,006f1590,_$E35,15,a,mischa85,yes,,released by lane R4 tooling
 txtlabel,006f15a0,_$E38,18,a,mischa85,yes,,released by lane R4 tooling
 txtlabel,006f15c0,??0TextLabelClass@@QAE@PAGHHHW4TextPrintType@@@Z,91,a,mischa85,yes,,released by lane R4 tooling
+txtlabel,006f1620,?Draw_Me@TextLabelClass@@UAEHH@Z,439,b,old tree,edit,8,"main's structure: the scheme count tested after the colour index is read, the width as a conditional, the validity test only after clipping, the colour packed red first, the reveal count advanced by the elapsed time >> 4, and the text drawn through OwnerDraw::Draw_Edit_Text (0x600830; the adopted Draw_Text_Field declaration had no binding)"
 txtlabel,006f17e0,?Set_Text@TextLabelClass@@UAEXPAG@Z,10,a,mischa85,yes,,released by lane R4 tooling
 txtlabel2,006f1810,_$E2,23,a,mischa85,yes,,released by lane R4 tooling
 txtlabel2,006f1830,_$E5,40,a,mischa85,yes,,released by lane R4 tooling
@@ -7878,6 +7930,7 @@ uicmnds,006f5920,?Message_Style@@YIHXZ,6,a,mischa85,yes,0.109,Adopted source con
 uicmnds,006f5930,?Message_Delay@@YIHXZ,6,a,mischa85,yes,0.109,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
 uicmnds,006f5940,?Command_Deploy@@YAXXZ,464,a,mischa85,yes,0.109,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
 uicmnds,006f5bc0,?Command_Stop@@YAXXZ,129,a,mischa85,yes,0.109,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
+uicmnds,006f5c50,?Command_Cheer@@YAXXZ,177,a,mischa85,yes,1,"mischa85's text, exact once unguarded (the #if 0 left by the unit's adoption is no longer needed)"
 uicmnds,006f5d10,?Command_Scatter@@YAXXZ,116,a,mischa85,yes,0.109,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
 uicmnds,006f5d90,?Group_Assign@@YIXH@Z,115,a,mischa85,yes,0.109,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
 uicmnds,006f5e10,?Group_Clear@@YIXH@Z,102,a,mischa85,yes,0.109,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
@@ -9129,29 +9182,3 @@ zbuffer,00776160,?Fill@ZBuffer@@QAE_NG@Z,57,a,mischa85,yes,,
 zbuffer,007761a0,?Fill@ZBuffer@@QAE_NGV?$TRect@H@@@Z,27,a,mischa85,yes,,
 zbuffer,007761c0,?Update@ZBuffer@@QAEXV?$TRect@H@@@Z,371,a,mischa85,yes,,
 zbuffer,00776340,?Get_Buffer_Offset@ZBuffer@@QAEIVPoint2D@@@Z,52,a,mischa85,yes,,
-mpsiege,005ab3b0,_$E2,40,a,mischa85,yes,,
-mpsiege,005ab3e0,_$E5,19,a,mischa85,yes,,
-mpsiege,005ab400,_$E8,19,a,mischa85,yes,,
-mpsiege,005ab420,_$E11,19,a,mischa85,yes,,
-mpsiege,005ab440,_$E14,19,a,mischa85,yes,,
-mpsiege,005ab460,_$E17,19,a,mischa85,yes,,
-mpsiege,005ab480,_$E20,49,a,mischa85,yes,,
-mpsiege,005ab4c0,_$E23,33,a,mischa85,yes,,
-mpsiege,005ab4f0,_$E26,44,a,mischa85,yes,,
-mpsiege,005ab520,_$E29,39,a,mischa85,yes,,
-mpsiege,005ab550,_$E32,15,a,mischa85,yes,,
-mpsiege,005ab560,_$E35,18,a,mischa85,yes,,
-mpsiege,005ab580,_$E38,23,a,mischa85,yes,,
-mpsiege,005ab5a0,??0MultiplayerSiege@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z,52,c,seed,yes,3,constructor
-mpsiege,005ab5e0,??1MultiplayerSiege@@UAE@XZ,11,c,seed,yes,1,destructor
-mpsiege,005ab5f0,?AssignTeams@MultiplayerSiege@@UAE_NXZ,79,c,seed,edit,6,teams: first player defends
-mpsiege,005ab640,?CheckStartConditions@MultiplayerSiege@@UAE_NPAVWideWstring@@@Z,242,c,seed,yes,4,one defender, at least one attacker
-mpsiege,005ab740,?AssignTeamsAtStart@MultiplayerSiege@@UAE_NXZ,5,c,seed,yes,1,base call
-mpsiege,005ab750,?IsAIAllowed@MultiplayerSiege@@UAE_NXZ,3,c,seed,yes,1,no AI
-mpsiege,005ab760,?UnfixAlliances@MultiplayerSiege@@UAE_NXZ,5,c,seed,yes,1,base call
-mpsiege,005ab770,?StartingPositionsToHouseBaseCells@MultiplayerSiege@@UAE_ND@Z,499,c,seed,edit,6,defender on the first waypoint
-mpsiege,005ab970,?CreateMPTeams@MultiplayerSiege@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z,269,c,seed,yes,2,three teams
-mpsiege,005aba80,?SpawnBaseUnits@MultiplayerSiege@@UAE_NPAVHouseClass@@I@Z,278,c,seed,edit,6,construction yard for the defender
-mpsiege,005abba0,??_GMultiplayerSiege@@UAEPAXI@Z,36,c,seed,yes,0,compiler-generated deleting destructor
-map,00549c50,?RevealArea1@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z,1208,b,old tree,edit,2,"main's clamp (sightrange >= 11 || > 10, as ra2-decomp's twin) and the height shift / -30 (main and ra2-decomp)"
-map,0054a110,?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z,1088,b,old tree,edit,4,"main's clamp and / -30, and main's else arm: RevealFogShroud(newcell, house, increase) unconditionally (the adopted test and Map_Cell were not the original's)"

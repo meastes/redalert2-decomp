@@ -78,7 +78,7 @@ def placeholder_measures(tree, read):
         text = read(p) or ''
         chatter += sum(1 for line in text.splitlines() if CHATTER.search(line))
         code = C.code_only(text)
-        unknown |= set(re.findall(r'\bUnknown\w*', code))
+        unknown |= set(re.findall(r'\b[Uu]nknown\w*', code))
         vt |= set(re.findall(r'\bvt_entry_[0-9A-Fa-f]+\b', code))
         guards += len(re.findall(r'#ifdef RA2_NON_MATCHING', text))
         if p.startswith('rebuild/include/'):
@@ -93,20 +93,24 @@ def placeholder_measures(tree, read):
                 inherited_geometry_define=geometry, inherited_auto_inline_off=pragmas, extern_c_in_sources=extern_c)
 
 
+# Gated keys (may only fall). draft_guards is reported only: the guards are the parked tail, and a new
+# guarded draft is a legitimate parked attempt (owner ruling, 2026-11-18).
 PLACEHOLDER_KEYS = ('process_chatter', 'unknown_names', 'vt_entry_names', 'field_names_headers', 'fun_names_headers',
-                    'draft_guards', 'inherited_geometry_define', 'inherited_auto_inline_off', 'extern_c_in_sources')
+                    'inherited_geometry_define', 'inherited_auto_inline_off', 'extern_c_in_sources')
 
 
-def parked_bytes():
-    """Body bytes of the rows not exact in the last checks (the parked tail behind the guards)."""
-    total = 0
+def parked_tail():
+    """(rows, body bytes) not exact in the last checks: the parked tail behind the guards."""
+    rows = total = 0
     for path in (R.WORK / 'last').glob('*.json'):
         if path.stem.endswith('preguard'):
             continue
         last = json.loads(path.read_text())
         results = last['results'] if isinstance(last['results'], list) else []
-        total += sum(r['body'] for r in results if r.get('status') != 'exact')
-    return total
+        parked = [r for r in results if r.get('status') != 'exact']
+        rows += len(parked)
+        total += sum(r['body'] for r in parked)
+    return rows, total
 
 
 def unit_faults(unit, source_text):
@@ -174,9 +178,10 @@ def main(quiet=False):
           sorted(measures['duplicate_list'].items()))) if measures['duplicates'] else '', measures['externs'],
           measures['address_suffixed'], measures['outside'], measures['free_vs_member'], measures['tool_data']))
     print('Gate (placeholders, only fall): process chatter %d; Unknown* names %d; vt_entry_NN %d; field_NN in headers %d; '
-          'FUN_ in headers %d; RA2_NON_MATCHING guards %d (%d parked body bytes)' % (
-              measures['process_chatter'], measures['unknown_names'], measures['vt_entry_names'],
-              measures['field_names_headers'], measures['fun_names_headers'], measures['draft_guards'], parked_bytes()))
+          'FUN_ in headers %d' % (measures['process_chatter'], measures['unknown_names'], measures['vt_entry_names'],
+                                  measures['field_names_headers'], measures['fun_names_headers']))
+    print('Parked tail (reported, not gated): RA2_NON_MATCHING guards %d; %d rows not exact, %d body bytes' % (
+        (measures['draft_guards'],) + parked_tail()))
     print('Gate (inherited, to be evidenced): #define GEOMETRY_H in sources %d; #pragma auto_inline(off) %d; '
           'extern "C" in sources %d' % (measures['inherited_geometry_define'], measures['inherited_auto_inline_off'],
                                          measures['extern_c_in_sources']))

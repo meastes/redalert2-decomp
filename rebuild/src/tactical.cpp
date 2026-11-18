@@ -3609,7 +3609,6 @@ bool Tactical::Unselect_Foreign_Object(void) // RA2: not in TibSun, at 0x6AAD70
  * HISTORY:                                                                                    *
  *   10/20/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 180 bytes differ (adopted text)
 void Tactical::Flag_Cell(CellClass & cell)
 {
 	if (Map.DrawFlags == GS_REDRAW_DIRTY && cell.LastRedrawFrame != Frame && (cell.IsMapped || cell.VisibilityChanged)) { // RA2: also redraws a cell whose visibility changed (+0x138)
@@ -3621,11 +3620,10 @@ void Tactical::Flag_Cell(CellClass & cell)
 
 		Point2D pixel;
 		if (cell.IsMapped && cell.IsVisible) {
-			pixel = Coord_To_Pixel_Absolute(ground); // RA2: both branches inline the same conversion (0x6AAE38, 0x6AAE7F)
+			Coord_To_Pixel(ground, pixel); // RA2: both branches inline the same conversion (0x6AAE38, 0x6AAE7F)
 		} else {
-			pixel = Coord_To_Pixel_Absolute(ground);
+			Coord_To_Pixel(ground, pixel);
 		}
-		pixel -= Point2D(TacPixelX, TacPixelY); // RA2: taken out of the branches
 
 		if (pixel.X >= TacticalRect.X - ISO_TILE_PIXEL_W / 2
 			&& pixel.Y >= -ISO_TILE_PIXEL_H
@@ -3641,7 +3639,6 @@ void Tactical::Flag_Cell(CellClass & cell)
 		}
 	}
 }
-#endif
 
 
 

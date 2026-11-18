@@ -49,6 +49,9 @@
     "??_7CaptureManagerClass@@6BINoticeSource@@@": 7985036,
     "??0AbstractClass@@QAE@ABVNoInitClass@@@Z": 4259680,
     "??1AbstractClass@@UAE@XZ": 4259728,
+    "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z": 7049136,
+    "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z": 7171664,
+    "?LetGo@TemporalClass@@QAEXXZ": 7218432,
     "?Draw_Link_Line@TechnoClass@@QBEXVCoord@@0VRGBClass@@@Z": 7145872,
     "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z": 4260272,
     "??RCRCEngine@@QAEXH@Z": 4800304,
@@ -102,6 +105,7 @@
     "??0CaptureManagerClass@@QAE@ABVNoInitClass@@@Z": 4619984,
     "??1CaptureManagerClass@@UAE@XZ": 4620032,
     "?Can_Capture@CaptureManagerClass@@QAE_NPAVTechnoClass@@@Z": 4620160,
+    "?Capture@CaptureManagerClass@@QAE_NPAVTechnoClass@@@Z": 4620272,
     "?Detach_Target@CaptureManagerClass@@QAE_NPBVAbstractClass@@@Z": 4620576,
     "?Detach_Unused@CaptureManagerClass@@QAE_NPAVAbstractClass@@@Z": 4620608,
     "?Draw_Link@CaptureManagerClass@@QBEXXZ": 4620624,
@@ -189,7 +193,7 @@
           "resolved": 8717776
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619072,
@@ -240,7 +244,7 @@
           "resolved": 8717848
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619120,
@@ -291,7 +295,7 @@
           "resolved": 8717832
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619152,
@@ -342,7 +346,7 @@
           "resolved": 8717824
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619184,
@@ -393,7 +397,7 @@
           "resolved": 8717784
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619216,
@@ -444,7 +448,7 @@
           "resolved": 8717720
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619248,
@@ -527,7 +531,7 @@
           "resolved": 8717856
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619280,
@@ -586,7 +590,7 @@
           "resolved": 8717792
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619344,
@@ -645,7 +649,7 @@
           "resolved": 8717816
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619392,
@@ -704,7 +708,7 @@
           "resolved": 8717840
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619440,
@@ -747,7 +751,7 @@
           "resolved": 8717770
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619488,
@@ -798,7 +802,7 @@
           "resolved": 8717808
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619504,
@@ -857,7 +861,7 @@
           "resolved": 8717764
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619536,
@@ -964,7 +968,7 @@
           "resolved": 3255327
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619568,
@@ -1055,7 +1059,7 @@
           "resolved": 8717736
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619632,
@@ -1194,7 +1198,7 @@
           "resolved": 8717732
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619696,
@@ -1333,7 +1337,7 @@
           "resolved": 8717732
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619840,
@@ -1400,7 +1404,7 @@
           "resolved": 7985036
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4619984,
@@ -1515,7 +1519,7 @@
           "resolved": 4294606881
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4620032,
@@ -1541,10 +1545,61 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4620160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4620272,
+      "method": "00467ff0",
+      "body_bytes": 299,
+      "body_sha256": "732b140a3bb7a6097cb7f508ec0e5ce9df77a378a4c545d61b13b855786399c7",
+      "padding_bytes": 5,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "e0c740159f37578d3265a632904062c51b71e2cb16f69f19ad6f0fb2486fe33f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Capture@CaptureManagerClass@@QAE_NPAVTechnoClass@@@Z",
+      "symbol_prefix": "?Capture@CaptureManagerClass@@QAE_NPAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 213,
+          "kind": 20,
+          "symbol": "?Remove@TeamClass@@QAE_NPAVFootClass@@H_N@Z",
+          "target": 7049136,
+          "addend": 0,
+          "resolved": 2428647
+        },
+        {
+          "offset": 248,
+          "kind": 20,
+          "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+          "target": 7171664,
+          "addend": 0,
+          "resolved": 2551140
+        },
+        {
+          "offset": 286,
+          "kind": 20,
+          "symbol": "?LetGo@TemporalClass@@QAEXXZ",
+          "target": 7218432,
+          "addend": 0,
+          "resolved": 2597870
+        }
+      ],
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
+      "source": "rebuild/src/capmgr.cpp",
+      "population": "rebuild-capmgr",
+      "source_order": 4620272,
       "source_quality_family": "rebuild"
     },
     {
@@ -1567,7 +1622,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4620576,
@@ -1593,7 +1648,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4620608,
@@ -1629,7 +1684,7 @@
           "resolved": 2525117
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4620624,
@@ -1655,7 +1710,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4620768,
@@ -1714,7 +1769,7 @@
           "resolved": 179383
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4620832,
@@ -1837,7 +1892,7 @@
           "resolved": 2324532
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4620928,
@@ -1872,7 +1927,7 @@
           "resolved": 4294606252
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621056,
@@ -1931,7 +1986,7 @@
           "resolved": 8003052
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621088,
@@ -1957,7 +2012,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621152,
@@ -1983,7 +2038,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621168,
@@ -2106,7 +2161,7 @@
           "resolved": 3250495
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621184,
@@ -2141,7 +2196,7 @@
           "resolved": 3250448
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621328,
@@ -2168,7 +2223,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621376,
@@ -2195,7 +2250,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621408,
@@ -2222,7 +2277,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621424,
@@ -2266,7 +2321,7 @@
           "resolved": 3250192
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621488,
@@ -2302,7 +2357,7 @@
           "resolved": 3250115
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621664,
@@ -2329,7 +2384,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621712,
@@ -2356,7 +2411,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621776,
@@ -2400,7 +2455,7 @@
           "resolved": 3249885
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621808,
@@ -2427,7 +2482,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4621984,
@@ -2479,7 +2534,7 @@
           "resolved": 3249707
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4622032,
@@ -2531,7 +2586,7 @@
           "resolved": 3249627
         }
       ],
-      "source_sha256": "11e038511fe88713f7005d4f313ccfb44d18b16845461fbfd29cd1ea1d98bf62",
+      "source_sha256": "d031e3aeee491c32b6ac9a607e759e81b63ac4ccc5f845e8f7ced8e559b4d6ca",
       "source": "rebuild/src/capmgr.cpp",
       "population": "rebuild-capmgr",
       "source_order": 4622112,

@@ -72,7 +72,6 @@ bool CaptureManagerClass::Can_Capture(TechnoClass * target)
 **	The unit held so far goes back to its house; then the target is taken over, leaves its
 **	team, stops what it was doing and guards.
 */
-#ifdef RA2_NON_MATCHING // not exact: 186 of 299 bytes differ (the early false return is merged with the later one; the original keeps it in place)
 bool CaptureManagerClass::Capture(TechnoClass * target)
 {
 	if (Unit != NULL) {
@@ -82,7 +81,8 @@ bool CaptureManagerClass::Capture(TechnoClass * target)
 		OriginalOwner = NULL;
 	}
 
-	if (target == NULL || !(target->AbstractFlags & ABSTRACT_TECHNO) || !Can_Capture(target)) {
+	bool capture = target != NULL && (target->AbstractFlags & ABSTRACT_TECHNO) && Can_Capture(target);
+	if (!capture) {
 		return(false);
 	}
 
@@ -106,7 +106,6 @@ bool CaptureManagerClass::Capture(TechnoClass * target)
 	}
 	return(true);
 }
-#endif
 
 
 /*

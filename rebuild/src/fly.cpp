@@ -534,7 +534,6 @@ bool FlyLocomotionClass::Edge_Of_World_AI(void)
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1505 bytes differ (adopted text)
 void FlyLocomotionClass::Movement_AI(void)
 {
 	Cell here = LinkedTo->Get_Cell(); // RA2: the aircraft tracker is updated whenever the aircraft enters another cell while moving
@@ -632,7 +631,8 @@ void FlyLocomotionClass::Movement_AI(void)
 	Physics(coord, LinkedTo->PrimaryFacing.Current());
 
 	if (!Map.In_Radar(coord.As_Cell()) && LinkedTo->Should_Delete_Off_Map()) { // RA2: only an aircraft that is allowed to leave the map is pulled back in
-		Cell edge = Map.Cell_To_LocalRect(coord.As_Cell());
+		Cell cell = coord.As_Cell();
+		Cell edge = Map.Cell_To_LocalRect(cell);
 		if (edge.X < Map.MapRect.Width / 2) {
 			coord.X += CELL_LEPTON_W / 2;
 		} else {
@@ -748,7 +748,8 @@ void FlyLocomotionClass::Movement_AI(void)
 
 				Coord center = Coord(Cell(DestinationCoord), 0);
 				Coord current = LinkedTo->Get_Coord();
-				LinkedTo->Set_Coord(Move_Coord(current, Direction(current, center), 5));
+				DirType dir = Direction(current, center);
+				LinkedTo->Set_Coord(Move_Coord(current, dir, 5));
 			}
 		}
 	}
@@ -796,12 +797,7 @@ void FlyLocomotionClass::Movement_AI(void)
 		int slowdown = ttype->SlowdownDistance;
 		if (dist < slowdown) {
 			double factor = 1.0 - ((double)dist - ((double)slowdown * 0.6)) / ((double)slowdown * 0.4);
-			FootClass * linked = LinkedTo;
-			if (factor * linked->TClass->PitchAngle > linked->TClass->PitchAngle) {
-				LinkedTo->PitchAngle = LinkedTo->TClass->PitchAngle;
-			} else {
-				LinkedTo->PitchAngle = factor * LinkedTo->TClass->PitchAngle;
-			}
+			LinkedTo->PitchAngle = MIN(LinkedTo->TClass->PitchAngle, factor * LinkedTo->TClass->PitchAngle);
 		}
 	}
 
@@ -821,7 +817,6 @@ void FlyLocomotionClass::Movement_AI(void)
 
 	LinkedTo->Mark(MARK_DOWN);
 }
-#endif
 
 
 

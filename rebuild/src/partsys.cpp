@@ -53,21 +53,6 @@ static inline void _Add_System(ParticleSystemClass * system) // RA2: systems are
 /// <summary>
 /// RA2
 /// </summary>
-static inline Coord Particle_Coord_Along_Facing(DirType const & facing, int distance, Coord coord) // RA2: the executable moves the aim point through an inline layer of its own
-{
-	double radians = facing.As_Radian(); // RA2: as above
-	int z = coord.Z; // RA2: as above
-	int y = (int)(coord.Y - fastmath::sin(radians) * distance); // RA2: as above
-	int x = (int)(coord.X + fastmath::cos(radians) * distance); // RA2: as above
-	TPoint3D<int> point(x, y, z); // RA2: built through TPoint3D's constructor (the executable calls 0x41B630 here; this build expands it)
-	Coord result(point); // RA2: as above
-	return(result); // RA2: as above
-}
-
-
-/// <summary>
-/// RA2
-/// </summary>
 static inline Vector3 Normalize_Direction(const Vector3 & vec) // RA2: the executable normalizes through an inline layer of its own
 {
 	float len = (float)fastmath::sqrt(vec.Z*vec.Z + vec.Y*vec.Y + vec.X*vec.X); // RA2: as above
@@ -595,7 +580,7 @@ void ParticleSystemClass::Smoke_AI(void)
 /// accompanying laser beam if the type calls for one. After that the system merely
 /// ages its particles until the last of them has faded.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 311 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 23 bytes differ (the particle position sum adds the interpolated point first in the original)
 void ParticleSystemClass::Railgun_AI(void)
 {
 	int i;
@@ -650,7 +635,7 @@ void ParticleSystemClass::Railgun_AI(void)
 				double cosine = fastmath::cos(angle);
 				Vector3 spiral(0.0f, cosine, sine);
 				spiral = mat * spiral;
-				Vector3 scaled = spiral * Class->SpiralRadius; // RA2: the radius is used as it is
+				Vector3 scaled = Class->SpiralRadius * spiral; // RA2: the radius is used as it is
 				Vector3 tmp = Vector3(Random_Double(-0.5, 0.5) * Class->PositionPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->PositionPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->PositionPerturbationCoefficient);
 
 				scaled += tmp;
@@ -705,7 +690,7 @@ static int _FireStepY[FACING_COUNT] = { 0,  1,  1,  1,  0, -1, -1, -1 };
 /// particle is launched toward a point that swings in and out along the line of fire, so
 /// that the jet appears to pulse.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 476 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 476 bytes differ (the original calls TPoint3D's constructor out of line for the aim point)
 void ParticleSystemClass::Fire_AI(void)
 {
 	int i;
@@ -731,7 +716,7 @@ void ParticleSystemClass::Fire_AI(void)
 				Coord cc = source->TarCom->Center_Coord();
 				Coord delta = cc - source->Get_Coord();
 				int dist = (int)fastmath::sqrt((double)delta.X * (double)delta.X + (double)delta.Y * (double)delta.Y + (double)delta.Z * (double)delta.Z);
-				SpawnCoord = Particle_Coord_Along_Facing(source->PrimaryFacing.Current(), dist, source->Get_Coord()); // RA2: the local inline layer
+				SpawnCoord = Move_Coord(source->Get_Coord(), source->PrimaryFacing.Current(), dist);
 				Set_Coord(source->Fire_Coord(0));
 				reaimed = true;
 			}
