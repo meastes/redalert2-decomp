@@ -53,15 +53,29 @@
 #include "always.h"
 
 #include "keyboard.h"
+#include "geoconst1.h" // RA2: this unit holds its own copy of the geometry constants (after RECT_NONE from rect.h)
 #include "session.h" // RA2: the message list
 
 #include "_xmouse.h"
 #include "msgloop.h"
+#include "geoconst2.h" // RA2: the slope and bridge constants (after coord.h)
 
 #include <cmath>
 
 
 #define	ARRAY_SIZE(x)		int(sizeof(x)/sizeof(x[0]))
+
+
+/// <summary>
+/// Halts the game for a waiting programmer.
+/// This routine is what the Scroll Lock key calls. It does nothing on its own -- the
+/// point of it is to be somewhere convenient to hang a breakpoint, so that the game can
+/// be stopped from the keyboard at an interesting moment.
+/// </summary>
+void Stop_Execution (void)
+{
+	//	__asm nop			// Is this line needed?
+}
 
 
 /// Appeared in TS 2.00
@@ -847,16 +861,4 @@ int WWKeyboardClass::Available_Buffer_Room(void) const
 }
 
 
-/// <summary>
-/// Halts the game for a waiting programmer.
-/// This routine is what the Scroll Lock key calls. It does nothing on its own -- the
-/// point of it is to be somewhere convenient to hang a breakpoint, so that the game can
-/// be stopped from the keyboard at an interesting moment.
-/// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
-void Stop_Execution (void)
-{
-	//	__asm nop			// Is this line needed?
-}
-#endif
 

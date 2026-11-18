@@ -1619,29 +1619,23 @@ bool MPCooperative::vt_entry_9C(DynamicVectorClass<int> list, int * result) // R
 /// <summary>
 /// Always true.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool MPCooperative::vt_entry_04(void) // RA2: 0x005A6280
 {
 	return(true); // RA2: as above
 }
-#endif
 
 /// <summary>
 /// Always true.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool MPCooperative::vt_entry_08(void) // RA2: 0x005A6290
 {
 	return(true); // RA2: as above
 }
-#endif
 
 /// <summary>
 /// Always false.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool MPCooperative::vt_entry_A0(void) // RA2: 0x005A62A0
 {
 	return(false); // RA2: as above
 }
-#endif

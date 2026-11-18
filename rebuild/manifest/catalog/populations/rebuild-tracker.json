@@ -104,14 +104,14 @@
     "_$E38": 7259504,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "_$E164": 7260496,
+    "_$E164": 7259536,
     "??_G?$DynamicVectorClass@PAVAbstractClass@@@@UAEPAXI@Z": 5037872,
     "??_7type_info@@6B@": 8066532,
     "??_G?$VectorClass@PAVAbstractClass@@@@UAEPAXI@Z": 5037968,
-    "_$E169": 7260624,
-    "_$E174": 7260752,
-    "_$E179": 7260880,
-    "_$E184": 7261008,
+    "_$E169": 7259664,
+    "_$E174": 7259792,
+    "_$E179": 7259920,
+    "_$E184": 7260048,
     "_$E189": 7260176,
     "_$E194": 7260304,
     "_$E199": 7260432,
@@ -2400,6 +2400,98 @@
       "source_quality_family": "rebuild"
     },
     {
+      "entry": 7260496,
+      "method": "006ec950",
+      "body_bytes": 59,
+      "body_sha256": "cf85605d5c70f76e0e7e51dc6645aa905b399874fbd29bd1b7b0710d75246f2d",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "77fd1c404f6b488da76cdf8f9a457b4e65eea59688c5c0bca1d989931262a83d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E197",
+      "symbol_prefix": "_$E197",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?WaypointPathPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275312,
+          "addend": 4,
+          "resolved": 11275316
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?WaypointPathPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275312,
+          "addend": 0,
+          "resolved": 11275312
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVAbstractClass@@@@6B@",
+          "target": 8001436,
+          "addend": 0,
+          "resolved": 8001436
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?WaypointPathPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275312,
+          "addend": 13,
+          "resolved": 11275325
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 611271
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?WaypointPathPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275312,
+          "addend": 4,
+          "resolved": 11275316
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?WaypointPathPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275312,
+          "addend": 13,
+          "resolved": 11275325
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?WaypointPathPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275312,
+          "addend": 8,
+          "resolved": 11275320
+        }
+      ],
+      "source_sha256": "fdcdcaea7d90b0b311e63e2eb91ecb847d0a21c12f8554905df43c677827cf84",
+      "source": "rebuild/src/tracker.cpp",
+      "population": "rebuild-tracker",
+      "source_order": 7260496,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 7260560,
       "method": "006ec990",
       "body_bytes": 61,
@@ -2505,6 +2597,98 @@
       "source": "rebuild/src/tracker.cpp",
       "population": "rebuild-tracker",
       "source_order": 7260560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7260624,
+      "method": "006ec9d0",
+      "body_bytes": 59,
+      "body_sha256": "33f6eccd2692b871a550c07d9b580485789cd38418893f5a8fc702f6cad97ae6",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "55813dc52093ec0b1cfc3469653e1658ce4229267935c89541920d6a35bcce0d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E202",
+      "symbol_prefix": "_$E202",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?TeamPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275288,
+          "addend": 4,
+          "resolved": 11275292
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?TeamPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275288,
+          "addend": 0,
+          "resolved": 11275288
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVAbstractClass@@@@6B@",
+          "target": 8001436,
+          "addend": 0,
+          "resolved": 8001436
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?TeamPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275288,
+          "addend": 13,
+          "resolved": 11275301
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 611143
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?TeamPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275288,
+          "addend": 4,
+          "resolved": 11275292
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?TeamPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275288,
+          "addend": 13,
+          "resolved": 11275301
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?TeamPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275288,
+          "addend": 8,
+          "resolved": 11275296
+        }
+      ],
+      "source_sha256": "fdcdcaea7d90b0b311e63e2eb91ecb847d0a21c12f8554905df43c677827cf84",
+      "source": "rebuild/src/tracker.cpp",
+      "population": "rebuild-tracker",
+      "source_order": 7260624,
       "source_quality_family": "rebuild"
     },
     {
@@ -2616,6 +2800,98 @@
       "source_quality_family": "rebuild"
     },
     {
+      "entry": 7260752,
+      "method": "006eca50",
+      "body_bytes": 59,
+      "body_sha256": "729188edbdd50281cd8f9c1860f5a996bbcf523b7ac0710d0151a9c6e18553b2",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d6c544427604785d47698f5ffa6bd8fd44253148b1bd7346cc4298000be1a45e",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E207",
+      "symbol_prefix": "_$E207",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275528,
+          "addend": 4,
+          "resolved": 11275532
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275528,
+          "addend": 0,
+          "resolved": 11275528
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVAbstractClass@@@@6B@",
+          "target": 8001436,
+          "addend": 0,
+          "resolved": 8001436
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275528,
+          "addend": 13,
+          "resolved": 11275541
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 611015
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275528,
+          "addend": 4,
+          "resolved": 11275532
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275528,
+          "addend": 13,
+          "resolved": 11275541
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?HousePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275528,
+          "addend": 8,
+          "resolved": 11275536
+        }
+      ],
+      "source_sha256": "fdcdcaea7d90b0b311e63e2eb91ecb847d0a21c12f8554905df43c677827cf84",
+      "source": "rebuild/src/tracker.cpp",
+      "population": "rebuild-tracker",
+      "source_order": 7260752,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 7260816,
       "method": "006eca90",
       "body_bytes": 61,
@@ -2724,6 +3000,98 @@
       "source_quality_family": "rebuild"
     },
     {
+      "entry": 7260880,
+      "method": "006ecad0",
+      "body_bytes": 59,
+      "body_sha256": "0f73692c5e4c4381f938d5b1843d4bbc70915b58fbe0e6f85285debce08bc3fc",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d2e2ee6b1c11a4fff3a0005020243fa43347d20b26c56dbeb0cccd4933fd07cf",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E212",
+      "symbol_prefix": "_$E212",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?NeuronPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275568,
+          "addend": 4,
+          "resolved": 11275572
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?NeuronPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275568,
+          "addend": 0,
+          "resolved": 11275568
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVAbstractClass@@@@6B@",
+          "target": 8001436,
+          "addend": 0,
+          "resolved": 8001436
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?NeuronPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275568,
+          "addend": 13,
+          "resolved": 11275581
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 610887
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?NeuronPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275568,
+          "addend": 4,
+          "resolved": 11275572
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?NeuronPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275568,
+          "addend": 13,
+          "resolved": 11275581
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?NeuronPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275568,
+          "addend": 8,
+          "resolved": 11275576
+        }
+      ],
+      "source_sha256": "fdcdcaea7d90b0b311e63e2eb91ecb847d0a21c12f8554905df43c677827cf84",
+      "source": "rebuild/src/tracker.cpp",
+      "population": "rebuild-tracker",
+      "source_order": 7260880,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 7260944,
       "method": "006ecb10",
       "body_bytes": 61,
@@ -2829,6 +3197,98 @@
       "source": "rebuild/src/tracker.cpp",
       "population": "rebuild-tracker",
       "source_order": 7260944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7261008,
+      "method": "006ecb50",
+      "body_bytes": 59,
+      "body_sha256": "7ce8c166d2d936c4a639d7a7c9df5cab9f3f772caf14fde20d88b58a4fa630f1",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "07d47dd33afd71965bbc42d0a6b1057c07ee6a68e989c9d22162eb21b6c0ee12",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E217",
+      "symbol_prefix": "_$E217",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ObjectsToDelete@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275480,
+          "addend": 4,
+          "resolved": 11275484
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?ObjectsToDelete@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275480,
+          "addend": 0,
+          "resolved": 11275480
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVAbstractClass@@@@6B@",
+          "target": 8001436,
+          "addend": 0,
+          "resolved": 8001436
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?ObjectsToDelete@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275480,
+          "addend": 13,
+          "resolved": 11275493
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 610759
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?ObjectsToDelete@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275480,
+          "addend": 4,
+          "resolved": 11275484
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?ObjectsToDelete@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275480,
+          "addend": 13,
+          "resolved": 11275493
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?ObjectsToDelete@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275480,
+          "addend": 8,
+          "resolved": 11275488
+        }
+      ],
+      "source_sha256": "fdcdcaea7d90b0b311e63e2eb91ecb847d0a21c12f8554905df43c677827cf84",
+      "source": "rebuild/src/tracker.cpp",
+      "population": "rebuild-tracker",
+      "source_order": 7261008,
       "source_quality_family": "rebuild"
     },
     {

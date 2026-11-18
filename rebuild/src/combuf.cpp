@@ -54,6 +54,7 @@
 #include "_mono.h"
 #include "connect.h" // for command names for debug output
 #include "dbgprint.h"
+#include "rect.h" // RA2: the unit holds its own RECT_NONE, its one initializer (ra2-decomp src/combuf.cpp includes rect.h here)
 #include "mono.h" // to enable mono output
 
 #include <cstdio>

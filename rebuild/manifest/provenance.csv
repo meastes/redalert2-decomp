@@ -433,6 +433,7 @@ astar,00427fb0,??0AStarClass@@QAE@XZ,554,a,mischa85,yes,,released by lane R4 too
 astar,004281e0,??1AStarClass@@QAE@XZ,317,a,mischa85,yes,,released by lane R4 tooling
 astar,00428320,?Facing_Between@@YI?AW4FacingType@@ABVCell@@0@Z,71,a,mischa85,yes,,released by lane R4 tooling
 astar,00428370,?Build_Final_Path@AStarClass@@AAEPAUPathStruct@@PAURegularOpenNode@1@PAW4FacingType@@@Z,345,a,mischa85,yes,,released by lane R4 tooling
+astar,004284d0,_$E153,1,a,mischa85,edit,,lane R8
 astar,004284e0,?Update_Map_Dimensions@AStarClass@@QAEXABV?$TRect@H@@@Z,237,a,mischa85,yes,,released by lane R4 tooling
 astar,004285d0,?Apply_Path_Collision_Avoidance@AStarClass@@AAEXPAVFootClass@@@Z,896,a,mischa85,yes,,released by lane R4 tooling
 astar,00428950,?Find_Moving_Blocker@AStarClass@@AAEPAVFootClass@@ABVCell@@H@Z,319,a,mischa85,yes,,released by lane R4 tooling
@@ -1536,6 +1537,23 @@ combat,0047fb70,?Calculate_Projectile_Speed@@YI?AW4MPHType@@HN@Z,41,a,mischa85,y
 combat,0047fba0,?Is_Projectile_Trajectory_Valid@@YI_NHHHN@Z,287,a,mischa85,yes,,
 combat,0047fcc0,?Get_Explosion_Z@@YIHVCoord@@@Z,8,a,mischa85,yes,,
 combat,0047fcd0,?Get_Floater_Gravity@@YINXZ,18,a,mischa85,yes,,
+combuf,004800a0,_$E3,23,a,mischa85,edit,,lane R8
+combuf,004800c0,??0CommBufferClass@@QAE@HHHH@Z,269,a,mischa85,edit,,lane R8
+combuf,004801d0,??1CommBufferClass@@UAE@XZ,170,a,mischa85,edit,,lane R8
+combuf,00480280,?Init@CommBufferClass@@QAEXXZ,239,a,mischa85,edit,,lane R8
+combuf,00480370,?Init_Send_Queue@CommBufferClass@@QAEXXZ,120,a,mischa85,edit,,lane R8
+combuf,004803f0,?Queue_Send@CommBufferClass@@QAEHPAXH0HG@Z,339,a,mischa85,edit,,lane R8
+combuf,00480550,?UnQueue_Send@CommBufferClass@@QAEHPAXPAHH01PAG@Z,424,a,mischa85,edit,,lane R8
+combuf,00480700,?Get_Send@CommBufferClass@@QAEPAUSendQueueType@@H@Z,34,a,mischa85,edit,,lane R8
+combuf,00480730,?Queue_Receive@CommBufferClass@@QAEHPAXH0H@Z,310,a,mischa85,edit,,lane R8
+combuf,00480870,?UnQueue_Receive@CommBufferClass@@QAEHPAXPAHH01@Z,331,a,mischa85,edit,,lane R8
+combuf,004809c0,?Get_Receive@CommBufferClass@@QAEPAUReceiveQueueType@@H@Z,34,a,mischa85,edit,,lane R8
+combuf,004809f0,?Add_Delay@CommBufferClass@@QAEXI@Z,98,a,mischa85,edit,,lane R8
+combuf,00480a60,?Avg_Response_Time@CommBufferClass@@QAEIXZ,4,a,mischa85,edit,,lane R8
+combuf,00480a70,?Max_Response_Time@CommBufferClass@@QAEIXZ,4,a,mischa85,edit,,lane R8
+combuf,00480a80,?Reset_Response_Time@CommBufferClass@@QAEX_N@Z,44,a,mischa85,edit,,lane R8
+combuf,00480ab0,?Configure_Debug@CommBufferClass@@QAEXHHPAPADHH@Z,38,a,mischa85,edit,,lane R8
+combuf,00480ae0,??_GCommBufferClass@@UAEPAXI@Z,30,a,mischa85,edit,,lane R8
 combuf2,00480b20,?Command_Allows_Modified_Key@@YI_NABVCommandClass@@I@Z,27,c,Ghidra seeds and landed command.h/index.h/_command.h only,edit,5.33,Class c; no old/reference unit body consulted; no calibration or address-suffixed names. All three frozen main-module rows retained; init --auto lacks mischa85 module entry.
 combuf2,00480b40,?Command_Allows_Key@@YI_NI@Z,192,c,Ghidra seeds and landed command.h/index.h/_command.h only,edit,5.33,Class c; no old/reference unit body consulted; no calibration or address-suffixed names. All three frozen main-module rows retained; init --auto lacks mischa85 module entry.
 combuf2,00480c00,?search_compfunc@?$IndexClass@HPBVCommandClass@@@@CAHPBX0@Z,34,c,Ghidra seeds and landed command.h/index.h/_command.h only,edit,5.33,Class c; no old/reference unit body consulted; no calibration or address-suffixed names. All three frozen main-module rows retained; init --auto lacks mischa85 module entry. No Ghidra export for comparator; real landed IndexClass template instantiation.
@@ -1584,6 +1602,7 @@ conquer,00481f00,?Serial_Call_Back@@YIXXZ,167,a,mischa85,yes,,released by lane R
 conquer,00481fb0,?Call_Back@@YIXXZ,323,a,mischa85,yes,,released by lane R4 tooling
 conquer,00482100,?MapGen_Call_Back@@YI_NXZ,8,a,mischa85,yes,,released by lane R4 tooling
 conquer,00482110,?IPX_Call_Back@@YIXXZ,2438,a,mischa85,yes,,released by lane R4 tooling
+conquer,00482aa0,_$E160,1,a,mischa85,edit,,lane R8
 conquer,00482ab0,?Source_From_Name@@YI?AW4SourceType@@PBD@Z,57,a,mischa85,yes,,released by lane R4 tooling
 conquer,00482af0,?Name_From_Source@@YIPBDW4SourceType@@@Z,19,a,mischa85,yes,,released by lane R4 tooling
 conquer,00482b10,?Theater_From_Name@@YI?AW4TheaterType@@PBD@Z,51,a,mischa85,yes,,released by lane R4 tooling
@@ -2051,6 +2070,7 @@ enviro,004b59d0,_$E32,15,a,mischa85,yes,,
 enviro,004b59e0,_$E35,18,a,mischa85,yes,,
 enviro,004b5a00,_$E38,23,a,mischa85,yes,,
 enviro,004b5a20,_$E53,58,a,mischa85,yes,,
+enviro,004b5a60,_$E51,1,a,mischa85,edit,,lane R8
 enviro,004b5a70,??0EnvironmentClass@@QAE@XZ,37,a,mischa85,yes,,
 enviro,004b5aa0,??1EnvironmentClass@@QAE@XZ,1,a,mischa85,yes,,
 enviro,004b5ab0,?Store@EnvironmentClass@@QAEXXZ,130,a,mischa85,yes,,
@@ -2207,6 +2227,18 @@ findpath,004bb320,_$E35,15,a,mischa85,yes,,
 findpath,004bb330,_$E38,18,a,mischa85,yes,,
 findpath,004bb350,?Find_Path@FootClass@@AAEPAUPathStruct@@ABVCell@@PAW4FacingType@@HW4MoveType@@HH@Z,158,a,mischa85,yes,,
 findpath2,004bb6a0,_$E2,23,a,mischa85,yes,0.833,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
+findpath2,004bb6c0,_$E5,40,a,mischa85,edit,,lane R8
+findpath2,004bb6f0,_$E8,19,a,mischa85,edit,,lane R8
+findpath2,004bb710,_$E11,19,a,mischa85,edit,,lane R8
+findpath2,004bb730,_$E14,19,a,mischa85,edit,,lane R8
+findpath2,004bb750,_$E17,19,a,mischa85,edit,,lane R8
+findpath2,004bb770,_$E20,19,a,mischa85,edit,,lane R8
+findpath2,004bb790,_$E23,49,a,mischa85,edit,,lane R8
+findpath2,004bb7d0,_$E26,33,a,mischa85,edit,,lane R8
+findpath2,004bb800,_$E29,44,a,mischa85,edit,,lane R8
+findpath2,004bb830,_$E32,39,a,mischa85,edit,,lane R8
+findpath2,004bb860,_$E35,15,a,mischa85,edit,,lane R8
+findpath2,004bb870,_$E38,18,a,mischa85,edit,,lane R8
 findpath2,004bb890,?FindFirstObstacle@TrajectoryHelper@@SIPAVCellClass@@ABVCoord@@0PBVBulletTypeClass@@PBVHouseClass@@@Z,526,a,mischa85,yes,0.833,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
 findpath2,004bbaa0,?FindFirstImpenetrableObstacle@TrajectoryHelper@@SIPAVCellClass@@ABVCoord@@0PBVWeaponTypeClass@@PBVHouseClass@@@Z,74,a,mischa85,yes,0.833,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
 findpath2,004bbaf0,?GetObstacle@TrajectoryHelper@@SIPAVCellClass@@PBV2@00VCoord@@PBVBulletTypeClass@@PBVHouseClass@@@Z,788,a,mischa85,yes,0.833,Adopted source conformed to single landed class definitions; address-suffixed names added0; calibration:no
@@ -3588,6 +3620,42 @@ kamikaze,00531e10,?ID@?$DynamicVectorClass@PAVKamikazeControl@@@@UAEHABQAVKamika
 kamikaze,00531e40,??_G?$VectorClass@PAVKamikazeControl@@@@UAEPAXI@Z,73,a,mischa85,yes,,
 kamikaze,00531e90,??_G?$DynamicVectorClass@PAVKamikazeControl@@@@UAEPAXI@Z,73,a,mischa85,yes,,
 kamikaze,00531ee0,??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z,74,a,mischa85,yes,,
+keyboard,00531f30,_$E2,23,a,mischa85,edit,,lane R8
+keyboard,00531f50,_$E5,40,a,mischa85,edit,,lane R8
+keyboard,00531f80,_$E8,19,a,mischa85,edit,,lane R8
+keyboard,00531fa0,_$E11,19,a,mischa85,edit,,lane R8
+keyboard,00531fc0,_$E14,19,a,mischa85,edit,,lane R8
+keyboard,00531fe0,_$E17,19,a,mischa85,edit,,lane R8
+keyboard,00532000,_$E20,19,a,mischa85,edit,,lane R8
+keyboard,00532020,_$E47,49,a,mischa85,edit,,lane R8
+keyboard,00532060,_$E50,33,a,mischa85,edit,,lane R8
+keyboard,00532090,_$E53,44,a,mischa85,edit,,lane R8
+keyboard,005320c0,_$E56,39,a,mischa85,edit,,lane R8
+keyboard,005320f0,_$E59,15,a,mischa85,edit,,lane R8
+keyboard,00532100,_$E62,18,a,mischa85,edit,,lane R8
+keyboard,00532120,?Stop_Execution@@YIXXZ,1,a,tibsun,edit,,Stop_Execution at TibSun keyboard.cpp:72 (lane R8)
+keyboard,00532130,??0WWKeyboardClass@@QAE@XZ,42,a,mischa85,edit,,lane R8
+keyboard,00532160,?Buff_Get@WWKeyboardClass@@AAEGXZ,303,a,mischa85,edit,,lane R8
+keyboard,00532290,?Is_Mouse_Key@WWKeyboardClass@@CI_NG@Z,33,a,mischa85,edit,,lane R8
+keyboard,005322c0,?Is_Wheel_Key@WWKeyboardClass@@CI_NG@Z,9,a,mischa85,edit,,lane R8
+keyboard,005322d0,?Check@WWKeyboardClass@@QBEGXZ,68,a,mischa85,edit,,lane R8
+keyboard,00532320,?Get@WWKeyboardClass@@QAEGXZ,354,a,mischa85,edit,,lane R8
+keyboard,00532490,?Put@WWKeyboardClass@@QAE_NG@Z,63,a,mischa85,edit,,lane R8
+keyboard,005324d0,?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z,230,a,mischa85,edit,,lane R8
+keyboard,005325c0,?Put_Mouse_Message@WWKeyboardClass@@AAE_NGHH_N@Z,210,a,mischa85,edit,,lane R8
+keyboard,005326a0,?Put_Char@WWKeyboardClass@@AAE_ND@Z,127,a,mischa85,edit,,lane R8
+keyboard,00532720,?To_ASCII@WWKeyboardClass@@QAEDG@Z,210,a,mischa85,edit,,lane R8
+keyboard,00532800,?To_Char@WWKeyboardClass@@QAEDG@Z,137,a,mischa85,edit,,lane R8
+keyboard,00532890,?Down@WWKeyboardClass@@QAE_NG@Z,70,a,mischa85,edit,,lane R8
+keyboard,005328e0,?Fetch_Element@WWKeyboardClass@@AAEGXZ,52,a,mischa85,edit,,lane R8
+keyboard,00532920,?Peek_Element@WWKeyboardClass@@ABEGXZ,29,a,mischa85,edit,,lane R8
+keyboard,00532940,?Put_Element@WWKeyboardClass@@AAE_NG@Z,63,a,mischa85,edit,,lane R8
+keyboard,00532980,?Is_Buffer_Full@WWKeyboardClass@@ABE_NXZ,31,a,mischa85,edit,,lane R8
+keyboard,005329a0,?Is_Buffer_Empty@WWKeyboardClass@@ABE_NXZ,18,a,mischa85,edit,,lane R8
+keyboard,005329c0,?Fill_Buffer_From_System@WWKeyboardClass@@AAEXXZ,35,a,mischa85,edit,,lane R8
+keyboard,005329f0,?Clear@WWKeyboardClass@@QAEXXZ,105,a,mischa85,edit,,lane R8
+keyboard,00532a60,?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z,1012,a,mischa85,edit,,lane R8
+keyboard,00532e60,?Available_Buffer_Room@WWKeyboardClass@@ABEHXZ,29,a,mischa85,edit,,lane R8
 laser,00532e80,_$E2,40,a,mischa85,yes,,
 laser,00532eb0,_$E5,19,a,mischa85,yes,,
 laser,00532ed0,_$E8,19,a,mischa85,yes,,
@@ -3937,6 +4005,7 @@ mainloop,0053f840,?Process_Game_End@@YI_NXZ,906,a,mischa85,yes,,released by lane
 mainloop,0053fbd0,?Main_Loop@@YI_NXZ,2831,a,mischa85,yes,,released by lane R4 tooling
 mainloop,005406e0,?Keyboard_Process@@YIXAAW4KeyNumType@@@Z,636,a,mischa85,yes,,released by lane R4 tooling
 mainloop,00540960,?Sync_Delay@@YIXXZ,676,a,mischa85,yes,,released by lane R4 tooling
+mainloop,00540c10,_$E177,1,a,mischa85,edit,,lane R8
 mainloop,00540c20,?Message_Input@@YIXAAW4KeyNumType@@@Z,3507,a,mischa85,yes,,released by lane R4 tooling
 mainloop,005419e0,?Draw_Multiplayer_Debug@@YIX_N@Z,1189,a,mischa85,yes,,released by lane R4 tooling
 mainloop,00541e90,?Decode@xTargetClass@@QAE?AV1@H@Z,40,a,mischa85,yes,,released by lane R4 tooling
@@ -4490,6 +4559,9 @@ mpcoop,005a5570,?vt_entry_8C@MPCooperative@@UAEX_N@Z,425,a,mischa85,yes,,release
 mpcoop,005a5720,?vt_entry_94@MPCooperative@@UAEXXZ,2336,a,mischa85,yes,,released by lane R4 tooling
 mpcoop,005a6040,?vt_entry_98@MPCooperative@@UAEXXZ,486,a,mischa85,yes,,released by lane R4 tooling
 mpcoop,005a6230,?vt_entry_9C@MPCooperative@@UAE_NV?$DynamicVectorClass@H@@PAH@Z,73,a,mischa85,yes,,released by lane R4 tooling
+mpcoop,005a6280,?vt_entry_04@MPCooperative@@UAE_NXZ,3,a,mischa85,edit,,lane R8
+mpcoop,005a6290,?vt_entry_08@MPCooperative@@UAE_NXZ,3,a,mischa85,edit,,lane R8
+mpcoop,005a62a0,?vt_entry_A0@MPCooperative@@UAE_NXZ,3,a,mischa85,edit,,lane R8
 mpcoop,005a62b0,??_GMPCooperative@@UAEPAXI@Z,30,a,mischa85,yes,,released by lane R4 tooling
 mpcoop,005a62d0,??0?$DynamicVectorClass@PAUMPlayerScoreType@@@@QAE@ABV0@@Z,136,a,mischa85,yes,,released by lane R4 tooling
 mpcoop,005a6360,??_G?$DynamicVectorClass@PAUMPlayerScoreType@@@@UAEPAXI@Z,73,a,mischa85,yes,,released by lane R4 tooling
@@ -4601,6 +4673,85 @@ mpscore,005aadd0,?MP_Score_Sort@@YIXXZ,62,a,mischa85,yes,,
 mpscore,005aae10,?MP_Score_Compare@@YAHPBX0@Z,40,a,mischa85,yes,,
 mpscore,005aae40,?MP_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,1392,a,mischa85,yes,,
 mpu,005abf20,?Get_CPU_Rate@@YIIAAI@Z,49,a,mischa85,edit,3.000,Address-suffixed names 0; calibration not used
+msanim,005ac540,_$E2,23,a,mischa85,edit,,lane R8
+msanim,005ac560,?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z,292,a,mischa85,edit,,lane R8
+msanim,005ac690,??1MSAnim@@UAE@XZ,7,a,mischa85,edit,,lane R8
+msanim,005ac6a0,??0MSShapeAnim@@QAE@ABVWstring@@HHPAVConvertClass@@H_NW4ShapeFlags_Type@@@Z,119,a,mischa85,edit,,lane R8
+msanim,005ac720,??1MSShapeAnim@@UAE@XZ,51,a,mischa85,edit,,lane R8
+msanim,005ac760,?Set_Frame@MSShapeAnim@@QAEXI@Z,164,a,mischa85,edit,,lane R8
+msanim,005ac810,?Set_Start_Frame@MSShapeAnim@@QAEXI@Z,25,a,mischa85,edit,,lane R8
+msanim,005ac830,?Set_Stop_Frame@MSShapeAnim@@QAEXI@Z,25,a,mischa85,edit,,lane R8
+msanim,005ac850,?Advance@MSShapeAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z,853,a,mischa85,edit,,lane R8
+msanim,005acbb0,?Redraw@MSShapeAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z,331,a,mischa85,edit,,lane R8
+msanim,005acd00,?Get_Rect@MSShapeAnim@@UBE?AV?$TRect@H@@XZ,161,a,mischa85,edit,,lane R8
+msanim,005acdb0,??0MSFadeAnim@@QAE@ABVWstring@@HHPAVConvertClass@@HW4ShapeFlags_Type@@PAV?$DynamicVectorClass@PAVMSAnim@@@@@Z,122,a,mischa85,edit,,lane R8
+msanim,005ace30,?Advance@MSFadeAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z,983,a,mischa85,edit,,lane R8
+msanim,005ad210,?Redraw@MSFadeAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z,349,a,mischa85,edit,,lane R8
+msanim,005ad370,??0MSOverlayAnim@@QAE@ABVWstring@@HHPAVConvertClass@@HPAV?$DynamicVectorClass@PAVMSAnim@@@@_NI3@Z,147,a,mischa85,edit,,lane R8
+msanim,005ad410,??1MSOverlayAnim@@UAE@XZ,51,a,mischa85,edit,,lane R8
+msanim,005ad450,?Advance@MSOverlayAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z,594,a,mischa85,edit,,lane R8
+msanim,005ad6b0,?Redraw@MSOverlayAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z,346,a,mischa85,edit,,lane R8
+msanim,005ad810,?Restart@MSOverlayAnim@@QAEXXZ,8,a,mischa85,edit,,lane R8
+msanim,005ad820,?Set_Frame@MSOverlayAnim@@QAEXH@Z,17,a,mischa85,edit,,lane R8
+msanim,005ad840,?Restore@MSOverlayAnim@@UAEXABV?$TRect@H@@@Z,122,a,mischa85,edit,,lane R8
+msanim,005ad8c0,?Has_Finished@MSOverlayAnim@@UBE_NXZ,22,a,mischa85,edit,,lane R8
+msanim,005ad8e0,??0MSBinkAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABV?$TRect@H@@_N@Z,185,a,mischa85,edit,,lane R8
+msanim,005ad9a0,??1MSBinkAnim@@UAE@XZ,42,a,mischa85,edit,,lane R8
+msanim,005ad9d0,?Get_Rect@MSBinkAnim@@UBE?AV?$TRect@H@@XZ,36,a,mischa85,edit,,lane R8
+msanim,005ada00,?Has_Finished@MSBinkAnim@@UBE_NXZ,25,a,mischa85,edit,,lane R8
+msanim,005ada20,?Advance@MSBinkAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z,196,a,mischa85,edit,,lane R8
+msanim,005adaf0,?Redraw@MSBinkAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z,155,a,mischa85,edit,,lane R8
+msanim,005adb90,?Restore@MSBinkAnim@@UAEXABV?$TRect@H@@@Z,3,a,mischa85,edit,,lane R8
+msanim,005adba0,??0MSVQAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABV?$TRect@H@@_N@Z,485,a,mischa85,edit,,lane R8
+msanim,005add90,??0MSVQAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@_N@Z,506,a,mischa85,edit,,lane R8
+msanim,005adf90,??1MSVQAnim@@UAE@XZ,67,a,mischa85,edit,,lane R8
+msanim,005adfe0,?Advance@MSVQAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z,581,a,mischa85,edit,,lane R8
+msanim,005ae230,?Redraw@MSVQAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z,350,a,mischa85,edit,,lane R8
+msanim,005ae390,?Restore@MSVQAnim@@UAEXABV?$TRect@H@@@Z,73,a,mischa85,edit,,lane R8
+msanim,005ae3e0,?Get_Rect@MSVQAnim@@UBE?AV?$TRect@H@@XZ,113,a,mischa85,edit,,lane R8
+msanim,005ae460,_$E19,1,a,mischa85,edit,,lane R8
+msanim,005ae470,?Has_Finished@MSVQAnim@@UBE_NXZ,4,a,mischa85,edit,,lane R8
+msanim,005ae480,??0MSBitPrintAnim@@QAE@ABVWideWstring@@ABV?$TRect@H@@_N@Z,110,a,mischa85,edit,,lane R8
+msanim,005ae4f0,??1MSBitPrintAnim@@UAE@XZ,25,a,mischa85,edit,,lane R8
+msanim,005ae510,?Set_Flag@MSBitPrintAnim@@QAEX_N@Z,10,a,mischa85,edit,,lane R8
+msanim,005ae520,?Get_Rect@MSBitPrintAnim@@UBE?AV?$TRect@H@@XZ,36,a,mischa85,edit,,lane R8
+msanim,005ae550,?Has_Finished@MSBitPrintAnim@@UBE_NXZ,4,a,mischa85,edit,,lane R8
+msanim,005ae560,?Advance@MSBitPrintAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z,182,a,mischa85,edit,,lane R8
+msanim,005ae620,?Redraw@MSBitPrintAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z,158,a,mischa85,edit,,lane R8
+msanim,005ae6c0,??0MSPrintAnim@@QAE@ABVWideWstring@@HHPAVMSFont@@ABV?$TRect@H@@HH_N3@Z,277,a,mischa85,edit,,lane R8
+msanim,005ae7e0,?Set_Dimensions@MSPrintAnim@@IAEXABV?$TRect@H@@@Z,439,a,mischa85,edit,,lane R8
+msanim,005ae9a0,?Word_Wrap@MSPrintAnim@@SIHAAVWideWstring@@PAVMSFont@@H@Z,821,a,mischa85,edit,,lane R8
+msanim,005aece0,?Paginate@MSPrintAnim@@SIHAAVWideWstring@@PAVMSFont@@H@Z,185,a,mischa85,edit,,lane R8
+msanim,005aeda0,?Advance@MSPrintAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z,652,a,mischa85,edit,,lane R8
+msanim,005af030,?Redraw@MSPrintAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z,480,a,mischa85,edit,,lane R8
+msanim,005af210,?Advance@MSWordAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z,484,a,mischa85,edit,,lane R8
+msanim,005af400,?Get_Rect@MSPrintAnim@@UBE?AV?$TRect@H@@XZ,36,a,mischa85,edit,,lane R8
+msanim,005af430,?Set_Transient@MSPrintAnim@@QAEX_N@Z,17,a,mischa85,edit,,lane R8
+msanim,005af450,?Has_Finished@MSPrintAnim@@UBE_NXZ,40,a,mischa85,edit,,lane R8
+msanim,005af480,?Get_Line_Width@MSPrintAnim@@IBEHABVWideWstring@@@Z,100,a,mischa85,edit,,lane R8
+msanim,005af4f0,?Redraw@MSWordAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z,246,a,mischa85,edit,,lane R8
+msanim,005af5f0,??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@_N@Z,401,a,mischa85,edit,,lane R8
+msanim,005af790,??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVPoint2D@@_N@Z,348,a,mischa85,edit,,lane R8
+msanim,005af8f0,??1MSPCXAnim@@UAE@XZ,30,a,mischa85,edit,,lane R8
+msanim,005af910,?Advance@MSPCXAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z,236,a,mischa85,edit,,lane R8
+msanim,005afa00,?Redraw@MSPCXAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z,369,a,mischa85,edit,,lane R8
+msanim,005afb80,?Restore@MSPCXAnim@@UAEXABV?$TRect@H@@@Z,63,a,mischa85,edit,,lane R8
+msanim,005afbc0,?Get_Rect@MSPCXAnim@@UBE?AV?$TRect@H@@XZ,36,a,mischa85,edit,,lane R8
+msanim,005afbf0,?Has_Finished@MSPCXAnim@@UBE_NXZ,4,a,mischa85,edit,,lane R8
+msanim,005afc00,?Set_Active@MSAnim@@UAEX_N@Z,10,a,mischa85,edit,,lane R8
+msanim,005afc10,?Pause@MSAnim@@UAEXXZ,65,a,mischa85,edit,,lane R8
+msanim,005afc60,?Resume@MSAnim@@UAEXXZ,22,a,mischa85,edit,,lane R8
+msanim,005afc80,?Has_Finished@MSAnim@@UBE_NXZ,3,a,mischa85,edit,,lane R8
+msanim,005afc90,?Restore@MSAnim@@UAEXABV?$TRect@H@@@Z,3,a,mischa85,edit,,lane R8
+msanim,005afca0,??_GMSAnim@@UAEPAXI@Z,32,a,mischa85,edit,,lane R8
+msanim,005afcc0,??_GMSShapeAnim@@UAEPAXI@Z,72,a,mischa85,edit,,lane R8
+msanim,005afd10,??_GMSFadeAnim@@UAEPAXI@Z,72,a,mischa85,edit,,lane R8
+msanim,005afd60,??_GMSOverlayAnim@@UAEPAXI@Z,72,a,mischa85,edit,,lane R8
+msanim,005afdb0,??_GMSBinkAnim@@UAEPAXI@Z,63,a,mischa85,edit,,lane R8
+msanim,005afdf0,??_GMSVQAnim@@UAEPAXI@Z,88,a,mischa85,edit,,lane R8
+msanim,005afe50,??_GMSBitPrintAnim@@UAEPAXI@Z,46,a,mischa85,edit,,lane R8
+msanim,005afe80,??_GMSPrintAnim@@UAEPAXI@Z,46,a,mischa85,edit,,lane R8
+msanim,005afeb0,??_GMSPCXAnim@@UAEPAXI@Z,51,a,mischa85,edit,,lane R8
 mschoice,005afef0,_$E2,23,a,mischa85,yes,,released by lane R4 tooling
 mschoice,005aff10,??0MapChoice@@QAE@XZ,134,a,mischa85,yes,,released by lane R4 tooling
 mschoice,005affa0,??1MapChoice@@QAE@XZ,132,a,mischa85,yes,,released by lane R4 tooling
@@ -4684,6 +4835,7 @@ msglist,005b5cb0,?Trim_Message@MessageListClass@@AAEHPAG0HHH@Z,205,a,mischa85,ye
 msglist,005b5d80,?Compute_Y@MessageListClass@@AAEXXZ,57,a,mischa85,yes,,
 msgloop,005b5dc0,_$E2,23,a,mischa85,yes,,released by lane R4 tooling
 msgloop,005b5de0,_$E7,61,a,mischa85,yes,,released by lane R4 tooling
+msgloop,005b5e20,_$E5,59,a,mischa85,edit,,lane R8
 msgloop,005b5e60,_$E12,61,a,mischa85,yes,,released by lane R4 tooling
 msgloop,005b5ea0,_$E10,59,a,mischa85,yes,,released by lane R4 tooling
 msgloop,005b5ee0,?Windows_Message_Handler@@YIXXZ,286,a,mischa85,yes,,released by lane R4 tooling
@@ -4877,6 +5029,9 @@ netdlg2,005bee20,?Send_Chat_Message@@YIXPAUHWND__@@HH@Z,447,a,mischa85,yes,,rele
 netdlg2,005bf9b0,?Options_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,648,a,mischa85,yes,,released by lane R4 tooling
 netdlg2,005c00b0,?Unjoin_Game@@YIXH@Z,281,a,mischa85,yes,,released by lane R4 tooling
 netdlg2,005c01d0,?Send_Join_Queries@@YIXHHHH@Z,1006,a,mischa85,yes,,released by lane R4 tooling
+netdlg2,005c05c0,_$E87,1,a,mischa85,edit,,lane R8
+netdlg2,005c05d0,_$E86,1,a,mischa85,edit,,lane R8
+netdlg2,005c05e0,_$E85,1,a,mischa85,edit,,lane R8
 netdlg2,005c05f0,?Process_Global_Packet@@YI_NPAUGlobalPacketType@@PAVIPXAddressClass@@@Z,682,a,mischa85,yes,,released by lane R4 tooling
 netdlg2,005c08a0,?Get_Join_Responses@@YIXXZ,6798,a,mischa85,yes,,released by lane R4 tooling
 netdlg2,005c2330,?MPlayer_Guest_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,1450,a,mischa85,yes,,released by lane R4 tooling
@@ -5008,6 +5163,7 @@ object,005d4230,?Revealed@ObjectClass@@UAE_NPAVHouseClass@@@Z,14,a,mischa85,yes,
 object,005d4240,?Paradrop@ObjectClass@@UAE_NABVCoord@@@Z,487,a,mischa85,yes,,released by lane R4 tooling
 object,005d4430,?Attach_Tag@ObjectClass@@QAE_NPAVTagClass@@@Z,49,a,mischa85,yes,,released by lane R4 tooling
 object,005d4470,?Occupy_List@ObjectClass@@UBEPBVCell@@_N@Z,117,a,mischa85,yes,,released by lane R4 tooling
+object,005d44f0,_$E176,1,a,mischa85,edit,,lane R8
 object,005d4500,?Who_Can_Build_Me@ObjectClass@@UBEPAVBuildingClass@@_N0@Z,51,a,mischa85,yes,,released by lane R4 tooling
 object,005d4540,?Get_Health_Ratio@ObjectClass@@QBENXZ,32,a,mischa85,yes,,released by lane R4 tooling
 object,005d4560,?Set_Health_Ratio@ObjectClass@@QAEXN@Z,72,a,mischa85,yes,,released by lane R4 tooling
@@ -5114,6 +5270,10 @@ overlay,005da7b0,_$E38,23,a,mischa85,yes,,released by lane R4 tooling
 overlay,005da7d0,??0OverlayClass@@QAE@PBVOverlayTypeClass@@ABVCell@@W4HousesType@@@Z,255,a,mischa85,yes,,released by lane R4 tooling
 overlay,005da8d0,??1OverlayClass@@UAE@XZ,147,a,mischa85,yes,,released by lane R4 tooling
 overlay,005da970,?Mark@OverlayClass@@UAE_NW4MarkType@@@Z,3251,a,mischa85,yes,,released by lane R4 tooling
+overlay,005db630,_$E178,1,a,mischa85,edit,,lane R8
+overlay,005db640,_$E177,1,a,mischa85,edit,,lane R8
+overlay,005db650,_$E176,1,a,mischa85,edit,,lane R8
+overlay,005db660,_$E175,1,a,mischa85,edit,,lane R8
 overlay,005db670,?Read_INI@OverlayClass@@SIXABVCCINIClass@@@Z,951,a,mischa85,yes,,released by lane R4 tooling
 overlay,005dba30,?Write_INI@OverlayClass@@SIXAAVCCINIClass@@@Z,588,a,mischa85,yes,,released by lane R4 tooling
 overlay,005dbc80,?Load@OverlayClass@@UAGJPAUIStream@@@Z,90,a,mischa85,yes,,released by lane R4 tooling
@@ -5141,6 +5301,7 @@ overtype,005dc700,??0OverlayTypeClass@@QAE@ABVNoInitClass@@@Z,46,a,mischa85,yes,
 overtype,005dc730,??1OverlayTypeClass@@UAE@XZ,121,a,mischa85,yes,,released by lane R4 tooling
 overtype,005dc7b0,?From_Name@OverlayTypeClass@@SI?AW4OverlayType@@PBD@Z,65,a,mischa85,yes,,released by lane R4 tooling
 overtype,005dc800,?Occupy_List@OverlayTypeClass@@UBEPBVCell@@_N@Z,91,a,mischa85,yes,,released by lane R4 tooling
+overtype,005dc860,_$E142,1,a,mischa85,edit,,lane R8
 overtype,005dc870,?Create_And_Place@OverlayTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,51,a,mischa85,yes,,released by lane R4 tooling
 overtype,005dc8b0,?Create_One_Of@OverlayTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z,45,a,mischa85,yes,,released by lane R4 tooling
 overtype,005dc8e0,?Draw_It@OverlayTypeClass@@UBEXABVPoint2D@@ABV?$TRect@H@@H@Z,114,a,mischa85,yes,,released by lane R4 tooling
@@ -5179,6 +5340,7 @@ ownertalk,0063f510,?Start_Router@OwnerTalkClass@@QAE_NPAE@Z,816,a,mischa85,yes,,
 ownertalk,0063f840,?Handle_Router_Messages@OwnerTalkClass@@QAEXXZ,337,a,mischa85,yes,,released by lane R4 tooling
 ownertalk,0063f9a0,?Set_Address@OwnerTalkClass@@QAEXHPAVIPXAddressClass@@@Z,90,a,mischa85,yes,,released by lane R4 tooling
 ownertalk,0063fa00,?Address_From_Name@OwnerTalkClass@@QAEPAVIPXAddressClass@@PBD@Z,210,a,mischa85,yes,,released by lane R4 tooling
+ownertalk,0063fae0,_$E80,1,a,mischa85,edit,,lane R8
 ownertalk,0063faf0,?Port_From_Name@OwnerTalkClass@@QAEGPBD@Z,72,a,mischa85,yes,,released by lane R4 tooling
 ownertalk,0063fb40,?Name_From_Index@OwnerTalkClass@@QAEPADH@Z,26,a,mischa85,yes,,released by lane R4 tooling
 ownertalk,0063fb60,?Set_Port@OwnerTalkClass@@QAEXHG@Z,62,a,mischa85,yes,,released by lane R4 tooling
@@ -5337,6 +5499,7 @@ particle,0060a350,?Fire_Motion_AI@ParticleClass@@QAEXXZ,206,a,mischa85,yes,,rele
 particle,0060a420,?Motion_AI@ParticleClass@@QAEXXZ,261,a,mischa85,yes,,released by lane R4 tooling
 particle,0060a530,?Mark@ParticleClass@@UAE_NW4MarkType@@@Z,18,a,mischa85,yes,,released by lane R4 tooling
 particle,0060a550,?Occupy_List@ParticleClass@@UBEPBVCell@@_N@Z,69,a,mischa85,yes,,released by lane R4 tooling
+particle,0060a5a0,_$E180,1,a,mischa85,edit,,lane R8
 particle,0060a5b0,?In_Which_Layer@ParticleClass@@UBE?AW4LayerType@@XZ,6,a,mischa85,yes,,released by lane R4 tooling
 particle,0060a5c0,?Approximate_Distance@@YIHAAVPoint2D@@@Z,26,a,mischa85,yes,,released by lane R4 tooling
 particle,0060a5e0,?Load@ParticleClass@@UAGJPAUIStream@@@Z,103,a,mischa85,yes,,released by lane R4 tooling
@@ -7002,6 +7165,7 @@ terrtype,006e5510,?From_Name@TerrainTypeClass@@SI?AW4TerrainType@@PBD@Z,65,a,mis
 terrtype,006e5560,?Create_And_Place@TerrainTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,49,a,mischa85,yes,,released by lane R4 tooling
 terrtype,006e55a0,?Create_One_Of@TerrainTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z,43,a,mischa85,yes,,released by lane R4 tooling
 terrtype,006e55d0,?Occupy_List@TerrainTypeClass@@UBEPBVCell@@_N@Z,79,a,mischa85,yes,,released by lane R4 tooling
+terrtype,006e5620,_$E151,1,a,mischa85,edit,,lane R8
 terrtype,006e5630,?Read_INI@TerrainTypeClass@@UAE_NABVCCINIClass@@@Z,531,a,mischa85,yes,,released by lane R4 tooling
 terrtype,006e5850,?Coord_Fixup@TerrainTypeClass@@UBE?BVCoord@@ABV2@@Z,97,a,mischa85,yes,,released by lane R4 tooling
 terrtype,006e58c0,?Compute_CRC@TerrainTypeClass@@UBEXAAVCRCEngine@@@Z,131,a,mischa85,yes,,released by lane R4 tooling
@@ -7227,10 +7391,15 @@ tracker,006ec850,_$E187,59,a,mischa85,yes,,
 tracker,006ec890,_$E194,61,a,mischa85,yes,,
 tracker,006ec8d0,_$E192,59,a,mischa85,yes,,
 tracker,006ec910,_$E199,61,a,mischa85,yes,,
+tracker,006ec950,_$E197,59,a,mischa85,edit,,lane R8
 tracker,006ec990,_$E204,61,a,mischa85,yes,,
+tracker,006ec9d0,_$E202,59,a,mischa85,edit,,lane R8
 tracker,006eca10,_$E209,61,a,mischa85,yes,,
+tracker,006eca50,_$E207,59,a,mischa85,edit,,lane R8
 tracker,006eca90,_$E214,61,a,mischa85,yes,,
+tracker,006ecad0,_$E212,59,a,mischa85,edit,,lane R8
 tracker,006ecb10,_$E219,61,a,mischa85,yes,,
+tracker,006ecb50,_$E217,59,a,mischa85,edit,,lane R8
 tracker,006ecb90,?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z,885,a,mischa85,yes,,
 tracker,006ecf10,?Process_Deferred_Deletion@@YIXXZ,284,a,mischa85,yes,,
 trigger,006ed030,_$E2,40,a,mischa85,yes,,released by lane R4 tooling
@@ -8202,6 +8371,54 @@ wdtcampaign,007269b0,??_GCampaign@WorldDominationTour@@UAEPAXI@Z,123,a,mischa85,
 wdtcampaign,00726a30,?Clear@?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEXXZ,43,a,mischa85,yes,,
 wdtcampaign,00726a60,?ID@?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VConflict@WorldDominationTour@@@@@Z,27,a,mischa85,yes,,
 wdtcampaign,00726a80,?GetItem@?$VectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VConflict@WorldDominationTour@@@@H@Z,47,a,mischa85,yes,,
+wdtgameoptions,00728480,_$E2,23,a,mischa85,edit,,lane R8
+wdtgameoptions,007284a0,_$E5,40,a,mischa85,edit,,lane R8
+wdtgameoptions,007284d0,_$E8,19,a,mischa85,edit,,lane R8
+wdtgameoptions,007284f0,_$E11,19,a,mischa85,edit,,lane R8
+wdtgameoptions,00728510,_$E14,19,a,mischa85,edit,,lane R8
+wdtgameoptions,00728530,_$E17,19,a,mischa85,edit,,lane R8
+wdtgameoptions,00728550,_$E20,19,a,mischa85,edit,,lane R8
+wdtgameoptions,00728570,_$E23,49,a,mischa85,edit,,lane R8
+wdtgameoptions,007285b0,_$E26,33,a,mischa85,edit,,lane R8
+wdtgameoptions,007285e0,_$E29,44,a,mischa85,edit,,lane R8
+wdtgameoptions,00728610,_$E32,39,a,mischa85,edit,,lane R8
+wdtgameoptions,00728640,_$E35,15,a,mischa85,edit,,lane R8
+wdtgameoptions,00728650,_$E38,18,a,mischa85,edit,,lane R8
+wdtgameoptions,00728670,??1GameOption@WorldDominationTour@@UAE@XZ,11,a,mischa85,edit,,lane R8
+wdtgameoptions,00728680,?Is_User_Modifiable@GameOption@WorldDominationTour@@QBE_NABV?$rc_ptr@VWDTTerritory@@@@@Z,5,a,mischa85,edit,,lane R8
+wdtgameoptions,00728690,?Get_String@RangedGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z,221,a,mischa85,edit,,lane R8
+wdtgameoptions,00728770,?In_Range_Of@RangedGameOption@WorldDominationTour@@QBEHI@Z,56,a,mischa85,edit,,lane R8
+wdtgameoptions,007287b0,?Get_Display_Priority@RangedGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z,25,a,mischa85,edit,,lane R8
+wdtgameoptions,007287d0,?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@IVWstring@@H0H@Z,120,a,mischa85,edit,,lane R8
+wdtgameoptions,00728850,?Get_Display_Priority@FlagGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z,29,a,mischa85,edit,,lane R8
+wdtgameoptions,00728870,?Get_String@FlagGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z,254,a,mischa85,edit,,lane R8
+wdtgameoptions,00728970,?Get_Display_Priority@NumberOfPlayersGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z,5,a,mischa85,edit,,lane R8
+wdtgameoptions,00728980,?Get_String@NumberOfPlayersGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z,209,a,mischa85,edit,,lane R8
+wdtgameoptions,00728a60,?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@I@Z,68,a,mischa85,edit,,lane R8
+wdtgameoptions,00728ab0,?Get_String@MapSizeGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z,179,a,mischa85,edit,,lane R8
+wdtgameoptions,00728b70,?Get_Display_Priority@MapSizeGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z,30,a,mischa85,edit,,lane R8
+wdtgameoptions,00728b90,??0FlagGameOption@WorldDominationTour@@QAE@IVWstring@@H0H@Z,93,a,mischa85,edit,,lane R8
+wdtgameoptions,00728bf0,??_GFlagGameOption@WorldDominationTour@@UAEPAXI@Z,54,a,mischa85,edit,,lane R8
+wdthistory,00728c60,_$E2,23,a,mischa85,edit,,lane R8
+wdthistory,00728c80,_$E5,40,a,mischa85,edit,,lane R8
+wdthistory,00728cb0,_$E8,19,a,mischa85,edit,,lane R8
+wdthistory,00728cd0,_$E11,19,a,mischa85,edit,,lane R8
+wdthistory,00728cf0,_$E14,19,a,mischa85,edit,,lane R8
+wdthistory,00728d10,_$E17,19,a,mischa85,edit,,lane R8
+wdthistory,00728d30,_$E20,19,a,mischa85,edit,,lane R8
+wdthistory,00728d50,_$E23,49,a,mischa85,edit,,lane R8
+wdthistory,00728d90,_$E26,33,a,mischa85,edit,,lane R8
+wdthistory,00728dc0,_$E29,44,a,mischa85,edit,,lane R8
+wdthistory,00728df0,_$E32,39,a,mischa85,edit,,lane R8
+wdthistory,00728e20,_$E35,15,a,mischa85,edit,,lane R8
+wdthistory,00728e30,_$E38,18,a,mischa85,edit,,lane R8
+wdthistory,00728e50,?Create@History@WorldDominationTour@@SI?AV?$rc_ptr@VHistory@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@@Z,103,a,mischa85,edit,,lane R8
+wdthistory,00728ec0,??0History@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@@Z,61,a,mischa85,edit,,lane R8
+wdthistory,00728f00,?Get_State@History@WorldDominationTour@@QBE?AV?$rc_ptr@VState@WorldDominationTour@@@@H@Z,26,a,mischa85,edit,,lane R8
+wdthistory,00728f20,?Is_Tick_Valid@History@WorldDominationTour@@QBEHI@Z,31,a,mischa85,edit,,lane R8
+wdthistory,00728f40,??1History@WorldDominationTour@@UAE@XZ,32,a,mischa85,edit,,lane R8
+wdthistory,00728f60,??_GHistory@WorldDominationTour@@UAEPAXI@Z,52,a,mischa85,edit,,lane R8
+wdthistory,00728fa0,??_G?$rc_ptr@VWDTState@@@@UAEPAXI@Z,36,a,mischa85,edit,,lane R8
 wdtnet,0072bbd0,_$E2,40,a,mischa85,yes,,released by lane R4 tooling
 wdtnet,0072bc00,_$E5,19,a,mischa85,yes,,released by lane R4 tooling
 wdtnet,0072bc20,_$E8,19,a,mischa85,yes,,released by lane R4 tooling
@@ -8238,6 +8455,51 @@ wdtnet,0072cbd0,?Resize@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAE_NHPBV?$rc
 wdtnet,0072ccf0,?Clear@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEXXZ,40,a,mischa85,yes,,released by lane R4 tooling
 wdtnet,0072cd20,?ID@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHABV?$rc_ptr@VWDTTerritory@@@@@Z,55,a,mischa85,yes,,released by lane R4 tooling
 wdtnet,0072cd60,?ID@?$VectorClass@V?$rc_ptr@VWDTTerritory@@@@@@UAEHPBV?$rc_ptr@VWDTTerritory@@@@@Z,27,a,mischa85,yes,,released by lane R4 tooling
+wdtstate,00730510,_$E2,23,a,mischa85,edit,,lane R8
+wdtstate,00730530,_$E5,40,a,mischa85,edit,,lane R8
+wdtstate,00730560,_$E8,19,a,mischa85,edit,,lane R8
+wdtstate,00730580,_$E11,19,a,mischa85,edit,,lane R8
+wdtstate,007305a0,_$E14,19,a,mischa85,edit,,lane R8
+wdtstate,007305c0,_$E17,19,a,mischa85,edit,,lane R8
+wdtstate,007305e0,_$E20,19,a,mischa85,edit,,lane R8
+wdtstate,00730600,_$E23,49,a,mischa85,edit,,lane R8
+wdtstate,00730640,_$E26,33,a,mischa85,edit,,lane R8
+wdtstate,00730670,_$E29,44,a,mischa85,edit,,lane R8
+wdtstate,007306a0,_$E32,39,a,mischa85,edit,,lane R8
+wdtstate,007306d0,_$E35,15,a,mischa85,edit,,lane R8
+wdtstate,007306e0,_$E38,18,a,mischa85,edit,,lane R8
+wdtstate,00730700,?Create@State@WorldDominationTour@@SI?AV?$rc_ptr@VState@WorldDominationTour@@@@ABV?$rc_ptr@VWDTState@@@@H@Z,139,a,mischa85,edit,,lane R8
+wdtstate,00730790,?Create@State@WorldDominationTour@@SI?AV?$rc_ptr@VState@WorldDominationTour@@@@XZ,94,a,mischa85,edit,,lane R8
+wdtstate,007307f0,??0State@WorldDominationTour@@QAE@XZ,51,a,mischa85,edit,,lane R8
+wdtstate,00730830,??0State@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTState@@@@I@Z,95,a,mischa85,edit,,lane R8
+wdtstate,00730890,?Owner_Of@State@WorldDominationTour@@QBEHI@Z,77,a,mischa85,edit,,lane R8
+wdtstate,007308e0,??1State@WorldDominationTour@@UAE@XZ,32,a,mischa85,edit,,lane R8
+wdtstate,00730900,?Count_Owned@State@WorldDominationTour@@QBEHH@Z,75,a,mischa85,edit,,lane R8
+wdtstate,00730950,??_GState@WorldDominationTour@@UAEPAXI@Z,52,a,mischa85,edit,,lane R8
+wdtterr,00730990,_$E2,23,a,mischa85,edit,,lane R8
+wdtterr,007309b0,_$E5,40,a,mischa85,edit,,lane R8
+wdtterr,007309e0,_$E8,19,a,mischa85,edit,,lane R8
+wdtterr,00730a00,_$E11,19,a,mischa85,edit,,lane R8
+wdtterr,00730a20,_$E14,19,a,mischa85,edit,,lane R8
+wdtterr,00730a40,_$E17,19,a,mischa85,edit,,lane R8
+wdtterr,00730a60,_$E20,19,a,mischa85,edit,,lane R8
+wdtterr,00730a80,_$E29,49,a,mischa85,edit,,lane R8
+wdtterr,00730ac0,_$E32,33,a,mischa85,edit,,lane R8
+wdtterr,00730af0,_$E35,44,a,mischa85,edit,,lane R8
+wdtterr,00730b20,_$E38,39,a,mischa85,edit,,lane R8
+wdtterr,00730b50,_$E41,15,a,mischa85,edit,,lane R8
+wdtterr,00730b60,_$E44,18,a,mischa85,edit,,lane R8
+wdtterr,00730b80,?Create@Territory@WorldDominationTour@@SI?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@HABVINIClass@@ABVWstring@@11@Z,82,a,mischa85,edit,,lane R8
+wdtterr,00730be0,??0Territory@WorldDominationTour@@QAE@HABVINIClass@@ABVWstring@@11@Z,541,a,mischa85,edit,,lane R8
+wdtterr,00730e00,?Create_Owner_Anim@Territory@WorldDominationTour@@QAEXPAVMSEngine@@PAVConvertClass@@ABVPoint2D@@@Z,182,a,mischa85,edit,,lane R8
+wdtterr,00730ec0,?Create_Highlight_Anim@Territory@WorldDominationTour@@QAEXPAVMSEngine@@PAVConvertClass@@ABVPoint2D@@@Z,182,a,mischa85,edit,,lane R8
+wdtterr,00730f80,??1Territory@WorldDominationTour@@UAE@XZ,34,a,mischa85,edit,,lane R8
+wdtterr,00730fb0,?Set_Owner_State@Territory@WorldDominationTour@@QAEXHPAVMSEngine@@_N@Z,358,a,mischa85,edit,,lane R8
+wdtterr,00731120,?Set_Highlight@Territory@WorldDominationTour@@QAEX_NPAVMSEngine@@@Z,111,a,mischa85,edit,,lane R8
+wdtterr,00731190,?Set_Target_Anim@Territory@WorldDominationTour@@QAEXPAVMSAnim@@@Z,10,a,mischa85,edit,,lane R8
+wdtterr,007311a0,?Remove_Target_Anim@Territory@WorldDominationTour@@QAEPAVMSAnim@@XZ,11,a,mischa85,edit,,lane R8
+wdtterr,007311b0,?Find_Territory@WorldDominationTour@@YI?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@AAV?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@H@Z,211,a,mischa85,edit,,lane R8
+wdtterr,00731290,??_GTerritory@WorldDominationTour@@UAEPAXI@Z,54,a,mischa85,edit,,lane R8
 wdtvoice,007312d0,_$E2,23,a,mischa85,yes,,
 wdtvoice,007312f0,_$E5,40,a,mischa85,yes,,
 wdtvoice,00731320,_$E8,19,a,mischa85,yes,,
@@ -8339,6 +8601,26 @@ wincomm,007354b0,?Set_Abort_Function@WinModemClass@@UAEXP6IHXZ@Z,10,a,mischa85,y
 wincomm,007354c0,?Get_Port_Handle@WinModemClass@@QAEPAXXZ,4,a,mischa85,yes,,released by lane R4 tooling
 wincomm,007354d0,?Debug_Status@WinModemClass@@QAEXKU_COMSTAT@@@Z,317,a,mischa85,yes,,released by lane R4 tooling
 wincomm,00735610,??_GWinModemClass@@UAEPAXI@Z,85,a,mischa85,yes,,released by lane R4 tooling
+windlg,00735670,_$E2,23,a,mischa85,edit,,lane R8
+windlg,00735690,?Get_Display_Rect@@YIHPAUHWND__@@PAUtagRECT@@@Z,108,a,mischa85,edit,,lane R8
+windlg,00735700,?WS_Create_Dialog@@YIPAUHWND__@@PAUHINSTANCE__@@HPAU1@P6GH1IIJ@ZH@Z,212,a,mischa85,edit,,lane R8
+windlg,007357e0,?WS_Destroy_Dialog@@YI_NPAUHWND__@@H@Z,293,a,mischa85,edit,,lane R8
+windlg,00735910,?WS_Has_Dialog@@YIHPAUHWND__@@@Z,41,a,mischa85,edit,,lane R8
+windlg,00735940,?WS_Find_Dialog@@YIPAUHWND__@@H@Z,40,a,mischa85,edit,,lane R8
+windlg,00735970,?WS_Next_Upper_Dialog@@YIPAUHWND__@@PAU1@@Z,53,a,mischa85,edit,,lane R8
+windlg,007359b0,?WS_Next_Lower_Dialog@@YIPAUHWND__@@PAU1@@Z,44,a,mischa85,edit,,lane R8
+windlg,007359e0,?WS_Wait_Dialog@@YIHPAUHWND__@@P6I_NXZ_N22@Z,300,a,mischa85,edit,,lane R8
+windlg,00735b10,?WS_Top_Window@@YIPAUHWND__@@XZ,6,a,mischa85,edit,,lane R8
+windlg,00735b20,?WS_Top_Window_ID@@YIHXZ,6,a,mischa85,edit,,lane R8
+windlg,00735b30,?WS_Last_Response@@YIIXZ,6,a,mischa85,edit,,lane R8
+windlg,00735b40,?Resize_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,5,a,mischa85,edit,,lane R8
+windlg,00735b50,?Get_Dialog_Resolution@@YIHGP6GHPAUHWND__@@IIJ@ZHAAUtagPOINT@@@Z,78,a,mischa85,edit,,lane R8
+windlg,00735ba0,?Resize_Dialogs@@YIXPAUHWND__@@@Z,27,a,mischa85,edit,,lane R8
+windlg,00735bc0,?Resize_Dialog@@YGHPAUHWND__@@J@Z,420,a,mischa85,edit,,lane R8
+windlg,00735d70,_$E7,29,a,mischa85,edit,,lane R8
+windlg,00735d90,_$E5,23,a,mischa85,edit,,lane R8
+windlg,00735db0,?WS_Get_Font@@YIPAUHFONT__@@PAUHDC__@@PBDHHH@Z,767,a,mischa85,edit,,lane R8
+windlg,007360b0,?Ez_Create_Font@@YIPAUHFONT__@@PAUHDC__@@PBDHHH@Z,350,a,mischa85,edit,,lane R8
 winfix,00736210,_$E3,23,a,mischa85,yes,,released by lane R4 tooling
 winfix,00736230,?TreeView_Begin_Drag@@YI_NPAUHWND__@@0PAUtagNMTREEVIEWA@@@Z,231,a,mischa85,yes,,released by lane R4 tooling
 winfix,00736320,?TreeView_End_Drag@@YI_NJ@Z,362,a,mischa85,yes,,released by lane R4 tooling
@@ -8364,6 +8646,44 @@ winfix,00736f40,?Version_String@WindowsVersionInfo@@QAEPADXZ,275,a,mischa85,yes,
 winfix,00737060,?Center_Window_Within_Window@@YIXPAUHWND__@@@Z,27,a,mischa85,yes,,released by lane R4 tooling
 winfix,00737080,?Center_Window_Within_Window@@YIXPAUHWND__@@0@Z,218,a,mischa85,yes,,released by lane R4 tooling
 winfix,00737160,?Prefetch_Audio_Buffer@@YIXPADH@Z,75,a,mischa85,yes,,released by lane R4 tooling
+winstub,007371b0,_$E2,23,a,mischa85,edit,,lane R8
+winstub,007371d0,_$E5,40,a,mischa85,edit,,lane R8
+winstub,00737200,_$E8,19,a,mischa85,edit,,lane R8
+winstub,00737220,_$E11,19,a,mischa85,edit,,lane R8
+winstub,00737240,_$E14,19,a,mischa85,edit,,lane R8
+winstub,00737260,_$E17,19,a,mischa85,edit,,lane R8
+winstub,00737280,_$E20,19,a,mischa85,edit,,lane R8
+winstub,007372a0,_$E120,49,a,mischa85,edit,,lane R8
+winstub,007372e0,_$E123,33,a,mischa85,edit,,lane R8
+winstub,00737310,_$E126,44,a,mischa85,edit,,lane R8
+winstub,00737340,_$E129,39,a,mischa85,edit,,lane R8
+winstub,00737370,_$E132,15,a,mischa85,edit,,lane R8
+winstub,00737380,_$E135,18,a,mischa85,edit,,lane R8
+winstub,007373a0,?Focus_Loss@@YIXXZ,85,a,mischa85,edit,,lane R8
+winstub,00737400,?Focus_Restore@@YIXXZ,412,a,mischa85,edit,,lane R8
+winstub,007375a0,?Windows_Procedure@@YGJPAUHWND__@@IIJ@Z,1200,a,mischa85,edit,,lane R8
+winstub,00737a50,?Build_Info@@YIXXZ,1,a,mischa85,edit,,lane R8
+winstub,00737a60,?Build_Date_String@@YIXPADH@Z,109,a,mischa85,edit,,lane R8
+winstub,00737ad0,?Build_Number_String@@YIPADPADH@Z,27,a,mischa85,edit,,lane R8
+winstub,00737af0,?Build_Number@@YIIXZ,6,a,mischa85,edit,,lane R8
+winstub,00737b00,?Build_By_String@@YIPADPADH@Z,23,a,mischa85,edit,,lane R8
+winstub,00737b20,?Build_By_Initials@@YIPADPADH@Z,47,a,mischa85,edit,,lane R8
+winstub,00737b50,?Build_Version_String@@YIPADPADH@Z,116,a,mischa85,edit,,lane R8
+winstub,00737bd0,?Create_Main_Window@@YIXPAUHINSTANCE__@@HHH@Z,448,a,mischa85,edit,,lane R8
+winstub,00737d90,?IME_Cancel_Composition@@YIXXZ,51,a,mischa85,edit,,lane R8
+winstub,00737dd0,?IME_Get_Candidate_Text@@YIXKIPADH@Z,94,a,mischa85,edit,,lane R8
+winstub,00737e30,?IME_Update_Composition@@YIXXZ,232,a,mischa85,edit,,lane R8
+winstub,00737f20,?IME_Send_Result@@YIXPAUHWND__@@@Z,158,a,mischa85,edit,,lane R8
+winstub,00737fc0,?IME_Service_Message@@YIHPAUHWND__@@IIJ@Z,236,a,mischa85,edit,,lane R8
+winstub,007380b0,?IME_Get_Result@@YIHXZ,6,a,mischa85,edit,,lane R8
+winstub,007380c0,?IME_Close@@YIXXZ,18,a,mischa85,edit,,lane R8
+winstub,007380e0,?IME_Close_Alt@@YIXXZ,18,a,mischa85,edit,,lane R8
+winstub,00738100,?IME_Stub1@@YIXXZ,1,a,mischa85,edit,,lane R8
+winstub,00738110,?IME_Stub2@@YIXXZ,1,a,mischa85,edit,,lane R8
+winstub,00738120,?IME_Stub3@@YIXXZ,1,a,mischa85,edit,,lane R8
+winstub,00738130,?IME_Char_To_Wide@@YIGIJ@Z,91,a,mischa85,edit,,lane R8
+winstub,00738190,?Load_Title_Screen@@YIXPBDPAVSurface@@PAVPaletteClass@@@Z,643,a,mischa85,edit,,lane R8
+winstub,00738420,??_GCCToolTip@@UAEPAXI@Z,36,a,mischa85,edit,,lane R8
 wolpersonainformation,00738450,_$E7,23,a,mischa85,yes,,
 wolpersonainformation,00738470,_$E10,40,a,mischa85,yes,,
 wolpersonainformation,007384a0,_$E13,19,a,mischa85,yes,,

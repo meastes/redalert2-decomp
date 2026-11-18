@@ -34,10 +34,6 @@
 #include "misc.h"
 void Play_Named_Sound(char const * name, int volume); // RA2: plays a sound effect of the audio library by its name
 
-/*
-**	RA2: the bounds of a shape frame that does not exist.
-*/
-Rect NullFrameRect(Point2D(0, 0), 0, 0);
 
 
 ShapeFlags_Type FadeStages[4] = { ShapeFlags_Type(SHAPE_WIN_REL | SHAPE_TRANSLUCENT75),

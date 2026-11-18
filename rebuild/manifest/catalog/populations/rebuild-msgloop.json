@@ -13,11 +13,12 @@
     "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A": 10950912,
     "??_7?$DynamicVectorClass@PAUHWND__@@@@6B@": 8024292,
     "_atexit": 7874954,
+    "??_7?$VectorClass@PAUHWND__@@@@6B@": 8024324,
+    "??3@YAXPAX@Z": 7871803,
     "_$E10": 5988000,
     "__Accelerators": 10950952,
     "??_7?$DynamicVectorClass@UAcceleratorTracker@@@@6B@": 8024356,
     "??_7?$VectorClass@UAcceleratorTracker@@@@6B@": 8024388,
-    "??3@YAXPAX@Z": 7871803,
     "?MainWindow@@3PAUHWND__@@A": 11690968,
     "?MessageLoopCount@@3HA": 10822296,
     "?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z": 5385936,
@@ -33,8 +34,7 @@
     "__imp__GetWindowTextA@12": 7972072,
     "_?_wname@?1??Get_Modeless_Dialog_From_Name@@YIPAUHWND__@@PBD@Z@4PADA": 10950976,
     "??2@YAPAXI@Z": 7872535,
-    "??_7?$VectorClass@PAUHWND__@@@@6B@": 8024324,
-    "_$E2": 5987872,
+    "_$E2": 5987776,
     "_$E7": 5987808,
     "??_G?$DynamicVectorClass@PAUHWND__@@@@UAEPAXI@Z": 5990592,
     "??_G?$VectorClass@PAUHWND__@@@@UAEPAXI@Z": 5990512,
@@ -235,6 +235,98 @@
       "source": "rebuild/src/msgloop.cpp",
       "population": "rebuild-msgloop",
       "source_order": 5987808,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3812"
+    },
+    {
+      "entry": 5987872,
+      "method": "005b5e20",
+      "body_bytes": 59,
+      "body_sha256": "b46ef69b645112df3348b671eee8c6bc7ea5a336ae3852b97d30375207dd23a3",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "60d8341d7f16586b65c72a3ec05f5fd8fb470aa0ad8edba86d2846c42ea1c7fb",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 4,
+          "resolved": 10950916
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 0,
+          "resolved": 10950912
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUHWND__@@@@6B@",
+          "target": 8024324,
+          "addend": 0,
+          "resolved": 8024324
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 13,
+          "resolved": 10950925
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1883895
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 4,
+          "resolved": 10950916
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 13,
+          "resolved": 10950925
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 8,
+          "resolved": 10950920
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5987872,
       "source_quality_family": "rebuild",
       "bound_population": "population-3812"
     },

@@ -136,8 +136,8 @@
     "?Optimize_Moves@AStarClass@@AAEXPAUPathStruct@@PAVFootClass@@@Z": 4362432,
     "?Reset@AStarClass@@QAEXXZ": 4364944,
     "?Find_Path@AStarClass@@QAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAW4FacingType@@HW4MZoneType@@W4ObstacleAvoidanceType@1@@Z": 4366800,
-    "??_G?$DynamicVectorClass@G@@UAEPAXI@Z": 4371648,
     "??_G?$VectorClass@G@@UAEPAXI@Z": 4371648,
+    "??_G?$DynamicVectorClass@G@@UAEPAXI@Z": 4371648,
     "?Subzone_Edge_Banned@AStarClass@@AAE_NGGH@Z": 4368240,
     "?Ban_Subzone_Edge@AStarClass@@AAEXIIH@Z": 4368336,
     "?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PBVFootClass@@_N2W4MZoneType@@@Z": 4368944,
@@ -1721,6 +1721,33 @@
       "source": "rebuild/src/astar.cpp",
       "population": "rebuild-astar",
       "source_order": 4359024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4359376,
+      "method": "004284d0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E153",
+      "symbol_prefix": "_$E153",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6cbb6e387448bf187d9fff00c6a8e180f7a2c85092b47fb77ccd2c84bfce28fc",
+      "source": "rebuild/src/astar.cpp",
+      "population": "rebuild-astar",
+      "source_order": 4359376,
       "source_quality_family": "rebuild"
     },
     {

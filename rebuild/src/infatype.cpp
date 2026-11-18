@@ -220,7 +220,6 @@ ObjectClass * InfantryTypeClass::Create_One_Of(HouseClass * house) const
  * HISTORY:                                                                                    *
  *   09/24/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 bool InfantryTypeClass::Create_And_Place(Cell const & cell, HouseClass * house) const
 {
 	InfantryClass * i = new InfantryClass(this, house);
@@ -235,7 +234,6 @@ bool InfantryTypeClass::Create_And_Place(Cell const & cell, HouseClass * house) 
 	}
 	return(false);
 }
-#endif
 
 
 /***********************************************************************************************

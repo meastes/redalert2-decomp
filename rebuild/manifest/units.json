@@ -5218,7 +5218,6 @@
    }
   ],
   "references": {
-   "_$E70": "006896d0",
    "_BRIDGE_LEPTON_HEIGHT": "00abd018",
    "_CELL_DIAG_SLOPE_ANGLE": "00abd000",
    "_CELL_LEPTON_DIAG": "00abcfd8",
@@ -7831,7 +7830,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00728c60",
    "00728fd0"
@@ -8010,14 +8009,20 @@
   ],
   "references": {
    "_CELL_LEPTON_DIAG": "00b25788",
-   "_GeoZero": "00b25770",
    "_ISO_TILE_SIZE": "007af180",
    "_LEPTONS_PER_PIXEL": "00b257d0",
    "_ONE_RAD": "007af188",
    "_PIXELS_PER_LEPTON": "00b257c0",
    "_RAD_45": "00b257b8",
    "_RAD_60": "00b25790",
-   "_RAD_90": "00b25768"
+   "_RAD_90": "00b25768",
+   "_RECT_NONE": "00b25770",
+   "_LEVEL_LEPTON_H": "00b257d8",
+   "?BRIDGE_LEPTON_HEIGHT@@3HB": "00b257c8",
+   "?CELL_DIAG_SLOPE_ANGLE@@3NB": "00b257b0",
+   "?CELL_NONE@@3VCell@@B": "00b25780",
+   "?CELL_SLOPE_ANGLE@@3NB": "00b25798",
+   "?COORD_NONE@@3VCoord@@B": "00b257a0"
   }
  },
  "hicolor": {
@@ -9515,7 +9520,7 @@
   "status": "catalogued",
   "range": [
    "006eb100",
-   "006eb2d7"
+   "006eb2c0"
   ],
   "mischa85": "tibsun: functions compiled from src/toggle.cpp, matched, without gaps",
   "main_options": [
@@ -9573,14 +9578,6 @@
     "symbol": "?Action@ToggleClass@@MAEHIAAW4KeyNumType@@@Z",
     "main_symbol": "?Action@ToggleClass@@UAEHIAAI@Z",
     "main_source": "src/recovered/classes/ToggleClass/Action.cpp"
-   },
-   {
-    "entry": "006eb2c0",
-    "body": 23,
-    "padding": 0,
-    "symbol": "?get@Leaf_6eb2c0@@QAEXXZ",
-    "main_symbol": "?get@Leaf_6eb2c0@@QAEXXZ",
-    "main_source": "src/recovered/unidentified/seed_views/006eb2c0.cpp"
    }
   ],
   "references": {
@@ -10263,7 +10260,7 @@
     "entry": "004b5a60",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E44",
+    "symbol": "_$E51",
     "main_symbol": "_$E44",
     "main_source": "src/recovered/enviro.cpp"
    },
@@ -10317,7 +10314,6 @@
    }
   ],
   "references": {
-   "_$E51": "004b5a60",
    "_BRIDGE_LEPTON_HEIGHT": "00855b10",
    "_CELL_DIAG_SLOPE_ANGLE": "00855af8",
    "_CELL_LEPTON_DIAG": "00855a88",
@@ -10755,7 +10751,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00730510",
    "00730990"
@@ -10942,14 +10938,20 @@
   ],
   "references": {
    "_CELL_LEPTON_DIAG": "00b259e0",
-   "_GeoZero": "00b259c8",
    "_ISO_TILE_SIZE": "007af3b8",
    "_LEPTONS_PER_PIXEL": "00b25a28",
    "_ONE_RAD": "007af3c0",
    "_PIXELS_PER_LEPTON": "00b25a18",
    "_RAD_45": "00b25a10",
    "_RAD_60": "00b259e8",
-   "_RAD_90": "00b259c0"
+   "_RAD_90": "00b259c0",
+   "_RECT_NONE": "00b259c8",
+   "_LEVEL_LEPTON_H": "00b25a30",
+   "?BRIDGE_LEPTON_HEIGHT@@3HB": "00b25a20",
+   "?CELL_DIAG_SLOPE_ANGLE@@3NB": "00b25a08",
+   "?CELL_NONE@@3VCell@@B": "00b259d8",
+   "?CELL_SLOPE_ANGLE@@3NB": "00b259f0",
+   "?COORD_NONE@@3VCoord@@B": "00b259f8"
   }
  },
  "goptions": {
@@ -12476,7 +12478,7 @@
   "status": "catalogued",
   "range": [
    "00496a20",
-   "00496d27"
+   "00496d10"
   ],
   "mischa85": "tibsun: functions compiled from src/delay.cpp, matched, without gaps",
   "main_options": [
@@ -12606,14 +12608,6 @@
     "symbol": "?End_Count@DelayTimerClass@@QAEXXZ",
     "main_symbol": "?End_Count_00496ce0@@YIXH@Z",
     "main_source": "src/recovered/delay.cpp"
-   },
-   {
-    "entry": "00496d10",
-    "body": 23,
-    "padding": 0,
-    "symbol": "?get@Leaf_496d10@@QAEXXZ",
-    "main_symbol": "?get@Leaf_496d10@@QAEXXZ",
-    "main_source": "src/recovered/unidentified/seed_views/00496d10.cpp"
    }
   ],
   "references": {}
@@ -13397,7 +13391,7 @@
     "entry": "005b5e20",
     "body": 59,
     "padding": 5,
-    "symbol": "_$E2",
+    "symbol": "_$E5",
     "main_symbol": "_$E2",
     "main_source": "src/recovered/unowned/ModelessDialogs_atexit_destructor.cpp"
    },
@@ -13659,7 +13653,6 @@
    }
   ],
   "references": {
-   "_$E5": "005b5e20",
    "_RECT_NONE": "00a71918"
   }
  },
@@ -17157,7 +17150,7 @@
     "entry": "006ec950",
     "body": 59,
     "padding": 5,
-    "symbol": "_$E164",
+    "symbol": "_$E197",
     "main_symbol": "_$E76",
     "main_source": "src/recovered/tracker.cpp"
    },
@@ -17173,7 +17166,7 @@
     "entry": "006ec9d0",
     "body": 59,
     "padding": 5,
-    "symbol": "_$E169",
+    "symbol": "_$E202",
     "main_symbol": "_$E81",
     "main_source": "src/recovered/tracker.cpp"
    },
@@ -17189,7 +17182,7 @@
     "entry": "006eca50",
     "body": 59,
     "padding": 5,
-    "symbol": "_$E174",
+    "symbol": "_$E207",
     "main_symbol": "_$E86",
     "main_source": "src/recovered/tracker.cpp"
    },
@@ -17205,7 +17198,7 @@
     "entry": "006ecad0",
     "body": 59,
     "padding": 5,
-    "symbol": "_$E179",
+    "symbol": "_$E212",
     "main_symbol": "_$E91",
     "main_source": "src/recovered/tracker.cpp"
    },
@@ -17221,7 +17214,7 @@
     "entry": "006ecb50",
     "body": 59,
     "padding": 5,
-    "symbol": "_$E184",
+    "symbol": "_$E217",
     "main_symbol": "_$E96",
     "main_source": "src/recovered/tracker.cpp"
    },
@@ -17257,12 +17250,7 @@
    "_RAD_45": "00ac0d20",
    "_RAD_60": "00ac0cc8",
    "_RAD_90": "00ac0c10",
-   "_RECT_NONE": "00ac0c48",
-   "_$E197": "006ec950",
-   "_$E202": "006ec9d0",
-   "_$E207": "006eca50",
-   "_$E212": "006ecad0",
-   "_$E217": "006ecb50"
+   "_RECT_NONE": "00ac0c48"
   }
  },
  "crate": {
@@ -18961,7 +18949,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00728480",
    "00728c30"
@@ -19210,7 +19198,6 @@
    "_?_labels@?1??Get_String@MapSizeGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV4@@Z@4QBQBDB": "007af140",
    "_?_table@?1??Get_Display_Priority@MapSizeGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z@4PAY03HA": "007fbb78",
    "_CELL_LEPTON_DIAG": "00b25710",
-   "_GeoZero": "00b256f8",
    "_ISO_TILE_SIZE": "007af130",
    "_LEPTONS_PER_PIXEL": "00b25758",
    "_ONE_RAD": "007af138",
@@ -19221,7 +19208,14 @@
    "?Get_Display_Priority@MapSizeGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z": "00728b70",
    "?Get_String@MapSizeGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z": "00728ab0",
    "?Get_Display_Priority@FlagGameOption@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z": "00728850",
-   "?Get_String@FlagGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z": "00728870"
+   "?Get_String@FlagGameOption@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z": "00728870",
+   "_RECT_NONE": "00b256f8",
+   "_LEVEL_LEPTON_H": "00b25760",
+   "?BRIDGE_LEPTON_HEIGHT@@3HB": "00b25750",
+   "?CELL_DIAG_SLOPE_ANGLE@@3NB": "00b25738",
+   "?CELL_NONE@@3VCell@@B": "00b25708",
+   "?CELL_SLOPE_ANGLE@@3NB": "00b25720",
+   "?COORD_NONE@@3VCoord@@B": "00b25728"
   }
  },
  "draw": {
@@ -21900,7 +21894,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00730990",
    "007312d0"
@@ -21976,7 +21970,7 @@
     "entry": "00730a80",
     "body": 49,
     "padding": 15,
-    "symbol": "_$E23",
+    "symbol": "_$E29",
     "main_symbol": "_$E23",
     "main_source": "src/recovered/wdtterr.cpp"
    },
@@ -21984,7 +21978,7 @@
     "entry": "00730ac0",
     "body": 33,
     "padding": 15,
-    "symbol": "_$E26",
+    "symbol": "_$E32",
     "main_symbol": "_$E26",
     "main_source": "src/recovered/wdtterr.cpp"
    },
@@ -21992,7 +21986,7 @@
     "entry": "00730af0",
     "body": 44,
     "padding": 4,
-    "symbol": "_$E29",
+    "symbol": "_$E35",
     "main_symbol": "_$E29",
     "main_source": "src/recovered/wdtterr.cpp"
    },
@@ -22000,7 +21994,7 @@
     "entry": "00730b20",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E32",
+    "symbol": "_$E38",
     "main_symbol": "_$E32",
     "main_source": "src/recovered/wdtterr.cpp"
    },
@@ -22008,7 +22002,7 @@
     "entry": "00730b50",
     "body": 15,
     "padding": 1,
-    "symbol": "_$E35",
+    "symbol": "_$E41",
     "main_symbol": "_$E35",
     "main_source": "src/recovered/wdtterr.cpp"
    },
@@ -22016,7 +22010,7 @@
     "entry": "00730b60",
     "body": 18,
     "padding": 14,
-    "symbol": "_$E38",
+    "symbol": "_$E44",
     "main_symbol": "_$E38",
     "main_source": "src/recovered/wdtterr.cpp"
    },
@@ -22111,14 +22105,20 @@
   ],
   "references": {
    "_CELL_LEPTON_DIAG": "00b25a58",
-   "_GeoZero": "00b25a40",
    "_ISO_TILE_SIZE": "007af3d8",
    "_LEPTONS_PER_PIXEL": "00b25aa0",
    "_ONE_RAD": "007af3e0",
    "_PIXELS_PER_LEPTON": "00b25a90",
    "_RAD_45": "00b25a88",
    "_RAD_60": "00b25a60",
-   "_RAD_90": "00b25a38"
+   "_RAD_90": "00b25a38",
+   "_RECT_NONE": "00b25a40",
+   "_LEVEL_LEPTON_H": "00b25aa8",
+   "?BRIDGE_LEPTON_HEIGHT@@3HB": "00b25a98",
+   "?CELL_DIAG_SLOPE_ANGLE@@3NB": "00b25a80",
+   "?CELL_NONE@@3VCell@@B": "00b25a50",
+   "?CELL_SLOPE_ANGLE@@3NB": "00b25a68",
+   "?COORD_NONE@@3VCoord@@B": "00b25a70"
   }
  },
  "msfont": {
@@ -27181,7 +27181,7 @@
     "entry": "006e5620",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E59",
+    "symbol": "_$E151",
     "main_symbol": "_$E59",
     "main_source": "src/recovered/terrtype.cpp"
    },
@@ -27259,7 +27259,6 @@
    }
   ],
   "references": {
-   "_$E151": "006e5620",
    "_?$S150@?3??Occupy_List@TerrainTypeClass@@UBEPBVCell@@_N@Z@4EA": "00ac0400",
    "_?_simple@?3??Occupy_List@TerrainTypeClass@@UBEPBVCell@@_N@Z@4QBV3@B": "00ac03e0",
    "_BRIDGE_LEPTON_HEIGHT": "00ac07a0",
@@ -31020,10 +31019,10 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004800a0",
-   "00480b17"
+   "00480b00"
   ],
   "mischa85": "tibsun: functions compiled from src/combuf.cpp, matched, without gaps; two placed by the gap; ?Mono_Debug_Print@CommBufferClass@@QAEXH@Z not placed; ?Mono_Debug_Print2@CommBufferClass@@QAEXH@Z not placed",
   "main_options": [
@@ -31046,7 +31045,7 @@
     "entry": "004800a0",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E2",
+    "symbol": "_$E3",
     "main_symbol": "_$E2",
     "main_source": "src/recovered/combuf.cpp"
    },
@@ -31177,17 +31176,11 @@
     "symbol": "??_GCommBufferClass@@UAEPAXI@Z",
     "main_symbol": "??_GCommBufferClass@@UAEPAXI@Z",
     "main_source": "src/recovered/combuf.cpp"
-   },
-   {
-    "entry": "00480b00",
-    "body": 23,
-    "padding": 0,
-    "symbol": "?get@Leaf_480b00@@QAEXXZ",
-    "main_symbol": "?get@Leaf_480b00@@QAEXXZ",
-    "main_source": "src/recovered/unidentified/seed_views/00480b00.cpp"
    }
   ],
-  "references": {},
+  "references": {
+   "_RECT_NONE": "00850cf0"
+  },
   "partial_ok": true,
   "build_refused": {
    "source_sha256": "cd6315443884e5e4b7a716df688aca1ac49d7b7f05c75d8fcbf142216dc7cccf",
@@ -33017,10 +33010,10 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00735670",
-   "00736227"
+   "00736210"
   ],
   "mischa85": "tibsun: functions compiled from src/windlg.cpp, matched, without gaps; four placed by the gap",
   "main_options": [
@@ -33177,7 +33170,7 @@
     "entry": "00735d70",
     "body": 29,
     "padding": 0,
-    "symbol": "_$E5",
+    "symbol": "_$E7",
     "main_symbol": "_unknown_init_globals_735d70",
     "main_source": "src/recovered/windlg/unknown_init_globals.cpp",
     "gap_padding": 3,
@@ -33187,7 +33180,7 @@
     "entry": "00735d90",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E8",
+    "symbol": "_$E5",
     "main_symbol": "?unknown_clear_font_cache_735d90@@YAXXZ",
     "main_source": "src/recovered/windlg.cpp"
    },
@@ -33206,14 +33199,6 @@
     "symbol": "?Ez_Create_Font@@YIPAUHFONT__@@PAUHDC__@@PBDHHH@Z",
     "main_symbol": "?Ez_Create_Font@@YIPAUHFONT__@@PAUHDC__@@PBDHHI@Z",
     "main_source": "src/recovered/windlg.cpp"
-   },
-   {
-    "entry": "00736210",
-    "body": 23,
-    "padding": 0,
-    "symbol": "_$E10",
-    "main_symbol": "?get@Leaf_736210@@QAEXXZ",
-    "main_source": "src/recovered/unidentified/seed_views/00736210.cpp"
    }
   ],
   "references": {
@@ -33221,7 +33206,8 @@
    "_?resize_dialog_scale_x@?1??Resize_Dialog@@YGHPAUHWND__@@J@Z@4HA": "007fd048",
    "_?resize_dialog_scale_y@?1??Resize_Dialog@@YGHPAUHWND__@@J@Z@4HA": "007fd04c",
    "_?resize_dialog_width@?1??Resize_Dialog@@YGHPAUHWND__@@J@Z@4HA": "00b25de4",
-   "_RECT_NONE": "00b25db8"
+   "_RECT_NONE": "00b25db8",
+   "_$E5": "00735d90"
   }
  },
  "gauge": {
@@ -33543,7 +33529,7 @@
     "entry": "005dc860",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E49",
+    "symbol": "_$E142",
     "main_symbol": "_$E49",
     "main_source": "src/recovered/overtype.cpp"
    },
@@ -33645,7 +33631,6 @@
    }
   ],
   "references": {
-   "_$E142": "005dc860",
    "_?$S141@?1??Occupy_List@OverlayTypeClass@@UBEPBVCell@@_N@Z@4EA": "00a73188",
    "_?_simple@?1??Occupy_List@OverlayTypeClass@@UBEPBVCell@@_N@Z@4QBV3@B": "00a7318c",
    "_BRIDGE_LEPTON_HEIGHT": "00a731a8",
@@ -37260,13 +37245,19 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
-   "00532120",
+   "00531f30",
    "00532e80"
   ],
   "mischa85": "tibsun: functions compiled from src/keyboard.cpp, matched, without gaps; ?Stop_Execution@@YIXXZ not placed; ?Noop@WWKeyboardClass@@ABEHXZ not placed",
   "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ],
    [
     "/O2",
     "/Ob2",
@@ -37277,10 +37268,114 @@
   ],
   "rows": [
    {
+    "entry": "00531f30",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_empty_rect_init.cpp"
+   },
+   {
+    "entry": "00531f50",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_diagonal_init.cpp"
+   },
+   {
+    "entry": "00531f80",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_b_init.cpp"
+   },
+   {
+    "entry": "00531fa0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_c_init.cpp"
+   },
+   {
+    "entry": "00531fc0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_angle45_init.cpp"
+   },
+   {
+    "entry": "00531fe0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_angle60_init.cpp"
+   },
+   {
+    "entry": "00532000",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_angle90_init.cpp"
+   },
+   {
+    "entry": "00532020",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E47",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_g_init.cpp"
+   },
+   {
+    "entry": "00532060",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E50",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_h_init.cpp"
+   },
+   {
+    "entry": "00532090",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E53",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_i_init.cpp"
+   },
+   {
+    "entry": "005320c0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E56",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_j_init.cpp"
+   },
+   {
+    "entry": "005320f0",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E59",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_k_init.cpp"
+   },
+   {
+    "entry": "00532100",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E62",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/header_statics/keyboard/HeaderStatics_l_init.cpp"
+   },
+   {
     "entry": "00532120",
     "body": 1,
     "padding": 15,
-    "symbol": "?unknown_empty_00532120@@YAXXZ",
+    "symbol": "?Stop_Execution@@YIXXZ",
     "main_symbol": "?unknown_empty_00532120@@YAXXZ",
     "main_source": "src/recovered/keyboard.cpp"
    },
@@ -37461,7 +37556,23 @@
     "main_source": "src/recovered/keyboard.cpp"
    }
   ],
-  "references": {},
+  "references": {
+   "_CELL_LEPTON_DIAG": "00a6e4e0",
+   "_ISO_TILE_SIZE": "007a53f0",
+   "_LEPTONS_PER_PIXEL": "00a6e528",
+   "_ONE_RAD": "007a53f8",
+   "_PIXELS_PER_LEPTON": "00a6e518",
+   "_RAD_45": "00a6e510",
+   "_RAD_60": "00a6e4e8",
+   "_RAD_90": "00a6e4c0",
+   "_RECT_NONE": "00a6e4c8",
+   "_LEVEL_LEPTON_H": "00a6e530",
+   "?BRIDGE_LEPTON_HEIGHT@@3HB": "00a6e520",
+   "?CELL_DIAG_SLOPE_ANGLE@@3NB": "00a6e508",
+   "?CELL_NONE@@3VCell@@B": "00a6e4d8",
+   "?CELL_SLOPE_ANGLE@@3NB": "00a6e4f0",
+   "?COORD_NONE@@3VCoord@@B": "00a6e4f8"
+  },
   "partial_ok": true
  },
  "ptype": {
@@ -42300,7 +42411,7 @@
     "entry": "0063fae0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E70",
+    "symbol": "_$E80",
     "main_symbol": "_$E70",
     "main_source": "src/recovered/rocket2.cpp"
    },
@@ -42466,7 +42577,6 @@
    }
   ],
   "references": {
-   "_$E80": "0063fae0",
    "_?$S79@?1??Address_From_Name@OwnerTalkClass@@QAEPAVIPXAddressClass@@PBD@Z@4EA": "00ab6cf0",
    "_?address@?1??Address_From_Name@OwnerTalkClass@@QAEPAVIPXAddressClass@@PBD@Z@4V3@A": "00ab6d08",
    "_BRIDGE_LEPTON_HEIGHT": "00ab6d60",
@@ -44688,7 +44798,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "007371b0",
    "00738450"
@@ -44776,7 +44886,7 @@
     "entry": "007372a0",
     "body": 49,
     "padding": 15,
-    "symbol": "_$E23",
+    "symbol": "_$E120",
     "main_symbol": "_$E23",
     "main_source": "src/recovered/winstub.cpp"
    },
@@ -44784,7 +44894,7 @@
     "entry": "007372e0",
     "body": 33,
     "padding": 15,
-    "symbol": "_$E26",
+    "symbol": "_$E123",
     "main_symbol": "_$E26",
     "main_source": "src/recovered/winstub.cpp"
    },
@@ -44792,7 +44902,7 @@
     "entry": "00737310",
     "body": 44,
     "padding": 4,
-    "symbol": "_$E29",
+    "symbol": "_$E126",
     "main_symbol": "_$E29",
     "main_source": "src/recovered/winstub.cpp"
    },
@@ -44800,7 +44910,7 @@
     "entry": "00737340",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E32",
+    "symbol": "_$E129",
     "main_symbol": "_$E32",
     "main_source": "src/recovered/winstub.cpp"
    },
@@ -44808,7 +44918,7 @@
     "entry": "00737370",
     "body": 15,
     "padding": 1,
-    "symbol": "_$E35",
+    "symbol": "_$E132",
     "main_symbol": "_$E35",
     "main_source": "src/recovered/winstub.cpp"
    },
@@ -44816,7 +44926,7 @@
     "entry": "00737380",
     "body": 18,
     "padding": 14,
-    "symbol": "_$E38",
+    "symbol": "_$E135",
     "main_symbol": "_$E38",
     "main_source": "src/recovered/winstub.cpp"
    },
@@ -45025,14 +45135,20 @@
   ],
   "references": {
    "_CELL_LEPTON_DIAG": "00b25f60",
-   "_GeoZero": "00b25f48",
    "_ISO_TILE_SIZE": "007af508",
    "_LEPTONS_PER_PIXEL": "00b263c0",
    "_ONE_RAD": "007af510",
    "_PIXELS_PER_LEPTON": "00b263b0",
    "_RAD_45": "00b261a0",
    "_RAD_60": "00b25f68",
-   "_RAD_90": "00b25f40"
+   "_RAD_90": "00b25f40",
+   "_RECT_NONE": "00b25f48",
+   "_LEVEL_LEPTON_H": "00b263c8",
+   "?BRIDGE_LEPTON_HEIGHT@@3HB": "00b263b8",
+   "?CELL_DIAG_SLOPE_ANGLE@@3NB": "00b26198",
+   "?CELL_NONE@@3VCell@@B": "00b25f58",
+   "?CELL_SLOPE_ANGLE@@3NB": "00b25f70",
+   "?COORD_NONE@@3VCoord@@B": "00b26188"
   },
   "partial_ok": true
  },
@@ -49893,7 +50009,7 @@
   },
   "partial_ok": true,
   "build_refused": {
-   "source_sha256": "fd8b066f527f193847bb886a5b6c41c9808cac5393152f6faf73018d5ba2a9bb",
+   "source_sha256": "fd14333d5da310571e3f0e8c189794da091150dba256a546864ae7abdc90272c",
    "reason": "Unsupported allocatable data section .data #2 in accepted.obj (['.data', '?SequenceName@@3PAPBDA'])"
   }
  },
@@ -50659,7 +50775,7 @@
   "status": "catalogued",
   "range": [
    "00734100",
-   "00735690"
+   "00735670"
   ],
   "mischa85": "tibsun: functions compiled from src/wincomm.cpp, matched, without gaps; one copy the compiler emitted after the last function",
   "main_options": [
@@ -50869,14 +50985,6 @@
     "symbol": "??_GWinModemClass@@UAEPAXI@Z",
     "main_symbol": "??_GWinModemClass@@UAEPAXI@Z",
     "main_source": "src/recovered/wincomm.cpp"
-   },
-   {
-    "entry": "00735670",
-    "body": 23,
-    "padding": 9,
-    "symbol": "_$E5",
-    "main_symbol": "?get@Leaf_735670@@QAEXXZ",
-    "main_source": "src/recovered/windlg.cpp"
    }
   ],
   "references": {
@@ -54800,7 +54908,7 @@
     "entry": "00482aa0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E65",
+    "symbol": "_$E160",
     "main_symbol": "_$E65",
     "main_source": "src/recovered/conquer.cpp"
    },
@@ -54958,7 +55066,6 @@
    }
   ],
   "references": {
-   "_$E160": "00482aa0",
    "_?$S159@?1??IPX_Call_Back@@YIXXZ@4EA": "00850db4",
    "_?_last_pump_time@?BB@??Call_Back@@YIXXZ@4HA": "00850e10",
    "_BRIDGE_LEPTON_HEIGHT": "00850df8",
@@ -57212,7 +57319,7 @@
     "entry": "00540c10",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E74",
+    "symbol": "_$E177",
     "main_symbol": "_$E74",
     "main_source": "src/recovered/mainloop.cpp"
    },
@@ -57258,7 +57365,6 @@
    }
   ],
   "references": {
-   "_$E177": "00540c10",
    "_?$S175@?4??Motion_Capture@@YIXXZ@4EA": "00a6eb80",
    "_?$S176@?BJ@??Sync_Delay@@YIXXZ@4EA": "00a6eb81",
    "_BRIDGE_LEPTON_HEIGHT": "00a6ebb4",
@@ -58518,7 +58624,7 @@
     "entry": "005a6280",
     "body": 3,
     "padding": 13,
-    "symbol": "?unknown_return_true_005a6280@@YAEXZ",
+    "symbol": "?vt_entry_04@MPCooperative@@UAE_NXZ",
     "main_symbol": "?unknown_return_true_005a6280@@YAEXZ",
     "main_source": "src/recovered/mpcoop.cpp"
    },
@@ -58526,7 +58632,7 @@
     "entry": "005a6290",
     "body": 3,
     "padding": 13,
-    "symbol": "?unknown_slot2@MPCooperative@@UAE_NXZ",
+    "symbol": "?vt_entry_08@MPCooperative@@UAE_NXZ",
     "main_symbol": "?unknown_slot2@MPCooperative@@UAE_NXZ",
     "main_source": "src/recovered/mpcoop.cpp"
    },
@@ -58534,7 +58640,7 @@
     "entry": "005a62a0",
     "body": 3,
     "padding": 13,
-    "symbol": "?get@Leaf_5a62a0@@QAE_NXZ",
+    "symbol": "?vt_entry_A0@MPCooperative@@UAE_NXZ",
     "main_symbol": "?get@Leaf_5a62a0@@QAE_NXZ",
     "main_source": "src/recovered/mpcoop.cpp"
    },
@@ -60221,7 +60327,7 @@
     "entry": "005d44f0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E44",
+    "symbol": "_$E176",
     "main_symbol": "_$E44",
     "main_source": "src/recovered/object.cpp"
    },
@@ -60563,7 +60669,6 @@
    }
   ],
   "references": {
-   "_$E176": "005d44f0",
    "_?$S175@?1??Occupy_List@ObjectClass@@UBEPBVCell@@_N@Z@4EA": "00a72f0c",
    "_?_list@?1??Occupy_List@ObjectClass@@UBEPBVCell@@_N@Z@4QBV3@B": "00a72f18",
    "_BRIDGE_LEPTON_HEIGHT": "00a72f30",
@@ -61590,7 +61695,7 @@
     "entry": "005db630",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E48",
+    "symbol": "_$E178",
     "main_symbol": "_$E48",
     "main_source": "src/recovered/overlay.cpp"
    },
@@ -61598,7 +61703,7 @@
     "entry": "005db640",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E47",
+    "symbol": "_$E177",
     "main_symbol": "_$E47",
     "main_source": "src/recovered/overlay.cpp"
    },
@@ -61606,7 +61711,7 @@
     "entry": "005db650",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E46",
+    "symbol": "_$E176",
     "main_symbol": "_$E46",
     "main_source": "src/recovered/overlay.cpp"
    },
@@ -61614,7 +61719,7 @@
     "entry": "005db660",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E45",
+    "symbol": "_$E175",
     "main_symbol": "_$E45",
     "main_source": "src/recovered/overlay.cpp"
    },
@@ -61693,10 +61798,6 @@
   ],
   "references": {
    "??_C@_07CGNH@OVERLAY?$AA@": "007e8b20",
-   "_$E175": "005db660",
-   "_$E176": "005db650",
-   "_$E177": "005db640",
-   "_$E178": "005db630",
    "_?$S174@?EA@??Mark@OverlayClass@@UAE_NW4MarkType@@@Z@4EA": "00a73120",
    "_?_direction_to_end@?EA@??Mark@OverlayClass@@UAE_NW4MarkType@@@Z@4PAW4OverlayType@@A": "007e8ac8",
    "_?_direction_to_end@?FM@??Mark@OverlayClass@@UAE_NW4MarkType@@@Z@4PAW4OverlayType@@A": "007e8b10",
@@ -65440,7 +65541,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005ac540",
    "005afef0"
@@ -65748,7 +65849,7 @@
     "entry": "005ae460",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E22",
+    "symbol": "_$E19",
     "main_symbol": "_$E12",
     "main_source": "src/recovered/msanim.cpp"
    },
@@ -66090,10 +66191,10 @@
    }
   ],
   "references": {
-   "_$E22": "005ae460",
    "_?$S21@?1??Get_Rect@MSVQAnim@@UBE?AV?$TRect@H@@XZ@4EA": "00a71800",
    "_?_rect_none@?1??Get_Rect@MSVQAnim@@UBE?AV?$TRect@H@@XZ@4V3@A": "00a71818",
-   "_RECT_NONE": "00a71808"
+   "_RECT_NONE": "00a71808",
+   "_?$S18@?1??Get_Rect@MSVQAnim@@UBE?AV?$TRect@H@@XZ@4EA": "00a71800"
   },
   "partial_ok": true
  },
@@ -84959,7 +85060,7 @@
     "entry": "005c05c0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E70",
+    "symbol": "_$E87",
     "main_symbol": "_$E70",
     "main_source": "src/recovered/netdlg2.cpp"
    },
@@ -84967,7 +85068,7 @@
     "entry": "005c05d0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E69",
+    "symbol": "_$E86",
     "main_symbol": "_$E69",
     "main_source": "src/recovered/netdlg2.cpp"
    },
@@ -84975,7 +85076,7 @@
     "entry": "005c05e0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E68",
+    "symbol": "_$E85",
     "main_symbol": "_$E68",
     "main_source": "src/recovered/netdlg2.cpp"
    },
@@ -85029,9 +85130,6 @@
    }
   ],
   "references": {
-   "_$E85": "005c05e0",
-   "_$E86": "005c05d0",
-   "_$E87": "005c05c0",
    "_?$S84@?1??Send_Join_Queries@@YIXHHHH@Z@4EA": "00a71e74",
    "_?chattimer@?1??Send_Join_Queries@@YIXHHHH@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A": "00a71bb8",
    "_?gametimer@?1??Send_Join_Queries@@YIXHHHH@Z@4V?$CDTimerClass@VSystemTimerClass@@@@A": "00a71e68",
@@ -90300,7 +90398,7 @@
     "entry": "004284d0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E44",
+    "symbol": "_$E153",
     "main_symbol": "_$E44",
     "main_source": "src/recovered/astar.cpp"
    },
@@ -90698,7 +90796,6 @@
    }
   ],
   "references": {
-   "_$E153": "004284d0",
    "_?$S152@?1??Build_Final_Path@AStarClass@@AAEPAUPathStruct@@PAURegularOpenNode@2@PAW4FacingType@@@Z@4EA": "0084e7d4",
    "_?_bridge_cell_offset1@?CE@??Get_Movement_Cost@AStarClass@@AAENPAPAVCellClass@@0_NW4MoveType@@PAVFootClass@@@Z@4QBHB": "0079c420",
    "_?_bridge_cell_offset2@?CE@??Get_Movement_Cost@AStarClass@@AAENPAPAVCellClass@@0_NW4MoveType@@PAVFootClass@@@Z@4QBHB": "0079c440",
@@ -98474,7 +98571,7 @@
     "entry": "0060a5a0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E44",
+    "symbol": "_$E180",
     "main_symbol": "_$E44",
     "main_source": "src/recovered/particle.cpp"
    },
@@ -98560,7 +98657,6 @@
    }
   ],
   "references": {
-   "_$E180": "0060a5a0",
    "_?$S179@?1??Occupy_List@ParticleClass@@UBEPBVCell@@_N@Z@4EA": "00a76520",
    "_?_level_scale@?1??Gas_Motion_AI@ParticleClass@@QAEXXZ@4NB": "007a7f38",
    "_?_list@?1??Occupy_List@ParticleClass@@UBEPBVCell@@_N@Z@4QBV3@B": "00a764e0",
@@ -110218,7 +110314,7 @@
   "status": "catalogued",
   "range": [
    "005b49e0",
-   "005b5de0"
+   "005b5dc0"
   ],
   "mischa85": "tibsun: functions compiled from src/msglist.cpp, without gaps; matched except ?Input@MessageListClass@@QAEHAAW4KeyNumType@@G@Z; ?Input@MessageListClass@@QAEHAAW4KeyNumType@@G@Z placed at their function starts",
   "main_options": [
@@ -110500,14 +110596,6 @@
     "symbol": "?Compute_Y@MessageListClass@@AAEXXZ",
     "main_symbol": "?Compute_Y@MessageListClass@@QAEXXZ",
     "main_source": "src/recovered/msglist/MessageListClass_Compute_Y.cpp"
-   },
-   {
-    "entry": "005b5dc0",
-    "body": 23,
-    "padding": 9,
-    "symbol": "?get@Leaf_5b5dc0@@QAEXXZ",
-    "main_symbol": "?get@Leaf_5b5dc0@@QAEXXZ",
-    "main_source": "src/recovered/unidentified/seed_views/005b5dc0.cpp"
    }
   ],
   "references": {
@@ -110716,7 +110804,7 @@
     "entry": "004128a0",
     "body": 2337,
     "padding": 15,
-    "symbol": "?Unknown_004128A0@AircraftTrackerClass@@QAEXPAVCellClass@@H@Z",
+    "symbol": "?Append_Radius_Bins@AircraftTrackerClass@@QAEXPAVCellClass@@H@Z",
     "main_symbol": "?Unknown_004128A0@AircraftTrackerClass@@QAEXPAVCellClass@@H@Z",
     "main_source": "src/recovered/ahandle2.cpp"
    },
@@ -126430,10 +126518,10 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004bb6a0",
-   "004bbf00"
+   "004bbee0"
   ],
   "mischa85": "source: functions compiled from src/findpath2.cpp, matched, without gaps",
   "main_options": [
@@ -126464,7 +126552,7 @@
     "entry": "004bb6c0",
     "body": 40,
     "padding": 8,
-    "symbol": "_$E27",
+    "symbol": "_$E5",
     "main_symbol": "_$E27",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_diagonal_init.cpp"
    },
@@ -126472,7 +126560,7 @@
     "entry": "004bb6f0",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E30",
+    "symbol": "_$E8",
     "main_symbol": "_$E30",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_b_init.cpp"
    },
@@ -126480,7 +126568,7 @@
     "entry": "004bb710",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E33",
+    "symbol": "_$E11",
     "main_symbol": "_$E33",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_c_init.cpp"
    },
@@ -126488,7 +126576,7 @@
     "entry": "004bb730",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E36",
+    "symbol": "_$E14",
     "main_symbol": "_$E36",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_angle45_init.cpp"
    },
@@ -126496,7 +126584,7 @@
     "entry": "004bb750",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E39",
+    "symbol": "_$E17",
     "main_symbol": "_$E39",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_angle60_init.cpp"
    },
@@ -126504,7 +126592,7 @@
     "entry": "004bb770",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E42",
+    "symbol": "_$E20",
     "main_symbol": "_$E42",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_angle90_init.cpp"
    },
@@ -126512,7 +126600,7 @@
     "entry": "004bb790",
     "body": 49,
     "padding": 15,
-    "symbol": "_$E45",
+    "symbol": "_$E23",
     "main_symbol": "_$E45",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_g_init.cpp"
    },
@@ -126520,7 +126608,7 @@
     "entry": "004bb7d0",
     "body": 33,
     "padding": 15,
-    "symbol": "_$E48",
+    "symbol": "_$E26",
     "main_symbol": "_$E48",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_h_init.cpp"
    },
@@ -126528,7 +126616,7 @@
     "entry": "004bb800",
     "body": 44,
     "padding": 4,
-    "symbol": "_$E51",
+    "symbol": "_$E29",
     "main_symbol": "_$E51",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_i_init.cpp"
    },
@@ -126536,7 +126624,7 @@
     "entry": "004bb830",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E54",
+    "symbol": "_$E32",
     "main_symbol": "_$E54",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_j_init.cpp"
    },
@@ -126544,7 +126632,7 @@
     "entry": "004bb860",
     "body": 15,
     "padding": 1,
-    "symbol": "_$E57",
+    "symbol": "_$E35",
     "main_symbol": "_$E57",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_k_init.cpp"
    },
@@ -126552,7 +126640,7 @@
     "entry": "004bb870",
     "body": 18,
     "padding": 14,
-    "symbol": "_$E60",
+    "symbol": "_$E38",
     "main_symbol": "_$E60",
     "main_source": "src/recovered/header_statics/findpath2/HeaderStatics_l_init.cpp"
    },
@@ -126595,18 +126683,24 @@
     "symbol": "?IsWallHit@TrajectoryHelper@@SI_NPBVCellClass@@00PBVHouseClass@@@Z",
     "main_symbol": "?Cell_Wall_Transition_004bbe60@@YI_NPBVCellClass@@00PBVHouseClass@@@Z",
     "main_source": "src/recovered/findpath2.cpp"
-   },
-   {
-    "entry": "004bbee0",
-    "body": 23,
-    "padding": 9,
-    "symbol": "?get@Leaf_4bbee0@@QAEXXZ",
-    "main_symbol": "?get@Leaf_4bbee0@@QAEXXZ",
-    "main_source": "src/recovered/unidentified/seed_views/004bbee0.cpp"
    }
   ],
   "references": {
-   "_RECT_NONE": "00865d40"
+   "_RECT_NONE": "00865d40",
+   "_BRIDGE_LEPTON_HEIGHT": "00865d98",
+   "_CELL_DIAG_SLOPE_ANGLE": "00865d80",
+   "_CELL_LEPTON_DIAG": "00865d58",
+   "_CELL_NONE": "00865d50",
+   "_CELL_SLOPE_ANGLE": "00865d68",
+   "_COORD_NONE": "00865d70",
+   "_ISO_TILE_SIZE": "007a0fc8",
+   "_LEPTONS_PER_PIXEL": "00865da0",
+   "_LEVEL_LEPTON_H": "00865da8",
+   "_ONE_RAD": "007a0fd0",
+   "_PIXELS_PER_LEPTON": "00865d90",
+   "_RAD_45": "00865d88",
+   "_RAD_60": "00865d60",
+   "_RAD_90": "00865d38"
   },
   "holder": "codex2",
   "partial_ok": true,

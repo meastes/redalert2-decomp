@@ -1445,6 +1445,33 @@
       "source_quality_family": "rebuild"
     },
     {
+      "entry": 6146144,
+      "method": "005dc860",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E142",
+      "symbol_prefix": "_$E142",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "050e0fbb96bb24eebf72afe9c8c24fc47ee4120ffc1029c8dffc300a1b40badf",
+      "source": "rebuild/src/overtype.cpp",
+      "population": "rebuild-overtype",
+      "source_order": 6146144,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 6146160,
       "method": "005dc870",
       "body_bytes": 51,

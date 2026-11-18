@@ -528,7 +528,7 @@ def validate_includes(data, headers, name=None, sdk=None):
     an RA2_SDK_HEADERS block, naming a pinned SDK file (`sdk`, default the pin)."""
     # Apply preprocessing character/line/comment phases before recognizing
     # directives, so comments or continuations cannot hide a dependency.
-    text = data.decode()
+    text = data.decode('latin-1') if tree.REBUILD else data.decode()   # the rebuild keeps OEM-encoded units byte for byte (combuf.cpp's box-drawing literals); directives are ASCII
     for old, new in [] if '??' not in text else [('??=', '#'), ('??/', chr(92)), ('??\'', '^'), ('??(', '['),
                      ('??)', ']'), ('??!', '|'), ('??<', '{'), ('??>', '}'), ('??-', '~')]:
         text = text.replace(old, new)

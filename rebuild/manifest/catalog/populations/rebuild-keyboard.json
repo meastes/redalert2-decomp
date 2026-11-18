@@ -1,0 +1,2164 @@
+{
+  "id": "rebuild-keyboard",
+  "population": {
+    "id": "rebuild-keyboard",
+    "inventory_sha256": "81e5d059aefbf564a4b2f987bc1c6099d35bf231843ba49b3ea145f53eda3818",
+    "gaps_sha256": "a4f02601cae871a60adb39d343101319404227bfa1f4209348327feeeb559704",
+    "historical_population_sha256": "3cc99a7dcd47fdac1d94593d0668471ce6a02b9916389c543f9567c36ca3924c",
+    "historical_acceptance_sha256": "3881a7dbd6bde1c73c8e6b02ff4cf800c62097127ccbb70d0363aa9f5771424d"
+  },
+  "references": {
+    "_RECT_NONE": 10937544,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10937568,
+    "_ISO_TILE_SIZE": 8016880,
+    "_LEPTONS_PER_PIXEL": 10937640,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10937624,
+    "_ONE_RAD": 8016888,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10937616,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10937576,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10937536,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10937648,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "?CELL_SLOPE_ANGLE@@3NB": 10937584,
+    "?CELL_DIAG_SLOPE_ANGLE@@3NB": 10937608,
+    "?BRIDGE_LEPTON_HEIGHT@@3HB": 10937632,
+    "?CELL_NONE@@3VCell@@B": 10937560,
+    "?COORD_NONE@@3VCoord@@B": 10937592,
+    "?Is_Buffer_Full@WWKeyboardClass@@ABE_NXZ": 5450112,
+    "?Windows_Message_Handler@@YIXXZ": 5988064,
+    "?Is_Buffer_Empty@WWKeyboardClass@@ABE_NXZ": 5450144,
+    "?Peek_Element@WWKeyboardClass@@ABEGXZ": 5450016,
+    "?IgnoreInput@@3_NA": 10751300,
+    "?Set_Key_State@@YIXI_N@Z": 5387168,
+    "?Get_Key_State@@YIFI@Z": 5387216,
+    "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z": 5448912,
+    "__imp__MapVirtualKeyA@8": 7971800,
+    "__imp__ToAscii@20": 7971744,
+    "__imp__GetSystemMetrics@4": 7971804,
+    "?Get_Async_Key_State@@YIFI@Z": 5387248,
+    "__imp__ClientToScreen@8": 7972012,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?Put@WWKeyboardClass@@QAE_NG@Z": 5448848,
+    "?Put_Element@WWKeyboardClass@@AAE_NG@Z": 5450048,
+    "?Put_Mouse_Message@WWKeyboardClass@@AAE_NGHH_N@Z": 5449152,
+    "__imp__DefWindowProcA@16": 7971720,
+    "_$E2": 5447472,
+    "_$E5": 5447504,
+    "_$E8": 5447552,
+    "_$E11": 5447584,
+    "_$E14": 5447616,
+    "_$E17": 5447648,
+    "_$E20": 5447680,
+    "_$E47": 5447712,
+    "_$E50": 5447776,
+    "_$E53": 5447824,
+    "_$E56": 5447872,
+    "_$E59": 5447920,
+    "_$E62": 5447936,
+    "?Stop_Execution@@YIXXZ": 5447968,
+    "??0WWKeyboardClass@@QAE@XZ": 5447984,
+    "?Buff_Get@WWKeyboardClass@@AAEGXZ": 5448032,
+    "?Is_Mouse_Key@WWKeyboardClass@@CI_NG@Z": 5448336,
+    "?Is_Wheel_Key@WWKeyboardClass@@CI_NG@Z": 5448384,
+    "?Check@WWKeyboardClass@@QBEGXZ": 5448400,
+    "?Get@WWKeyboardClass@@QAEGXZ": 5448480,
+    "?Put_Char@WWKeyboardClass@@AAE_ND@Z": 5449376,
+    "?To_ASCII@WWKeyboardClass@@QAEDG@Z": 5449504,
+    "?To_Char@WWKeyboardClass@@QAEDG@Z": 5449728,
+    "?Down@WWKeyboardClass@@QAE_NG@Z": 5449872,
+    "?Fetch_Element@WWKeyboardClass@@AAEGXZ": 5449952,
+    "?Fill_Buffer_From_System@WWKeyboardClass@@AAEXXZ": 5450176,
+    "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
+    "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z": 5450336,
+    "?Available_Buffer_Room@WWKeyboardClass@@ABEHXZ": 5451360,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??3@YAXPAX@Z": 7871803,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 5447472,
+      "method": "00531f30",
+      "body_bytes": 23,
+      "body_sha256": "a85a01f397626930271556abd5882a179e88fa17ad90854bed050f993a22932c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8f69d866a339f538c477e6e838f28716d6f75ac1c158e5a2620b114c6ef18153",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10937544,
+          "addend": 0,
+          "resolved": 10937544
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10937544,
+          "addend": 4,
+          "resolved": 10937548
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10937544,
+          "addend": 8,
+          "resolved": 10937552
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10937544,
+          "addend": 12,
+          "resolved": 10937556
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447504,
+      "method": "00531f50",
+      "body_bytes": 40,
+      "body_sha256": "7d4d64b1f1087e1f870354688d96deab933b496ec139f6331d2ed517e28c8ef4",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "2bcea80722220ddf6eba072b63dd83d538aaf03e560195a7483b24b453a85301",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2425423
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294476962
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10937568,
+          "addend": 0,
+          "resolved": 10937568
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447504,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447552,
+      "method": "00531f80",
+      "body_bytes": 19,
+      "body_sha256": "b88811d790538e74e5d47742e06a9e00fcbf11fc7edeecff97bed312d45ff27f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bdbab8d37d26200aee81752639c1c748ec2109a4f5acab646d3d382c50b654ff",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10937568,
+          "addend": 0,
+          "resolved": 10937568
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8016880,
+          "addend": 0,
+          "resolved": 8016880
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10937640,
+          "addend": 0,
+          "resolved": 10937640
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447552,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447584,
+      "method": "00531fa0",
+      "body_bytes": 19,
+      "body_sha256": "c5e470641eee570aa045f5bfd1d9675ce77d78f73c45fcc6562a726146d685e4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5afd0c08e39d8e542ba2b58e6fff5d0abcd22deb7a3c210fed0c7bd1f2bc7834",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10937640,
+          "addend": 0,
+          "resolved": 10937640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10937624,
+          "addend": 0,
+          "resolved": 10937624
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447584,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447616,
+      "method": "00531fc0",
+      "body_bytes": 19,
+      "body_sha256": "5d2efccfe767af684e80e2fb374f6bb010478609e6c3f26d2537296976bb362b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f55b39a616b3b1a59bbeea93eb4d44beabb49a138450d4c66c5d84974cac9594",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8016888,
+          "addend": 0,
+          "resolved": 8016888
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10937616,
+          "addend": 0,
+          "resolved": 10937616
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447616,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447648,
+      "method": "00531fe0",
+      "body_bytes": 19,
+      "body_sha256": "756b9f57c0dd56326da16c496ec94ba69d4f1d2110c6632dbf7d5e6f09c2aae1",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "40435c5030f2613b389f0ebc205d5359655320d65068f6cccfb62dab74632cab",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8016888,
+          "addend": 0,
+          "resolved": 8016888
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10937576,
+          "addend": 0,
+          "resolved": 10937576
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447648,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447680,
+      "method": "00532000",
+      "body_bytes": 19,
+      "body_sha256": "436cfb482203455df3fb7521d3df51e1fd30b08b696d0ec61f0670894d3ac19b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "59dbbded9b13f30090067621450d0a5f16a613d3bcbb2a52fdfe9a62f9dc37e6",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8016888,
+          "addend": 0,
+          "resolved": 8016888
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10937536,
+          "addend": 0,
+          "resolved": 10937536
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447680,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447712,
+      "method": "00532020",
+      "body_bytes": 49,
+      "body_sha256": "1373b37bcbce66b6ec8e434508b65432994bd9aab1e8584012c435f8b047db89",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "066bf4b25fd6ca08560ee884ee222d1aa4e374b1502524b3b841dea0d7b1b255",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E47",
+      "symbol_prefix": "_$E47",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10937536,
+          "addend": 0,
+          "resolved": 10937536
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10937576,
+          "addend": 0,
+          "resolved": 10937576
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294477033
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10937568,
+          "addend": 0,
+          "resolved": 10937568
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2412741
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10937648,
+          "addend": 0,
+          "resolved": 10937648
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447776,
+      "method": "00532060",
+      "body_bytes": 33,
+      "body_sha256": "e5214670480fbd26a3045df48b79f4a4ce90e0a25f8cc49b53ffc6fc675f24ca",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e83a87b86772ab0371b4fa4282d675e9710af225e90b9a6736cf43e390aed4ef",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E50",
+      "symbol_prefix": "_$E50",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10937648,
+          "addend": 0,
+          "resolved": 10937648
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294477113
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?CELL_SLOPE_ANGLE@@3NB",
+          "target": 10937584,
+          "addend": 0,
+          "resolved": 10937584
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447776,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447824,
+      "method": "00532090",
+      "body_bytes": 44,
+      "body_sha256": "fd733c1dea3cc0704bb02d09b4483756a79080c4eabfa6c3547228e3216d143c",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0204563c2531bb356ad850cc09d36e9c37c6333a4b896c2267a57cdf745f3b0c",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E53",
+      "symbol_prefix": "_$E53",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10937648,
+          "addend": 0,
+          "resolved": 10937648
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10937568,
+          "addend": 0,
+          "resolved": 10937568
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294477054
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?CELL_DIAG_SLOPE_ANGLE@@3NB",
+          "target": 10937608,
+          "addend": 0,
+          "resolved": 10937608
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447824,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447872,
+      "method": "005320c0",
+      "body_bytes": 39,
+      "body_sha256": "39432fcc80457dddcd1240dc498acbe262715c6c068d0a19d54d8a731a536be7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8e358e66b15be2ec00cafb7ef56bee4dda6d3cff45fa65ac13d4cb74d81f4c45",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E56",
+      "symbol_prefix": "_$E56",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10937648,
+          "addend": 0,
+          "resolved": 10937648
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2412592
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?BRIDGE_LEPTON_HEIGHT@@3HB",
+          "target": 10937632,
+          "addend": 0,
+          "resolved": 10937632
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447872,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447920,
+      "method": "005320f0",
+      "body_bytes": 15,
+      "body_sha256": "007cff221cfa7d02319157c84b4335637a4a250289c38f785eafdffeb5c0c429",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "673d53a0301bed085dfabf781ec856030ccaa50fda5da8aae90c55a8d384e38e",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E59",
+      "symbol_prefix": "_$E59",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?CELL_NONE@@3VCell@@B",
+          "target": 10937560,
+          "addend": 0,
+          "resolved": 10937560
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?CELL_NONE@@3VCell@@B",
+          "target": 10937560,
+          "addend": 2,
+          "resolved": 10937562
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447920,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447936,
+      "method": "00532100",
+      "body_bytes": 18,
+      "body_sha256": "9694c970b78bfe3bca12f7e044a225e8b8d24a3efcbe280e482ce8d1b03bb54f",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "18e1c0469edd7f577ce946dd287911b10f5aab2a888ceb0455792654663481fe",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E62",
+      "symbol_prefix": "_$E62",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?COORD_NONE@@3VCoord@@B",
+          "target": 10937592,
+          "addend": 0,
+          "resolved": 10937592
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?COORD_NONE@@3VCoord@@B",
+          "target": 10937592,
+          "addend": 4,
+          "resolved": 10937596
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?COORD_NONE@@3VCoord@@B",
+          "target": 10937592,
+          "addend": 8,
+          "resolved": 10937600
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447936,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-251"
+    },
+    {
+      "entry": 5447968,
+      "method": "00532120",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Execution@@YIXXZ",
+      "symbol_prefix": "?Stop_Execution@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447968,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5447984,
+      "method": "00532130",
+      "body_bytes": 42,
+      "body_sha256": "30d85b283fedae032202eec57c1db1c05a43a416e2d087237343ef4dc18b1b2f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c1743258f7aa4574b24b5ca8b7e14c2d3073672e365a5deac373a6d6abcefd05",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WWKeyboardClass@@QAE@XZ",
+      "symbol_prefix": "??0WWKeyboardClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5447984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5448032,
+      "method": "00532160",
+      "body_bytes": 303,
+      "body_sha256": "a3d343be59b55b160e4e8d1f118de5557f5b29a19ede9178aa68095a31197f02",
+      "padding_bytes": 1,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "323953907a1435bbdf24a6526bd4f267bc3a8fa9baa8be45ecdbf82b5cd7a6c4",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Buff_Get@WWKeyboardClass@@AAEGXZ",
+      "symbol_prefix": "?Buff_Get@WWKeyboardClass@@AAEGXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?Is_Buffer_Full@WWKeyboardClass@@ABE_NXZ",
+          "target": 5450112,
+          "addend": 0,
+          "resolved": 2069
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 540012
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?Is_Buffer_Empty@WWKeyboardClass@@ABE_NXZ",
+          "target": 5450144,
+          "addend": 0,
+          "resolved": 2069
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5448032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5448336,
+      "method": "00532290",
+      "body_bytes": 33,
+      "body_sha256": "9e2d55ed537e5de366ec88d9d012e2e67709cd416a82355a5b143b5d9122189e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c02f732689b366d0ca7ecc9828f4f526fda0b5f6e3965ebb3742536bdf407dad",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Mouse_Key@WWKeyboardClass@@CI_NG@Z",
+      "symbol_prefix": "?Is_Mouse_Key@WWKeyboardClass@@CI_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5448336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5448384,
+      "method": "005322c0",
+      "body_bytes": 9,
+      "body_sha256": "24f59c85a7158ff802ad3a973ed13d1cc6132b3d819b9ad91cb5d5ef339a9c33",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "586609fc5e99b942a1f9848e2f02106cd6e5f43179f3865eb24d9561d556637d",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Wheel_Key@WWKeyboardClass@@CI_NG@Z",
+      "symbol_prefix": "?Is_Wheel_Key@WWKeyboardClass@@CI_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5448384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5448400,
+      "method": "005322d0",
+      "body_bytes": 68,
+      "body_sha256": "713e8147479e6a148c83bae901f40503fdfb56995cc333e820d07a95a0592d3c",
+      "padding_bytes": 12,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "76e4270b06b9f00ff00f1c49f194c61a54ff6ca02634e37b754b1eeba98e6eb4",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Check@WWKeyboardClass@@QBEGXZ",
+      "symbol_prefix": "?Check@WWKeyboardClass@@QBEGXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 539627
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5448400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5448480,
+      "method": "00532320",
+      "body_bytes": 354,
+      "body_sha256": "f5335529b7ff3fb2d9a92bcaa0f6eec7574ce41d3d9da3e7c8dd3312e6876e47",
+      "padding_bytes": 14,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "74ad63b5619fe16fc7a695a00babe1f69d7311b1f1a7d6a898529660ef92f5ca",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+      "symbol_prefix": "?Get@WWKeyboardClass@@QAEGXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 539546
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?Is_Buffer_Full@WWKeyboardClass@@ABE_NXZ",
+          "target": 5450112,
+          "addend": 0,
+          "resolved": 1560
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 539503
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?Peek_Element@WWKeyboardClass@@ABEGXZ",
+          "target": 5450016,
+          "addend": 0,
+          "resolved": 1432
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5448480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5448848,
+      "method": "00532490",
+      "body_bytes": 63,
+      "body_sha256": "aab41b3425e4169ae7fecc121a2ad1ddee3c5a9bcf377fe8dbce8431f4515788",
+      "padding_bytes": 1,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "20e34c9babe23bcb0d758611983e682bbd23ca200039bd0bf2c1c8738072c9c5",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+      "symbol_prefix": "?Put@WWKeyboardClass@@QAE_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5448848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5448912,
+      "method": "005324d0",
+      "body_bytes": 230,
+      "body_sha256": "fadce728ae81b8a5212b60b6835d6c74ae2e33d3c210fbba75d694f9b592a1df",
+      "padding_bytes": 10,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "187b6ad430f92e3044290fbde0ae80a8cf98d1f33574ac5f3cb99ddbd7a23375",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+      "symbol_prefix": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Set_Key_State@@YIXI_N@Z",
+          "target": 5387168,
+          "addend": 0,
+          "resolved": 4294905501
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "?Get_Key_State@@YIFI@Z",
+          "target": 5387216,
+          "addend": 0,
+          "resolved": 4294905508
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "?Get_Key_State@@YIFI@Z",
+          "target": 5387216,
+          "addend": 0,
+          "resolved": 4294905487
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "?Get_Key_State@@YIFI@Z",
+          "target": 5387216,
+          "addend": 0,
+          "resolved": 4294905466
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5448912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5449152,
+      "method": "005325c0",
+      "body_bytes": 210,
+      "body_sha256": "1a1b746254ecc61c861ceac5a836ed1de1c898e60296b95406b0e061f8682375",
+      "padding_bytes": 14,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "9f95eed8d8cb40d8aed208500b989690c4916111652e05a79a7cdb532ed1d8cb",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put_Mouse_Message@WWKeyboardClass@@AAE_NGHH_N@Z",
+      "symbol_prefix": "?Put_Mouse_Message@WWKeyboardClass@@AAE_NGHH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294966958
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5449152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5449376,
+      "method": "005326a0",
+      "body_bytes": 127,
+      "body_sha256": "545401f94cf9e96b947bc754d151ce5e3966c0541fd7e2be85fec10dcd3482fa",
+      "padding_bytes": 1,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "7d0dc0c5fd9fb3f128d9685ba2348aa0949b185202a0a064cdbe8ccbd9581086",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put_Char@WWKeyboardClass@@AAE_ND@Z",
+      "symbol_prefix": "?Put_Char@WWKeyboardClass@@AAE_ND@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294966772
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5449376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5449504,
+      "method": "00532720",
+      "body_bytes": 210,
+      "body_sha256": "0035cc30d88398664f5d8e3979332fd84a503016540772c81e6ae87ba836820a",
+      "padding_bytes": 14,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "e32f5136f6986f75f61ed4ee7e7337685591a6bd4d1cdf0681fffaace07fac71",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?To_ASCII@WWKeyboardClass@@QAEDG@Z",
+      "symbol_prefix": "?To_ASCII@WWKeyboardClass@@QAEDG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "__imp__MapVirtualKeyA@8",
+          "target": 7971800,
+          "addend": 0,
+          "resolved": 7971800
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "__imp__ToAscii@20",
+          "target": 7971744,
+          "addend": 0,
+          "resolved": 7971744
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5449504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5449728,
+      "method": "00532800",
+      "body_bytes": 137,
+      "body_sha256": "e5c874186f69ec3de94c4f055d1f1252f1b7fa28bf82f9f03da805913710e599",
+      "padding_bytes": 7,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "a2cfb88d74a3711e59dbfacfcc370421ee582fa99afc37202cf5667afde6d8e5",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 49,
+      "symbol": "?To_Char@WWKeyboardClass@@QAEDG@Z",
+      "symbol_prefix": "?To_Char@WWKeyboardClass@@QAEDG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5449836,
+          "addend": 0,
+          "resolved": 5449836
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5449816,
+          "addend": 0,
+          "resolved": 5449816
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5449809,
+          "addend": 0,
+          "resolved": 5449809
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5449788,
+          "addend": 0,
+          "resolved": 5449788
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5449782,
+          "addend": 0,
+          "resolved": 5449782
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5449776,
+          "addend": 0,
+          "resolved": 5449776
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5449807,
+          "addend": 0,
+          "resolved": 5449807
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5449728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5449872,
+      "method": "00532890",
+      "body_bytes": 70,
+      "body_sha256": "793c36008abd761360d2d85186227fb5d97f3e01e02e53af672c044a8f248dce",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "eed8207a731436d6abdbf41e5537477bb2cf3071a509752fc739547b32fc71a5",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Down@WWKeyboardClass@@QAE_NG@Z",
+      "symbol_prefix": "?Down@WWKeyboardClass@@QAE_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "__imp__GetSystemMetrics@4",
+          "target": 7971804,
+          "addend": 0,
+          "resolved": 7971804
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?Get_Async_Key_State@@YIFI@Z",
+          "target": 5387248,
+          "addend": 0,
+          "resolved": 4294904613
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5449872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5449952,
+      "method": "005328e0",
+      "body_bytes": 52,
+      "body_sha256": "0241b785b2c60810d47cdbe55aabc843eafb7d4e28575f9f917ed121cb954eec",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "97e19aabe058cfba9da0491e37d13f5128d4ca8de0d882c7e55298de3068d46e",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Element@WWKeyboardClass@@AAEGXZ",
+      "symbol_prefix": "?Fetch_Element@WWKeyboardClass@@AAEGXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5449952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5450016,
+      "method": "00532920",
+      "body_bytes": 29,
+      "body_sha256": "8543ee69db50847299a5540465e8a8677cccd8d84032c771236f63f30fbd3d9a",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f6c527e124d1fecf2b64749539aaca4edb8abd43db7cd48f7689964d01519d46",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Peek_Element@WWKeyboardClass@@ABEGXZ",
+      "symbol_prefix": "?Peek_Element@WWKeyboardClass@@ABEGXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5450016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5450048,
+      "method": "00532940",
+      "body_bytes": 63,
+      "body_sha256": "aab41b3425e4169ae7fecc121a2ad1ddee3c5a9bcf377fe8dbce8431f4515788",
+      "padding_bytes": 1,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "20e34c9babe23bcb0d758611983e682bbd23ca200039bd0bf2c1c8738072c9c5",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put_Element@WWKeyboardClass@@AAE_NG@Z",
+      "symbol_prefix": "?Put_Element@WWKeyboardClass@@AAE_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5450048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5450112,
+      "method": "00532980",
+      "body_bytes": 31,
+      "body_sha256": "b2dc86765d22fb3f41544bc293c2a1cd6f063443c3b5c4c19d167f6832109aec",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "07ffcfcf0852433234ffe8d559d6c9f6396b4327da31d0b45a079a0522fb7531",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Buffer_Full@WWKeyboardClass@@ABE_NXZ",
+      "symbol_prefix": "?Is_Buffer_Full@WWKeyboardClass@@ABE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5450112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5450144,
+      "method": "005329a0",
+      "body_bytes": 18,
+      "body_sha256": "84f92c6f3c21220c7466aee650218698dcda9876aa4bc99514278e59a7b84607",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "82291d773e87bb0632faf7beb6cafd7a6522025840313f0e6aac78cb9d3421a4",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Buffer_Empty@WWKeyboardClass@@ABE_NXZ",
+      "symbol_prefix": "?Is_Buffer_Empty@WWKeyboardClass@@ABE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5450144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5450176,
+      "method": "005329c0",
+      "body_bytes": 35,
+      "body_sha256": "d9d435428a9f43887aeef61dc59b5009527de2579671fc97f040a651f234f470",
+      "padding_bytes": 13,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "fcaffd0447656f2529d574d2d21065b4e1cc436fa66515de18144aa8aaba9fc9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fill_Buffer_From_System@WWKeyboardClass@@AAEXXZ",
+      "symbol_prefix": "?Fill_Buffer_From_System@WWKeyboardClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 537854
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5450176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5450224,
+      "method": "005329f0",
+      "body_bytes": 105,
+      "body_sha256": "324d0b758aa6ef7a0bccc90797437d27b59211cf2c373fff00552834d53c8054",
+      "padding_bytes": 7,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "32ecdf619a75fb0b5d5449a02f8a763c92dfac39d7dd28a89d8d268dd04dd3fb",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+      "symbol_prefix": "?Clear@WWKeyboardClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 537803
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 537763
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5450224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5450336,
+      "method": "00532a60",
+      "body_bytes": 1012,
+      "body_sha256": "05ce7edfc6fe547694e4e418236ad80d7263713b6ff518665a5e50d6f68b5829",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1024,
+      "full_extent_sha256": "87c2b01d2b442e914e206707f8ab56761b8bfd70dc8c47ebaf98fe77b1f04ca2",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 56,
+      "symbol": "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Message_Handler@WWKeyboardClass@@QAEHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "__imp__ClientToScreen@8",
+          "target": 7972012,
+          "addend": 0,
+          "resolved": 7972012
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5451292,
+          "addend": 0,
+          "resolved": 5451292
+        },
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294965688
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294965673
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2545,
+          "resolved": 10738825
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 272,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294965596
+        },
+        {
+          "offset": 288,
+          "kind": 20,
+          "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+          "target": 5448848,
+          "addend": 0,
+          "resolved": 4294965516
+        },
+        {
+          "offset": 298,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 352,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294965516
+        },
+        {
+          "offset": 359,
+          "kind": 20,
+          "symbol": "?Is_Buffer_Full@WWKeyboardClass@@ABE_NXZ",
+          "target": 5450112,
+          "addend": 0,
+          "resolved": 4294966709
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5451316,
+          "addend": 0,
+          "resolved": 5451316
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 450,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 500,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294965368
+        },
+        {
+          "offset": 507,
+          "kind": 20,
+          "symbol": "?Is_Buffer_Full@WWKeyboardClass@@ABE_NXZ",
+          "target": 5450112,
+          "addend": 0,
+          "resolved": 4294966561
+        },
+        {
+          "offset": 519,
+          "kind": 20,
+          "symbol": "?Put_Element@WWKeyboardClass@@AAE_NG@Z",
+          "target": 5450048,
+          "addend": 0,
+          "resolved": 4294966485
+        },
+        {
+          "offset": 527,
+          "kind": 20,
+          "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+          "target": 5448848,
+          "addend": 0,
+          "resolved": 4294965277
+        },
+        {
+          "offset": 540,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 594,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294965274
+        },
+        {
+          "offset": 601,
+          "kind": 20,
+          "symbol": "?Is_Buffer_Full@WWKeyboardClass@@ABE_NXZ",
+          "target": 5450112,
+          "addend": 0,
+          "resolved": 4294966467
+        },
+        {
+          "offset": 613,
+          "kind": 20,
+          "symbol": "?Put_Element@WWKeyboardClass@@AAE_NG@Z",
+          "target": 5450048,
+          "addend": 0,
+          "resolved": 4294966391
+        },
+        {
+          "offset": 621,
+          "kind": 20,
+          "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+          "target": 5448848,
+          "addend": 0,
+          "resolved": 4294965183
+        },
+        {
+          "offset": 631,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 685,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294965183
+        },
+        {
+          "offset": 693,
+          "kind": 20,
+          "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+          "target": 5448848,
+          "addend": 0,
+          "resolved": 4294965111
+        },
+        {
+          "offset": 701,
+          "kind": 20,
+          "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+          "target": 5448848,
+          "addend": 0,
+          "resolved": 4294965103
+        },
+        {
+          "offset": 711,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 761,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294965107
+        },
+        {
+          "offset": 769,
+          "kind": 20,
+          "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+          "target": 5448848,
+          "addend": 0,
+          "resolved": 4294965035
+        },
+        {
+          "offset": 777,
+          "kind": 20,
+          "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+          "target": 5448848,
+          "addend": 0,
+          "resolved": 4294965027
+        },
+        {
+          "offset": 790,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 836,
+          "kind": 20,
+          "symbol": "?Put_Key_Message@WWKeyboardClass@@AAE_NG_N@Z",
+          "target": 5448912,
+          "addend": 0,
+          "resolved": 4294965032
+        },
+        {
+          "offset": 844,
+          "kind": 20,
+          "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+          "target": 5448848,
+          "addend": 0,
+          "resolved": 4294964960
+        },
+        {
+          "offset": 852,
+          "kind": 20,
+          "symbol": "?Put@WWKeyboardClass@@QAE_NG@Z",
+          "target": 5448848,
+          "addend": 0,
+          "resolved": 4294964952
+        },
+        {
+          "offset": 879,
+          "kind": 20,
+          "symbol": "?Put_Mouse_Message@WWKeyboardClass@@AAE_NGHH_N@Z",
+          "target": 5449152,
+          "addend": 0,
+          "resolved": 4294965229
+        },
+        {
+          "offset": 900,
+          "kind": 20,
+          "symbol": "?Put_Mouse_Message@WWKeyboardClass@@AAE_NGHH_N@Z",
+          "target": 5449152,
+          "addend": 0,
+          "resolved": 4294965208
+        },
+        {
+          "offset": 922,
+          "kind": 6,
+          "symbol": "__imp__DefWindowProcA@16",
+          "target": 7971720,
+          "addend": 0,
+          "resolved": 7971720
+        },
+        {
+          "offset": 956,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5450484,
+          "addend": 0,
+          "resolved": 5450484
+        },
+        {
+          "offset": 960,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5450525,
+          "addend": 0,
+          "resolved": 5450525
+        },
+        {
+          "offset": 964,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5450540,
+          "addend": 0,
+          "resolved": 5450540
+        },
+        {
+          "offset": 968,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5451277,
+          "addend": 0,
+          "resolved": 5451277
+        },
+        {
+          "offset": 972,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5450484,
+          "addend": 0,
+          "resolved": 5450484
+        },
+        {
+          "offset": 976,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5450525,
+          "addend": 0,
+          "resolved": 5450525
+        },
+        {
+          "offset": 980,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5450733,
+          "addend": 0,
+          "resolved": 5450733
+        },
+        {
+          "offset": 984,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5450785,
+          "addend": 0,
+          "resolved": 5450785
+        },
+        {
+          "offset": 988,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5451194,
+          "addend": 0,
+          "resolved": 5451194
+        },
+        {
+          "offset": 992,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5451200,
+          "addend": 0,
+          "resolved": 5451200
+        },
+        {
+          "offset": 996,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5451206,
+          "addend": 0,
+          "resolved": 5451206
+        },
+        {
+          "offset": 1000,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5450966,
+          "addend": 0,
+          "resolved": 5450966
+        },
+        {
+          "offset": 1004,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5451125,
+          "addend": 0,
+          "resolved": 5451125
+        },
+        {
+          "offset": 1008,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5451046,
+          "addend": 0,
+          "resolved": 5451046
+        }
+      ],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5450336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5451360,
+      "method": "00532e60",
+      "body_bytes": 29,
+      "body_sha256": "2137060617350cd2acd18621a4ea4154aae8c640e189a19d26b31440649ceefd",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3bb96639966c31eb06c28b22063bce8effe504b316daed9b90aea5b2ab40b83b",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Available_Buffer_Room@WWKeyboardClass@@ABEHXZ",
+      "symbol_prefix": "?Available_Buffer_Room@WWKeyboardClass@@ABEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "226e0e9a4bf49ab09ec14d3d066d1e4715f2b4a7de3dc30f228db4d2440a0356",
+      "source": "rebuild/src/keyboard.cpp",
+      "population": "rebuild-keyboard",
+      "source_order": 5451360,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

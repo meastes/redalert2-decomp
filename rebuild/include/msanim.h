@@ -36,7 +36,8 @@ typedef VectorCursor<MSAnim *, MS_ANIM_LIST> MS_ANIM_ITER;
 /*
 **	RA2: the menu anims hold their shapes as the raw shape file data rather than as a ShapeSet,
 **	and fetch a frame's bounds through accessors of their own. A frame that does not exist has
-**	the bounds of NullFrameRect.
+**	the bounds of RECT_NONE (the unit's own copy: the original refers to its RECT_NONE here, as
+**	TibSun's ShapeSet::Get_Rect does).
 */
 class SHPStruct
 {
@@ -71,7 +72,6 @@ class SHPFrame
 		int Offset;
 };
 
-extern Rect NullFrameRect;
 
 inline SHPFrame const * SHPStruct::Fetch_Frame_Pointer(int frame) const
 {
@@ -87,7 +87,7 @@ inline Rect SHPStruct::GetFrameBounds(int frame) const
 	if (data != NULL) {
 		return(Rect(data->Left, data->Top, data->Width, data->Height));
 	}
-	return(NullFrameRect);
+	return(RECT_NONE);
 }
 
 

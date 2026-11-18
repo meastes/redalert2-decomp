@@ -9,7 +9,7 @@
 
 #include "always.h"
 
-#include "geozero.h"
+#include "rect.h"
 #include "geoconst1.h" // RA2: this unit holds its own copy of the geometry constants (its first initializers)
 
 #include "globals.h" // RA2: the includes this file needs

@@ -3037,6 +3037,33 @@
       "source_quality_family": "rebuild"
     },
     {
+      "entry": 6333856,
+      "method": "0060a5a0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E180",
+      "symbol_prefix": "_$E180",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f1511375a7a577c0456ef36cae72c50f3985978de8b0314a9792adeba9ad116f",
+      "source": "rebuild/src/particle.cpp",
+      "population": "rebuild-particle",
+      "source_order": 6333856,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 6333872,
       "method": "0060a5b0",
       "body_bytes": 6,

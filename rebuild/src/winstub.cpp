@@ -5,7 +5,7 @@
 
 #include "always.h"
 #include "winstub.h"
-#include "geozero.h"
+#include "rect.h"
 #include "geoconst1.h"
 #include "_keyboar.h"
 #include "_map.h"
