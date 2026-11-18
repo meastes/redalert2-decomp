@@ -59,5 +59,4 @@ class LogicClass : public LayerClass
 
 extern unsigned FramesThisSecond;
 extern unsigned TotalFrames;
-extern unsigned LastFramesPerSecond;
 extern unsigned SecondsPassed;

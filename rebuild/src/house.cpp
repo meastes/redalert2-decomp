@@ -3048,7 +3048,7 @@ bool HouseClass::Place_Object(RTTIType type, int id, bool naval, Cell const & ce
 					builder->Transmit_Message(RADIO_HELLO, tech);
 					if (tech->Unlimbo(Coord(location.X * 256 + 128, location.Y * 256 + 128, 0), DIR_N)) {
 						if (tech->Fetch_RTTI() == RTTI_BUILDING) {
-							BuildingTypeClass const * btype = ((BuildingClass *)tech)->Class;
+							BuildingTypeClass * btype = ((BuildingClass *)tech)->Class;
 							if (btype->IsFirestormWall) {
 								Map.Place_Firestorm_Wall(location, this, btype);
 							} else if (btype->ToOverlay != NULL && btype->ToOverlay->IsWall) {

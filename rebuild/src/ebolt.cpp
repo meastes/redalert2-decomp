@@ -17,7 +17,6 @@
 
 #include "always.h" // RA2: the includes this file needs
 #include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
-#include "rect.h"
 #include <math.h> // RA2: as above
 #include <string.h> // RA2: as above
 #include "ebolt.h" // RA2: as above

@@ -36,24 +36,43 @@ The percentage this tree reproduces is mostly adopted work (class a). Read it to
 below.
 
 <!-- numbers: updated at each gated landing -->
-**At the last gated landing (2026-11-18 02:46Z):** 228 units, 5,401 functions exact; 20.84% of `.text`
-built from source, 23.66% reproduced with the linked library and assembled bytes.
+**At the last gated landing (2026-11-18 04:22Z):** 262 units, 6,347 functions exact; 24.61% of `.text`
+built from source, 27.42% reproduced with the linked library and assembled bytes.
 
 | Class | Functions | Bytes |
 | --- | ---: | ---: |
-| a, adopted | 4,638 | 686,684 |
-| b, reshaped from main | 9 | 12,368 |
-| c, fresh | 81 | 8,576 |
+| a, adopted | 5,582 | 825,651 |
+| b, reshaped from main | 10 | 13,456 |
+| c, fresh | 82 | 10,400 |
 | Windows workers (mostly adopted) | 673 | 78,144 |
 
 Structure: 0 duplicate class definitions, 0 stray externs in landed sources (11 in held units), 4 address-suffixed names
-(budgeted: an increase fails the gate), 155 units held, 709 functions not yet exact (436,231 bytes; 113 functions of
-1 KB or more, 351,522 bytes).
+(budgeted: an increase fails the gate), 122 units held, 670 functions not yet exact (443,661 bytes; 115 functions of
+1 KB or more, 361,777 bytes).
 
 "Not yet exact" (parked) counts the functions that are not exact inside processed units: units whose
 current text has a check here. Units with no text yet, or a worker's unit not merged, are not counted.
 The newest numbers are always the last `rebuild-trial` line of `manifest/progress.csv`, written only at a
 gated landing (column `tree`; older rows from worker branches are marked as such).
+
+## Rulings
+
+- **Alignment padding from the aligned split of the row's own pass** (lane R4, 2026-11-18). A row that
+  main froze without padding, whose object carries alignment NOPs, takes them as padding when the
+  aligned split of the same frozen pass (`<pass>-aligned`) holds the same bound and a gap row classed
+  `alignment_nop_padding_split_from_unassigned_gap` right after the body; the row is then bound to that
+  population (`gap_population` in `units.json`, `bound_population` in the catalog). Precedent:
+  `docs/DECISIONS.md`, "Rewritten initialisers, stale table names, coopcamp, aligned bounds" (4). The
+  bound and the padding are independent of the candidate; the audit compares the full extent.
+- **The head of a unit's object contribution** (lane R4). `rebuild.py init --auto` also takes the rows
+  before mischa85's range that its map leaves to no named module and that main files under the unit's
+  source (initializers, then class-factory or constructor code), never reaching another unit's range.
+  Drafts guarded as unplaced are tried again without their guard (`tools/unguard.py`) and kept unguarded
+  only when the unit gains exact rows and loses none.
+- **`MapClass::Place_Firestorm_Wall` and `Place_Wall` take a non-const `BuildingTypeClass *`** (lane R4).
+  The original's mangled names say so (`...PAVBuildingTypeClass@@@Z`, mischa85 names.csv at 0x56A480 and
+  0x56A660), so `map.h` follows them; house.cpp's caller drops the `const` from its local (`btype`),
+  which leaves its code unchanged.
 
 ## Structure gate
 

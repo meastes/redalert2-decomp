@@ -1,0 +1,153 @@
+{
+  "id": "rebuild-hsv",
+  "population": {
+    "id": "rebuild-hsv",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "ae9a6b0ada674f8a7de204cd51acb73a6f66a0a435042e741136ef229b5d8d24",
+    "historical_acceptance_sha256": "cbe505d7392efe23b30102fa2dc12ba13d333dc15a16af4963fc883470f9db2f"
+  },
+  "references": {
+    "?BlackColor@HSVClass@@0V1@B": 10752188,
+    "_$E3": 5238608,
+    "?Adjust@HSVClass@@QAEXHABV1@@Z": 5238640,
+    "?Difference@HSVClass@@QBEHABV1@@Z": 5238784,
+    "??BHSVClass@@QBE?AVRGBClass@@XZ": 5238864
+  },
+  "regions": [
+    {
+      "entry": 5238608,
+      "method": "004fef50",
+      "body_bytes": 18,
+      "body_sha256": "0edbe43e2562728caca0bfa8e9395ec8cc2d674aeecb235a985617a07045044a",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "663b06ef4e738ea1e18cb69931bf6fea50c91a94de008f817ea0dd7e193a4703",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E3",
+      "symbol_prefix": "_$E3",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?BlackColor@HSVClass@@0V1@B",
+          "target": 10752188,
+          "addend": 0,
+          "resolved": 10752188
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?BlackColor@HSVClass@@0V1@B",
+          "target": 10752188,
+          "addend": 1,
+          "resolved": 10752189
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?BlackColor@HSVClass@@0V1@B",
+          "target": 10752188,
+          "addend": 2,
+          "resolved": 10752190
+        }
+      ],
+      "source_sha256": "075cbba76b511a74e1d8966b11604aa4a6fb683138e9a491f3c235c001ac6a30",
+      "source": "rebuild/src/hsv.cpp",
+      "population": "rebuild-hsv",
+      "source_order": 5238608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5238640,
+      "method": "004fef70",
+      "body_bytes": 134,
+      "body_sha256": "52647d17da10232b9d4ba61b2e9e5678b12d393f6f87f63ed0bcf2cff8356dd4",
+      "padding_bytes": 10,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "40714fa13159354976ca9a4798c3c0896102c77163346751259ccccad55ed6b1",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Adjust@HSVClass@@QAEXHABV1@@Z",
+      "symbol_prefix": "?Adjust@HSVClass@@QAEXHABV1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "075cbba76b511a74e1d8966b11604aa4a6fb683138e9a491f3c235c001ac6a30",
+      "source": "rebuild/src/hsv.cpp",
+      "population": "rebuild-hsv",
+      "source_order": 5238640,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2784"
+    },
+    {
+      "entry": 5238784,
+      "method": "004ff000",
+      "body_bytes": 78,
+      "body_sha256": "58feeca6ea297beb16ff034e6d2f57bc09fdf56662c6940d230171266a30a07f",
+      "padding_bytes": 2,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "0826044caa858f848362267e58f08693da9ac2239bc307a4a8c7cb17b12c4bdf",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Difference@HSVClass@@QBEHABV1@@Z",
+      "symbol_prefix": "?Difference@HSVClass@@QBEHABV1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "075cbba76b511a74e1d8966b11604aa4a6fb683138e9a491f3c235c001ac6a30",
+      "source": "rebuild/src/hsv.cpp",
+      "population": "rebuild-hsv",
+      "source_order": 5238784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5238864,
+      "method": "004ff050",
+      "body_bytes": 277,
+      "body_sha256": "d6b43faacb1d6a8e0d78d657bafe0277b59d4dc4ef8863d87846aabe76ac0191",
+      "padding_bytes": 11,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "b15a5da2b563a1cfb2e8be3f94c724ab31b88572b55a7ba127ffa2966ac645dd",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+      "symbol_prefix": "??BHSVClass@@QBE?AVRGBClass@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "075cbba76b511a74e1d8966b11604aa4a6fb683138e9a491f3c235c001ac6a30",
+      "source": "rebuild/src/hsv.cpp",
+      "population": "rebuild-hsv",
+      "source_order": 5238864,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

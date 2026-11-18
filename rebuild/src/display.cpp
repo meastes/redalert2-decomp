@@ -84,6 +84,8 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
+#include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "geometry.h"
 
 #include "display.h"
 
@@ -198,6 +200,7 @@ void Queue_Speech(char const * name, int priority, int expire); // RA2: 0x715B40
  * HISTORY:                                                                                    *
  *   12/06/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 266 bytes differ (adopted text)
 DisplayClass::DisplayClass(void) :
 	ZoneCell(CELL_NONE),
 	ZoneOffset(0,0),
@@ -227,6 +230,7 @@ DisplayClass::DisplayClass(void) :
 	ShadowShapes = NULL;
 	PlacementShapes = NULL;
 }
+#endif
 
 
 /***********************************************************************************************
@@ -247,6 +251,7 @@ DisplayClass::DisplayClass(void) :
  *   05/31/1994 JLB : Handles layer system now.                                                *
  *   06/02/1994 JLB : Takes care of misc display tables and data allocation.                   *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 124 bytes differ (adopted text)
 void DisplayClass::One_Time(void)
 {
 	BASECLASS::One_Time();
@@ -265,6 +270,7 @@ void DisplayClass::One_Time(void)
 	rect.Height = rect.Height - 16;
 	Set_View_Dimensions(rect);
 }
+#endif
 
 
 /***********************************************************************************************
@@ -3737,14 +3743,14 @@ void DisplayClass::Constrained_Look(Coord const & center, LEPTON distance)
  *   08/22/1995 JLB : Created.                                                                 *
  *   09/16/1996 JLB : Takes coordinate to center about (as override).                          *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 22 bytes differ (adopted text)
 void DisplayClass::Center_Map(void)
 {
 	int index;
 
 	if (CurrentObject.Count() > 0) {
 
-		Coord center(0,0,0);
+		Coord center;
+		center.Z = center.Y = center.X = 0;
 		for (index = 0; index < CurrentObject.Count(); index++) {
 			center += CurrentObject[index]->PositionCoord;
 		}
@@ -3771,7 +3777,6 @@ void DisplayClass::Center_Map(void)
 		TacticalMap->Set_Tactical_Position(center);
 	}
 }
-#endif
 
 
 /// <summary>

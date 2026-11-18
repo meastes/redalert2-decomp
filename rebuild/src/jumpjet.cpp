@@ -8,6 +8,7 @@
  ******************************************************************************/
 
 #include "always.h"
+#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
 
 #include "jumpjet.h"
 #include "tracker.h" // RA2
@@ -35,6 +36,7 @@
 /// The unit starts out sitting on the ground with no destination, turning at the rate the
 /// rules call for.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 159 bytes differ (adopted text)
 JumpjetLocomotionClass::JumpjetLocomotionClass(void) :
 	BASECLASS(),
 	HeadToCoord(COORD_NONE),
@@ -49,6 +51,7 @@ JumpjetLocomotionClass::JumpjetLocomotionClass(void) :
 {
 
 }
+#endif
 
 
 /// <summary>
@@ -78,7 +81,6 @@ boolean STDMETHODCALLTYPE JumpjetLocomotionClass::Is_Moving(void)
 /// </summary>
 /// <returns>Returns with the destination coordinate. Otherwise, COORD_NONE is
 /// returned.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 CoordStruct STDMETHODCALLTYPE JumpjetLocomotionClass::Destination(void)
 {
 	if (Is_Moving()) {
@@ -87,7 +89,6 @@ CoordStruct STDMETHODCALLTYPE JumpjetLocomotionClass::Destination(void)
 		return(COORD_NONE);
 	}
 }
-#endif
 
 
 /// <summary>
@@ -181,7 +182,6 @@ boolean STDMETHODCALLTYPE JumpjetLocomotionClass::Process(void)
 /// </summary>
 /// <param name="to">The coordinate to fly to, or COORD_NONE to give the unit no
 /// destination at all.</param>
-#ifdef RA2_NON_MATCHING // not exact: 39 bytes differ (adopted text)
 void STDMETHODCALLTYPE JumpjetLocomotionClass::Move_To(CoordStruct to)
 {
 	if (HeadToCoord != COORD_NONE && CurrentState != GROUNDED && IsLanding) {
@@ -216,7 +216,6 @@ void STDMETHODCALLTYPE JumpjetLocomotionClass::Move_To(CoordStruct to)
 		IsMoving = false;
 	}
 }
-#endif
 
 
 /// <summary>
@@ -225,7 +224,6 @@ void STDMETHODCALLTYPE JumpjetLocomotionClass::Move_To(CoordStruct to)
 /// it could put down in. A unit with nowhere at all to land is destroyed rather than left
 /// hanging in the air.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 27 bytes differ (adopted text)
 void STDMETHODCALLTYPE JumpjetLocomotionClass::Stop_Moving(void)
 {
 	if (!ScenarioInit && IsMoving) { // RA2: Stop_Moving at 0x52F960 matches only so
@@ -252,7 +250,6 @@ void STDMETHODCALLTYPE JumpjetLocomotionClass::Stop_Moving(void)
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -307,7 +304,6 @@ HRESULT STDMETHODCALLTYPE JumpjetLocomotionClass::Load(IStream * stream)
 /// measured from the bridge deck rather than from the ground.
 /// </summary>
 /// <returns>Returns with the layer this object should be drawn in.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 LayerType STDMETHODCALLTYPE JumpjetLocomotionClass::In_Which_Layer(void)
 {
 	int height = LinkedTo->HeightAGL;
@@ -322,7 +318,6 @@ LayerType STDMETHODCALLTYPE JumpjetLocomotionClass::In_Which_Layer(void)
 	}
 	return(height >= Height ? LAYER_TOP : LAYER_AIR); // RA2: compares with the locomotor's own Height (+0x28), not the rules value
 }
-#endif
 
 
 /// <summary>
@@ -330,7 +325,6 @@ LayerType STDMETHODCALLTYPE JumpjetLocomotionClass::In_Which_Layer(void)
 /// A landed unit that has been given somewhere to go spins up and takes off. An ion storm
 /// overhead keeps it pinned to the ground instead.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 void JumpjetLocomotionClass::Process_Grounded(void)
 {
 	if (Is_Moving()) {
@@ -347,7 +341,6 @@ void JumpjetLocomotionClass::Process_Grounded(void)
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -356,7 +349,6 @@ void JumpjetLocomotionClass::Process_Grounded(void)
 /// destination once it is safely clear of the ground. Reaching the flight level puts it into
 /// a hover.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 void JumpjetLocomotionClass::Process_Ascent(void)
 {
 	int height = LinkedTo->HeightAGL;
@@ -405,7 +397,6 @@ void JumpjetLocomotionClass::Process_Ascent(void)
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -698,7 +689,6 @@ boolean STDMETHODCALLTYPE JumpjetLocomotionClass::Is_Moving_Now(void)
 /// underneath is made to shimmer as the unit passes over, and a firestorm wall is told when
 /// it has been crossed.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 void JumpjetLocomotionClass::Movement_AI(void)
 {
 	bool need_to_mark = CurrentState != HOVERING && CurrentState != CRUISING;
@@ -808,7 +798,6 @@ void JumpjetLocomotionClass::Movement_AI(void)
 		LinkedTo->IsDown = was_down;
 	}
 }
-#endif
 
 
 /// <summary>
@@ -819,7 +808,6 @@ void JumpjetLocomotionClass::Movement_AI(void)
 /// <param name="to">The coordinate to search near.</param>
 /// <returns>Returns with the free coordinate found. Otherwise, COORD_NONE is
 /// returned.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text)
 Coord JumpjetLocomotionClass::Closest_Free_Spot(Coord const & to) const
 {
 	Coord closest = Map.Closest_Free_Spot(to);
@@ -831,7 +819,6 @@ Coord JumpjetLocomotionClass::Closest_Free_Spot(Coord const & to) const
 	}
 	return(closest);
 }
-#endif
 
 
 /// <summary>
@@ -841,7 +828,6 @@ Coord JumpjetLocomotionClass::Closest_Free_Spot(Coord const & to) const
 /// after.
 /// </summary>
 /// <returns>Returns with the height, in leptons, that the terrain below demands.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 int JumpjetLocomotionClass::Desired_Flight_Level(void) const
 {
 	Coord coord = LinkedTo->PositionCoord;
@@ -864,7 +850,6 @@ int JumpjetLocomotionClass::Desired_Flight_Level(void) const
 	}
 	return(height);
 }
-#endif
 
 
 /// <summary>
@@ -873,7 +858,6 @@ int JumpjetLocomotionClass::Desired_Flight_Level(void) const
 /// that reservation is given up when the object is lifted off the map.
 /// </summary>
 /// <param name="mark">The marking operation being performed, such as MARK_UP.</param>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 void STDMETHODCALLTYPE JumpjetLocomotionClass::Mark_All_Occupation_Bits(int mark)
 {
 	if (mark == MARK_UP) {
@@ -884,7 +868,6 @@ void STDMETHODCALLTYPE JumpjetLocomotionClass::Mark_All_Occupation_Bits(int mark
 		}
 	}
 }
-#endif
 
 
 /// <summary>

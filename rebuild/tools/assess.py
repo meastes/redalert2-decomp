@@ -1,4 +1,4 @@
-"""assess.py: the trial's measures by provenance class, from rebuild/manifest/provenance.csv (rows the
+"""assess.py: the rebuild's measures by provenance class, from rebuild/manifest/provenance.csv (rows the
 catalog accepts), timelog.csv (lane time per class) and the catalog. Bytes are main's frozen extents
 (body and padding) (lane R)."""
 import csv, datetime

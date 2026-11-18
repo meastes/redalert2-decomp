@@ -1,0 +1,315 @@
+{
+  "id": "rebuild-lightcalc",
+  "population": {
+    "id": "rebuild-lightcalc",
+    "inventory_sha256": "2b0b4d032b2581fd8289fa7a876477c9371ef88fc22b30502aae56f4dc1306b0",
+    "gaps_sha256": "4dba58272c411b207d3cdda55e4ea1cc369da256d527b355dfca20c17aa739fc",
+    "historical_population_sha256": "58979ca7f0cb66225a67be313cbe9fe292c1cd6d12afebd263aaba2a3c6937c3",
+    "historical_acceptance_sha256": "38c1f2a11ccee59cb7c675d18713bce5efcd4055900e38049ed85deaa413945a"
+  },
+  "references": {
+    "_RECT_NONE": 10938504,
+    "__real@8@400f8000000000000000": 8017344,
+    "__real@8@3ff583126e978d4fe000": 7980328,
+    "__ftol": 7860496,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "_$E2": 5473184,
+    "?Adjust_Tile_RGB@@YIXAAH0000@Z": 5473216,
+    "?Clamp_Tile_RGB@@YIXAAH00@Z": 5473696
+  },
+  "regions": [
+    {
+      "entry": 5473184,
+      "method": "5383a0",
+      "body_bytes": 23,
+      "body_sha256": "c79e5f2ece06f9d30c7c6cf462082d6ce0349a251285ee22026ec70f1f379743",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f19296cae6a431ac09dea0991bc305d4a0241c133c3366185474bcf6e6cf3b35",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10938504,
+          "addend": 0,
+          "resolved": 10938504
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10938504,
+          "addend": 4,
+          "resolved": 10938508
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10938504,
+          "addend": 8,
+          "resolved": 10938512
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10938504,
+          "addend": 12,
+          "resolved": 10938516
+        }
+      ],
+      "source_sha256": "13a5522e4db46cc791b1f70f9211be475ea3a63353941c51c21446252a316d92",
+      "source": "rebuild/src/lightcalc.cpp",
+      "population": "rebuild-lightcalc",
+      "source_order": 5473184,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 5473216,
+      "method": "005383c0",
+      "body_bytes": 474,
+      "body_sha256": "ba847e9cec9f0558c723a33747112ac26789959d7f36f4a2fade27a1e59b3654",
+      "padding_bytes": 6,
+      "full_extent_bytes": 480,
+      "full_extent_sha256": "c48960f05673a4e2270c9dd7d411d57e197a1d310b4bb60830a37197fbd9c972",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Adjust_Tile_RGB@@YIXAAH0000@Z",
+      "symbol_prefix": "?Adjust_Tile_RGB@@YIXAAH0000@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "__real@8@400f8000000000000000",
+          "target": 8017344,
+          "addend": 0,
+          "resolved": 8017344
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "__real@8@3ff583126e978d4fe000",
+          "target": 7980328,
+          "addend": 0,
+          "resolved": 7980328
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2387098
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "__real@8@400f8000000000000000",
+          "target": 8017344,
+          "addend": 0,
+          "resolved": 8017344
+        },
+        {
+          "offset": 211,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2387065
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "__real@8@400f8000000000000000",
+          "target": 8017344,
+          "addend": 0,
+          "resolved": 8017344
+        },
+        {
+          "offset": 228,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2387048
+        },
+        {
+          "offset": 255,
+          "kind": 6,
+          "symbol": "__real@8@400f8000000000000000",
+          "target": 8017344,
+          "addend": 0,
+          "resolved": 8017344
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "__real@8@3ff583126e978d4fe000",
+          "target": 7980328,
+          "addend": 0,
+          "resolved": 7980328
+        },
+        {
+          "offset": 266,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2387010
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "__real@8@400f8000000000000000",
+          "target": 8017344,
+          "addend": 0,
+          "resolved": 8017344
+        },
+        {
+          "offset": 336,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2386940
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "__real@8@400f8000000000000000",
+          "target": 8017344,
+          "addend": 0,
+          "resolved": 8017344
+        },
+        {
+          "offset": 354,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2386922
+        },
+        {
+          "offset": 366,
+          "kind": 6,
+          "symbol": "__real@8@400f8000000000000000",
+          "target": 8017344,
+          "addend": 0,
+          "resolved": 8017344
+        },
+        {
+          "offset": 372,
+          "kind": 6,
+          "symbol": "__real@8@3ff583126e978d4fe000",
+          "target": 7980328,
+          "addend": 0,
+          "resolved": 7980328
+        },
+        {
+          "offset": 377,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2386899
+        },
+        {
+          "offset": 399,
+          "kind": 6,
+          "symbol": "__real@8@400f8000000000000000",
+          "target": 8017344,
+          "addend": 0,
+          "resolved": 8017344
+        },
+        {
+          "offset": 407,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2386869
+        },
+        {
+          "offset": 417,
+          "kind": 6,
+          "symbol": "__real@8@400f8000000000000000",
+          "target": 8017344,
+          "addend": 0,
+          "resolved": 8017344
+        },
+        {
+          "offset": 425,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2386851
+        }
+      ],
+      "source_sha256": "13a5522e4db46cc791b1f70f9211be475ea3a63353941c51c21446252a316d92",
+      "source": "rebuild/src/lightcalc.cpp",
+      "population": "rebuild-lightcalc",
+      "source_order": 5473216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5473696,
+      "method": "005385a0",
+      "body_bytes": 194,
+      "body_sha256": "f17eb11736cbc5b061261fea882c5368d615aaecc47b4b650b847c73f77db32f",
+      "padding_bytes": 14,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "cd794174d2c39ae92e91357e5783bdb57348933b3a7bb711700b8cbc5f0cfd5e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+      "symbol_prefix": "?Clamp_Tile_RGB@@YIXAAH00@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 20,
+          "resolved": 10750764
+        }
+      ],
+      "source_sha256": "13a5522e4db46cc791b1f70f9211be475ea3a63353941c51c21446252a316d92",
+      "source": "rebuild/src/lightcalc.cpp",
+      "population": "rebuild-lightcalc",
+      "source_order": 5473696,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

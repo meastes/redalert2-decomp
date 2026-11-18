@@ -1,0 +1,240 @@
+{
+  "id": "rebuild-checkbox",
+  "population": {
+    "id": "rebuild-checkbox",
+    "inventory_sha256": "e320cb956d2834f06abd7e6ed98535c8e7da8724e8f45dc1e57d4363fc127bea",
+    "gaps_sha256": "f90a2d1fa222872a11c84d540096bc5c3f1555ffc2f8701e4fa7a43ea2a62382",
+    "historical_population_sha256": "d1e4d99a7b959767f54be1dab50773f1d8055efe999abf0ddcd646aa18453c21",
+    "historical_acceptance_sha256": "2d5d4b4fb991f2e27fb287d519113db7a26ea3be5b54ea53522533576e52a1a8"
+  },
+  "references": {
+    "_RECT_NONE": 8719432,
+    "?Draw_Me@ControlClass@@UAEHH@Z": 4732208,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z": 4813776,
+    "?NormalDrawer@@3PAVConvertClass@@A": 8594372,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?Turn_Off@ToggleClass@@QAEXXZ": 7254384,
+    "?Action@ToggleClass@@MAEHIAAW4KeyNumType@@@Z": 7254400,
+    "?Turn_On@ToggleClass@@QAEXXZ": 7254368,
+    "_$E2": 4706608,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "?Draw_Me@CheckBoxClass@@UAEHH@Z": 4706640,
+    "?Action@CheckBoxClass@@UAEHIAAW4KeyNumType@@@Z": 4706928
+  },
+  "regions": [
+    {
+      "entry": 4706608,
+      "method": "47d130",
+      "body_bytes": 23,
+      "body_sha256": "597a89e7b8b823afcb28139e523e8ede12ce8315f94e6f59a46e8fc08a8b1c4e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "58a8ad9e8eed5e82ef324cb65a00fe456b0efbdc270aad3e3eed806d2d2ac38c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8719432,
+          "addend": 0,
+          "resolved": 8719432
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8719432,
+          "addend": 4,
+          "resolved": 8719436
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8719432,
+          "addend": 8,
+          "resolved": 8719440
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8719432,
+          "addend": 12,
+          "resolved": 8719444
+        }
+      ],
+      "source_sha256": "f32faa2fe10d27cd412a3022e28fb3c42c89d0db485ad6d4df8a0ac2e31d03e0",
+      "source": "rebuild/src/checkbox.cpp",
+      "population": "rebuild-checkbox",
+      "source_order": 4706608,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
+    },
+    {
+      "entry": 4706640,
+      "method": "0047d150",
+      "body_bytes": 285,
+      "body_sha256": "24d50d6ce9fc5f6450dc5c5d7c8f3a559c5ce290937dd64d15668be752380ea1",
+      "padding_bytes": 3,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "07848dd2a53c705d912d280c7edcc2c9263e89c69811b3e0e55f9bf39ec1304e",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Me@CheckBoxClass@@UAEHH@Z",
+      "symbol_prefix": "?Draw_Me@CheckBoxClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Draw_Me@ControlClass@@UAEHH@Z",
+          "target": 4732208,
+          "addend": 0,
+          "resolved": 25552
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+          "target": 4813776,
+          "addend": 0,
+          "resolved": 107060
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 255,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        }
+      ],
+      "source_sha256": "f32faa2fe10d27cd412a3022e28fb3c42c89d0db485ad6d4df8a0ac2e31d03e0",
+      "source": "rebuild/src/checkbox.cpp",
+      "population": "rebuild-checkbox",
+      "source_order": 4706640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4706928,
+      "method": "0047d270",
+      "body_bytes": 66,
+      "body_sha256": "8b67a9465e4e6f7bd8892a5a43ee9d472b5bc605bbda9573a784a4a7e109c124",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9dafa9787a6168635a3c34c1feaab9874b77c1542006358870a62b2d20072b2a",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Action@CheckBoxClass@@UAEHIAAW4KeyNumType@@@Z",
+      "symbol_prefix": "?Action@CheckBoxClass@@UAEHIAAW4KeyNumType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?Turn_Off@ToggleClass@@QAEXXZ",
+          "target": 7254384,
+          "addend": 0,
+          "resolved": 2547431
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Action@ToggleClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 7254400,
+          "addend": 0,
+          "resolved": 2547434
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?Turn_On@ToggleClass@@QAEXXZ",
+          "target": 7254368,
+          "addend": 0,
+          "resolved": 2547392
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "?Action@ToggleClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 7254400,
+          "addend": 0,
+          "resolved": 2547411
+        }
+      ],
+      "source_sha256": "f32faa2fe10d27cd412a3022e28fb3c42c89d0db485ad6d4df8a0ac2e31d03e0",
+      "source": "rebuild/src/checkbox.cpp",
+      "population": "rebuild-checkbox",
+      "source_order": 4706928,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

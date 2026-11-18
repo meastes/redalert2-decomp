@@ -300,12 +300,10 @@ unsigned long __fastcall Parse_Timecode(wchar_t const * text) // RA2: 0x0069BD60
 /// <summary>
 /// RA2: Time=: when the subtitle shows.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text)
 void __fastcall Parse_Time(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069BE30
 {
 	subtitle->Set_Display_Time(Parse_Timecode(value)); // RA2: as above
 }
-#endif
 
 /// <summary>
 /// RA2: Duration=: how long the subtitle stays; a zero keeps the 20 seconds.

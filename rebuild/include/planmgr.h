@@ -7,6 +7,7 @@
 
 class Point2D;
 class EventClass;
+class TechnoClass;
 
 /*
 **	RA2: planning mode takes the mouse over the tactical view while it is active. Each
@@ -25,3 +26,6 @@ bool __stdcall Planning_Mouse_AI(int x, int y);
 */
 bool Planning_Is_Active(void); // RA2: 0x614840
 void Planning_Refuse_Event(EventClass * event); // RA2: 0x616D70
+
+// Declarations moved from the units that used them (one declaration per name).
+extern void __fastcall Planning_Clear_Techno(TechnoClass * techno, EventClass * event); // RA2: 0x00615480 (planmgr.cpp), lets go of the planning token of a techno that was given an order

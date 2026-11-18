@@ -117,6 +117,15 @@ def main(unit, dry):
         if not info.get('partial_ok'):
             info['partial_ok'] = True
             R.save_units(units, [unit])
+    elif not dry and not info.get('partial_ok') and not targets:
+        # Rows the object does not emit at all (the unit has no text for them yet) keep the original
+        # bytes as a guarded draft would: the unit may land with them parked (lane R4). An emitted
+        # function that binds nowhere still refuses the unit in the catalog.
+        missing = [r for r in info['rows'] if results.get(r['entry'], {}).get('status') == 'missing']
+        if missing and all(results.get(r['entry'], {}).get('status') in ('exact', 'missing') for r in info['rows']):
+            info['partial_ok'] = True
+            R.save_units(units, [unit])
+            print('%s: %d rows not emitted are parked (partial_ok)' % (unit, len(missing)))
 
 
 def refine(unit, before_path):

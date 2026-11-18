@@ -1,0 +1,4973 @@
+{
+  "id": "rebuild-audevent",
+  "population": {
+    "id": "rebuild-audevent",
+    "inventory_sha256": "676cc04e0ae019e450d974461335bce9212e8ab790f02c8ebdf7448b7188547b",
+    "gaps_sha256": "0d249c79256217a1e04feaa6a13a3b6b36cf015c2729cbc197e98a60c32451a0",
+    "historical_population_sha256": "36a1b32d051d4b3c9245e34e94e185acc87ca5db41d9daa87551572c3359dfff",
+    "historical_acceptance_sha256": "b09ed2847824b6819a2a0dbaf54c8311b6935d7f918e42dc456629f5242a1517"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8588992,
+    "_ISO_TILE_SIZE": 7972584,
+    "_LEPTONS_PER_PIXEL": 8589208,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8589192,
+    "_ONE_RAD": 7972592,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8589184,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8589000,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8588976,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8589216,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8589008,
+    "_CELL_DIAG_SLOPE_ANGLE": 8589160,
+    "_BRIDGE_LEPTON_HEIGHT": 8589200,
+    "_CELL_NONE": 8588984,
+    "_COORD_NONE": 8589144,
+    "_audioEvents": 8588960,
+    "?ListInit@@YIXPAUListNode@@@Z": 4223472,
+    "_audioEventClasses": 8589168,
+    "_audioCompressionAttribs": 8589016,
+    "?Instance@AudioIDXData@@2PAV1@A": 8589228,
+    "_audioDevice": 8589236,
+    "?AudioAttribsInit@@YIXPAUAudioAttribs@@@Z": 4198400,
+    "?AudioEventsPeak@@3HA": 8589224,
+    "?AudioEventsCount@@3HA": 8589220,
+    "_audioEventsReady": 8589240,
+    "_eventsOn": 8178648,
+    "?AudioCacheCreate@@YIPAUAudioCache@@PAVAudioIDXData@@HHH@Z": 4200928,
+    "_audioCache": 8589232,
+    "?MemoryPoolCreate@@YIPAUAudioMemoryPool@@II@Z": 4224000,
+    "_audioEventPool": 8589248,
+    "??_C@_0BJ@FGPD@event?5mempool?5size?5?$DN?5?$CFd?6?$AA@": 8178872,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "_eventsOK": 8589244,
+    "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z": 4210976,
+    "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z": 4202384,
+    "?ListNodeRemove@@YIXPAUListNode@@@Z": 4223872,
+    "??3@YAXPAX@Z": 7871803,
+    "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z": 4224096,
+    "?ListFirstItem@@YIPAUListNode@@PAU1@@Z": 4223728,
+    "?AudioCacheDestroy@@YIXPAUAudioCache@@@Z": 4201216,
+    "?MemoryPoolDestroy@@YIXPAUAudioMemoryPool@@@Z": 4224064,
+    "?AudioChannelStop@@YIXPAUAudioChannel@@@Z": 4203952,
+    "?AudioChannelNoUse@@YIXPAUAudioChannel@@@Z": 4204272,
+    "?eventNextSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z": 4212624,
+    "?AudioCacheItemSample@@YIPAUAudioSample@@PAUAudioCacheItem@@@Z": 4202544,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "?eventFirstSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z": 4212448,
+    "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z": 4201472,
+    "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z": 4202368,
+    "?eventLoadSchedule@@YIHPAVAudioEvent@@@Z": 4213648,
+    "?AudioGetTime@@YI_KXZ": 4231888,
+    "__real@4@00000000000000000000": 7972664,
+    "??_C@_09OKKF@no?5events?$AA@": 8178900,
+    "?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z": 4224080,
+    "??2@YAPAXI@Z": 7872535,
+    "?ListNodeInit@@YIXPAUListNode@@@Z": 4223488,
+    "?ListNodeInsert@@YIXPAUListNode@@0@Z": 4223824,
+    "_audioStamp": 8178652,
+    "?AudioChannelLock@@YIXPAUAudioChannel@@@Z": 4204192,
+    "?AudioChannelSetSample@@YIXPAUAudioChannel@@PAUAudioSample@@@Z": 4204432,
+    "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z": 4223104,
+    "?AudioChannelStart@@YIHPAUAudioChannel@@@Z": 4204320,
+    "?AudioChannelUnlock@@YIXPAUAudioChannel@@@Z": 4204208,
+    "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z": 4223216,
+    "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z": 4223136,
+    "?AudioLevelSetDuration@@YIXPAUAudioLevel@@_KH@Z": 4223184,
+    "??_C@_07CAMD@unknown?$AA@": 8178912,
+    "_stricmp": 7872288,
+    "?ListNextItem@@YIPAUListNode@@PAU1@@Z": 4223760,
+    "?AudioLevelInit@@YIXPAUAudioLevel@@H@Z": 4223024,
+    "_strncpy": 7873488,
+    "?FindSampleIndex@AudioIDXData@@QAIHPBD@Z": 4199872,
+    "??_C@_0BD@MMLH@Missing?5sample?5?$CFs?6?$AA@": 8178920,
+    "?AudioEventCreate@@YIPAVAudioEvent@@PAVAudioEventType@@@Z": 4215152,
+    "__allmul": 7872704,
+    "__alldiv": 7873744,
+    "_$E2": 4209888,
+    "_$E5": 4209936,
+    "_$E8": 4209968,
+    "_$E11": 4210000,
+    "_$E14": 4210032,
+    "_$E17": 4210064,
+    "_$E20": 4210096,
+    "_$E23": 4210160,
+    "_$E26": 4210208,
+    "_$E29": 4210256,
+    "_$E32": 4210304,
+    "_$E35": 4210320,
+    "?AudioEventSetUp@@YIHPAUAudioDevice@@PAVAudioIDXData@@@Z": 4210352,
+    "?AudioEventCloseDown@@YIXXZ": 4210560,
+    "?eventLoadAndLockSamples@@YIXPAVAudioEvent@@@Z": 4212880,
+    "?eventUnlockSamples@@YIXPAVAudioEvent@@@Z": 4214112,
+    "?audioEventDestroy@@YIXPAVAudioEvent@@@Z": 4214192,
+    "?AudioKillAllEvents@@YIXXZ": 4214352,
+    "?AudioPauseAllEvents@@YIXXZ": 4214704,
+    "?AudioResumeAllEvents@@YIXXZ": 4214816,
+    "?AudioFlushAllDeadEvents@@YIXXZ": 4214944,
+    "?AudioEventTypeRange@@YIHPAVAudioEventType@@@Z": 4215056,
+    "?AudioEventTypeMinVolume@@YIMPAVAudioEventType@@@Z": 4215072,
+    "?AudioEventTypeGetType@@YIIPAVAudioEventType@@@Z": 4215104,
+    "?AudioEventTypeName@@YIPBDPAVAudioEventType@@@Z": 4215120,
+    "?AudioEventSetFlag8@@YIXPAVAudioEvent@@@Z": 4215536,
+    "?AudioEventStop@@YIXPAVAudioEvent@@@Z": 4215552,
+    "?AudioEventPause@@YIXPAVAudioEvent@@@Z": 4215792,
+    "?AudioEventResume@@YIXPAVAudioEvent@@@Z": 4215872,
+    "?AudioEventIsPaused@@YIHPAVAudioEvent@@@Z": 4215968,
+    "?audioEventStart@@YIHPAVAudioEvent@@@Z": 4215984,
+    "?AudioEventEnd@@YIXPAVAudioEvent@@@Z": 4216208,
+    "?audioEventStop@@YIHPAUAudioChannel@@@Z": 4217344,
+    "?audioEventSampleDone@@YIHPAUAudioChannel@@@Z": 4217360,
+    "?audioEventNextSample@@YIHPAUAudioChannel@@@Z": 4217552,
+    "?Init@AudioController@@QAEXXZ": 4217840,
+    "?Release@AudioController@@QAEXXZ": 4217872,
+    "?Stop@AudioController@@QAEXXZ": 4218192,
+    "?AudioControllerStopLooping@@YIXPAUAudioController@@@Z": 4218512,
+    "?End@AudioController@@QAEXXZ": 4218848,
+    "?EndLooping@AudioController@@QAEXXZ": 4218992,
+    "?SetEvent@AudioController@@QAIXPAVAudioEvent@@PAVVocClass@@@Z": 4219136,
+    "?AudioControllerGetEvent@@YIPAVAudioEvent@@PAUAudioController@@@Z": 4219200,
+    "?AudioControllerGetType@@YIPAVAudioEventType@@PAUAudioController@@@Z": 4219264,
+    "?AudioEventJumpVolume@@YIXPAVAudioEvent@@H@Z": 4219296,
+    "?AudioEventSetVolume@@YIXPAVAudioEvent@@H@Z": 4219360,
+    "?AudioEventJumpPan@@YIXPAVAudioEvent@@H@Z": 4219488,
+    "?AudioEventSetPan@@YIXPAVAudioEvent@@H@Z": 4219520,
+    "?AudioEventSetAdjustDuration@@YIXPAVAudioEvent@@_K@Z": 4219600,
+    "?AudioEventGetType@@YIPAVAudioEventType@@PAVAudioEvent@@@Z": 4219680,
+    "?AudioEventNeverEnds@@YIHPAVAudioEvent@@@Z": 4219696,
+    "?AudioEventName@@YIPBDPAVAudioEvent@@@Z": 4219728,
+    "?AudioEventClassFind@@YIPAVAudioEventType@@PBD@Z": 4219760,
+    "?AudioEventTypeFind@@YIPAVAudioEventType@@PBD@Z": 4219840,
+    "?AudioEventTypeAddSample@@YIHPAVAudioEventType@@PBD@Z": 4220080,
+    "?AudioEventTypeSetAttack@@YIXPAVAudioEventType@@H@Z": 4220208,
+    "?AudioEventTypeSetDecay@@YIXPAVAudioEventType@@H@Z": 4220224,
+    "?AudioEventTypeSetPriority@@YIXPAVAudioEventType@@H@Z": 4220240,
+    "?AudioEventTypeSetVolume@@YIXPAVAudioEventType@@H@Z": 4220256,
+    "?AudioEventTypeSetControl@@YIXPAVAudioEventType@@I@Z": 4220288,
+    "?AudioEventTypeSetType@@YIXPAVAudioEventType@@I@Z": 4220368,
+    "?AudioEventTypeSetLimit@@YIXPAVAudioEventType@@H@Z": 4220384,
+    "?AudioEventTypeSetRange@@YIXPAVAudioEventType@@H@Z": 4220400,
+    "?AudioEventTypeSetMinVolume@@YIXPAVAudioEventType@@M@Z": 4220416,
+    "?AudioEventTypeSetDelay@@YIXPAVAudioEventType@@HH@Z": 4220432,
+    "?AudioEventTypeSetFShift@@YIXPAVAudioEventType@@HH@Z": 4220448,
+    "?AudioEventTypeSetVShift@@YIXPAVAudioEventType@@H@Z": 4220464,
+    "?AudioEventTypeSetLoop@@YIXPAVAudioEventType@@H@Z": 4220496,
+    "?AudioEventTypeLoopsForever@@YIHPAVAudioEventType@@@Z": 4220512,
+    "?Play_Named_Sound@@YIXPBDH@Z": 4220544,
+    "?AudioEventTurnOff@@YIXXZ": 4220736,
+    "?AudioEventTurnOn@@YIXXZ": 4220752,
+    "?AudioEventOn@@YIHXZ": 4220768
+  },
+  "regions": [
+    {
+      "entry": 4209888,
+      "method": "00403ce0",
+      "body_bytes": 40,
+      "body_sha256": "b7807eb9a3700ed17f47933c4a3ef9bcc7efca9b5c7225d07f0c26cc00eb5a63",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "77e9ce8698dabf6462258b820ef9c4ed013ed3dfa054846876e6bbcb83e5c4ae",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 3663039
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 747282
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8588992,
+          "addend": 0,
+          "resolved": 8588992
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4209888,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4209936,
+      "method": "00403d10",
+      "body_bytes": 19,
+      "body_sha256": "f67506f5adac856fb375ad1761633372e700c7103a241916f57363937b15045a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e0c9ff9fe27fa8898b7638c5f342d64d4d9acdabb6c4d8b654bd8b09bed2423d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8588992,
+          "addend": 0,
+          "resolved": 8588992
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7972584,
+          "addend": 0,
+          "resolved": 7972584
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8589208,
+          "addend": 0,
+          "resolved": 8589208
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4209936,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4209968,
+      "method": "00403d30",
+      "body_bytes": 19,
+      "body_sha256": "c90f7ae30b9756a99d2f1eeb53b73afa39396f16a2465a6f3e02b708b493053e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cbc3000e3f22841a182d349348199fda7ae7089328cc3b77a6cd8d038805b046",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8589208,
+          "addend": 0,
+          "resolved": 8589208
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8589192,
+          "addend": 0,
+          "resolved": 8589192
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4209968,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210000,
+      "method": "00403d50",
+      "body_bytes": 19,
+      "body_sha256": "72d4c327c29219681bbc44dab1c21ad7896a4e0a11784357ea38d7bc4cc8cbe9",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0eb2c7e1df2faed22baae18f73ef50f4d1887b916e10b4a13e4f35e659dd7515",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7972592,
+          "addend": 0,
+          "resolved": 7972592
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8589184,
+          "addend": 0,
+          "resolved": 8589184
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210032,
+      "method": "00403d70",
+      "body_bytes": 19,
+      "body_sha256": "b2aa64e64a7ec70e26a7112672d8c4f9dabb18761d3a56d82cb7c0f2ac206c24",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8b600e70e73d63fec5b30cefacd66bce7fd41d37ee639f1a5830d6f5e337e013",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7972592,
+          "addend": 0,
+          "resolved": 7972592
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8589000,
+          "addend": 0,
+          "resolved": 8589000
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210032,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210064,
+      "method": "00403d90",
+      "body_bytes": 19,
+      "body_sha256": "d471b4d23255b6d90ef31acb36276d899d6bafb614d1dc7aba9fc2de9793ede3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c5ccfc63743feef15e422d0a3c33faeb455595ffd3b89ed958174d08ca8c27d5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7972592,
+          "addend": 0,
+          "resolved": 7972592
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8588976,
+          "addend": 0,
+          "resolved": 8588976
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210064,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210096,
+      "method": "00403db0",
+      "body_bytes": 49,
+      "body_sha256": "b1cfbe30458b0a22e167ab42a9d7ccb74353da64978cc8afb1ebd7ae667b7ba8",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a6a25cb1b1044d86513f2fb6174cb366502f76ad0bd98e5e9c1859b83f0b3c90",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8588976,
+          "addend": 0,
+          "resolved": 8588976
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8589000,
+          "addend": 0,
+          "resolved": 8589000
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 747353
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8588992,
+          "addend": 0,
+          "resolved": 8588992
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3650357
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8589216,
+          "addend": 0,
+          "resolved": 8589216
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210096,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210160,
+      "method": "00403df0",
+      "body_bytes": 33,
+      "body_sha256": "52c2b7e9a857cd67c93dfe27e0abff44f1dbab4bcc3a9b900bc6dc6b54a0b9d0",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cf355851c414cf3f24b226a7fe57ead781159a011ff4f849db1b50fece2457e9",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8589216,
+          "addend": 0,
+          "resolved": 8589216
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 747433
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8589008,
+          "addend": 0,
+          "resolved": 8589008
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210160,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210208,
+      "method": "00403e20",
+      "body_bytes": 44,
+      "body_sha256": "f439ef057e7e03bf86ad388b2252ca3ff519d13e33eb6dcf13d279bd82dce9b4",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "42863f68cddab381ca5c3415186c4b7ec820471de18e77843edd754a863a0a57",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8589216,
+          "addend": 0,
+          "resolved": 8589216
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8588992,
+          "addend": 0,
+          "resolved": 8588992
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 747374
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8589160,
+          "addend": 0,
+          "resolved": 8589160
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210256,
+      "method": "00403e50",
+      "body_bytes": 39,
+      "body_sha256": "f7c985f5e0415d5abd11be90cf018b5a9741ff0f1713863ef066bf6a8be5f6b3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4987a326b3c22330bfe2bc9afcaa0ea53e6cbc15b63f89302a9c21603921f75e",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8589216,
+          "addend": 0,
+          "resolved": 8589216
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3650208
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8589200,
+          "addend": 0,
+          "resolved": 8589200
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210256,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210304,
+      "method": "00403e80",
+      "body_bytes": 15,
+      "body_sha256": "d33d93c36916b55bc1ab5ce04df7f3b1777f257a01801d72d75895818fa34d78",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1a48f22c75e2d5252e9c0d3ff7915e3e901e641a961b4f273447fffdfbdb4459",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8588984,
+          "addend": 0,
+          "resolved": 8588984
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8588984,
+          "addend": 2,
+          "resolved": 8588986
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210304,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210320,
+      "method": "00403e90",
+      "body_bytes": 18,
+      "body_sha256": "f6af0602f0146bb29845661265d8465f7feb66d879cb68eb19812ec86370d147",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d0056332590809ae95f23a47187a7b48753b39c01440db8c7b8430946dacbdd5",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8589144,
+          "addend": 0,
+          "resolved": 8589144
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8589144,
+          "addend": 4,
+          "resolved": 8589148
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8589144,
+          "addend": 8,
+          "resolved": 8589152
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210320,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-163"
+    },
+    {
+      "entry": 4210352,
+      "method": "00403eb0",
+      "body_bytes": 202,
+      "body_sha256": "28fcf5da055b2b6faea3ce1eb34fed2973877ba14a4c3b06f867b9c32b8e7d94",
+      "padding_bytes": 6,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "72ee0ac50172d10f16a5c333a4e40d3e8d4ea0a98b5edf8f9043906eb1bfdedb",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventSetUp@@YIHPAUAudioDevice@@PAVAudioIDXData@@@Z",
+      "symbol_prefix": "?AudioEventSetUp@@YIHPAUAudioDevice@@PAVAudioIDXData@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?ListInit@@YIXPAUListNode@@@Z",
+          "target": 4223472,
+          "addend": 0,
+          "resolved": 13104
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "_audioEventClasses",
+          "target": 8589168,
+          "addend": 0,
+          "resolved": 8589168
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?ListInit@@YIXPAUListNode@@@Z",
+          "target": 4223472,
+          "addend": 0,
+          "resolved": 13094
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_audioCompressionAttribs",
+          "target": 8589016,
+          "addend": 0,
+          "resolved": 8589016
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_audioDevice",
+          "target": 8589236,
+          "addend": 0,
+          "resolved": 8589236
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?AudioAttribsInit@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198400,
+          "addend": 0,
+          "resolved": 4294955296
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?AudioEventsPeak@@3HA",
+          "target": 8589224,
+          "addend": 0,
+          "resolved": 8589224
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "_eventsOn",
+          "target": 8178648,
+          "addend": 0,
+          "resolved": 8178648
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "?AudioCacheCreate@@YIPAUAudioCache@@PAVAudioIDXData@@HHH@Z",
+          "target": 4200928,
+          "addend": 0,
+          "resolved": 4294957763
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "?MemoryPoolCreate@@YIPAUAudioMemoryPool@@II@Z",
+          "target": 4224000,
+          "addend": 0,
+          "resolved": 13519
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@FGPD@event?5mempool?5size?5?$DN?5?$CFd?6?$AA@",
+          "target": 8178872,
+          "addend": 0,
+          "resolved": 8178872
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 10667
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "_audioDevice",
+          "target": 8589236,
+          "addend": 0,
+          "resolved": 8589236
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "_eventsOK",
+          "target": 8589244,
+          "addend": 0,
+          "resolved": 8589244
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4210560,
+      "method": "00403f80",
+      "body_bytes": 401,
+      "body_sha256": "959c7839596bcc5da951ac15bbdcfcc6dd3fa15feb8af79a74052b9a919e11f8",
+      "padding_bytes": 15,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "8e0bf36416f32caf8f8601fda5d2659c7335f5c94d1e901d5d53629644fb22de",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventCloseDown@@YIXXZ",
+      "symbol_prefix": "?AudioEventCloseDown@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+          "target": 4210976,
+          "addend": 0,
+          "resolved": 363
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294959049
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 13179
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3661091
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 13366
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 181,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 206,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 232,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 13076
+        },
+        {
+          "offset": 255,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3660984
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 13259
+        },
+        {
+          "offset": 279,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 296,
+          "kind": 6,
+          "symbol": "_audioEventClasses",
+          "target": 8589168,
+          "addend": 0,
+          "resolved": 8589168
+        },
+        {
+          "offset": 301,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 12863
+        },
+        {
+          "offset": 314,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 12994
+        },
+        {
+          "offset": 320,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3660919
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "_audioEventClasses",
+          "target": 8589168,
+          "addend": 0,
+          "resolved": 8589168
+        },
+        {
+          "offset": 333,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 12831
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 354,
+          "kind": 20,
+          "symbol": "?AudioCacheDestroy@@YIXPAUAudioCache@@@Z",
+          "target": 4201216,
+          "addend": 0,
+          "resolved": 4294957594
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 366,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 375,
+          "kind": 20,
+          "symbol": "?MemoryPoolDestroy@@YIXPAUAudioMemoryPool@@@Z",
+          "target": 4224064,
+          "addend": 0,
+          "resolved": 13125
+        },
+        {
+          "offset": 381,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 388,
+          "kind": 6,
+          "symbol": "_eventsOK",
+          "target": 8589244,
+          "addend": 0,
+          "resolved": 8589244
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4210976,
+      "method": "00404120",
+      "body_bytes": 139,
+      "body_sha256": "5fc5f4c67886e2e62452da7b007b55f196d126d06e1d295f47c5b23e694de27f",
+      "padding_bytes": 5,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "b0d522dc965dbe639f875a064b6e7c33704f458fcbae09fd7adc39a209fce7e5",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "?AudioChannelStop@@YIXPAUAudioChannel@@@Z",
+          "target": 4203952,
+          "addend": 0,
+          "resolved": 4294960237
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "?AudioChannelNoUse@@YIXPAUAudioChannel@@@Z",
+          "target": 4204272,
+          "addend": 0,
+          "resolved": 4294960546
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4210976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4212448,
+      "method": "004046e0",
+      "body_bytes": 162,
+      "body_sha256": "add32aa5534fd1a90d4f8d7cbaaa0952e9c5cf0ac0e8187e50b5546b4d78f7a7",
+      "padding_bytes": 14,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "0c3a01e81ddad2839984ba8bd53ea0abdc42dfdebd4f1776a5e685928930cfd4",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?eventFirstSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+      "symbol_prefix": "?eventFirstSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "?eventNextSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+          "target": 4212624,
+          "addend": 0,
+          "resolved": 24
+        },
+        {
+          "offset": 158,
+          "kind": 20,
+          "symbol": "?AudioCacheItemSample@@YIPAUAudioSample@@PAUAudioCacheItem@@@Z",
+          "target": 4202544,
+          "addend": 0,
+          "resolved": 4294957230
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4212448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4212624,
+      "method": "00404790",
+      "body_bytes": 251,
+      "body_sha256": "41d72b80c6fc3e559559b32fbc8a7ca3fc93fd734ef4a746fc2845484fc7c836",
+      "padding_bytes": 5,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "d42e3e8e68fcbf65dc9d36326c7f120c8b8827fea873e6162c12747dfc2cf386",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?eventNextSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+      "symbol_prefix": "?eventNextSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2310353
+        },
+        {
+          "offset": 152,
+          "kind": 20,
+          "symbol": "?AudioCacheItemSample@@YIPAUAudioSample@@PAUAudioCacheItem@@@Z",
+          "target": 4202544,
+          "addend": 0,
+          "resolved": 4294957060
+        },
+        {
+          "offset": 202,
+          "kind": 20,
+          "symbol": "?eventFirstSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+          "target": 4212448,
+          "addend": 0,
+          "resolved": 4294966914
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?AudioCacheItemSample@@YIPAUAudioSample@@PAUAudioCacheItem@@@Z",
+          "target": 4202544,
+          "addend": 0,
+          "resolved": 4294956969
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4212624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4212880,
+      "method": "00404890",
+      "body_bytes": 753,
+      "body_sha256": "4f18b5b0018518f79d99504cb684ca245d46bd50dac941af7a415133fc77ff7a",
+      "padding_bytes": 15,
+      "full_extent_bytes": 768,
+      "full_extent_sha256": "a7b49c745344709d1b6be1fee3c5d8553ff3c2a7aa8e7a0cad54bbe0b3bcec52",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?eventLoadAndLockSamples@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?eventLoadAndLockSamples@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294956755
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2310051
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+          "target": 4201472,
+          "addend": 0,
+          "resolved": 4294955758
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202368,
+          "addend": 0,
+          "resolved": 4294956625
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 220,
+          "kind": 20,
+          "symbol": "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+          "target": 4201472,
+          "addend": 0,
+          "resolved": 4294955664
+        },
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202368,
+          "addend": 0,
+          "resolved": 4294956531
+        },
+        {
+          "offset": 314,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 319,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2309837
+        },
+        {
+          "offset": 335,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 340,
+          "kind": 20,
+          "symbol": "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+          "target": 4201472,
+          "addend": 0,
+          "resolved": 4294955544
+        },
+        {
+          "offset": 388,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 393,
+          "kind": 20,
+          "symbol": "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+          "target": 4201472,
+          "addend": 0,
+          "resolved": 4294955491
+        },
+        {
+          "offset": 422,
+          "kind": 20,
+          "symbol": "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202368,
+          "addend": 0,
+          "resolved": 4294956358
+        },
+        {
+          "offset": 460,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 465,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2309691
+        },
+        {
+          "offset": 481,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 486,
+          "kind": 20,
+          "symbol": "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+          "target": 4201472,
+          "addend": 0,
+          "resolved": 4294955398
+        },
+        {
+          "offset": 519,
+          "kind": 20,
+          "symbol": "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202368,
+          "addend": 0,
+          "resolved": 4294956261
+        },
+        {
+          "offset": 574,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 579,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2309577
+        },
+        {
+          "offset": 588,
+          "kind": 20,
+          "symbol": "?eventLoadSchedule@@YIHPAVAudioEvent@@@Z",
+          "target": 4213648,
+          "addend": 0,
+          "resolved": 176
+        },
+        {
+          "offset": 608,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 613,
+          "kind": 20,
+          "symbol": "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+          "target": 4201472,
+          "addend": 0,
+          "resolved": 4294955271
+        },
+        {
+          "offset": 642,
+          "kind": 20,
+          "symbol": "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202368,
+          "addend": 0,
+          "resolved": 4294956138
+        },
+        {
+          "offset": 695,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 700,
+          "kind": 20,
+          "symbol": "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z",
+          "target": 4201472,
+          "addend": 0,
+          "resolved": 4294955184
+        },
+        {
+          "offset": 729,
+          "kind": 20,
+          "symbol": "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202368,
+          "addend": 0,
+          "resolved": 4294956051
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4212880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4213648,
+      "method": "00404b90",
+      "body_bytes": 456,
+      "body_sha256": "50e407313e2cb2f91f07e4f100c245ed021531ca35360a890f72da2b80439437",
+      "padding_bytes": 8,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "05c0d205c8abae607c34134a13c4930b21435bde2d4cc569d1e131a47f3062da",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?eventLoadSchedule@@YIHPAVAudioEvent@@@Z",
+      "symbol_prefix": "?eventLoadSchedule@@YIHPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2309285
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 224,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2309164
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 356,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2309032
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4213648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4214112,
+      "method": "00404d60",
+      "body_bytes": 74,
+      "body_sha256": "ee9e9e2e7ec27f90d907bc89bbcdb48bfdf351f117192f54d5302e3a72289ab9",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "47cef9049c0d5e69cf37b990c4ec895960cf9fc0bc729328dafdf7c0e0bfd279",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?eventUnlockSamples@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?eventUnlockSamples@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294955541
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4214112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4214192,
+      "method": "00404db0",
+      "body_bytes": 73,
+      "body_sha256": "218d4e05e87d1ddba398a6f632522285a7e1bf5f77997b7ed72afdcb71671949",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "70611b3b881b946c06269387aea0bd111783b31dac8e46782d5c64b92bc4e03c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioEventDestroy@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?audioEventDestroy@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 9672
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3657580
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 9844
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4214192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4214352,
+      "method": "00404e50",
+      "body_bytes": 338,
+      "body_sha256": "13f9cb72600a25977014e0334ed39be28d08b7884c0c6e9cca47315bd4132218",
+      "padding_bytes": 14,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "31a538843139f29e253610dc2e57d2f14f6ffce6c47b2fda5b164be20125fd7e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioKillAllEvents@@YIXXZ",
+      "symbol_prefix": "?AudioKillAllEvents@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "?AudioChannelStop@@YIXPAUAudioChannel@@@Z",
+          "target": 4203952,
+          "addend": 0,
+          "resolved": 4294956812
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "?AudioChannelNoUse@@YIXPAUAudioChannel@@@Z",
+          "target": 4204272,
+          "addend": 0,
+          "resolved": 4294957121
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294955121
+        },
+        {
+          "offset": 264,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 9252
+        },
+        {
+          "offset": 283,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3657164
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 301,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 9439
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4214352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4214704,
+      "method": "00404fb0",
+      "body_bytes": 102,
+      "body_sha256": "db224a8ee12c4b3f48da005b3b8e18b9de7abac396a9d69c0396ea55a7c9ed68",
+      "padding_bytes": 10,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "b0babe348cbd80b20c7c10a928709db9c9ea0ef2327b5ab19a5807b24a49686f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioPauseAllEvents@@YIXXZ",
+      "symbol_prefix": "?AudioPauseAllEvents@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 17136
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4214704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4214816,
+      "method": "00405020",
+      "body_bytes": 126,
+      "body_sha256": "59e70ec16c05754cac4c3234d1d886517bdb7293ac7f920fff85138db706c0c9",
+      "padding_bytes": 2,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "e379cfad69e7703ca6d0f9f93e4753f4ede6a66307a1b68f2e116d4a9b8ad9d2",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioResumeAllEvents@@YIXXZ",
+      "symbol_prefix": "?AudioResumeAllEvents@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 16987
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4214816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4214944,
+      "method": "004050a0",
+      "body_bytes": 101,
+      "body_sha256": "3b46ccc5cbd8d6f62a6501604483582b21f951218d16dcb66ffd2cb566caa5f0",
+      "padding_bytes": 11,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "e7503ce19dafb4f7eb3e8c43aa8d1ac6552be230ced1d06c536e6f01da9a142f",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioFlushAllDeadEvents@@YIXXZ",
+      "symbol_prefix": "?AudioFlushAllDeadEvents@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 8887
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3656795
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 9070
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4214944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4215056,
+      "method": "00405110",
+      "body_bytes": 16,
+      "body_sha256": "128a38ab2ba8a40505ab2fca939842e9e924d41fe51aeceb01e88fd96dd1f1d8",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "128a38ab2ba8a40505ab2fca939842e9e924d41fe51aeceb01e88fd96dd1f1d8",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeRange@@YIHPAVAudioEventType@@@Z",
+      "symbol_prefix": "?AudioEventTypeRange@@YIHPAVAudioEventType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215056,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-40"
+    },
+    {
+      "entry": 4215072,
+      "method": "00405120",
+      "body_bytes": 20,
+      "body_sha256": "ab17bc82c03c0a42d7edd8f2ad8f47535e5a9667061ce526f5307f4bbb6ded32",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0bea6ede00e61b8ce79a4dabe1056379c1471b00fdb375949c385bf37b014766",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeMinVolume@@YIMPAVAudioEventType@@@Z",
+      "symbol_prefix": "?AudioEventTypeMinVolume@@YIMPAVAudioEventType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4215104,
+      "method": "00405140",
+      "body_bytes": 16,
+      "body_sha256": "a13dc291701d9155563b44d7ee3288b849daf2a314c9db84fe73c947b218314d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "a13dc291701d9155563b44d7ee3288b849daf2a314c9db84fe73c947b218314d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeGetType@@YIIPAVAudioEventType@@@Z",
+      "symbol_prefix": "?AudioEventTypeGetType@@YIIPAVAudioEventType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215104,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-40"
+    },
+    {
+      "entry": 4215120,
+      "method": "00405150",
+      "body_bytes": 18,
+      "body_sha256": "339a8d57e29ebab17923211754c81ac762034b4372c7d07cb14ab755557cea68",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "eb00e6d0eb7b6feede27f5aebe76f72fa2245942a6a95332c9d365290fdc1002",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeName@@YIPBDPAVAudioEventType@@@Z",
+      "symbol_prefix": "?AudioEventTypeName@@YIPBDPAVAudioEventType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_C@_09OKKF@no?5events?$AA@",
+          "target": 8178900,
+          "addend": 0,
+          "resolved": 8178900
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4215152,
+      "method": "00405170",
+      "body_bytes": 383,
+      "body_sha256": "00d8aa46567f3e1ffc7e394c62fabafff918b9403d33ed85a6b9e24944e79503",
+      "padding_bytes": 1,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "90c55c976118f1081d23203402512291fb3f3640cf8fdacccb923ed28ede8f50",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventCreate@@YIPAVAudioEvent@@PAVAudioEventType@@@Z",
+      "symbol_prefix": "?AudioEventCreate@@YIPAVAudioEvent@@PAVAudioEventType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_eventsOn",
+          "target": 8178648,
+          "addend": 0,
+          "resolved": 8178648
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_eventsOK",
+          "target": 8589244,
+          "addend": 0,
+          "resolved": 8589244
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z",
+          "target": 4224080,
+          "addend": 0,
+          "resolved": 8864
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 8606
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3656518
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 147,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 8793
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z",
+          "target": 4224080,
+          "addend": 0,
+          "resolved": 8746
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3657185
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "?AudioEventsPeak@@3HA",
+          "target": 8589224,
+          "addend": 0,
+          "resolved": 8589224
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 241,
+          "kind": 6,
+          "symbol": "?AudioEventsPeak@@3HA",
+          "target": 8589224,
+          "addend": 0,
+          "resolved": 8589224
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?ListNodeInit@@YIXPAUListNode@@@Z",
+          "target": 4223488,
+          "addend": 0,
+          "resolved": 8070
+        },
+        {
+          "offset": 300,
+          "kind": 20,
+          "symbol": "?AudioAttribsInit@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198400,
+          "addend": 0,
+          "resolved": 4294950240
+        },
+        {
+          "offset": 313,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "?ListNodeInsert@@YIXPAUListNode@@0@Z",
+          "target": 4223824,
+          "addend": 0,
+          "resolved": 8350
+        },
+        {
+          "offset": 323,
+          "kind": 6,
+          "symbol": "_audioStamp",
+          "target": 8178652,
+          "addend": 0,
+          "resolved": 8178652
+        },
+        {
+          "offset": 335,
+          "kind": 6,
+          "symbol": "_audioStamp",
+          "target": 8178652,
+          "addend": 0,
+          "resolved": 8178652
+        },
+        {
+          "offset": 348,
+          "kind": 6,
+          "symbol": "_audioStamp",
+          "target": 8178652,
+          "addend": 0,
+          "resolved": 8178652
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4215536,
+      "method": "004052f0",
+      "body_bytes": 9,
+      "body_sha256": "59a259a990ba6da706709f59e193c2195b4a9a3db79f98830553244f404b5007",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6ac2a817ebb5c38d5dcb5f0bef045f1dc4b809e579896ca6390fd66acfe0114c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventSetFlag8@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventSetFlag8@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-40"
+    },
+    {
+      "entry": 4215552,
+      "method": "00405300",
+      "body_bytes": 225,
+      "body_sha256": "296b6dc0afc54281ee475d49c11c1acb18f2dde5cc6371724cc1ddd9fa5a2514",
+      "padding_bytes": 15,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "5f704bac65f4455e01939aba7e290681b158f11438bd9ce4e242ba4b56a13477",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventStop@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventStop@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "?AudioChannelStop@@YIXPAUAudioChannel@@@Z",
+          "target": 4203952,
+          "addend": 0,
+          "resolved": 4294955650
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?AudioChannelNoUse@@YIXPAUAudioChannel@@@Z",
+          "target": 4204272,
+          "addend": 0,
+          "resolved": 4294955959
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294953958
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4215792,
+      "method": "004053f0",
+      "body_bytes": 71,
+      "body_sha256": "da0e7f0354cdb2ab2de599fa05524d2922a59079a111764f9912d3ea0596355f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f961e732671b18c48a7fe71fd660b7b7019fd1783bc229bf538894d6bc4743db",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventPause@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventPause@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 16069
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4215872,
+      "method": "00405440",
+      "body_bytes": 95,
+      "body_sha256": "53991836b0bc9834216da680d2bd823d1e36d73b993203a4ced521161e008087",
+      "padding_bytes": 1,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "3f2e229f3d06bb88daa6b8909198b0cc70cd8e2514e5572b09091caa1b0de859",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventResume@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventResume@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 15952
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4215968,
+      "method": "004054a0",
+      "body_bytes": 7,
+      "body_sha256": "98240bc15d2c96e70c5b6abc527c07023c3f6d187246b63b38634a83c4dc1d44",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f1ab5a0d57213350a7742e7c32336ee352bd10c9f31e75e06fcefc4a2dba0c98",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventIsPaused@@YIHPAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventIsPaused@@YIHPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4215984,
+      "method": "004054b0",
+      "body_bytes": 223,
+      "body_sha256": "b6f34b927f8b88e2a822fab445ccad81111f1e0a2a6a54a4177beeb49b622d15",
+      "padding_bytes": 1,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "6d412401c7b703295bb26c5bd2d8ea75edad8009ab152c34f64379b61eb74164",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioEventStart@@YIHPAVAudioEvent@@@Z",
+      "symbol_prefix": "?audioEventStart@@YIHPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?AudioChannelLock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204192,
+          "addend": 0,
+          "resolved": 4294955476
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?AudioChannelSetSample@@YIXPAUAudioChannel@@PAUAudioSample@@@Z",
+          "target": 4204432,
+          "addend": 0,
+          "resolved": 4294955689
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 7045
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 6994
+        },
+        {
+          "offset": 159,
+          "kind": 20,
+          "symbol": "?AudioChannelStart@@YIHPAUAudioChannel@@@Z",
+          "target": 4204320,
+          "addend": 0,
+          "resolved": 4294955469
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?AudioChannelUnlock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204208,
+          "addend": 0,
+          "resolved": 4294955321
+        },
+        {
+          "offset": 211,
+          "kind": 20,
+          "symbol": "?AudioChannelUnlock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204208,
+          "addend": 0,
+          "resolved": 4294955305
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4215984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4216208,
+      "method": "00405590",
+      "body_bytes": 63,
+      "body_sha256": "59b5f11e17fd03934321b349bcbb6b0c2e4f32e69e5573a2375b7d8f47e7284d",
+      "padding_bytes": 1,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c7591914ca86952da25dc8182a5435f5df60973457148b285877449707c363f5",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventEnd@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventEnd@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?AudioChannelLock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204192,
+          "addend": 0,
+          "resolved": 4294955248
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?AudioChannelUnlock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204208,
+          "addend": 0,
+          "resolved": 4294955244
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4216208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4217344,
+      "method": "00405a00",
+      "body_bytes": 16,
+      "body_sha256": "fa71db0d231371d35a598384835c54c4301855cf600bf792b906c942f0e2e822",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "fa71db0d231371d35a598384835c54c4301855cf600bf792b906c942f0e2e822",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioEventStop@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioEventStop@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4217344,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-67"
+    },
+    {
+      "entry": 4217360,
+      "method": "00405a10",
+      "body_bytes": 184,
+      "body_sha256": "d51f29d3d8ed43b1551c94866ea054ad701763c8da89466469ef04330a1cb219",
+      "padding_bytes": 8,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "7a5f138448d5fc6e6ec4c458d6b389fa625cd38d6de7b0ce415076aa37eb18f3",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioEventSampleDone@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioEventSampleDone@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 14387
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4217360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4217552,
+      "method": "00405ad0",
+      "body_bytes": 132,
+      "body_sha256": "358320d61ef6061f5a27978c1bd86f78b9f036ec6356faa49d16cd3e94ff7828",
+      "padding_bytes": 12,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "f6f3dc36999df24f578a57aa6e74a84ea9309bd4d9f735e1d2158ded7f1547c9",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioEventNextSample@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioEventNextSample@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?eventNextSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+          "target": 4212624,
+          "addend": 0,
+          "resolved": 4294962350
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?AudioChannelSetSample@@YIXPAUAudioChannel@@PAUAudioSample@@@Z",
+          "target": 4204432,
+          "addend": 0,
+          "resolved": 4294954138
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?AudioChannelSetSample@@YIXPAUAudioChannel@@PAUAudioSample@@@Z",
+          "target": 4204432,
+          "addend": 0,
+          "resolved": 4294954123
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2305394
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?AudioChannelSetSample@@YIXPAUAudioChannel@@PAUAudioSample@@@Z",
+          "target": 4204432,
+          "addend": 0,
+          "resolved": 4294954068
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4217552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4217840,
+      "method": "00405bf0",
+      "body_bytes": 18,
+      "body_sha256": "bceb81a00ee924086f242c33f88f0c4e5459943c364c4899b25d19be0a1651bc",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "33675f181b1afa2fc2a4faf2da0dfdb194ca6381befa3656a5d3c5e80b4a5d15",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@AudioController@@QAEXXZ",
+      "symbol_prefix": "?Init@AudioController@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4217840,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 4217872,
+      "method": "00405c10",
+      "body_bytes": 315,
+      "body_sha256": "44852f68758c70611d54feeabe4c53f8b22815d857b029828143f4b85537d631",
+      "padding_bytes": 5,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "47444d8eba78377a8c32fbbee9259b1ae7a4afe39a373f0b4ec4c80be6a12cbd",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@AudioController@@QAEXXZ",
+      "symbol_prefix": "?Release@AudioController@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "?AudioChannelStop@@YIXPAUAudioChannel@@@Z",
+          "target": 4203952,
+          "addend": 0,
+          "resolved": 4294953258
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "?AudioChannelNoUse@@YIXPAUAudioChannel@@@Z",
+          "target": 4204272,
+          "addend": 0,
+          "resolved": 4294953567
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294951561
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4217872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4218192,
+      "method": "00405d50",
+      "body_bytes": 312,
+      "body_sha256": "9063b6c1f0fd7302f3872015b99d6d864a610ac30c559be9e0baa06dbdd0c3c2",
+      "padding_bytes": 8,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "37347edaf867ca3aa9be91261c1473d25f94ffd929eac995815a047ee375d6ae",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop@AudioController@@QAEXXZ",
+      "symbol_prefix": "?Stop@AudioController@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "?AudioChannelStop@@YIXPAUAudioChannel@@@Z",
+          "target": 4203952,
+          "addend": 0,
+          "resolved": 4294952938
+        },
+        {
+          "offset": 125,
+          "kind": 20,
+          "symbol": "?AudioChannelNoUse@@YIXPAUAudioChannel@@@Z",
+          "target": 4204272,
+          "addend": 0,
+          "resolved": 4294953247
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294951241
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4218192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4218512,
+      "method": "00405e90",
+      "body_bytes": 331,
+      "body_sha256": "7a25a82ac7d28e0c2cc2a78b9ba36d4ea25506422245bb8ff33194c6777ee7b7",
+      "padding_bytes": 5,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "c22e829b8ab7547a7b5d613007fa0ffbaf6fcab1ad0008334cdc94ebaca54a52",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioControllerStopLooping@@YIXPAUAudioController@@@Z",
+      "symbol_prefix": "?AudioControllerStopLooping@@YIXPAUAudioController@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "?AudioChannelStop@@YIXPAUAudioChannel@@@Z",
+          "target": 4203952,
+          "addend": 0,
+          "resolved": 4294952598
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?AudioChannelNoUse@@YIXPAUAudioChannel@@@Z",
+          "target": 4204272,
+          "addend": 0,
+          "resolved": 4294952907
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294950902
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4218512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4218848,
+      "method": "00405fe0",
+      "body_bytes": 131,
+      "body_sha256": "edba4d5739776c70763935fe392b10458d64186d410b3d9f2d6e6c4266ff8325",
+      "padding_bytes": 13,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "ca696d793aea4bfad476bc446884419e372344970bf7fa51465b00fd360f578e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?End@AudioController@@QAEXXZ",
+      "symbol_prefix": "?End@AudioController@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?AudioChannelLock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204192,
+          "addend": 0,
+          "resolved": 4294952555
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "?AudioChannelUnlock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204208,
+          "addend": 0,
+          "resolved": 4294952551
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4218848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4218992,
+      "method": "00406070",
+      "body_bytes": 142,
+      "body_sha256": "20c9e55791cc2d5574f5b746ade86511759211a935ee52ef7e2df1d2f07279fa",
+      "padding_bytes": 2,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "5da136713e621e35f7ca457f00c0620ca25aac8bcb076fbafb04c9fd86669f8c",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?EndLooping@AudioController@@QAEXXZ",
+      "symbol_prefix": "?EndLooping@AudioController@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?AudioChannelLock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204192,
+          "addend": 0,
+          "resolved": 4294952400
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "?AudioChannelUnlock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204208,
+          "addend": 0,
+          "resolved": 4294952396
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4218992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4219136,
+      "method": "00406100",
+      "body_bytes": 52,
+      "body_sha256": "4ccb73b6f25d6d8f0f562f8d8b70e2b09839d4802ff122265e3b8265a8366eea",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1700516cbef7e71bf91c0a1a5af27cbb7b455c08357364deb1f9e5b264d25b70",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetEvent@AudioController@@QAIXPAVAudioEvent@@PAVVocClass@@@Z",
+      "symbol_prefix": "?SetEvent@AudioController@@QAIXPAVAudioEvent@@PAVVocClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219136,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-40"
+    },
+    {
+      "entry": 4219200,
+      "method": "00406140",
+      "body_bytes": 57,
+      "body_sha256": "2abe8220a1275b9f7aee05d9b67741a05d19327325a240c48ea4c90316fd912f",
+      "padding_bytes": 7,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "fe2d429b02e09b4eb7b450c7ac8ea227c16e4323d56bd165e3d466d75950f83f",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioControllerGetEvent@@YIPAVAudioEvent@@PAUAudioController@@@Z",
+      "symbol_prefix": "?AudioControllerGetEvent@@YIPAVAudioEvent@@PAUAudioController@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219200,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-40"
+    },
+    {
+      "entry": 4219264,
+      "method": "00406180",
+      "body_bytes": 25,
+      "body_sha256": "c6df49aa342887640308777c4555afd8a38020b144db07c19ad540948e64cea9",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8fb1bd0cbed64cd4b8f74f6886cdc05dc5426fe676f59a9eff09ef52143ec5ec",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioControllerGetType@@YIPAVAudioEventType@@PAUAudioController@@@Z",
+      "symbol_prefix": "?AudioControllerGetType@@YIPAVAudioEventType@@PAUAudioController@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219264,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-43"
+    },
+    {
+      "entry": 4219296,
+      "method": "004061a0",
+      "body_bytes": 60,
+      "body_sha256": "49adec7693eaa3d007c48d74605390b0f5b216c6d5a57d905867216614fb19ae",
+      "padding_bytes": 4,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "63edfd367d1df060293043e891065fbd3e959424fc9719f42c358e17f3580bdf",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventJumpVolume@@YIXPAVAudioEvent@@H@Z",
+      "symbol_prefix": "?AudioEventJumpVolume@@YIXPAVAudioEvent@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 3756
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z",
+          "target": 4223216,
+          "addend": 0,
+          "resolved": 3860
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4219360,
+      "method": "004061e0",
+      "body_bytes": 115,
+      "body_sha256": "410d3608b4f8e9e5a83723aafff7ccadb5f367df026b7cfcd93bfb4a746edb8f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "d3bb8a4a6e2444eb8875a44b51338f2b3923684ffff504f19bfa2ddcc4f57775",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventSetVolume@@YIXPAVAudioEvent@@H@Z",
+      "symbol_prefix": "?AudioEventSetVolume@@YIXPAVAudioEvent@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223136,
+          "addend": 0,
+          "resolved": 3719
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 3637
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z",
+          "target": 4223216,
+          "addend": 0,
+          "resolved": 3741
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4219488,
+      "method": "00406260",
+      "body_bytes": 32,
+      "body_sha256": "05cfc745c9375373dcea4baa910330d78a9742a27a8772f7eee3cac2bfb15b39",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "05cfc745c9375373dcea4baa910330d78a9742a27a8772f7eee3cac2bfb15b39",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventJumpPan@@YIXPAVAudioEvent@@H@Z",
+      "symbol_prefix": "?AudioEventJumpPan@@YIXPAVAudioEvent@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 3584
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4219520,
+      "method": "00406280",
+      "body_bytes": 72,
+      "body_sha256": "6bcd5487da4d99ae0b2442a5753da19bec328e446fe71db1d60ad1d923f09600",
+      "padding_bytes": 8,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "fb31e3390b791ec92320f91c6f2d2f4999f01b4d0c9569374dccea5241043267",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventSetPan@@YIXPAVAudioEvent@@H@Z",
+      "symbol_prefix": "?AudioEventSetPan@@YIXPAVAudioEvent@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223136,
+          "addend": 0,
+          "resolved": 3576
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 3512
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4219600,
+      "method": "004062d0",
+      "body_bytes": 73,
+      "body_sha256": "ab09f697283cdf7b45dba546af36c091880c7dde20147fa4bac22e6051819777",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "fa4319c5845a6f88f1e13c01ee4181069742a48d9408f2176a2633cebec2670a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventSetAdjustDuration@@YIXPAVAudioEvent@@_K@Z",
+      "symbol_prefix": "?AudioEventSetAdjustDuration@@YIXPAVAudioEvent@@_K@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?AudioLevelSetDuration@@YIXPAUAudioLevel@@_KH@Z",
+          "target": 4223184,
+          "addend": 0,
+          "resolved": 3553
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "?AudioLevelSetDuration@@YIXPAUAudioLevel@@_KH@Z",
+          "target": 4223184,
+          "addend": 0,
+          "resolved": 3535
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "?AudioLevelSetDuration@@YIXPAUAudioLevel@@_KH@Z",
+          "target": 4223184,
+          "addend": 0,
+          "resolved": 3517
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4219680,
+      "method": "00406320",
+      "body_bytes": 4,
+      "body_sha256": "e27121b8816e0aef2ed29676899d26e79f66af7e5ee5aed902be7208122bb635",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "31fa0b8d3632bf95ba787af99d5d58ec945f39283ee2dfa83cd82c8464046067",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventGetType@@YIPAVAudioEventType@@PAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventGetType@@YIPAVAudioEventType@@PAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219680,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 4219696,
+      "method": "00406330",
+      "body_bytes": 25,
+      "body_sha256": "55c0822a41ae5f6e52ca05d86ab203e018d992b7163aef9e2843426fac813d4f",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "512ec989c82ef95e821a2088c9a411a39c73ef27e7b8b53b749a19b229bf8e28",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventNeverEnds@@YIHPAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventNeverEnds@@YIHPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219696,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4219728,
+      "method": "00406350",
+      "body_bytes": 32,
+      "body_sha256": "e61efc42bb83046fd85533a2aa704a96e273f13bea503dd145d15571f57c3e42",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e61efc42bb83046fd85533a2aa704a96e273f13bea503dd145d15571f57c3e42",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventName@@YIPBDPAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventName@@YIPBDPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_C@_09OKKF@no?5events?$AA@",
+          "target": 8178900,
+          "addend": 0,
+          "resolved": 8178900
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "??_C@_07CAMD@unknown?$AA@",
+          "target": 8178912,
+          "addend": 0,
+          "resolved": 8178912
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219728,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4219760,
+      "method": "00406370",
+      "body_bytes": 69,
+      "body_sha256": "72171b90329d43ccf9225d1b813eb5587f26042b2f9917bcc5c6ff1cc6786c95",
+      "padding_bytes": 11,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9e1da6738399fa6734777790bf7f1cd9520fa408ba6326008e0b6738e4224d88",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventClassFind@@YIPAVAudioEventType@@PBD@Z",
+      "symbol_prefix": "?AudioEventClassFind@@YIPAVAudioEventType@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_audioEventClasses",
+          "target": 8589168,
+          "addend": 0,
+          "resolved": 8589168
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 3945
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 3652489
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 3947
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4219840,
+      "method": "004063c0",
+      "body_bytes": 226,
+      "body_sha256": "773783ae1819d15491e8c796ebe9ee7ba3d1b6f4bb5f76b30f9e3684bbe8ba82",
+      "padding_bytes": 14,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "85e247f02c209d430866314e821ccc8d55da7cae50fbe9a2eef1ee7638e24ee1",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeFind@@YIPAVAudioEventType@@PBD@Z",
+      "symbol_prefix": "?AudioEventTypeFind@@YIPAVAudioEventType@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_audioEventClasses",
+          "target": 8589168,
+          "addend": 0,
+          "resolved": 8589168
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 3860
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 3652404
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 3858
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3652616
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "?ListNodeInit@@YIXPAUListNode@@@Z",
+          "target": 4223488,
+          "addend": 0,
+          "resolved": 3537
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "?AudioLevelInit@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223024,
+          "addend": 0,
+          "resolved": 3011
+        },
+        {
+          "offset": 181,
+          "kind": 20,
+          "symbol": "_strncpy",
+          "target": 7873488,
+          "addend": 0,
+          "resolved": 3653463
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "_audioEventClasses",
+          "target": 8589168,
+          "addend": 0,
+          "resolved": 8589168
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "?ListNodeInsert@@YIXPAUListNode@@0@Z",
+          "target": 4223824,
+          "addend": 0,
+          "resolved": 3777
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4219840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220080,
+      "method": "004064b0",
+      "body_bytes": 127,
+      "body_sha256": "39aa832b2cf556d0668bf9cb57a767953144826b65e9ca3df365ef74d9d19933",
+      "padding_bytes": 1,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "336907b3e9053fc95b6713ebcf5e020f6506e5a9bc7ae7a42f43855f6afe7849",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeAddSample@@YIHPAVAudioEventType@@PBD@Z",
+      "symbol_prefix": "?AudioEventTypeAddSample@@YIHPAVAudioEventType@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?FindSampleIndex@AudioIDXData@@QAIHPBD@Z",
+          "target": 4199872,
+          "addend": 0,
+          "resolved": 4294947029
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MMLH@Missing?5sample?5?$CFs?6?$AA@",
+          "target": 8178920,
+          "addend": 0,
+          "resolved": 8178920
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 979
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220208,
+      "method": "00406530",
+      "body_bytes": 7,
+      "body_sha256": "e14889f955b1eb54ba0a17d43eb202f838a81fa73f44929850f2b0ef39f490a6",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5f7898d5fbf25330e3a40cab42688bca9a86e44afb934b39539d9e482b099b19",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetAttack@@YIXPAVAudioEventType@@H@Z",
+      "symbol_prefix": "?AudioEventTypeSetAttack@@YIXPAVAudioEventType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220224,
+      "method": "00406540",
+      "body_bytes": 7,
+      "body_sha256": "8702db2a774b6250140cd954bd2d167d4170853a49cb048c157c66e733036370",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0981f9288a7dff66572e5008ffc3921cd39303882d5eaba1cbd10bed248cf254",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetDecay@@YIXPAVAudioEventType@@H@Z",
+      "symbol_prefix": "?AudioEventTypeSetDecay@@YIXPAVAudioEventType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220240,
+      "method": "00406550",
+      "body_bytes": 4,
+      "body_sha256": "660d0ebe221a416c0562b262b3b6d43304a1cc207e4a63b38936f4082b567126",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "bbd91c3e5c289856aaae79ddec14816d8427eb40be18f6ef019df3e089e5bf1b",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetPriority@@YIXPAVAudioEventType@@H@Z",
+      "symbol_prefix": "?AudioEventTypeSetPriority@@YIXPAVAudioEventType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220256,
+      "method": "00406560",
+      "body_bytes": 19,
+      "body_sha256": "bbf4c07837ed24d4ac20c4efae4813c0da8e5b1d53ac4f5bb4272b6b9ff3a343",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2d100e57b17ee7ca0a083c9af556f9e5d072a09e84611e628850d9509ade5ec9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetVolume@@YIXPAVAudioEventType@@H@Z",
+      "symbol_prefix": "?AudioEventTypeSetVolume@@YIXPAVAudioEventType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 2837
+        },
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z",
+          "target": 4223216,
+          "addend": 0,
+          "resolved": 2941
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220288,
+      "method": "00406580",
+      "body_bytes": 76,
+      "body_sha256": "322c2c40ed315a5703214b5ad0f98b2aba77c5d4e9a6f2ab6011331ed1405667",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "82b4d2cf5ceaaa54256137a751a8b733dd0cfc8c1bc4d6167529f650ad9a6ca8",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetControl@@YIXPAVAudioEventType@@I@Z",
+      "symbol_prefix": "?AudioEventTypeSetControl@@YIXPAVAudioEventType@@I@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220368,
+      "method": "004065d0",
+      "body_bytes": 4,
+      "body_sha256": "3e701ee47c2f883b8c0442e03f0f2272f3f29b54115acef09dc6903e7f9aa5a5",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "379ae9961ee59b1e7994da56b16794fe4ecfe6bbef20be91bd3aad47377a3d0e",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetType@@YIXPAVAudioEventType@@I@Z",
+      "symbol_prefix": "?AudioEventTypeSetType@@YIXPAVAudioEventType@@I@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220384,
+      "method": "004065e0",
+      "body_bytes": 4,
+      "body_sha256": "fffa5f88686843b1cc904a5957e78ed9541775eb69ea5b7a6fcf54fc4cc97ba4",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "a9c713b161dadef667d9b61fac974804ba728e3c8974c250dbc4094657ee04b2",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetLimit@@YIXPAVAudioEventType@@H@Z",
+      "symbol_prefix": "?AudioEventTypeSetLimit@@YIXPAVAudioEventType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220400,
+      "method": "004065f0",
+      "body_bytes": 4,
+      "body_sha256": "e87a6233bab9011275b6715a0abc8773af15fd5b68555d8cd4931d9259da77cb",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f85e21d7220c616cd691c959d206005e24e286dfda579aa0f81a3d9d37cd45fb",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetRange@@YIXPAVAudioEventType@@H@Z",
+      "symbol_prefix": "?AudioEventTypeSetRange@@YIXPAVAudioEventType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220416,
+      "method": "00406600",
+      "body_bytes": 10,
+      "body_sha256": "49bb7f2f8522e1a0bd46f53380d1a613b2c47c88f89f94c70b52b59d35e889ef",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "be38887a1036dff885619f4c25cfc11140a35a039a563afe87b848c7b5ace5da",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetMinVolume@@YIXPAVAudioEventType@@M@Z",
+      "symbol_prefix": "?AudioEventTypeSetMinVolume@@YIXPAVAudioEventType@@M@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220432,
+      "method": "00406610",
+      "body_bytes": 13,
+      "body_sha256": "f2c1857d0884c48ea125c19821efa990635607bdb7ed7ac2b694d71f19eecd50",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5f5ce3c0f4c44585f599e2eee320faff4b9b24f5ed3fcb151b55ed76461cb9ee",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetDelay@@YIXPAVAudioEventType@@HH@Z",
+      "symbol_prefix": "?AudioEventTypeSetDelay@@YIXPAVAudioEventType@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220448,
+      "method": "00406620",
+      "body_bytes": 13,
+      "body_sha256": "a6b23c279cbe5eb07ced7ac233a683b0b9e3d04cbd759a655a0e28542ac0cab3",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8592a00fe0c23d6f74f51ba382ab4ca46698a25b8f4d07d87fdd54864da9127a",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetFShift@@YIXPAVAudioEventType@@HH@Z",
+      "symbol_prefix": "?AudioEventTypeSetFShift@@YIXPAVAudioEventType@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220464,
+      "method": "00406630",
+      "body_bytes": 28,
+      "body_sha256": "4eb49984cf29befa33cb73b718cbbf6c709c028680f8cb115d2cf232b7ec13ef",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a7182a76430fa2b0c2d14bb4ad5270f9da7ed457d4031b80c7664066d7b5a0fc",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetVShift@@YIXPAVAudioEventType@@H@Z",
+      "symbol_prefix": "?AudioEventTypeSetVShift@@YIXPAVAudioEventType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220496,
+      "method": "00406650",
+      "body_bytes": 4,
+      "body_sha256": "a3afbf5135968dd6d72a272061066fd31d5fb15c34018a5369120ebe60aa061f",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2b272c2d6f019177cc32dd5715dfa4fd6894141cef16832e3ab19c7c4ff16c15",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeSetLoop@@YIXPAVAudioEventType@@H@Z",
+      "symbol_prefix": "?AudioEventTypeSetLoop@@YIXPAVAudioEventType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220512,
+      "method": "00406660",
+      "body_bytes": 22,
+      "body_sha256": "9bd7d1103206a3f77ed3a7699553da8a99b4abc0c6b69e752cc327664815460b",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "aa8e4476f51142523d5594834f770fa4b389492628880e0c0c9295a2cd9ca5b4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTypeLoopsForever@@YIHPAVAudioEventType@@@Z",
+      "symbol_prefix": "?AudioEventTypeLoopsForever@@YIHPAVAudioEventType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220512,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-40"
+    },
+    {
+      "entry": 4220544,
+      "method": "00406680",
+      "body_bytes": 181,
+      "body_sha256": "fdcb6c483ee7befce1517f63aac1d549305a74bcebd8c3c06039fd89278e4095",
+      "padding_bytes": 11,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "fa3d02821581ddf6384be776be9214b4ee1e90a9d0923b53ae757d94dd70dc94",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Play_Named_Sound@@YIXPBDH@Z",
+      "symbol_prefix": "?Play_Named_Sound@@YIXPBDH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "_audioEventClasses",
+          "target": 8589168,
+          "addend": 0,
+          "resolved": 8589168
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 3154
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 3651694
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?ListNextItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223760,
+          "addend": 0,
+          "resolved": 3152
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?AudioEventCreate@@YIPAVAudioEvent@@PAVAudioEventType@@@Z",
+          "target": 4215152,
+          "addend": 0,
+          "resolved": 4294961819
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "__allmul",
+          "target": 7872704,
+          "addend": 0,
+          "resolved": 3652052
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "__alldiv",
+          "target": 7873744,
+          "addend": 0,
+          "resolved": 3653078
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 2390
+        },
+        {
+          "offset": 173,
+          "kind": 20,
+          "symbol": "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z",
+          "target": 4223216,
+          "addend": 0,
+          "resolved": 2495
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220736,
+      "method": "00406740",
+      "body_bytes": 11,
+      "body_sha256": "852e13a35c4d102a5e5631e4432e6918c6c3fbad8daea2ec73af37d0c9acb689",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "809e499686a0eaa49f7378b06eb3a389061e5d14365c0a3c07950a664e0db798",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTurnOff@@YIXXZ",
+      "symbol_prefix": "?AudioEventTurnOff@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_eventsOn",
+          "target": 8178648,
+          "addend": 0,
+          "resolved": 8178648
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220736,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4220752,
+      "method": "00406750",
+      "body_bytes": 11,
+      "body_sha256": "1db730e2265914dbeb70dff541af509ad3671910fa8f7c4ad2d10c74b43c252c",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ed1d0b85dc231b3f609d454a62defe79d830a758dedf14c864b718f3f3a739ed",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventTurnOn@@YIXXZ",
+      "symbol_prefix": "?AudioEventTurnOn@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_eventsOn",
+          "target": 8178648,
+          "addend": 0,
+          "resolved": 8178648
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220752,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4220768,
+      "method": "00406760",
+      "body_bytes": 6,
+      "body_sha256": "494073bdce27fa157a3c293b30f466a0b86f3197cd0384a55f4e128ecc7a18b1",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "93952f1da0c13e6a5ea624a6a4a69fa3a431c1e02859a5321756e0ccd2f5eee1",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventOn@@YIHXZ",
+      "symbol_prefix": "?AudioEventOn@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_eventsOn",
+          "target": 8178648,
+          "addend": 0,
+          "resolved": 8178648
+        }
+      ],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220768,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4221168,
+      "method": "004068f0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?DebugString@@YAXPBDZZ",
+      "symbol_prefix": "?DebugString@@YAXPBDZZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b338a1679d06188abe35cb4d76851d90fb0c5b7c82a007726095cb9331bc7934",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4221168,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    }
+  ]
+}

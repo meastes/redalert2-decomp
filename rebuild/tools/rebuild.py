@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild trial tool (lane R, 2026-11-17): unit files checked against main's frozen bounds.
+"""Rebuild tool (the standing rebuild effort; lane R, 2026-11-17): unit files checked against main's frozen bounds.
 
     rebuild.py init UNIT [--source NAME] [--options N]   add UNIT to rebuild/manifest/units.json from
                                                          mischa85's module range and main's frozen rows
@@ -56,8 +56,11 @@ def load_json(path, default):
 
 
 def write_json(path, value):
+    # Written whole and renamed into place, so a reader beside a writer never sees half a file (lane R4).
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=1, sort_keys=False) + '\n')
+    tmp = path.with_name(path.name + '.%d.tmp' % os.getpid())
+    tmp.write_text(json.dumps(value, indent=1, sort_keys=False) + '\n')
+    os.replace(tmp, path)
 
 
 _CATALOG = []
@@ -97,9 +100,12 @@ def save_symbols(rows, removed=()):
             fresh[r['symbol']] = r
         for n in removed:
             fresh.pop(n, None)
-        with open(SYMBOLS, 'w', newline='') as f:
+        fresh = {k: r for k, r in fresh.items() if r.get('address')}    # rows read half-written before lane R4
+        tmp = SYMBOLS.with_name('symbols.csv.%d.tmp' % os.getpid())
+        with open(tmp, 'w', newline='') as f:
             w = csv.DictWriter(f, fieldnames=['symbol', 'address', 'evidence'])
             w.writeheader(); w.writerows(sorted(fresh.values(), key=lambda r: r['symbol']))
+        os.replace(tmp, SYMBOLS)
 
 
 def main_catalog():
@@ -172,12 +178,57 @@ def gap_after(entry, body):
     if main is None:
         return None
     pid = main.get('bound_population', main['population'])
+    return _gaps(pid).get(entry + body)
+
+
+def _gaps(pid):
     if pid not in _GAPS:
         config = json.loads(CONFIG.read_text())
         path = ROOT / config['populations'][pid]['gaps']
         _GAPS[pid] = {int(r['start'], 16): r['length'] for r in map(json.loads, path.read_text().splitlines())} \
             if path.exists() else {}
-    return _GAPS[pid].get(entry + body)
+    return _GAPS[pid]
+
+
+_ALIGNED = {}
+
+
+def aligned_gap_after(entry, body):
+    """(length, population) of the alignment-NOP gap the aligned split of the row's own frozen pass
+    holds right after its body, or None: DECISIONS 2026-11-14 (4), a row whose frozen pass leaves its
+    alignment NOPs inside a larger unknown gap may take the aligned split of that same pass as its
+    bound population. The split must hold the same bound (entry, body) and a gap row classed
+    alignment_nop_padding_split_from_unassigned_gap starting at the body's end (lane R4)."""
+    if 'main' not in _GAPS:
+        _GAPS['main'] = {r['entry']: r for r in main_catalog()['regions']}
+    main = _GAPS['main'].get(entry)
+    if main is None:
+        return None
+    pid = main.get('bound_population', main['population'])
+    config = json.loads(CONFIG.read_text())
+    if not _ALIGNED:
+        listed = {p['id'] for p in main_catalog()['populations']}
+        by_inventory = {}
+        for q, inputs in sorted(config['populations'].items()):
+            if q in listed:
+                by_inventory.setdefault(inputs['inventory'], q)
+        _ALIGNED['by_inventory'] = by_inventory
+    inventory = Path(config['populations'][pid]['inventory'])
+    aligned = (inventory.parent.parent / (inventory.parent.name + '-aligned') / inventory.name).as_posix()
+    q = _ALIGNED['by_inventory'].get(aligned)
+    if q is None:
+        return None
+    key = ('rows', q)
+    if key not in _ALIGNED:
+        _ALIGNED[key] = {int(r['entry'], 16): r['body_bytes'] for r in
+                         map(json.loads, (ROOT / config['populations'][q]['inventory']).read_text().splitlines())}
+        gaps = ROOT / config['populations'][q]['gaps']
+        _ALIGNED[('gaps', q)] = {int(r['start'], 16): r['length'] for r in map(json.loads, gaps.read_text().splitlines())
+                                 if r['classification'] == 'alignment_nop_padding_split_from_unassigned_gap'}
+    if _ALIGNED[key].get(entry) != body:
+        return None
+    gap = _ALIGNED[('gaps', q)].get(entry + body)
+    return (gap, q) if gap else None
 
 
 def initializer_table():
@@ -242,6 +293,21 @@ def init_unit(unit, source=None, option_index=None, start=None, end=None, auto=F
         while before and (before[-1]['symbol'].startswith('_$E') or before[-1]['entry'] in xcu) and \
                 before[-1]['source'].rsplit('/', 1)[-1] == unit + '.cpp':
             start = before.pop()['entry']
+        # The rows before mischa85's range that its map leaves to no named module (an `unk_` gap) and
+        # that main files under this unit's source are the head of the unit's object contribution
+        # (its initializers, then class-factory or constructor code mischa85 left unassigned); the
+        # walk takes them, and the `_$E` run before them, while no other unit's range is reached
+        # (lane R4).
+        named = sorted((int(m['start'], 16), int(m['end'], 16)) for k, m in modules.items()
+                       if not k.startswith('unk_') and k != unit)
+        claimed = [(int(i['range'][0], 16), int(i['range'][1], 16)) for k, i in units.items() if k != unit]
+        inside = lambda a, spans: any(lo <= a < hi for lo, hi in spans)
+        mine_src = lambda r: r['source'].rsplit('/', 1)[-1] == unit + '.cpp'
+        walk = list(before)
+        while walk and mine_src(walk[-1]) and \
+                not inside(walk[-1]['entry'], named) and not inside(walk[-1]['entry'], claimed):
+            start = walk.pop()['entry']
+        before = walk
         # The original initializer table keeps each object's initializers together: the run of table
         # entries, around any of this unit's, whose rows main files under the unit's source is the
         # unit's too, wherever the linker put their code (before the unit, past rows main filed
@@ -582,10 +648,16 @@ def check(unit, asm=(), learn=False):
             if status != 'exact' and learn and not row['padding'] and size > row['body']:
                 # The object carries alignment nops main's frozen row has no padding for: the row's
                 # own pass may hold the gap (lane R3).
-                gap = gap_after(entry, row['body'])
+                gap, split = gap_after(entry, row['body']), None
+                if not (gap and gap <= 15 and size == row['body'] + gap):
+                    gap, split = aligned_gap_after(entry, row['body']) or (None, None)
                 if gap and gap <= 15 and size == row['body'] + gap and \
                         audit.original(entry + row['body'], gap) == b'\x90' * gap:
                     row['gap_padding'] = gap
+                    if split:
+                        row['gap_population'] = split
+                    else:
+                        row.pop('gap_population', None)
                     status, differing, size, bindings, problems = compare(audit, coff, found, entry, row['body'],
                                                                           gap, resolve)
             result.update(status=status, differing=differing, size=size, problems=problems,

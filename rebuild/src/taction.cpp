@@ -42,6 +42,7 @@
 
 #define INCLUDE_COM
 #include "always.h"
+#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
 
 #include "taction.h"
 
@@ -240,6 +241,7 @@ enum ParamCodeType {
 /// The new action is registered with the action heap and the trackers, but does nothing at
 /// all until the scenario reader fills in which action it is and what it acts upon.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 326 bytes differ (adopted text)
 TActionClass::TActionClass(void) :
 	HeapID(-1),
 	Next(NULL),
@@ -257,6 +259,7 @@ TActionClass::TActionClass(void) :
 	EventActionPtrTracker.Add(this);
 	Data.Value = 0;
 }
+#endif
 
 
 

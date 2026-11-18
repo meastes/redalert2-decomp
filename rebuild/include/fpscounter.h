@@ -6,4 +6,5 @@
 
 namespace FPSCounter {
 	extern unsigned CurrentFrameRate; // RA2: 0xA6EB1C
+	extern bool ReducedEffects; // RA2: set while the rate is under the detail minimum (logic.cpp)
 }

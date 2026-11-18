@@ -1,0 +1,8 @@
+unit,entry,function,bytes,class,first_try,minutes,note
+msglist,005b56f0,MessageListClass::Input,1085,b,edit,10,main's body carried; the key goes through WWKeyboardClass::To_Char (0x532800) as main's does, not To_ASCII; exact
+multiplayer,005b8060,MultiplayerGameMode::GenerateStartingUnits,954,b,parked,15,main's condition and cell forms carried; the original calls VectorClass<InfantryTypeClass*>::Clear out of line on the early return where vector.h inlines the destructor (header shape)
+house,004e9c90,HouseClass::AI_Unit,1310,b,parked,10,mult*ref (main's order) changes nothing; splitting the refinery sum costs 1110 bytes; the two counts still load in the other order
+netdlg2,005bfc40,Request_To_Join,1124,b,parked,10,main's body equals the adopted one; the compiler merges the five error returns into one tail where the original keeps each (no source form found in the time box)
+wstring,(guarded draft),small-diff unguard,0,tooling,yes,1,unguard.py --small 16: a draft guarded before its bindings were learned is exact now
+team,(guarded draft),small-diff unguard,0,tooling,yes,1,as above
+techno,(guarded draft),small-diff unguard,0,tooling,yes,1,as above

@@ -305,13 +305,11 @@ unsigned int Build_Number(void)
 	return(*(unsigned int*)(&BuildNumber[28]));
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 char *Build_By_String(char * buffer, int buflen)
 {
 	strncpy(buffer, &BuildNumber[32], 32);
 	return(buffer);
 }
-#endif
 
 char *Build_By_Initials(char * buffer, int buflen)
 {

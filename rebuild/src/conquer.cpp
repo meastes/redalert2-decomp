@@ -63,6 +63,8 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
+#include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "geometry.h"
 
 #include "conquer.h"
 
@@ -337,6 +339,7 @@ void Ingame_Menu_Dialog(void)
  * HISTORY:                                                                                    *
  *   10/01/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
+// Inline assembly as the author wrote it: TibSun conquer.cpp:346
 void Main_Game(int argc, char * argv[])
 {
 	static bool fade = true;

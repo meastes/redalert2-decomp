@@ -1239,13 +1239,11 @@ char WideWstring::removeChar(wchar_t c) // RA2: as above
 /// <summary>
 /// RA2: Removes the spaces and tabs.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 11 bytes differ (adopted text)
 void WideWstring::removeSpaces(void) // RA2: as above
 {
 	removeChar(L' '); // RA2: as above
 	removeChar(L'\t'); // RA2: as above
 }
-#endif
 
 
 /// <summary>

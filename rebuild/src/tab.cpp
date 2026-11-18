@@ -757,13 +757,11 @@ void TabClass::Flash_Money(void)	// RA2: flags the bar and restarts the flash ti
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: 1 bytes differ (adopted text)
 void TabClass::Redraw_Tab(void)	// RA2: out-of-line copy of the inline
 {
 	IsToRedraw = true;	// RA2: as above
 	Flag_To_Redraw();	// RA2: as above
 }
-#endif
 
 
 

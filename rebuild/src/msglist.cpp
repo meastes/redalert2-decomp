@@ -764,22 +764,17 @@ int MessageListClass::Manage(void) // RA2: Manage at 0x5B5610 matches only so
  * HISTORY:                                                                *
  *   05/05/1995 BRR : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1032 bytes differ (adopted text)
 int MessageListClass::Input(KeyNumType &input, wchar_t definput) // RA2: YR's wide-text form
 {
 	int retcode = 0;
-	int ascii;
-	int numchars;
-	BitFont * font;
-	int width;
 
 	if (definput == 0) {
 		if (input == KN_NONE) {
 			return(0);
 		}
 
-		if ((input & (~KN_RLSE_BIT)) == KN_LMOUSE ||
-			(input & (~KN_RLSE_BIT)) == KN_RMOUSE) {
+		int button = input & ~KN_RLSE_BIT;
+		if (button == KN_LMOUSE || button == KN_RMOUSE) {
 			if ((input & 2) && IsEdit) {
 				Remove_Edit();
 				return(2);
@@ -789,24 +784,22 @@ int MessageListClass::Input(KeyNumType &input, wchar_t definput) // RA2: YR's wi
 	}
 
 	if (IsEdit) {
+		int ascii;
 		if (definput == 0) {
-			ascii = Keyboard->To_ASCII(input) & 0x00ff;
+			ascii = Keyboard->To_Char((unsigned short)input) & 0x00ff;
 
 			if ((input & WWKEY_VK_BIT) && ascii >= '0' && ascii <= '9') {
 				input = (KeyNumType)(input & ~WWKEY_VK_BIT);
-			} else {
-				if ((!(input & WWKEY_VK_BIT) && !(input & KN_BUTTON) && ascii >= ' ')
+			} else if ((!(input & WWKEY_VK_BIT) && !(input & KN_BUTTON) && ascii >= ' ')
 					|| (input & 0xff) == (KN_RETURN & 0xff)
 					|| (input & 0xff) == (KN_BACKSPACE & 0xff)
-					|| (input & 0xff) == (KN_ESC & 0xff)
-					|| (char)ascii == 8) {
-				} else {
-					input = KN_NONE;
-					return(0);
-				}
+					|| (input & 0xff) == (KN_ESC & 0xff)) {
+			} else {
+				input = KN_NONE;
+				return(0);
 			}
 		} else {
-			ascii = definput & 0xffff;
+			ascii = definput;
 		}
 
 		switch (ascii) {
@@ -820,7 +813,7 @@ int MessageListClass::Input(KeyNumType &input, wchar_t definput) // RA2: YR's wi
 				if (EditCurPos < EditInitPos) {
 					EditCurPos = EditInitPos;
 				}
-				while (EditBuf[EditCurPos] != 0 && (EditCurPos - EditInitPos) < (MaxChars - 1)) {
+				while (EditBuf[EditCurPos] != 0 && EditCurPos - EditInitPos < MaxChars - 1) {
 					EditCurPos++;
 				}
 				if (EditCurPos == EditInitPos) {
@@ -829,7 +822,7 @@ int MessageListClass::Input(KeyNumType &input, wchar_t definput) // RA2: YR's wi
 					input = KN_NONE;
 					break;
 				}
-				if ((EditCurPos - EditInitPos) < (MaxChars - 1)) {
+				if (EditCurPos - EditInitPos < MaxChars - 1) {
 					EditBuf[EditCurPos] = ' ';
 					EditCurPos++;
 					EditBuf[EditCurPos] = 0;
@@ -840,12 +833,10 @@ int MessageListClass::Input(KeyNumType &input, wchar_t definput) // RA2: YR's wi
 				break;
 
 			case KA_BACKSPACE & 0xff:
-				if (input != 8) {
-					if (EditCurPos > EditInitPos) {
-						EditCurPos--;
-						EditBuf[EditCurPos] = 0;
-						retcode = 2;
-					}
+				if (EditCurPos > EditInitPos) {
+					EditCurPos--;
+					EditBuf[EditCurPos] = 0;
+					retcode = 2;
 				}
 				input = KN_NONE;
 				EditLabel->Set_Focus();
@@ -854,42 +845,43 @@ int MessageListClass::Input(KeyNumType &input, wchar_t definput) // RA2: YR's wi
 			default:
 				EditLabel->Set_Focus();
 				if (ascii > 0x1f && ascii < 0x10000) {
-					while (EditBuf[EditCurPos] != 0 && (EditCurPos - EditInitPos) < (MaxChars - 1)) {
+					bool overflow = false;
+					while (EditBuf[EditCurPos] != 0 && EditCurPos - EditInitPos < MaxChars - 1) {
 						EditCurPos++;
 					}
-					if ((EditCurPos - EditInitPos) < (MaxChars - 1)) {
+					if (EditCurPos - EditInitPos < MaxChars - 1) {
 						EditBuf[EditCurPos] = (wchar_t)ascii;
 						EditCurPos++;
 						EditBuf[EditCurPos] = 0;
 						retcode = 1;
-						font = Font_From_TPF(EditLabel->Style);
-						width = font->String_Pixel_Width(EditBuf, 0);
-						if (width < Width - 10) {
-							goto key_done;
+						BitFont * font = Font_From_TPF(EditLabel->Style);
+						if (font->String_Pixel_Width(EditBuf, 0) >= Width - 10) {
+							EditCurPos--;
+							EditBuf[EditCurPos] = 0;
+							overflow = true;
 						}
-						EditCurPos--;
-						EditBuf[EditCurPos] = 0;
-					}
-					if (EnableOverflow) {
-						numchars = Trim_Message(OverflowBuf, EditBuf + EditInitPos,
-							OverflowStart, OverflowEnd, 1);
-						EditCurPos -= numchars;
-						EditBuf[EditCurPos] = (wchar_t)ascii;
-						EditCurPos++;
-						EditBuf[EditCurPos] = 0;
-						retcode = 4;
 					} else {
-						retcode = 0;
+						overflow = true;
+					}
+					if (overflow) {
+						if (EnableOverflow) {
+							int numchars = Trim_Message(OverflowBuf, EditBuf + EditInitPos, OverflowStart, OverflowEnd, 1);
+							EditCurPos -= numchars;
+							EditBuf[EditCurPos] = (wchar_t)ascii;
+							EditCurPos++;
+							EditBuf[EditCurPos] = 0;
+							retcode = 4;
+						} else {
+							retcode = 0;
+						}
 					}
 				}
-key_done:
 				input = KN_NONE;
 				break;
 		}
 	}
 	return(retcode);
 }
-#endif
 
 
 /***************************************************************************

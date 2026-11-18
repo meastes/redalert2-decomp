@@ -58,6 +58,7 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
+#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
 
 #include "scenario.h"
 
@@ -268,6 +269,7 @@ ScenarioClass::ScenarioClass(void)
 /// This constructor is used by the load process, which is about to overwrite the object
 /// with the data it reads from the save game stream.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0065b780 has no row)
 ScenarioClass::ScenarioClass(NoInitClass const & x) :
 	ElapsedTimer(x), // RA2: the elapsed timer is left alone (no system timer read for it)
 	MissionTimer(x),
@@ -285,6 +287,7 @@ ScenarioClass::ScenarioClass(NoInitClass const & x) :
 		MissionTimerTextCSF = L""; // RA2: as above
 	}
 }
+#endif
 
 
 /// <summary>
@@ -1456,7 +1459,6 @@ void Clear_Scenario(void)
  *   08/05/1992 JLB : Created.                                                                 *
  *   01/01/1995 JLB : Carries money forward into next scenario.                                *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 485 bytes differ (adopted text)
 void Do_Win(void)
 {
 	if (Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH && !Session.Play) { // RA2: the queue is drained and the connections closed
@@ -1498,8 +1500,8 @@ void Do_Win(void)
 	/*
 	**	Stop here if this is a multiplayer game.
 	*/
-	bool next = false; // RA2: the game mode may ask for another round
 	if (Session.Type != GAME_NORMAL) {
+		bool next = false;
 		/*
 		**	If this is a multiplayer game, clear the game's name so we won't respond
 		**	to game queries any more (in Call_Back)
@@ -1668,7 +1670,6 @@ void Do_Win(void)
 	Map.Render();
 	Set_Palette(GamePalette, FADE_PALETTE_FAST, Call_Back);
 }
-#endif
 
 
 

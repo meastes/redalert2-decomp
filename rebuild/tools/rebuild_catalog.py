@@ -51,11 +51,16 @@ def write():
         held = info.get('build_refused')
         if held and held.get('source_sha256') == last['source_sha256']:
             refused.append('%s: whole-file build refused: %s' % (unit, held['reason'][:100])); continue
-        # A unit with inline assembly needs the evidenced-asm flag and citation per row (main's rule);
-        # the rebuild catalog does not carry those yet, so such units stay pending.
+        # A unit with inline assembly carries main's evidenced-asm flag and TibSun citations on the rows
+        # main flagged (main's rule, user 2026-11-07); the whole-file build's audit checks each block
+        # against the cited archive lines and refuses a block no flagged row accounts for (lane R4).
         from canonical import inline_asm_blocks
-        if inline_asm_blocks(source.read_text(errors='replace')):
-            refused.append('%s: inline assembly (evidence flags not carried yet)' % unit); continue
+        has_asm = bool(inline_asm_blocks(source.read_text(errors='replace')))
+        import guard, re as _re
+        source_text = source.read_text(errors='replace')
+        def defined_here(sym):
+            name = guard.demangle(sym)
+            return bool(name) and bool(_re.search(r'^(?![ \t#/])[^\n;{}]*?(?<![\w:])%s\s*\(' % _re.escape(name), source_text, _re.M))
         results = {r['entry']: r for r in last['results']}
         exact = [row for row in info['rows'] if results.get(row['entry'], {}).get('status') == 'exact']
         # A row frozen in a closed compiler-output population (main's A14 array-construction
@@ -126,9 +131,11 @@ def write():
             continue
         pid = 'rebuild-' + unit.replace('_', '-')
         homes = {}
+        # A row padded from the aligned split of its own pass is bound there (rebuild.aligned_gap_after).
+        bound_of = lambda row, main: row.get('gap_population') or main.get('bound_population', main['population'])
         for row in exact:
             main = by_entry[int(row['entry'], 16)]
-            own = main.get('bound_population', main['population'])
+            own = bound_of(row, main)
             homes[own] = homes.get(own, 0) + row['body']
         home = max(homes, key=homes.get)
         pops.append(dict(id=pid, inventory_sha256=populations[home]['inventory_sha256'],
@@ -141,8 +148,10 @@ def write():
         for row in exact:
             main = by_entry[int(row['entry'], 16)]
             result = results[row['entry']]
-            own = main.get('bound_population', main['population'])
+            own = bound_of(row, main)
             region = {k: main[k] for k in KEEP if k in main}
+            if has_asm and main.get('inline_asm') and defined_here(result['symbol']):     # not a header template
+                region.update(inline_asm=main['inline_asm'], inline_asm_citation=main['inline_asm_citation'])
             if row.get('gap_padding'):
                 # Padding from the gap row of the row's own frozen pass (rebuild.gap_after): the
                 # extent grows by that gap; bound and body stay main's (lane R3).

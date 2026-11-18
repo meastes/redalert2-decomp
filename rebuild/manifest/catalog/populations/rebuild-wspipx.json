@@ -1,0 +1,1735 @@
+{
+  "id": "rebuild-wspipx",
+  "population": {
+    "id": "rebuild-wspipx",
+    "inventory_sha256": "15613b4cefd3aafed53b02b1ccab81ea520f402e648410ff49f31522d62a33c8",
+    "gaps_sha256": "c9768c17275e90ac5d8788ae2f12b4f488a78793bfc9becad3524384f1dc525a",
+    "historical_population_sha256": "7562602d3a69495ea4f3b8804a7238c09b8efe27fa3a682c4a4595982bcf0624",
+    "historical_acceptance_sha256": "1eeff9314729f42be9a692060a6f637001d89af244ce04c2fc413e421d7fd587"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11709904,
+    "_ISO_TILE_SIZE": 8059384,
+    "_LEPTONS_PER_PIXEL": 11709976,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11709960,
+    "_ONE_RAD": 8059392,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11709952,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11709912,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11709888,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11709984,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11709920,
+    "_CELL_DIAG_SLOPE_ANGLE": 11709944,
+    "_BRIDGE_LEPTON_HEIGHT": 11709968,
+    "_CELL_NONE": 11709896,
+    "_COORD_NONE": 11709928,
+    "??0WinsockInterfaceClass@@QAE@XZ": 7777408,
+    "??_7IPXInterfaceClass@@6B@": 8059404,
+    "_socket@12": 7871394,
+    "_bind@12": 7871388,
+    "_closesocket@4": 7871382,
+    "?WinVersion@@3VWindowsVersionInfo@@A": 8625088,
+    "_getsockopt@20": 7871376,
+    "_WSAGetLastError@0": 7871358,
+    "??_C@_0DP@NINP@getsockopt?5with?5IPX_MAX_ADAPTER_@": 8390312,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "??_C@_0DH@OHHB@Skipping?5IPX_MAX_ADAPTER_NUM?5cal@": 8390256,
+    "??_C@_0DH@ILJM@Failed?5to?5get?5address?5of?5net?5car@": 8390200,
+    "?Get_Network_Card_Address@IPXInterfaceClass@@QAEHHPAUsockaddr_ipx@@@Z": 7774384,
+    "??_C@_0CM@FMKG@?$DP?$DP?5?$DP?$DP?5?$DP?$DP?5?$DP?$DP?5?3?5?$CF02x?5?$CF02x?5?$CF02x?5?$CF02@": 8390428,
+    "_sprintf": 7872756,
+    "??_C@_0DE@KIIG@?$CF02x?5?$CF02x?5?$CF02x?5?$CF02x?5?3?5?$CF02x?5?$CF02x?5@": 8390376,
+    "?Init@WinsockInterfaceClass@@QAE_NXZ": 7778464,
+    "??_C@_0BL@NOPM@IPX?5Socket?5number?5is?5?$CF04x?6?$AA@": 8391284,
+    "_htons@4": 7871340,
+    "??_C@_0BP@MCGK@About?5to?5create?5an?5IPX?5socket?6?$AA@": 8391252,
+    "??_C@_0CO@CAHB@Failed?5to?5create?5IPX?5socket?5?9?5er@": 8391204,
+    "??_C@_0BH@JPCJ@IPX?5Socket?5created?5OK?6?$AA@": 8391180,
+    "??_C@_0DA@JCLO@IPX?5Error?5?9?5failed?5to?5get?5the?5ne@": 8391132,
+    "??_C@_0EN@GFPN@IPX?5net?5card?5address?5is?5?$CF02x?5?$CF02@": 8391052,
+    "??_C@_0BK@LBDI@About?5to?5bind?5IPX?5Socket?6?$AA@": 8391024,
+    "??_C@_0CM@NLLH@IPX?5socket?5bind?5failed?5with?5erro@": 8390980,
+    "??_C@_0BF@MGHL@IPX?5Socket?5bound?5OK?6?$AA@": 8390956,
+    "??_C@_0CN@HLGH@About?5to?5set?5IPX?5socket?5option?5S@": 8390908,
+    "_setsockopt@20": 7871400,
+    "??_C@_0DP@CFAP@Failed?5to?5set?5IPX?5socket?5option?5@": 8390844,
+    "??_C@_0CH@GKND@IPX?5socket?5option?5SO_BROADCAST?5s@": 8390804,
+    "??_C@_0CK@ENFD@About?5to?5set?5IPX?5socket?5option?5I@": 8390760,
+    "??_C@_0DO@PCDK@Failed?5to?5set?5IPX?5protocol?5optio@": 8390696,
+    "??_C@_0CE@KDHJ@IPX?5socket?5option?5IPX_PTYPE?5set?5@": 8390660,
+    "??_C@_0CP@IIEI@About?5to?5set?5IPX?5socket?5option?5I@": 8390612,
+    "??_C@_0ED@FGHK@Failed?5to?5set?5IPX?5protocol?5optio@": 8390544,
+    "??_C@_0CJ@BNMM@IPX?5socket?5option?5IPX_FILTERTYPE@": 8390500,
+    "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z": 7780592,
+    "??_C@_0BK@NJKP@IPX?5Socket?5init?5complete?6?$AA@": 8390472,
+    "?Get_Address@IPXAddressClass@@QAEXQAE0@Z": 5387520,
+    "_sendto@24": 7871412,
+    "??3@YAXPAX@Z": 7871803,
+    "_recvfrom@24": 7871406,
+    "?Get_Packet_Loss_Percent@@YAHXZ": 7780848,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "?Get_New_In_Buffer@WinsockInterfaceClass@@IAEPAXXZ": 7779584,
+    "??_C@_0CA@CMFA@Throwing?5away?5malformed?5packet?6?$AA@": 8391312,
+    "?IsMalformedIPXPacketReported@@3_NA": 11709988,
+    "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z": 5387392,
+    "_$E2": 7773856,
+    "_$E5": 7773904,
+    "_$E8": 7773936,
+    "_$E11": 7773968,
+    "_$E14": 7774000,
+    "_$E17": 7774032,
+    "_$E20": 7774064,
+    "_$E23": 7774128,
+    "_$E26": 7774176,
+    "_$E29": 7774224,
+    "_$E32": 7774272,
+    "_$E35": 7774288,
+    "??0IPXInterfaceClass@@QAE@XZ": 7774320,
+    "?Passes_CRC_Check@WinsockInterfaceClass@@MAE_NPAUWinsockBufferType@1@@Z": 7779088,
+    "?Build_Packet_CRC@WinsockInterfaceClass@@MAEXPAUWinsockBufferType@1@@Z": 7778960,
+    "?Get_Host_Name@WinsockInterfaceClass@@UAE_NPADH@Z": 7780752,
+    "?Clear_Socket_Error@WinsockInterfaceClass@@UAEXI@Z": 7780512,
+    "?Stop_Listening@WinsockInterfaceClass@@UAEXXZ": 7778064,
+    "?Start_Listening@WinsockInterfaceClass@@UAE_NXZ": 7777920,
+    "?Discard_Out_Buffers@WinsockInterfaceClass@@UAEXXZ": 7778256,
+    "?Discard_In_Buffers@WinsockInterfaceClass@@UAEXXZ": 7778144,
+    "?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z": 7780256,
+    "?WriteTo@WinsockInterfaceClass@@UAEXPAXH0H_N1G@Z": 7779952,
+    "?Read@WinsockInterfaceClass@@UAEHPAXAAH01AAG@Z": 7779744,
+    "?Close_Socket@WinsockInterfaceClass@@UAEXXZ": 7777856,
+    "??_GIPXInterfaceClass@@UAEPAXI@Z": 7776880,
+    "??_R0?AVWinsockInterfaceClass@@@8": 8390128,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVIPXInterfaceClass@@@8": 8390168,
+    "?Set_Broadcast_Address@WinsockInterfaceClass@@UAEXPBDG@Z": 7776768,
+    "?Clear_Broadcast_Addresses@WinsockInterfaceClass@@UAEXXZ": 7776784,
+    "?Get_Num_Local_Addresses@WinsockInterfaceClass@@UAEHXZ": 7776800,
+    "?Get_Local_Address@WinsockInterfaceClass@@UAEPAEH@Z": 7776816,
+    "?Set_NetCard@WinsockInterfaceClass@@UAEXH@Z": 7776832,
+    "?Get_Protocol@IPXInterfaceClass@@UAE?AW4ProtocolEnum@@XZ": 7776848,
+    "?Protocol_Event_Message@IPXInterfaceClass@@UAEHI@Z": 7776864,
+    "??1WinsockInterfaceClass@@UAE@XZ": 7777648,
+    "?Get_Network_Card_Address_As_String@IPXInterfaceClass@@QAEHHPADH@Z": 7774768,
+    "?Open_Socket@IPXInterfaceClass@@UAE_NI@Z": 7775136,
+    "?Message_Handler@IPXInterfaceClass@@UAEHPAUHWND__@@IIJ@Z": 7775920
+  },
+  "regions": [
+    {
+      "entry": 7773856,
+      "method": "00769ea0",
+      "body_bytes": 40,
+      "body_sha256": "15f88d369fdf1a88541e0db0151826e7d1cf9d8adccf8aa93897fe5cf2225805",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d94119247cb07a3471b8d3954997cda63c1a310a982682f4bf46d30622144ba2",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 99071
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292150610
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11709904,
+          "addend": 0,
+          "resolved": 11709904
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7773856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7773904,
+      "method": "00769ed0",
+      "body_bytes": 19,
+      "body_sha256": "b2fc2854c7b19b06109adca3fbe94fae95b98b681962cd66e5db6f035a65ac9d",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8127013f8c465ff83ecf44b02bfb2d2b21595e12a8769817ffdb45821081d571",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11709904,
+          "addend": 0,
+          "resolved": 11709904
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8059384,
+          "addend": 0,
+          "resolved": 8059384
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11709976,
+          "addend": 0,
+          "resolved": 11709976
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7773904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7773936,
+      "method": "00769ef0",
+      "body_bytes": 19,
+      "body_sha256": "3f653b0e4b86b47ea204cf21e3ca913f98fdbc76596e31e5b618fcaea02b56ec",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ad0e87e1e6edf7878004793feeb245c8fc64243f72c80d69b674f8c5232ffe75",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11709976,
+          "addend": 0,
+          "resolved": 11709976
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11709960,
+          "addend": 0,
+          "resolved": 11709960
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7773936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7773968,
+      "method": "00769f10",
+      "body_bytes": 19,
+      "body_sha256": "107b0da276ca5b32ec6227c3310d77afa00038b93aa925fba5a2e3fc8b4fa26d",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "082f6396158f5bf45e9b0f84b842a2e061319f3691869dd990835b746e32f692",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8059392,
+          "addend": 0,
+          "resolved": 8059392
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11709952,
+          "addend": 0,
+          "resolved": 11709952
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7773968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774000,
+      "method": "00769f30",
+      "body_bytes": 19,
+      "body_sha256": "f643ea858f35483a7c1357c10813024b9ed3f3a846eeb5e7ec23857da6287ef7",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3f8fe15923afd4eb196057a3bad8c8f131d2c909b58483bddcc9fc9d2c51eebd",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8059392,
+          "addend": 0,
+          "resolved": 8059392
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11709912,
+          "addend": 0,
+          "resolved": 11709912
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774032,
+      "method": "00769f50",
+      "body_bytes": 19,
+      "body_sha256": "f41209121528f9e73abc32752e35010c8ac4541ccc4251f37ea3913a468f44b8",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "19363d9f3fe841590644ecb3cb711d35ad5b3663cfd1f8648c75b9c195dc0026",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8059392,
+          "addend": 0,
+          "resolved": 8059392
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11709888,
+          "addend": 0,
+          "resolved": 11709888
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774064,
+      "method": "00769f70",
+      "body_bytes": 49,
+      "body_sha256": "39ce22d0283d63a199fff97b2be9f933b6f24868768506240938dd24d90847b8",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ba37d50998a73b670275f0440f4f84aadcadef541cf7210242ebd04abe343057",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11709888,
+          "addend": 0,
+          "resolved": 11709888
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11709912,
+          "addend": 0,
+          "resolved": 11709912
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292150681
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11709904,
+          "addend": 0,
+          "resolved": 11709904
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 86389
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11709984,
+          "addend": 0,
+          "resolved": 11709984
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774128,
+      "method": "00769fb0",
+      "body_bytes": 33,
+      "body_sha256": "2b2549073682ae0632c73cb1121fbc4d5d112ba8c2be8a26d7e3f1f906a755ca",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8e4e337e70bb1418a6d2969aada2fa6ab4b39c2439591348b3612b8be57716d3",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11709984,
+          "addend": 0,
+          "resolved": 11709984
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292150761
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11709920,
+          "addend": 0,
+          "resolved": 11709920
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774176,
+      "method": "00769fe0",
+      "body_bytes": 44,
+      "body_sha256": "75b42c4a76e2b4ce768af8cc10ad7e30b2ff6cfce6b1f2b189ab9597deae61eb",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3468f2bef50b0ca7ec6f1744f0cb77ab53d113814c633b7136f4d0d1984ea1f6",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11709984,
+          "addend": 0,
+          "resolved": 11709984
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11709904,
+          "addend": 0,
+          "resolved": 11709904
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292150702
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11709944,
+          "addend": 0,
+          "resolved": 11709944
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774224,
+      "method": "0076a010",
+      "body_bytes": 39,
+      "body_sha256": "c0131d23d8e6ccffb74f83446410250385e92eef267f6834867da6c6e045f28d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6d0629626536df34cfeb6781d8655e78c35b8565cc4e698ff61b9904ae8a85ef",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11709984,
+          "addend": 0,
+          "resolved": 11709984
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 86240
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11709968,
+          "addend": 0,
+          "resolved": 11709968
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774272,
+      "method": "0076a040",
+      "body_bytes": 15,
+      "body_sha256": "f2cf3c7204f062d8e88e5ccc3abd121ed8169d2c1a56cb9e39faec78e7c80ce4",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3779b20df721af3629f4d2950095ada69db6c78a87c4850b4916354f671526fb",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11709896,
+          "addend": 0,
+          "resolved": 11709896
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11709896,
+          "addend": 2,
+          "resolved": 11709898
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774288,
+      "method": "0076a050",
+      "body_bytes": 18,
+      "body_sha256": "9303892f428ab7c19ea17369c62f67ded90e7146a585827dab6e40cc31cbc5b2",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "759f66339b42ea36de70c651061f9c04ed96c3999c4039476ab9edb15166ee22",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11709928,
+          "addend": 0,
+          "resolved": 11709928
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11709928,
+          "addend": 4,
+          "resolved": 11709932
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11709928,
+          "addend": 8,
+          "resolved": 11709936
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774320,
+      "method": "0076a070",
+      "body_bytes": 64,
+      "body_sha256": "502e831ef85894e41b13ec0cbddec1817631e46e4fbb0f0eedb18aa762bd76a8",
+      "padding_bytes": 0,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "502e831ef85894e41b13ec0cbddec1817631e46e4fbb0f0eedb18aa762bd76a8",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0IPXInterfaceClass@@QAE@XZ",
+      "symbol_prefix": "??0IPXInterfaceClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0WinsockInterfaceClass@@QAE@XZ",
+          "target": 7777408,
+          "addend": 0,
+          "resolved": 3080
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7IPXInterfaceClass@@6B@",
+          "target": 8059404,
+          "addend": 0,
+          "resolved": 8059404
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774384,
+      "method": "0076a0b0",
+      "body_bytes": 380,
+      "body_sha256": "d2faecc1397e527300b694c71cb0bbfbbcddab9791380a883a5981351ccc89e7",
+      "padding_bytes": 4,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "0ef4aae9bb320e291d4a00bade93f3e8261b643b556cb8737bb447f612923ef8",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Network_Card_Address@IPXInterfaceClass@@QAEHHPAUsockaddr_ipx@@@Z",
+      "symbol_prefix": "?Get_Network_Card_Address@IPXInterfaceClass@@QAEHHPAUsockaddr_ipx@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_socket@12",
+          "target": 7871394,
+          "addend": 0,
+          "resolved": 96988
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "_bind@12",
+          "target": 7871388,
+          "addend": 0,
+          "resolved": 96925
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 96908
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?WinVersion@@3VWindowsVersionInfo@@A",
+          "target": 8625088,
+          "addend": 140,
+          "resolved": 8625228
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?WinVersion@@3VWindowsVersionInfo@@A",
+          "target": 8625088,
+          "addend": 0,
+          "resolved": 8625088
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?WinVersion@@3VWindowsVersionInfo@@A",
+          "target": 8625088,
+          "addend": 4,
+          "resolved": 8625092
+        },
+        {
+          "offset": 171,
+          "kind": 20,
+          "symbol": "_getsockopt@20",
+          "target": 7871376,
+          "addend": 0,
+          "resolved": 96817
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 96773
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "??_C@_0DP@NINP@getsockopt?5with?5IPX_MAX_ADAPTER_@",
+          "target": 8390312,
+          "addend": 0,
+          "resolved": 8390312
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291413868
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "??_C@_0DH@OHHB@Skipping?5IPX_MAX_ADAPTER_NUM?5cal@",
+          "target": 8390256,
+          "addend": 0,
+          "resolved": 8390256
+        },
+        {
+          "offset": 223,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291413853
+        },
+        {
+          "offset": 278,
+          "kind": 20,
+          "symbol": "_getsockopt@20",
+          "target": 7871376,
+          "addend": 0,
+          "resolved": 96710
+        },
+        {
+          "offset": 289,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 96681
+        },
+        {
+          "offset": 296,
+          "kind": 6,
+          "symbol": "??_C@_0DH@ILJM@Failed?5to?5get?5address?5of?5net?5car@",
+          "target": 8390200,
+          "addend": 0,
+          "resolved": 8390200
+        },
+        {
+          "offset": 301,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291413775
+        },
+        {
+          "offset": 310,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 96684
+        },
+        {
+          "offset": 362,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 96632
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7774768,
+      "method": "0076a230",
+      "body_bytes": 364,
+      "body_sha256": "3f2dd2054d13f0ba4a5b8ce1334cec3516da53741ce547280878a095d862e6b3",
+      "padding_bytes": 4,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "ed93beb5dff180cb09616c48e07c6b5f230d5e159ef35b8fc4aa77ed1132dfbb",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Network_Card_Address_As_String@IPXInterfaceClass@@QAEHHPADH@Z",
+      "symbol_prefix": "?Get_Network_Card_Address_As_String@IPXInterfaceClass@@QAEHHPADH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "?Get_Network_Card_Address@IPXInterfaceClass@@QAEHHPAUsockaddr_ipx@@@Z",
+          "target": 7774384,
+          "addend": 0,
+          "resolved": 4294966863
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "??_C@_0CM@FMKG@?$DP?$DP?5?$DP?$DP?5?$DP?$DP?5?$DP?$DP?5?3?5?$CF02x?5?$CF02x?5?$CF02x?5?$CF02@",
+          "target": 8390428,
+          "addend": 0,
+          "resolved": 8390428
+        },
+        {
+          "offset": 139,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 97845
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "??_C@_0DE@KIIG@?$CF02x?5?$CF02x?5?$CF02x?5?$CF02x?5?3?5?$CF02x?5?$CF02x?5@",
+          "target": 8390376,
+          "addend": 0,
+          "resolved": 8390376
+        },
+        {
+          "offset": 266,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 97718
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7774768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7775136,
+      "method": "0076a3a0",
+      "body_bytes": 774,
+      "body_sha256": "26674036f37fadb811b255f5826f0be644408539e37e84fbb673fa2d0c026c22",
+      "padding_bytes": 10,
+      "full_extent_bytes": 784,
+      "full_extent_sha256": "6deeacc15e9052cb74c73f230ddb3b13e7a3e456c8dca150c8b39044d834fe3a",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Open_Socket@IPXInterfaceClass@@UAE_NI@Z",
+      "symbol_prefix": "?Open_Socket@IPXInterfaceClass@@UAE_NI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+          "target": 7778464,
+          "addend": 0,
+          "resolved": 3307
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_C@_0BL@NOPM@IPX?5Socket?5number?5is?5?$CF04x?6?$AA@",
+          "target": 8391284,
+          "addend": 0,
+          "resolved": 8391284
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291413256
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 96096
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "??_C@_0BP@MCGK@About?5to?5create?5an?5IPX?5socket?6?$AA@",
+          "target": 8391252,
+          "addend": 0,
+          "resolved": 8391252
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291413205
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "_socket@12",
+          "target": 7871394,
+          "addend": 0,
+          "resolved": 96118
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 96065
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "??_C@_0CO@CAHB@Failed?5to?5create?5IPX?5socket?5?9?5er@",
+          "target": 8391204,
+          "addend": 0,
+          "resolved": 8391204
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291413160
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 96063
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "??_C@_0BH@JPCJ@IPX?5Socket?5created?5OK?6?$AA@",
+          "target": 8391180,
+          "addend": 0,
+          "resolved": 8391180
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291413126
+        },
+        {
+          "offset": 220,
+          "kind": 20,
+          "symbol": "?Get_Network_Card_Address@IPXInterfaceClass@@QAEHHPAUsockaddr_ipx@@@Z",
+          "target": 7774384,
+          "addend": 0,
+          "resolved": 4294966320
+        },
+        {
+          "offset": 229,
+          "kind": 6,
+          "symbol": "??_C@_0DA@JCLO@IPX?5Error?5?9?5failed?5to?5get?5the?5ne@",
+          "target": 8391132,
+          "addend": 0,
+          "resolved": 8391132
+        },
+        {
+          "offset": 234,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291413090
+        },
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 95993
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "??_C@_0EN@GFPN@IPX?5net?5card?5address?5is?5?$CF02x?5?$CF02@",
+          "target": 8391052,
+          "addend": 0,
+          "resolved": 8391052
+        },
+        {
+          "offset": 375,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412949
+        },
+        {
+          "offset": 395,
+          "kind": 6,
+          "symbol": "??_C@_0BK@LBDI@About?5to?5bind?5IPX?5Socket?6?$AA@",
+          "target": 8391024,
+          "addend": 0,
+          "resolved": 8391024
+        },
+        {
+          "offset": 406,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412918
+        },
+        {
+          "offset": 428,
+          "kind": 20,
+          "symbol": "_bind@12",
+          "target": 7871388,
+          "addend": 0,
+          "resolved": 95820
+        },
+        {
+          "offset": 438,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 95780
+        },
+        {
+          "offset": 444,
+          "kind": 6,
+          "symbol": "??_C@_0CM@NLLH@IPX?5socket?5bind?5failed?5with?5erro@",
+          "target": 8390980,
+          "addend": 0,
+          "resolved": 8390980
+        },
+        {
+          "offset": 449,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412875
+        },
+        {
+          "offset": 464,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 95778
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "??_C@_0BF@MGHL@IPX?5Socket?5bound?5OK?6?$AA@",
+          "target": 8390956,
+          "addend": 0,
+          "resolved": 8390956
+        },
+        {
+          "offset": 483,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412841
+        },
+        {
+          "offset": 488,
+          "kind": 6,
+          "symbol": "??_C@_0CN@HLGH@About?5to?5set?5IPX?5socket?5option?5S@",
+          "target": 8390908,
+          "addend": 0,
+          "resolved": 8390908
+        },
+        {
+          "offset": 509,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412815
+        },
+        {
+          "offset": 538,
+          "kind": 20,
+          "symbol": "_setsockopt@20",
+          "target": 7871400,
+          "addend": 0,
+          "resolved": 95722
+        },
+        {
+          "offset": 548,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 95670
+        },
+        {
+          "offset": 554,
+          "kind": 6,
+          "symbol": "??_C@_0DP@CFAP@Failed?5to?5set?5IPX?5socket?5option?5@",
+          "target": 8390844,
+          "addend": 0,
+          "resolved": 8390844
+        },
+        {
+          "offset": 559,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412765
+        },
+        {
+          "offset": 569,
+          "kind": 6,
+          "symbol": "??_C@_0CH@GKND@IPX?5socket?5option?5SO_BROADCAST?5s@",
+          "target": 8390804,
+          "addend": 0,
+          "resolved": 8390804
+        },
+        {
+          "offset": 574,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412750
+        },
+        {
+          "offset": 582,
+          "kind": 6,
+          "symbol": "??_C@_0CK@ENFD@About?5to?5set?5IPX?5socket?5option?5I@",
+          "target": 8390760,
+          "addend": 0,
+          "resolved": 8390760
+        },
+        {
+          "offset": 587,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412737
+        },
+        {
+          "offset": 619,
+          "kind": 20,
+          "symbol": "_setsockopt@20",
+          "target": 7871400,
+          "addend": 0,
+          "resolved": 95641
+        },
+        {
+          "offset": 629,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 95589
+        },
+        {
+          "offset": 635,
+          "kind": 6,
+          "symbol": "??_C@_0DO@PCDK@Failed?5to?5set?5IPX?5protocol?5optio@",
+          "target": 8390696,
+          "addend": 0,
+          "resolved": 8390696
+        },
+        {
+          "offset": 640,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412684
+        },
+        {
+          "offset": 650,
+          "kind": 6,
+          "symbol": "??_C@_0CE@KDHJ@IPX?5socket?5option?5IPX_PTYPE?5set?5@",
+          "target": 8390660,
+          "addend": 0,
+          "resolved": 8390660
+        },
+        {
+          "offset": 655,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412669
+        },
+        {
+          "offset": 663,
+          "kind": 6,
+          "symbol": "??_C@_0CP@IIEI@About?5to?5set?5IPX?5socket?5option?5I@",
+          "target": 8390612,
+          "addend": 0,
+          "resolved": 8390612
+        },
+        {
+          "offset": 668,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412656
+        },
+        {
+          "offset": 700,
+          "kind": 20,
+          "symbol": "_setsockopt@20",
+          "target": 7871400,
+          "addend": 0,
+          "resolved": 95560
+        },
+        {
+          "offset": 710,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 95508
+        },
+        {
+          "offset": 716,
+          "kind": 6,
+          "symbol": "??_C@_0ED@FGHK@Failed?5to?5set?5IPX?5protocol?5optio@",
+          "target": 8390544,
+          "addend": 0,
+          "resolved": 8390544
+        },
+        {
+          "offset": 721,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412603
+        },
+        {
+          "offset": 731,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@BNMM@IPX?5socket?5option?5IPX_FILTERTYPE@",
+          "target": 8390500,
+          "addend": 0,
+          "resolved": 8390500
+        },
+        {
+          "offset": 736,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412588
+        },
+        {
+          "offset": 748,
+          "kind": 20,
+          "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+          "target": 7780592,
+          "addend": 0,
+          "resolved": 4704
+        },
+        {
+          "offset": 753,
+          "kind": 6,
+          "symbol": "??_C@_0BK@NJKP@IPX?5Socket?5init?5complete?6?$AA@",
+          "target": 8390472,
+          "addend": 0,
+          "resolved": 8390472
+        },
+        {
+          "offset": 758,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291412566
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7775136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7775920,
+      "method": "0076a6b0",
+      "body_bytes": 848,
+      "body_sha256": "c77b0ca3a0abb8376e543993878905ad87174b231b0850668275a4469fbd725b",
+      "padding_bytes": 0,
+      "full_extent_bytes": 848,
+      "full_extent_sha256": "c77b0ca3a0abb8376e543993878905ad87174b231b0850668275a4469fbd725b",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Message_Handler@IPXInterfaceClass@@UAEHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Message_Handler@IPXInterfaceClass@@UAEHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "_htons@4",
+          "target": 7871340,
+          "addend": 0,
+          "resolved": 95289
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+          "target": 5387520,
+          "addend": 0,
+          "resolved": 4292578703
+        },
+        {
+          "offset": 247,
+          "kind": 20,
+          "symbol": "_sendto@24",
+          "target": 7871412,
+          "addend": 0,
+          "resolved": 95241
+        },
+        {
+          "offset": 257,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 95177
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 95561
+        },
+        {
+          "offset": 439,
+          "kind": 20,
+          "symbol": "_recvfrom@24",
+          "target": 7871406,
+          "addend": 0,
+          "resolved": 95043
+        },
+        {
+          "offset": 453,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 94981
+        },
+        {
+          "offset": 572,
+          "kind": 20,
+          "symbol": "?Get_Packet_Loss_Percent@@YAHXZ",
+          "target": 7780848,
+          "addend": 0,
+          "resolved": 4352
+        },
+        {
+          "offset": 587,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 592,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293713820
+        },
+        {
+          "offset": 607,
+          "kind": 20,
+          "symbol": "?Get_New_In_Buffer@WinsockInterfaceClass@@IAEPAXXZ",
+          "target": 7779584,
+          "addend": 0,
+          "resolved": 3053
+        },
+        {
+          "offset": 669,
+          "kind": 6,
+          "symbol": "??_C@_0CA@CMFA@Throwing?5away?5malformed?5packet?6?$AA@",
+          "target": 8391312,
+          "addend": 0,
+          "resolved": 8391312
+        },
+        {
+          "offset": 674,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291411866
+        },
+        {
+          "offset": 679,
+          "kind": 6,
+          "symbol": "?IsMalformedIPXPacketReported@@3_NA",
+          "target": 11709988,
+          "addend": 0,
+          "resolved": 11709988
+        },
+        {
+          "offset": 692,
+          "kind": 6,
+          "symbol": "?IsMalformedIPXPacketReported@@3_NA",
+          "target": 11709988,
+          "addend": 0,
+          "resolved": 11709988
+        },
+        {
+          "offset": 706,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 95173
+        },
+        {
+          "offset": 769,
+          "kind": 20,
+          "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+          "target": 5387392,
+          "addend": 0,
+          "resolved": 4292577995
+        }
+      ],
+      "source_sha256": "f99f41b28006b0895c75d39dbff887be81c5a7c91ed5df6df68edb47f6144692",
+      "source": "rebuild/src/wspipx.cpp",
+      "population": "rebuild-wspipx",
+      "source_order": 7775920,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

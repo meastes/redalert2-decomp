@@ -791,6 +791,7 @@ bool XSurface::Put_Pixel_Clip(Point2D const & point, int color, Rect const & rec
  * HISTORY:                                                                                    *
  *   02/07/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
+// Inline assembly as the author wrote it: TibSun xsurface.cpp:806
 bool XSurface::Fill_Rect(Rect const & fillrect, int color)
 {
 	return(XSurface::Fill_Rect(fillrect, Get_Rect(), color));

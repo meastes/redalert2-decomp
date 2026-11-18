@@ -192,6 +192,7 @@ int LCW_Uncomp(void const * source, void * dest, unsigned long )
 /// Renegade guards this body with #ifdef _WINDOWS, which would force retval ahead of the
 /// other locals; that shape is not reproduced here.
 /*ARGSUSED*/
+// Inline assembly as the author wrote it: TibSun lcw.cpp:217, TibSun lcw.cpp:247, TibSun lcw.cpp:253, TibSun lcw.cpp:289, TibSun lcw.cpp:294, TibSun lcw.cpp:321, TibSun lcw.cpp:335, TibSun lcw.cpp:350, TibSun lcw.cpp:360, TibSun lcw.cpp:371, TibSun lcw.cpp:377, TibSun lcw.cpp:383, TibSun lcw.cpp:390, TibSun lcw.cpp:400, TibSun lcw.cpp:408, TibSun lcw.cpp:413, TibSun lcw.cpp:421, TibSun lcw.cpp:428
 int LCW_Comp(void const * source, void * dest, int datasize)
 {
 	int inlen = 0;

@@ -5721,12 +5721,10 @@ bool TechnoClass::Can_Repair(void) const
 /// <summary>
 /// Whether this object's power is on; a plain object has none.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 13 bytes differ (adopted text)
 bool TechnoClass::IsPowerOnline(void) const // RA2: not in TibSun, at 0x6CD6E0
 {
 	return(false);
 }
-#endif
 
 
 /// <summary>

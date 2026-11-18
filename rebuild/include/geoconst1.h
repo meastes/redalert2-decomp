@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Copyright 2026 ra2-decomp contributors
-// RA2: modules including this hold their own copy of these constants; include before globals.h, which defines LEVEL_LEPTON_H after them.
+// RA2: modules including this hold their own copy of these constants; geoconst2.h defines LEVEL_LEPTON_H and the rest after them.
 #pragma once
 
 #include "geozero.h"

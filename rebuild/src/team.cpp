@@ -2999,13 +2999,11 @@ void TeamClass::TMission_WIN(TeamMissionClass * mission, bool)
 /// Handles the lose team mission.
 /// This routine flags the human player as having lost the scenario.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 5 bytes differ (adopted text)
 void TeamClass::TMission_LOSE(TeamMissionClass * mission, bool)
 {
 	PlayerPtr->Flag_To_Lose();
 	IsNextMission = true;
 }
-#endif
 
 
 /// <summary>

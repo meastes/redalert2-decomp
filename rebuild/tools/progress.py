@@ -1,6 +1,6 @@
 """progress.py (written only at a gated landing on rebuild-trial; worker branches do not run it): append one line to rebuild/manifest/progress.csv from the rebuild catalog (rows the
 whole-file build accepts) and provenance.csv (class a/b/c). Bytes are main's frozen extents (body
-and padding). Lane-hours count from the trial's start, 2026-11-17 18:17Z (lane R)."""
+and padding). Lane-hours count from the rebuild's start, 2026-11-17 18:17Z (lane R)."""
 import csv, json, time, datetime
 import rebuild as R, catalog_io
 START = datetime.datetime(2026, 11, 17, 18, 17, tzinfo=datetime.timezone.utc)
