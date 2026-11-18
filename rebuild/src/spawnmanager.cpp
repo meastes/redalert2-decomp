@@ -113,7 +113,6 @@ SpawnManagerClass::~SpawnManagerClass(void)
 /*
 **	Each record moves through its states; then the manager's own state follows the target.
 */
-#ifdef RA2_NON_MATCHING // not exact: control flow and frame match; 69 instruction lines differ (register rotation in the launch and return branches)
 void SpawnManagerClass::AI(void)
 {
 	if (UpdateTimer != 0) return;
@@ -146,8 +145,8 @@ void SpawnManagerClass::AI(void)
 				if (SpawnedNodes[index]->IsMissile == 1) {
 					WeaponTypeClass * weapon = Owner->Get_Class_Weapon_Data(0)->Weapon;
 					if (weapon != NULL && weapon->Burst > 1) {
-						Owner->BurstIndex = index & 1;
 						burst = true;
+						Owner->BurstIndex = index & 1;
 					}
 				}
 
@@ -162,11 +161,10 @@ void SpawnManagerClass::AI(void)
 				if (SpawnedNodes[index]->IsMissile == 1) {
 					UpdateTarget();
 					unit->Assign_Destination(Destination, true);
-					unit->QueueMission(MISSION_MOVE, false);
 				} else {
 					unit->Assign_Destination(&Map[Owner->Get_Cell()].Adjacent_Cell(FACING_N), true);
-					unit->QueueMission(MISSION_MOVE, false);
 				}
+				unit->QueueMission(MISSION_MOVE, false);
 				break;
 			}
 
@@ -185,14 +183,14 @@ void SpawnManagerClass::AI(void)
 			case 2:
 				if (SpawnedNodes[index]->IsMissile == 1) break;
 				UpdateTarget();
-				if (Destination != NULL) {
-					unit->Assign_Destination(&Map[Owner->Get_Cell()].Adjacent_Cell(FACING_S), true);
-					unit->QueueMission(MISSION_MOVE, false);
-				} else {
+				if (Destination == NULL) {
 					unit->Assign_Destination(Owner, true);
 					unit->Assign_Target(NULL);
 					unit->QueueMission(MISSION_MOVE, false);
 					SpawnedNodes[index]->Status = 4;
+				} else {
+					unit->Assign_Destination(&Map[Owner->Get_Cell()].Adjacent_Cell(FACING_S), true);
+					unit->QueueMission(MISSION_MOVE, false);
 				}
 				break;
 
@@ -201,14 +199,14 @@ void SpawnManagerClass::AI(void)
 			*/
 			case 3:
 				UpdateTarget();
-				if (unit->Ammo != 0 && Destination != NULL) {
-					SpawnedNodes[index]->Unit->Assign_Target(Destination);
-					SpawnedNodes[index]->Unit->QueueMission(MISSION_ATTACK, false);
-				} else {
+				if (unit->Ammo == 0 || Destination == NULL) {
 					unit->Assign_Destination(Owner, true);
 					unit->Assign_Target(NULL);
 					unit->QueueMission(MISSION_MOVE, false);
 					SpawnedNodes[index]->Status = 4;
+				} else {
+					SpawnedNodes[index]->Unit->Assign_Target(Destination);
+					SpawnedNodes[index]->Unit->QueueMission(MISSION_ATTACK, false);
 				}
 				break;
 
@@ -342,7 +340,6 @@ void SpawnManagerClass::AI(void)
 		}
 	}
 }
-#endif
 
 
 /*

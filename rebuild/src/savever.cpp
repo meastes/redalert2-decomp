@@ -907,4 +907,3 @@ const WCHAR *Stream_Name_From_ID(int id)
 	return(NULL);
 }
 
-template class _com_ptr_t<_com_IIID<IStream, &__uuidof(IStream)> >;

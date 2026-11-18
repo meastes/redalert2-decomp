@@ -32294,7 +32294,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0069b680",
    "0069c3b0"
@@ -49525,7 +49525,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00509930",
    "0050b480"
@@ -50005,7 +50005,26 @@
    "_RAD_45": "00a41190",
    "_RAD_60": "00a41160",
    "_RAD_90": "00a41138",
-   "_RECT_NONE": "00a41140"
+   "_RECT_NONE": "00a41140",
+   "??_C@_05IDME@Tread?$AA@": "007db0d0",
+   "??_C@_04EJHM@Swim?$AA@": "007db0c8",
+   "??_C@_08PMKB@WetIdle1?$AA@": "007db0bc",
+   "??_C@_08DBI@WetIdle2?$AA@": "007db0b0",
+   "??_C@_07LDCI@WetDie1?$AA@": "007db0a8",
+   "??_C@_07EMJB@WetDie2?$AA@": "007db0a0",
+   "??_C@_09HKDL@WetAttack?$AA@": "007db094",
+   "??_C@_03FJKL@Fly?$AA@": "007d1ac0",
+   "??_C@_06CLGN@Tumble?$AA@": "007db08c",
+   "??_C@_07POCO@FireFly?$AA@": "007db084",
+   "??_C@_08KGJK@Deployed?$AA@": "007db070",
+   "??_C@_0N@OLEG@DeployedFire?$AA@": "007db060",
+   "??_C@_0N@BJJD@DeployedIdle?$AA@": "007db050",
+   "??_C@_08BNOI@Undeploy?$AA@": "007db044",
+   "??_C@_08MIA@Paradrop?$AA@": "007db030",
+   "??_C@_0O@GG@AirDeathStart?$AA@": "007db020",
+   "??_C@_0BA@IJHO@AirDeathFalling?$AA@": "007db010",
+   "??_C@_0P@OHOK@AirDeathFinish?$AA@": "007db000",
+   "??_C@_05LPLJ@Panic?$AA@": "007daff8"
   },
   "partial_ok": true,
   "build_refused": {
@@ -61846,7 +61865,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00659240",
    "0065b2c0"
@@ -120171,7 +120190,7 @@
   "status": "catalogued",
   "range": [
    "00543fe0",
-   "0056a9f0"
+   "0056aa70"
   ],
   "mischa85": "tibsun: functions compiled from src/map.cpp, without gaps; matched except ?Set_Map_Dimensions@MapClass@@UAEXABV?$TRect@H@@_NH1@Z and ?RevealArea1@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z and ?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z and ?Zone_Reset@MapClass@@QAEHXZ and ?Zone_Span@MapClass@@QAEHPAUCellZoneStruct@@HAAH@Z and ?Compute_Zone_Connections@MapClass@@QAEXXZ and ?Repair_Train_Bridge@MapClass@@QAEXABVCell@@@Z and ?Damage_Train_Bridge@MapClass@@AAE_NABVCell@@@Z and ?Repair_Bridge@MapClass@@QAEXABVCell@@@Z and ?Destroy_Bridge2_Near@MapClass@@QAEXABVCell@@@Z and ?Destroy_Low_Bridge_Near@MapClass@@QAEXABVCell@@@Z and ?Damage_High_Bridge@MapClass@@AAE_NABVCell@@@Z and ?Pick_Random_Tile_Variant@MapClass@@QAE_NW4IsometricTileType@@HHHAA_N_N@Z and ?Damage_Low_Bridge_EW@MapClass@@AAE_NABVCell@@@Z and ?Damage_Low_Bridge_NS@MapClass@@AAE_NABVCell@@@Z and ?Damage_Low_Bridge2_EW@MapClass@@AAE_NABVCell@@@Z and ?Damage_Low_Bridge2_NS@MapClass@@AAE_NABVCell@@@Z and ?Collapse_Cliff@MapClass@@QAEXPAVCellClass@@@Z and ?Subzone_Span@MapClass@@QAEHPAUCellSubzoneStruct@@HHABV?$TRect@H@@ABVCell@@@Z and ?Register_Zone_Connection_Entries@MapClass@@QAEXPAUZoneConnectionClass@@H@Z and ?Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVFootClass@@@Z and ?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z and ?Unregister_Subzone_Connection@MapClass@@QAEXPAUZoneConnectionClass@@@Z and ?Register_Subzone_Connection@MapClass@@QAEXPAUZoneConnectionClass@@@Z and ?Region_Threat@MapClass@@QAEHPAVHouseClass@@HHH@Z and ?Can_Repair_Bridge@MapClass@@QAE_NABVCell@@@Z; one placed by the gap; ?Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVFootClass@@@Z and ?Can_Repair_Bridge@MapClass@@QAE_NABVCell@@@Z and ?Collapse_Cliff@MapClass@@QAEXPAVCellClass@@@Z and ?Compute_Zone_Connections@MapClass@@QAEXXZ and ?Damage_High_Bridge@MapClass@@AAE_NABVCell@@@Z and ?Damage_Low_Bridge2_EW@MapClass@@AAE_NABVCell@@@Z and ?Damage_Low_Bridge2_NS@MapClass@@AAE_NABVCell@@@Z and ?Damage_Low_Bridge_EW@MapClass@@AAE_NABVCell@@@Z and ?Damage_Low_Bridge_NS@MapClass@@AAE_NABVCell@@@Z and ?Damage_Train_Bridge@MapClass@@AAE_NABVCell@@@Z and ?Destroy_Bridge2_Near@MapClass@@QAEXABVCell@@@Z and ?Destroy_Low_Bridge_Near@MapClass@@QAEXABVCell@@@Z and ?Pick_Random_Tile_Variant@MapClass@@QAE_NW4IsometricTileType@@HHHAA_N_N@Z and ?Register_Subzone_Connection@MapClass@@QAEXPAUZoneConnectionClass@@@Z and ?Register_Zone_Connection_Entries@MapClass@@QAEXPAUZoneConnectionClass@@H@Z and ?Repair_Bridge@MapClass@@QAEXABVCell@@@Z and ?Repair_Train_Bridge@MapClass@@QAEXABVCell@@@Z and ?RevealArea1@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z and ?Set_Map_Dimensions@MapClass@@UAEXABV?$TRect@H@@_NH1@Z and ?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z and ?Unregister_Subzone_Connection@MapClass@@QAEXPAUZoneConnectionClass@@@Z and ?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z and ?Zone_Reset@MapClass@@QAEHXZ and ?Zone_Span@MapClass@@QAEHPAUCellZoneStruct@@HAAH@Z placed at their function starts; ??4SubzoneTrackingStruct@@QAEAAU0@ABU0@@Z not placed; ?Validate@MapClass@@QAEHXZ not placed; ?Deform_Terrain@MapClass@@QAE_NABVCell@@_N@Z not placed; ?Terrain_Deformation_AI@MapClass@@QAEXXZ not placed; ?Smoothen_Ice@MapClass@@QAEXABVCell@@_N@Z not placed; ?Smoothen_Full_Ice@MapClass@@QAEXABVCell@@_N@Z not placed; ?Smoothen_Ice_Shore@MapClass@@QAEXABVCell@@@Z not placed; ?Smoothen_Ice_Edge@MapClass@@QAEXABVCell@@@Z not placed; ?Crack_Ice@MapClass@@QAE_NPAVCellClass@@PAVFootClass@@@Z not placed; ?Is_Tile_Water_Ice@MapClass@@SI_NW4IsometricTileType@@@Z not placed; ?Break_Ice@MapClass@@QAE_NPAVCellClass@@PAVFootClass@@@Z not placed; ?Ice_Growth_AI@MapClass@@QAE_NXZ not placed; ?Ice_Solidification_AI@MapClass@@QAEXXZ not placed; ?Reset_Subzone@MapClass@@QAEXH@Z not placed; ?Recalc_Ice_Cells@MapClass@@QAEXXZ not placed; ??0MapClass@@QAE@XZ not placed; _$E2 not placed; _$E213 not placed; _$E212 not placed; _$E216 not placed; _$E215 not placed; _$E221 not placed; _$E219 not placed; _$E224 not placed; _$E248 not placed; inline ?Validate@MapClass@@QAEHXZ at 0x0054E8C0",
   "main_options": [
@@ -122054,6 +122073,30 @@
     "padding": 2,
     "symbol": "??_GMapClass@@UAEPAXI@Z",
     "main_symbol": "??_GMapClass@@UAEPAXI@Z",
+    "main_source": "src/recovered/map.cpp"
+   },
+   {
+    "entry": "0056a9f0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "??4AbstractClass@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4AbstractClass@@QAEAAV0@ABV0@@Z",
+    "main_source": "src/recovered/map.cpp"
+   },
+   {
+    "entry": "0056aa20",
+    "body": 23,
+    "padding": 9,
+    "symbol": "??Y?$TPoint2D@F@@QAEABV0@ABV0@@Z",
+    "main_symbol": "??Y?$TPoint2D@F@@QAEABV0@ABV0@@Z",
+    "main_source": "src/recovered/map.cpp"
+   },
+   {
+    "entry": "0056aa40",
+    "body": 41,
+    "padding": 7,
+    "symbol": "??G?$TPoint2D@F@@QBE?BV0@ABV0@@Z",
+    "main_symbol": "??G?$TPoint2D@F@@QBE?BV0@ABV0@@Z",
     "main_source": "src/recovered/map.cpp"
    }
   ],
@@ -135508,6 +135551,438 @@
   "build_refused": {
    "source_sha256": "cb7c63fe702ec5214c89645e8cb8c230b7fc818e9afd4e0eaae0b24f34d1bccd",
    "reason": "Unaccounted emitted code section bytes"
+  }
+ },
+ "mpobserver": {
+  "core": [
+   "005aa530",
+   "005aa830"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/mpobserver.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "005aa530",
+   "005aa830"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ],
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "005aa530",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa550",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa580",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa5a0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa5c0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa5e0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa600",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa620",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa660",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa690",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa6c0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa6f0",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa700",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa720",
+    "body": 52,
+    "padding": 12,
+    "symbol": "??0Megawealth@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z",
+    "main_symbol": "?Megawealth_ctor_005aa720@Owner_005aa720@seed_005aa720@@QAEPAIIIIIII@Z",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa760",
+    "body": 11,
+    "padding": 5,
+    "symbol": "??1Megawealth@@UAE@XZ",
+    "main_symbol": "?Megawealth_dtor_005aa760@seed_005aa760@@YIXPAI@Z",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa770",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?OnGameStart@Megawealth@@UAE_NXZ",
+    "main_symbol": "?unknown_slot_005aa770@seed_005aa770@@YAEXZ",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa780",
+    "body": 36,
+    "padding": 12,
+    "symbol": "??_GMegawealth@@UAEPAXI@Z",
+    "main_symbol": "?scalar_deleting_destructor_005aa780@Owner_005aa780@seed_005aa780@@QAEPAIE@Z",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa7b0",
+    "body": 67,
+    "padding": 13,
+    "symbol": "??0MultiplayerObserverTeam@@QAE@XZ",
+    "main_symbol": "??0MultiplayerObserverTeam@@QAE@XZ",
+    "main_source": "src/recovered/classes/MultiplayerObserverTeam/Constructor.cpp"
+   },
+   {
+    "entry": "005aa800",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?IsTeamIncluded@MultiplayerObserverTeam@@UAE_NH@Z",
+    "main_symbol": "?get@Leaf_5aa800@@QAEII@Z",
+    "main_source": "src/recovered/mpobserver.cpp"
+   },
+   {
+    "entry": "005aa810",
+    "body": 30,
+    "padding": 2,
+    "symbol": "??_GMultiplayerObserverTeam@@UAEPAXI@Z",
+    "main_symbol": "?scalar_deleting_destructor_005aa810@Owner_005aa810@seed_005aa810@@QAEIE@Z",
+    "main_source": "src/recovered/mpobserver.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00a715d8",
+   "_CELL_DIAG_SLOPE_ANGLE": "00a715c0",
+   "_CELL_LEPTON_DIAG": "00a71598",
+   "_CELL_NONE": "00a71590",
+   "_CELL_SLOPE_ANGLE": "00a715a8",
+   "_COORD_NONE": "00a715b0",
+   "_ISO_TILE_SIZE": "007a6a90",
+   "_LEPTONS_PER_PIXEL": "00a715e0",
+   "_LEVEL_LEPTON_H": "00a715e8",
+   "_ONE_RAD": "007a6a98",
+   "_PIXELS_PER_LEPTON": "00a715d0",
+   "_RAD_45": "00a715c8",
+   "_RAD_60": "00a715a0",
+   "_RAD_90": "00a71578",
+   "_RECT_NONE": "00a71580",
+   "?OnGameStart@Megawealth@@UAE_NXZ": "005aa770",
+   "?IsTeamIncluded@MultiplayerObserverTeam@@UAE_NH@Z": "005aa800"
+  }
+ },
+ "mpunholyalliance": {
+  "core": [
+   "005ac140",
+   "005ac540"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/mpunholyalliance.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "005ac140",
+   "005ac540"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "005ac140",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac170",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac190",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac1b0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac1d0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac1f0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac210",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac250",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac280",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac2b0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac2e0",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac2f0",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac310",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac330",
+    "body": 52,
+    "padding": 12,
+    "symbol": "??0UnholyAlliance@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z",
+    "main_symbol": "??0UnholyAlliance@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac370",
+    "body": 11,
+    "padding": 5,
+    "symbol": "??1UnholyAlliance@@UAE@XZ",
+    "main_symbol": "??1UnholyAlliance@@UAE@XZ",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac380",
+    "body": 8,
+    "padding": 8,
+    "symbol": "?AssignTeams@UnholyAlliance@@UAE_NXZ",
+    "main_symbol": "?AssignTeams@UnholyAlliance@@UAE_NXZ",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac390",
+    "body": 36,
+    "padding": 12,
+    "symbol": "?CheckStartConditions@UnholyAlliance@@UAE_NPAVWideWstring@@@Z",
+    "main_symbol": "?CheckStartConditions@@YGII@Z",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac3c0",
+    "body": 8,
+    "padding": 8,
+    "symbol": "?AssignTeamsAtStart@UnholyAlliance@@UAE_NXZ",
+    "main_symbol": "?AssignTeamsAtStart@UnholyAlliance@@UAE_NXZ",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac3d0",
+    "body": 307,
+    "padding": 13,
+    "symbol": "?SpawnBaseUnits@UnholyAlliance@@UAE_NPAVHouseClass@@I@Z",
+    "main_symbol": "?SpawnBaseUnits@UnholyAlliance@@UAE_NPAVHouseClass@@PAH@Z",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   },
+   {
+    "entry": "005ac510",
+    "body": 36,
+    "padding": 12,
+    "symbol": "??_GUnholyAlliance@@UAEPAXI@Z",
+    "main_symbol": "??_GUnholyAlliance@@UAEPAXI@Z",
+    "main_source": "src/recovered/mpunholyalliance.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00a717e8",
+   "_CELL_DIAG_SLOPE_ANGLE": "00a717d0",
+   "_CELL_LEPTON_DIAG": "00a717a8",
+   "_CELL_NONE": "00a717a0",
+   "_CELL_SLOPE_ANGLE": "00a717b8",
+   "_COORD_NONE": "00a717c0",
+   "_ISO_TILE_SIZE": "007a6c70",
+   "_LEPTONS_PER_PIXEL": "00a717f0",
+   "_LEVEL_LEPTON_H": "00a717f8",
+   "_ONE_RAD": "007a6c78",
+   "_PIXELS_PER_LEPTON": "00a717e0",
+   "_RAD_45": "00a717d8",
+   "_RAD_60": "00a717b0",
+   "_RAD_90": "00a71788",
+   "_RECT_NONE": "00a71790",
+   "?AssignTeams@UnholyAlliance@@UAE_NXZ": "005ac380",
+   "?CheckStartConditions@UnholyAlliance@@UAE_NPAVWideWstring@@@Z": "005ac390",
+   "?AssignTeamsAtStart@UnholyAlliance@@UAE_NXZ": "005ac3c0",
+   "?SpawnBaseUnits@UnholyAlliance@@UAE_NPAVHouseClass@@I@Z": "005ac3d0"
   }
  }
 }

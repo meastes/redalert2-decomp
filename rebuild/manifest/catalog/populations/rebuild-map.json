@@ -43308,6 +43308,33 @@
       "population": "rebuild-map",
       "source_order": 5679568,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5679680,
+      "method": "0056aa40",
+      "body_bytes": 41,
+      "body_sha256": "b5b16596c3ac1e446d2be4770a6a2611e720fa6d68596f5721b99ad28d909f7a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "17bc9f42465ab76fcc82a334ba01ab897d706412df5ebeec66d408773c604683",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??G?$TPoint2D@F@@QBE?BV0@ABV0@@Z",
+      "symbol_prefix": "??G?$TPoint2D@F@@QBE?BV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3036e0c7682277db38e1cbe401a0b5bd52b4abc2a2c7a228cccda4e4108ac93",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5679680,
+      "source_quality_family": "rebuild"
     }
   ]
 }

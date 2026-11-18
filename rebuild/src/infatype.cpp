@@ -292,28 +292,12 @@ InfantryType InfantryTypeClass::From_Name(char const * name)
 }
 
 
-char const * SequenceName[DO_COUNT] = {
-	"Ready",
-	"Guard",
-	"Prone",
-	"Walk",
-	"FireUp",
-	"Down",
-	"Crawl",
-	"Up",
-	"FireProne",
-	"Idle1",
-	"Idle2",
-	"Die1",
-	"Die2",
-	"Die3",
-	"Die4",
-	"Die5",
-	"Hover",
-	"Fly",
-	"Tumble",
-	"FireFly",
-	"Struggle"
+char const * SequenceName[DOINFO_COUNT] = { // RA2: 0x007DAF60; the art sequence keys, TibSun's 21 and RA2's seventeen more (ra2-decomp's list without YR's last four)
+	"Ready", "Guard", "Prone", "Walk", "FireUp", "Down", "Crawl", "Up", "FireProne",
+	"Idle1", "Idle2", "Die1", "Die2", "Die3", "Die4", "Die5", "Tread", "Swim",
+	"WetIdle1", "WetIdle2", "WetDie1", "WetDie2", "WetAttack", "Hover", "Fly", "Tumble",
+	"FireFly", "Deploy", "Deployed", "DeployedFire", "DeployedIdle", "Undeploy", "Cheer",
+	"Paradrop", "AirDeathStart", "AirDeathFalling", "AirDeathFinish", "Panic"
 };
 
 

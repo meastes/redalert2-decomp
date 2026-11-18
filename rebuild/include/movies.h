@@ -27,25 +27,7 @@ void Movie_Resume(VQHandle * handle);
 void Movie_Queue_Ingame(VQHandle * handle);
 void Movie_Update_Visible_Surface(void);
 
-class Straw;
-class SubTitle;
-
-class SubTitleParserClass
-{
-	public:
-		SubTitleParserClass(Straw & input);
-		~SubTitleParserClass(void);
-		DynamicVectorClass<SubTitle *> * Get_Sub_Titles(char const * moviename);
-
-	private:
-		bool Find_Movie_Entry(char const * moviename);
-		bool Parse_Sub_Title(wchar_t * string, SubTitle * subtitle);
-		wchar_t * Get_Next_Line(void);
-
-		Straw & mInput;
-		wchar_t mBuffer[1024];
-		unsigned int mLineNumber;
-};
+#include "subtitleparser.h"
 
 class MovieSubtitles
 {

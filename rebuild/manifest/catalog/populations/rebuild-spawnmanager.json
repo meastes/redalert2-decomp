@@ -60,6 +60,12 @@
     "?Kamikazes@@3VKamikazeClass@@A": 10937384,
     "?Remove@KamikazeClass@@QAEXPAVAbstractClass@@@Z": 5445760,
     "?Add@KamikazeClass@@QAEXPAVAircraftClass@@PAVAbstractClass@@@Z": 5445280,
+    "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ": 5373056,
+    "?_com_issue_error@@YGXJ@Z": 7952704,
+    "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z": 4680384,
     "?UnlinkPointer@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z": 6858080,
     "?ResetTarget@SpawnManagerClass@@QAEXXZ": 6857904,
     "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z": 4260272,
@@ -97,7 +103,6 @@
     "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
     "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
     "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
-    "?AI@SpawnManagerClass@@UAEXXZ": 6855824,
     "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
     "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
     "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
@@ -126,6 +131,7 @@
     "??0SpawnManagerClass@@QAE@XZ": 6854928,
     "??0SpawnManagerClass@@QAE@ABVNoInitClass@@@Z": 6855184,
     "??_G?$VectorClass@PAUSpawnControl@@@@UAEPAXI@Z": 6860704,
+    "?AI@SpawnManagerClass@@UAEXXZ": 6855824,
     "?SetTarget@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z": 6857872,
     "?UpdateTarget@SpawnManagerClass@@QAE_NXZ": 6858048,
     "?CountAliveSpawns@SpawnManagerClass@@QAEHXZ": 6858288,
@@ -233,7 +239,7 @@
           "resolved": 11259864
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6853792,
@@ -285,7 +291,7 @@
           "resolved": 11259936
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6853840,
@@ -337,7 +343,7 @@
           "resolved": 11259920
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6853872,
@@ -389,7 +395,7 @@
           "resolved": 11259912
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6853904,
@@ -441,7 +447,7 @@
           "resolved": 11259872
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6853936,
@@ -493,7 +499,7 @@
           "resolved": 11259832
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6853968,
@@ -577,7 +583,7 @@
           "resolved": 11259968
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854000,
@@ -637,7 +643,7 @@
           "resolved": 11259880
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854064,
@@ -697,7 +703,7 @@
           "resolved": 11259904
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854112,
@@ -757,7 +763,7 @@
           "resolved": 11259928
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854160,
@@ -801,7 +807,7 @@
           "resolved": 11259858
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854208,
@@ -853,7 +859,7 @@
           "resolved": 11259896
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854224,
@@ -913,7 +919,7 @@
           "resolved": 11259852
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854256,
@@ -1021,7 +1027,7 @@
           "resolved": 1020607
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854288,
@@ -1113,7 +1119,7 @@
           "resolved": 11259952
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854352,
@@ -1333,7 +1339,7 @@
           "resolved": 11259948
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854416,
@@ -1521,7 +1527,7 @@
           "resolved": 11259948
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6854928,
@@ -1613,7 +1619,7 @@
           "resolved": 8042652
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6855184,
@@ -1769,7 +1775,7 @@
           "resolved": 4292371501
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6855296,
@@ -1853,10 +1859,359 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6855536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6855824,
+      "method": "00689c90",
+      "body_bytes": 2040,
+      "body_sha256": "52a54cfba3d393c5a49cba166c4324300cacdb524bdf7ab50d1b7c92d7c6eaa5",
+      "padding_bytes": 8,
+      "full_extent_bytes": 2048,
+      "full_extent_sha256": "c3ad3b2e30e26e0a13731fcfd26813f884055008632c1c861f001c42ac25c495",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 32,
+      "symbol": "?AI@SpawnManagerClass@@UAEXXZ",
+      "symbol_prefix": "?AI@SpawnManagerClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6857832,
+          "addend": 0,
+          "resolved": 6857832
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 174,
+          "kind": 20,
+          "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
+          "target": 5373056,
+          "addend": 0,
+          "resolved": 4293484350
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 1096658
+        },
+        {
+          "offset": 258,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 1096618
+        },
+        {
+          "offset": 299,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 476,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4293062000
+        },
+        {
+          "offset": 608,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 613,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293648759
+        },
+        {
+          "offset": 626,
+          "kind": 20,
+          "symbol": "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z",
+          "target": 4680384,
+          "addend": 0,
+          "resolved": 4292791226
+        },
+        {
+          "offset": 671,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 695,
+          "kind": 20,
+          "symbol": "?UnlinkPointer@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z",
+          "target": 6858080,
+          "addend": 0,
+          "resolved": 1557
+        },
+        {
+          "offset": 816,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 821,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293648551
+        },
+        {
+          "offset": 834,
+          "kind": 20,
+          "symbol": "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z",
+          "target": 4680384,
+          "addend": 0,
+          "resolved": 4292791018
+        },
+        {
+          "offset": 1176,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1266,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1341,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1386,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1588,
+          "kind": 20,
+          "symbol": "?ResetTarget@SpawnManagerClass@@QAEXXZ",
+          "target": 6857904,
+          "addend": 0,
+          "resolved": 488
+        },
+        {
+          "offset": 1696,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 0,
+          "resolved": 10937384
+        },
+        {
+          "offset": 1701,
+          "kind": 20,
+          "symbol": "?Add@KamikazeClass@@QAEXPAVAircraftClass@@PAVAbstractClass@@@Z",
+          "target": 5445280,
+          "addend": 0,
+          "resolved": 4293555047
+        },
+        {
+          "offset": 1706,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1716,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 0,
+          "resolved": 10937384
+        },
+        {
+          "offset": 1722,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 4,
+          "resolved": 10937388
+        },
+        {
+          "offset": 1728,
+          "kind": 6,
+          "symbol": "?Kamikazes@@3VKamikazeClass@@A",
+          "target": 10937384,
+          "addend": 8,
+          "resolved": 10937392
+        },
+        {
+          "offset": 1752,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1769,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1851,
+          "kind": 20,
+          "symbol": "?UnlinkPointer@SpawnManagerClass@@QAEXPAVAbstractClass@@@Z",
+          "target": 6858080,
+          "addend": 0,
+          "resolved": 401
+        },
+        {
+          "offset": 1923,
+          "kind": 20,
+          "symbol": "?ResetTarget@SpawnManagerClass@@QAEXXZ",
+          "target": 6857904,
+          "addend": 0,
+          "resolved": 153
+        },
+        {
+          "offset": 1981,
+          "kind": 20,
+          "symbol": "?ResetTarget@SpawnManagerClass@@QAEXXZ",
+          "target": 6857904,
+          "addend": 0,
+          "resolved": 95
+        },
+        {
+          "offset": 2008,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6855934,
+          "addend": 0,
+          "resolved": 6855934
+        },
+        {
+          "offset": 2012,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6856482,
+          "addend": 0,
+          "resolved": 6856482
+        },
+        {
+          "offset": 2016,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6856528,
+          "addend": 0,
+          "resolved": 6856528
+        },
+        {
+          "offset": 2020,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6856690,
+          "addend": 0,
+          "resolved": 6856690
+        },
+        {
+          "offset": 2024,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6856774,
+          "addend": 0,
+          "resolved": 6856774
+        },
+        {
+          "offset": 2028,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6857307,
+          "addend": 0,
+          "resolved": 6857307
+        },
+        {
+          "offset": 2032,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6857077,
+          "addend": 0,
+          "resolved": 6857077
+        },
+        {
+          "offset": 2036,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6857152,
+          "addend": 0,
+          "resolved": 6857152
+        }
+      ],
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
+      "source": "rebuild/src/spawnmanager.cpp",
+      "population": "rebuild-spawnmanager",
+      "source_order": 6855824,
       "source_quality_family": "rebuild"
     },
     {
@@ -1880,7 +2235,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6857872,
@@ -1964,7 +2319,7 @@
           "resolved": 69
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6857904,
@@ -1991,7 +2346,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6858048,
@@ -2051,7 +2406,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6858080,
@@ -2078,7 +2433,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6858288,
@@ -2105,7 +2460,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6858320,
@@ -2132,7 +2487,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6858368,
@@ -2256,7 +2611,7 @@
           "resolved": 4292908979
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6858400,
@@ -2316,7 +2671,7 @@
           "resolved": 8003036
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6858640,
@@ -2536,7 +2891,7 @@
           "resolved": 86462
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6858704,
@@ -2572,7 +2927,7 @@
           "resolved": 4292368185
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859120,
@@ -2599,7 +2954,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859232,
@@ -2626,7 +2981,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859248,
@@ -2670,7 +3025,7 @@
           "resolved": 1012518
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859264,
@@ -2706,7 +3061,7 @@
           "resolved": 1012480
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859296,
@@ -2734,7 +3089,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859344,
@@ -2762,7 +3117,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859376,
@@ -2799,7 +3154,7 @@
           "resolved": 1012384
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859392,
@@ -2827,7 +3182,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859440,
@@ -2855,7 +3210,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859472,
@@ -2883,7 +3238,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859488,
@@ -2928,7 +3283,7 @@
           "resolved": 1012128
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859552,
@@ -2965,7 +3320,7 @@
           "resolved": 1012051
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859728,
@@ -2993,7 +3348,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859776,
@@ -3021,7 +3376,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859840,
@@ -3066,7 +3421,7 @@
           "resolved": 1011821
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6859872,
@@ -3094,7 +3449,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860048,
@@ -3122,7 +3477,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860096,
@@ -3167,7 +3522,7 @@
           "resolved": 1011520
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860160,
@@ -3204,7 +3559,7 @@
           "resolved": 1011443
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860336,
@@ -3232,7 +3587,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860384,
@@ -3260,7 +3615,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860448,
@@ -3305,7 +3660,7 @@
           "resolved": 1011213
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860480,
@@ -3333,7 +3688,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860656,
@@ -3386,7 +3741,7 @@
           "resolved": 1011035
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860704,
@@ -3439,7 +3794,7 @@
           "resolved": 1010955
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860784,
@@ -3492,7 +3847,7 @@
           "resolved": 1010875
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860864,
@@ -3545,7 +3900,7 @@
           "resolved": 1010795
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6860944,
@@ -3590,7 +3945,7 @@
           "resolved": 1011453
         }
       ],
-      "source_sha256": "53e43df3517d65c78662a51673e92df7ebe342b3da370b2d64709317833d22bd",
+      "source_sha256": "8b30e479b6a12b5c714696141d91d672045dec03b51536cce4168d40ad7d42c3",
       "source": "rebuild/src/spawnmanager.cpp",
       "population": "rebuild-spawnmanager",
       "source_order": 6861024,

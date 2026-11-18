@@ -664,6 +664,7 @@ symbol,address,evidence
 ??_EMapSelect@@UAEPAXI@Z,0x0058FDA0,slot +04 of ??_7MapSelect@@6B@ at 007a6088; main row ??_GMapSelect@@UAEPAXI@Z
 ??_EMapSizeGameOption@WorldDominationTour@@UAEPAXI@Z,0x00728C30,slot +04 of ??_7MapSizeGameOption@WorldDominationTour@@6B@ at 007af168; main row ?scalar_deleting_destructor_00728c30@Owner_00728c30@seed_00728c30@@QAEPAIE@Z
 ??_EMechLocomotionClass@@UAEPAXI@Z,0x00593310,slot +24 of ??_7MechLocomotionClass@@6BIPersistStream@@@ at 007a6170; main row ??_GMechLocomotionClass@@UAEPAXI@Z
+??_EMegawealth@@UAEPAXI@Z,0x005AA780,slot +04 of ??_7Megawealth@@6B@ at 007a6aa0; main row ?scalar_deleting_destructor_005aa780@Owner_005aa780@seed_005aa780@@QAEPAIE@Z
 ??_EMissionClass@@UAEPAXI@Z,0x00595130,slot +24 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ??_GMissionClass@@UAEPAXI@Z
 ??_EMixFileClass@@UAEPAXI@Z,0x00595C60,slot +00 of ??_7MixFileClass@@6B@ at 007a6470; main row ??_GMixFileClass@@UAEPAXI@Z
 ??_EMouse@@UAEPAXI@Z,0x00773670,slot +04 of ??_7Mouse@@6B@ at 007afc34; main row ??_GMouse@@UAEPAXI@Z
@@ -671,6 +672,7 @@ symbol,address,evidence
 ??_EMovieHandle@@UAEPAXI@Z,0x004B8960,slot +04 of ??_7MovieHandle@@6B@ at 007a6650; main row ?get@Leaf_4b8960@@QAEHXZ
 ??_EMultiplayerDebugCommandClass@@UAEPAXI@Z,0x0051DA40,slot +00 of ??_7MultiplayerDebugCommandClass@@6B@ at 007a43c4; main row ??_GMultiplayerDebugCommandClass@@UAEPAXI@Z
 ??_EMultiplayerGameMode@@UAEPAXI@Z,0x005B8E10,slot +00 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ??_GMultiplayerGameMode@@UAEPAXI@Z
+??_EMultiplayerObserverTeam@@UAEPAXI@Z,0x005AA810,slot +04 of ??_7MultiplayerObserverTeam@@6B@ at 007a6b58; main row ?scalar_deleting_destructor_005aa810@Owner_005aa810@seed_005aa810@@QAEIE@Z
 ??_EMultiplayerSiegeAttackerTeam@@UAEPAXI@Z,0x005ABEF0,slot +04 of ??_7MultiplayerSiegeAttackerTeam@@6B@ at 007a6c60; main row ?MultiplayerSiegeAttackerTeam_Scalar_Deleting_Destructor_005abef0@Owner_005abef0@seed_005abef0@@QAEPAIE@Z
 ??_EMultiplayerSiegeDefenderTeam@@UAEPAXI@Z,0x005ABEC0,slot +04 of ??_7MultiplayerSiegeDefenderTeam@@6B@ at 007a6c50; main row ?MultiplayerSiegeDefenderTeam_Scalar_Deleting_Destructor_005abec0@Owner_005abec0@seed_005abec0@@QAEPAIE@Z
 ??_EMultiplayerSyncCommandClass@@UAEPAXI@Z,0x0051DA60,slot +00 of ??_7MultiplayerSyncCommandClass@@6B@ at 007a439c; main row ??_GMultiplayerSyncCommandClass@@UAEPAXI@Z
@@ -779,6 +781,7 @@ symbol,address,evidence
 ??_ETriggerTypeClass@@UAEPAXI@Z,0x006EEEF0,slot +24 of ??_7TriggerTypeClass@@6BIPersistStream@@@ at 007ada88; main row ??_GTriggerTypeClass@@UAEPAXI@Z
 ??_ETunnelLocomotionClass@@UAEPAXI@Z,0x006F13B0,slot +24 of ??_7TunnelLocomotionClass@@6BIPersistStream@@@ at 007adc70; main row ??_GTunnelLocomotionClass@@UAEPAXI@Z
 ??_ETypeSelectCommandClass@@UAEPAXI@Z,0x0051DF40,slot +00 of ??_7TypeSelectCommandClass@@6B@ at 007a3d84; main row ??_GTypeSelectCommandClass@@UAEPAXI@Z
+??_EUnholyAlliance@@UAEPAXI@Z,0x005AC510,slot +04 of ??_7UnholyAlliance@@6B@ at 007a6c80; main row ??_GUnholyAlliance@@UAEPAXI@Z
 ??_EUnitClass@@UAEPAXI@Z,0x0070A330,slot +24 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ??_GUnitClass@@UAEPAXI@Z
 ??_EUnitTypeClass@@UAEPAXI@Z,0x0070B600,slot +24 of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ??_GUnitTypeClass@@UAEPAXI@Z
 ??_EVQMovieHandle@@UAEPAXI@Z,0x005A1F00,slot +04 of ??_7VQMovieHandle@@6B@ at 007a6620; main row ??_GVQMovieHandle@@UAEPAXI@Z
@@ -867,6 +870,8 @@ symbol,address,evidence
 ?Asm_Interpolate_Line_Double@@YAXPAE0HHH@Z,0x007992E6,inferred: interpal rows 0051eb00 differ only at its sites
 ?Asm_Interpolate_Line_Interpolate@@YAXPAE0HHH@Z,0x0079943B,inferred: interpal rows 0051eb00 differ only at its sites
 ?AssignStartingPositionsToHouse@MultiplayerGameMode@@UAEPAVCell@@PAV2@HPAV?$DynamicVectorClass@VCell@@@@PAE@Z,0x005B7920,slot +ac of ??_7FreeForAll@@6B@ at 007a6910; main row ?AssignStartingPositionsToHouse@MultiplayerGameMode@@UAE?AVCell@@HAAV?$DynamicVectorClass@VCell@@@@PA_N@Z
+?AssignTeams@MultiplayerGameMode@@UAE_NXZ,0x005B7350,slot +14 of ??_7Megawealth@@6B@ at 007a6aa0; main row ?AssignTeams@MultiplayerGameMode@@UAE_NXZ
+?AssignTeamsAtStart@MultiplayerGameMode@@UAE_NXZ,0x005B73D0,slot +1c of ??_7Megawealth@@6B@ at 007a6aa0; main row ?AssignTeamsAtStart@MultiplayerGameMode@@UAE_NXZ
 ?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z,0x00501CE0,slot +414 of ??_7InfantryClass@@6BIPersistStream@@@ at 007a353c; main row ?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z
 ?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z,0x007053F0,slot +414 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z
 ?Assign_Mission@ObjectClass@@UAEXW4MissionType@@@Z,0x0041B310,slot +174 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_41b310@@QAEXI@Z
@@ -1014,6 +1019,7 @@ symbol,address,evidence
 ?Catch_Fire@ObjectClass@@UAE_NXZ,0x005D2D00,slot +164 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Catch_Fire@ObjectClass@@UAE_NXZ
 ?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ,0x00410260,slot +4c of ??_7TeamClass@@6BIPersistStream@@@ at 007ac94c; main row ?Center_Coord@AbstractClass@@UBE?AUCoordStruct@@XZ
 ?Center_Coord@ObjectClass@@UBE?AVCoord@@XZ,0x005D4E40,slot +4c of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Center_Coord@ObjectClass@@UBE?AUCoordStruct@@XZ
+?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideWstring@@@Z,0x005B73A0,slot +18 of ??_7Megawealth@@6B@ at 007a6aa0; main row ?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideString@@@Z
 ?Cheer@TechnoClass@@UAEXXZ,0x0041B3E0,slot +338 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_41b3e0@@QAEXXZ
 ?Class_Of@BulletClass@@UBEPBVObjectTypeClass@@XZ,0x00463EF0,slot +88 of ??_7BulletClass@@6BIPersistStream@@@ at 0079d370; main row ?Class_Of@BulletClass@@UBEPAVObjectTypeClass@@XZ
 ?Class_Of@ObjectClass@@UBEPBVObjectTypeClass@@XZ,0x004CDDD0,slot +88 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_4cddd0@@QAEHXZ
@@ -2083,6 +2089,7 @@ symbol,address,evidence
 ?IsParalyzed@TechnoClass@@UBE_NXZ,0x00453BC0,slot +32c of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_453bc0@@QAE_NXZ
 ?IsPowerOnline@TechnoClass@@UBE_NXZ,0x006CD6E0,slot +310 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?IsPowerOnline_006cd6e0@Leaf_6cd6e0@@QAE_NXZ
 ?IsSkirmishAllowed@FreeForAll@@UAE_NXZ,0x005A71B0,slot +34 of ??_7FreeForAll@@6B@ at 007a6910; main row ?unknown_slot12@FreeForAll@@UAE_NXZ
+?IsSkirmishAllowed@MultiplayerGameMode@@UAE_NXZ,0x005B73F0,slot +34 of ??_7Megawealth@@6B@ at 007a6aa0; main row ?unknown_slot12@MultiplayerGameMode@@UAE_NXZ
 ?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z,0x005B9B60,slot +08 of ??_7MultiplayerSiegeAttackerTeam@@6B@ at 007a6c60; main row ?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z
 ?IsUnderEMP@TechnoClass@@UBE_NXZ,0x006D8E80,slot +328 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Is_Immobilized_006d8e80@seed_006d8e80@@YI_NH@Z
 ?IsWarpingIn@ObjectClass@@UBE_NXZ,0x00423E30,slot +1c4 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?get@Leaf_423e30@@QAE_NXZ
@@ -2274,6 +2281,7 @@ symbol,address,evidence
 ?Plot_On_Radar@TechnoClass@@UBEXXZ,0x006D7530,slot +42c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot266@TechnoClass@@UAEXXZ
 ?Point_Copy@@YI?AVPoint2D@@PBV1@@Z,0x006F1AE0,inferred: ownrdraw rows 005e5150 005e5150 005e5150 005e5150 differ only at its sites
 ?PopulateTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@PAVMultiplayerTeam@@@Z,0x005B74E0,slot +3c of ??_7FreeForAll@@6B@ at 007a6910; main row ?PopulateTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PBV?$DynamicVectorClass@H@@H@Z
+?PopulateTeamDropdownForPlayer@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z,0x005B75D0,slot +44 of ??_7Megawealth@@6B@ at 007a6aa0; main row ?PopulateTeamDropdownForPlayer@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z
 ?Power_Off@LocomotionClass@@UAGEXZ,0x0053D210,slot +60 of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Power_Off@LocomotionClass@@UAG_NXZ
 ?Power_On@LocomotionClass@@UAGEXZ,0x0053D1F0,slot +5c of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Power_On@LocomotionClass@@UAG_NXZ
 ?Process@DriveLocomotionClass@@UAGEXZ,0x004A05F0,slot +44 of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Process@DriveLocomotionClass@@UAG_NXZ

@@ -84,6 +84,32 @@ gated landing (column `tree`; older rows from worker branches are marked as such
   where ra2-decomp or the TibSun archive has it there, else at its definition), never kept as an external
   function. Applied with every row of the unit unchanged: ownrdraw's 19 helpers, `TerrainClass::Is_Animating`
   (in the class, as ra2-decomp has it), `~AlphaLightingRemapClass`.
+- **subtitle and subtitle2 are two objects** (lane R9, owner ruling on R8's open item). mischa85 matches
+  them as two modules (modules.csv: subtitle 0x69B190-0x69B680, subtitle2 0x69B680-0x69C180), but its
+  module check leaves initializers to unassigned units, so it does not test the missing RECT_NONE
+  initializer at 0x69B680. Tested here under 8447: one translation unit (subtitle.cpp, then subtitle2's
+  text) makes `MovieSubtitles::Load_Sub_Titles` (0x69B300) expand the parser constructor inline, which the
+  original calls out of line (35/36 rows), so the parser is a separate object, as mischa85 says. Its
+  object therefore does not include rect.h: `SubTitleParserClass` moved from movies.h into its own header
+  (`subtitleparser.h`, which movies.h includes), subtitle2.cpp includes that instead of movies.h, and the
+  extra initializer is gone (27/27 rows, no stray function).
+- **Explicit template instantiations that emit functions the image lacks are dropped** (lane R9, the
+  select-any ruling). subtitle2's `template class DynamicVectorClass<SubTitle *>` / `VectorClass` and
+  savever's `template class _com_ptr_t<...IStream...>` emitted every member (Add_Head, Insert,
+  GetActiveObject, ...), several with no copy anywhere in the image (keptcopy.py: "a source question").
+  Without them the units emit only what their code uses (the vtables pull the virtual functions in), all
+  rows stay exact, and no unbound function remains.
+- **`AbstractClass::operator=` (0x56A9F0) is emitted by map** (lane R9). Its only callers (0x54863F,
+  0x548E51) lie in `MapClass::Set_Map_Dimensions` (0x5484E0, mischa85's map module, main's map.cpp), and
+  the copy lies inside map's object contribution (map's object binds its own template copies from 0x56AA70
+  through 0x56CAF0). map's range now runs to 0x56AA70: 0x56A9F0 and `TPoint2D<short>::operator+=`
+  (0x56AA20, the same caller) are map rows reported missing until Set_Map_Dimensions (no independent
+  bound yet, guarded) compiles, and `TPoint2D<short>::operator-` (0x56AA40) is exact.
+- **infatype's SequenceName is RA2's 38-entry table** (lane R9). The original's table at 0x7DAF60 holds
+  38 keys (TibSun's first 16, then Tread, Swim, WetIdle1/2, WetDie1/2, WetAttack, Hover, Fly, Tumble,
+  FireFly, Deploy, Deployed, DeployedFire, DeployedIdle, Undeploy, Cheer, Paradrop, AirDeath*, Panic),
+  sized by the unit's DOINFO_COUNT; ra2-decomp's YR list is the same with four more. TibSun's 21-entry
+  array was the build-refused data section.
 
 ## Structure gate
 

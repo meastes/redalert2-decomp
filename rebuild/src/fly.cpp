@@ -958,15 +958,6 @@ bool FlyLocomotionClass::Process_Take_Off(void)
 }
 
 
-/// <summary>
-/// RA2
-/// </summary>
-static inline Cell Adjacent_Cell_By_Value(Cell const & cell, FacingType dir) // RA2: an adjacent cell by value
-{
-	return(AdjacentCell[(int)dir & 0x07] + cell); // RA2: the facing masked to 0-7
-}
-
-
 /***********************************************************************************************
  * AircraftClass::Process_Landing -- Landing process state machine handler.                    *
  *                                                                                             *
@@ -1071,20 +1062,20 @@ bool FlyLocomotionClass::Process_Landing(void)
 		int face;
 		if (LinkedTo->LastAdjacencyCell != Cell(0, 0)) {
 			for (face = 0; face < 8; face++) {
-				Cell adjacent = Adjacent_Cell_By_Value(LinkedTo->LastAdjacencyCell, (FacingType)face);
+				Cell adjacent = Adjacent_Cell(LinkedTo->LastAdjacencyCell, (FacingType)face);
 				CellClass * cptr = &Map[adjacent];
 				cptr->AdjacentObjectCount--;
 			}
 			LinkedTo->LastAdjacencyCell = LinkedTo->Get_Cell();
 			for (face = 0; face < 8; face++) {
-				Cell adjacent = Adjacent_Cell_By_Value(LinkedTo->LastAdjacencyCell, (FacingType)face);
+				Cell adjacent = Adjacent_Cell(LinkedTo->LastAdjacencyCell, (FacingType)face);
 				CellClass * cptr = &Map[adjacent];
 				cptr->AdjacentObjectCount++;
 			}
 		} else {
 			LinkedTo->LastAdjacencyCell = LinkedTo->Get_Cell();
 			for (face = 0; face < 8; face++) {
-				Cell adjacent = Adjacent_Cell_By_Value(LinkedTo->LastAdjacencyCell, (FacingType)face);
+				Cell adjacent = Adjacent_Cell(LinkedTo->LastAdjacencyCell, (FacingType)face);
 				CellClass * cptr = &Map[adjacent];
 				cptr->AdjacentObjectCount++;
 			}

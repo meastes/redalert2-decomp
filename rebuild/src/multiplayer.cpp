@@ -45,6 +45,7 @@
 #undef LoadString // RA2: as above
 #include "rect.h" // RA2: the includes this file needs
 #include "wonline.h"
+#include "unholyalliance.h"
 
 
 
@@ -60,11 +61,6 @@ class MultiplayerManBattle : public MultiplayerGameMode // RA2: constructed at 0
 		MultiplayerManBattle(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex); // RA2: as above
 };
 
-class UnholyAlliance : public MultiplayerGameMode // RA2: constructed at 0x005AC330; as above
-{
-	public:
-		UnholyAlliance(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex); // RA2: as above
-};
 
 
 const UINT LB_ADDITEM = 0x4CD; // RA2: WM_USER + 205, the game's own list box message that adds an item (which the owner-drawn lists answer)

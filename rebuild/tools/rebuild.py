@@ -275,7 +275,14 @@ def init_unit(unit, source=None, option_index=None, start=None, end=None, auto=F
     units = load_json(UNITS, {})
     previous = {r['entry']: r for r in units.get(unit, {}).get('rows', [])}
     modules = mischa_modules()
-    module = modules[unit]
+    module = modules.get(unit)
+    if module is None:
+        # A unit mischa85's map does not name (its range is an `unk_` gap there): only with an explicit
+        # --start and --end, which then are the unit's module range too (lane R9).
+        if not (start and end):
+            raise SystemExit('%s: not a mischa85 module; give --start and --end' % unit)
+        module = dict(start='0x%08X' % int(start, 16), end='0x%08X' % int(end, 16), category='none',
+                      evidence='no mischa85 module; range from main\'s unit map')
     start = int(start, 16) if start else int(module['start'], 16)
     end = int(end, 16) if end else int(module['end'], 16)
     if auto:

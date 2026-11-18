@@ -654,8 +654,7 @@ void ParticleSystemClass::Railgun_AI(void)
 				Vector3 tmp = Vector3(Random_Double(-0.5, 0.5) * Class->PositionPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->PositionPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->PositionPerturbationCoefficient);
 
 				scaled += tmp;
-				Coord ic((int)scaled.X, (int)scaled.Y, (int)scaled.Z);
-				Coord particle_pos = ic + Lerp(PositionCoord, SpawnCoord, frac);
+				Coord particle_pos = Coord((int)scaled.X, (int)scaled.Y, (int)scaled.Z) + Lerp(PositionCoord, SpawnCoord, frac);
 
 				ParticleClass * particle = Spawn_Held_Particle(particle_pos, particle_pos);
 
@@ -663,7 +662,7 @@ void ParticleSystemClass::Railgun_AI(void)
 				particle->MovementDirection += Vector3(Random_Double(-0.5, 0.5) * Class->MovementPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->MovementPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->MovementPerturbationCoefficient);
 				particle->MovementDirection = Normalize_Direction(particle->MovementDirection); // RA2: the local inline normalizer
 
-				double vp = (Random_Double(-0.5, 0.5) + velocity_accum) * (Class->VelocityPerturbationCoefficient * 0.5);
+				float vp = (Random_Double(-0.5, 0.5) + velocity_accum) * (Class->VelocityPerturbationCoefficient * 0.5);
 				velocity_accum = (float)MAX(MIN(vp, Class->VelocityPerturbationCoefficient), -Class->MovementPerturbationCoefficient);
 				particle->Speed = velocity_accum + particle->Class->Velocity;
 				i++;

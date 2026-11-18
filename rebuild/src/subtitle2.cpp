@@ -18,15 +18,15 @@
 */
 
 #include "always.h" // RA2: the includes this file needs
-#include "movies.h" // RA2: the includes this file needs
-#include "subtitle.h" // RA2: the includes this file needs
-#include "straw.h" // RA2: the includes this file needs
-#include "vector.h" // RA2: the includes this file needs
-#include "dbgprint.h" // RA2: the includes this file needs
 #include <stddef.h> // RA2: the includes this file needs
 #include <stdlib.h> // RA2: the includes this file needs
 #include <string.h> // RA2: the includes this file needs
 #include <wchar.h> // RA2: the includes this file needs
+#include "subtitle.h" // RA2: the includes this file needs
+#include "subtitleparser.h"
+#include "straw.h" // RA2: the includes this file needs
+#include "vector.h" // RA2: the includes this file needs
+#include "dbgprint.h" // RA2: the includes this file needs
 #include "globals.h"
 #include "readline.h"
 
@@ -365,8 +365,6 @@ void __fastcall Parse_Text(wchar_t * value, SubTitle * subtitle) // RA2: 0x0069B
 	subtitle->Set_Caption(value); // RA2: as above
 }
 
-template class DynamicVectorClass<SubTitle *>; // RA2: the virtual functions of the subtitle list (0x0069BF80, 0x0069BFB0, 0x0069BFD0, 0x0069BFE0, 0x0069C020, 0x0069C0D0)
-template class VectorClass<SubTitle *>; // RA2: the virtual functions of its base (0x0069C1D0 onward)
 
 /// <summary>
 /// RA2: reads one line of unicode text from the straw into the buffer, without the carriage returns;
