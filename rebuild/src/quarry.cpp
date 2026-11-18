@@ -66,6 +66,7 @@ QuarryType Quarry_From_Name(char const * name)
 /// type data back out to the scenario file.
 /// </summary>
 /// <returns>Returns with a pointer to the name text of the quarry specified.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 char const * Name_From_Quarry(QuarryType quarry)
 {
 	//if ((unsigned)quarry < QUARRY_COUNT) {
@@ -73,3 +74,4 @@ char const * Name_From_Quarry(QuarryType quarry)
 	//}
 	//return("None");
 }
+#endif

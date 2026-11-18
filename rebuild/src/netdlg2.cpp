@@ -607,6 +607,7 @@ int Net2GetAccept(char const * who) // RA2: as above
 /// </summary>
 /// <param name="who">The name of the player to adjust.</param>
 /// <returns>Returns with TRUE if the player's house actually changed.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int Net2SetHouseAndColor(char const * who, int house, int color) // RA2: 0x005BCCF0; a player's side and color changed (by the host's message): the lobby dialog's boxes follow
 {
 	int slot = -1; // RA2: as above
@@ -655,6 +656,7 @@ int Net2SetHouseAndColor(char const * who, int house, int color) // RA2: 0x005BC
 	Net2DisplayUsers();
 	return(changed); // RA2: as above
 }
+#endif
 
 
 /// <summary>
@@ -1550,6 +1552,7 @@ void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE2
 }
 
 
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005befe0 has no row)
 LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BEFE0; the lobby dialog of the host
 {
 	if (message != 0x497) { // RA2: as above
@@ -1794,6 +1797,7 @@ LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 	}
 	return(0);
 }
+#endif
 
 
 LRESULT CALLBACK Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BF9B0; the game options of the lobby dialog

@@ -1319,6 +1319,7 @@ void InfantryClass::Assign_Target(AbstractClass * target)
 /// cell process so that it rejoins the world properly. Anything standing in the way of
 /// the exit is told to scatter first.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005025c0 has no row)
 void InfantryClass::Tunnel_AI(void)
 {
 	bool finished = Tubes[CurrentTube]->Dirs[CurrentTubeDir] == FACING_NONE;
@@ -1411,6 +1412,7 @@ void InfantryClass::Tunnel_AI(void)
 		}
 	}
 }
+#endif
 
 
 /***********************************************************************************************

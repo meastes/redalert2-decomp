@@ -345,7 +345,9 @@ bool DiskSwap::Swap(DiskID disk)
 /// <param name="disk">The disc to ask the player for.</param>
 /// <returns>bool; Should the search continue? A false return means the player gave
 /// up.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool DiskSwap::Request_Disk(DiskID disk)
 {
 	return(true);
 }
+#endif

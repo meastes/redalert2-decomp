@@ -445,6 +445,7 @@ void ParticleClass::Smoke_Behavior_AI(void)
 /// wall, at which point it glances off along the slope and is flagged for death.
 /// Its color is blended a step further along the type's color list each frame.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00609540 has no row)
 void ParticleClass::Spark_Behavior_AI(void)
 {
 	Coord coord = PositionCoord;
@@ -523,6 +524,7 @@ void ParticleClass::Spark_Behavior_AI(void)
 		}
 	}
 }
+#endif
 
 
 /// <summary>
@@ -990,6 +992,7 @@ ObjectTypeClass const * ParticleClass::Class_Of(void) const
 /// The web applies its warhead to everything sharing its cell, which is how the
 /// tangling effect is delivered, and then advances its animation state.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void ParticleClass::Web_Behavior_AI(void) // RA2: RA2's Behavior_AI never calls it; defined last
 {
 	CellClass * cptr = &Map[Get_Coord()];
@@ -1016,4 +1019,5 @@ void ParticleClass::Web_Behavior_AI(void) // RA2: RA2's Behavior_AI never calls 
 		}
 	}
 }
+#endif
 

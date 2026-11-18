@@ -60,7 +60,5 @@ if '--learn' in sys.argv:
             else:
                 print('  no main row for %s at %08x' % (n[:70], target))
     if changed[0]:
-        R.write_json(R.UNITS, units_all)
-    with open(R.SYMBOLS, 'w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=['symbol', 'address', 'evidence'])
-        w.writeheader(); w.writerows(sorted(rows, key=lambda r: r['symbol']))
+        R.save_units(units_all, [unit])
+    R.save_symbols(rows)

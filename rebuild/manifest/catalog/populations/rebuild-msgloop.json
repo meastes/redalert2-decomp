@@ -1,0 +1,1911 @@
+{
+  "id": "rebuild-msgloop",
+  "population": {
+    "id": "rebuild-msgloop",
+    "inventory_sha256": "9ad38100213afafce8129d88a7566cff34f876e4461ab4967c3433cf02c0df05",
+    "gaps_sha256": "70dd3590bdb7324fdf33fbe637551f383aab36b3b7e9563a4c266df2ab3d357c",
+    "historical_population_sha256": "592920b63627270f37bed7acd2c67a6060ce96f89e24a8e8dabbcc8bba5d7fb9",
+    "historical_acceptance_sha256": "193a8c031cb7b30635d2e4293eb9c28d7fa3d3940218bd512ac871799a5a6da1"
+  },
+  "references": {
+    "_RECT_NONE": 10950936,
+    "_$E5": 5987872,
+    "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A": 10950912,
+    "??_7?$DynamicVectorClass@PAUHWND__@@@@6B@": 8024292,
+    "_atexit": 7874954,
+    "_$E10": 5988000,
+    "__Accelerators": 10950952,
+    "??_7?$DynamicVectorClass@UAcceleratorTracker@@@@6B@": 8024356,
+    "??_7?$VectorClass@UAcceleratorTracker@@@@6B@": 8024388,
+    "??3@YAXPAX@Z": 7871803,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "?MessageLoopCount@@3HA": 10822296,
+    "?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z": 5385936,
+    "__imp__IsDialogMessageA@8": 7972076,
+    "__imp__TranslateAcceleratorA@12": 7972068,
+    "__imp__TranslateMessage@4": 7972016,
+    "?Get_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@II@Z": 5385872,
+    "?DispatchLauncherMessage@CopyProtection@@YIXPAUtagMSG@@@Z": 4790704,
+    "?ToolTips@@3PAVCCToolTip@@A": 8624560,
+    "?Message_Handler@ToolTipManager@@QAEXPAUtagMSG@@@Z": 7255264,
+    "?Message_Intercept_Handler@@3P6I_NAAUtagMSG@@@ZA": 10951076,
+    "__imp__DispatchMessageA@4": 7972020,
+    "__imp__GetWindowTextA@12": 7972072,
+    "_?_wname@?1??Get_Modeless_Dialog_From_Name@@YIPAUHWND__@@PBD@Z@4PADA": 10950976,
+    "??2@YAPAXI@Z": 7872535,
+    "??_7?$VectorClass@PAUHWND__@@@@6B@": 8024324,
+    "_$E2": 5987872,
+    "_$E7": 5987808,
+    "??_G?$DynamicVectorClass@PAUHWND__@@@@UAEPAXI@Z": 5990592,
+    "??_G?$VectorClass@PAUHWND__@@@@UAEPAXI@Z": 5990512,
+    "_$E12": 5987936,
+    "??_G?$DynamicVectorClass@UAcceleratorTracker@@@@UAEPAXI@Z": 5990752,
+    "??_G?$VectorClass@UAcceleratorTracker@@@@UAEPAXI@Z": 5990672,
+    "?Windows_Message_Handler@@YIXXZ": 5988064,
+    "?Add_Modeless_Dialog@@YIXPAUHWND__@@@Z": 5988352,
+    "?Remove_Modeless_Dialog@@YIXPAUHWND__@@@Z": 5988448,
+    "?Get_Modeless_Dialog_From_Name@@YIPAUHWND__@@PBD@Z": 5988528,
+    "?Add_Accelerator@@YIXPAUHWND__@@PAUHACCEL__@@@Z": 5988656,
+    "?Remove_Accelerator@@YIXPAUHACCEL__@@@Z": 5988768,
+    "?Clear@?$DynamicVectorClass@PAUHWND__@@@@UAEXXZ": 5988880,
+    "?ID@?$DynamicVectorClass@PAUHWND__@@@@UAEHPBQAUHWND__@@@Z": 5988928,
+    "?GetItem@?$VectorClass@PAUHWND__@@@@UBEPAUHWND__@@H@Z": 5988960,
+    "?Clear@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEXXZ": 5988976,
+    "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHPBUAcceleratorTracker@@@Z": 5989024,
+    "?GetItem@?$VectorClass@UAcceleratorTracker@@@@UBE?AUAcceleratorTracker@@H@Z": 5989056,
+    "??8?$VectorClass@PAUHWND__@@@@UBE_NABV0@@Z": 5989088,
+    "?Resize@?$VectorClass@PAUHWND__@@@@UAE_NHPBQAUHWND__@@@Z": 5989152,
+    "?Clear@?$VectorClass@PAUHWND__@@@@UAEXXZ": 5989328,
+    "?ID@?$VectorClass@PAUHWND__@@@@UAEHABQAUHWND__@@@Z": 5989376,
+    "?ID@?$VectorClass@PAUHWND__@@@@UAEHPBQAUHWND__@@@Z": 5989440,
+    "?Resize@?$DynamicVectorClass@PAUHWND__@@@@UAE_NHPBQAUHWND__@@@Z": 5989472,
+    "?ID@?$DynamicVectorClass@PAUHWND__@@@@UAEHABQAUHWND__@@@Z": 5989648,
+    "??8?$VectorClass@UAcceleratorTracker@@@@UBE_NABV0@@Z": 5989696,
+    "?Resize@?$VectorClass@UAcceleratorTracker@@@@UAE_NHPBUAcceleratorTracker@@@Z": 5989792,
+    "?Clear@?$VectorClass@UAcceleratorTracker@@@@UAEXXZ": 5990032,
+    "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990080,
+    "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHPBUAcceleratorTracker@@@Z": 5990160,
+    "?Resize@?$DynamicVectorClass@UAcceleratorTracker@@@@UAE_NHPBUAcceleratorTracker@@@Z": 5990192,
+    "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z": 5990448,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056
+  },
+  "regions": [
+    {
+      "entry": 5987776,
+      "method": "5b5dc0",
+      "body_bytes": 23,
+      "body_sha256": "8274f0048cbb261a4b5d4e36b031a8278253b5c3aec97993b0d3d6aa815089dc",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4fe8fb544485223a82a060657080aef4d9a7714524e5903a0389ef11530f6635",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950936,
+          "addend": 0,
+          "resolved": 10950936
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950936,
+          "addend": 4,
+          "resolved": 10950940
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950936,
+          "addend": 8,
+          "resolved": 10950944
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950936,
+          "addend": 12,
+          "resolved": 10950948
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5987776,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 5987808,
+      "method": "005b5de0",
+      "body_bytes": 61,
+      "body_sha256": "88f80216acd2a43c440ef67fcdabe9674bb23dc919bc7eef152575c88cefb05d",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a3be1e9c0839174a2ab96320c1d3e06cdb0f1a26cbb7b9ea55b7044e235337ba",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E7",
+      "symbol_prefix": "_$E7",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E5",
+          "target": 5987872,
+          "addend": 0,
+          "resolved": 5987872
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 4,
+          "resolved": 10950916
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 8,
+          "resolved": 10950920
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 12,
+          "resolved": 10950924
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 13,
+          "resolved": 10950925
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 0,
+          "resolved": 10950912
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAUHWND__@@@@6B@",
+          "target": 8024292,
+          "addend": 0,
+          "resolved": 8024292
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 20,
+          "resolved": 10950932
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1887087
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5987808,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3812"
+    },
+    {
+      "entry": 5987936,
+      "method": "005b5e60",
+      "body_bytes": 61,
+      "body_sha256": "aef2b6c455bda848fa721b4f03fb36e7e016f85234bc83b70c0fb1e0f3ed6e75",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0ba9bdd0eefadfaa0524f1dce3429b3b7482297085f7c62ff9a8ef37d115aa7c",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E12",
+      "symbol_prefix": "_$E12",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E10",
+          "target": 5988000,
+          "addend": 0,
+          "resolved": 5988000
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 4,
+          "resolved": 10950956
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 8,
+          "resolved": 10950960
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 12,
+          "resolved": 10950964
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 13,
+          "resolved": 10950965
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 0,
+          "resolved": 10950952
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@UAcceleratorTracker@@@@6B@",
+          "target": 8024356,
+          "addend": 0,
+          "resolved": 8024356
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 20,
+          "resolved": 10950972
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 16,
+          "resolved": 10950968
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1886959
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5987936,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3812"
+    },
+    {
+      "entry": 5988000,
+      "method": "005b5ea0",
+      "body_bytes": 59,
+      "body_sha256": "12f3389e62c2b63ffdd8aecd5ef7c976a75fcb282b7bc526795800242e0642b4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "3c88f536f1bb45f76ac714d5cf917b3a51f14f59a6d76be82fca116f92541c6e",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E10",
+      "symbol_prefix": "_$E10",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 4,
+          "resolved": 10950956
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 0,
+          "resolved": 10950952
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UAcceleratorTracker@@@@6B@",
+          "target": 8024388,
+          "addend": 0,
+          "resolved": 8024388
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 13,
+          "resolved": 10950965
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1883767
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 4,
+          "resolved": 10950956
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 13,
+          "resolved": 10950965
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 8,
+          "resolved": 10950960
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3812"
+    },
+    {
+      "entry": 5988064,
+      "method": "005b5ee0",
+      "body_bytes": 286,
+      "body_sha256": "dcb682f0d94fba01a4775e3582d054b41af18cdb57bf6a775403a7903e5eda1a",
+      "padding_bytes": 2,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "c086e9d118489e09f0fccacab248f5d1ef0655ec94337d74ec6efad9ba04a52c",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Windows_Message_Handler@@YIXXZ",
+      "symbol_prefix": "?Windows_Message_Handler@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?MessageLoopCount@@3HA",
+          "target": 10822296,
+          "addend": 0,
+          "resolved": 10822296
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?MessageLoopCount@@3HA",
+          "target": 10822296,
+          "addend": 0,
+          "resolved": 10822296
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z",
+          "target": 5385936,
+          "addend": 0,
+          "resolved": 4294365118
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "__imp__IsDialogMessageA@8",
+          "target": 7972076,
+          "addend": 0,
+          "resolved": 7972076
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "__imp__TranslateAcceleratorA@12",
+          "target": 7972068,
+          "addend": 0,
+          "resolved": 7972068
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "__imp__TranslateMessage@4",
+          "target": 7972016,
+          "addend": 0,
+          "resolved": 7972016
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Get_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@II@Z",
+          "target": 5385872,
+          "addend": 0,
+          "resolved": 4294365013
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?DispatchLauncherMessage@CopyProtection@@YIXPAUtagMSG@@@Z",
+          "target": 4790704,
+          "addend": 0,
+          "resolved": 4293769828
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?ToolTips@@3PAVCCToolTip@@A",
+          "target": 8624560,
+          "addend": 0,
+          "resolved": 8624560
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?Message_Handler@ToolTipManager@@QAEXPAUtagMSG@@@Z",
+          "target": 7255264,
+          "addend": 0,
+          "resolved": 1267072
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 4,
+          "resolved": 10950916
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 16,
+          "resolved": 10950968
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 4,
+          "resolved": 10950956
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 16,
+          "resolved": 10950968
+        },
+        {
+          "offset": 217,
+          "kind": 6,
+          "symbol": "?Message_Intercept_Handler@@3P6I_NAAUtagMSG@@@ZA",
+          "target": 10951076,
+          "addend": 0,
+          "resolved": 10951076
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "__imp__DispatchMessageA@4",
+          "target": 7972020,
+          "addend": 0,
+          "resolved": 7972020
+        },
+        {
+          "offset": 266,
+          "kind": 20,
+          "symbol": "?Peek_Windows_Message@@YIHPAUtagMSG@@PAUHWND__@@III@Z",
+          "target": 5385936,
+          "addend": 0,
+          "resolved": 4294364898
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988064,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3733"
+    },
+    {
+      "entry": 5988352,
+      "method": "005b6000",
+      "body_bytes": 88,
+      "body_sha256": "b317378c9826a3087534b82316a444a316411c306f03031865fa80e44a10d52a",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "f7c060c6640ce08e33ad340dda66c7aba9c732eace39c585e266fb6bdc87ea4e",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Modeless_Dialog@@YIXPAUHWND__@@@Z",
+      "symbol_prefix": "?Add_Modeless_Dialog@@YIXPAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 8,
+          "resolved": 10950920
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 13,
+          "resolved": 10950925
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 20,
+          "resolved": 10950932
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 0,
+          "resolved": 10950912
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 0,
+          "resolved": 10950912
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 4,
+          "resolved": 10950916
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988352,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3812"
+    },
+    {
+      "entry": 5988448,
+      "method": "005b6060",
+      "body_bytes": 76,
+      "body_sha256": "26356fa8040e8652a74f1e8b1cd2c78dc847a8fd462bd98e535505f2e50a81d6",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "daeb6912fe29072e2f6b9c5426c2f990b951d82fbf3f4da310b49c5edc037073",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Modeless_Dialog@@YIXPAUHWND__@@@Z",
+      "symbol_prefix": "?Remove_Modeless_Dialog@@YIXPAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 0,
+          "resolved": 10950912
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 0,
+          "resolved": 10950912
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 4,
+          "resolved": 10950916
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3812"
+    },
+    {
+      "entry": 5988528,
+      "method": "005b60b0",
+      "body_bytes": 123,
+      "body_sha256": "a629cddde4e160efc3182c6cc58ad6ef4d8e803cb0c0b6f29b7c89cbf1795c7e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "862aa9670a2b5248788416871d79136d88d78fc6c2b3aff236e617ca630f6e87",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Modeless_Dialog_From_Name@@YIPAUHWND__@@PBD@Z",
+      "symbol_prefix": "?Get_Modeless_Dialog_From_Name@@YIPAUHWND__@@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "__imp__GetWindowTextA@12",
+          "target": 7972072,
+          "addend": 0,
+          "resolved": 7972072
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 4,
+          "resolved": 10950916
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "_?_wname@?1??Get_Modeless_Dialog_From_Name@@YIPAUHWND__@@PBD@Z@4PADA",
+          "target": 10950976,
+          "addend": 0,
+          "resolved": 10950976
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_?_wname@?1??Get_Modeless_Dialog_From_Name@@YIPAUHWND__@@PBD@Z@4PADA",
+          "target": 10950976,
+          "addend": 0,
+          "resolved": 10950976
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 16,
+          "resolved": 10950928
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?_ModelessDialogs@@3V?$DynamicVectorClass@PAUHWND__@@@@A",
+          "target": 10950912,
+          "addend": 4,
+          "resolved": 10950916
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3812"
+    },
+    {
+      "entry": 5988656,
+      "method": "005b6130",
+      "body_bytes": 104,
+      "body_sha256": "4baefcfbec676c8a7bdc4a8bc4366f1cd4e6a67d67dc75d77391afd896c9caee",
+      "padding_bytes": 8,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "34cde3b10f88c7d72d9a6873ade896738645a906669218a3c27446e387e0db82",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Accelerator@@YIXPAUHWND__@@PAUHACCEL__@@@Z",
+      "symbol_prefix": "?Add_Accelerator@@YIXPAUHWND__@@PAUHACCEL__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 8,
+          "resolved": 10950960
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 16,
+          "resolved": 10950968
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 13,
+          "resolved": 10950965
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 20,
+          "resolved": 10950972
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 0,
+          "resolved": 10950952
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 0,
+          "resolved": 10950952
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 16,
+          "resolved": 10950968
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 16,
+          "resolved": 10950968
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 4,
+          "resolved": 10950956
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 4,
+          "resolved": 10950956
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3812"
+    },
+    {
+      "entry": 5988768,
+      "method": "005b61a0",
+      "body_bytes": 97,
+      "body_sha256": "84b4859dc089d25f216640d1298dcdc559b92af5d4347d32ef160306adfa98b8",
+      "padding_bytes": 15,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "19ae10d5da9187370040460d5ed03bb3897cbf49dad6961a2353998472a76583",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Accelerator@@YIXPAUHACCEL__@@@Z",
+      "symbol_prefix": "?Remove_Accelerator@@YIXPAUHACCEL__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 16,
+          "resolved": 10950968
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 4,
+          "resolved": 10950956
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 16,
+          "resolved": 10950968
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 4,
+          "resolved": 10950956
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 4,
+          "resolved": 10950956
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "__Accelerators",
+          "target": 10950952,
+          "addend": 16,
+          "resolved": 10950968
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988768,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3812"
+    },
+    {
+      "entry": 5988880,
+      "method": "005b6210",
+      "body_bytes": 42,
+      "body_sha256": "fa6b98a55e1bbe08795e0df82d17e0624456c4589acb53af4b96de2d908a9fc2",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "73d0e0f44cef5e103cd30255189e213834c7867ccb662e4bd928763a4a87ac94",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAUHWND__@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAUHWND__@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1882896
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5988928,
+      "method": "005b6240",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAUHWND__@@@@UAEHPBQAUHWND__@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUHWND__@@@@UAEHPBQAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5988960,
+      "method": "005b6260",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAUHWND__@@@@UBEPAUHWND__@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAUHWND__@@@@UBEPAUHWND__@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5988976,
+      "method": "005b6270",
+      "body_bytes": 42,
+      "body_sha256": "82e5631e6d6fdcc67c10fa95c55e97685907205a5707ae340d116bedd8c92279",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8a6383348ce68253d29a8cfa2cb3aa3fce5cfd4b292fe5f3aa6512f41a661904",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1882800
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5988976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989024,
+      "method": "005b62a0",
+      "body_bytes": 27,
+      "body_sha256": "b5dbb22bab6aedc462b40d12ffee42a1fd4725233b80807364583e3679159ad4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f63073e6c4fb1f4514402df2f62b2b1af0426c2fe22eebf79b47303169753168",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHPBUAcceleratorTracker@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHPBUAcceleratorTracker@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989056,
+      "method": "005b62c0",
+      "body_bytes": 28,
+      "body_sha256": "667601c5b9ae9c7a7f7c26a70c7124a09ecdd19f8808696e2891d8173e1a605e",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "00a734c1afc7d4d5c1a4819f4c53286e2a2eea22b0cb8c589353c3afec4f8725",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@UAcceleratorTracker@@@@UBE?AUAcceleratorTracker@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@UAcceleratorTracker@@@@UBE?AUAcceleratorTracker@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989088,
+      "method": "005b62e0",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAUHWND__@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAUHWND__@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989152,
+      "method": "005b6320",
+      "body_bytes": 174,
+      "body_sha256": "6e1dd008074ac39065eb5f0d7acc14a7f508c5d5d748fd32927c833831f7de63",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "2e9c29efb8e4d33b5243b40851204985bbf496182fe018bb219e3798a21f822d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAUHWND__@@@@UAE_NHPBQAUHWND__@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAUHWND__@@@@UAE_NHPBQAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1883340
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1882528
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989328,
+      "method": "005b63d0",
+      "body_bytes": 39,
+      "body_sha256": "e3b35b471d8269081411187b6b5da29e4066a43efe514a2b3c656c90f66f1c1a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c400bffe28effeda53f0bb3c5f2dab39f22c2fb0dfed77250c4d624e10597b1b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAUHWND__@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAUHWND__@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1882451
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989376,
+      "method": "005b6400",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUHWND__@@@@UAEHABQAUHWND__@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUHWND__@@@@UAEHABQAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989440,
+      "method": "005b6440",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUHWND__@@@@UAEHPBQAUHWND__@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUHWND__@@@@UAEHPBQAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989472,
+      "method": "005b6460",
+      "body_bytes": 176,
+      "body_sha256": "2f458d1f4d60e89f2a2cf6b5c6dd82319e5c833eb1964ce3723937999c52e874",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "2f458d1f4d60e89f2a2cf6b5c6dd82319e5c833eb1964ce3723937999c52e874",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAUHWND__@@@@UAE_NHPBQAUHWND__@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAUHWND__@@@@UAE_NHPBQAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1883024
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1882221
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989648,
+      "method": "005b6510",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAUHWND__@@@@UAEHABQAUHWND__@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUHWND__@@@@UAEHABQAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5989696,
+      "method": "005b6540",
+      "body_bytes": 82,
+      "body_sha256": "0cbbd818a1813a1f705d74bdf03ebd5cb278ee53225ca83a67fc448f9e65fba7",
+      "padding_bytes": 14,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "e35c468d50ba44bd3aa4f857eb8e4f703feb46f5454fa2b175f06727e6b642a6",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@UAcceleratorTracker@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@UAcceleratorTracker@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989696,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 5989792,
+      "method": "005b65a0",
+      "body_bytes": 240,
+      "body_sha256": "53fd12b748fad25ab86ef7d2b023d7c765c46156b19cc559a7f3069e31fe3452",
+      "padding_bytes": 0,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "53fd12b748fad25ab86ef7d2b023d7c765c46156b19cc559a7f3069e31fe3452",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@UAcceleratorTracker@@@@UAE_NHPBUAcceleratorTracker@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@UAcceleratorTracker@@@@UAE_NHPBUAcceleratorTracker@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1882699
+        },
+        {
+          "offset": 185,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881822
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5989792,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 5990032,
+      "method": "005b6690",
+      "body_bytes": 39,
+      "body_sha256": "a1f4dfbfd538fff827c82b33fd5cea050ae71b8adbb94f864d16b910e21b445f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "85d9da8e7fe88e54eb501c39b51db1f711aadb596464cb1d37e00837c79e4d43",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@UAcceleratorTracker@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@UAcceleratorTracker@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881747
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5990032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5990080,
+      "method": "005b66c0",
+      "body_bytes": 70,
+      "body_sha256": "9de6e16293b35114c143d4d9b0e81f05f1cf5b026586ede4e2408529e34844a4",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f787540bff7e6a458436ab6daca2fe0f67402ec701cfc486ca0f996bd77cd21e",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5990080,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 5990160,
+      "method": "005b6710",
+      "body_bytes": 27,
+      "body_sha256": "b5dbb22bab6aedc462b40d12ffee42a1fd4725233b80807364583e3679159ad4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f63073e6c4fb1f4514402df2f62b2b1af0426c2fe22eebf79b47303169753168",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHPBUAcceleratorTracker@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@UAcceleratorTracker@@@@UAEHPBUAcceleratorTracker@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5990160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5990192,
+      "method": "005b6730",
+      "body_bytes": 250,
+      "body_sha256": "0320fc2585b0d0e2c3bdcc011e8f3c50b255aee23de7599c5cb20d0f79de784b",
+      "padding_bytes": 6,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "38c761e4ce5a9d5304d588d7636e8d7a81dcb4364bde1b00ece447b80b5b4f58",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@UAcceleratorTracker@@@@UAE_NHPBUAcceleratorTracker@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@UAcceleratorTracker@@@@UAE_NHPBUAcceleratorTracker@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1882299
+        },
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881427
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5990192,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 5990448,
+      "method": "005b6830",
+      "body_bytes": 54,
+      "body_sha256": "7c4f250f4093dd9574b5c5ad98950078a1605005bf7bc78925fa797b774b0ce9",
+      "padding_bytes": 10,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e6452adcf334cbb0a0fb06a149ad28b55e61b4d768adee02d1d625744b92bf9c",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@UAcceleratorTracker@@@@UAEHABUAcceleratorTracker@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5990448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 5990512,
+      "method": "5b6870",
+      "body_bytes": 73,
+      "body_sha256": "59106cb474c5ce1a38459dffe165e96623bbed9c7ba36d3af58d46babaeb7ab7",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "eedcc31dc98788a5d336560f174b2ca05b9361aeadef5430b38fbbfc952978f7",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAUHWND__@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAUHWND__@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUHWND__@@@@6B@",
+          "target": 8024324,
+          "addend": 0,
+          "resolved": 8024324
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881262
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881227
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5990512,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 5990592,
+      "method": "5b68c0",
+      "body_bytes": 73,
+      "body_sha256": "82c497026d355141bfaa53a0ea6223286e53a301e18179d6f5da109d232eee7b",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "fbe4c46ab3761ce2a29a588741aadab18f8c8979b57df1b3ab1e7b868a9730f8",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAUHWND__@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAUHWND__@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUHWND__@@@@6B@",
+          "target": 8024324,
+          "addend": 0,
+          "resolved": 8024324
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881182
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881147
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5990592,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 5990672,
+      "method": "5b6910",
+      "body_bytes": 73,
+      "body_sha256": "243f0a290b6c5403441488bdefceef9e0b1cae1733daeb493429e104fc55b7f8",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c9daa107d717f4e9a3a7c89b5c5f126c0257ff7a49d43407cec64fd951c6f9f7",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@UAcceleratorTracker@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@UAcceleratorTracker@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UAcceleratorTracker@@@@6B@",
+          "target": 8024388,
+          "addend": 0,
+          "resolved": 8024388
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881102
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881067
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5990672,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 5990752,
+      "method": "5b6960",
+      "body_bytes": 73,
+      "body_sha256": "6e501c144755b1280db5f920081ce65a436d1d060d0c73ce7b4537638f84157a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "5bc9acc6d1ad8633173713603bd1b61b2d262588f93428dfe95ac0c3c9ace242",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@UAcceleratorTracker@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@UAcceleratorTracker@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UAcceleratorTracker@@@@6B@",
+          "target": 8024388,
+          "addend": 0,
+          "resolved": 8024388
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1881022
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1880987
+        }
+      ],
+      "source_sha256": "e982ee87f32ad959d9507fe6cf17f2a16e12ab02fa817494ce9591ba93ff9bae",
+      "source": "rebuild/src/msgloop.cpp",
+      "population": "rebuild-msgloop",
+      "source_order": 5990752,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    }
+  ]
+}

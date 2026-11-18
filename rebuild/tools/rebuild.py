@@ -63,6 +63,45 @@ def write_json(path, value):
 _CATALOG = []
 
 
+class _Locked:
+    """An exclusive lock on rebuild/manifest (build/r/manifest.lock) for a read-merge-write."""
+    def __enter__(self):
+        import fcntl
+        WORK.mkdir(parents=True, exist_ok=True)
+        self.f = open(WORK / 'manifest.lock', 'w')
+        fcntl.flock(self.f, fcntl.LOCK_EX)
+        return self
+    def __exit__(self, *a):
+        import fcntl
+        fcntl.flock(self.f, fcntl.LOCK_UN); self.f.close()
+
+
+def save_units(units, names):
+    """Write only the named units' entries into units.json (re-read under the lock), so per-unit
+    tools may run side by side on different units (lane R3)."""
+    with _Locked():
+        fresh = load_json(UNITS, {})
+        for n in names:
+            if n in units:
+                fresh[n] = units[n]
+            else:
+                fresh.pop(n, None)
+        write_json(UNITS, fresh)
+
+
+def save_symbols(rows, removed=()):
+    """Merge symbol rows into symbols.csv under the lock (rows given win; `removed` names go)."""
+    with _Locked():
+        fresh = {r['symbol']: r for r in csv.DictReader(open(SYMBOLS))} if SYMBOLS.exists() else {}
+        for r in rows:
+            fresh[r['symbol']] = r
+        for n in removed:
+            fresh.pop(n, None)
+        with open(SYMBOLS, 'w', newline='') as f:
+            w = csv.DictWriter(f, fieldnames=['symbol', 'address', 'evidence'])
+            w.writeheader(); w.writerows(sorted(fresh.values(), key=lambda r: r['symbol']))
+
+
 def main_catalog():
     """Main's catalog (read-only here), cached in build/r keyed by its index digest."""
     if not _CATALOG:
@@ -117,6 +156,67 @@ def extra_symbols():
         return {r['symbol']: int(r['address'], 16) for r in csv.DictReader(f)}
 
 
+_XCU = []
+
+
+_GAPS = {}
+
+
+def gap_after(entry, body):
+    """Length of the gap row the row's own frozen pass holds right after its body, or None. A row
+    main froze without padding takes the padding of that independent gap row when the compiler
+    output carries it (VC6 aligns the functions of a plain .text section with nops) (lane R3)."""
+    if 'main' not in _GAPS:
+        _GAPS['main'] = {r['entry']: r for r in main_catalog()['regions']}
+    main = _GAPS['main'].get(entry)
+    if main is None:
+        return None
+    pid = main.get('bound_population', main['population'])
+    if pid not in _GAPS:
+        config = json.loads(CONFIG.read_text())
+        path = ROOT / config['populations'][pid]['gaps']
+        _GAPS[pid] = {int(r['start'], 16): r['length'] for r in map(json.loads, path.read_text().splitlines())} \
+            if path.exists() else {}
+    return _GAPS[pid].get(entry + body)
+
+
+def initializer_table():
+    """The original's initializer table (.CRT$XCU, between __xc_a and __xc_z): the longest run of
+    code pointers in a data section, the run holding the `_$E` rows main accepted. Every entry is an
+    object's registered initializer, whatever name main's catalog gives the row (lane R3)."""
+    if _XCU:
+        return _XCU[0]
+    cache = WORK / 'xcu-table.json'
+    if cache.exists():
+        _XCU.append(json.loads(cache.read_text())['table'])
+        return _XCU[0]
+    import pefile, struct
+    pe = pefile.PE(json.loads(CONFIG.read_text())['executable'], fast_load=True)
+    base = pe.OPTIONAL_HEADER.ImageBase
+    text = [s for s in pe.sections if s.Characteristics & 0x20][0]
+    lo, hi = base + text.VirtualAddress, base + text.VirtualAddress + text.Misc_VirtualSize
+    E = {r['entry'] for r in main_catalog()['regions'] if r['symbol'].startswith('_$E')}
+    best = (0, 0, [])
+    for s in pe.sections:
+        if s.Characteristics & 0x20:
+            continue
+        d = s.get_data(); i = 0
+        while i <= len(d) - 4:
+            j = i
+            while j <= len(d) - 4 and lo <= struct.unpack_from('<I', d, j)[0] < hi:
+                j += 4
+            if j > i:
+                run = [struct.unpack_from('<I', d, k)[0] for k in range(i, j, 4)]
+                n = sum(x in E for x in run)
+                if n > best[0]:
+                    best = (n, base + s.VirtualAddress + i, run)
+                i = j
+            i += 4
+    write_json(cache, dict(start='%08x' % best[1], table=best[2]))
+    _XCU.append(best[2])
+    return best[2]
+
+
 def init_unit(unit, source=None, option_index=None, start=None, end=None, auto=False):
     """start/end widen mischa85's module range to the unit's whole object contribution: its
     `_$E` initializers before it and its inline/template copies after it (the original linker
@@ -132,15 +232,33 @@ def init_unit(unit, source=None, option_index=None, start=None, end=None, auto=F
         # range, and after it everything up to the next module (whose own leading `_$E` run is its).
         rows_sorted = sorted(main_catalog()['regions'], key=lambda r: r['entry'])
         before = [r for r in rows_sorted if r['entry'] < start]
-        while before and before[-1]['symbol'].startswith('_$E') and \
+        xcu = set(initializer_table())
+        while before and (before[-1]['symbol'].startswith('_$E') or before[-1]['entry'] in xcu) and \
                 before[-1]['entry'] + before[-1]['full_extent_bytes'] >= (start if not before[:-1] else start) - 16:
             start = before.pop()['entry']
         # Main's own module map may put an initializer run further back (a gap of rows main has not
         # accepted between it and the unit's first function): the run whose rows main files under
         # this unit's source is the unit's too (lane R2).
-        while before and before[-1]['symbol'].startswith('_$E') and \
+        while before and (before[-1]['symbol'].startswith('_$E') or before[-1]['entry'] in xcu) and \
                 before[-1]['source'].rsplit('/', 1)[-1] == unit + '.cpp':
             start = before.pop()['entry']
+        # The original initializer table keeps each object's initializers together: the run of table
+        # entries, around any of this unit's, whose rows main files under the unit's source is the
+        # unit's too, wherever the linker put their code (before the unit, past rows main filed
+        # elsewhere) - unless that would reach into another unit's range (lane R3).
+        table = initializer_table(); pos = {a: i for i, a in enumerate(table)}
+        by_entry = {r['entry']: r for r in rows_sorted}
+        mine = lambda a: a in by_entry and by_entry[a]['source'].rsplit('/', 1)[-1] == unit + '.cpp'
+        seeds = [pos[r['entry']] for r in rows_sorted if start <= r['entry'] < end and r['entry'] in pos]
+        if seeds:
+            lo_i, hi_i = min(seeds), max(seeds)
+            while lo_i > 0 and mine(table[lo_i - 1]): lo_i -= 1
+            while hi_i + 1 < len(table) and mine(table[hi_i + 1]): hi_i += 1
+            group = [a for a in table[lo_i:hi_i + 1] if mine(a)]
+            others = [(int(i['range'][0], 16), int(i['range'][1], 16)) for k, i in units.items() if k != unit]
+            first = min(group + [start])
+            if first < start and not any(s < start and e > first for s, e in others):
+                start = first
         # After it: the run of compiler-emitted copies (template members, deleting destructors,
         # vector iterators) up to the next module or the next row of any other kind.
         following = sorted((int(m['start'], 16) for m in modules.values() if m['category'] != 'unknown' and
@@ -183,7 +301,7 @@ def init_unit(unit, source=None, option_index=None, start=None, end=None, auto=F
             if key in load_json(UNITS, {})[unit]:
                 units[unit][key] = load_json(UNITS, {})[unit][key]
     covered = sum(r['body_bytes'] + r['padding_bytes'] for r in rows)
-    write_json(UNITS, units)
+    save_units(units, [unit])
     print('%s: %d rows, %d of %d bytes of the module range accepted in main; options %s' % (
         unit, len(rows), covered, end - start, ' '.join(chosen)))
 
@@ -406,9 +524,7 @@ def learn_bindings(unit, info, inferred):
             rows.append(dict(symbol=name, address='0x%08X' % target,
                              evidence='inferred: %s rows %s differ only at its sites' % (unit, ' '.join(sites[:4]))))
         print('  learned %s = %08x (%d sites)' % (name, target, len(sites)))
-    with open(SYMBOLS, 'w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=['symbol', 'address', 'evidence'])
-        w.writeheader(); w.writerows(sorted(rows, key=lambda r: r['symbol']))
+    save_symbols(rows)
 
 
 def check(unit, asm=(), learn=False):
@@ -459,8 +575,18 @@ def check(unit, asm=(), learn=False):
             result.update(status='missing')
         else:
             used.add(found)
+            padding = row.get('gap_padding', row['padding'])
             status, differing, size, bindings, problems = compare(audit, coff, found, entry, row['body'],
-                                                                  row['padding'], resolve)
+                                                                  padding, resolve)
+            if status != 'exact' and learn and not row['padding'] and size > row['body']:
+                # The object carries alignment nops main's frozen row has no padding for: the row's
+                # own pass may hold the gap (lane R3).
+                gap = gap_after(entry, row['body'])
+                if gap and gap <= 15 and size == row['body'] + gap and \
+                        audit.original(entry + row['body'], gap) == b'\x90' * gap:
+                    row['gap_padding'] = gap
+                    status, differing, size, bindings, problems = compare(audit, coff, found, entry, row['body'],
+                                                                          gap, resolve)
             result.update(status=status, differing=differing, size=size, problems=problems,
                           relocations=bindings)
             for name, target in compare.inferred:
@@ -489,7 +615,7 @@ def check(unit, asm=(), learn=False):
     if learn and inferred:
         learn_bindings(unit, info, inferred)
     if learn:
-        write_json(UNITS, units)
+        save_units(units, [unit])
     return 0 if exact == len(results) else 1
 
 

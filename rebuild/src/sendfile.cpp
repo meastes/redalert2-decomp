@@ -37,6 +37,8 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h" // RA2: as above
+#include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "geometry.h"
 
 #include "cd.h" // RA2: as above
 #include "ccfile.h" // RA2: CCFileClass

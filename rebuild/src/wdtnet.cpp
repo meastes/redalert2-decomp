@@ -488,6 +488,7 @@ bool WDTState::Create_Territories(void * data, int size)
 /// </summary>
 /// <returns>Returns with a newly allocated option block. The caller is responsible for
 /// deleting it.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 GameOptionsType *WDTTerritory::Get_Game_Options(void)
 {
 	GameOptionsType *opts = new GameOptionsType;
@@ -507,6 +508,7 @@ GameOptionsType *WDTTerritory::Get_Game_Options(void)
 
 	return(opts);
 }
+#endif
 
 
 /// <summary>
@@ -517,6 +519,7 @@ GameOptionsType *WDTTerritory::Get_Game_Options(void)
 /// </summary>
 /// <returns>Returns with a newly allocated string holding the listing. The caller is
 /// responsible for deleting it.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 char *WDTState::To_String(void)
 {
 	int i;
@@ -580,6 +583,7 @@ char *WDTState::To_String(void)
 
 	return(retstr);
 }
+#endif
 
 
 /// <summary>
@@ -589,6 +593,7 @@ char *WDTState::To_String(void)
 /// </summary>
 /// <returns>Returns with a newly allocated string holding the listing. The caller is
 /// responsible for deleting it.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 char *WDTTerritory::To_String(void)
 {
 	char *retbuf = new char[2048];
@@ -646,4 +651,5 @@ char *WDTTerritory::To_String(void)
 
 	return(retbuf);
 }
+#endif
 

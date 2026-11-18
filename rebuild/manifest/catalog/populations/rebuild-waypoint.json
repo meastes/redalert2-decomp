@@ -65,9 +65,6 @@
     "??0?$VectorClass@VWaypointClass@@@@QAE@HPBVWaypointClass@@@Z": 7494464,
     "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
     "??2@YAPAXI@Z": 7872535,
-    "??0Coord@@QAE@HHH@Z": 4409376,
-    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
-    "??_EWaypointClass@@QAEPAXI@Z": 4307088,
     "_$E2": 7489408,
     "_$E5": 7489456,
     "_$E8": 7489488,
@@ -143,6 +140,8 @@
     "?ID@?$VectorClass@VWaypointClass@@@@UAEHABVWaypointClass@@@Z": 7493184,
     "?ID@?$VectorClass@VWaypointClass@@@@UAEHPBVWaypointClass@@@Z": 7493264,
     "?Resize@?$DynamicVectorClass@VWaypointClass@@@@UAE_NHPBVWaypointClass@@@Z": 7493312,
+    "??0Coord@@QAE@HHH@Z": 4409376,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
     "?ID@?$DynamicVectorClass@VWaypointClass@@@@UAEHABVWaypointClass@@@Z": 7493632,
     "??8?$VectorClass@PAVWaypointPathClass@@@@UBE_NABV0@@Z": 7493696,
     "?Resize@?$VectorClass@PAVWaypointPathClass@@@@UAE_NHPBQAVWaypointPathClass@@@Z": 7493760,
@@ -151,6 +150,7 @@
     "?ID@?$VectorClass@PAVWaypointPathClass@@@@UAEHPBQAVWaypointPathClass@@@Z": 7494048,
     "?Resize@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAE_NHPBQAVWaypointPathClass@@@Z": 7494080,
     "?ID@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEHABQAVWaypointPathClass@@@Z": 7494256,
+    "??_EWaypointClass@@QAEPAXI@Z": 4307088,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
     "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
@@ -2898,65 +2898,6 @@
       "source": "rebuild/src/waypoint.cpp",
       "population": "rebuild-waypoint",
       "source_order": 7493264,
-      "source_quality_family": "rebuild"
-    },
-    {
-      "entry": 7493312,
-      "method": "007256c0",
-      "body_bytes": 306,
-      "body_sha256": "dfc9b91b95d3ce0ae874b29e9fe92eb47087fb654799393caeb6a389b8f74254",
-      "padding_bytes": 14,
-      "full_extent_bytes": 320,
-      "full_extent_sha256": "a62b7eae2524745d91b6cd552d24461d66b5b667fe46bf9921c1fe78bdc9fd70",
-      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Resize@?$DynamicVectorClass@VWaypointClass@@@@UAE_NHPBVWaypointClass@@@Z",
-      "symbol_prefix": "?Resize@?$DynamicVectorClass@VWaypointClass@@@@UAE_NHPBVWaypointClass@@@Z",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy",
-        "/Gr"
-      ],
-      "relocations": [
-        {
-          "offset": 43,
-          "kind": 20,
-          "symbol": "??2@YAPAXI@Z",
-          "target": 7872535,
-          "addend": 0,
-          "resolved": 379176
-        },
-        {
-          "offset": 82,
-          "kind": 20,
-          "symbol": "??0Coord@@QAE@HHH@Z",
-          "target": 4409376,
-          "addend": 0,
-          "resolved": 4291883274
-        },
-        {
-          "offset": 131,
-          "kind": 20,
-          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
-          "target": 4306480,
-          "addend": 0,
-          "resolved": 4291780329
-        },
-        {
-          "offset": 237,
-          "kind": 20,
-          "symbol": "??_EWaypointClass@@QAEPAXI@Z",
-          "target": 4307088,
-          "addend": 0,
-          "resolved": 4291780831
-        }
-      ],
-      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
-      "source": "rebuild/src/waypoint.cpp",
-      "population": "rebuild-waypoint",
-      "source_order": 7493312,
       "source_quality_family": "rebuild"
     },
     {

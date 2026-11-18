@@ -25,6 +25,16 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
+_AUDIT = []
+
+
+def _audit():
+    if not _AUDIT:
+        from verify_manifest import Audit
+        _AUDIT.append(Audit(R.ROOT, json.loads(R.CONFIG.read_text())['executable']))
+    return _AUDIT[0]
+
+
 def write():
     catalog = R.main_catalog()
     by_entry = {r['entry']: r for r in catalog['regions']}
@@ -133,6 +143,14 @@ def write():
             result = results[row['entry']]
             own = main.get('bound_population', main['population'])
             region = {k: main[k] for k in KEEP if k in main}
+            if row.get('gap_padding'):
+                # Padding from the gap row of the row's own frozen pass (rebuild.gap_after): the
+                # extent grows by that gap; bound and body stay main's (lane R3).
+                audit = _audit()
+                pad = audit.original(main['entry'] + main['body_bytes'], row['gap_padding'])
+                full = audit.original(main['entry'], main['body_bytes'] + row['gap_padding'])
+                region.update(padding_bytes=len(pad), full_extent_bytes=len(full), padding_sha256=sha(pad),
+                              full_extent_sha256=sha(full))
             region.update(symbol=result['symbol'], symbol_prefix=result['symbol'], options=info['options'],
                           relocations=result['relocations'], source_sha256=last['source_sha256'],
                           source=info['source'], population=pid, source_order=main['entry'],

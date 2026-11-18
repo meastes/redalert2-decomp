@@ -303,6 +303,7 @@ void Main_Options_Dialog(void) // RA2: 0x00542460, the executable has the main d
 /// that it can bring up the appropriate sub dialog. The sound button is disabled when there
 /// is no audio hardware to talk to.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00542590 has no row)
 BOOL CALLBACK Main_Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x00542590, 1994 bytes; this body compiles to 1984 and differs in the layout of the slider label code, so it is excepted
 {
 	int rc = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam);
@@ -507,6 +508,7 @@ BOOL CALLBACK Main_Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam,
 	}
 	return(0);
 }
+#endif
 
 
 /// <summary>

@@ -479,6 +479,7 @@ void ParticleSystemClass::Spark_AI(void)
 /// either side, so that the column spreads as it rises. Fresh particles are emitted on the
 /// spawn interval, which lengthens as the system tires until it finally retires.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0060bb70 has no row)
 void ParticleSystemClass::Smoke_AI(void)
 {
 	int i;
@@ -581,6 +582,7 @@ void ParticleSystemClass::Smoke_AI(void)
 		IsMarkedForDeletion = true;
 	}
 }
+#endif
 
 
 
@@ -1010,6 +1012,7 @@ ObjectTypeClass const * ParticleSystemClass::Class_Of(void) const
 /// This routine drifts the system's particles along and, as each one expires,
 /// spawns the successor particle its type calls for in its place.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void ParticleSystemClass::Web_AI(void) // RA2: RA2's AI never calls it; defined last
 {
 	int i;
@@ -1038,4 +1041,5 @@ void ParticleSystemClass::Web_AI(void) // RA2: RA2's AI never calls it; defined 
 		}
 	}
 }
+#endif
 

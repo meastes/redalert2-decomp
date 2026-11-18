@@ -2869,6 +2869,7 @@ BOOL CALLBACK Diplomacy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LP
 /// The row shows the house's name in its color, its flag, the alliance and chat check boxes
 /// and the number of units and buildings the house has destroyed.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00634670 has no row)
 void RadarDiplomacy::Update_Diplomacy_Row(HWND window, int row, HouseClass * house) // RA2: at 0x00634670, excepted: 768 B like the exe, 6 bytes differ (the exe loads the chat control ID into eax and ecx, this into eax and edx)
 {
 	int kills_id = Diplomacy_Kill_Controls[row]; // RA2: the kill and name label of the row, looked up before the house is tested
@@ -2932,6 +2933,7 @@ void RadarDiplomacy::Update_Diplomacy_Row(HWND window, int row, HouseClass * hou
 		Send_Dlg_Item_Message(window, kills_id, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
 	}
 }
+#endif
 
 
 /// <summary>

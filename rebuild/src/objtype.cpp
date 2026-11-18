@@ -1190,6 +1190,7 @@ void ObjectTypeClass::Clear_Voxel_Indexes(void)
 /// that do not follow the convention are left untouched.
 /// </summary>
 /// <param name="name">The artwork name to adjust in place.</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void ObjectTypeClass::Theater_Naming_Convention(char * name, TheaterType theater) const // RA2: defined here
 {
 	char prefix[4];
@@ -1217,4 +1218,5 @@ void ObjectTypeClass::Theater_Naming_Convention(char * name, TheaterType theater
 		}
 	}
 }
+#endif
 

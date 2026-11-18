@@ -66,6 +66,10 @@ def main(unit, dry):
             targets[n] = 'no exact match yet (row %08x)' % a
         elif a is None and '?$' not in n and not n.startswith('??_'):
             targets[n] = 'no row of the original matches it yet (unplaced)'
+        elif a is not None and lo <= a < hi and a not in rows and '?$' not in n and not n.startswith('??_'):
+            # Its address lies in the unit but main has no row there: no independent bound, so it
+            # cannot be accepted, and its statics would reach the image unbound (lane R3).
+            targets[n] = 'no independent bound yet (%08x has no row)' % a
     src = R.ROOT / info['source']
     text = src.read_text(encoding='latin-1')
     edits, left = [], []
@@ -112,7 +116,7 @@ def main(unit, dry):
         src.write_text(text, encoding='latin-1')
         if not info.get('partial_ok'):
             info['partial_ok'] = True
-            R.write_json(R.UNITS, units)
+            R.save_units(units, [unit])
 
 
 def refine(unit, before_path):

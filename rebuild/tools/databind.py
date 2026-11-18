@@ -32,7 +32,7 @@ for i, s in enumerate(c.sections, 1):
         if resolve(n['name'])[0] is None:
             info.setdefault('references', {})[n['name']] = '%08x' % (hits[0] + n['value'])
             print('  %s = %08x (section #%d, %d bytes, unique match)' % (n['name'][:70], hits[0] + n['value'], i, len(data)))
-R.write_json(R.UNITS, units)
+R.save_units(units, [unit])
 
 # Pointers in a bound data section whose targets are unbound (string literal COMDATs): the target is
 # the original pointer at that offset, accepted only when the literal's own bytes are found there.
@@ -56,4 +56,4 @@ for i, s in enumerate(c.sections, 1):
         if literal is not None and audit.original(address, len(literal)) == bytes(literal):
             info['references'][target['name']] = '%08x' % address
             print('  %s = %08x (pointer at %s+%d, literal bytes equal)' % (target['name'][:60], address, owner[1][:30], o - owner[0]))
-R.write_json(R.UNITS, units)
+R.save_units(units, [unit])

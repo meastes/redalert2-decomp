@@ -84,6 +84,7 @@ int AircraftTrackerClass::Region_Index(Cell cell) // RA2: 0x00412820
 /// Adds the bins around the cell of an object to the working list: its own bin, the bins one radius
 /// away to the right, above, below and to the left with those between, then the diagonals.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void AircraftTrackerClass::Append_Radius_Bins(CellClass * cell, int radius) // RA2: 0x004128A0
 {
 	Cell center = cell->Center_Coord().As_Cell(); // RA2: the cell of the center coordinate (virtual 0x48)
@@ -172,6 +173,7 @@ void AircraftTrackerClass::Append_Radius_Bins(CellClass * cell, int radius) // R
 		}
 	}
 }
+#endif
 
 /// <summary>
 /// Does nothing: the tracker needs no work when an object it may hold goes away.

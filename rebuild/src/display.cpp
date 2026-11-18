@@ -84,8 +84,6 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
-#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
-#include "rect.h"
 
 #include "display.h"
 
@@ -452,6 +450,7 @@ void DisplayClass::Set_View_Dimensions(Rect const & dimensions)
  *   06/03/1994 JLB : Created.                                                                 *
  *   06/26/1995 JLB : Puts placement cursor into static buffer.                                *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text)
 void DisplayClass::Set_Cursor_Shape(Cell const * list)
 {
 	if (CursorSize) {
@@ -473,7 +472,9 @@ void DisplayClass::Set_Cursor_Shape(Cell const * list)
 		CursorSize = 0;
 	}
 }
+#endif
 
+#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text)
 void DisplayClass::Set_Copy_Cursor_Shape(Cell const * list) // RA2: RA2's form
 {
 	if (CopyCursorSize) { // RA2: as above
@@ -494,6 +495,7 @@ void DisplayClass::Set_Copy_Cursor_Shape(Cell const * list) // RA2: RA2's form
 		CopyCursorSize = 0; // RA2: as above
 	}
 }
+#endif
 
 
 
@@ -540,6 +542,7 @@ static inline Coord Foundation_Cell_Center(Cell const & cell) // RA2: as above
  *   06/07/1994 JLB : Handles concrete check.                                                  *
  *   10/11/1994 BWG : Added IsProximate check for ore refineries                               *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 bool DisplayClass::Passes_Proximity_Check(ObjectTypeClass const * object, HousesType house, Cell const * list, Cell const & trycell) const
 {
 	if (house != PlayerPtr->HeapID) {
@@ -584,6 +587,7 @@ bool DisplayClass::Passes_Proximity_Check(ObjectTypeClass const * object, Houses
 
 	return(retval);
 }
+#endif
 
 
 
@@ -601,6 +605,7 @@ bool DisplayClass::Passes_Proximity_Check(ObjectTypeClass const * object, Houses
 /// <returns>bool; Can the pending building object be placed at the present cursor location
 /// checking only for the shroud? If this isn't for a building type object, then this
 /// routine always returns true.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 bool DisplayClass::Passes_Shroud_Check(ObjectTypeClass const * object, HousesType house, Cell const * list, Cell const & trycell) const
 {
 	if (house != PlayerPtr->HeapID || Debug_Map) { // RA2: RA2's form
@@ -630,6 +635,7 @@ bool DisplayClass::Passes_Shroud_Check(ObjectTypeClass const * object, HousesTyp
 done: // RA2: as above
 	return(true);
 }
+#endif
 
 
 
@@ -655,6 +661,7 @@ done: // RA2: as above
  *   06/08/1994 JLB : If position is -1, then follow mouse.                                    *
  *   02/28/1995 JLB : Forces placement cursor to fit on map.                                   *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004994d0 has no row)
 Cell DisplayClass::Set_Cursor_Pos(Cell const & xpos)
 {
 	Cell	prevpos;			// Last position of cursor (for jump-back reasons).
@@ -727,6 +734,7 @@ Cell DisplayClass::Set_Cursor_Pos(Cell const & xpos)
 
 	return(prevpos);
 }
+#endif
 
 
 /***********************************************************************************************
@@ -803,6 +811,7 @@ Cell DisplayClass::Get_Occupy_Dimensions(Cell const * list) const
  *   09/04/1991 JLB : Created.                                                                 *
  *   06/02/1994 JLB : Converted to member function.                                            *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 void DisplayClass::Cursor_Mark(Cell const &pos, bool on)
 {
 	Cell const * ptr;
@@ -827,7 +836,9 @@ void DisplayClass::Cursor_Mark(Cell const &pos, bool on)
 		}
 	}
 }
+#endif
 
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 void DisplayClass::Mark_Foundation_Copy(Cell const & pos, bool on) // RA2: RA2's form
 {
 	Cell const * ptr;
@@ -848,6 +859,7 @@ void DisplayClass::Mark_Foundation_Copy(Cell const & pos, bool on) // RA2: RA2's
 		}
 	}
 }
+#endif
 
 
 
@@ -1545,6 +1557,7 @@ ObjectClass * DisplayClass::Prev_Object(ObjectClass * object)  const
  *   06/25/1996 JLB : Rewrote and greatly simplified.                                          *
  *   10/05/1996 JLB : Checks for zone and crushable status.                                    *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 18 bytes differ (adopted text)
 Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell const & cell, SpeedType loco, bool zonecheck, MZoneType mzone) const
 {
 	bool vert = false;
@@ -1700,6 +1713,7 @@ Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell c
 
 	return fallback; // RA2: as above
 }
+#endif
 
 
 
@@ -1922,6 +1936,7 @@ void DisplayClass::Mouse_Right_Release(Point2D const & point)
  *   02/24/1995 JLB : Created.                                                                 *
  *   07/05/1995 JLB : Removed pop up help text for shadow and terrain after #3.                *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0049b0f0 has no row)
 void DisplayClass::Mouse_Left_Up(Cell const & cell, bool shadow, ObjectClass * object, ActionType action, bool wsmall)
 {
 	IsTentative = false;
@@ -2246,6 +2261,7 @@ void DisplayClass::Mouse_Left_Up(Cell const & cell, bool shadow, ObjectClass * o
 		}
 	}
 }
+#endif
 
 
 void Bandbox_Selection_Callback(ObjectClass *object);

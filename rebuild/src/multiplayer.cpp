@@ -166,6 +166,7 @@ MultiplayerGameMode * __fastcall MultiplayerGameMode::Get(int index) // RA2: 0x0
 /// Fills a combo box with the names of the game modes (each mode is the item's data) and
 /// selects the one with the mode index; a skirmish lists only the modes that allow it.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 {
 	Clear_ComboBox(combo); // RA2: as above
@@ -181,6 +182,7 @@ void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 		}
 	}
 }
+#endif
 
 /// <summary>
 /// Fills the game mode list box of the lobby with the names of the game modes (each mode is
@@ -188,6 +190,7 @@ void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 /// Online tournaments may not use while the channel is one, a mode that does not suit an
 /// observer when the local player is one, and in a skirmish the modes that do not allow it.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void __fastcall Fill_Game_Mode_List(HWND list, int index) // RA2: 0x005B71E0
 {
 	SendMessage(list, LB_RESETCONTENT, 0, 0); // RA2: as above
@@ -209,6 +212,7 @@ void __fastcall Fill_Game_Mode_List(HWND list, int index) // RA2: 0x005B71E0
 		}
 	}
 }
+#endif
 
 /// <summary>
 /// Gives every player a team of their own (the team is the player's number), except those

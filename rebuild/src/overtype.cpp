@@ -549,6 +549,7 @@ RGBClass OverlayTypeClass::Get_Radar_Color(int shape) const
 /// for every later request.
 /// </summary>
 /// <returns>Returns with a pointer to the shape data for this overlay type.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void const * OverlayTypeClass::Get_Image_Data(void) const
 {
 	char fullname[_MAX_FNAME+_MAX_EXT];
@@ -576,4 +577,5 @@ void const * OverlayTypeClass::Get_Image_Data(void) const
 
 	return(ImageData);
 }
+#endif
 

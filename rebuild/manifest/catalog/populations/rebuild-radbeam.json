@@ -1,0 +1,2422 @@
+{
+  "id": "rebuild-radbeam",
+  "population": {
+    "id": "rebuild-radbeam",
+    "inventory_sha256": "da0fe9af7b46bb30af3b093e23274895e03e631706bc27c32971d695c89779a5",
+    "gaps_sha256": "12cc7382cf13557596ba54ad4815fab3bd74b3482283828e2c27691fde7c2dda",
+    "historical_population_sha256": "6bdec1a2b512cdbbd13cef0ac586abe7de56851d34203f4874c3c29eb7224111",
+    "historical_acceptance_sha256": "6b1f47f46cae54643cfca789debb8ce34f45f9bf86d56f2f95ffc7e46287d7d0"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11232456,
+    "_ISO_TILE_SIZE": 8030280,
+    "_LEPTONS_PER_PIXEL": 11232552,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11232536,
+    "_ONE_RAD": 8030288,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11232528,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11232464,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11232424,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11232564,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11232472,
+    "_CELL_DIAG_SLOPE_ANGLE": 11232520,
+    "_BRIDGE_LEPTON_HEIGHT": 11232544,
+    "_CELL_NONE": 11232448,
+    "_COORD_NONE": 11232504,
+    "_RECT_NONE": 11232432,
+    "_$E84": 6509536,
+    "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A": 11232480,
+    "??_7?$DynamicVectorClass@PAVRadBeam@@@@6B@": 8030300,
+    "_atexit": 7874954,
+    "_$S85": 11232560,
+    "??_7?$VectorClass@PAVRadBeam@@@@6B@": 8030332,
+    "??3@YAXPAX@Z": 7871803,
+    "??2@YAPAXI@Z": 7872535,
+    "??0RadBeam@@QAE@H@Z": 6510256,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
+    "?TacticalRect@@3V?$TRect@H@@A": 8623664,
+    "?Clip_Line_To_Rect@@YI_NAAVPoint2D@@0ABV?$TRect@H@@@Z": 7820832,
+    "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z": 6957424,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?Setup_Swing@RadBeam@@QAEXXZ": 6512512,
+    "?Update_Swing@RadBeam@@QAEXXZ": 6512672,
+    "?Compute_Swing_Step@RadBeam@@QAEXXZ": 6512944,
+    "?BlueLeft@DSurface@@2HA": 8728516,
+    "?BlueRight@DSurface@@2HA": 8728512,
+    "?GreenLeft@DSurface@@2HA": 8728524,
+    "?GreenRight@DSurface@@2HA": 8728520,
+    "?RedLeft@DSurface@@2HA": 8728508,
+    "?RedRight@DSurface@@2HA": 8728504,
+    "_$E2": 6508976,
+    "_$E5": 6509024,
+    "_$E8": 6509056,
+    "_$E11": 6509088,
+    "_$E14": 6509120,
+    "_$E17": 6509152,
+    "_$E20": 6509184,
+    "_$E23": 6509248,
+    "_$E26": 6509296,
+    "_$E29": 6509344,
+    "_$E32": 6509392,
+    "_$E35": 6509408,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E41": 6509440,
+    "_$E87": 6509472,
+    "??_G?$DynamicVectorClass@PAVRadBeam@@@@UAEPAXI@Z": 6514160,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVRadBeam@@@@UAEPAXI@Z": 6514080,
+    "?Allocate@RadBeam@@SIPAV1@H@Z": 6509632,
+    "?Set_Color@RadBeam@@QAEXABVRGBClass@@@Z": 6510352,
+    "?Set_Depth@RadBeam@@QAEXH@Z": 6510384,
+    "?Set_Source@RadBeam@@QAEXABVCoord@@@Z": 6510400,
+    "?Set_Target@RadBeam@@QAEXABVCoord@@@Z": 6510432,
+    "?Set_Period@RadBeam@@QAEXH@Z": 6510464,
+    "?Set_Amplitude@RadBeam@@QAEXN@Z": 6510480,
+    "?Set_Phase@RadBeam@@QAEXN@Z": 6510512,
+    "?Set_Start_Delay@RadBeam@@QAEXH@Z": 6510544,
+    "?Deactivate@RadBeam@@QAEXXZ": 6510560,
+    "?Is_Active@RadBeam@@QBE_NXZ": 6510576,
+    "?Set_Step_Length@RadBeam@@QAEXH@Z": 6510592,
+    "?Draw_Line@RadBeam@@QAEXABVCoord@@0F@Z": 6510608,
+    "?Compute_Delta@RadBeam@@QAEXXZ": 6511408,
+    "?Draw_Swing@RadBeam@@QAE_NXZ": 6512128,
+    "?Clear@?$DynamicVectorClass@PAVRadBeam@@@@UAEXXZ": 6513376,
+    "?ID@?$DynamicVectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z": 6513424,
+    "?GetItem@?$VectorClass@PAVRadBeam@@@@UBEPAVRadBeam@@H@Z": 6513456,
+    "??8?$VectorClass@PAVRadBeam@@@@UBE_NABV0@@Z": 6513472,
+    "?Resize@?$VectorClass@PAVRadBeam@@@@UAE_NHPBQAVRadBeam@@@Z": 6513536,
+    "?Clear@?$VectorClass@PAVRadBeam@@@@UAEXXZ": 6513712,
+    "?ID@?$VectorClass@PAVRadBeam@@@@UAEHABQAVRadBeam@@@Z": 6513760,
+    "?ID@?$VectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z": 6513824,
+    "?Resize@?$DynamicVectorClass@PAVRadBeam@@@@UAE_NHPBQAVRadBeam@@@Z": 6513856,
+    "?ID@?$DynamicVectorClass@PAVRadBeam@@@@UAEHABQAVRadBeam@@@Z": 6514032,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 6508976,
+      "method": "006351b0",
+      "body_bytes": 40,
+      "body_sha256": "97fee5b3760bf79aaa0f51fd643233f18339de2a99e978c0021897b4a310b8e5",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "754d1f56e25c42e516b24fac8352f3dfa99b866016c95f7072a0e57c767f3fd4",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1363951
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293415490
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11232456,
+          "addend": 0,
+          "resolved": 11232456
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6508976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509024,
+      "method": "006351e0",
+      "body_bytes": 19,
+      "body_sha256": "c58e5195681d0074b49f8bb0e1c03340179d47becb0bfafb60aff529c1eb1c35",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bf9a8dd59454d8d46bcd76d56a0178a3fcc094c2c0e9f969121ace7271bbd4d9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11232456,
+          "addend": 0,
+          "resolved": 11232456
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8030280,
+          "addend": 0,
+          "resolved": 8030280
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11232552,
+          "addend": 0,
+          "resolved": 11232552
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509056,
+      "method": "00635200",
+      "body_bytes": 19,
+      "body_sha256": "16ada2610dfd92382914fcda1c9870b040b1b76c0d0ad0f916983bd6bb9ebd92",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "86f1c7bfc1e2dcc4428687c36b08c5a275df28dfbfd646b400becc0caec87586",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11232552,
+          "addend": 0,
+          "resolved": 11232552
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11232536,
+          "addend": 0,
+          "resolved": 11232536
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509088,
+      "method": "00635220",
+      "body_bytes": 19,
+      "body_sha256": "e5b91ff10e4c504902cde526a255a2e0b8b151c86c52c35de4b02166d0b38998",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b5275b60b02fe3f7a8cf8578681099c2bc2a2b2bd7db17d27f7ea42266653809",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8030288,
+          "addend": 0,
+          "resolved": 8030288
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11232528,
+          "addend": 0,
+          "resolved": 11232528
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509120,
+      "method": "00635240",
+      "body_bytes": 19,
+      "body_sha256": "31bb96c4e92321cc7f92950415898c9ebb37a39b2e959b37e082e127c418746a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ce1bc338e5a8c8ba9307e2b3ae4f5f77312fd8ce700f8ef5f4e75cc8bbea3a25",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8030288,
+          "addend": 0,
+          "resolved": 8030288
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11232464,
+          "addend": 0,
+          "resolved": 11232464
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509152,
+      "method": "00635260",
+      "body_bytes": 19,
+      "body_sha256": "05e7b8a49f4030655acc358a9eba2501ed0947b7a44fec156719849640027f38",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "aca644fb5b7cac34178a9c41cec37b57ad898d254d6d150b26407b8a18ea44e8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8030288,
+          "addend": 0,
+          "resolved": 8030288
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11232424,
+          "addend": 0,
+          "resolved": 11232424
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509184,
+      "method": "00635280",
+      "body_bytes": 49,
+      "body_sha256": "5c0545a0ca2e8908394099484008c7ebbd00604901e144a955c9c1ba22e9ee9d",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a3b9f7cfbc9b07f64ba2f32735223d5e31710e6b2068d4e329c211c2ba006a0d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11232424,
+          "addend": 0,
+          "resolved": 11232424
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11232464,
+          "addend": 0,
+          "resolved": 11232464
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293415561
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11232456,
+          "addend": 0,
+          "resolved": 11232456
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1351269
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11232564,
+          "addend": 0,
+          "resolved": 11232564
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509248,
+      "method": "006352c0",
+      "body_bytes": 33,
+      "body_sha256": "c616f4b38863d8161c092f6e0448f2792bccdbdd020402b935d0400bed4c0f23",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0f8f562759a75289a563d96d8baedbdb020cfaf19ecdaac901c154e7d86c0623",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11232564,
+          "addend": 0,
+          "resolved": 11232564
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293415641
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11232472,
+          "addend": 0,
+          "resolved": 11232472
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509296,
+      "method": "006352f0",
+      "body_bytes": 44,
+      "body_sha256": "97c6305272203a909e357bd90dd3293ecdcbab8509c9c2761dd04e521da07d11",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4ffe6077f68068bddd942fedaf7c7cb36b70ad0209b7813359f69126b933b456",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11232564,
+          "addend": 0,
+          "resolved": 11232564
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11232456,
+          "addend": 0,
+          "resolved": 11232456
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293415582
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11232520,
+          "addend": 0,
+          "resolved": 11232520
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509344,
+      "method": "00635320",
+      "body_bytes": 39,
+      "body_sha256": "45398880c082f79fec71bf490d2cefc42d5355ad9fbaa7f5c4dddaf3a62ccf87",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d3c83f908eb822c1624043c9249f2b6df75f9bb65f291f83052f9aed6cd39b6b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11232564,
+          "addend": 0,
+          "resolved": 11232564
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1351120
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11232544,
+          "addend": 0,
+          "resolved": 11232544
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509392,
+      "method": "00635350",
+      "body_bytes": 15,
+      "body_sha256": "44f7820714cdf98ac5ab6fcd8a203e41e17536839f7049e7cab9fdd6c3b914ad",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "4a1a41297d090256bbd5bff37f11c3f1799e671519845ff330897cf84f11f09e",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11232448,
+          "addend": 0,
+          "resolved": 11232448
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11232448,
+          "addend": 2,
+          "resolved": 11232450
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509408,
+      "method": "00635360",
+      "body_bytes": 18,
+      "body_sha256": "ee4a030419038cda36fdff49fef1f472e65e55e61b6276d8bea73782b384cbe7",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "56684828d8267633270b58488187156b78ea3563d913fb2e8e68f725b768431d",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11232504,
+          "addend": 0,
+          "resolved": 11232504
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11232504,
+          "addend": 4,
+          "resolved": 11232508
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11232504,
+          "addend": 8,
+          "resolved": 11232512
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509440,
+      "method": "00635380",
+      "body_bytes": 23,
+      "body_sha256": "bff246c2be2589b031b75d65b98ab2805783d9b47379c5590c8d17cbed98ff23",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cfe110283b25d6186039550a58a81c34134e186837af0dd6591aac6a30d2d8c2",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E41",
+      "symbol_prefix": "_$E41",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11232432,
+          "addend": 0,
+          "resolved": 11232432
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11232432,
+          "addend": 4,
+          "resolved": 11232436
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11232432,
+          "addend": 8,
+          "resolved": 11232440
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11232432,
+          "addend": 12,
+          "resolved": 11232444
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509472,
+      "method": "006353a0",
+      "body_bytes": 61,
+      "body_sha256": "cf787046ddb21f351b89dc2ff6f48fedec5271f857b0a16da072b091f0fed700",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "406b32191562fa89db56b538089516ef3b9e003ce50742c620d4acb009b27eea",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E87",
+      "symbol_prefix": "_$E87",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E84",
+          "target": 6509536,
+          "addend": 0,
+          "resolved": 6509536
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 4,
+          "resolved": 11232484
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 8,
+          "resolved": 11232488
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 12,
+          "resolved": 11232492
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 13,
+          "resolved": 11232493
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 0,
+          "resolved": 11232480
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVRadBeam@@@@6B@",
+          "target": 8030300,
+          "addend": 0,
+          "resolved": 8030300
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 20,
+          "resolved": 11232500
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 16,
+          "resolved": 11232496
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1365423
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509536,
+      "method": "006353e0",
+      "body_bytes": 88,
+      "body_sha256": "4191bbce5970d91ea597744ccbe6e4d1026df427929f405a4f737e6a3a032e96",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "3a48abb2854221035ab9a4a913be5f8499cec635554f35ee41dc8c80b653232f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E84",
+      "symbol_prefix": "_$E84",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S85",
+          "target": 11232560,
+          "addend": 0,
+          "resolved": 11232560
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 0,
+          "resolved": 11232480
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVRadBeam@@@@6B@",
+          "target": 8030332,
+          "addend": 0,
+          "resolved": 8030332
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 4,
+          "resolved": 11232484
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_$S85",
+          "target": 11232560,
+          "addend": 0,
+          "resolved": 11232560
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 13,
+          "resolved": 11232493
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1362210
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 4,
+          "resolved": 11232484
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 13,
+          "resolved": 11232493
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 8,
+          "resolved": 11232488
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509632,
+      "method": "00635440",
+      "body_bytes": 149,
+      "body_sha256": "83c62fa9acc7b884d35371503fb4f698024312615883fcb4af87d9c599b5f0b5",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "27a37ac64c1393d0db31d584ec8bbd434156d1669ca96c4e67c942fcb7c1dbd2",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Allocate@RadBeam@@SIPAV1@H@Z",
+      "symbol_prefix": "?Allocate@RadBeam@@SIPAV1@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1362888
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??0RadBeam@@QAE@H@Z",
+          "target": 6510256,
+          "addend": 0,
+          "resolved": 594
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 8,
+          "resolved": 11232488
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 16,
+          "resolved": 11232496
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 13,
+          "resolved": 11232493
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 20,
+          "resolved": 11232500
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 0,
+          "resolved": 11232480
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 0,
+          "resolved": 11232480
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 16,
+          "resolved": 11232496
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 16,
+          "resolved": 11232496
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 4,
+          "resolved": 11232484
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510256,
+      "method": "006356b0",
+      "body_bytes": 95,
+      "body_sha256": "36098a1014934014017ea3e11163489ecea5d55d4e1f8ee04baf397bbabe04c6",
+      "padding_bytes": 1,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "c87b7f6582be5e6767bfe73440d58569479245756b75e602b5104dbfa42ff1dd",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0RadBeam@@QAE@H@Z",
+      "symbol_prefix": "??0RadBeam@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510352,
+      "method": "00635710",
+      "body_bytes": 22,
+      "body_sha256": "e55a4f57cd68a9217e369773ffba0ff70e6a3a150e7a7984df0cbd21403881f5",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a73814ad2d17c35b0e6a9c79ab1c3974619ddf594065c01c018e3f30329adc28",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Color@RadBeam@@QAEXABVRGBClass@@@Z",
+      "symbol_prefix": "?Set_Color@RadBeam@@QAEXABVRGBClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510384,
+      "method": "00635730",
+      "body_bytes": 10,
+      "body_sha256": "01caaa228fe4f4c7fe4269994a79702b290762107c5e6b67c17e8d8525fc7585",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c527e3808437af2a5e839f2a88b1a2d17d6a25569e476174e1625a3ab7988b3d",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Depth@RadBeam@@QAEXH@Z",
+      "symbol_prefix": "?Set_Depth@RadBeam@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510400,
+      "method": "00635740",
+      "body_bytes": 26,
+      "body_sha256": "986995653d17336d5bf67a9e7ec17327b3f2a39dc0960b715858b64c96947c1b",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2760198428e0065525dd23e7143e690190dd1901ceeca9af77522b346f0c9171",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Source@RadBeam@@QAEXABVCoord@@@Z",
+      "symbol_prefix": "?Set_Source@RadBeam@@QAEXABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510432,
+      "method": "00635760",
+      "body_bytes": 26,
+      "body_sha256": "2d611f42114b508428a26b5b6d608932b8611e3bf23dc022b18031f2bb04ece1",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "82a091b2c0de3175aa94b7b5ac60ffe96ba6623c1400fab2a9a8d1771cab73f0",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Target@RadBeam@@QAEXABVCoord@@@Z",
+      "symbol_prefix": "?Set_Target@RadBeam@@QAEXABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510464,
+      "method": "00635780",
+      "body_bytes": 10,
+      "body_sha256": "6d731f768f8834c3595c479205dc6991ea8b4b940958f6be330f60aa9373eef1",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "52fdedfe56565862fc04de90a7a878c6cb38ade84ddc975990a1d2ff43211260",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Period@RadBeam@@QAEXH@Z",
+      "symbol_prefix": "?Set_Period@RadBeam@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510480,
+      "method": "00635790",
+      "body_bytes": 17,
+      "body_sha256": "5bdd811ecfcd4648bc7f542fc52a69e2c6e8fc41143bc3ac6d1f9ecce3d543e3",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "858c64b930dfa87b711d827dcbc56a09f7291d29c8046e790c8fcdad090c83d4",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Amplitude@RadBeam@@QAEXN@Z",
+      "symbol_prefix": "?Set_Amplitude@RadBeam@@QAEXN@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510512,
+      "method": "006357b0",
+      "body_bytes": 17,
+      "body_sha256": "d2c8f07c46efc3da855e54649406fb5c1e083068449388464563573ca09dba74",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c6c6fe8d2ed44d8ff431d13ac93e2c6e41d6681de17967b497d16bf4aeda58bc",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Phase@RadBeam@@QAEXN@Z",
+      "symbol_prefix": "?Set_Phase@RadBeam@@QAEXN@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510544,
+      "method": "006357d0",
+      "body_bytes": 10,
+      "body_sha256": "fde7b389ab38b8362fc6d34289cc38373db36da8c3aa6b9e1a26128474e2e542",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f19d1591760836879a351da268c3a8b41c06e77d46fc27725aea64bfa5e3936c",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Start_Delay@RadBeam@@QAEXH@Z",
+      "symbol_prefix": "?Set_Start_Delay@RadBeam@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510560,
+      "method": "006357e0",
+      "body_bytes": 5,
+      "body_sha256": "c504fce19baf7c154ecbde8f866736a457f6cfbfb62e99d441195456e610a4aa",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1f5dc18c4125d3f33b3b7758e8888cbb8bbb4de73aab4efd572de457ba88f80a",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Deactivate@RadBeam@@QAEXXZ",
+      "symbol_prefix": "?Deactivate@RadBeam@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510576,
+      "method": "006357f0",
+      "body_bytes": 4,
+      "body_sha256": "e9630712bcfeba8c4eeacb45dffada2089ef52f9a0e53c082f870f989907a205",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "922cf12737d5e8a543c510b84f79711e0145f62d6d578dd29c4c7878fc23eab0",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Active@RadBeam@@QBE_NXZ",
+      "symbol_prefix": "?Is_Active@RadBeam@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510592,
+      "method": "00635800",
+      "body_bytes": 10,
+      "body_sha256": "6b3961a46bc85ad0f5a33c30bb27845279a2ac64fd781b63ab9e0cbe82d28509",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "4dd970540c3b2e16c37ae37e92b6126dfa57d96bb54eb9505f0d933ab9ad7ab1",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Step_Length@RadBeam@@QAEXH@Z",
+      "symbol_prefix": "?Set_Step_Length@RadBeam@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510608,
+      "method": "00635810",
+      "body_bytes": 187,
+      "body_sha256": "c1dbd0916b8258be3fbadadc8a9ceb94c4e87adae8b464f7f8c963a6fe650485",
+      "padding_bytes": 5,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "d797631b888defd28a23bffc6fd0da86698363ed1dc4b2316e6588b84f9d10d6",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Line@RadBeam@@QAEXABVCoord@@0F@Z",
+      "symbol_prefix": "?Draw_Line@RadBeam@@QAEXABVCoord@@0F@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 446883
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 446862
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 8,
+          "resolved": 8623672
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 12,
+          "resolved": 8623676
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "?Clip_Line_To_Rect@@YI_NAAVPoint2D@@0ABV?$TRect@H@@@Z",
+          "target": 7820832,
+          "addend": 0,
+          "resolved": 1310117
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 446697
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 446681
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6511408,
+      "method": "00635b30",
+      "body_bytes": 100,
+      "body_sha256": "8c86ee5eb0fdb9bec8cb02e05592aa516ff5157d35118c781b016edc41f2d2e0",
+      "padding_bytes": 12,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "12383c5e17fcf173fa7e203995848bdd576fd8bf2e12e51921f2d03e47bc5e2f",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_Delta@RadBeam@@QAEXXZ",
+      "symbol_prefix": "?Compute_Delta@RadBeam@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293412999
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6511408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6512128,
+      "method": "00635e00",
+      "body_bytes": 370,
+      "body_sha256": "e16535444fbcea17fb5b85d77a0b5d45690df4927df0b4a0d84a5fcb838d8536",
+      "padding_bytes": 14,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "3ed7bb231a1a7ecfbb27666beb29ed92e168b8c3b674963b6464282737650b8f",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Swing@RadBeam@@QAE_NXZ",
+      "symbol_prefix": "?Draw_Swing@RadBeam@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Setup_Swing@RadBeam@@QAEXXZ",
+          "target": 6512512,
+          "addend": 0,
+          "resolved": 364
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Update_Swing@RadBeam@@QAEXXZ",
+          "target": 6512672,
+          "addend": 0,
+          "resolved": 506
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Compute_Swing_Step@RadBeam@@QAEXXZ",
+          "target": 6512944,
+          "addend": 0,
+          "resolved": 745
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 175,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 445213
+        },
+        {
+          "offset": 181,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 192,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 445196
+        },
+        {
+          "offset": 198,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 8,
+          "resolved": 8623672
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 12,
+          "resolved": 8623676
+        },
+        {
+          "offset": 248,
+          "kind": 20,
+          "symbol": "?Clip_Line_To_Rect@@YI_NAAVPoint2D@@0ABV?$TRect@H@@@Z",
+          "target": 7820832,
+          "addend": 0,
+          "resolved": 1308452
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 445032
+        },
+        {
+          "offset": 276,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 445016
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 314,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6512128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6512512,
+      "method": "00635f80",
+      "body_bytes": 159,
+      "body_sha256": "65f74f228962257e0018547e4fa0b672eedfbec93482e8a0d19d21195de256cd",
+      "padding_bytes": 1,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "8f8077e285e9690f3654a47fbd9511044ef310856e875a98782758f80cac7bd6",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Setup_Swing@RadBeam@@QAEXXZ",
+      "symbol_prefix": "?Setup_Swing@RadBeam@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293411894
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1347880
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6512512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6512672,
+      "method": "00636020",
+      "body_bytes": 258,
+      "body_sha256": "e7555df99add88c8b693aea9914b48fbcb67d312c7f40fc275c184ff9225bb63",
+      "padding_bytes": 14,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "0d9cf5c508aa5cead10f6ed83578a1db7acbd341228b70afde2ca527c6053303",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Update_Swing@RadBeam@@QAEXXZ",
+      "symbol_prefix": "?Update_Swing@RadBeam@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1347732
+        },
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293411640
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1347626
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6512672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6513376,
+      "method": "006362e0",
+      "body_bytes": 42,
+      "body_sha256": "9fb39a93f04c6d9b54557b6bf6f1ba9e97939a85b5ea315bedf0695ff8da2d0d",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "02b7f7cac43dc716a0405c2bdf594aad8cf90af74817a2f88f4408d672def80e",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVRadBeam@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVRadBeam@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1358400
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6513376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6513424,
+      "method": "00636310",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6513424,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6513456,
+      "method": "00636330",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVRadBeam@@@@UBEPAVRadBeam@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVRadBeam@@@@UBEPAVRadBeam@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6513456,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6513472,
+      "method": "00636340",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVRadBeam@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVRadBeam@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6513472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6513536,
+      "method": "00636380",
+      "body_bytes": 174,
+      "body_sha256": "c5424c18399cb624974bf4418731dbe50f2b59ab320984d6ab751147191dde9d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "0d757b7ae030b77f53842f1d9d8dbf30653b1f4cd01a9adda028827a22f0ed79",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVRadBeam@@@@UAE_NHPBQAVRadBeam@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVRadBeam@@@@UAE_NHPBQAVRadBeam@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1358956
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1358144
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6513536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6513712,
+      "method": "00636430",
+      "body_bytes": 39,
+      "body_sha256": "ba20857be31689bc49105125b73b784088cd68caedf6365aaa29a8769c1dd3bd",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e9b504251627047a56a23cae5960ecd5ee03fa1c26f61e1f1b7b0f4befc68643",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVRadBeam@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVRadBeam@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1358067
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6513712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6513760,
+      "method": "00636460",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVRadBeam@@@@UAEHABQAVRadBeam@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVRadBeam@@@@UAEHABQAVRadBeam@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6513760,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6513824,
+      "method": "006364a0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6513824,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6513856,
+      "method": "006364c0",
+      "body_bytes": 176,
+      "body_sha256": "de27a39001f6b1473c71c9b6c744d9bc36e2654e464d775308cb959a3ae4ab5c",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "de27a39001f6b1473c71c9b6c744d9bc36e2654e464d775308cb959a3ae4ab5c",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVRadBeam@@@@UAE_NHPBQAVRadBeam@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVRadBeam@@@@UAE_NHPBQAVRadBeam@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1358640
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1357837
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6513856,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 6514032,
+      "method": "00636570",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVRadBeam@@@@UAEHABQAVRadBeam@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVRadBeam@@@@UAEHABQAVRadBeam@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6514032,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 6514080,
+      "method": "6365a0",
+      "body_bytes": 73,
+      "body_sha256": "8b9f6d72e09a96d131e37286880f3aa8bd1860a838093992d2b5475b76960478",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c8a2390d91cb5f57d9da5003a3499909989155b60d63465976299c1248cdb6fd",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVRadBeam@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVRadBeam@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVRadBeam@@@@6B@",
+          "target": 8030332,
+          "addend": 0,
+          "resolved": 8030332
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1357694
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1357659
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6514080,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 6514160,
+      "method": "6365f0",
+      "body_bytes": 73,
+      "body_sha256": "c8993dad70879321f6b0f632c10780919001270b89f63cd05f8d1bf97c6f2066",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ea27077ff151dd3bf9713e31bc9353ccbb3cb092ff558aeb50f88fad3b81c941",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVRadBeam@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVRadBeam@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVRadBeam@@@@6B@",
+          "target": 8030332,
+          "addend": 0,
+          "resolved": 8030332
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1357614
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1357579
+        }
+      ],
+      "source_sha256": "2b2d878540a304b5761bd59c455f57e780560ddefdc848d0e2cc59ff65d02094",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6514160,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

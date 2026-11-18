@@ -2716,6 +2716,7 @@ Coord CellClass::Cell_Coord(void) const
  * HISTORY:                                                                                    *
  *   09/19/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00475db0 has no row)
 int CellClass::Reduce_Tiberium(int levels)
 {
 	Rect dirty = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
@@ -2749,6 +2750,7 @@ int CellClass::Reduce_Tiberium(int levels)
 	}
 	return(0);
 }
+#endif
 
 
 
@@ -5212,6 +5214,7 @@ void CellClass::Redraw_Veins(void)
 /// cardinal neighbors, converting eligible neighbors to veins as well. The cell's radar
 /// background and dirty render areas are updated as the overlay changes.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0047ad00 has no row)
 void CellClass::Place_Veins(void)
 {
 	Rect rect(0, 0, 0, 0);
@@ -5274,6 +5277,7 @@ void CellClass::Place_Veins(void)
 		Recalc_Attributes();
 	}
 }
+#endif
 
 
 /// <summary>

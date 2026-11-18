@@ -12,6 +12,7 @@
  ******************************************************************************/
 
 #include "always.h"
+#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
 
 #include "mapgen.h"
 

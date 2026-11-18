@@ -473,6 +473,7 @@ int Scheme_List_Count(void) // RA2: 0x00603C10, how many player colors there are
 }
 
 
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int Palette_Scheme_Count(void) // RA2: 0x00603D50, how many palettes have a scheme list
 {
 	SchemeLibrary * library = Scheme_Library(); // RA2: the executable keeps the library in a local here (the loop's register use depends on it)
@@ -485,6 +486,7 @@ int Palette_Scheme_Count(void) // RA2: 0x00603D50, how many palettes have a sche
 	}
 	return(count); // RA2: as above
 }
+#endif
 
 
 SchemeNode ** SchemeTable::Find(HashString const & key) // RA2: 0x006050C0, the node filed under a name

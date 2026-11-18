@@ -104,6 +104,7 @@ TextLabelClass::TextLabelClass(wchar_t *txt, int x, int y, int color, TextPrintT
  * HISTORY:                                                                                    *
  *   03/24/1995 BRR : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 178 bytes differ (adopted text)
 int TextLabelClass::Draw_Me(int forced)
 {
 	/*
@@ -154,3 +155,4 @@ int TextLabelClass::Draw_Me(int forced)
 	}
 	return(false);
 }
+#endif

@@ -3,6 +3,7 @@ symbol,address,evidence
 ??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z,0x0068B0E0,inferred: spawnmanager rows 00689710 00689910 0068a7d0 0068a7d0 differ only at its sites
 ??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z,0x00531EE0,inferred: kamikaze rows 00531550 differ only at its sites
 ??0BaseNodeClass@@QAE@W4StructType@@ABVCell@@@Z,0x004F6BE0,"main: ??0BaseNodeClass@@QAE@HABVCell@@@Z (the same constructor, its first parameter typed int there)"
+??0BuildType@StripClass@SidebarClass@@QAE@XZ,0x00682480,inferred: sidebar rows 0067b700 differ only at its sites
 ??0CRCEngine@@QAE@H@Z,0x00510B20,inferred: ini rows 0050d0f0 0050d400 0050d400 0050e5f0 differ only at its sites
 ??0Coord@@QAE@HHH@Z,0x00434820,inferred: waypoint rows 007256c0 differ only at its sites
 ??0Coord@@QAE@XZ,0x004B25E0,inferred: ebolt rows 004b1900 004b1900 differ only at its sites
@@ -137,6 +138,7 @@ symbol,address,evidence
 ??_E?$DynamicVectorClass@PAVPlanningMemberClass@@@@UAEPAXI@Z,0x0061BA60,slot +04 of ??_7?$DynamicVectorClass@PAVPlanningMemberClass@@@@6B@ at 007a82b8; main row ??_G?$DynamicVectorClass@PAVPlanningMemberClass@@@@UAEPAXI@Z
 ??_E?$DynamicVectorClass@PAVPlanningNodeClass@@@@UAEPAXI@Z,0x0061BBA0,slot +04 of ??_7?$DynamicVectorClass@PAVPlanningNodeClass@@@@6B@ at 007a8218; main row ??_G?$DynamicVectorClass@PAVPlanningNodeClass@@@@UAEPAXI@Z
 ??_E?$DynamicVectorClass@PAVPlanningTokenClass@@@@UAEPAXI@Z,0x0061BCE0,slot +04 of ??_7?$DynamicVectorClass@PAVPlanningTokenClass@@@@6B@ at 007a8258; main row ??_G?$DynamicVectorClass@PAVPlanningTokenClass@@@@UAEPAXI@Z
+??_E?$DynamicVectorClass@PAVRadBeam@@@@UAEPAXI@Z,0x006365F0,slot +04 of ??_7?$DynamicVectorClass@PAVRadBeam@@@@6B@ at 007a8858; main row ?get@Leaf_6365f0@@QAEPAXI@Z
 ??_E?$DynamicVectorClass@PAVRadSiteClass@@@@UAEPAXI@Z,0x006382C0,slot +04 of ??_7?$DynamicVectorClass@PAVRadSiteClass@@@@6B@ at 007a8b60; main row ??_G?$DynamicVectorClass@PAVRadSiteClass@@@@UAEPAXI@Z
 ??_E?$DynamicVectorClass@PAVSpawnManagerClass@@@@UAEPAXI@Z,0x0068B090,slot +04 of ??_7?$DynamicVectorClass@PAVSpawnManagerClass@@@@6B@ at 007ab858; main row ?get@Leaf_68b090@@QAEPAXI@Z
 ??_E?$DynamicVectorClass@PAVSuperClass@@@@UAEPAXI@Z,0x004DBD80,slot +00 of ??_7?$DynamicVectorClass@PAVSuperClass@@@@6B@ at 007a2a24; main row ?get@Leaf_4dbd80@@QAEPAXI@Z
@@ -236,6 +238,7 @@ symbol,address,evidence
 ??_E?$VectorClass@PAVPlanningMemberClass@@@@UAEPAXI@Z,0x0061BA10,slot +04 of ??_7?$VectorClass@PAVPlanningMemberClass@@@@6B@ at 007a82d8; main row ??_G?$VectorClass@PAVPlanningMemberClass@@@@UAEPAXI@Z
 ??_E?$VectorClass@PAVPlanningNodeClass@@@@UAEPAXI@Z,0x0061BB50,slot +04 of ??_7?$VectorClass@PAVPlanningNodeClass@@@@6B@ at 007a8238; main row ??_G?$VectorClass@PAVPlanningNodeClass@@@@UAEPAXI@Z
 ??_E?$VectorClass@PAVPlanningTokenClass@@@@UAEPAXI@Z,0x0061BC90,slot +04 of ??_7?$VectorClass@PAVPlanningTokenClass@@@@6B@ at 007a8278; main row ??_G?$VectorClass@PAVPlanningTokenClass@@@@UAEPAXI@Z
+??_E?$VectorClass@PAVRadBeam@@@@UAEPAXI@Z,0x006365A0,slot +04 of ??_7?$VectorClass@PAVRadBeam@@@@6B@ at 007a8878; main row ?get@Leaf_6365a0@@QAEPAXI@Z
 ??_E?$VectorClass@PAVRadSiteClass@@@@UAEPAXI@Z,0x00638270,slot +04 of ??_7?$VectorClass@PAVRadSiteClass@@@@6B@ at 007a8b80; main row ??_G?$VectorClass@PAVRadSiteClass@@@@UAEPAXI@Z
 ??_E?$VectorClass@PAVSpawnManagerClass@@@@UAEPAXI@Z,0x0068B040,slot +04 of ??_7?$VectorClass@PAVSpawnManagerClass@@@@6B@ at 007ab878; main row ?get@Leaf_68b040@@QAEPAXI@Z
 ??_E?$VectorClass@PAVSuperClass@@@@UAEPAXI@Z,0x004DBD30,slot +00 of ??_7?$VectorClass@PAVSuperClass@@@@6B@ at 007a2a44; main row ?get@Leaf_4dbd30@@QAEPAXI@Z
@@ -431,6 +434,8 @@ symbol,address,evidence
 ?Alloc_Cells@MapClass@@UAEXXZ,0x00548370,slot +58 of ??_7RadarClass@@6B@ at 007a871c; main row ?unknown_slot22@MapClass@@UAEXXZ
 ?Apparent_Brightness@TechnoClass@@UBEHH@Z,0x006D79D0,slot +3fc of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot254@TechnoClass@@UAEHH@Z
 ?Apparent_Speed@LocomotionClass@@UAGHXZ,0x0053D610,slot +88 of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Apparent_Speed@LocomotionClass@@UAGHXZ
+?Apply_Rank_Command@@YIX_N@Z,0x006F7EC0,inferred: init rows 0051bc90 differ only at its sites
+?Apply_State_Command@@YIX_N@Z,0x006F7B80,inferred: init rows 0051bbf0 differ only at its sites
 ?Approach_Target@FootClass@@UAEXXZ,0x004C4C30,slot +4c4 of ??_7AircraftClass@@6BIPersistStream@@@ at 0079b128; main row ?unknown_slot304@FootClass@@UAEXXZ
 ?As_Coord@AbstractClass@@UBE?AVCoord@@XZ,0x004102E0,slot +5c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ
 ?Asm_Interpolate@@YAXPAE0HHH@Z,0x00799241,inferred: interpal rows 0051eb00 differ only at its sites
@@ -455,13 +460,11 @@ symbol,address,evidence
 ?CELL_SLOPE_ANGLE@@3NB,0x00A71738,inferred: mpsiegeteam rows 005abd00 differ only at its sites
 ?CLSID_BombClass@@3U_GUID@@B,0x007A1E00,inferred: bomb rows 00436100 00436100 00436100 00436100 differ only at its sites
 ?COORD_NONE@@3VCoord@@B,0x00A71740,inferred: mpsiegeteam rows 005abda0 005abda0 005abda0 differ only at its sites
-?CanAttackMove@TechnoTypeClass@@UBE_NXZ,0x0045E750,slot +a4 of ??_7BuildingTypeClass@@6BIPersistStream@@@ at 0079d1f8; main row ?CanAttackMove@BuildingTypeClass@@UBE_NXZ
 ?CanAttackOnTheMove@TechnoClass@@UBE_NXZ,0x006D8F40,slot +450 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?CanAttackOnTheMove@TechnoClass@@UAE_NXZ
 ?CanBeSelected@ObjectClass@@UBE_NXZ,0x005D54B0,slot +134 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?CanBeSelected@ObjectClass@@UAE_NXZ
 ?CanCheer@TechnoClass@@UBE_NXZ,0x0041B3D0,slot +334 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_41b3d0@@QAE_NXZ
 ?CanDisguiseAs@TechnoClass@@UBE_NPAVAbstractClass@@@Z,0x006D8DB0,slot +344 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot208@TechnoClass@@UAE_NPAVObjectClass@@@Z
 ?CanUseWaypoint@TechnoClass@@UBE_NXZ,0x006D8F20,slot +44c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?CanUseWaypoint@TechnoClass@@UAE_NXZ
-?CanUseWaypoint@TechnoTypeClass@@UBE_NXZ,0x0045E740,slot +a0 of ??_7BuildingTypeClass@@6BIPersistStream@@@ at 0079d1f8; main row ?CanUseWaypoint@BuildingTypeClass@@UBE_NXZ
 ?Can_Attack_Now@TechnoClass@@UBE_NXZ,0x006CD300,slot +2e8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot185@TechnoClass@@UAE_NXZ
 ?Can_Demolish@FootClass@@UBE_NXZ,0x004C8940,slot +98 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Can_Demolish@FootClass@@UAE_NXZ
 ?Can_Demolish@ObjectClass@@UBE_NXZ,0x005D2C20,slot +98 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Can_Demolish@ObjectClass@@UAE_NXZ
@@ -607,6 +610,8 @@ symbol,address,evidence
 ?Cloaking_AI@TechnoClass@@UAEX_N@Z,0x006C89C0,slot +3ac of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Cloaking_AI@TechnoClass@@UAEXH@Z
 ?Close@BufferIOFileClass@@UAEXXZ,0x0042FDA0,slot +38 of ??_7CDFileClass@@6B@ at 0079a654; main row ?Close@BufferIOFileClass@@UAEXXZ
 ?Close@CCFileClass@@UAEXXZ,0x004691F0,slot +38 of ??_7CCFileClass@@6B@ at 0079a69c; main row ?Close@CCFileClass@@UAEXXZ
+?Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005EAD20,inferred: ownrdraw rows 005eac30 differ only at its sites
+?Combo_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F4BA0,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Commence@MissionClass@@UAE_NXZ,0x00594C50,slot +1d8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Commence@MissionClass@@UAE_NXZ
 ?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z,0x004101B0,slot +38 of ??_7CellClass@@6BIPersistStream@@@ at 0079db00; main row ?Compute_CRC@AbstractClass@@UBEXAAVWWCRCEngine@@@Z
 ?Compute_CRC@MissionClass@@UBEXAAVCRCEngine@@@Z,0x00595040,slot +38 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Compute_CRC@MissionClass@@UBEXAAVWWCRCEngine@@@Z
@@ -615,6 +620,7 @@ symbol,address,evidence
 ?Considered_Vehicle@ObjectClass@@UBE_NXZ,0x00423D30,slot +80 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_423d30@@QAE_NXZ
 ?ContinueMegaMission@FootClass@@UAE_NXZ,0x004CDBE0,slot +458 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot277@FootClass@@UAE_NXZ
 ?ContinueMegaMission@TechnoClass@@UAE_NXZ,0x006D8FA0,slot +458 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_6d8fa0@@QAE_NXZ
+?Control_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005EE460,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Coord_Fixup@ObjectTypeClass@@UBE?BVCoord@@ABV2@@Z,0x0041C2E0,slot +6c of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Coord_Fixup@ObjectTypeClass@@UBE?AUCoordStruct@@ABU2@@Z
 ?Cost_Of@ObjectTypeClass@@UBEHPAVHouseClass@@@Z,0x005D5D60,slot +88 of ??_7IsometricTileTypeClass@@6BIPersistStream@@@ at 007a51a4; main row ?Cost_Of@ObjectTypeClass@@UBEHPAVHouseClass@@@Z
 ?Cost_Of@TechnoTypeClass@@UBEHPAVHouseClass@@@Z,0x006DAD30,slot +88 of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Cost_Of@TechnoTypeClass@@UBEHPAVHouseClass@@@Z
@@ -625,7 +631,10 @@ symbol,address,evidence
 ?Create_ID@AbstractClass@@UAGXXZ,0x0040FFD0,slot +18 of ??_7BuildingClass@@6BIRTTITypeInfo@@@ at 0079cb9c; main row ?Create_ID@AbstractClass@@UAGXXZ
 ?Crew_Type@TechnoClass@@UBEPBVInfantryTypeClass@@XZ,0x006D30B0,slot +2e4 of ??_7FootClass@@6BIPersistStream@@@ at 007a129c; main row ?Crew_Type@TechnoClass@@UAEPAVInfantryTypeClass@@XZ
 ?Current_Speed@FootClass@@UAEHXZ,0x004C9B10,slot +4c0 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Current_Speed@FootClass@@UAEHXZ
+?DarkRedColor1@@3VRGBClass@@A,0x00AC109C,inferred: txtlabel2 rows 006f1a20 006f1a20 006f1a20 differ only at its sites
+?DarkRedColor2@@3VRGBClass@@A,0x00AC1100,inferred: txtlabel2 rows 006f1a60 006f1a60 006f1a60 differ only at its sites
 ?Death_Announcement@FootClass@@UBEXPBVTechnoClass@@@Z,0x004C83C0,slot +364 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot216@FootClass@@UAEXH@Z
+?Defense_Tab_Building@@YIPAVBuildingClass@@XZ,0x006F8A60,inferred: init rows 0051b0f0 differ only at its sites
 ?Delete@RawFileClass@@UAEHXZ,0x00639240,slot +14 of ??_7CDFileClass@@6B@ at 0079a654; main row ?Delete@RawFileClass@@UAEHXZ
 ?Delete_List@GadgetClass@@UAEXXZ,0x004CF1B0,slot +30 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Delete_List@GadgetClass@@UAEXXZ
 ?Delete_Me@FootClass@@UAEXXZ,0x004CCE40,slot +f4 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Delete_Me@FootClass@@UAEXXZ
@@ -650,7 +659,6 @@ symbol,address,evidence
 ?Do_MISSION_AMBUSH@MissionClass@@UAEHXZ,0x00594590,slot +1f8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Do_MISSION_AMBUSH@MissionClass@@UAEHXZ
 ?Do_MISSION_ATTACK@MissionClass@@UAEHXZ,0x005945A0,slot +1fc of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Do_MISSION_ATTACK@MissionClass@@UAEHXZ
 ?Do_MISSION_CAPTURE@FootClass@@UAEHXZ,0x004C41E0,slot +200 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Do_MISSION_CAPTURE@FootClass@@UAEHXZ
-?Do_MISSION_CAPTURE@MissionClass@@UAEHXZ,0x00447240,slot +200 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Do_MISSION_CAPTURE@BuildingClass@@UAEHXZ
 ?Do_MISSION_CONSTRUCTION@MissionClass@@UAEHXZ,0x00594670,slot +230 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Do_MISSION_CONSTRUCTION@MissionClass@@UAEHXZ
 ?Do_MISSION_DECONSTRUCTION@MissionClass@@UAEHXZ,0x00594680,slot +234 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Do_MISSION_DECONSTRUCTION@MissionClass@@UAEHXZ
 ?Do_MISSION_EATEN@FootClass@@UAEHXZ,0x004C4370,slot +204 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Do_MISSION_EATEN@FootClass@@UAEHXZ
@@ -718,6 +726,7 @@ symbol,address,evidence
 ?Editor_Draw_It@ObjectClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,0x005D4E70,slot +114 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z
 ?EmptyCell@@3VCell@@A,0x0084ED10,inferred: building rows 00453b80 differ only at its sites
 ?Enable@GadgetClass@@UAEXXZ,0x004CF140,slot +40 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Enable@GadgetClass@@UAEXXZ
+?Enable_Animated_Control@OwnerDraw@@YGHPAUHWND__@@J@Z,0x005E4780,inferred: ownrdraw rows 005e5130 005e5140 005e5fc0 005e5fc0 differ only at its sites
 ?End@Pipe@@UAEHXZ,0x0046CB80,slot +08 of ??_7BufferPipe@@6B@ at 0079ea08; main row ?End_0046cb80@@YIXPAH@Z
 ?Error@CCFileClass@@UAEXHHPBD@Z,0x00469000,slot +44 of ??_7CCFileClass@@6B@ at 0079a69c; main row ?Error@CCFileClass@@UAEXHHPBD@Z
 ?Error@RawFileClass@@UAEXHHPBD@Z,0x00638B30,slot +44 of ??_7CDFileClass@@6B@ at 0079a654; main row ?Error@RawFileClass@@UAEXHHPBD@Z
@@ -869,7 +878,6 @@ symbol,address,evidence
 ?Get_Image_Data@ObjectClass@@UBEPBXXZ,0x005D27B0,slot +6c of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Get_Image_Data@ObjectClass@@UAEPAXXZ
 ?Get_Image_Data@ObjectTypeClass@@UBEPBXXZ,0x0041C300,slot +9c of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Get_Image_Data@ObjectTypeClass@@UBEPAXXZ
 ?Get_Max_Speed@TechnoClass@@UBEHXZ,0x006D8E90,slot +33c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Get_Max_Speed_006d8e90@@YIIPAH@Z
-?Get_Max_Speed@UnitClass@@UBEHXZ,0x006D8E90,slot +33c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Get_Max_Speed_006d8e90@@YIIPAH@Z
 ?Get_Mission@MissionClass@@UBE?AW4MissionType@@XZ,0x00594770,slot +170 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Get_Mission@MissionClass@@UAEHXZ
 ?Get_Mission@ObjectClass@@UBE?AW4MissionType@@XZ,0x005D2D30,slot +170 of ??_7BulletClass@@6BIPersistStream@@@ at 0079d370; main row ?Get_Mission@ObjectClass@@UAEHXZ
 ?Get_Mouse_Point@WWMouseClass@@UBE?AVPoint2D@@XZ,0x007736D0,slot +38 of ??_7WWMouseClass@@6B@ at 007afbe8; main row ?Get_Mouse_XY@WWMouseClass@@UBE?AUPoint2D@@XZ
@@ -899,6 +907,7 @@ symbol,address,evidence
 ?Get_Z_Gradient@TechnoClass@@UBE?AW4ZGradientType@@XZ,0x00453B70,slot +2c8 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_453b70@@QAEIXZ
 ?GotHijacked@TechnoClass@@UAEXXZ,0x004528C0,slot +2b8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot173@BuildingClass@@UAEXXZ
 ?Greatest_Threat@FootClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z,0x004C8420,slot +370 of ??_7AircraftClass@@6BIPersistStream@@@ at 0079b128; main row ?unknown_slot219@FootClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z
+?Group_Box_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FC020,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Has_Finished@MSAnim@@UBE_NXZ,0x005AFC80,slot +1c of ??_7MSFrameAnim@@6B@ at 007af1bc; main row ?Has_Finished@MSAnim@@UAE_NXZ
 ?Has_Focus@GadgetClass@@UAE_NXZ,0x004CF630,slot +58 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Has_Focus@GadgetClass@@UAE_NXZ
 ?Has_Suspended_Mission@MissionClass@@UBE_NXZ,0x005950E0,slot +1e8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Has_Suspended_Mission@MissionClass@@UBE_NXZ
@@ -910,6 +919,7 @@ symbol,address,evidence
 ?Head_To_Coord@LocomotionClass@@UAG?AUCoordStruct@@XZ,0x0053D5A0,slot +1c of ??_7FlyLocomotionClass@@6BILocomotion@@@ at 007a1000; main row ?Head_To_Coord@LocomotionClass@@UAG?AUCoordStruct@@XZ
 ?Hidden@ObjectClass@@UAEXXZ,0x005D2C80,slot +118 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Hidden@ObjectClass@@UAEXXZ
 ?Hidden@TechnoClass@@UAEXXZ,0x006C2520,slot +118 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Hidden@TechnoClass@@UAEXXZ
+?Hotkey_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FC330,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?How_Many_Survivors@TechnoClass@@UBEHXZ,0x006C16D0,slot +2b4 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot172@TechnoClass@@UAEHXZ
 ?ID@?$DynamicVectorClass@G@@UAEHABG@Z,0x0042B3A0,slot +14 of ??_7?$DynamicVectorClass@G@@6B@ at 0079c550; main row ?ID@?$DynamicVectorClass@G@@UAEHABG@Z
 ?ID@?$DynamicVectorClass@G@@UAEHPBG@Z,0x0042AE90,slot +18 of ??_7?$DynamicVectorClass@G@@6B@ at 0079c550; main row ?ID@?$DynamicVectorClass@G@@UAEHPBG@Z
@@ -1147,6 +1157,7 @@ symbol,address,evidence
 ?Init@LayerClass@@UAEXXZ,0x0040CAF0,slot +24 of ??_7LayerClass@@6B@ at 0079e864; main row ?LayerClass_Init@@YIXPAH@Z
 ?Init@TechnoClass@@UAEXXZ,0x006C1C50,slot +28 of ??_7FootClass@@6BIPersistStream@@@ at 007a129c; main row ?Init@TechnoClass@@UAEXXZ
 ?Init_Cells@MapClass@@UAEXXZ,0x00548490,slot +60 of ??_7RadarClass@@6B@ at 007a871c; main row ?unknown_slot24@MapClass@@UAEXXZ
+?Init_Control_Animation@OwnerDraw@@YGHPAUHWND__@@J@Z,0x005E8130,inferred: ownrdraw rows 005e86c0 differ only at its sites
 ?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z,0x004109A0,slot +60 of ??_7BuildingTypeClass@@6BIPersistStream@@@ at 0079d1f8; main row ?Init_Theater@AbstractTypeClass@@UAEXH@Z
 ?Input@GScreenClass@@UAEXAAW4KeyNumType@@AAH1@Z,0x004E09D0,slot +24 of ??_7RadarClass@@6B@ at 007a871c; main row ?Get_Input@GScreenClass@@UAEXAAH00@Z
 ?Input@GadgetClass@@UAE?AW4KeyNumType@@XZ,0x004CF330,slot +28 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Input@GadgetClass@@UAEHXZ
@@ -1239,6 +1250,7 @@ symbol,address,evidence
 ?Is_Weapon_Equipped@TechnoClass@@UBE_NXZ,0x006CD670,slot +290 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot163@TechnoClass@@UAE_NXZ
 ?Is_Weapon_Valid@TechnoClass@@QBE_NPBUWeaponDataStruct@@@Z,0x006D8640,inferred: building rows 00451930 differ only at its sites
 ?JumpJet_To_Walk@FootClass@@UAE_NXZ,0x0041B480,slot +488 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b480@@QAE_NXZ
+?Jump_To_Radar_Event@@YIXXZ,0x006F88F0,inferred: init rows 0051c640 differ only at its sites
 ?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,0x006DE0E0,slot +ac of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z
 ?Lepton_Dimensions@ObjectTypeClass@@UBE?AV?$TPoint3D@H@@XZ,0x005D5D30,slot +7c of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Lepton_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ
 ?Likely_Coord@FootClass@@UBE?AVCoord@@XZ,0x004C8AC0,slot +480 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot287@FootClass@@UAE?AUCoordStruct@@XZ
@@ -1246,6 +1258,7 @@ symbol,address,evidence
 ?Limbo@ObjectClass@@UAE_NXZ,0x005D3700,slot +d4 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Limbo@ObjectClass@@UAE_NXZ
 ?Limbo@RadioClass@@UAE_NXZ,0x00636B60,slot +d4 of ??_7RadioClass@@6BIPersistStream@@@ at 007a88e4; main row ?Limbo@RadioClass@@UAE_NXZ
 ?Link_To_Object@LocomotionClass@@UAGJPAX@Z,0x0053D010,slot +10 of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Link_To_Object@LocomotionClass@@UAGJPAX@Z
+?List_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F6690,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Load@ObjectClass@@UAGJPAUIStream@@@Z,0x005D4760,slot +18 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Load@ObjectClass@@UAGJPAUIStream@@@Z
 ?Load@RadioClass@@UAGJPAUIStream@@@Z,0x00636C60,slot +18 of ??_7RadioClass@@6BIPersistStream@@@ at 007a88e4; main row ?Load@RadioClass@@UAGJPAUIStream@@@Z
 ?Lock@BSurface@@UBEPAXVPoint2D@@@Z,0x00411370,slot +60 of ??_7BSurface@@6B@ at 0079aef4; main row ?Lock@BSurface@@UAEPAXUPoint2D@@@Z
@@ -1279,6 +1292,7 @@ symbol,address,evidence
 ?Move_Default_Button_Owner@@YIXPAUHWND__@@@Z,0x005E8FA0,inferred: netshare rows 005c3230 differ only at its sites
 ?Move_To@LocomotionClass@@UAGXUCoordStruct@@@Z,0x0053D550,slot +48 of ??_7LocomotionClass@@6BILocomotion@@@ at 007a32e8; main row ?Move_To@LocomotionClass@@UAGXUCoordStruct@@@Z
 ?Net2DecodeGameopt@@YI_NPBD0@Z,0x005C3FF0,inferred: netdlg2 rows 005c08a0 differ only at its sites
+?New_Edit_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F22A0,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Not_Underground@ObjectClass@@UBE_NXZ,0x005D5490,slot +7c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Not_Underground@ObjectClass@@UBE_NXZ
 ?ONE_RAD@@3NB,0x007A6C48,inferred: mpsiegeteam rows 005abc60 005abc80 005abca0 differ only at its sites
 ?Occupies_Cells@FootClass@@UBE_NXZ,0x0041B470,slot +c0 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b470@@QAEEXZ
@@ -1287,7 +1301,6 @@ symbol,address,evidence
 ?Occupy_List@ObjectTypeClass@@UBEPBVCell@@_N@Z,0x005D5D90,slot +90 of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Occupy_List@ObjectTypeClass@@UBEPBVCell@@H@Z
 ?Offload_Tiberium_Bail@FootClass@@UAEHXZ,0x004C86D0,slot +4ac of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot298@FootClass@@UAEHXZ
 ?On_Ground@AbstractClass@@UBE_NXZ,0x004102C0,slot +54 of ??_7TeamClass@@6BIPersistStream@@@ at 007ac94c; main row ?On_Ground@AbstractClass@@UBE_NXZ
-?On_Ground@FootClass@@UBE_NXZ,0x005D53E0,slot +54 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?On_Ground@ObjectClass@@UBE_NXZ
 ?On_Ground@ObjectClass@@UBE_NXZ,0x005D53E0,slot +54 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?On_Ground@ObjectClass@@UBE_NXZ
 ?On_Movement_Blocked@FootClass@@UAEXXZ,0x004CA880,slot +484 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?On_Movement_Blocked@FootClass@@UAEXXZ
 ?One_Time@DisplayClass@@UAEXXZ,0x00498B70,slot +18 of ??_7DisplayClass@@6B@ at 0079e918; main row ?One_Time@DisplayClass@@UAEXXZ
@@ -1302,6 +1315,7 @@ symbol,address,evidence
 ?Overrun_Square@FootClass@@UAEXABVCell@@_N@Z,0x0041B530,slot +4bc of ??_7FootClass@@6BIPersistStream@@@ at 007a129c; main row ?get@Leaf_41b530@@QAEXII@Z
 ?Owner@AbstractClass@@UBE?AW4HousesType@@XZ,0x00410230,slot +3c of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Owner@AbstractClass@@UBEHXZ
 ?Owner@TechnoClass@@UBE?AW4HousesType@@XZ,0x006C7420,slot +3c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Owner@TechnoClass@@UBEHXZ
+?Owner_Button_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F0320,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ,0x00410240,slot +40 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Owning_House@AbstractClass@@UBEPAVHouseClass@@XZ
 ?Owner_HouseClass@TechnoClass@@UBEPAVHouseClass@@XZ,0x006C7430,slot +40 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Owning_House@TechnoClass@@UBEPAVHouseClass@@XZ
 ?Paradrop@ObjectClass@@UAE_NABVCoord@@@Z,0x005D4240,slot +e4 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot56@ObjectClass@@UAE_NABUCoordStruct@@@Z
@@ -1321,6 +1335,7 @@ symbol,address,evidence
 ?Power_On@LocomotionClass@@UAGEXZ,0x0053D1F0,slot +5c of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Power_On@LocomotionClass@@UAG_NXZ
 ?Process@LocomotionClass@@UAGEXZ,0x0053D560,slot +44 of ??_7LocomotionClass@@6BILocomotion@@@ at 007a32e8; main row ?Process@LocomotionClass@@UAG_NXZ
 ?Process_Idle@MSEngine@@UAEXXZ,0x005B3830,slot +0c of ??_7Selection@WorldDominationTour@@6B@ at 007af368; main row ?Unknown_Slot2@MSEngine@@UAEXXZ
+?Progress_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FAFF0,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Push@LocomotionClass@@UAGEUDirStruct@@@Z,0x0053D470,slot +6c of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Push@LocomotionClass@@UAG_NUUnknownFacingDir@@@Z
 ?Put@BufferPipe@@UAEHPBXH@Z,0x00773730,slot +10 of ??_7BufferPipe@@6B@ at 0079ea08; main row ?Put@BufferPipe@@UAEHPBXH@Z
 ?Put@Pipe@@UAEHPBXH@Z,0x0060EAF0,slot +10 of ??_7Pipe@@6B@ at 0079ea20; main row ?Put@Pipe@@UAEHPBXH@Z
@@ -1521,6 +1536,7 @@ symbol,address,evidence
 ?Response_Move@TechnoClass@@UAEXXZ,0x006D4000,slot +318 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot197@TechnoClass@@UAEXXZ
 ?Response_Select@TechnoClass@@UAEXXZ,0x006D3FA0,slot +314 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot196@TechnoClass@@UAEXXZ
 ?Restore@MSAnim@@UAEXABV?$TRect@H@@@Z,0x005AFC90,slot +20 of ??_7MSFrameAnim@@6B@ at 007af1bc; main row ?Restore@MSAnim@@UAEXH@Z
+?Restore_Child@OwnerDraw@@YGHPAUHWND__@@J@Z,0x005EDD30,inferred: ownrdraw rows 005edb20 differ only at its sites
 ?Restore_Mission@FootClass@@UAE_NXZ,0x004C7B00,slot +1e4 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Restore_Mission@FootClass@@UAE_NXZ
 ?Restore_Mission@MissionClass@@UAE_NXZ,0x00594D80,slot +1e4 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Restore_Mission@MissionClass@@UAE_NXZ
 ?Restore_Mission@TechnoClass@@UAE_NXZ,0x006CD880,slot +1e4 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Restore_Mission@TechnoClass@@UAE_NXZ
@@ -1534,12 +1550,14 @@ symbol,address,evidence
 ?Save@RadioClass@@UAGJPAUIStream@@H@Z,0x00636D20,slot +1c of ??_7RadioClass@@6BIPersistStream@@@ at 007a88e4; main row ?Save@RadioClass@@UAGJPAUIStream@@H@Z
 ?Scatter@ObjectClass@@UAEXABVCoord@@_N1@Z,0x005D2CF0,slot +160 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Scatter@ObjectClass@@UAEXABUCoordStruct@@_N1@Z
 ?Scenario_DlgProc@@YGHPAUHWND__@@IIJ@Z,0x005C69E0,inferred: netshare rows 005c6960 differ only at its sites
+?Scroll_Bar_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F9FB0,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Scroll_Map@DisplayClass@@UAE_NW4FacingType@@AAH_N@Z,0x00499B60,slot +a4 of ??_7RadarClass@@6B@ at 007a871c; main row ?Scroll_Map@DisplayClass@@UAE_NHPAH_N@Z
 ?Seek@BufferIOFileClass@@UAEHHH@Z,0x0042FC90,slot +2c of ??_7CDFileClass@@6B@ at 0079a654; main row ?Seek@BufferIOFileClass@@UAEJJH@Z
 ?Seek@CCFileClass@@UAEHHH@Z,0x004690F0,slot +2c of ??_7CCFileClass@@6B@ at 0079a69c; main row ?Seek@CCFileClass@@UAEJJH@Z
 ?Select@ObjectClass@@UAE_NXZ,0x005D2E70,slot +144 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?unknown_slot80@ObjectClass@@UAE_NXZ
 ?Select@TechnoClass@@UAE_NXZ,0x006C91C0,slot +144 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot80@TechnoClass@@UAE_NXZ
 ?SelectNavalTargeting@TechnoClass@@UBEHPAVAbstractClass@@@Z,0x006C15D0,slot +2c0 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot175@TechnoClass@@UAEHPAVObjectClass@@@Z
+?Select_All_Combatants@@YIX_N@Z,0x006F6D00,inferred: init rows 0051ba90 differ only at its sites
 ?Sell_Back@FootClass@@UAEXH@Z,0x004C8A40,slot +18c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Sell_Back@FootClass@@UAEXH@Z
 ?Sell_Back@ObjectClass@@UAEXH@Z,0x005D2D50,slot +18c of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Sell_Back@ObjectClass@@UAEXH@Z
 ?SendToEachLink@RadioClass@@UAEXW4RadioMessageType@@@Z,0x00636DC0,slot +264 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?SendToEachLink@RadioClass@@UAEXH@Z
@@ -1578,6 +1596,7 @@ symbol,address,evidence
 ?Sort_Y@ObjectClass@@UBEHXZ,0x005D5450,slot +b8 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Sort_Y@ObjectClass@@UBEHXZ
 ?Start_Driver@FootClass@@UAE_NAAVCoord@@@Z,0x004C4B90,slot +48c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot290@FootClass@@UAE_NAAUCoordStruct@@@Z
 ?Start_Fear@FootClass@@UAEXXZ,0x0041B500,slot +4a0 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b500@@QAEXXZ
+?Static_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F2B50,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Sticky_Process@GadgetClass@@MAEXI@Z,0x004CF5B0,slot +78 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Sticky_Process@GadgetClass@@MAEXI@Z
 ?Stop_Driver@FootClass@@UAE_NXZ,0x004C4B60,slot +490 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Stop_Driver@FootClass@@UAE_NXZ
 ?Stop_Fear@FootClass@@UAEXXZ,0x0041B510,slot +4a4 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b510@@QAEXXZ
@@ -1585,15 +1604,18 @@ symbol,address,evidence
 ?Stop_Movement_Animation@LocomotionClass@@UAGXXZ,0x004A4C50,slot +b0 of ??_7ShipLocomotionClass@@6BILocomotion@@@ at 007ab138; main row ?Stop_Movement_Animation@LocomotionClass@@UAGXXZ
 ?Stop_Moving@LocomotionClass@@UAGXXZ,0x0053D540,slot +4c of ??_7LocomotionClass@@6BILocomotion@@@ at 007a32e8; main row ?Stop_Moving@LocomotionClass@@UAGXXZ
 ?Stride@BSurface@@UBEHXZ,0x004113C0,slot +78 of ??_7BSurface@@6B@ at 0079aef4; main row ?Stride@BSurface@@UAEHXZ
+?Structure_Tab_Building@@YIPAVBuildingClass@@XZ,0x006F8A50,inferred: init rows 0051b030 differ only at its sites
 ?Stun@FootClass@@UAEXXZ,0x004C4C00,slot +34c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot210@FootClass@@UAEXXZ
 ?Stun@TechnoClass@@UAEXXZ,0x006C9A90,slot +34c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot210@TechnoClass@@UAEXXZ
 ?Submit@LayerClass@@UAE_NPBVObjectClass@@_N@Z,0x005348A0,slot +20 of ??_7LayerClass@@6B@ at 0079e864; main row ?Submit@LayerClass@@UAE_NPAVObjectClass@@_N@Z
 ?Swap@CD@@UAE_NW4DiskID@@@Z,0x0046E750,slot +08 of ??_7CD@@6B@ at 0079d868; main row ?Swap_Disk@CD@@UAE_NH@Z
 ?TFind_Or_Make@@YIPAVVoxelAnimTypeClass@@PBDABV?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@@Z,0x0070EF40,inferred: vanimtype rows 0070e470 differ only at its sites
+?Tab_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F0F40,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Tail_Of_List@LinkClass@@UAEAAV1@XZ,0x00539070,slot +1c of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Tail_Of_List@LinkClass@@UAEAAV1@XZ
 ?Take_Damage@ObjectClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z,0x005D3D20,slot +15c of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z
 ?Target_Coord@ObjectClass@@UBE?AVCoord@@XZ,0x0041B240,slot +a4 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?unknown_slot40@ObjectClass@@UAE?AUCoordStruct@@XZ
 ?Target_Something_Nearby@TechnoClass@@UAE_NABVCoord@@W4ThreatType@@@Z,0x006D46D0,slot +348 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot209@TechnoClass@@UAE_NPBUCoordStruct@@H@Z
+?TealColor@@3VRGBClass@@A,0x00AC1008,inferred: txtlabel2 rows 006f1a40 006f1a40 006f1a40 differ only at its sites
 ?Techno_Type_Class@ObjectClass@@UBEPBVTechnoTypeClass@@XZ,0x005D5440,slot +84 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Techno_Type_Class@ObjectClass@@UAEPAVTechnoTypeClass@@XZ
 ?Techno_Type_Class@TechnoClass@@UBEPBVTechnoTypeClass@@XZ,0x006C12C0,slot +84 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Techno_Type_Class@TechnoClass@@UAEPAVTechnoTypeClass@@XZ
 ?Threat_Range@TechnoClass@@UBEHH@Z,0x006D31E0,slot +2f4 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot188@TechnoClass@@UAEHH@Z
@@ -1602,6 +1624,7 @@ symbol,address,evidence
 ?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ,0x0053D490,slot +58 of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ
 ?Time_To_Build@ObjectTypeClass@@UBEHXZ,0x005D5D70,slot +8c of ??_7IsometricTileTypeClass@@6BIPersistStream@@@ at 007a51a4; main row ?Time_To_Build@ObjectTypeClass@@UBEHXZ
 ?Time_To_Build@TechnoTypeClass@@UBEHXZ,0x006DAD10,slot +88 of ??_7BuildingTypeClass@@6BIPersistStream@@@ at 0079d1f8; main row ?Time_To_Build@TechnoTypeClass@@UBEHXZ
+?Trackbar_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FB270,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Transmit_Message@RadioClass@@UAE?AW4RadioMessageType@@W42@@Z,0x00636D90,slot +258 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot149@RadioClass@@UAEHH@Z
 ?Transmit_Message@RadioClass@@UAE?AW4RadioMessageType@@W42@AAHPAV1@@Z,0x00636A50,slot +260 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot151@RadioClass@@UAEHHPAPAVAbstractClass@@PAVTechnoClass@@@Z
 ?Transmit_Message@RadioClass@@UAE?AW4RadioMessageType@@W42@PAV1@@Z,0x00636B80,slot +25c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot150@RadioClass@@UAEHHPAVTechnoClass@@@Z
@@ -1610,6 +1633,8 @@ symbol,address,evidence
 ?Try_To_Cloak@TechnoClass@@UAEXXZ,0x006C2990,slot +3bc of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot238@TechnoClass@@UAEXXZ
 ?Turret_Coord@TechnoClass@@UBE?AVCoord@@H@Z,0x006C1A70,slot +2d8 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Turret_Coord@TechnoClass@@UAE?AUCoordStruct@@H@Z
 ?Turret_Facing@TechnoClass@@UBE?AVDirType@@XZ,0x004CDDF0,slot +28c of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Turret_Facing@TechnoClass@@UAE?AUUnknownFacingDir@@XZ
+?Type_Select_Press@@YIXXZ,0x006F7650,inferred: init rows 0051bb50 differ only at its sites
+?Type_Select_Release@@YIXXZ,0x006F7670,inferred: init rows 0051bb50 differ only at its sites
 ?UnVQ1_4x2_Table@@YAXPAE00KKK@Z,0x0070C0A0,inferred: vqa rows 0071ccd0 differ only at its sites
 ?UnVQ2_4x2_Table@@YAXPAE00KKK@Z,0x0070BBC0,inferred: vqa rows 0071ccd0 differ only at its sites
 ?Unknown_Virtual_0@AbstractClass@@UAEXH@Z,0x00410330,slot +00 of ??_7HouseClass@@6BINoticeSource@@@ at 007a2db4; main row ?INoticeSource_Unknown@AbstractClass@@UAGXXZ
@@ -1648,6 +1673,7 @@ symbol,address,evidence
 ?Write@BufferIOFileClass@@UAEHPBXH@Z,0x0042F830,slot +34 of ??_7CDFileClass@@6B@ at 0079a654; main row ?Write@BufferIOFileClass@@UAEJPBXJ@Z
 ?Write@CCFileClass@@UAEHPBXH@Z,0x00469030,slot +34 of ??_7CCFileClass@@6B@ at 0079a69c; main row ?Write@CCFileClass@@UAEJPBXJ@Z
 ?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z,0x00410910,slot +68 of ??_7BuildingTypeClass@@6BIPersistStream@@@ at 0079d1f8; main row ?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z
+?YellowColor1@@3VRGBClass@@A,0x00AC1124,inferred: txtlabel2 rows 006f1a00 006f1a00 006f1a00 differ only at its sites
 ?Z_Adjust@LocomotionClass@@UAGHXZ,0x0053D4A0,slot +3c of ??_7FlyLocomotionClass@@6BILocomotion@@@ at 007a1000; main row ?Z_Adjust@LocomotionClass@@UAGHXZ
 ?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ,0x0053D4B0,slot +40 of ??_7FlyLocomotionClass@@6BILocomotion@@@ at 007a1000; main row ?Z_Gradient@LocomotionClass@@UAGHXZ
 ?Zap@LinkClass@@UAEXXZ,0x00538FF0,slot +20 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Zap@LinkClass@@UAEXXZ

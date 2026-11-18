@@ -19,6 +19,8 @@
 
 #define GEOMETRY_H // RA2: this module initializes none of the geometry constants (no initializer for them stands before its own)
 #include "always.h" // RA2: the includes this file needs
+#include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "geometry.h"
 #include "convert.h" // RA2: as above
 #include "data.h" // RA2: as above
 #include "draw.h" // RA2: as above

@@ -575,6 +575,7 @@ class BuildingClass : public TechnoClass
 		virtual bool Ready_To_Commence(void) override;
 		virtual int Do_MISSION_UNLOAD(void) override;
 		virtual int Do_MISSION_REPAIR(void) override;
+		virtual int Do_MISSION_CAPTURE(void) override;
 		virtual int Do_MISSION_ATTACK(void) override;
 		virtual int Do_MISSION_HARVEST(void) override;
 		virtual int Do_MISSION_GUARD(void) override;

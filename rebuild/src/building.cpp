@@ -201,8 +201,6 @@ namespace Unsorted { extern bool ArmageddonMode; }
 char const * const BuildingClass::INI_NAME = "Structures";
 
 
-DynamicVectorClass<BuildingClass *> UnitRepairFacilities;
-
 
 enum SAMState {
 	SAM_READY,					// Launcher can be facing any direction tracking targets.
@@ -5633,6 +5631,7 @@ void BuildingClass::Fire_Prism_Support(Coord destination) // RA2: not in TibSun,
  *   06/25/1995 JLB : Created.                                                                 *
  *   02/22/1996 JLB : SAM doesn't lower back into ground.                                      *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00446920 has no row)
 int BuildingClass::Do_MISSION_ATTACK(void)
 {
 	AircraftClass *air;
@@ -5774,6 +5773,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 
 	return(1);
 }
+#endif
 
 
 
@@ -5871,6 +5871,14 @@ static inline Cell Target_Cell(AbstractClass * target)
 	return(target->Center_Coord().As_Cell());
 }
 
+
+/***********************************************************************************************
+ * BuildingClass::Mission_Capture -- Buildings capture nothing of their own.                   *
+ *=============================================================================================*/
+int BuildingClass::Do_MISSION_CAPTURE(void) // RA2: 0x447240; the base class behaviour
+{
+	return(MissionClass::Do_MISSION_CAPTURE());
+}
 
 static inline FootClass * Techno_As_Foot(TechnoClass * techno) // RA2: the checked cast the executable expands inline wherever a radio contact is used as a foot (bit 2 of the abstract flags)
 {
@@ -6299,6 +6307,7 @@ int BuildingClass::Do_MISSION_REPAIR(void)
  * HISTORY:                                                                                    *
  *   07/04/1995 JLB : Commented.                                                               *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00448400 has no row)
 int BuildingClass::Do_MISSION_MISSILE(void)
 {
 	if (Class->IsNukeSilo) {
@@ -6491,6 +6500,7 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 
 	return(Current_Mission_Control().Normal_Delay());
 }
+#endif
 
 
 /***********************************************************************************************
@@ -11966,6 +11976,7 @@ void BuildingClass::Debug_Dump(MonoClass * mono) const
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void BuildingClass::Charging_AI(void)
 {
 	if (PrimaryWeapon != NULL && PrimaryWeapon->IsElectric && BState != BSTATE_CONSTRUCTION) {
@@ -11996,6 +12007,7 @@ void BuildingClass::Charging_AI(void)
 		}
 	}
 }
+#endif
 
 
 /// <summary>
@@ -12004,6 +12016,7 @@ void BuildingClass::Charging_AI(void)
 /// refinery makes such a spectacular wreck.
 /// </summary>
 /// <returns>Returns with the collateral damage to inflict on the surroundings.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int BuildingClass::Get_Collateral_Damage(void) const
 {
 	int damage = 0;
@@ -12017,6 +12030,7 @@ int BuildingClass::Get_Collateral_Damage(void) const
 
 	return(damage);
 }
+#endif
 
 
 /// <summary>

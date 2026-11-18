@@ -11,4 +11,4 @@ for unit in sys.argv[1:]:
     for k in drop:
         del refs[k]
     print('%s: %d bindings dropped' % (unit, len(drop)))
-R.write_json(R.UNITS, units)
+R.save_units(units, sys.argv[1:])

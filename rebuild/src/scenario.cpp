@@ -736,6 +736,7 @@ void Toggle_Display_Mode(bool ingame)
 /// allowed to hold the game up forever. Solo and skirmish games have nobody to wait for.
 /// </summary>
 /// <returns>bool; Did everyone make it into the game?</returns>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0065c520 has no row)
 bool Wait_For_Players_To_Load(void)
 {
 	if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
@@ -795,6 +796,7 @@ bool Wait_For_Players_To_Load(void)
 	}
 	return(true);
 }
+#endif
 
 
 

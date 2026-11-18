@@ -429,6 +429,7 @@ int StringTable::ReadFile(char const * name) // RA2: 0x006F9400
 /// quoted strings, then END. Lines that are empty or start with // are skipped. 1 at the end of the file,
 /// 0 when the file ends inside a label.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int __fastcall Read_Text_File(void) // RA2: 0x006F9790
 {
 	int label = 0; // RA2: the index of the next label
@@ -554,6 +555,7 @@ int __fastcall Read_Text_File(void) // RA2: 0x006F9790
 		string_index += count; // RA2: as above
 	}
 }
+#endif
 
 /// <summary>
 /// Reverses the characters from start to end in place. The first pair also swaps its case when the first

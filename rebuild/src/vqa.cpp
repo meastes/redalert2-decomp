@@ -867,20 +867,26 @@ long __cdecl VQAEventHandler(VQAHandle * vqa, long action, void * buffer, long n
 	return(error);
 }
 
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int vqanoop1(void)
 {
 	return(0);
 }
+#endif
 
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void vqanoop2(void)
 {
 	return;
 }
+#endif
 
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void vqanoop3(void)
 {
 	return;
 }
+#endif
 
 
 template class DynamicVectorClass<MovieHandle *>;

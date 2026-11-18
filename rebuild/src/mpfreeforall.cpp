@@ -70,10 +70,12 @@ void FreeForAll::PopulateTeamDropdownForPlayer(HWND hwnd, int index)
 	SendMessage(hwnd, CB_SETCURSEL, 0, 0);
 }
 
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool FreeForAll::IsSkirmishAllowed(void)
 {
 	return(true);
 }
+#endif
 
 
 #include "geometry.h"

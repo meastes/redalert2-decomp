@@ -102,6 +102,7 @@ struct BeaconTextPacket { // RA2: as above
 /// <summary>
 /// Makes an empty beacon: no position, not active, not being edited and without text.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 BeaconClass::BeaconClass(void) // RA2: 0x0042D9E0
 {
 	BeaconCoord = COORD_NONE; // RA2: as above
@@ -109,6 +110,7 @@ BeaconClass::BeaconClass(void) // RA2: 0x0042D9E0
 	IsFlashing = 0; // RA2: as above
 	memset(Text, 0, sizeof(Text)); // RA2: as above
 }
+#endif
 
 /// <summary>
 /// Draws the beacon marker at its position on the tactical view and, when it has text, a box with the text below it.
@@ -176,6 +178,7 @@ void __stdcall Beacon_Stub_Seven(int, int, int, int, int, int, int) // RA2: 0x00
 /// <summary>
 /// Takes the position (unless it is COORD_NONE) and, for an owner below 8, the owner, and makes the beacon active.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 void BeaconClass::Set_Coord_And_House(Coord coord, int house) // RA2: 0x0042DD60
 {
 	if (!(coord == COORD_NONE)) { // RA2: as above
@@ -186,6 +189,7 @@ void BeaconClass::Set_Coord_And_House(Coord coord, int house) // RA2: 0x0042DD60
 		IsActive = 1; // RA2: as above
 	}
 }
+#endif
 
 /// <summary>
 /// Sets whether the beacon is being edited.
@@ -344,6 +348,7 @@ void BeaconManagerClass::Draw(Surface * surface, Rect bounds) // RA2: 0x0042E290
 /// <summary>
 /// Adds a beacon of the house, in its first free slot when id is -1 or else in the given slot (replacing the one there). In a network game it announces the beacon.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 18 bytes differ (adopted text)
 void BeaconManagerClass::Place_Beacon(int house, Coord coord, int id) // RA2: 0x0042E370
 {
 	if (!CanPlaceBeacon(house) && id == -1) { // RA2: as above
@@ -400,6 +405,7 @@ void BeaconManagerClass::Place_Beacon(int house, Coord coord, int id) // RA2: 0x
 		}
 	}
 }
+#endif
 
 /// <summary>
 /// Whether the house has a free beacon slot.

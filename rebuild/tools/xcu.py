@@ -7,6 +7,14 @@ import rebuild as R
 from coff import Coff
 import pefile
 unit = sys.argv[1]
+if '--score' in sys.argv:
+    # Exact rows less the initializers the object registers that are not exact rows: the measure the
+    # prologue variants are ranked by (an extra header static costs as much as a missing one).
+    last = json.load(open(R.WORK / 'last' / (unit + '.json')))
+    c = Coff(open(last['object'], 'rb').read())
+    exact = {r['symbol'] for r in last['results'] if r['status'] == 'exact'}
+    ours = [c.symbols[x]['name'] for s in c.sections if s['name'] == '.CRT$XCU' for o, x, k in s['relocs']]
+    print(len(exact) - sum(n not in exact for n in ours)); sys.exit(0)
 units = R.load_json(R.UNITS, {})
 info = units[unit]
 last = json.load(open(R.WORK / 'last' / (unit + '.json')))
@@ -18,7 +26,8 @@ found = None
 for sec in pe.sections:
     if sec.Characteristics & 0x20: continue
     data = sec.get_data()
-    for first in sorted(e for e, r in rows.items() if r['main_symbol'].startswith('_$E')):
+    xcu = set(R.initializer_table())
+    for first in sorted(e for e, r in rows.items() if r['main_symbol'].startswith('_$E') or e in xcu):
         i = data.find(struct.pack('<I', first))
         while i >= 0 and i % 4 == 0 and i >= 4 and struct.unpack_from('<I', data, i - 4)[0] in rows:
             i -= 4
@@ -33,4 +42,4 @@ if found and len(found) == len(ours):
     for address, name in zip(found, ours):
         rows[address]['symbol'] = name
         print('  %08x = %s' % (address, name))
-    R.write_json(R.UNITS, units)
+    R.save_units(units, [unit])

@@ -337,6 +337,7 @@ void * VocClass::PlayAt(int voc, Coord const & coord, AudioController * controll
 /// <param name="panning">Receives the panning, from 0 to 0x4000.</param>
 /// <param name="type">The audio library's event type of the sound.</param>
 /// <returns>Returns with the volume from 0 to 1, or 0 if the sound is not to be heard.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 float __fastcall Volume_At(Coord const & coord, int * panning, AudioEventType * type) // RA2: a free function the sound effect routines share
 {
 	*panning = 0;
@@ -394,6 +395,7 @@ float __fastcall Volume_At(Coord const & coord, int * panning, AudioEventType * 
 	*panning = (int)(dx * 8192.0f / width + 8192.0f);
 	return(volume); // RA2: as above
 }
+#endif
 
 /***********************************************************************************************
  * Sound_Effect -- Plays a sound effect in the tactical map.                                   *

@@ -1082,6 +1082,7 @@ void Dropship_Screen(void)
 /// <param name="surface">The clean background art to restore the readout area from.</param>
 /// <param name="title">The caption to print in front of the amount.</param>
 /// <param name="center">Should the readout be centered about the draw point?</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void Draw_Cost(int cost, int maxcost, Surface & surface, Point2D const & drawpoint, char const * title, bool center, ConvertClass & drawer, Blitter const * blitter)
 {
 	static const int _width = 110;
@@ -1116,6 +1117,7 @@ void Draw_Cost(int cost, int maxcost, Surface & surface, Point2D const & drawpoi
 
 	Fancy_Text_Print(cost_text, *HiddenSurface, HiddenSurface->Get_Rect(), drawpoint, Fetch_Scheme_By_Name("Yellow"), TBLACK, type);
 }
+#endif
 
 
 /// <summary>
@@ -1128,6 +1130,7 @@ void Draw_Cost(int cost, int maxcost, Surface & surface, Point2D const & drawpoi
 /// <param name="surface">The clean background art to restore the panel from.</param>
 /// <param name="techtype">The unit to describe, or NULL to just clear the panel.</param>
 /// <param name="allowed">May the player take this unit along?</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void Draw_Unit_Info(Surface *surface, ConvertClass *drawer, TechnoTypeClass *techtype, bool allowed)
 {
 	static const int _xpos = 450;
@@ -1177,3 +1180,4 @@ void Draw_Unit_Info(Surface *surface, ConvertClass *drawer, TechnoTypeClass *tec
 	}
 
 }
+#endif

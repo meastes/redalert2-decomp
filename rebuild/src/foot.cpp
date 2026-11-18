@@ -5919,6 +5919,7 @@ bool FootClass::RefreshMegaMission(void) // RA2: 0x4CDD70
 /// placed down on the map it still counts as being on the ground.
 /// </summary>
 /// <returns>bool; Is the object on the ground?</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool FootClass::On_Ground(void) const
 {
 	if (BASECLASS::On_Ground()) {
@@ -5931,3 +5932,4 @@ bool FootClass::On_Ground(void) const
 
 	return(IsDown && clsid == CLSID_HoverLocomotion);
 }
+#endif

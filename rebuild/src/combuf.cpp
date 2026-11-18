@@ -881,6 +881,7 @@ struct CommHdr {
  * HISTORY:                                                                *
  *   05/02/1995 BRR : Created.                                             *
  *=========================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void CommBufferClass::Mono_Debug_Print(int refresh)
 {
 //#ifdef MONO_H
@@ -996,6 +997,7 @@ void CommBufferClass::Mono_Debug_Print(int refresh)
 //	refresh = refresh;
 //#endif
 }	/* end of Mono_Debug_Print */
+#endif
 
 
 /***************************************************************************
@@ -1017,6 +1019,7 @@ void CommBufferClass::Mono_Debug_Print(int refresh)
  * HISTORY:                                                                *
  *   05/31/1995 BRR : Created.                                             *
  *=========================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void CommBufferClass::Mono_Debug_Print2(int refresh)
 {
 //#ifdef MONO_H
@@ -1190,6 +1193,7 @@ void CommBufferClass::Mono_Debug_Print2(int refresh)
 //	refresh = refresh;
 //#endif
 }	/* end of Mono_Debug_Print2 */
+#endif
 
 
 /************************** end of combuf.cpp ******************************/

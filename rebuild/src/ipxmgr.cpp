@@ -1179,6 +1179,7 @@ bool IPXManagerClass::Forward_Router_Packet(CommHeaderType *packet, void *buf, i
  * HISTORY:                                                                *
  *   01/25/1995 BR : Created.                                              *
  *=========================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00525f60 has no row)
 int IPXManagerClass::Service(void)
 {
 	int rc = 1;
@@ -1315,6 +1316,7 @@ int IPXManagerClass::Service(void)
 	return(rc);
 
 }
+#endif
 void IPXManagerClass::Set_Connection_Address(int id, IPXAddressClass *address) // RA2: 0x005269F0
 {
 	int index = Connection_Index(id); // RA2: as above

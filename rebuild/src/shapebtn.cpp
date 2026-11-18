@@ -272,7 +272,9 @@ bool ShapeButtonClass::Is_Flashing(void) // RA2: flashing while a flash period i
 }
 
 
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool ShapeButtonClass::Is_Flash_On(void) // RA2: lit in this flash period
 {
 	return(IsFlashOn);
 }
+#endif

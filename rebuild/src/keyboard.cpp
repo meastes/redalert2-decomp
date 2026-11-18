@@ -65,10 +65,12 @@
 
 
 /// Appeared in TS 2.00
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int WWKeyboardClass::Noop(void) const
 {
 	return(0);
 }
+#endif
 
 
 /***********************************************************************************************
@@ -851,8 +853,10 @@ int WWKeyboardClass::Available_Buffer_Room(void) const
 /// point of it is to be somewhere convenient to hang a breakpoint, so that the game can
 /// be stopped from the keyboard at an interesting moment.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void Stop_Execution (void)
 {
 	//	__asm nop			// Is this line needed?
 }
+#endif
 

@@ -21,3 +21,7 @@ start_utc,end_utc,class,activity
 23:45,00:00,support,worker merges (codex1 r2060-r2067, codex2 r2876-r2888) gated, sync to the Windows mirror
 00:00,00:28,a,last 40 staged units through the pipeline (worker-claimed units dropped), guard fixes (comment semicolons, file statics, take-back), build-refused holds; 190 units whole-file exact
 00:28,00:45,support,guard.py also guards functions no original row matches (unplaced); re-guard of techno, unit, infantry, aircraft, rules, netshare, foot; foot held by the build (a function-local static table unbound); assessment
+00:38,01:10,tooling,lane R3: initializer-table groups in init and xcu; prologue variants (geometry only / rect only) ranked by exact rows less stray initializers; tail.py (trailing compiler copies); guard of functions without an independent bound; locked per-unit manifest writes; gap padding from the frozen gap inventory; re-init of 186 held units
+01:10,01:20,c,radbeam written fresh from the seed and radbeam.h (45 of 48 rows; Update_All/Draw_Pulse/Start_Pass parked)
+01:20,01:40,support,worker merge (codex1 r2068-r2074, codex2 r2889-r2899) gated (wfm1), mirror sync, codex1 slice 2 (class-b carry on planmgr taction queue unit)
+01:40,02:06,tooling,phase 2 over 183 held units (trailing copies, prologue, re-guard); lane work rebased onto the merge; build-refused holds; whole-file exact wf28

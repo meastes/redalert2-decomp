@@ -2316,6 +2316,7 @@ int SessionClass::Slot_To_Player(int slot) // RA2: RA2's signature
 }
 
 
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00673090 has no row)
 void SessionPortAllocator::Allocate_Player_Ports(void) // RA2: 0x00673090, SessionClass::Allocate_Player_Ports; a member of this file-local subclass because declaring it in session.h unmatches wonline Draw_Player_List
 {
 	int player; // RA2: as above
@@ -2444,6 +2445,7 @@ void SessionPortAllocator::Allocate_Player_Ports(void) // RA2: 0x00673090, Sessi
 		PacketTransport->Start_Listening(); // RA2: as above
 	}
 }
+#endif
 
 
 

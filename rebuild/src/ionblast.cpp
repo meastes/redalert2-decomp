@@ -244,6 +244,7 @@ void IonBlastClass::Update_All(void)
 /// surfaces are kept until the game exits.
 /// </summary>
 /// <remarks>Harmless to call more than once -- only the first call does any work.</remarks>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00521a90 has no row)
 void IonBlastClass::One_Time(void)
 {
 	static bool one_time = false;
@@ -296,6 +297,7 @@ void IonBlastClass::One_Time(void)
 
 	one_time = true;
 }
+#endif
 
 
 /// <summary>

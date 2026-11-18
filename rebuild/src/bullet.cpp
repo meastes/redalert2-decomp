@@ -49,8 +49,6 @@
 
 #define INCLUDE_COM
 #include "always.h"
-#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
-#include "rect.h"
 
 #include "bullet.h"
 
@@ -282,6 +280,7 @@ bool BulletClass::Mark(MarkType mark)
  * HISTORY:                                                                                    *
  *   05/02/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row)
 void BulletClass::AI(void)
 {
 	/*
@@ -833,6 +832,7 @@ void BulletClass::AI(void)
 	}
 
 }
+#endif
 
 
 /***********************************************************************************************
@@ -883,6 +883,7 @@ int BulletClass::Shape_Number(void) const
  *   06/27/1994 JLB : Takes a window clipping parameter.                                       *
  *   01/08/1995 JLB : Handles translucent colors if necessary.                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 void BulletClass::Draw_It(Point2D const & point, Rect const & cliprect) const
 {
 	if (Scen->Special.IsFogOfWar && Map.Is_Fogged(Get_Coord())) return; // RA2: Draw_It at 0x4610D0 matches only so
@@ -929,12 +930,14 @@ void BulletClass::Draw_It(Point2D const & point, Rect const & cliprect) const
 		Draw_Shape(*LogicalSurface, *drawer, shapeptr, shapenum, point, cliprect, ShapeFlags_Type(SHAPE_CENTER|SHAPE_WIN_REL|SHAPE_ALPHA|SHAPE_ZGRAD), 0, -30 - TacticalMap->Z_Lepton_To_Pixel(Height));
 	}
 }
+#endif
 
 
 /// <summary>
 /// RA2: retargets the bullet at the cell under its target (no target while the scenario is set up, for
 /// a target in the air, or at the zero cell).
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 void BulletClass::LoseTarget(void) // RA2: at 0x461470
 {
 	Cell cell(TarCom->Center_Coord());
@@ -944,6 +947,7 @@ void BulletClass::LoseTarget(void) // RA2: at 0x461470
 		TarCom = NULL;
 	}
 }
+#endif
 
 
 
@@ -969,6 +973,7 @@ void BulletClass::LoseTarget(void) // RA2: at 0x461470
  * HISTORY:                                                                                    *
  *   09/24/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 void BulletClass::Detach(AbstractClass const * target, bool all)
 {
 	BASECLASS::Detach(target, all);
@@ -1000,6 +1005,7 @@ void BulletClass::Detach(AbstractClass const * target, bool all)
 		}
 	}
 }
+#endif
 
 
 
@@ -1213,6 +1219,7 @@ static inline int Coord_Dist(Coord const & a, Coord const & b)
  * HISTORY:                                                                                    *
  *   10/10/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 void BulletClass::Bullet_Explodes(bool forced)
 {
 	Coord coord = PositionCoord;
@@ -1262,6 +1269,7 @@ void BulletClass::Bullet_Explodes(bool forced)
 		Detonate(coord);
 	}
 }
+#endif
 
 
 /// <summary>
@@ -1372,6 +1380,7 @@ void BulletClass::Detonate(Coord const & coord)
 /// impact, ring by ring within the weapon's range, and the rest at random cells nearby (a negative count:
 /// fewer the farther the impact is from the firer). Ported from meastes 0x462C50.
 /// </summary>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void BulletClass::Shrapnel(void) // RA2: at 0x462C50
 {
 	int shrapnel = Class->ShrapnelCount;
@@ -1437,6 +1446,7 @@ void BulletClass::Shrapnel(void) // RA2: at 0x462C50
 		} while (--remaining != 0);
 	}
 }
+#endif
 
 
 

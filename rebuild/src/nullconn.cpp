@@ -232,6 +232,7 @@ int NullModemConnClass::Compute_CRC (char *buf, int buflen)
  * HISTORY:                                                                *
  *   04/20/1995 DRD : Created.                                             *
  *=========================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int NullModemConnClass::Packet_Overhead_Size ( void )
 {
 	/*------------------------------------------------------------------------
@@ -243,5 +244,6 @@ int NullModemConnClass::Packet_Overhead_Size ( void )
 	return( (PACKET_SERIAL_OVERHEAD_SIZE + sizeof(CommHeaderType)) );
 
 }	/* end of Packet_Overhead_Size */
+#endif
 
 /************************** end of nullconn.cpp ****************************/

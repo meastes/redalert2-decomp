@@ -1563,6 +1563,7 @@ int TechnoTypeClass::Flight_Level(void) const
  * HISTORY:                                                                                    *
  *   11/14/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool TechnoTypeClass::In_Range(Coord const & coord, AbstractClass * target, WeaponTypeClass * weapon) const
 {
 //	//assert(IsActive);
@@ -1640,14 +1641,17 @@ bool TechnoTypeClass::In_Range(Coord const & coord, AbstractClass * target, Weap
 
 	return(false);
 }
+#endif
 
 
 /// <summary>
 /// Sets one of this object type's weapon slots.
 /// </summary>
 /// <param name="which">The weapon slot to fill in.</param>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void TechnoTypeClass::Set_Weapon(WeaponDataStruct const & weapon, int which)
 {
 	Weapons[which] = weapon;
 }
+#endif
 

@@ -26,6 +26,7 @@ ApplicationClass ApplicationInstance;
 /// </summary>
 /// <returns>Returns with S_OK if the interface was supplied, or E_NOINTERFACE if the
 /// factory does not implement it.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 LONG STDMETHODCALLTYPE TiberianSunClassFactory::QueryInterface(REFIID riid, LPVOID *ppvObject)
 {
 	if (ppvObject == NULL) {
@@ -41,6 +42,7 @@ LONG STDMETHODCALLTYPE TiberianSunClassFactory::QueryInterface(REFIID riid, LPVO
 	reinterpret_cast<IUnknown *>(*ppvObject)->AddRef();
 	return(S_OK);
 }
+#endif
 
 
 /// <summary>

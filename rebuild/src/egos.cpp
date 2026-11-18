@@ -37,7 +37,6 @@
 
 #include "always.h"
 #include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
-#include "geometry.h"
 
 #include "egos.h"
 #include "bitfont.h" // RA2: Wipe measures with BitFont
@@ -302,6 +301,7 @@ inline wchar_t * Credits_Wide_Text (const char *strstart) // RA2: lines are wide
  * HISTORY:                                                                                    *
  *    9/10/96 0:20AM ST : Created                                                              *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004b37c0 has no row)
 void Show_Credits (void) // RA2: 0x4B37C0 (TibSun: Show_Who_Was_Responsible)
 {
 
@@ -715,4 +715,5 @@ void Show_Credits (void) // RA2: 0x4B37C0 (TibSun: Show_Who_Was_Responsible)
 	EgoList.Clear();
 	} // RA2: as above
 }
+#endif
 

@@ -35,19 +35,18 @@ The percentage this tree reproduces is mostly adopted work (class a). Read it to
 below.
 
 <!-- numbers: updated at each gated landing -->
-**At the last gated landing (2026-11-18 00:28Z):** 190 units, 3,951 functions exact; 14.86% of `.text`
-built from source, 17.68% reproduced with the linked library and assembled bytes.
+**At the last gated landing (2026-11-18 02:06Z):** 226 units, 5,270 functions exact; 19.90% of `.text`
+built from source, 22.72% reproduced with the linked library and assembled bytes.
 
 | Class | Functions | Bytes |
 | --- | ---: | ---: |
-| a, adopted | 3,363 | 481,676 |
+| a, adopted | 4,512 | 656,428 |
 | b, reshaped from main | 8 | 11,120 |
-| c, fresh | 63 | 6,944 |
-| Windows workers (mostly adopted) | 517 | 60,464 |
+| c, fresh | 81 | 8,576 |
+| Windows workers (mostly adopted) | 669 | 74,128 |
 
-Structure: 0 duplicate class definitions, 0 stray externs in landed sources (12 forward declarations of
-a unit's own globals in units still held, counted apart), 5 address-suffixed names, 187 units held,
-662 functions not yet exact (433,926 bytes; 116 functions of 1 KB or more, 352,579 bytes).
+Structure: 0 duplicate class definitions, 0 stray externs in landed sources (11 in held units), 5 address-suffixed names,
+156 units held, 726 functions not yet exact (449,365 bytes; 120 functions of 1 KB or more, 361,475 bytes).
 The newest numbers are always the last line of `manifest/progress.csv`.
 
 ## Structure gate
