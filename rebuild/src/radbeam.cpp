@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // RA2: not in TibSun. The rad and chrono beams: a type 1 beam pulses along the line from Source to
 // Target, a type 2 beam swings; Update_All draws every listed beam once a frame and deletes the
-// ones whose period is over. Written for the rebuild trial from the executable's instructions and
-// the class layout in radbeam.h.
+// ones whose period is over.
 
 #include "always.h"
 #include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table

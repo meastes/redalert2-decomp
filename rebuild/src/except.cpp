@@ -62,10 +62,7 @@
 
 #include <imagehlp.h> // RA2: as above
 
-extern "C" {	// RA2: the statically linked CRT console routines the recursion notice uses
-	int __cdecl _cprintf(const char * format, ...);	// RA2: the CRT console printf at 0x00796714, linked statically
-	int __cdecl _getch(void);	// RA2: the CRT console getch at 0x007963F7
-}
+#include <conio.h> // RA2: _cprintf and _getch, the statically linked CRT console routines the recursion notice uses
 
 void __fastcall Audio_File_Flush(void);						// RA2: 0x00522E10; under the audio file critical section, flushes the file the audio streamer is reading (meastes: Audio_File_Flush)
 void __fastcall Add_Audio_File_Window(HWND window);		// RA2: 0x00522B20; files a dialog window in the audio file window list (as ownrdraw.cpp declares it)

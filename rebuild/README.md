@@ -119,6 +119,12 @@ qualified name), no source outside a unit, no free functions standing in for cla
 data in sources. Each unit is also checked on its own: a new unit may not add stray `extern` lines or
 address-suffixed names.
 
+Budgets that may only fall (review session, 2026-11-18; the census prints them on two `Gate` lines):
+process chatter in rebuild/src and rebuild/include (lane, worker, manifest or tool mentions: zero),
+`Unknown*` names, `vt_entry_NN` slots, `field_NN` and `FUN_` names in headers, `RA2_NON_MATCHING`
+draft guards (shown with the parked body bytes), and the inherited constructs still to be evidenced:
+`#define GEOMETRY_H` in sources, `#pragma auto_inline(off)` and hand-written `extern "C"` blocks in sources.
+
 ## Layout
 
 - `src/`: one file per original unit.

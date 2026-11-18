@@ -6,11 +6,6 @@
 **	step by step; several beams on one target form a chain (the first one does the work, the
 **	others add their warp per step). When the target is gone it is removed from the game and the
 **	firing unit is credited with the kill.
-**
-**	Lane R (rebuild trial), the function bodies written without adopted text and without the
-**	old tree's or any other project's body for them: from the executable's instructions and the
-**	decompiler output. The class header (temporal.h) was already in the tree, adopted from
-**	mischa85 with house.cpp. See rebuild/manifest/provenance.csv, class c.
 */
 
 #include "always.h"

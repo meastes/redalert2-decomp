@@ -1,10 +1,6 @@
 /*
 **	Command & Conquer Red Alert 2
 **	The kamikaze tracker: missiles spawned by a launcher fly at a cell until they hit it.
-**
-**	Lane R (rebuild trial), written without adopted text: the layout from the executable
-**	(the constructor's stores and the 8-byte records it allocates), names from the symbol
-**	tables. See rebuild/manifest/provenance.csv, class c.
 */
 #pragma once
 

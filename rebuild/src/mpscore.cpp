@@ -17,7 +17,6 @@
 **	0x005AAA20 to 0x005AB3B0.
 */
 
-#define GEOMETRY_H // RA2: this file holds no copy of the geometry constants (no initializer before its first function at 0x005AAA20), so globals.h must not compute LEVEL_LEPTON_H here
 #include "always.h" // RA2: the includes this file needs
 #include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
 #include "geometry.h"

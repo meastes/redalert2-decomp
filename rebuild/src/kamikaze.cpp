@@ -5,10 +5,6 @@
 **	A launcher's spawned missiles are handed to the tracker, which keeps steering each one at
 **	its cell until the missile is gone. A missile type that is not a spawned missile simply
 **	crashes.
-**
-**	Lane R (rebuild trial), written without adopted text and without the old tree's or any
-**	other project's body for these functions: from the executable's instructions, the decompiler
-**	output and the class layouts. See rebuild/manifest/provenance.csv, class c.
 */
 
 #include "always.h"

@@ -4,11 +4,6 @@
 **
 **	A mind controller holds one unit at a time. The manager takes a unit over, gives it back
 **	to its old house when it lets go, and draws the link between the two.
-**
-**	Lane R (rebuild trial), the function bodies written without adopted text and without the
-**	old tree's or any other project's body for them: from the executable's instructions and the
-**	decompiler output. The class header (capmgr.h) was already in the tree, adopted from
-**	mischa85 with house.cpp. See rebuild/manifest/provenance.csv, class c.
 */
 
 #include "always.h"

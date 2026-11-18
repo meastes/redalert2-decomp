@@ -5,10 +5,6 @@
 **	Every player starts with a base, and with both of the rules' base units: the first stands
 **	three cells down and right of the base centre, the second (and the first, when that cell is
 **	taken) goes to the nearest free place.
-**
-**	Lane R9 (rebuild), the function bodies written without adopted text and without the old
-**	tree's or any other project's body for them: from the executable's instructions. See
-**	rebuild/manifest/provenance.csv, class c.
 */
 
 #include "always.h"

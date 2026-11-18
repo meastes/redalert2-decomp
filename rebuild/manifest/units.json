@@ -99883,9 +99883,10 @@
   },
   "partial_ok": true,
   "build_refused": {
-   "source_sha256": "0c2ec8c930530a5e16e8fa3b5105f1cb41ebde6ca19d677cdefc06d77fae83d3",
+   "source_sha256": "10ecf1c3f5b049c349cb1a9dd1656dabdac19941519a610717396953451aa87b",
    "reason": "Unsupported allocatable data section .rdata #61 in accepted.obj (['.rdata', '??_7JumpjetLocomotionClass@@6BILocomotion@@@']): +0c ?Link_To_Object@LocomotionClass@@UAGJPAX@Z bound 0053d010, original 00"
-  }
+  },
+  "holder": "codex1"
  },
  "abstype": {
   "symbol_overrides": {
@@ -117114,7 +117115,8 @@
    "0070a330"
   ],
   "symbol_overrides": {
-   "00707f60": "?Plan_Route@UnitClass@@QAEPAVAbstractClass@@PAV2@@Z"
+   "00707f60": "?Plan_Route@UnitClass@@QAEPAVAbstractClass@@PAV2@@Z",
+   "006fdfb0": "_$E301"
   },
   "source": "rebuild/src/unit.cpp",
   "options": [
@@ -117393,7 +117395,7 @@
     "entry": "006fdfb0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E48",
+    "symbol": "_$E301",
     "main_symbol": "_$E48",
     "main_source": "src/recovered/unit.cpp"
    },
@@ -135983,6 +135985,248 @@
    "?CheckStartConditions@UnholyAlliance@@UAE_NPAVWideWstring@@@Z": "005ac390",
    "?AssignTeamsAtStart@UnholyAlliance@@UAE_NXZ": "005ac3c0",
    "?SpawnBaseUnits@UnholyAlliance@@UAE_NPAVHouseClass@@I@Z": "005ac3d0"
+  }
+ },
+ "mpsiege": {
+  "core": [
+   "005ab3b0",
+   "005abbd0"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/mpsiege.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "005ab3b0",
+   "005abbd0"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "005ab3b0",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_diagonal_init.cpp"
+   },
+   {
+    "entry": "005ab3e0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_b_init.cpp"
+   },
+   {
+    "entry": "005ab400",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_c_init.cpp"
+   },
+   {
+    "entry": "005ab420",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_angle45_init.cpp"
+   },
+   {
+    "entry": "005ab440",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_angle60_init.cpp"
+   },
+   {
+    "entry": "005ab460",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_angle90_init.cpp"
+   },
+   {
+    "entry": "005ab480",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_g_init.cpp"
+   },
+   {
+    "entry": "005ab4c0",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_h_init.cpp"
+   },
+   {
+    "entry": "005ab4f0",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_i_init.cpp"
+   },
+   {
+    "entry": "005ab520",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_j_init.cpp"
+   },
+   {
+    "entry": "005ab550",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_k_init.cpp"
+   },
+   {
+    "entry": "005ab560",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_l_init.cpp"
+   },
+   {
+    "entry": "005ab580",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/header_statics/mpsiege/HeaderStatics_static_rect_init.cpp"
+   },
+   {
+    "entry": "005ab5a0",
+    "body": 52,
+    "padding": 12,
+    "symbol": "??0MultiplayerSiege@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z",
+    "main_symbol": "?MultiplayerSiege_Constructor_005ab5a0@Owner_005ab5a0@seed_005ab5a0@@QAEPAIIIIIII@Z",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005ab5e0",
+    "body": 11,
+    "padding": 5,
+    "symbol": "??1MultiplayerSiege@@UAE@XZ",
+    "main_symbol": "?MultiplayerSiege_Destructor_005ab5e0@seed_005ab5e0@@YIXPAI@Z",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005ab5f0",
+    "body": 79,
+    "padding": 1,
+    "symbol": "?AssignTeams@MultiplayerSiege@@UAE_NXZ",
+    "main_symbol": "?AssignTeams@MultiplayerSiege@@UAE_NXZ",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005ab640",
+    "body": 242,
+    "padding": 14,
+    "symbol": "?CheckStartConditions@MultiplayerSiege@@UAE_NPAVWideWstring@@@Z",
+    "main_symbol": "?CheckStartConditions@MultiplayerSiege@@UAE_NPAVWideString@@@Z",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005ab740",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?AssignTeamsAtStart@MultiplayerSiege@@UAE_NXZ",
+    "main_symbol": "?AssignTeamsAtStart@MultiplayerSiege@@UAE_NXZ",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005ab750",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?IsAIAllowed@MultiplayerSiege@@UAE_NXZ",
+    "main_symbol": "?get@Leaf_5ab750@@QAE_NXZ",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005ab760",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?UnfixAlliances@MultiplayerSiege@@UAE_NXZ",
+    "main_symbol": "?UnfixAlliances@MultiplayerSiege@@UAE_NXZ",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005ab770",
+    "body": 499,
+    "padding": 13,
+    "symbol": "?StartingPositionsToHouseBaseCells@MultiplayerSiege@@UAE_ND@Z",
+    "main_symbol": "?StartingPositionsToHouseBaseCells@MultiplayerSiege@@UAE_N_N@Z",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005ab970",
+    "body": 269,
+    "padding": 3,
+    "symbol": "?CreateMPTeams@MultiplayerSiege@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z",
+    "main_symbol": "?CreateMPTeams@MultiplayerSiege@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005aba80",
+    "body": 278,
+    "padding": 10,
+    "symbol": "?SpawnBaseUnits@MultiplayerSiege@@UAE_NPAVHouseClass@@I@Z",
+    "main_symbol": "?SpawnBaseUnits@MultiplayerSiege@@UAE_NPAVHouseClass@@PAH@Z",
+    "main_source": "src/recovered/mpsiege.cpp"
+   },
+   {
+    "entry": "005abba0",
+    "body": 36,
+    "padding": 12,
+    "symbol": "??_GMultiplayerSiege@@UAEPAXI@Z",
+    "main_symbol": "?MultiplayerSiege_Scalar_Deleting_Destructor_005abba0@Owner_005abba0@seed_005abba0@@QAEPAIE@Z",
+    "main_source": "src/recovered/mpsiege.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00a716f0",
+   "_CELL_DIAG_SLOPE_ANGLE": "00a716d8",
+   "_CELL_LEPTON_DIAG": "00a716b0",
+   "_CELL_NONE": "00a716a8",
+   "_CELL_SLOPE_ANGLE": "00a716c0",
+   "_COORD_NONE": "00a716c8",
+   "_ISO_TILE_SIZE": "007a6b78",
+   "_LEPTONS_PER_PIXEL": "00a716f8",
+   "_LEVEL_LEPTON_H": "00a71700",
+   "_ONE_RAD": "007a6b80",
+   "_PIXELS_PER_LEPTON": "00a716e8",
+   "_RAD_45": "00a716e0",
+   "_RAD_60": "00a716b8",
+   "_RAD_90": "00a71690",
+   "_RECT_NONE": "00a71698"
   }
  }
 }

@@ -5,11 +5,6 @@
 **	The executable names this file in the observer team's string lookup (D:\Ra2\MPObserver.cpp).
 **	Megawealth plays like a free-for-all game and reveals the map when the game starts; the
 **	observer team holds the players who watch.
-**
-**	Lane R9 (rebuild), the function bodies written without adopted text and without the old
-**	tree's or any other project's body for them: from the executable's instructions. The
-**	observer team's declaration (mpsiege.h) was already in the tree. See
-**	rebuild/manifest/provenance.csv, class c.
 */
 
 #include "always.h"

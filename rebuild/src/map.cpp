@@ -1436,7 +1436,6 @@ void MapClass::RevealArea0(int, int, Coord const & coord, int sightrange, HouseC
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 1105 bytes differ (adopted text)
 void MapClass::RevealArea1(Coord const & xcoord, int sightrange, HouseClass * house, bool incremental, bool dont_map, bool unfog, bool byheight, bool increase) // RA2: RA2's form
 {
 	int xx;				// Center cell X coordinate (bounds checking).
@@ -1447,8 +1446,8 @@ void MapClass::RevealArea1(Coord const & xcoord, int sightrange, HouseClass * ho
 	int cell_height = xcoord.Z / LEVEL_LEPTON_H;
 
 	Coord coord = xcoord;
-	coord.X = coord.X + (TacticalMap->Z_Lepton_To_Pixel(coord.Z) / -CELL_PIXEL_W) * CELL_LEPTON;
-	coord.Y = coord.Y + (TacticalMap->Z_Lepton_To_Pixel(coord.Z) / -CELL_PIXEL_W) * CELL_LEPTON;
+	coord.X = coord.X + (TacticalMap->Z_Lepton_To_Pixel(coord.Z) / -30) * CELL_LEPTON;
+	coord.Y = coord.Y + (TacticalMap->Z_Lepton_To_Pixel(coord.Z) / -30) * CELL_LEPTON;
 
 	Cell cell = coord.As_Cell();                            /// Center cell as is appears on the map
 	Cell hoffset = cell - xcoord.As_Cell() - Cell(2, 2);    /// Height offset between real and apparent cells
@@ -1458,7 +1457,9 @@ void MapClass::RevealArea1(Coord const & xcoord, int sightrange, HouseClass * ho
 	*/
 	if (!In_Radar(cell)) return;
 	if (!sightrange) return;
-	sightrange = MIN(sightrange, 10);
+	if (sightrange >= 11 || sightrange > 10) {
+		sightrange = 10;
+	}
 
 	/*
 	**	Determine logical cell coordinate for center scan point.
@@ -1553,7 +1554,6 @@ void MapClass::RevealArea1(Coord const & xcoord, int sightrange, HouseClass * ho
 
 	RevealArea3(coord, 0, sightrange + 3, 0); // RA2: as above
 }
-#endif
 
 
 /***********************************************************************************************
@@ -1582,7 +1582,6 @@ void MapClass::RevealArea1(Coord const & xcoord, int sightrange, HouseClass * ho
  *   03/08/1994 JLB : Updated to use sight table and incremental flag.                         *
  *   05/18/1994 JLB : Converted to member function.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1019 bytes differ (adopted text)
 void MapClass::Sight_From(Coord const & xcoord, int sightrange, HouseClass * house, bool incremental, bool dont_map, bool unfog, bool byheight, bool increase) // RA2: as above
 {
 	int xx;				// Center cell X coordinate (bounds checking).
@@ -1593,8 +1592,8 @@ void MapClass::Sight_From(Coord const & xcoord, int sightrange, HouseClass * hou
 	int cell_height = xcoord.Z / LEVEL_LEPTON_H;
 
 	Coord coord = xcoord;
-	coord.X = coord.X + (TacticalMap->Z_Lepton_To_Pixel(coord.Z) / -CELL_PIXEL_W) * CELL_LEPTON;
-	coord.Y = coord.Y + (TacticalMap->Z_Lepton_To_Pixel(coord.Z) / -CELL_PIXEL_W) * CELL_LEPTON;
+	coord.X = coord.X + (TacticalMap->Z_Lepton_To_Pixel(coord.Z) / -30) * CELL_LEPTON;
+	coord.Y = coord.Y + (TacticalMap->Z_Lepton_To_Pixel(coord.Z) / -30) * CELL_LEPTON;
 
 	Cell cell = coord.As_Cell();                            /// Center cell as is appears on the map
 	Cell hoffset = cell - xcoord.As_Cell() - Cell(2, 2);    /// Height offset between real and apparent cells
@@ -1604,7 +1603,9 @@ void MapClass::Sight_From(Coord const & xcoord, int sightrange, HouseClass * hou
 	*/
 	if (!In_Radar(cell)) return;
 	if (!sightrange) return;
-	sightrange = MIN(sightrange, 10);
+	if (sightrange >= 11 || sightrange > 10) {
+		sightrange = 10;
+	}
 
 	/*
 	**	Determine logical cell coordinate for center scan point.
@@ -1686,14 +1687,11 @@ void MapClass::Sight_From(Coord const & xcoord, int sightrange, HouseClass * hou
 					Map.Fog_Map_Cell(newcell, house);
 				}
 			} else {
-				if ((!cellptr->IsMapped || !cellptr->IsVisible || !cellptr->IsFogVisible || !cellptr->IsFogMapped) && !dont_map) {
-					Map.Map_Cell(newcell, house);
-				}
+				Map.RevealFogShroud(newcell, house, increase);
 			}
 		}
 	}
 }
-#endif
 
 
 void MapClass::RevealArea3(Coord const & coord, int start, int sightrange, int skip) // RA2: RA2's form

@@ -17,7 +17,6 @@
 **	TibSun has no such file; the code is the executable's from 0x00738450.
 */
 
-#define GEOMETRY_H // RA2: geometry.h follows the includes, as its constants take their initializers after the one of the rectangle below
 #include "always.h" // RA2: the includes this file needs
 #include "cdfile.h" // RA2: as above
 #include "ini.h" // RA2: as above

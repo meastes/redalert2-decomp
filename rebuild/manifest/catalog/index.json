@@ -1160,7 +1160,7 @@
       },
       {
         "path": "rebuild/include/kamikaze.h",
-        "sha256": "9eeddd084f3d50f093a237245046b9d4fb9b2d9227b17041674845416f43213c"
+        "sha256": "3882bb191bd210d85f6e499a311f2c8ce473d144dc86bb64c5d242e620dbb4ef"
       },
       {
         "path": "rebuild/include/keyboard.h",
@@ -1308,7 +1308,7 @@
       },
       {
         "path": "rebuild/include/megawealth.h",
-        "sha256": "2c2ba746147d3cbe1b4c27db5515ef7c524b48bcd55acd9e3a476cd865933677"
+        "sha256": "4c99047784b7e677bc255652e4c67f9af0f963aa53fc71e5ccf3518f9687d0e7"
       },
       {
         "path": "rebuild/include/meteor.hh",
@@ -1936,7 +1936,7 @@
       },
       {
         "path": "rebuild/include/spawnmanager.h",
-        "sha256": "698cbce2bdc812ace650bc589d1298f10698f00c62f64f9b5ed236151ba59cb7"
+        "sha256": "9f6b126eceb4e3f55915616bf4f4c8c68b73419f5102f410e43e365c27b86c25"
       },
       {
         "path": "rebuild/include/special.h",
@@ -2004,7 +2004,7 @@
       },
       {
         "path": "rebuild/include/subtitleparser.h",
-        "sha256": "601b04d7acf341215246748f65e8c35a0b133d0abb9afd8aaf8b36f6e1ef29c3"
+        "sha256": "2d40fff5fbbe4a9b38ec0f441cac3754331ae1db828a47f66c6018aec83d5549"
       },
       {
         "path": "rebuild/include/sun.h",
@@ -2208,7 +2208,7 @@
       },
       {
         "path": "rebuild/include/txtlabel2.h",
-        "sha256": "ea0ad63337da9107e258c257669801f27ea7f4ebbe0bb1f87288cc7d7842597e"
+        "sha256": "96f049fb81b5ef15ccb01489080995afbdaee2a65f19400058af8409f431e89e"
       },
       {
         "path": "rebuild/include/typelist.h",
@@ -2220,7 +2220,7 @@
       },
       {
         "path": "rebuild/include/unholyalliance.h",
-        "sha256": "1ffe72300dcd8fefceaf222e32f21b65866793e44e700126f3ccc45fac0d23b2"
+        "sha256": "f052aec37ec4db2819aed78101239f022ec5d51202f9c1d3051f9ec207b6954f"
       },
       {
         "path": "rebuild/include/unit.h",
@@ -2711,6 +2711,7 @@
     "rebuild-mpmath",
     "rebuild-mpobserver",
     "rebuild-mpscore",
+    "rebuild-mpsiege",
     "rebuild-mpu",
     "rebuild-mpunholyalliance",
     "rebuild-msanim",
@@ -3004,6 +3005,7 @@
     "population-2855",
     "population-286",
     "population-2860",
+    "population-2866",
     "population-2867",
     "population-2888",
     "population-29",
@@ -3469,7 +3471,7 @@
     ["rebuild-lzopipe", 5],
     ["rebuild-lzostraw", 4],
     ["rebuild-mainloop", 28],
-    ["rebuild-map", 219],
+    ["rebuild-map", 221],
     ["rebuild-matrix3d", 42],
     ["rebuild-mech", 28],
     ["rebuild-milsectmr", 16],
@@ -3485,6 +3487,7 @@
     ["rebuild-mpmath", 54],
     ["rebuild-mpobserver", 20],
     ["rebuild-mpscore", 21],
+    ["rebuild-mpsiege", 24],
     ["rebuild-mpu", 1],
     ["rebuild-mpunholyalliance", 20],
     ["rebuild-msanim", 79],
@@ -3780,6 +3783,7 @@
     "population-2855": "4a623b3f409f9857f1d5b9a11a6fabba45a17379d6a84771924fcd07e23b60e8",
     "population-286": "80b4b87b157745b01f20936d3e84ca61449a567b2e452dcb9ec7031b9cb761f5",
     "population-2860": "accf4ae1679ac25f10cc70ae3872f578ba6606d00f0f4a0d70e71fedfd3add82",
+    "population-2866": "c767461cef5ce39792f51220a54e154facb4b7b4913b07dadb80d8f6b8233d0f",
     "population-2867": "6615fe7fecaad30a5f488db927d79ae5e7a60d0be655248398252602c7210769",
     "population-2888": "11bfeaa36681d0567654850740774f68759c5d9f673139dea848dcd7550630a6",
     "population-29": "b6f153e30e1cd8aaccf897fe29e18182fdf1391088c5195b21fc63012a8d3f16",
@@ -4134,7 +4138,7 @@
     "rebuild-bullettype": "d9fc674c3f2fe06c3bb0e688de8fc02391c85362d2cd0d48cd4cd1951f32f105",
     "rebuild-campaign": "3f0d750ac8c2d8337c09dd549a62ffdd9d53ef98a030a0614f362dffdac0126b",
     "rebuild-campscor": "1b18de9bd176d4373c5fed186f3497fd782984ce36bee77b06f5673f920a8f97",
-    "rebuild-capmgr": "6f7d04626999022e9339058319e949a3c025d6691df5db2db6decbfa99f75a9d",
+    "rebuild-capmgr": "5f07612250bcbf9e412364620f73485b720bbd1d3233611878200f755b7b8020",
     "rebuild-cargo": "58b0767c871b1422a587bea981160f01a14fbaa8b6ab1166c7e746150e742221",
     "rebuild-carry": "2e8aa225726263dc90ec6d78123295049c09af2d31c20b60fbb1ca13f9684268",
     "rebuild-ccfile": "5b9027c9a6c2f2570881b720125f87cff672a8a98ff119219af93ae0e4360f75",
@@ -4152,7 +4156,7 @@
     "rebuild-connect": "231a99b2e743393c4d7a1052b0b4a49c678cc2ce71e15def597187cad3f1e30e",
     "rebuild-conquer": "092af6085e4e003682ca23a026e55e037c9095672f537093681deeed5e4eb334",
     "rebuild-control": "076680bc2202c86a0b5bd13c5050f137cff8d15e67f988bf0dbee252579b7411",
-    "rebuild-coopcamp": "40c311ce825fb6f09945b82c584846f2e0ff54ea00a6b1b20626e95f1cac2eb0",
+    "rebuild-coopcamp": "77ff2d960d5ce30aa8ef5f490d555150f72c9125799d2d545c6de0219913512b",
     "rebuild-coord": "c59a9e8f74ffdd1292adc9f2e2044c4ce995d50cc98d2121eed9e226578a87f4",
     "rebuild-copyprotection": "0eac41e4c3f50de609871e4841a24cf6186ee2f7318f593b9976d73ce3c64ae9",
     "rebuild-counter": "a26e444b1f58ac14863eab8d17f3f0710f2a9bd8c2060ef909780745e2a70469",
@@ -4180,7 +4184,7 @@
     "rebuild-empulse": "17948134079b5c43bab3adbe20f33d745fe0607e503a913cc6675517b8d2dc12",
     "rebuild-enviro": "c6bae9948c7907f24b03eb81da1c542283065393460cc56ef11aa6d7c4694db4",
     "rebuild-event": "13cc2fc42fee7ab87d40c0ee7aaad12846ee428a970cd5e22c949389075e7ab4",
-    "rebuild-except": "f54c73985f7b38c2e37bb5d2b45f6ce7ea84fb11cf0b69135d80294029832a8d",
+    "rebuild-except": "8b983a5def255afdd00d3255f7d03ffade82528b588c708d6acbcf4049970951",
     "rebuild-expand": "4ad162e9978edc439a2013d1dbb1756a0b1df4b4a56fc27422d00ce51339177c",
     "rebuild-facing": "0f4e9f10a2b7dfcd08ad152f6d5f879893c9dfa744fd3a5b6d964181a33fd022",
     "rebuild-factory": "eef6b55cac8e93f91c941be62020402df0334ce4c832cae811f4248fe23a12a6",
@@ -4221,7 +4225,7 @@
     "rebuild-ipxmgr": "be1865ccec10ae735429af5fd589ff82dd4136a5aed5ac323245f653d1495d92",
     "rebuild-isotile": "ecc57d9a48a7165d06e519862fca3bdd480a2d6ce1e493871aa1704819f30680",
     "rebuild-jshell": "ed1c22df1d0355f8879e6689d76eb6654d8da1c4e7e49803d0c596b4198efd43",
-    "rebuild-kamikaze": "eee1b941efa0170c839bbec167d9d53ea6288e28c0f55ae0bbefadde01b4d754",
+    "rebuild-kamikaze": "31a1456c30e4d2c2fa982b9f5a72663195802fe17966c57caf8bd335f57dc24c",
     "rebuild-keyboard": "920945e28142ed3a42a620817fc484d773dce8aca9cc16f0dc61efb81b315feb",
     "rebuild-laser": "41613a4621464788475d06da1b8b0e2c9c9d2e2d569b1e0de0f51547487c861e",
     "rebuild-layer": "21a498c5c1d876414145ea9a7e9403134710eb5388d2fa15b1b04d1ca3830e08",
@@ -4244,7 +4248,7 @@
     "rebuild-lzopipe": "c803ab28806295bfe89451cf7eccc3904b893d3f85c199984611089c2bd69e5c",
     "rebuild-lzostraw": "65f573540b348193af72e2c57442d0d0fea569d75e3aaa1d3171351d441a4e67",
     "rebuild-mainloop": "1b4c7e3400e0ed238f813987d86834b50898e44ac684352a44dff4b9ea29a453",
-    "rebuild-map": "bf56eeef1704c11b086f81002fc2666f29cec025beaecec59c2d86665d2b0369",
+    "rebuild-map": "6d0b8f16f1b098ced0458ea9219292c389aa7a267b976afbe94c9c4238e11efd",
     "rebuild-matrix3d": "8c0cdca830c32d16f12b9fdb6fbdbf01880d1708d7343573a560d34eceff59b7",
     "rebuild-mech": "7970332fc63fd67ef878364556bfe0f1bd8464d6f916c35806cbc19ffb57b9b2",
     "rebuild-milsectmr": "deab72b0cafbde05be0bbdba8e2961355beb0456076b82a486362f60d0e9b731",
@@ -4258,10 +4262,11 @@
     "rebuild-mpcoop": "898f3d81aa102885e35468acae9fe740023f54a9d374b7df35853be4caa1c9e0",
     "rebuild-mplayer": "2efbd1405365299f10ebf32623e5eadf54037dae053bf61df805b5c568fbe995",
     "rebuild-mpmath": "26cf1b00e524ba8f069681a0fa3f75c37c111ea5e37116e47cf658d477b0372f",
-    "rebuild-mpobserver": "fc95d43daa5cc9db6371f36d175580a272f7832f92e7a6d6b9d3e269313db3dd",
-    "rebuild-mpscore": "5ea5111bf713f746fc9a1cab39142b7e1a9b9a2bb4775e2a3392fc9755c700c3",
+    "rebuild-mpobserver": "6b93f4ec54a65490aca5dd1cc38fbff09c5b047c732b1075d3fc7fffea81d287",
+    "rebuild-mpscore": "2ad8ae286bca22d372540cb108c078ea8af9672865ed9de9ee1cb123398e3267",
+    "rebuild-mpsiege": "73ed5184fb8738229576763769a2f0bc4533156242945aa445cc79bf639c5155",
     "rebuild-mpu": "de57c83d93ca78416d3dc61da0f873bcdac033709b562d2156ea8d36cc855744",
-    "rebuild-mpunholyalliance": "e96b03b44b41911843ecf6197202a897ccc0e7b6e1af8d55dad571eada8a5099",
+    "rebuild-mpunholyalliance": "b18996c517201cb879bee1f4a4bb9ad8d27d92521abdc5d18b340cfdcd8a5880",
     "rebuild-msanim": "c51cbbc37da4feaba6edc81409a2837c6254834a1381cf724414be380e5e672b",
     "rebuild-mschoice": "95ec00dd04b4736e7501ad43433c59dcfd75a4c2565d38269634ee4f5ecf3226",
     "rebuild-msengine": "08f8d904855c464146d5571b3fe74a5c96488a169b72ade74268c936b907b71d",
@@ -4287,7 +4292,7 @@
     "rebuild-parasite": "0641660ba7312dc4ce67bd6ab67a2735de228a11c101b1ee1a32390335621605",
     "rebuild-particle": "ab9e4a6c3ab9c89c965ab8f8bdb7a2ca9cbe759374936e1a75f228e3d5b970e0",
     "rebuild-partsys": "227e116de9540a35b6b21f48dec99d8b96c314cd7e318e57a22f320750936039",
-    "rebuild-phoneed": "2c07c5805b297f28ff322aace1bf0f4660a5bb9c64e6ff9fa46464df564757a8",
+    "rebuild-phoneed": "4475e936ed3159cfea87ebf7fddb0cec689e24c155b6696c9eb66500dbfdf45f",
     "rebuild-pipe": "e26d7311dba2cdd2a64ba8dfd3b3f00a8b2d52a90df0856dbd15106c0531edc8",
     "rebuild-pixelfx": "7aeca381f7381fcd6f2191aa24df175a439e9d889bfa473935ab53fdf241f5a6",
     "rebuild-pk": "73dc2deb0e6ce68dea5695d2a5a03df10695747a56d6c82a52f7b3378cb1e64d",
@@ -4299,7 +4304,7 @@
     "rebuild-progress": "abbef2dc830f3e815834d90dc238315c765f4bb654dc89bdccf714785701dcb9",
     "rebuild-quarry": "7cbed7168a2862140a14ddd80832754f3bc233d765499ef3c03e2591d4e885ca",
     "rebuild-quat": "a1f50966755771c90f31007d649d683a5f8d6829d0cc801ffcc1f745ed0b3ef3",
-    "rebuild-radbeam": "0bff4489eeeef6fef0673106b9de9a53a8b3b614b23629faaeb4dba10dd113ef",
+    "rebuild-radbeam": "6f021a9b3fa607fee7ec133a4b6da6d91a9033dadeaeb69285dea09f0875d90a",
     "rebuild-radio": "a8bf704303b35472fe521f23edf9e9df5c2cfcb83034c6143c4b2de97ffcf538",
     "rebuild-radsite": "81f486806a1dc4e24e85c321faf8278d98b725ef96e48f5f302c669ef529b977",
     "rebuild-ramfile": "7e8fa5ac7454a4bd6d1dc68e56a0bfb905935859209aa87ff0874d1662ed28a0",
@@ -4327,7 +4332,7 @@
     "rebuild-smudge": "4112d110ec8d3cfa544bb620b0c183b44b9dd60a400693faaa0f0d51e324726b",
     "rebuild-smudtype": "8d052cfe7360f75a5a76fb5036e27f49dba6f598b1a3411cb36ad5f607845600",
     "rebuild-sounddlg": "49841dbde605d63d06ae6a0cb992757632c73cb97f6cac668761eb7f3bd716c2",
-    "rebuild-spawnmanager": "6582366a511254bbb66a3a4bd21374032246e19d5917cc7b2f41918237a4cabc",
+    "rebuild-spawnmanager": "ae05e2acbe4d23c419d3c67203feeba7283b739770f9db7cdf64d819c1ee0d97",
     "rebuild-special": "9bf9ecb5971a882993e83368384b2a2677c249925334b6397a979880210bcb9a",
     "rebuild-sprite": "be55bd1ac43feadfeb8a3b5d5fd8026329881c92769fc3f813e05fc93a14e7e3",
     "rebuild-srfcache": "bd8da761b36ffca37cdb7703958f865a746917236293d34298c5fb481a2c7f84",
@@ -4348,7 +4353,7 @@
     "rebuild-team": "4bce044632d2e2969f448c7597a9f748d6a2fba50879f5add62104d76c1acd1d",
     "rebuild-teamtype": "e82fd1beba5121c1fbc4f2e7ab237af41e3d91fc6d2d7ff8643f9ccea851c258",
     "rebuild-teleport": "578f38816dbf50f40b22bf53afcfcba801d7fe15277bd56d5f70dbe6212020e2",
-    "rebuild-temporal": "df215d9a0fd658b2fb9f0b7bd478dca9fc9590a6d4a650074863f68c539e7ee1",
+    "rebuild-temporal": "ca4e304304230a16cd5b55d7132e8a267e70a4dab27269ba0ba7acecb360fa39",
     "rebuild-terrain": "87cb50f36eca4b0fadabc6b359fe1ad710e983bd5fe57ecc7f2ebe42f1482ce6",
     "rebuild-terrtype": "4c8144714bb14c06170649d8109c175dada6ba96664575bedad5b7615132e448",
     "rebuild-tevent": "cc479f061451d9805ce10c8defc9b74b71c462fcd66e25ccb355cab74cbb17d2",
@@ -4365,10 +4370,10 @@
     "rebuild-tube": "13a586b13e4f48342bff530f1fb0414826666e44b34cec1297f4a2b1e242c740",
     "rebuild-tunnel": "42cde77d9dcb0e9dd8641c1161cb366744988947a613f875298aceb4a38b319d",
     "rebuild-txtlabel": "cff6c4c262727d166cfa5870f1d031617e19bf6c98f9ce526a5f06d10d8f6be8",
-    "rebuild-txtlabel2": "9afa508d4a7d260eb877edde795fdda3e4bd3e0b54df1df30a06a87c2ca3fd33",
+    "rebuild-txtlabel2": "317e5ac8fc0b7e7fe6450b6753c9170869ad07d7a9d1596c20d72d955b239dfd",
     "rebuild-uicmnds": "902bd271ad92ea4ffac683cf65c30e6afcab163e11a59c333e71ab0c643f384f",
     "rebuild-unittype": "e1c5f18c9ace2e752748e89b9609c9edb621dab6fea3254f1c39f97567b7c2b2",
-    "rebuild-unvqtblc": "f2520c63291686984af0e0714bd0d685e4a422ea8e0fc86f506a20e318b95483",
+    "rebuild-unvqtblc": "aad0df8faed28e3129d6e531fdc45fcdeaecfe9c82c3f0b13ae8b41ed94b28c3",
     "rebuild-utracker": "2b29d211f2cd41eeacd0aff43fd9957a9b04c2055fba6f2c66106e1d23f78767",
     "rebuild-vanim": "72df61a5c18ed0a908b690983e572871d97639f2fd56ec225be540399ea1643e",
     "rebuild-vanimtype": "712c27952ecf102288b0a30ef2a951235a6d52e12421df922d4ad82d2a8c9445",
@@ -4378,7 +4383,7 @@
     "rebuild-volinfo": "38e6f5cd995c2b54218a15161ac2732c38e9fa7e6cb2644baae66aab6f5f139a",
     "rebuild-vox": "0e38fc5809306584e9695c020ff7f7c4fd7fbb429b383cb35d48b50b761f2664",
     "rebuild-voxdrsys": "c10a75786f51a203336436e19f27f7436d7a6e3e334439f55b722c900929c70e",
-    "rebuild-voxel": "5eade8a194dfec4eff5dd31bb603f2ff7972497b09684f09eb98d224457dff93",
+    "rebuild-voxel": "838f694f477f81e586371d9db6b9bd4f192d40d9a94e21861d3f5b6318ee0db9",
     "rebuild-voxpal": "b8c46e1508118e4db24dc19447ac017ede6dcc1edb0d43b00c1a8e0decd980c4",
     "rebuild-vqalib-audio": "b247fd75befacd58b606aea347fe2859822ea0b1356f878571af201f7b1ad6d2",
     "rebuild-vqalib-buffer-": "c08f0bd05c38a23d4d2df5732bda18b4c25a6f73f336e6364e968edcf0b10d4a",
@@ -4405,7 +4410,7 @@
     "rebuild-windlg": "7e7e0085a13eccdb5883542bf82c4fbfb1226900727a4aa4d6f7f6747a1dcfdc",
     "rebuild-winfix": "ea74b4d2ab92928eaf46903c8973ee84ece5b31c7b73453125461974edf132dd",
     "rebuild-winstub": "61ef6dbd03afd4611bb9588e8b9d1951913938ffa0a5dc8dad972c2b4f76bc05",
-    "rebuild-wolpersonainformation": "4019b9d1010393e80d57259c2a7654a0e328959a70c2a729321100c91b1fe0d2",
+    "rebuild-wolpersonainformation": "2f60f59d6bc6b9ecf5704a04c780bcba9be0e03afb544bb924c66bbdca36986f",
     "rebuild-writepcx": "bb502f4a93e2bc386cb02d8aa64d0831044fe5d9f1847cd64b81f2cf0809209f",
     "rebuild-wspipx": "469ffdaf98cd141cd295c4c6f0262ac7581410de63b5aba63d75803ab6d038ec",
     "rebuild-wspudp": "5d00d4129f0158e6072772b2f165b399e5c05800bbf434158a089c93f7a2ab2d",

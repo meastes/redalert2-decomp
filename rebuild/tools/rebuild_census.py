@@ -65,6 +65,50 @@ def structure_measures(tree, read, result):
                                               for n in C.address_suffixed(read(p) or '')}))
 
 
+CHATTER = re.compile(r'\b[Ll]ane R\d*\b|\bcodex\d\b|\bWindows workers?\b|rebuild/(?:manifest|tools)|provenance\.csv|'
+                     r'\bmanifest/|\btools/\w+\.py|rebuild trial|\(rebuild\)|\bold tree\b')
+
+
+def placeholder_measures(tree, read):
+    """Process chatter (budget zero), placeholder names and inherited constructs (budgets that only
+    fall; review session, 2026-11-18)."""
+    unknown, vt, field, fun = set(), set(), set(), set()
+    chatter = guards = geometry = pragmas = extern_c = 0
+    for p in tree:
+        text = read(p) or ''
+        chatter += sum(1 for line in text.splitlines() if CHATTER.search(line))
+        code = C.code_only(text)
+        unknown |= set(re.findall(r'\bUnknown\w*', code))
+        vt |= set(re.findall(r'\bvt_entry_[0-9A-Fa-f]+\b', code))
+        guards += len(re.findall(r'#ifdef RA2_NON_MATCHING', text))
+        if p.startswith('rebuild/include/'):
+            field |= set(re.findall(r'\bfield_[0-9A-Fa-f]+\b', code))
+            fun |= set(re.findall(r'\bFUN_[0-9A-Fa-f]+\b', code))
+        if p.startswith('rebuild/src/'):
+            geometry += len(re.findall(r'^\s*#\s*define\s+GEOMETRY_H\b', text, re.M))
+            pragmas += len(re.findall(r'^\s*#\s*pragma\s+auto_inline\s*\(\s*off', text, re.M))
+            extern_c += len(re.findall(r'^[ \t]*extern\s+"C"', text, re.M))
+    return dict(process_chatter=chatter, unknown_names=len(unknown), vt_entry_names=len(vt),
+                field_names_headers=len(field), fun_names_headers=len(fun), draft_guards=guards,
+                inherited_geometry_define=geometry, inherited_auto_inline_off=pragmas, extern_c_in_sources=extern_c)
+
+
+PLACEHOLDER_KEYS = ('process_chatter', 'unknown_names', 'vt_entry_names', 'field_names_headers', 'fun_names_headers',
+                    'draft_guards', 'inherited_geometry_define', 'inherited_auto_inline_off', 'extern_c_in_sources')
+
+
+def parked_bytes():
+    """Body bytes of the rows not exact in the last checks (the parked tail behind the guards)."""
+    total = 0
+    for path in (R.WORK / 'last').glob('*.json'):
+        if path.stem.endswith('preguard'):
+            continue
+        last = json.loads(path.read_text())
+        results = last['results'] if isinstance(last['results'], list) else []
+        total += sum(r['body'] for r in results if r.get('status') != 'exact')
+    return total
+
+
 def unit_faults(unit, source_text):
     """Per-unit structure faults over the unit's budget: (externs, budget), (suffixed, budget)."""
     budget = json.loads(BUDGET.read_text()) if BUDGET.exists() else {}
@@ -87,7 +131,7 @@ def gate(measures):
     budget = json.loads(BUDGET.read_text()) if BUDGET.exists() else {}
     return ['%s %d over budget %d' % (k, measures[k], budget.get(k, 0)) for k in
             ('duplicates', 'outside', 'free_vs_member', 'tool_data', 'address_suffixed_headers', 'address_suffixed')
-            if measures[k] > budget.get(k, 0)]
+            + PLACEHOLDER_KEYS if measures[k] > budget.get(k, 0)]
 
 
 def main(quiet=False):
@@ -109,6 +153,7 @@ def main(quiet=False):
                                    one_function=0, one_function_folders=0, one_function_top_folders=0,
                                    several_functions=0, no_row=len(outside))
     measures = structure_measures(tree, read, result)
+    measures.update(placeholder_measures(tree, read))
     if quiet:
         return measures
     print(C.structure_block(result).replace('under src/', 'under rebuild/').replace('src/recovered/', 'rebuild/src/'))
@@ -128,6 +173,13 @@ def main(quiet=False):
           'free-vs-member %d; tool data %d' % (measures['duplicates'], (' ' + ', '.join('%s %s' % kv for kv in
           sorted(measures['duplicate_list'].items()))) if measures['duplicates'] else '', measures['externs'],
           measures['address_suffixed'], measures['outside'], measures['free_vs_member'], measures['tool_data']))
+    print('Gate (placeholders, only fall): process chatter %d; Unknown* names %d; vt_entry_NN %d; field_NN in headers %d; '
+          'FUN_ in headers %d; RA2_NON_MATCHING guards %d (%d parked body bytes)' % (
+              measures['process_chatter'], measures['unknown_names'], measures['vt_entry_names'],
+              measures['field_names_headers'], measures['fun_names_headers'], measures['draft_guards'], parked_bytes()))
+    print('Gate (inherited, to be evidenced): #define GEOMETRY_H in sources %d; #pragma auto_inline(off) %d; '
+          'extern "C" in sources %d' % (measures['inherited_geometry_define'], measures['inherited_auto_inline_off'],
+                                         measures['extern_c_in_sources']))
     print('Gate: ' + ('; '.join(gate(measures)) or 'within budget'))
     return measures
 

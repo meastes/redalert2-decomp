@@ -36,7 +36,6 @@
 /// The unit starts out sitting on the ground with no destination, turning at the rate the
 /// rules call for.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 159 bytes differ (adopted text)
 JumpjetLocomotionClass::JumpjetLocomotionClass(void) :
 	BASECLASS(),
 	HeadToCoord(COORD_NONE),
@@ -49,9 +48,10 @@ JumpjetLocomotionClass::JumpjetLocomotionClass(void) :
 	CurrentWobble(0.0),
 	IsLanding(false)
 {
-
+	Facing.Set_Desired(DirType(DIR_E));
+	Facing.Set(DirType(DIR_E));
 }
-#endif
+
 
 
 /// <summary>
@@ -532,7 +532,6 @@ void JumpjetLocomotionClass::Process_Cruise(void)
 /// ordinary grounded object once it touches down. A landing spot that has been taken in the
 /// meantime makes the unit give up and go looking for somewhere else to put down.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 20 bytes differ (adopted text)
 void JumpjetLocomotionClass::Process_Descent(void)
 {
 	CellClass * cellptr = &Map[HeadToCoord];
@@ -563,17 +562,18 @@ void JumpjetLocomotionClass::Process_Descent(void)
 		landable = true; // RA2: as above
 	}
 
-	bool stop = false; // RA2: a failed landing check ends in Stop_Moving, laid out after the function's landing code
 	if (LinkedTo->MissionQueue != MISSION_ENTER && LinkedTo->Get_Mission() != MISSION_ENTER) { // RA2: a unit entering something skips the landing checks
 		if (!landable || (!Map[HeadToCoord].IsUnderBridge && (move > MOVE_MOVING_BLOCK || (move == MOVE_MOVING_BLOCK && !IsLanding)))) { // RA2: as above
-			stop = true; // RA2: as above
-		} else if (!IsLanding) { // RA2: as above
+			Stop_Moving();
+			return;
+		}
+		if (!IsLanding) {
 			IsLanding = true; // RA2: as above
 			LinkedTo->Set_Occupy_Bit(HeadToCoord); // RA2: as above
 		}
 	}
 
-	if (!stop) { // RA2: as above
+	{
 		FlightLevel = 0;
 
 		int height = LinkedTo->HeightAGL;
@@ -614,11 +614,9 @@ void JumpjetLocomotionClass::Process_Descent(void)
 				IsLanding = false;
 			}
 		}
-	} else { // RA2: as above
-		Stop_Moving(); // RA2: as above
 	}
 }
-#endif
+
 
 
 /// <summary>

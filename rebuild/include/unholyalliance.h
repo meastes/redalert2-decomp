@@ -3,9 +3,9 @@
 **	UNHOLYALLIANCE.H: the Unholy Alliance multiplayer game mode (RTTI .?AVUnholyAlliance@@, vtable
 **	0x007A6C84).
 **
-**	Lane R9: declared from the vtable (45 slots; its own AssignTeams, CheckStartConditions,
-**	AssignTeamsAtStart and SpawnBaseUnits, the rest MultiplayerGameMode's) and the constructor at
-**	0x005AC330, which passes its six arguments to MultiplayerGameMode's constructor unchanged.
+**	AssignTeams, CheckStartConditions, AssignTeamsAtStart and SpawnBaseUnits are its own; the
+**	other slots are MultiplayerGameMode's. The constructor (0x005AC330) passes its six arguments
+**	to MultiplayerGameMode's unchanged.
 */
 #pragma once
 

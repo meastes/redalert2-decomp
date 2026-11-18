@@ -1,10 +1,6 @@
 /*
 **	Command & Conquer Red Alert 2
 **	The spawn manager: the aircraft a carrier or a missile silo launches, docks and rebuilds.
-**
-**	Lane R (rebuild trial), written without adopted text: the layout from the executable
-**	(the constructors' stores, Compute_CRC and the record size), names from the symbol tables
-**	and the RTTI. See rebuild/manifest/provenance.csv, class c.
 */
 #pragma once
 

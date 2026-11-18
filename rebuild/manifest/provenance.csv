@@ -3639,6 +3639,8 @@ jshell,0052ee40,?Set_Bit@@YIXPAXHH@Z,78,a,mischa85,yes,,released by lane R4 tool
 jshell,0052ee90,?Get_Bit@@YIHPBXH@Z,50,a,mischa85,yes,,released by lane R4 tooling
 jshell,0052eed0,?First_True_Bit@@YIHPBX@Z,73,a,mischa85,yes,,released by lane R4 tooling
 jshell,0052ef20,?First_False_Bit@@YIHPBX@Z,73,a,mischa85,yes,,released by lane R4 tooling
+jumpjet,0052f160,??0JumpjetLocomotionClass@@QAE@XZ,163,b,main accepted constructor initial east facing setup through landed FacingClass members,yes,2,All36inherited exact protected;28auxiliaries exact;CRT13/13;structure passed;preexisting missing Link_To_Object vtable override leave Mac all-output gate pending;no calibration
+jumpjet,00530550,?Process_Descent@JumpjetLocomotionClass@@QAEXXZ,998,b,main accepted descent early-return structure reshaped through landed class members,yes,6,All35inherited exact protected;28auxiliaries exact;CRT13/13;structure passed;preexisting missing Link_To_Object vtable override/guarded ctor leave Mac all-output gate pending;no calibration
 kamikaze,00531360,_$E2,40,a,mischa85,yes,,
 kamikaze,00531390,_$E5,19,a,mischa85,yes,,
 kamikaze,005313b0,_$E8,19,a,mischa85,yes,,
@@ -7941,6 +7943,7 @@ unit,006fd5a0,?Active_Click_With@UnitClass@@UAE_NW4ActionType@@PAVObjectClass@@_
 unit,006fd610,?Active_Click_With@UnitClass@@UAE_NW4ActionType@@ABVCell@@1_N@Z,28,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
 unit,006fd630,?Enter_Idle_Mode@UnitClass@@UAE_N_N0@Z,761,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
 unit,006fd930,?Goto_Clear_Spot@UnitClass@@QAE_NXZ,1650,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
+unit,006fdfb0,_$E301,1,a,compiler initializer emitted from inherited adopted unit text,yes,5,Existing unit-owned initializer reference; renamed compiler symbol bound after owner header sync; entire frozen body and padding exact; 102 prior exact protected; no body edit or calibration
 unit,006fdfc0,?Try_To_Deploy@UnitClass@@QAE_NXZ,1584,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
 unit,006ff350,?Render@UnitClass@@UBE_NAAV?$TRect@H@@_N1@Z,140,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
 unit,006ff3e0,?Unit_Blit_Voxel@UnitClass@@UBEXAAVSurface@@VPoint2D@@V?$TRect@H@@H@Z,688,a,inherited adopted text,yes,0,Inherited exact baseline reverified; ZERO NEW CREDIT
@@ -9126,3 +9129,29 @@ zbuffer,00776160,?Fill@ZBuffer@@QAE_NG@Z,57,a,mischa85,yes,,
 zbuffer,007761a0,?Fill@ZBuffer@@QAE_NGV?$TRect@H@@@Z,27,a,mischa85,yes,,
 zbuffer,007761c0,?Update@ZBuffer@@QAEXV?$TRect@H@@@Z,371,a,mischa85,yes,,
 zbuffer,00776340,?Get_Buffer_Offset@ZBuffer@@QAEIVPoint2D@@@Z,52,a,mischa85,yes,,
+mpsiege,005ab3b0,_$E2,40,a,mischa85,yes,,
+mpsiege,005ab3e0,_$E5,19,a,mischa85,yes,,
+mpsiege,005ab400,_$E8,19,a,mischa85,yes,,
+mpsiege,005ab420,_$E11,19,a,mischa85,yes,,
+mpsiege,005ab440,_$E14,19,a,mischa85,yes,,
+mpsiege,005ab460,_$E17,19,a,mischa85,yes,,
+mpsiege,005ab480,_$E20,49,a,mischa85,yes,,
+mpsiege,005ab4c0,_$E23,33,a,mischa85,yes,,
+mpsiege,005ab4f0,_$E26,44,a,mischa85,yes,,
+mpsiege,005ab520,_$E29,39,a,mischa85,yes,,
+mpsiege,005ab550,_$E32,15,a,mischa85,yes,,
+mpsiege,005ab560,_$E35,18,a,mischa85,yes,,
+mpsiege,005ab580,_$E38,23,a,mischa85,yes,,
+mpsiege,005ab5a0,??0MultiplayerSiege@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z,52,c,seed,yes,3,constructor
+mpsiege,005ab5e0,??1MultiplayerSiege@@UAE@XZ,11,c,seed,yes,1,destructor
+mpsiege,005ab5f0,?AssignTeams@MultiplayerSiege@@UAE_NXZ,79,c,seed,edit,6,teams: first player defends
+mpsiege,005ab640,?CheckStartConditions@MultiplayerSiege@@UAE_NPAVWideWstring@@@Z,242,c,seed,yes,4,one defender, at least one attacker
+mpsiege,005ab740,?AssignTeamsAtStart@MultiplayerSiege@@UAE_NXZ,5,c,seed,yes,1,base call
+mpsiege,005ab750,?IsAIAllowed@MultiplayerSiege@@UAE_NXZ,3,c,seed,yes,1,no AI
+mpsiege,005ab760,?UnfixAlliances@MultiplayerSiege@@UAE_NXZ,5,c,seed,yes,1,base call
+mpsiege,005ab770,?StartingPositionsToHouseBaseCells@MultiplayerSiege@@UAE_ND@Z,499,c,seed,edit,6,defender on the first waypoint
+mpsiege,005ab970,?CreateMPTeams@MultiplayerSiege@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z,269,c,seed,yes,2,three teams
+mpsiege,005aba80,?SpawnBaseUnits@MultiplayerSiege@@UAE_NPAVHouseClass@@I@Z,278,c,seed,edit,6,construction yard for the defender
+mpsiege,005abba0,??_GMultiplayerSiege@@UAEPAXI@Z,36,c,seed,yes,0,compiler-generated deleting destructor
+map,00549c50,?RevealArea1@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z,1208,b,old tree,edit,2,"main's clamp (sightrange >= 11 || > 10, as ra2-decomp's twin) and the height shift / -30 (main and ra2-decomp)"
+map,0054a110,?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z,1088,b,old tree,edit,4,"main's clamp and / -30, and main's else arm: RevealFogShroud(newcell, house, increase) unconditionally (the adopted test and Map_Cell were not the original's)"

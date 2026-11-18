@@ -1,7 +1,6 @@
 /*
 **	Command & Conquer Red Alert 2
-**	The dialog frame drawing of txtlabel2.cpp that other units call (lane R2: the declarations
-**	moved here from the units that used them).
+**	The dialog frame drawing of txtlabel2.cpp that other units call.
 */
 #pragma once
 
