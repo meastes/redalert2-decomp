@@ -1,9 +1,63 @@
 # Handoff — original-target decompilation
 
-Current state only (2026-11-05 05:09Z). Numbers: [STATUS.md](STATUS.md). Workflow:
+Current state only (2026-11-18 15:05Z). Numbers: [STATUS.md](STATUS.md). Workflow:
 [process](ORIGINAL_TARGET_PROCESS.md). Commands: [build](ORIGINAL_TARGET_BUILD.md). Matching rules:
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
+
+## Owner state (2026-11-18 ~15:05Z): start here
+
+**Owner session:** the Claude Code session in Herdr (terminal t4). The old Desktop owner is stopped. Codex workers are Herdr terminals on machine `mike-gaming` (`hc ls`): `mike-gaming/codex1` and `codex2`, GPT-6.1-Sol medium (GPT-6.2-Sol refuses rebuild work). Restart a worker with `private/tools/restart_worker.sh codexN ['extra first task']`. Supervise with `private/tools/supervise_worker.sh codexN` (restarts at capacity checkpoints, exits on anything else). Backlog alarm: `private/tools/worker_backlog.sh`. Codex permission prompts go to the user.
+
+**Direction (user, AGENTS.md 2026-11-17/18):**
+- Ports are finished up to user device checks.
+- The rebuild is the standing matching effort on branch `rebuild-trial` (folder `rebuild/`), with one Mac lane plus the two Windows workers. Checkpoints at 25% (passed), 50%, parity, or 500 KB parked.
+- Exact-match and structure work on main has no lanes; this is not a goal change.
+
+**Rebuild landing (owner lands, user 2026-11-18):**
+- Lanes work on their own branch and worktree (`rebuild-rNN`) and hand back gated tips.
+- The owner runs `private/tools/land_rebuild_lane.sh lane-rNN rebuild-rNN "summary"` in the shared folder `.claude/worktrees/lane-r`. It merges the lane's build-config populations (the lane's values win), fast-forwards, re-runs the whole-file build, writes progress.csv, commits and syncs the mirror.
+- Publish with `private/tools/publish_rebuild.sh <commit>`: hourly, gated commits only, after the README and notices (standing user approval).
+- Worker deliveries are source only (unit files plus results CSV rows; no manifest or catalog files, no merging rebuild-trial). The owner regenerates manifests at landing.
+
+**Rebuild state (8555f9fb0):**
+- 36.91% from source, 39.73% Reproduced; 332 units, 8,963 rows.
+- Structure:
+  - duplicates 0, externs 12 (1 landed), address-suffixed 4;
+  - external omitted 2 (codex1's house and taction);
+  - judgment calls 2 rows;
+  - placeholders: Unknown* 56, vt_entry 24, field 25, FUN_ 2 (all may only fall);
+  - guards reported, not gated;
+  - inherited: GEOMETRY_H 5, auto_inline 6, extern "C" 11.
+- Parked ≥1 KB about 412 KB (checkpoint 500 KB).
+- Repeat attempts are capped at two sessions per parked function (b_log_r*.csv).
+
+**In flight:**
+- **R14** (worktree lane-r14): Fire_At with inline_probe.py, triage of the parked tail, Cell operator+ sum order, a class c unit. Then the unplaced-unreferenced check (DECISIONS, last row; user-approved with eight conditions; opt-in in tools/original_target/verify_manifest.py, shared with main), and land wonline (159/161, 27.6 KB). When it lands, confirm main's whole-file build is unchanged.
+- **c2land helper** (worktree lane-c2land): landing codex2's 40 backlog units by source, in chunks of five; it reports tips to the owner to fast-forward. After its units land, reset codex2's branch to rebuild-trial once.
+- **Workers:** standing queues in C:\ra2\coordination\ra2-recovery-w1\assignments\codexN-next.md. Python on the PC: the Store Python 3.10 full path (in REBUILD_WORKER.md), never GOG Galaxy's.
+
+**Decisions since 2026-11-17:**
+- Inline for functions the original never emitted (the link kept unreferenced code).
+- Select-any COMDATs ruled one by one.
+- The structure gate matches free functions against members by address.
+- Unplaced-unreferenced (above).
+All are in DECISIONS.
+
+**mischa85:**
+- PR [mischa85/RedAlert2#2](https://github.com/mischa85/RedAlert2/pull/2) is open from fork meastes/RedAlert2.
+- 41 more units are prepared in build/m85-contrib/units/, held until mischa85 responds on the format.
+- Standing approval: at most five open at a time (memory m85-pr-approval).
+
+**Ports:**
+- Windows test builds are on the PC: C:\ra2\for-user\RA2Native, RA2YRNative, plus README.txt.
+- Mac apps: `native/build.sh mac-one`.
+
+**Open for the user:**
+- Duo checks: team hold, MCV/Grizzly, command bar, Skip, animations.
+- RA2YRNative on the real PC, including YR LAN.
+- YR save check.
+- Campaign play list (docs/CAMPAIGN_PLAY_LIST.md).
 
 ## Owner state (2026-11-17 ~15:00Z)
 
