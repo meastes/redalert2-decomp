@@ -789,6 +789,23 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   `mission <ID>`): a Grizzly produced in a spawned War Factory is unloaded (mission 16) and drives out, the factory
   returns to guard; a GI produced in a Barracks walks from the door.
 
+* **The user's Mac app reports** (2026-11-19, a stale app from 2026-11-17): walked through the menus in the current
+  packaged app (`native/build.sh mac-one`, the bundle's executable in app mode under a scratch HOME, settings
+  `data_dir=`, `lan=1`, `game=yr|ra2`; scripts through `--engine-scripts=`; `RA2_NATIVE_SCRIPT_AS_USER=1` so a scripted
+  key also types its character). The immediate skirmish defeat and the Network-screen crash do not happen (fresh and
+  after the toggle from Red Alert 2). Saving through the Save dialog failed: loaddlg.cpp's new file name lived in a
+  block-scoped array used after the block (VC6 kept the slot, the native compile reused it: a garbage file name).
+  fixups.json declares the array in the enclosing block; ctest `yr-native-save-dialog`. Loading an original Yuri's
+  Revenge save: no such save on the owner's Mac, not checked.
+* **Resume note (lane N3, handed back 2026-11-19)**: PORTS_REMAINING items 0 and 1 done as above (item 1 statically:
+  no mission was played through). Item 2: the War Factory test is done; bridge repair has harness orders (`blowhut`,
+  `repairhut <ENGINEER>`, `bridge`) but no ctest yet: it needs the skirmish ScenIndex of a map with a bridge repair hut
+  (CABHUT) next to a bridge (scan with `30 owner CABHUT` per ScenIndex), then: blowhut, wait for `bridge 1`,
+  repairhut ENGINEER, wait for `bridge 0` (infantry_native.inc's Repair_Bridge / Repair_Train_Bridge, map_native.inc).
+  Item 3 (Red Alert 2's 110 unreached rewrites) not started. Item 0's open part: loading a save made by the
+  original Yuri's Revenge (PORTS_REMAINING item 1). Still partial: FUN_0063AB60 / FUN_0063A5A0 (picking up
+  planned waypoints with the mouse). Functions still missing at the Mac link: 110 (gen-yr/link_closure.json).
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

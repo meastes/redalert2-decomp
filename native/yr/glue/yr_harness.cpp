@@ -59,6 +59,10 @@
 //                   @x,y` (lane N3);
 //   bolt enemy      a lightning bolt (IonStormClass::Lightning_Bolt, the trigger action "ion lightning strike") on the
 //                   cell of the enemy house's first building; logs `harness-bolt @x,y` (lane N3);
+//   blowhut         the first bridge repair hut is blown as C4 blows it: its bridge is destroyed (lane N3);
+//   repairhut <ID>  an engineer of type ID placed next to the first bridge repair hut is sent into it (an engineer's
+//                   click on the hut); logs `harness-repairhut <ID> @x,y bridge <0|1>` (lane N3);
+//   bridge          logs `harness-bridge <0|1>`: the first hut's bridge needs repair (MapClass::Can_Repair_Bridge; lane N3);
 //   produce <FACTORY> <ID>  a unit of type ID for the player leaves the player's first building of type FACTORY as
 //                   finished production does (BuildingClass::Exit_Object; a war factory unloads it with
 //                   Do_MISSION_UNLOAD); logs `harness-produce <FACTORY> <ID> exit <result> &<addr>` (lane N3);
@@ -427,6 +431,65 @@ int Run_Order(int frame, char const * text)
 		}
 		fprintf(stderr, "harness-go %d units %s,%s\n", count, word[1], word[2]);
 		return(count ? count : -1);
+	}
+	if (!strcmp(word[0], "blowhut")) {
+		// the first bridge repair hut (BuildingTypeClass::IsBridgeRepairHut) is blown as C4 blows it (IsGoingToBlow with
+		// the count-down run out): its next AI destroys the bridge beside it (DestroyWoodBridgeAt / DestroyConcreteBridgeAt)
+		for (int i = 0; i < Buildings.Count(); ++i) {
+			BuildingClass * hut = Buildings[i];
+			if (hut == NULL || hut->IsInLimbo || !hut->Class->IsBridgeRepairHut) continue;
+			hut->IsGoingToBlow = true;
+			hut->CountDown = 0;
+			Cell cell = hut->Get_Cell();
+			fprintf(stderr, "harness-blowhut %s @%d,%d &%p\n", Type_Name(hut), cell.X, cell.Y, (void *)hut);
+			return(1);
+		}
+		fprintf(stderr, "harness-blowhut: no bridge repair hut\n");
+		return(-1);
+	}
+	if (!strcmp(word[0], "repairhut") && words >= 2) {
+		// an engineer of type word[1] for the player is placed next to the first bridge repair hut and sent into it
+		// (MISSION_CAPTURE with the hut as the destination: an engineer's click on a hut); logs `harness-repairhut
+		// <ID> @x,y bridge <0|1>`, the second the hut's cell can repair a bridge (MapClass::Can_Repair_Bridge)
+		for (int i = 0; i < Buildings.Count(); ++i) {
+			BuildingClass * hut = Buildings[i];
+			if (hut == NULL || hut->IsInLimbo || !hut->Class->IsBridgeRepairHut) continue;
+			ObjectTypeClass const * type = ObjectTypeClass::From_Name(word[1]);
+			TechnoClass * engineer = type ? (TechnoClass *)type->Create_One_Of(PlayerPtr) : NULL;
+			if (engineer == NULL) return(-1);
+			Cell home = hut->Get_Cell();
+			bool placed = false;
+			for (int ring = 1; ring <= 4 && !placed; ++ring) {
+				for (int dy = -ring; dy <= ring && !placed; ++dy) {
+					for (int dx = -ring; dx <= ring && !placed; ++dx) {
+						Cell cell(home.X + dx, home.Y + dy);
+						Coord at(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
+						at.Z = Map.Get_Height_GL(at);
+						placed = engineer->Unlimbo(at, DIR_N);
+					}
+				}
+			}
+			if (!placed) { delete engineer; return(-1); }
+			TargetClass who(engineer), none, dest(hut);
+			Queue_Mission(who, MISSION_CAPTURE, none, dest);
+			Cell at = engineer->Get_Cell();
+			fprintf(stderr, "harness-repairhut %s @%d,%d bridge %d\n", word[1], at.X, at.Y, Map.Can_Repair_Bridge(home) ? 1 : 0);
+			return(1);
+		}
+		fprintf(stderr, "harness-repairhut: no bridge repair hut\n");
+		return(-1);
+	}
+	if (!strcmp(word[0], "bridge")) {
+		// logs `harness-bridge <0|1>`: the first bridge repair hut's bridge needs repair (MapClass::Can_Repair_Bridge)
+		for (int i = 0; i < Buildings.Count(); ++i) {
+			BuildingClass * hut = Buildings[i];
+			if (hut == NULL || hut->IsInLimbo || !hut->Class->IsBridgeRepairHut) continue;
+			int broken = Map.Can_Repair_Bridge(hut->Get_Cell()) ? 1 : 0;
+			fprintf(stderr, "harness-bridge %d\n", broken);
+			return(1);
+		}
+		fprintf(stderr, "harness-bridge: no bridge repair hut\n");
+		return(-1);
 	}
 	if (!strcmp(word[0], "produce") && words >= 3) {
 		// a unit of type word[2] for the player leaves the player's first building of type word[1] as finished

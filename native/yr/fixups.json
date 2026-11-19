@@ -1567,6 +1567,12 @@
    "old": "\tDAT_00AC4C28 = 0;\n\tif (DAT_00AC4C1C && DAT_00AC4C25) {\n\t\tdelete DAT_00AC4C1C;\n\t\tDAT_00AC4C1C = 0;\n\t}\n\tDAT_00AC4C25 = false;\n\tDAT_00AC4C20 = 0;\n",
    "new": "\tPlanningNodeClass::Unknown2.Clear();\n",
    "why": "lane N3: FUN_0063B0A0 (planning mode's draw) empties the list of nodes drawn last frame through gamemd.exe's names for PlanningNodeClass::Unknown2's fields (DAT_00AC4C1C Vector, DAT_00AC4C20 VectorMax, DAT_00AC4C25 IsAllocated, DAT_00AC4C28 ActiveCount: 0x00AC4C18 + 4, 8, 0xD, 0x10), which natively are separate storage: the list was never emptied, each frame's Draw_Lead_Box added every node again, a node's destructor took out one copy only, and the next frame's hover test (FUN_00638E60) read a deleted node after a plan was committed. The same clear, on the list itself (what FUN_00638E20 does)."
+  },
+  {
+   "file": "src/loaddlg.cpp",
+   "old": "\t\t\t\t\t\t\tconst char * filename = NULL;\n\n\t\t\t\t\t\t\tif (entry && entry->Valid) {\n\t\t\t\t\t\t\t\tfilename = entry->Filename;\n\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\tchar test_filename[256];\n",
+   "new": "\t\t\t\t\t\t\tconst char * filename = NULL;\n\t\t\t\t\t\t\tchar test_filename[256];\t// NATIVE: declared here, see fixups.json\n\n\t\t\t\t\t\t\tif (entry && entry->Valid) {\n\t\t\t\t\t\t\t\tfilename = entry->Filename;\n\t\t\t\t\t\t\t} else {\n",
+   "why": "lane N3: the Save dialog's new file name (SAVExxxx.SAV) was a char array declared inside the else block and used after it (filename points at it): VC6 kept the stack slot, the native compile reuses it, and the game saved under a garbage name and then reported 'Error saving' (the user's Mac report, 2026-11-19; reproduced through the menus in the packaged app). The same array, declared in the enclosing block."
   }
  ]
 }

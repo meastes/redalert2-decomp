@@ -38,6 +38,19 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
    - working: team-button hold, MCV deploy and Grizzly first move, the Skip button, unit animations, the campaign Difficulty label;
    - fault, fixed by lane N3 (2026-11-19), please check again: Yuri's Revenge's command bar "select all units of this type" button crashed the game;
    - fault, fixed by lane N3 (2026-11-19), please check again: the on-screen keyboard didn't come up in Yuri's Revenge's text fields (the skirmish player name). Now a tap on the field raises it, as in Red Alert 2.
+   - Mac app checks (the user, 2026-11-19, on build/mac-app/RA2YR.app, a stale build from 2026-11-17 11:20). Lane N3
+     rebuilt the current app (`native/build.sh mac-one`) and walked each one through the menus in the packaged app
+     (app mode, its own settings and save folder, under a scratch HOME):
+     - Yuri's Revenge skirmish ending in an immediate defeat: not reproduced in the current build (a fresh YR start
+       and after switching from Red Alert 2: the player's 5 tanks still there at frame 600);
+     - entering Yuri's Revenge's Network screen crashing: not reproduced in the current build (the lobby comes up,
+       fresh and after switching from Red Alert 2);
+     - saving in Yuri's Revenge failing: reproduced and **fixed** by lane N3 (the Save dialog's file name was lost;
+       ctest `yr-native-save-dialog` saves through the options menu);
+     - loading a save made by the original Yuri's Revenge crashing: **not checked** (no save from the original Yuri's
+       Revenge on the owner's Mac: the saves in the game folder are Red Alert 2's). Needs the user's save file, or the
+       user's retry on the new build; next port lane.
+     Please check all four again on the new build.
 2. **On the Windows PC:** `C:\ra2\for-user\RA2YRNative`:
    - switch games;
    - a skirmish in each game;

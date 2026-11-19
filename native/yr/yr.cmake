@@ -326,6 +326,12 @@ add_test(NAME yr-native-war-factory COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-war-factory")
 set_tests_properties(yr-native-war-factory PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
 
+# ctest yr-native-save-dialog (lane N3): a save through the options menu's Save dialog (yr/tests/yr_save_dialog.py)
+add_test(NAME yr-native-save-dialog COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_save_dialog.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-save-dialog")
+set_tests_properties(yr-native-save-dialog PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
+
 # ctest yr-native-campaign-allied / -soviet (lane Y12): each side's campaign through the menus, its seven
 # missions won in turn (RA2_NATIVE_FORCE_END) through their score screens, the final movie, the credits
 # and the main menu again (yr/tests/yr_campaign_chain.py; about 6 minutes a side).

@@ -162,6 +162,12 @@ platform layer. It earns no exact-match credit.
   from a barracks was not given its move from the door (the factory drafts' orders were dropped). Checked: ctest
   `yr-native-war-factory` (a tank produced in a War Factory drives out and the factory returns to guard; a GI produced
   in a Barracks walks from the door). Needs a user check on the device (build a tank and a soldier).
+- Fixed 2026-11-19 (lane N3): saving through Yuri's Revenge's Save dialog failed (the user's Mac report): the new
+  save's file name was lost before the save. Checked: ctest `yr-native-save-dialog` (a skirmish, Escape, Save Game, a
+  typed description, Save: a SAVE????.SAV in the save folder) and the same walk in the packaged Mac app. The user's
+  other Mac reports (an immediate defeat in a Yuri's Revenge skirmish, a crash on the Network screen) came from a
+  stale app build and do not happen in the current one (walked through the menus in the packaged app). Loading a
+  save made by the original Yuri's Revenge: not verified.
 - Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
   idle animations), the lane Y14 fixes above, the team-button hold, and the lane N3 fixes above.
 - Still open: longer games may still reach functions not recovered yet (written as clearly
