@@ -73,5 +73,5 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 2. Done (lane N4): the bridge repair test, `yr-native-bridge-repair`; it found engineers vanishing into the hut without a
    repair (fixed).
 3. Reach Red Alert 2's unreached rewrites, most-called first (lane N4 started: a coverage scenario `n4-deaths` reached
-   3 more, Shake_The_Screen, Audio_Event_Handle_Set and Planning_Active; 110 left as "reviewed").
+   3 more, Shake_The_Screen, Audio_Event_Handle_Set and Planning_Active, `n4-ui` one, FootClass slot 271, and `n4-randmap` two of the random map generator (the skirmish then played 4,000+ frames on a generated map), and a chat line in `lan_pair.py` two (MessageListClass::Get_Edit_Buf, IME_Stub1); 105 left as "reviewed").
 4. Yuri's Revenge LAN on two real machines once you can run the PC side.

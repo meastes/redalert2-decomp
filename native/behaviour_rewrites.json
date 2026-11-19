@@ -3139,9 +3139,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "Message_Input (typing a chat message in a network game); the LAN-pair run sends no chat",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario lanpair (tests/lan_pair.py; lane N4 added a chat line the host types in the game at script frame 1100: Return, H, I, Return): Message_Input's edit line",
+   "reach_checked_by": "N4 2026-11-19: coverage build, coverage_runs.py run lanpair and report; ctest native-lan-pair passes with the chat line (18,000 frames, 0 CRCs differ)"
   },
   {
    "entry": "0x005B69E0",
@@ -3630,9 +3630,9 @@
    "notes": "Get_Int defaults kept as current values; skirmish Random Map; Scout1208 (M27)",
    "behaviour_verdict": "same: Get_Int defaults are the current values as the original pushes them (0x00579A24)",
    "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; not reached in the coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n4-randmap (Single Player, Skirmish, Choose Map, Create Random Map, the random map dialog's Preview and accept, then Start Game: a skirmish played 4,000+ frames on the generated map with no fault)",
+   "reach_checked_by": "N4 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n4-randmap and report"
   },
   {
    "entry": "0x00482100",
@@ -3698,9 +3698,9 @@
    "notes": "land patch grower; start cell via Map_Random_Range (other maps per seed than the original); Scout1208 (M28)",
    "behaviour_verdict": "same: the start cell's draws are the original's inline Map_Random_Range (0x0057D469-0x0057D50F), the region growth as the original",
    "behaviour_checked_by": "C16 audit 2026-11-15: static check against the original's instructions; not reached in the coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet (Seed_Land_Type0/1/2)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n4-randmap (Single Player, Skirmish, Choose Map, Create Random Map, the random map dialog's Preview and accept, then Start Game: a skirmish played 4,000+ frames on the generated map with no fault)",
+   "reach_checked_by": "N4 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n4-randmap and report"
   },
   {
    "entry": "0x00582A50",
@@ -3942,9 +3942,9 @@
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MessageListClass::Input/Remove_Edit (typing a chat message in a network game)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario lanpair (tests/lan_pair.py; lane N4 added a chat line the host types in the game at script frame 1100: Return, H, I, Return): Message_Input's edit line",
+   "reach_checked_by": "N4 2026-11-19: coverage build, coverage_runs.py run lanpair and report; ctest native-lan-pair passes with the chat line (18,000 frames, 0 CRCs differ)"
   },
   {
    "entry": "0x005C2940",
@@ -4183,9 +4183,9 @@
    "notes": "C3: attack-move (Ctrl+Shift, pending order 0x1D). Natively undefined and bound by data/address_aliases.tsv to TechnoClass's inline default of the same slot (different behaviour), so the attack-move never scanned for enemies (TechnoClass::AI slot 276 -> 278) and ended as a plain move; alias row removed.",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "FootClass slot 271 (HaveAttackMoveTarget, after a Ctrl+Shift attack-move) default slot inherited by AircraftClass, InfantryClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n4-ui (a skirmish: a band selection, a Ctrl+Option click, a waypoint path back to its first point, Shift and Option clicks on a selected unit): a selected unit's pending order resumed",
+   "reach_checked_by": "N4 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n4-ui and report"
   },
   {
    "entry": "0x004CDAC0",

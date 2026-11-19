@@ -211,6 +211,12 @@ platform layer. It earns no exact-match credit.
   (2026-11-17) labelled each from game.exe's callers: 110 reachable in the base game but on paths no
   test takes yet (each statically checked), 6 unreachable in the base game, 8 unreachable in the port
   (Westwood Online only, or a branch the port never takes); `native/behaviour_rewrites.json` `reach`.
+  Lane N4 (2026-11-19) reached 8 of the reviewed ones on a coverage build (new scenarios in
+  `native/tests/coverage_runs.py`: `n4-deaths`, a demolition truck and two tanks destroyed; `n4-ui`, modifier
+  clicks and a closed waypoint path; `n4-randmap`, a random map generated and played 4,000+ frames; and a chat
+  line typed in `lan_pair.py`'s game): Shake_The_Screen, Audio_Event_Handle_Set, Planning_Active, a FootClass
+  slot, two of the random map generator, MessageListClass::Get_Edit_Buf and IME_Stub1 (`reach`: "reached in a
+  coverage run"). 105 remain reviewed but unreached.
   Every one of the 311 rewrite rows now carries a behaviour verdict against the original (lane N2,
   2026-11-17: the last 31, the hand-written-assembly ones among them, checked statically): 299 the
   same (some apart from named, harmless edge cases), 4 fixed, 1 different by design, 3 kept (the

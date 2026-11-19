@@ -94,6 +94,21 @@ SCENARIOS = [
     # shakes the screen), other vehicles spawned and destroyed beside it.
     skirmish('n4-deaths', 1500, order='both', seconds=300, env=dict(RA2_NATIVE_ORDERS=(
         '300 spawn DTRUCK 4 0; 320 spawn APOC 6 2; 340 spawn HTK 6 -2; 400 kill DTRUCK; 600 kill APOC; 700 kill HTK'))),
+    # Lane N4: the clicks the in-game runs did not make: a Ctrl+Alt click (the area-guard cursor), a waypoint path
+    # that comes back to its first waypoint (waypoint mode's path cell), a Shift click and release on a selected unit.
+    dict(name='n4-ui', args=['--skirmish=#5', '--skirmish-frames=900', '--skirmish-order=both', '--run-to=frames',
+                             '--run-seconds=200', NOAUDIO], env={}, seconds=260, script=[
+        '60 drag 150 150 750 650',
+        '80 keydown Left_Ctrl', '81 keydown Left_Option', '83 click 520 430', '86 keyup Left_Option', '87 keyup Left_Ctrl',
+        '100 drag 150 150 750 650', '110 key Z', '115 click 300 300', '120 click 360 320', '125 click 420 300',
+        '130 click 300 300', '135 click 300 300', '140 key Z',
+        '160 drag 150 150 750 650', '170 keydown Left_Shift', '172 click 450 400', '175 keyup Left_Shift',
+        '190 keydown Left_Option', '192 click 450 400', '195 keyup Left_Option',
+    ]),
+    # Lane N4: the skirmish's Choose Map (control 0x5AA), its Create Random Map (0x583), the random map dialog's
+    # Preview (0x620: the map generated) and its accept (0x6C5).
+    menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
+                         's4+2500 click @ctl=1411', 's5+3000 click @ctl=1568', 's5+40000 click @ctl=1733', 's6+3000 ' + START_GAME], 200),
     # Seven computer opponents on a four-player map, longer: their specials and super weapons.
     skirmish('ai-crowd', 9000, order='all', map_='#10', seconds=900,
              env=dict(RA2_NATIVE_SKIRMISH_AI='3', RA2_NATIVE_SKIRMISH_AI_LEVEL='2')),

@@ -90,6 +90,8 @@ def host_script(frames):
     lines = ['s1+1000 click 834 388', 's2+1500 click 834 304', 's3+20000 click 834 346', 's3+24000 click 834 346']
     lines += ['%d %s' % e for e in EDGE]
     lines += orders(800, frames - 400, 600)
+    # Lane N4: a chat line typed in the game (Return, H, I, Return: Message_Input, the edit line to everyone).
+    lines += ['1100 key Return', '1103 key H', '1105 key I', '1110 key Return']
     lines += ['%d quit' % frames]
     return lines
 

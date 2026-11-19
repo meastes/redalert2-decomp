@@ -859,7 +859,12 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   (a demolition truck and two tanks spawned and destroyed); on a coverage build (build/native-cov, the cmake line in
   coverage_runs.py's docstring plus -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_DRAFTS=ON -DRA2_NATIVE_LINK_CLOSURE=ON) it
   reached Shake_The_Screen, Audio_Event_Handle_Set and Planning_Active, now "reached in a coverage run" in
-  native/behaviour_rewrites.json.
+  native/behaviour_rewrites.json. Then `n4-ui` (FootClass slot 271), `n4-randmap` (Choose Map @ctl=1450, Create
+  Random Map @ctl=1411, Preview @ctl=1568, accept @ctl=1733, Start Game: Read_Settings and 0x0057D3A0) and a chat
+  line in lan_pair.py's host script (Get_Edit_Buf, IME_Stub1; native-lan-pair passes). Tried without a new reach:
+  a tree destroyed through Take_Damage (it does not die from C4), a Crazy Ivan force-firing at the player's own
+  soldier (no bomb), the area-guard Ctrl+Option click and a closed waypoint path (HouseClass::Can_Add_Waypoint_To_Path).
+  105 reviewed rows left; most are LAN dialogs, Westwood Online and campaign-menu paths.
 
 ## Next: iOS and Windows
 
