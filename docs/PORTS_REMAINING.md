@@ -61,6 +61,11 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 ## Suggested order for the next port lane
 
 0. Done (lane N3): the two Duo faults above; the user re-checks them on the Duo.
+0a. New Duo faults in Yuri's Revenge (user, 2026-11-19 ~04:15Z, on the build with lane N3's fixes, which all checked out):
+   - GIs sent into a building disappear instead of garrisoning it;
+   - Mirage tanks' camouflage draws as corrupted graphics;
+   - oil derricks are missing some of their graphics.
+   First items for the next port lane: reproduce each on the Mac and in the "RA2 Duo Validation" simulator, fix, and add a ctest.
 1. Trace the Yuri's Revenge campaign missions for missing functions, and write stand-ins for them.
 2. Add the bridge repair test (the War Factory unload test is done, lane N3).
 3. Reach Red Alert 2's 110 unreached rewrites, most-called first.

@@ -1,11 +1,31 @@
 # Handoff — original-target decompilation
 
-Current state only (2026-11-18 15:05Z). Numbers: [STATUS.md](STATUS.md). Workflow:
+Current state only (2026-11-19 ~05:00Z; account 1 parks at 10:00Z, kept current at each landing). Numbers: [STATUS.md](STATUS.md). Workflow:
 [process](ORIGINAL_TARGET_PROCESS.md). Commands: [build](ORIGINAL_TARGET_BUILD.md). Matching rules:
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
-## Owner state (2026-11-18 ~15:05Z): start here
+## Account 1 parking (user: at 10:00Z Nov 19): start here on account 2
+
+**Usage plan (review session, from the user's readings):** account 1 stops at about 95-96% (84% at 18:50Z; points expire Sun 14:00Z). Account 2 was at 1% (resets Monday) and has about 96 points until Sun 14:00Z, roughly one point an hour. Start on account 2 with: the rebuild lane (held units and unblockers, then code outside every unit), the landing helper (refetch both workers first, `build/c2land-RESUME.md`), and one port lane from `docs/PORTS_REMAINING.md` in its suggested order. Take a rate reading after the first hours; add a second port or unblocker lane only if 97% projects later than Sun 14:00Z and the memory guard allows. Two Codex workers, no more (user). This session can't read the meter: ask the user or the review session.
+
+**Rebuild (rebuild-trial 7c51f1843, whole-file exact):** 60.75% from source, 63.56% Reproduced; 413 units, 14,434 functions (mapgen landed under the data ruling); 50% checkpoint posted 21:00Z (58% of main's matched bytes at 20:35Z), clean reproduction from a fresh worktree passed (19 min; needs only the private/ link).
+- Held 24: worker 21, binding 1 (mapgen: guarded drafts' statics fill .data holes), mismatch 2 (builtype _$E230 inline budget; ownrdraw _$E173 and four drafts). `rebuild/tools/held.py` refreshes reasons.
+- Count-sensitive rows (new state, DECISIONS): 2 rows / 8,215 B (wonline Draw_Player_List, sidebar SelectClass::Action); `rebuild/tools/countsens.py --write` runs in the landing script whenever a landing changes rebuild/include.
+- Judgment calls 2 rows / 4,558 B (aircraft Read_INI, hover While_Moving). Parked tail 683 rows / 521 KB; >=1 KB 139 / 411 KB (checkpoint 500 KB).
+- Structure: duplicates 0, externs 10 (1 landed), address-suffixed 4; budgets GEOMETRY_H 2, extern "C" 8.
+- Open items for the next lane: b_log_r20.csv / R21's hand-back: mapgen drafts (Build_North_Ramp first); wonline extension to 0x7469C0 from mischa85 (externs to headers, in-file classes to headers, no mid-file includes); builtype; ownrdraw; jumpjet's raw (DoType)34 -> DO_PARADROP when that worker unit lands; file the ~180 KB main matches outside every unit (S2's list; template copies and initializers to the unit whose object emits them).
+- Rulings added today (DECISIONS, rebuild rows): evidenced content over judgment-flagged calibrated rows; count-sensitive rows as their own state, never pad; ahandle/isotype/WakeShapes: unevidenced TibSun leftovers deleted; kept copies with many identical twins compared by bytes; pointer tables bound only where unique (tblbind.py).
+
+**Workers:** codex1 and codex2 in Herdr on mike-gaming (GPT-6.1-Sol), supervisors restart them at capacity checkpoints. Both must merge rebuild-trial before their next delivery. Landed by source so far: codex2 25 of its original 40 units, codex1 4 of 17; returned units with reasons in `build/c2land-RESUME.md`; helper scripts in `private/tools/c2land/`. Codex approval prompts are the user's to answer (the owner must not pre-authorise around Codex's approval review).
+
+**mischa85:** PR #2 merged 17:35Z; #3-#7 open (convert, mapgen, startup, planmgr, uicmnds; 155 functions). **New PRs held by the user until his go-ahead** (memory m85-pr-approval); queue in `build/m85-contrib/QUEUE.md`.
+
+**Ports:** lane N3 landed (Duo faults, planning mode, War Factory, save dialog; Mac link closure 126 -> 110); lane N4 running on the three new Duo faults (garrison, Mirage camouflage, oil derricks), resume note in native/yr/README.md. `docs/PORTS_REMAINING.md` is the start list and the user's checks. Fresh Mac app at build/mac-app/RA2YR.app (04:36Z).
+
+**Lanes at parking:** rebuild R25 (resume: last row of rebuild/manifest/b_log_r25.csv), ports N4, worker landing helper (build/c2land-RESUME.md). Supervisors have a restart-loop guard (stops after two checkpoints within 15 min); the worker prompt and brief now say local manifest changes are expected and only commits exclude them.
+
+## Owner state (2026-11-18 ~15:05Z)
 
 **Owner session:** the Claude Code session in Herdr (terminal t4). The old Desktop owner is stopped. Codex workers are Herdr terminals on machine `mike-gaming` (`hc ls`): `mike-gaming/codex1` and `codex2`, GPT-6.1-Sol medium (GPT-6.2-Sol refuses rebuild work). Restart a worker with `private/tools/restart_worker.sh codexN ['extra first task']`. Supervise with `private/tools/supervise_worker.sh codexN` (restarts at capacity checkpoints, exits on anything else). Backlog alarm: `private/tools/worker_backlog.sh`. Codex permission prompts go to the user.
 
