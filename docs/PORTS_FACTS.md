@@ -132,8 +132,8 @@ platform layer. It earns no exact-match credit.
   fires the Psychic Dominator and the Lightning Storm through the map click's path: no fault, the
   tanks destroyed, the spy inside. Since lane P1 the same test hijacks a vehicle: no unit in Yuri's
   Revenge's rules is a vehicle thief, so the harness makes a civilian one and sends it at an enemy
-  truck, which becomes the player's (3 of 3 runs). Not covered by a test yet: bridge repair, the War
-  Factory's unload through the harness (the AI's factories run it in every long skirmish).
+  truck, which becomes the player's (3 of 3 runs). Not covered by a test yet: bridge repair. The War Factory's unload is covered since lane N3 (ctest
+  `yr-native-war-factory`).
 - Fixed 2026-11-19 (lane N3), from the user's Duo reports:
   - the command bar's "select all units of this type" button (and the T key) crashed the game: it called a function
     not recovered yet (gamemd.exe 0x00732950), now a clearly labelled stand-in written from gamemd.exe's
@@ -151,14 +151,22 @@ platform layer. It earns no exact-match credit.
   and "ion storm stop"; a selected Gap Generator's or Psychic Sensor's range ring; the HealthNav and VeterancyNav
   keys; placing a beacon (the command bar's Beacon button in network games) and drawing it. Before, each of these
   stopped the game. Checked: ctest `yr-native-standins-triggers` (each one through the harness, no fault) and a Mac
-  run that placed a beacon with a map click. Functions still missing at the Mac link: 116. Not written yet:
-  planning mode's orders (the command bar's PlanningMode button; about 5.7 KB of gamemd.exe code), which will
-  stop the game once a plan is given.
+  run that placed a beacon with a map click.
+- Fixed 2026-11-19 (lane N3): the command bar's PlanningMode button stopped the game as soon as it was pressed with
+  units selected (planning mode's drawing and orders were functions not recovered yet; now clearly labelled
+  stand-ins written from gamemd.exe's instructions, about 7 KB). Checked: ctest `yr-native-planning` (all tanks
+  selected, planning mode on, two waypoints planned, the plan committed with the button, the tanks follow it).
+  Picking up or linking planned waypoints by hand with the mouse is not written yet (it does nothing). Functions
+  still missing at the Mac link: 110. Needs a user check on the device.
+- Fixed 2026-11-19 (lane N3): in Yuri's Revenge a finished vehicle stayed inside the War Factory, and a soldier
+  from a barracks was not given its move from the door (the factory drafts' orders were dropped). Checked: ctest
+  `yr-native-war-factory` (a tank produced in a War Factory drives out and the factory returns to guard; a GI produced
+  in a Barracks walks from the door). Needs a user check on the device (build a tank and a soldier).
 - Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
   idle animations), the lane Y14 fixes above, the team-button hold, and the lane N3 fixes above.
 - Still open: longer games may still reach functions not recovered yet (written as clearly
   labelled stand-in code when found; the Mac link closure, functions still missing, was 175
-  after lane Y14, 126 after lane Y16 and 116 after lane N3); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
+  after lane Y14, 126 after lane Y16 and 110 after lane N3); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
 
 ## Not done or not supported
 

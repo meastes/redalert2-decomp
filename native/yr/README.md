@@ -758,13 +758,36 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   `bolt enemy`, `stormstart`, `stormend`, `beaconmode`, `beacons`, `cmd <name>`): a selected Gap Generator, a power
   plant forced onto the player's tanks (none lost), a bolt, a storm started and stopped, a beacon placed by a map
   click, three presses of each nav key selecting tanks. Input scripts also take `@cmd=Beacon` (network games).
-  Still missing and not written: planning mode (the command bar's PlanningMode button; its orders' events reach FUN_00637E00,
-  FUN_00639CB0, FUN_0063B550, PlanningNodeClass: Red Alert 2 has drafts of the twins). Callers found, reach not
-  checked in play: the laser fence's and firestorm wall's placement drawing
+  Still missing (callers found, reach not
+  checked in play): the laser fence's and firestorm wall's placement drawing
   (Tactical::Draw_Fence_Placement / Draw_Firestorm_Wall_Placement, for building types with IsLaserFencePost or
   IsFirestormWall); Speech_Name (a trigger's description text); the score font's Print_String; LineTrail's
   constructor (types with line trails); Tunnel_AI (Tiberian Sun's subterranean movement); the random map generator
   (MapGeneratorClass) and the World Domination Tour (WorldDominationTour::*), both Westwood Online.
+
+* **Planning mode** (the command bar's PlanningMode button stopped the game at its first draw with units selected):
+  glue/planmgr_planning_native.inc, NON-EXACT stand-ins from gamemd.exe's instructions for 0x00637E00 (the planning
+  events: commit, connect, node delete, a planned order), 0x00638120 (a planned order, Red Alert 2's
+  Planning_Add_Order), 0x00634E10 (a member's branch), 0x00639CB0 (a closed loop's attack orders become attack-move),
+  0x0063B550 (a unit's plan in outline, the tree's filled twin Draw_Filled_Unit_Waypoints in outline) and
+  0x0063C690 / 0x0063CAE0 (a node in outline and filled). A fixup in FUN_0063B0A0 empties the drawn-nodes list
+  (PlanningNodeClass::Unknown2) through the list itself: gamemd.exe's names for its fields were separate storage, the
+  list was never emptied, and the hover test read a deleted node once a plan was committed. Link closure 116 -> 110.
+  ctest `yr-native-planning` (yr/tests/yr_planning.py; script point `@cmd=PlanningMode`, harness orders `plan <dx> <dy>`
+  (an order through Player_Assign_Mission, a map click's path) and `plans`): every tank selected, planning mode on,
+  two waypoints planned, the commit, the tanks follow. Still partial from lane Y3:
+  FUN_0063AB60 / FUN_0063A5A0 (the mouse over and clicks on planned nodes in planning mode) return false, so nodes
+  cannot be picked up or linked by hand yet.
+
+* **Production left inside the factory** (found by the new War Factory test): glue/building_native.inc's drafts
+  (Exit_Object and its neighbours, TibSun's text) gave missions with Assign_Mission, which in the YR tree is
+  ObjectClass's empty virtual (it backs the Mission property): a finished vehicle stayed inside the war factory
+  (the factory never switched to MISSION_UNLOAD) and every other mission these drafts gave (the soldier's move
+  from a barracks door, a harvester's harvest, ...) was dropped. They now call QueueMission(mission, false), what
+  gamemd.exe calls there (vtable slot 0x1E8, MissionClass::QueueMission 0x005B35E0; 0x004445F0 for the unload).
+  ctest `yr-native-war-factory` (yr/tests/yr_war_factory.py; harness orders `produce <FACTORY> <ID>`, `produced`,
+  `mission <ID>`): a Grizzly produced in a spawned War Factory is unloaded (mission 16) and drives out, the factory
+  returns to guard; a GI produced in a Barracks walks from the door.
 
 ## Next: iOS and Windows
 

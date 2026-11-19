@@ -312,6 +312,20 @@ add_test(NAME yr-native-standins-triggers COMMAND "${Python3_EXECUTABLE}" -B "${
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-standins-triggers")
 set_tests_properties(yr-native-standins-triggers PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
 
+# ctest yr-native-planning (lane N3): the command bar's PlanningMode button: two planned waypoints, the commit, the
+# tanks follow the plan (glue/planmgr_planning_native.inc; yr/tests/yr_planning.py)
+add_test(NAME yr-native-planning COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_planning.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-planning")
+set_tests_properties(yr-native-planning PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
+
+# ctest yr-native-war-factory (lane N3): a vehicle leaves a War Factory (Exit_Object, Do_MISSION_UNLOAD) and a soldier
+# leaves a Barracks (yr/tests/yr_war_factory.py)
+add_test(NAME yr-native-war-factory COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_war_factory.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-war-factory")
+set_tests_properties(yr-native-war-factory PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
+
 # ctest yr-native-campaign-allied / -soviet (lane Y12): each side's campaign through the menus, its seven
 # missions won in turn (RA2_NATIVE_FORCE_END) through their score screens, the final movie, the credits
 # and the main menu again (yr/tests/yr_campaign_chain.py; about 6 minutes a side).

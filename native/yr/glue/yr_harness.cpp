@@ -59,6 +59,16 @@
 //                   @x,y` (lane N3);
 //   bolt enemy      a lightning bolt (IonStormClass::Lightning_Bolt, the trigger action "ion lightning strike") on the
 //                   cell of the enemy house's first building; logs `harness-bolt @x,y` (lane N3);
+//   produce <FACTORY> <ID>  a unit of type ID for the player leaves the player's first building of type FACTORY as
+//                   finished production does (BuildingClass::Exit_Object; a war factory unloads it with
+//                   Do_MISSION_UNLOAD); logs `harness-produce <FACTORY> <ID> exit <result> &<addr>` (lane N3);
+//   produced        logs `harness-produced <ID> cell x,y factory x,y limbo <0|1> mission <m> factory-mission <m>` for
+//                   the last unit `produce` made (lane N3);
+//   mission <ID>    logs `harness-mission <ID> <mission> &<addr>` for the player's first techno of type ID (lane N3);
+//   plan <dx> <dy>  every selected techno of the player's is ordered to the cell dx,dy from the first one's as a map
+//                   click orders it (Player_Assign_Mission): in planning mode a planned waypoint (lane N3);
+//   plans           logs `harness-plans mode <0|1> tokens <n> nodes <n>`: planning mode on or off, the planning tokens
+//                   and the planned nodes (lane N3);
 //   beaconmode      the beacon placement mode as the Beacon command gives it (FUN_00731A30: the command bar's
 //                   button in network games, the key; a skirmish's bar has no Beacon button); logs
 //                   `harness-beaconmode on|off` (lane N3);
@@ -102,6 +112,7 @@
 #include "_command.h"
 #include "builtype.h"
 #include "beacon.h"
+#include "planning.h"
 #include "cell.h"
 
 #include <stdio.h>
@@ -125,6 +136,8 @@ int order_count = -1;
 int order_done = 0;
 
 TechnoClass * shoot_target = NULL;
+TechnoClass * produced = NULL;		// produce: the last unit made and its factory (lane N3)
+TechnoClass * produced_from = NULL;
 char shoot_type[32] = "";
 int noise_frames = 0;
 int noise_total = 0;
@@ -415,6 +428,60 @@ int Run_Order(int frame, char const * text)
 		fprintf(stderr, "harness-go %d units %s,%s\n", count, word[1], word[2]);
 		return(count ? count : -1);
 	}
+	if (!strcmp(word[0], "produce") && words >= 3) {
+		// a unit of type word[2] for the player leaves the player's first building of type word[1] as finished
+		// production leaves a factory (BuildingClass::Exit_Object: a war factory takes the vehicle in and unloads it,
+		// BuildingClass::Do_MISSION_UNLOAD)
+		TechnoClass * factory = First_Of(word[1], PlayerPtr);
+		ObjectTypeClass const * type = ObjectTypeClass::From_Name(word[2]);
+		if (factory == NULL || factory->Fetch_RTTI() != RTTI_BUILDING || type == NULL) {
+			fprintf(stderr, "harness-produce: no %s or no type %s\n", word[1], word[2]);
+			return(-1);
+		}
+		TechnoClass * unit = (TechnoClass *)type->Create_One_Of(PlayerPtr);
+		int result = unit != NULL ? factory->Exit_Object(unit, CELL_NONE) : 0;
+		produced = unit;
+		produced_from = factory;
+		fprintf(stderr, "harness-produce %s %s exit %d &%p\n", word[1], word[2], result, (void *)unit);
+		return(result ? 1 : -1);
+	}
+	if (!strcmp(word[0], "produced")) {
+		// logs `harness-produced <ID> cell x,y factory x,y limbo <0|1> mission <m> factory-mission <m>` for the last
+		// unit `produce` made (lane N3)
+		if (produced == NULL || !Is_Live(produced) || produced_from == NULL) {
+			fprintf(stderr, "harness-produced none\n");
+			return(-1);
+		}
+		Cell at = produced->Get_Cell(), home = produced_from->Get_Cell();
+		fprintf(stderr, "harness-produced %s cell %d,%d factory %d,%d limbo %d mission %d factory-mission %d\n", Type_Name(produced),
+			at.X, at.Y, home.X, home.Y, produced->IsInLimbo ? 1 : 0, (int)produced->Get_Mission(), (int)produced_from->Get_Mission());
+		return(1);
+	}
+	if (!strcmp(word[0], "mission") && words >= 2) {
+		// logs `harness-mission <ID> <mission> &<addr>` for the player's first techno of type ID
+		TechnoClass * techno = First_Of(word[1], PlayerPtr);
+		if (techno == NULL) return(-1);
+		fprintf(stderr, "harness-mission %s %d &%p\n", word[1], (int)techno->Get_Mission(), (void *)techno);
+		return(1);
+	}
+	if (!strcmp(word[0], "plan") && words >= 3) {
+		// every selected techno of the player's is ordered to the cell dx,dy from the first one's as a map click
+		// orders it (TechnoClass::Player_Assign_Mission, MISSION_MOVE): in planning mode that plans a waypoint
+		TechnoClass * lead = NULL;
+		int count = 0;
+		for (int i = 0; i < CurrentObject.Count(); ++i) {
+			ObjectClass * object = CurrentObject[i];
+			if (object == NULL || !object->Is_Techno() || ((TechnoClass *)object)->House != PlayerPtr) continue;
+			TechnoClass * techno = (TechnoClass *)object;
+			if (lead == NULL) lead = techno;
+			Coord coord = lead->Center_Coord();
+			Cell cell(coord.X / 256 + atoi(word[1]), coord.Y / 256 + atoi(word[2]));
+			techno->Player_Assign_Mission(MISSION_MOVE, NULL, &Map[cell], NULL);
+			++count;
+		}
+		fprintf(stderr, "harness-plan %d units %s,%s\n", count, word[1], word[2]);
+		return(count ? count : -1);
+	}
 	if (!strcmp(word[0], "thief") && words >= 2) {
 		ObjectTypeClass const * type = ObjectTypeClass::From_Name(word[1]);
 		if (type == NULL || type->Fetch_RTTI() != RTTI_INFANTRYTYPE) {
@@ -451,6 +518,11 @@ int Run_Order(int frame, char const * text)
 		IonStormClass::Lightning_Bolt(cell);
 		fprintf(stderr, "harness-bolt @%d,%d\n", cell.X, cell.Y);
 		return(1);
+	}
+	if (!strcmp(word[0], "plans")) {
+		fprintf(stderr, "harness-plans mode %d tokens %d nodes %d\n", PlanningNodeClass::PlanningModeActive ? 1 : 0,
+			PlanningTokenClass::Array.Count(), PlanningNodeClass::Unknown1.Count());
+		return(PlanningNodeClass::Unknown1.Count());
 	}
 	if (!strcmp(word[0], "beaconmode")) {
 		FUN_00731A30();

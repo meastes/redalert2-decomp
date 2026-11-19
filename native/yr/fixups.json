@@ -1556,6 +1556,17 @@
    "file": "src/beacon.cpp",
    "append": "beacon_native.inc",
    "why": "lane N3: BeaconManagerClass::PlaceBeacon (gamemd.exe 0x00430BA0) and Drawing::Intersect are unmatched in the YR tree and were link-closure traps on the command bar's Beacon button (place a beacon, then every frame's beacon draw). NON-EXACT stand-ins: PlaceBeacon from gamemd.exe's instructions on Red Alert 2's accepted twin's shape; Intersect through the tree's template."
+  },
+  {
+   "file": "src/planmgr.cpp",
+   "append": "planmgr_planning_native.inc",
+   "why": "lane N3: planning mode's functions unmatched in the YR tree (gamemd.exe 0x00637E00, 0x00638120, 0x00634E10, 0x00639CB0, 0x0063B550, 0x0063C690, 0x0063CAE0) were link-closure traps: the command bar's PlanningMode button with units selected stopped the game. NON-EXACT stand-ins from gamemd.exe's instructions on Red Alert 2's drafts' and the tree's filled twin's shapes."
+  },
+  {
+   "file": "src/planmgr.cpp",
+   "old": "\tDAT_00AC4C28 = 0;\n\tif (DAT_00AC4C1C && DAT_00AC4C25) {\n\t\tdelete DAT_00AC4C1C;\n\t\tDAT_00AC4C1C = 0;\n\t}\n\tDAT_00AC4C25 = false;\n\tDAT_00AC4C20 = 0;\n",
+   "new": "\tPlanningNodeClass::Unknown2.Clear();\n",
+   "why": "lane N3: FUN_0063B0A0 (planning mode's draw) empties the list of nodes drawn last frame through gamemd.exe's names for PlanningNodeClass::Unknown2's fields (DAT_00AC4C1C Vector, DAT_00AC4C20 VectorMax, DAT_00AC4C25 IsAllocated, DAT_00AC4C28 ActiveCount: 0x00AC4C18 + 4, 8, 0xD, 0x10), which natively are separate storage: the list was never emptied, each frame's Draw_Lead_Box added every node again, a node's destructor took out one copy only, and the next frame's hover test (FUN_00638E60) read a deleted node after a plan was committed. The same clear, on the list itself (what FUN_00638E20 does)."
   }
  ]
 }

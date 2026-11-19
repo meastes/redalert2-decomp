@@ -25,9 +25,9 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 | Item | State | What is done | What is left |
 |---|---|---|---|
-| Skirmish stability | Mostly done | A 45-minute game against three hard AIs on the Mac has no fault, and a 10-minute ctest runs. | 116 functions still missing at the Mac link. Each is written as a labelled stand-in when play reaches it. Longer and varied games will find more. |
+| Skirmish stability | Mostly done | A 45-minute game against three hard AIs on the Mac has no fault, and a 10-minute ctest runs. | 110 functions still missing at the Mac link. Each is written as a labelled stand-in when play reaches it. Longer and varied games will find more. |
 | Campaign trace and forced-win chain | Done | Both campaigns pass a test that forces each win in turn: all 14 missions, both endings, the credits and the return to the main menu. | Real wins are yours. |
-| Campaign stand-ins | Partly done | Stand-ins reached in play: Psychic Dominator, Lightning Storm, the beams and waves, the spy, the hijacker, the Lasher tank's drive tracks; lane N3: the trigger actions "create building at", "ion lightning strike" and "ion storm stop", range rings, beacons, the HealthNav/VeterancyNav keys (ctest `yr-native-standins-triggers`). | Not covered by a test: bridge repair, the War Factory's unload through the test harness. Planning mode (the command bar's PlanningMode button) still reaches functions not written. The trace was static (callers of the missing functions); no mission was played through. |
+| Campaign stand-ins | Partly done | Stand-ins reached in play: Psychic Dominator, Lightning Storm, the beams and waves, the spy, the hijacker, the Lasher tank's drive tracks; lane N3: the trigger actions "create building at", "ion lightning strike" and "ion storm stop", range rings, beacons, the HealthNav/VeterancyNav keys (ctest `yr-native-standins-triggers`), planning mode from the command bar (ctest `yr-native-planning`; picking up planned waypoints with the mouse not written). | Not covered by a test: bridge repair. The War Factory's unload has a test (lane N3, `yr-native-war-factory`; it found vehicles staying inside the factory, fixed). The trace was static (callers of the missing functions); no mission was played through. |
 | Windows build | Partly done | `YRNative.exe` and the both-games `RA2YRNative.exe` are cross-built, pass under Wine, and are packaged on your PC. | Your run on the real PC. |
 | LAN | Partly done | Two Macs played a 12,000-frame game in step; Mac with Windows under Wine played 3,000 frames. | Not yet tried between two real machines or with your Windows PC. |
 | Saves | Partly done | Saves are written in the original format and load back in the port. | Your installed Yuri's Revenge loading the port's save, and the reverse. |
@@ -49,6 +49,6 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 0. Done (lane N3): the two Duo faults above; the user re-checks them on the Duo.
 1. Trace the Yuri's Revenge campaign missions for missing functions, and write stand-ins for them.
-2. Add the bridge repair and War Factory unload tests.
+2. Add the bridge repair test (the War Factory unload test is done, lane N3).
 3. Reach Red Alert 2's 110 unreached rewrites, most-called first.
 4. Yuri's Revenge LAN on two real machines once you can run the PC side.

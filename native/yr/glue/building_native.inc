@@ -7,6 +7,10 @@
 // NATIVE. YR's second parameter (a preferred cell) goes to Find_Exit_Cell for vehicles only (lane Y6,
 // compared with gamemd.exe 0x00443C60: infantry and the other factory get CELL_NONE). Behaviour code
 // for the native build only; otherwise gamemd.exe's version is not compared.
+// NATIVE (lane N3): TibSun's Assign_Mission(m) is written QueueMission(m, false), what gamemd.exe calls there
+// (vtable slot 0x1E8, MissionClass::QueueMission 0x005B35E0, e.g. 0x004445F0 for the war factory's unload): the
+// YR tree's ObjectClass::Assign_Mission is an empty virtual, so the war factory never unloaded and every
+// mission given in these drafts was dropped. (The same in all of this file's drafts.)
 // ---------------------------------------------------------------------------------------------
 int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR's preferred cell passed on to Find_Exit_Cell for vehicles
 {
@@ -50,7 +54,7 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 
 						if (ArchiveTarget != NULL) {
 							air->Assign_Destination(ArchiveTarget);
-							air->Assign_Mission(MISSION_MOVE);
+							air->QueueMission(MISSION_MOVE, false);
 						}
 						ScenarioInit--;
 						return(2);
@@ -84,15 +88,15 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 				if (base->Unlimbo(Coord(spawncell, 0), DIR_N)) {
 					if (ArchiveTarget != NULL) {
 						base->Assign_Destination(ArchiveTarget);
-						base->Assign_Mission(MISSION_MOVE);
+						base->QueueMission(MISSION_MOVE, false);
 					} else {
 						cell = base->Nearby_Location(this);
 						if (cell != CELL_NONE) {
 							base->Assign_Destination(&Map[cell]);
-							base->Assign_Mission(MISSION_MOVE);
+							base->QueueMission(MISSION_MOVE, false);
 						} else {
 							base->Assign_Destination(NULL);
-							base->Assign_Mission(MISSION_MOVE);
+							base->QueueMission(MISSION_MOVE, false);
 						}
 					}
 					ScenarioInit--;
@@ -155,7 +159,7 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 						base->Mark(MARK_DOWN);
 						Transmit_Message(RADIO_HELLO, base);
 						Transmit_Message(RADIO_TETHER);
-						Assign_Mission(MISSION_UNLOAD);
+						QueueMission(MISSION_UNLOAD, false);
 						ScenarioInit--;
 						return(2);
 					}
@@ -201,7 +205,7 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 					ScenarioInit++;
 					if (base->Unlimbo(exitcoord, dir)) {
 
-						base->Assign_Mission(MISSION_MOVE);
+						base->QueueMission(MISSION_MOVE, false);
 						base->Assign_Destination(&Map[exitcell]);
 
 						/*
@@ -209,7 +213,7 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 						 * area around the spot it should head to.
 						 */
 						if (!House->Is_Human_Player()) {
-							base->Assign_Mission(MISSION_GUARD_AREA);
+							base->QueueMission(MISSION_GUARD_AREA, false);
 
 							cell = House->Where_To_Go((FootClass *)base);
 							base->Assign_Archive_Target((cell != CELL_NONE && Class->ToBuild != RTTI_NONE) ? &Map[cell] : NULL);
@@ -268,7 +272,7 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 							base->ArchiveTarget = ((FootClass *)base)->NavCom;
 						}
 
-						base->Assign_Mission(MISSION_MOVE);
+						base->QueueMission(MISSION_MOVE, false);
 						base->Assign_Destination(&Map[exitcell]);
 
 						/*
@@ -276,7 +280,7 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 						 * an area around the spot it should head to.
 						 */
 						if (!House->Is_Human_Player()) {
-							base->Assign_Mission(MISSION_GUARD_AREA);
+							base->QueueMission(MISSION_GUARD_AREA, false);
 
 							cell = House->Where_To_Go((FootClass *)base);
 							if (cell != CELL_NONE && Class->ToBuild != RTTI_NONE) {
@@ -312,7 +316,7 @@ int BuildingClass::Exit_Object(TechnoClass * base, Cell preferred)	// NATIVE: YR
 					ScenarioInit++;
 					if (base->Unlimbo(Coord(Adjacent_Cell(cell, FACING_S), 0), DIR_SW)) {
 						base->PrimaryFacing.Set(DirType(DIR_S));
-						base->Assign_Mission(MISSION_HARVEST);
+						base->QueueMission(MISSION_HARVEST, false);
 					}
 
 				} else {
@@ -497,7 +501,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 				Transmit_Message(RADIO_OVER_OUT);
 				if (IsOwnedByPlayer) VoxClass::Play("EVA_UnitSold");	// NATIVE (lane Y11b): YR's EVA call for TibSun's Speak
 				tech->Sell_Back(1);
-				Assign_Mission(MISSION_GUARD);
+				QueueMission(MISSION_GUARD, false);
 				return(1);
 			}
 
@@ -511,7 +515,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 				House->RecalcRadar = true;
 				House->IsRecalcNeeded = true;	// NATIVE: YR rechecks power through IsRecalcNeeded (TibSun: Adjust_House_Power)
 				if (IsOwnedByPlayer) VoxClass::Play("EVA_StructureSold");	// NATIVE (lane Y11b): YR's EVA call for TibSun's Speak
-				Assign_Mission(MISSION_GUARD);
+				QueueMission(MISSION_GUARD, false);
 				return(1);
 			}
 
@@ -637,7 +641,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 								ScenarioInit--;
 								infantry->Scatter(COORD_NONE, true);
 								ScenarioInit++;
-								infantry->Assign_Mission(MISSION_MOVE);
+								infantry->QueueMission(MISSION_MOVE, false);
 							} else {
 								delete infantry;
 							}
@@ -747,7 +751,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 							*/
 							if (arch != NULL) {
 								unit->Assign_Destination(arch);
-								unit->Assign_Mission(MISSION_MOVE);
+								unit->QueueMission(MISSION_MOVE, false);
 							}
 
 							if (Tag != NULL) {
