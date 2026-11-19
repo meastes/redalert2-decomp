@@ -168,8 +168,28 @@ platform layer. It earns no exact-match credit.
   other Mac reports (an immediate defeat in a Yuri's Revenge skirmish, a crash on the Network screen) came from a
   stale app build and do not happen in the current one (walked through the menus in the packaged app). Loading a
   save made by the original Yuri's Revenge: not verified.
+- Fixed 2026-11-19 (lane N4), the user's three Duo reports in Yuri's Revenge:
+  - GIs sent into a building vanished: the soldiers' cell-arrival code (a draft from Tiberian Sun's text) had no
+    garrisons and deleted any soldier that was neither an engineer nor a spy. It now garrisons as gamemd.exe does.
+    Checked: ctest `yr-native-garrison` (a GI clicked onto a civilian house walks in, the house becomes the player's
+    with one occupant, the GI is inside; the house's deploy lets it out again);
+  - Mirage tanks' camouflage drew as corrupted graphics: the disguise (a tree) was drawn in the tank's house
+    colours. It now takes the tree's cell lighting, as gamemd.exe does. Checked: ctest `yr-native-mirage` (counts
+    leaf-green against blue/white pixels where the tree stands: before the fix about 85 green to 615 blue, after
+    about 730 to 5) and screen dumps of the tank blinking between itself and a green tree;
+  - oil derricks were missing graphics: no building animation was drawn at all (pumps, flames, power plant
+    turbines, ...). The layer names the game reads animation types' `Layer=` with were empty in the port (a data
+    table loaded from gamemd.exe was cut short by a neighbouring table sized wrongly), so every building animation
+    went into no display layer. Checked: ctest `yr-native-building-anims` (the derrick's pump and flame and a power
+    plant's animation playing in the ground layer) and screen dumps (the pumpjack moves, the flare burns).
+  All three also checked in the Simulator ("RA2 Duo Validation", `ios_sim_menus.py`: the GI garrisons, the
+  camouflage counts 271 green to 0 blue/white, the derrick's animations are in the ground layer). Also found and fixed
+  by the rerun of the YR ctests: the sonic, laser and Magnetron beam drafts kept depth-buffer addresses in 32 bits
+  and crashed when a beam ran one way (`yr-native-standins`).
+  Needs a user check on the device: garrison a building, watch a Mirage tank stand still, look at an oil derrick and
+  other buildings' animations.
 - Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
-  idle animations), the lane Y14 fixes above, the team-button hold, and the lane N3 fixes above.
+  idle animations), the lane Y14 fixes above, the team-button hold, and the lane N3 and N4 fixes above.
 - Still open: longer games may still reach functions not recovered yet (written as clearly
   labelled stand-in code when found; the Mac link closure, functions still missing, was 175
   after lane Y14, 126 after lane Y16 and 110 after lane N3); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.

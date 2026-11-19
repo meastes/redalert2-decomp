@@ -15,7 +15,9 @@ Yuri's Revenge the command bar is laid out under the tactical view and drawn on 
 user's "missing bottom bar"; the harness's `rects` at frame 600). Lane N3 (the user's Duo reports of 2026-11-19): in both
 games a tap on the player name field (control 1696) raises the on-screen keyboard and a tap away puts it
 away; in Yuri's Revenge a tap on the command bar's TypeSelect button with one tank selected selects every
-tank (it had crashed: an unrecovered function). Not a ctest (it needs the Simulator). Only "RA2 Duo Validation" is
+tank (it had crashed: an unrecovered function). Lane N4 (the user's Duo reports of 2026-11-19 ~04:15Z): in Yuri's
+Revenge a GI garrisons a house, a Mirage tank's camouflage is a green tree, an oil derrick's animations are in the
+ground layer (N4_ORDERS, the Mac ctests' harness orders). Not a ctest (it needs the Simulator). Only "RA2 Duo Validation" is
 used; booted when shut down and shut down again afterwards.
 
   ios_sim_menus.py --app build/ios-one-simulator/RA2YR.app --data-dir <RA2 + YR folder> --work <dir>
@@ -31,6 +33,11 @@ import ios_sim_one_game as one  # noqa: E402  (launch, simctl, device, the Simul
 from menu_backdrop import read_bmp  # noqa: E402
 
 REGION = (20, 400, 540, 520)      # the backdrop region in the 800x600 menu (menu_backdrop.py)
+# Lane N4 (the user's Duo reports of 2026-11-19 ~04:15Z), the Mac ctests' orders: a GI clicked onto a civilian house
+# garrisons it (yr-native-garrison), a Mirage tank's camouflage is a tree in the tree's colours (yr-native-mirage),
+# an oil derrick's pump and flame play in the ground layer (yr-native-building-anims).
+N4_ORDERS = ('760 spawn CAHSE07 6 0; 761 spawn E1 2 3; 762 spawn MGTK 3 -3; 763 spawn CAOILD -4 3; 780 click E1 CAHSE07; '
+             '800 camo MGTK 800; 1000 banims CAOILD; 1500 occupants CAHSE07')
 
 
 def tap(when, x, y):
@@ -125,7 +132,7 @@ def main():
                 # Lane N3 (the user's Duo report: the command bar's TypeSelect button crashed the game): a
                 # tank selected, the button tapped (@cmd=TypeSelect, glue/yr_app_hooks.cpp), every tank
                 # selected after.
-                env['RA2_NATIVE_ORDERS'] = '600 rects; 640 select MTNK 0; 700 groups MTNK'
+                env['RA2_NATIVE_ORDERS'] = '600 rects; 640 select MTNK 0; 700 groups MTNK; ' + N4_ORDERS
                 lines += ['660 tdown @cmd=TypeSelect', '662 tup @cmd=TypeSelect']
             text = one.launch(a, game, ['--game=' + game], [lines], a.play_seconds, env)
             if 'unrecovered ' in text or 'crash: signal' in text:
@@ -175,6 +182,18 @@ def main():
                 print('yr: after the TypeSelect tap: %s' % (groups.group(0) if groups else None))
                 if not groups or not all(g.endswith('*') for g in groups.group(1).split()):
                     failures.append('yr: the TypeSelect button did not select every tank')
+            if game == 'yr':
+                occupants = re.search(r'^harness-occupants CAHSE07 h-?\d+ (\d+)(p?)$', text, re.M)
+                camo = re.search(r'^harness-camo seen (\d+) green (\d+) blue (\d+)$', text, re.M)
+                anims = re.findall(r'^harness-banim CAOILD \d+ (\S+) live (\d) .* in-layer (-?\d+) ', text, re.M)
+                print('yr: garrison %s; camouflage %s; derrick animations %s' % (
+                    occupants and occupants.groups(), camo and camo.groups(), anims))
+                if not occupants or occupants.groups() != ('1', 'p'):
+                    failures.append('yr: the GI did not garrison the house (%s)' % (occupants and occupants.groups(),))
+                if not camo or int(camo.group(1)) < 40 or int(camo.group(2)) < 3 * int(camo.group(3)):
+                    failures.append('yr: the Mirage camouflage is not a tree in its colours (%s)' % (camo and camo.groups(),))
+                if sorted(a for a in anims if a[1:] == ('1', '2')) != sorted([('CAOILD_A', '1', '2'), ('CAOILD_F', '1', '2')]):
+                    failures.append('yr: the derrick\'s animations are not in the ground layer (%s)' % anims)
             for l in text.splitlines():
                 if l.startswith('host: touch controls:') or l.startswith('host: on-screen keyboard'):
                     print('%s: %s' % (game, l))

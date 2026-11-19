@@ -168,6 +168,30 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 	if (why == PCP_END) {
 
 		/*
+		**	YR (lane N4, from gamemd.exe 0x00519675-0x00519739): an occupier (or an assaulter) that reaches
+		**	the cell of the building it was sent to capture garrisons it (FUN_00522910: into the building's
+		**	Occupants; an assaulter clears it instead); a building that can no longer take it sends it away.
+		**	TibSun's text had no garrisons: the soldier fell through to the capture code below, which
+		**	deletes a unit that is neither an engineer nor a spy, so a GI sent into a building vanished.
+		*/
+		if (Get_Mission() == MISSION_CAPTURE && (Class->Occupier || Class->Assaulter)
+				&& NavCom != NULL && NavCom->Fetch_RTTI() == RTTI_BUILDING
+				&& cellptr->Cell_Building() == (BuildingClass *)NavCom) {
+			BuildingClass * building = (BuildingClass *)NavCom;
+			if (building->CanBeOccupiedBy(this)) {
+				if (building->Tag) {
+					building->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
+				}
+				FUN_00522910(building);
+			} else {
+				Assign_Destination(NULL, true);
+				Scatter(building->Center_Coord(), true, true);
+			}
+			BEnd(BENCH_PCP);
+			return;
+		}
+
+		/*
 		**	If the infantry unit is entering a cell that contains the building it is trying to
 		**	capture, then capture it.
 		*/

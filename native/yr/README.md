@@ -806,6 +806,44 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   original Yuri's Revenge (PORTS_REMAINING item 1). Still partial: FUN_0063AB60 / FUN_0063A5A0 (picking up
   planned waypoints with the mouse). Functions still missing at the Mac link: 110 (gen-yr/link_closure.json).
 
+### Lane N4 (2026-11-19): the user's three new Duo faults
+
+* **GIs sent into a building vanished.** InfantryClass::Per_Cell_Process (glue/infantry_native.inc, TibSun's text) had
+  no garrisons: a soldier that reached the cell of the building it was sent to capture (MISSION_CAPTURE: the click on
+  an occupiable building is ACTION_CAPTURE, InfantryClass::What_Action) fell through to TibSun's capture code, which
+  deletes a unit that is neither an engineer nor a spy. gamemd.exe's 0x00519675-0x00519739 first lets an occupier or
+  an assaulter garrison it (BuildingClass::CanBeOccupiedBy, InfantryClass::FUN_00522910), else sends it away
+  (Assign_Destination(NULL), Scatter); the draft now does the same. ctest `yr-native-garrison` (yr/tests/yr_garrison.py;
+  harness orders `click <ID> <TARGET>`: What_Action and Active_Click_With, a mouse click's order; `occupants <BLDG>`;
+  `occupiable` lists the garrisonable types): a GI clicked onto a civilian house (CAHSE07) is inside it, the house the
+  player's; the house's deploy lets it out and returns the house to the civilians.
+* **The Mirage tank's camouflage drew as corrupted graphics.** TechnoClass::Techno_Draw_Object (glue/techno_native.inc)
+  had left out gamemd.exe's 0x00706061-0x00706129: an object the player does not see through draws in its disguise's
+  colours (a tree or an overlay: its cell's lighting converter and brightness; another house's unit: that house's
+  scheme). The tree came out in the Mirage's house colours as blue and white speckles. ctest `yr-native-mirage`
+  (yr/tests/yr_mirage.py; harness orders `disguise <ID>` and `camo <ID> <frames>`: leaf-green against blue/white
+  pixels above the tank on the frames it shows its disguise; broken about 85/615, fixed about 730/5).
+* **Oil derricks were missing graphics** (their pumpjack and flare): no building animation was drawn. Every animation
+  type with an ART(MD).INI `Layer=` key read LAYER_NONE, so it went into no display layer: the layer names (LayerName,
+  0x0081DA78) point at strings just after Powerups::Anims (0x0081DAD8), and native/yr/tools/yr_data.py read
+  Powerups::Anims[19]'s declaration from builtype.h's `AnimControlType Anims[...]` (a namespace's members were not
+  indexed under the namespace), so it was not loaded and was sized to the next known global (11,768 bytes): the names'
+  pointers resolved into its zeroed storage. yr_data.py now indexes a named namespace's members up to its closing brace;
+  the generated data changed only for Powerups::Anims (76 bytes, loaded) and Powerups::Naval (19 bytes; it had 1).
+  ctest `yr-native-building-anims` (yr/tests/yr_building_anims.py; harness orders `artkey <section> <key>`, `banims
+  <BLDG>`, `banimhide <BLDG> <slot> [show]`): Layer=ground reads as 2, the derrick's pump and flame and a power plant's
+  animation play in the ground layer. Screen dumps (RA2_NATIVE_PRESENT_DUMP) show the pumpjack moving.
+* **Beams crashed one way round**: the sonic wave, laser and Magnetron drafts (glue/wave_native.inc) held the depth
+  buffer's address in an `unsigned int` (Get_Buffer_Offset returns uintptr_t): a beam whose direction took that branch
+  read a truncated pointer. Found when `yr-native-standins` crashed in the rerun of the YR ctests; now uintptr_t.
+* **Checked in the Simulator** ("RA2 Duo Validation", `ios_sim_menus.py --games yr --play-seconds 150`, N4_ORDERS): the
+  GI garrisons (1 occupant, the player's), the camouflage 271 green to 0 blue/white, the derrick's two animations in
+  the ground layer.
+* **Resume note (lane N4)**: item 0a done (Mac and Simulator); next item 2 (bridge repair:
+  gamemd.exe's MapClass::Can_Repair_Bridge is 0x00587410, 2,109 bytes, "IsLinkedBridgeDestroyed" in functions.csv; the
+  draft in glue/map_zones_native.inc is TibSun's, with Tiberian Sun's low-bridge overlays where gamemd.exe tests the
+  overlay ranges 0x4A-0x65 and 0xCD-0xE8), then item 3.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

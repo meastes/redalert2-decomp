@@ -36,6 +36,10 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 1. **On the Duo** (checked by the user 2026-11-18):
    - working: team-button hold, MCV deploy and Grizzly first move, the Skip button, unit animations, the campaign Difficulty label;
+   - faults reported 2026-11-19 ~04:15Z, fixed by lane N4, please check: GIs sent into a building vanished (now they
+     garrison it, and the building's deploy lets them out); a Mirage tank's camouflage drew as corrupted graphics (now a
+     tree); oil derricks lacked their pump and flame (no building animation was drawn; power plants, refineries and
+     the rest should animate again too);
    - fault, fixed by lane N3 (2026-11-19), please check again: Yuri's Revenge's command bar "select all units of this type" button crashed the game;
    - fault, fixed by lane N3 (2026-11-19), please check again: the on-screen keyboard didn't come up in Yuri's Revenge's text fields (the skirmish player name). Now a tap on the field raises it, as in Red Alert 2.
    - Mac app checks (the user, 2026-11-19, on build/mac-app/RA2YR.app, a stale build from 2026-11-17 11:20). Lane N3
@@ -61,11 +65,10 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 ## Suggested order for the next port lane
 
 0. Done (lane N3): the two Duo faults above; the user re-checks them on the Duo.
-0a. New Duo faults in Yuri's Revenge (user, 2026-11-19 ~04:15Z, on the build with lane N3's fixes, which all checked out):
-   - GIs sent into a building disappear instead of garrisoning it;
-   - Mirage tanks' camouflage draws as corrupted graphics;
-   - oil derricks are missing some of their graphics.
-   First items for the next port lane: reproduce each on the Mac and in the "RA2 Duo Validation" simulator, fix, and add a ctest.
+0a. Done (lane N4, 2026-11-19): the user's three new Duo faults in Yuri's Revenge, each fixed on the Mac with a ctest
+   (details and checks in PORTS_FACTS.md): GIs now garrison buildings (`yr-native-garrison`); the Mirage tank's
+   camouflage draws as a tree in the tree's colours (`yr-native-mirage`); building animations, the oil derrick's pump
+   and flame among them, are drawn again (`yr-native-building-anims`). The user re-checks them on the Duo.
 1. Trace the Yuri's Revenge campaign missions for missing functions, and write stand-ins for them.
 2. Add the bridge repair test (the War Factory unload test is done, lane N3).
 3. Reach Red Alert 2's 110 unreached rewrites, most-called first.

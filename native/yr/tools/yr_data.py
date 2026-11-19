@@ -75,10 +75,18 @@ def text_index(gen):
         if not path.is_file():
             continue
         owner = None
+        in_namespace = False
         for line in path.read_text(encoding='latin-1').splitlines():
             m = CLASS_HEAD.match(line)
             if m:
                 owner = m.group(1)
+                in_namespace = False
+            else:
+                m = NAMESPACE_HEAD.match(line)
+                if m:
+                    owner, in_namespace = m.group(1), True
+                elif in_namespace and line.strip() == '}':
+                    owner, in_namespace = None, False
             if 'extern' not in line and ';' not in line:
                 continue
             for w in set(word.findall(line)):
@@ -93,6 +101,13 @@ def text_index(gen):
 # its own class's declaration and not from a same-named member of another class (lane Y16: ship.h's
 # TrackControl[67] gave DriveLocomotionClass::TrackControl its bound).
 CLASS_HEAD = re.compile(r'^(?:class|struct)\s+(?:__declspec\(\w+\)\s+)?([A-Za-z_]\w*)\s*(?::[^;]*)?(?:\{[^;]*)?$')
+
+
+# A named namespace's head (`namespace Powerups {`): the declarations inside it, up to its closing brace, are
+# indexed under `Namespace::member` too (lane N4: Powerups::Anims[19] was read from builtype.h's
+# `AnimControlType Anims[BSTATE_COUNT]`, so its storage was not loaded and ran over the layer names' strings
+# after it: every animation type's Layer= read as LAYER_NONE and building animations were never drawn).
+NAMESPACE_HEAD = re.compile(r'^namespace\s+([A-Za-z_]\w*)\s*\{?\s*$')
 
 
 def enum_values(gen):

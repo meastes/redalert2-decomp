@@ -326,6 +326,27 @@ add_test(NAME yr-native-war-factory COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-war-factory")
 set_tests_properties(yr-native-war-factory PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360)
 
+# ctest yr-native-garrison (lane N4): a GI garrisons a civilian house and unloads from it (InfantryClass::Per_Cell_Process's
+# occupier branch; yr/tests/yr_garrison.py)
+add_test(NAME yr-native-garrison COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_garrison.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-garrison")
+set_tests_properties(yr-native-garrison PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
+
+# ctest yr-native-mirage (lane N4): a Mirage tank's camouflage draws as a tree in the tree's colours (Techno_Draw_Object's
+# disguise converter; yr/tests/yr_mirage.py)
+add_test(NAME yr-native-mirage COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_mirage.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-mirage")
+set_tests_properties(yr-native-mirage PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
+
+# ctest yr-native-building-anims (lane N4): an oil derrick's pump and flame and a power plant's animation play in the
+# ground display layer (the layer names' data, yr_data.py's namespace members; yr/tests/yr_building_anims.py)
+add_test(NAME yr-native-building-anims COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_building_anims.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-building-anims")
+set_tests_properties(yr-native-building-anims PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 200)
+
 # ctest yr-native-save-dialog (lane N3): a save through the options menu's Save dialog (yr/tests/yr_save_dialog.py)
 add_test(NAME yr-native-save-dialog COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_save_dialog.py"
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"

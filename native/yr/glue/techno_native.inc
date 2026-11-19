@@ -96,7 +96,32 @@ void TechnoClass::Techno_Draw_Object(ShapeSet const * shapefile, int shapenum, P
 				break;
 		}
 
-		// NATIVE: gamemd.exe picks a disguised object's colours through its disguise (YR 0x00706061..0x00706129); not written.
+		/*
+		**	YR (lane N4, from gamemd.exe 0x00706061..0x00706129): an object the player does not see through draws
+		**	in its disguise's colours. A tree or an overlay (a Mirage tank's camouflage) takes its cell's lighting
+		**	converter and brightness, as terrain does; a disguise as another house's unit takes that house's colour
+		**	scheme. Without it the camouflage drew through the Mirage's house colours: speckled noise in place of
+		**	a tree (the user's Duo report, 2026-11-19).
+		*/
+		if (!IsClearlyVisibleTo(PlayerPtr)) {
+			ObjectTypeClass const * disguise = GetDisguise(true);
+			RTTIType kind = disguise != NULL ? disguise->Fetch_RTTI() : RTTI_NONE;
+			ConvertClass * drawer = NULL;
+			if (kind == RTTI_OVERLAYTYPE || kind == RTTI_TERRAINTYPE) {
+				CellClass * cptr = Get_Cell_Ptr();
+				drawer = cptr->Drawer;
+				if (drawer == NULL) {
+					cptr->Init_Drawer();
+					drawer = cptr->Drawer;
+				}
+				brightness = cptr->TileBrightness;
+			} else {
+				HouseClass * house = GetDisguiseHouse(true);
+				if (house != NULL) drawer = ColorSchemes[house->Scheme]->Converter;
+			}
+			if (drawer == NULL) drawer = ColorSchemes[PlayerPtr->Scheme]->Converter;
+			converter = drawer;
+		}
 
 		if (zgrad != ZGRAD_NONE) flags = ShapeFlags_Type(flags|SHAPE_ZGRAD);
 		if (zwrite) flags = ShapeFlags_Type(flags|SHAPE_ZWRITE);

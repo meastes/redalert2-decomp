@@ -84,6 +84,20 @@
 //                   logs `harness-stormend active|none` (lane N3);
 //   cmd <name>      executes the keyboard command with that unique name (AllCommands; key 0, a press without
 //                   Shift); logs `harness-cmd <name>` (lane N3: HealthNav, VeterancyNav);
+//   occupiable      logs the building types infantry can garrison (`harness-occupiable <ID> max <n>`; lane N4);
+//   click <ID> <TARGET>  the player's first unit of type ID clicked onto the nearest techno of type TARGET (What_Action,
+//                   Active_Click_With: the mouse click's order); logs `harness-click <ID> action <n> -> <TARGET> ok|refused`;
+//   camo <ID> <frames>  for that many frames, while the first techno of type ID shows the player its disguise
+//                   (IsDisguised, not IsClearlyVisibleTo), counts leaf-green and blue/white pixels in a box above it in
+//                   the composed view; logs `harness-camo seen <frames> green <avg> blue <avg>` (lane N4);
+//   disguise <ID>   logs `harness-disguise <ID> <0|1> as <TYPE> r<rtti> clear <0|1>` (lane N4);
+//   banims <BLDG>   logs `harness-banim <BLDG> <slot> <anim> live <0|1> ... layer <n> in-layer <n> ...` for each animation
+//                   of the first building of type BLDG: the type's animations and the playing ones (in-layer: the
+//                   display layer it is drawn from, -1 none) (lane N4);
+//   banimhide <BLDG> <slot> [show]  hides (shows) that animation of every building of type BLDG (lane N4);
+//   scenario        logs `harness-scenario <file>` (lane N4);
+//   artkey <section> <key>  logs the value as ART(MD).INI gave it, and as a layer name (lane N4);
+//   occupants <BLDG>  logs `harness-occupants <BLDG> h<house> <n>[p]`: the garrison of each building of type BLDG;
 // RA2_NATIVE_FORCE_END=<f1>[,<f2>...][,lose]: at the first loop frame at or past each entry the game
 // ends as the house AI ends it on a win or defeat (PlayerWins / PlayerLoses, read by the main loop);
 // logs `force-end: win|loss at frame <f> in <scenario>`, so a campaign goes on mission by mission.
@@ -104,6 +118,10 @@
 #include "conquer.h"
 #include "houstype.h"
 #include "_map.h"
+#include "display.h"
+#include "ccini.h"
+extern CCINIClass ArtINI;
+LayerType Layer_From_Name(char const * name);
 #include "building.h"
 #include "super.h"
 #include "suprtype.h"
@@ -146,6 +164,11 @@ char shoot_type[32] = "";
 int noise_frames = 0;
 int noise_total = 0;
 int noise_max = 0;
+TechnoClass * camo_unit = NULL;	// camo: the disguised unit watched, frames left, frames seen as its disguise
+int camo_frames = 0;
+int camo_seen = 0;
+int camo_green = 0;
+int camo_blue = 0;
 bool watching = false;
 bool killed = false;
 
@@ -672,6 +695,12 @@ int Run_Order(int frame, char const * text)
 		fprintf(stderr, "harness-rects commandbar on screen %d%% drawn\n", Bar_Drawn(bar));
 		return(1);
 	}
+	if (!strcmp(word[0], "camo") && words >= 3) {
+		camo_unit = First_Of(word[1], NULL);
+		camo_frames = atoi(word[2]);
+		camo_seen = camo_green = camo_blue = 0;
+		return(camo_unit != NULL ? 1 : -1);
+	}
 	if (!strcmp(word[0], "noise") && words >= 2) {
 		noise_frames = noise_total = atoi(word[1]);
 		noise_max = 0;
@@ -711,6 +740,123 @@ int Run_Order(int frame, char const * text)
 		}
 		fprintf(stderr, "%s\n", line);
 		return(1);
+	}
+	if (!strcmp(word[0], "occupiable")) {
+		// logs `harness-occupiable <ID> max <n>` for each building type that infantry can garrison (lane N4)
+		int n = 0;
+		for (int i = 0; i < BuildingTypes.Count(); ++i) {
+			BuildingTypeClass * type = BuildingTypes[i];
+			if (type == NULL || !type->CanBeOccupied) continue;
+			if (n < 40) fprintf(stderr, "harness-occupiable %s max %d\n", type->Name(), type->MaxNumberOccupants);
+			++n;
+		}
+		return(n ? n : -1);
+	}
+	if (!strcmp(word[0], "click") && words >= 3) {
+		// the player's first unit of type ID clicked onto the nearest techno of type TARGET as the mouse click does
+		// (What_Action, then Active_Click_With: the order event); logs `harness-click <ID> action <n> -> <TARGET>` (lane N4)
+		TechnoClass * unit = First_Of(word[1], PlayerPtr);
+		TechnoClass * target = NULL;
+		int best = 0;
+		for (int i = 0; i < Technos.Count() && unit != NULL; ++i) {
+			TechnoClass * techno = Technos[i];
+			if (techno == NULL || techno == unit || techno->IsInLimbo || strcmp(Type_Name(techno), word[2])) continue;
+			Coord a = techno->Center_Coord(), b = unit->Center_Coord();
+			int d = abs(a.X - b.X) + abs(a.Y - b.Y);
+			if (target == NULL || d < best) target = techno, best = d;
+		}
+		if (unit == NULL || target == NULL) {
+			fprintf(stderr, "harness-click: no %s or no %s\n", word[1], word[2]);
+			return(-1);
+		}
+		ActionType action = unit->What_Action(target, true);
+		bool done = unit->Active_Click_With(action, target, false);
+		fprintf(stderr, "harness-click %s action %d -> %s %s\n", word[1], (int)action, word[2], done ? "ok" : "refused");
+		return(done ? 1 : -1);
+	}
+	if (!strcmp(word[0], "scenario")) {
+		// logs `harness-scenario <file>`: the scenario being played (lane N4)
+		fprintf(stderr, "harness-scenario %s\n", Scen ? Scen->ScenarioName : "?");
+		return(1);
+	}
+	if (!strcmp(word[0], "artkey") && words >= 3) {
+		// logs `harness-artkey <section> <key> <value>` from ART(MD).INI as the game read it, and `harness-layer-of
+		// <value> = <n>`: the value read as a layer name (Layer_From_Name; lane N4)
+		char value[128];
+		ArtINI.Get_String(word[1], word[2], "<absent>", value, sizeof(value));
+		fprintf(stderr, "harness-artkey %s %s %s\n", word[1], word[2], value);
+		fprintf(stderr, "harness-layer-of %s = %d\n", value, (int)Layer_From_Name(value));	// the value as a layer name
+		return(1);
+	}
+	if (!strcmp(word[0], "banimhide") && words >= 3) {
+		// every building of type BLDG hides (or with `show`, shows) its animation in slot n (lane N4)
+		int slot = atoi(word[2]);
+		bool show = words >= 4 && !strcmp(word[3], "show");
+		int n = 0;
+		for (int i = 0; i < Buildings.Count(); ++i) {
+			BuildingClass * b = Buildings[i];
+			if (b == NULL || slot < 0 || slot >= BANIM_COUNT || b->Anims[slot] == NULL || strcmp(Type_Name(b), word[1])) continue;
+			b->Anims[slot]->Invisible = !show;
+			++n;
+		}
+		return(n ? n : -1);
+	}
+	if (!strcmp(word[0], "banims") && words >= 2) {
+		// logs `harness-banim <BLDG> <slot> <anim> live <0|1> powered <0|1>` for each animation slot the type names
+		// (BuildingTypeClass::AnimData) of the first building of type BLDG, whether it is playing (BuildingClass::Anims)
+		// (lane N4)
+		BuildingClass * found = NULL;
+		for (int i = 0; i < Buildings.Count() && found == NULL; ++i) {
+			if (Buildings[i] && !Buildings[i]->IsInLimbo && !strcmp(Type_Name(Buildings[i]), word[1])) found = Buildings[i];
+		}
+		if (found == NULL) return(-1);
+		int n = 0;
+		for (int slot = 0; slot < BANIM_COUNT; ++slot) {
+			BuildingTypeClass::AnimDataType const & data = found->Class->AnimData[slot];
+			if (!data.Anim[0] && found->Anims[slot] == NULL) continue;
+			AnimClass * anim = found->Anims[slot];
+			fprintf(stderr, "harness-banim %s %d %s live %d powered %d", word[1], slot, data.Anim[0] ? data.Anim : "-",
+				anim != NULL ? 1 : 0, data.Powered ? 1 : 0);
+			if (anim != NULL) {
+				Cell cell = anim->Get_Cell();
+				fprintf(stderr, " stage %d/%d invisible %d poweroff %d paused %d limbo %d @%d,%d", anim->Animation.Fetch_Stage(),
+					anim->Stage_Count(), anim->Invisible, anim->PowerOff, anim->Paused, anim->IsInLimbo, cell.X, cell.Y);
+				fprintf(stderr, " delay %d fogged %d detail %d image %d layer %d", anim->LoopDelay, anim->IsFogged,
+					anim->Type->DetailLevel, anim->Get_Image_Data() != NULL ? 1 : 0, (int)anim->In_Which_Layer());
+				int in = -1;
+				for (int layer = 0; layer < LAYER_COUNT && in < 0; ++layer) {
+					for (int k = 0; k < DisplayClass::Layer[layer].Count(); ++k) if (DisplayClass::Layer[layer][k] == anim) in = layer;
+				}
+				fprintf(stderr, " in-layer %d owner %d", in, anim->OwnerObject != NULL ? 1 : 0);
+			}
+			fprintf(stderr, "\n");
+			++n;
+		}
+		fprintf(stderr, "harness-banim %s slots %d\n", word[1], n);
+		return(1);
+	}
+	if (!strcmp(word[0], "disguise") && words >= 2) {
+		// logs `harness-disguise <ID> <0|1> as <TYPE> r<rtti> clear <0|1>` for the first techno of type ID: disguised,
+		// the disguise's type, whether the player sees through it now (IsClearlyVisibleTo) (lane N4)
+		TechnoClass * techno = First_Of(word[1], NULL);
+		if (techno == NULL) return(-1);
+		ObjectTypeClass const * as = techno->IsDisguised() ? techno->GetDisguise(true) : NULL;
+		fprintf(stderr, "harness-disguise %s %d as %s r%d clear %d\n", word[1], techno->IsDisguised() ? 1 : 0,
+			as ? as->Name() : "-", as ? (int)as->Fetch_RTTI() : -1, techno->IsClearlyVisibleTo(PlayerPtr) ? 1 : 0);
+		return(1);
+	}
+	if (!strcmp(word[0], "occupants") && words >= 2) {
+		// logs `harness-occupants <BLDG> h<house> <n>[p]` for each building of type BLDG (p: the player's) (lane N4)
+		int n = 0;
+		for (int i = 0; i < Buildings.Count(); ++i) {
+			BuildingClass * building = Buildings[i];
+			if (building == NULL || building->IsInLimbo || strcmp(Type_Name(building), word[1])) continue;
+			fprintf(stderr, "harness-occupants %s h%d %d%s\n", word[1], building->House ? building->House->HeapID : -1,
+				building->GetOccupantCount(), building->House == PlayerPtr ? "p" : "");
+			++n;
+		}
+		if (!n) fprintf(stderr, "harness-occupants %s none\n", word[1]);
+		return(n ? n : 1);
 	}
 	if ((!strcmp(word[0], "deploy") || !strcmp(word[0], "move") || !strcmp(word[0], "where")) && words >= 2) {
 		TechnoClass * found = NULL;
@@ -767,6 +913,27 @@ int Noise_Pixels(Surface * surface)
 	return(count);
 }
 
+// camo: in the composed view, the pixels of a box above a unit (its disguise, a tree, stands there) that are
+// leaf green (green the strongest channel) and that are blue or white (blue the strongest, or all channels
+// high): the disguise drawn through the house's colours instead of the terrain's (lane N4) was blue and white.
+void Camo_Pixels(Surface * surface, Point2D const & at, int & green, int & blue)
+{
+	if (surface == NULL || surface->Bytes_Per_Pixel() != 2) return;
+	unsigned char * base = (unsigned char *)surface->Lock();
+	if (base == NULL) return;
+	for (int y = at.Y - 70; y < at.Y; ++y) {
+		if (y < 0 || y >= surface->Get_Height()) continue;
+		unsigned short const * row = (unsigned short const *)(base + (size_t)y * surface->Stride());
+		for (int x = at.X - 40; x < at.X + 10; ++x) {
+			if (x < 0 || x >= surface->Get_Width()) continue;
+			int r = (row[x] >> 11) << 3, g = ((row[x] >> 5) & 63) << 2, b = (row[x] & 31) << 3;
+			if (g > r + 8 && g > b + 8) ++green;
+			else if ((b > r + 24 && b > g) || (r > 200 && g > 200 && b > 200)) ++blue;
+		}
+	}
+	surface->Unlock();
+}
+
 void Force_End(int frame)
 {
 	static int end_at[16];
@@ -814,6 +981,24 @@ void yr_native_harness_frame(int frame)
 		if (n > noise_max) noise_max = n;
 		if (n > 60) fprintf(stderr, "harness-noise %d at frame %d\n", n, frame);
 		if (--noise_frames == 0) fprintf(stderr, "harness-noise-max %d over %d frames\n", noise_max, noise_total);
+	}
+	if (camo_frames > 0 && camo_unit != NULL) {
+		if (!Is_Live(camo_unit)) {
+			camo_frames = 1;
+		} else if (camo_unit->IsDisguised() && !camo_unit->IsClearlyVisibleTo(PlayerPtr)) {
+			Point2D pixel;
+			if (TacticalMap->Coord_To_Pixel(camo_unit->Center_Coord(), pixel)) {
+				int green = 0, blue = 0;
+				Camo_Pixels(CompositeSurface, pixel, green, blue);
+				++camo_seen;
+				camo_green += green;
+				camo_blue += blue;
+			}
+		}
+		if (--camo_frames == 0) {
+			fprintf(stderr, "harness-camo seen %d green %d blue %d\n", camo_seen,
+				camo_seen ? camo_green / camo_seen : 0, camo_seen ? camo_blue / camo_seen : 0);
+		}
 	}
 	Force_End(frame);
 }
