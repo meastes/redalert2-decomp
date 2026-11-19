@@ -738,9 +738,9 @@
    "source": "leaf src/recovered/00406320.cpp",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "VocClass::PlayGlobal/PlayAt (0x00713DE9, 0x00713E97) call it when a sound is started with an audio controller (a tracked, updatable voice); the audio runs played none",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n10-leave: the LAN pair of lan_pair.py --background --extras, in which Bravo plays with audio (SDL's device): a sound started with an audio controller (VocClass::PlayGlobal/PlayAt) in one of the two games; which sound was not traced (not reached by the earlier audio runs, which had no beacon or LAN leave)",
+   "reach_checked_by": "N10 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n10-leave and report"
   },
   {
    "entry": "0x00406140",
@@ -2266,9 +2266,9 @@
    "notes": "Scout1161 M20 play-stability sweep trap",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 48 default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n10-bar: reached in the first run of n10-bar (a skirmish with a tank selected and the mouse moved, clicked and held over the map); a second run of the same script and runs of each of its parts alone did not reach it (the start position differs from run to run), so the call that reached this default slot on a non-techno object was not traced",
+   "reach_checked_by": "N10 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n10-bar and report"
   },
   {
    "entry": "0x00423DB0",
@@ -2281,9 +2281,9 @@
    "notes": "Scout1161 M20 play-stability sweep trap",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot (IsDisguisedAs) default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n10-bar: reached in the first run of n10-bar (a skirmish with a tank selected and the mouse moved, clicked and held over the map); a second run of the same script and runs of each of its parts alone did not reach it (the start position differs from run to run), so the call that reached this default slot on a non-techno object was not traced",
+   "reach_checked_by": "N10 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n10-bar and report"
   },
   {
    "entry": "0x0041B2E0",
@@ -2518,9 +2518,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 25 default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n10-bar: reached in the first run of n10-bar (a skirmish with a tank selected and the mouse moved, clicked and held over the map); a second run of the same script and runs of each of its parts alone did not reach it (the start position differs from run to run), so the call that reached this default slot on a non-techno object was not traced",
+   "reach_checked_by": "N10 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n10-bar and report"
   },
   {
    "entry": "0x00423DD0",
@@ -2860,9 +2860,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the beacon command (TabClass::AI, TauntCommandClass): placing a beacon, a network-game feature; the skirmish runs pressed B, which places none in a skirmish",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n10-leave: lan_pair.py --extras: in the LAN game the host presses the multiplayer command bar's Beacon button (TabClass::AI 0x006A0F30 -> 0x006F64B0), places a beacon beside its tank, closes its text line with Return and presses Delete over it (the single-player bar has no Beacon button)",
+   "reach_checked_by": "N10 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n10-leave and report"
   },
   {
    "entry": "0x006818B0",
@@ -3022,9 +3022,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "DisplayClass::Mouse_Left_Up for the area-guard cursor (Ctrl+Alt click); no run made that click",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n10-bar: a tank selected, Ctrl and Alt held (force fire and force move) with the mouse resting on open ground: TechnoClass::What_Action answers guard area (0x1A) and DisplayClass slot 46 asks 0x006F6740 for its cursor (also alone in a run of just those steps)",
+   "reach_checked_by": "N10 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n10-bar and report"
   },
   {
    "entry": "0x00495770",
@@ -3910,9 +3910,9 @@
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the LAN/network dialogs (Destroy_Connection, Compare_Users: a player leaving); the LAN-pair run did not take this branch",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n10-leave: lan_pair.py --background: Bravo (as the iOS app) leaves the LAN game when its background time runs low (the EXIT event); Alpha processes the EXIT on frame 6755 (Execute_DoList) and Destroy_Connection 0x005BB5D0 removes Bravo from the session's player list",
+   "reach_checked_by": "N10 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n10-leave and report"
   },
   {
    "entry": "0x00737B00",
@@ -4048,9 +4048,9 @@
    "notes": "Scout1281: the Delete command (DeleteCommandClass::Execute 0x0051DA30 -> unknown_dispatch 0x006F6490) reads it; a link-closure trap before (static reach from executed code, coverage battery)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "Command_Delete_Plan_Or_Beacon (Delete in planning mode with a node selected)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n10-bar: the Delete key in a skirmish: DeleteCommandClass::Execute 0x0051DA30 -> 0x006F6490 asks for the planning mode's node (also alone in a run of just that key)",
+   "reach_checked_by": "N10 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n10-bar and report"
   },
   {
    "entry": "0x00454BF0",

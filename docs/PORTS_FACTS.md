@@ -273,7 +273,14 @@ platform layer. It earns no exact-match credit.
   Ivan bombs the player's engineer and an enemy missile silo spawned beside the base, then the engineer captures the
   silo: BombClass::Disarm; the bombed engineer alone selected with the mouse over it: the bomb's kind asked for the
   detonate cursor, BombClass::Unknown_00435FF0) and `n9-ui` (T held and a Shift click on a selected tank: every tank unselected,
-  Unknown_006F7020; the input log shows 5 tanks selected, then none). 88 remain reviewed but unreached.
+  Unknown_006F7020; the input log shows 5 tanks selected, then none). Lane N10 (2026-11-19) reached 8 more: `n10-leave`
+  (`lan_pair.py --background --extras`: Bravo leaves the LAN game with the EXIT event and Alpha's Destroy_Connection
+  removes it from the session's players, SessionClass::Unknown_00672F20; the host presses the multiplayer command bar's
+  Beacon, places a beacon and deletes it, Unknown_006F64B0; a sound started with an audio controller,
+  Audio_Event_Type_Of) and `n10-bar` (a tank selected, Ctrl+Alt held over open ground: the guard-area cursor,
+  Unknown_006F6740; the Delete key: unknown_find_617a00; three ObjectClass default slots reached once and not again in
+  a rerun, trigger not traced). The single-player command bar has no Attack Move or Beacon button (UI.INI); waypoint
+  mode with the mouse on an empty cell did not ask HouseClass::Can_Add_Waypoint_To_Path. 80 remain reviewed but unreached.
   Every one of the 311 rewrite rows now carries a behaviour verdict against the original (lane N2,
   2026-11-17: the last 31, the hand-written-assembly ones among them, checked statically): 299 the
   same (some apart from named, harmless edge cases), 4 fixed, 1 different by design, 3 kept (the

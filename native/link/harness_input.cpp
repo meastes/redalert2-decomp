@@ -8,7 +8,8 @@
 // it logs harness-input: the selected objects and each of the player's
 // objects (type ID, mission, cell; '*' when selected; :p<order> a pending order), then
 // the player's production (" inf=N veh=N", harness_sidebar.cpp). "@tab=N" and
-// "@cameo=ID" are the sidebar's tab buttons and build icons (harness_sidebar.cpp).
+// "@cameo=ID" are the sidebar's tab buttons and build icons (harness_sidebar.cpp); "@cmd=NAME" the
+// command bar's button for a command (team_button_hook.cpp, lane N10).
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
 #include "shared/display.hpp"     // before map_view.hpp (full DisplayClass)
 #include "shared/map_view.hpp"
@@ -84,6 +85,7 @@ bool Is_Selected(ObjectClass *object)
 }  // namespace
 int Native_Harness_Sidebar_Point(char const *spec, int *x, int *y);   // harness_sidebar.cpp (lane C16)
 int Native_Harness_Production(int kind);
+int Native_Harness_Bar_Point(char const *spec, int *x, int *y);      // team_button_hook.cpp (lane N10)
 namespace {
 
 int Resolve(char const *spec, int *x, int *y)
@@ -92,6 +94,8 @@ int Resolve(char const *spec, int *x, int *y)
     if (player == 0 || TacticalMap == 0) return 0;
     // "@tab=N", "@cameo=ID": the sidebar's tab button, a build icon shown (lane C16).
     if (Native_Harness_Sidebar_Point(spec, x, y)) return 1;
+    // "@cmd=NAME": the command bar's button for that command (lane N10).
+    if (spec[0] == 'c' && spec[1] == 'm' && spec[2] == 'd' && spec[3] == '=') return Native_Harness_Bar_Point(spec, x, y);
     if (spec[0] == '=') {
         // "@=X,Y": the centre of cell X,Y (Scout1153, M19: a building of another house, a bridge hut).
         char const *p = spec + 1;

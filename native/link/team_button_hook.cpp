@@ -4,6 +4,7 @@
 // Team01..Team03 commands, while the bar is open (IsThumbActive; Close_Thumb removes them).
 // The YR game's answer is native/yr/glue/yr_app_hooks.cpp's.
 #include "shared/mouse_class.hpp"
+#include <stdio.h>
 
 extern MouseClass Map;                 // 0x008324E0 (as shared/map_view.hpp declares it)
 
@@ -18,4 +19,38 @@ extern "C" int ra2_native_team_button_at(int x, int y)
         }
     }
     return 0;
+}
+
+// Test scaffolding (lane N10): an input script's point "@cmd=<command>" is the middle of the command
+// bar's button for that command (harness_input.cpp asks it; as the YR game's glue/yr_app_hooks.cpp).
+// 1 when found; 0 when the spec is not "cmd=" or the bar is closed or has no such button (logged).
+static bool Same_Text(char const *a, char const *b)
+{
+    while (*a && *a == *b) ++a, ++b;
+    return *a == *b;
+}
+int Native_Harness_Bar_Point(char const *spec, int *x, int *y)
+{
+    if (spec[0] != 'c' || spec[1] != 'm' || spec[2] != 'd' || spec[3] != '=') return 0;
+    static struct { char const *name; int const *slot; } const commands[] = {
+        {"AttackMove", &TabClass_AttackMoveCommand}, {"Beacon", &TabClass_BeaconCommand},
+        {"Cheer", &TabClass_CheerCommand}, {"Deploy", &TabClass_DeployCommand}, {"Guard", &TabClass_GuardCommand},
+        {"PlanningMode", &TabClass_PlanningModeCommand}, {"Stop", &TabClass_StopCommand},
+        {"TypeSelect", &TabClass_TypeSelectCommand}};
+    int slot = -1;
+    for (unsigned i = 0; i < sizeof commands / sizeof commands[0]; ++i)
+        if (Same_Text(spec + 4, commands[i].name)) slot = *commands[i].slot;
+    ShapeButtonClass *button = Map.IsThumbActive && slot >= 0 ? TabClass::Get_Button(slot) : 0;
+    if (button == 0 || button->IsDisabled) {
+        fprintf(stderr, "input-script: no command bar button for %s (slot %d); the bar's buttons:", spec, slot);
+        for (unsigned i = 0; i < sizeof commands / sizeof commands[0]; ++i) {
+            ShapeButtonClass *other = Map.IsThumbActive ? TabClass::Get_Button(*commands[i].slot) : 0;
+            if (other && !other->IsDisabled) fprintf(stderr, " %s", commands[i].name);
+        }
+        fprintf(stderr, "\n");
+        return 0;
+    }
+    *x = button->X + button->Width / 2;
+    *y = button->Y + button->Height / 2;
+    return 1;
 }

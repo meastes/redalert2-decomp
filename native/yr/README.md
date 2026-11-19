@@ -1023,6 +1023,36 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   Destroy_Connection: lan_pair.py's host leaves at the end, but Bravo's coverage of that was never seen; a lobby
   leave-and-rejoin variant is the other way), then the 88 left, most-called first.
 
+### Lane N10 (2026-11-19): a player leaving a LAN game, eight more of Red Alert 2's unreached rewrites
+
+* **A player leaving a LAN game** (N9's resume list): coverage_runs.py's `n10-leave` runs `lan_pair.py --background
+  --extras` (9,000 frames) on the coverage build: Bravo, playing as the iOS app, leaves when its background time runs
+  low (the EXIT event); Alpha processes the EXIT on frame 6,755 and Destroy_Connection 0x005BB5D0 removes Bravo from
+  the session's players: SessionClass::Unknown_00672F20 reached. The pair passes (6,756 frames with both CRCs, none
+  differ; no reconnect dialog). No lobby leave-and-rejoin variant was needed.
+* **Red Alert 2's unreached rewrites: 88 -> 80** (native/behaviour_rewrites.json `reach`). An input script's point
+  `@cmd=NAME` is the RA2 command bar's button for a command (link/team_button_hook.cpp, asked by harness_input.cpp; as
+  the YR glue's). `lan_pair.py --extras` (coverage only, not the ctests): the host presses the multiplayer bar's Beacon,
+  places a beacon, closes its text line and presses Delete over it: Unknown_006F64B0; the same run reached
+  Audio_Event_Type_Of (a sound with an audio controller; which one not traced). `n10-bar` (skirmish): a tank selected and
+  Ctrl+Alt held over open ground: the guard-area cursor Unknown_006F6740; Delete: unknown_find_617a00 (each confirmed by a
+  run of just those steps); ObjectClass slots 25, 48 and IsDisguisedAs reached in the first run only (not in a rerun or
+  the part runs; trigger not traced, marked so). Not reached: the single-player bar has only Deploy, Guard,
+  PlanningMode, TypeSelect and the teams (UI.INI [AdvancedCommandBar]: no Attack Move, so 0x006F6730 stays); waypoint
+  mode (Z) with the mouse on an empty cell, also after selecting the path by hovering its waypoint, did not ask
+  HouseClass::Can_Add_Waypoint_To_Path; the host screen's Short Game check box after Bravo's Accept (to reset the
+  ready states) was not found by `@ctl=1358` on the host's screen (dropped).
+* **Yuri's Revenge's missing functions (89)**: re-checked those with a gamemd.exe caller outside the families N5/N6
+  listed: OwnerDraw::SysTabHandler (no dialog template in gamemd.exe has a SysTabControl32), PrepareDialogChildControls
+  (UI::StandardWndProc's WM_INITDIALOG with a zero init parameter only), FUN_0049B430 (coopcamp.cpp), FUN_0046DFD0
+  (CampaignScoreClass::Show's dialog, the coop campaign's), Get_Language_Version (the version dialog), Send_Statistics_Packet
+  (Internet games), DoFindPage, FUN_00778A20/0077B2A0/00785360/007A2800/0079FC40 (Westwood Online). None reachable in
+  skirmish or campaign play.
+* **Resume note (lane N10)**: 80 reviewed rows left, mostly default virtual slots, audio controllers, network-dialog
+  branches (Set_Player_Map_State / Handle_Reset_Ready need a host-screen change after an Accept: find the host screen's
+  check box with RA2_NATIVE_MSG_LOG on Alpha), EM pulse and overlay saves, the 8-bit and backward blitters.
+  Can_Add_Waypoint_To_Path: trace why ScrollClass::What_Action's waypoint branch is not taken (the input log around Z).
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

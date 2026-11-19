@@ -86,8 +86,18 @@ def orders(start, end, every):
     return lines
 
 
-def host_script(frames):
+# --extras (lane N10, coverage_runs.py n10-leave; not the ctests): in the game the host presses the command bar's
+# Beacon (the multiplayer bar's button: TabClass::AI 0x006A0F30 -> 0x006F64B0), places a beacon beside its tank, closes
+# the beacon's text line with Return, and presses Delete with the mouse on it. (Tried and dropped: the host screen's
+# Short Game check box after Bravo's Accept, to reset the ready states: "@ctl=1358" found no such control on the
+# host's screen; not traced.)
+EXTRA_HOST = ['1250 click @cmd=Beacon', '1260 click @MTNK+3,3', '1275 key Return', '1285 move @MTNK+3,3', '1290 key Delete']
+
+
+def host_script(frames, extras=False):
     lines = ['s1+1000 click 834 388', 's2+1500 click 834 304', 's3+20000 click 834 346', 's3+24000 click 834 346']
+    if extras:
+        lines += EXTRA_HOST
     # Lane N6: Tab twice in the host's lobby (the network dialogs' Tab handling, coverage_runs.py lanpair).
     lines += ['s3+4000 key Tab', 's3+4500 key Tab']
     lines += ['%d %s' % e for e in EDGE]
@@ -349,6 +359,7 @@ def main():
     ap.add_argument('--frames', type=int, default=18000, help='the host\'s game frames (about 60 a second: 5 minutes)')
     ap.add_argument('--hd', default='3', help='HD vehicles chosen in all three games (0: off; the cap checks need 3)')
     ap.add_argument('--background', action='store_true', help='Bravo plays as the iOS app: resign, backgrounds, no broadcast (C22)')
+    ap.add_argument('--extras', action='store_true', help='coverage runs (N10): a beacon placed and deleted in the game')
     ap.add_argument('--wine-prefix-b', default='')
     ap.add_argument('--wine', default='')
     a = ap.parse_args()
@@ -374,7 +385,7 @@ def main():
     solo.run(300)
     solo_rates = scroll_rate(solo.out)
 
-    alpha = Instance('Alpha', a.binary, work, a.data_dir, a.game_exe, host_script(a.frames), hd=a.hd)
+    alpha = Instance('Alpha', a.binary, work, a.data_dir, a.game_exe, host_script(a.frames, a.extras), hd=a.hd)
     bravo = Instance('Bravo', a.binary_b or a.binary, work, a.data_dir, a.game_exe, joiner_script(a.frames, a.background), prefix=prefix,
                      ios_like=a.background, hd=a.hd)
     # Alpha leaves at its frame count; Bravo, told the host has gone, is then closed (20 s on).

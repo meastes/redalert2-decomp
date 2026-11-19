@@ -150,6 +150,23 @@ SCENARIOS = [
         '80 keydown T', '82 keydown Left_Shift', '84 click @MTNK', '88 keyup Left_Shift', '90 keyup T',
         '120 keydown T', '122 keydown Left_Shift', '124 click @MTNK', '128 keyup Left_Shift', '130 keyup T',
     ]),
+    # Lane N10: the command bar's buttons (an input script's "@cmd=NAME", link/team_button_hook.cpp) and hover cursors.
+    # A tank selected; Ctrl+Alt held with the mouse resting on open ground (force fire and force move: guard area,
+    # action 0x1A, its cursor Unknown_006F6740; reached); Delete (DeleteCommandClass::Execute asks for the planning
+    # mode's node, unknown_find_617a00; reached). Not reached: the bar's Attack Move and Beacon (UI.INI's single-player
+    # [AdvancedCommandBar] has only Deploy, Guard, PlanningMode, TypeSelect and the teams; the run logs "no command bar
+    # button": lan_pair.py --extras presses the multiplayer bar's Beacon), and waypoint mode (Z) with the mouse on an
+    # empty cell (HouseClass::Can_Add_Waypoint_To_Path: not asked; not traced further).
+    dict(name='n10-bar', args=['--skirmish=#5', '--skirmish-frames=700', '--skirmish-order=both', '--run-to=frames',
+                               '--run-seconds=240', NOAUDIO], env=dict(RA2_NATIVE_INPUT_LOG='10'), seconds=300, script=[
+        '80 click @MTNK', '90 click @cmd=AttackMove', '95 move @MTNK+4,0', '100 move @MTNK+5,0', '106 move @MTNK+5,1',
+        '112 rclick @MTNK+5,1',
+        '130 click @MTNK', '140 keydown Left_Ctrl', '141 keydown Left_Option', '143 move @MTNK+4,1', '147 move @MTNK+5,1',
+        '152 move @MTNK+5,2', '156 keyup Left_Option', '157 keyup Left_Ctrl',
+        '200 click @cmd=Beacon', '210 move @MTNK+3,3', '215 click @MTNK+3,3', '260 key Delete',
+        '300 click @MTNK', '310 key Z', '320 click @MTNK+4,0', '330 move @MTNK+6,2', '336 move @MTNK+7,2',
+        '342 move @MTNK+7,3', '350 key Z', '400 key Delete',
+    ]),
     # Lane N4: the skirmish's Choose Map (control 0x5AA), its Create Random Map (0x583), the random map dialog's
     # Preview (0x620: the map generated) and its accept (0x6C5).
     menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
@@ -241,6 +258,14 @@ SCENARIOS = [
     # the game's network frames (CRC, events), the in-game menus of a network game.
     dict(name='lanpair', harness='lan_pair.py', args=['--binary', '{binary}', '--data-dir', '{data}', '--game-exe', '{exe}',
                                                       '--work', '{work}', '--frames', '4000'], env={}, seconds=900),
+    # Lane N10: a player leaving a LAN game. In lan_pair.py --background, Bravo (as the iOS app) leaves the game when its
+    # background time runs low (the EXIT event); Alpha takes the EXIT (Execute_DoList) and plays on: Destroy_Connection
+    # 0x005BB5D0 removes Bravo from the session's player list (SessionClass::Unknown_00672F20).
+    # --extras: in the game the host's command bar Beacon (Unknown_006F64B0), a beacon placed, its text line closed,
+    # Delete over it.
+    dict(name='n10-leave', harness='lan_pair.py', args=['--background', '--extras', '--binary', '{binary}', '--data-dir', '{data}',
+                                                        '--game-exe', '{exe}', '--work', '{work}', '--frames', '9000'],
+         env={}, seconds=1800),
     # The game binary's own self tests (test scaffolding, not a game path): the VQA player's
     # reset around a mod's .VQA movie and the drawing checks.
     dict(name='vqa-selftest', args=[], env=dict(RA2_NATIVE_VQA_SELFTEST='1'), seconds=120),
