@@ -1525,7 +1525,6 @@ void Tactical::Draw_Placement(bool drawtrans)
 /// </summary>
 /// <param name="drawtrans">Draw the preview translucent (valid) or opaque (invalid)?</param>
 /// <param name="cell">The cell the fence is being placed on.</param>
-#ifdef RA2_NON_MATCHING // not exact: 671 bytes differ (adopted text)
 void Tactical::Draw_Fence_Placement(bool drawtrans, Cell cell)
 {
 	for (int index = 0; index < FACING_COUNT; index += FACING_COUNT / 4) {
@@ -1536,58 +1535,43 @@ void Tactical::Draw_Fence_Placement(bool drawtrans, Cell cell)
 			continue;
 		}
 
-		/*
-		 * Walk outward until a building is met, or the run is broken by terrain, a
-		 * ramp, impassable ground, or the limit of the fence's reach.
-		 */
 		FacingType facing = (FacingType)index;
-		BuildingClass * building = NULL;
+		BuildingClass * building;
 		bool found = false;
 		while (true) {
 			scan = Adjacent_Cell(scan, facing);
 			building = Map[scan].Cell_Building();
-			if (building != NULL) {
+			if (building) {
 				found = true;
 				break;
 			}
-			CellClass * cellptr = &Map[scan];
-			if (cellptr->Cell_Terrain(false) != NULL) {
-				break;
-			}
-			if (cellptr->Ramp > 0) {
-				break;
-			}
-			if (cellptr->Passability != 0) {
-				break;
-			}
-			if (++count >= range) {
+			CellClass * nearby = &Map[scan];
+			if (nearby->Cell_Terrain(false) || nearby->Ramp > 0 || nearby->Passability != PASSABLE_LAND || ++count >= range) {
 				break;
 			}
 		}
-
-		/*
-		 * Lay the preview shape over every cell of the run that was walked.
-		 */
 		if (found && building->Class->IsLaserFencePost && building->House->Is_Player_Control() && count > 0) {
 			int flags = drawtrans ? (SHAPE_ZERO_ALPHA | SHAPE_WIN_REL | SHAPE_CENTER | SHAPE_TRANSLUCENT75)
-								  : (SHAPE_NONZERO_ALPHA | SHAPE_WIN_REL | SHAPE_CENTER | SHAPE_TRANSLUCENT75);
+				: (SHAPE_NONZERO_ALPHA | SHAPE_WIN_REL | SHAPE_CENTER | SHAPE_TRANSLUCENT75);
 			Cell drawcell = Adjacent_Cell(cell, facing);
-			for (int i = count; i > 0; i--) {
-				int yoff = -1 - 15 * Map[drawcell].Height; // RA2: the per level pixel height is the constant 15 here
-				int zoff = -2 - 15 * Map[drawcell].Height; // RA2: as above
-				Coord coord = Coord_Whole(Coord(drawcell));
-				Point2D pixel;
-				Coord_To_Pixel(coord, pixel);
-				Point2D point;
-				point.X = ISO_TILE_PIXEL_W / -2 + pixel.X + ISO_TILE_PIXEL_W / 2;
-				point.Y = pixel.Y + yoff;
-				Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)DisplayClass::PlacementShapes, 0, point, TacticalRect, (ShapeFlags_Type)flags, 0, zoff);
-				drawcell = Adjacent_Cell(drawcell, facing);
+			for (int i = 0; i < count; ++i, drawcell = Adjacent_Cell(drawcell, facing)) {
+				int height = (ISO_TILE_PIXEL_H / 2) * Map[drawcell].Height;
+				int zheight = (ISO_TILE_PIXEL_H / 2) * Map[drawcell].Height;
+				Point2D cursor_offset(ISO_TILE_PIXEL_W / 2, -1 - height);
+				int zoff = -2 - zheight;
+				Coord coord = Coord_Whole(drawcell.As_Coord());
+				Point2D tile_origin;
+				Coord_To_Pixel(coord, tile_origin);
+				tile_origin.X -= ISO_TILE_PIXEL_W / 2;
+				int px = tile_origin.X + cursor_offset.X;
+				int py = cursor_offset.Y + tile_origin.Y;
+				Point2D point(px, py);
+				Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)DisplayClass::PlacementShapes, 0, point,
+					TacticalRect, (ShapeFlags_Type)flags, 0, zoff);
 			}
 		}
 	}
 }
-#endif
 
 
 

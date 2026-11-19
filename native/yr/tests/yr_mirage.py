@@ -12,9 +12,15 @@ another house's unit through that house's colours; the draft now does the same.
 
 Through the menus into a skirmish (yr_standins.py's route), harness orders (glue/yr_harness.cpp):
   frame 60       a Mirage tank spawned for the player near the base;
-  frames 100-900 `camo MGTK 800`: on each frame the player is shown the disguise, the leaf-green and the blue/white
+  frames 60-900  `camo MGTK 840`: on each frame the player is shown the disguise, the leaf-green and the blue/white
                  pixels in a box above the tank in the composed view are counted (the broken draw: about 85 green,
-                 615 blue; the fixed one about 730 green, 5 blue);
+                 615 blue; the fixed one 70-730 green by the tree drawn, 0-5 blue);
+                 lane N12 (the user's Duo report: the camouflage corrupted on its first animation only): the owner
+                 sees the disguise come and go every 256 frames (the tank fades out, the tree, the tank fades in;
+                 TechnoClass::GetDisguiseFlags / IsClearlyVisibleTo). Each frame of the first cycle's morph
+                 (phases 64-127) is kept and the second cycle's same frames must match it pixel for pixel in a
+                 100x110 box around the tank (`harness-camo-morph compared <n> differ <max> at frame <f>`; 0 on
+                 the Mac and in the Simulator);
   frame 900      the tank is still disguised as a tree.
 Also `noise 800` (yr-native-graphics' watch for 16-bit pixels in the eight-bit compositing surface).
 
@@ -34,9 +40,11 @@ import game_process  # noqa: E402
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 standins = importlib.import_module('yr_standins')
-ORDERS = '60 spawn MGTK 3 0; 100 camo MGTK 800; 100 noise 800; 900 disguise MGTK'
+ORDERS = '60 spawn MGTK 3 0; 60 camo MGTK 840; 100 noise 800; 900 disguise MGTK'
 CAMO = re.compile(r'^harness-camo seen (\d+) green (\d+) blue (\d+)$', re.M)
+MORPH = re.compile(r'^harness-camo-morph compared (\d+) differ (\d+) at frame (-?\d+)$', re.M)
 DISGUISE = re.compile(r'^harness-disguise MGTK (\d) as (\S+) r(-?\d+) clear (\d)$', re.M)
+MORPH_TOLERANCE = 40   # pixels of the 100x110 box (the neighbours' idle animations; a broken morph is hundreds)
 NOISE = re.compile(r'^harness-noise-max (\d+) over', re.M)
 
 
@@ -73,16 +81,23 @@ def main():
     camo = CAMO.search(text)
     disguise = DISGUISE.search(text)
     noise = NOISE.search(text)
-    print('camo: %s; disguise at 900: %s; noise max: %s' % (camo and camo.groups(), disguise and disguise.groups(),
-                                                            noise and noise.group(1)))
+    morph = MORPH.search(text)
+    print('camo: %s; morph: %s; disguise at 900: %s; noise max: %s' % (
+        camo and camo.groups(), morph and morph.groups(), disguise and disguise.groups(), noise and noise.group(1)))
     if not camo:
         failures.append('the camouflage watch did not finish (no Mirage tank, or the game stopped early)')
     else:
         seen, green, blue = map(int, camo.groups())
         if seen < 40:
             failures.append('the disguise was shown on only %d frames' % seen)
-        elif green < 200 or green < 3 * blue:
+        elif green < 40 or green < 3 * blue:
+            # the disguise is a random tree (DefaultMirageDisguises): an olive one lit by desert ground counts
+            # about 70 leaf-green pixels, a bushy one 300-400; the broken draw had 85 green to 615 blue/white
             failures.append('the camouflage is not drawn in a tree\'s colours: %d green, %d blue/white pixels' % (green, blue))
+    if not morph or int(morph.group(1)) < 48:
+        failures.append('the second disguise cycle was not compared with the first (%s)' % (morph and morph.groups(),))
+    elif int(morph.group(2)) > MORPH_TOLERANCE:
+        failures.append('the first disguise cycle differs from the second: %s pixels at frame %s' % morph.groups()[1:])
     if not disguise or disguise.group(1) != '1' or disguise.group(3) != '37':
         failures.append('the Mirage tank is not disguised as a tree at frame 900: %s' % (disguise and disguise.groups(),))
     if noise and int(noise.group(1)) > 60:

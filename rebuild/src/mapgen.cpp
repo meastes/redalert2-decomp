@@ -1378,7 +1378,6 @@ DynamicVectorClass<Cell> *MapRegionClass::Build_Border_Cell_List2(void)
 /// </summary>
 /// <param name="rings">How far out to grow, in rings.</param>
 /// <returns>bool; Did the region grow without running into a neighbor?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 470 bytes differ (adopted text)
 bool MapRegionClass::Grow(int rings) // RA2: RA2's form of Grow (0x570040); near miss (the inlined Adjacent_Cell sum is scheduled differently)
 {
 	DynamicVectorClass<Cell> * cells = Build_Border_Cell_List();
@@ -1389,12 +1388,13 @@ bool MapRegionClass::Grow(int rings) // RA2: RA2's form of Grow (0x570040); near
 
 		for (int j = 0; j < cells->Count(); j++) {
 			for (FacingType dir = FACING_FIRST; dir < FACING_COUNT; dir++) {
-				Cell ncell = Adjacent_Cell(Cell((*cells)[j]), dir); // RA2: as above
+				Cell const & cell = (*cells)[j];
+				Cell ncell = Adjacent_Cell(cell, dir);
 				if (My_In_Radar(ncell)) {
 					if (Map[ncell].Height == CellHeight) {
 						MapRegionClass::CellData & data = MapRegionClass::Get_Cell_Data(ncell);
 						int id = data.RegionID;
-						if (id == -1 && (Map[ncell].Is_Tile_Clear() || Map[ncell].Is_Tile_Clear_To_Green_LAT())) { // RA2: green-LAT-clear ground is claimable too
+						if (id == -1 && (Map[ncell].Is_Tile_Clear() || Map[ncell].Is_Tile_Clear_To_Green_LAT())) {
 							ncells->Add(ncell);
 							data.RegionID = ID;
 							Map[ncell].Height = CellHeight;
@@ -1415,7 +1415,6 @@ bool MapRegionClass::Grow(int rings) // RA2: RA2's form of Grow (0x570040); near
 	delete cells;
 	return(true);
 }
-#endif
 
 
 
@@ -5500,7 +5499,7 @@ void MapGeneratorClass::Partition_Rect(DynamicVectorClass<Rect> & rects, int cou
 /// RA2: lays the land down as one chunk per player plus a few spare ones, each grown from the middle of its share
 /// of the map.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 18 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text; the region-size shift is scheduled before the 0.45 addition)
 void MapGeneratorClass::Seed_Land_Type0(void) // RA2: RA2's form of Seed_Land_Type0 (0x57C4F0); near miss, 8 bytes differ (an integer shift is scheduled before the 0.45 addition)
 {
 	WorkingRegionID = 1; // RA2: as above
@@ -6731,386 +6730,355 @@ void MapGeneratorClass::Increase_Height_Of_ID(int id, char cell_height)
 /// <param name="head_x">The river head X, carried past the waterfall on success.</param>
 /// <param name="head_y">The river head Y, carried past the waterfall on success.</param>
 /// <returns>bool; Was the waterfall placed?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 2 bytes differ (FACING_S: right = base + Cell(patch.Width + 4, 0) keeps the sum in the offset's register in the original)
 bool MapGeneratorClass::Place_Waterfall(int region_id, Cell const & cell1, Cell const & cell2, int direction, bool & placed, double & head_x, double & head_y) // RA2: RA2's form (0x57FF20): the areas are rectangles; near miss, 2 bytes differ (the south case adds the base to the offset, the exe adds the offset to the base)
 {
-	placed = false; // RA2: RA2's form
+	placed = false;
 
-	Rect pre(0,0,0,0); // RA2: RA2's form
+	Rect pre(0, 0, 0, 0);
+	Rect seed(0, 0, 0, 0);
+	Rect patch(0, 0, 0, 0);
+	Rect bounds_rect(0, 0, 0, 0);
+	Cell center;
 
-	Rect seed(0,0,0,0); // RA2: RA2's form
-	Rect patch(0,0,0,0); // RA2: RA2's form
-	Rect bounds_rect(0,0,0,0); // RA2: RA2's form
-	Cell center; // RA2: left uninitialized
+	switch (direction) {
+		case FACING_N: {
+			pre = Rect(cell1.X - 2, cell1.Y - 12, cell2.X - cell1.X + 5, 12);
+			seed = Rect(cell1.X, cell1.Y - 4, cell2.X - cell1.X + 1, 4);
+			patch = Rect(cell1.X, cell1.Y - 12, cell2.X - cell1.X + 1, 8);
 
-	switch (direction) { // RA2: RA2's form
-		case FACING_N: { // RA2: RA2's form
-			pre=Rect(cell1.X - 2,cell1.Y - 12,cell2.X - cell1.X + 5,12); // RA2: RA2's form
-
-			seed=Rect(cell1.X,cell1.Y - 4,cell2.X - cell1.X + 1,4); // RA2: RA2's form
-
-			patch=Rect(cell1.X,cell1.Y - 12,cell2.X - cell1.X + 1,8); // RA2: RA2's form
-
-			bounds_rect = Rect(0, seed.Y, MAP_CELL_W, MAP_CELL_H - seed.Y); // RA2: RA2's form
-			center = Cell(seed.X, seed.Y); // RA2: RA2's form
-			break; // RA2: RA2's form
+			bounds_rect = Rect(0, seed.Y, MAP_CELL_W, MAP_CELL_H - seed.Y);
+			center = Cell(seed.X, seed.Y);
+			break;
 		}
-		case FACING_S: { // RA2: RA2's form
-			pre=Rect(cell2.X - 2,cell2.Y + 1,cell1.X - cell2.X + 5,12); // RA2: RA2's form
+		case FACING_S: {
+			pre = Rect(cell2.X - 2, cell2.Y + 1, cell1.X - cell2.X + 5, 12);
+			seed = Rect(cell2.X, cell2.Y + 1, cell1.X - cell2.X + 1, 4);
+			patch = Rect(cell2.X, cell2.Y + 5, cell1.X - cell2.X + 1, 8);
 
-			seed=Rect(cell2.X,cell2.Y + 1,cell1.X - cell2.X + 1,4); // RA2: RA2's form
-
-			patch=Rect(cell2.X,cell2.Y + 5,cell1.X - cell2.X + 1,8); // RA2: RA2's form
-
-			bounds_rect = Rect(0, 0, MAP_CELL_W, patch.Y - 1); // RA2: RA2's form
-			center = Cell(seed.X, seed.Y); // RA2: RA2's form
-			break; // RA2: RA2's form
+			bounds_rect = Rect(0, 0, MAP_CELL_W, patch.Y - 1);
+			center = Cell(seed.X, seed.Y);
+			break;
 		}
-		case FACING_E: { // RA2: RA2's form
-			pre=Rect(cell1.X + 1,cell1.Y - 2,12,cell2.Y - cell1.Y + 5); // RA2: RA2's form
+		case FACING_E: {
+			pre = Rect(cell1.X + 1, cell1.Y - 2, 12, cell2.Y - cell1.Y + 5);
+			seed = Rect(cell1.X + 1, cell1.Y, 4, cell2.Y - cell1.Y + 1);
+			patch = Rect(cell1.X + 5, cell1.Y, 8, cell2.Y - cell1.Y + 1);
 
-			seed=Rect(cell1.X + 1,cell1.Y,4,cell2.Y - cell1.Y + 1); // RA2: RA2's form
-
-			patch=Rect(cell1.X + 5,cell1.Y,8,cell2.Y - cell1.Y + 1); // RA2: RA2's form
-
-			bounds_rect = Rect(0, 0, patch.X - 1, MAP_CELL_H); // RA2: RA2's form
-			center = Cell(patch.X, patch.Y); // RA2: RA2's form
-			break; // RA2: RA2's form
+			bounds_rect = Rect(0, 0, patch.X - 1, MAP_CELL_H);
+			center = Cell(patch.X, patch.Y);
+			break;
 		}
-		case FACING_W: { // RA2: RA2's form
-			pre=Rect(cell2.X - 12,cell2.Y - 2,12,cell1.Y - cell2.Y + 5); // RA2: RA2's form
+		case FACING_W: {
+			pre = Rect(cell2.X - 12, cell2.Y - 2, 12, cell1.Y - cell2.Y + 5);
+			seed = Rect(cell2.X - 4, cell2.Y, 4, cell1.Y - cell2.Y + 1);
+			patch = Rect(cell2.X - 12, cell2.Y, 8, cell1.Y - cell2.Y + 1);
 
-			seed=Rect(cell2.X - 4,cell2.Y,4,cell1.Y - cell2.Y + 1); // RA2: RA2's form
-
-			patch=Rect(cell2.X - 12,cell2.Y,8,cell1.Y - cell2.Y + 1); // RA2: RA2's form
-
-			bounds_rect = Rect(seed.X, 0, MAP_CELL_W - seed.X, MAP_CELL_H); // RA2: RA2's form
-			center = Cell(seed.X, seed.Y); // RA2: RA2's form
-			break; // RA2: RA2's form
+			bounds_rect = Rect(seed.X, 0, MAP_CELL_W - seed.X, MAP_CELL_H);
+			center = Cell(seed.X, seed.Y);
+			break;
 		}
-		default: // RA2: RA2's form
-			break; // RA2: RA2's form
+		default:
+			break;
 	}
 
-	int yy; // RA2: RA2's form
-	int xx; // RA2: RA2's form
+	int yy;
+	int xx;
 
-	for (yy = pre.Y; yy < pre.Y + pre.Height; yy++) { // RA2: RA2's form
-		for (xx = pre.X; xx < pre.X + pre.Width; xx++) { // RA2: RA2's form
-			if (My_In_Radar(Cell(xx, yy))) { // RA2: RA2's form
-				if (MapRegionClass::CellData::Get_Region(Cell(xx, yy)) != 0) { // RA2: RA2's form
-					return(true); // RA2: RA2's form
+	for (yy = pre.Y; yy < pre.Y + pre.Height; yy++) {
+		for (xx = pre.X; xx < pre.X + pre.Width; xx++) {
+			if (My_In_Radar(Cell(xx, yy))) {
+				if (MapRegionClass::CellData::Get_Region(Cell(xx, yy)) != 0) {
+					return(true);
 				}
 
-				if (!Map[Cell(xx, yy)].Is_Tile_Clear()) { // RA2: RA2's form
-					return(true); // RA2: RA2's form
+				if (!Map[Cell(xx, yy)].Is_Tile_Clear()) {
+					return(true);
 				}
 			}
 		}
 	}
 
-	for (yy = seed.Y; yy < seed.Y + seed.Height; yy++) { // RA2: RA2's form
-		for (xx = seed.X; xx < seed.X + seed.Width; xx++) { // RA2: RA2's form
-			if (My_In_Radar(Cell(xx, yy))) { // RA2: RA2's form
-				int tile_index = Pick_Random_UInt(0, 5); // RA2: RA2's form
-				Map[Cell(xx, yy)].ITType = (IsometricTileType)(IsometricTileTypeClass::WaterSet + tile_index); // RA2: RA2's form
+	for (yy = seed.Y; yy < seed.Y + seed.Height; yy++) {
+		for (xx = seed.X; xx < seed.X + seed.Width; xx++) {
+			if (My_In_Radar(Cell(xx, yy))) {
+				int tile_index = Pick_Random_UInt(0, 5);
+				Map[Cell(xx, yy)].ITType = (IsometricTileType)(tile_index + IsometricTileTypeClass::WaterSet);
 
-				int subtile = Pick_Random_UInt(0, 3); // RA2: RA2's form
-				Map[Cell(xx, yy)].SubTile = subtile; // RA2: RA2's form
+				int subtile = Pick_Random_UInt(0, 3);
+				Map[Cell(xx, yy)].SubTile = subtile;
 
-				if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(Cell(xx, yy)).RegionID=region_id; // RA2: RA2's form
-							}
+				Set_Cell_Data_Region(Cell(xx, yy), region_id);
 			}
 		}
 	}
 
-	bool success = Grow_Water_Region(WorkingRegionID, 0.003f, bounds_rect, center, false); // RA2: RA2's form
-	if (success) { // RA2: RA2's form
-		success = Map.Build_All_Shores(WorkingRegionID, false); // RA2: RA2's form
-		if (success) { // RA2: RA2's form
-			success = Grow_Region(WorkingRegionID, 2, bounds_rect, 0, 0); // RA2: RA2's form
-			if (success) { // RA2: RA2's form
-				int region = WorkingRegionID; // RA2: RA2's form
-				Map.Reset_Iterator(); // RA2: RA2's form
-				CellClass * cptr = Map.Iterate(); // RA2: RA2's form
-				while (cptr != NULL) { // RA2: RA2's form
-					Cell c = cptr->CellID; // RA2: RA2's form
-					int other_region = MapRegionClass::CellData::Get_Region(c); // RA2: RA2's form
-					if (other_region == region) { // RA2: RA2's form
-						cptr->Height += 4; // RA2: RA2's form
+	bool success = Grow_Water_Region(WorkingRegionID, 0.003f, bounds_rect, center, false);
+	if (success) {
+		success = Map.Build_All_Shores(WorkingRegionID, 0);
+		if (success) {
+			success = Grow_Region(WorkingRegionID, 2, bounds_rect, 0, 0);
+			if (success) {
+				int region = WorkingRegionID;
+				Map.Reset_Iterator();
+				CellClass * cptr = Map.Iterate();
+				while (cptr != NULL) {
+					Cell c = cptr->CellID;
+					int other_region = MapRegionClass::CellData::Get_Region(c);
+					if (other_region == region) {
+						cptr->Height += 4;
 					}
-					cptr = Map.Iterate(); // RA2: RA2's form
+					cptr = Map.Iterate();
 				}
 
-				for (yy = patch.Y; yy < patch.Y + patch.Height; yy++) { // RA2: RA2's form
-					for (xx = patch.X; xx < patch.X + patch.Width; xx++) { // RA2: RA2's form
-						if (My_In_Radar(Cell(xx, yy))) { // RA2: RA2's form
-							int tile_index = Pick_Random_UInt(0, 5); // RA2: RA2's form
-							Map[Cell(xx, yy)].ITType = (IsometricTileType)(IsometricTileTypeClass::WaterSet + tile_index); // RA2: RA2's form
+				for (yy = patch.Y; yy < patch.Y + patch.Height; yy++) {
+					for (xx = patch.X; xx < patch.X + patch.Width; xx++) {
+						if (My_In_Radar(Cell(xx, yy))) {
+							int tile_index = Pick_Random_UInt(0, 5);
+							Map[Cell(xx, yy)].ITType = (IsometricTileType)(tile_index + IsometricTileTypeClass::WaterSet);
 
-							int subtile = Pick_Random_UInt(0, 3); // RA2: RA2's form
-							Map[Cell(xx, yy)].SubTile = subtile; // RA2: RA2's form
+							int subtile = Pick_Random_UInt(0, 3);
+							Map[Cell(xx, yy)].SubTile = subtile;
 
-							if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(Cell(xx, yy)).RegionID=region_id; // RA2: RA2's form
-							}
+							Set_Cell_Data_Region(Cell(xx, yy), region_id);
 						}
 					}
 				}
 
-				bool place_ok = true; // RA2: RA2's form
-				
-				switch (direction) { // RA2: RA2's form
-					case FACING_E: { // RA2: RA2's form
-						Cell base(patch.X, patch.Y + patch.Height); // RA2: RA2's form
-						int height = Map[base + Cell(2, 0)].Height; // RA2: RA2's form
+				bool place_ok = true;
 
-						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallEast]; // RA2: RA2's form
-						Map.Set_Cursor_Pos(base); // RA2: RA2's form
-						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
+				switch (direction) {
+					case FACING_E: {
+						Cell base(patch.X, patch.Y + patch.Height);
+						int height = Map[base + Cell(2, 0)].Height;
 
-						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallEast + WATERFALL_EAST_COUNT - 1]; // RA2: RA2's form
-						Map.Set_Cursor_Pos(base - Cell(0, patch.Height + 2)); // RA2: RA2's form
-						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
+						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallEast];
+						Map.Set_Cursor_Pos(base);
+						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
 
-						Cell top = base + Cell(0, 2); // RA2: RA2's form
-						Cell bottom = base - Cell(0, patch.Height + 3); // RA2: RA2's form
+						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallEast + 3];
+						Map.Set_Cursor_Pos(base - Cell(0, patch.Height + 2));
+						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
 
-						if (My_In_Radar(top)) { // RA2: RA2's form
-							Map[top].ITType = ISOTILE_NONE; // RA2: RA2's form
-							Map[top].Height += 4; // RA2: RA2's form
-							Map[top].SubTile = 0; // RA2: RA2's form
-							if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(top).RegionID=WorkingRegionID; // RA2: RA2's form
-							}
+						Cell top = base + Cell(0, 2);
+						Cell bottom = base - Cell(0, patch.Height + 3);
+
+						if (My_In_Radar(top)) {
+							Map[top].ITType = ISOTILE_NONE;
+							Map[top].Height += 4;
+							Map[top].SubTile = 0;
+							Set_Cell_Data_Region(top, WorkingRegionID);
 						}
 
-						if (My_In_Radar(bottom)) { // RA2: RA2's form
-							Map[bottom].ITType = ISOTILE_NONE; // RA2: RA2's form
-							Map[bottom].Height += 4; // RA2: RA2's form
-							Map[bottom].SubTile = 0; // RA2: RA2's form
-							if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(bottom).RegionID=WorkingRegionID; // RA2: RA2's form
-							}
+						if (My_In_Radar(bottom)) {
+							Map[bottom].ITType = ISOTILE_NONE;
+							Map[bottom].Height += 4;
+							Map[bottom].SubTile = 0;
+							Set_Cell_Data_Region(bottom, WorkingRegionID);
 						}
 
-						int seg = 0; // RA2: RA2's form
-						if (seg < patch.Height) { // RA2: RA2's form
-						int remaining = patch.Height; // RA2: RA2's form
-						do { // RA2: RA2's form
-							if (remaining % 2) { // RA2: RA2's form
-								Map.Set_Cursor_Pos(base - Cell(0, seg + 1)); // RA2: RA2's form
-								Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallEast + 1]; // RA2: RA2's form
-								seg++; // RA2: RA2's form
-								remaining--; // RA2: RA2's form
-							} else {
-								Map.Set_Cursor_Pos(base - Cell(0, seg + 2)); // RA2: RA2's form
-								Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallEast + 2]; // RA2: RA2's form
-								seg += 2; // RA2: RA2's form
-								remaining -= 2; // RA2: RA2's form
-							}
-							Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
-						} while (seg < patch.Height); // RA2: as above
+						int seg = 0;
+						if (seg < patch.Height) {
+							int remaining = patch.Height;
+							do {
+								if (remaining % 2) {
+									Map.Set_Cursor_Pos(base - Cell(0, seg + 1));
+									Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallEast + 1];
+									seg++;
+									remaining--;
+								} else {
+									Map.Set_Cursor_Pos(base - Cell(0, seg + 2));
+									Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallEast + 2];
+									seg += 2;
+									remaining -= 2;
+								}
+								Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
+							} while (seg < patch.Height);
 						}
-						break; // RA2: RA2's form
+						break;
 					}
 
-					case FACING_W: { // RA2: RA2's form
-						Cell base(seed.X - 2, patch.Y + patch.Height); // RA2: RA2's form
-						int height = Map[base - Cell(2, 0)].Height; // RA2: RA2's form
+					case FACING_W: {
+						Cell base(seed.X - 2, patch.Y + patch.Height);
+						int height = Map[base - Cell(2, 0)].Height;
 
-						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallWest]; // RA2: RA2's form
-						Map.Set_Cursor_Pos(base); // RA2: RA2's form
-						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
+						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallWest];
+						Map.Set_Cursor_Pos(base);
+						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
 
-						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallWest + WATERFALL_WEST_COUNT - 1]; // RA2: RA2's form
-						Map.Set_Cursor_Pos(base - Cell(0, patch.Height + 2)); // RA2: RA2's form
-						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
+						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallWest + 3];
+						Map.Set_Cursor_Pos(base - Cell(0, patch.Height + 2));
+						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
 
-						Map[base - Cell(0, 1)].ITType = ISOTILE_NONE; // RA2: RA2's form
-						Map[base + Cell(0, patch.Width + 2)].ITType = ISOTILE_NONE; // RA2: RA2's form
+						Map[base - Cell(0, 1)].ITType = ISOTILE_NONE;
+						Map[base + Cell(0, patch.Width + 2)].ITType = ISOTILE_NONE;
 
-						for (int i = 0; i < patch.Height + 2; i++) { // RA2: RA2's form
-							Map[base - Cell(0, i)].Height -= 4; // RA2: RA2's form
+						for (int i = 0; i < patch.Height + 2; i++) {
+							Map[base - Cell(0, i)].Height -= 4;
 						}
 
-						Cell top = base + Cell(1, 2); // RA2: RA2's form
-						Cell bottom = base - Cell(-1, patch.Height + 3); // RA2: RA2's form
+						Cell top = base + Cell(1, 2);
+						Cell bottom = base - Cell(-1, patch.Height + 3);
 
-						if (My_In_Radar(top)) { // RA2: RA2's form
-							Map[top].ITType = ISOTILE_NONE; // RA2: RA2's form
-							Map[top].Height += 4; // RA2: RA2's form
-							Map[top].SubTile = 0; // RA2: RA2's form
-							if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(top).RegionID=WorkingRegionID; // RA2: RA2's form
-							}
+						if (My_In_Radar(top)) {
+							Map[top].ITType = ISOTILE_NONE;
+							Map[top].Height += 4;
+							Map[top].SubTile = 0;
+							Set_Cell_Data_Region(top, WorkingRegionID);
 						}
 
-						if (My_In_Radar(bottom)) { // RA2: RA2's form
-							Map[bottom].ITType = ISOTILE_NONE; // RA2: RA2's form
-							Map[bottom].Height += 4; // RA2: RA2's form
-							Map[bottom].SubTile = 0; // RA2: RA2's form
-							if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(bottom).RegionID=WorkingRegionID; // RA2: RA2's form
-							}
+						if (My_In_Radar(bottom)) {
+							Map[bottom].ITType = ISOTILE_NONE;
+							Map[bottom].Height += 4;
+							Map[bottom].SubTile = 0;
+							Set_Cell_Data_Region(bottom, WorkingRegionID);
 						}
 
-						int seg = 0; // RA2: RA2's form
-						if (seg < patch.Height) { // RA2: RA2's form
-						int remaining = patch.Height; // RA2: RA2's form
-						do { // RA2: RA2's form
-							if (remaining % 2) { // RA2: RA2's form
-								Map.Set_Cursor_Pos(base - Cell(-1, seg + 1)); // RA2: RA2's form
-								Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallWest + 1]; // RA2: RA2's form
-								seg++; // RA2: RA2's form
-								remaining--; // RA2: RA2's form
-							} else {
-								Map.Set_Cursor_Pos(base - Cell(-1, seg + 2)); // RA2: RA2's form
-								Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallWest + 2]; // RA2: RA2's form
-								seg += 2; // RA2: RA2's form
-								remaining -= 2; // RA2: RA2's form
-							}
-							Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
-						} while (seg < patch.Height); // RA2: as above
+						int seg = 0;
+						if (seg < patch.Height) {
+							int remaining = patch.Height;
+							do {
+								if (remaining % 2) {
+									Map.Set_Cursor_Pos(base - Cell(-1, seg + 1));
+									Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallWest + 1];
+									seg++;
+									remaining--;
+								} else {
+									Map.Set_Cursor_Pos(base - Cell(-1, seg + 2));
+									Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallWest + 2];
+									seg += 2;
+									remaining -= 2;
+								}
+								Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
+							} while (seg < patch.Height);
 						}
-						break; // RA2: RA2's form
+						break;
 					}
 
-					case FACING_S: { // RA2: RA2's form
-						Cell base(patch.X - 2, patch.Y); // RA2: RA2's form
-						int height = Map[base + Cell(0, 2)].Height; // RA2: RA2's form
+					case FACING_S: {
+						Cell base(patch.X - 2, patch.Y);
+						int height = Map[base + Cell(0, 2)].Height;
 
-						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallSouth]; // RA2: RA2's form
-						Map.Set_Cursor_Pos(base); // RA2: RA2's form
-						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
+						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallSouth];
+						Map.Set_Cursor_Pos(base);
+						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
 
-						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallSouth + WATERFALL_SOUTH_COUNT - 1]; // RA2: RA2's form
-						Map.Set_Cursor_Pos(base + Cell(patch.Width + 2, 0)); // RA2: RA2's form
-						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
+						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallSouth + 3];
+						Map.Set_Cursor_Pos(base + Cell(patch.Width + 2, 0));
+						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
 
-						Cell left = base + Cell(-1, 0); // RA2: RA2's form
-						Cell right = base + Cell(patch.Width + 4, 0); // RA2: RA2's form
+						Cell left = base + Cell(-1, 0);
+						Cell right = base + Cell(patch.Width + 4, 0);
 
-						if (My_In_Radar(left)) { // RA2: RA2's form
-							Map[left].ITType = ISOTILE_NONE; // RA2: RA2's form
-							Map[left].Height += 4; // RA2: RA2's form
-							Map[left].SubTile = 0; // RA2: RA2's form
-							if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(left).RegionID=WorkingRegionID; // RA2: RA2's form
-							}
+						if (My_In_Radar(left)) {
+							Map[left].ITType = ISOTILE_NONE;
+							Map[left].Height += 4;
+							Map[left].SubTile = 0;
+							Set_Cell_Data_Region(left, WorkingRegionID);
 						}
 
-						if (My_In_Radar(right)) { // RA2: RA2's form
-							Map[right].ITType = ISOTILE_NONE; // RA2: RA2's form
-							Map[right].Height += 4; // RA2: RA2's form
-							Map[right].SubTile = 0; // RA2: RA2's form
-							if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(right).RegionID=WorkingRegionID; // RA2: RA2's form
-							}
+						if (My_In_Radar(right)) {
+							Map[right].ITType = ISOTILE_NONE;
+							Map[right].Height += 4;
+							Map[right].SubTile = 0;
+							Set_Cell_Data_Region(right, WorkingRegionID);
 						}
 
-						int seg = 0; // RA2: RA2's form
-						if (seg < patch.Width) { // RA2: RA2's form
-						int remaining = patch.Width; // RA2: RA2's form
-						do { // RA2: RA2's form
-							if (remaining % 2) { // RA2: RA2's form
-								Map.Set_Cursor_Pos(base + Cell(seg + 2, 0)); // RA2: RA2's form
-								Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallSouth + 1]; // RA2: RA2's form
-								seg++; // RA2: RA2's form
-								remaining--; // RA2: RA2's form
-							} else {
-								Map.Set_Cursor_Pos(base + Cell(seg + 2, 0)); // RA2: RA2's form
-								Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallSouth + 2]; // RA2: RA2's form
-								seg += 2; // RA2: RA2's form
-								remaining -= 2; // RA2: RA2's form
-							}
-							Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
-						} while (seg < patch.Width); // RA2: as above
+						int seg = 0;
+						if (seg < patch.Width) {
+							int remaining = patch.Width;
+							do {
+								if (remaining % 2) {
+									Map.Set_Cursor_Pos(base + Cell(seg + 2, 0));
+									Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallSouth + 1];
+									seg++;
+									remaining--;
+								} else {
+									Map.Set_Cursor_Pos(base + Cell(seg + 2, 0));
+									Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallSouth + 2];
+									seg += 2;
+									remaining -= 2;
+								}
+								Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
+							} while (seg < patch.Width);
 						}
-						break; // RA2: RA2's form
+						break;
 					}
 
-					case FACING_N: { // RA2: RA2's form
-						Cell base(seed.X - 2, seed.Y - 2); // RA2: RA2's form
-						int height = Map[base - Cell(0, 2)].Height; // RA2: RA2's form
+					case FACING_N: {
+						Cell base(seed.X - 2, seed.Y - 2);
+						int height = Map[base - Cell(0, 2)].Height;
 
-						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallNorth]; // RA2: RA2's form
-						Map.Set_Cursor_Pos(base); // RA2: RA2's form
-						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
+						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallNorth];
+						Map.Set_Cursor_Pos(base);
+						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
 
-						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallNorth + WATERFALL_NORTH_COUNT - 1]; // RA2: RA2's form
-						Map.Set_Cursor_Pos(base + Cell(patch.Width + 2, 0)); // RA2: RA2's form
-						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
+						Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallNorth + 3];
+						Map.Set_Cursor_Pos(base + Cell(patch.Width + 2, 0));
+						Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
 
-						Map[base + Cell(1, 0)].ITType = ISOTILE_NONE; // RA2: RA2's form
-						Map[base + Cell(patch.Width + 2, 0)].ITType = ISOTILE_NONE; // RA2: RA2's form
+						Map[base + Cell(1, 0)].ITType = ISOTILE_NONE;
+						Map[base + Cell(patch.Width + 2, 0)].ITType = ISOTILE_NONE;
 
-						for (int i = 0; i < patch.Width + 2; i++) { // RA2: RA2's form
-							Map[base + Cell(i + 1, 0)].Height -= 4; // RA2: RA2's form
+						for (int i = 0; i < patch.Width + 2; i++) {
+							Map[base + Cell(i + 1, 0)].Height -= 4;
 						}
 
-						Cell left = base + Cell(-1, 1); // RA2: RA2's form
-						Cell right = base + Cell(patch.Width + 4, 1); // RA2: RA2's form
+						Cell left = base + Cell(-1, 1);
+						Cell right = base + Cell(patch.Width + 4, 1);
 
-						if (My_In_Radar(left)) { // RA2: RA2's form
-							Map[left].ITType = ISOTILE_NONE; // RA2: RA2's form
-							Map[left].Height += 4; // RA2: RA2's form
-							Map[left].SubTile = 0; // RA2: RA2's form
-							if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(left).RegionID=WorkingRegionID; // RA2: RA2's form
-							}
+						if (My_In_Radar(left)) {
+							Map[left].ITType = ISOTILE_NONE;
+							Map[left].Height += 4;
+							Map[left].SubTile = 0;
+							Set_Cell_Data_Region(left, WorkingRegionID);
 						}
 
-						if (My_In_Radar(right)) { // RA2: RA2's form
-							Map[right].ITType = ISOTILE_NONE; // RA2: RA2's form
-							Map[right].Height += 4; // RA2: RA2's form
-							Map[right].SubTile = 0; // RA2: RA2's form
-							if (RMGCellData != NULL) { // RA2: RA2's form
-								MapRegionClass::Get_Cell_Data(right).RegionID=WorkingRegionID; // RA2: RA2's form
-							}
+						if (My_In_Radar(right)) {
+							Map[right].ITType = ISOTILE_NONE;
+							Map[right].Height += 4;
+							Map[right].SubTile = 0;
+							Set_Cell_Data_Region(right, WorkingRegionID);
 						}
 
-						int seg = 0; // RA2: RA2's form
-						if (seg < patch.Width) { // RA2: RA2's form
-						int remaining = patch.Width; // RA2: RA2's form
-						do { // RA2: RA2's form
-							if (remaining % 2) { // RA2: RA2's form
-								Map.Set_Cursor_Pos(base + Cell(seg + 2, 1)); // RA2: RA2's form
-								Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallNorth + 1]; // RA2: RA2's form
-								seg++; // RA2: RA2's form
-								remaining--; // RA2: RA2's form
-							} else {
-								Map.Set_Cursor_Pos(base + Cell(seg + 2, 1)); // RA2: RA2's form
-								Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallNorth + 2]; // RA2: RA2's form
-								seg += 2; // RA2: RA2's form
-								remaining -= 2; // RA2: RA2's form
-							}
-							Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false); // RA2: RA2's form
-						} while (seg < patch.Width); // RA2: as above
+						int seg = 0;
+						if (seg < patch.Width) {
+							int remaining = patch.Width;
+							do {
+								if (remaining % 2) {
+									Map.Set_Cursor_Pos(base + Cell(seg + 2, 1));
+									Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallNorth + 1];
+									seg++;
+									remaining--;
+								} else {
+									Map.Set_Cursor_Pos(base + Cell(seg + 2, 1));
+									Map.PendingObject = IsometricTileTypes[IsometricTileTypeClass::WaterfallNorth + 2];
+									seg += 2;
+									remaining -= 2;
+								}
+								Map.Pick_Random_Tile_Variant(ISOTILE_CLEAR, ISOTILE_NONE + 1, height, WorkingRegionID, place_ok, false);
+							} while (seg < patch.Width);
 						}
-						break; // RA2: RA2's form
+						break;
 					}
 
-					default: // RA2: RA2's form
-						break; // RA2: RA2's form
+					default:
+						break;
 				}
 			}
 		}
 	}
 
-	int x_offsets[4] = { 0, 12, 0, -12 }; // RA2: RA2's form
-	int y_offsets[4] = { -12, 0, 12, 0 }; // RA2: RA2's form
+	int x_offsets[4] = { 0, 12, 0, -12 };
+	int y_offsets[4] = { -12, 0, 12, 0 };
 
-	if (success) { // RA2: RA2's form
-		head_x += (double)x_offsets[direction / 2]; // RA2: RA2's form
-		head_y += (double)y_offsets[direction / 2]; // RA2: RA2's form
+	if (success) {
+		head_x += (double)x_offsets[direction / 2];
+		head_y += (double)y_offsets[direction / 2];
 	}
 
-	placed = success; // RA2: RA2's form
-	return(success); // RA2: RA2's form
+	placed = success;
+	return(success);
 }
-#endif
 
 
 

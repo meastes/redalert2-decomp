@@ -11584,7 +11584,7 @@ bool MapClass::Is_Naval_Yard_Area_Clear(Rect const & rect) // RA2: 0x565E20, is 
 /// <param name="foot">The unit whose ability to enter a cell decides what counts as
 /// blocked.</param>
 /// <returns>bool; Is part of the subzone itself cut off from the starting cell?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1094 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 10 bytes differ (ra2-decomp text; the loop head reloads this before dim and count)
 bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, DynamicVectorClass<unsigned short> const & connections, FootClass const * foot)
 {
 	/*
@@ -11597,47 +11597,46 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 	static char _subzone_flood_visited[8][8];
 
 	int dim = 1 << (subzone_level + 1);
-
+	int facing;
 	DynamicVectorClass<unsigned short> list;
 	list.Clear();
 
 	if (dim > 0) {
-		for (int i = 0; i < dim; i++) {
-			memset(_subzone_flood_visited[i], 0, dim);
+		for (facing = 0; facing < dim; facing++) {
+			memset(_subzone_flood_visited[facing], 0, dim);
 		}
 	}
 
+	unsigned short start_subzone = Cell_Subzone(this, cptr->CellID, subzone_level);
 	unsigned short other_subzone = 0;
-	int count = 1;
-	unsigned short start_subzone = CellSubzones[Get_Cell_Subzone_Index(cptr->CellID)].SubzoneID[subzone_level];
 	_subzone_flood_stack[0] = cptr;
 	_subzone_flood_visited[(dim - 1) & cptr->CellID.X][(dim - 1) & cptr->CellID.Y] = 1;
+	int count = 1;
 
-	int * mzone_table = MZonePassability[foot->TClass->MZone];
+	int * mzone_table = MZonePassability[foot->Techno_Type_Class()->MZone];
 
 	while (true) {
 
-		FacingType facing = FACING_N;
-		int newcount = count - 1;
-		CellClass * cur = _subzone_flood_stack[newcount];
-		CellClass ** writeptr = &_subzone_flood_stack[newcount];
+		facing = 0;
+		count--;
+		CellClass ** slot = &_subzone_flood_stack[count];
+		CellClass * cur = *slot;
 
 		while (true) {
 
-			CellClass * adj = &cur->Adjacent_Cell(facing);
+			CellClass * adj = &cur->Adjacent_Cell((FacingType)facing);
 			int ax = (dim - 1) & adj->CellID.X;
 			int ay = (dim - 1) & adj->CellID.Y;
-			unsigned short adj_subzone = CellSubzones[Get_Cell_Subzone_Index(adj->CellID)].SubzoneID[subzone_level];
+			unsigned short adj_subzone = Cell_Subzone(this, adj->CellID, subzone_level);
 
-			if (foot->Can_Enter_Cell(adj, facing, adj->Height, NULL, true) == MOVE_OK || mzone_table[adj->Passability] != TRAVERSAL_PASSABLE) {
+			if (foot->Can_Enter_Cell(adj, (FacingType)facing, adj->Height, NULL, true) == MOVE_OK || mzone_table[adj->Passability] != TRAVERSAL_PASSABLE) {
 
 				if (adj_subzone == start_subzone) {
 
 					if (!_subzone_flood_visited[ax][ay]) {
-						_subzone_flood_visited[ax][ay] = 1;
-						*writeptr = adj;
-						newcount++;
-						writeptr++;
+						_subzone_flood_visited[ax][ay]++;
+						_subzone_flood_stack[count] = adj;
+						count++;
 					}
 
 				} else if (adj_subzone != other_subzone) {
@@ -11659,54 +11658,49 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 			}
 
 			facing++;
-			if (facing >= FACING_COUNT) {
+			if (facing >= 8) {
 				break;
 			}
 		}
 
-		count = newcount;
 		if (count <= 0) {
 			break;
 		}
 	}
 
-	int bx = (dim - 1) & cptr->CellID.X;
-	int by = (dim - 1) & cptr->CellID.Y;
+	int x = cptr->CellID.X;
+	int y = cptr->CellID.Y;
+	int bx = (dim - 1) & x;
+	int by = (dim - 1) & y;
 
-	for (int row = 0; row < dim; row++) {
+	for (facing = 0; facing < dim; facing++) {
 		for (int col = 0; col < dim; col++) {
 
-			Cell c = cptr->CellID + Cell(bx, by);
+			Cell c = Cell(bx, by) + cptr->CellID;
 
 			if (In_Local_Radar(c, true)) {
-				if (start_subzone == (unsigned short)CellSubzones[Get_Cell_Subzone_Index(c)].SubzoneID[subzone_level] && !_subzone_flood_visited[row][col]) {
+				if (start_subzone == (unsigned short)Subzone_Of(this, c)->SubzoneID[subzone_level] && !_subzone_flood_visited[facing][col]) {
 					return(true);
 				}
 			}
 		}
 	}
 
-	SubzoneTrackingStruct & track = SubzoneTracking[subzone_level][start_subzone];
-	int last = track.Connections.Count() - 1;
-	if (last >= 0) {
-		SubzoneConnectionStruct * conn = &track.Connections[last];
-		int remaining = last + 1;
-		do {
-			int sub = conn->SubzoneID;
+	DynamicVectorClass<SubzoneConnectionStruct> & track = SubzoneTracking[subzone_level][start_subzone].Connections;
+	SubzoneConnectionStruct * vec = &track[0];
+	for (int i = track.Count() - 1; i >= 0; i--) {
+		SubzoneConnectionStruct & conn = vec[i];
+		int sub = conn.SubzoneID;
 
-			int j;
-			for (j = list.Count() - 1; j >= 0; j--) {
-				if (list[j] == sub) {
-					break;
-				}
+		int j;
+		for (j = list.Count() - 1; j >= 0; j--) {
+			if (list[j] == sub) {
+				break;
 			}
-			if (j == -1) {
-				((DynamicVectorClass<unsigned short> &)connections).Add(sub);
-			}
-
-			conn--;
-			remaining--;
-		} while (remaining != 0);
+		}
+		if (j == -1) {
+			((DynamicVectorClass<unsigned short> &)connections).Add(sub);
+		}
 	}
 
 	return(false);
@@ -11917,7 +11911,6 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 /// Deletes both directions of the main endpoint pair and the two flanking bridge-adjacent pairs.
 /// </summary>
 /// <param name="connection">The zone connection to unregister.</param>
-#ifdef RA2_NON_MATCHING // not exact: 834 bytes differ (adopted text)
 void MapClass::Unregister_Subzone_Connection(ZoneConnectionClass * connection)
 {
 	Cell from = connection->From;
@@ -11931,64 +11924,50 @@ void MapClass::Unregister_Subzone_Connection(ZoneConnectionClass * connection)
 	Cell to_adj2 = none;
 
 	if (from_cptr->Is_Tile_Bridge() || from_cptr->Is_Tile_Train_Bridge()) {
-		bool is_bridge = from_cptr->Is_Tile_Bridge();
-		int tile = from_cptr->ITType;
-		int bridgeset = is_bridge ? IsometricTileTypeClass::BridgeSet : IsometricTileTypeClass::TrainBridgeSet;
-		FacingType facing = BridgeSideFacings[tile - bridgeset];
+		int faceindex;
+		if (from_cptr->Is_Tile_Bridge()) {
+			faceindex = from_cptr->ITType - IsometricTileTypeClass::BridgeSet;
+		} else {
+			faceindex = from_cptr->ITType - IsometricTileTypeClass::TrainBridgeSet;
+		}
+		FacingType facing = BridgeSideFacings[faceindex];
 		from_adj1 = Adjacent_Cell(from, facing);
 		from_adj2 = Adjacent_Cell(from, Facing_Sub(facing, FACING_180));
 		to_adj1 = Adjacent_Cell(to, facing);
 		to_adj2 = Adjacent_Cell(to, Facing_Sub(facing, FACING_180));
 	}
 
+	int sidx1;
+	int sidx2;
 	for (int i = 0; i < ARRAY_SIZE(SubzoneTracking); i++) {
 		{
-			int sidx1 = CellSubzones[Get_Cell_Subzone_Index(from)].SubzoneID[i];
-			int sidx2 = CellSubzones[Get_Cell_Subzone_Index(to)].SubzoneID[i];
+			sidx1 = Subzone_Of(this, from)->SubzoneID[i];
+			sidx2 = Subzone_Of(this, to)->SubzoneID[i];
 
-			SubzoneConnectionStruct conn1;
-			conn1.SubzoneID = sidx2;
-			conn1.IsCrossBlock = false;
-			SubzoneTracking[i][sidx1].Connections.Delete(conn1);
+			SubzoneTracking[i][sidx1].Connections.Delete(SubzoneConnectionStruct(sidx2));
 
-			SubzoneConnectionStruct conn2;
-			conn2.SubzoneID = sidx1;
-			conn2.IsCrossBlock = false;
-			SubzoneTracking[i][sidx2].Connections.Delete(conn2);
+			SubzoneTracking[i][sidx2].Connections.Delete(SubzoneConnectionStruct(sidx1));
 		}
 
 		{
-			int sidx1 = CellSubzones[Get_Cell_Subzone_Index(from_adj1)].SubzoneID[i];
-			int sidx2 = CellSubzones[Get_Cell_Subzone_Index(to_adj1)].SubzoneID[i];
+			sidx1 = Subzone_Of(this, from_adj1)->SubzoneID[i];
+			sidx2 = Subzone_Of(this, to_adj1)->SubzoneID[i];
 
-			SubzoneConnectionStruct conn1;
-			conn1.SubzoneID = sidx2;
-			conn1.IsCrossBlock = false;
-			SubzoneTracking[i][sidx1].Connections.Delete(conn1);
+			SubzoneTracking[i][sidx1].Connections.Delete(SubzoneConnectionStruct(sidx2));
 
-			SubzoneConnectionStruct conn2;
-			conn2.SubzoneID = sidx1;
-			conn2.IsCrossBlock = false;
-			SubzoneTracking[i][sidx2].Connections.Delete(conn2);
+			SubzoneTracking[i][sidx2].Connections.Delete(SubzoneConnectionStruct(sidx1));
 		}
 
 		{
-			int sidx1 = CellSubzones[from_adj2.X + from_adj2.Y * (PlayRect.Width + PlayRect.Height + 1)].SubzoneID[i];
-			int sidx2 = CellSubzones[to_adj2.X + to_adj2.Y * (PlayRect.Width + PlayRect.Height + 1)].SubzoneID[i];
+			sidx1 = Subzone_Of(this, from_adj2)->SubzoneID[i];
+			sidx2 = Subzone_Of(this, to_adj2)->SubzoneID[i];
 
-			SubzoneConnectionStruct conn1;
-			conn1.SubzoneID = sidx2;
-			conn1.IsCrossBlock = false;
-			SubzoneTracking[i][sidx1].Connections.Delete(conn1);
+			SubzoneTracking[i][sidx1].Connections.Delete(SubzoneConnectionStruct(sidx2));
 
-			SubzoneConnectionStruct conn2;
-			conn2.SubzoneID = sidx1;
-			conn2.IsCrossBlock = false;
-			SubzoneTracking[i][sidx2].Connections.Delete(conn2);
+			SubzoneTracking[i][sidx2].Connections.Delete(SubzoneConnectionStruct(sidx1));
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -11996,7 +11975,6 @@ void MapClass::Unregister_Subzone_Connection(ZoneConnectionClass * connection)
 /// Adds both directions of the main endpoint pair and the two flanking bridge-adjacent pairs.
 /// </summary>
 /// <param name="connection">The zone connection to register.</param>
-#ifdef RA2_NON_MATCHING // not exact: 984 bytes differ (adopted text)
 void MapClass::Register_Subzone_Connection(ZoneConnectionClass * connection)
 {
 	Cell from = connection->From;
@@ -12009,64 +11987,50 @@ void MapClass::Register_Subzone_Connection(ZoneConnectionClass * connection)
 	Cell to_adj2 = CELL_NONE;
 
 	if (from_cptr->Is_Tile_Bridge() || from_cptr->Is_Tile_Train_Bridge()) {
-		bool is_bridge = from_cptr->Is_Tile_Bridge();
-		int tile = from_cptr->ITType;
-		int bridgeset = is_bridge ? IsometricTileTypeClass::BridgeSet : IsometricTileTypeClass::TrainBridgeSet;
-		FacingType facing = BridgeSideFacings[tile - bridgeset];
+		int faceindex;
+		if (from_cptr->Is_Tile_Bridge()) {
+			faceindex = from_cptr->ITType - IsometricTileTypeClass::BridgeSet;
+		} else {
+			faceindex = from_cptr->ITType - IsometricTileTypeClass::TrainBridgeSet;
+		}
+		FacingType facing = BridgeSideFacings[faceindex];
 		from_adj1 = Adjacent_Cell(from, facing);
 		from_adj2 = Adjacent_Cell(from, Facing_Sub(facing, FACING_180));
 		to_adj1 = Adjacent_Cell(to, facing);
 		to_adj2 = Adjacent_Cell(to, Facing_Sub(facing, FACING_180));
 	}
 
+	int sidx1;
+	int sidx2;
 	for (int i = 0; i < ARRAY_SIZE(SubzoneTracking); i++) {
 		{
-			int sidx1 = CellSubzones[Get_Cell_Subzone_Index(from)].SubzoneID[i];
-			int sidx2 = CellSubzones[Get_Cell_Subzone_Index(to)].SubzoneID[i];
+			sidx1 = Subzone_Of(this, from)->SubzoneID[i];
+			sidx2 = Subzone_Of(this, to)->SubzoneID[i];
 
-			SubzoneConnectionStruct conn1;
-			conn1.SubzoneID = sidx2;
-			conn1.IsCrossBlock = false;
-			SubzoneTracking[i][sidx1].Connections.Add(conn1);
+			SubzoneTracking[i][sidx1].Connections.Add(SubzoneConnectionStruct(sidx2));
 
-			SubzoneConnectionStruct conn2;
-			conn2.SubzoneID = sidx1;
-			conn2.IsCrossBlock = false;
-			SubzoneTracking[i][sidx2].Connections.Add(conn2);
+			SubzoneTracking[i][sidx2].Connections.Add(SubzoneConnectionStruct(sidx1));
 		}
 
 		{
-			int sidx1 = CellSubzones[Get_Cell_Subzone_Index(from_adj1)].SubzoneID[i];
-			int sidx2 = CellSubzones[Get_Cell_Subzone_Index(to_adj1)].SubzoneID[i];
+			sidx1 = Subzone_Of(this, from_adj1)->SubzoneID[i];
+			sidx2 = Subzone_Of(this, to_adj1)->SubzoneID[i];
 
-			SubzoneConnectionStruct conn1;
-			conn1.SubzoneID = sidx2;
-			conn1.IsCrossBlock = false;
-			SubzoneTracking[i][sidx1].Connections.Add(conn1);
+			SubzoneTracking[i][sidx1].Connections.Add(SubzoneConnectionStruct(sidx2));
 
-			SubzoneConnectionStruct conn2;
-			conn2.SubzoneID = sidx1;
-			conn2.IsCrossBlock = false;
-			SubzoneTracking[i][sidx2].Connections.Add(conn2);
+			SubzoneTracking[i][sidx2].Connections.Add(SubzoneConnectionStruct(sidx1));
 		}
 
 		{
-			int sidx1 = CellSubzones[Get_Cell_Subzone_Index(from_adj2)].SubzoneID[i];
-			int sidx2 = CellSubzones[to_adj2.X + to_adj2.Y * (PlayRect.Height + PlayRect.Width + 1)].SubzoneID[i];
+			sidx1 = Subzone_Of(this, from_adj2)->SubzoneID[i];
+			sidx2 = Subzone_Of(this, to_adj2)->SubzoneID[i];
 
-			SubzoneConnectionStruct conn1;
-			conn1.SubzoneID = sidx2;
-			conn1.IsCrossBlock = false;
-			SubzoneTracking[i][sidx1].Connections.Add(conn1);
+			SubzoneTracking[i][sidx1].Connections.Add(SubzoneConnectionStruct(sidx2));
 
-			SubzoneConnectionStruct conn2;
-			conn2.SubzoneID = sidx1;
-			conn2.IsCrossBlock = false;
-			SubzoneTracking[i][sidx2].Connections.Add(conn2);
+			SubzoneTracking[i][sidx2].Connections.Add(SubzoneConnectionStruct(sidx1));
 		}
 	}
 }
-#endif
 
 
 /// <summary>

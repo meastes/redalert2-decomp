@@ -35325,7 +35325,9 @@
    "005dc5a0",
    "005dd150"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "005dd150": "?Get_Image_Data@OverlayTypeClass@@UBEPBXXZ"
+  },
   "source": "rebuild/src/overtype.cpp",
   "options": [
    "/O2",
@@ -35603,7 +35605,7 @@
     "entry": "005dd150",
     "body": 271,
     "padding": 1,
-    "symbol": "?Get_Image_Data@OverlayTypeClass@@UBEPAXXZ",
+    "symbol": "?Get_Image_Data@OverlayTypeClass@@UBEPBXXZ",
     "main_symbol": "?Get_Image_Data@OverlayTypeClass@@UBEPAXXZ",
     "main_source": "src/recovered/overtype.cpp"
    },
@@ -76900,7 +76902,9 @@
    "0056d6c0",
    "0058da10"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "0058f260": "??0?$VectorClass@V?$TRect@H@@@@QAE@HPBV?$TRect@H@@@Z"
+  },
   "source": "rebuild/src/mapgen.cpp",
   "options": [
    "/O2",
@@ -79270,7 +79274,7 @@
     "entry": "0058f260",
     "body": 112,
     "padding": 0,
-    "symbol": "??0ArrayStorageExtension_0058f260@@QAE@HPAUArrayElementExtension_0058f260@@@Z",
+    "symbol": "??0?$VectorClass@V?$TRect@H@@@@QAE@HPBV?$TRect@H@@@Z",
     "main_symbol": "??0ArrayStorageExtension_0058f260@@QAE@HPAUArrayElementExtension_0058f260@@@Z",
     "main_source": "src/recovered/awaiting_join/constructor_views/ConstructArrayStorageExtension_0058f260.cpp"
    },
@@ -79464,7 +79468,9 @@
    "??_C@_0BG@EIAI@TXT_THEATER_TEMPERATE?$AA@": "007e1374",
    "??_C@_0BB@DDGA@TXT_THEATER_SNOW?$AA@": "007e1360",
    "__waterfall_chance": "007a5b68",
-   "_?_random_weight@?1??Get_Angle_Score@MapRegionClass@@QAENABVCell@@0N@Z@4NB": "007a5be0"
+   "_?_random_weight@?1??Get_Angle_Score@MapRegionClass@@QAENABVCell@@0N@Z@4NB": "007a5be0",
+   "??_7?$DynamicVectorClass@V?$TRect@H@@@@6B@": "007a5edc",
+   "__real@8@3ffde666666666666800": "007a5ed0"
   },
   "partial_ok": true,
   "data_bound_by": {
@@ -133857,7 +133863,8 @@
    "_$S187": "00ab9270",
    "_$S193": "00ab9271",
    "?Mouse_Enter@SelectClass@StripClass@SidebarClass@@UAEXXZ": "00681600",
-   "?Mouse_Leave@SelectClass@StripClass@SidebarClass@@UAEXXZ": "00681650"
+   "?Mouse_Leave@SelectClass@StripClass@SidebarClass@@UAEXXZ": "00681650",
+   "?ButtonHelpBuffer@@3PAGA": "00ab9274"
   },
   "partial_ok": true,
   "count_sensitive": {
@@ -134237,7 +134244,9 @@
    "00547a60",
    "0056a9d0"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "0056b070": "?Delete_Index@?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE_NH@Z"
+  },
   "source": "rebuild/src/map.cpp",
   "options": [
    "/O2",
@@ -136339,7 +136348,7 @@
     "entry": "0056b070",
     "body": 57,
     "padding": 7,
-    "symbol": "?Delete@?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE_NH@Z",
+    "symbol": "?Delete_Index@?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE_NH@Z",
     "main_symbol": "?Delete@?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE_NH@Z",
     "main_source": "src/recovered/map.cpp"
    },
@@ -136899,7 +136908,9 @@
    "?ID@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEHPBUZoneConnectionClass@@@Z": "0056aaf0",
    "?GetItem@?$VectorClass@UZoneConnectionClass@@@@UBE?AUZoneConnectionClass@@H@Z": "0056ab10",
    "?Clear@?$DynamicVectorClass@USubzoneConnectionStruct@@@@UAEXXZ": "0056aa70",
-   "?ID@?$DynamicVectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": "0056aaa0"
+   "?ID@?$DynamicVectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": "0056aaa0",
+   "_?_subzone_flood_stack@?1??Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVFootClass@@@Z@4PAPAV3@A": "00a6f820",
+   "_?_subzone_flood_visited@?1??Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVFootClass@@@Z@4PAY07DA": "00a6fbf0"
   },
   "partial_ok": true
  },

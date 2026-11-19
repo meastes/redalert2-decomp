@@ -1091,6 +1091,29 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   Alpha, as lobby extras before Start Game); Build_By_String needs a desync (Print_CRCs) or the version dialog, which
   nothing opens (Version_Dialog 0x00516E70 has no caller).
 
+### Lane N12 (2026-11-19): the Mirage tank's first camouflage animation
+
+* **The user's Duo report**: the camouflage still draws corrupted graphics on its first animation, every later one
+  correct (after lane N4's colour fix). The "animation" is the owner's morph: a player's disguised Mirage fades out
+  (GetDisguiseFlags: translucent at phases 64-79), shows the tree (IsClearlyVisibleTo false at phases 72-119) and
+  fades back in (112-127), every 256 frames from DisguiseCreationFrame.
+* **Not reproduced on the Mac or in the Simulator.** Window crops of the tank on every frame (harness
+  `RA2_NATIVE_CAMO_DUMP=<dir>`) through the first and later morphs: a spawned tank (ScenIndex 0, 2, 5, 9, 14: four
+  theaters' maps), one built by a war factory (`produce GAWEAP MGTK`, the first disguise at the facing it drove out
+  with), one moved and disguised again, and "RA2 Duo Validation" with the camouflage watched from its spawn: the
+  first morph is pixel for pixel the second (the converter choice matches gamemd.exe 0x00705E45-0x00706129; the tree
+  takes Unit_Draw_Shape's 16-bit path, TerrainPalette clear). No fix was made: the cause is not on the paths the Mac
+  and the Simulator take.
+* **ctest `yr-native-mirage` now checks the first animation**: the watch starts with the spawn (frame 60), the box
+  around the tank on each frame of the first cycle's morph (phases 64-127; the first frame seen is skipped, since the
+  composed view still holds the frame before the disguise) is kept and the second cycle's same frames are compared
+  with it (`harness-camo-morph compared <n> differ <max> at frame <f>`; 62 compared, 0 differ). A fault confined to
+  the first cycle (tried: house colours until frame 200) gives 2,521 differing pixels and fails, where the old
+  averages passed (706 green, 56 blue). The green floor is 40 (an olive tree on desert ground counts about 70; the
+  disguise is a random DefaultMirageDisguises tree, so runs differ).
+* **Asked of the user**: a screenshot or a description of the first animation on the Duo (noise, the tank's colours,
+  the tree in blue and white, a black box), and whether the app on the Duo was built after lane N4's landing.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

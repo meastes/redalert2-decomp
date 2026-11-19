@@ -549,7 +549,6 @@ RGBClass OverlayTypeClass::Get_Radar_Color(int shape) const
 /// for every later request.
 /// </summary>
 /// <returns>Returns with a pointer to the shape data for this overlay type.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void const * OverlayTypeClass::Get_Image_Data(void) const
 {
 	char fullname[_MAX_FNAME+_MAX_EXT];
@@ -567,15 +566,17 @@ void const * OverlayTypeClass::Get_Image_Data(void) const
 	} else {
 		if (IsNewTheater) {
 			_makepath(fullname, NULL, NULL, GraphicName, ".SHP");
-			_this->Theater_Naming_Convention( fullname, Scen->Theater);
+			Theater_Name_Fixup(fullname, Scen->Theater); // RA2: the free function at 0x5D7BD0 (was the member Theater_Naming_Convention)
 		}
 	}
 
 	CCFileClass file (fullname);
 
 	_this->ImageData = Load_Alloc_Data(file);
+	if (ImageData != NULL) { // RA2: the loaded art is owned and freed with the type (ra2-decomp)
+		_this->ImageAllocated = true;
+	}
 
 	return(ImageData);
 }
-#endif
 

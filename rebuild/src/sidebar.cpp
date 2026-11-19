@@ -190,6 +190,7 @@ int SidebarClass::SidebarEdgeWidth; // RA2: 0xABCD7C
 int SidebarClass::SidebarEdgeStep; // RA2: 0xABCD80
 bool IsCameoTextShown; // RA2: 0x8373C0; set, the cameos carry their names and the help text shows the cost only
 bool SidebarClass::IsSidebarRedrawPending; // RA2: 0x8373C3
+wchar_t ButtonHelpBuffer[256]; // RA2: 0xAB9274; the help text of a scroll or tab button marked as disabled
 wchar_t CameoHelpBuffer[66]; // RA2: 0xAB9484; the help text of a cameo
 
 /***************************************************************************
@@ -3290,20 +3291,42 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 /// </summary>
 /// <param name="id">The gadget identifier that text is wanted for.</param>
 /// <returns>Returns with a pointer to the help text, or NULL if the gadget has none.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 452 bytes differ (adopted text)
-const char * SidebarClass::Help_Text(int id)
+const char * SidebarClass::Help_Text(int id) // RA2: the text is wide
 {
-	const char *text = BASECLASS::Help_Text(id);
+	wchar_t const * text = (wchar_t const *)BASECLASS::Help_Text(id);
 	if (text == NULL) {
-		id = id - GADGET_CAMEO;
-		int index = id >> 8;
-		if (index < COLUMNS && index >= 0) {
-			text = (char const *)Column[index].Help_Text(id % 256U); // RA2: the cameo text is wide
+		bool disabled = false;
+		if (id == 200) { // RA2: the scroll and tab buttons have tips, marked when the button is off
+			text = StringTable::LoadString("Tip:ScrollUp", NULL, "D:\\Ra2\\Sidebar.CPP", 4297);
+			disabled = !ScrollUpButton.Is_Enabled();
+		} else if (id == 201) {
+			text = StringTable::LoadString("Tip:ScrollDown", NULL, "D:\\Ra2\\Sidebar.CPP", 4303);
+			disabled = !ScrollDownButton.Is_Enabled();
+		} else if (id >= 203 && id < 207) {
+			int tab = id - 203;
+			if (tab == 0) {
+				text = StringTable::LoadString("Tip:Tab1", NULL, "D:\\Ra2\\Sidebar.CPP", 4311);
+			} else if (tab == 1) {
+				text = StringTable::LoadString("Tip:Tab2", NULL, "D:\\Ra2\\Sidebar.CPP", 4313);
+			} else if (tab == 2) {
+				text = StringTable::LoadString("Tip:Tab3", NULL, "D:\\Ra2\\Sidebar.CPP", 4315);
+			} else if (tab == 3) {
+				text = StringTable::LoadString("Tip:Tab4", NULL, "D:\\Ra2\\Sidebar.CPP", 4317);
+			}
+			disabled = !TabButton[tab].Is_Enabled();
+		} else {
+			int count = Get_Doubled_Row_Count(); // RA2: the cameos of the active strip
+			if (id >= 1000 && id < 1000 + count) {
+				return((char const *)Column[ActiveTabIndex].Help_Text(id - 1000));
+			}
+		}
+		if (disabled) {
+			swprintf(ButtonHelpBuffer, L"%s\n(%s)", text, StringTable::LoadString("Tip:Disabled", NULL, "D:\\Ra2\\Sidebar.CPP", 4336));
+			return((char const *)ButtonHelpBuffer);
 		}
 	}
-	return(text);
+	return((char const *)text);
 }
-#endif
 
 
 /// <summary>

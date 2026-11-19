@@ -188,6 +188,9 @@ platform layer. It earns no exact-match credit.
   and crashed when a beam ran one way (`yr-native-standins`).
   Needs a user check on the device: garrison a building, watch a Mirage tank stand still, look at an oil derrick and
   other buildings' animations.
+  Lane N12: the user still saw the camouflage's first animation (the tank fading into the tree) corrupted. Not
+  reproduced on the Mac or in the Simulator: the first fade and tree are pixel for pixel the later ones. ctest
+  `yr-native-mirage` now compares the first animation's frames with the second's.
 - Fixed 2026-11-19 (lane N4): engineers did not repair bridges in Yuri's Revenge (one sent into a bridge repair hut
   vanished and the bridge stayed broken). The soldiers' cell-arrival draft called the wrong game function where Tiberian
   Sun's text asks whether a building counts as a vehicle; the same mistake let bullets, particles and falling debris

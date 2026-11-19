@@ -88,3 +88,12 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
    gamemd.exe's instructions in the shape of Red Alert 2's twins (glue/mapgen_native.inc and two more), and a fault it
    uncovered (MapClass::Zone_Reset's result: one random map in three had no start points). ctest `yr-native-choose-map`.
    MapPreviewClass::Blit_Preview stays missing (only the modem dialogs use it).
+
+## User checks on the Duo (2026-11-19 ~19:45Z)
+- Pass: GIs garrison and leave buildings; selling plays the sell sound; Yuri's Revenge random maps (Choose Map, Create Random Map) play correctly.
+- Fault: the Mirage tank's camouflage still shows corrupted graphics on its first animation; every later animation is correct (same first-draw pattern as the MCV/Grizzly fix in lane Y14). First item for the next port lane.
+  Lane N12 (2026-11-19): not reproduced on the Mac or in the Simulator (the first morph is pixel for pixel the
+  second, on five maps, a factory-built tank and a re-disguise); `yr-native-mirage` now compares the first animation
+  with the second. Needs from the user: a screenshot or description of the first animation, and whether the Duo's
+  app was built after lane N4.
+- Mirage camouflage (update 2026-11-19 ~20:40Z): the user saw blue trees once and cannot reproduce it; lane N12 could not either (Mac and Simulator, five maps, frame-by-frame). Blue trees are the pre-N4 house-colour symptom. Closed as not reproduced; yr-native-mirage now compares the first animation with the second, so a recurrence would show there. Reopen if seen again.

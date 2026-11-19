@@ -90,7 +90,10 @@
 //                   Active_Click_With: the mouse click's order); logs `harness-click <ID> action <n> -> <TARGET> ok|refused`;
 //   camo <ID> <frames>  for that many frames, while the first techno of type ID shows the player its disguise
 //                   (IsDisguised, not IsClearlyVisibleTo), counts leaf-green and blue/white pixels in a box above it in
-//                   the composed view; logs `harness-camo seen <frames> green <avg> blue <avg>` (lane N4);
+//                   the composed view; logs `harness-camo seen <frames> green <avg> blue <avg>` (lane N4); and
+//                   compares the second disguise cycle's morph (the fade out, the tree, the fade in) with the first's,
+//                   frame by frame: `harness-camo-morph compared <n> differ <max> at frame <f>` (lane N12;
+//                   RA2_NATIVE_CAMO_DUMP=<dir> writes the boxes as PPM files);
 //   disguise <ID>   logs `harness-disguise <ID> <0|1> as <TYPE> r<rtti> clear <0|1>` (lane N4);
 //   banims <BLDG>   logs `harness-banim <BLDG> <slot> <anim> live <0|1> ... layer <n> in-layer <n> ...` for each animation
 //                   of the first building of type BLDG: the type's animations and the playing ones (in-layer: the
@@ -127,6 +130,7 @@
 #include "cell.h"
 #include "ccini.h"
 extern CCINIClass ArtINI;
+namespace Unsorted { extern int CurrentFrame; }
 LayerType Layer_From_Name(char const * name);
 #include "building.h"
 #include "super.h"
@@ -176,6 +180,17 @@ int camo_frames = 0;
 int camo_seen = 0;
 int camo_green = 0;
 int camo_blue = 0;
+// camo, lane N12: the owner sees the disguise come and go every 256 frames (TechnoClass::IsClearlyVisibleTo and
+// GetDisguiseFlags: the tank fades out, the tree, the tank fades in). The box around the unit on each frame of the
+// first cycle's morph (phases 64-127) is kept and the second cycle's same frames are compared with it: a still
+// unit's morph must look the same every time (the user's Duo fault: corrupted only the first time).
+int const kCamoBoxW = 100, kCamoBoxH = 110;
+unsigned short * camo_first = NULL;	// [64][kCamoBoxH * kCamoBoxW]
+bool camo_kept[64];
+unsigned camo_created = 0;
+int camo_compared = 0;
+int camo_diff_max = 0;
+int camo_diff_frame = -1;
 bool watching = false;
 bool killed = false;
 
@@ -762,6 +777,10 @@ int Run_Order(int frame, char const * text)
 		camo_unit = First_Of(word[1], NULL);
 		camo_frames = atoi(word[2]);
 		camo_seen = camo_green = camo_blue = 0;
+		camo_compared = camo_diff_max = 0;
+		camo_diff_frame = -1;
+		camo_created = 0;
+		memset(camo_kept, 0, sizeof(camo_kept));
 		return(camo_unit != NULL ? 1 : -1);
 	}
 	if (!strcmp(word[0], "noise") && words >= 2) {
@@ -997,6 +1016,40 @@ void Camo_Pixels(Surface * surface, Point2D const & at, int & green, int & blue)
 	surface->Unlock();
 }
 
+// camo: copy (keep) or compare the box around the unit (centre at its pixel, the disguise above it); returns the
+// pixels that differ from the kept copy.
+int Camo_Box(Surface * surface, Point2D const & at, unsigned short * keep, bool compare, char const * dump)
+{
+	if (surface == NULL || surface->Bytes_Per_Pixel() != 2) return(0);
+	unsigned char * base = (unsigned char *)surface->Lock();
+	if (base == NULL) return(0);
+	int differ = 0;
+	FILE * f = dump != NULL ? fopen(dump, "wb") : NULL;
+	if (f != NULL) fprintf(f, "P6 %d %d 255\n", kCamoBoxW, kCamoBoxH);
+	for (int y = 0; y < kCamoBoxH; ++y) {
+		int sy = at.Y - 85 + y;
+		for (int x = 0; x < kCamoBoxW; ++x) {
+			int sx = at.X - 55 + x;
+			unsigned short c = 0;
+			if (sy >= 0 && sy < surface->Get_Height() && sx >= 0 && sx < surface->Get_Width()) {
+				c = ((unsigned short const *)(base + (size_t)sy * surface->Stride()))[sx];
+			}
+			if (compare) {
+				differ += keep[y * kCamoBoxW + x] != c;
+			} else {
+				keep[y * kCamoBoxW + x] = c;
+			}
+			if (f != NULL) {
+				unsigned char rgb[3] = {(unsigned char)((c >> 11) << 3), (unsigned char)(((c >> 5) & 63) << 2), (unsigned char)((c & 31) << 3)};
+				fwrite(rgb, 1, 3, f);
+			}
+		}
+	}
+	if (f != NULL) fclose(f);
+	surface->Unlock();
+	return(differ);
+}
+
 void Force_End(int frame)
 {
 	static int end_at[16];
@@ -1046,6 +1099,34 @@ void yr_native_harness_frame(int frame)
 		if (--noise_frames == 0) fprintf(stderr, "harness-noise-max %d over %d frames\n", noise_max, noise_total);
 	}
 	if (camo_frames > 0 && camo_unit != NULL) {
+		Point2D at;
+		if (Is_Live(camo_unit) && camo_unit->IsDisguised() && TacticalMap->Coord_To_Pixel(camo_unit->Center_Coord(), at)) {
+			// the morph: the first cycle's frames kept, the second cycle's compared with them (lane N12)
+			// the composed view holds the previous frame's drawing: the first frame a disguise is seen still shows
+			// the tank as it was before, so it is not kept
+			bool first_seen = camo_created == 0;
+			if (first_seen) camo_created = camo_unit->DisguiseCreationFrame;
+			unsigned age = (unsigned)Unsorted::CurrentFrame - camo_unit->DisguiseCreationFrame + 64;
+			int phase = (int)(age % 256), cycle = (int)(age / 256);
+			char dump[1024];
+			char const * dir = getenv("RA2_NATIVE_CAMO_DUMP");	// the boxes as PPM files, for a look
+			if (dir != NULL) snprintf(dump, sizeof dump, "%s/f%05d_c%d_p%03d.ppm", dir, frame, cycle, phase);
+			if (camo_first == NULL) camo_first = new unsigned short[64 * kCamoBoxH * kCamoBoxW];
+			if (!first_seen && camo_unit->DisguiseCreationFrame == camo_created && phase >= 64 && phase < 128 && cycle <= 1) {
+				unsigned short * keep = camo_first + (size_t)(phase - 64) * kCamoBoxH * kCamoBoxW;
+				if (cycle == 0) {
+					Camo_Box(CompositeSurface, at, keep, false, dir ? dump : NULL);
+					camo_kept[phase - 64] = true;
+				} else if (camo_kept[phase - 64]) {
+					int differ = Camo_Box(CompositeSurface, at, keep, true, dir ? dump : NULL);
+					++camo_compared;
+					if (differ > camo_diff_max) {
+						camo_diff_max = differ;
+						camo_diff_frame = frame;
+					}
+				}
+			}
+		}
 		if (!Is_Live(camo_unit)) {
 			camo_frames = 1;
 		} else if (camo_unit->IsDisguised() && !camo_unit->IsClearlyVisibleTo(PlayerPtr)) {
@@ -1061,6 +1142,8 @@ void yr_native_harness_frame(int frame)
 		if (--camo_frames == 0) {
 			fprintf(stderr, "harness-camo seen %d green %d blue %d\n", camo_seen,
 				camo_seen ? camo_green / camo_seen : 0, camo_seen ? camo_blue / camo_seen : 0);
+			fprintf(stderr, "harness-camo-morph compared %d differ %d at frame %d\n", camo_compared, camo_diff_max,
+				camo_diff_frame);
 		}
 	}
 	Force_End(frame);

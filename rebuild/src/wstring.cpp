@@ -1205,35 +1205,32 @@ wchar_t WideWstring::remove(int pos, int count) // RA2: as above
 /// <summary>
 /// RA2: Removes every instance of a character.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 char WideWstring::removeChar(wchar_t c) // RA2: as above
 {
-	int len = 0; // RA2: as above
-	wchar_t* cptr = NULL; // RA2: as above
-	char removed = FALSE; // RA2: as above
+	int len = 0;
+	wchar_t * cptr = NULL;
+	char removed = FALSE;
 
-	if (str == NULL) // RA2: as above
-		return(FALSE); // RA2: as above
+	if (str == NULL)
+		return(FALSE);
 
-	len = wcslen(str); // RA2: as above
-	while ((cptr = wcschr(str, c)) != NULL) // RA2: as above
+	len = wcslen(str);
+	while ((cptr = (wchar_t *)wcschr((wchar_t const *)str, c)) != NULL)
 	{
-		memmove(cptr, cptr + 1, len * 2 - ((int)(cptr - str)) - 2); // RA2: the executable moves len * 2 - index - 2 bytes (the index is not doubled)
-		len--; // RA2: as above
-		str[len] = 0; // RA2: as above
-		removed = TRUE; // RA2: as above
+		memmove(cptr, cptr + 1, (len - 1) * sizeof(wchar_t) - ((int)(cptr - str)));
+		len--;
+		str[len] = 0;
+		removed = TRUE;
 	}
-
-	if (removed) // RA2: as above
+	if (removed)
 	{
-		wchar_t* newStr = new wchar_t[wcslen(str) + 1]; // RA2: as above
-		wcscpy(newStr, str); // RA2: as above
-		delete(str); // RA2: as above
-		str = newStr; // RA2: as above
+		wchar_t * newStr = new wchar_t[wcslen(str) + 1];
+		wcscpy(newStr, str);
+		delete[] (str);
+		str = newStr;
 	}
-	return(removed); // RA2: as above
+	return(removed);
 }
-#endif
 
 
 /// <summary>
@@ -1249,16 +1246,21 @@ void WideWstring::removeSpaces(void) // RA2: as above
 /// <summary>
 /// RA2: Removes the leading characters found in delim.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 8 bytes differ (the string and the delimiter take each other's registers, as in trimTrailing)
 void WideWstring::trimLeading(WideWstring const& delim) // RA2: as above
 {
-	unsigned int i = 0; // RA2: the index is unsigned (unsigned compares in the executable)
-	while (i < length() && wcschr(delim.get(), str[i])) // RA2: as above
-		i++; // RA2: as above
-	if (i > 0) // RA2: as above
-		remove(0, i); // RA2: as above
+	unsigned int i = 0;
+
+	while (i < length())
+	{
+		wchar_t const * d = delim.str;
+		if (!d) d = L"";
+		if (!wcschr(d, str[i]))
+			break;
+		i++;
+	}
+	if (i > 0)
+		remove(0, i);
 }
-#endif
 
 
 /// <summary>

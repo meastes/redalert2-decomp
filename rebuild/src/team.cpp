@@ -1373,7 +1373,6 @@ void TeamClass::Detach(AbstractClass const * target, bool all)
  * HISTORY:                                                                                    *
  *   12/29/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 995 bytes differ (adopted text)
 void TeamClass::Calc_Center(AbstractClass *& center, AbstractClass *& close_member) const
 {
 	/*
@@ -1412,10 +1411,9 @@ void TeamClass::Calc_Center(AbstractClass *& center, AbstractClass *& close_memb
 		for (int unit_index = 0; unit_index < Units.Count(); unit_index++) {
 			FootClass * trial_unit = Units[unit_index];
 
-			if (_Is_It_Breathing(trial_unit) && House != trial_unit->House && trial_unit->House->Is_Ally(House) && this != trial_unit->Team) {
+			if (_Is_It_Breathing(trial_unit) && trial_unit->House->Is_Ally(House) && this != trial_unit->Team) { // RA2: any allied unit, the team's own house included (ra2-decomp)
 				//int trial_distance = team_member->Distance(trial_unit);
-				Coord crd = team_member->Center_Coord() - trial_unit->Center_Coord();
-				int trial_distance = (crd).Length();
+				int trial_distance = team_member->Distance_To(trial_unit); // RA2: as the infantry scan (ra2-decomp)
 
 				if (distance == -1 || trial_distance < distance) {
 					distance = trial_distance;
@@ -1430,7 +1428,7 @@ void TeamClass::Calc_Center(AbstractClass *& center, AbstractClass *& close_memb
 		for (int infantry_index = 0; infantry_index < Infantry.Count(); infantry_index++) {
 			FootClass * trial_infantry = Infantry[infantry_index];
 
-			if (_Is_It_Breathing(trial_infantry) && House != trial_infantry->House && trial_infantry->House->Is_Ally(House) && this != trial_infantry->Team) {
+			if (_Is_It_Breathing(trial_infantry) && trial_infantry->House->Is_Ally(House) && this != trial_infantry->Team) {
 				int trial_distance = team_member->Distance_To(trial_infantry);
 
 				if (distance == -1 || trial_distance < distance) {
@@ -1487,10 +1485,12 @@ void TeamClass::Calc_Center(AbstractClass *& center, AbstractClass *& close_memb
 				**	Keep a record of the team member that is nearest to the team's
 				**	target.
 				*/
-				int try_dist = team_member->Relative_Distance(Target);
-				if (!dist || try_dist < dist) {
-					dist = try_dist;
-					closest = team_member;
+				if (!(team_member->Techno_Type_Class()->MaxPassengers > 0 && team_member->Techno_Type_Class()->Naval)) { // RA2: a naval transport is never the regroup member (ra2-decomp)
+					int try_dist = team_member->Relative_Distance(Target);
+					if (!dist || try_dist < dist) {
+						dist = try_dist;
+						closest = team_member;
+					}
 				}
 			}
 
@@ -1511,7 +1511,10 @@ void TeamClass::Calc_Center(AbstractClass *& center, AbstractClass *& close_memb
 			**	If the center location is impassable, then just pick the location of
 			**	one of the team members.
 			*/
-			if (closest->Can_Enter_Cell((CellClass *)center) == MOVE_OK) {
+			if (closest == NULL) { // RA2: the first member stands in, and the center is that member unless it can enter the cell (ra2-decomp)
+				closest = Member;
+			}
+			if (closest->Can_Enter_Cell((CellClass *)center) != MOVE_OK) {
 				center = closest;
 			}
 		}
@@ -1525,7 +1528,6 @@ void TeamClass::Calc_Center(AbstractClass *& center, AbstractClass *& close_memb
 		}
 	}
 }
-#endif
 
 
 /***********************************************************************************************
