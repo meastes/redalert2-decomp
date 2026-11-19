@@ -50,8 +50,16 @@ Structure: 0 duplicate class definitions, 0 stray externs in landed sources (11 
 (budgeted: an increase fails the gate), 122 units held, 670 functions not yet exact (443,661 bytes; 115 functions of
 1 KB or more, 361,777 bytes).
 
-"Not yet exact" (parked) counts the functions that are not exact inside processed units: units whose
-current text has a check here. Units with no text yet, or a worker's unit not merged, are not counted.
+"Not yet exact" (parked; the checkpoint's measure) is the census definition, `rebuild_census.parked_tail`,
+which `progress.py` also prints (lane R43, 2026-11-19): every row of every unit in `units.json` that a check
+of the unit's current text and current rows does not find exact, count-sensitive rows apart. Rows with no
+text (tailmap's no_draft bucket), rows of a unit whose source is missing and rows of a unit that does not
+compile all count. A check is current only when it is of the same source and the same rows (entry and
+symbol, `rebuild.last_check`); before this the test was the source alone, so a unit given rows after its
+check counted them as parked (2,006 rows / 560 KB on the progress line of 2026-11-19 21:51Z; 1,168 rows /
+497 KB, tailmap's count, once the 113 units with such checks were checked again). Functions inside a unit's range with no row at all
+(main has no bound for them) are not parked rows: `tools/nodraft_queue.py` lists them as `no_main_row` in
+`manifest/no_draft_queue.csv` beside the no_draft rows main has an exact body for (`main_exact`).
 The newest numbers are always the last `rebuild-trial` line of `manifest/progress.csv`, written only at a
 gated landing (column `tree`; older rows from worker branches are marked as such).
 Series break: before 2026-11-18T16:07Z `bytes_exact` counted only the lane's catalogued rows, while

@@ -108,6 +108,7 @@ class TeamTypeClass : public AbstractTypeClass
 		operator const char * (void) const {return(Description());};
 #endif
 		TeamClass *Find_First_Of_Type(void);
+		void Process_Task_Force(void); // RA2: 0x6C0180 (YR name, ra2-decomp); the task force's combined movement zone and naval flags
 
 		int Get_Group(void) const;
 		Cell Get_Origin(void) const;
@@ -331,3 +332,5 @@ class TeamTypeClass : public AbstractTypeClass
 		 */
 		bool OnlyTargetHouseEnemy;
 };
+
+void Process_All_Task_Forces(void); // RA2: 0x6C0220 (YR: TeamTypeClass::Process_All_Task_Forces, ra2-decomp); called after the scenario's team types are read

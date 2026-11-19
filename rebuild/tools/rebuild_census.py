@@ -136,14 +136,12 @@ def parked_tail():
     rows = total = large = large_total = 0
     for unit, info in R.load_json(R.UNITS, {}).items():
         source = R.ROOT / info['source']
-        last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
-        current = hashlib.sha256(source.read_bytes()).hexdigest() if source.exists() else None
-        if current and (last is None or last.get('source_sha256') != current):
+        last = R.last_check(unit, info)
+        if last is None and source.exists():
             with contextlib.redirect_stdout(io.StringIO()):
                 R.check(unit)
-            last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
-        fresh = bool(last) and last.get('source_sha256') == current
-        status = {r['entry']: r['status'] for r in last['results']} if fresh else {}
+            last = R.last_check(unit, info)
+        status = {r['entry']: r['status'] for r in last['results']} if last else {}
         sensitive = info.get('count_sensitive') or {}
         for r in info['rows']:
             if status.get(r['entry']) != 'exact' and r['entry'] not in sensitive:

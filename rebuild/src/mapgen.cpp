@@ -6387,8 +6387,7 @@ double MapGeneratorClass::Get_Spread_Score(const Cell & cell1, const Cell & cell
 /// <param name="start_angle">Initial heading angle in radians (used when cell is given).</param>
 /// <param name="is_branch">True when invoked recursively as a branch sub-call.</param>
 /// <returns>True if enough water was painted, false otherwise.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 3059 bytes differ (adopted text)
-bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool is_branch) // RA2: RA2's form (0x57ECF0): one water tile, the draws inline, the shores built before the region grows; near miss, 32 bytes short: same instructions but a frame 8 bytes smaller and the zero constant kept in another register
+bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool is_branch) // RA2: RA2's form (0x57ECF0): one water tile, the draws inline, the shores built before the region grows (ra2-decomp's twin text)
 {
 	bool orig_subcall = is_branch;
 	bool success = true;
@@ -6414,8 +6413,7 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 		double base_angle = DEG_TO_RAD(315) - (double)dir4 * M_PI_2;
 
 		seed_cell = candidates[dir4];
-		angle = Sample_Truncated_Normal(base_angle, DEG_TO_RAD(30),
-				base_angle - M_PI_4, base_angle + M_PI_4);
+		angle = Sample_Truncated_Normal(base_angle, DEG_TO_RAD(30), base_angle - M_PI_4, base_angle + M_PI_4);
 	} else {
 		seed_cell = cell;
 		angle = start_angle;
@@ -6432,17 +6430,17 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 		width_d = 1.0;
 	}
 	int width_top = (int)width_d;
-	double start_width = (double)Pick_Random_UInt(1, width_top); // RA2: the first width is kept apart from the running one
-	double width = start_width; // RA2: as above
-	int half = (int)start_width / 2; // RA2: as above
-	double width_hi = (double)half + start_width; // RA2: as above
-	double width_lo = start_width - (double)half; // RA2: as above
+	double width_pick = (double)Pick_Random_UInt(1, width_top);
+	double width = width_pick;
+	int half = (int)width_pick / 2;
+	double width_hi = (double)half + width_pick;
+	double width_lo = width_pick - (double)half;
 
 	int length = (int)Pick_Random_UInt(35, 125);
 
-	double cur_angle = angle;
 	double cur_x = (double)seed_cell.X + 0.5;
 	double cur_y = (double)seed_cell.Y + 0.5;
+	double cur_angle = angle;
 	double angle_hi = angle + M_PI_2;
 	double angle_lo = angle - M_PI_2;
 
@@ -6461,44 +6459,31 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 		double offset_y = (double)(span - 1) * step_y * 0.5;
 		double py = cur_y - offset_y;
 
-		if (span > 0) {
-			int i = span;
-			Cell pcell;
-			while (true) {
-				if (My_In_Radar(Cell((int)px, (int)py))) {
-					pcell = Cell((int)px, (int)py);
-					if (MapRegionClass::CellData::Get_Region(pcell) == 0 // RA2: as above
-							&& Map[pcell].Is_Tile_Clear()
-							|| MapRegionClass::CellData::Get_Region(pcell) == WorkingRegionID) { // RA2: as above
+		for (int i = 0; i < span; i++) {
+			if (My_In_Radar(Cell((int)px, (int)py))) {
+				Cell pcell = Cell((int)px, (int)py);
+				if (Get_Cell_Data_Region(pcell) == 0
+						&& Map[pcell].Is_Tile_Clear()
+						|| Get_Cell_Data_Region(pcell) == WorkingRegionID) {
 
-						if (RMGCellData != NULL) { // RA2: as above
-							MapRegionClass::Get_Cell_Data(pcell).RegionID = WorkingRegionID; // RA2: as above
-						}
-						CellClass * cellptr = &Map[Cell((int)px, (int)py)];
-						cellptr->ITType = IsometricTileTypeClass::WaterSet; // RA2: always the first water tile
-						cellptr->SubTile = 0; // RA2: as above
-					} else {
-						success = false;
-					}
-				}
-
-				double next_x = px + step_x; // RA2: the next position is formed first
-				if ((int)px != (int)next_x) { // RA2: as above
-					x_run = false;
-				}
-
-				double next_y = py + step_y; // RA2: as above
-				if ((int)py != (int)next_y) { // RA2: as above
-					y_run = false; // RA2: as above
-				}
-
-				px = next_x; // RA2: as above
-				py = next_y; // RA2: as above
-				i--;
-				if (i == 0) {
-					break;
+					Set_Cell_Data_Region(pcell, WorkingRegionID);
+					CellClass * cellptr = &Map[Cell((int)px, (int)py)];
+					cellptr->ITType = IsometricTileTypeClass::WaterSet;
+					cellptr->SubTile = 0;
+				} else {
+					success = false;
 				}
 			}
+
+			if ((int)px != (int)(px + step_x)) {
+				x_run = false;
+			}
+			if ((int)py != (int)(py + step_y)) {
+				y_run = false;
+			}
+
+			px += step_x;
+			py += step_y;
 		}
 
 		if (fabs(step_y) > fabs(step_x)) {
@@ -6538,44 +6523,23 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 			if (success) {
 				if (!is_branch && waterfall_count == 0) {
 					is_branch = true;
-					double branch_mean = cur_angle + M_PI_2; // RA2: the truncated draw is open coded
-					double branch_lo = cur_angle + DEG_TO_RAD(30); // RA2: as above
-					double branch_hi = cur_angle + DEG_TO_RAD(150); // RA2: as above
-					double branch_deviation = DEG_TO_RAD(30); // RA2: as above
-					if (branch_mean - branch_deviation > branch_hi || branch_mean + branch_deviation < branch_lo) { // RA2: as above
-						branch_deviation = (branch_hi - branch_lo) * 0.5; // RA2: as above
-						branch_mean = branch_deviation + branch_lo; // RA2: as above
-					}
-					double branch_angle; // RA2: as above
-					do { // RA2: as above
-						branch_angle = RMGGaussian() * branch_deviation + branch_mean; // RA2: as above
-					} while (branch_angle < branch_lo || branch_angle > branch_hi); // RA2: as above
-
-					Cell branch_cell((int)px, (int)py);
-					success = Seed_River(branch_cell, branch_angle, true);
+					double branch_base = cur_angle + M_PI_2;
+					success = Seed_River(Cell((int)px, (int)py), Sample_Truncated_Normal_Inline(branch_base, DEG_TO_RAD(30),
+							cur_angle + DEG_TO_RAD(30), cur_angle + DEG_TO_RAD(150)), true);
 				}
 			}
 		}
 
 		if (seeded_count > 5) {
-			double delta_angle = Sample_Truncated_Normal(0.0, DEG_TO_RAD(18),
+			double delta_angle = Sample_Truncated_Normal_Inline(0.0, DEG_TO_RAD(18),
 					angle_lo - cur_angle, angle_hi - cur_angle);
 			cur_angle += delta_angle;
 		}
 
 		if (half > 0) {
-			double step_hi = width_hi - width; // RA2: the truncated draw is open coded
-			double step_lo = width_lo - width; // RA2: as above
-			double step_dev = 0.5; // RA2: as above
-			double step_mean = 0.0; // RA2: as above
-			if (step_mean - step_dev > step_hi || step_mean + step_dev < step_lo) { // RA2: as above
-				step_dev = (step_hi - step_lo) * 0.5; // RA2: as above
-				step_mean = step_dev + step_lo; // RA2: as above
-			}
-			double delta_width; // RA2: as above
-			do { // RA2: as above
-				delta_width = RMGGaussian() * step_dev + step_mean; // RA2: as above
-			} while (delta_width < step_lo || delta_width > step_hi); // RA2: as above
+			double hi = width_hi - width;
+			double lo = width_lo - width;
+			double delta_width = Sample_Truncated_Normal_Inline(0.0, 0.5, lo, hi);
 			width += delta_width;
 		}
 
@@ -6599,18 +6563,10 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 	}
 
 	if (!orig_subcall && success) {
-		success = Map.Build_All_Shores(WorkingRegionID, false); // RA2: the two-argument form
-		if (success) { // RA2: the shore is grown out and the cells still clear are made green
-			success = Grow_Region(WorkingRegionID, 1, Rect(0, 0, MAP_CELL_W, MAP_CELL_H), 0, 0); // RA2: as above
-			int region_id = WorkingRegionID; // RA2: as above
-			Map.Reset_Iterator(); // RA2: as above
-			CellClass * cptr = Map.Iterate(); // RA2: as above
-			while (cptr != NULL) { // RA2: as above
-				if (MapRegionClass::CellData::Get_Region(cptr->CellID) == region_id && (cptr->ITType == ISOTILE_CLEAR || cptr->ITType == ISOTILE_INVALID)) { // RA2: as above
-					cptr->ITType = IsometricTileTypeClass::GreenTile; // RA2: as above
-				} // RA2: as above
-				cptr = Map.Iterate(); // RA2: as above
-			} // RA2: as above
+		success = Map.Build_All_Shores(WorkingRegionID, false);
+		if (success) {
+			success = Grow_Region(WorkingRegionID, 1, Rect(0, 0, MAP_CELL_W, MAP_CELL_H), 0, 0);
+			Green_Region_Tiles(WorkingRegionID);
 		}
 	}
 
@@ -6619,7 +6575,7 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 	if (waterfall_count == 0 && success && CellHeight == 4 && !orig_subcall) {
 
 		static const double _raise_chance = 0.7; // RA2: a named constant of the function: the executable reads this 0.7 at 0x7A5CB0, among the function statics
-		if (Random_Fraction() < _raise_chance) { // RA2: no biome test
+		if (Random_Fraction() < _raise_chance) {
 
 			Rect bounds(0, 0, MAP_CELL_W, MAP_CELL_H);
 			if (Grow_Water_Region(WorkingRegionID, 0.01f, bounds, seed_cell, true)) {
@@ -6630,7 +6586,7 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 					CellClass * cptr = Map.Iterate();
 					while (cptr != NULL) {
 						Cell c = cptr->CellID;
-						int rid = MapRegionClass::CellData::Get_Region(c); // RA2: the grid accessor
+						int rid = Get_Cell_Data_Region(c);
 						if (rid != region_id) {
 							cptr->Height += 4;
 						}
@@ -6662,15 +6618,14 @@ bool MapGeneratorClass::Seed_River(const Cell & cell, double start_angle, bool i
 		return(true);
 	}
 
-	Clear_Region_Cells(WorkingRegionID, 0, -1, ISOTILE_CLEAR); // RA2: the fourth argument (RA2's wipe takes a tile)
+	Clear_Region_Cells(WorkingRegionID, 0, -1, ISOTILE_CLEAR);
 
 	if (waterfall_count > 0) {
-		Clear_Region_Cells(WorkingRegionID - 1, 0, -1, ISOTILE_CLEAR); // RA2: as above
+		Clear_Region_Cells(WorkingRegionID - 1, 0, -1, ISOTILE_CLEAR);
 	}
 
 	return(false);
 }
-#endif
 
 
 
@@ -7135,7 +7090,7 @@ int MapGeneratorClass::Get_Cell_Data_Spread(Cell const &cell)
 /// over the preceding region and any water it meets along the way?</param>
 /// <param name="height">The height given to newly claimed ground.</param>
 /// <returns>bool; Did the region grow without running into a neighbor?</returns>
-bool MapGeneratorClass::Grow_Region(int id, int rings, Rect rect, char set_height, char height)
+bool MapGeneratorClass::Grow_Region(int id, int rings, Rect rect, char set_height, int height)
 {
 	DynamicVectorClass<Cell> * cells = Build_Region_Border_Cell_List(id);
 
@@ -9019,6 +8974,7 @@ void MapGeneratorClass::Generate_Urban_Roads(const DynamicVectorClass<Cell> & ce
 /// dropped from the pool as soon as they have been placed.
 /// </summary>
 /// <param name="cells">The cells of the urban area available to build on.</param>
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive
 void MapGeneratorClass::Generate_Urban_Buildings(const DynamicVectorClass<Cell> & cells)
 {
 	static char * building_names[18] = {"CITY01", "CITY02", "CITY03", "CITY04", "CITY05", "CITY06", "CITY07", "CITY08", "CITY09", "CITY10", "CITY11", "CITY12", "CITY13", "CITY14", "CITY15", "CITY16", "CITY17", "CITY18"}; // RA2: RA2's form
@@ -9091,6 +9047,7 @@ void MapGeneratorClass::Generate_Urban_Buildings(const DynamicVectorClass<Cell> 
 		}
 	}
 }
+#endif
 
 
 

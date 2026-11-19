@@ -158,7 +158,6 @@ MultiplayerGameMode * __fastcall MultiplayerGameMode::Get(int index) // RA2: 0x0
 /// Fills a combo box with the names of the game modes (each mode is the item's data) and
 /// selects the one with the mode index; a skirmish lists only the modes that allow it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 289 bytes differ (the original constructs the mode list's static vector out of line at both sites; exact through ra2-decomp's Game_Mode_Name/Game_Mode_ID accessors, held for a ruling)
 void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 {
 	Clear_ComboBox(combo); // RA2: as above
@@ -166,15 +165,14 @@ void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 	for (int i = 0; i < MultiplayerGameMode::GetModeCount(); i++) { // RA2: as above
 		MultiplayerGameMode * mode = Game_Modes()[i]; // RA2: as above
 		if (!skirmish || mode->IsSkirmishAllowed()) { // RA2: as above
-			int item = SendMessage(combo, CB_ADDSTRING, 0, (LPARAM)mode->UIName.text()); // RA2: as above
-			if (mode->MPModeIndex == index) { // RA2: as above
+			int item = SendMessage(combo, CB_ADDSTRING, 0, (LPARAM)mode->Get_Name().text()); // RA2: as above
+			if (mode->Get_ID() == index) { // RA2: as above
 				SendMessage(combo, CB_SETCURSEL, item, 0); // RA2: as above
 			}
 			SendMessage(combo, CB_SETITEMDATA, item, (LPARAM)mode); // RA2: as above
 		}
 	}
 }
-#endif
 
 /// <summary>
 /// Fills the game mode list box of the lobby with the names of the game modes (each mode is
@@ -182,7 +180,6 @@ void __fastcall Fill_Game_Mode_Combo(HWND combo, int index) // RA2: 0x005B70B0
 /// Online tournaments may not use while the channel is one, a mode that does not suit an
 /// observer when the local player is one, and in a skirmish the modes that do not allow it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 369 bytes differ (as Fill_Game_Mode_Combo; exact through the same accessors, held for a ruling)
 void __fastcall Fill_Game_Mode_List(HWND list, int index) // RA2: 0x005B71E0
 {
 	SendMessage(list, LB_RESETCONTENT, 0, 0); // RA2: as above
@@ -196,15 +193,14 @@ void __fastcall Fill_Game_Mode_List(HWND list, int index) // RA2: 0x005B71E0
 			continue; // RA2: as above
 		}
 		if (!skirmish || mode->IsSkirmishAllowed()) { // RA2: as above
-			int item = SendMessage(list, LB_ADDITEM, 0, (LPARAM)mode->UIName.text()); // RA2: as above
-			if (mode->MPModeIndex == index) { // RA2: as above
+			int item = SendMessage(list, LB_ADDITEM, 0, (LPARAM)mode->Get_Name().text()); // RA2: as above
+			if (mode->Get_ID() == index) { // RA2: as above
 				SendMessage(list, LB_SETCURSEL, item, 0); // RA2: as above
 			}
 			SendMessage(list, LB_SETITEMDATA, item, (LPARAM)mode); // RA2: as above
 		}
 	}
 }
-#endif
 
 /// <summary>
 /// Gives every player a team of their own (the team is the player's number), except those

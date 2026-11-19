@@ -3547,15 +3547,14 @@ int SubzoneHash(unsigned int const & key)
  *   09/25/1995 JLB : Created.                                                                 *
  *   10/05/1996 JLB : Examines crushable walls.                                                *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 17 bytes differ (TibSun end_zone kept; reusing begin_zone for the end zone gives 4)
 int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 {
+	CellZoneStruct * begin = data;
+	CellZoneStruct * end = data;
 	int passability = data->Passability;
 	bool nopass = passability == PASSABLE_NO;
 	int cell_height = data->Height;
-
-	CellZoneStruct * begin = data;
-	CellZoneStruct * end = data;
 
 	/*
 	**	Find the full extent of the current span by first scanning leftward
@@ -3597,10 +3596,10 @@ int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 	}
 
 	int filled = end - begin - 1;
+	skip = end - data - 1;
 	begin++;
 	int skip1 = 0;
 	int skip2 = 0;
-	skip = end - data - 1;
 	end--;
 
 	int stride = PlayRect.Height + PlayRect.Width + 1;
@@ -3608,8 +3607,8 @@ int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 
 	CellZoneStruct * fbegin = begin - diag;
 	CellZoneStruct * fbegin2 = begin + stride - 1;
-	CellZoneStruct * fend2 = end + diag;
 	CellZoneStruct * fend = end - stride + 1;
+	CellZoneStruct * fend2 = end + diag;
 
 	/*
 	**	At this point we know the bounds of the current span. Fill in the zone values
@@ -10625,12 +10624,11 @@ void MapClass::Shutdown(void)
 /// standing on the tile is retargeted, and a shower of rubble is thrown over the wreckage.
 /// </summary>
 /// <param name="cptr">Cell holding the destroyable cliff tile that came down.</param>
-#ifdef RA2_NON_MATCHING // not exact: 3480 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 1634 bytes differ (main carry through existing Cliff_Subzone helper)
 void MapClass::Collapse_Cliff(CellClass * cptr)
 {
 	if (cptr->ITType == IsometricTileTypeClass::DestroyableCliffs + DESTROYABLE_CLIFFS_COUNT-2) {
-
-		Cell point = Cell(-(cptr->SubTile % 6), cptr->SubTile / -6) + cptr->CellID;
+		Cell point = cptr->CellID + Cell(-((unsigned char)cptr->SubTile % 6), -((unsigned char)cptr->SubTile / 6));
 
 		/*
 		 * Stamp the destroyed cliff replacement tile onto the map, then throw it away.
@@ -10664,11 +10662,9 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 		for (y = 0; y < ittype->Height; y++) {
 			for (x = 0; x < ittype->Width; x++) {
 				Cell cell = point + Cell(x, y);
-				if (image->Fetch_Record_Pointer_Unsafe(x + y * ittype->Width) != NULL) {
-					if (In_Local_Radar(cell, true)) {
-						CellSubzones[Get_Cell_Subzone_Index(cell)].SubzoneID[SUBZONE_FINE] = 0;
-						Map[cell].Recalc_Attributes();
-					}
+				if (image->Fetch_Record_Pointer_Unsafe(y * ittype->Width + x) != NULL && In_Local_Radar(cell, true)) {
+					Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
+					Map[cell].Recalc_Attributes();
 				}
 			}
 		}
@@ -10679,10 +10675,9 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 		for (y = 0; y < ittype->Height; y++) {
 			for (x = 0; x < ittype->Width; x++) {
 				Cell cell = point + Cell(x, y);
-				if (image->Fetch_Record_Pointer_Unsafe(x + y * ittype->Width) != NULL) {
-					if (In_Local_Radar(cell, true) && CellSubzones[Get_Cell_Subzone_Index(cell)].SubzoneID[SUBZONE_FINE] == 0) {
-						Update_Cell_Subzones(cell);
-					}
+				if (image->Fetch_Record_Pointer_Unsafe(y * ittype->Width + x) != NULL && In_Local_Radar(cell, true)
+					&& Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
+					Update_Cell_Subzones(cell);
 				}
 			}
 		}
@@ -10693,11 +10688,9 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 		for (y = 0; y < ittype->Height; y++) {
 			for (x = 0; x < ittype->Width; x++) {
 				Cell cell = point + Cell(x, y);
-				if (image->Fetch_Record_Pointer_Unsafe(x + y * ittype->Width) != NULL) {
-					if (In_Local_Radar(cell, true)) {
-						TechnoClass::Remove_Target(&Map[cell]);
-						Map.Radar_Background(cell);
-					}
+				if (image->Fetch_Record_Pointer_Unsafe(y * ittype->Width + x) != NULL && In_Local_Radar(cell, true)) {
+					TechnoClass::Remove_Target(&Map[cell]);
+					Map.Radar_Background(cell);
 				}
 			}
 		}
@@ -10706,17 +10699,10 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 		 * Mark the affected screen region as dirty so it gets redrawn.
 		 */
 		Point2D pixel1;
-		TacticalMap->Coord_To_Pixel(Coord(point, LEVEL_LEPTON_H * Map[point].Height), pixel1);
-
 		Point2D pixel2;
-		TacticalMap->Coord_To_Pixel(Coord(point + Cell(5, 3), LEVEL_LEPTON_H * Map[point + Cell(5, 3)].Height), pixel2);
-
-		Rect dirty;
-		dirty.X = pixel1.X - 2 * ISO_TILE_PIXEL_W;
-		dirty.Y = pixel1.Y - 2 * ISO_TILE_PIXEL_H;
-		dirty.Width = pixel2.X + 4 * ISO_TILE_PIXEL_W - pixel1.X;
-		dirty.Height = pixel2.Y + 4 * ISO_TILE_PIXEL_H - pixel1.Y;
-		TacticalMap->Register_Dirty_Area(dirty, false);
+		TacticalMap->Coord_To_Pixel(Coord(point, Map[point].Height * LEVEL_LEPTON_H), pixel1);
+		TacticalMap->Coord_To_Pixel(Coord(point + Cell(5, 3), Map[point + Cell(5, 3)].Height * LEVEL_LEPTON_H), pixel2);
+		TacticalMap->Register_Dirty_Area(Rect(pixel1.X - 2 * ISO_TILE_PIXEL_W, pixel1.Y - 2 * ISO_TILE_PIXEL_H, pixel2.X - pixel1.X + 4 * ISO_TILE_PIXEL_W, pixel2.Y - pixel1.Y + 4 * ISO_TILE_PIXEL_H), false);
 
 		/*
 		 * Scatter the debris animations across the collapsed area.
@@ -10727,7 +10713,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 
 		for (y = point.Y; y < point.Y + 3; y++) {
 			for (x = point.X; x < point.X + 5; x++) {
-				Cell cell(x, y);
+				Cell cell = Cell(x, y);
 				AnimTypeClass * type = NULL;
 				for (int i = 0; i < 2; i++) {
 					switch (Scen->RandomNumber(0, 2)) {
@@ -10743,14 +10729,12 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 							type = sml1;
 							break;
 					}
-					AnimClass * anim = new AnimClass(type, Coord(cell, LEVEL_LEPTON_H * Map[cell].Height) + Coord(Scen->RandomNumber(-12, 12), Scen->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, ShapeFlags_Type(SHAPE_CENTER|SHAPE_WIN_REL), 0);
+					AnimClass * anim = new AnimClass(type, Coord(cell, Map[cell].Height * LEVEL_LEPTON_H) + Coord(Scen->RandomNumber(-12, 12), Scen->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 				}
 			}
 		}
-
-	} else if (cptr->ITType == IsometricTileTypeClass::DestroyableCliffs + DESTROYABLE_CLIFFS_COUNT-1) {
-
-		Cell point = Cell(-(cptr->SubTile % 4), -(cptr->SubTile >> 2)) + cptr->CellID;
+	} else if (cptr->ITType == IsometricTileTypeClass::DestroyableCliffs + DESTROYABLE_CLIFFS_COUNT - 1) {
+		Cell point = cptr->CellID + Cell(-((unsigned char)cptr->SubTile % 4), -((unsigned char)cptr->SubTile / 4));
 
 		/*
 		 * Stamp the destroyed cliff replacement tile onto the map, then throw it away.
@@ -10781,14 +10765,14 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 		 */
 		int x;
 		int y;
+		int row_width;
 		for (y = 0; y < ittype->Height; y++) {
-			for (x = 0; x < ittype->Width; x++) {
+			row_width = ittype->Width;
+			for (x = 0; x < row_width; row_width = ittype->Width, x++) {
 				Cell cell = point + Cell(x, y);
-				if (image->Fetch_Record_Pointer_Unsafe(x + y * ittype->Width) != NULL) {
-					if (In_Local_Radar(cell, true)) {
-						CellSubzones[Get_Cell_Subzone_Index(cell)].SubzoneID[SUBZONE_FINE] = 0;
-						Map[cell].Recalc_Attributes();
-					}
+				if (image->Fetch_Record_Pointer_Unsafe(y * row_width + x) != NULL && In_Local_Radar(cell, true)) {
+					Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
+					Map[cell].Recalc_Attributes();
 				}
 			}
 		}
@@ -10797,10 +10781,11 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 		 * Rebuild the subzone graph for those cells.
 		 */
 		for (y = 0; y < ittype->Height; y++) {
-			for (x = 0; x < ittype->Width; x++) {
+			row_width = ittype->Width;
+			for (x = 0; x < row_width; row_width = ittype->Width, x++) {
 				Cell cell = point + Cell(x, y);
-				if (image->Fetch_Record_Pointer_Unsafe(x + y * ittype->Width) != NULL) {
-					if (In_Local_Radar(cell, true) && CellSubzones[Get_Cell_Subzone_Index(cell)].SubzoneID[SUBZONE_FINE] == 0) {
+				if (image->Fetch_Record_Pointer_Unsafe(y * row_width + x) != NULL && In_Local_Radar(cell, true)) {
+					if (Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
 						Update_Cell_Subzones(cell);
 					}
 				}
@@ -10811,13 +10796,12 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 		 * Refresh mission targets and the radar background for those cells.
 		 */
 		for (y = 0; y < ittype->Height; y++) {
-			for (x = 0; x < ittype->Width; x++) {
+			row_width = ittype->Width;
+			for (x = 0; x < row_width; row_width = ittype->Width, x++) {
 				Cell cell = point + Cell(x, y);
-				if (image->Fetch_Record_Pointer_Unsafe(x + y * ittype->Width) != NULL) {
-					if (In_Local_Radar(cell, true)) {
-						TechnoClass::Remove_Target(&Map[cell]);
-						Map.Radar_Background(cell);
-					}
+				if (image->Fetch_Record_Pointer_Unsafe(y * row_width + x) != NULL && In_Local_Radar(cell, true)) {
+					TechnoClass::Remove_Target(&Map[cell]);
+					Map.Radar_Background(cell);
 				}
 			}
 		}
@@ -10826,17 +10810,10 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 		 * Mark the affected screen region as dirty so it gets redrawn.
 		 */
 		Point2D pixel1;
-		TacticalMap->Coord_To_Pixel(Coord(point, LEVEL_LEPTON_H * Map[point].Height), pixel1);
-
 		Point2D pixel2;
-		TacticalMap->Coord_To_Pixel(Coord(point + Cell(3, 5), LEVEL_LEPTON_H * Map[point + Cell(3, 5)].Height), pixel2);
-
-		Rect dirty;
-		dirty.X = pixel2.X - 2 * ISO_TILE_PIXEL_W;
-		dirty.Y = pixel1.Y - 2 * ISO_TILE_PIXEL_H;
-		dirty.Width = pixel1.X + 4 * ISO_TILE_PIXEL_W - pixel2.X;
-		dirty.Height = pixel2.Y + 4 * ISO_TILE_PIXEL_H - pixel1.Y;
-		TacticalMap->Register_Dirty_Area(dirty, false);
+		TacticalMap->Coord_To_Pixel(Coord(point, Map[point].Height * LEVEL_LEPTON_H), pixel1);
+		TacticalMap->Coord_To_Pixel(Coord(point + Cell(3, 5), Map[point + Cell(3, 5)].Height * LEVEL_LEPTON_H), pixel2);
+		TacticalMap->Register_Dirty_Area(Rect(pixel2.X - 2 * ISO_TILE_PIXEL_W, pixel1.Y - 2 * ISO_TILE_PIXEL_H, pixel1.X - pixel2.X + 4 * ISO_TILE_PIXEL_W, pixel2.Y - pixel1.Y + 4 * ISO_TILE_PIXEL_H), false);
 
 		/*
 		 * Scatter the debris animations across the collapsed area.
@@ -10847,7 +10824,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 
 		for (y = point.Y; y < point.Y + 5; y++) {
 			for (x = point.X; x < point.X + 3; x++) {
-				Cell cell(x, y);
+				Cell cell = Cell(x, y);
 				AnimTypeClass * type = NULL;
 				for (int i = 0; i < 2; i++) {
 					switch (Scen->RandomNumber(0, 2)) {
@@ -10863,7 +10840,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 							type = sml1;
 							break;
 					}
-					AnimClass * anim = new AnimClass(type, Coord(cell, LEVEL_LEPTON_H * Map[cell].Height) + Coord(Scen->RandomNumber(-12, 12), Scen->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, ShapeFlags_Type(SHAPE_CENTER|SHAPE_WIN_REL), 0);
+					AnimClass * anim = new AnimClass(type, Coord(cell, Map[cell].Height * LEVEL_LEPTON_H) + Coord(Scen->RandomNumber(-12, 12), Scen->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 				}
 			}
 		}
@@ -11584,7 +11561,6 @@ bool MapClass::Is_Naval_Yard_Area_Clear(Rect const & rect) // RA2: 0x565E20, is 
 /// <param name="foot">The unit whose ability to enter a cell decides what counts as
 /// blocked.</param>
 /// <returns>bool; Is part of the subzone itself cut off from the starting cell?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 10 bytes differ (ra2-decomp text; the loop head reloads this before dim and count)
 bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, DynamicVectorClass<unsigned short> const & connections, FootClass const * foot)
 {
 	/*
@@ -11598,6 +11574,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 
 	int dim = 1 << (subzone_level + 1);
 	int facing;
+
 	DynamicVectorClass<unsigned short> list;
 	list.Clear();
 
@@ -11611,25 +11588,26 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 	unsigned short other_subzone = 0;
 	_subzone_flood_stack[0] = cptr;
 	_subzone_flood_visited[(dim - 1) & cptr->CellID.X][(dim - 1) & cptr->CellID.Y] = 1;
+
 	int count = 1;
 
-	int * mzone_table = MZonePassability[foot->Techno_Type_Class()->MZone];
+	int * mzone_table = MZonePassability[foot->TClass->MZone];
 
 	while (true) {
 
-		facing = 0;
+		facing = FACING_N;
 		count--;
 		CellClass ** slot = &_subzone_flood_stack[count];
 		CellClass * cur = *slot;
 
 		while (true) {
 
-			CellClass * adj = &cur->Adjacent_Cell((FacingType)facing);
+			CellClass * adj = &cur->Adjacent_Cell(FacingType(facing));
 			int ax = (dim - 1) & adj->CellID.X;
 			int ay = (dim - 1) & adj->CellID.Y;
 			unsigned short adj_subzone = Cell_Subzone(this, adj->CellID, subzone_level);
 
-			if (foot->Can_Enter_Cell(adj, (FacingType)facing, adj->Height, NULL, true) == MOVE_OK || mzone_table[adj->Passability] != TRAVERSAL_PASSABLE) {
+			if (foot->Can_Enter_Cell(adj, FacingType(facing), adj->Height, NULL, true) == MOVE_OK || mzone_table[adj->Passability] != TRAVERSAL_PASSABLE) {
 
 				if (adj_subzone == start_subzone) {
 
@@ -11658,7 +11636,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 			}
 
 			facing++;
-			if (facing >= 8) {
+			if (facing >= FACING_COUNT) {
 				break;
 			}
 		}
@@ -11668,18 +11646,16 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 		}
 	}
 
-	int x = cptr->CellID.X;
-	int y = cptr->CellID.Y;
-	int bx = (dim - 1) & x;
-	int by = (dim - 1) & y;
+	int bx = (dim - 1) & cptr->CellID.X;
+	int by = (dim - 1) & cptr->CellID.Y;
 
 	for (facing = 0; facing < dim; facing++) {
 		for (int col = 0; col < dim; col++) {
 
-			Cell c = Cell(bx, by) + cptr->CellID;
+			Cell c = cptr->CellID + Cell(bx, by);
 
 			if (In_Local_Radar(c, true)) {
-				if (start_subzone == (unsigned short)Subzone_Of(this, c)->SubzoneID[subzone_level] && !_subzone_flood_visited[facing][col]) {
+				if (start_subzone == (unsigned short)Cell_Subzone(this, c, subzone_level) && !_subzone_flood_visited[facing][col]) {
 					return(true);
 				}
 			}
@@ -11691,7 +11667,6 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 	for (int i = track.Count() - 1; i >= 0; i--) {
 		SubzoneConnectionStruct & conn = vec[i];
 		int sub = conn.SubzoneID;
-
 		int j;
 		for (j = list.Count() - 1; j >= 0; j--) {
 			if (list[j] == sub) {
@@ -11702,10 +11677,8 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 			((DynamicVectorClass<unsigned short> &)connections).Add(sub);
 		}
 	}
-
 	return(false);
 }
-#endif
 
 
 /// <summary>
@@ -12302,7 +12275,7 @@ bool MapClass::Rebuild_Cliffs_At(Cell const & cell)
 /// <param name="to_subzone">The subzone being moved into.</param>
 /// <returns>Returns with the threat value. Levels that carry no threat rating return
 /// zero.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 49 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 16 bytes differ (adopted text)
 int MapClass::Region_Threat(HouseClass * house, int level, int from_subzone, int to_subzone)
 {
 	switch (level) {

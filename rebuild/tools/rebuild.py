@@ -613,6 +613,21 @@ def learn_bindings(unit, info, inferred):
     save_symbols(rows)
 
 
+def last_check(unit, info):
+    """The unit's last check when it is of the unit's current text and current rows (entry and symbol, in
+    order), else None. A check of the same text made before rows were added to or renamed in units.json is
+    stale: the rows it lacks would read as not exact (lane R43: 113 units had such checks; the 2,006 parked
+    rows the progress line counted on 2026-11-19 fell to tailmap's 1,168 once they were checked again)."""
+    import hashlib
+    source = ROOT / info['source']
+    last = load_json(WORK / 'last' / (unit + '.json'), None)
+    if not last or not source.exists() or last.get('source_sha256') != hashlib.sha256(source.read_bytes()).hexdigest():
+        return None
+    if [(r['entry'], r['symbol']) for r in last['results']] != [(r['entry'], r['symbol']) for r in info['rows']]:
+        return None
+    return last
+
+
 def check(unit, asm=(), learn=False):
     from coff import Coff
     units = load_json(UNITS, {})

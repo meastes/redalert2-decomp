@@ -302,7 +302,7 @@ void VoxelAnimClass::Init_Clear(void)
 /// carrying -- and then removes itself.
 /// </summary>
 /// <remarks>Only call this routine once per animation per game logic loop.</remarks>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 1498 bytes differ (adopted text)
 void VoxelAnimClass::AI(void)
 {
 	if (Class->StartSound != VOC_NONE) {

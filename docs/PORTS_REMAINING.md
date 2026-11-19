@@ -97,3 +97,4 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
   with the second. Needs from the user: a screenshot or description of the first animation, and whether the Duo's
   app was built after lane N4.
 - Mirage camouflage (update 2026-11-19 ~20:40Z): the user saw blue trees once and cannot reproduce it; lane N12 could not either (Mac and Simulator, five maps, frame-by-frame). Blue trees are the pre-N4 house-colour symptom. Closed as not reproduced; yr-native-mirage now compares the first animation with the second, so a recurrence would show there. Reopen if seen again.
+- Fault (user, Duo, 2026-11-19 ~21:30Z): Yuri's Revenge Guardian GIs (GGI) will not deploy; in the first Allied campaign mission they are meant to deploy automatically and instead stand and die. First item for the next port lane.

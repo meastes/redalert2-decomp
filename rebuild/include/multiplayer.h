@@ -61,6 +61,8 @@ class MultiplayerGameMode
 		void DeleteTeams(void);
 		bool GenerateUnits(void); // RA2: 0x005B7CE0, gives every house its base unit and starting units
 		int TeamOfHouse(int house); // RA2: 0x005B8430, the team of the player that has the house, -1 when none does
+		WideWstring const & Get_Name(void) const { return(UIName); } // RA2: the name the mode is listed under (Fill_Game_Mode_Combo and Fill_Game_Mode_List read it through an accessor, as main and ra2-decomp have it)
+		int Get_ID(void) const { return(MPModeIndex); } // RA2: the mode index (as Get_Name)
 
 		MultiplayerGameMode(NoInitClass const &) {}
 		MultiplayerGameMode(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex);

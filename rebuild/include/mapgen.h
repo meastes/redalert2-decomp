@@ -508,7 +508,7 @@ class MapGeneratorClass
 		void Fixup_Cliff_Corners(void); // RA2: 0x5831C0
 		void Make_Regions(void); // RA2: returns nothing
 		bool Expand_All_High_Ground(void);
-		bool Grow_Region(int id, int rings, Rect rect, char set_height, char height);
+		bool Grow_Region(int id, int rings, Rect rect, char set_height, int height); // RA2: an int height (Seed_River pushes CellHeight whole; main and ra2-decomp have int)
 		bool Clear_Region_Border(int id, int rings, int new_id);
 		void Clear_Region_Cells(int id, int new_id, int cell_height, int tile); // RA2: fourth parameter, the tile type the wiped cells receive
 		DynamicVectorClass<Cell> *Build_Region_Border_Cell_List(int id);

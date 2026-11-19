@@ -148,55 +148,31 @@ PathStruct * FootClass::Find_Path(Cell const & dest, FacingType * final_moves, i
 /// <param name="max">The distance at which the search gives up.</param>
 /// <returns>Returns with the cell found. If nothing within range can be entered, then
 /// CELL_NONE is returned.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 40 bytes differ (the Y sums of the adjacent cells add in the other order at three of four sites)
 Cell FootClass::Safety_Point(Cell const & src, Cell const & dst, int start, int max)
 {
-	DirType facing;
-	FacingType dir;
-	Cell		  next;
-	int 		  lp;
-
-	dir = Facing_Sub((Dir_Facing(facing.Direction(src, dst)) ^ 4), 1);
-
-	/*
-	**	Loop through the different acceptable distances.
-	*/
-	for (int dist = start; dist < max; dist ++) {
-
-		/*
-		**	Move to the starting location.
-		*/
+	FacingType dir = Facing_Sub(DirType().Direction(src, dst).As_Dir8() ^ 4, 1);
+	Cell next;
+	int lp;
+	for (int dist = start; dist < max; dist++) {
 		next = dst;
-
-		for (lp = 0; lp < dist; lp ++) {
+		for (lp = 0; lp < dist; lp++) {
 			next = Adjacent_Cell(next, dir);
 		}
-
 		if (dir & 1) {
-			/*
-			**	If our direction is diagonal than we need to check
-			**	only one side which is as long as both of the old sides
-			**	together.
-			*/
-			for (lp = 0; lp < dist << 1; lp ++) {
+			for (lp = 0; lp < dist << 1; lp++) {
 				next = Adjacent_Cell(next, Facing_Add(dir, FACING_135));
 				if (Can_Enter_Cell(&Map[next], Facing_Add(dir, FACING_135)) == MOVE_OK) {
 					return(next);
 				}
 			}
 		} else {
-			/*
-			**	If our direction is not diagonal than we need to check two
-			**	sides so that we are checking a corner like location.
-			*/
-			for (lp = 0; lp < dist; lp ++) {
+			for (lp = 0; lp < dist; lp++) {
 				next = Adjacent_Cell(next, Facing_Add(dir, FACING_90));
 				if (Can_Enter_Cell(&Map[next], Facing_Add(dir, FACING_90)) == MOVE_OK) {
 					return(next);
 				}
 			}
-
-			for (lp = 0; lp < dist; lp ++) {
+			for (lp = 0; lp < dist; lp++) {
 				next = Adjacent_Cell(next, Facing_Add(dir, FACING_180));
 				if (Can_Enter_Cell(&Map[next], Facing_Add(dir, FACING_180)) == MOVE_OK) {
 					return(next);
@@ -206,4 +182,3 @@ Cell FootClass::Safety_Point(Cell const & src, Cell const & dst, int start, int 
 	}
 	return(CELL_NONE);
 }
-#endif

@@ -43,9 +43,7 @@ MultiplayerSiegeAttackerTeam::MultiplayerSiegeAttackerTeam(void) :
 {
 }
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 MultiplayerSiegeAttackerTeam::~MultiplayerSiegeAttackerTeam(void)
 {
 }
-#endif
 

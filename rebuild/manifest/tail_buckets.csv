@@ -1,0 +1,1169 @@
+unit,entry,function,bytes,bucket,top_callee,direction,detail
+anim,00423120,?Flaming_Guy_AI@AnimClass@@QAEXXZ,1676,calls_differ,TPoint3D::Length,,"orig-only 2, ours-only 4, unresolved 0"
+building,0043e270,?Do_Destruction@BuildingClass@@UAEXPAVTechnoClass@@0_NPBVCell@@@Z,2340,calls_differ,VocClass::PlayIndexAtPos,,"orig-only 6, ours-only 8, unresolved 0"
+building,00444660,?Captured@BuildingClass@@UAE_NPAVHouseClass@@_N@Z,3359,calls_differ,Storage_454ba0::get,,"orig-only 2, ours-only 2, unresolved 1"
+building,00445620,?Do_MISSION_GUARD@BuildingClass@@UAEHXZ,788,calls_differ,CounterClass::Value,,"orig-only 5, ours-only 1, unresolved 0"
+building,00445b30,?Do_MISSION_DECONSTRUCTION@BuildingClass@@UAEHXZ,3308,calls_differ,VocClass::UpdateAt,,"orig-only 10, ours-only 5, unresolved 5"
+building,00447260,?Do_MISSION_REPAIR@BuildingClass@@UAEHXZ,4503,calls_differ,CDTimerClass::??B,,"orig-only 2, ours-only 3, unresolved 0"
+cell,00475960,?Wall_Update@CellClass@@QAEX_N@Z,1015,calls_differ,TPoint2D::??H,,"orig-only 6, ours-only 2, unresolved 0"
+cell,00476cc0,?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z,6672,calls_differ,Adjacent_Cell,,"orig-only 7, ours-only 9, unresolved 0"
+drive,004a2670,?Start_Of_Move@DriveLocomotionClass@@AAE_NAA_N_N1@Z,8373,calls_differ,TPoint3D::TPoint3D,,"orig-only 7, ours-only 0, unresolved 2"
+fly,004be720,?Nearing_Target@FlyLocomotionClass@@QAEH_NUCoordStruct@@@Z,1633,calls_differ,UnknownComPtr::Query_From,,"orig-only 6, ours-only 6, unresolved 1"
+house,004e4110,?AI@HouseClass@@UAEXXZ,3544,calls_differ,HouseClass::Update_Spy_Satellite,,"orig-only 10, ours-only 6, unresolved 3"
+houstype,004f9550,?Read_INI@HouseTypeClass@@UAE_NABVCCINIClass@@@Z,2275,calls_differ,DynamicVectorClass::Add,,"orig-only 3, ours-only 2, unresolved 0"
+mapgen,0056e100,?Create_Region_From_Cell@MapRegionClass@@SIPAV1@PAVCellClass@@@Z,1678,calls_differ,TPoint2D::??H,,"orig-only 4, ours-only 2, unresolved 0"
+ownrdraw,005f9fb0,?Scroll_Bar_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,4152,calls_differ,OwnerDraw::unknown_draw_edge_glows_5fd810,,"orig-only 4, ours-only 4, unresolved 11"
+ownrdraw,005fc330,?Hotkey_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,716,calls_differ,OwnerDraw::Get_Keyboard_Key_String,,"orig-only 2, ours-only 1, unresolved 2"
+ownrdraw,005fee70,?Dialog_On_WM_PAINT@@YIXPAUHWND__@@@Z,1281,calls_differ,Draw_Sidebar_Art,,"orig-only 7, ours-only 1, unresolved 7"
+ownrdraw,00600830,?Draw_Edit_Text@OwnerDraw@@YIXPAVSurface@@AAV?$TRect@H@@PBGHPAVBitFont@@IPAHHHHH@Z,1094,calls_differ,OwnerDraw::unknown_draw_edge_glow_5fd290,,"orig-only 2, ours-only 0, unresolved 4"
+particle,00608bb0,?Gas_Behavior_AI@ParticleClass@@QAEXXZ,1601,calls_differ,Coord::Coord,,"orig-only 5, ours-only 0, unresolved 0"
+planmgr,00614010,?Planning_Update@@YIXXZ,734,calls_differ,Planning_Hover,,"orig-only 4, ours-only 3, unresolved 0"
+planmgr,00618c00,?Planning_Draw_Filled_Techno@@YIXPAVTechnoClass@@@Z,2076,calls_differ,DSurface::Build_Hicolor_Pixel,,"orig-only 4, ours-only 7, unresolved 0"
+planmgr,00619420,?Planning_Draw_Node@@YIXPAVPlanningNodeClass@@@Z,994,calls_differ,PlanningNodeClass::Member_Owner,,"orig-only 6, ours-only 6, unresolved 1"
+planmgr,00619870,?Planning_Draw_Filled_Node@@YIXPAVPlanningNodeClass@@@Z,852,calls_differ,PlanningNodeClass::Member_Owner,,"orig-only 3, ours-only 5, unresolved 0"
+radbeam,006354e0,?Update_All@RadBeam@@SIXXZ,459,calls_differ,RadBeam::Draw_Swing,,"orig-only 1, ours-only 8, unresolved 0"
+ship,006785c0,?Start_Of_Move@ShipLocomotionClass@@AAE_NAA_N_N1@Z,8373,calls_differ,TPoint3D::TPoint3D,,"orig-only 6, ours-only 0, unresolved 2"
+sidebar,0067dc90,?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z,1315,calls_differ,LinkClass::Zap,,"orig-only 3, ours-only 9, unresolved 0"
+strtable,006f8e30,?LoadFile@StringTable@@SIHPBD@Z,1134,calls_differ,CCFileClass::~CCFileClass,,"orig-only 2, ours-only 2, unresolved 1"
+tactical,006a6bd0,?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABVPoint2D@@@Z,1265,calls_differ,Tactical::Coord_To_Pixel_Absolute,,"orig-only 2, ours-only 3, unresolved 0"
+tactical,006a7820,?Draw_Shroud@Tactical@@QAEXABV?$TRect@H@@@Z,894,calls_differ,Vector3::Vector3,,"orig-only 4, ours-only 1, unresolved 1"
+techno,006ca890,?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z,6019,calls_differ,SpawnManagerClass::SetTarget,,"orig-only 46, ours-only 7, unresolved 3"
+techtype,006daf60,?Read_INI@TechnoTypeClass@@UAE_NABVCCINIClass@@@Z,12659,calls_differ,DynamicVectorClass::DynamicVectorClass,,"orig-only 15, ours-only 9, unresolved 6"
+unit,007053f0,?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z,5651,calls_differ,UnknownComHolder_0069ed20::unknown_add_ref,,"orig-only 9, ours-only 1, unresolved 1"
+wdtsel,0072e050,?Pick_Territory@Selection@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@XZ,991,calls_differ,?Handle_Click@Selection@WorldDominationTour@@QAEXABVPoint2D@@AA_N@Z,,"orig-only 6, ours-only 12, unresolved 1"
+wdtsel,0072e650,?Select_Territory_At@Selection@WorldDominationTour@@QAE_NABVPoint2D@@@Z,193,calls_differ,?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z,,"orig-only 4, ours-only 1, unresolved 0"
+wdtsel,0072e780,?Do_Target_Anim@Selection@WorldDominationTour@@QAEXABV?$rc_ptr@VState@WorldDominationTour@@@@_N1@Z,1531,calls_differ,-,,"orig-only 4, ours-only 1, unresolved 3"
+wonline,007424c0,?Connect_To_Server@@YI_NPAUServer@WOL@@@Z,2185,calls_differ,SimpleWonlineDialogControl::~SimpleWonlineDialogControl,,"orig-only 4, ours-only 6, unresolved 2"
+wonline,007469c0,?Wonline_Main_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,7172,calls_differ,WolIntArray::Grow_00768290,,"orig-only 8, ours-only 0, unresolved 12"
+wonline,00756e10,?Remove_Buddy@@YIXABVWstring@@@Z,707,calls_differ,Wstring::~Wstring,,"orig-only 6, ours-only 3, unresolved 1"
+wonline,00758750,?Buddy_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,2935,calls_differ,WolChannelDictionary::Clear_00766400,,"orig-only 11, ours-only 1, unresolved 3"
+wonline,00759e20,?Start_Quick_Match@@YIHXZ,2202,calls_differ,Reset_Wait_Events,,"orig-only 3, ours-only 1, unresolved 1"
+wwmouse,00772ac0,?Show_Mouse@WWMouseClass@@UAEXXZ,465,calls_differ,TRect::TRect,,"orig-only 4, ours-only 1, unresolved 0"
+wwmouse,00772dd0,?Capture_Mouse@WWMouseClass@@UAEXXZ,450,calls_differ,TRect::TRect,,"orig-only 4, ours-only 1, unresolved 0"
+abuffer,00411270,?Can_Lock@Surface@@UBE_NHH@Z,5,exact_when_open,,,exact with the guards open (the guard may protect another row)
+abuffer,00411280,?entry_64@Surface@@UBE_NVPoint2D@@@Z,5,exact_when_open,,,exact with the guards open (the guard may protect another row)
+abuffer,004112c0,?Get_Width@Surface@@UBEHXZ,4,exact_when_open,,,exact with the guards open (the guard may protect another row)
+abuffer,004112d0,?Get_Height@Surface@@UBEHXZ,4,exact_when_open,,,exact with the guards open (the guard may protect another row)
+abuffer,00411310,?Is_Direct_Draw@XSurface@@UBE_NXZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
+abuffer,00411340,?Is_Direct_Draw@Surface@@UBE_NXZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
+abuffer,004113b0,?Bytes_Per_Pixel@BSurface@@UBEHXZ,4,exact_when_open,,,exact with the guards open (the guard may protect another row)
+blight,00434840,?Fetch_RTTI@BuildingLightClass@@UBE?AW4RTTIType@@XZ,6,exact_when_open,,,exact with the guards open (the guard may protect another row)
+building,00453cc0,?Clear@?$DynamicVectorClass@PAUReestablishRecord@@@@UAEXXZ,42,exact_when_open,,,exact with the guards open (the guard may protect another row)
+building,00453cf0,?ID@?$DynamicVectorClass@PAUReestablishRecord@@@@UAEHPBQAUReestablishRecord@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
+building,00453d10,?GetItem@?$VectorClass@PAUReestablishRecord@@@@UBEPAUReestablishRecord@@H@Z,13,exact_when_open,,,exact with the guards open (the guard may protect another row)
+builtype,0045ecf0,??0Cell@@QAE@XZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
+builtype,0045ed50,?Get_Rect@ShapeSet@@QBE?AV?$TRect@H@@H@Z,108,exact_when_open,,,exact with the guards open (the guard may protect another row)
+builtype,0045efe0,?Union@@YI?BV?$TRect@H@@ABV1@0@Z,240,exact_when_open,,,exact with the guards open (the guard may protect another row)
+bullet,0045f6e0,_$E173,1,exact_when_open,,,exact with the guards open (the guard may protect another row)
+bullet,00463ef0,?Class_Of@BulletClass@@UBEPBVObjectTypeClass@@XZ,7,exact_when_open,,,exact with the guards open (the guard may protect another row)
+cell,0047d060,?Length@?$TPoint2D@H@@QBEHXZ,38,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047fcf0,?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ,42,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047fd20,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047fd40,?GetItem@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z,13,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047fd50,??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z,62,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047fd90,?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,174,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047fe40,?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ,39,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047fe70,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,51,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047feb0,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047fed0,?Resize@?$DynamicVectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,176,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047ff80,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,38,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,0047ffb0,??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,00480000,??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
+combat,00480050,??0?$VectorClass@PAUDamageGroup@@@@QAE@HPBQAUDamageGroup@@@Z,74,exact_when_open,,,exact with the guards open (the guard may protect another row)
+display,004991d0,?Passes_Proximity_Check@DisplayClass@@QBE_NPBVObjectTypeClass@@W4HousesType@@PBVCell@@ABV4@@Z,438,exact_when_open,,,exact with the guards open (the guard may protect another row)
+display,00499390,?Passes_Shroud_Check@DisplayClass@@QBE_NPBVObjectTypeClass@@W4HousesType@@PBVCell@@ABV4@@Z,312,exact_when_open,,,exact with the guards open (the guard may protect another row)
+display,004998c0,?Cursor_Mark@DisplayClass@@QAEXABVCell@@_N@Z,166,exact_when_open,,,exact with the guards open (the guard may protect another row)
+display,00499970,?Mark_Foundation_Copy@DisplayClass@@QAEXABVCell@@_N@Z,166,exact_when_open,,,exact with the guards open (the guard may protect another row)
+display,0049a700,?Calculated_Cell@DisplayClass@@QBE?AVCell@@W4SourceType@@ABV2@1W4SpeedType@@_NW4MZoneType@@@Z,1680,exact_when_open,,,exact with the guards open (the guard may protect another row)
+display,0049ed00,?Draw_It@GScreenClass@@UAEX_N@Z,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
+display,0049ed10,?Is_Scrolling@MapClass@@UBE_NXZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
+display,0049ed20,??_GDisplayClass@@UAEPAXI@Z,30,exact_when_open,,,exact with the guards open (the guard may protect another row)
+drive,004a4d20,??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ,28,exact_when_open,,,exact with the guards open (the guard may protect another row)
+ebolt,004b25e0,??0Coord@@QAE@XZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004cdf10,?GetItem@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UBE?AV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@H@Z,28,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce4f0,??8?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UBE_NABV0@@Z,82,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce550,?Resize@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAE_NHPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,257,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce660,?Clear@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEXXZ,50,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce6a0,?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,70,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce6f0,?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce7c0,?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEXXZ,53,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce800,?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce820,?Resize@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAE_NHPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,285,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce940,??1?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@QAE@XZ,1,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce950,?Add@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@QAE_NABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,87,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ce9b0,?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,54,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004cea90,??_G?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z,84,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ceaf0,??_E?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@QAEPAXI@Z,59,exact_when_open,,,exact with the guards open (the guard may protect another row)
+foot,004ceb30,??_G?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEPAXI@Z,84,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f6e60,?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEXXZ,53,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f6ea0,?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f6ec0,?GetItem@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UBE?AV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@H@Z,28,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f6f30,??0?$DynamicVectorClass@PBVTeamTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f6fc0,??_G?$DynamicVectorClass@PBVTeamTypeClass@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f80a0,??8?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UBE_NABV0@@Z,82,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f8100,?Resize@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,257,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f8210,?Clear@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEXXZ,50,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f8250,?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,70,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f82a0,?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f82c0,?Resize@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,285,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f83e0,??1?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@QAE@XZ,1,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f83f0,?Add@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@QAE_NABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,87,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f8450,?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,54,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f8800,??_G?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z,84,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f8860,??_E?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@QAEPAXI@Z,59,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f88a0,??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z,84,exact_when_open,,,exact with the guards open (the guard may protect another row)
+house,004f8d70,??0?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@QAE@HPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,162,exact_when_open,,,exact with the guards open (the guard may protect another row)
+houstype,004fa8a0,??4?$VectorClass@PBVInfantryTypeClass@@@@QAEAAV0@ABV0@@Z,108,exact_when_open,,,exact with the guards open (the guard may protect another row)
+houstype,004fac70,??4?$VectorClass@PBVUnitTypeClass@@@@QAEAAV0@ABV0@@Z,108,exact_when_open,,,exact with the guards open (the guard may protect another row)
+houstype,004fb040,??4?$VectorClass@PBVAircraftTypeClass@@@@QAEAAV0@ABV0@@Z,108,exact_when_open,,,exact with the guards open (the guard may protect another row)
+houstype,004fb230,??0?$DynamicVectorClass@PBVAircraftTypeClass@@@@QAE@IPBQBVAircraftTypeClass@@@Z,93,exact_when_open,,,exact with the guards open (the guard may protect another row)
+houstype,004fb290,??_G?$DynamicVectorClass@PBVAircraftTypeClass@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
+houstype,004fb410,??0?$TypeList@PBVAircraftTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,,exact with the guards open (the guard may protect another row)
+houstype,004fb4a0,??0?$DynamicVectorClass@PBVInfantryTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,,exact with the guards open (the guard may protect another row)
+init,0051ad10,??1CDFileClass@@UAE@XZ,11,exact_when_open,,,exact with the guards open (the guard may protect another row)
+init,0051ad20,??1CCFileClass@@UAE@XZ,39,exact_when_open,,,exact with the guards open (the guard may protect another row)
+init,0051ade0,??0CCINIClass@@QAE@XZ,140,exact_when_open,,,exact with the guards open (the guard may protect another row)
+jumpjet,00531320,?Fetch_Object_Size@JumpjetLocomotionClass@@UBEHXZ,6,exact_when_open,,,exact with the guards open (the guard may protect another row)
+map,00565eb0,?Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVFootClass@@@Z,1166,exact_when_open,,,exact with the guards open (the guard may protect another row)
+map,0056be10,?Resize@?$DynamicVectorClass@W4PassabilityType@@@@UAE_NHPBW4PassabilityType@@@Z,176,exact_when_open,,,exact with the guards open (the guard may protect another row)
+map,0056cd60,?Add@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@QAE_NABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z,97,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058db80,??4?$DynamicVectorClass@H@@QAEAAV0@ABV0@@Z,132,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058dc70,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@XZ,34,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058dca0,??4?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z,132,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058dde0,?GetItem@?$VectorClass@V?$TRect@H@@@@UBE?AV?$TRect@H@@H@Z,47,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058e170,??0?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAE@IPBQBVBuildingTypeClass@@@Z,93,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058e530,??8?$VectorClass@V?$TRect@H@@@@UBE_NABV0@@Z,102,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058e5a0,?Resize@?$VectorClass@V?$TRect@H@@@@UAE_NHPBV?$TRect@H@@@Z,226,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058e690,?Clear@?$VectorClass@V?$TRect@H@@@@UAEXXZ,39,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058e6c0,?ID@?$VectorClass@V?$TRect@H@@@@UAEHABV?$TRect@H@@@Z,90,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058e720,?ID@?$VectorClass@V?$TRect@H@@@@UAEHPBV?$TRect@H@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058eed0,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058eff0,?Add@?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAE_NABQBVBuildingTypeClass@@@Z,80,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapgen,0058f260,??0?$VectorClass@V?$TRect@H@@@@QAE@HPBV?$TRect@H@@@Z,112,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mapsel,0058fd90,?Do_Custom_Draw@MSEngine@@UAEXPAVSurface@@@Z,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
+missile,005940d0,??GDirType@@QBE?AV0@ABV0@@Z,28,exact_when_open,,,exact with the guards open (the guard may protect another row)
+missile,005940f0,??KDirType@@QBE?AV0@H@Z,26,exact_when_open,,,exact with the guards open (the guard may protect another row)
+missile,00594110,?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z,42,exact_when_open,,,exact with the guards open (the guard may protect another row)
+missile,00594140,?Turn@DirType@@QAE_NABV1@0@Z,100,exact_when_open,,,exact with the guards open (the guard may protect another row)
+missile,005941b0,?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z,342,exact_when_open,,,exact with the guards open (the guard may protect another row)
+mpsiegeteam,005abef0,??_GMultiplayerSiegeAttackerTeam@@UAEPAXI@Z,36,exact_when_open,,,exact with the guards open (the guard may protect another row)
+multiplayer,005b9840,??0?$VectorClass@PAVUnitTypeClass@@@@QAE@HPBQAVUnitTypeClass@@@Z,74,exact_when_open,,,exact with the guards open (the guard may protect another row)
+multiplayer,005b9890,??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@HPBQAVInfantryTypeClass@@@Z,74,exact_when_open,,,exact with the guards open (the guard may protect another row)
+ownrdraw,00600260,?Cancel_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,89,exact_when_open,,,exact with the guards open (the guard may protect another row)
+ownrdraw,00600d50,?Choice_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,83,exact_when_open,,,exact with the guards open (the guard may protect another row)
+ownrdraw,00600f70,?Get_Combo_Item_Text@@YIJPAUHWND__@@IAAVWstring@@@Z,94,exact_when_open,,,exact with the guards open (the guard may protect another row)
+palette,00604120,??0SchemeLibrary@@QAE@XZ,293,exact_when_open,,,exact with the guards open (the guard may protect another row)
+palette,00605e80,??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@HPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z,173,exact_when_open,,,exact with the guards open (the guard may protect another row)
+planmgr,00615c00,?Planning_Hover@@YAXXZ,294,exact_when_open,,,exact with the guards open (the guard may protect another row)
+planmgr,00617680,?Planning_Left_Release@@YG_NVPoint2D@@@Z,466,exact_when_open,,,exact with the guards open (the guard may protect another row)
+ramfile,006386b0,?Get_Date_Time@FileClass@@UAEIXZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
+ramfile,006386c0,?Set_Date_Time@FileClass@@UAE_NI@Z,5,exact_when_open,,,exact with the guards open (the guard may protect another row)
+rocket,0063ed30,?Fetch_Object_Size@RocketLocomotionClass@@UBEHXZ,6,exact_when_open,,,exact with the guards open (the guard may protect another row)
+rules,00652d20,??4?$DynamicVectorClass@PBVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z,132,exact_when_open,,,exact with the guards open (the guard may protect another row)
+rules,00654600,??0?$TypeList@PBVSmudgeTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,,exact with the guards open (the guard may protect another row)
+rules,00654960,??0?$VectorClass@PBVVoxelAnimTypeClass@@@@QAE@HPBQBVVoxelAnimTypeClass@@@Z,74,exact_when_open,,,exact with the guards open (the guard may protect another row)
+rules,006549b0,??0?$VectorClass@PBVSmudgeTypeClass@@@@QAE@HPBQBVSmudgeTypeClass@@@Z,74,exact_when_open,,,exact with the guards open (the guard may protect another row)
+scenario,0065cdd0,?Fill_In_Data@@YIXXZ,1253,exact_when_open,,,exact with the guards open (the guard may protect another row)
+scenario,0065d370,?Clear_Scenario@@YIXXZ,1140,exact_when_open,,,exact with the guards open (the guard may protect another row)
+scenario,0065fff0,?Build_Start_Waypoint_List@@YI?AV?$DynamicVectorClass@VCell@@@@D@Z,807,exact_when_open,,,exact with the guards open (the guard may protect another row)
+scenario,006631c0,?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z,88,exact_when_open,,,exact with the guards open (the guard may protect another row)
+scenario,00663220,?Clear_All_Waypoints@ScenarioClass@@QAEXXZ,26,exact_when_open,,,exact with the guards open (the guard may protect another row)
+scenario,00663240,?Is_Valid_Waypoint@ScenarioClass@@QBE_NH@Z,57,exact_when_open,,,exact with the guards open (the guard may protect another row)
+scenario,00663280,?Read_Waypoints@ScenarioClass@@QAEXABVCCINIClass@@@Z,201,exact_when_open,,,exact with the guards open (the guard may protect another row)
+scenario,006633e0,?Clear_Waypoint@ScenarioClass@@QAEXH@Z,20,exact_when_open,,,exact with the guards open (the guard may protect another row)
+scenario,00663440,?First_Unused_Waypoint_Name@ScenarioClass@@QBEPBDXZ,68,exact_when_open,,,exact with the guards open (the guard may protect another row)
+smudtype,00688c00,?Fetch_Object_Size@SmudgeTypeClass@@UBEHXZ,6,exact_when_open,,,exact with the guards open (the guard may protect another row)
+super,0069ecf0,??H?$TPoint3D@H@@QBE?BV0@ABV0@@Z,47,exact_when_open,,,exact with the guards open (the guard may protect another row)
+techno,006d9770,??K?$TPoint3D@H@@QBE?BV0@H@Z,77,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wave,007241f0,_$E163,1,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072af70,??0?$TRect@H@@QAE@XZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b060,?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z,40,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b090,??0?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAE@AAV?$VectorClass@V?$TRect@H@@@@H@Z,25,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b0b0,??B?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UBE_NXZ,14,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b0f0,??_G?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEPAXI@Z,32,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b6c0,??8?$VectorClass@VCentroid@WorldDominationTour@@@@UBE_NABV0@@Z,92,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b720,?Resize@?$VectorClass@VCentroid@WorldDominationTour@@@@UAE_NHPBVCentroid@WorldDominationTour@@@Z,249,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b820,?Clear@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEXXZ,39,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b850,?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHABVCentroid@WorldDominationTour@@@Z,80,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b8a0,?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHPBVCentroid@WorldDominationTour@@@Z,36,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b8d0,??E?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ,6,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtmap,0072b8e0,??F?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ,6,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtsel,007302b0,?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z,26,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtsel,007302e0,??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@ABV0@@Z,35,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtsel,00730310,??1?$rc_ptr@VTerritory@WorldDominationTour@@@@UAE@XZ,11,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wdtsel,00730330,??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ,4,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wonline,00765e90,?add@?$ArrayList@UUser@WOL@@@@QAEDAAUUser@WOL@@H@Z,390,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wonline,00766060,?clear@?$ArrayList@I@@QAEXXZ,7,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wonline,00766f90,?add@?$ArrayList@I@@QAEDAAIH@Z,346,exact_when_open,,,exact with the guards open (the guard may protect another row)
+wonline,00767bb0,?getPointer@?$Dictionary@VWstring@@I@@QAEDABVWstring@@PAPAI@Z,107,exact_when_open,,,exact with the guards open (the guard may protect another row)
+abstract,0040fcf0,_$E2,1,inline_body,,,instructions 15 vs original 1
+building,0043ee70,?Take_Damage@BuildingClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z,2501,inline_body,,,instructions 741 vs original 740
+building,0044ebf0,?Turret_Coord@BuildingClass@@UBE?AVCoord@@H@Z,358,inline_body,,,instructions 153 vs original 121
+cell,00472540,?Recalc_Attributes@CellClass@@QAEXH@Z,2738,inline_body,,,instructions 720 vs original 707
+display,00498a50,??0DisplayClass@@QAE@XZ,281,inline_body,,,instructions 46 vs original 52
+ebolt,004b17b0,_$E75,59,inline_body,,,instructions 29 vs original 16
+foot,004c8ff0,?AI@FootClass@@UAEXXZ,2184,inline_body,,,instructions 651 vs original 637
+house,004f03c0,?Where_To_Place_Building@HouseClass@@QAE?AVCell@@PAVBuildingTypeClass@@P6IHABV1@ABV2@HH@ZH@Z,2629,inline_body,,,instructions 698 vs original 699
+house,004f1190,?AI_Build_Defense@HouseClass@@QAE_NHPAV?$DynamicVectorClass@VCell@@@@@Z,3264,inline_body,,,instructions 924 vs original 905
+house,004f2350,?AI_Build_Wall@HouseClass@@QAEXXZ,2405,inline_body,,,instructions 675 vs original 674
+house,004f6d20,?GetItem@?$VectorClass@UScoutStruct@@@@UBE?AUScoutStruct@@H@Z,28,inline_body,,,instructions 10 vs original 9
+init,00519500,?Allocate_Surfaces@@YI_NABV?$TRect@H@@000_N@Z,1118,inline_body,,,instructions 386 vs original 387
+ion,0051f100,_$E187,11,inline_body,,,instructions 11 vs original 3
+map,00556520,?Destroy_Bridge2_Near@MapClass@@QAEXABVCell@@@Z,1546,inline_body,,,instructions 436 vs original 431
+map,00557090,?Destroy_Low_Bridge_Near@MapClass@@QAEXABVCell@@@Z,1542,inline_body,,,instructions 436 vs original 431
+map,0055d640,?Pick_Random_Tile_Variant@MapClass@@QAE_NW4IsometricTileType@@HHHAA_N_N@Z,848,inline_body,,,instructions 258 vs original 257
+map,0056a9f0,??4AbstractClass@@QAEAAV0@ABV0@@Z,39,inline_body,,,instructions 14 vs original 13
+mapgen,00577bd0,?Map_Seed_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,2116,inline_body,,,instructions 704 vs original 703
+netshare,005cae00,?Show_Slot_Controls@@YIXPAUHWND__@@HH@Z,450,inline_body,,,instructions 161 vs original 142
+netshare,005cb170,?Hide_Slot_Controls@@YIXPAUHWND__@@H@Z,400,inline_body,,,instructions 120 vs original 119
+palette,00604250,??1SchemeLibrary@@QAE@XZ,582,inline_body,,,instructions 221 vs original 216
+palette,00604ad0,?Set_Mode@SchemeLibrary@@QAEXH@Z,511,inline_body,,,instructions 188 vs original 172
+planmgr,00614840,?Planning_Is_Active@@YI_NXZ,6,inline_body,,,instructions 12 vs original 2
+queue,00628880,?Execute_DoList@@YIHHW4HousesType@@PAVConnManClass@@PAV?$CDTimerClass@VFrameTimerClass@@@@PAUFrameSyncStruct@@@Z,2454,inline_body,,,instructions 644 vs original 643
+ship,00676f60,?While_Moving@ShipLocomotionClass@@AAE_N_N@Z,5720,inline_body,,,instructions 1633 vs original 1618
+team,006b7ad0,?AI@TeamClass@@UAEXXZ,3460,inline_body,,,instructions 1250 vs original 1249
+techno,006c86f0,?DestroyGap@TechnoClass@@UAEXXZ,718,inline_body,,,instructions 208 vs original 207
+techno,006d24e0,?Techno_Render_Voxel_Object@TechnoClass@@QBE?AUSurfaceRegion@@ABUVoxelDataStruct@@ABVMatrix3D@@ABVPoint2D@@ABV?$TRect@H@@HW4ShapeFlags_Type@@H@Z,814,inline_body,,,instructions 253 vs original 238
+wonline,00743720,?Run_Lobby_Session@@YIHPAUHWND__@@_N@Z,2404,inline_body,,,instructions 728 vs original 726
+atracker,004128a0,?Append_Radius_Bins@AircraftTrackerClass@@QAEXPAVCellClass@@H@Z,2337,inline_call,Coord::As_Cell,orig_calls,?As_Cell@Coord@@QBE?AVCell@@XZ
+building,004440e0,?Docking_Coord@BuildingClass@@UBE?AVCoord@@PAVTechnoClass@@@Z,463,inline_call,ObjectClass::Docking_Coord,orig_calls,?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z
+builtype,00454ef0,_$E230,4389,inline_call,Cell::Cell,orig_calls,??0Cell@@QAE@HH@Z
+bullet,00462110,?Detonate@BulletClass@@QAEXABVCoord@@@Z,2879,inline_call,TemporalClass::Fire,orig_calls,?Fire@TemporalClass@@QAEXPAVTechnoClass@@@Z
+cell,004764b0,?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z,662,inline_call,TPoint2D::??G,ours_calls,??G?$TPoint2D@H@@QBE?BV0@ABV0@@Z
+combat,0047e2c0,?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z,4611,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
+coord,00491750,?Coord_Scatter@@YI?AVCoord@@ABV1@H_N@Z,289,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
+display,00498b70,?One_Time@DisplayClass@@UAEXXZ,97,inline_call,Get_Title_Screen_Area,orig_calls,?Get_Title_Screen_Area@@YI?AV?$TRect@H@@XZ
+drive,004a1000,?While_Moving@DriveLocomotionClass@@AAE_N_N@Z,5736,inline_call,FootClass::Abort_Motion,orig_calls,?Abort_Motion@FootClass@@QAEXXZ
+hover,004fbfc0,?Process@HoverLocomotionClass@@UAGEXZ,2229,inline_call,TPoint2D::??8,orig_calls,??8?$TPoint2D@H@@QBE_NABV0@@Z
+infantry,00501ce0,?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z,1936,inline_call,_com_ptr_t::operator=,orig_calls,??4?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QAEAAV0@PAUIL
+infantry,00504bc0,?Start_Driver@InfantryClass@@UAE_NAAVCoord@@@Z,817,inline_call,TPoint2D::??8,orig_calls,??8?$TPoint2D@H@@QBE_NABV0@@Z
+init,005116a0,?Init_Game@@YIHHQAPAD@Z,4420,inline_call,004ff2d0,orig_calls,004ff2d0
+map,00562f50,?Collapse_Cliff@MapClass@@QAEXPAVCellClass@@@Z,3562,inline_call,MapClass::Get_Cell_Zone_Index,orig_calls,?Get_Cell_Zone_Index@MapClass@@QAEHABVCell@@@Z
+map,00564b60,?Register_Zone_Connection_Entries@MapClass@@QAEXPAUZoneConnectionClass@@H@Z,1025,inline_call,HashTableClass::Add_Object,orig_calls,?Add_Object@?$HashTableClass@IUSubzoneConnectionStruct@@@@QAE_NHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z
+mapgen,0058a1b0,?Generate_Rural_Roads@MapGeneratorClass@@QAE_NABVCell@@@Z,1321,inline_call,Cell::Cell,orig_calls,??0Cell@@QAE@HH@Z
+multiplayer,005b8060,?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@AAH@Z,954,inline_call,VectorClass::Clear,orig_calls,?Clear@?$VectorClass@PAVInfantryTypeClass@@@@UAEXXZ
+netdlg2,005bfc40,?Request_To_Join@@YIHH_N@Z,1124,inline_call,Lobby_Chat_Printf,orig_calls,?Lobby_Chat_Printf@@YAXHPBGZZ
+netshare,005c5ff0,?LBSaveSelections@@YIXPAUHWND__@@AAV?$Dictionary@VWideWstring@@_N@@@Z,793,inline_call,005cda50,orig_calls,005cda50
+object,005d34e0,?Render@ObjectClass@@UBE_NAAV?$TRect@H@@_N1@Z,502,inline_call,Intersect,ours_calls,?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z
+ownrdraw,005dee00,_$E173,369,inline_call,GWideWstring::??_,orig_calls,??_GWideWstring@@QAEPAXI@Z
+ownrdraw,005e0760,?Is_Tested_Control@@YI_NIPAUHWND__@@@Z,1594,inline_call,Is_Listed_Kind,orig_calls,?Is_Listed_Kind@@YIIH@Z
+ownrdraw,005e4780,?Enable_Animated_Control@OwnerDraw@@YGHPAUHWND__@@J@Z,2468,inline_call,Dictionary::keyHash,orig_calls,?keyHash@?$Dictionary@IUWinData@OwnerDraw@@@@AAEIABI@Z
+ownrdraw,005ead20,?Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,7636,inline_call,??3@YAXPAX@Z,orig_calls,??3@YAXPAX@Z
+ownrdraw,005edd30,?Restore_Child@OwnerDraw@@YGHPAUHWND__@@J@Z,548,inline_call,GWideWstring::??_,orig_calls,??_GWideWstring@@QAEPAXI@Z
+ownrdraw,00601450,??_GDialogControl@OwnerDraw@@UAEPAXI@Z,32,inline_call,DialogControl::~DialogControl,ours_calls,??1DialogControl@OwnerDraw@@UAE@XZ
+palette,00605850,??8?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UBE_NABV0@@Z,79,inline_call,004e12a0,orig_calls,004e12a0
+palette,00605a20,?ID@?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEHABU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z,86,inline_call,004e1290,orig_calls,004e1290
+palette,00605d30,?ID@?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEHABU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z,70,inline_call,004e1290,orig_calls,004e1290
+partsys,0060c7c0,?Fire_AI@ParticleSystemClass@@AAEXXZ,931,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
+planmgr,00615d30,?Planning_Node_At@@YGPAVPlanningNodeClass@@HH@Z,173,inline_call,TRect::TRect,orig_calls,??0?$TRect@H@@QAE@HHHH@Z
+planmgr,00616070,?Planning_Pick_Node@@YGPAVPlanningNodeClass@@HH@Z,207,inline_call,PlanningNodeClass::Lead_Coord,orig_calls,?Lead_Coord@PlanningNodeClass@@QAE?AVCoord@@XZ
+planmgr,00616140,?Planning_Pick_Drawn@@YGPAVPlanningNodeClass@@HH@Z,207,inline_call,PlanningNodeClass::Lead_Coord,orig_calls,?Lead_Coord@PlanningNodeClass@@QAE?AVCoord@@XZ
+planmgr,00617900,?Planning_Mouse_AI@@YG_NHH@Z,252,inline_call,TRect::TRect,orig_calls,??0?$TRect@H@@QAE@HHHH@Z
+planmgr,00618090,?Planning_Draw_Remembered@@YAXXZ,608,inline_call,Planning_Inflate,orig_calls,?Planning_Inflate@@YIXAAV?$TRect@H@@H@Z
+planmgr,006182f0,?Planning_Draw_Techno@@YIXPAVTechnoClass@@@Z,2230,inline_call,Coord::Coord,orig_calls,??0Coord@@QAE@HHH@Z
+radbeam,006358d0,?Draw_Pulse@RadBeam@@QAE_NXZ,596,inline_call,RadBeam::Compute_Pulse_Step,orig_calls,?Compute_Pulse_Step@RadBeam@@QAEXXZ
+reinf,00639970,?Do_Reinforcements@@YI_NPBVTeamTypeClass@@H@Z,1069,inline_call,Coord::Coord,orig_calls,??0Coord@@QAE@ABVCell@@H@Z
+rocket,0063de90,?Process@RocketLocomotionClass@@UAGEXZ,2368,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
+rules,00640b80,??0RulesClass@@QAE@XZ,7768,inline_call,VectorClass::VectorClass,ours_calls,??0?$VectorClass@H@@QAE@HPBH@Z
+rules,006433a0,?Initialize@RulesClass@@QAEXAAVCCINIClass@@@Z,1092,inline_call,GenericNode::GenericNode,orig_calls,??0GenericNode@@QAE@XZ
+rules,00646c60,?Combat_Damage@RulesClass@@QAE_NABVCCINIClass@@@Z,3829,inline_call,INIClass::Get_String,orig_calls,?Get_String@INIClass@@QBEHPBD00PADH@Z
+scenario,00660b60,?Scan_Place_Object@@YIHPAVObjectClass@@ABVCell@@H@Z,1020,inline_call,Cell::Cell,orig_calls,??0Cell@@QAE@HH@Z
+sidebar,006817d0,?Abandon_Production@StripClass@SidebarClass@@QAE_NPBVFactoryClass@@@Z,221,inline_call,FactoryClass::Get_Object,orig_calls,?Get_Object@FactoryClass@@QBEPAVTechnoClass@@XZ
+skirmish,006829f0,?Skirmish_On_WM_COMMAND@@YIXPAUHWND__@@H0H@Z,3264,inline_call,Skirmish_Is_Computer,orig_calls,?Skirmish_Is_Computer@@YIHPAUHWND__@@H@Z
+super,0069d090,?Discharged@SuperClass@@QAE_N_NABVCell@@@Z,765,inline_call,0069ed90,orig_calls,0069ed90
+super,0069d850,?Place@SuperClass@@QAEXABVCell@@_N@Z,4388,inline_call,UnknownComHolder_0069ed20::unknown_add_ref,orig_calls,?unknown_add_ref@UnknownComHolder_0069ed20@@QAEXXZ
+tactical,006a8240,?Draw_Tile_Shadows@Tactical@@QAEXABV?$TRect@H@@0@Z,785,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
+taction,006adae0,??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z,7752,inline_call,TActionClass::TAction_STOP_AI_TRIGGERS,orig_calls,?TAction_STOP_AI_TRIGGERS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z
+techno,006c1f10,??0TechnoClass@@QAE@ABVNoInitClass@@@Z,409,inline_call,DynamicVectorClass::Add,ours_calls,?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z
+techno,006c2c40,?Draw_Post_Render@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,3341,inline_call,CDTimerClass::Value,orig_calls,?Value@?$CDTimerClass@VSystemTimerClass@@@@QBEHXZ
+techno,006cfea0,?Get_Z_Adjust@TechnoClass@@UBEHXZ,1645,inline_call,RadioClass::Radio_Link,orig_calls,?Radio_Link@RadioClass@@QBEPAVTechnoClass@@H@Z
+unit,006fe610,?Per_Cell_Process@UnitClass@@UAEXW4PCPType@@@Z,3385,inline_call,_com_ptr_t::??C,orig_calls,??C?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QBEPAUILocomo
+wave,007221d0,?Load@WaveClass@@UAGJPAUIStream@@@Z,349,inline_call,WordStorage_007246d0::initialize,orig_calls,?initialize@WordStorage_007246d0@@QAEPAV1@IPAI@Z
+wdtconflict,00727e30,?Get_String@?$ValueGameOption@E@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z,236,inline_call,??H@YI?AVWideWstring@@ABV0@0@Z,orig_calls,??H@YI?AVWideWstring@@ABV0@0@Z
+wdtsel,0072d560,??0Selection@WorldDominationTour@@QAE@ABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z,1072,inline_call,007304c0,orig_calls,007304c0
+wdtsel,0072e430,?Handle_Click@Selection@WorldDominationTour@@QAEXABVPoint2D@@AA_N@Z,532,inline_call,?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z,orig_calls,?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z
+wonline,0074a120,?Player_Info_Tooltip@@YIPAGPBG@Z,959,inline_call,Dictionary::keyHash,orig_calls,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z
+wonline,00750f60,?Poke_The_Host@@YIXXZ,441,inline_call,ArrayList::get,orig_calls,?get@?$ArrayList@UUser@WOL@@@@QBEDAAUUser@WOL@@H@Z
+wonline,007562b0,?Update_Buddy_Profile@@YIXPAUHWND__@@@Z,853,inline_call,WolLadderCache::Get_Pointer_007670f0,orig_calls,?Get_Pointer_007670f0@WolLadderCache@@QBE_NABVWstring@@PAPAULadder@WOL@@@Z
+wonline,00759370,?Run_Online_Menu@@YIH_N@Z,2687,inline_call,WolChannelDictionary::Get_Pointer_00767cf0,orig_calls,?Get_Pointer_00767cf0@WolChannelDictionary@@QBE_NABVWstring@@PAPAUChannel@WOL@@@Z
+wonline,00761890,?OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z,946,inline_call,WideWstring::~WideWstring,orig_calls,??1WideWstring@@QAE@XZ
+wonline,00762590,?OnPublicMessage@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z,281,inline_call,Wstring::Wstring,orig_calls,??0Wstring@@QAE@PBD@Z
+wonline,00762790,?OnPrivateMessage@CChatEventSink@@UAGJJPAUUser@WOL@@PBD@Z,306,inline_call,Wstring::Wstring,orig_calls,??0Wstring@@QAE@PBD@Z
+wonline,00762f70,?OnFind@CChatEventSink@@UAGJJPAUChannel@WOL@@@Z,2867,inline_call,WolNameTable::Key_Hash_00767cd0,orig_calls,?Key_Hash_00767cd0@WolNameTable@@QBEIABVWstring@@@Z
+wonline,00764360,?OnPrivateAction@CChatEventSink@@UAGJJPAUUser@WOL@@PBD@Z,222,inline_call,Wstring::Wstring,orig_calls,??0Wstring@@QAE@PBD@Z
+wonline,00764500,?OnPublicAction@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z,222,inline_call,Wstring::Wstring,orig_calls,??0Wstring@@QAE@PBD@Z
+dropship,004a6b90,?Dropship_Screen@@YIXXZ,10797,no_compile,,,1 guard(s) do not compile
+dropship,004a9af0,??0RGBClass@@QAE@XZ,13,no_compile,,,1 guard(s) do not compile
+dropship,004a9b00,?Clear@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEXXZ,42,no_compile,,,1 guard(s) do not compile
+dropship,004a9b30,?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z,27,no_compile,,,1 guard(s) do not compile
+dropship,004a9b60,?Clear@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEXXZ,42,no_compile,,,1 guard(s) do not compile
+dropship,004a9b90,?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z,27,no_compile,,,1 guard(s) do not compile
+dropship,004a9cb0,?Clear@?$VectorClass@PAUButtonFadeEffect@@@@UAEXXZ,39,no_compile,,,1 guard(s) do not compile
+dropship,004a9ce0,?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z,51,no_compile,,,1 guard(s) do not compile
+dropship,004a9d20,?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z,27,no_compile,,,1 guard(s) do not compile
+dropship,004a9df0,?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z,38,no_compile,,,1 guard(s) do not compile
+dropship,004a9f10,?Clear@?$VectorClass@PAUCrossDissolveEffect@@@@UAEXXZ,39,no_compile,,,1 guard(s) do not compile
+dropship,004a9f40,?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z,51,no_compile,,,1 guard(s) do not compile
+dropship,004a9f80,?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z,27,no_compile,,,1 guard(s) do not compile
+dropship,004aa050,?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z,38,no_compile,,,1 guard(s) do not compile
+_rtti,0040db40,_$E41,23,no_draft,,,
+abstract,0040fcd0,_$E4,22,no_draft,,,
+abstract,0040fef0,?get@Leaf_40fef0@@QAEXXZ,23,no_draft,,,
+aircraft,0041b3d0,?get@Leaf_41b3d0@@QAE_NXZ,3,no_draft,,,
+aircraft,0041b3e0,?get@Leaf_41b3e0@@QAEXXZ,1,no_draft,,,
+alphalighting,0041e600,?unknown_empty_0041e600@@YAXXZ,1,no_draft,,,
+anim,00423ef0,?Direction@DirType@@QAEAAV1@ABVCoord@@0@Z,99,no_draft,,,
+anim,00423f70,?get@Leaf_423f70@@QAEXXZ,23,no_draft,,,
+animtype,00426890,?Find_Or_Make_Type@@YIPAVAnimTypeClass@@PBDAAV?$TypeList@PAVAnimTypeClass@@@@@Z,128,no_draft,,,
+bfiofile2,00431020,_$E20,23,no_draft,,,
+bitfont,00432270,?get@Leaf_432270@@QAEXXZ,23,no_draft,,,
+building,00453de0,?get@Cleanup_453de0@@QAEXXZ,42,no_draft,,,
+building,00453e30,?Fetch@?$VectorClass@PAVReestablish@@@@UBEPAVReestablish@@H@Z,13,no_draft,,,
+building,00453ed0,??8?$VectorClass@PAVParticleSystemTypeClass@@@@UBE_NABV0@@Z,62,no_draft,,,
+building,00453f10,?Resize@?$VectorClass@PAVParticleSystemTypeClass@@@@UAE_NHPBQAVParticleSystemTypeClass@@@Z,174,no_draft,,,
+building,00453fc0,?Clear@?$VectorClass@PAVParticleSystemTypeClass@@@@UAEXXZ,39,no_draft,,,
+building,00454050,?Resize@?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@UAE_NHPBQAVParticleSystemTypeClass@@@Z,176,no_draft,,,
+building,004544b0,??8?$VectorClass@PAVReestablish@@@@UBE_NABV0@@Z,62,no_draft,,,
+building,004544f0,?Resize@?$VectorClass@PAVReestablish@@@@UAE_NHPBQAVReestablish@@@Z,174,no_draft,,,
+building,004545a0,?Clear@?$VectorClass@PAVReestablish@@@@UAEXXZ,39,no_draft,,,
+building,00454630,?Resize@?$DynamicVectorClass@PAVReestablish@@@@UAE_NHPBQAVReestablish@@@Z,176,no_draft,,,
+building,00454710,??_G?$VectorClass@PBVParticleSystemTypeClass@@@@UAEPAXI@Z,73,no_draft,,,
+building,00454760,??_G?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEPAXI@Z,73,no_draft,,,
+building,00454a30,??_G?$VectorClass@PAVReestablish@@@@UAEPAXI@Z,73,no_draft,,,
+building,00454a80,??_G?$DynamicVectorClass@PAVReestablish@@@@UAEPAXI@Z,73,no_draft,,,
+building,00454ad0,?get@Storage_454ad0@@QAEPAXIPAI@Z,74,no_draft,,,
+building,00454ba0,?get@Storage_454ba0@@QAEPAXIPAI@Z,74,no_draft,,,
+builtype,0045e740,?CanUseWaypoint@BuildingTypeClass@@UBE_NXZ,3,no_draft,,,
+builtype,0045e750,?CanAttackMove@BuildingTypeClass@@UBE_NXZ,3,no_draft,,,
+bullet,00462c50,?unknown_func_462c50@BulletClass@@QAEXXZ,2757,no_draft,,,
+bullet,004642a0,??Y?$TVelocity3D@N@@QAEAAU0@ABU0@@Z,33,no_draft,,,
+conquer,00481840,?unknown_empty_00481840@@YAXXZ,1,no_draft,,,
+data,004955b0,?get@Leaf_4955b0@@QAEXXZ,23,no_draft,,,
+delay,00496a10,?unknown_empty_00496a10@@YAXXZ,1,no_draft,,,
+display,00499060,_$E73,1,no_draft,,,
+display,004991c0,_$E75,1,no_draft,,,
+dropship,004a9b50,?GetItem@?$VectorClass@PAUButtonFadeEffect@@@@UBEPAUButtonFadeEffect@@H@Z,13,no_draft,,,
+dropship,004a9bb0,?GetItem@?$VectorClass@PAUCrossDissolveEffect@@@@UBEPAUCrossDissolveEffect@@H@Z,13,no_draft,,,
+dropship,004a9bc0,??8?$VectorClass@PAUButtonFadeEffect@@@@UBE_NABV0@@Z,62,no_draft,,,
+dropship,004a9c00,?Resize@?$VectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z,174,no_draft,,,
+dropship,004a9d40,?Resize@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z,176,no_draft,,,
+dropship,004a9e20,??8?$VectorClass@PAUCrossDissolveEffect@@@@UBE_NABV0@@Z,62,no_draft,,,
+dropship,004a9e60,?Resize@?$VectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z,174,no_draft,,,
+dropship,004a9fa0,?Resize@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z,176,no_draft,,,
+dropship,004aa080,??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z,73,no_draft,,,
+dropship,004aa0d0,??_G?$VectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z,73,no_draft,,,
+dropship,004aa120,??_G?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z,73,no_draft,,,
+dropship,004aa170,??_G?$VectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z,73,no_draft,,,
+dropship,004aa1c0,??_G?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z,73,no_draft,,,
+dropship,004aa210,??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@HPBQAUButtonFadeEffect@@@Z,74,no_draft,,,
+dropship,004aa260,??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@HPBQAUCrossDissolveEffect@@@Z,74,no_draft,,,
+dsurface,004b1340,?Init_Direct3D@@YAJXZ,297,no_draft,,,
+dsurface,004b1470,?Release_Direct3D@@YIXXZ,76,no_draft,,,
+effects,004b3140,_$E41,23,no_draft,,,
+except,004b8960,?get@Leaf_4b8960@@QAEHXZ,3,no_draft,,,
+fly,004bfb30,?Magnitude_At_Least_004bfb30@UnknownFacingDir@@QBE_NABU1@@Z,36,no_draft,,,
+fly,004bfb60,?Equal_XY_004bfb60@CoordStruct@@QBEHABU1@@Z,37,no_draft,,,
+fly,004bfb90,??8?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QBE_NH@Z,34,no_draft,,,
+fly,004bfc20,?Query_From@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEJABQAVFootClass@@@Z,117,no_draft,,,
+foot,004ca340,?unknown_slot308@FootClass@@UAEXXZ,1,no_draft,,,
+foot,004ce710,??0?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@QAE@IPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,165,no_draft,,,
+house,004f0e10,_$E67,1,no_draft,,,
+house,004f0e20,_$E66,1,no_draft,,,
+houstype,004fb530,??0?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE@ABV0@@Z,136,no_draft,,,
+infatype,0050b8b0,?get@Leaf_50b8b0@@QAEXXZ,23,no_draft,,,
+init,005115f0,?Show_Dialog_With_Flag@@YIXPAUHWND__@@@Z,161,no_draft,,,
+init,005173b0,?unknown_empty_005173b0@@YAXXZ,1,no_draft,,,
+interpal,0051e7f0,_$E6,15,no_draft,,,
+ionblast,00522500,?Delete_Index@?$DynamicVectorClass@PAVIonBlastClass@@@@QAE_NH@Z,49,no_draft,,,
+ionblast,00522540,?get@Leaf_522540@@QAEXXZ,23,no_draft,,,
+jumpjet,0052f230,?Link_To_Object@JumpjetLocomotionClass@@UAGJPAX@Z,286,no_draft,,,
+laser,00533c70,_$E50,1,no_draft,,,
+loaddlg,0053c970,_recover_53c970,23,no_draft,,,
+loaddlg,0053c990,_recover_53c990,23,no_draft,,,
+loaddlg,0053c9b0,_recover_53c9b0,23,no_draft,,,
+loaddlg,0053c9d0,_recover_53c9d0,23,no_draft,,,
+map,0054e8c0,?unknown_return_one_0054e8c0@@YAIXZ,6,no_draft,,,
+map,00552570,?Unknown_00552570@MapClass@@QAEXABVCell@@@Z,2692,no_draft,,,
+map,00555a60,?Unknown_00555A60@MapClass@@QAEXABVCell@@@Z,2743,no_draft,,,
+map,0056aa20,??Y?$TPoint2D@F@@QAEABV0@ABV0@@Z,23,no_draft,,,
+map,0056ace0,?get@Cleanup_56ace0@@QAEXXZ,42,no_draft,,,
+map,0056ad10,?GetGuardedScaledOffset_0056ad10@WordOffset_56ad10@@QBEII@Z,27,no_draft,,,
+map,0056ad30,?get@Leaf_56ad30@@QAEII@Z,13,no_draft,,,
+map,0056aee0,??0?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE@IPBUSubzoneConnectionStruct@@@Z,144,no_draft,,,
+map,0056bc00,?Add_Object@?$HashTableClass@IUSubzoneConnectionStruct@@@@QAE_NHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z,137,no_draft,,,
+map,0056bc90,?EqualWordSequences_0056bc90@Loop_56bc90@@QBE_NABV1@@Z,62,no_draft,,,
+map,0056bcd0,?Resize@?$VectorClass@UPassabilityType@@@@UAE_NHPBUPassabilityType@@@Z,174,no_draft,,,
+map,0056bd80,?Clear@?$VectorClass@UPassabilityType@@@@UAEXXZ,39,no_draft,,,
+map,0056bdb0,?FindFirstWordIndexGuarded_0056bdb0@Loop_56bdb0@@QBEHABI@Z,51,no_draft,,,
+map,0056bdf0,?ID@?$VectorClass@UPassabilityType@@@@UAEHPBUPassabilityType@@@Z,27,no_draft,,,
+map,0056bec0,?FindFirstWordIndex_0056bec0@Loop_56bec0@@QBEHABI@Z,38,no_draft,,,
+map,0056c870,?get@Leaf_56c870@@QAEPAXI@Z,73,no_draft,,,
+map,0056c8c0,?get@Leaf_56c8c0@@QAEPAXI@Z,73,no_draft,,,
+mapgen,005743f0,?unknown_005743f0@MapRegionClass@@QAE_NABVCell@@0H@Z,1342,no_draft,,,
+mapgen,0058dd90,?get@Cleanup_58dd90@@QAEXXZ,42,no_draft,,,
+mapgen,0058dec0,??_G?$TypeList@PAVBuildingTypeClass@@@@UAEPAXI@Z,73,no_draft,,,
+mapgen,0058e740,?Resize@?$DynamicVectorClass@VRect@@@@UAE_NHPBVRect@@@Z,235,no_draft,,,
+mapgen,0058e830,?ID_0058e830@Owner_0058e830@seed_0058e830@@QAEHPAH@Z,74,no_draft,,,
+mapgen,0058ed40,?get@Leaf_58ed40@@QAEPAXI@Z,73,no_draft,,,
+mapgen,0058ed90,?get@Leaf_58ed90@@QAEPAXI@Z,73,no_draft,,,
+mapgen,0058ef60,?get@Storage_58ef60@@QAEPAXIPAI@Z,74,no_draft,,,
+mapgen,0058f150,?Increase_Table_Size@?$IndexClass@HPAVMapRegionClass@@@@QAE_NH@Z,134,no_draft,,,
+mapgen,0058f1e0,?unknown_compare_0058f1e0@seed_0058f1e0@@YAHPAH0@Z,34,no_draft,,,
+mapsel,0058fcf0,?unknown_return_zero_0058fcf0@@YGIH@Z,5,no_draft,,,
+mapsel,0058fd00,?Play_Sound_0058fd00@MapSelect@@QAEXABVWstring@@@Z,46,no_draft,,,
+mapsel,0058fd30,?Queue_Voice_0058fd30@MapSelect@@QAEXABVWstring@@H@Z,60,no_draft,,,
+mapsel,0058fd70,?unknown_empty_0058fd70@@YGXH@Z,3,no_draft,,,
+mapsel,0058fd80,?unknown_empty_0058fd80@@YGXH@Z,3,no_draft,,,
+missile,005940b0,??HDirType@@QBE?AV0@ABV0@@Z,28,no_draft,,,
+mission,005950f0,?Timer_Value@MissionClass@@QBEHXZ,35,no_draft,,,
+mission,00595170,?get@Leaf_595170@@QAEXXZ,23,no_draft,,,
+mpsiegeteam,005abeb0,?MultiplayerSiegeAttackerTeam_Destructor_005abeb0@seed_005abeb0@@YIXPAI@Z,11,no_draft,,,
+mpu,005abf60,?RDTSC@@YIXXZ,14,no_draft,,,
+mpu,005abf70,?Get_RDTSC_CPU_Speed@@YIHXZ,450,no_draft,,,
+netshare,005cb8d0,?Change_Scenario_Slots_005cb8d0@@YIXPAUHWND__@@HH@Z,1243,no_draft,,,
+netshare,005cca30,?Load_Lobby_Options_005cca30@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z,1297,no_draft,,,
+netshare,005cd770,?initialize@WordStorage_005cd770@@QAEPAV1@IPAI@Z,93,no_draft,,,
+netshare,005cd900,?get@Leaf_5cd900@@QAEPAXI@Z,73,no_draft,,,
+netshare,005cd950,?get@Leaf_5cd950@@QAEPAXI@Z,73,no_draft,,,
+nulldlg,005cdf00,?Select_Serial_Dialog@@YIHXZ,2580,no_draft,,,
+nulldlg,005cfdb0,??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ,31,no_draft,,,
+object,005d5520,?Set_Ambient_Sound@ObjectClass@@QAEXH@Z,23,no_draft,,,
+options,005da590,?Binary_Search@@YIPAUNodeElement@?$IndexClass@HPBVCommandClass@@@@PAU12@HABU12@@Z,68,no_draft,,,
+ownrdraw,005f00c0,?unknown_modal_list_atexit_5f00c0@@YAXXZ,23,no_draft,,,
+ownrdraw,005f00e0,?unknown_active_messages_atexit_5f00e0@@YAXXZ,291,no_draft,,,
+ownrdraw,005fc600,?Get_Keyboard_Key_String@OwnerDraw@@YIXGPAG@Z,535,no_draft,,,
+ownrdraw,005fc820,?unknown_5fc820@OwnerDraw@@YAXXZ,118,no_draft,,,
+ownrdraw,005fd290,?unknown_draw_edge_glow_5fd290@OwnerDraw@@YI_NPAVSurface@@ABUPoint2D@@1HH@Z,1397,no_draft,,,
+ownrdraw,005fd810,?unknown_draw_edge_glows_5fd810@OwnerDraw@@YIXPAVSurface@@ABVRect@@HHHHHH@Z,336,no_draft,,,
+ownrdraw,005fd960,?unknown_draw_arrow_5fd960@OwnerDraw@@YIXPAVSurface@@ABVRect@@HH_N@Z,223,no_draft,,,
+ownrdraw,005fda40,?unknown_5fda40@OwnerDraw@@YIHK@Z,87,no_draft,,,
+ownrdraw,005fdaa0,?unknown_5fdaa0@OwnerDraw@@YIKG@Z,121,no_draft,,,
+ownrdraw,005fdcb0,?unknown_draw_button_frame_5fdcb0@OwnerDraw@@YIXPAVSurface@@ABVRect@@H@Z,646,no_draft,,,
+ownrdraw,005fdf40,?unknown_draw_text_5fdf40@OwnerDraw@@YIHPAVSurface@@PBGPAURECT@@PAVBitFontClass@@KH@Z,223,no_draft,,,
+ownrdraw,005fe130,?unknown_5fe130@OwnerDraw@@YIMH@Z,126,no_draft,,,
+ownrdraw,005fe7c0,?unknown_5fe7c0@OwnerDraw@@YIXABVRect@@PAVSurface@@HH@Z,489,no_draft,,,
+ownrdraw,005fed10,?unknown_draw_bits_5fed10@OwnerDraw@@YIXPBVRect@@PAVSurface@@@Z,341,no_draft,,,
+ownrdraw,005ff380,?On_WM_NCDESTROY@@YIXPAUHWND__@@@Z,119,no_draft,,,
+ownrdraw,005ff400,?Redraw_Window_005ff400@seed_005ff400@@YGIPAXPAUtagRECT@@@Z,35,no_draft,,,
+ownrdraw,005ff430,?unknown_add_window_5ff430@OwnerDraw@@YGHPAUHWND__@@PAVUnknownWindowList@1@@Z,365,no_draft,,,
+ownrdraw,005ff5a0,?unknown_5ff5a0@OwnerDraw@@YAHXZ,42,no_draft,,,
+ownrdraw,005ff5d0,?unknown_5ff5d0@OwnerDraw@@YAHXZ,55,no_draft,,,
+ownrdraw,00600120,?unknown_move_window_600120@@YIXPAUHWND__@@HH@Z,186,no_draft,,,
+ownrdraw,006003d0,?unknown_add_node@NodeList@@QAEPAUTextNode@@H@Z,49,no_draft,,,
+ownrdraw,00600560,?Set_Text_600560@WinData@OwnerDraw@@QAEXPBD@Z,87,no_draft,,,
+ownrdraw,006006e0,?unknown_copy_6006e0@WinData@OwnerDraw@@QAEAAU12@ABU12@@Z,257,no_draft,,,
+ownrdraw,00600db0,?Clear_Listbox@@YIXPAUHWND__@@@Z,54,no_draft,,,
+ownrdraw,00600df0,?unknown_get_window_text@@YIJPAUHWND__@@AAVWstring@@@Z,95,no_draft,,,
+ownrdraw,00600e50,?Get_Window_Wide_Text@@YIXPAUHWND__@@AAVWideWstring@@@Z,96,no_draft,,,
+ownrdraw,00600eb0,?Get_Window_Item_Text@@YIXPAUHWND__@@HAAVWstring@@@Z,94,no_draft,,,
+ownrdraw,00600fd0,?unknown_get_combo_item_wide_text@@YIJPAUHWND__@@IAAVWideString@@@Z,95,no_draft,,,
+ownrdraw,00601040,?DialogControl_dtor_00601040@@YIXPAI@Z,7,no_draft,,,
+ownrdraw,00601050,?Unknown_Mark_Registered_00601050@OwnerDraw@@YGXIPAUHWND__@@@Z,97,no_draft,,,
+ownrdraw,006010c0,??0SimpleDialogControl@OwnerDraw@@QAE@XZ,17,no_draft,,,
+ownrdraw,006010e0,??1SimpleDialogControl@OwnerDraw@@UAE@XZ,7,no_draft,,,
+ownrdraw,006010f0,?Set_Window_006010f0@SimpleDialogControl@OwnerDraw@@UAEXIPAUHWND__@@@Z,128,no_draft,,,
+ownrdraw,00601180,?Get_Window@SimpleDialogControl@OwnerDraw@@UAEPAUHWND__@@XZ,4,no_draft,,,
+ownrdraw,00601190,?unknown_slot4@SimpleDialogControl@OwnerDraw@@UAE_NXZ,3,no_draft,,,
+ownrdraw,00601260,?unknown_control_test_601260@OwnerDraw@@YI_NPAUHWND__@@@Z,427,no_draft,,,
+ownrdraw,00601470,??_GSimpleDialogControl@OwnerDraw@@UAEPAXI@Z,32,no_draft,,,
+ownrdraw,00601490,?Clear_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAEXXZ,68,no_draft,,,
+ownrdraw,00601780,??0UnknownListEntry_6017c0@@QAE@ABU0@@Z,61,no_draft,,,
+ownrdraw,006017c0,?Grow_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ,135,no_draft,,,
+ownrdraw,00601850,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ,136,no_draft,,,
+ownrdraw,00601c30,?Key_Hash@?$WolDictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@QBEIABQAUHWND__@@@Z,29,no_draft,,,
+ownrdraw,00602040,?Remove_Entry@?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@QAE_NABUUnknownPairKey@OwnerDraw@@PA_N@Z,607,no_draft,,,
+ownrdraw,006022a0,?Grow_Table@?$WolDictionary@UUnknownPairKey@OwnerDraw@@H@@QAEXXZ,156,no_draft,,,
+ownrdraw,00602340,?Key_Hash@?$WolDictionary@UUnknownPairKey@OwnerDraw@@_N@@QBEIABUUnknownPairKey@OwnerDraw@@@Z,29,no_draft,,,
+ownrdraw,00602360,?Grow_Vector@?$WolArrayList@H@@QAE_NXZ,143,no_draft,,,
+ownrdraw,006023f0,?Shrink_Vector@?$WolArrayList@H@@QAE_NXZ,134,no_draft,,,
+ownrdraw,00602480,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ,136,no_draft,,,
+ownrdraw,00602510,?Release_00602510@UnknownListOwner_00602510@@QAEHE@Z,138,no_draft,,,
+ownrdraw,006025a0,??0UnknownListState_6025a0@@QAE@ABU0@@Z,388,no_draft,,,
+ownrdraw,00602890,?Shrink_Table@?$WolDictionary@UUnknownPairKey@OwnerDraw@@H@@QAEXXZ,168,no_draft,,,
+ownrdraw,00602940,?Grow_Vector@?$WolArrayList@PAUHWND__@@@@QAE_NXZ,143,no_draft,,,
+ownrdraw,006029d0,?Grow_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ,135,no_draft,,,
+partsys,0060d0f0,?get@Leaf_60d0f0@@QAEXXZ,23,no_draft,,,
+planmgr,006120f0,?Draw_Marker@PlanningNodeClass@@QAEXH@Z,309,no_draft,,,
+planmgr,00619e00,?Planning_Adjusted_Pixel@@YIHABVRGBClass@@0H@Z,120,no_draft,,,
+planmgr,0061a8e0,?unknown_rect_contains_0061a8e0@Owner_0061a8e0@seed_0061a8e0@@QAEIPAH@Z,58,no_draft,,,
+radar,0062ecf0,_$E84,47,no_draft,,,
+radar,0062ed20,_$E81,31,no_draft,,,
+radar,0062ed40,_$E87,1,no_draft,,,
+radar,0062ed50,_$E92,22,no_draft,,,
+radar,0062ed70,_$E90,31,no_draft,,,
+radar,0062ed90,_$E95,1,no_draft,,,
+radar,0062eda0,_$E100,22,no_draft,,,
+radar,0062edc0,_$E98,31,no_draft,,,
+reinf,00639960,?unknown_return_false_00639960@seed_00639960@@YAEXZ,3,no_draft,,,
+revent,0063b4f0,_$E45,61,no_draft,,,
+revent,0063b530,_$E42,88,no_draft,,,
+revent,0063b5a0,?get@Leaf_63b5a0@@QAEXXZ,1,no_draft,,,
+rgb,0063cb80,?unknown_init_grey_rgb_0063cb80@@YAXXZ,18,no_draft,,,
+rgb,0063cba0,?unknown_init_WhiteColor_0063cba0@@YAXXZ,18,no_draft,,,
+rgb,0063cbc0,?unknown_reset_rgb_flags_0063cbc0@@YAXXZ,20,no_draft,,,
+rgb,0063cbe0,?unknown_init_green_rgb_0063cbe0@@YAXXZ,20,no_draft,,,
+rgb,0063cc00,?unknown_init_blue_rgb_0063cc00@@YAXXZ,20,no_draft,,,
+rgb,0063cc20,?unknown_init_cyan_rgb_0063cc20@@YAXXZ,20,no_draft,,,
+rgb,0063cc40,?unknown_init_magenta_rgb_0063cc40@@YAXXZ,20,no_draft,,,
+rgb,0063cc60,?unknown_init_yellow_rgb_0063cc60@@YAXXZ,20,no_draft,,,
+scenario,00663490,?unknown_player_value_00663490@seed_00663490@@YAIXZ,79,no_draft,,,
+score,00663fe0,?Presentation@ScoreClass@@QAEXXZ,7782,no_draft,,,
+score,006683d0,??_GScoreFontClass@@UAEPAXI@Z,96,no_draft,,,
+score,00668430,??_GScoreFullFontClass@@UAEPAXI@Z,96,no_draft,,,
+score,00668490,??_GScoreBigFontClass@@UAEPAXI@Z,96,no_draft,,,
+score,006684f0,?Add@?$DynamicVectorClass@PAVScoreAnimClass@@@@QAE_NABQAVScoreAnimClass@@@Z,80,no_draft,,,
+session,006737d0,?Clear@?$DynamicVectorClass@W4DiskID@@@@UAEXXZ,42,no_draft,,,
+session,00673830,?Clear@?$DynamicVectorClass@VWstring@@@@UAEXXZ,83,no_draft,,,
+session,006739f0,??_G?$TypeList@W4DiskID@@@@UAEPAXI@Z,73,no_draft,,,
+session,00674850,??_G?$DynamicVectorClass@VWstring@@@@UAEPAXI@Z,111,no_draft,,,
+sidebar,00681690,?Unknown_00681690@SelectClass@StripClass@SidebarClass@@QAE_NXZ,25,no_draft,,,
+sidebar,006822b0,?Flash_Cameo@SidebarClass@@QAEXPBVTechnoTypeClass@@H@Z,324,no_draft,,,
+sidebar,00682520,?get@Leaf_682520@@QAEIXZ,29,no_draft,,,
+srfcache,0068cf80,?unknown_return_false_0068cf80@seed_0068cf80@@YGEHHH@Z,5,no_draft,,,
+srfcache,0068d540,?Remove_Entry@?$WolDictionary@VWstring@@UUnknownBitmapEntry@@@@QAE_NABVWstring@@PAUUnknownBitmapEntry@@@Z,684,no_draft,,,
+startup,006914e0,??0?$TClassFactory@VCStreamClass@@@@QAE@XZ,16,no_draft,,,
+startup,006914f0,?QueryInterface@?$TClassFactory@VCStreamClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00691560,?AddRef@?$TClassFactory@VCStreamClass@@@@UAGKXZ,17,no_draft,,,
+startup,00691580,?Release@?$TClassFactory@VCStreamClass@@@@UAGKXZ,38,no_draft,,,
+startup,00691630,?LockServer@?$TClassFactory@VCStreamClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00691660,??0?$TClassFactory@VWaveClass@@@@QAE@XZ,16,no_draft,,,
+startup,00691670,?QueryInterface@?$TClassFactory@VWaveClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006916e0,?AddRef@?$TClassFactory@VWaveClass@@@@UAGKXZ,17,no_draft,,,
+startup,00691700,?Release@?$TClassFactory@VWaveClass@@@@UAGKXZ,38,no_draft,,,
+startup,006917b0,?LockServer@?$TClassFactory@VWaveClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006917e0,??0?$TClassFactory@VTerrainTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,006917f0,?QueryInterface@?$TClassFactory@VTerrainTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00691860,?AddRef@?$TClassFactory@VTerrainTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00691880,?Release@?$TClassFactory@VTerrainTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00691930,?LockServer@?$TClassFactory@VTerrainTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00691960,??0?$TClassFactory@VTerrainClass@@@@QAE@XZ,16,no_draft,,,
+startup,00691970,?QueryInterface@?$TClassFactory@VTerrainClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006919e0,?AddRef@?$TClassFactory@VTerrainClass@@@@UAGKXZ,17,no_draft,,,
+startup,00691a00,?Release@?$TClassFactory@VTerrainClass@@@@UAGKXZ,38,no_draft,,,
+startup,00691ab0,?LockServer@?$TClassFactory@VTerrainClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00691ae0,??0?$TClassFactory@VSuperWeaponTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00691af0,?QueryInterface@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00691b60,?AddRef@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00691b80,?Release@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00691c30,?LockServer@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00691c60,??0?$TClassFactory@VSuperClass@@@@QAE@XZ,16,no_draft,,,
+startup,00691c70,?QueryInterface@?$TClassFactory@VSuperClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00691ce0,?AddRef@?$TClassFactory@VSuperClass@@@@UAGKXZ,17,no_draft,,,
+startup,00691d00,?Release@?$TClassFactory@VSuperClass@@@@UAGKXZ,38,no_draft,,,
+startup,00691db0,?LockServer@?$TClassFactory@VSuperClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00691de0,??0?$TClassFactory@VTactical@@@@QAE@XZ,16,no_draft,,,
+startup,00691df0,?QueryInterface@?$TClassFactory@VTactical@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00691e60,?AddRef@?$TClassFactory@VTactical@@@@UAGKXZ,17,no_draft,,,
+startup,00691e80,?Release@?$TClassFactory@VTactical@@@@UAGKXZ,38,no_draft,,,
+startup,00691f30,?LockServer@?$TClassFactory@VTactical@@@@UAGJH@Z,33,no_draft,,,
+startup,00691f60,??0?$TClassFactory@VCellClass@@@@QAE@XZ,16,no_draft,,,
+startup,00691f70,?QueryInterface@?$TClassFactory@VCellClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00691fe0,?AddRef@?$TClassFactory@VCellClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692000,?Release@?$TClassFactory@VCellClass@@@@UAGKXZ,38,no_draft,,,
+startup,006920b0,?LockServer@?$TClassFactory@VCellClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006920e0,??0?$TClassFactory@VEMPulseClass@@@@QAE@XZ,16,no_draft,,,
+startup,006920f0,?QueryInterface@?$TClassFactory@VEMPulseClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00692160,?AddRef@?$TClassFactory@VEMPulseClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692180,?Release@?$TClassFactory@VEMPulseClass@@@@UAGKXZ,38,no_draft,,,
+startup,00692230,?LockServer@?$TClassFactory@VEMPulseClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00692260,??0?$TClassFactory@VLightSourceClass@@@@QAE@XZ,16,no_draft,,,
+startup,00692270,?QueryInterface@?$TClassFactory@VLightSourceClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006922e0,?AddRef@?$TClassFactory@VLightSourceClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692300,?Release@?$TClassFactory@VLightSourceClass@@@@UAGKXZ,38,no_draft,,,
+startup,006923b0,?LockServer@?$TClassFactory@VLightSourceClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006923e0,??0?$TClassFactory@VSideClass@@@@QAE@XZ,16,no_draft,,,
+startup,006923f0,?QueryInterface@?$TClassFactory@VSideClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00692460,?AddRef@?$TClassFactory@VSideClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692480,?Release@?$TClassFactory@VSideClass@@@@UAGKXZ,38,no_draft,,,
+startup,00692530,?LockServer@?$TClassFactory@VSideClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00692560,??0?$TClassFactory@VTiberiumClass@@@@QAE@XZ,16,no_draft,,,
+startup,00692570,?QueryInterface@?$TClassFactory@VTiberiumClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006925e0,?AddRef@?$TClassFactory@VTiberiumClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692600,?Release@?$TClassFactory@VTiberiumClass@@@@UAGKXZ,38,no_draft,,,
+startup,006926b0,?LockServer@?$TClassFactory@VTiberiumClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006926e0,??0?$TClassFactory@VTubeClass@@@@QAE@XZ,16,no_draft,,,
+startup,006926f0,?QueryInterface@?$TClassFactory@VTubeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00692760,?AddRef@?$TClassFactory@VTubeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692780,?Release@?$TClassFactory@VTubeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00692830,?LockServer@?$TClassFactory@VTubeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00692860,??0?$TClassFactory@VCampaignClass@@@@QAE@XZ,16,no_draft,,,
+startup,00692870,?QueryInterface@?$TClassFactory@VCampaignClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006928e0,?AddRef@?$TClassFactory@VCampaignClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692900,?Release@?$TClassFactory@VCampaignClass@@@@UAGKXZ,38,no_draft,,,
+startup,006929b0,?LockServer@?$TClassFactory@VCampaignClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006929e0,??0?$TClassFactory@VBuildingLightClass@@@@QAE@XZ,16,no_draft,,,
+startup,006929f0,?QueryInterface@?$TClassFactory@VBuildingLightClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00692a60,?AddRef@?$TClassFactory@VBuildingLightClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692a80,?Release@?$TClassFactory@VBuildingLightClass@@@@UAGKXZ,38,no_draft,,,
+startup,00692b30,?LockServer@?$TClassFactory@VBuildingLightClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00692b60,??0?$TClassFactory@VWaypointPathClass@@@@QAE@XZ,16,no_draft,,,
+startup,00692b70,?QueryInterface@?$TClassFactory@VWaypointPathClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00692be0,?AddRef@?$TClassFactory@VWaypointPathClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692c00,?Release@?$TClassFactory@VWaypointPathClass@@@@UAGKXZ,38,no_draft,,,
+startup,00692cb0,?LockServer@?$TClassFactory@VWaypointPathClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00692ce0,??0?$TClassFactory@VTemporalClass@@@@QAE@XZ,16,no_draft,,,
+startup,00692cf0,?QueryInterface@?$TClassFactory@VTemporalClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00692d60,?AddRef@?$TClassFactory@VTemporalClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692d80,?Release@?$TClassFactory@VTemporalClass@@@@UAGKXZ,38,no_draft,,,
+startup,00692e30,?LockServer@?$TClassFactory@VTemporalClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00692e60,??0?$TClassFactory@VSpawnManagerClass@@@@QAE@XZ,16,no_draft,,,
+startup,00692e70,?QueryInterface@?$TClassFactory@VSpawnManagerClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00692ee0,?AddRef@?$TClassFactory@VSpawnManagerClass@@@@UAGKXZ,17,no_draft,,,
+startup,00692f00,?Release@?$TClassFactory@VSpawnManagerClass@@@@UAGKXZ,38,no_draft,,,
+startup,00692fb0,?LockServer@?$TClassFactory@VSpawnManagerClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00692fe0,??0?$TClassFactory@VCaptureManagerClass@@@@QAE@XZ,16,no_draft,,,
+startup,00692ff0,?QueryInterface@?$TClassFactory@VCaptureManagerClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00693060,?AddRef@?$TClassFactory@VCaptureManagerClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693080,?Release@?$TClassFactory@VCaptureManagerClass@@@@UAGKXZ,38,no_draft,,,
+startup,00693130,?LockServer@?$TClassFactory@VCaptureManagerClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00693160,??0?$TClassFactory@VParasiteClass@@@@QAE@XZ,16,no_draft,,,
+startup,00693170,?QueryInterface@?$TClassFactory@VParasiteClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006931e0,?AddRef@?$TClassFactory@VParasiteClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693200,?Release@?$TClassFactory@VParasiteClass@@@@UAGKXZ,38,no_draft,,,
+startup,006932b0,?LockServer@?$TClassFactory@VParasiteClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006932e0,??0?$TClassFactory@VBombClass@@@@QAE@XZ,16,no_draft,,,
+startup,006932f0,?QueryInterface@?$TClassFactory@VBombClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00693360,?AddRef@?$TClassFactory@VBombClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693380,?Release@?$TClassFactory@VBombClass@@@@UAGKXZ,38,no_draft,,,
+startup,00693430,?LockServer@?$TClassFactory@VBombClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00693460,??0?$TClassFactory@VRadSiteClass@@@@QAE@XZ,16,no_draft,,,
+startup,00693470,?QueryInterface@?$TClassFactory@VRadSiteClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006934e0,?AddRef@?$TClassFactory@VRadSiteClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693500,?Release@?$TClassFactory@VRadSiteClass@@@@UAGKXZ,38,no_draft,,,
+startup,006935b0,?LockServer@?$TClassFactory@VRadSiteClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006935e0,??0?$TClassFactory@VTEventClass@@@@QAE@XZ,16,no_draft,,,
+startup,006935f0,?QueryInterface@?$TClassFactory@VTEventClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00693660,?AddRef@?$TClassFactory@VTEventClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693680,?Release@?$TClassFactory@VTEventClass@@@@UAGKXZ,38,no_draft,,,
+startup,00693730,?LockServer@?$TClassFactory@VTEventClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00693760,??0?$TClassFactory@VVoxelAnimTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00693770,?QueryInterface@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006937e0,?AddRef@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693800,?Release@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,006938b0,?LockServer@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006938e0,??0?$TClassFactory@VVoxelAnimClass@@@@QAE@XZ,16,no_draft,,,
+startup,006938f0,?QueryInterface@?$TClassFactory@VVoxelAnimClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00693960,?AddRef@?$TClassFactory@VVoxelAnimClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693980,?Release@?$TClassFactory@VVoxelAnimClass@@@@UAGKXZ,38,no_draft,,,
+startup,00693a30,?LockServer@?$TClassFactory@VVoxelAnimClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00693a60,??0?$TClassFactory@VTActionClass@@@@QAE@XZ,16,no_draft,,,
+startup,00693a70,?QueryInterface@?$TClassFactory@VTActionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00693ae0,?AddRef@?$TClassFactory@VTActionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693b00,?Release@?$TClassFactory@VTActionClass@@@@UAGKXZ,38,no_draft,,,
+startup,00693bb0,?LockServer@?$TClassFactory@VTActionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00693be0,??0?$TClassFactory@VTriggerClass@@@@QAE@XZ,16,no_draft,,,
+startup,00693bf0,?QueryInterface@?$TClassFactory@VTriggerClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00693c60,?AddRef@?$TClassFactory@VTriggerClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693c80,?Release@?$TClassFactory@VTriggerClass@@@@UAGKXZ,38,no_draft,,,
+startup,00693d30,?LockServer@?$TClassFactory@VTriggerClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00693d60,??0?$TClassFactory@VTriggerTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00693d70,?QueryInterface@?$TClassFactory@VTriggerTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00693de0,?AddRef@?$TClassFactory@VTriggerTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693e00,?Release@?$TClassFactory@VTriggerTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00693eb0,?LockServer@?$TClassFactory@VTriggerTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00693ee0,??0?$TClassFactory@VScriptClass@@@@QAE@XZ,16,no_draft,,,
+startup,00693ef0,?QueryInterface@?$TClassFactory@VScriptClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00693f60,?AddRef@?$TClassFactory@VScriptClass@@@@UAGKXZ,17,no_draft,,,
+startup,00693f80,?Release@?$TClassFactory@VScriptClass@@@@UAGKXZ,38,no_draft,,,
+startup,00694030,?LockServer@?$TClassFactory@VScriptClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00694060,??0?$TClassFactory@VScriptTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00694070,?QueryInterface@?$TClassFactory@VScriptTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006940e0,?AddRef@?$TClassFactory@VScriptTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694100,?Release@?$TClassFactory@VScriptTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,006941b0,?LockServer@?$TClassFactory@VScriptTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006941e0,??0?$TClassFactory@VTagClass@@@@QAE@XZ,16,no_draft,,,
+startup,006941f0,?QueryInterface@?$TClassFactory@VTagClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00694260,?AddRef@?$TClassFactory@VTagClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694280,?Release@?$TClassFactory@VTagClass@@@@UAGKXZ,38,no_draft,,,
+startup,00694330,?LockServer@?$TClassFactory@VTagClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00694360,??0?$TClassFactory@VTagTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00694370,?QueryInterface@?$TClassFactory@VTagTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006943e0,?AddRef@?$TClassFactory@VTagTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694400,?Release@?$TClassFactory@VTagTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,006944b0,?LockServer@?$TClassFactory@VTagTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006944e0,??0?$TClassFactory@VTeamClass@@@@QAE@XZ,16,no_draft,,,
+startup,006944f0,?QueryInterface@?$TClassFactory@VTeamClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00694560,?AddRef@?$TClassFactory@VTeamClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694580,?Release@?$TClassFactory@VTeamClass@@@@UAGKXZ,38,no_draft,,,
+startup,00694630,?LockServer@?$TClassFactory@VTeamClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00694660,??0?$TClassFactory@VTeamTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00694670,?QueryInterface@?$TClassFactory@VTeamTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006946e0,?AddRef@?$TClassFactory@VTeamTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694700,?Release@?$TClassFactory@VTeamTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,006947b0,?LockServer@?$TClassFactory@VTeamTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006947e0,??0?$TClassFactory@VTaskForceClass@@@@QAE@XZ,16,no_draft,,,
+startup,006947f0,?QueryInterface@?$TClassFactory@VTaskForceClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00694860,?AddRef@?$TClassFactory@VTaskForceClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694880,?Release@?$TClassFactory@VTaskForceClass@@@@UAGKXZ,38,no_draft,,,
+startup,00694930,?LockServer@?$TClassFactory@VTaskForceClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00694960,??0?$TClassFactory@VUnitTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00694970,?QueryInterface@?$TClassFactory@VUnitTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006949e0,?AddRef@?$TClassFactory@VUnitTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694a00,?Release@?$TClassFactory@VUnitTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00694ab0,?LockServer@?$TClassFactory@VUnitTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00694ae0,??0?$TClassFactory@VBuildingTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00694af0,?QueryInterface@?$TClassFactory@VBuildingTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00694b60,?AddRef@?$TClassFactory@VBuildingTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694b80,?Release@?$TClassFactory@VBuildingTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00694c30,?LockServer@?$TClassFactory@VBuildingTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00694c60,??0?$TClassFactory@VAircraftTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00694c70,?QueryInterface@?$TClassFactory@VAircraftTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00694ce0,?AddRef@?$TClassFactory@VAircraftTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694d00,?Release@?$TClassFactory@VAircraftTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00694db0,?LockServer@?$TClassFactory@VAircraftTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00694de0,??0?$TClassFactory@VInfantryTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00694df0,?QueryInterface@?$TClassFactory@VInfantryTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00694e60,?AddRef@?$TClassFactory@VInfantryTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00694e80,?Release@?$TClassFactory@VInfantryTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00694f30,?LockServer@?$TClassFactory@VInfantryTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00694f60,??0?$TClassFactory@VBulletTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00694f70,?QueryInterface@?$TClassFactory@VBulletTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00694fe0,?AddRef@?$TClassFactory@VBulletTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695000,?Release@?$TClassFactory@VBulletTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,006950b0,?LockServer@?$TClassFactory@VBulletTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006950e0,??0?$TClassFactory@VIsometricTileTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,006950f0,?QueryInterface@?$TClassFactory@VIsometricTileTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00695160,?AddRef@?$TClassFactory@VIsometricTileTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695180,?Release@?$TClassFactory@VIsometricTileTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00695230,?LockServer@?$TClassFactory@VIsometricTileTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00695260,??0?$TClassFactory@VOverlayTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00695270,?QueryInterface@?$TClassFactory@VOverlayTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006952e0,?AddRef@?$TClassFactory@VOverlayTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695300,?Release@?$TClassFactory@VOverlayTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,006953b0,?LockServer@?$TClassFactory@VOverlayTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006953e0,??0?$TClassFactory@VSmudgeTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,006953f0,?QueryInterface@?$TClassFactory@VSmudgeTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00695460,?AddRef@?$TClassFactory@VSmudgeTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695480,?Release@?$TClassFactory@VSmudgeTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00695530,?LockServer@?$TClassFactory@VSmudgeTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00695560,??0?$TClassFactory@VUnitClass@@@@QAE@XZ,16,no_draft,,,
+startup,00695570,?QueryInterface@?$TClassFactory@VUnitClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006955e0,?AddRef@?$TClassFactory@VUnitClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695600,?Release@?$TClassFactory@VUnitClass@@@@UAGKXZ,38,no_draft,,,
+startup,006956b0,?LockServer@?$TClassFactory@VUnitClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006956e0,??0?$TClassFactory@VBuildingClass@@@@QAE@XZ,16,no_draft,,,
+startup,006956f0,?QueryInterface@?$TClassFactory@VBuildingClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00695760,?AddRef@?$TClassFactory@VBuildingClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695780,?Release@?$TClassFactory@VBuildingClass@@@@UAGKXZ,38,no_draft,,,
+startup,00695830,?LockServer@?$TClassFactory@VBuildingClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00695860,??0?$TClassFactory@VAircraftClass@@@@QAE@XZ,16,no_draft,,,
+startup,00695870,?QueryInterface@?$TClassFactory@VAircraftClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006958e0,?AddRef@?$TClassFactory@VAircraftClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695900,?Release@?$TClassFactory@VAircraftClass@@@@UAGKXZ,38,no_draft,,,
+startup,006959b0,?LockServer@?$TClassFactory@VAircraftClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006959e0,??0?$TClassFactory@VInfantryClass@@@@QAE@XZ,16,no_draft,,,
+startup,006959f0,?QueryInterface@?$TClassFactory@VInfantryClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00695a60,?AddRef@?$TClassFactory@VInfantryClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695a80,?Release@?$TClassFactory@VInfantryClass@@@@UAGKXZ,38,no_draft,,,
+startup,00695b30,?LockServer@?$TClassFactory@VInfantryClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00695b60,??0?$TClassFactory@VAnimClass@@@@QAE@XZ,16,no_draft,,,
+startup,00695b70,?QueryInterface@?$TClassFactory@VAnimClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00695be0,?AddRef@?$TClassFactory@VAnimClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695c00,?Release@?$TClassFactory@VAnimClass@@@@UAGKXZ,38,no_draft,,,
+startup,00695cb0,?LockServer@?$TClassFactory@VAnimClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00695ce0,??0?$TClassFactory@VAnimTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00695cf0,?QueryInterface@?$TClassFactory@VAnimTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00695d60,?AddRef@?$TClassFactory@VAnimTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695d80,?Release@?$TClassFactory@VAnimTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00695e30,?LockServer@?$TClassFactory@VAnimTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00695e60,??0?$TClassFactory@VHouseTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00695e70,?QueryInterface@?$TClassFactory@VHouseTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00695ee0,?AddRef@?$TClassFactory@VHouseTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00695f00,?Release@?$TClassFactory@VHouseTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00695fb0,?LockServer@?$TClassFactory@VHouseTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00695fe0,??0?$TClassFactory@VHouseClass@@@@QAE@XZ,16,no_draft,,,
+startup,00695ff0,?QueryInterface@?$TClassFactory@VHouseClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00696060,?AddRef@?$TClassFactory@VHouseClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696080,?Release@?$TClassFactory@VHouseClass@@@@UAGKXZ,38,no_draft,,,
+startup,00696130,?LockServer@?$TClassFactory@VHouseClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00696160,??0?$TClassFactory@VDriveLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,00696170,?QueryInterface@?$TClassFactory@VDriveLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006961e0,?AddRef@?$TClassFactory@VDriveLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696200,?Release@?$TClassFactory@VDriveLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,006962b0,?LockServer@?$TClassFactory@VDriveLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006962e0,??0?$TClassFactory@VJumpjetLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,006962f0,?QueryInterface@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00696360,?AddRef@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696380,?Release@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,00696430,?LockServer@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00696460,??0?$TClassFactory@VHoverLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,00696470,?QueryInterface@?$TClassFactory@VHoverLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006964e0,?AddRef@?$TClassFactory@VHoverLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696500,?Release@?$TClassFactory@VHoverLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,006965b0,?LockServer@?$TClassFactory@VHoverLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006965e0,??0?$TClassFactory@VRocketLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,006965f0,?QueryInterface@?$TClassFactory@VRocketLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00696660,?AddRef@?$TClassFactory@VRocketLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696680,?Release@?$TClassFactory@VRocketLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,00696730,?LockServer@?$TClassFactory@VRocketLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00696760,??0?$TClassFactory@VTunnelLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,00696770,?QueryInterface@?$TClassFactory@VTunnelLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006967e0,?AddRef@?$TClassFactory@VTunnelLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696800,?Release@?$TClassFactory@VTunnelLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,006968b0,?LockServer@?$TClassFactory@VTunnelLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006968e0,??0?$TClassFactory@VWalkLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,006968f0,?QueryInterface@?$TClassFactory@VWalkLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00696960,?AddRef@?$TClassFactory@VWalkLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696980,?Release@?$TClassFactory@VWalkLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,00696a30,?LockServer@?$TClassFactory@VWalkLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00696a60,??0?$TClassFactory@VDropPodLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,00696a70,?QueryInterface@?$TClassFactory@VDropPodLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00696ae0,?AddRef@?$TClassFactory@VDropPodLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696b00,?Release@?$TClassFactory@VDropPodLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,00696bb0,?LockServer@?$TClassFactory@VDropPodLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00696be0,??0?$TClassFactory@VFlyLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,00696bf0,?QueryInterface@?$TClassFactory@VFlyLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00696c60,?AddRef@?$TClassFactory@VFlyLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696c80,?Release@?$TClassFactory@VFlyLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,00696d30,?LockServer@?$TClassFactory@VFlyLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00696d60,??0?$TClassFactory@VTeleportLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,00696d70,?QueryInterface@?$TClassFactory@VTeleportLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00696de0,?AddRef@?$TClassFactory@VTeleportLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696e00,?Release@?$TClassFactory@VTeleportLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,00696eb0,?LockServer@?$TClassFactory@VTeleportLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00696ee0,??0?$TClassFactory@VMechLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,00696ef0,?QueryInterface@?$TClassFactory@VMechLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00696f60,?AddRef@?$TClassFactory@VMechLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00696f80,?Release@?$TClassFactory@VMechLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,00697030,?LockServer@?$TClassFactory@VMechLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00697060,??0?$TClassFactory@VShipLocomotionClass@@@@QAE@XZ,16,no_draft,,,
+startup,00697070,?QueryInterface@?$TClassFactory@VShipLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006970e0,?AddRef@?$TClassFactory@VShipLocomotionClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697100,?Release@?$TClassFactory@VShipLocomotionClass@@@@UAGKXZ,38,no_draft,,,
+startup,006971b0,?LockServer@?$TClassFactory@VShipLocomotionClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006971e0,??0?$TClassFactory@VBulletClass@@@@QAE@XZ,16,no_draft,,,
+startup,006971f0,?QueryInterface@?$TClassFactory@VBulletClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00697260,?AddRef@?$TClassFactory@VBulletClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697280,?Release@?$TClassFactory@VBulletClass@@@@UAGKXZ,38,no_draft,,,
+startup,00697330,?LockServer@?$TClassFactory@VBulletClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00697360,??0?$TClassFactory@VFactoryClass@@@@QAE@XZ,16,no_draft,,,
+startup,00697370,?QueryInterface@?$TClassFactory@VFactoryClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006973e0,?AddRef@?$TClassFactory@VFactoryClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697400,?Release@?$TClassFactory@VFactoryClass@@@@UAGKXZ,38,no_draft,,,
+startup,006974b0,?LockServer@?$TClassFactory@VFactoryClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006974e0,??0?$TClassFactory@VWarheadTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,006974f0,?QueryInterface@?$TClassFactory@VWarheadTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00697560,?AddRef@?$TClassFactory@VWarheadTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697580,?Release@?$TClassFactory@VWarheadTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00697630,?LockServer@?$TClassFactory@VWarheadTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00697660,??0?$TClassFactory@VWeaponTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00697670,?QueryInterface@?$TClassFactory@VWeaponTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006976e0,?AddRef@?$TClassFactory@VWeaponTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697700,?Release@?$TClassFactory@VWeaponTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,006977b0,?LockServer@?$TClassFactory@VWeaponTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006977e0,??0?$TClassFactory@VParticleClass@@@@QAE@XZ,16,no_draft,,,
+startup,006977f0,?QueryInterface@?$TClassFactory@VParticleClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00697860,?AddRef@?$TClassFactory@VParticleClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697880,?Release@?$TClassFactory@VParticleClass@@@@UAGKXZ,38,no_draft,,,
+startup,00697930,?LockServer@?$TClassFactory@VParticleClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00697960,??0?$TClassFactory@VParticleTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00697970,?QueryInterface@?$TClassFactory@VParticleTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006979e0,?AddRef@?$TClassFactory@VParticleTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697a00,?Release@?$TClassFactory@VParticleTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00697ab0,?LockServer@?$TClassFactory@VParticleTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00697ae0,??0?$TClassFactory@VParticleSystemClass@@@@QAE@XZ,16,no_draft,,,
+startup,00697af0,?QueryInterface@?$TClassFactory@VParticleSystemClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00697b60,?AddRef@?$TClassFactory@VParticleSystemClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697b80,?Release@?$TClassFactory@VParticleSystemClass@@@@UAGKXZ,38,no_draft,,,
+startup,00697c30,?LockServer@?$TClassFactory@VParticleSystemClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00697c60,??0?$TClassFactory@VParticleSystemTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00697c70,?QueryInterface@?$TClassFactory@VParticleSystemTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00697ce0,?AddRef@?$TClassFactory@VParticleSystemTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697d00,?Release@?$TClassFactory@VParticleSystemTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00697db0,?LockServer@?$TClassFactory@VParticleSystemTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00697de0,??0?$TClassFactory@VAITriggerTypeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00697df0,?QueryInterface@?$TClassFactory@VAITriggerTypeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00697e60,?AddRef@?$TClassFactory@VAITriggerTypeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00697e80,?Release@?$TClassFactory@VAITriggerTypeClass@@@@UAGKXZ,38,no_draft,,,
+startup,00697f30,?LockServer@?$TClassFactory@VAITriggerTypeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00697f60,??0?$TClassFactory@VNeuronClass@@@@QAE@XZ,16,no_draft,,,
+startup,00697f70,?QueryInterface@?$TClassFactory@VNeuronClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00697fe0,?AddRef@?$TClassFactory@VNeuronClass@@@@UAGKXZ,17,no_draft,,,
+startup,00698000,?Release@?$TClassFactory@VNeuronClass@@@@UAGKXZ,38,no_draft,,,
+startup,006980b0,?LockServer@?$TClassFactory@VNeuronClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006980e0,??0?$TClassFactory@VFoggedObjectClass@@@@QAE@XZ,16,no_draft,,,
+startup,006980f0,?QueryInterface@?$TClassFactory@VFoggedObjectClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,00698160,?AddRef@?$TClassFactory@VFoggedObjectClass@@@@UAGKXZ,17,no_draft,,,
+startup,00698180,?Release@?$TClassFactory@VFoggedObjectClass@@@@UAGKXZ,38,no_draft,,,
+startup,00698230,?LockServer@?$TClassFactory@VFoggedObjectClass@@@@UAGJH@Z,33,no_draft,,,
+startup,00698260,??0?$TClassFactory@VAlphaShapeClass@@@@QAE@XZ,16,no_draft,,,
+startup,00698270,?QueryInterface@?$TClassFactory@VAlphaShapeClass@@@@UAGJABUGUID@@PAPAX@Z,101,no_draft,,,
+startup,006982e0,?AddRef@?$TClassFactory@VAlphaShapeClass@@@@UAGKXZ,17,no_draft,,,
+startup,00698300,?Release@?$TClassFactory@VAlphaShapeClass@@@@UAGKXZ,38,no_draft,,,
+startup,006983b0,?LockServer@?$TClassFactory@VAlphaShapeClass@@@@UAGJH@Z,33,no_draft,,,
+startup,006983e0,??1IUnknownPtr@@QAE@XZ,13,no_draft,,,
+startup,00698620,?Add@?$DynamicVectorClass@K@@QAE_NABK@Z,80,no_draft,,,
+super,0069e980,?unknown_empty_0069e980@@YGXHH@Z,3,no_draft,,,
+super,0069ed20,?unknown_add_ref@UnknownComHolder_0069ed20@@QAEXXZ,13,no_draft,,,
+tab,006a0670,?Set_Button_Count@TabClass@@SIXH@Z,57,no_draft,,,
+tab,006a1700,_$E97,1,no_draft,,,
+tactical,006a33e0,?unknown_empty_006a33e0@seed_006a33e0@@YGXHH@Z,3,no_draft,,,
+tactical,006aa980,?unknown_empty_006aa980@seed_006aa980@@YGXH@Z,3,no_draft,,,
+tactical,006ac7a0,?unknown_empty_006ac7a0@seed_006ac7a0@@YAXXZ,1,no_draft,,,
+taction,006af930,?unknown_action_006af930@TActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@PAVCell@@@Z,5,no_draft,,,
+techtype,006df620,?Load_Palette@TechnoTypeClass@@QAEXXZ,32,no_draft,,,
+techtype,006df640,?Load_Techno_Palettes@@YIXXZ,61,no_draft,,,
+techtype,006df680,?Has_Turret_Weapons@TechnoTypeClass@@QBE_NXZ,14,no_draft,,,
+techtype,006df690,?Set_Turret_Weapon@TechnoTypeClass@@QAEXHH@Z,18,no_draft,,,
+techtype,006df6b0,?Get_Turret_Weapon@TechnoTypeClass@@QBEHH@Z,14,no_draft,,,
+techtype,006df6c0,?Damage_Smoke_Offset@TechnoTypeClass@@QBE?AUCoordStruct@@XZ,212,no_draft,,,
+techtype,006df8c0,??4?$VectorClass@PAVParticleSystemTypeClass@@@@QAEAAV0@ABV0@@Z,108,no_draft,,,
+techtype,006df9e0,??0?$TypeList@PAVParticleSystemTypeClass@@@@QAE@ABV0@@Z,136,no_draft,,,
+uicmnds,006f6d00,?Unknown_006F6D00@@YIX_N@Z,725,no_draft,,,
+uicmnds,006f7610,?unknown_matches_any_name@@YI_NPAUUnknownObject_006f7610@@ABUUnknownNameList_006f7610@@@Z,54,no_draft,,,
+uicmnds,006f7650,?Unknown_Stopwatch_Start_006F7650@@YAXXZ,28,no_draft,,,
+uicmnds,006f7670,?Unknown_006F7670@@YIXXZ,58,no_draft,,,
+uicmnds,006f76c0,?Unknown_006F76C0@@YAPAV?$DynamicVectorClass@PBD@@XZ,307,no_draft,,,
+uicmnds,006f7800,?Unknown_006F7800@@YIXPBDP6IXPAXH@ZH@Z,365,no_draft,,,
+uicmnds,006f79c0,?Unknown_006F79C0@@YAXXZ,447,no_draft,,,
+uicmnds,006f7b80,?Unknown_006F7B80@@YIX_N@Z,614,no_draft,,,
+uicmnds,006f7df0,?Unknown_006F7DF0@@YIHPAVTechnoClass@@H@Z,75,no_draft,,,
+uicmnds,006f7e40,?Unknown_Health_Message_006F7E40@@YIPBGH@Z,89,no_draft,,,
+uicmnds,006f7ea0,?unknown_health_state_index_6f7ea0@@YIHH@Z,31,no_draft,,,
+uicmnds,006f7ec0,?Unknown_006F7EC0@@YIX_N@Z,624,no_draft,,,
+uicmnds,006f8130,?Unknown_Veterancy_Message_006F8130@@YIPBGH@Z,89,no_draft,,,
+uicmnds,006f8190,?unknown_veterancy_rank_index_6f8190@@YIHH@Z,31,no_draft,,,
+uicmnds,006f84a0,?Unknown_Type_Names_006F84A0@@YIPAV?$DynamicVectorClass@PBD@@ABV?$DynamicVectorClass@PAVObjectClass@@@@@Z,307,no_draft,,,
+uicmnds,006f85e0,?Unknown_006F85E0@@YIPADABV?$DynamicVectorClass@PAVTechnoClass@@@@PBDHPAH@Z,776,no_draft,,,
+uicmnds,006f88f0,?Unknown_006F88F0@@YAXXZ,232,no_draft,,,
+uicmnds,006f8a50,?get@Leaf_6f8a50@@QAEIXZ,6,no_draft,,,
+uicmnds,006f8a60,?get@Leaf_6f8a60@@QAEIXZ,6,no_draft,,,
+unit,006fe5f0,?unknown_empty_006fe5f0@@YAXXZ,1,no_draft,,,
+unit,006fe600,?unknown_empty_006fe600@@YAXXZ,1,no_draft,,,
+vqa,0071d790,?Unknown_0071D790@VQAClass@@QAEHXZ,3,no_draft,,,
+vqa,0071d7a0,?Unknown_0071D7A0@VQAClass@@QAEXXZ,1,no_draft,,,
+vqa,0071d7b0,?Unknown_0071D7B0@VQAClass@@QAEXXZ,1,no_draft,,,
+wave,007246d0,?initialize@WordStorage_007246d0@@QAEPAV1@IPAI@Z,93,no_draft,,,
+wdtconflict,00727cc0,??_G?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z,36,no_draft,,,
+wdtmap,0072a880,?unknown_write_wdtmap_ini_72a880@@YIXABVWstring@@0@Z,1652,no_draft,,,
+wdtmap,0072baa0,??_G?$VectorClass@UCentroid@WorldDominationTour@@@@UAEPAXI@Z,73,no_draft,,,
+weapon,00734100,?get@Leaf_734100@@QAEXXZ,23,no_draft,,,
+wonline,00765980,_$E9,1,no_draft,,,
+wonline,00766070,?Add_00766070@WolChannelNameSet@@QAE_NABVWstring@@ABH@Z,321,no_draft,,,
+wonline,00766400,?Clear_00766400@WolChannelDictionary@@QAEXXZ,276,no_draft,,,
+wonline,00766dc0,?Shrink_00766dc0@WolChannelArray@@QAE_NXZ,150,no_draft,,,
+wonline,00766e60,?growVector@?$ArrayList@UUser@WOL@@@@AAEDXZ,148,no_draft,,,
+wonline,007670f0,?Get_Pointer_007670f0@WolLadderCache@@QBE_NABVWstring@@PAPAULadder@WOL@@@Z,107,no_draft,,,
+wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,,
+wonline,00767570,?Get_Pointer_00767570@WolChannelNameSet@@QBE_NABVWstring@@PAPAH@Z,107,no_draft,,,
+wonline,00767cd0,?Key_Hash_00767cd0@WolNameTable@@QBEIABVWstring@@@Z,29,no_draft,,,
+wonline,00767cf0,?Get_Pointer_00767cf0@WolChannelDictionary@@QBE_NABVWstring@@PAPAUChannel@WOL@@@Z,110,no_draft,,,
+wonline,00767d60,?Remove_00767d60@WolChannelDictionary@@QAE_NABVWstring@@PAUChannel@WOL@@@Z,684,no_draft,,,
+wonline,00768290,?Grow_00768290@WolIntArray@@QAE_NXZ,143,no_draft,,,
+wwmouse,007736f0,?Set_Mouse_XY@WWMouseClass@@UAEXHH@Z,17,no_draft,,,
+building,00453e10,?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z,27,not_emitted,,,
+building,00453ff0,?ID@?$VectorClass@PAVParticleSystemTypeClass@@@@UAEHABQAVParticleSystemTypeClass@@@Z,51,not_emitted,,,
+building,00454030,?ID@?$VectorClass@PAVParticleSystemTypeClass@@@@UAEHPBQAVParticleSystemTypeClass@@@Z,27,not_emitted,,,
+building,00454100,?ID@?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@UAEHABQAVParticleSystemTypeClass@@@Z,38,not_emitted,,,
+building,004545d0,?ID@?$VectorClass@PAVReestablish@@@@UAEHABQAVReestablish@@@Z,51,not_emitted,,,
+building,00454610,?ID@?$VectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z,27,not_emitted,,,
+building,004546e0,?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHABQAVReestablish@@@Z,38,not_emitted,,,
+mapgen,0058ddc0,?ID@?$DynamicVectorClass@VRect@@@@UAEHPBVRect@@@Z,27,not_emitted,,,
+ownrdraw,00601170,?Is_Done@SimpleDialogControl@OwnerDraw@@UAE_NXZ,4,not_emitted,,,
+ownrdraw,00601410,?get@Leaf_601410@@QAEIXZ,21,not_emitted,,,
+session,00673800,?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHPBW4DiskID@@@Z,27,not_emitted,,,
+session,00673890,?ID@?$DynamicVectorClass@VWstring@@@@UAEHPBVWstring@@@Z,27,not_emitted,,,
+sidebar,006818d0,?Which_Tab@SidebarClass@@SIHW4RTTIType@@H_N@Z,103,not_emitted,,,
+tab,006a0540,?Free_Button_Shape@TabClass@@SIXH@Z,49,not_emitted,,,
+tab,006a0580,?Command_From_Name@TabClass@@SIHPBD@Z,89,not_emitted,,,
+tab,006a05e0,?Set_Command_Position@TabClass@@SIXHH@Z,8,not_emitted,,,
+tab,006a05f0,?Get_Command_Position@TabClass@@SIHH@Z,8,not_emitted,,,
+tab,006a0600,?Get_Button@TabClass@@SIPAVShapeButtonClass@@H@Z,31,not_emitted,,,
+tab,006a0620,?Get_Button_Rect@TabClass@@SI?AV?$TRect@H@@H@Z,71,not_emitted,,,
+tab,006a06b0,?Is_Team_Command@TabClass@@SIHH@Z,25,not_emitted,,,
+tab,006a06d0,?Team_Number@TabClass@@SIHH@Z,10,not_emitted,,,
+tab,006a1270,?Add_Button_ToolTip@TabClass@@SIXPAVControlClass@@PBD@Z,83,not_emitted,,,
+tab,006a1860,?Init_Shape_Button@@YIXPAVShapeButtonClass@@HI@Z,29,not_emitted,,,
+vqalib_loader,00778680,?VQA_LoadFrame@@YIJPAU_VQAHandleP@@J@Z,706,not_emitted,,,
+vqalib_loader,00778950,?VQA_LoadFrame_Internal@@YIJPAU_VQAHandleP@@J@Z,3397,not_emitted,,,
+vqalib_loader,00779e90,?Load_VQF@@YIJPAU_VQAHandleP@@KD@Z,1196,not_emitted,,,
+vqalib_loader,0077afa0,?Load_CBFZ@@YIJPAU_VQAHandleP@@K@Z,124,not_emitted,,,
+vqalib_loader,0077b020,?Load_CBP0@@YIJPAU_VQAHandleP@@K@Z,279,not_emitted,,,
+vqalib_loader,0077b140,?Load_CBPZ@@YIJPAU_VQAHandleP@@K@Z,384,not_emitted,,,
+vqalib_loader,0077b2c0,?Load_CPLZ@@YIJPAU_VQAHandleP@@K@Z,197,not_emitted,,,
+vqalib_loader,0077b390,?Load_SND0@@YIJPAU_VQAHandleP@@K@Z,205,not_emitted,,,
+vqalib_loader,0077b460,?Load_SND1@@YIJPAU_VQAHandleP@@K@Z,443,not_emitted,,,
+vqalib_loader,0077b620,?Load_SND2@@YIJPAU_VQAHandleP@@K@Z,373,not_emitted,,,
+vqalib_task,0077c2e0,?VQA_SeekFrame@@YIJPAU_VQAHandle@@JJ@Z,349,not_emitted,,,
+xsurface,007743c0,?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z,748,not_emitted,,,
+astar,0042b470,??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z,73,register_order,,,"+6 mov dword ptr [esi], 0x79a76c | orig mov dword ptr [esi], 0x79c534"
+building,004491e0,?Fire_Direction@BuildingClass@@UBE?AVDirType@@XZ,161,register_order,,,"+7e mov ecx, dword ptr [esi + 0x228] | orig mov eax, dword ptr [esi + 0x228]"
+bullet,0045f350,_$E168,88,register_order,,,"+0 mov eax, dword ptr [0x8502fc] | orig mov cl, byte ptr [0x8502b0]"
+campscor,00466a50,?Presentation@CampaignScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@H_NHPBG@Z,1956,register_order,,,"+11 mov dword ptr [0], eax | orig mov dword ptr [0x85050c], eax"
+event,004b65c0,?Execute@EventClass@@QAEXXZ,5176,register_order,,,"+12bf xor edx, edx | orig xor ecx, ecx"
+map,00567d20,?Region_Threat@MapClass@@QAEHPAVHouseClass@@HHH@Z,885,register_order,,,"+1e2 mov bp, word ptr [eax*4 + 0xa6f218] | orig mov bp, si"
+mapgen,0057c4f0,?Seed_Land_Type0@MapGeneratorClass@@QAEXXZ,645,register_order,,,"+175 shl ecx, 1 | orig fadd qword ptr [0x7a5ed0]"
+netdlg2,005be6b0,?MPlayer_Game_List_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,1889,register_order,,,"+5d0 add eax, ecx | orig add ecx, eax"
+netshare,005c8dd0,?Set_Slot_Names@@YIXPBG@Z,920,register_order,,,"+2b mov ebp, dword ptr [0xa72d30] | orig mov ebx, dword ptr [0xa72d2c]"
+netshare,005c94b0,?Is_Observer_Slot_Occupied@@YI_NXZ,92,register_order,,,"+1 mov ebx, dword ptr [0xa72d44] | orig mov ebx, dword ptr [0xa72d30]"
+netshare,005c9510,?Is_Channel_Full@@YI_NXZ,186,register_order,,,"+20 mov ebx, dword ptr [0xa72d44] | orig mov ebx, dword ptr [0xa72d30]"
+partsys,0060b670,?Spark_AI@ParticleSystemClass@@AAEXXZ,1277,register_order,,,"+a push ebp | orig mov ebx, ecx"
+sidebar,0067f800,?Draw_It@StripClass@SidebarClass@@QAEX_N@Z,2760,register_order,,,"+494 mov edx, dword ptr [0] | orig mov edx, dword ptr [0x8323b0]"
+sidebar,006819a0,?Reposition_Sidebar@SidebarClass@@UAEXXZ,1314,register_order,,,"+11 mov eax, dword ptr [0x839630] | orig mov eax, dword ptr [0x839638]"
+techno,006c3b30,?Draw_Pre_Render@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,971,register_order,,,"+36 mov ebx, 0xf | orig mov edi, 0xf"
+techno,006c83f0,?CreateGap@TechnoClass@@UAEXXZ,753,register_order,,,"+124 mov ecx, dword ptr [esp + 0x2a] | orig mov eax, dword ptr [esp + 0x28]"
+techno,006d6ed0,?Railgun_Beam_Damage@TechnoClass@@QAE?AVCoord@@AAV2@PAVAbstractClass@@PAVWeaponTypeClass@@@Z,1521,register_order,,,"+31b sub esp, 8 | orig faddp st(1)"
+unit,007005b0,?Unit_Draw_Shape@UnitClass@@UBEXVPoint2D@@V?$TRect@H@@H@Z,2236,register_order,,,"+353 mov eax, dword ptr [esp + 0x18] | orig fstp dword ptr [esp + 0x20]"
+wave,007238b0,?Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z,2358,register_order,,,"+431 mov dword ptr [edi + 0x130], 6 | orig lea esi, [edi + 0xb8]"
+wdtmap,0072af50,??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z,21,register_order,,,"+9 mov ecx, dword ptr [ecx + 8] | orig mov dword ptr [eax + 4], edx"
+wonline,00750330,?Negotiate_Scenario_Transfer@@YIH_N@Z,2520,register_order,,,+126 push 0 | orig push 0x7ff8c0
+wonline,007513e0,?Add_Test_Player_Ol_Cruddy@@YIXXZ,228,register_order,,,"+a0 add eax, ecx | orig add ecx, eax"
+wonline,007514d0,?Add_Test_Player_Potato@@YIXXZ,224,register_order,,,"+9c add eax, ecx | orig add ecx, eax"
+wonline,007515b0,?Add_Test_Player_Potato_Too@@YIXXZ,267,register_order,,,"+ad add eax, ecx | orig add ecx, eax"
+wonline,0075c570,?Apply_Endpoint_Map@@YIXPBD@Z,698,register_order,,,"+249 add ecx, eax | orig add eax, ecx"
+wonline,00760c00,?OnUserList@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@@Z,2402,register_order,,,"+1c mov edi, 0 | orig mov edi, 0xb2b420"
+builtype,0045e290,?Get_Draw_Rect@BuildingTypeClass@@QAE?AV?$TRect@H@@XZ,1189,stack_layout,,,"+355 mov edi, dword ptr [esp + 0x54] | orig mov edi, dword ptr [esp + 0x4c]"
+map,0054f250,?Zone_Span@MapClass@@QAEHPAUCellZoneStruct@@HAAH@Z,1386,stack_layout,,,"+26 mov dword ptr [esp + 0x1c], edi | orig mov dword ptr [esp + 0x20], edi"
+wonline,0073ccb0,?Encode_Game_Options@@YIXPAD@Z,797,stack_layout,,,"+161 mov dword ptr [esp + 0x24], ebp | orig mov dword ptr [esp + 0x2c], ebp"
+audevent,004041b0,?AudioServiceAllEvents@@YIXXZ,1316,text_if0,,,
+audevent,00404e00,?bucketGetWeaker@@YIPAVAudioEventType@@H@Z,75,text_if0,,,
+audevent,004055d0,?AudioEventService@@YIXPAVAudioEvent@@@Z,1060,text_if0,,,
+audevent,00405b60,?audioPrepareChannel@@YIPAUAudioChannel@@HH@Z,131,text_if0,,,
+audevent,00406770,?AudioEventsDump@@YIXP6IXPBD@Z@Z,100,text_if0,,,
+audevent,004067e0,?AudioPriorityFromName@@YI_NPBDPAH@Z,69,text_if0,,,
+audevent,00406830,?AudioControlApplyKeyword@@YI_NPAIPBD@Z,73,text_if0,,,
+audevent,00406880,?AudioTypeApplyKeyword@@YIHPAIPBD@Z,98,text_if0,,,
+audio,00406ea0,?Audio_Service@@YIXXZ,129,text_if0,,,
+audsrc,00408530,?AudioFormatReadWaveFile@@YIHPAVFileClass@@PAUAudioFormat@@PAH@Z,468,text_if0,,,
+beacon,0042e370,?Place_Beacon@BeaconManagerClass@@QAEXHVCoord@@H@Z,909,text_if0,,,
+beacon,0042e990,?Remove_Beacon@BeaconManagerClass@@QAEXHH@Z,581,text_if0,,,
+beacon,0042ec20,?EditBeaconMessage@BeaconManagerClass@@QAEXPBGHH_N@Z,679,text_if0,,,
+bitfont,00431150,?Load_Data@BitFont@@SIPAUInternalData@1@PBD@Z,624,text_if0,,,
+blight,00433970,?AI@BuildingLightClass@@UAEXXZ,1818,text_if0,,,
+grphmenu,004de380,?_Graphic_Menu@@YIPAVGraphicMenu@@AAVINIClass@@ABVWstring@@@Z,1173,text_if0,,,
+ionblast,00521340,?AI@IonBlastClass@@QAEXXZ,1827,text_if0,,,
+laser,005334f0,?Draw_It@LaserDrawClass@@QAEXXZ,1906,text_if0,,,
+ldprgmgr,00535ab0,?Text_Origin@LoadProgressManager@@QAE?AVPoint2D@@XZ,166,text_if0,,,
+ldprgmgr,00535b90,?Load_Mixes@LoadProgressManager@@QAEXXZ,92,text_if0,,,
+ldprgmgr,00536b80,?Get_Briefing_Area@@YI?AV?$TRect@H@@XZ,118,text_if0,,,
+ldprgmgr,00536c00,?Get_Loading_Text_Area@@YI?AV?$TRect@H@@XZ,108,text_if0,,,
+ldprgmgr,00536c70,?Shade_Text_Area@@YIXPBGPAVSurface@@HHHH_N@Z,177,text_if0,,,
+ldprgmgr,00536d30,?Draw_Area_Text@@YIXPBGPAVSurface@@ABV?$TRect@H@@GH@Z,202,text_if0,,,
+ldprgmgr,00536e20,?Release@LoadProgressManager@@QAEXXZ,127,text_if0,,,
+mainopt,005434e0,?Change_Display_Mode@@YI_NHH@Z,1414,text_if0,,,
+mainopt,00543a70,?Test_Display_Mode_Dialog@@YI_NHH@Z,460,text_if0,,,
+options,005d97a0,?Hotkey_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,3006,text_if0,,,
+options,005da360,?Hotkey_Dialog@OptionsClass@@QAE_NXZ,115,text_if0,,,
+options,005da3f0,?Unlock_Movie@OptionsClass@@QAEXPBD@Z,125,text_if0,,,
+options,005da470,?Fill_Movie_List@OptionsClass@@QAEXPAUHWND__@@@Z,287,text_if0,,,
+ovrlight,005ddb90,?Draw_It@SpotLightClass@@QAEXXZ,1860,text_if0,,,
+saveload,006554a0,?Save_Game@@YI_NPBDPBG_N@Z,1040,text_if0,,,
+saveload,006558b0,?Put_All@@YI_NPAUIStream@@H@Z,4055,text_if0,,,
+score,00667840,??0ScoreFontClass@@QAE@XZ,43,text_if0,,,
+score,00667870,??0ScoreFontClass@@QAE@HHPBXPAVConvertClass@@@Z,61,text_if0,,,
+score,006678b0,??1ScoreFontClass@@UAE@XZ,76,text_if0,,,
+score,00667900,?Load_Sounds@ScoreFontClass@@QAEXXZ,344,text_if0,,,
+score,00667dc0,??0ScoreFullFontClass@@QAE@PAVConvertClass@@@Z,192,text_if0,,,
+score,00667e80,??0ScoreBigFontClass@@QAE@PAVConvertClass@@@Z,192,text_if0,,,
+session,00671670,??0MultiMission@@QAE@ABVINIClass@@PBD@Z,1496,text_if0,,,
+session,00671c50,??0MultiMission@@QAE@PBDPBG0_N0HH@Z,681,text_if0,,,
+srfcache,0068c600,?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z,1046,text_if0,,,
+srfcache,0068ce80,?DrawTrans@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1F@Z,250,text_if0,,,
+startup,0068e280,_WinMain@16,10076,text_if0,,,
+startup,006909e0,?Prog_End@@YAXXZ,2345,text_if0,,,
+startup,00691450,?CreateInstance@IUnknownPtr@@QAEJABUGUID@@PAUIUnknown@@K@Z,136,text_if0,,,
+startup,006915b0,?CreateInstance@?$TClassFactory@VCStreamClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00691730,?CreateInstance@?$TClassFactory@VWaveClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,006918b0,?CreateInstance@?$TClassFactory@VTerrainTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00691a30,?CreateInstance@?$TClassFactory@VTerrainClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,00691bb0,?CreateInstance@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00691d30,?CreateInstance@?$TClassFactory@VSuperClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00691eb0,?CreateInstance@?$TClassFactory@VTactical@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,00692030,?CreateInstance@?$TClassFactory@VCellClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,006921b0,?CreateInstance@?$TClassFactory@VEMPulseClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00692330,?CreateInstance@?$TClassFactory@VLightSourceClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006924b0,?CreateInstance@?$TClassFactory@VSideClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00692630,?CreateInstance@?$TClassFactory@VTiberiumClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,006927b0,?CreateInstance@?$TClassFactory@VTubeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,124,text_if0,,,
+startup,00692930,?CreateInstance@?$TClassFactory@VCampaignClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00692ab0,?CreateInstance@?$TClassFactory@VBuildingLightClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00692c30,?CreateInstance@?$TClassFactory@VWaypointPathClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00692db0,?CreateInstance@?$TClassFactory@VTemporalClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00692f30,?CreateInstance@?$TClassFactory@VSpawnManagerClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006930b0,?CreateInstance@?$TClassFactory@VCaptureManagerClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00693230,?CreateInstance@?$TClassFactory@VParasiteClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006933b0,?CreateInstance@?$TClassFactory@VBombClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00693530,?CreateInstance@?$TClassFactory@VRadSiteClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006936b0,?CreateInstance@?$TClassFactory@VTEventClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00693830,?CreateInstance@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,006939b0,?CreateInstance@?$TClassFactory@VVoxelAnimClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,00693b30,?CreateInstance@?$TClassFactory@VTActionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00693cb0,?CreateInstance@?$TClassFactory@VTriggerClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,116,text_if0,,,
+startup,00693e30,?CreateInstance@?$TClassFactory@VTriggerTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00693fb0,?CreateInstance@?$TClassFactory@VScriptClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,116,text_if0,,,
+startup,00694130,?CreateInstance@?$TClassFactory@VScriptTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,006942b0,?CreateInstance@?$TClassFactory@VTagClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,116,text_if0,,,
+startup,00694430,?CreateInstance@?$TClassFactory@VTagTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,006945b0,?CreateInstance@?$TClassFactory@VTeamClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,123,text_if0,,,
+startup,00694730,?CreateInstance@?$TClassFactory@VTeamTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,006948b0,?CreateInstance@?$TClassFactory@VTaskForceClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00694a30,?CreateInstance@?$TClassFactory@VUnitTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00694bb0,?CreateInstance@?$TClassFactory@VBuildingTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00694d30,?CreateInstance@?$TClassFactory@VAircraftTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00694eb0,?CreateInstance@?$TClassFactory@VInfantryTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00695030,?CreateInstance@?$TClassFactory@VBulletTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,006951b0,?CreateInstance@?$TClassFactory@VIsometricTileTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,127,text_if0,,,
+startup,00695330,?CreateInstance@?$TClassFactory@VOverlayTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,006954b0,?CreateInstance@?$TClassFactory@VSmudgeTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00695630,?CreateInstance@?$TClassFactory@VUnitClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,121,text_if0,,,
+startup,006957b0,?CreateInstance@?$TClassFactory@VBuildingClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,121,text_if0,,,
+startup,00695930,?CreateInstance@?$TClassFactory@VAircraftClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,121,text_if0,,,
+startup,00695ab0,?CreateInstance@?$TClassFactory@VInfantryClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,121,text_if0,,,
+startup,00695c30,?CreateInstance@?$TClassFactory@VAnimClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,00695db0,?CreateInstance@?$TClassFactory@VAnimTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00695f30,?CreateInstance@?$TClassFactory@VHouseTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,006960b0,?CreateInstance@?$TClassFactory@VHouseClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00696230,?CreateInstance@?$TClassFactory@VDriveLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006963b0,?CreateInstance@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,00696530,?CreateInstance@?$TClassFactory@VHoverLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006966b0,?CreateInstance@?$TClassFactory@VRocketLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00696830,?CreateInstance@?$TClassFactory@VTunnelLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006969b0,?CreateInstance@?$TClassFactory@VWalkLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00696b30,?CreateInstance@?$TClassFactory@VDropPodLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00696cb0,?CreateInstance@?$TClassFactory@VFlyLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00696e30,?CreateInstance@?$TClassFactory@VTeleportLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00696fb0,?CreateInstance@?$TClassFactory@VMechLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00697130,?CreateInstance@?$TClassFactory@VShipLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006972b0,?CreateInstance@?$TClassFactory@VBulletClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,00697430,?CreateInstance@?$TClassFactory@VFactoryClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006975b0,?CreateInstance@?$TClassFactory@VWarheadTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00697730,?CreateInstance@?$TClassFactory@VWeaponTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,006978b0,?CreateInstance@?$TClassFactory@VParticleClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,00697a30,?CreateInstance@?$TClassFactory@VParticleTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00697bb0,?CreateInstance@?$TClassFactory@VParticleSystemClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,117,text_if0,,,
+startup,00697d30,?CreateInstance@?$TClassFactory@VParticleSystemTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00697eb0,?CreateInstance@?$TClassFactory@VAITriggerTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,119,text_if0,,,
+startup,00698030,?CreateInstance@?$TClassFactory@VNeuronClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,006981b0,?CreateInstance@?$TClassFactory@VFoggedObjectClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+startup,00698330,?CreateInstance@?$TClassFactory@VAlphaShapeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z,114,text_if0,,,
+uicmnds,006f5b10,?Command_Guard@@YIXXZ,176,text_if0,,,
+uicmnds,006f6490,?Command_Delete_Plan_Or_Beacon@@YAXXZ,31,text_if0,,,
+uicmnds,006f64d0,?Command_Planning_Mode_On@@YIX_N@Z,28,text_if0,,,
+uicmnds,006f64f0,?Command_Planning_Mode_Off@@YIX_N@Z,28,text_if0,,,
+unittype,0070ab40,?Read_INI@UnitTypeClass@@UAE_NABVCCINIClass@@@Z,2013,text_if0,,,
+vanim,0070d380,?AI@VoxelAnimClass@@UAEXXZ,2590,text_if0,,,
+voxel,00718060,?Init_Voxel_Matrices@@YIXXZ,3290,text_if0,,,
+vqalib_drawer,00777c90,?Select_Frame@@YIJPAU_VQAHandleP@@@Z,921,text_if0,,,
+vqalib_task,0077b7a0,?VQA_Open@@YIJPBDPAU_VQAConfig@@PAPAU_VQAHandle@@@Z,1735,text_if0,,,
+vqalib_task,0077bf10,?VQA_Play@@YIJPAU_VQAHandle@@JH@Z,962,text_if0,,,
+vqalib_task,0077c440,?VQA_SetUnVQ@@YIJPAU_VQAHandle@@P6AXPAE11KKK@Z2@Z,58,text_if0,,,
+vqalib_task,0077c960,?User_Update@@YIJPAU_VQAHandle@@@Z,208,text_if0,,,
+wolstart,0073a300,?Wonline_Main@@YIH_N@Z,884,text_if0,,,
+display,00498f10,?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z,321,unbound,_?$S276@?7??Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z@4EA,,unbound data
+display,00499070,?Set_Copy_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z,321,unbound,_?$S278@?7??Set_Copy_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z@4EA,,unbound data
+fly,004bc3e0,?Move_To@FlyLocomotionClass@@UAGXUCoordStruct@@@Z,835,unbound,?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEJABQAVFootClass@@@Z,,unbound callee
+foot,004cbb40,?Search_For_Tiberium_Weighted@FootClass@@QAE?AVCell@@H@Z,1467,unbound,??0?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@QAE@HPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,,unbound callee
+ownrdraw,005faff0,?Progress_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,638,unbound,?Blend_Color@OwnerDraw@@YAGGGE@Z,,unbound callee
+scenario,00663350,?Write_Waypoints@ScenarioClass@@QBEXAAVCCINIClass@@@Z,143,unbound,_?WAYNAME@?1??Write_Waypoints@ScenarioClass@@QBEXAAVCCINIClass@@@Z@4QBDB,,unbound data
+tab,006a06e0,??0TabClass@@QAE@XZ,1074,unbound,?Planning_Set_Sink@@YAXPAVINoticeSink@@@Z,,unbound callee
+tab,006a0b70,?Init_For_House@TabClass@@UAEXXZ,212,unbound,?Load_Alloc_Data@@YAPAXPBDAA_N@Z,,unbound callee
+tab,006a0f30,?AI@TabClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z,822,unbound,?Command_Guard@@YAXXZ,,unbound callee
+tab,006a12d0,?Draw_It@TabClass@@UAEX_N@Z,1057,unbound,?Draw_Shape@@YAXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z,,unbound callee
+tab,006a1710,?Draw_Credits_Tab@TabClass@@QAEXXZ,89,unbound,?Draw_Shape@@YAXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z,,unbound callee
+tab,006a17c0,?Load_Button_Shapes@@YAXXZ,85,unbound,?Load_Alloc_Data@@YAPAXPBDAA_N@Z,,unbound callee
+tab,006a1ab0,?Show_Buttons@TabClass@@QAEXXZ,752,unbound,?Add_Button_ToolTip@TabClass@@SAXPAVControlClass@@PBD@Z,,unbound callee
+teamtype,006bed50,?Suggested_New_Team@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z,1282,unbound,??0?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE@IPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z,,unbound callee
+techtype,006d9b40,??0TechnoTypeClass@@QAE@PBDW4SpeedType@@@Z,2961,unbound,??0?$VectorClass@PBVParticleSystemTypeClass@@@@QAE@HPBQBVParticleSystemTypeClass@@@Z,,unbound callee
+wonline,00744090,?Pick_Lobby@@YIH_N@Z,1404,unbound,??_C@_0O@KJFF@Territory?$CF02d?$AA@,,unbound data
+wonline,0074a710,?Wonline_Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,7899,unbound,?Change_Scenario_Slots@@YIXPAUHWND__@@HH@Z,,unbound callee
+wonline,00753370,?Wonline_Profile_Login_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,2976,unbound,?Get_Combo_Item_Wide_Text@@YIJPAUHWND__@@IAAVWideWstring@@@Z,,unbound callee

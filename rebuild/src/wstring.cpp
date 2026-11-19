@@ -1266,18 +1266,19 @@ void WideWstring::trimLeading(WideWstring const& delim) // RA2: as above
 /// <summary>
 /// RA2: Removes the trailing characters found in delim.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 8 bytes differ (adopted text)
 void WideWstring::trimTrailing(WideWstring const& delim) // RA2: as above
 {
-	unsigned int i = length(); // RA2: as above
-	while (i--) // RA2: as above
+	unsigned int i = length();
+
+	while (i--)
 	{
-		if (!wcschr(delim.get(), str[i])) // RA2: as above
-			break; // RA2: as above
+		wchar_t const * d = delim.str;
+		if (!d) d = L"";
+		if (!wcschr(d, str[i]))
+			break;
 	}
-	truncate(i + 1); // RA2: as above
+	truncate(i + 1);
 }
-#endif
 
 
 /// <summary>

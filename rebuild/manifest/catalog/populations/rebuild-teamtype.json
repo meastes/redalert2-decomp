@@ -4,8 +4,8 @@
     "id": "rebuild-teamtype",
     "inventory_sha256": "b6593b36063352f951348e3f0d3a8a16a03bb45566606cf50e1b6578ac76f23c",
     "gaps_sha256": "6386c8f430a5e23e59da46f85a30b3fb4b28ac59e537b1ea8c03b75399c82973",
-    "historical_population_sha256": "2eee3726fe25135b712ee0a5dd7cca69a5ed2b1a95f63a3e341eef083ff972ac",
-    "historical_acceptance_sha256": "3d508b0e4997154217297b61672f58494bb127c853c96872b5c07993a0b0d471"
+    "historical_population_sha256": "9c61a648b56393f62a2726af0fe1fc15644be0d824d2ae17de5b23ca32c2e102",
+    "historical_acceptance_sha256": "0d4a7032c6c6e90b94e7bc95a8cad975343c4a7086568227de0fd0db58d8b1b6"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -130,6 +130,8 @@
     "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "?Is_Recruitable_Mission@MissionClass@@SI_NW4MissionType@@@Z": 5852592,
     "?Flash@TeamClass@@QAEXH@Z": 7068048,
+    "?Find_Compatible_Passability_Row@@YIHHH@Z": 5679360,
+    "?Process_Task_Force@TeamTypeClass@@QAEXXZ": 7078272,
     "??3@YAXPAX@Z": 7871803,
     "_$E2": 7071584,
     "_$E5": 7071632,
@@ -201,6 +203,16 @@
     "?Can_Recruit@TeamTypeClass@@QBE_NPAVFootClass@@PAVHouseClass@@@Z": 7077904,
     "?Flash@TeamTypeClass@@QAEXH@Z": 7078160,
     "?Find_First_Of_Type@TeamTypeClass@@QAEPAVTeamClass@@XZ": 7078224,
+    "?Process_All_Task_Forces@@YIXXZ": 7078432,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
     "??_EWstring@@QAEPAXI@Z": 4239168,
     "??1Wstring@@QAE@XZ": 7789024,
     "??_EWaypointClass@@QAEPAXI@Z": 4307088,
@@ -273,7 +285,7 @@
           "resolved": 11272400
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071584,
@@ -325,7 +337,7 @@
           "resolved": 11272472
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071632,
@@ -377,7 +389,7 @@
           "resolved": 11272456
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071664,
@@ -429,7 +441,7 @@
           "resolved": 11272448
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071696,
@@ -481,7 +493,7 @@
           "resolved": 11272408
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071728,
@@ -533,7 +545,7 @@
           "resolved": 11272368
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071760,
@@ -617,7 +629,7 @@
           "resolved": 11272480
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071792,
@@ -677,7 +689,7 @@
           "resolved": 11272416
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071856,
@@ -737,7 +749,7 @@
           "resolved": 11272440
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071904,
@@ -797,7 +809,7 @@
           "resolved": 11272464
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071952,
@@ -841,7 +853,7 @@
           "resolved": 11272394
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072000,
@@ -893,7 +905,7 @@
           "resolved": 11272432
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072016,
@@ -953,7 +965,7 @@
           "resolved": 11272388
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072048,
@@ -1013,7 +1025,7 @@
           "resolved": 803351
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072080,
@@ -1241,7 +1253,7 @@
           "resolved": 11275444
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072176,
@@ -1413,7 +1425,7 @@
           "resolved": 4292156113
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072688,
@@ -1513,7 +1525,7 @@
           "resolved": 4294936363
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072896,
@@ -1565,7 +1577,7 @@
           "resolved": 8806792
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7073040,
@@ -1649,7 +1661,7 @@
           "resolved": 10751052
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7074400,
@@ -1676,7 +1688,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7074512,
@@ -2312,7 +2324,7 @@
           "resolved": 4294932603
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7074608,
@@ -2876,7 +2888,7 @@
           "resolved": 4293192620
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7075696,
@@ -2903,7 +2915,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076448,
@@ -2955,7 +2967,7 @@
           "resolved": 4294588099
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076496,
@@ -3007,7 +3019,7 @@
           "resolved": 4294588035
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076560,
@@ -3123,7 +3135,7 @@
           "resolved": 10751052
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076624,
@@ -3295,7 +3307,7 @@
           "resolved": 10751052
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076768,
@@ -3475,7 +3487,7 @@
           "resolved": 10751064
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077024,
@@ -3511,7 +3523,7 @@
           "resolved": 4292150060
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077248,
@@ -3651,7 +3663,7 @@
           "resolved": 4294835453
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077280,
@@ -3711,7 +3723,7 @@
           "resolved": 8002812
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077424,
@@ -3931,7 +3943,7 @@
           "resolved": 4292689711
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077488,
@@ -3975,7 +3987,7 @@
           "resolved": 4293741859
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077904,
@@ -4035,7 +4047,7 @@
           "resolved": 8806792
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078160,
@@ -4079,10 +4091,106 @@
           "resolved": 8806780
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7078272,
+      "method": "006c0180",
+      "body_bytes": 146,
+      "body_sha256": "0ec44823b2ee966286e99b06e23c0ed55aaaaef4f2c0d5ecbd969b92430b49be",
+      "padding_bytes": 14,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "1d0376e8a30f9bb66d7ee308daa0fca8c497aa136a52020c38854a63c61a61bd",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Task_Force@TeamTypeClass@@QAEXXZ",
+      "symbol_prefix": "?Process_Task_Force@TeamTypeClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?Find_Compatible_Passability_Row@@YIHHH@Z",
+          "target": 5679360,
+          "addend": 0,
+          "resolved": 4293568281
+        }
+      ],
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
+      "source": "rebuild/src/teamtype.cpp",
+      "population": "rebuild-teamtype",
+      "source_order": 7078272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7078432,
+      "method": "006c0220",
+      "body_bytes": 37,
+      "body_sha256": "7af01b08c6d3698e30cb0f40ca95c2968038d82c45d92256af86d1c5ff93e976",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "863c50305b59a66c4f12af4a96c4863cedfeea40d79c4886394a6f669ff477b2",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_All_Task_Forces@@YIXXZ",
+      "symbol_prefix": "?Process_All_Task_Forces@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?TeamTypes@@3V?$DynamicVectorClass@PAVTeamTypeClass@@@@A",
+          "target": 10751048,
+          "addend": 16,
+          "resolved": 10751064
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?TeamTypes@@3V?$DynamicVectorClass@PAVTeamTypeClass@@@@A",
+          "target": 10751048,
+          "addend": 4,
+          "resolved": 10751052
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?Process_Task_Force@TeamTypeClass@@QAEXXZ",
+          "target": 7078272,
+          "addend": 0,
+          "resolved": 4294967111
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?TeamTypes@@3V?$DynamicVectorClass@PAVTeamTypeClass@@@@A",
+          "target": 10751048,
+          "addend": 16,
+          "resolved": 10751064
+        }
+      ],
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
+      "source": "rebuild/src/teamtype.cpp",
+      "population": "rebuild-teamtype",
+      "source_order": 7078432,
       "source_quality_family": "rebuild"
     },
     {
@@ -4106,7 +4214,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078480,
@@ -4133,7 +4241,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078496,
@@ -4160,7 +4268,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078512,
@@ -4340,7 +4448,7 @@
           "resolved": 793071
         }
       ],
-      "source_sha256": "6d2db8ab95159280f19af5710290193efce2996dbb9c96f50ac27a943c945d08",
+      "source_sha256": "bc3e0604b0975630c1b002bab80caa814c136213a86be31d28c3344455f285a6",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078528,

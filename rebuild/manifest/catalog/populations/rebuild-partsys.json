@@ -4,8 +4,8 @@
     "id": "rebuild-partsys",
     "inventory_sha256": "e2f0b4d381ce0b8414dc743b715ea21ae265ff7fa89ff20f8288e1ba9a6ec396",
     "gaps_sha256": "50df54e4f89cbf47cc885c25505689a8d78e0fb0d2032fba39a09cbebf9a8ccc",
-    "historical_population_sha256": "15e9e7e880aaa4c02dd44bae435f1141b177daad4fe510cd011f77904f6c7099",
-    "historical_acceptance_sha256": "23ed44f1fe38451694cbca1865530bc6a228de116cc94a023f4eaca8d69adf09"
+    "historical_population_sha256": "111d678bfb71e779bf075d8d947a5c548a50dadaa6e08cd6339ae101d93bb8bd",
+    "historical_acceptance_sha256": "aab0a7b455b649f974dae28d71ce7527057bff1c27d36f3ce1c879565b208a0e"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -68,6 +68,20 @@
     "??RRandom2Class@@QAEHXZ": 6522944,
     "?Behavior_AI@ParticleClass@@QAEXXZ": 6331536,
     "?Motion_AI@ParticleClass@@QAEXXZ": 6333472,
+    "?asin@fastmath@@YANN@Z": 4957520,
+    "?acos@fastmath@@YANN@Z": 4957568,
+    "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
+    "?Rotate_Z@Matrix3D@@QAEXM@Z": 5835168,
+    "?Rotate_X@Matrix3D@@QAEXM@Z": 5834592,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "?cos@fastmath@@YANN@Z": 4957392,
+    "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z": 5837696,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "__real@8@3fe08000000200000000": 7979648,
+    "?Lerp@@YI?AVCoord@@ABV1@0M@Z": 7479488,
+    "?Add@?$DynamicVectorClass@PAVParticleClass@@@@QAE_NABQAVParticleClass@@@Z": 6344784,
+    "__real@8@00000000000000000000": 7976464,
+    "??0LaserDrawClass@@QAE@VCoord@@0H_NVRGBClass@@22H11MM@Z": 5452048,
     "?Smoke_AI@ParticleSystemClass@@AAEXXZ": 6339440,
     "?Gas_AI@ParticleSystemClass@@AAEXXZ": 6337760,
     "?Fire_AI@ParticleSystemClass@@AAEXXZ": 6342592,
@@ -326,7 +340,7 @@
           "resolved": 10970440
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334592,
@@ -378,7 +392,7 @@
           "resolved": 10970512
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334640,
@@ -430,7 +444,7 @@
           "resolved": 10970496
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334672,
@@ -482,7 +496,7 @@
           "resolved": 10970488
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334704,
@@ -534,7 +548,7 @@
           "resolved": 10970448
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334736,
@@ -586,7 +600,7 @@
           "resolved": 10970408
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334768,
@@ -670,7 +684,7 @@
           "resolved": 10970520
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334800,
@@ -730,7 +744,7 @@
           "resolved": 10970456
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334864,
@@ -790,7 +804,7 @@
           "resolved": 10970480
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334912,
@@ -850,7 +864,7 @@
           "resolved": 10970504
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6334960,
@@ -894,7 +908,7 @@
           "resolved": 10970434
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6335008,
@@ -946,7 +960,7 @@
           "resolved": 10970472
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6335024,
@@ -1006,7 +1020,7 @@
           "resolved": 10970428
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6335056,
@@ -1298,7 +1312,7 @@
           "resolved": 11275620
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6335088,
@@ -1542,7 +1556,7 @@
           "resolved": 11275620
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6335792,
@@ -1834,7 +1848,7 @@
           "resolved": 4294735012
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6336128,
@@ -1958,7 +1972,7 @@
           "resolved": 1534904
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6336656,
@@ -2010,7 +2024,7 @@
           "resolved": 4294955616
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6336912,
@@ -2062,7 +2076,7 @@
           "resolved": 4294955475
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6337088,
@@ -2130,7 +2144,7 @@
           "resolved": 185499
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6337232,
@@ -2157,7 +2171,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6337504,
@@ -2184,7 +2198,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6337632,
@@ -2260,10 +2274,478 @@
           "resolved": 4294962637
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6337760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6340688,
+      "method": "0060c050",
+      "body_bytes": 1904,
+      "body_sha256": "085272ef8437eda736f8cb165f62b8d3e9b80d937f44c4464d327c031830a383",
+      "padding_bytes": 0,
+      "full_extent_bytes": 1904,
+      "full_extent_sha256": "085272ef8437eda736f8cb165f62b8d3e9b80d937f44c4464d327c031830a383",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Railgun_AI@ParticleSystemClass@@AAEXXZ",
+      "symbol_prefix": "?Railgun_AI@ParticleSystemClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 147,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293583657
+        },
+        {
+          "offset": 152,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1519652
+        },
+        {
+          "offset": 186,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293583618
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1519610
+        },
+        {
+          "offset": 271,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1519533
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "?asin@fastmath@@YANN@Z",
+          "target": 4957520,
+          "addend": 0,
+          "resolved": 4293583820
+        },
+        {
+          "offset": 324,
+          "kind": 20,
+          "symbol": "?acos@fastmath@@YANN@Z",
+          "target": 4957568,
+          "addend": 0,
+          "resolved": 4293583848
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4294459047
+        },
+        {
+          "offset": 374,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 4294461398
+        },
+        {
+          "offset": 391,
+          "kind": 20,
+          "symbol": "?Rotate_X@Matrix3D@@QAEXM@Z",
+          "target": 5834592,
+          "addend": 0,
+          "resolved": 4294460805
+        },
+        {
+          "offset": 474,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4293583442
+        },
+        {
+          "offset": 485,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4293583511
+        },
+        {
+          "offset": 532,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4294463768
+        },
+        {
+          "offset": 601,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 644,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 181704
+        },
+        {
+          "offset": 650,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 672,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 181676
+        },
+        {
+          "offset": 681,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 699,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 181649
+        },
+        {
+          "offset": 719,
+          "kind": 6,
+          "symbol": "__real@8@3fe08000000200000000",
+          "target": 7979648,
+          "addend": 0,
+          "resolved": 7979648
+        },
+        {
+          "offset": 725,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 741,
+          "kind": 6,
+          "symbol": "__real@8@3fe08000000200000000",
+          "target": 7979648,
+          "addend": 0,
+          "resolved": 7979648
+        },
+        {
+          "offset": 747,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 770,
+          "kind": 6,
+          "symbol": "__real@8@3fe08000000200000000",
+          "target": 7979648,
+          "addend": 0,
+          "resolved": 7979648
+        },
+        {
+          "offset": 776,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 863,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1518941
+        },
+        {
+          "offset": 874,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1518930
+        },
+        {
+          "offset": 885,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1518919
+        },
+        {
+          "offset": 918,
+          "kind": 20,
+          "symbol": "?Lerp@@YI?AVCoord@@ABV1@0M@Z",
+          "target": 7479488,
+          "addend": 0,
+          "resolved": 1137878
+        },
+        {
+          "offset": 976,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1530867
+        },
+        {
+          "offset": 1021,
+          "kind": 6,
+          "symbol": "?ParticleTypes@@3V?$DynamicVectorClass@PAVParticleTypeClass@@@@A",
+          "target": 10706432,
+          "addend": 4,
+          "resolved": 10706436
+        },
+        {
+          "offset": 1032,
+          "kind": 20,
+          "symbol": "??0ParticleClass@@QAE@PBVParticleTypeClass@@ABVCoord@@1PAVParticleSystemClass@@@Z",
+          "target": 6325312,
+          "addend": 0,
+          "resolved": 4294950884
+        },
+        {
+          "offset": 1056,
+          "kind": 20,
+          "symbol": "?Add@?$DynamicVectorClass@PAVParticleClass@@@@QAE_NABQAVParticleClass@@@Z",
+          "target": 6344784,
+          "addend": 0,
+          "resolved": 3036
+        },
+        {
+          "offset": 1100,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1111,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 181237
+        },
+        {
+          "offset": 1117,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1139,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 181209
+        },
+        {
+          "offset": 1145,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1167,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 181181
+        },
+        {
+          "offset": 1190,
+          "kind": 6,
+          "symbol": "__real@8@3fe08000000200000000",
+          "target": 7979648,
+          "addend": 0,
+          "resolved": 7979648
+        },
+        {
+          "offset": 1196,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 1212,
+          "kind": 6,
+          "symbol": "__real@8@3fe08000000200000000",
+          "target": 7979648,
+          "addend": 0,
+          "resolved": 7979648
+        },
+        {
+          "offset": 1218,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 1241,
+          "kind": 6,
+          "symbol": "__real@8@3fe08000000200000000",
+          "target": 7979648,
+          "addend": 0,
+          "resolved": 7979648
+        },
+        {
+          "offset": 1247,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 1328,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293582476
+        },
+        {
+          "offset": 1334,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 1416,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1434,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 180914
+        },
+        {
+          "offset": 1454,
+          "kind": 6,
+          "symbol": "__real@8@3fe08000000200000000",
+          "target": 7979648,
+          "addend": 0,
+          "resolved": 7979648
+        },
+        {
+          "offset": 1464,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 1476,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 1635,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1530208
+        },
+        {
+          "offset": 1809,
+          "kind": 20,
+          "symbol": "??0LaserDrawClass@@QAE@VCoord@@0H_NVRGBClass@@22H11MM@Z",
+          "target": 5452048,
+          "addend": 0,
+          "resolved": 4294076843
+        },
+        {
+          "offset": 1842,
+          "kind": 20,
+          "symbol": "?Behavior_AI@ParticleClass@@QAEXXZ",
+          "target": 6331536,
+          "addend": 0,
+          "resolved": 4294956298
+        }
+      ],
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
+      "source": "rebuild/src/partsys.cpp",
+      "population": "rebuild-partsys",
+      "source_order": 6340688,
       "source_quality_family": "rebuild"
     },
     {
@@ -2449,7 +2931,7 @@
           "resolved": 6343599
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6343536,
@@ -2476,7 +2958,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6343792,
@@ -2503,7 +2985,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6343824,
@@ -2539,7 +3021,7 @@
           "resolved": 4294733596
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6343840,
@@ -2695,7 +3177,7 @@
           "resolved": 601237
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6343984,
@@ -2731,7 +3213,7 @@
           "resolved": 4292882953
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6344352,
@@ -2807,7 +3289,7 @@
           "resolved": 4293422988
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6344464,
@@ -2867,7 +3349,7 @@
           "resolved": 8002620
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6344624,
@@ -2894,7 +3376,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6344688,
@@ -2921,7 +3403,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6344704,
@@ -2948,7 +3430,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6344720,
@@ -2975,7 +3457,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6344736,
@@ -3019,11 +3501,39 @@
           "resolved": 1527030
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6344752,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6344784,
+      "method": "60d050",
+      "body_bytes": 80,
+      "body_sha256": "30af68b9c6a673326067624c6aebf06e6d7145fa754b7738b9265393be87482f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "30af68b9c6a673326067624c6aebf06e6d7145fa754b7738b9265393be87482f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@?$DynamicVectorClass@PAVParticleClass@@@@QAE_NABQAVParticleClass@@@Z",
+      "symbol_prefix": "?Add@?$DynamicVectorClass@PAVParticleClass@@@@QAE_NABQAVParticleClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
+      "source": "rebuild/src/partsys.cpp",
+      "population": "rebuild-partsys",
+      "source_order": 6344784,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-19"
     },
     {
       "entry": 6344864,
@@ -3063,7 +3573,7 @@
           "resolved": 1527613
         }
       ],
-      "source_sha256": "df4a758ecaeae894d0343bbe72222a26d0e12efb892d67d0c495443b8958f5e7",
+      "source_sha256": "e8fcee6a853e7c4a45ecfd3faf667b1d65d11391f7782b5b5a4412cdaee407ce",
       "source": "rebuild/src/partsys.cpp",
       "population": "rebuild-partsys",
       "source_order": 6344864,

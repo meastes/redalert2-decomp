@@ -575,4 +575,5 @@ class MapClass: public GScreenClass
 extern CellClass BlubCell;
 
 int SubzoneHash(unsigned int const & key);
+int __fastcall Find_Compatible_Passability_Row(int row1, int row2); // RA2: 0x56A900 (map.cpp)
 extern int MZonePassability[MZONE_CRUSHER_ALL][PASSABLE_COUNT];

@@ -4,8 +4,8 @@
     "id": "rebuild-findpath",
     "inventory_sha256": "557084e45092067095b850f6a4c0ce6d6f34971d54292e9e116e55c3f92eb3e0",
     "gaps_sha256": "ca3ca5ea734fad290474f466954b65ecf76b6463c51b95f988eed767b9d3c732",
-    "historical_population_sha256": "55c731ba7ccfa320392163a15e07cb4091cb92a8db320479dfe24587df3b6392",
-    "historical_acceptance_sha256": "c26a87082e33845bf0631b1a9b5388a92517fc83c0fbfa00787841c72cf3e8f2"
+    "historical_population_sha256": "c849e607963e2a2522d9a136d345e2707888adc23292cc8e9aa1d9ce56ad3f1d",
+    "historical_acceptance_sha256": "9fe048106e0b806982b6ac105cafa47c20cadc8da4652aa3b64dbb02a7e993bc"
   },
   "references": {
     "_RECT_NONE": 8805576,
@@ -39,6 +39,12 @@
     "?Follow_Path@@YI?AVCell@@ABV1@HPBW4FacingType@@@Z": 4354144,
     "?Search@@3VAStarClass@@A": 8590792,
     "?Find_Path@AStarClass@@QAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAW4FacingType@@HW4MZoneType@@W4ObstacleAvoidanceType@1@@Z": 4366800,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "?AdjacentCell@@3QBVCell@@B": 8723056,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
     "_$E2": 4960608,
     "_$E5": 4960640,
     "_$E8": 4960688,
@@ -55,6 +61,7 @@
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
     "?Find_Path@FootClass@@AAEPAUPathStruct@@ABVCell@@PAW4FacingType@@HW4MoveType@@HH@Z": 4961104,
+    "?Safety_Point@FootClass@@QAE?AVCell@@ABV2@0HH@Z": 4961264,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??3@YAXPAX@Z": 7871803,
@@ -121,7 +128,7 @@
           "resolved": 8805588
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960608,
@@ -188,7 +195,7 @@
           "resolved": 8805600
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960640,
@@ -239,7 +246,7 @@
           "resolved": 8805672
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960688,
@@ -290,7 +297,7 @@
           "resolved": 8805656
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960720,
@@ -341,7 +348,7 @@
           "resolved": 8805648
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960752,
@@ -392,7 +399,7 @@
           "resolved": 8805608
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960784,
@@ -443,7 +450,7 @@
           "resolved": 8805568
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960816,
@@ -526,7 +533,7 @@
           "resolved": 8805680
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960848,
@@ -585,7 +592,7 @@
           "resolved": 8805616
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960912,
@@ -644,7 +651,7 @@
           "resolved": 8805640
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4960960,
@@ -703,7 +710,7 @@
           "resolved": 8805664
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4961008,
@@ -746,7 +753,7 @@
           "resolved": 8805594
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4961056,
@@ -797,7 +804,7 @@
           "resolved": 8805632
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4961072,
@@ -848,10 +855,181 @@
           "resolved": 4294372842
         }
       ],
-      "source_sha256": "b7a4f2db0260dd960e1b836d4f159e8853f7cbf46e11116b9b16d83a870c3f45",
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
       "source": "rebuild/src/findpath.cpp",
       "population": "rebuild-findpath",
       "source_order": 4961104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4961264,
+      "method": "004bb3f0",
+      "body_bytes": 677,
+      "body_sha256": "b96e564853f18ec3af6275ee401c271d457859c73674a40359615d0929c33bac",
+      "padding_bytes": 11,
+      "full_extent_bytes": 688,
+      "full_extent_sha256": "6a1a896374aac16793309b9ce28fc8058928b6b5b47b66f62c2c2a0f405ce0c0",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Safety_Point@FootClass@@QAE?AVCell@@ABV2@0HH@Z",
+      "symbol_prefix": "?Safety_Point@FootClass@@QAE?AVCell@@ABV2@0HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294963640
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2899124
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 2,
+          "resolved": 8723058
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 576318
+        },
+        {
+          "offset": 378,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 396,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 2,
+          "resolved": 8723058
+        },
+        {
+          "offset": 431,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 436,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 576200
+        },
+        {
+          "offset": 506,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 514,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 2,
+          "resolved": 8723058
+        },
+        {
+          "offset": 555,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 564,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 576072
+        },
+        {
+          "offset": 621,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805592,
+          "addend": 0,
+          "resolved": 8805592
+        }
+      ],
+      "source_sha256": "00e866fb8327bb8f2841d4c99ec7991d9cdd0e70fb3f41d519333185ec646bd5",
+      "source": "rebuild/src/findpath.cpp",
+      "population": "rebuild-findpath",
+      "source_order": 4961264,
       "source_quality_family": "rebuild"
     }
   ]

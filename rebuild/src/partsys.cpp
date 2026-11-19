@@ -580,41 +580,36 @@ void ParticleSystemClass::Smoke_AI(void)
 /// accompanying laser beam if the type calls for one. After that the system merely
 /// ages its particles until the last of them has faded.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 23 bytes differ (the particle position sum adds the interpolated point first in the original)
 void ParticleSystemClass::Railgun_AI(void)
 {
 	int i;
+	if (!IsMarkedForDeletion && SystemParticles.Count() == 0) {
+		Point3D delta = SpawnCoord - Get_Coord();
+		int dx = delta.X;
+		int dy = delta.Y;
+		int dz = delta.Z;
+		int total_dist = (int)fastmath::sqrt(
+			(double)dx * (double)dx +
+			(double)dy * (double)dy +
+			(double)dz * (double)dz);
 
-	if (!IsMarkedForDeletion && !SystemParticles.Count()) {
-		Coord delta = SpawnCoord - Get_Coord(); // RA2: the offset as one subtraction
-		int dx = delta.X; // RA2: as above
-		int dy = delta.Y; // RA2: as above
-		int dz = delta.Z; // RA2: as above
-
-		int total_dist = (int)fastmath::sqrt((double)dx * (double)dx + (double)dy * (double)dy + (double)dz * (double)dz); // RA2: the total distance from the integer offsets
-		double dy_double = (double)dy; // RA2: the doubles are made after it
-		double dx_double = (double)dx; // RA2: as above
-		double horiz = dy_double * dy_double; // RA2: as above
-		int horiz_dist = (int)fastmath::sqrt(horiz + dx_double * dx_double); // RA2: as above
+		double dy_double = dy;
+		double dx_double = dx;
+		double horiz = dy_double * dy_double;
+		int horiz_dist = (int)fastmath::sqrt(horiz + dx_double * dx_double);
 
 		int clamped_z = dz;
 		int clamped_x = dx;
-
 		if (clamped_z >= total_dist) clamped_z = total_dist;
 		if (clamped_z <= -total_dist) clamped_z = -total_dist;
-
 		if (clamped_x >= horiz_dist) clamped_x = horiz_dist;
 		if (clamped_x <= -horiz_dist) clamped_x = -horiz_dist;
 
 		int num_particles = (int)((double)total_dist * Class->ParticlesPerCoord);
 		float dist_f = (float)total_dist;
-
-		float elevation = (float)fastmath::asin((double)clamped_z / (double)dist_f);
-		float azimuth = (float)fastmath::acos((double)clamped_x / (double)horiz_dist);
-
-		if (dy < 0) {
-			azimuth = -azimuth;
-		}
+		float elevation = fastmath::asin((double)clamped_z / dist_f);
+		float azimuth = fastmath::acos((double)clamped_x / horiz_dist);
+		if (dy < 0) azimuth = -azimuth;
 
 		Matrix3D mat;
 		mat.Make_Identity();
@@ -627,52 +622,73 @@ void ParticleSystemClass::Railgun_AI(void)
 			float num_particles_f = (float)num_particles;
 			do {
 				float frac = (float)i / num_particles_f;
-				double angle = dist_f; // RA2: built up in steps
-				angle *= frac; // RA2: as above
-				angle *= Class->SpiralDeltaPerCoord; // RA2: as above
-
+				double angle = dist_f;
+				angle *= frac;
+				angle *= Class->SpiralDeltaPerCoord;
 				double sine = fastmath::sin(angle);
 				double cosine = fastmath::cos(angle);
+
 				Vector3 spiral(0.0f, cosine, sine);
 				spiral = mat * spiral;
-				Vector3 scaled = Class->SpiralRadius * spiral; // RA2: the radius is used as it is
-				Vector3 tmp = Vector3(Random_Double(-0.5, 0.5) * Class->PositionPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->PositionPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->PositionPerturbationCoefficient);
+				Vector3 scaled = (float)Class->SpiralRadius * spiral;
 
+				Vector3 tmp(
+					((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) - 0.5)
+						* Class->PositionPerturbationCoefficient,
+					((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) - 0.5)
+						* Class->PositionPerturbationCoefficient,
+					((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) - 0.5)
+						* Class->PositionPerturbationCoefficient);
 				scaled += tmp;
-				Coord particle_pos = Coord((int)scaled.X, (int)scaled.Y, (int)scaled.Z) + Lerp(PositionCoord, SpawnCoord, frac);
 
-				ParticleClass * particle = Spawn_Held_Particle(particle_pos, particle_pos);
+				Coord particle_pos;
+				particle_pos = Point3D((int)scaled.X, (int)scaled.Y, (int)scaled.Z)
+					+ Lerp(Get_Coord(), SpawnCoord, frac);
+				ParticleClass * particle =
+					Spawn_Held_Particle(particle_pos, particle_pos);
 
 				particle->MovementDirection = spiral;
-				particle->MovementDirection += Vector3(Random_Double(-0.5, 0.5) * Class->MovementPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->MovementPerturbationCoefficient, Random_Double(-0.5, 0.5) * Class->MovementPerturbationCoefficient);
-				particle->MovementDirection = Normalize_Direction(particle->MovementDirection); // RA2: the local inline normalizer
+				Vector3 move(
+					((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) - 0.5)
+						* Class->MovementPerturbationCoefficient,
+					((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) - 0.5)
+						* Class->MovementPerturbationCoefficient,
+					((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10) - 0.5)
+						* Class->MovementPerturbationCoefficient);
+				particle->MovementDirection += move;
+				particle->MovementDirection =
+					Normalize(particle->MovementDirection);
 
-				float vp = (Random_Double(-0.5, 0.5) + velocity_accum) * (Class->VelocityPerturbationCoefficient * 0.5);
-				velocity_accum = (float)MAX(MIN(vp, Class->VelocityPerturbationCoefficient), -Class->MovementPerturbationCoefficient);
+				float vp =
+					((Random_Pick(0, 0x7ffffffe) * 4.656612877414201e-10)
+						+ velocity_accum - 0.5)
+					* (Class->VelocityPerturbationCoefficient * 0.5);
+
+				velocity_accum = (float)MAX(MIN(vp, Class->VelocityPerturbationCoefficient),
+					-Class->MovementPerturbationCoefficient);
+
 				particle->Speed = velocity_accum + particle->Class->Velocity;
 				i++;
 			} while (i < num_particles);
 		}
 
 		if (Class->IsLaser) {
-			new LaserDrawClass(PositionCoord, SpawnCoord, 0, true, Class->LaserColor, RGBClass(0, 0, 0), RGBClass(0, 0, 0), 10, false, true, 0.5f, 0.0f);
+			new LaserDrawClass(
+				Get_Coord(), SpawnCoord, 0, true, Class->LaserColor,
+				RGBClass(0, 0, 0), RGBClass(0, 0, 0),
+				10, false, true, 0.5f, 0.0f);
 		}
-
 		IsMarkedForDeletion = true;
 	}
 
 	for (i = 0; i < SystemParticles.Count(); i++) {
 		SystemParticles[i]->Behavior_AI();
 	}
-
 	for (int j = SystemParticles.Count() - 1; j >= 0; j--) {
 		ParticleClass * particle = SystemParticles[j];
-		if (particle->IsToDie) {
-			particle->Delete_Me();
-		}
+		if (particle->IsToDie) particle->Delete_Me();
 	}
 }
-#endif
 
 
 

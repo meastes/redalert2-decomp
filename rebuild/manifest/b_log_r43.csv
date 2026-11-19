@@ -1,0 +1,8 @@
+unit,entry,function,bytes,class,first_try,minutes,note
+map,00565eb0,MapClass::Build_Reachable_Subzones,1166,a,yes,5,"exact_when_open: the guard was stale (labelled 10 bytes differ); exact as the text stood, nothing lost (guardprobe.py)"
+mpsiegeteam,005abeb0,~MultiplayerSiegeAttackerTeam,11,a,yes,5,"held by its unplaced guard: exact under main's seed-named row; check --learn bound the row to the text's name"
+mpsiegeteam,005abef0,MultiplayerSiegeAttackerTeam scalar deleting destructor,36,a,yes,0,"emitted once the destructor's guard came off"
+sidebar,006818d0,SidebarClass::Which_Tab,103,a,edit,5,"not_emitted: declared inline, so never emitted out of line; one ordinary definition at its address (after Abandon_Production 0x681740), the callers still expand it (README ruling on uncalled out-of-line copies); +1 row, none lost"
+ownrdraw,00600260,"Cancel_Dialog_Proc and nine other dialog helpers (0x5FF400-0x600F70)",900,a,yes,10,"unplaced guards whose text is exact under main's seed-named rows (11 rows: 179 -> 190 of 248); unit stays held (mismatch: _$E173, Dialog_On_WM_PAINT)"
+vanim,0070d380,VoxelAnimClass::AI (parked),2590,a,,5,"text_if0: adopted text under #if 0 compiles; now a guarded draft, 1498 bytes differ (code motion around the bounce-coord temporaries)"
+wdtmap,0072a880,WDT_Write_Map_Ini (parked),1652,a,,25,"exact_when_open holder: 7 bytes differ, one lea operand order inside the expanded VectorClass<Rect>::Resize copy loop plus the VectorClass<Centroid> vtable (binds once exact); VectorCursor::operator= (0x72AF50) is exact with plain member copies instead of vector.h's temporary (tried, reverted: only this draft instantiates it). 12 template rows wait on it"

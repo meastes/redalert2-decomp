@@ -9668,14 +9668,12 @@ inline void __fastcall Free_Control_Surface(unsigned int key) // RA2: as above
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 BOOL __stdcall Redraw_Window(HWND window, RECT *rect) // RA2: as above
 {
     InvalidateRect(window, rect, 0); // RA2: as above
     UpdateWindow(window);
     return 1; // RA2: as above
 }
-#endif
 
 
 namespace OwnerDraw { // RA2: as above
@@ -10010,7 +10008,6 @@ bool Dialog_Message_Handler() // RA2: as above
 /// <param name="x">The horizontal position to move to, or -1 to leave it where it is.</param>
 /// <param name="y">The vertical position to move to, or -1 to leave it where it is.</param>
 /// <returns>Returns with non-zero if the dialog was moved.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void __fastcall Move_Window(HWND window, int x, int y) // RA2: as above
 {
     RECT screen; // RA2: as above
@@ -10028,7 +10025,6 @@ void __fastcall Move_Window(HWND window, int x, int y) // RA2: as above
     rect.top = y == -1 ? rect.top - screen.top : y; // RA2: as above
     MoveWindow(window, rect.left, rect.top, rect.right, rect.bottom, FALSE); // RA2: as above
 }
-#endif
 
 
 /// <summary>
@@ -10070,7 +10066,6 @@ HWND __fastcall Custom_Message_Box(unsigned short const *text, unsigned short co
 /// keyboard and raises the flag the box was opened with.
 /// </summary>
 /// <returns>Returns with the message result, or zero when the message was consumed here.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int __stdcall Cancel_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: as above
@@ -10086,7 +10081,6 @@ int __stdcall Cancel_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
     }
     return 0; // RA2: as above
 }
-#endif
 
 
 /// <summary>
@@ -10435,7 +10429,6 @@ bool __fastcall Prompt_Dialog(unsigned short const *text) // RA2: as above
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int __stdcall Choice_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     int result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: as above
@@ -10451,13 +10444,11 @@ int __stdcall Choice_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
     }
     return 0; // RA2: as above
 }
-#endif
 
 
 #ifndef RA2_OWNERDRAW_CHECK_FIELDS // RA2: as above
 #endif // RA2: as above
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int __fastcall Clear_List_Box(HWND listbox) // RA2: as above
 {
     int index = SendMessageA(listbox, 0x18B, 0, 0); // RA2: as above
@@ -10466,10 +10457,8 @@ int __fastcall Clear_List_Box(HWND listbox) // RA2: as above
     }
     return 0; // RA2: as above
 }
-#endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 LRESULT __fastcall Get_Control_Text(HWND window, Wstring &text) // RA2: as above
 {
     LRESULT length = SendMessageA(window, 0xE, 0, 0); // RA2: as above
@@ -10483,10 +10472,8 @@ LRESULT __fastcall Get_Control_Text(HWND window, Wstring &text) // RA2: as above
     delete [] buffer; // RA2: as above
     return result; // RA2: as above
 }
-#endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 LRESULT __fastcall Get_Control_Wide_Text(HWND window, WideWstring &text) // RA2: as above
 {
     LRESULT length = SendMessageA(window, 0xE, 0, 0); // RA2: as above
@@ -10500,10 +10487,8 @@ LRESULT __fastcall Get_Control_Wide_Text(HWND window, WideWstring &text) // RA2:
     delete [] buffer; // RA2: as above
     return result; // RA2: as above
 }
-#endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 LRESULT __fastcall Get_List_Item_Text(HWND window, WPARAM index, Wstring &text) // RA2: as above
 {
     LRESULT length = SendMessageA(window, 0x18A, index, 0); // RA2: as above
@@ -10516,7 +10501,6 @@ LRESULT __fastcall Get_List_Item_Text(HWND window, WPARAM index, Wstring &text) 
     delete [] buffer; // RA2: as above
     return result; // RA2: as above
 }
-#endif
 
 
 LRESULT __fastcall Get_List_Item_Wide_Text(HWND window, WPARAM index, WideWstring &text) // RA2: as above
@@ -10533,7 +10517,6 @@ LRESULT __fastcall Get_List_Item_Wide_Text(HWND window, WPARAM index, WideWstrin
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 LRESULT __fastcall Get_Combo_Item_Text(HWND window, WPARAM index, Wstring &text) // RA2: as above
 {
     LRESULT length = SendMessageA(window, 0x149, index, 0); // RA2: as above
@@ -10546,10 +10529,8 @@ LRESULT __fastcall Get_Combo_Item_Text(HWND window, WPARAM index, Wstring &text)
     delete [] buffer; // RA2: as above
     return result; // RA2: as above
 }
-#endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 LRESULT __fastcall Get_Combo_Item_Wide_Text(HWND window, WPARAM index, WideWstring &text) // RA2: as above
 {
     LRESULT length = SendMessageA(window, 0x149, index, 0); // RA2: as above
@@ -10562,7 +10543,6 @@ LRESULT __fastcall Get_Combo_Item_Wide_Text(HWND window, WPARAM index, WideWstri
     delete [] buffer; // RA2: as above
     return result; // RA2: as above
 }
-#endif
 
 
 OwnerDraw::DialogControl::DialogControl() {} // RA2: as above
@@ -10624,7 +10604,6 @@ void WinData::Set_Wide_Text(wchar_t const *text) // RA2: as above
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 TextNode *NodeList::Add_Node(int length) // RA2: as above
 {
     TextNode *node = (TextNode *)operator new(length * 2 + 0x12); // RA2: as above
@@ -10636,4 +10615,3 @@ TextNode *NodeList::Add_Node(int length) // RA2: as above
     }
     return node; // RA2: as above
 }
-#endif

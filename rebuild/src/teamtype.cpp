@@ -73,6 +73,7 @@
 #include "house.h"
 #include "houstype.h"
 #include "incdec.h"
+#include "map.h"
 #include "rules.h"
 #include "scenario.h"
 #include "script.h"
@@ -1017,6 +1018,44 @@ TeamClass * TeamTypeClass::Find_First_Of_Type(void)
 		}
 	}
 	return(NULL);
+}
+
+
+/// <summary>
+/// Works out what the AI needs to know about this team type's task force before it builds the
+/// team: the movement zone every member can share, whether the enemy base must be reachable
+/// over land, and whether a naval member can carry the others.
+/// </summary>
+void TeamTypeClass::Process_Task_Force(void) // RA2: 0x6C0180 (ra2-decomp's YR twin)
+{
+	IsReachCheckNeeded = true;
+	HasNavalTransport = false;
+	TaskForceMZone = 9;
+	for (int index = 0; index < TaskForce->ClassCount; index++) {
+		TechnoTypeClass const * type = TaskForce->Members[index].Class;
+		if (type->Naval) {
+			if (type->MaxPassengers == 0) {
+				IsReachCheckNeeded = false;
+			} else {
+				HasNavalTransport = true;
+			}
+		}
+		TaskForceMZone = Find_Compatible_Passability_Row(type->MZone, TaskForceMZone);
+	}
+	if (IsBaseDefense) {
+		IsReachCheckNeeded = false;
+	}
+}
+
+
+/// <summary>
+/// Gives every team type its task force's attributes (see Process_Task_Force).
+/// </summary>
+void Process_All_Task_Forces(void) // RA2: 0x6C0220 (ra2-decomp's YR twin, a static member there)
+{
+	for (int index = 0; index < TeamTypes.Count(); index++) {
+		TeamTypes[index]->Process_Task_Force();
+	}
 }
 
 

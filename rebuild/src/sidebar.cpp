@@ -127,30 +127,6 @@
 #include "bittext.h" // RA2: the includes this file needs
 #include "ftimer.h" // RA2: the includes this file needs
 
-/// <summary>
-/// Determines which sidebar tab an object type is built from.
-/// </summary>
-/// <param name="type">The object type's RTTI.</param>
-/// <param name="id">The object type's index.</param>
-/// <param name="naval">Unused.</param>
-/// <returns>The tab (0 to 3), or -1 if the type is not built from the sidebar.</returns>
-inline int SidebarClass::Which_Tab(RTTIType type, int id, bool naval) // RA2: 0x6818D0; inline here, so the calls in this file carry the body
-{
-	if (type == RTTI_INFANTRY || type == RTTI_INFANTRYTYPE) { // RA2: as above
-		return 2; // RA2: as above
-	}
-	if (type == RTTI_UNIT || type == RTTI_UNITTYPE || type == RTTI_AIRCRAFT || type == RTTI_AIRCRAFTTYPE) { // RA2: as above
-		return 3; // RA2: as above
-	}
-	if (type == RTTI_BUILDING || type == RTTI_BUILDINGTYPE) { // RA2: as above
-		return HouseClass::Build_Category(type, id) == 5; // RA2: as above
-	}
-	if (type == RTTI_SUPERWEAPON || type == RTTI_SUPERWEAPONTYPE || type == RTTI_SPECIAL) { // RA2: as above
-		return 1; // RA2: as above
-	}
-	return -1; // RA2: as above
-}
-
 inline int Bottom_Extra(void) // RA2: the strips leave this much room for the scroll buttons, inline in the strip's Draw_It (0x67F800)
 {
 	return Scen->IsGDI ? 26 : 18; // RA2: as above
@@ -2987,6 +2963,31 @@ bool SidebarClass::StripClass::Has_Buildables(void) const // RA2: as above
 bool SidebarClass::Abandon_Production(RTTIType type, int id, FactoryClass * factory) // RA2: 0x681740 takes the object id too; the strip comes from Which_Tab, whose body is expanded here
 {
 	return(Column[Which_Tab(type, id, false)].Abandon_Production(factory)); // RA2: as above
+}
+
+
+/// <summary>
+/// Determines which sidebar tab an object type is built from.
+/// </summary>
+/// <param name="type">The object type's RTTI.</param>
+/// <param name="id">The object type's index.</param>
+/// <param name="naval">Unused.</param>
+/// <returns>The tab (0 to 3), or -1 if the type is not built from the sidebar.</returns>
+int SidebarClass::Which_Tab(RTTIType type, int id, bool naval) // RA2: 0x6818D0; the calls in this file expand it
+{
+	if (type == RTTI_INFANTRY || type == RTTI_INFANTRYTYPE) { // RA2: as above
+		return 2; // RA2: as above
+	}
+	if (type == RTTI_UNIT || type == RTTI_UNITTYPE || type == RTTI_AIRCRAFT || type == RTTI_AIRCRAFTTYPE) { // RA2: as above
+		return 3; // RA2: as above
+	}
+	if (type == RTTI_BUILDING || type == RTTI_BUILDINGTYPE) { // RA2: as above
+		return HouseClass::Build_Category(type, id) == 5; // RA2: as above
+	}
+	if (type == RTTI_SUPERWEAPON || type == RTTI_SUPERWEAPONTYPE || type == RTTI_SPECIAL) { // RA2: as above
+		return 1; // RA2: as above
+	}
+	return -1; // RA2: as above
 }
 
 

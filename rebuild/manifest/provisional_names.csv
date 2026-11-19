@@ -85,3 +85,5 @@ address,name,unit,reason
 0x00B2ACA0,g_OptionsDialogMemory,wonline,"global name not in TibSun, ra2-decomp, mischa85 or RTTI (main's or a rebuild lane's descriptive name)"
 0x00B2ACA8,g_AccountDialogUpdating,wonline,"global name not in TibSun, ra2-decomp, mischa85 or RTTI (main's or a rebuild lane's descriptive name)"
 0x00AB9274,ButtonHelpBuffer,sidebar,"global name not in TibSun, ra2-decomp (DAT_00B079B0), mischa85 or RTTI (lane R39's descriptive name; main unknown_text_ab9274)"
+inline,MultiplayerGameMode::Get_Name,multiplayer,"inline accessor read by Fill_Game_Mode_Combo/List (0x005B70B0, 0x005B71E0); main's name (ra2-decomp: free Game_Mode_Name); lane R40, owner ruling 2026-11-19"
+inline,MultiplayerGameMode::Get_ID,multiplayer,"inline accessor read by Fill_Game_Mode_Combo/List (0x005B70B0, 0x005B71E0); main's name (ra2-decomp: free Game_Mode_ID); lane R40, owner ruling 2026-11-19"
