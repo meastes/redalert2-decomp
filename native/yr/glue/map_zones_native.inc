@@ -212,7 +212,14 @@ int MapClass::Zone_Reset(void)
 	delete [] zone_degree;
 	delete [] stack;
 
-	return(Zones[0][bestzone]);
+	/*
+	**	NATIVE (lane N8): gamemd.exe's Zone_Reset (0x0056C510, the tree's Update_Pathfinding_1) returns the
+	**	widest raw zone itself (0x0056C65D keeps (unsigned short)zone, 0x0056CB76 returns it), where TibSun's
+	**	text returned its normal movement zone. The random map generator's start points (0x00594B50) index
+	**	Zones[mzone] with it: the movement zone number picked an arbitrary raw zone, no region was made and
+	**	about one random map in three had no start point (both players without units, lost at once).
+	*/
+	return(bestzone);
 }
 
 bool MapClass::Is_Same_Cell_Zone(Cell const & from, Cell const & to, MZoneType mzone, bool from_bridge, bool to_bridge, bool leavemap)

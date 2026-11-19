@@ -136,11 +136,23 @@ SCENARIOS = [
     menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
                          's4+2500 click @ctl=1411', 's5+3000 click @ctl=1568', 's5+40000 click @ctl=1733', 's6+3000 ' + START_GAME], 200),
     # Lane N6: the random map dialog's Save seed button (0x6C3) after a preview opens the seed list's save dialog
-    # (MapSeedClass, a LoadOptionsClass kind: MapSeedClass::Save_Menu_Name). Its Save (0x527) did not save there (not
-    # traced), so Load (0x6C2) and Delete (0x6C4), enabled only with a saved seed, stay out of reach.
+    # (MapSeedClass, a LoadOptionsClass kind: MapSeedClass::Save_Menu_Name). It saved nothing: 0x527 is the dialog's
+    # list and 0x686 its Back (lane N8; n8-seeds below saves, loads and deletes a seed).
     menus('n6-seeds', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
                        's4+2500 click @ctl=1411', 's5+3000 click @ctl=1568', 's5+40000 click @ctl=1731',
                        's6+3000 click @ctl=1319', 's6+6000 click @ctl=1670'], 200),
+    # Lane N8: why n6-seeds saved nothing: 0x527 (1319) is the save dialog's list (a click there copies a row's
+    # description into the edit field) and 0x686 (1670) its Cancel; Save is 0x6C7 (1735, LoadOptionsClass::
+    # Save_Dialog_On_WM_COMMAND). Here: the list, Save (MapSeedClass::Save_File, Saved_Message); then the random map
+    # dialog's Load seed (0x6C2: the load dialog, Load_Menu_Name; its list 0x525, its Load 0x40F) and Delete seed (0x6C4:
+    # the delete dialog, Delete_Menu_Name; its list 0x528, its Delete 0x6C8 and the question's OK 0x5AE: MapSeedClass::
+    # Delete_File). The save shows a message (Saved_Message, s8) that its OK (0x5AE) closes.
+    menus('n8-seeds', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
+                       's4+2500 click @ctl=1411', 's5+3000 click @ctl=1568', 's5+40000 click @ctl=1731',
+                       's6+3000 click @ctl=1319', 's6+5000 click @ctl=1735',
+                       's8+1500 click @ctl=1454', 's8+4000 click @ctl=1730', 's9+2000 click @ctl=1317',
+                       's9+3500 click @ctl=1039', 's9+45000 click @ctl=1732', 's10+2000 click @ctl=1320',
+                       's10+3500 click @ctl=1736', 's11+1500 click @ctl=1454'], 200),
     # Seven computer opponents on a four-player map, longer: their specials and super weapons.
     skirmish('ai-crowd', 9000, order='all', map_='#10', seconds=900,
              env=dict(RA2_NATIVE_SKIRMISH_AI='3', RA2_NATIVE_SKIRMISH_AI_LEVEL='2')),

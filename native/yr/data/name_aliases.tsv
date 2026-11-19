@@ -117,3 +117,6 @@ __Z22OwnerDraw_GetRectangleP6HWND__P5TRectIiE	__Z16Get_Display_RectP6HWND__P7tag
 __ZN16GScreenClassStub14Flag_To_RedrawEi	__ZN12GScreenClass14Flag_To_RedrawE18GScreenRedrawFlags
 __ZN12SidebarClass17Zoom_Mode_ControlEv	__Z12FUN_006ABC40v
 __ZN14SpotlightClassD1Ev	__ZN14SpotLightClassD1Ev
+# The random map generator's water regions (lane N8): the tree's Create_Water_Regions asks Is_Tile_Swamp where
+# gamemd.exe 0x0058CFE9 calls CellClass::Is_Tile_Clear_To_Green_LAT (0x004867B0), as RA2 does (0x0056E100).
+__ZNK9CellClass13Is_Tile_SwampEv	__ZNK9CellClass26Is_Tile_Clear_To_Green_LATEv

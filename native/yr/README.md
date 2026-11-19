@@ -956,6 +956,47 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   "Suggested order" 5); the rest are online, coop, modem, VQA or Tiberian Sun paths (traced by lanes N5/N6). The
   Simulator walk was not run after the YR order fix (its N5 enemy spawns now get their offsets).
 
+### Lane N8 (2026-11-19): Yuri's Revenge's random map generator
+
+* **Create Random Map stopped the game** (PORTS_REMAINING item 5): the skirmish Choose Map dialog's Create Random Map
+  (0x583) -> the random map dialog -> Preview (0x620) or OK (0x6C5) -> MapGeneratorClass::Generate_Random_Map, which the
+  YR tree (the pinned ra2-decomp and its latest) declares and never defines, nor the generator functions only it
+  reaches. glue/mapgen_native.inc (appended to mapgen.cpp): NON-EXACT stand-ins written from gamemd.exe's instructions
+  (yr_dis.py) in the shape of Red Alert 2's twins. Each YR body was set beside its RA2 twin in game.exe: Create_Region_From_Cell
+  (0x0058C800), Split_Region (0x0058D620), Build_North_Ramp (0x00591D80), Place_Waterfall (0x0059E740), Grow_Water_Region
+  (0x005A08D0), Create_Tiberium (0x005A23A0) and Generate_Rural_Roads (0x005A89D0) have the size of their RA2 twins and
+  the same calls; Generate_Random_Map (0x00598960, 3,018 bytes against 3,086), Load_Settings (0x005981F0: RMGMD.INI)
+  and the start points (0x00594B50: the zone regions inline, the scenario's start points copied at the end, FUN_0058B820)
+  were written from gamemd.exe's code where they differ. The text is the rebuild tree's mapgen.cpp (rebuild-trial) and
+  main's src/recovered/mapgen.cpp (Split_Region: main's behaviour-checked draft, with gamemd.exe's "no new height 0 on
+  the inland and mountainous maps"), under the YR tree's names. Also: MapClass::Pick_Random_Tile_Variant (0x0057B440,
+  map_native.inc: main's exact RA2 text; gamemd.exe's shore tables 0x0082A7F4 / 0x0082A89C read at run time),
+  IsometricTileTypeClass::Preview_Tile (0x00549E50, isotype_native.inc: the map previews' colours) and an alias:
+  Create_Water_Regions' Is_Tile_Swamp is CellClass::Is_Tile_Clear_To_Green_LAT (gamemd.exe 0x0058CFE9 calls it).
+  Link closure (Mac) 100 -> 89 (MapPreviewClass::Blit_Preview is left: only the modem dialogs draw with it).
+* **About one random map in three had no start point** (both players without units, the game lost at once). The YR
+  draft of MapClass::Zone_Reset (map_zones_native.inc, TibSun's text, lane Y3) returned the widest zone's normal
+  movement zone; gamemd.exe's (0x0056C510) returns the raw zone itself, which the start points use to index
+  Zones[mzone]: no region was made. Now the raw zone (no other caller reads the result). 6 of 6 runs then had both
+  players' units, against 5 lost games in 16 runs before.
+* **ctest `yr-native-choose-map`** has a third run (yr/tests/yr_choose_map.py, 90 s): Choose Map, Create Random Map,
+  Preview, OK 17 s later, Start Game: the seed and preview files (RandMap.Sed, RandMap.img) are written, the game played
+  is RANDMAP.SED, the player has units at frame 40 and the game reaches frame 600, no trap or fault.
+* **Red Alert 2's random map seed list** (N6's resume list): n6-seeds saved nothing because it clicked the save
+  dialog's list (0x527, which copies a row's description into the edit field) and then Cancel (0x686); the dialog's
+  Save is 0x6C7 (LoadOptionsClass::Save_Dialog_On_WM_COMMAND). coverage_runs.py's scenario `n8-seeds`: Save, the
+  message's OK (0x5AE), then the random map dialog's Load seed (0x6C2; the load dialog's list 0x525 and Load 0x40F) and
+  Delete seed (0x6C4; the delete dialog's list 0x528, Delete 0x6C8, the question's OK). Run on build/native-cov (lane
+  N6's build; the RA2 side is unchanged since): Red Alert 2's unreached rewrites 95 -> 91 (MapSeedClass::Saved_Message,
+  Load_Menu_Name, Delete_Menu_Name, Delete_File; native/behaviour_rewrites.json `reach`).
+* **Resume note (lane N8)**: item 1 (YR random map generator) done; the Simulator walk was not run (the generator is
+  Mac-checked; the owner's land_ios.sh builds it for iOS). Item 2: the seed list done (above). Next: BombClass::Disarm
+  is reached through BuildingClass::Captured (an engineer capturing a building carrying a Crazy Ivan bomb),
+  ObjectClass::Delete_Me (a bombed object deleted, e.g. an engineer consumed by a repair or capture) or a BombDisarm
+  warhead: the RA2 harness's `capture` takes a cell; a `capture <ID> <TYPE>` form (as `attack`'s) would make the
+  scenario; a player leaving a LAN game (Destroy_Connection) not started. Then item 3 (95 unreached rewrites):
+  Unknown_006F7020 (select all of a type: the T key with a tank selected, as yr-native-type-select does) looks easy.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

@@ -1583,6 +1583,11 @@
    "file": "src/link2.cpp",
    "append": "link2_native.inc",
    "why": "lane N5: LineTrail::LineTrail (gamemd.exe 0x00556A20) is unmatched in the YR tree and was a link-closure trap: ObjectClass::Unlimbo makes one for a type with UseLineTrail=yes. A NON-EXACT stand-in from gamemd.exe's instructions, appended to the unit."
+  },
+  {
+   "file": "src/mapgen.cpp",
+   "append": "mapgen_native.inc",
+   "why": "lane N8: the random map generator (MapGeneratorClass::Generate_Random_Map and the generator functions only it reaches: Load_Settings, Create_Tiberium, Place_Waterfall, Grow_Water_Region, Generate_Rural_Roads, MapRegionClass::Create_Region_From_Cell, Split_Region, Build_North_Ramp, the start points 0x00594B50) is unmatched in the YR tree and was a link-closure trap: the skirmish Choose Map dialog's Create Random Map stopped the game. NON-EXACT stand-ins from gamemd.exe's instructions in the shape of Red Alert 2's twins, appended to the unit (they use its static helpers)."
   }
  ]
 }

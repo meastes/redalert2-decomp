@@ -825,3 +825,86 @@ void MapClass::Repair_Bridge(Cell const & cell)
 		Recalc_Cells_In_List(cells);
 	}
 }
+
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE STAND-IN (lane N8): MapClass::Pick_Random_Tile_Variant, gamemd.exe 0x0057B440
+// (848 bytes, the size of Red Alert 2's 0x0055D640), unmatched in the YR tree; the random map
+// generator's shores and clear ground (Place_Shore, the cliff fill) place the pending tile with it.
+// Main's exact text of the RA2 twin (src/recovered/map.cpp) under the YR tree's names; gamemd.exe's
+// shore group and facing tables are 0x0082A7F4 and 0x0082A89C (42 entries each, read from the
+// player's gamemd.exe like the tree's other DAT_ globals).
+// ---------------------------------------------------------------------------------------------
+extern int DAT_0082A7F4[42];	// the shore pieces' groups
+extern int DAT_0082A89C[42];	// the shore pieces' facings
+
+bool MapClass::Pick_Random_Tile_Variant(IsometricTileType first, int last, int height, int region_id, bool & result, bool set_region)
+{
+	if (Map.PendingObject->What_Am_I() == RTTI_ISOTILETYPE) {
+		if (set_region) region_id = 0;
+		IsometricTileTypeClass * type = (IsometricTileTypeClass *)Map.PendingObject;
+		IsoTileSet const * image = (IsoTileSet const *)type->Get_Image_Data();
+		if (image != NULL) {
+			for (int row = 0; row < type->Height; ++row) {
+				for (int column = 0; column < type->Width; ++column) {
+					Cell cell(column + Map.ZoneCell.X, row + Map.ZoneCell.Y);
+					if (cell.X + cell.Y <= PlayRect.Width || cell.X - cell.Y >= PlayRect.Width ||
+						cell.Y - cell.X >= PlayRect.Width || cell.X + cell.Y > PlayRect.Width + 2 * PlayRect.Height)
+						continue;
+					CellClass * cellptr = &(*this)[cell];
+					int subtile = column + type->Width * row;
+					IsoTileRecord const * record = image->Fetch_Record_Pointer_Unsafe(subtile);
+					if (record == NULL) continue;
+					int id = RandomMapGen.Get_Cell_Data_Region(cell);
+					if (set_region) id = 0;
+					bool place = true;
+					if (id > 0 && id != region_id && region_id != -1) {
+						int existing = cellptr->ITType - IsometricTileTypeClass::ShorePieces;
+						int pending = type->HeapID - IsometricTileTypeClass::ShorePieces;
+						if (!cellptr->Is_Tile_Clear()) {
+							if (existing < 0 || pending < 0 || existing > 41 || pending > 41 ||
+								DAT_0082A7F4[existing] != DAT_0082A7F4[pending]) {
+								result = false;
+								return(false);
+							}
+							return(true);
+						}
+						RandomMapGen.Set_Cell_Data_Region(cell, region_id);
+					} else if (id == region_id) {
+						int existing = cellptr->ITType - IsometricTileTypeClass::ShorePieces;
+						int pending = type->HeapID - IsometricTileTypeClass::ShorePieces;
+						if (existing >= 0 && pending >= 0 && existing <= 41 && pending <= 41) {
+							int difference = abs(DAT_0082A89C[existing] - DAT_0082A89C[pending]);
+							if (difference >= 3 && difference <= 5) {
+								result = false;
+								return(false);
+							}
+						}
+					} else if (cellptr->Is_Tile_Clear()) {
+						RandomMapGen.Set_Cell_Data_Region(cell, region_id);
+					} else if (region_id != -1) {
+						result = false;
+						return(false);
+					} else {
+						place = false;
+					}
+					if (place) {
+						if (cellptr->Is_Tile_Clear() || (cellptr->ITType >= first && cellptr->ITType <= last)) {
+							cellptr->ITType = type->HeapID;
+							cellptr->SubTile = subtile;
+							cellptr->Height = height + record->Height;
+						} else {
+							if ((cellptr->Is_Tile_Shore() && MapClass::Is_Tile_Cliff(type->HeapID, subtile)) ||
+								(type->HeapID >= IsometricTileTypeClass::ShorePieces && type->HeapID < IsometricTileTypeClass::ShorePieces + 42 &&
+								 cellptr->Is_Tile_Cliff()))
+								result = false;
+							return(false);
+						}
+					}
+				}
+			}
+			return(true);
+		}
+	}
+	return(false);
+}

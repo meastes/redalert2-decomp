@@ -4077,9 +4077,9 @@
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map: Delete_Save_File 0x0053C7D0; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n8-seeds: Choose Map, Create Random Map, Preview, Save seed, the save dialog's Save; then Load seed and Delete seed: the delete dialog's Delete (0x6C8) and the question's OK: the saved seed file deleted",
+   "reach_checked_by": "N8 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n8-seeds and report"
   },
   {
    "entry": "0x005796F0",
@@ -4093,9 +4093,9 @@
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Load Map dialog title GUI:LoadMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n8-seeds: Choose Map, Create Random Map, Preview, Save seed, the save dialog's Save; then Load seed and Delete seed: the random map dialog's Load seed (0x6C2): the load dialog asks its caption",
+   "reach_checked_by": "N8 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n8-seeds and report"
   },
   {
    "entry": "0x00579710",
@@ -4125,9 +4125,9 @@
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Delete Map dialog title GUI:DeleteMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n8-seeds: Choose Map, Create Random Map, Preview, Save seed, the save dialog's Save; then Load seed and Delete seed: the random map dialog's Delete seed (0x6C4): the delete dialog asks its caption",
+   "reach_checked_by": "N8 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n8-seeds and report"
   },
   {
    "entry": "0x00579750",
@@ -4141,9 +4141,9 @@
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map's message GUI:MapSaved; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n8-seeds: Choose Map, Create Random Map, Preview, Save seed, the save dialog's Save; then Load seed and Delete seed: the save dialog's Save (0x6C7): the seed saved, the message asks its text",
+   "reach_checked_by": "N8 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n8-seeds and report"
   },
   {
    "entry": "0x004CDA80",

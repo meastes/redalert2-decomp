@@ -368,11 +368,12 @@ add_test(NAME yr-native-save-dialog COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_
 set_tests_properties(yr-native-save-dialog PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
 
 # ctest yr-native-choose-map (lane N6): the skirmish lobby's Choose Map, a row clicked, OK, the game started on that
-# map (yr/tests/yr_choose_map.py; the dialog's procedure was a link-closure trap)
+# map (yr/tests/yr_choose_map.py; the dialog's procedure was a link-closure trap). Lane N8: and Create Random Map,
+# Preview, OK, the generated map played (the random map generator was a link-closure trap; glue/mapgen_native.inc)
 add_test(NAME yr-native-choose-map COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_choose_map.py"
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-choose-map")
-set_tests_properties(yr-native-choose-map PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
+set_tests_properties(yr-native-choose-map PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
 
 # ctest yr-native-campaign-allied / -soviet (lane Y12): each side's campaign through the menus, its seven
 # missions won in turn (RA2_NATIVE_FORCE_END) through their score screens, the final movie, the credits

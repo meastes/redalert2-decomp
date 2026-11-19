@@ -783,3 +783,14 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
     }
 }
 
+
+
+// NON-EXACT NATIVE STAND-IN (lane N8): IsometricTileTypeClass::Preview_Tile, gamemd.exe 0x00549E50
+// (52 bytes), unmatched in the YR tree: a cell's preview colours (CellClass's preview pixel) for the
+// random map generator's and the scenarios' map previews. From gamemd.exe's instructions: the tile
+// set's image loaded when it is not (Load_Tile_Image's test), then the tile's colour pair.
+unsigned short * IsometricTileTypeClass::Preview_Tile(int tile, int level)
+{
+	Load_Tile_Image();
+	return(&PreviewTiles[tile][level * 2]);
+}

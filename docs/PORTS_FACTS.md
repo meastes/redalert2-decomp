@@ -215,9 +215,17 @@ platform layer. It earns no exact-match credit.
   Revenge skirmish the lobby's Choose Map stopped the game as its dialog opened (its window procedure, gamemd.exe
   0x005E6920, is declared and never defined in the pinned ra2-decomp tree). Now in glue/netshare_native.inc, text
   adopted from a later ra2-decomp. Checked: ctest `yr-native-choose-map` (the lobby's map started once, then Choose
-  Map, a row clicked, OK, Start Game: the game starts on the other map, no trap). Still stopping: that dialog's Create
-  Random Map (the random map generator is missing from the YR tree). Needs a user check: Choose Map in a Yuri's
-  Revenge skirmish on the Mac and the Duo.
+  Map, a row clicked, OK, Start Game: the game starts on the other map, no trap). Needs a user check: Choose Map in a
+  Yuri's Revenge skirmish on the Mac and the Duo.
+- Fixed 2026-11-19 (lane N8): that dialog's Create Random Map stopped the game: Yuri's Revenge's random map generator
+  (MapGeneratorClass::Generate_Random_Map and nine more, MapClass::Pick_Random_Tile_Variant, the preview tiles) is
+  missing from the YR tree (the pinned and the latest ra2-decomp). Clearly labelled stand-ins, written from gamemd.exe's
+  instructions in the shape of Red Alert 2's twins (most have the same size and calls as Red Alert 2's). Writing them
+  uncovered a fault in an older stand-in (MapClass::Zone_Reset's result): about one random map in three had no start
+  points, and both players began with nothing and lost at once. Checked: ctest `yr-native-choose-map` (Create Random
+  Map, Preview, OK, Start Game: the generated map is played with the player's units, past frame 600, no trap); 6 of 6
+  runs with both players' units after the Zone_Reset fix. Link closure 100 -> 89. Needs a user check: Create Random Map
+  in a Yuri's Revenge skirmish on the Mac and the Duo (Preview, OK, Start Game).
 - The yr-native-standins hijack flake (lane N6): two causes, both in the test. The truck's offset was lost (the YR
   harness kept 4 words of an order; now 8) and it could land 11 cells from the thief at some start positions (2 of 4
   runs failed, the same corner both times), and
@@ -250,7 +258,10 @@ platform layer. It earns no exact-match credit.
   sensor, a missile silo and a gap generator spawned for the player and clicked: the sensor array's cell marks, the
   range circles' Draw_Ellipse, the silo's missile mission when the nuke is fired) and `n6-sidebar` (a cameo clicked
   in the sidebar: the factory's on-hold check; the defence tab's hot key, bound in a KEYBOARD.INI of the run's own)
-  and `n6-seeds` (the random map dialog's Save seed: MapSeedClass::Save_Menu_Name). 95 remain reviewed but unreached.
+  and `n6-seeds` (the random map dialog's Save seed: MapSeedClass::Save_Menu_Name). Lane N8 (2026-11-19) reached 4
+  more with `n8-seeds` (a seed saved through the save dialog's Save, then loaded and deleted through the random map
+  dialog's Load seed and Delete seed: MapSeedClass::Saved_Message, Load_Menu_Name, Delete_Menu_Name, Delete_File;
+  n6-seeds had clicked the save dialog's list and Back). 91 remain reviewed but unreached.
   Every one of the 311 rewrite rows now carries a behaviour verdict against the original (lane N2,
   2026-11-17: the last 31, the hand-written-assembly ones among them, checked statically): 299 the
   same (some apart from named, harmless edge cases), 4 fixed, 1 different by design, 3 kept (the
