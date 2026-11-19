@@ -12,6 +12,10 @@ format (native/yr/README.md "Saves in gamemd.exe's format"), on the Mac:
      whose Internal Version is YR's, read in place, never copied): loaded and played 300 frames;
      skipped (reported) when there is none.
 
+  5. with --original-saves DIR (lane N5): every save of the original Yuri's Revenge in DIR (by its internal
+     version), each copied into the run's own write folder under --work, loaded and played 300 frames. Lane
+     N5 ran it on five of the user's own saves from their Windows PC (campaign and skirmish, 2023), all
+     loaded and played; DIR is not in the repository (the user's files stay private).
 Checks: each save is a compound file with YR's internal version; each load reports it loaded and
 reaches 300 frames; no trap or fault; no swizzle failure; no type read or written without a field
 map; no vtable left unwritten. Skipped (77) without the installed game (gamemd.exe in --data-dir).
@@ -94,6 +98,8 @@ def main():
     ap.add_argument('--data-dir', default='')
     ap.add_argument('--work', required=True)
     ap.add_argument('--save-frame', type=int, default=500)
+    ap.add_argument('--original-saves', default=os.environ.get('RA2_NATIVE_YR_ORIGINAL_SAVES', ''),
+                    help='a folder of saves made by the original Yuri\'s Revenge (default $RA2_NATIVE_YR_ORIGINAL_SAVES)')
     a = ap.parse_args()
     if not a.data_dir or not os.path.exists(os.path.join(a.data_dir, 'gamemd.exe')):
         print('skipped: no Yuri\'s Revenge install (gamemd.exe) in --data-dir')
@@ -148,6 +154,20 @@ def main():
         original = 'the installed game\'s %s loaded and played' % save
     else:
         original = 'no save of the installed Yuri\'s Revenge in the data folder: its read was skipped'
+
+    # 5. Saves of the original Yuri's Revenge from another folder (the user's), each copied into the write folder.
+    extra = []
+    if a.original_saves and os.path.isdir(a.original_saves):
+        for f in sorted(os.listdir(a.original_saves)):
+            path = os.path.join(a.original_saves, f)
+            if not f.lower().endswith('.sav') or f.startswith('._') or internal_version(path) != YR_VERSION:
+                continue
+            shutil.copyfile(path, os.path.join(a.writes, f))
+            text = run(a, '5-' + os.path.splitext(f)[0], load + ['--load-save=' + f], {}, 120)
+            load_check(text, 'original save ' + f, f, failures)
+            extra.append(f)
+            os.remove(os.path.join(a.writes, f))
+        original += '; %d original save(s) from %s loaded and played (%s)' % (len(extra), a.original_saves, ', '.join(extra))
 
     for f in failures:
         print('FAIL: ' + f)

@@ -866,6 +866,51 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   soldier (no bomb), the area-guard Ctrl+Option click and a closed waypoint path (HouseClass::Can_Add_Waypoint_To_Path).
   105 reviewed rows left; most are LAN dialogs, Westwood Online and campaign-menu paths.
 
+### Lane N5 (2026-11-19): the Simulator rerun, the user's own saves, keys that stopped the game
+
+* **Simulator walk on current main** ("RA2 Duo Validation", `ios_sim_menus.py --play-seconds 150`): N4's IsStrange and
+  bridge changes were checked on the Mac only. Everything passes in both games (no trap or fault, 61-62 frames/s), and
+  the walk gained two checks for the IsStrange fix (N5_ORDERS): tanks fire at a spawned enemy power plant and its
+  strength drops (750 -> 590: shells no longer pass through buildings), and an engineer captures a spawned enemy
+  Tesla Reactor (the reactor becomes the player's).
+* **Saves of the original Yuri's Revenge.** The user's PC has Yuri's Revenge's saves in D:\Games\RA2 (2023 campaign and
+  skirmish saves, internal version 178328). Five of them (ALL01UMD, SOV01UMD, SOV07TMD, SAVE0693, SAVE3CAA), fetched
+  read-only into a scratch folder (not the repository), each load in the current yr-native and play 1,500 frames; one
+  also through the menus' load dialog at 1024x768, and in the one-game app after the toggle from Red Alert 2 (2,000
+  frames). The user's crash did not reproduce on the current build. `yr_save_roundtrip.py --original-saves DIR` (or
+  `RA2_NATIVE_YR_ORIGINAL_SAVES`) loads every original save in DIR in ctest `yr-native-save` (copied into the run's
+  own write folder); without it that part is skipped. One likely cause was found and fixed anyway: loading a game
+  (or starting a new one) while a combat light was alive deleted it through the tree's `SpotlightClass` destructor,
+  which nothing defined (a trap); now bound to SpotLightClass's (data/name_aliases.tsv).
+* **Functions still missing at the Mac link: 110 -> 101.** Traced from their callers to keys and play:
+  - Tab in a skirmish (any non-campaign game) opened the Diplomacy dialog, whose fill called RadarClass::FUN_00658330
+    (gamemd.exe 0x00658330, one player's row): glue/radar_native.inc, a NON-EXACT stand-in from gamemd.exe's
+    instructions (name in the house's colours, flag, alliance and chat boxes, kills). Keyboard_Process's own Tab
+    (`SidebarClass::Zoom_Mode_Control` in the tree) is FUN_006ABC40 (alias);
+  - the Delete key with no planned node called `BeaconManagerClass::Remove_Beacon`, the tree's other name for
+    DeleteBeacon (0x004311C0; alias);
+  - hover and mech units refused a destination with TibSun's `Sound_Effect(ScoldSound)`: gamemd.exe calls
+    VocClass::PlayGlobal(ScoldSound, 1.0, 0x2000) there (0x00516813, 0x005B03AA; hover_native.inc, mech_native.inc);
+  - aliases for one function under two names: `Fill_Surface_Rect(Surface*, Rect const&, int)` (Load_Title_Screen: the
+    same 0x0072E820), `OwnerDraw_GetRectangle` (Get_Display_Rect 0x00775690, the progress dialog), the restate dialog's
+    `GScreenClassStub::Flag_To_Redraw` (GScreenClass::Flag_To_Redraw 0x004F42F0);
+  - LineTrail::LineTrail (0x00556A20; glue/link2_native.inc): types with UseLineTrail=yes.
+  ctest `yr-native-keys-load` (yr/tests/yr_keys_load.py; harness order `lights [add]`): Tab shows the Diplomacy dialog
+  and its Return closes it, Delete, two combat lights made, then Escape, Load Game, the save's row, Load: the lights are
+  deleted and the save plays on. Left (callers checked): Westwood Online and the World Domination Tour, the coop
+  campaign, modem play, the random map generator and map previews made from cells, Tiberian Sun's veins and tunnels,
+  the score screen of TibSun's ScoreClass (YR uses CampaignScoreClass), VQA movies (YR plays Bink), the trigger
+  description writer (Speech_Name, only for writing a scenario), TechnoClass::ForceCreate's base slot.
+* **Checks**: the YR and one-game ctests on build/n3 (29) pass; yr-native-standins' hijack failed once in two runs (the
+  truck stayed the enemy's; it passed on the rerun and in lanes P1/N4), a flake to watch, not traced.
+* **Resume note (lane N5)**: next PORTS_REMAINING item 4 (Red Alert 2's 105 unreached rewrites). Started, not run: Red
+  Alert 2's harness `spawn` also makes soldiers, new orders `fire <ID> <TARGET>` (force-fire, own units too) and `hold
+  <ID>` (SUSPEND 0x0F, the cameo's right click); coverage_runs.py scenarios `n5-bomb` (a Crazy Ivan bombs the player's
+  own Flak Track, a save at 520 while it is planted, `laser`: BombClass Save/GetClassID/Disarm/What_Action,
+  Draw_Depth_Antialiased_Line) and `n5-hold` (UnknownFactory::Is_On_Hold). Next: rebuild build/native-cov (the cmake
+  line in coverage_runs.py), `coverage_runs.py run ... n5-bomb n5-hold`, `report`, then mark rows in
+  native/behaviour_rewrites.json `reach`. The Simulator walk was run before the N5 stand-ins (they are Mac-checked).
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

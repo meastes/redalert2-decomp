@@ -372,7 +372,7 @@ void HoverLocomotionClass::Start_Of_Move(int num)
 				} else {
 					LinkedTo->Assign_Destination(NULL);
 					if (!LinkedTo->IsActive) return;
-					if (LinkedTo->IsNewNavCom) Sound_Effect(Rule->ScoldSound);
+					if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000);	// NATIVE (lane N5): gamemd.exe 0x00516813; TibSun's Sound_Effect is not in the YR tree
 					LinkedTo->IsNewNavCom = false;
 				}
 			}

@@ -25,12 +25,12 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 | Item | State | What is done | What is left |
 |---|---|---|---|
-| Skirmish stability | Mostly done | A 45-minute game against three hard AIs on the Mac has no fault, and a 10-minute ctest runs. | 110 functions still missing at the Mac link. Each is written as a labelled stand-in when play reaches it. Longer and varied games will find more. |
+| Skirmish stability | Mostly done | A 45-minute game against three hard AIs on the Mac has no fault, and a 10-minute ctest runs. | 101 functions still missing at the Mac link (110 before lane N5; the rest are Westwood Online, coop, modem, random-map, Tiberian Sun-only or editor paths). Each is written as a labelled stand-in when play reaches it. Longer and varied games will find more. |
 | Campaign trace and forced-win chain | Done | Both campaigns pass a test that forces each win in turn: all 14 missions, both endings, the credits and the return to the main menu. | Real wins are yours. |
 | Campaign stand-ins | Partly done | Stand-ins reached in play: Psychic Dominator, Lightning Storm, the beams and waves, the spy, the hijacker, the Lasher tank's drive tracks; lane N3: the trigger actions "create building at", "ion lightning strike" and "ion storm stop", range rings, beacons, the HealthNav/VeterancyNav keys (ctest `yr-native-standins-triggers`), planning mode from the command bar (ctest `yr-native-planning`; picking up planned waypoints with the mouse not written). | Bridge repair has a test since lane N4 (`yr-native-bridge-repair`; it found engineers vanishing without a repair, fixed). The War Factory's unload has a test (lane N3, `yr-native-war-factory`; it found vehicles staying inside the factory, fixed). The trace was static (callers of the missing functions); no mission was played through. |
 | Windows build | Partly done | `YRNative.exe` and the both-games `RA2YRNative.exe` are cross-built, pass under Wine, and are packaged on your PC. | Your run on the real PC. |
 | LAN | Partly done | Two Macs played a 12,000-frame game in step; Mac with Windows under Wine played 3,000 frames. | Not yet tried between two real machines or with your Windows PC. |
-| Saves | Partly done | Saves are written in the original format and load back in the port. | Your installed Yuri's Revenge loading the port's save, and the reverse. |
+| Saves | Mostly done | Saves are written in the original format and load back in the port. Five of your own Yuri's Revenge saves from the PC (2023) load and play in the port (lane N5). | Your installed Yuri's Revenge loading the port's save. |
 
 ## Your checks (once)
 
@@ -41,6 +41,8 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
      tree); oil derricks lacked their pump and flame (no building animation was drawn; power plants, refineries and
      the rest should animate again too);
    - fault, fixed by lane N3 (2026-11-19), please check again: Yuri's Revenge's command bar "select all units of this type" button crashed the game;
+   - found and fixed by lane N5 (2026-11-19), please check: in a Yuri's Revenge skirmish, Tab (the Diplomacy screen) and
+     the Delete key stopped the game; loading a game while explosions were lighting the map stopped it too;
    - fault, fixed by lane N3 (2026-11-19), please check again: the on-screen keyboard didn't come up in Yuri's Revenge's text fields (the skirmish player name). Now a tap on the field raises it, as in Red Alert 2.
    - Mac app checks (the user, 2026-11-19, on build/mac-app/RA2YR.app, a stale build from 2026-11-17 11:20). Lane N3
      rebuilt the current app (`native/build.sh mac-one`) and walked each one through the menus in the packaged app
@@ -51,9 +53,10 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
        fresh and after switching from Red Alert 2);
      - saving in Yuri's Revenge failing: reproduced and **fixed** by lane N3 (the Save dialog's file name was lost;
        ctest `yr-native-save-dialog` saves through the options menu);
-     - loading a save made by the original Yuri's Revenge crashing: **not checked** (no save from the original Yuri's
-       Revenge on the owner's Mac: the saves in the game folder are Red Alert 2's). Needs the user's save file, or the
-       user's retry on the new build; next port lane.
+     - loading a save made by the original Yuri's Revenge crashing: **not reproduced** in the current build (lane N5):
+       five of your own saves from the PC's D:\Games\RA2 load and play, also through the load dialog and after the
+       switch from Red Alert 2. Loading while a combat light was alive did stop the game; fixed. If it still crashes,
+       please say which save (its name in D:\Games\RA2) and from where you loaded it (main menu or in a game).
      Please check all four again on the new build.
 2. **On the Windows PC:** `C:\ra2\for-user\RA2YRNative`:
    - switch games;
@@ -69,7 +72,9 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
    (details and checks in PORTS_FACTS.md): GIs now garrison buildings (`yr-native-garrison`); the Mirage tank's
    camouflage draws as a tree in the tree's colours (`yr-native-mirage`); building animations, the oil derrick's pump
    and flame among them, are drawn again (`yr-native-building-anims`). The user re-checks them on the Duo.
-1. Trace the Yuri's Revenge campaign missions for missing functions, and write stand-ins for them.
+1. Trace the Yuri's Revenge campaign missions for missing functions, and write stand-ins for them (lane N5: 110 -> 101,
+   Tab's Diplomacy screen, the Delete key, combat lights at a load, the scold sound, line trails; ctest
+   `yr-native-keys-load`).
 2. Done (lane N4): the bridge repair test, `yr-native-bridge-repair`; it found engineers vanishing into the hut without a
    repair (fixed).
 3. Reach Red Alert 2's unreached rewrites, most-called first (lane N4 started: a coverage scenario `n4-deaths` reached

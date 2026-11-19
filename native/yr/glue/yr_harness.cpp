@@ -97,6 +97,9 @@
 //   banimhide <BLDG> <slot> [show]  hides (shows) that animation of every building of type BLDG (lane N4);
 //   scenario        logs `harness-scenario <file>` (lane N4);
 //   artkey <section> <key>  logs the value as ART(MD).INI gave it, and as a layer name (lane N4);
+//   lights [add]    logs `harness-lights <n>`: the combat lights alive (SpotLights); with `add`, first a combat light
+//                   at the player's first techno (a SpotLightClass, as Combat_Lighting makes for a bright warhead;
+//                   lane N5: Delete_All_Objects deletes the living ones when a game is loaded or a new one starts);
 //   occupants <BLDG>  logs `harness-occupants <BLDG> h<house> <n>[p]`: the garrison of each building of type BLDG;
 // RA2_NATIVE_FORCE_END=<f1>[,<f2>...][,lose]: at the first loop frame at or past each entry the game
 // ends as the house AI ends it on a win or defeat (PlayerWins / PlayerLoses, read by the main loop);
@@ -137,6 +140,7 @@ LayerType Layer_From_Name(char const * name);
 #include "builtype.h"
 #include "beacon.h"
 #include "planning.h"
+#include "ovrlight.h"
 #include "cell.h"
 
 #include <stdio.h>
@@ -414,6 +418,18 @@ int Run_Order(int frame, char const * text)
 		}
 		if (!n) fprintf(stderr, "harness-owner %s none\n", word[1]);
 		return(n ? n : 1);
+	}
+	if (!strcmp(word[0], "lights")) {
+		if (words >= 2 && !strcmp(word[1], "add") && PlayerPtr != NULL) {
+			for (int i = 0; i < Technos.Count(); ++i) {
+				if (Technos[i] && Technos[i]->House == PlayerPtr && !Technos[i]->IsInLimbo) {
+					new SpotLightClass(Technos[i]->Center_Coord(), 63);	// what Combat_Lighting makes for a bright warhead
+					break;
+				}
+			}
+		}
+		fprintf(stderr, "harness-lights %d\n", SpotLights.Count());
+		return(1);
 	}
 	if (!strcmp(word[0], "waves")) {
 		fprintf(stderr, "harness-waves %d lasers %d\n", WaveClass::Array.Count(), LaserDrawClass::LaserDraws.Count());

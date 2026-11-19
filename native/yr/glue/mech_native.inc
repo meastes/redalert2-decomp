@@ -43,7 +43,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 							} else {
 
 								if (LinkedTo->IsNewNavCom) {
-									Sound_Effect(Rule->ScoldSound);
+									VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000);	// NATIVE (lane N5): gamemd.exe 0x005B03AA; TibSun's Sound_Effect is not in the YR tree
 								}
 								LinkedTo->IsNewNavCom = false;
 

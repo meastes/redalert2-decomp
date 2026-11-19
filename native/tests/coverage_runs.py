@@ -94,6 +94,14 @@ SCENARIOS = [
     # shakes the screen), other vehicles spawned and destroyed beside it.
     skirmish('n4-deaths', 1500, order='both', seconds=300, env=dict(RA2_NATIVE_ORDERS=(
         '300 spawn DTRUCK 4 0; 320 spawn APOC 6 2; 340 spawn HTK 6 -2; 400 kill DTRUCK; 600 kill APOC; 700 kill HTK'))),
+    # Lane N5: a Crazy Ivan's bomb on the player's own Flak Track (BombClass), a save while it is planted (its Save
+    # and GetClassID), the bomb going off; then the laser beams (DSurface::Draw_Depth_Antialiased_Line).
+    skirmish('n5-bomb', 1500, order='both', seconds=300, env=dict(RA2_NATIVE_SAVE_AT='520,BOMB.SAV', RA2_NATIVE_ORDERS=(
+        '300 spawn IVAN 2 2; 310 spawn HTK 5 0; 330 fire IVAN HTK; 500 health; 700 laser; 900 health'))),
+    # Lane N5: a soldier's production put on hold (a right click on its cameo: SUSPEND), the sidebar's strip asking
+    # its factory whether it is on hold (UnknownFactory::Is_On_Hold).
+    skirmish('n5-hold', 2400, order='win', seconds=400, env=dict(RA2_NATIVE_BUILD_LIST='GAPOWR,GAPILE,GAREFN',
+        RA2_NATIVE_ORDERS='1400 train E1; 1401 train E1; 1420 hold E1; 1800 train E1; 1820 hold E1; 2200 train E1')),
     # Lane N4: the clicks the in-game runs did not make: a Ctrl+Alt click (the area-guard cursor), a waypoint path
     # that comes back to its first waypoint (waypoint mode's path cell), a Shift click and release on a selected unit.
     dict(name='n4-ui', args=['--skirmish=#5', '--skirmish-frames=900', '--skirmish-order=both', '--run-to=frames',

@@ -354,6 +354,13 @@ add_test(NAME yr-native-bridge-repair COMMAND "${Python3_EXECUTABLE}" -B "${CMAK
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-bridge-repair")
 set_tests_properties(yr-native-bridge-repair PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
 
+# ctest yr-native-keys-load (lane N5): Tab opens the Diplomacy dialog, Delete with no planned node, and a load from the
+# options menu with combat lights alive: functions the tree had not recovered (yr/tests/yr_keys_load.py)
+add_test(NAME yr-native-keys-load COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_keys_load.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-keys-load")
+set_tests_properties(yr-native-keys-load PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
+
 # ctest yr-native-save-dialog (lane N3): a save through the options menu's Save dialog (yr/tests/yr_save_dialog.py)
 add_test(NAME yr-native-save-dialog COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_save_dialog.py"
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"

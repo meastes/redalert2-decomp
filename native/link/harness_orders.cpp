@@ -60,7 +60,7 @@ bool Same(char const *a, char const *b, int n)
     for (int i = 0; i < n; ++i) if (a[i] != b[i]) return false;
     return true;
 }
-// `spawn <ID> [<dx> <dy>]` and `kill <ID>` (lane N4): a vehicle for the player beside its first techno, and the
+// `spawn <ID> [<dx> <dy>]` and `kill <ID>` (lane N4): a vehicle (lane N5: or a soldier) for the player beside its first techno, and the
 // player's first techno of a type destroyed through Take_Damage (coverage_runs.py n4-deaths).
 // A super weapon's target for `super <index> enemy`: a building, or with `units` a vehicle or
 // infantry standing on the map (kind 1 or 15; aircraft and anything in limbo at cell 0,0 are not).
@@ -257,9 +257,13 @@ int Scripted_Order(char const *command)
         // `spawn <ID> [<dx> <dy>]` (lane N4, test scaffolding): a vehicle of type ID for the player, on the first free
         // cell in rings around dx,dy cells from the player's first techno (UnitTypeClass::Create_One_Of, Unlimbo).
         // Logs `harness-spawn <ID> @x,y &<addr>`.
-        UnitTypeClass const *type = 0;
+        TechnoTypeClass const *type = 0;
         for (int i = 0; i < UnitTypes.Count() && type == 0; ++i) {
             if (Same_Type(UnitTypes[i]->ID.Buffer, word[2])) type = UnitTypes[i];
+        }
+        // lane N5: a soldier too (InfantryTypeClass::Create_One_Of), for coverage_runs.py n5-bomb's Crazy Ivan
+        for (int i = 0; i < InfantryTypes.Count() && type == 0; ++i) {
+            if (Same_Type(InfantryTypes[i]->ID.Buffer, word[2])) type = InfantryTypes[i];
         }
         TechnoClass *home = 0;
         for (int i = 0; i < Technos.Count() && home == 0; ++i) {
@@ -288,6 +292,27 @@ int Scripted_Order(char const *command)
         }
         fprintf(stderr, "harness-spawn: no room for %s\n", word[2]);
         return -1;
+    }
+    if (Same(word[1], "fire", 5) && words >= 4) {
+        // `fire <ID> <TARGET>` (lane N5, test scaffolding): the player's first techno of type ID force-fires at the
+        // first other techno of type TARGET, the player's own included (mission Attack with it as the target, the
+        // order a Ctrl click queues): a Crazy Ivan's bomb planted on the player's own vehicle. Logs
+        // `harness-fire <ID> &<attacker> <TARGET> &<target>`.
+        TechnoClass *attacker = 0, *target = 0;
+        for (int i = 0; i < Technos.Count() && attacker == 0; ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno && techno->House == PlayerPtr && techno->Techno_Type_Class()
+                && Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[2])) attacker = techno;
+        }
+        for (int i = 0; i < Technos.Count() && target == 0; ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno && techno != attacker && techno->Techno_Type_Class()
+                && Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[3])) target = techno;
+        }
+        if (attacker == 0 || target == 0) return -1;
+        Queue_Mission(TargetClass(attacker), 1, TargetClass(target), TargetClass());
+        fprintf(stderr, "harness-fire %s &%p %s &%p\n", word[2], (void *)attacker, word[3], (void *)target);
+        return 1;
     }
     if (Same(word[1], "kill", 5) && words >= 3) {
         // `kill <ID>` (lane N4, test scaffolding): the player's first techno of type ID takes its full strength in
@@ -335,6 +360,24 @@ int Scripted_Order(char const *command)
     // Capture (an engineer into a building), Sabotage (Tanya's C4: the building is the destination,
     // as a player's click gives it; Scout1231) or Attack.
     int attack_mission = Same(word[1], "capture", 8) ? 8 : Same(word[1], "sabotage", 9) ? 17 : 1;
+    if (Same(word[1], "hold", 5) && words >= 3) {
+        // `hold <ID>` (lane N5, test scaffolding): the production of ID put on hold, the right click on its cameo
+        // (SUSPEND, 0x0F: the event after PRODUCE; InfantryTypeClass kind 0x10, UnitTypeClass 0x28 as `train`).
+        HouseClass *player = PlayerPtr;
+        for (int i = 0; player && i < InfantryTypes.Count(); ++i) {
+            if (Same_Type(InfantryTypes[i]->ID.Buffer, word[2])) {
+                OutList.Add(EventClass(player->ArrayIndex, 0x0F, 0x10, i, 0));
+                return 1;
+            }
+        }
+        for (int i = 0; player && i < UnitTypes.Count(); ++i) {
+            if (Same_Type(UnitTypes[i]->ID.Buffer, word[2])) {
+                OutList.Add(EventClass(player->ArrayIndex, 0x0F, 0x28, i, 0));
+                return 1;
+            }
+        }
+        return -1;
+    }
     if (Same(word[1], "train", 6) && words >= 3) {
         // The barracks' cameo click: PRODUCE (0x0E) of InfantryTypeClass (kind 0x10) by its ID.
         HouseClass *player = PlayerPtr;

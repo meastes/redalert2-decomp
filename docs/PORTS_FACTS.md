@@ -195,11 +195,27 @@ platform layer. It earns no exact-match credit.
   Checked: ctest `yr-native-bridge-repair` (on the skirmish map Dead Man's, whose bridges start broken: an engineer
   repairs the bridge, C4 on the hut destroys it again, a second engineer repairs it). Needs a user check on the
   device: repair a bridge with an engineer.
+- Checked 2026-11-19 (lane N5): N4's fixes in the Simulator ("RA2 Duo Validation", `ios_sim_menus.py`, current main):
+  both games pass the walk, and two new checks: tanks' shells damage an enemy power plant (750 to 590) and an engineer
+  captures an enemy Tesla Reactor.
+- Saves of the original Yuri's Revenge (lane N5): five of the user's own saves from the PC (D:\Games\RA2, made in 2023,
+  campaign and skirmish) load in the port and play 1,500 frames; one also through the load dialog at 1024x768 and in
+  the one-game app after the switch from Red Alert 2. The user's reported crash did not reproduce. Checked: those runs,
+  and ctest `yr-native-save` with `--original-saves` pointed at them (the saves stay outside the repository). Not
+  verified: the installed Yuri's Revenge loading a save the port wrote.
+- Fixed 2026-11-19 (lane N5), found by tracing the functions still missing at the Mac link (110 -> 101) to keys and
+  play: in a Yuri's Revenge skirmish Tab (the Diplomacy screen: players, flags, alliances, kills) and the Delete key
+  stopped the game; loading a game, or starting a new one, while an explosion's light was on the map stopped it; hover
+  and mech units refusing a destination, and types with line trails, would have stopped it. Each is now a labelled
+  stand-in from gamemd.exe's instructions or the tree's own function under its other name. Checked: ctest
+  `yr-native-keys-load` (Tab shows the Diplomacy screen with both players and it closes, Delete, two lights alive, then
+  a load from the options menu that deletes them and plays on) and a screen dump of the Diplomacy screen. Needs a user
+  check on the device: Tab and Delete in a skirmish on the Mac (no keyboard Tab on the Duo).
 - Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
   idle animations), the lane Y14 fixes above, the team-button hold, and the lane N3 and N4 fixes above.
 - Still open: longer games may still reach functions not recovered yet (written as clearly
   labelled stand-in code when found; the Mac link closure, functions still missing, was 175
-  after lane Y14, 126 after lane Y16 and 110 after lane N3); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
+  after lane Y14, 126 after lane Y16, 110 after lane N3 and 101 after lane N5); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
 
 ## Not done or not supported
 

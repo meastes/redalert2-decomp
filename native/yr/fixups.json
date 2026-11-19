@@ -1573,6 +1573,16 @@
    "old": "\t\t\t\t\t\t\tconst char * filename = NULL;\n\n\t\t\t\t\t\t\tif (entry && entry->Valid) {\n\t\t\t\t\t\t\t\tfilename = entry->Filename;\n\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\tchar test_filename[256];\n",
    "new": "\t\t\t\t\t\t\tconst char * filename = NULL;\n\t\t\t\t\t\t\tchar test_filename[256];\t// NATIVE: declared here, see fixups.json\n\n\t\t\t\t\t\t\tif (entry && entry->Valid) {\n\t\t\t\t\t\t\t\tfilename = entry->Filename;\n\t\t\t\t\t\t\t} else {\n",
    "why": "lane N3: the Save dialog's new file name (SAVExxxx.SAV) was a char array declared inside the else block and used after it (filename points at it): VC6 kept the stack slot, the native compile reuses it, and the game saved under a garbage name and then reported 'Error saving' (the user's Mac report, 2026-11-19; reproduced through the menus in the packaged app). The same array, declared in the enclosing block."
+  },
+  {
+   "file": "src/radar.cpp",
+   "append": "radar_native.inc",
+   "why": "lane N5: RadarClass::FUN_00658330 (gamemd.exe 0x00658330, one player's row of the Diplomacy dialog) is unmatched in the YR tree and was a link-closure trap: Tab in a skirmish (Keyboard_Process -> FUN_006ABC40 -> SpecialDialog 8 -> FUN_006586D0) opens the Diplomacy dialog, whose first fill called it. A NON-EXACT stand-in from gamemd.exe's instructions, appended to the unit (it uses the unit's static control-id tables)."
+  },
+  {
+   "file": "src/link2.cpp",
+   "append": "link2_native.inc",
+   "why": "lane N5: LineTrail::LineTrail (gamemd.exe 0x00556A20) is unmatched in the YR tree and was a link-closure trap: ObjectClass::Unlimbo makes one for a type with UseLineTrail=yes. A NON-EXACT stand-in from gamemd.exe's instructions, appended to the unit."
   }
  ]
 }

@@ -38,6 +38,10 @@ REGION = (20, 400, 540, 520)      # the backdrop region in the 800x600 menu (men
 # an oil derrick's pump and flame play in the ground layer (yr-native-building-anims).
 N4_ORDERS = ('760 spawn CAHSE07 6 0; 761 spawn E1 2 3; 762 spawn MGTK 3 -3; 763 spawn CAOILD -4 3; 780 click E1 CAHSE07; '
              '800 camo MGTK 800; 1000 banims CAOILD; 1500 occupants CAHSE07')
+# Lane N5 (N4's IsStrange fix, checked on the Mac only): shells hit an enemy building (the bullet draft asked every
+# building whether it was a vehicle and let shots through) and an engineer captures one (Per_Cell_Process's branch).
+N5_ORDERS = ('1600 spawn GAPOWR enemy -7 -5; 1601 spawn NAPOWR enemy 7 -7; 1602 spawn ENGINEER 5 -4; 1620 list; '
+             '1630 fire MTNK GAPOWR; 1631 enter ENGINEER NAPOWR; 2600 list; 2601 owner NAPOWR')
 
 
 def tap(when, x, y):
@@ -132,7 +136,7 @@ def main():
                 # Lane N3 (the user's Duo report: the command bar's TypeSelect button crashed the game): a
                 # tank selected, the button tapped (@cmd=TypeSelect, glue/yr_app_hooks.cpp), every tank
                 # selected after.
-                env['RA2_NATIVE_ORDERS'] = '600 rects; 640 select MTNK 0; 700 groups MTNK; ' + N4_ORDERS
+                env['RA2_NATIVE_ORDERS'] = '600 rects; 640 select MTNK 0; 700 groups MTNK; ' + N4_ORDERS + '; ' + N5_ORDERS
                 lines += ['660 tdown @cmd=TypeSelect', '662 tup @cmd=TypeSelect']
             text = one.launch(a, game, ['--game=' + game], [lines], a.play_seconds, env)
             if 'unrecovered ' in text or 'crash: signal' in text:
@@ -194,6 +198,17 @@ def main():
                     failures.append('yr: the Mirage camouflage is not a tree in its colours (%s)' % (camo and camo.groups(),))
                 if sorted(a for a in anims if a[1:] == ('1', '2')) != sorted([('CAOILD_A', '1', '2'), ('CAOILD_F', '1', '2')]):
                     failures.append('yr: the derrick\'s animations are not in the ground layer (%s)' % anims)
+            if game == 'yr':
+                plant = re.findall(r'^harness-list h-?\d+ GAPOWR r\d+ s(\d+) ', text, re.M)
+                # the enemy's own base may hold a reactor too: the spawned one is the player's after the capture
+                taken = re.findall(r'^harness-owner NAPOWR h-?\d+ (p|e)', text, re.M)
+                print('yr: enemy power plant strength %s; tesla reactors after the engineer: %s' % (plant, taken))
+                if len(plant) == 2 and int(plant[1]) >= int(plant[0]):
+                    failures.append('yr: the tanks\' shells did not damage the enemy power plant (%s)' % plant)
+                elif not plant:
+                    failures.append('yr: the enemy power plant was not spawned')
+                if 'p' not in taken:
+                    failures.append('yr: the engineer did not capture the enemy reactor (%s)' % taken)
             for l in text.splitlines():
                 if l.startswith('host: touch controls:') or l.startswith('host: on-screen keyboard'):
                     print('%s: %s' % (game, l))
