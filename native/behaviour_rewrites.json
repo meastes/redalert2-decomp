@@ -1261,9 +1261,9 @@
    "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "SidebarClass::StripClass::AI (0x0067F466) asks it for a cameo whose build is on hold; the in-game-keys run right-clicks a cameo but did not reach it; a scripted hold remains to be written",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n6-sidebar: a GI's production started by a left click on the barracks' cameo (input script @cameo=E1): the strip marks the cameo building (+0x10 = 1, set only by the sidebar click, so the harness's PRODUCE event alone never reached it) and StripClass::AI asks the factory each frame",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n6-sidebar and report"
   },
   {
    "entry": "0x004B9430",
@@ -2359,9 +2359,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "BuildingClass::SensorArrayActivate (a building with a sensor array, e.g. the Psychic Sensor) marks the cells; no run built one",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n6-place: a psychic sensor (NAPSIS) put up for the player (harness `spawn`, now also buildings): BuildingClass::SensorArrayActivate marks the cells",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n6-place and report"
   },
   {
    "entry": "0x0047C390",
@@ -2374,9 +2374,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "BuildingClass::DisguiseDetectorDeactivate (the sensor building removed); no run built one",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n6-place: the psychic sensor destroyed (harness `kill NAPSIS`): the sensor array's cells unmarked",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n6-place and report"
   },
   {
    "entry": "0x0047C300",
@@ -3169,9 +3169,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "BombClass COM slot (GetClassID): saving a game while a bomb is planted; no run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n5-bomb: a Crazy Ivan (spawned for the player) plants a bomb on the player's own Flak Track (harness `fire IVAN HTK`) and the game is saved at frame 520 while it is planted: the save writes the bomb's class id",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n5-bomb and report"
   },
   {
    "entry": "0x004361D0",
@@ -3184,9 +3184,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "BombClass::Save: saving a game while a bomb is planted; no run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n5-bomb: as BombClass::GetClassID: the save at frame 520 writes the planted bomb",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n5-bomb and report"
   },
   {
    "entry": "0x004B53D0",
@@ -3486,9 +3486,9 @@
    "file": "native/link/behaviour_m26_building.cpp",
    "source": "parked draft build/class-work/Scout697/w/keep/mm.cpp (99.77, codex2/Scout697); TibSun building.cpp Do_MISSION_MISSILE",
    "notes": "rewritten over current headers (local velocity, EMP bullet null guard); Scout1208 (M26)",
-   "reach": "reviewed",
-   "reach_reason": "BuildingClass vtable slot 142 (Mission_Missile): a building in the missile mission (a super weapon building launching); behaviour verdict still open (rewritten from the 99.77 parked draft over current headers)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv",
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n6-place: a missile silo (NAMISL) put up for the player, then the nuke (super 0, MultiSpecial) fired at an enemy building: the silo runs its missile mission",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n6-place and report",
    "behaviour_verdict": "same apart from the documented native guard (no recorded super weapon ends the launch instead of reading SuperWeaponTypes[-1]) and a null check before the bullet's Release (the original calls it unchecked)",
    "behaviour_checked_by": "N2 2026-11-17: static check of the rewrite against the exe's instructions 0x00448400-0x00448FB4 and both jump tables (silo states 0-4, EM pulse states 0-3); Create_Animation_At_Object 0x00438B80 is the original's inlined PSIWARN sequence"
   },
@@ -4032,9 +4032,9 @@
    "notes": "Scout1281: the sidebar tab hot key (SetDefenseTabCommandClass::Execute 0x0051B0F0) reads it; a link-closure trap before (static reach from executed code, coverage battery)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "CreateTeamCommandClass / the sidebar defence-tab hot key (SetDefenseTabCommandClass::Execute 0x0051B0F0) with a building waiting for placement",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n6-sidebar: the defence tab's hot key (KEYBOARD.INI in the run's write folder binds DefenseTab to W) with the barracks up, so the defence column has a pillbox to build: SetDefenseTabCommandClass::Execute asks it",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n6-sidebar and report"
   },
   {
    "entry": "0x00617A00",
@@ -4109,9 +4109,9 @@
    "notes": "Scout1281 r32: the random map dialog's Load/Save/Delete Map (LoadOptionsClass::Dialog 0x0053B770 virtual slot): Save Map dialog title GUI:SaveMapMenu; a link-closure trap before (reached: skirmish, Customize Battle, Random Map, Generate Map, Save Map)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MapSeedClass vtable slot (the random map dialog's seed list, a LoadOptionsClass kind; made by MapGeneratorClass 0x00577015 and Do_Random_Map): the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n6-seeds: Choose Map, Create Random Map, Preview, then the random map dialog's Save seed button (0x6C3): the seed list's save dialog asks its caption",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n6-seeds and report"
   },
   {
    "entry": "0x00579730",
@@ -4290,9 +4290,9 @@
    "notes": "listed by lane N1 (the rewrite had no row). The outline from both axes as the original walks it; Put_Pixel for every pixel (the original stores 16-bit words through Lock for all but the four axis points: the same pixels on the game's 16-bit surfaces).",
    "behaviour_verdict": "differs, fixed: the M23 rewrite was one midpoint walk with a second region, which puts other pixels near where the two halves meet; rewritten to the original's two walks (top/bottom until 2*b2*x >= 2*a2*y, undrawn; sides until 2*a2*y > 2*b2*x, drawn), 32-bit products, a2/4 toward zero, no negative-radius guard",
    "behaviour_checked_by": "N1 2026-11-17: static check against the original's instructions",
-   "reach": "reviewed",
-   "reach_reason": "XSurface vtable slot 8 (DSurface/BSurface inherit it); Draw_Radial_Indicator 0x00451BF0 draws a selected or placed building's range circle with it (gap generators, psychic sensor, Iron Curtain placement)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n6-place: the psychic sensor and the gap generator (GAGAP) selected by a click (input script @NAPSIS, @GAGAP): Draw_Radial_Indicator draws their range circles",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n6-place and report"
   },
   {
    "entry": "0x004AC650",
@@ -4306,9 +4306,9 @@
    "notes": "listed by lane N1 (the rewrite had no row); its header comment lists what it keeps and its one known difference (the weight clamped to 0..256: the original indexes past the falloff table for an intensity above 1).",
    "behaviour_verdict": "same apart from the weight clamped to 0..256 (the original indexes past the falloff table for an intensity above 1) and a null AlphaBuffer (0x008315B4) returning false (the original checks only DepthBuffer 0x00839C6C and would fault); abuf/zbuf names are swapped against their classes but each reads the right buffer",
    "behaviour_checked_by": "N2 2026-11-17: static check against the original's instructions 0x004AC650-0x004ADDFD (falloff table, clip, sort, clipped-end depths, buffer setup, all four bodies, per-pixel test, blend and write_depth); callees matched by address only",
-   "reach": "reviewed",
-   "reach_reason": "DSurface vtable slot 15; LaserDrawClass::Draw_It 0x005334F0 (Prism towers, laser weapons) draws with it; the harness order laser reached it in M25",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n5-bomb: the harness order `laser` (four beams from the player's first building, LaserDrawClass::Draw_All); also n6-place",
+   "reach_checked_by": "N6 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n5-bomb and report"
   }
  ]
 }

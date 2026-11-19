@@ -911,6 +911,51 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   line in coverage_runs.py), `coverage_runs.py run ... n5-bomb n5-hold`, `report`, then mark rows in
   native/behaviour_rewrites.json `reach`. The Simulator walk was run before the N5 stand-ins (they are Mac-checked).
 
+### Lane N6 (2026-11-19): Red Alert 2's unreached rewrites, Choose Map, the hijack flake
+
+* **Red Alert 2's unreached rewrites: 105 -> 95** (native/behaviour_rewrites.json `reach` "reached in a coverage
+  run"; build/native-cov rebuilt, `coverage_runs.py run`, `report`). N5's `n5-bomb` reached BombClass::Save and
+  GetClassID (and the laser line); `n5-hold` reached nothing new: the strip asks UnknownFactory::Is_On_Hold only for a
+  cameo the sidebar's own click marked building (+0x10 = 1), never after the harness's PRODUCE event. New scenarios:
+  `n6-place` (RA2 harness `spawn` now also puts up buildings: a psychic sensor, a missile silo and a gap generator for
+  the player, each clicked, the nuke fired with the silo standing, the sensor destroyed: the sensor array's cell
+  marks 0x0047C380/0x0047C390, XSurface::Draw_Ellipse, BuildingClass::Do_MISSION_MISSILE) and `n6-sidebar` (a left
+  click on the barracks' cameo: Is_On_Hold; the defence tab's hot key, bound in a KEYBOARD.INI the scenario writes to
+  the run's write folder (`files`): 0x006F8A60). Tried without result: a bomb carrier killed before the bomb goes off
+  (BombClass::Disarm) and the mouse over it with a tank selected (BombClass What_Action), dropped. `lan_pair.py`'s
+  host now presses Tab twice in its lobby (for the network dialogs' Tab branch): run on the coverage build, it reached
+  none of the rows (the 4,000-frame coverage pair also stops short of Bravo's second Sound dialog, its exit 1);
+  ctest native-lan-pair passes with it. `n6-seeds`: the random map dialog's Save seed button opens the seed list's
+  save dialog (MapSeedClass::Save_Menu_Name); its Save did not save, so Load and Delete stayed disabled.
+* **Choose Map in a Yuri's Revenge skirmish stopped the game.** Found from the link closure (FUN_005E6920): the
+  skirmish lobby's Choose Map (0x5AA) -> Scenario_Dialog -> the dialog's procedure, 0x005E6920, which the pinned tree
+  declares and never defines. glue/netshare_native.inc now has it, text adopted from a later ra2-decomp (commit
+  5a94489, Scenario_DlgProc and its inline helpers) under the pinned tree's names (0x00608070 is its
+  WS_Save_Dialog_Values). ctest `yr-native-choose-map` (yr/tests/yr_choose_map.py): the lobby's own map started, then
+  Choose Map, a row clicked, OK, Start Game: the other map is played (XMP29U2 -> XMP02T2 in the first run), no trap.
+  Link closure 101 -> 100. **Still stopping**: the dialog's Create Random Map (0x583 -> CreateRandomMap ->
+  Do_Random_Map_Dialog -> MapGeneratorClass::Generate_Random_Map), the random map generator being missing from the
+  YR tree (Generate_Random_Map, Split_Region, Create_Region_From_Cell, Grow_Water_Region, Load_Settings,
+  Pick_Random_Tile_Variant, Blit_Preview, Preview_Tile; the latest ra2-decomp lacks them too).
+* **The hijack flake** (yr-native-standins, N5): reproduced, 2 of 4 runs, tied to the start position (one corner
+  failed both times, the other passed both). Cause: the YR harness split an order into at most 4 words, so `spawn
+  TRUCKA enemy 13 0` lost its offset (as every `spawn <ID> enemy <dx> <dy>` since lane P1) and the truck went on the
+  first free cell in rings from the base, up to 11 cells from the thief (63,18 against 74,20; 50,95 against 61,97),
+  who had only the 300 frames to 1250. Also, under load (other lanes' builds) the 170 s run reached only 1,229-1,343
+  frames, so frame 1250 was at its end or past it. With the truck 4 cells from the thief the thief still stood still
+  at that corner (74,20, mission 5 guard at frame 1250: the capture was dropped; the cell 9 east of that base is
+  probably cut off, not traced). Now: orders take 8 words; `spawn` takes `near <OTHER> <dx> <dy>` (the offset from the
+  player's first OTHER); the thief is placed 3,3 from the base and the truck 3 cells from the thief; the run is 220 s
+  (ctest timeout 400 s) and says so when it ends before frame 1250; `owner` lines carry the cell and mission
+  (`@x,y m<mission>`). The Simulator walk's N5 orders (`spawn GAPOWR enemy -7 -5`, `spawn NAPOWR enemy 7 -7`) now get
+  their offsets too, as written: the walk was not rerun. Checked: 4 of 4 runs pass after the change, two at each of
+  the two start corners (the failing one included), one of them under load (1,346 frames in 220 s).
+* **Resume note (lane N6)**: item 1 (Red Alert 2's unreached rewrites, 95 left): next, a player leaving a LAN
+  game (Destroy_Connection) and other LAN branches, the seed list's Load/Delete (why n6-seeds' Save did not save), BombClass::Disarm (an engineer or a bombed unit entering a transport). Item 3
+  (Yuri's Revenge's missing functions, 100): the one a player can click is Create Random Map (PORTS_REMAINING
+  "Suggested order" 5); the rest are online, coop, modem, VQA or Tiberian Sun paths (traced by lanes N5/N6). The
+  Simulator walk was not run after the YR order fix (its N5 enemy spawns now get their offsets).
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

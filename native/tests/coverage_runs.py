@@ -58,11 +58,13 @@ SKIRMISH = 'click 834 388'
 START_GAME = 'click 834 346'
 
 
-def skirmish(name, frames, order='all', extra=(), env=None, seconds=None, audio=False, movies=False, map_='#5'):
+def skirmish(name, frames, order='all', extra=(), env=None, seconds=None, audio=False, movies=False, map_='#5',
+             script=None, files=None):
     seconds = seconds or max(120, frames // 15 + 60)
     return dict(name=name, args=['--skirmish=' + map_, '--skirmish-frames=%d' % frames, '--skirmish-order=' + order,
                                  '--run-to=frames', '--run-seconds=%d' % seconds, AUDIO if audio else NOAUDIO] + list(extra),
-                env=env or {}, seconds=seconds + 60, movies=movies)
+                env=env or {}, seconds=seconds + 60, movies=movies,
+                **({'script': script} if script else {}), **({'files': files} if files else {}))
 
 
 def menus(name, script, seconds, env=None, audio=False, movies=False, extra=()):
@@ -99,9 +101,25 @@ SCENARIOS = [
     skirmish('n5-bomb', 1500, order='both', seconds=300, env=dict(RA2_NATIVE_SAVE_AT='520,BOMB.SAV', RA2_NATIVE_ORDERS=(
         '300 spawn IVAN 2 2; 310 spawn HTK 5 0; 330 fire IVAN HTK; 500 health; 700 laser; 900 health'))),
     # Lane N5: a soldier's production put on hold (a right click on its cameo: SUSPEND), the sidebar's strip asking
-    # its factory whether it is on hold (UnknownFactory::Is_On_Hold).
+    # its factory whether it is on hold (UnknownFactory::Is_On_Hold). Lane N6: it does not: only the sidebar's own
+    # click marks a cameo building, and the strip asks only then (n6-sidebar reaches it); kept for the SUSPEND path.
     skirmish('n5-hold', 2400, order='win', seconds=400, env=dict(RA2_NATIVE_BUILD_LIST='GAPOWR,GAPILE,GAREFN',
         RA2_NATIVE_ORDERS='1400 train E1; 1401 train E1; 1420 hold E1; 1800 train E1; 1820 hold E1; 2200 train E1')),
+    # Lane N6: buildings spawned for the player: a psychic sensor (its sensor array marks the cells), a missile silo
+    # and a gap generator, each selected by a click (the range circle: XSurface::Draw_Ellipse); the nuke fired with
+    # the silo standing (the silo's missile mission), the sensor destroyed (the cells unmarked).
+    skirmish('n6-place', 1500, order='both', seconds=320, env=dict(RA2_NATIVE_ORDERS=(
+        '300 spawn NAPSIS 7 5; 310 spawn NAMISL -7 5; 320 spawn GAGAP 0 8; 600 super 0 enemy; 1100 kill NAPSIS')),
+        script=['360 click @NAPSIS', '380 move @NAPSIS+2,0', '420 click @GAGAP', '440 move @GAGAP+2,0',
+                 '500 click @NAMISL', '520 move @NAMISL+2,0']),
+    # Lane N6: production started by a left click on the barracks' cameo (the strip marks it building and asks
+    # its factory whether it is on hold: UnknownFactory::Is_On_Hold), held, resumed; then the defence tab's hot key
+    # (KEYBOARD.INI in the run's write folder binds DefenseTab to W) with a pillbox buildable
+    # (SetDefenseTabCommandClass::Execute asks for the building waiting for placement, 0x006F8A60).
+    skirmish('n6-sidebar', 1400, order='build', seconds=320, env=dict(RA2_NATIVE_BUILD_LIST='GAPOWR,GAPILE'),
+             script=['900 click @tab=2', '935 click @cameo=E1', '1000 rclick @cameo=E1',
+                     '1060 click @cameo=E1', '1200 key W', '1250 click @tab=0', '1300 key W'],
+             files={'KEYBOARD.INI': '[Hotkey]\nDefenseTab=87\n'}),
     # Lane N4: the clicks the in-game runs did not make: a Ctrl+Alt click (the area-guard cursor), a waypoint path
     # that comes back to its first waypoint (waypoint mode's path cell), a Shift click and release on a selected unit.
     dict(name='n4-ui', args=['--skirmish=#5', '--skirmish-frames=900', '--skirmish-order=both', '--run-to=frames',
@@ -117,6 +135,12 @@ SCENARIOS = [
     # Preview (0x620: the map generated) and its accept (0x6C5).
     menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
                          's4+2500 click @ctl=1411', 's5+3000 click @ctl=1568', 's5+40000 click @ctl=1733', 's6+3000 ' + START_GAME], 200),
+    # Lane N6: the random map dialog's Save seed button (0x6C3) after a preview opens the seed list's save dialog
+    # (MapSeedClass, a LoadOptionsClass kind: MapSeedClass::Save_Menu_Name). Its Save (0x527) did not save there (not
+    # traced), so Load (0x6C2) and Delete (0x6C4), enabled only with a saved seed, stay out of reach.
+    menus('n6-seeds', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
+                       's4+2500 click @ctl=1411', 's5+3000 click @ctl=1568', 's5+40000 click @ctl=1731',
+                       's6+3000 click @ctl=1319', 's6+6000 click @ctl=1670'], 200),
     # Seven computer opponents on a four-player map, longer: their specials and super weapons.
     skirmish('ai-crowd', 9000, order='all', map_='#10', seconds=900,
              env=dict(RA2_NATIVE_SKIRMISH_AI='3', RA2_NATIVE_SKIRMISH_AI_LEVEL='2')),
@@ -219,6 +243,9 @@ def play(s, a):
     if 'harness' in s:      # another test harness that starts the games itself (its children inherit UBSAN_OPTIONS)
         cmd = [sys.executable, '-B', os.path.join(HERE, s['harness'])] + [
             x.format(binary=a.binary, data=a.data_dir, exe=a.game_exe, work=os.path.join(d, 'w')) for x in s['args']]
+    for rel, text in s.get('files', {}).items():     # files the run reads ahead of the installation's (lane N6)
+        with open(os.path.join(d, 'w', rel), 'w') as f:
+            f.write(text)
     if 'script' in s:
         path = os.path.join(d, 'input.script')
         with open(path, 'w') as f:

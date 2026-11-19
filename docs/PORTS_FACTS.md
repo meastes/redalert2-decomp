@@ -211,11 +211,24 @@ platform layer. It earns no exact-match credit.
   `yr-native-keys-load` (Tab shows the Diplomacy screen with both players and it closes, Delete, two lights alive, then
   a load from the options menu that deletes them and plays on) and a screen dump of the Diplomacy screen. Needs a user
   check on the device: Tab and Delete in a skirmish on the Mac (no keyboard Tab on the Duo).
+- Fixed 2026-11-19 (lane N6), found by tracing the functions still missing at the Mac link (101 -> 100): in a Yuri's
+  Revenge skirmish the lobby's Choose Map stopped the game as its dialog opened (its window procedure, gamemd.exe
+  0x005E6920, is declared and never defined in the pinned ra2-decomp tree). Now in glue/netshare_native.inc, text
+  adopted from a later ra2-decomp. Checked: ctest `yr-native-choose-map` (the lobby's map started once, then Choose
+  Map, a row clicked, OK, Start Game: the game starts on the other map, no trap). Still stopping: that dialog's Create
+  Random Map (the random map generator is missing from the YR tree). Needs a user check: Choose Map in a Yuri's
+  Revenge skirmish on the Mac and the Duo.
+- The yr-native-standins hijack flake (lane N6): two causes, both in the test. The truck's offset was lost (the YR
+  harness kept 4 words of an order; now 8) and it could land 11 cells from the thief at some start positions (2 of 4
+  runs failed, the same corner both times), and
+  under load the 170 s run reached frame 1250, where it is checked, only just or not at all. The thief is now placed
+  3,3 from the base and the truck 3 cells from the thief (harness `spawn ... near CIV1`), and the run is 220 s. Checked: four runs after the change
+  (see native/yr/README.md, lane N6).
 - Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
   idle animations), the lane Y14 fixes above, the team-button hold, and the lane N3 and N4 fixes above.
 - Still open: longer games may still reach functions not recovered yet (written as clearly
   labelled stand-in code when found; the Mac link closure, functions still missing, was 175
-  after lane Y14, 126 after lane Y16, 110 after lane N3 and 101 after lane N5); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
+  after lane Y14, 126 after lane Y16, 110 after lane N3, 101 after lane N5 and 100 after lane N6); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
 
 ## Not done or not supported
 
@@ -232,7 +245,12 @@ platform layer. It earns no exact-match credit.
   clicks and a closed waypoint path; `n4-randmap`, a random map generated and played 4,000+ frames; and a chat
   line typed in `lan_pair.py`'s game): Shake_The_Screen, Audio_Event_Handle_Set, Planning_Active, a FootClass
   slot, two of the random map generator, MessageListClass::Get_Edit_Buf and IME_Stub1 (`reach`: "reached in a
-  coverage run"). 105 remain reviewed but unreached.
+  coverage run"). Lane N6 (2026-11-19) reached 10 more: the scenarios `n5-bomb` (a bomb planted on the player's own
+  vehicle and a save while it is planted: BombClass::Save and GetClassID; the laser beams), `n6-place` (a psychic
+  sensor, a missile silo and a gap generator spawned for the player and clicked: the sensor array's cell marks, the
+  range circles' Draw_Ellipse, the silo's missile mission when the nuke is fired) and `n6-sidebar` (a cameo clicked
+  in the sidebar: the factory's on-hold check; the defence tab's hot key, bound in a KEYBOARD.INI of the run's own)
+  and `n6-seeds` (the random map dialog's Save seed: MapSeedClass::Save_Menu_Name). 95 remain reviewed but unreached.
   Every one of the 311 rewrite rows now carries a behaviour verdict against the original (lane N2,
   2026-11-17: the last 31, the hand-written-assembly ones among them, checked statically): 299 the
   same (some apart from named, harmless edge cases), 4 fixed, 1 different by design, 3 kept (the

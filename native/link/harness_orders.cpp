@@ -36,6 +36,8 @@
 #include "shared/event.hpp"
 #include "shared/infantry_type.hpp"
 #include "shared/unit_type.hpp"
+#include "shared/building_type_class.hpp"
+#include "shared/building_type_list.hpp"
 #include "shared/super.hpp"
 #include "shared/super_weapon_type.hpp"
 #include "shared/laser_draw.hpp"
@@ -264,6 +266,11 @@ int Scripted_Order(char const *command)
         // lane N5: a soldier too (InfantryTypeClass::Create_One_Of), for coverage_runs.py n5-bomb's Crazy Ivan
         for (int i = 0; i < InfantryTypes.Count() && type == 0; ++i) {
             if (Same_Type(InfantryTypes[i]->ID.Buffer, word[2])) type = InfantryTypes[i];
+        }
+        // lane N6: a building too (BuildingTypeClass::Create_One_Of; Unlimbo puts it up at once, no build-up), for
+        // coverage_runs.py n6-place: a psychic sensor, a missile silo and a gap generator for the player.
+        for (int i = 0; i < BuildingTypes.Count() && type == 0; ++i) {
+            if (Same_Type(BuildingTypes[i]->ID.Buffer, word[2])) type = BuildingTypes[i];
         }
         TechnoClass *home = 0;
         for (int i = 0; i < Technos.Count() && home == 0; ++i) {

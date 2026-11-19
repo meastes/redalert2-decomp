@@ -188,7 +188,7 @@
   {
    "file": "src/netshare.cpp",
    "append": "netshare_native.inc",
-   "why": "LBSaveSelections (0x005E5F10, the network lists' kept selections) is unmatched in the YR tree; a native draft from gamemd.exe's code (lane YW, LAN)."
+   "why": "LBSaveSelections (0x005E5F10, the network lists' kept selections) is unmatched in the YR tree; a native draft from gamemd.exe's code (lane YW, LAN). Lane N6: also the Choose Map dialog procedure (0x005E6920, the tree's FUN_005E6920, declared and never defined: Choose Map in a skirmish was a link-closure trap), text adopted from a later ra2-decomp."
   },
   {
    "file": "src/wsproto.cpp",

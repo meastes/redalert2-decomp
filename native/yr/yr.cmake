@@ -282,7 +282,7 @@ set_tests_properties(yr-native-combat PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 360
 add_test(NAME yr-native-standins COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_standins.py"
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-standins" --seconds 120)
-set_tests_properties(yr-native-standins PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
+set_tests_properties(yr-native-standins PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
 
 # ctest yr-native-graphics (lane Y14): no noise drawn while the MCV deploys and a Grizzly first moves
 # (a vehicle's uncached voxel picture through the eight-bit drawer; yr/tests/yr_graphics.py)
@@ -366,6 +366,13 @@ add_test(NAME yr-native-save-dialog COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-save-dialog")
 set_tests_properties(yr-native-save-dialog PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
+
+# ctest yr-native-choose-map (lane N6): the skirmish lobby's Choose Map, a row clicked, OK, the game started on that
+# map (yr/tests/yr_choose_map.py; the dialog's procedure was a link-closure trap)
+add_test(NAME yr-native-choose-map COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_choose_map.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-choose-map")
+set_tests_properties(yr-native-choose-map PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
 
 # ctest yr-native-campaign-allied / -soviet (lane Y12): each side's campaign through the menus, its seven
 # missions won in turn (RA2_NATIVE_FORCE_END) through their score screens, the final movie, the credits

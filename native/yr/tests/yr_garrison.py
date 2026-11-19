@@ -36,7 +36,7 @@ standins = importlib.import_module('yr_standins')
 ORDERS = ('60 spawn CAHSE07 6 0; 81 click E1 CAHSE07; 82 owner E1; 700 occupants CAHSE07; 700 owner E1; '
           '710 deploy CAHSE07; 800 occupants CAHSE07; 800 owner E1')
 OCCUPANTS = re.compile(r'^harness-occupants CAHSE07 h(-?\d+) (\d+)(p?)$', re.M)
-OWNER = re.compile(r'^harness-owner E1 h(-?\d+) ([pe])( limbo)? &(\S+)$', re.M)
+OWNER = re.compile(r'^harness-owner E1 h(-?\d+) ([pe])( limbo)? &(\S+)(?: @-?\d+,-?\d+ m-?\d+)?$', re.M)   # lane N6: the cell and mission after
 ORDER_DONE = re.compile(r'^harness-order (\d+) owner E1: ', re.M)
 
 

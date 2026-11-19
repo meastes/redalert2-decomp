@@ -36,7 +36,8 @@
 //   spawn <ID> [enemy] [<dx> <dy>]  a techno of type ID (a vehicle, infantry or a building) for the player, or with
 //                   `enemy` for the strongest house that is not the player's ally (most buildings, not the civilians), placed on the first
 //                   free cell near the player's first building (2 cells and further off, or dx,dy); logs
-//                   `harness-spawn <ID> h<house> @x,y &<addr>` (lane Y16: the stand-ins' tests);
+//                   `harness-spawn <ID> h<house> @x,y &<addr>` (lane Y16: the stand-ins' tests); `spawn <ID> [enemy]
+//                   near <OTHER> <dx> <dy>` places it from the player's first techno of type OTHER instead (lane N6);
 //   fire <ID> <TARGET>  the player's first unit of type ID attacks the nearest techno of type TARGET (the enemy's,
 //                   else any house's) (MISSION_ATTACK: a force-fire click's order); logs `harness-fire ...`;
 //   enter <ID> <TARGET> [capture|enter|hijack]  the player's first unit of type ID is sent into the nearest techno of
@@ -264,7 +265,7 @@ TechnoClass * First_Of(char const * id, HouseClass * house, bool not_house = fal
 }
 
 // spawn: the first free cell in rings around the player's first building (or first techno).
-int Spawn(char const * id, bool enemy, int dx, int dy, bool offset)
+int Spawn(char const * id, bool enemy, int dx, int dy, bool offset, char const * beside = NULL)
 {
 	ObjectTypeClass const * type = ObjectTypeClass::From_Name(id);
 	HouseClass * house = enemy ? Enemy_House() : PlayerPtr;
@@ -273,7 +274,13 @@ int Spawn(char const * id, bool enemy, int dx, int dy, bool offset)
 		return(-1);
 	}
 	Coord home;
-	if (PlayerPtr->Buildings.Count() > 0) home = PlayerPtr->Buildings[0]->Center_Coord();
+	TechnoClass * anchor = beside ? First_Of(beside, PlayerPtr) : NULL;
+	if (beside && anchor == NULL) {
+		fprintf(stderr, "harness-spawn: no %s of the player's to place %s near\n", beside, id);
+		return(-1);
+	}
+	if (anchor) home = anchor->Center_Coord();
+	else if (PlayerPtr->Buildings.Count() > 0) home = PlayerPtr->Buildings[0]->Center_Coord();
 	else {
 		TechnoClass * any = First_Of(Type_Name(Technos[0]), PlayerPtr);
 		for (int i = 0; i < Technos.Count() && any == NULL; ++i) if (Technos[i] && Technos[i]->House == PlayerPtr) any = Technos[i];
@@ -302,9 +309,9 @@ int Spawn(char const * id, bool enemy, int dx, int dy, bool offset)
 
 int Run_Order(int frame, char const * text)
 {
-	char word[4][32];
+	char word[8][32];		// lane N6: 8 words (was 4: `spawn <ID> enemy <dx> <dy>` lost its offset)
 	int words = 0;
-	for (char const * p = text; *p && words < 4;) {
+	for (char const * p = text; *p && words < 8;) {
 		while (*p == ' ') ++p;
 		if (!*p) break;
 		int n = 0;
@@ -371,8 +378,13 @@ int Run_Order(int frame, char const * text)
 	if (!strcmp(word[0], "spawn") && words >= 2) {
 		bool enemy = words >= 3 && !strcmp(word[2], "enemy");
 		int first = enemy ? 3 : 2;		// `spawn <ID> enemy <dx> <dy>`: the enemy's, placed at the offset (lane P1)
+		char const * beside = NULL;		// `... near <OTHER> <dx> <dy>`: the offset from the player's first OTHER (lane N6)
+		if (words >= first + 2 && !strcmp(word[first], "near")) {
+			beside = word[first + 1];
+			first += 2;
+		}
 		bool offset = words >= first + 2;
-		return(Spawn(word[1], enemy, offset ? atoi(word[first]) : 0, offset ? atoi(word[first + 1]) : 0, offset));
+		return(Spawn(word[1], enemy, offset ? atoi(word[first]) : 0, offset ? atoi(word[first + 1]) : 0, offset, beside));
 	}
 	if ((!strcmp(word[0], "fire") || !strcmp(word[0], "enter")) && words >= 3) {
 		TechnoClass * unit = First_Of(word[1], PlayerPtr);
@@ -412,8 +424,10 @@ int Run_Order(int frame, char const * text)
 		for (int i = 0; i < Technos.Count(); ++i) {
 			TechnoClass * techno = Technos[i];
 			if (techno == NULL || strcmp(Type_Name(techno), word[1])) continue;
-			fprintf(stderr, "harness-owner %s h%d %s%s &%p\n", word[1], techno->House ? techno->House->HeapID : -1,
-				techno->House == PlayerPtr ? "p" : "e", techno->IsInLimbo ? " limbo" : "", (void *)techno);
+			Cell cell = techno->Center_Coord().As_Cell();	// where it stands (lane N6: the hijack check's diagnosis)
+			fprintf(stderr, "harness-owner %s h%d %s%s &%p @%d,%d m%d\n", word[1], techno->House ? techno->House->HeapID : -1,
+				techno->House == PlayerPtr ? "p" : "e", techno->IsInLimbo ? " limbo" : "", (void *)techno, cell.X, cell.Y,
+				(int)techno->CurrentMission);
 			++n;
 		}
 		if (!n) fprintf(stderr, "harness-owner %s none\n", word[1]);

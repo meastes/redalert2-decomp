@@ -88,6 +88,8 @@ def orders(start, end, every):
 
 def host_script(frames):
     lines = ['s1+1000 click 834 388', 's2+1500 click 834 304', 's3+20000 click 834 346', 's3+24000 click 834 346']
+    # Lane N6: Tab twice in the host's lobby (the network dialogs' Tab handling, coverage_runs.py lanpair).
+    lines += ['s3+4000 key Tab', 's3+4500 key Tab']
     lines += ['%d %s' % e for e in EDGE]
     lines += orders(800, frames - 400, 600)
     # Lane N4: a chat line typed in the game (Return, H, I, Return: Message_Input, the edit line to everyone).

@@ -15,7 +15,7 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 | Item | State | What is done | What is left |
 |---|---|---|---|
-| Unreached rewrites | Partly done | 124 of 311 rewritten functions are reached by no test or play. N1 labelled each: 110 reachable in the base game and checked statically, 6 unreachable in the base game, 8 unreachable in the port. | Tests or scripted play that reach the 110, starting with the most-called. |
+| Unreached rewrites | Partly done | 124 of 311 rewritten functions were reached by no test or play. N1 labelled each: 110 reachable in the base game and checked statically, 6 unreachable in the base game, 8 unreachable in the port. Coverage runs have since reached 18 of the 110 (lane N4: 8; lane N6: 10, among them the sidebar's on-hold check, the defence tab's hot key, the missile silo's launch, the psychic sensor and range circles, the random map dialog's seed save). | 95 left (`reach` "reviewed"): mostly default virtual slots no caller uses on those classes, network-dialog branches, the random map dialog's seed list, audio voices. |
 | Drafts behaviour-checked | Done | All 311 rewrites have a verdict against the original (lane N2): 299 the same, 4 fixed, 1 different by design, 3 kept, 2 partly fixed, 2 not fixed. | Optional: the 2 partly fixed menu-control procedures (combo box paint, rare edit-control messages). |
 | One-command builds | Done | `native/build.sh` with `mac`, `mac-one`, `ios`, `windows`, `yr-windows` or `windows-one`. | Nothing (no signing or notarisation, by choice). |
 | iPad | Partly done | Simulator walk passes: import, menus, skirmish, touch play, 62 frames/s. | Not verified on a real iPad. |
@@ -25,7 +25,7 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 | Item | State | What is done | What is left |
 |---|---|---|---|
-| Skirmish stability | Mostly done | A 45-minute game against three hard AIs on the Mac has no fault, and a 10-minute ctest runs. | 101 functions still missing at the Mac link (110 before lane N5; the rest are Westwood Online, coop, modem, random-map, Tiberian Sun-only or editor paths). Each is written as a labelled stand-in when play reaches it. Longer and varied games will find more. |
+| Skirmish stability | Mostly done | A 45-minute game against three hard AIs on the Mac has no fault, and a 10-minute ctest runs. Lane N6: the skirmish lobby's Choose Map stopped the game (its dialog procedure was missing); fixed, ctest `yr-native-choose-map`. | 100 functions still missing at the Mac link (101 before lane N6; the rest are Westwood Online, coop, modem, random-map, Tiberian Sun-only or editor paths). **Choose Map's Create Random Map still stops the game**: the random map generator (Generate_Random_Map and 10 more) is missing from the YR tree. Longer and varied games will find more. |
 | Campaign trace and forced-win chain | Done | Both campaigns pass a test that forces each win in turn: all 14 missions, both endings, the credits and the return to the main menu. | Real wins are yours. |
 | Campaign stand-ins | Partly done | Stand-ins reached in play: Psychic Dominator, Lightning Storm, the beams and waves, the spy, the hijacker, the Lasher tank's drive tracks; lane N3: the trigger actions "create building at", "ion lightning strike" and "ion storm stop", range rings, beacons, the HealthNav/VeterancyNav keys (ctest `yr-native-standins-triggers`), planning mode from the command bar (ctest `yr-native-planning`; picking up planned waypoints with the mouse not written). | Bridge repair has a test since lane N4 (`yr-native-bridge-repair`; it found engineers vanishing without a repair, fixed). The War Factory's unload has a test (lane N3, `yr-native-war-factory`; it found vehicles staying inside the factory, fixed). The trace was static (callers of the missing functions); no mission was played through. |
 | Windows build | Partly done | `YRNative.exe` and the both-games `RA2YRNative.exe` are cross-built, pass under Wine, and are packaged on your PC. | Your run on the real PC. |
@@ -43,6 +43,9 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
    - fault, fixed by lane N3 (2026-11-19), please check again: Yuri's Revenge's command bar "select all units of this type" button crashed the game;
    - found and fixed by lane N5 (2026-11-19), please check: in a Yuri's Revenge skirmish, Tab (the Diplomacy screen) and
      the Delete key stopped the game; loading a game while explosions were lighting the map stopped it too;
+   - found and fixed by lane N6 (2026-11-19), please check: in a Yuri's Revenge skirmish lobby, Choose Map stopped the
+     game; now the map list opens and the chosen map is played. Its Create Random Map button still stops the game
+     (not written yet);
    - fault, fixed by lane N3 (2026-11-19), please check again: the on-screen keyboard didn't come up in Yuri's Revenge's text fields (the skirmish player name). Now a tap on the field raises it, as in Red Alert 2.
    - Mac app checks (the user, 2026-11-19, on build/mac-app/RA2YR.app, a stale build from 2026-11-17 11:20). Lane N3
      rebuilt the current app (`native/build.sh mac-one`) and walked each one through the menus in the packaged app
@@ -77,6 +80,10 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
    `yr-native-keys-load`).
 2. Done (lane N4): the bridge repair test, `yr-native-bridge-repair`; it found engineers vanishing into the hut without a
    repair (fixed).
-3. Reach Red Alert 2's unreached rewrites, most-called first (lane N4 started: a coverage scenario `n4-deaths` reached
+3. Reach Red Alert 2's unreached rewrites, most-called first (lane N6: 105 -> 95, scenarios `n6-place`, `n6-sidebar` and `n6-seeds`, `n5-bomb` run; lane N4 started: a coverage scenario `n4-deaths` reached
    3 more, Shake_The_Screen, Audio_Event_Handle_Set and Planning_Active, `n4-ui` one, FootClass slot 271, and `n4-randmap` two of the random map generator (the skirmish then played 4,000+ frames on a generated map), and a chat line in `lan_pair.py` two (MessageListClass::Get_Edit_Buf, IME_Stub1); 105 left as "reviewed").
 4. Yuri's Revenge LAN on two real machines once you can run the PC side.
+5. Yuri's Revenge's random map generator (Choose Map > Create Random Map), the one missing path found so far that a
+   skirmish player can click: Generate_Random_Map, Split_Region, Create_Region_From_Cell, Grow_Water_Region,
+   Load_Settings, Pick_Random_Tile_Variant, MapPreviewClass::Blit_Preview, IsometricTileTypeClass::Preview_Tile and
+   others, missing from the pinned and the latest ra2-decomp. Red Alert 2's own generator (native) is the model.

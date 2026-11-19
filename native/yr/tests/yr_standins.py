@@ -15,7 +15,7 @@ Player, Skirmish, Start Game; The Alamo against one easy opponent, as yr-native-
               are granted, charged and placed on the enemy's base;
   hijack      (lane P1) no infantry in Yuri's Revenge's rules is a vehicle thief, so a civilian (CIV1) is made one
               (`thief`: IsThief and IsVehicleThief) and sent, as a thief's click sends it, at an enemy truck
-              (TRUCKA, unarmed and not deployable) spawned away from the base and its guns: the truck becomes the
+              (TRUCKA, unarmed and not deployable) spawned 3 cells from the thief, away from the enemy's guns: the truck becomes the
               player's and the thief has gone into it (InfantryClass::Theft_AI / Per_Cell_Process; TechnoClass::GotHijacked is gamemd.exe's empty
               slot).
 
@@ -23,7 +23,7 @@ Checks: each order found its units; waves in flight; the targets were destroyed;
 truck hijacked; no link-closure trap or fault for the whole run. Skipped (77) without
 the installed game (gamemd.exe in --data-dir).
 
-  yr_standins.py --binary <yr-native> --data-dir <game folder> --work <dir> [--seconds 170]
+  yr_standins.py --binary <yr-native> --data-dir <game folder> --work <dir> [--seconds 220]
 """
 import argparse
 import os
@@ -51,7 +51,7 @@ ORDERS = ['60 spawn TELE', '61 spawn SREF', '62 spawn MGTK', '63 spawn HTNK enem
           '90 wave 0', '91 wave 3', '95 waves', '120 waves', '150 waves', '200 waves', '260 owner HTNK',
           '300 owner SPY', '320 super PsychicDominator enemy', '500 super LightningStorm enemy',
           '700 owner SPY', '900 owner HTNK',
-          '950 spawn CIV1 9 0', '950 thief CIV1', '951 spawn TRUCKA enemy 13 0', '952 owner TRUCKA',
+          '950 spawn CIV1 3 3', '950 thief CIV1', '951 spawn TRUCKA enemy near CIV1 3 0', '952 owner TRUCKA',
           '953 enter CIV1 TRUCKA hijack', '1250 owner TRUCKA', '1250 owner CIV1']
 BAD = re.compile(r'unrecovered|SIG(SEGV|BUS|ILL|ABRT|FPE)|crash:', re.I)
 
@@ -61,7 +61,7 @@ def main():
     ap.add_argument('--binary', required=True)
     ap.add_argument('--data-dir', default='')
     ap.add_argument('--work', required=True)
-    ap.add_argument('--seconds', type=int, default=170)
+    ap.add_argument('--seconds', type=int, default=220)
     a = ap.parse_args()
     if not a.data_dir or not os.path.exists(os.path.join(a.data_dir, 'gamemd.exe')):
         print('skipped: no Yuri\'s Revenge install (gamemd.exe) in --data-dir')
@@ -108,8 +108,15 @@ def main():
     print('standins spy: spies at frame 700 %s' % (spy or 'none'))
     if any(not x[2] for x in spy):
         failures.append('the spy is still on the map')
+    # Lane N6: the harness kept 4 words of an order, so `spawn TRUCKA enemy 13 0` lost its offset and the truck went on
+    # the first free cell in rings from the base, at some start positions 11 cells from the thief, who did not reach it
+    # by 1250 (the flake of lanes N5/N6: 2 of 4 runs). 4 cells from the thief, the thief 9 east of that base still
+    # never moved (its cell probably cut off), so the thief is 3,3 from the base and the truck 3 from it (`near CIV1`).
+    # Under load a 170 s run reached only about 1,240 frames (frame 1250 missed): 220 s now.
     truck_before, truck_after = owners(952, 'TRUCKA'), owners(1250, 'TRUCKA')
     thief_after = owners(1250, 'CIV1')
+    if not re.search(r'^harness-order 1250 owner TRUCKA', text, re.M):
+        failures.append('the run ended before frame 1250 (a slow machine: --seconds)')
     print('standins hijack: enemy truck %s at frame 952, %s at frame 1250; thieves left %d'
           % (truck_before or 'none', truck_after or 'none', len([x for x in thief_after if not x[2]])))
     if not re.search(r'^harness-thief CIV1$', text, re.M) or not re.search(r'^harness-enter CIV1 ', text, re.M):
