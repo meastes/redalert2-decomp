@@ -53,7 +53,7 @@
 /// <param name="type">The voxel animation type to create an instance of.</param>
 /// <param name="coord">The coordinate to create the animation at.</param>
 /// <param name="house">The house that owns the animation, or NULL if it belongs to nobody.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0070c800 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0070c800 has no row); main: best 99.19, tried 6 times (register, inline, order)
 VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass const * type, Coord const & coord, HouseClass * house) :
 	BASECLASS(),
 	Class((VoxelAnimTypeClass *)type),

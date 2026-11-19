@@ -668,7 +668,7 @@ done: // RA2: as above
  *   06/08/1994 JLB : If position is -1, then follow mouse.                                    *
  *   02/28/1995 JLB : Forces placement cursor to fit on map.                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004994d0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004994d0 has no row); main: best 78.48, tried 5 times (register, frame, layout)
 Cell DisplayClass::Set_Cursor_Pos(Cell const & xpos)
 {
 	Cell	prevpos;			// Last position of cursor (for jump-back reasons).
@@ -1943,7 +1943,7 @@ void DisplayClass::Mouse_Right_Release(Point2D const & point)
  *   02/24/1995 JLB : Created.                                                                 *
  *   07/05/1995 JLB : Removed pop up help text for shadow and terrain after #3.                *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0049b0f0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0049b0f0 has no row); main: best 62.84, tried 7 times (register, switch, layout)
 void DisplayClass::Mouse_Left_Up(Cell const & cell, bool shadow, ObjectClass * object, ActionType action, bool wsmall)
 {
 	IsTentative = false;

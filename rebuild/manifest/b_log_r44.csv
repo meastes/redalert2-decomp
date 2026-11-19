@@ -1,0 +1,10 @@
+unit,entry,function,bytes,class,first_try,minutes,note
+callblocks.py (tool),,callee-first map of the 137 call-bucket rows,0,,,30,"tools/callblocks.py: /Ob0 against /Ob2 objects and the original's direct calls give each caller's expanded callees; caller_blocks.csv holds the blocked callers, --recheck reports those released after a landing, --exact-index lists the exact rows that expand each inline-only callee (the step-2 suspects are callees no exact row expands). At HEAD: 137 rows 265,757 bytes; 12 blocked (40,469) before text verification, 4 (13,163) after"
+techtype,006df620,TechnoTypeClass::Load_Palette,32,b,yes,10,"Read_INI expands it in the original; carried from main (char[32] PaletteFile, Generate_Palette). Read_INI rechecked: still calls_differ (its own text)"
+techtype,006df640,Load_Techno_Palettes,61,b,yes,5,carried from main beside Load_Palette
+anim,00423ef0,DirType::Direction(Coord const &; Coord const &) (verify),0,,yes,5,"face.h text forced out of line (member pointer) in a scratch anim compile: exact. Not a blocker: fly Nearing_Target, hover Process, infantry Start_Driver, anim Flaming_Guy_AI differ by budget or their own text"
+missile,005940b0,DirType::operator+ (verify),0,,yes,2,face.h text forced out of line: exact
+map,0056aa20,TPoint2D<short>::operator+= (verify),0,,yes,2,point.h text forced out of line: exact (tactical Draw_Shroud is not blocked by it)
+map,0056bc00,HashTableClass::Add_Object(int; ...) (verify),0,,yes,2,hash header text forced out of line: exact (map Register_Zone_Connection_Entries not blocked by it)
+dropship,004a9af0,RGBClass::RGBClass(void) (verify),0,,yes,3,"rgb.h text forced out of line under #pragma inline_depth(0) in display: exact; the display and RulesClass constructors are not blocked by codex1's dropship"
+radio.h,,RadioClass::Contact_With_Whom,0,b,yes,15,"main's form (return Contact(0), i.e. Radio_Link(0)) replaces TibSun's RadioLinks[0]: the image calls the const Radio_Link 0x636E20 from Get_Z_Adjust 0x6CFEA0. No exact row expanded the old form (exact index); 89 includers checked, none lost. Get_Z_Adjust now has the original's calls (inline_body 475 vs 488 instructions), not exact"

@@ -67,6 +67,32 @@ Series break: before 2026-11-18T16:07Z `bytes_exact` counted only the lane's cat
 row on, `bytes_exact` counts every catalogued row and divides out to the share. The two percentages are
 comparable across the whole series; `bytes_exact` is comparable only from 16:07Z.
 
+## Working the parked tail
+
+Lane guidance (lane L1, 2026-11-19). Before working a parked row, read three things:
+
+1. Its bucket in `manifest/tail_buckets.csv` (`tools/tailmap.py`; `tools/tailmap.py --notes` prints the summary
+   without compiling) and the compiler notes for that bucket from `manifest/bucket_notes.csv`. Each bucket lists
+   the sections of main's `docs/VC6_MATCHING_NOTES.md` that address it; read only those, one at a time:
+   `python3 tools/original_target/notes_index.py --section "Register allocation"` (the index of every section is
+   `docs/VC6_MATCHING_INDEX.md`). In short: inline_call and not_emitted are inlining questions ("Inlining and
+   translation units", "/Ob2 inline decision rule", "Free and charged inline callees", "Named locals and the
+   inline budget", "Out-of-line helpers", "Inline constructors and template members"); register_order is
+   "Register allocation", "Call-argument scheduling" and the declaration-count sections; stack_layout is "Stack
+   frame layout (Study42)" and the frame-slot sections; unbound is binding ("Literals, function statics and data
+   order", "Select-any COMDAT copies"); calls_differ, no_draft and text_if0 start from the reference texts
+   ("Westwood source idioms", "From the ra2-decomp guide", "YR twin adoption").
+2. Its history on main in `manifest/tail_history.csv` (`tools/mainhist.py`, no compile): main's accepting commit
+   and date, flags, miss-index tries, the sessions whose commits name it, the notes sections that cite it, and
+   "first-try on main" or "hard on main". A hard row's main source (`main_source`) and the sessions named are the
+   first evidence; a first-try row that is hard here points at this tree's context (headers, unit order, a
+   missing neighbour), not at the row's text.
+3. For main's 96 never-matched functions, the guard label of the rebuild draft carries main's best score, tries
+   and causes ("main: best N, tried N times (...)"); a draft that does not beat it is not a finding.
+
+Compiler behaviours found here go back to main's notes, tagged "found in the rebuild (lane R...)", with the
+index regenerated (`python3 tools/original_target/notes_index.py --write docs/VC6_MATCHING_INDEX.md`).
+
 ## Rulings
 
 - **Alignment padding from the aligned split of the row's own pass** (lane R4, 2026-11-18). A row that

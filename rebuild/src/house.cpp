@@ -6627,7 +6627,7 @@ static DirType Rotate_Back_One_Facing(DirType const & dir)
  * HISTORY:                                                                                    *
  *   11/04/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004eca50 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004eca50 has no row); main: best 54.60, tried 5 times (frame, ruling, switch)
 Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 {
 	Coord coord;

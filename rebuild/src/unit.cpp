@@ -418,7 +418,7 @@ void UnitClass::Debug_Dump(MonoClass * mono) const
 /// tunnel's slope, and hands it back to the map at the far mouth. If the exit cell is
 /// already spoken for the unit waits underground, first shooing any idle occupier away.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006faa30 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006faa30 has no row); main: best 58.99, tried 8 times (frame, inline, bound)
 void UnitClass::Tunnel_AI(void)
 {
 	Coord coord;

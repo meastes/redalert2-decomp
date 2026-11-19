@@ -2128,7 +2128,7 @@ static RetcodeType Process_Serial_Packet(char *multi_packet_buf,
 /// player drags on, so the humans can see who the game is actually stalled on.
 /// </summary>
 /// <param name="window">The reconnect dialog that owns the bar controls.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00626cb0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00626cb0 has no row); main: best 75.78, tried 4 times (register, inline, order)
 void Draw_Sync_Bars(HWND window)
 {
 	for (int i = 0; i < Session.Players.Count(); i++) {
@@ -2997,7 +2997,7 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006282d0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006282d0 has no row); main: best 57.62, tried 6 times (register, frame, inline)
 int Extract_Compressed_Events(void * buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position

@@ -1,0 +1,5 @@
+unit,entry,function,bytes,bucket,status,blockers,carry
+building,0043e270,?Do_Destruction@BuildingClass@@UAEXPAVTechnoClass@@0_NPBVCell@@@Z,2340,calls_differ,blocked,coord:00491750:?Coord_Scatter@@YI?AVCoord@@ABV1@H_N@Z:parked:inline_call,coord:00491750
+ownrdraw,005ead20,?Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,7636,inline_call,blocked,ownrdraw:005edd30:?Restore_Child@OwnerDraw@@YGHPAUHWND__@@J@Z:parked:inline_call,ownrdraw:005edd30
+planmgr,00617900,?Planning_Mouse_AI@@YG_NHH@Z,252,inline_call,blocked,planmgr:00615d30:?Planning_Node_At@@YGPAVPlanningNodeClass@@HH@Z:parked:inline_call:codex1,
+wonline,00758750,?Buddy_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,2935,calls_differ,blocked,wonline:007562b0:?Update_Buddy_Profile@@YIXPAUHWND__@@@Z:parked:inline_call,wonline:007562b0

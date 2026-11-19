@@ -2594,7 +2594,7 @@ double TechnoClass::Area_Modify(Cell const & cell) const
  *   10/05/1995 JLB : Gives greater weight to designated enemy house targets.                  *
  *   02/16/1996 JLB : Added additional threat checks.                                          *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006c5570 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006c5570 has no row); main: best 91.81, tried 10 times (order, register, frame)
 bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, TechnoClass const * object, int & value, int zone, Coord const & coord) const
 {
 	assert(object != NULL);
@@ -6652,7 +6652,7 @@ void TechnoClass::Draw_Action_Line(Coord from, Coord to, RGBClass color, unsigne
 /// <summary>
 /// Draws a link line between two spots in 32 pieces whose brightness runs along the line over time.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006d0990 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006d0990 has no row); main: best 86.96, tried 6 times (frame, register, inline)
 void TechnoClass::Draw_Link_Line(Coord start, Coord end, RGBClass color) const // RA2: not in TibSun, at 0x6D0990
 {
 	RGBClass white(255, 255, 255);

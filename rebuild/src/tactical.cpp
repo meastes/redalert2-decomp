@@ -1022,7 +1022,7 @@ void Tactical::Render_Terrain(Rect const & xpanrect, Rect const & ypanrect, bool
 /// <param name="surface">The composite surface the foreground objects are drawn onto.</param>
 /// <param name="fullredraw">Redraw the whole view rather than just the scrolled strips?</param>
 /// <param name="drawpass">Which rendering pass to perform. See DrawPassType.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a45a0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a45a0 has no row); main: best 64.69, tried 13 times (register, layout, frame)
 void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 {
 	/*
@@ -2332,7 +2332,7 @@ void Tactical::Draw_Tiles(Rect const & area, Rect const & cliprect)
 /// </summary>
 /// <param name="area">The pixel rectangle whose cells are scanned.</param>
 /// <param name="cliprect">The rectangle the pixels are clipped to.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a7e80 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a7e80 has no row); main: best 86.26, tried 4 times (frame, register, order)
 void Tactical::Draw_Pixel_Effects(Rect const & area, Rect const & cliprect) // RA2: not in TibSun, at 0x6A7E80
 {
 	static unsigned LastTime;
@@ -2463,7 +2463,7 @@ void Tactical::Draw_Tile_Shadows(Rect const & area, Rect const & cliprect)
 /// </summary>
 /// <param name="cell">The cell whose tile needs refreshing.</param>
 /// <param name="cliprect">Not referenced; the tiles clip to the tactical rectangle.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a8560 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a8560 has no row); main: best 63.04, tried 7 times (inline, frame, register)
 void Tactical::Draw_Tiles(Cell const & cell, Rect const & cliprect)
 {
 	CellClass * basecell = &Map[cell];
@@ -4049,7 +4049,7 @@ static inline void World_To_View_Pixel(Tactical const & view, Coord const & coor
 /// This routine is used by the tactical map render pass to show the effect radius of any
 /// currently selected object whose type asks for one.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 78.52, tried 7 times (layout, register, ruling)
 void Tactical::Draw_Radial_Indicators(void)
 {
 	int count = CurrentObject.Count(); // RA2: the count is read once, before the loop (0x6AC42B)

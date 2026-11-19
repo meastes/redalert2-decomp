@@ -1080,7 +1080,7 @@ void MapRegionClass::Increase_Height(char cell_height)
 /// neighbor instead. A region marked unsplittable is left well alone.
 /// </summary>
 /// <returns>bool; Was the region split?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0056ef20 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0056ef20 has no row); main: best 70.68, tried 6 times (bound, frame, order)
 bool MapRegionClass::Split_Region(void)
 {
 	int i, j;
@@ -2977,7 +2977,7 @@ void MapRegionClass::Place_Start_Points(int first_waypoint) // RA2: not in TibSu
 /// </summary>
 /// <returns>bool; Was a start location found for every player? RA2 always says so.</returns>
 bool Generate_Starting_Points(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00576420 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00576420 has no row); main: best 64.79, tried 5 times (frame, register, inline)
 bool Generate_Starting_Points(void)
 {
 	MZoneType mzones[5] = {MZONE_AMPHIBIOUS, MZONE_AMPHIBIOUS, MZONE_AMPHIBIOUS, MZONE_NORMAL, MZONE_NORMAL}; // RA2: RA2's form (zone regions, shared out by size)
@@ -3253,7 +3253,7 @@ void MapSeedClass::Set_Default_Description(void) // RA2: not in TibSun, at 0x576
 /// The game keeps a single generator for its whole run; this routine merely puts it into the
 /// idle state it must be in before the first map is asked of it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00577010 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00577010 has no row); main: best 86.79, tried 2 times (inline, asm, layout)
 MapGeneratorClass::MapGeneratorClass(void) :
 	SeedData(),
 	MapSeeder(NULL),
@@ -4643,7 +4643,7 @@ inline double Sample_Truncated_Normal_Inline(double mean, double scale, double l
 /// Reads the random map generator's settings from RMG.INI's General section: the tiberium limits, the level light
 /// and theater ambient light lists, the vegetation limits, the tree count and the buildings that light ore patches.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00579960 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00579960 has no row); main: best 61.57, tried once
 void MapGeneratorClass::Read_RMG_INI(void) // RA2: not in TibSun, at 0x579960; near miss, exact size: the exe expands the second Get_IntList assignment inline (copying three fields) where this build still calls DynamicVectorClass<int>::operator= for it, so the exe keeps the second and third list address in registers
 {
 	static char const * section = "General"; // RA2: the section name is a static pointer (0x7E0BE4), read for every key
@@ -5799,7 +5799,7 @@ bool MapGeneratorClass::Cell_In_Generation_Shape(Cell const & cell, Rect const &
 /// the region's shores are then built. If the shores cannot be built, the region is flooded again.
 /// </summary>
 /// <returns>The number of cells taken, or 0 when no seed was found or the region was flooded again.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0057d3a0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0057d3a0 has no row); main: best 74.41, tried 3 times
 int MapGeneratorClass::Spread_Land(int count, Rect const & bounds, Point2D const & seed, bool shaped, Cell const & center, double wander, bool weighted)
 {
 	if (count <= 400) {
@@ -7256,7 +7256,7 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Build_Region_Border_Cell_List(int i
 /// <param name="origin">Reference origin used when computing the spread angle.</param>
 /// <param name="claim_frontier">When true, drain the remaining frontier into the region.</param>
 /// <returns>True if the region grew without colliding with another region.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (its callers Seed_River and Place_Waterfall are not exact, so no row bounds it)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (its callers Seed_River and Place_Waterfall are not exact, so no row bounds it); main: best 90.35, tried 11 times (inline, layout, order)
 bool MapGeneratorClass::Grow_Water_Region(int region_id, float spread_scale, Rect const & bounds, Cell const & origin, bool claim_frontier)
 {
 	CellNode * nodes = new CellNode[MAX(2 * LocalHeight * LocalWidth, 100)];

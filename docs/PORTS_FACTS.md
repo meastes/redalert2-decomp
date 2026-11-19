@@ -237,6 +237,16 @@ platform layer. It earns no exact-match credit.
   Map, Preview, OK, Start Game: the generated map is played with the player's units, past frame 600, no trap); 6 of 6
   runs with both players' units after the Zone_Reset fix. Link closure 100 -> 89. Needs a user check: Create Random Map
   in a Yuri's Revenge skirmish on the Mac and the Duo (Preview, OK, Start Game).
+- Fixed 2026-11-19 (lane N13), the user's Duo report: Yuri's Revenge's Guardian GIs did not deploy (in the first
+  Allied mission they are meant to deploy by themselves and instead stood and died). Every soldier that deploys was
+  affected: the Guardian GI, the GI and the Desolator started their deploy animation and stayed in its first frame for
+  ever. The cause was data, not code: the table of the soldiers' actions (how fast each animation runs) has 42 entries
+  in Yuri's Revenge, but the port read only the first 21 from the user's gamemd.exe (Tiberian Sun's count, from the
+  header the tree inherits); deploy is entry 27, so its speed came out as 0. The cursor table had the same fault (86
+  cursors, 66 read): Yuri's Revenge's own cursors read other data; also fixed. Checked: ctest `yr-native-deployers`
+  (a Guardian GI, a GI and a Desolator deploy and undeploy on command, a Siege Chopper deploys, and in the first Allied
+  mission all 10 Guardian GIs are deployed by frame 300; before the fix 0 of 10, all stuck) and the Yuri's Revenge
+  ctests on the Mac. Needs a user check on the Duo: the first Allied mission's Guardian GIs, and deploying a GI.
 - The yr-native-standins hijack flake (lane N6): two causes, both in the test. The truck's offset was lost (the YR
   harness kept 4 words of an order; now 8) and it could land 11 cells from the thief at some start positions (2 of 4
   runs failed, the same corner both times), and

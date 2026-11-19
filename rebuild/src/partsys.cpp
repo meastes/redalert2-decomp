@@ -464,7 +464,7 @@ void ParticleSystemClass::Spark_AI(void)
 /// either side, so that the column spreads as it rises. Fresh particles are emitted on the
 /// spawn interval, which lengthens as the system tires until it finally retires.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0060bb70 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0060bb70 has no row); main: best 54.23, tried 8 times (inline, frame, register)
 void ParticleSystemClass::Smoke_AI(void)
 {
 	int i;

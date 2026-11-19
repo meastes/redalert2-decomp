@@ -301,7 +301,7 @@ inline wchar_t * Credits_Wide_Text (const char *strstart) // RA2: lines are wide
  * HISTORY:                                                                                    *
  *    9/10/96 0:20AM ST : Created                                                              *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004b37c0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004b37c0 has no row); main: best 99.54, tried 10 times (frame, register, order)
 void Show_Credits (void) // RA2: 0x4B37C0 (TibSun: Show_Who_Was_Responsible)
 {
 

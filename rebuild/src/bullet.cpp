@@ -298,7 +298,7 @@ bool BulletClass::Mark(MarkType mark)
  * HISTORY:                                                                                    *
  *   05/02/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); main: best 87.78, tried 8 times (frame, inline, order)
 void BulletClass::AI(void)
 {
 	/*

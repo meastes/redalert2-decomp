@@ -299,6 +299,18 @@
    "why": "Pointer arithmetic through a 32-bit unsigned cuts the pointer natively; uintptr_t keeps the same address arithmetic at full width (lane Y3)."
   },
   {
+   "file": "hdr/infantry.h",
+   "old": "static DoStruct const MasterDoControls[DO_COUNT];",
+   "new": "static DoStruct const MasterDoControls[42];   /* NATIVE: Yuri's Revenge's 42 infantry actions (DOINFO_COUNT in infatype.cpp), not TibSun's DO_COUNT (21) */",
+   "why": "The header comes from TibSun's text, where DoType has 21 actions (do.hh DO_COUNT); Yuri's Revenge has 42 (infatype.cpp's DOINFO_COUNT and SequenceName; gamemd.exe's table at 0x007EAF7C is 42 four-byte entries, the deploy, deployed, undeploy, cheer, paradrop, panic and the rest after the first 21). yr_data.py sized the storage from the declaration, so only the first 21 were loaded and every later action read the next global's bytes: the deploy action (0x1B) had rate 0, its animation never advanced and a deployer (Guardian GI, GI, Desolator) stood in its deploy frame for ever (the user's Duo fault, 2026-11-19; lane N13). The declared size is the original's."
+  },
+  {
+   "file": "hdr/mouse.h",
+   "old": "static MouseStruct MouseControl[MOUSE_COUNT];",
+   "new": "static MouseStruct MouseControl[86];   /* NATIVE: Yuri's Revenge's 86 cursors, not TibSun's MOUSE_COUNT (66) */",
+   "why": "As MasterDoControls (lane N13): the header's bound is TibSun's MouseType count (mouse.hh, 66), but gamemd.exe's cursor table at 0x0082D028 has 86 seven-int entries (the YR cursors after TibSun's, which the tree uses, e.g. (MouseType)0x4C/0x4D), so yr_data.py loaded only the first 66 and the later cursors' frames, counts and rates were the next global's bytes. The declared size is the original's."
+  },
+  {
    "file": "hdr/tooltip.h",
    "old": "\tint Text;\n\n\tbool Flag;",
    "new": "\tintptr_t Text; /* native: holds a string pointer (the label's name), pointer-sized */\n\n\tbool Flag;",

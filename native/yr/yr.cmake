@@ -340,6 +340,14 @@ add_test(NAME yr-native-mirage COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRE
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-mirage")
 set_tests_properties(yr-native-mirage PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
 
+# ctest yr-native-deployers (lane N13): the Guardian GI, the GI and the Desolator deploy and undeploy on command, the
+# Siege Chopper deploys, and the first Allied mission's Guardian GIs deploy (MasterDoControls' 42 actions;
+# yr/tests/yr_deployers.py)
+add_test(NAME yr-native-deployers COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_deployers.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-deployers")
+set_tests_properties(yr-native-deployers PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
+
 # ctest yr-native-building-anims (lane N4): an oil derrick's pump and flame and a power plant's animation play in the
 # ground display layer (the layer names' data, yr_data.py's namespace members; yr/tests/yr_building_anims.py)
 add_test(NAME yr-native-building-anims COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_building_anims.py"

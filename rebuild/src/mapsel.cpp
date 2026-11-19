@@ -343,7 +343,6 @@ void MapSelect::Process_Idle(void) // RA2: as above
 /// Plays one of the map selection sound effects.
 /// </summary>
 /// <param name="name">Name of the sound effect entry to play.</param>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapSelect::Play_Sound(Wstring const & name) // RA2: the name arrives as a Wstring (0x0058FD00)
 {
 	if (name != NULL) { // RA2: as above
@@ -354,7 +353,6 @@ void MapSelect::Play_Sound(Wstring const & name) // RA2: the name arrives as a W
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -362,10 +360,8 @@ void MapSelect::Play_Sound(Wstring const & name) // RA2: the name arrives as a W
 /// </summary>
 /// <param name="name">Name of the voice over sample.</param>
 /// <param name="delay">The delay, in timer ticks.</param>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void MapSelect::Queue_Voice(Wstring const & name, int delay) // RA2: the name is kept as a Wstring; TibSun stopped a playing voice first, RA2 does not (0x0058FD30)
 {
 	VoiceName = name; // RA2: as above
 	VoiceTimer = delay; // RA2: as above
 }
-#endif

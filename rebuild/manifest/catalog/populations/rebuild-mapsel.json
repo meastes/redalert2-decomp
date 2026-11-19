@@ -4,8 +4,8 @@
     "id": "rebuild-mapsel",
     "inventory_sha256": "e40c783bc09f6d5eba5f36cb6cd5a013c6a087c8b5eaad809918255a60a7b022",
     "gaps_sha256": "5fa89f0401f7477fa5984aaefcd14a1315e6a9c0ecade75d95bf4beadba3404d",
-    "historical_population_sha256": "d7dd8124f74b2eb1c67f9cb53f74761a14addfc4e7cb75a68b8ea5bf3759ccae",
-    "historical_acceptance_sha256": "2d3cf70946e376c2de11cdb261e4b8c2c99ebea121fc6489917e5c3bdb5785e6"
+    "historical_population_sha256": "cdee7619a8da670f41aa1bdd757e1f59d52470e38dd404cc879b26f329cecf56",
+    "historical_acceptance_sha256": "a5cea4f3915aef97add518d7cd9c25d8bdac78347805b8921a6aaa8c561a4df9"
   },
   "references": {
     "_RECT_NONE": 10947184,
@@ -95,6 +95,9 @@
     "?Word_Wrap@MSPrintAnim@@SIHAAVWideWstring@@PAVMSFont@@H@Z": 5958048,
     "??1WideWstring@@QAE@XZ": 7797328,
     "??4Wstring@@QAEAAV0@PBD@Z": 7789504,
+    "?Find_Sound@MapChoice@@QAEPAVMSSfxEntry@@ABVWstring@@@Z": 5966208,
+    "?Play@MSSfxEntry@@QAEXXZ": 5969616,
+    "??4Wstring@@QAEAAV0@ABV0@@Z": 7789616,
     "??3@YAXPAX@Z": 7871803,
     "_$E5": 5829408,
     "_$E8": 5829440,
@@ -117,6 +120,8 @@
     "?Do_Custom_Draw@MSEngine@@UAEXPAVSurface@@@Z": 5832080,
     "?Map_Select_Advance@@YIPBDPAVScenarioClass@@PBD@Z": 5830176,
     "?Process_Idle@MapSelect@@EAEXXZ": 5831872,
+    "?Play_Sound@MapSelect@@AAEXABVWstring@@@Z": 5831936,
+    "?Queue_Voice@MapSelect@@AAEXABVWstring@@H@Z": 5831984,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056
   },
   "regions": [
@@ -174,7 +179,7 @@
           "resolved": 10947196
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829408,
@@ -242,7 +247,7 @@
           "resolved": 10947208
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829440,
@@ -294,7 +299,7 @@
           "resolved": 10947280
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829488,
@@ -346,7 +351,7 @@
           "resolved": 10947264
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829520,
@@ -398,7 +403,7 @@
           "resolved": 10947256
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829552,
@@ -450,7 +455,7 @@
           "resolved": 10947216
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829584,
@@ -502,7 +507,7 @@
           "resolved": 10947176
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829616,
@@ -586,7 +591,7 @@
           "resolved": 10947288
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829648,
@@ -646,7 +651,7 @@
           "resolved": 10947224
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829712,
@@ -706,7 +711,7 @@
           "resolved": 10947248
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829760,
@@ -766,7 +771,7 @@
           "resolved": 10947272
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829808,
@@ -810,7 +815,7 @@
           "resolved": 10947202
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829856,
@@ -862,7 +867,7 @@
           "resolved": 10947240
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829872,
@@ -1042,7 +1047,7 @@
           "resolved": 4293358325
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5829904,
@@ -1222,7 +1227,7 @@
           "resolved": 151473
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5830176,
@@ -1514,7 +1519,7 @@
           "resolved": 134748
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5830432,
@@ -1750,7 +1755,7 @@
           "resolved": 591
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5830912,
@@ -2026,7 +2031,7 @@
           "resolved": 1091590
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5831200,
@@ -2062,7 +2067,7 @@
           "resolved": 133751
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5831776,
@@ -2106,10 +2111,106 @@
           "resolved": 1091400
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5831872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5831936,
+      "method": "0058fd00",
+      "body_bytes": 46,
+      "body_sha256": "da0f8debed0203e47350f1d06b0a6054efe603ce576ac1272024fc7355123eff",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "53067ad8ca6b253a0cda4ac5fae26f7a065131aa81827216b927531128308179",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Play_Sound@MapSelect@@AAEXABVWstring@@@Z",
+      "symbol_prefix": "?Play_Sound@MapSelect@@AAEXABVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "??9Wstring@@QBE_NPBD@Z",
+          "target": 7789280,
+          "addend": 0,
+          "resolved": 1957327
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?Find_Sound@MapChoice@@QAEPAVMSSfxEntry@@ABVWstring@@@Z",
+          "target": 5966208,
+          "addend": 0,
+          "resolved": 134242
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "?Play@MSSfxEntry@@QAEXXZ",
+          "target": 5969616,
+          "addend": 0,
+          "resolved": 137639
+        }
+      ],
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
+      "source": "rebuild/src/mapsel.cpp",
+      "population": "rebuild-mapsel",
+      "source_order": 5831936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5831984,
+      "method": "0058fd30",
+      "body_bytes": 60,
+      "body_sha256": "851df4b363d33ddbdab15cf61e94441ef618a7af6e8be17659b5534daf89c256",
+      "padding_bytes": 4,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d49c6c284083c781e9b4b20ee89fd5597fd65be313e77a5cf2a5cd5efa8418a6",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Queue_Voice@MapSelect@@AAEXABVWstring@@H@Z",
+      "symbol_prefix": "?Queue_Voice@MapSelect@@AAEXABVWstring@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 1957610
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1091297
+        }
+      ],
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
+      "source": "rebuild/src/mapsel.cpp",
+      "population": "rebuild-mapsel",
+      "source_order": 5831984,
       "source_quality_family": "rebuild"
     },
     {
@@ -2166,7 +2267,7 @@
           "resolved": 2039665
         }
       ],
-      "source_sha256": "14233186dafa058bf128f5fd5039b36a040180f2af37a51e819cf2d453c83488",
+      "source_sha256": "06b8148dea6439515fdfca8fc8bda1d4802c8e2274435986d3b6e7c08b0c8f6b",
       "source": "rebuild/src/mapsel.cpp",
       "population": "rebuild-mapsel",
       "source_order": 5832096,

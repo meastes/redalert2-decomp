@@ -81,7 +81,7 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
    `yr-native-keys-load`).
 2. Done (lane N4): the bridge repair test, `yr-native-bridge-repair`; it found engineers vanishing into the hut without a
    repair (fixed).
-3. Reach Red Alert 2's unreached rewrites, most-called first (lane N11: 80 -> 53, 4 reached with scenarios `n11-exit-audio`, `n11-terrain`, `n11-lan` and `n11-ui`, 23 shown unreachable from game.exe and the shipped rules; lane N10: 88 -> 80, scenarios `n10-leave` and `n10-bar`; lane N9: 91 -> 88, scenarios `n9-bomb` and `n9-ui`; lane N8: 95 -> 91, scenario `n8-seeds`; lane N6: 105 -> 95, scenarios `n6-place`, `n6-sidebar` and `n6-seeds`, `n5-bomb` run; lane N4 started: a coverage scenario `n4-deaths` reached
+3. Reach Red Alert 2's unreached rewrites, most-called first (lane N13: 53 -> 52, ObjectClass slot 115 shown unreachable (all 12 calls on technos); lane N11: 80 -> 53, 4 reached with scenarios `n11-exit-audio`, `n11-terrain`, `n11-lan` and `n11-ui`, 23 shown unreachable from game.exe and the shipped rules; lane N10: 88 -> 80, scenarios `n10-leave` and `n10-bar`; lane N9: 91 -> 88, scenarios `n9-bomb` and `n9-ui`; lane N8: 95 -> 91, scenario `n8-seeds`; lane N6: 105 -> 95, scenarios `n6-place`, `n6-sidebar` and `n6-seeds`, `n5-bomb` run; lane N4 started: a coverage scenario `n4-deaths` reached
    3 more, Shake_The_Screen, Audio_Event_Handle_Set and Planning_Active, `n4-ui` one, FootClass slot 271, and `n4-randmap` two of the random map generator (the skirmish then played 4,000+ frames on a generated map), and a chat line in `lan_pair.py` two (MessageListClass::Get_Edit_Buf, IME_Stub1); 105 left as "reviewed").
 4. Yuri's Revenge LAN on two real machines once you can run the PC side.
 5. Done (lane N8, 2026-11-19): Yuri's Revenge's random map generator (Choose Map > Create Random Map): stand-ins from
@@ -98,3 +98,10 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
   app was built after lane N4.
 - Mirage camouflage (update 2026-11-19 ~20:40Z): the user saw blue trees once and cannot reproduce it; lane N12 could not either (Mac and Simulator, five maps, frame-by-frame). Blue trees are the pre-N4 house-colour symptom. Closed as not reproduced; yr-native-mirage now compares the first animation with the second, so a recurrence would show there. Reopen if seen again.
 - Fault (user, Duo, 2026-11-19 ~21:30Z): Yuri's Revenge Guardian GIs (GGI) will not deploy; in the first Allied campaign mission they are meant to deploy automatically and instead stand and die. First item for the next port lane.
+  Lane N13 (2026-11-19): fixed. Reproduced on the Mac (a GGI ordered to deploy, and the first Allied mission ALL01UMD:
+  0 of 10 GGIs deployed, all stuck in the deploy animation). Cause: InfantryClass::MasterDoControls (the infantry
+  actions' rates) was sized from TibSun's DO_COUNT (21) and only that much was read from gamemd.exe; YR has 42, so the
+  deploy action's rate read 0. The GI and the Desolator had the same fault; MouseClass::MouseControl the same (86
+  cursors, 66 read). fixups.json gives both the original's size. Checked: ctest `yr-native-deployers` (GGI, GI, DESO
+  deploy and undeploy, SCHP deploys, the mission's 10 GGIs deploy; fails on the old build). Needs a user check on the
+  Duo: the first Allied mission's GGIs deploy and fight.

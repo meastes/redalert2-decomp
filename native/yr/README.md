@@ -1114,6 +1114,45 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
 * **Asked of the user**: a screenshot or a description of the first animation on the Duo (noise, the tank's colours,
   the tree in blue and white, a black box), and whether the app on the Duo was built after lane N4's landing.
 
+### Lane N13 (2026-11-19): Guardian GIs that would not deploy
+
+* **The user's Duo report**: in the first Allied mission the Guardian GIs (GGI) are meant to deploy by themselves and
+  stood and died. Reproduced on the Mac in a skirmish (harness `deploy GGI`: Do_MISSION_UNLOAD gives the deploy
+  action 0x1B and the soldier stays in it, never reaching 0x1C, deployed) and in ALL01UMD (0 of 10 deployed, all 10
+  in 0x1B). The GI (E1) and the Desolator did the same.
+* **Cause**: InfantryClass::Doing_AI moves on from 0x1B when the animation's stage reaches the sequence's count, and
+  Do_Action sets the animation's rate from `MasterDoControls[todo].Rate`. infantry.h declares that table
+  `[DO_COUNT]`, TibSun's 21 actions (do.hh); Yuri's Revenge has 42 (infatype.cpp's DOINFO_COUNT; gamemd.exe
+  0x007EAF7C holds 42 four-byte entries, entry 0x1B `0 0 0 1`). yr_data.py sizes a global's storage and load from
+  its declaration, so 84 of 168 bytes were loaded and entries 21-41 (deploy, deployed, undeploy, cheer, paradrop,
+  panic, ...) read the next storage: rate 0. fixups.json now declares `MasterDoControls[42]`. An audit of the loaded
+  arrays shorter than the gap to gamemd.exe's next named global found one more of the same kind:
+  `MouseClass::MouseControl[MOUSE_COUNT]` (TibSun's 66 cursors; gamemd.exe 0x0082D028 has 86, the tree uses
+  (MouseType)0x4C/0x4D), now `[86]`. The others in that list are unnamed gaps or are full (ActionName's 73 entries
+  end where code pointers start; Powerups::Anims was lane N4's).
+* **Harness orders** (glue/yr_harness.cpp): `doing <ID>` logs `harness-doing <ID> do<DoType> m<mission> deployer
+  deployed s<strength>` (a soldier's action, a vehicle's Deployed) for the one the last `deploy <ID>` ordered, else the
+  player's first; a second `deploy <ID>` orders the same one again (undeploy); `deployed <ID>` counts every soldier of
+  the type on the map: `harness-deployed GGI <n> of <total> (<n> deploying) dead <n>`.
+* **ctest `yr-native-deployers`** (yr/tests/yr_deployers.py, two runs): a skirmish where a GGI, a GI and a Desolator
+  (away from the others: its radiation kills them) deploy (do28 at frame 300) and undeploy (frame 500) and a Siege
+  Chopper deploys; New Campaign's first Allied mission, where every GGI is deployed at frame 300 (10 of 10). On the
+  build without the fix it fails (all do27; 0 of 10).
+* **Checks**: the Yuri's Revenge and one-game ctests on build/n3 (29 of 30 in the first run, Wine pair left out);
+  `yr-native-mirage` failed once (the first and second camouflage morphs differed by 289 pixels at frame 321) and
+  passed the next three runs with 0 differing; probably something passing through the box (not traced; watch it).
+* **Not checked**: the Simulator (the fix is data the iPhone build loads the same way); Red Alert 2's GI (its table,
+  `unknown_do_controls_7a3474`, is loaded with 160 bytes, 40 entries, beyond its 38).
+* **N11's list, 53 -> 52**: ObjectClass slot 115 (+0x1CC) shown not to run: game.exe's 12 calls through it are all on
+  technos (BuildingClass members on the building, TechnoClass draws, ParasiteClass::UpdateSquid's owner, and
+  ObjectClass::Paradrop, whose only caller through slot 56 is AircraftClass::Paradrop_Cargo's passengers), and
+  TechnoClass overrides it (behaviour_rewrites.json has each site). Slot 93 (+0x174): 17 of its 18 calls are on
+  technos (the locomotors' LinkedTo, Tunnel_AI); the 18th is ObjectClass::AI 0x005D2904 on `this` when a falling
+  object lands, so it needs which non-techno objects can have IsFalling set (left reviewed).
+* **Resume note (lane N13)**: the GGI item is done. Next: N11's list (52 reviewed RA2 rewrites): slot 93's falling
+  objects, then slots 111/112 (+0x1BC, 44 calls; +0x1C0, 35), 35, 51/50 the same way (a scratch scanner over
+  `call/jmp dword ptr [reg+off]` with names.csv for the enclosing function is quick).
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

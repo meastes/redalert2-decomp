@@ -1554,7 +1554,7 @@ struct IsoBlitState {
 #pragma pack(pop)
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0052c230 has no row); Draw_Tile with the blit state and span tables only it uses
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0052c230 has no row); Draw_Tile with the blit state and span tables only it uses; main: best 81.25, tried 9 times (register, frame, layout)
 IsoBlitState IsoDrawData;
 unsigned short _iso_row_offsets[ISO_DRAW_WIDTH*ISO_DRAW_HEIGHT];
 unsigned char _iso_start_cols[ISO_DRAW_WIDTH*ISO_DRAW_HEIGHT];
@@ -2808,7 +2808,7 @@ unsigned short IsometricTileTypeClass::Preview_Tile_Color(int tile, int level, b
 /// <param name="tile">The sub-tile index within this tile set.</param>
 /// <param name="level">The lighting level to fetch the preview colors for.</param>
 /// <returns>Returns with a pointer to the low and high preview colors for that level.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0052e390 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0052e390 has no row); main: best 81.25, tried 5 times (register, order, bound)
 unsigned short *IsometricTileTypeClass::Preview_Tile(int tile, int level)
 {
 	Load_Tile_Image();

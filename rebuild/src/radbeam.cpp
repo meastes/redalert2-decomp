@@ -255,7 +255,7 @@ void RadBeam::Start_Pass(void)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: not yet written (no independent bound for 0x635C30)
+#ifdef RA2_NON_MATCHING // not exact: not yet written (no independent bound for 0x635C30); main: best 96.92, tried 7 times (frame, register, order)
 void RadBeam::Compute_Pulse_Step(void)
 {
 	Next = Current + StepDelta;
@@ -326,7 +326,7 @@ void RadBeam::Update_Swing(void)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: not yet written (no independent bound for 0x636130)
+#ifdef RA2_NON_MATCHING // not exact: not yet written (no independent bound for 0x636130); main: best 95.83, tried 3 times (bound)
 void RadBeam::Compute_Swing_Step(void)
 {
 	Next = Current + StepDelta;

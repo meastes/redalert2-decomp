@@ -43,7 +43,7 @@
 /// <param name="veryhigh">Should the projectile cruise at extra altitude?</param>
 /// <returns>Returns with the distance still to be covered, with the vertical component
 /// discounted. A projectile with nothing to home on returns a nominal short distance.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00593870 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00593870 has no row); main: best 99.22, tried 4 times (order, float, register)
 int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const & target_coord, DirType const & rot, bool aircraft, bool airburst, bool veryhigh)
 {
 	if (target_coord == COORD_NONE) {

@@ -2268,7 +2268,7 @@ int SessionClass::Slot_To_Player(int slot)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00673090 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00673090 has no row); main: best 94.42, tried 6 times (inline, register, frame)
 void SessionPortAllocator::Allocate_Player_Ports(void)
 {
 	int player;

@@ -1179,7 +1179,7 @@ bool IPXManagerClass::Forward_Router_Packet(CommHeaderType *packet, void *buf, i
  * HISTORY:                                                                *
  *   01/25/1995 BR : Created.                                              *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00525f60 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00525f60 has no row); main: best 97.99, tried 14 times (register, frame, order)
 int IPXManagerClass::Service(void)
 {
 	int rc = 1;

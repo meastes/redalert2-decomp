@@ -139,6 +139,8 @@ LayerType Layer_From_Name(char const * name);
 #include "laser.h"
 #include "objtype.h"
 #include "infatype.h"
+#include "infantry.h"
+#include "unit.h"
 #include "ion.h"
 #include "command.h"
 #include "_command.h"
@@ -267,6 +269,12 @@ HouseClass * Enemy_House(void)
 	}
 	return(best);
 }
+
+// deploy: the techno each type's last `deploy` ordered, for `doing` (lane N13)
+enum { kDeployKept = 16 };
+char deploy_type[kDeployKept][32];
+TechnoClass * deploy_last[kDeployKept];
+int deploy_count = 0;
 
 TechnoClass * First_Of(char const * id, HouseClass * house, bool not_house = false)
 {
@@ -628,6 +636,52 @@ int Run_Order(int frame, char const * text)
 		fprintf(stderr, "harness-mission %s %d &%p\n", word[1], (int)techno->Get_Mission(), (void *)techno);
 		return(1);
 	}
+	if (!strcmp(word[0], "doing") && words >= 2) {
+		// logs `harness-doing <ID> do<n> m<mission> deployer <0|1> deployed <0|1> &<addr>` for the first techno of
+		// type ID (the player's, else any): an infantry soldier's animation (DoType; 0x1b deploy, 0x1c deployed idle,
+		// 0x1f undeploy) and its type's Deployer; a vehicle's deployed state (lane N13, the Guardian GI)
+		// the one a `deploy` of that type last ordered while it is still on the map (the player's first of a type
+		// changes as soldiers go into limbo), else the player's first, else anyone's
+		TechnoClass * techno = NULL;
+		for (int k = 0; k < deploy_count && techno == NULL; ++k) {
+			if (strcmp(deploy_type[k], word[1])) continue;
+			for (int i = 0; i < Technos.Count(); ++i) if (Technos[i] == deploy_last[k] && !Technos[i]->IsInLimbo) techno = Technos[i];
+		}
+		if (techno == NULL) techno = First_Of(word[1], PlayerPtr);
+		if (techno == NULL) techno = First_Of(word[1], NULL);
+		if (techno == NULL) {
+			fprintf(stderr, "harness-doing %s none\n", word[1]);
+			return(-1);
+		}
+		int doing = -1, deployer = 0, deployed = 0;
+		if (techno->Fetch_RTTI() == RTTI_INFANTRY) {
+			InfantryClass * infantry = (InfantryClass *)techno;
+			doing = (int)infantry->Doing;
+			deployer = infantry->Class->Deployer ? 1 : 0;
+			deployed = infantry->FUN_00522510() ? 1 : 0;
+		} else if (techno->Fetch_RTTI() == RTTI_UNIT) {
+			deployed = ((UnitClass *)techno)->Deployed ? 1 : 0;
+		}
+		fprintf(stderr, "harness-doing %s do%d m%d deployer %d deployed %d s%d &%p\n", word[1], doing,
+			(int)techno->Get_Mission(), deployer, deployed, techno->Strength, (void *)techno);
+		return(1);
+	}
+	if (!strcmp(word[0], "deployed") && words >= 2) {
+		// logs `harness-deployed <ID> <deployed> of <n> (<deploying> deploying) dead <0..n>` over every soldier of type
+		// ID on the map (any house; deployed: the deployed idle or firing animations 0x1c-0x1e, deploying: 0x1b),
+		// the mission's scripted deploy (lane N13)
+		int n = 0, deployed = 0, deploying = 0, dead = 0;
+		for (int i = 0; i < Infantry.Count(); ++i) {
+			InfantryClass * infantry = Infantry[i];
+			if (infantry == NULL || infantry->IsInLimbo || strcmp(Type_Name(infantry), word[1])) continue;
+			++n;
+			if (infantry->Strength <= 0) ++dead;
+			if (infantry->Doing == (DoType)0x1b) ++deploying;
+			else if (infantry->Doing == (DoType)0x1c || infantry->Doing == (DoType)0x1d || infantry->Doing == (DoType)0x1e) ++deployed;
+		}
+		fprintf(stderr, "harness-deployed %s %d of %d (%d deploying) dead %d\n", word[1], deployed, n, deploying, dead);
+		return(n ? n : 1);
+	}
 	if (!strcmp(word[0], "plan") && words >= 3) {
 		// every selected techno of the player's is ordered to the cell dx,dy from the first one's as a map click
 		// orders it (TechnoClass::Player_Assign_Mission, MISSION_MOVE): in planning mode that plans a waypoint
@@ -942,6 +996,11 @@ int Run_Order(int frame, char const * text)
 	}
 	if ((!strcmp(word[0], "deploy") || !strcmp(word[0], "move") || !strcmp(word[0], "where")) && words >= 2) {
 		TechnoClass * found = NULL;
+		for (int k = 0; k < deploy_count && found == NULL && word[0][0] == 'd'; ++k) {
+			// a second `deploy` of a type orders the same one again (to undeploy it; lane N13)
+			if (strcmp(deploy_type[k], word[1])) continue;
+			for (int i = 0; i < Technos.Count(); ++i) if (Technos[i] == deploy_last[k] && !Technos[i]->IsInLimbo) found = Technos[i];
+		}
 		for (int i = 0; i < Technos.Count() && found == NULL; ++i) {
 			TechnoClass * techno = Technos[i];
 			if (techno != NULL && techno->House == PlayerPtr && !techno->IsInLimbo && !strcmp(Type_Name(techno), word[1])) {
@@ -965,6 +1024,13 @@ int Run_Order(int frame, char const * text)
 		TargetClass none2;
 		if (word[0][0] == 'd') {
 			Queue_Mission(TargetClass(found), MISSION_UNLOAD, none, none2);
+			int k = 0;
+			while (k < deploy_count && strcmp(deploy_type[k], word[1])) ++k;
+			if (k < kDeployKept) {
+				snprintf(deploy_type[k], sizeof(deploy_type[k]), "%s", word[1]);
+				deploy_last[k] = found;
+				if (k == deploy_count) ++deploy_count;
+			}
 		} else {
 			if (words < 4) return(-1);
 			Coord coord = found->Center_Coord();

@@ -90,7 +90,10 @@ def body_start(text, symbol):
 def open_guard(text, symbol):
     """TEXT with the RA2_NON_MATCHING guard around SYMBOL's draft opened (a parked function is probed as
     written)."""
-    at = body_start(text, symbol)
+    try:
+        at = body_start(text, symbol)
+    except SystemExit:
+        return text         # a name the definition finder cannot spell (an operator): probed as written
     guard_at = text.rfind('#ifdef RA2_NON_MATCHING', 0, at)
     if guard_at >= 0 and text.rfind('#endif', 0, at) < guard_at:
         end = text.index('\n', guard_at)

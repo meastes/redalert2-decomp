@@ -148,7 +148,7 @@ double BounceClass::Get_Remaining_Motion(void) const
 /// <returns>Returns BOUNCE_IMPACT if the object struck a surface this frame,
 /// BOUNCE_SETTLED if it has come to rest, or BOUNCE_MOVING if it is still traveling.</returns>
 /// <remarks>Only call this routine once per bouncing object per game logic loop.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: no independently bounded accepted row
+#ifdef RA2_NON_MATCHING // not exact: no independently bounded accepted row; main: best 99.77, tried 13 times (frame, register, float)
 BounceResultType BounceClass::AI(void)
 {
 	BounceResultType bounce_result = BOUNCE_MOVING;

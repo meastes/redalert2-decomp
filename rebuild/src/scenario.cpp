@@ -269,7 +269,7 @@ ScenarioClass::ScenarioClass(void)
 /// This constructor is used by the load process, which is about to overwrite the object
 /// with the data it reads from the save game stream.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0065b780 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0065b780 has no row); main: best 93.48, tried 7 times (inline, layout, order)
 ScenarioClass::ScenarioClass(NoInitClass const & x) :
 	ElapsedTimer(x), // RA2: the elapsed timer is left alone (no system timer read for it)
 	MissionTimer(x),
@@ -739,7 +739,7 @@ void Toggle_Display_Mode(bool ingame)
 /// allowed to hold the game up forever. Solo and skirmish games have nobody to wait for.
 /// </summary>
 /// <returns>bool; Did everyone make it into the game?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0065c520 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0065c520 has no row); main: best 96.97, tried 10 times (register, frame, order)
 bool Wait_For_Players_To_Load(void)
 {
 	if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {

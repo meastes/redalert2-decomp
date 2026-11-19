@@ -445,7 +445,7 @@ void ParticleClass::Smoke_Behavior_AI(void)
 /// wall, at which point it glances off along the slope and is flagged for death.
 /// Its color is blended a step further along the type's color list each frame.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00609540 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00609540 has no row); main: best 66.45, tried 6 times (inline, ruling, frame)
 void ParticleClass::Spark_Behavior_AI(void)
 {
 	Coord coord = PositionCoord;

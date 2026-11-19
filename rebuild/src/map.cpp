@@ -1103,7 +1103,7 @@ void MapClass::Init_Cells(void)
  * HISTORY:                                                                                    *
  *   05/14/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005484e0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005484e0 has no row); main: best 94.60, tried 15 times (register, layout, frame)
 void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_height, bool refresh_map)
 {
 	int i = 0;
@@ -3339,7 +3339,7 @@ ObjectClass * MapClass::Close_Object(Coord const & coord) const
  * HISTORY:                                                                                    *
  *   09/22/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054ebd0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054ebd0 has no row); main: best 85.14, tried 4 times (frame, layout, register)
 int MapClass::Zone_Reset(void)
 {
 	int i;
@@ -3954,7 +3954,7 @@ void MapClass::Update_Cell_Zone_Constructively(Cell const & cell)
 /// hunts them all down and records them. The zone and subzone rebuilds work from that list
 /// when stitching the two ends of each crossing together.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054fda0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054fda0 has no row); main: best 62.12, tried 4 times (register, inline, layout)
 void MapClass::Compute_Zone_Connections(void)
 {
 	static int _bridge_subtiles1[] = {
@@ -9444,7 +9444,7 @@ bool MapClass::Damage_Low_Bridge(Cell const & cell)
 /// </summary>
 /// <param name="cell">The center cell of the span that was hit.</param>
 /// <returns>bool; Was the bridge destroyed outright?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055def0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055def0 has no row); main: best 98.73, tried 5 times (inline, frame)
 bool MapClass::Damage_Low_Bridge_EW(Cell const & cell)
 {
 	CellClass * cellptr1 = &Map[cell];
@@ -9524,7 +9524,7 @@ bool MapClass::Damage_Low_Bridge_EW(Cell const & cell)
 /// </summary>
 /// <param name="cell">The center cell of the span that was hit.</param>
 /// <returns>bool; Was the bridge destroyed outright?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055e410 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055e410 has no row); main: best 98.73, tried 4 times (inline, frame)
 bool MapClass::Damage_Low_Bridge_NS(Cell const & cell)
 {
 	CellClass * cellptr1 = &Map[cell];
@@ -9749,7 +9749,7 @@ bool MapClass::Damage_Low_Bridge2(Cell const & cell) // RA2: 0x55EDB0, as Damage
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f020 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f020 has no row); main: best 98.73, tried 4 times (inline, frame)
 bool MapClass::Damage_Low_Bridge2_EW(Cell const & cell) // RA2: 0x55F020, as Damage_Low_Bridge_EW for the second low bridge kind
 {
 	CellClass * cellptr1 = &Map[cell]; // RA2: as above
@@ -9821,7 +9821,7 @@ bool MapClass::Damage_Low_Bridge2_EW(Cell const & cell) // RA2: 0x55F020, as Dam
 #endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f540 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f540 has no row); main: best 98.73, tried 4 times (inline, frame)
 bool MapClass::Damage_Low_Bridge2_NS(Cell const & cell) // RA2: 0x55F540, as Damage_Low_Bridge_NS for the second low bridge kind
 {
 	CellClass * cellptr1 = &Map[cell]; // RA2: as above
@@ -11690,7 +11690,7 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 /// working from has moved underneath it.
 /// </summary>
 /// <param name="cell">The cell whose terrain has changed.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00566340 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00566340 has no row); main: best 64.37, tried 9 times (register, inline, order)
 void MapClass::Update_Cell_Subzones(Cell const & cell)
 {
 	if (In_Local_Radar(cell)) {
@@ -12874,7 +12874,7 @@ bool MapClass::Damage_Bridge(Cell const & cell)
 /// </summary>
 /// <param name="cell">The cell the repair attempt was aimed at.</param>
 /// <returns>bool; Is there a repairable bridge within reach of this cell?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00569320 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00569320 has no row); main: best 99.49, tried 12 times (register, frame, order)
 bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: as above
 {
 	static short _x[] = { // RA2: as above
@@ -14218,7 +14218,7 @@ void MapClass::Ice_Solidification_AI(void)
 /// routine when the map has changed too much to be patched cell by cell.
 /// </summary>
 /// <param name="subzone">The subzone level to rebuild.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00563d80 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00563d80 has no row); main: best 76.89, tried 6 times (register, frame, order)
 void MapClass::Reset_Subzone(int subzone)
 {
 	/*

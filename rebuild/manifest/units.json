@@ -25554,7 +25554,7 @@
     "entry": "0058fd00",
     "body": 46,
     "padding": 2,
-    "symbol": "?Play_Sound_0058fd00@MapSelect@@QAEXABVWstring@@@Z",
+    "symbol": "?Play_Sound@MapSelect@@AAEXABVWstring@@@Z",
     "main_symbol": "?Play_Sound_0058fd00@MapSelect@@QAEXABVWstring@@@Z",
     "main_source": "src/recovered/mapsel.cpp"
    },
@@ -25562,7 +25562,7 @@
     "entry": "0058fd30",
     "body": 60,
     "padding": 4,
-    "symbol": "?Queue_Voice_0058fd30@MapSelect@@QAEXABVWstring@@H@Z",
+    "symbol": "?Queue_Voice@MapSelect@@AAEXABVWstring@@H@Z",
     "main_symbol": "?Queue_Voice_0058fd30@MapSelect@@QAEXABVWstring@@H@Z",
     "main_source": "src/recovered/mapsel.cpp"
    },
@@ -158197,7 +158197,7 @@
     "entry": "00601040",
     "body": 7,
     "padding": 9,
-    "symbol": "?DialogControl_dtor_00601040@@YIXPAI@Z",
+    "symbol": "??1DialogControl@OwnerDraw@@UAE@XZ",
     "main_symbol": "?DialogControl_dtor_00601040@@YIXPAI@Z",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -158205,7 +158205,7 @@
     "entry": "00601050",
     "body": 97,
     "padding": 15,
-    "symbol": "?Unknown_Mark_Registered_00601050@OwnerDraw@@YGXIPAUHWND__@@@Z",
+    "symbol": "?End_Control_Wait@OwnerDraw@@YGXIPAUHWND__@@@Z",
     "main_symbol": "?Unknown_Mark_Registered_00601050@OwnerDraw@@YGXIPAUHWND__@@@Z",
     "main_source": "src/recovered/classes/OwnerDraw__DialogControl/OwnerDraw_Unknown_Mark_Registered.cpp"
    },
@@ -158229,7 +158229,7 @@
     "entry": "006010f0",
     "body": 128,
     "padding": 0,
-    "symbol": "?Set_Window_006010f0@SimpleDialogControl@OwnerDraw@@UAEXIPAUHWND__@@@Z",
+    "symbol": "?Set_Window@SimpleDialogControl@OwnerDraw@@UAEXIPAUHWND__@@@Z",
     "main_symbol": "?Set_Window_006010f0@SimpleDialogControl@OwnerDraw@@UAEXIPAUHWND__@@@Z",
     "main_source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/Set_Window.cpp"
    },
@@ -158253,7 +158253,7 @@
     "entry": "00601190",
     "body": 3,
     "padding": 13,
-    "symbol": "?unknown_slot4@SimpleDialogControl@OwnerDraw@@UAE_NXZ",
+    "symbol": "?Is_Cancelled@SimpleDialogControl@OwnerDraw@@UAE_NXZ",
     "main_symbol": "?unknown_slot4@SimpleDialogControl@OwnerDraw@@UAE_NXZ",
     "main_source": "src/recovered/classes/OwnerDraw__SimpleDialogControl/unknown_slot4.cpp"
    },

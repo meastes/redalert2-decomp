@@ -1518,6 +1518,28 @@ int TechnoTypeClass::Flight_Level(void) const
 }
 
 
+/// <summary>
+/// Builds the colour schemes of the palette file that Palette= names, when it names one.
+/// </summary>
+void TechnoTypeClass::Load_Palette(void)
+{
+	if (PaletteFile[0] != '\0') {
+		Palette = Generate_Palette(PaletteFile);
+	}
+}
+
+
+/// <summary>
+/// Builds the palette schemes of every techno type.
+/// </summary>
+void __fastcall Load_Techno_Palettes(void)
+{
+	for (int index = 0; index < TechnoTypes.Count(); index++) {
+		TechnoTypes[index]->Load_Palette();
+	}
+}
+
+
 
 
 

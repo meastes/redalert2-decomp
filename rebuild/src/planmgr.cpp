@@ -1527,7 +1527,7 @@ void __fastcall Planning_Cancel_Token(TechnoClass * techno); // RA2: 0x006155E0
 bool __fastcall Planning_Same_Last_Node(PlanningTokenClass * first, PlanningTokenClass * second); // RA2: 0x00616BD0
 
 void __fastcall Planning_Execute(EventClass * event); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00614ba0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00614ba0 has no row); main: best 89.13, tried 3 times (inline)
 void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries out a planning event: plan commit restarts the paths of the event's house, plan connect adds the node at the second target's coordinate to the first target's path, plan node delete takes the node at the target's coordinate out of every path (remembering the next node for the player); any other event is an order for its techno
 {
 	if (event->Type == EventClass::PLAN_COMMIT) { // RA2: as above
@@ -2093,7 +2093,7 @@ void __fastcall Planning_Remove_Node(PlanningNodeClass * node) // RA2: 0x0061696
 	}
 }
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00616a50 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00616a50 has no row); main: best 77.83, tried 5 times (register, inline, layout)
 void __fastcall Planning_Convert_Loop_Moves(TechnoClass * techno) // RA2: 0x00616A50; in the path of the techno turns the move orders after the loop start into the other move mission (event mission 2 into 0x29)
 {
 	PlanningTokenClass * token = techno->Get_Planning_Token(); // RA2: as above
@@ -2358,7 +2358,7 @@ Coord __fastcall Planning_Event_Or_Object_Coord(EventClass const & event, Abstra
 bool __fastcall Planning_Idle_Mover(TechnoClass * techno); // RA2: 0x00618BB0
 
 bool __stdcall Planning_Left_Press(int x, int y); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00617340 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00617340 has no row); main: best 38.59, tried 7 times (register, layout, frame)
 bool __stdcall Planning_Left_Press(int x, int y) // RA2: 0x00617340; planning mode's left button press on the tactical view: takes the node under the mouse as the picked one (the path starts there), else refuses a selection or a node planning mode cannot use; true when it took the input
 {
 	if (!PlanningNodeClass::PlanningModeActive) { // RA2: as above

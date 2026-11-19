@@ -78,7 +78,25 @@ starting points for the next class, not guarantees.
   can also suppress an out-of-line copy the original kept (wwmous.cpp
   `Unblock_Mouse`); an explicit trailing `return;` kept `Calc_Confining_Rect`
   from being expanded into the constructor.
-- An uncalled out-of-line copy whose body other rows of the same unit expand comes from one ordinary (non-`inline`) external definition: /Ob2 auto-inlines it at its call sites, including callers defined earlier in the unit, and still emits its body at its place in definition order (the link keeps unreferenced code). Do not write an inline twin plus an out-of-line copy (rebuild lane R33: wonline Set_Match_State 0x759DF0, Reset_Wait_Events 0x752930).
+  Found in the rebuild (lanes R15, R33): no rebuild case was decided by
+  definition order. wonline's Set_Match_State 0x759DF0, an ordinary external
+  definition, is expanded into SetPlayerAccepted, WOL_Wait_Callback and
+  Start_Game_Now, which lie before it in address order; moving map.cpp's
+  Get_Cell_Zone_Index and Get_Cell_Subzone_Index to the end of the file did
+  not stop their expansion into Collapse_Cliff 0x562F50. Where a later
+  definition stays a call, check the caller's inline budget and the callee's
+  size against the auto-inline cap (Inline252) before its position.
+- Found in the rebuild (lane R17): a file-`static` function is expanded into
+  its caller where the original calls it out of line (reinf `_Create_Group`
+  0x639DA0 into Do_Reinforcements); the same text non-static (main's form)
+  stays a call and is exact. A called out-of-line copy of a one-caller helper
+  is evidence that the original definition was external.
+- Found in the rebuild (lane R20): declaring an explicit specialization of a
+  class template member does not stop VC6 expanding the generic in-class
+  definition at the call sites in that unit (BlitTransLucent50<unsigned short>
+  ::BlitForward 0x487080, whose image copy is inline assembly); declare the
+  member in the class and keep the generic body out of class.
+- An uncalled out-of-line copy whose body other rows of the same unit expand comes from one ordinary (non-`inline`) external definition: /Ob2 auto-inlines it at its call sites, including callers defined earlier in the unit, and still emits its body at its place in definition order (the link keeps unreferenced code). Do not write an inline twin plus an out-of-line copy. Found in the rebuild (lane R33): wonline Set_Match_State 0x759DF0, Reset_Wait_Events 0x752930, Is_Tournament_Session and Select_WDT_Location lost their inline twins this way with no row lost, and the same mechanism is the likely explanation of main's uncalled byte-identical copies (DECISIONS "An uncalled out-of-line copy in the image whose body earlier rows expand"). It is the same rule as Loco54's never-called helpers in "Out-of-line helpers and global timers".
 - Inline header members are emitted at the end of the unit; non-virtual
   accessors the original emits mid-unit were defined in the .cpp.
 - `/Ob2` gives each caller one cumulative inline budget. The budget is
@@ -671,6 +689,10 @@ verified on the target.
   data (e.g. CDFileClass's search-list statics via cc_file_class.hpp) into a widely included header renumbers every
   unit's `_$E` symbols and the build fails "Function symbol ambiguous/missing: _$EN". Keep such includes out of
   shared headers that units include for unrelated declarations.
+- Found in the rebuild (lane R20's countsens.py; owner landing, 2026-11-19): guarding or unguarding one function renumbers the `_$E` initializers after
+  it, even for a function with no statics of its own (mapgen Create_Urban_Area 0x586B40). The renumbered rows stay
+  exact once renamed, so rename a unit's initializer rows by their evidence (the .CRT$XCU table, then the calls and
+  atexit registrations each makes: rebuild/tools/xcu.py) before reading a trial as a loss.
 
 - (TAction211) A coordinate built through an inline `XYZ_Coord(x, y, z)` evaluates its arguments right to left
   (Z, Y, X) like any call; that, with `Cell spot = waypoint - Cell(size / 2, size / 2)`, reproduces the original's
@@ -699,6 +721,12 @@ verified on the target.
 - Every function has an IL size `s` (its own unexpanded body, call nodes included; lab: a constant global store ~6,
   an empty body ~12; a caller's S ~18 plus its statements).
 - Root budget = max(1000, 2*S(caller)); a running total starting at S stops all further inlining past 35000.
+- Found in the rebuild (lane R42): the cap's signature in a long dispatcher is a clean cut-over in source order. In
+  TActionClass::operator() 0x6ADAE0 (7,752 B) the original expands every TAction handler up to
+  TAction_BEGIN_AI_TRIGGERS and calls every later one out of line from TAction_STOP_AI_TRIGGERS (0x6B22B0) on; the
+  rebuild's text cut over three handlers later (from SET_TEAM_INFANTRY_RATIO), so its earlier expansions total about
+  three handlers' IL less than the original's. A cut-over that moves by whole sites while every expanded body matches
+  points at the bodies before the cut (wordier in the original), not at the handlers after it.
 - Sites are decided in evaluation order. N_i = inline-candidate sites in the same body from this one to the end,
   itself included (calls with IL available, including empty or later-rejected ones; not virtual or declared-only).
 - Reject when s > 40 and s > budget (also depth limit, argument-count mismatch, the 35000 cap). Callees with s <= 40
@@ -2197,6 +2225,24 @@ VC6 aligns the frame to 8 (`and esp,-8`, `this` moves out of ebp) when the funct
 
 ## Declaration-count ties are windows mod 64, not shifts (Scout1114)
 Rows that flip with header declaration changes (Print_CRCs 0x62A360, AI_Build_Defense 0x4F1190, Sidebar 0x6809F0/0x6819A0) are register or reload ties between two symbol numbers compared mod 64: one a header-declared symbol the function uses, one local. Calibrate with K `struct P;` lines before the function (lab only): 0x4F1190 has one bad window (k 25-50 at +0x332), Print_CRCs three sites (26/64 good). Declarations before both symbols move one window edge, declarations between them move the other, so window width changes too and per-edit bookkeeping cannot predict a combination: measure each combination (build/class-work/Scout1114 combo.sh). A redeclaration counts 0, a new overload 2, a typedef 1, a template forward declaration 0. Held header edits land together when the combination keeps every row in its window (Scout1114 r1).
+- Found in the rebuild (lane R20, DoType; lanes R21, R33): evidenced content can flip a row by count alone. do.hh's
+  DoType grown from TibSun's 16 sequences to RA2's 38 flipped wonline Draw_Player_List 0x73FEE0 and sidebar
+  SelectClass::Action 0x6809F0, which use none of the new values. The probe that tells a count flip from a content flip:
+  add N unrelated declarations to the old header and record windows on both sides (over the 38-entry header: +1..+5
+  Draw_Player_List off, +6..+9 both exact, +10..+11 Encode_Game_Options off, +12..+15 exact, +16..+17 Draw_Player_List
+  off, +18..+23 exact). Such rows are parked as "exact form, count-sensitive" with their windows (DECISIONS, third part
+  of the flip rulings) and come back by themselves: Draw_Player_List was exact again under wonline's new includes
+  (lane R21) and again after its inline twins left (lane R33). `rebuild/tools/countsens.py` retries every listed row
+  at a landing that changes a header; nothing is padded to move a count.
+- Found in the rebuild (review session, 2026-11-19): weigh the probe by body, not by count. The compiler's counters
+  advance by what a declaration creates (a new signature 2, a typedef 1, a redeclaration 0: Scout627, Scout1114;
+  defined locals rather than declarations: Scout1296), so N bare `struct P;` lines and N evidenced members or
+  enumerators are not the same move. Record a probe of matched weight where it is cheap before calling a flip
+  count-only.
+- Found in the rebuild (lanes R21, R22): rows that are not count-sensitive say so quickly. MapRegionClass::Build_North_Ramp
+  0x573680 (1..30 probe declarations) and Run_Lobby_Session 0x743720 (0..60) kept the same difference at every count:
+  their causes were a missing `short` local (ra2-decomp's twin) and an out-of-line ArrayList::get, so run the probe
+  before spending time on header order.
 
 ## SEH (`__try`) functions lay out their frame by variable name (Scout1135)
 In a function containing `__try`, VC6 does no density re-sort and no slot sharing: every named local gets its own slot (even register-allocated ones), and every statement temporary keeps a slot even when eliminated (each `x = Rect(..)` temp leaves 16 unreferenced bytes). Scopes stack top-down: function scope, nested blocks depth-first in source order, one group of parse-time temporaries, inlined functions' scopes (in inline order), then inlining temporaries. Within a scope, locals sort by a 16-bucket hash of the name, ascending from the top; within a bucket the later-declared variable sits higher; use order never matters. The bucket (Scout1137, 86/86 measured names plus random scopes) is `h = (h<<2) + (h>>4) + c` over every character as 32-bit unsigned, then `bucket = (h ^ (h>>16)) & 15`; `build/class-work/Scout1137/hash/bh.py NAME...` prints buckets and `bh.py -o` predicts a scope's top-down order. Statement temporaries always form one group below the whole named-scope tree, in creation order, never shared (all option variants); every `new` leaves a 4-byte temp (a pointer initialiser costs its named 4 plus that temp; corrected by Scout1139), `delete p` costs 8, `GetExceptionCode()` in a filter costs 4, and `T const &r = T(..)` puts its temp in the named scope. Named locals declared inside if/else branch blocks form nested scopes placed after the parent's whole list; each inlined function's own temps sit right after its own scope. So renaming a local is a real frame lever in SEH functions (WinMain 0x68E280: `retval` in bucket 12/13 placed the return code between path_to_exe and dir). The ordinary frame notes do not apply to SEH functions.
@@ -2549,3 +2595,64 @@ range do not count, and any reference inside the stretch resets the count. The w
 - **The four fragile rows hold together at exactly one declaration count, and pure renames never move it** (2026-11-15, lane E1b fragile-row lab: `tools/original_target/fragile_lab.py` renames identifiers in a scratch tree and compiles only the four rows' populations in about 5 s; `build/lab/probe.sh` adds K `struct LabProbeN;` lines at the top of `shared/cd_timer.hpp`, which all four units include). Print_CRCs 0x62A360, WinMain 0x68E280, OwnerDraw 0x5E5150 and Reposition_Sidebar 0x6819A0 are exact together only at K = 0 among K = 0..63. Exact counts per row: OwnerDraw 33 (K = 0 and 31..63, one window), Print_CRCs 23, WinMain 18 and Reposition_Sidebar 16 (scattered, several tie sites each). So every net change in the declaration count before these functions breaks at least one of them. Name length and spelling do nothing: 44 of lane M1's 46 held names, renamed one at a time and then all together, keep all four rows exact. The two that flip rows change the count. Load_Alloc_Data (Unknown_Load_Shape_00495270) becomes a second overload of 0x00495230's name and flips OwnerDraw and Reposition_Sidebar. Technos (unknown_list_a40c20) merges an alias into an existing declaration and flips Reposition_Sidebar. Combined, they also flip Print_CRCs. Consequences:
   - A rename batch is safe for these rows when every new name is distinct and undeclared, or is the same entity's declaration with the same type. Overloads and merges need the lab or the gate.
   - No "natural form" makes these rows count-robust (as Scout1287 found): only K = 0 holds all four. A count-changing name lands only with an evidenced re-roll of every row it flips (DECISIONS row 23).
+
+## Inline constructors and template members the original calls out of line (found in the rebuild, lanes R8-R42)
+
+- Count the image's calls before moving a definition. `rebuild/tools/expansions.py HEADER OLD NEW SYMBOL ADDRESS`
+  declares one inline function without a body for one run, compiles every unit and sets each exact row's source sites
+  against the image's calls to the copy (lane R42). TPoint3D<int>(x, y, z) 0x41B630: 60 image calls in exact rows
+  against 859 source sites, 799 expanded; Cell(int, int) 0x42AD30: 451 against 3,169, 2,718 expanded; TPoint2D
+  ::operator== likewise. The in-class definitions are right: the out-of-line sites are per-caller budget outcomes, and
+  a header change that stops the expansion at one parked row breaks hundreds of exact ones.
+- An out-of-class template member reached through another inline expansion (DynamicVectorClass's constructor inside
+  an inlined WaveClass(NoInitClass), Add, the copy constructor, GenericNode's constructor) is the usual parked
+  difference: the original calls it, the rebuild expands it (WaveClass::Load 0x7221D0, Search_For_Tiberium_Weighted
+  0x4CBB40, TeamTypeClass::Suggested_New_Team 0x6BED50, RulesClass::Initialize 0x6433A0; lanes R10-R26). It is the
+  caller's budget, not the header form: Load with only the placement new expands every level, and two or three more
+  Swizzle_Pointer calls ahead of the loops turn the constructor into a call as in the original (lane R25, scratch only).
+  So the original's caller was wordier before that site; look for its missing statements or calls in the reference
+  texts, never for padding.
+- Tell the budget from depth or helper shape with a pad probe (`rebuild/tools/inline_probe.py --pad`): when a few
+  expansions of padding at the top of the caller flip the site (Tactical::Draw_Fence_Placement 0x6A5D70: one
+  Adjacent_Cell), it is the budget; when 0..12 never flip it (HoverLocomotionClass::Process 0x4FBFC0, reinf
+  Do_Reinforcements 0x639970), the original reaches the callee through a different helper level or form (lanes R15, R17).
+- In a chain of `||` tests that each build an offset, the last operand before the Center_Coord call is the one
+  expanded: a sixth test in AircraftClass::Fire_At 0x415790 moves the expansion to it (lane R12).
+
+## Literals, function statics and data order (found in the rebuild, lanes R10, R22, R25)
+
+- VC6 folds `1.0 / UINT_MAX` to exactly 2^-32, not to the 1/4294967295 the image pools; write `1.0 / 4294967295.0`
+  as main does (mapgen's RMG scale, lane R25; main's literal form for the same constant in Scout863). The row compare
+  binds literals by address, so the wrong fold shows only in the data bytes the build compares.
+- A unit's initialised constants, file-scope and function-local alike, are emitted in text order, one run per
+  declaration group. A gap after a data symbol is first a declaration-order question: mapgen's 4 bytes after Init_Map's
+  float `_waterfall_chance` closed when the variable moved to file scope just before Init_Map as ra2-decomp declares it
+  (mapgen.cpp:3254), and Get_Angle_Score's weights declared in the image's order (random 2.5, length, angle) laid out as
+  the image holds them (lane R25). The order of runs between functions can still differ from the image's (Init_Map's
+  run before MapRegionClass's there), which a per-symbol compare does not depend on.
+- One object holds one select-any copy per distinct literal. A second or third byte-identical constant inside a unit's
+  function-statics block, read by one function and placed in the order of the functions that read the statics, is a
+  named `static const` of that function (mapgen 0.7 at 0x7A5CB0 read by Seed_River, 0x7A5D70 read by
+  Find_Dirt_Road_Tile; 15.0 at 0x7A5CE8, Create_Tiberium's `_distance_scale`; lane R22; DECISIONS "A byte-identical
+  floating constant"). The plain literal binds to the pool copy, which may be one kept from an earlier object (15.0 at
+  0x7A5398, also read at 0x530C24): a literal that lands on another unit's pool address is link-order evidence, and one
+  that cannot (fly Process_Landing's 0.02 binds to 0x7A7F30, the original reads 0x7A0FF8) stays a named static until
+  a binding is evidenced (lane R10).
+
+## Select-any COMDAT copies and header-emitted data (found in the rebuild, lanes R7, R17, R19, R35, R43)
+
+- The linker keeps one copy of each select-any COMDAT image-wide, from the first object in link order that defines it,
+  and keeps it even under a link that kept unreferenced code. Where the kept copy sits is link-order evidence: palette's
+  VectorClass<HSVClass> constructor 0x605DA0 and DynamicVectorClass<HSVClass> 0x6051F0 are palette's own object tail
+  (lane R7); radsite's object, not ramfile's, emits the twelve RadSites vector members 0x637F90-0x638310 right after its
+  last function (lane R17). A copy our object emits that the image holds elsewhere is the discarded duplicate: compare
+  it with the kept one (DECISIONS, select-any second half).
+- Template copies that only a parked caller instantiates disappear with its guard and come back with it: 72 of the
+  156 rows exact with the guards open (7.6 KB) are held that way (lane R43, tail_holders_r43.csv); Dropship_Screen's
+  effect-vector copies and Combat_Damage's two Smudge copies (lanes R19, R31) are examples.
+- `__uuidof(I)` is its own select-any GUID COMDAT, separate from the `IID_I` .rdata copy: building's IPiggyback rows
+  refer to 0x7CFC30, while IID_IPiggyback is 0x7A2050 (lane R19).
+- System headers can emit zero-initialised select-any .bss objects no code references: wonline's ATL 3.0 headers
+  emit CComApartment::ATL_CREATE_OBJECT (4 B) and CComModule::m_libid (16 B), which fill the hole 0xB2ACAC-0xB2ACBF
+  exactly. Separate COMDATs are ordered by the linker, so the order inside the hole is our object's, a hypothesis; they
+  are bound as a group (lane R35; DECISIONS "Unreferenced zero-initialised select-any COMDAT .bss objects").

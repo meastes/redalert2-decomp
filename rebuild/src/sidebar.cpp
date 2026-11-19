@@ -1266,7 +1266,7 @@ void SidebarClass::Recalc(void)
  * HISTORY:                                                                                    *
  *   12/09/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0067e210 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0067e210 has no row); main: best 99.04, tried 11 times (frame, register, order)
 bool SidebarClass::Activate(int control)
 {
 	bool old = IsSidebarActive;
@@ -2388,7 +2388,7 @@ void SidebarClass::StripClass::Draw_It(bool complete)
  *   01/19/1995 JLB : Created.                                                                 *
  *   06/26/1995 JLB : Doesn't collapse sidebar when buildables removed.                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006802d0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006802d0 has no row); main: best 62.52, tried 9 times (inline, order, frame)
 bool SidebarClass::StripClass::Recalc(void)
 {
 	int ok;

@@ -990,9 +990,9 @@
    "source": "leaf src/recovered/classes/ObjectClass/00423e60.cpp (returns 0)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 115 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 115 (+0x1CC) 12 times, each on a techno, and TechnoClass overrides it (0x006D1480): seven in BuildingClass members on the building itself (Mark 0x0043C7E7, Unlimbo 0x0043E986, Toggle_Primary 0x00444F7A, Animation_AI 0x0044BDA3, Create_Anim 0x0044CC52, Update_Anim_Appearance 0x0044D19B, Clicked_As_Target 0x00452081), three in TechnoClass's draws on the techno (0x006D166F, 0x006D274F, 0x006D2A55), ParasiteClass::UpdateSquid 0x00606D51 on the parasite's owner (a FootClass), and ObjectClass::Paradrop 0x005D43EE on the object dropped, whose only caller through slot 56 (+0xE0) is AircraftClass::Paradrop_Cargo 0x00415697 (its passengers, FootClass); no jmp through the slot, no direct call",
+   "reach_checked_by": "N13 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x006D8640",

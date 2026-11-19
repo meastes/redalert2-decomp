@@ -91,7 +91,7 @@ class RadioClass : public MissionClass
 		*/
 		bool In_Radio_Contact(void) const {return(RadioLinks[0] != 0);};
 		void Radio_Off(void) {RadioLinks[0] = 0;};
-		TechnoClass * Contact_With_Whom(void) const {return(RadioLinks[0]);};
+		TechnoClass * Contact_With_Whom(void) const { return(Radio_Link(0)); }; // RA2: the first link through Radio_Link (main radio.hpp: Contact(0))
 		TechnoClass * Radio_Link(int index); // RA2
 		TechnoClass * Radio_Link(int index) const; // RA2
 		bool ContainsLink(TechnoClass const * techno) const; // RA2

@@ -1,4 +1,4 @@
-"""tailmap.py [UNIT ...] [--write] [--jobs-note]: map the parked tail by cause (lane R42, review session direction
+"""tailmap.py [UNIT ...] [--write] [--notes]: map the parked tail by cause (lane R42, review session direction
 2026-11-19).
 
 For every unit with rows that are not exact (count-sensitive rows excepted, as in the census), a scratch copy
@@ -23,7 +23,12 @@ the original and bucketed by its first kind of difference:
 Per row: unit, entry, function, bytes, bucket, top_callee (the first differing callee, its template family
 for inline_call; the first unbound name for unbound), direction, detail. Results are cached per unit under
 build/r/tailmap/ by source and header state; --write writes rebuild/manifest/tail_buckets.csv and prints the
-summary (rows, bytes, top callee families per bucket). Nothing else in rebuild/manifest is written."""
+summary (rows, bytes, top callee families per bucket). Nothing else in rebuild/manifest is written.
+
+Each bucket's summary line is followed by the docs/VC6_MATCHING_NOTES.md sections that address it, from
+rebuild/manifest/bucket_notes.csv (lane L1); print one with
+`python3 tools/original_target/notes_index.py --section "<title>"`. --notes prints the summary of the
+tail_buckets.csv already written, with those sections, without compiling anything."""
 import collections
 import csv
 import hashlib
@@ -42,6 +47,7 @@ from verify_manifest import Audit
 
 VERSION = 'v2'
 OUT = R.MANIFEST / 'tail_buckets.csv'
+NOTES = R.MANIFEST / 'bucket_notes.csv'
 CACHE = R.WORK / 'tailmap'
 GUARD = re.compile(r'^#ifdef RA2_NON_MATCHING\b[^\n]*', re.M)
 MD = capstone.Cs(capstone.CS_ARCH_X86, capstone.CS_MODE_32)
@@ -329,6 +335,12 @@ def map_unit(unit, info, audit, names, hstate):
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    if '--notes' in sys.argv and not args and '--write' not in sys.argv:
+        rows = list(csv.DictReader(open(OUT)))
+        for r in rows:
+            r['bytes'] = int(r['bytes'])
+        summary(rows)
+        return
     units = R.load_json(R.UNITS, {})
     audit = Audit(R.ROOT, json.loads(R.CONFIG.read_text())['executable'])
     names = {}
@@ -371,6 +383,13 @@ def summary(rows):
         print('%-16s %6d %9d  %s' % (bucket, len(rs), sum(r['bytes'] for r in rs),
                                      '; '.join('%s (%d, %d)' % (k, v[0], v[1]) for k, v in best if k != '-')))
     print('%-16s %6d %9d' % ('total', len(rows), sum(r['bytes'] for r in rows)))
+    if NOTES.exists():
+        notes = {r['bucket']: r for r in csv.DictReader(open(NOTES))}
+        print('\nVC6_MATCHING_NOTES sections per bucket (tools/original_target/notes_index.py --section "<title>"):')
+        for bucket, rs in sorted(by.items(), key=lambda kv: -sum(r['bytes'] for r in kv[1])):
+            n = notes.get(bucket)
+            if n:
+                print('%-16s %s' % (bucket, n['sections']))
 
 
 if __name__ == '__main__':

@@ -3751,7 +3751,7 @@ static inline void __cdecl Get_Animation_Record(unsigned int const &key, WinData
 {
     Control_Table.getPointer(key, &record); // RA2: as above
 }
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005e8130 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005e8130 has no row); main: best 49.20, tried 5 times (frame, inline, ruling)
 BOOL __stdcall Init_Control_Animation(HWND window, LPARAM) // RA2: as above
 {
     HWND parent = GetParent(window);
@@ -4158,7 +4158,7 @@ void __fastcall Move_Centred_Control(HWND window, Point2D const &size) // RA2: a
 
 namespace OwnerDraw { // RA2: as above
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005e9410 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005e9410 has no row); main: best 99.79, tried 11 times (frame, register, order)
 void __fastcall Adjust_Control_Position(HWND window) // RA2: as above
 {
     HWND parent = GetParent(window);
@@ -10546,6 +10546,55 @@ LRESULT __fastcall Get_Combo_Item_Wide_Text(HWND window, WPARAM index, WideWstri
 
 
 OwnerDraw::DialogControl::DialogControl() {} // RA2: as above
+OwnerDraw::DialogControl::~DialogControl() {} // RA2: 0x00601040
+
+
+namespace OwnerDraw {
+
+/*
+**	RA2: 0x00601050, a control the table knows stops its wait; the same answer as Set_Window, without a control.
+*/
+void __stdcall End_Control_Wait(unsigned int key, HWND window)
+{
+	WinData * record = Get_Record((HWND)key);
+	if (record) {
+		record->IsWaiting = true;
+	}
+}
+
+SimpleDialogControl::SimpleDialogControl(void) : window(0), IsDone(false) {} // RA2: 0x006010C0
+
+SimpleDialogControl::~SimpleDialogControl(void) {} // RA2: 0x006010E0
+
+/*
+**	RA2: 0x006010F0, the dialog's answer arrives: the window is kept, a control the table knows stops its wait.
+*/
+void SimpleDialogControl::Set_Window(unsigned int key, HWND window)
+{
+	this->window = window;
+	WinData * record = Get_Record((HWND)key);
+	if (record) {
+		record->IsWaiting = true;
+	}
+	IsDone = true;
+}
+
+bool SimpleDialogControl::Is_Done(void) // RA2: 0x00601170
+{
+	return(IsDone);
+}
+
+HWND SimpleDialogControl::Get_Window(void) // RA2: 0x00601180
+{
+	return(window);
+}
+
+bool SimpleDialogControl::Is_Cancelled(void) // RA2: 0x00601190
+{
+	return(false);
+}
+
+}
 
 
 namespace OwnerDraw { // RA2: as above

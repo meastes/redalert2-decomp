@@ -3085,7 +3085,7 @@ none: // RA2: as above
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00440520 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00440520 has no row); main: best 92.27, tried 12 times (frame, register, inline)
 int BuildingClass::Exit_Object(TechnoClass * base)
 {
 	if (!base) return(0);

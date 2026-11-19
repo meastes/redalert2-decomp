@@ -87,3 +87,4 @@ address,name,unit,reason
 0x00AB9274,ButtonHelpBuffer,sidebar,"global name not in TibSun, ra2-decomp (DAT_00B079B0), mischa85 or RTTI (lane R39's descriptive name; main unknown_text_ab9274)"
 inline,MultiplayerGameMode::Get_Name,multiplayer,"inline accessor read by Fill_Game_Mode_Combo/List (0x005B70B0, 0x005B71E0); main's name (ra2-decomp: free Game_Mode_Name); lane R40, owner ruling 2026-11-19"
 inline,MultiplayerGameMode::Get_ID,multiplayer,"inline accessor read by Fill_Game_Mode_Combo/List (0x005B70B0, 0x005B71E0); main's name (ra2-decomp: free Game_Mode_ID); lane R40, owner ruling 2026-11-19"
+0x00601050,End_Control_Wait,ownrdraw,"name descriptive; no evidenced name (main Unknown_Mark_Registered_00601050, mischa85 none); the lookup of SimpleDialogControl::Set_Window without a control; lane R43"

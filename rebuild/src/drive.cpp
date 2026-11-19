@@ -498,7 +498,7 @@ BOOL DriveLocomotionClass::Is_Angled(void) const
 /// </summary>
 /// <param name="key">Pointer to the voxel cache key to be updated. May be NULL.</param>
 /// <returns>Returns with the matrix the unit is to be rendered through.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 95.91, tried 9 times (inline, bound, frame)
 Matrix3DStruct STDMETHODCALLTYPE DriveLocomotionClass::Draw_Matrix(int *key)
 {
 	Matrix3DStruct m;

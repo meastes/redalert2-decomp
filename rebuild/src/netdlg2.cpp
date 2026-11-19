@@ -1552,7 +1552,7 @@ void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE2
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005befe0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005befe0 has no row); main: best 85.37
 LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BEFE0; the lobby dialog of the host
 {
 	if (message != 0x497) { // RA2: as above
