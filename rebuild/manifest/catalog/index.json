@@ -848,7 +848,7 @@
       },
       {
         "path": "rebuild/include/findmake.h",
-        "sha256": "563058e97b63238b126e8cf08802d95f494a78c73f0030d0b2d9c46b3ae428d5"
+        "sha256": "f982aff2380fdaeaf9f7959d06798ea947010f331974fba597f1f0537e07384b"
       },
       {
         "path": "rebuild/include/fire.hh",
@@ -880,7 +880,7 @@
       },
       {
         "path": "rebuild/include/fpscounter.h",
-        "sha256": "3c3cd84f781d4cf366ae114724a044f41e284b0fd6fe59f22239a2673f19b2e6"
+        "sha256": "122bfd68d6dc986cc458c55868a4802e178215c58943fee5e34f9a20dc8eefd0"
       },
       {
         "path": "rebuild/include/ftimer.h",
@@ -928,7 +928,7 @@
       },
       {
         "path": "rebuild/include/globals.h",
-        "sha256": "36abb6965b6114528d594ef2ed8c7aeada2d2379fc844696b9491129927f897b"
+        "sha256": "4d8213baed7d5047093f1f02828501a122f59752d014424bb712ad7029b3de29"
       },
       {
         "path": "rebuild/include/goptions.h",
@@ -1464,7 +1464,7 @@
       },
       {
         "path": "rebuild/include/multiplayer.h",
-        "sha256": "64f39cbb94e43ab956544fe865f5ccfb6b027a5ecfae7badf5381aa10e6309d8"
+        "sha256": "6e85cb0b3132a56127ed442bf9c1cf3c48be260581ee225c9795535002d9dcbe"
       },
       {
         "path": "rebuild/include/mzone.hh",
@@ -1548,7 +1548,7 @@
       },
       {
         "path": "rebuild/include/ownrdraw.h",
-        "sha256": "cdf6ebd6fb769b086e9125739395c7a34559a964175697a5e5135638a9b9ab7a"
+        "sha256": "ea387c1053df34c3af3c0e55627465cc6dc4d21c33230bb756486cd73291ac21"
       },
       {
         "path": "rebuild/include/packet.h",
@@ -1696,7 +1696,7 @@
       },
       {
         "path": "rebuild/include/queue.h",
-        "sha256": "de309da8bb9ade54b35be59b4bcb6df3ddfb5da41a500b6242d3f8a0d2bfcabd"
+        "sha256": "0c19a91f1bef492791ed2c5f9e8320af7fd318ac1df7f6738ade1777bf412531"
       },
       {
         "path": "rebuild/include/radar.h",
@@ -1804,7 +1804,7 @@
       },
       {
         "path": "rebuild/include/rules.h",
-        "sha256": "57fa4b35eacb12c333dcdd2fc4d3610fcfee31b3366646824c0bfb6ce61ba244"
+        "sha256": "87a51f914646e1df411457540ed448afcfbcd7161c84eb30ea032a55e159ab45"
       },
       {
         "path": "rebuild/include/saveload.h",
@@ -1832,7 +1832,7 @@
       },
       {
         "path": "rebuild/include/script.h",
-        "sha256": "3d791e690fbd55f589421eea7f1cd959a6a58b827009375f51a4db1c697bb5bf"
+        "sha256": "f119a56040ffba54660523b44fda24b0d3ff6adf06b302722cef5fb4deb2cfca"
       },
       {
         "path": "rebuild/include/scroll.h",
@@ -1852,7 +1852,7 @@
       },
       {
         "path": "rebuild/include/session.h",
-        "sha256": "f673bb2196ff829885e4e301b99a36a9228407ab16fab35681b5e33d663ab834"
+        "sha256": "a442bc2faecfeb3be38d3282d12a9b3bc40d6578b3e756199d2d49b726c47c74"
       },
       {
         "path": "rebuild/include/setpal.h",
@@ -2004,7 +2004,7 @@
       },
       {
         "path": "rebuild/include/stringtable.h",
-        "sha256": "66661301fd02185ad9708e8d4a8fc4f80b633b93354146c8ed1c7392eaa1930f"
+        "sha256": "5cdb75e3875d4176f6a04fb5d585305972504488dad44055e0e0f2f2a6233824"
       },
       {
         "path": "rebuild/include/struct.hh",
@@ -2655,6 +2655,7 @@
     "rebuild-combuf2",
     "rebuild-connect",
     "rebuild-conquer",
+    "rebuild-const",
     "rebuild-control",
     "rebuild-convert",
     "rebuild-coopcamp",
@@ -2852,6 +2853,7 @@
     "rebuild-score",
     "rebuild-sendfile",
     "rebuild-serialed",
+    "rebuild-session",
     "rebuild-sha",
     "rebuild-shapebtn",
     "rebuild-shapipe",
@@ -3000,6 +3002,7 @@
     "population-1332",
     "population-1334",
     "population-1397",
+    "population-14",
     "population-1440",
     "population-1441",
     "population-1442",
@@ -3089,6 +3092,7 @@
     "population-1994",
     "population-2016",
     "population-2017",
+    "population-204",
     "population-2168",
     "population-2186",
     "population-2187",
@@ -3524,6 +3528,7 @@
     "population-4454",
     "population-4455",
     "population-4456",
+    "population-4457",
     "population-4458",
     "population-4459",
     "population-4460",
@@ -3546,6 +3551,7 @@
     "population-4493",
     "population-4498",
     "population-45",
+    "population-4500",
     "population-4501",
     "population-4502",
     "population-4503",
@@ -3589,7 +3595,9 @@
     "population-99",
     "population-993",
     "population-995",
-    "population-998"
+    "population-998",
+    "rebuild-script",
+    "rebuild-queue"
   ],
   "region_runs": [
     ["rebuild-audattr", 6],
@@ -3686,6 +3694,7 @@
     ["rebuild-combuf2", 3],
     ["rebuild-connect", 26],
     ["rebuild-conquer", 39],
+    ["rebuild-const", 14],
     ["rebuild-control", 9],
     ["rebuild-convert", 285],
     ["rebuild-coopcamp", 62],
@@ -3862,6 +3871,7 @@
     ["rebuild-ptype", 31],
     ["rebuild-quarry", 1],
     ["rebuild-quat", 16],
+    ["rebuild-queue", 67],
     ["rebuild-radbeam", 46],
     ["rebuild-radio", 34],
     ["rebuild-radsite", 50],
@@ -3877,12 +3887,14 @@
     ["rebuild-rndstraw", 11],
     ["rebuild-rocket", 29],
     ["rebuild-ownertalk", 47],
-    ["rebuild-rules", 114],
+    ["rebuild-rules", 148],
     ["rebuild-savever", 49],
     ["rebuild-scheme", 13],
     ["rebuild-score", 46],
+    ["rebuild-script", 46],
     ["rebuild-sendfile", 18],
     ["rebuild-serialed", 28],
+    ["rebuild-session", 119],
     ["rebuild-sha", 4],
     ["rebuild-shapebtn", 13],
     ["rebuild-shapipe", 2],
@@ -3983,7 +3995,7 @@
     ["rebuild-winstub", 38],
     ["rebuild-wolpersonainformation", 36],
     ["rebuild-wolstart", 14],
-    ["rebuild-wonline", 175],
+    ["rebuild-wonline", 174],
     ["rebuild-worlddom", 56],
     ["rebuild-writepcx", 3],
     ["rebuild-wspipx", 25],
@@ -4033,6 +4045,7 @@
     "population-1332": "3c6e5d35dbbcd414ffb5a1a5b9ba32f9d1be2cf62e08ee29a45f255b5c5a02bc",
     "population-1334": "768c724bf1acdfa841453821fbe7022477d1a74759458d46692e7c46f6fb7864",
     "population-1397": "ceb4ed49d1e6ffd6fed4b520829f487d621162211cb8e8bee609f4963789d721",
+    "population-14": "765a1c714c15815d931fcb45279aac03f452a1de34e797a79291f76e5df78fd9",
     "population-1440": "7c10cd1a51c7f313f319eca6a9e24ed19884577f45e963b659113ed024a2ace6",
     "population-1441": "5854cf95f4329a9ad4332c1c3c0e47153bc5d4e57af7af586a781d07fe180bd1",
     "population-1442": "7b90c89d2353a7ab0ecce40ee3eedc3d89f4e6ceec21ca0fb7d0c06e4eea304a",
@@ -4122,6 +4135,7 @@
     "population-1994": "5c7225b5a8d9e1cd7e813fcbc09dfa16bf7fdc4aa69663c1ffb79894d22297b7",
     "population-2016": "231a3f72c884d54998bc32b51353c386b0f8ab0477b27206d8b99041922b676d",
     "population-2017": "7c4028a0e5bfe870e2857de83b10b7595fb547d2914d3c02ff46b043a2cbe820",
+    "population-204": "dd53cf54fbad84cd38f867fd7390708ada3a753edc0a7388c1a7bcfb95a56aa8",
     "population-2168": "be6d38c9ee3c6493c1c8d99a9397195cd17ede3360186c23aa1d2999f6226ed3",
     "population-2186": "9321914a34a595d72e1442888ac4a447dad5ec64a1eee767eea3777a28bfbcbe",
     "population-2187": "d1ae11f4b51ca7db810240f841f94fcbce08b9524460fe41868775a1b2f3eacb",
@@ -4557,6 +4571,7 @@
     "population-4454": "dc4d2dc344ae6b3883286f290437868e45b5539cf90898924d56fd426ca262a5",
     "population-4455": "38b30a4ed84d632df64dc4927dba86cd0e94db58673e512ea26d8708bd30cffe",
     "population-4456": "098be09db621b145f3a9a5f2e57e2f2d42f8619a69ae88782feb36f54fe90a86",
+    "population-4457": "d09c62121027817a4fb3e3c1c930a07ea9ddc0677e5471f1d778ab7c9785e17e",
     "population-4458": "167d27a7f69822bbc5d039964de802ac8301803c7e0aab0f4bd7cc8037b86dd3",
     "population-4459": "c9d916e0e707ffe3e3f39ea26b07927767ae1e7398de3e13e5351398c255f751",
     "population-4460": "9dafc6e5c480b9310a7740197423275aa2fa7995f7918a3f76f28192afbd0431",
@@ -4579,6 +4594,7 @@
     "population-4493": "4a824a1995c06d690735c094024caa962390229ca67541996d80edcd6931d913",
     "population-4498": "8c7144ec261715507e2e5356f7bb3346493427ad8c9c11777d22d26db25be489",
     "population-45": "432580bdc4e1e2a65cc9b995ebb12faecd18617ca7603fb9e3b4c9c8d831019b",
+    "population-4500": "f0b2b73329450cb5f78e9c08d934f7854a9721f9784ec13f4de664c6315bd1d6",
     "population-4501": "24f60047ee744d45687b2c5fb995a5844461cc4545135f502856bf0d4b02bf75",
     "population-4502": "c717167f09db310fbc5f5cb96cd5b02b9778060055ae07f9753d6e8dacaf6671",
     "population-4503": "3573098136571945c26ff685f20ef47ff289f71a28e93de51de24ee181570ddd",
@@ -4718,6 +4734,7 @@
     "rebuild-combuf2": "caf4892e1fd2b9ea37e5ae98daea02695b869c08bc5da56adead2d872a35c6f7",
     "rebuild-connect": "231a99b2e743393c4d7a1052b0b4a49c678cc2ce71e15def597187cad3f1e30e",
     "rebuild-conquer": "092af6085e4e003682ca23a026e55e037c9095672f537093681deeed5e4eb334",
+    "rebuild-const": "0e19c1968a51b86ce43447fb50f392545bfd1dd3469d52cee09e1713c98e6609",
     "rebuild-control": "076680bc2202c86a0b5bd13c5050f137cff8d15e67f988bf0dbee252579b7411",
     "rebuild-convert": "5a25e974c61a84835126422c21d66fbe7569ecf23e4662e2df35223a36942412",
     "rebuild-coopcamp": "83702803adf0468395708098c9ce49d070f856b6b0de3960e6c47db92cf61564",
@@ -4789,8 +4806,8 @@
     "rebuild-hsv": "c90630f460928d15e36c3c63ed921ad417877404cda91f51f87c95d0d910af1c",
     "rebuild-infantry": "2efca5dc933f930e5358c97a05f2039ec91b875de53e687e0f57bd3e2e04a5c7",
     "rebuild-infatype": "5efa435ed405a573d6d6485e663b682f9e00d04607ed963fcaeb79450fd005c6",
-    "rebuild-ini": "c49baee5e02f0a605e0cf3cce78d3afd42ad66fce102e0d6238c844dc1a65f75",
-    "rebuild-init": "1dbd15d84d1b0384cafc99ae35a7ff9b091cbe2f865fb5295b4d582507ba7eab",
+    "rebuild-ini": "4b1854d9cb7b6d1aa714dcd82c8f3d26a73c18993b5e8f820f5b37eb3dc9d677",
+    "rebuild-init": "cc4811e8a3fd67f30f4e1fe6a40399cfe1d46b549265fde60a22b401393501c3",
     "rebuild-interpal": "cc2cd9e89c4279bca66b5ca347262eb6ea12d619018ca5ff9e6dbf340d454ce4",
     "rebuild-intro": "1d822f350bcb9e26415ed7b831a4760e2ffaeab2fd37970a8c39578d7f292073",
     "rebuild-ionblast": "283e835e4b0cc2294ef59dd61c61a5293c5917f1ce4135e8245dff81f2932da4",
@@ -4816,7 +4833,7 @@
     "rebuild-link2": "7b25cd4aba65b5707750ad682a7dbd7f03c8ac195cda5a794abf8418730846d5",
     "rebuild-list": "10ca4184475e79f86fb4eaa07129fedc5ea6f0bf0cf131fc6ce95f7bf26928f2",
     "rebuild-load": "759aa7c603759769a393b5b2545b0a2e5fb620f665260a616b1b9c9098daf941",
-    "rebuild-loaddlg": "46c0bd848c1ac514f7fe6a18eb0b6fd3e10549e584bb2e112b97fedc9932c940",
+    "rebuild-loaddlg": "4b44143c0b85f0d2c2eea8510da217d2f6cb38478310d9522b17dc49835400ca",
     "rebuild-loco": "1c345e8a5b4048c0d96622585f6dd1cc73943e3309fc1d0bb7fc262714b3e689",
     "rebuild-logic": "db389befa8dc5e2b0d9187bb5d432b874a753168db15ae8a1bf0d24e27d99578",
     "rebuild-lzo1x-c": "ffb0da0307ba0bcbaf225ae6b7a53cd88ac141e76f42e3536bfaedc4e29f246a",
@@ -4826,7 +4843,7 @@
     "rebuild-mainloop": "8347abfbce1ac339ee3a7907adc846a680a5f314af2d76305c550cce562a48df",
     "rebuild-mainopt": "0189162e9637d734e4eb8d293f126dfcab463e079e0960f8ab2eb4fcd124a21b",
     "rebuild-map": "f471f7772b0403c9abab2eedb59278e08c508a001e8097daefc0040c67301c56",
-    "rebuild-mapgen": "9a587e171e7ae110650fc23272e0a1ad380524a27fb033a50ae56110e9a3db1d",
+    "rebuild-mapgen": "bdabf45b98090141304d2a4f6ab486d01ee6d45108c9f7cca65450af8cfaf9cc",
     "rebuild-mapsel": "28c70785847db18b600dab9c35f17ad15178888167d6f18b8e58372c92a5f30d",
     "rebuild-matrix3d": "8c0cdca830c32d16f12b9fdb6fbdbf01880d1708d7343573a560d34eceff59b7",
     "rebuild-mech": "98ee201d99f221ff7a9aad2fc6c950001b39c7dea863017ca1f0cce5d67d749f",
@@ -4841,7 +4858,7 @@
     "rebuild-motlib": "27eba88969c647607290eb70612554ef91a8b3c894c2789661906a932e352dc2",
     "rebuild-movie": "edc94bb1ba7cb4cd31905ac9952df872d29c1bbec55a1f21463ecb6fcb240014",
     "rebuild-movies": "f75a60f413aff769f4aeb1c3ea1debf9f4982a1a9b44f7ae4949c4300b9c2ef7",
-    "rebuild-mpcoop": "b46ec727b542da51ba16ae7a2474fce2795bffd06bceced2d4b2029228f2f0a0",
+    "rebuild-mpcoop": "a6fafb7f5009162901eb06ffcb6c1fa82d8ea59b0ffe3e06f112eb6a7b6c54d8",
     "rebuild-mpfreeforall": "b4310059a8d6ea7c84f4957e5d3846199524acba3a9d3dfab86f6356342fb7f5",
     "rebuild-mplayer": "2efbd1405365299f10ebf32623e5eadf54037dae053bf61df805b5c568fbe995",
     "rebuild-mpmanbattle": "8165fa8e2d6db2ff00363c40012b6afebc3689d06c58f192dc6b1ff96b570dee",
@@ -4860,7 +4877,7 @@
     "rebuild-msglist": "8fd03fd5d700533b2da89da8d54332783d5da92b6357390e867f4c500cd9e8fe",
     "rebuild-msgloop": "48ed39927ffd83e2a3a9d5d96ff91ff029c223d23c98b6668e95acc4b6e9b71b",
     "rebuild-mstimer": "873013d59c253d7b5373e369a0fd8e5cd8dc8e5a601a8eeb2b8aaf9054d8ae36",
-    "rebuild-multiplayer": "0eca412722d9b580c2f94189c2ee1ad8ad1d26b99996ccb1b0a9154b26228741",
+    "rebuild-multiplayer": "eb74a63be8f33100f1b10fb9386359859250aa1a6236ce252007c613c17e8f70",
     "rebuild-multiplayerteam": "7693dbdedf971663b635fbb067afbe19aab5b1c75b48b41aba6370e039ada69a",
     "rebuild-netdlg": "6f2d33340c3f24f63573461eac4fcdc4720b84bb04d5d89843ee6ed77b1aef67",
     "rebuild-netdlg2": "561a886e0fe9be19cf689c95968dd32a5108864738bd7b6a17659cff8c74e11d",
@@ -4871,7 +4888,7 @@
     "rebuild-objtype": "f128bd31224f1119e7567b7151061943c7708244faf87276d08becd2e0629d98",
     "rebuild-obscure": "263d1ecb29d59da2e646f484116f7d7bd886e6d5f0f9fa961e74417affd7bf3e",
     "rebuild-options": "c6a85287b77723e6c73859c9308c8bef82efcb65cfbbfe6c13593914c506ecda",
-    "rebuild-overlay": "35c7222e1072a532e56974e9c7b4cb8405200e7c1d22c29518321d77bf82c81f",
+    "rebuild-overlay": "a417437d1c96ccc16c13219c53f072845a10c4a06da6872fffd207976ce1133f",
     "rebuild-overtype": "c601031b11466680754394fa6e35127a50cd0404aa010b1bdcb688e8a09cb0e2",
     "rebuild-ovrlight": "b0ff907eb2171c359eec72b1c4d9918f99c16451b040fe2bdfc95062fb131a66",
     "rebuild-ownertalk": "bd7b249813a73aecfada59f646f97926c057c50cd228fb006cf37a3700d38670",
@@ -4894,6 +4911,7 @@
     "rebuild-ptype": "b5fcdffe471fa61f809e99d791c32f60f47ce050f1e31cc1dcb24d2aa65c53b7",
     "rebuild-quarry": "7cbed7168a2862140a14ddd80832754f3bc233d765499ef3c03e2591d4e885ca",
     "rebuild-quat": "73189df90d8fb6d11aef9597243543cc672a8bacfa9db84b4b733e8ee898fb02",
+    "rebuild-queue": "e98cb759e770ac00241b5aca0f01ead7a89f1cf391145401302d9dd880729bc7",
     "rebuild-radbeam": "e3f20676a8f80b5354d14f01dce5c64a9bf8fd09e5513f78079920079a1b0008",
     "rebuild-radio": "7673b1405f9f9607b29a25fbda2daf7c50f9ef9492d9d28e9ac53c33cb89bde6",
     "rebuild-radsite": "4413f1edb4459e0ec842c701232ec1f93abe6382cb4e1f076bd01c871b1db5f6",
@@ -4908,24 +4926,26 @@
     "rebuild-rle": "c20bd7eea82f499a7d46df145858be2dfa873a9ac893f66d269f3ec9d2c02d5a",
     "rebuild-rndstraw": "c78f6d52924f2b4555ef0a68153773948c522b68525c2ed9db03d02e6bb0fe40",
     "rebuild-rocket": "a3226836a3deba5fae776327d0f0e76d8a7ffb6c640917b4b246baf446724ed1",
-    "rebuild-rules": "46dc1f50d1e1ab10508db8eab0065a130f3ed2d9d836323c6563c3e67c72ecec",
+    "rebuild-rules": "39807ab7c5ad91c3bf654db135d320026393997de9e55504c28f7e28577aade8",
     "rebuild-savever": "df518d8c0e5f4b4580d59390cb99bccee8c56173f1ab8048358c694678e1e6bf",
     "rebuild-scheme": "6315da047e510fbea0a07633c90c11b628846b95f0436455a260d56ab0135806",
     "rebuild-score": "0c07b748d2b33738f616225abc850bdd7578453553e343598b0e6c73378fd8e2",
+    "rebuild-script": "4806df2ce308b9b7a74f664c2dd45578a47992a44c33f8470ffb4a39a59d652a",
     "rebuild-sendfile": "e766a36216c4837a7b1551fe8faf550eaf9ae69e977f3bdeaff966eec865e0ea",
     "rebuild-serialed": "3858445ab2d7ba37495d066d4998ba3da489f69a33e1e19b6b817d59e44c7d72",
+    "rebuild-session": "aaf964e4be1c7aea5bb66816a91f85818873db6e85f958cac925f0110ef02127",
     "rebuild-sha": "f66ef57c7b00c1db4f0b1a65dbf453a2eae3f5f75ffbf30c28cc7247e59ef550",
     "rebuild-shapebtn": "de134a64058ee6cdafd41e7401f5e012f66b44dd41f1b953f1c514de2bb2c53b",
     "rebuild-shapipe": "ed12a8bc00fde0e34ba5dcdbc5dfe1aa4218419c96b96c1981468b8cb59f55c8",
     "rebuild-shastraw": "60ff6ca54a83fbcaad9078be4ab3dc3cd2c4491d334d361b70ae854cf5c9dccc",
     "rebuild-ship": "95558c9b49b014e5083257b55649a204407fbdcf9f93fb91fa4f1bdc459229a3",
     "rebuild-side": "3e73ef9d7a4bc68f6cdb364f4976bdf3c1d3b3acbd274d4bf38125332429e903",
-    "rebuild-sidebar": "9d712574bd7468dc64c9e248fa81a0e44a2bf5b25129087cc3adece277efdd56",
+    "rebuild-sidebar": "04c79143b215428a2dc039468db01d88054d443450d05001573f2f47054fde7b",
     "rebuild-skirmish": "29d163fbf349042ed5b7d40b8792c2d6f0a74771aaaee4254c8489792cd96e9e",
     "rebuild-slider": "c18f62ab11fb0a123adf02aee5c02bbb9a337912ad4dfa70d554f80104bb4607",
     "rebuild-smartdeform": "82282b477004657ae68cbc1edb0f40ee7106bfef319418115f8213176edb4f96",
     "rebuild-smudge": "4d3d7720547419a7dea473a4693f9a8d4c89436100a8a200e9cea8e203934fd6",
-    "rebuild-smudtype": "49db105481b1b68efb61a7370d1f13dd08f30528d7ae86e959175adbf04ae4c8",
+    "rebuild-smudtype": "3bc07940747c4826ff44b1fc7f0ebe6bceb089850016ec15f8ecdbb1c79779e6",
     "rebuild-sounddlg": "49841dbde605d63d06ae6a0cb992757632c73cb97f6cac668761eb7f3bd716c2",
     "rebuild-spawnmanager": "ae05e2acbe4d23c419d3c67203feeba7283b739770f9db7cdf64d819c1ee0d97",
     "rebuild-special": "9bf9ecb5971a882993e83368384b2a2677c249925334b6397a979880210bcb9a",
@@ -4953,7 +4973,7 @@
     "rebuild-team": "214d1ecf58eb74138df8dda68899a1031f118fbe0d974088f518276c02adde79",
     "rebuild-teamtype": "da9de4cc92ed911e08875498f34a100d3a6abb03cae3ea2bf21c86335c7a01f6",
     "rebuild-techno": "f9d83cfff181db175e4c71b8765bf33a89467f1e992985f53ca8b6b7bd34e8ac",
-    "rebuild-techtype": "a3e1b90d9f862e59e79570d72a323632cb383b328d353b2fe9b4d7095032d501",
+    "rebuild-techtype": "048c1a650c5ea0f92d4db3abcc9ce0e564a053b043f108cb3c6020484b8a3a8f",
     "rebuild-teleport": "81ced28d21aa3fddcb5e17cfa397b259caae00478b7c6d751c737b6a716d5d85",
     "rebuild-temporal": "7877bff332526c36851553ff8b1d2d4f68d72ee91ebc5d2f1c891810930baab9",
     "rebuild-terrain": "7391fec93b80a097a1b4bf40a26347480557962866b0c35b6e38fbeb013f35db",
@@ -5007,16 +5027,16 @@
     "rebuild-wave": "76e6505234d9b87963b8d64bfac81b5126b9db983de7f5ffc832040b5c824954",
     "rebuild-waypoint": "b327b7edc386984eab1acaf837d7bf37ea7e27045513813dece46fdd1aa33f7b",
     "rebuild-wdtcampaign": "076504d4b4059029a59faa59198bea3966b19d02a311038ce97254e24ef2d46b",
-    "rebuild-wdtconflict": "dbcaeb5f46e9537bd98d81964812a69a077fd19130ccb91679e17b1728047250",
+    "rebuild-wdtconflict": "351031ef28a562f2c665c87d57646071f0917580be00d75ea456d5163cf73384",
     "rebuild-wdtgameoptions": "c201527f95a195fd2b008dddf4487587073fdc7f1504999b6fca4273df2c1ebf",
-    "rebuild-wdthistory": "7fc602e5a30a9069697050a81c761d2fade86a200f9e2d87f5904d98501dbdd8",
-    "rebuild-wdtmap": "419fffc1e3eeb35da0a6ac6e5430805547706b1a788ef327bb234dbb65d81b5a",
+    "rebuild-wdthistory": "ff020884bfb693e23708a810a7e0bbcb98deccf706bf3c2003cc1c738c07d2d3",
+    "rebuild-wdtmap": "a6467ec3210813d6c330a1603fb6db09b4b25b710420a062cccd56bba81aa701",
     "rebuild-wdtnet": "cfee81330b80296c0311a24b863835e18b89334617f2d2de90e2e413b0229e99",
     "rebuild-wdtprops": "54ed0aad8e5d908da468e802e8c22e46c97a2327f69d8c148166eeb6f668feaf",
-    "rebuild-wdtsel": "3c17e17825d3798b68531ba93d86ab5194ca8ca99c96423825c4e9111ccbbc8c",
-    "rebuild-wdtstate": "289f62cf3548669b98cda4f1d9555aa4a05192f63dcf02b845cb7f335d7be9c7",
+    "rebuild-wdtsel": "ac63922eb21831bf39cbc6bcf739b4d806c07f825cf420298d4f8f651a595b15",
+    "rebuild-wdtstate": "ab73a156dd361a5e5a8e9ac882f67d7cd3ece9abe93803c824e5dc644bad8146",
     "rebuild-wdtterr": "0ee3543436b97395d68649c163c6fa3655e7c44f18c6a71312a105dcd9190f8e",
-    "rebuild-wdtvoice": "b9eff2cb216f4fdb0ed7b345e970ef38c856cc96cbfda277ff1715a02535e533",
+    "rebuild-wdtvoice": "93afad9d94f0a343539d32fa1901dfabe3fc605fb7cb01917df6b0c53a4f346f",
     "rebuild-weapon": "2d4e6c167e21fae09be0626602b1dce6fff80e6dbb21072c2c9c65d2e27e21dc",
     "rebuild-wincomm": "3a05852bc84cf363e164b9a7984acb368056b846e5c2586e45e52153c8142c11",
     "rebuild-windlg": "7e7e0085a13eccdb5883542bf82c4fbfb1226900727a4aa4d6f7f6747a1dcfdc",
@@ -5024,7 +5044,7 @@
     "rebuild-winstub": "f388be34b1fbb9d56fcbcd9fc9356e47797299826a1d5eb209cecd79b4965634",
     "rebuild-wolpersonainformation": "8e3c165164307d82045aaa782a515db303a8b0f838b152b3f2cc70ea7351d731",
     "rebuild-wolstart": "0a752754b7b7c00895ac869e3141221cbd24d77fd1daaccd6bf79dcc4d96d941",
-    "rebuild-wonline": "005fd3f4c2119b694c55ab024b0cc79fead3648b6c350b39eb8bb7e3eb1a6de0",
+    "rebuild-wonline": "83c2d06c3a6843c7cf4c428c3bb84acc85727a255fc2770d3b97ce48d5e4bca9",
     "rebuild-worlddom": "769143cb9ecd485907845bf4bedcd31414398c0fa8553d738380f08fa6273afb",
     "rebuild-writepcx": "bb502f4a93e2bc386cb02d8aa64d0831044fe5d9f1847cd64b81f2cf0809209f",
     "rebuild-wspipx": "aba10eb69e7ae7f3247dfb97de8eb305ecfd89ae6a3efe76f132eac38f0ad683",

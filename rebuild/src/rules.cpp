@@ -143,7 +143,7 @@ RulesClass::RulesClass(NoInitClass const & x) :
  * HISTORY:                                                                                    *
  *   06/17/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1477 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 1474 bytes differ (the original expands VectorClass<int>'s constructor at FillEarliestTeamProbability, where this text calls it)
 RulesClass::RulesClass(void) :
 	DetailMinFrameRateNormal(15), // RA2: the executable's initializer list, in RA2's member order and values
 	DetailMinFrameRateMovie(20), // RA2: as above
@@ -726,7 +726,7 @@ RulesClass::~RulesClass(void)
 /// </summary>
 /// <remarks>Every type object in the game is destroyed here, so nothing may be holding a
 /// pointer to one when this routine is called.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: 233 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 229 bytes differ (the original calls GenericNode's constructor out of line for the LANGRULE.INI CCINIClass)
 void RulesClass::Initialize(CCINIClass & ini) // RA2: a writable INI
 {
 	static char const * const RulesSection_Maximums = "Maximums"; // RA2: the executable's section name, a file-static pointer at 0x007A9060
@@ -859,24 +859,19 @@ bool RulesClass::Special_Weapons(CCINIClass & ini) // RA2: a writable INI
 
 
 /// <summary>
-/// RA2
+/// RA2: reads a sound effect named by an entry (a 128-byte buffer looked up with VocClass::From_Name), else the
+/// default, also for an unknown name (ra2-decomp's rules.cpp helper, with main's body).
 /// </summary>
-static inline int Sound_From_Name(char const * name, int fallback)
+static inline VocType Read_Sound(CCINIClass const & ini, char const * section, char const * entry, VocType defvalue)
 {
-	int index = VocClass::From_Name(name); // RA2: the voice lookup
-	return index == -1 ? fallback : index;
-}
-
-
-/// <summary>
-/// RA2
-/// </summary>
-static inline int Read_Sound(CCINIClass const & ini, char const * section, char const * key, int fallback)
-{
-	char name[128];
-	if (ini.Get_String(section, key, "", name, sizeof(name)))
-		return Sound_From_Name(name, fallback);
-	return fallback;
+	char buffer[128];
+	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer))) {
+		VocType voc = VocClass::From_Name(buffer);
+		if (voc != VOC_NONE) {
+			return(voc);
+		}
+	}
+	return(defvalue);
 }
 
 
@@ -887,7 +882,6 @@ static inline int Read_Sound(CCINIClass const & ini, char const * section, char 
 /// and the extra lighting the various object kinds are drawn with.
 /// </summary>
 /// <returns>bool; Was an audio visual section found in the control file?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 10402 bytes differ (adopted text)
 bool RulesClass::Audio_Visual_Rules(CCINIClass const & ini)
 {
 	static char const * const RulesSection_AudioVisual = "AudioVisual"; // RA2: the executable's section name, a file-static pointer at 0x007A903C
@@ -910,99 +904,99 @@ bool RulesClass::Audio_Visual_Rules(CCINIClass const & ini)
 		Behind = TGet_Class(ini, RulesSection_AudioVisual, "Behind", Behind); // RA2: as above
 		VeinAttack = TGet_Class(ini, RulesSection_AudioVisual, "VeinAttack", VeinAttack); // RA2: as above
 		DropPod = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "DropPod", DropPod); // RA2: as above
-		VocType dig_sound = ini.Get_VocType(RulesSection_AudioVisual, "DigSound", (VocType)DigSound); // RA2: as above
+		VocType dig_sound = Read_Sound(ini, RulesSection_AudioVisual, "DigSound", (VocType)DigSound); // RA2: as above
 		DigSound = dig_sound; // RA2: as above
-		VocType guimain_button_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUIMainButtonSound", (VocType)GUIMainButtonSound); // RA2: as above
+		VocType guimain_button_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIMainButtonSound", (VocType)GUIMainButtonSound); // RA2: as above
 		GUIMainButtonSound = guimain_button_sound; // RA2: as above
-		VocType guibuild_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUIBuildSound", (VocType)GUIBuildSound); // RA2: as above
+		VocType guibuild_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIBuildSound", (VocType)GUIBuildSound); // RA2: as above
 		GUIBuildSound = guibuild_sound; // RA2: as above
-		VocType guitab_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUITabSound", (VocType)GUITabSound); // RA2: as above
+		VocType guitab_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUITabSound", (VocType)GUITabSound); // RA2: as above
 		GUITabSound = guitab_sound; // RA2: as above
-		VocType guiopen_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUIOpenSound", (VocType)GUIOpenSound); // RA2: as above
+		VocType guiopen_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIOpenSound", (VocType)GUIOpenSound); // RA2: as above
 		GUIOpenSound = guiopen_sound; // RA2: as above
-		VocType guiclose_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUICloseSound", (VocType)GUICloseSound); // RA2: as above
+		VocType guiclose_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUICloseSound", (VocType)GUICloseSound); // RA2: as above
 		GUICloseSound = guiclose_sound; // RA2: as above
-		VocType guimove_out_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUIMoveOutSound", (VocType)GUIMoveOutSound); // RA2: as above
+		VocType guimove_out_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIMoveOutSound", (VocType)GUIMoveOutSound); // RA2: as above
 		GUIMoveOutSound = guimove_out_sound; // RA2: as above
-		VocType guimove_in_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUIMoveInSound", (VocType)GUIMoveInSound); // RA2: as above
+		VocType guimove_in_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIMoveInSound", (VocType)GUIMoveInSound); // RA2: as above
 		GUIMoveInSound = guimove_in_sound; // RA2: as above
-		VocType guicombo_open_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUIComboOpenSound", (VocType)GUIComboOpenSound); // RA2: as above
+		VocType guicombo_open_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIComboOpenSound", (VocType)GUIComboOpenSound); // RA2: as above
 		GUIComboOpenSound = guicombo_open_sound; // RA2: as above
-		VocType guicombo_close_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUIComboCloseSound", (VocType)GUIComboCloseSound); // RA2: as above
+		VocType guicombo_close_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUIComboCloseSound", (VocType)GUIComboCloseSound); // RA2: as above
 		GUIComboCloseSound = guicombo_close_sound; // RA2: as above
-		VocType guicheckbox_sound = ini.Get_VocType(RulesSection_AudioVisual, "GUICheckboxSound", (VocType)GUICheckboxSound); // RA2: as above
+		VocType guicheckbox_sound = Read_Sound(ini, RulesSection_AudioVisual, "GUICheckboxSound", (VocType)GUICheckboxSound); // RA2: as above
 		GUICheckboxSound = guicheckbox_sound; // RA2: as above
-		VocType score_anim_sound = ini.Get_VocType(RulesSection_AudioVisual, "ScoreAnimSound", (VocType)ScoreAnimSound); // RA2: as above
+		VocType score_anim_sound = Read_Sound(ini, RulesSection_AudioVisual, "ScoreAnimSound", (VocType)ScoreAnimSound); // RA2: as above
 		ScoreAnimSound = score_anim_sound; // RA2: as above
-		VocType cheer_sound = ini.Get_VocType(RulesSection_AudioVisual, "CheerSound", (VocType)CheerSound); // RA2: as above
+		VocType cheer_sound = Read_Sound(ini, RulesSection_AudioVisual, "CheerSound", (VocType)CheerSound); // RA2: as above
 		CheerSound = cheer_sound; // RA2: as above
-		VocType default_chrono_sound = ini.Get_VocType(RulesSection_AudioVisual, "DefaultChronoSound", (VocType)DefaultChronoSound); // RA2: as above
+		VocType default_chrono_sound = Read_Sound(ini, RulesSection_AudioVisual, "DefaultChronoSound", (VocType)DefaultChronoSound); // RA2: as above
 		DefaultChronoSound = default_chrono_sound; // RA2: as above
-		VocType start_planning_mode_sound = ini.Get_VocType(RulesSection_AudioVisual, "StartPlanningModeSound", (VocType)StartPlanningModeSound); // RA2: as above
+		VocType start_planning_mode_sound = Read_Sound(ini, RulesSection_AudioVisual, "StartPlanningModeSound", (VocType)StartPlanningModeSound); // RA2: as above
 		StartPlanningModeSound = start_planning_mode_sound; // RA2: as above
-		VocType end_planning_mode_sound = ini.Get_VocType(RulesSection_AudioVisual, "EndPlanningModeSound", (VocType)EndPlanningModeSound); // RA2: as above
+		VocType end_planning_mode_sound = Read_Sound(ini, RulesSection_AudioVisual, "EndPlanningModeSound", (VocType)EndPlanningModeSound); // RA2: as above
 		EndPlanningModeSound = end_planning_mode_sound; // RA2: as above
-		VocType crate_money_sound = ini.Get_VocType(RulesSection_AudioVisual, "CrateMoneySound", (VocType)CrateMoneySound); // RA2: as above
+		VocType crate_money_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateMoneySound", (VocType)CrateMoneySound); // RA2: as above
 		CrateMoneySound = crate_money_sound; // RA2: as above
-		VocType crate_reveal_sound = ini.Get_VocType(RulesSection_AudioVisual, "CrateRevealSound", (VocType)CrateRevealSound); // RA2: as above
+		VocType crate_reveal_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateRevealSound", (VocType)CrateRevealSound); // RA2: as above
 		CrateRevealSound = crate_reveal_sound; // RA2: as above
-		VocType crate_fire_sound = ini.Get_VocType(RulesSection_AudioVisual, "CrateFireSound", (VocType)CrateFireSound); // RA2: as above
+		VocType crate_fire_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateFireSound", (VocType)CrateFireSound); // RA2: as above
 		CrateFireSound = crate_fire_sound; // RA2: as above
-		VocType crate_armour_sound = ini.Get_VocType(RulesSection_AudioVisual, "CrateArmourSound", (VocType)CrateArmourSound); // RA2: as above
+		VocType crate_armour_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateArmourSound", (VocType)CrateArmourSound); // RA2: as above
 		CrateArmourSound = crate_armour_sound; // RA2: as above
-		VocType crate_speed_sound = ini.Get_VocType(RulesSection_AudioVisual, "CrateSpeedSound", (VocType)CrateSpeedSound); // RA2: as above
+		VocType crate_speed_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateSpeedSound", (VocType)CrateSpeedSound); // RA2: as above
 		CrateSpeedSound = crate_speed_sound; // RA2: as above
-		VocType crate_unit_sound = ini.Get_VocType(RulesSection_AudioVisual, "CrateUnitSound", (VocType)CrateUnitSound); // RA2: as above
+		VocType crate_unit_sound = Read_Sound(ini, RulesSection_AudioVisual, "CrateUnitSound", (VocType)CrateUnitSound); // RA2: as above
 		CrateUnitSound = crate_unit_sound; // RA2: as above
-		VocType crate_promote_sound = ini.Get_VocType(RulesSection_AudioVisual, "CratePromoteSound", (VocType)CratePromoteSound); // RA2: as above
+		VocType crate_promote_sound = Read_Sound(ini, RulesSection_AudioVisual, "CratePromoteSound", (VocType)CratePromoteSound); // RA2: as above
 		CratePromoteSound = crate_promote_sound; // RA2: as above
-		VocType impact_water_sound = ini.Get_VocType(RulesSection_AudioVisual, "ImpactWaterSound", (VocType)ImpactWaterSound); // RA2: as above
+		VocType impact_water_sound = Read_Sound(ini, RulesSection_AudioVisual, "ImpactWaterSound", (VocType)ImpactWaterSound); // RA2: as above
 		ImpactWaterSound = impact_water_sound; // RA2: as above
-		VocType impact_land_sound = ini.Get_VocType(RulesSection_AudioVisual, "ImpactLandSound", (VocType)ImpactLandSound); // RA2: as above
+		VocType impact_land_sound = Read_Sound(ini, RulesSection_AudioVisual, "ImpactLandSound", (VocType)ImpactLandSound); // RA2: as above
 		ImpactLandSound = impact_land_sound; // RA2: as above
-		VocType sinking_sound = ini.Get_VocType(RulesSection_AudioVisual, "SinkingSound", (VocType)SinkingSound); // RA2: as above
+		VocType sinking_sound = Read_Sound(ini, RulesSection_AudioVisual, "SinkingSound", (VocType)SinkingSound); // RA2: as above
 		SinkingSound = sinking_sound; // RA2: as above
-		VocType chrono_in_sound = ini.Get_VocType(RulesSection_AudioVisual, "ChronoInSound", (VocType)ChronoInSound); // RA2: as above
+		VocType chrono_in_sound = Read_Sound(ini, RulesSection_AudioVisual, "ChronoInSound", (VocType)ChronoInSound); // RA2: as above
 		ChronoInSound = chrono_in_sound; // RA2: as above
-		VocType chrono_out_sound = ini.Get_VocType(RulesSection_AudioVisual, "ChronoOutSound", (VocType)ChronoOutSound); // RA2: as above
+		VocType chrono_out_sound = Read_Sound(ini, RulesSection_AudioVisual, "ChronoOutSound", (VocType)ChronoOutSound); // RA2: as above
 		ChronoOutSound = chrono_out_sound; // RA2: as above
-		VocType bomb_ticking_sound = ini.Get_VocType(RulesSection_AudioVisual, "BombTickingSound", (VocType)BombTickingSound); // RA2: as above
+		VocType bomb_ticking_sound = Read_Sound(ini, RulesSection_AudioVisual, "BombTickingSound", (VocType)BombTickingSound); // RA2: as above
 		BombTickingSound = bomb_ticking_sound; // RA2: as above
-		VocType bomb_attach_sound = ini.Get_VocType(RulesSection_AudioVisual, "BombAttachSound", (VocType)BombAttachSound); // RA2: as above
+		VocType bomb_attach_sound = Read_Sound(ini, RulesSection_AudioVisual, "BombAttachSound", (VocType)BombAttachSound); // RA2: as above
 		BombAttachSound = bomb_attach_sound; // RA2: as above
-		VocType yuri_mind_control_sound = ini.Get_VocType(RulesSection_AudioVisual, "YuriMindControlSound", (VocType)YuriMindControlSound); // RA2: as above
+		VocType yuri_mind_control_sound = Read_Sound(ini, RulesSection_AudioVisual, "YuriMindControlSound", (VocType)YuriMindControlSound); // RA2: as above
 		YuriMindControlSound = yuri_mind_control_sound; // RA2: as above
-		VocType add_planning_mode_command_sound = ini.Get_VocType(RulesSection_AudioVisual, "AddPlanningModeCommandSound", (VocType)AddPlanningModeCommandSound); // RA2: as above
+		VocType add_planning_mode_command_sound = Read_Sound(ini, RulesSection_AudioVisual, "AddPlanningModeCommandSound", (VocType)AddPlanningModeCommandSound); // RA2: as above
 		AddPlanningModeCommandSound = add_planning_mode_command_sound; // RA2: as above
-		VocType execute_plan_sound = ini.Get_VocType(RulesSection_AudioVisual, "ExecutePlanSound", (VocType)ExecutePlanSound); // RA2: as above
+		VocType execute_plan_sound = Read_Sound(ini, RulesSection_AudioVisual, "ExecutePlanSound", (VocType)ExecutePlanSound); // RA2: as above
 		ExecutePlanSound = execute_plan_sound; // RA2: as above
-		VocType place_beacon_sound = ini.Get_VocType(RulesSection_AudioVisual, "PlaceBeaconSound", (VocType)PlaceBeaconSound); // RA2: as above
+		VocType place_beacon_sound = Read_Sound(ini, RulesSection_AudioVisual, "PlaceBeaconSound", (VocType)PlaceBeaconSound); // RA2: as above
 		PlaceBeaconSound = place_beacon_sound; // RA2: as above
-		VocType building_garrisoned_sound = ini.Get_VocType(RulesSection_AudioVisual, "BuildingGarrisonedSound", (VocType)BuildingGarrisonedSound); // RA2: as above
+		VocType building_garrisoned_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingGarrisonedSound", (VocType)BuildingGarrisonedSound); // RA2: as above
 		BuildingGarrisonedSound = building_garrisoned_sound; // RA2: as above
-		VocType building_abandoned_sound = ini.Get_VocType(RulesSection_AudioVisual, "BuildingAbandonedSound", (VocType)BuildingAbandonedSound); // RA2: as above
+		VocType building_abandoned_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingAbandonedSound", (VocType)BuildingAbandonedSound); // RA2: as above
 		BuildingAbandonedSound = building_abandoned_sound; // RA2: as above
-		VocType building_repaired_sound = ini.Get_VocType(RulesSection_AudioVisual, "BuildingRepairedSound", (VocType)BuildingRepairedSound); // RA2: as above
+		VocType building_repaired_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingRepairedSound", (VocType)BuildingRepairedSound); // RA2: as above
 		BuildingRepairedSound = building_repaired_sound; // RA2: as above
-		VocType base_under_attack_sound = ini.Get_VocType(RulesSection_AudioVisual, "BaseUnderAttackSound", (VocType)BaseUnderAttackSound); // RA2: as above
+		VocType base_under_attack_sound = Read_Sound(ini, RulesSection_AudioVisual, "BaseUnderAttackSound", (VocType)BaseUnderAttackSound); // RA2: as above
 		BaseUnderAttackSound = base_under_attack_sound; // RA2: as above
-		VocType upgrade_veteran_sound = ini.Get_VocType(RulesSection_AudioVisual, "UpgradeVeteranSound", (VocType)UpgradeVeteranSound); // RA2: as above
+		VocType upgrade_veteran_sound = Read_Sound(ini, RulesSection_AudioVisual, "UpgradeVeteranSound", (VocType)UpgradeVeteranSound); // RA2: as above
 		UpgradeVeteranSound = upgrade_veteran_sound; // RA2: as above
-		VocType upgrade_elite_sound = ini.Get_VocType(RulesSection_AudioVisual, "UpgradeEliteSound", (VocType)UpgradeEliteSound); // RA2: as above
+		VocType upgrade_elite_sound = Read_Sound(ini, RulesSection_AudioVisual, "UpgradeEliteSound", (VocType)UpgradeEliteSound); // RA2: as above
 		UpgradeEliteSound = upgrade_elite_sound; // RA2: as above
-		VocType create_unit_sound = ini.Get_VocType(RulesSection_AudioVisual, "CreateUnitSound", (VocType)CreateUnitSound); // RA2: as above
+		VocType create_unit_sound = Read_Sound(ini, RulesSection_AudioVisual, "CreateUnitSound", (VocType)CreateUnitSound); // RA2: as above
 		CreateUnitSound = create_unit_sound; // RA2: as above
-		VocType create_infantry_sound = ini.Get_VocType(RulesSection_AudioVisual, "CreateInfantrySound", (VocType)CreateInfantrySound); // RA2: as above
+		VocType create_infantry_sound = Read_Sound(ini, RulesSection_AudioVisual, "CreateInfantrySound", (VocType)CreateInfantrySound); // RA2: as above
 		CreateInfantrySound = create_infantry_sound; // RA2: as above
-		VocType create_aircraft_sound = ini.Get_VocType(RulesSection_AudioVisual, "CreateAircraftSound", (VocType)CreateAircraftSound); // RA2: as above
+		VocType create_aircraft_sound = Read_Sound(ini, RulesSection_AudioVisual, "CreateAircraftSound", (VocType)CreateAircraftSound); // RA2: as above
 		CreateAircraftSound = create_aircraft_sound; // RA2: as above
-		VocType ifvtransform_sound = ini.Get_VocType(RulesSection_AudioVisual, "IFVTransformSound", (VocType)IFVTransformSound); // RA2: as above
+		VocType ifvtransform_sound = Read_Sound(ini, RulesSection_AudioVisual, "IFVTransformSound", (VocType)IFVTransformSound); // RA2: as above
 		IFVTransformSound = ifvtransform_sound; // RA2: as above
-		VocType psychic_sensor_detect_sound = ini.Get_VocType(RulesSection_AudioVisual, "PsychicSensorDetectSound", (VocType)PsychicSensorDetectSound); // RA2: as above
+		VocType psychic_sensor_detect_sound = Read_Sound(ini, RulesSection_AudioVisual, "PsychicSensorDetectSound", (VocType)PsychicSensorDetectSound); // RA2: as above
 		PsychicSensorDetectSound = psychic_sensor_detect_sound; // RA2: as above
-		VocType spy_sat_activation_sound = ini.Get_VocType(RulesSection_AudioVisual, "SpySatActivationSound", (VocType)SpySatActivationSound); // RA2: as above
+		VocType spy_sat_activation_sound = Read_Sound(ini, RulesSection_AudioVisual, "SpySatActivationSound", (VocType)SpySatActivationSound); // RA2: as above
 		SpySatActivationSound = spy_sat_activation_sound; // RA2: as above
-		VocType spy_sat_deactivation_sound = ini.Get_VocType(RulesSection_AudioVisual, "SpySatDeactivationSound", (VocType)SpySatDeactivationSound); // RA2: as above
+		VocType spy_sat_deactivation_sound = Read_Sound(ini, RulesSection_AudioVisual, "SpySatDeactivationSound", (VocType)SpySatDeactivationSound); // RA2: as above
 		SpySatDeactivationSound = spy_sat_deactivation_sound; // RA2: as above
 		Dig = TGet_Class(ini, RulesSection_AudioVisual, "Dig", Dig); // RA2: as above
 		IonBlast = TGet_Class(ini, RulesSection_AudioVisual, "IonBlast", IonBlast); // RA2: as above
@@ -1019,75 +1013,75 @@ bool RulesClass::Audio_Visual_Rules(CCINIClass const & ini)
 		WeaponNullifyAnim = TGet_Class(ini, RulesSection_AudioVisual, "WeaponNullifyAnim", WeaponNullifyAnim); // RA2: as above
 		InfantryExplode = TGet_Class(ini, RulesSection_AudioVisual, "InfantryExplode", InfantryExplode); // RA2: as above
 		AtmosphereEntry = TGet_Class(ini, RulesSection_AudioVisual, "AtmosphereEntry", AtmosphereEntry); // RA2: as above
-		VocType gate_up = ini.Get_VocType(RulesSection_AudioVisual, "GateUp", (VocType)GateUpSound); // RA2: as above
+		VocType gate_up = Read_Sound(ini, RulesSection_AudioVisual, "GateUp", (VocType)GateUpSound); // RA2: as above
 		GateUpSound = gate_up; // RA2: as above
-		VocType gate_down = ini.Get_VocType(RulesSection_AudioVisual, "GateDown", (VocType)GateDownSound); // RA2: as above
+		VocType gate_down = Read_Sound(ini, RulesSection_AudioVisual, "GateDown", (VocType)GateDownSound); // RA2: as above
 		GateDownSound = gate_down; // RA2: as above
 		IsShroudGrow = ini.Get_Bool(RulesSection_AudioVisual, "ShroudGrow", IsShroudGrow); // RA2: as above
 		double scroll_multiplier = ini.Get_Float(RulesSection_AudioVisual, "ScrollMultiplier", ScrollMultiplier); // RA2: as above
 		ScrollMultiplier = scroll_multiplier; // RA2: as above
 		ShakeScreen = ini.Get_Int(RulesSection_AudioVisual, "ShakeScreen", ShakeScreen); // RA2: as above
-		VocType cloak_sound = ini.Get_VocType(RulesSection_AudioVisual, "CloakSound", (VocType)CloakSound); // RA2: as above
+		VocType cloak_sound = Read_Sound(ini, RulesSection_AudioVisual, "CloakSound", (VocType)CloakSound); // RA2: as above
 		CloakSound = cloak_sound; // RA2: as above
-		VocType sell_sound = ini.Get_VocType(RulesSection_AudioVisual, "SellSound", (VocType)SellSound); // RA2: as above
+		VocType sell_sound = Read_Sound(ini, RulesSection_AudioVisual, "SellSound", (VocType)SellSound); // RA2: as above
 		SellSound = sell_sound; // RA2: as above
-		VocType game_closed = ini.Get_VocType(RulesSection_AudioVisual, "GameClosed", (VocType)GameClosed); // RA2: as above
+		VocType game_closed = Read_Sound(ini, RulesSection_AudioVisual, "GameClosed", (VocType)GameClosed); // RA2: as above
 		GameClosed = game_closed; // RA2: as above
-		VocType incoming_message = ini.Get_VocType(RulesSection_AudioVisual, "IncomingMessage", (VocType)IncomingMessage); // RA2: as above
+		VocType incoming_message = Read_Sound(ini, RulesSection_AudioVisual, "IncomingMessage", (VocType)IncomingMessage); // RA2: as above
 		IncomingMessage = incoming_message; // RA2: as above
-		VocType message_char_typed = ini.Get_VocType(RulesSection_AudioVisual, "MessageCharTyped", (VocType)MessageCharTyped); // RA2: as above
+		VocType message_char_typed = Read_Sound(ini, RulesSection_AudioVisual, "MessageCharTyped", (VocType)MessageCharTyped); // RA2: as above
 		MessageCharTyped = message_char_typed; // RA2: as above
-		VocType system_error = ini.Get_VocType(RulesSection_AudioVisual, "SystemError", (VocType)SystemError); // RA2: as above
+		VocType system_error = Read_Sound(ini, RulesSection_AudioVisual, "SystemError", (VocType)SystemError); // RA2: as above
 		SystemError = system_error; // RA2: as above
-		VocType options_changed = ini.Get_VocType(RulesSection_AudioVisual, "OptionsChanged", (VocType)OptionsChanged); // RA2: as above
+		VocType options_changed = Read_Sound(ini, RulesSection_AudioVisual, "OptionsChanged", (VocType)OptionsChanged); // RA2: as above
 		OptionsChanged = options_changed; // RA2: as above
-		VocType game_forming = ini.Get_VocType(RulesSection_AudioVisual, "GameForming", (VocType)GameForming); // RA2: as above
+		VocType game_forming = Read_Sound(ini, RulesSection_AudioVisual, "GameForming", (VocType)GameForming); // RA2: as above
 		GameForming = game_forming; // RA2: as above
-		VocType player_left = ini.Get_VocType(RulesSection_AudioVisual, "PlayerLeft", (VocType)PlayerLeft); // RA2: as above
+		VocType player_left = Read_Sound(ini, RulesSection_AudioVisual, "PlayerLeft", (VocType)PlayerLeft); // RA2: as above
 		PlayerLeft = player_left; // RA2: as above
-		VocType player_joined = ini.Get_VocType(RulesSection_AudioVisual, "PlayerJoined", (VocType)PlayerJoined); // RA2: as above
+		VocType player_joined = Read_Sound(ini, RulesSection_AudioVisual, "PlayerJoined", (VocType)PlayerJoined); // RA2: as above
 		PlayerJoined = player_joined; // RA2: as above
-		VocType construction = ini.Get_VocType(RulesSection_AudioVisual, "Construction", (VocType)Construction); // RA2: as above
+		VocType construction = Read_Sound(ini, RulesSection_AudioVisual, "Construction", (VocType)Construction); // RA2: as above
 		Construction = construction; // RA2: as above
 		CreditTicks = CCINIClass::Get_VocType_List(ini, RulesSection_AudioVisual, "CreditTicks", CreditTicks); // RA2: as above
-		VocType building_die_sound = ini.Get_VocType(RulesSection_AudioVisual, "BuildingDieSound", (VocType)BuildingDieSound); // RA2: as above
+		VocType building_die_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingDieSound", (VocType)BuildingDieSound); // RA2: as above
 		BuildingDieSound = building_die_sound; // RA2: as above
-		VocType building_slam = ini.Get_VocType(RulesSection_AudioVisual, "BuildingSlam", (VocType)BuildingSlam); // RA2: as above
+		VocType building_slam = Read_Sound(ini, RulesSection_AudioVisual, "BuildingSlam", (VocType)BuildingSlam); // RA2: as above
 		BuildingSlam = building_slam; // RA2: as above
-		VocType radar_on = ini.Get_VocType(RulesSection_AudioVisual, "RadarOn", (VocType)RadarOn); // RA2: as above
+		VocType radar_on = Read_Sound(ini, RulesSection_AudioVisual, "RadarOn", (VocType)RadarOn); // RA2: as above
 		RadarOn = radar_on; // RA2: as above
-		VocType radar_off = ini.Get_VocType(RulesSection_AudioVisual, "RadarOff", (VocType)RadarOff); // RA2: as above
+		VocType radar_off = Read_Sound(ini, RulesSection_AudioVisual, "RadarOff", (VocType)RadarOff); // RA2: as above
 		RadarOff = radar_off; // RA2: as above
-		VocType movie_on = ini.Get_VocType(RulesSection_AudioVisual, "MovieOn", (VocType)MovieOn); // RA2: as above
+		VocType movie_on = Read_Sound(ini, RulesSection_AudioVisual, "MovieOn", (VocType)MovieOn); // RA2: as above
 		MovieOn = movie_on; // RA2: as above
-		VocType movie_off = ini.Get_VocType(RulesSection_AudioVisual, "MovieOff", (VocType)MovieOff); // RA2: as above
+		VocType movie_off = Read_Sound(ini, RulesSection_AudioVisual, "MovieOff", (VocType)MovieOff); // RA2: as above
 		MovieOff = movie_off; // RA2: as above
-		VocType scold_sound = ini.Get_VocType(RulesSection_AudioVisual, "ScoldSound", (VocType)ScoldSound); // RA2: as above
+		VocType scold_sound = Read_Sound(ini, RulesSection_AudioVisual, "ScoldSound", (VocType)ScoldSound); // RA2: as above
 		ScoldSound = scold_sound; // RA2: as above
-		VocType tesla_charge = ini.Get_VocType(RulesSection_AudioVisual, "TeslaCharge", (VocType)TeslaCharge); // RA2: as above
+		VocType tesla_charge = Read_Sound(ini, RulesSection_AudioVisual, "TeslaCharge", (VocType)TeslaCharge); // RA2: as above
 		TeslaCharge = tesla_charge; // RA2: as above
-		VocType tesla_zap = ini.Get_VocType(RulesSection_AudioVisual, "TeslaZap", (VocType)TeslaZap); // RA2: as above
+		VocType tesla_zap = Read_Sound(ini, RulesSection_AudioVisual, "TeslaZap", (VocType)TeslaZap); // RA2: as above
 		TeslaZap = tesla_zap; // RA2: as above
-		VocType building_damage_sound = ini.Get_VocType(RulesSection_AudioVisual, "BuildingDamageSound", (VocType)BuildingDamageSound); // RA2: as above
+		VocType building_damage_sound = Read_Sound(ini, RulesSection_AudioVisual, "BuildingDamageSound", (VocType)BuildingDamageSound); // RA2: as above
 		BuildingDamageSound = building_damage_sound; // RA2: as above
-		VocType chute_sound = ini.Get_VocType(RulesSection_AudioVisual, "ChuteSound", (VocType)ChuteSound); // RA2: as above
+		VocType chute_sound = Read_Sound(ini, RulesSection_AudioVisual, "ChuteSound", (VocType)ChuteSound); // RA2: as above
 		ChuteSound = chute_sound; // RA2: as above
-		VocType generic_click = ini.Get_VocType(RulesSection_AudioVisual, "GenericClick", (VocType)GenericClick); // RA2: as above
+		VocType generic_click = Read_Sound(ini, RulesSection_AudioVisual, "GenericClick", (VocType)GenericClick); // RA2: as above
 		GenericClick = generic_click; // RA2: as above
-		VocType generic_beep = ini.Get_VocType(RulesSection_AudioVisual, "GenericBeep", (VocType)GenericBeep); // RA2: as above
+		VocType generic_beep = Read_Sound(ini, RulesSection_AudioVisual, "GenericBeep", (VocType)GenericBeep); // RA2: as above
 		GenericBeep = generic_beep; // RA2: as above
-		VocType building_drop = ini.Get_VocType(RulesSection_AudioVisual, "BuildingDrop", (VocType)BuildingDrop); // RA2: as above
+		VocType building_drop = Read_Sound(ini, RulesSection_AudioVisual, "BuildingDrop", (VocType)BuildingDrop); // RA2: as above
 		BuildingDrop = building_drop; // RA2: as above
-		VocType stop_sound = ini.Get_VocType(RulesSection_AudioVisual, "StopSound", (VocType)StopSound); // RA2: as above
+		VocType stop_sound = Read_Sound(ini, RulesSection_AudioVisual, "StopSound", (VocType)StopSound); // RA2: as above
 		StopSound = stop_sound; // RA2: as above
-		VocType guard_sound = ini.Get_VocType(RulesSection_AudioVisual, "GuardSound", (VocType)GuardSound); // RA2: as above
+		VocType guard_sound = Read_Sound(ini, RulesSection_AudioVisual, "GuardSound", (VocType)GuardSound); // RA2: as above
 		GuardSound = guard_sound; // RA2: as above
-		VocType scatter_sound = ini.Get_VocType(RulesSection_AudioVisual, "ScatterSound", (VocType)ScatterSound); // RA2: as above
+		VocType scatter_sound = Read_Sound(ini, RulesSection_AudioVisual, "ScatterSound", (VocType)ScatterSound); // RA2: as above
 		ScatterSound = scatter_sound; // RA2: as above
-		VocType storm_sound = ini.Get_VocType(RulesSection_AudioVisual, "StormSound", (VocType)StormSound); // RA2: as above
+		VocType storm_sound = Read_Sound(ini, RulesSection_AudioVisual, "StormSound", (VocType)StormSound); // RA2: as above
 		StormSound = storm_sound; // RA2: as above
 		LightningSounds = CCINIClass::Get_VocType_List(ini, RulesSection_AudioVisual, "LightningSounds", LightningSounds); // RA2: as above
-		VocType shell_button_slide_sound = ini.Get_VocType(RulesSection_AudioVisual, "ShellButtonSlideSound", (VocType)ShellButtonSlideSound); // RA2: as above
+		VocType shell_button_slide_sound = Read_Sound(ini, RulesSection_AudioVisual, "ShellButtonSlideSound", (VocType)ShellButtonSlideSound); // RA2: as above
 		ShellButtonSlideSound = shell_button_slide_sound; // RA2: as above
 		TreeFire = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "TreeFire", TreeFire); // RA2: as above
 		DeadBodies = TGet_TypeList<AnimTypeClass>(ini, RulesSection_AudioVisual, "DeadBodies", DeadBodies); // RA2: as above
@@ -1161,7 +1155,6 @@ bool RulesClass::Audio_Visual_Rules(CCINIClass const & ini)
 	}
 	return(false);
 }
-#endif
 
 
 
@@ -1203,7 +1196,6 @@ bool RulesClass::Crate_Rules(CCINIClass const & ini)
 /// suppression distances, and the scorches, craters and smoke systems left behind.
 /// </summary>
 /// <returns>bool; Was a combat damage section found in the control file?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 2611 bytes differ (adopted text)
 bool RulesClass::Combat_Damage(CCINIClass const & ini)
 {
 	static char const * const RulesSection_CombatDamage = "CombatDamage"; // RA2: the executable's section name, a file-static pointer at 0x007A9044
@@ -1289,7 +1281,6 @@ bool RulesClass::Combat_Damage(CCINIClass const & ini)
 	}
 	return(false);
 }
-#endif
 
 
 
@@ -1430,7 +1421,6 @@ bool RulesClass::Color_Schemes(CCINIClass const & ini)
  * HISTORY:                                                                                    *
  *   08/08/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 5734 bytes differ (adopted text)
 bool RulesClass::General(CCINIClass const & ini)
 {
 	static char const * const RulesSection_General = "General"; // RA2: the executable's section name, a file-static pointer at 0x007A9058
@@ -1710,13 +1700,12 @@ bool RulesClass::General(CCINIClass const & ini)
 		MaxWaypointPathLength = ini.Get_Int(RulesSection_General, "MaxWaypointPathLength", MaxWaypointPathLength); // RA2: as above
 		TreeStrength = ini.Get_Int(RulesSection_General, "TreeStrength", TreeStrength); // RA2: as above
 		EngineerCaptureLevel = ini.Get_Float(RulesSection_General, "EngineerCaptureLevel", EngineerCaptureLevel); // RA2: as above
-		EngineerCaptureLevel = ini.Get_Float(RulesSection_General, "EngineerCaptureLevel", EngineerCaptureLevel); // RA2: as above
+		EngineerDamage = ini.Get_Float(RulesSection_General, "EngineerCaptureLevel", EngineerDamage); // RA2: TibSun reads the damage under the capture level's key too
 		TalkBubbleTime = ini.Get_Float(RulesSection_General, "TalkBubbleTime", TalkBubbleTime * (1.0f / 60)) * 60.0; // RA2: as above
 		return(true);
 	}
 	return(false);
 }
-#endif
 
 
 

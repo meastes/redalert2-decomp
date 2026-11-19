@@ -786,10 +786,11 @@ class SessionClass
 
 extern SessionClass Session;
 
+void Leave_Game_Hook(void);
+
 void Draw_Multiplayer_Debug(bool flag); // RA2: 0x005419E0, draws the multiplayer debug text when Session.EnableMultiplayerDebug is set
 
 struct SessionPortAllocator : public SessionClass { // RA2: home of Allocate_Player_Ports (0x00673090), no data: same code as a SessionClass member
 	void Allocate_Player_Ports(void); // RA2: as above
 };
-
 

@@ -129,9 +129,9 @@ class RulesClass
 		int DetailMinFrameRateMovie;
 		int DetailBufferZoneWidth;
 		int AmmoCrateDamage;
-		UnitTypeClass const * LargeVisceroid;
-		UnitTypeClass const * SmallVisceroid;
-		UnitTypeClass const * UnloadingHarvester; // RA2: as in TS
+		UnitTypeClass * LargeVisceroid;
+		UnitTypeClass * SmallVisceroid;
+		UnitTypeClass * UnloadingHarvester; // RA2: as in TS
 		int AttackingAircraftSightRange;
 		double TunnelSpeed;
 		double TiberiumHeal;
@@ -139,11 +139,11 @@ class RulesClass
 		bool IsFreeMCV;
 		bool IsBerzerkAllowed;
 		Dir256 PoseDir;
-		AnimTypeClass const * DropPodPuff;
+		AnimTypeClass * DropPodPuff;
 		int WaypointAnimationSpeed;
-		AnimTypeClass const * BarrelExplode;
+		AnimTypeClass * BarrelExplode;
 		TypeList<VoxelAnimTypeClass const *> BarrelDebris;
-		ParticleSystemTypeClass const * BarrelParticle;
+		ParticleSystemTypeClass * BarrelParticle;
 		float RadarEventColorSpeed;
 		int RadarEventMinRadius;
 		float RadarEventSpeed;
@@ -151,13 +151,13 @@ class RulesClass
 		int FlashFrameTime;
 		int RadarCombatFlashTime;
 		int MaxWaypointPathLength;
-		AnimTypeClass const * Wake;
-		AnimTypeClass const * NukeTakeOff;
-		AnimTypeClass const * InfantryExplode;
-		AnimTypeClass const * FlamingInfantry;
-		AnimTypeClass const * InfantryHeadPop;
-		AnimTypeClass const * InfantryNuked;
-		AnimTypeClass const * Behind;
+		AnimTypeClass * Wake;
+		AnimTypeClass * NukeTakeOff;
+		AnimTypeClass * InfantryExplode;
+		AnimTypeClass * FlamingInfantry;
+		AnimTypeClass * InfantryHeadPop;
+		AnimTypeClass * InfantryNuked;
+		AnimTypeClass * Behind;
 		double AITriggerSuccessWeightDelta;
 		double AITriggerFailureWeightDelta;
 		double AITriggerTrackRecordCoefficient;
@@ -165,13 +165,13 @@ class RulesClass
 		int MaxVeinholeGrowth;
 		int VeinholeGrowthRate;
 		int VeinholeShrinkRate;
-		AnimTypeClass const * VeinAttack;
+		AnimTypeClass * VeinAttack;
 		int VeinDamage;
 		int MaximumQueuedObjects;
 		int AircraftFogReveal;
-		OverlayTypeClass const * WoodCrateImg;
-		OverlayTypeClass const * CrateImg;
-		OverlayTypeClass const * WaterCrateImg;
+		OverlayTypeClass * WoodCrateImg;
+		OverlayTypeClass * CrateImg;
+		OverlayTypeClass * WaterCrateImg;
 		TypeList<AnimTypeClass const *> DropPod;
 		TypeList<AnimTypeClass const *> DeadBodies;
 		TypeList<AnimTypeClass const *> MetallicDebris;
@@ -223,24 +223,24 @@ class RulesClass
 		int SpySatDeactivationSound;
 		int UpgradeVeteranSound;
 		int UpgradeEliteSound;
-		AnimTypeClass const * Dig;
-		AnimTypeClass const * IonBlast;
-		AnimTypeClass const * IonBeam;
+		AnimTypeClass * Dig;
+		AnimTypeClass * IonBlast;
+		AnimTypeClass * IonBeam;
 		TypeList<AnimTypeClass const *> DamageFireTypes;
 		TypeList<AnimTypeClass const *> WeatherConClouds;
 		TypeList<AnimTypeClass const *> WeatherConBolts;
-		AnimTypeClass const * WeatherConBoltExplosion;
-		AnimTypeClass const * ChronoBlast;
-		AnimTypeClass const * ChronoBlastDest;
-		AnimTypeClass const * ChronoPlacement;
-		AnimTypeClass const * ChronoBeam;
-		AnimTypeClass const * WarpIn;
-		AnimTypeClass const * WarpOut;
-		AnimTypeClass const * WarpAway;
-		AnimTypeClass const * ChronoSparkle1;
-		AnimTypeClass const * IronCurtainInvokeAnim;
-		AnimTypeClass const * WeaponNullifyAnim;
-		AnimTypeClass const * AtmosphereEntry;
+		AnimTypeClass * WeatherConBoltExplosion;
+		AnimTypeClass * ChronoBlast;
+		AnimTypeClass * ChronoBlastDest;
+		AnimTypeClass * ChronoPlacement;
+		AnimTypeClass * ChronoBeam;
+		AnimTypeClass * WarpIn;
+		AnimTypeClass * WarpOut;
+		AnimTypeClass * WarpAway;
+		AnimTypeClass * ChronoSparkle1;
+		AnimTypeClass * IronCurtainInvokeAnim;
+		AnimTypeClass * WeaponNullifyAnim;
+		AnimTypeClass * AtmosphereEntry;
 		TypeList<int> PrerequisitePower;
 		TypeList<int> PrerequisiteFactory;
 		TypeList<int> PrerequisiteBarracks;
@@ -261,7 +261,7 @@ class RulesClass
 		TypeList<int> RadarEventDurations;
 		int IonCannonDamage;
 		int RailgunDamageRadius;
-		BuildingTypeClass const * PrismType;
+		BuildingTypeClass * PrismType;
 		int PrismSupportModifier;
 		int PrismSupportMax;
 		int PrismSupportDelay;
@@ -284,7 +284,7 @@ class RulesClass
 		double MissileSpeedVar;
 		double MissileROTVar;
 		int MissileSafetyAltitude;
-		WeaponTypeClass const * DropPodWeapon;
+		WeaponTypeClass * DropPodWeapon;
 		int DropPodHeight;
 		int DropPodSpeed;
 		double DropPodAngle;
@@ -299,8 +299,8 @@ class RulesClass
 		double HoverDampen;
 		double PlacementDelay;
 		TypeList<VoxelAnimTypeClass const *> ExplosiveVoxelDebris;
-		VoxelAnimTypeClass const * TireVoxelDebris;
-		VoxelAnimTypeClass const * ScrapVoxelDebris;
+		VoxelAnimTypeClass * TireVoxelDebris;
+		VoxelAnimTypeClass * ScrapVoxelDebris;
 		int BridgeVoxelMax;
 		int CloakingStages;
 		int RevealTriggerRadius;
@@ -373,20 +373,20 @@ class RulesClass
 		TypeList<SmudgeTypeClass const *> Scorches2;
 		TypeList<SmudgeTypeClass const *> Scorches3;
 		TypeList<SmudgeTypeClass const *> Scorches4;
-		BuildingTypeClass const * RepairBay; // RA2: one building, as in TS
-		BuildingTypeClass const * GDIGateOne;
-		BuildingTypeClass const * GDIGateTwo;
-		BuildingTypeClass const * NodGateOne;
-		BuildingTypeClass const * NodGateTwo;
-		BuildingTypeClass const * WallTower;
+		BuildingTypeClass * RepairBay; // RA2: one building, as in TS
+		BuildingTypeClass * GDIGateOne;
+		BuildingTypeClass * GDIGateTwo;
+		BuildingTypeClass * NodGateOne;
+		BuildingTypeClass * NodGateTwo;
+		BuildingTypeClass * WallTower;
 		TypeList<BuildingTypeClass const *> Shipyard;
-		BuildingTypeClass const * GDIPowerPlant;
-		BuildingTypeClass const * GDIPowerTurbine; // RA2: as in TS
-		BuildingTypeClass const * NodRegularPower;
-		BuildingTypeClass const * NodAdvancedPower;
-		BuildingTypeClass const * GDIFirestormGenerator; // RA2: as in TS
-		UnitTypeClass const * GDIHunterSeeker; // RA2: as in TS
-		UnitTypeClass const * NodHunterSeeker; // RA2: as in TS
+		BuildingTypeClass * GDIPowerPlant;
+		BuildingTypeClass * GDIPowerTurbine; // RA2: as in TS
+		BuildingTypeClass * NodRegularPower;
+		BuildingTypeClass * NodAdvancedPower;
+		BuildingTypeClass * GDIFirestormGenerator; // RA2: as in TS
+		UnitTypeClass * GDIHunterSeeker; // RA2: as in TS
+		UnitTypeClass * NodHunterSeeker; // RA2: as in TS
 		TypeList<BuildingTypeClass const *> BuildConst;
 		TypeList<BuildingTypeClass const *> BuildPower;
 		TypeList<BuildingTypeClass const *> BuildRefinery;
@@ -415,19 +415,19 @@ class RulesClass
 		TypeList<AircraftTypeClass const *> PadAircraft;
 		TypeList<AnimTypeClass const *> OnFire;
 		TypeList<AnimTypeClass const *> TreeFire;
-		AnimTypeClass const * Smoke1;
-		AnimTypeClass const * Smoke2; // RA2: as in TS
-		AnimTypeClass const * FirestormActiveAnim; // RA2: as in TS
-		AnimTypeClass const * FirestormIdleAnim; // RA2: as in TS
-		AnimTypeClass const * FirestormAirAnim; // RA2: as in TS
-		AnimTypeClass const * FirestormGroundAnim; // RA2: as in TS
-		AnimTypeClass const * MoveFlash;
-		AnimTypeClass const * BombParachute;
-		AnimTypeClass const * Parachute;
+		AnimTypeClass * Smoke1;
+		AnimTypeClass * Smoke2; // RA2: as in TS
+		AnimTypeClass * FirestormActiveAnim; // RA2: as in TS
+		AnimTypeClass * FirestormIdleAnim; // RA2: as in TS
+		AnimTypeClass * FirestormAirAnim; // RA2: as in TS
+		AnimTypeClass * FirestormGroundAnim; // RA2: as in TS
+		AnimTypeClass * MoveFlash;
+		AnimTypeClass * BombParachute;
+		AnimTypeClass * Parachute;
 		TypeList<AnimTypeClass const *> SplashList;
-		AnimTypeClass const * SmallFire;
-		AnimTypeClass const * LargeFire;
-		InfantryTypeClass const * Paratrooper;
+		AnimTypeClass * SmallFire;
+		AnimTypeClass * LargeFire;
+		InfantryTypeClass * Paratrooper;
 		int EliteFlashTimer;
 		int ChronoDelay;
 		int ChronoReinfDelay;
@@ -441,8 +441,8 @@ class RulesClass
 		TypeList<int> AllyParaDropNum;
 		TypeList<InfantryTypeClass const *> SovParaDropInf;
 		TypeList<int> SovParaDropNum;
-		InfantryTypeClass const * AlliedDisguise;
-		InfantryTypeClass const * SovietDisguise;
+		InfantryTypeClass * AlliedDisguise;
+		InfantryTypeClass * SovietDisguise;
 		int SpyPowerBlackout;
 		float SpyMoneyStealPercent;
 		bool AttackCursorOnDisguise;
@@ -465,48 +465,48 @@ class RulesClass
 		TypeList<int> AIAutoDeployFrameDelay;
 		int MaximumBuildingPlacementFailures;
 		float PurifierBonus;
-		InfantryTypeClass const * Technician;
-		InfantryTypeClass const * Engineer;
-		InfantryTypeClass const * Pilot;
-		InfantryTypeClass const * AlliedCrew;
-		InfantryTypeClass const * SovietCrew;
-		WarheadTypeClass const * FlameDamage;
-		WarheadTypeClass const * FlameDamage2;
-		WarheadTypeClass const * NukeWarhead;
-		BulletTypeClass const * NukeProjectile;
-		BulletTypeClass const * NukeDown;
-		WarheadTypeClass const * EMPulseWarhead;
-		BulletTypeClass const * EMPulseProjectile;
+		InfantryTypeClass * Technician;
+		InfantryTypeClass * Engineer;
+		InfantryTypeClass * Pilot;
+		InfantryTypeClass * AlliedCrew;
+		InfantryTypeClass * SovietCrew;
+		WarheadTypeClass * FlameDamage;
+		WarheadTypeClass * FlameDamage2;
+		WarheadTypeClass * NukeWarhead;
+		BulletTypeClass * NukeProjectile;
+		BulletTypeClass * NukeDown;
+		WarheadTypeClass * EMPulseWarhead;
+		BulletTypeClass * EMPulseProjectile;
 		WarheadTypeClass const * C4Warhead;
-		WarheadTypeClass const * V3Warhead;
-		WarheadTypeClass const * DMislWarhead;
-		WarheadTypeClass const * V3EliteWarhead;
-		WarheadTypeClass const * DMislEliteWarhead;
-		WarheadTypeClass const * IvanWarhead;
+		WarheadTypeClass * V3Warhead;
+		WarheadTypeClass * DMislWarhead;
+		WarheadTypeClass * V3EliteWarhead;
+		WarheadTypeClass * DMislEliteWarhead;
+		WarheadTypeClass * IvanWarhead;
 		int IvanDamage;
 		int IvanTimedDelay;
 		bool CanDetonateTimeBomb;
 		bool CanDetonateDeathBomb;
 		int IvanIconFlickerRate;
-		WeaponTypeClass const * DeathWeapon;
+		WeaponTypeClass * DeathWeapon;
 		ShapeSet const * BOMBCURS_SHP;
 		int IronCurtainDuration;
-		WarheadTypeClass const * IonCannonWarhead;
-		WarheadTypeClass const * FirestormWarhead; // RA2: as in TS
-		WarheadTypeClass const * VeinholeWarhead; // RA2: as in TS
-		TerrainTypeClass const * VeinholeTypeClass;
+		WarheadTypeClass * IonCannonWarhead;
+		WarheadTypeClass * FirestormWarhead; // RA2: as in TS
+		WarheadTypeClass * VeinholeWarhead; // RA2: as in TS
+		TerrainTypeClass * VeinholeTypeClass;
 		TypeList<TerrainTypeClass const *> DefaultMirageDisguises;
 		int InfantryBlinkDisguiseTime;
-		ParticleSystemTypeClass const * DefaultLargeGreySmokeSystem;
-		ParticleSystemTypeClass const * DefaultSmallGreySmokeSystem;
-		ParticleSystemTypeClass const * DefaultSparkSystem;
-		ParticleSystemTypeClass const * DefaultLargeRedSmokeSystem;
-		ParticleSystemTypeClass const * DefaultSmallRedSmokeSystem;
-		ParticleSystemTypeClass const * DefaultDebrisSmokeSystem;
-		ParticleSystemTypeClass const * DefaultFireStreamSystem;
-		ParticleSystemTypeClass const * DefaultFirestormExplosionSystem; // RA2: as in TS
-		ParticleSystemTypeClass const * DefaultTestParticleSystem;
-		ParticleSystemTypeClass const * DefaultRepairParticleSystem;
+		ParticleSystemTypeClass * DefaultLargeGreySmokeSystem;
+		ParticleSystemTypeClass * DefaultSmallGreySmokeSystem;
+		ParticleSystemTypeClass * DefaultSparkSystem;
+		ParticleSystemTypeClass * DefaultLargeRedSmokeSystem;
+		ParticleSystemTypeClass * DefaultSmallRedSmokeSystem;
+		ParticleSystemTypeClass * DefaultDebrisSmokeSystem;
+		ParticleSystemTypeClass * DefaultFireStreamSystem;
+		ParticleSystemTypeClass * DefaultFirestormExplosionSystem; // RA2: as in TS
+		ParticleSystemTypeClass * DefaultTestParticleSystem;
+		ParticleSystemTypeClass * DefaultRepairParticleSystem;
 		double MyEffectivenessCoefficientDefault;
 		double TargetEffectivenessCoefficientDefault;
 		double TargetSpecialThreatCoefficientDefault;
@@ -549,7 +549,7 @@ class RulesClass
 		int InfantryBaseMult;
 		int SoloCrateMoney;
 		int TreeStrength;
-		UnitTypeClass const * UnitCrateType;
+		UnitTypeClass * UnitCrateType;
 		double PatrolTime;
 		TypeList<int> TeamDelays;
 		TypeList<int> AIHateDelays;
@@ -597,7 +597,7 @@ class RulesClass
 		int CrateMinimum;
 		int CrateMaximum;
 		LEPTON LZScanRadius; // RA2: as in TS
-		AnimTypeClass const * FlareAnim;
+		AnimTypeClass * FlareAnim;
 		int MinMoney;
 		int MPMoney;
 		int MPMaxMoney;
@@ -701,7 +701,7 @@ class RulesClass
 		int LightningCellSpread;
 		int LightningSeparation;
 		bool LightningPrintText;
-		WarheadTypeClass const * LightningWarhead;
+		WarheadTypeClass * LightningWarhead;
 		int CollapseChance;
 		int WeedCapacity;
 		int HarvestersPerRefinery; // RA2: an int here (YR: a list among the AI values)
@@ -741,7 +741,7 @@ class RulesClass
 		double RadLightFactor;
 		double RadTintFactor;
 		RGBClass RadColor;
-		WarheadTypeClass const * RadSiteWarhead;
+		WarheadTypeClass * RadSiteWarhead;
 		int ElevationIncrement;
 		double ElevationIncrementBonus;
 		double ElevationBonusCap;

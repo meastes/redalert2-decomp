@@ -123,4 +123,5 @@ class MultiplayerGameMode
 };
 
 // Declarations moved from the units that used them (one declaration per name).
+MultiplayerGameMode * First_Game_Mode(void);
 extern void Init_Game_Modes(void); // RA2: 0x005B8BD0 (multiplayer.cpp)

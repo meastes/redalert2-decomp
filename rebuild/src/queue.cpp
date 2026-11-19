@@ -174,18 +174,11 @@
 #include "windlg.h"
 #include "winstub.h"
 #include "wonline.h"
+#include "wolapi.h"
+#include "fpscounter.h"
 
-// RA2: the one wolapi interface queue.cpp calls (INetUtil's ping request), declared here instead of including wolapi/;
-// the slots before RequestPing are wolapi's IUnknown and the three request calls.
-struct INetUtil { // RA2: as above
-	virtual long __stdcall QueryInterface(void const * iid, void ** object) = 0; // RA2: as above
-	virtual unsigned long __stdcall AddRef(void) = 0; // RA2: as above
-	virtual unsigned long __stdcall Release(void) = 0; // RA2: as above
-	virtual long __stdcall RequestGameresSend(char const * host, int port, unsigned char * data, int length) = 0; // RA2: as above
-	virtual long __stdcall RequestLadderSearch(char const * host, int port, char const * key, unsigned long sku, int team, int cond, int sort, int number, int leading) = 0; // RA2: as above
-	virtual long __stdcall RequestLadderList(char const * host, int port, char const * keys, unsigned long sku, int team, int cond, int sort) = 0; // RA2: as above
-	virtual long __stdcall RequestPing(char const * host, int timeout, int * handle) = 0; // RA2: as above
-};
+
+
 #include "stringtable.h" // RA2: the includes this file needs
 #include "wsproto.h"
 
@@ -193,11 +186,6 @@ struct INetUtil { // RA2: as above
 
 #include <ctime>
 
-namespace FPSCounter { extern unsigned TotalFramesElapsed; extern unsigned TotalTimeElapsed; } // RA2: as above
-namespace FPSCounter { extern unsigned CurrentFrameRate; } // RA2: as above
-void __fastcall Show_Dialog(HWND dialog, int kind); // RA2: 0x005FF7E0, defined in ownrdraw.cpp
-void __fastcall Dialog_On_WM_PAINT(HWND dialog); // RA2: 0x005FEE70, as above
-void __fastcall Dialog_On_WM_DRAWITEM(long item); // RA2: 0x005FE380, as above
 
 
 
@@ -230,8 +218,6 @@ bool ConnectionLost; // RA2: 0x00ABD500; set when the connection is given up on
 
 bool ExtraSyncInfo; // RA2: 0x00AB62E8; -MPDEBUG: a mismatch writes the sync log files instead of printing the CRCs
 void __fastcall Write_Sync_File(int slot, EventClass * event); // RA2: 0x0062DBA0, the sync log written when ExtraSyncInfo is set
-char * __fastcall Wide_To_Narrow(wchar_t const * wide); // RA2: 0x006FA120, a static buffer
-wchar_t * __fastcall Narrow_To_Wide(char const * narrow); // RA2: 0x006FA180, a static buffer
 #define WAIT_TEXT(label, line) StringTable::LoadString(label, NULL, "D:\\Ra2\\Queue.CPP", line) // RA2: the string table lookup carries the source path and line
 static unsigned int CRC[256] =
 	{0,0,0,0,0,0,0,0,0,0,
@@ -272,7 +258,6 @@ int NetMonoMode = 1;
 int NewMonoMode = 1;
 static int IsMono = 0;
 bool ReconnectPingTimedOut; // RA2: 0x00AB62E0; the reconnect dialog's pings showed a dead connection (set by the dialog, tested after it closes)
-RGBClass SyncBarOutlineColor; // RA2: 0x00AB6831; the colour of the bars' outline in the reconnect dialog
 int LastKickTime; // RA2: 0x00AB6304; time() of the last kick, for telling a run of kicks from resignations
 int ReconnectPingSeconds; // RA2: 0x00AB62F8; seconds of pings counted while the dialog is open
 int ReconnectSlowCount; // RA2: 0x00AB62EC; times the dialog's ping count passed 5
@@ -282,7 +267,9 @@ bool ReconnectVerySlowCounted; // RA2: 0x00AB62F5; the 10-ping step was counted 
 int MegamissionCounts[8]; // RA2: 0x00AABDB0; unit counts of the cached repeated-megamission lists
 char MegamissionLists[8][0x280]; // RA2: 0x00A76CA8; the cached repeated-megamission lists (the first unit and the event fields, then the other units, 5 bytes each)
 int MegamissionFrames[8]; // RA2: 0x00AABE94; frame each cached list was last used (0 = free)
+#ifdef RA2_NON_MATCHING // cached targets used only by the packet decoding draft
 xTargetClass MegamissionUnitLists[64][128]; // RA2: 0x00AABED0; the units of the runs of the last megamission lists, 8 slots per player
+#endif
 int SavedUnitCounts[8][8]; // RA2: 0x00A76B74; unit counts of the saved lists (64 ints; cleared column by column)
 int SentFrameSyncCount = 0;
 
@@ -303,16 +290,7 @@ enum RetcodeType {
 };
 
 
-struct FrameSyncStruct {
-	int frame;				/// other players' frame #
-	unsigned int sent;		// # cmds other player claims to have sent
-	unsigned int recv;		// # cmds actually received from others
-	unsigned int timing;		// RA2: +0x0C, the timer value when this player's frame sync arrived
-	unsigned int response;		// RA2: +0x10, this player's response time (YR's unknown2)
-	unsigned int heard;		// RA2: +0x14, timeGetTime() when this player was last heard from (the constructor clears it)
 
-	FrameSyncStruct(void);
-};
 
 
 /// <summary>
@@ -371,94 +349,14 @@ BOOL CALLBACK Reconnect_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LP
 static void Close_Reconnect_Dialog(void);
 void Kick_Player_Now(ConnManClass *net, int kickee, FrameSyncStruct * their, bool error);
 void Cast_Kick_Vote(int kicker, int kickee);
-#pragma pack(push, 1)
-struct MegaFrameEntry { // RA2: one player's entry in a MEGAFRAMEINFO event from the packet router (13 bytes, after the event header)
-	long Frame; // RA2: +0x00
-	long Unknown_04; // RA2: +0x04
-	unsigned short CommandCount; // RA2: +0x08
-	unsigned char Delay; // RA2: +0x0A
-	char ID; // RA2: +0x0B
-	unsigned char Flags; // RA2: +0x0C, bit 0 set: no response time in this entry
-};
-struct PacketTimingEntry { // RA2: one player's entry in a PACKET_TIMING event from the packet router (8 bytes)
-	char ID; // RA2: +0x00
-	bool Report; // RA2: +0x01, set: the master reports this player
-	unsigned long ResponseTime; // RA2: +0x02
-	short Unknown_06; // RA2: +0x06
-};
-#pragma pack(pop)
-unsigned int RouterResponseTimes[8]; // RA2: 0x00A76C88, the packet router round trip per connection
-QueueClass<EventClass, 256> MegaMissionQueue; // RA2: 0x00A35F30; the mission events of one house, collected while the DoList runs
-struct SyncHouse { // RA2: one house in a saved sync state
-	char Name[20]; // RA2: +0x00
-	unsigned char IsHuman; // RA2: +0x14
-	char Color[32]; // RA2: +0x15
-	int ID; // RA2: +0x38, -1 when the house does not exist
-	char HouseType[32]; // RA2: +0x3C
-};
-struct SyncObject { // RA2: one infantry, unit, aircraft or building in a saved sync state
-	int Coord; // RA2: +0x00
-	int Type; // RA2: +0x04
-	char TypeName[24]; // RA2: +0x08
-	char Owner; // RA2: +0x20, a house index
-	int TargetID; // RA2: +0x24
-	char Target[24]; // RA2: +0x28
-	int NavComID; // RA2: +0x40
-	char NavCom[24]; // RA2: +0x44
-	int SpeedAccum; // RA2: +0x5C
-	short TrackNumber; // RA2: +0x60
-	short TrackIndex; // RA2: +0x62
-	unsigned char Facing; // RA2: +0x64
-	unsigned char Facing2; // RA2: +0x65
-	unsigned char CurrentMission; // RA2: +0x66
-	char Speed; // RA2: +0x67
-};
-struct SyncLayerObject { // RA2: one object of a map layer or the logic layer in a saved sync state
-	int Value; // RA2: +0x00
-	int Type; // RA2: +0x04
-	char Name[24]; // RA2: +0x08
-	char Owner; // RA2: +0x20, a house index, -1 for none
-	char Unknown_21[3]; // RA2: +0x21
-	short RTTI; // RA2: +0x24
-};
-struct SyncState { // RA2: the game state of one frame, kept for the sync log (256 of them, one per CRC slot)
-	int GameCRC; // RA2: +0x000
-	int RandomNumber; // RA2: +0x004
-	int Frame; // RA2: +0x008
-	SyncHouse Houses[8]; // RA2: +0x00C
-	int ObjectCount; // RA2: +0x2EC
-	int Counts[4]; // RA2: +0x2F0, infantry, units, aircraft, buildings
-	SyncObject *Objects; // RA2: +0x300, the records in that order
-	int LayerCounts[5]; // RA2: +0x304
-	SyncLayerObject *Layers[5]; // RA2: +0x318
-	int LogicCount; // RA2: +0x32C
-	SyncLayerObject *Logic; // RA2: +0x330
-	char *Buffer; // RA2: +0x334, the records, allocated on first use
-	unsigned int BufferSize; // RA2: +0x338, grown in 64K steps
 
-	SyncState(void) // RA2: as above
-	{
-		Objects = NULL;
-		ObjectCount = 0;
-		for (int index = 0; index < 5; index++) {
-			Layers[index] = NULL;
-			LayerCounts[index] = 0;
-		}
-		Logic = NULL;
-		LogicCount = 0;
-		BufferSize = 0x20000;
-		Buffer = NULL;
-	}
-	~SyncState(void) // RA2: as above
-	{
-		if (Buffer != NULL) {
-			delete [] Buffer;
-		}
-	}
-};
+unsigned int RouterResponseTimes[8]; // RA2: 0x00A76C88, the packet router round trip per connection
+
+
+
+
 SyncState SyncStates[256]; // RA2: 0x00A780D8; filled by Fill_Sync_State when ExtraSyncInfo is set
 int SyncRandomNumber; // RA2: 0x00AABCE0; the random number of the frame while no sync log is kept
-char const * Get_CPU_Type_Name(void); // RA2: 0x004D2B80, the name of the CPU type ("Pentium" ...) used in the sync log
 void __fastcall Fill_Sync_State(int index); // RA2: 0x0062CF40, saves the game state of the frame in slot 0 to 255 of the sync log
 void __fastcall Update_Event_Destination(int start, int count, TargetClass whom, TargetClass const & target); // RA2: 0x00629220
 void __fastcall Spread_Units_Around_Cell(int start, int count); // RA2: 0x00629290, spreads a run of missions to one cell around it
@@ -489,7 +387,7 @@ int Extract_Compressed_Events(void *buf, int bufsize);
 //...........................................................................
 // DoList management:
 //...........................................................................
-static int Execute_DoList(int max_houses, HousesType base_house,
+int Execute_DoList(int max_houses, HousesType base_house,
 	ConnManClass *net, CDTimerClass<FrameTimerClass> *skip_crc,
 //	ConnManClass *net, TCountDownTimerClass *skip_crc,
 	FrameSyncStruct *their);
@@ -502,7 +400,7 @@ static void Queue_Playback(void);
 //...........................................................................
 static void Compute_Game_CRC(void);
 void Add_CRC(unsigned int *crc, unsigned int val);
-static void Print_CRCs(EventClass *ev);
+void Print_CRCs(EventClass *ev);
 static void Init_Queue_Mono(ConnManClass *net);
 static void Update_Queue_Mono(ConnManClass *net, int flow_index);
 static void Print_Framesync_Values(int curframe, unsigned int max_ahead,
@@ -2229,6 +2127,7 @@ static RetcodeType Process_Serial_Packet(char *multi_packet_buf,
 /// player drags on, so the humans can see who the game is actually stalled on.
 /// </summary>
 /// <param name="window">The reconnect dialog that owns the bar controls.</param>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00626cb0 has no row)
 void Draw_Sync_Bars(HWND window)
 {
 	for (int i = 0; i < Session.Players.Count(); i++) {
@@ -2270,6 +2169,7 @@ void Draw_Sync_Bars(HWND window)
 		AlternateSurface->Fill_Rect(AlternateSurface->Get_Rect(), inside, color);
 	}
 }
+#endif
 
 
 /// <summary>
@@ -3096,7 +2996,8 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-static int Extract_Compressed_Events(void *buf, int bufsize)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006282d0 has no row)
+int Extract_Compressed_Events(void *buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position
 	int leftover = bufsize;     // # bytes left to process
@@ -3326,6 +3227,7 @@ static int Extract_Compressed_Events(void *buf, int bufsize)
 	return(count);
 
 }	// end of Extract_Compressed_Events
+#endif
 
 
 /***************************************************************************
@@ -3359,297 +3261,204 @@ static int Extract_Compressed_Events(void *buf, int bufsize)
  * HISTORY:                                                                *
  *   11/21/1995 BRR : Created.                                             *
  *=========================================================================*/
-static int Execute_DoList(int max_houses, HousesType base_house,
+#ifdef RA2_NON_MATCHING // not exact: 28 bytes differ (class-b carry)
+int Execute_DoList(int max_houses, HousesType base_house,
 	ConnManClass *net, CDTimerClass<FrameTimerClass> *skip_crc,
 	FrameSyncStruct *their)
 {
-	int count = DoList.Count; // RA2: the counts are read once
-	int house_count = Houses.Count(); // RA2: as above
-	int i,j,k;
-	int index;
-	int check_crc;
-	HouseClass *hptr;
+    int count = DoList.Count;
+    int house_count = Houses.Count();
+    int i, j, k;
+    int index;
+    int check_crc;
+    HouseClass *hptr;
 
-	//
-	// If MPlayerMaxAhead is recomputed such that it increases, the systems
-	// may try to free-run to the new MaxAhead value.  If so, they may miss
-	// an event that was generated after the TIMING event was created, but
-	// before it executed; this event will be scheduled with the older,
-	// shorter MaxAhead value.  If a system doesn't receive this event, it
-	// may execute past the frame it's scheduled to execute on, creating
-	// a Packet-Recieved-Too-Late error.  To prevent this, find any events
-	// that are scheduled to execute during this "period of vulnerability",
-	// and re-schedule for the end of that period.
-	//
-	for (j = 0; j < count; j++) {
-		if (DoList[j].Type != EventClass::FRAMEINFO &&
-			DoList[j].Frame > NewMaxAheadFrame1 &&
-			DoList[j].Frame < NewMaxAheadFrame2) {
-			DebugString("DoList: Moving event from frame %d to frame %d\n", DoList[j].Frame, NewMaxAheadFrame2);
-			DoList[j].Frame = NewMaxAheadFrame2;
-		}
-	}
+    for (j = 0; j < count; j++) {
+        if (DoList[j].Type != 0x1C && DoList[j].Frame > NewMaxAheadFrame1 &&
+                DoList[j].Frame < NewMaxAheadFrame2) {
+            DebugString("DoList: Moving event from frame %d to frame %d\n", DoList[j].Frame, NewMaxAheadFrame2);
+            DoList[j].Frame = NewMaxAheadFrame2;
+        }
+    }
 
-	//
-	// RA2: the same for the EXIT event of a player who is leaving, so that it
-	// executes after everything he sent
-	//
-	if (Session.ExitEventPending && Session.ExitEventFrame && Session.ExitEventPlayer != -1) { // RA2: as above
-		for (j = 0; j < count; j++) { // RA2: as above
-			if (DoList[j].Type == EventClass::EXIT && DoList[j].ID == Session.ExitEventPlayer && // RA2: as above
-				DoList[j].Frame > Session.ExitEventPending && DoList[j].Frame < Session.ExitEventFrame) { // RA2: as above
-				DebugString("DoList: Moving EXIT event from frame %d to frame %d\n", DoList[j].Frame, Session.ExitEventFrame); // RA2: as above
-				DoList[j].Frame = Session.ExitEventFrame; // RA2: as above
-			}
-		}
-		if (Frame > Session.ExitEventFrame) { // RA2: as above
-			Session.ExitEventPending = 0; // RA2: as above
-			Session.ExitEventFrame = 0; // RA2: as above
-			Session.ExitEventPlayer = -1; // RA2: as above
-		}
-	}
+    if (Session.ExitEventPending && Session.ExitEventFrame && Session.ExitEventPlayer != -1) {
+        for (j = 0; j < count; j++) {
+            if (DoList[j].Type == 0x13 && DoList[j].ID == Session.ExitEventPlayer &&
+                    DoList[j].Frame > Session.ExitEventPending && DoList[j].Frame < Session.ExitEventFrame) {
+                DebugString("DoList: Moving EXIT event from frame %d to frame %d\n", DoList[j].Frame, Session.ExitEventFrame);
+                DoList[j].Frame = Session.ExitEventFrame;
+            }
+        }
+        if (::Frame > Session.ExitEventFrame) {
+            Session.ExitEventPending = 0;
+            Session.ExitEventFrame = 0;
+            Session.ExitEventPlayer = -1;
+        }
+    }
 
-	//------------------------------------------------------------------------
-	// Execute the DoList.  Events must be executed in the same order on all
-	//	systems; so, execute them in the order of the HouseClass array.  This
-	// array is stored in the same order on all systems.
-	//------------------------------------------------------------------------
-	for (i = 0; i < house_count; i++) {
-		//.....................................................................
-		// Convert our index into a HousesType value
-		//.....................................................................
-		hptr = Houses[i];
+    for (i = 0; i < house_count; i++) {
+        hptr = Houses[i];
+        if (!hptr) {
+            continue;
+        }
+        if (!hptr->IsHuman && !hptr->IsPlayerControl) {
+            continue;
+        }
 
-		//.....................................................................
-		// If for some reason this house doesn't exist, skip it.
-		// Also, if this house has exited the game, skip it.  (The user can
-		// generate events after he exits, because the exit event is scheduled
-		// at least FrameSendRate*3 frames ahead.  If one system gets these
-		// packets & another system doesn't, they'll go out of sync because
-		// they aren't checking the CommandCount for that house, since that
-		// house isn't connected any more.)
-		//.....................................................................
-		if (!hptr) {
-			continue;
-		}
-		if (!hptr->IsHuman && !hptr->IsPlayerControl) {
-			continue;
-		}
+        for (j = 0; j < count; j++) {
+            if (DoList[j].ID == hptr->HeapID && ::Frame >= DoList[j].Frame && !DoList[j].IsExecuted) {
+                if (::Frame > DoList[j].Frame && DoList[j].Type != 0x1C &&
+                        Session.Type != 0 && Session.Type != 5) {
+                    EventClass *event = &DoList[j];
+                    DebugString("Packet received too late!\n");
+                    DebugString("--------- Event data: -------------------\n");
+                    DebugString("Type:       %s\n", EventClass::EventNames[event->Type]);
+                    DebugString("Frame:      %d\n", event->Frame);
+                    DebugString("ID:         %d\n", event->ID);
+                    DebugString("MaxAhead=%d\n", Session.MaxAhead);
+                    DebugString("Frame=%d\n", ::Frame);
+                    DebugString("FrameSendRate=%d\n", Session.FrameSendRate);
+                    net->Num_Connections();
+                    continue;
+                }
 
-		//.....................................................................
-		// Loop through all events
-		//.....................................................................
-		for (j = 0; j < count; j++) {
+                if (DoList[j].Type == 0x13 || DoList[j].Type == 0x0C || DoList[j].Type == 0x22) {
+                    if (DoList[j].Type == 0x13) {
+                        HouseClass *quithptr = 0;
+                        for (int player = 0; player < house_count; player++) {
+                            quithptr = Houses[player];
+                            if (!quithptr) {
+                                continue;
+                            }
+                            if (quithptr->HeapID == DoList[j].ID) {
+                                quithptr->IsGiverUpper = true;
+                                break;
+                            }
+                        }
+                        if (CountAliveTeams(quithptr) == 1 && Session.Type == 4 && !GameStatisticsPacketSent) {
+                            Session.SawGameCompletion = true;
+                            Register_Game_End_Time();
+                            Send_Statistics_Packet(false);
+                        }
+                        if (Session.Type == 4 && !GameStatisticsPacketSent && PlayerPtr != 0 &&
+                                PlayerPtr == quithptr) {
+                            DebugString("Sending game results because I quit, but didn't see completion");
+                            Send_Statistics_Packet(false);
+                        }
+                    }
+                    if (Debug_Print_Events) {
+                        if (DoList[j].Type == 0x13) {
+                            DebugString("Exit Event: ID:%d (%s),  Event Frame:%d,  My Frame:%d\n",
+                                DoList[j].ID, (char const *)Houses[DoList[j].ID]->IniName, DoList[j].Frame, ::Frame);
+                        }
+                    }
+                    if (DoList[j].ID == PlayerPtr->HeapID) {
+                        int stamp = DoList.Timings[(DoList.Head + j) & 0x3FFF];
+                        DebugTime = timeGetTime() - stamp;
+                        DoList[j].Execute();
+                    } else if (DoList[j].Type == 0x13) {
+                        DebugString("Processing EXIT event on frame %d\n", ::Frame);
+                        if (Session.Type == 1 || Session.Type == 2) {
+                            Destroy_Null_Connection(i, 0);
+                        } else if ((Session.Type == 3 || Session.Type == 4) && net) {
+                            index = net->Connection_Index(i);
+                            if (index != -1) {
+                                for (k = index; k < net->Num_Connections() - 1; k++) {
+                                    their[k] = their[k + 1];
+                                }
+                                Destroy_Connection(i, 0);
+                            }
+                        }
+                        if (Session.Play && DoList[j].Type == 0x13) {
+                            hptr->IsHuman = false;
+                            hptr->IQ = Rule->MaxIQ;
+                            HouseClass::Computer_Paranoid();
+                            hptr->IniName = TStringID<HOUSE_NAME_MAX>("Computer");
+                            wcsncpy(hptr->UIName, StringTable::LoadString("TXT_COMPUTER", 0, "D:\\Ra2\\Queue.CPP", 0x1623), 0x15);
+                            hptr->UIName[20] = 0;
+                            DebugString("Removing a player %s:%d\n", "D:\\Ra2\\Queue.CPP", 0x1625);
+                            Session.NumPlayers--;
+                        }
+                    }
+                } else if (DoList[j].Type == 0x1C) {
+                    if (!skip_crc || *skip_crc == 0) {
+                        check_crc = 1;
+                    } else {
+                        check_crc = 0;
+                    }
+                    if (check_crc && DoList[j].Frame == ::Frame && DoList[j].Data.FrameInfo.Delay < 256) {
+                        index = (DoList[j].Frame - DoList[j].Data.FrameInfo.Delay) & 0xFF;
+                        if (CRC[index] != (unsigned long)DoList[j].Data.FrameInfo.CRC) {
+                            if (ExtraSyncInfo) {
+                                // The CRC log of every sync slot (k is reduced to a slot
+                                // number before each call; the loop count is separate).
+                                k = 0;
+                                for (int n = 256; n; n--) {
+                                    k &= 0xFF;
+                                    Write_Sync_File(k, &DoList[j]);
+                                    k++;
+                                }
+                            } else {
+                                Print_CRCs(&DoList[j]);
+                            }
+                            Session.Suspended++;
+                            WWMessageBox(L" ").Process(StringTable::LoadString("TXT_OUT_OF_SYNC", 0, "D:\\Ra2\\Queue.CPP", 0x1655),
+                                    StringTable::LoadString("TXT_STOP", 0, "D:\\Ra2\\Queue.CPP", 0x1656), 0, 0, 0);
+                            Session.Suspended--;
+                            return 0;
+                        }
+                    }
+                } else {
+                    int stamp = DoList.Timings[(DoList.Head + j) & 0x3FFF];
+                    DebugTime = timeGetTime() - stamp;
+                    if (DoList[j].Type == 4) {
+                        MegaMissionQueue.Add(DoList[j]);
+                    } else {
+                        DoList[j].Execute();
+                    }
+                }
+                DoList[j].IsExecuted = 1;
+            }
+        }
 
-			//..................................................................
-			// If this event was from the currently-executing player ID, and it's
-			// time to execute it, execute it.
-			//..................................................................
-			if (DoList[j].ID == hptr->HeapID && Frame >= DoList[j].Frame &&
-				!DoList[j].IsExecuted) {
-
-				//...............................................................
-				// Error if it's too late to execute this packet!
-				// (Hack: disable this check for solo or skirmish mode.)
-				//...............................................................
-				if (Frame > DoList[j].Frame && DoList[j].Type !=
-					EventClass::FRAMEINFO && Session.Type != GAME_NORMAL &&
-					Session.Type != GAME_SKIRMISH) {
-					Dump_Packet_Too_Late_Stuff(&DoList[j]);
-					net->Num_Connections(); // RA2: the packet is logged and skipped, the game goes on
-					continue; // RA2: as above
-				}
-
-				//...............................................................
-				// Only execute EXIT & OPTIONS commands if they're from myself.
-				//...............................................................
-				if (DoList[j].Type==EventClass::EXIT ||
-						DoList[j].Type==EventClass::OPTIONS ||
-						DoList[j].Type==EventClass::PAGEUSER) {
-
-					if (DoList[j].Type==EventClass::EXIT) {
-						/*
-						**	Flag that this house lost because it quit.
-						*/
-						HouseClass *quithptr = NULL;
-
-						for (int player = 0; player < house_count ; player++) {
-							quithptr = Houses[player];
-							if (!quithptr) {
-								continue;
-							}
-							if (quithptr->HeapID == DoList[j].ID) {
-								quithptr->IsGiverUpper = true;
-								break;
-							}
-						}
-
-						/*
-						**	Send the game statistics packet now since the game is effectivly over
-						*/
-						if (CountAliveTeams(quithptr) == 1 &&
-								Session.Type == GAME_INTERNET &&
-								!GameStatisticsPacketSent) {
-							Session.SawGameCompletion = true;
-							Register_Game_End_Time();
-							Send_Statistics_Packet(false);		// Event - player aborted, and there were only 2 left. // RA2: as above
-						}
-						if (Session.Type == GAME_INTERNET && !GameStatisticsPacketSent && PlayerPtr != NULL && PlayerPtr == quithptr) {
-							DebugString("Sending game results because I quit, but didn't see completion");
-							Send_Statistics_Packet(false); // RA2: as above
-						}
-					}
-
-					if (Debug_Print_Events) {
-						if (DoList[j].Type==EventClass::EXIT) {
-							DebugString("Exit Event: ID:%d (%s),  Event Frame:%d,  My Frame:%d\n",
-								DoList[j].ID,
-								(char *)Houses[DoList[j].ID]->IniName,
-								DoList[j].Frame,
-								Frame);
-						}
-					}
-
-					if (DoList[j].ID == PlayerPtr->HeapID) {
-						DebugTime = timeGetTime() - DoList.Timings[(DoList.Head + j) & (ARRAY_SIZE(DoList.Timings) - 1)]; // RA2: the time the event waited is shown
-						DoList[j].Execute();
-					} else if (DoList[j].Type==EventClass::EXIT) {
-					//............................................................
-					// If this EXIT event isn't from myself, destroy the connection
-					//	for that player.  The HousesType for this event is the
-					// connection ID.
-					//............................................................
-						DebugString("Processing EXIT event on frame %d\n", Frame); // RA2: logged
-						if (Session.Type == GAME_MODEM ||
-							Session.Type == GAME_NULL_MODEM) {
-							Destroy_Null_Connection( i, 0 );
-						} else if ((Session.Type == GAME_IPX ||
-							Session.Type == GAME_INTERNET) && net) {
-							index = net->Connection_Index (i);
-							if (index != -1) {
-								for (k = index; k < net->Num_Connections() - 1; k++) {
-									their[k] = their[k+1];
-								}
-								Destroy_Connection(i,0);
-							}
-						}
-						//
-						// Special case for recording playback: turn the house over
-						// to the computer.
-						//
-						if (Session.Play && DoList[j].Type==EventClass::EXIT) {
-							hptr->IsHuman = false;
-							hptr->IQ = Rule->MaxIQ;
-							hptr->Computer_Paranoid();
-							hptr->IniName = "Computer"; // RA2: the name is a fixed string, not the string table entry
-							wcsncpy(hptr->UIName, WAIT_TEXT("TXT_COMPUTER", 5667), 21); // RA2: the name shown too
-							hptr->UIName[20] = 0; // RA2: as above
-							DebugString("Removing a player %s:%d\n", "D:\\Ra2\\Queue.CPP", 5669); // RA2: the source path and line
-							Session.NumPlayers--;
-						}
-					}
-				}
-
-				//...............................................................
-				// For a FRAMEINFO event, check the CRC value.
-				//...............................................................
-				else if (DoList[j].Type == EventClass::FRAMEINFO) {
-					//............................................................
-					// Skip the CRC check if we're less than 32 frames into the game;
-					// this will prevent a newly-loaded modem game from instantly
-					// going out of sync, if the games were saved at different
-					// frame numbers.
-					//............................................................
-					if (!skip_crc || *skip_crc == 0) {
-						check_crc = 1;
-					}
-					else {
-						check_crc = 0;
-					}
-					if (check_crc
-						&& DoList[j].Frame == Frame
-						&& DoList[j].Data.FrameInfo.Delay < ARRAY_SIZE(CRC)) {
-						index = ((DoList[j].Frame - DoList[j].Data.FrameInfo.Delay) &
-							ARRAY_SIZE(CRC)-1);
-						if (CRC[index] != DoList[j].Data.FrameInfo.CRC) {
-							if (ExtraSyncInfo) { // RA2: the sync log of every slot is written instead of the CRC print
-								k = 0; // RA2: as above
-								for (int n = 256; n; n--) { // RA2: as above
-									k &= 0xFF; // RA2: as above
-									Write_Sync_File(k, &DoList[j]); // RA2: as above
-									k++; // RA2: as above
-								}
-							} else {
-								Print_CRCs(&DoList[j]);
-							}
-							Session.Suspended++;
-							WWMessageBox().Process(WAIT_TEXT("TXT_OUT_OF_SYNC", 5717), WAIT_TEXT("TXT_STOP", 5718), NULL, NULL, false); // RA2: the game is always stopped
-							Session.Suspended--; // RA2: as above
-							return(0); // RA2: as above
-						}
-					}
-				}
-				//...............................................................
-				// Execute other commands
-				//...............................................................
-				else {
-					DebugTime = timeGetTime() - DoList.Timings[(DoList.Head + j) & (ARRAY_SIZE(DoList.Timings) - 1)]; // RA2: as above
-					if (DoList[j].Type == EventClass::MEGAMISSION) { // RA2: missions are collected first
-						MegaMissionQueue.Add(DoList[j]); // RA2: as above
-					} else {
-						DoList[j].Execute();
-					}
-				}
-
-				//...............................................................
-				// Mark this event as executed.
-				//...............................................................
-				DoList[j].IsExecuted = 1;
-			}
-		}
-
-		//.....................................................................
-		// RA2: the collected missions of this house are run, those that are
-		// the same mission to the same target as their neighbour are spread
-		// around the target cell first
-		//.....................................................................
-		int mission = -1;
-		TargetClass target;
-		TargetClass destination;
-		int start = 0;
-		for (k = 0; k < MegaMissionQueue.Count; k++) {
-			bool differ = false;
-			if (mission != -1) {
-				EventClass &event = MegaMissionQueue[k];
-				if ((char)event.Data.MegaMission.Mission != (char)mission) {
-					differ = true;
-				}
-				if (!(*(xTargetClass *)&event.Data.MegaMission.Target == *(xTargetClass *)&target) ||
-					!(*(xTargetClass *)&event.Data.MegaMission.Destination == *(xTargetClass *)&destination)) {
-					differ = true;
-				}
-			}
-			mission = (char)MegaMissionQueue[k].Data.MegaMission.Mission;
-			target = *(TargetClass *)&MegaMissionQueue[k].Data.MegaMission.Target;
-			destination = *(TargetClass *)&MegaMissionQueue[k].Data.MegaMission.Destination;
-			if (differ) {
-				if (k - start > 1) {
-					Spread_Units_Around_Cell(start, k - start);
-				}
-				start = k;
-			} else if (k == MegaMissionQueue.Count - 1 && k - start + 1 > 1) {
-				Spread_Units_Around_Cell(start, k - start + 1);
-			}
-		}
-		while (MegaMissionQueue.Count) {
-			MegaMissionQueue.First().Execute();
-			MegaMissionQueue.Next();
-		}
-	}
-
-	return(1);
-
-}	// end of Execute_DoList
+        int mission = -1;
+        TargetClass target;
+        TargetClass destination;
+        
+        
+        int start = 0;
+        for (k = 0; k < MegaMissionQueue.Count; k++) {
+            bool differ = false;
+            if (mission != -1) {
+                EventClass &event = MegaMissionQueue[k];
+                if ((char)event.Data.MegaMission.Mission != (char)mission) {
+                    differ = true;
+                }
+                if ((RTTIType)*(TargetClass *)&event.Data.MegaMission.Target != (RTTIType)target || ((TargetClass *)&event.Data.MegaMission.Target)->Value() != target.Value() ||
+                        (RTTIType)*(TargetClass *)&event.Data.MegaMission.Destination != (RTTIType)destination || ((TargetClass *)&event.Data.MegaMission.Destination)->Value() != destination.Value()) {
+                    differ = true;
+                }
+            }
+            mission = (char)MegaMissionQueue[k].Data.MegaMission.Mission;
+            target = *(TargetClass *)&MegaMissionQueue[k].Data.MegaMission.Target;
+            destination = *(TargetClass *)&MegaMissionQueue[k].Data.MegaMission.Destination;
+            if (differ) {
+                if (k - start > 1) {
+                    Spread_Units_Around_Cell(start, k - start);
+                }
+                start = k;
+            } else if (k == MegaMissionQueue.Count - 1 && k - start + 1 > 1) {
+                Spread_Units_Around_Cell(start, k - start + 1);
+            }
+        }
+        while (MegaMissionQueue.Count) {
+            MegaMissionQueue.First().Execute();
+            MegaMissionQueue.Next();
+        }
+    }
+    return 1;
+}
+#endif
 
 
 /// <summary>
@@ -3684,11 +3493,10 @@ void __fastcall Update_Event_Destination(int start, int count, TargetClass whom,
 /// <param name="count">The length of the run.</param>
 void __fastcall Spread_Units_Around_Cell(int start, int count) // RA2: 0x00629290
 {
-	TargetClass const & first = *(TargetClass *)&MegaMissionQueue[start].Data.MegaMission.Destination;
-	if (!first.Is_Valid() || (RTTIType)first != RTTI_CELL) {
+	if (!((TargetClass *)&MegaMissionQueue[start].Data.MegaMission.Destination)->Is_Valid() || (RTTIType)*(TargetClass *)&MegaMissionQueue[start].Data.MegaMission.Destination != RTTI_CELL) {
 		return;
 	}
-	CellClass *cptr = first.As_Cell();
+	CellClass *cptr = ((TargetClass *)&MegaMissionQueue[start].Data.MegaMission.Destination)->As_Cell();
 	if (cptr == NULL || cptr == &BlubCell) {
 		return;
 	}
@@ -3713,7 +3521,8 @@ void __fastcall Spread_Units_Around_Cell(int start, int count) // RA2: 0x0062929
 		ObjectClass *closest = Vector_Closest_Object(list, center);
 		IndexClass<int, ObjectClass *> index;
 		for (i = 0; i < list.Count(); i++) {
-			int key = list[i]->Center_Coord().Distance_To(closest->Position) * 1000 + i;
+			Coord nearest = closest->Position;
+			int key = list[i]->Distance(nearest) * 1000 + i;
 			index.Add_Index(key, list[i]);
 		}
 		list.Clear();
@@ -3729,7 +3538,7 @@ void __fastcall Spread_Units_Around_Cell(int start, int count) // RA2: 0x0062929
 			ObjectClass *object = list[i];
 			Cell best = dest;
 			if (i == 0) {
-				Map[dest].IsOvershadowed = true;
+				Map[dest].IsToGrowVeins = true;
 				done[0] = true;
 			} else if (!done[i]) {
 				Cell fallback = dest;
@@ -3756,7 +3565,7 @@ void __fastcall Spread_Units_Around_Cell(int start, int count) // RA2: 0x0062929
 					int spot_zone = Map.Get_Cell_Zone(spot, type->MZone, spot_ptr->IsUnderBridge);
 					int enter = object->Can_Enter_Cell(spot_ptr, FACING_NONE, level, NULL, true);
 					if (spot_zone == zone) {
-						if (spot_ptr->IsOvershadowed) {
+						if (spot_ptr->IsToGrowVeins) {
 							fallback = spot;
 						} else {
 							if (spot_ptr->IsUnderBridge && abs(level - spot_ptr->Height - 4) > 2) {
@@ -3790,7 +3599,7 @@ void __fastcall Spread_Units_Around_Cell(int start, int count) // RA2: 0x0062929
 				cells[i] = best;
 				TargetClass target(&Map[best]);
 				Update_Event_Destination(start, count, TargetClass((AbstractClass *)object), target);
-				Map[best].IsOvershadowed = true;
+				Map[best].IsToGrowVeins = true;
 				done[i] = true;
 			}
 			for (int j = i + 1; j < list.Count(); j++) {
@@ -3803,7 +3612,7 @@ void __fastcall Spread_Units_Around_Cell(int start, int count) // RA2: 0x0062929
 			i++;
 		}
 		for (i = 0; i < cells.Count(); i++) {
-			Map[cells[i]].IsOvershadowed = false;
+			Map[cells[i]].IsToGrowVeins = false;
 		}
 	}
 }
@@ -3965,693 +3774,656 @@ void Add_CRC(unsigned int *crc, unsigned int val)
 }
 
 
-static void Print_CRCs(EventClass *ev)
+inline char const * Sync_Target_Name(AbstractClass * target, int & id)
 {
-	static char _NO_NAME [] = "None";
-
-	int i,j;
-	InfantryClass *infp;
-	UnitClass *unitp;
-	BuildingClass *bldgp;
-	AircraftClass *airp;
-	ObjectClass *objp;
-	FILE *fp;
-	HouseClass *housep;
-	HousesType house;
-
-	char filename[512];
-	sprintf(filename, "SYNC%01d.TXT", PlayerPtr->HeapID);
-	DebugString("Writing sync data to file %s\n", filename);
-
-	Mono_Clear_Screen();
-	Mono_Set_Cursor (0,0);
-
-	fp = fopen(filename,"wt");
-	if (fp==NULL) {
-		DebugString("Error - failed to open sync file for writing. Error code %d - %s\n", GetLastError(), Last_Error_Text());
-		return;
-	}
-
-	fprintf(fp, "TS Sync\n");
-
-	fprintf(fp, "\nVersion %s\n", Version_Name());
-	fprintf(fp, "Internal Version %s\n", VerNum.Version_Name());
-
-	char date[128];
-	char builder[128];
-	char number[128];
-
-	date[0] = 0;
-	Build_Date_String(date, sizeof(date));
-	fprintf(fp, "Release Build: %s by %s - %s\r\n", Build_Number_String(number, sizeof(number)), Build_By_String(builder, sizeof(builder)), date);
-
-	int cpu_type = PROC_PENTIUM_PRO;
-	bool mmx = false;
-	Get_CPU_Type(cpu_type, mmx);
-	fprintf(fp, "CPU %01d86, MMX %s, Vendor: %s\r\n", cpu_type, mmx ? "Yes" : "No", &VendorID);
-
-	fprintf(fp, "Frames: %d\n", Frame);
-
-	fprintf(fp, "Average FPS: %d\n", SecondsPassed != 0 ? TotalFrames / SecondsPassed : 0);
-	fprintf(fp, "Max MaxAhead: %d\n", Session.MaxMaxAhead);
-	fprintf(fp, "Latency setting: %d\n", Session.LatencyFudge);
-	fprintf(fp, "Game speed setting: %d\n", Options.GameSpeed);
-	fprintf(fp, "FrameSendRate: %d\n", Session.FrameSendRate);
-
-	if (PacketTransport != NULL) {
-		for (i = 0; i < PacketTransport->Get_Num_Local_Addresses(); i++) {
-			unsigned char *addr = PacketTransport->Get_Local_Address(i);
-			if (addr != NULL) {
-				unsigned int a = *(unsigned int *)addr;
-				fprintf(fp, "Local address: %d.%d.%d.%d\n", (a) & 0xFF, (a >> 8) & 0xFF, (a >> 16) & 0xFF, (a >> 24) & 0xFF);
-			}
-		}
-	}
-
-	for (i = 0; i < MAX_PLAYERS; i++) {
-		MPStatsType *stat = &Session.ConnectionStats[i];
-		if (*stat->Name != '\0') {
-			NetNumType net;
-			NetNodeType node;
-			stat->Address.Get_Address(net, node);
-			fprintf(fp, "\nName: %s\n", stat->Name);
-			fprintf(fp, "Address: %d.%d.%d.%d\n", node[0], node[1], node[2], node[3]);
-			fprintf(fp, "Max avg round trip: %d\n", stat->MaxAvgRoundTrip);
-			fprintf(fp, "Max round trip: %d\n", stat->MaxRoundTrip);
-			fprintf(fp, "Resends: %d\n", stat->Resends);
-			fprintf(fp, "Frame sync stalls: %d\n", stat->FrameSyncStalls);
-			fprintf(fp, "Command cound stalls: %d\n", stat->CommandCountStalls);
-			fprintf(fp, "Lost: %d\n", stat->Lost);
-			fprintf(fp, "Percent lost: %d\n", stat->PercentLost);
-		}
-	}
-
-	for (i = 0; i < ARRAY_SIZE(CRC); i++) {
-		fprintf(fp,"CRC[%d]=%x\n",i,CRC[i]);
-	}
-
-	//
-	// Houses
-	//
-	for (house = HOUSE_FIRST; house < Houses.Count(); house++) {
-		GameCRC = 0;
-		housep = Houses[house];
-		fprintf(fp,"%s: IsHuman:%d  Color:%s  ID:%d  HouseType:%s\n",
-			(const char *)housep->IniName,
-			housep->IsHuman,
-			ColorSchemes[housep->Class->Scheme]->Name,
-			housep->HeapID,
-			HouseTypes[housep->Class->HeapID]->Name());
-		//Add_CRC (&GameCRC, (int)housep->Credits + (int)housep->Power +
-		//	(int)housep->Drain);
-		Mono_Printf("House %s:%x\n",housep->Class->Name(),GameCRC);
-	}
-
-	//
-	// Infantry
-	//
-	for (house = HOUSE_FIRST; house < Houses.Count(); house++) {
-		housep = Houses[house];
-		GameCRC = 0;
-		fprintf(fp,"-------------------- %s Infantry -------------------\n",
-			housep->Class->Name());
-		for (i = 0; i < Infantry.Count(); i++) {
-			infp = (InfantryClass *)Infantry[i];
-			if (infp->House==housep) {
-				Add_CRC (&GameCRC, (int)infp->PositionCoord.As_Int() + (int)infp->PrimaryFacing.Current().As_Dir256());
-
-				int tarcom_index = 0;
-				const char *tarcom_name = _NO_NAME;
-				AbstractClass *tarcom = infp->TarCom;
-				if (tarcom != NULL) {
-					if (tarcom->Is_Techno()) {
-						tarcom_index = tarcom->Fetch_Heap_ID();
-					} else if (tarcom->RTTI == RTTI_CELL) {
-						CellClass *cptr = (CellClass *)tarcom;
-						tarcom_index = cptr->CellID.X | cptr->CellID.Y << 16;
-					}
-					tarcom_name = Name_From_RTTI(tarcom->RTTI);
-				}
-
-				int navcom_index = 0;
-				const char *navcom_name = _NO_NAME;
-				AbstractClass *navcom = infp->NavCom;
-				if (navcom != NULL) {
-					if (navcom->Is_Techno()) {
-						navcom_index = navcom->Fetch_Heap_ID();
-					} else if (navcom->RTTI == RTTI_CELL) {
-						CellClass *cptr = (CellClass *)navcom;
-						navcom_index = cptr->CellID.X | cptr->CellID.Y << 16;
-					}
-					navcom_name = Name_From_RTTI(navcom->RTTI);
-				}
-
-				fprintf(fp,"COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d) Speed:%d NavCom:%s(%d)\n",
-					infp->PositionCoord.As_Int(),(int)infp->PrimaryFacing.Current().As_Dir256(),infp->Get_Mission(),
-					infp->Class->HeapID, infp->Class->Name(), tarcom_name, tarcom_index, int(infp->Speed * (MPH_LIGHT_SPEED + 1.0)), navcom_name, navcom_index);
-			}
-		}
-		Mono_Printf("%s Infantry:%x\n",housep->Class->Name(),GameCRC);
-	}
-
-	//
-	// Units
-	//
-	for (house = HOUSE_FIRST; house < Houses.Count(); house++) {
-		housep = Houses[house];
-		GameCRC = 0;
-		fprintf(fp,"-------------------- %s Units -------------------\n",
-			housep->Class->Name());
-		for (i = 0; i < Units.Count(); i++) {
-			unitp = (UnitClass *)Units[i];
-			if (unitp->House==housep) {
-				Add_CRC (&GameCRC, (int)unitp->PositionCoord.As_Int() + (int)unitp->PrimaryFacing.Current().As_Dir256() +
-					(int)unitp->SecondaryFacing.Current().As_Dir256());
-
-				int tarcom_index = 0;
-				const char *tarcom_name = _NO_NAME;
-				AbstractClass *tarcom = unitp->TarCom;
-				if (tarcom != NULL) {
-					if (tarcom->Is_Techno()) {
-						tarcom_index = tarcom->Fetch_Heap_ID();
-					} else if (tarcom->RTTI == RTTI_CELL) {
-						CellClass *cptr = (CellClass *)tarcom;
-						tarcom_index = cptr->CellID.X | cptr->CellID.Y << 16;
-					}
-					tarcom_name = Name_From_RTTI(tarcom->RTTI);
-				}
-
-				int navcom_index = 0;
-				const char *navcom_name = _NO_NAME;
-				AbstractClass *navcom = unitp->NavCom;
-				if (navcom != NULL) {
-					if (navcom->Is_Techno()) {
-						navcom_index = navcom->Fetch_Heap_ID();
-					} else if (navcom->RTTI == RTTI_CELL) {
-						CellClass *cptr = (CellClass *)navcom;
-						navcom_index = cptr->CellID.X | cptr->CellID.Y << 16;
-					}
-					navcom_name = Name_From_RTTI(navcom->RTTI);
-				}
-				fprintf(fp,"COORD:%x   Facing:%d   Facing2:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d)  NavCom:%s(%d)   TrkNum:%d TrkInd:%d SpdAc:%d\n",
-					unitp->PositionCoord.As_Int(),(int)unitp->PrimaryFacing.Current().As_Dir256(),(int)unitp->SecondaryFacing.Current().As_Dir256(),unitp->Get_Mission(),
-					unitp->Class->HeapID, unitp->Class->Name(), tarcom_name, tarcom_index, navcom_name, navcom_index,
-					unitp->Locomotion->Get_Track_Number(), unitp->Locomotion->Get_Track_Index(), unitp->Locomotion->Get_Speed_Accum());
-			}
-		}
-		Mono_Printf("%s Units:%x\n",housep->Class->Name(),GameCRC);
-	}
-
-	//
-	// Buildings
-	//
-	for (house = HOUSE_FIRST; house < Houses.Count(); house++) {
-		housep = Houses[house];
-		GameCRC = 0;
-		fprintf(fp,"-------------------- %s Buildings -------------------\n",
-			housep->Class->Name());
-		for (i = 0; i < Buildings.Count(); i++) {
-			bldgp = (BuildingClass *)Buildings[i];
-			if (bldgp->House==housep) {
-				Add_CRC (&GameCRC, (int)bldgp->PositionCoord.As_Int() + (int)bldgp->PrimaryFacing.Current().As_Dir256());
-				fprintf(fp,"COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%x\n",
-					bldgp->PositionCoord.As_Int(),(int)bldgp->PrimaryFacing.Current().As_Dir256(),bldgp->Get_Mission(),
-					bldgp->Class->HeapID, bldgp->Class->Name(), TargetClass(bldgp).Encode());
-			}
-		}
-		Mono_Printf("%s Buildings:%x\n",housep->Class->Name(),GameCRC);
-	}
-
-
-	/// Aircraft
-	for (house = HOUSE_FIRST; house < Houses.Count(); house++) {
-		housep = Houses[house];
-		GameCRC = 0;
-		fprintf(fp,"-------------------- %s Aircraft -------------------\n",
-			housep->Class->Name());
-		for (i = 0; i < Aircraft.Count(); i++) {
-			airp = (AircraftClass *)Aircraft[i];
-			if (airp->House==housep) {
-				Add_CRC (&GameCRC, (int)airp->PositionCoord.As_Int() + (int)airp->PrimaryFacing.Current().As_Dir256());
-				fprintf(fp,"COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%x\n",
-					airp->PositionCoord.As_Int(),(int)airp->PrimaryFacing.Current().As_Dir256(),airp->Get_Mission(),
-					airp->Class->HeapID, airp->Class->Name(), TargetClass(airp).Encode());
-			}
-		}
-		Mono_Printf("%s Buildings:%x\n",housep->Class->Name(),GameCRC);
-	}
-
-	#if 0
-	//
-	// Animations
-	//
-	AnimClass *animp;
-		fprintf(fp,"-------------------- Animations -------------------\n");
-	for (i = 0; i < Anims.Count(); i++) {
-		animp = (AnimClass *)Anims[i];
-		fprintf(fp,"Target:%x OwnerHouse:%d Loops:%d\n",
-			animp->xObject,
-			animp->OwnerHouse,
-			animp->Loops);
-	}
-	#endif
-
-	//------------------------------------------------------------------------
-	// Map Layers
-	//------------------------------------------------------------------------
-	GameCRC = 0;
-	for (i = 0; i < LAYER_COUNT; i++) {
-		fprintf(fp,">>>> MAP LAYER %d <<<<\n",i);
-		for (j = 0; j < Map.Layer[i].Count(); j++) {
-			objp = Map.Layer[i][j];
-			if (objp->RTTI != RTTI_ANIM || objp->Fetch_ID() != -2) {
-				Add_CRC (&GameCRC, (int)objp->PositionCoord.As_Int() + (int)objp->RTTI);
-				fprintf(fp,"Object %d: %x ",j,objp->PositionCoord.As_Int());
-				if (objp->RTTI != RTTI_WAVE && objp->RTTI != RTTI_LIGHT) {
-					fprintf(fp,"%s\t(Type:%d(%s)) ",
-						Name_From_RTTI(objp->RTTI),
-						((ObjectClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-						(const char *)((ObjectClass *)objp)->Class_Of()->IniName);
-				} else {
-					fprintf(fp,"%s\t(Type:%d) ",
-						Name_From_RTTI(objp->RTTI),
-						0);
-				}
-				housep = objp->Owner_HouseClass();
-				if (housep!=NULL) {
-					fprintf(fp,"Owner: %s\n",housep->Class->Name());
-				}
-				else {
-					fprintf(fp,"Owner: NONE\n");
-				}
-			}
-		}
-	}
-	Mono_Printf("Map Layers:%x  \n",GameCRC);
-
-	//------------------------------------------------------------------------
-	// Logic Layers
-	//------------------------------------------------------------------------
-	GameCRC = 0;
-	fprintf(fp,">>>> LOGIC LAYER <<<<\n");
-	for (i = 0; i < Logic.Count(); i++) {
-		objp = Logic[i];
-		if (objp->RTTI != RTTI_ANIM || objp->Fetch_ID() != -2) {
-			Add_CRC (&GameCRC, (int)objp->PositionCoord.As_Int() + (int)objp->RTTI);
-			fprintf(fp,"Object %d: %x ",i,objp->PositionCoord.As_Int());
-
-			if (objp->RTTI == RTTI_AIRCRAFT)
-				fprintf(fp,"Aircraft  (Type:%d(%s)) ",
-					((AircraftClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-					(const char *)((AircraftClass *)objp)->Class_Of()->IniName);
-			else if (objp->RTTI == RTTI_ANIM)
-				fprintf(fp,"Anim      (Type:%d(%s)) ",
-					((AnimClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-					(const char *)((AnimClass *)objp)->Class_Of()->IniName);
-			else if (objp->RTTI == RTTI_BUILDING)
-				fprintf(fp,"Building  (Type:%d(%s)) ",
-					((BuildingClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-					(const char *)((BuildingClass *)objp)->Class_Of()->IniName);
-			else if (objp->RTTI == RTTI_BULLET)
-				fprintf(fp,"Bullet    (Type:%d(%s)) ",
-					((BulletClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-					(const char *)((BulletClass *)objp)->Class_Of()->IniName);
-			else if (objp->RTTI == RTTI_INFANTRY)
-				fprintf(fp,"Infantry  (Type:%d(%s)) ",
-					((InfantryClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-					(const char *)((InfantryClass *)objp)->Class_Of()->IniName);
-			else if (objp->RTTI == RTTI_OVERLAY)
-				fprintf(fp,"Overlay   (Type:%d(%s)) ",
-					((OverlayClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-					(const char *)((OverlayClass *)objp)->Class_Of()->IniName);
-			else if (objp->RTTI == RTTI_SMUDGE)
-				fprintf(fp,"Smudge    (Type:%d(%s)) ",
-					((SmudgeClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-					(const char *)((SmudgeClass *)objp)->Class_Of()->IniName);
-			else if (objp->RTTI == RTTI_TERRAIN)
-				fprintf(fp,"Terrain   (Type:%d(%s)) ",
-					((TerrainClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-					(const char *)((TerrainClass *)objp)->Class_Of()->IniName);
-			else if (objp->RTTI == RTTI_UNIT)
-				fprintf(fp,"Unit      (Type:%d(%s)) ",
-					((UnitClass *)objp)->Class_Of()->Fetch_Heap_ID(),
-					(const char *)((UnitClass *)objp)->Class_Of()->IniName);
-
-			housep = objp->Owner_HouseClass();
-			if (housep!=NULL) {
-				fprintf(fp,"Owner: %s\n",housep->Class->Name());
-			}
-			else {
-				fprintf(fp,"Owner: NONE\n");
-			}
-		}
-	}
-	Mono_Printf("Logic:%x  \n",GameCRC);
-
-	//------------------------------------------------------------------------
-	//	Random # generator, frame #
-	//------------------------------------------------------------------------
-	int rnd = Scen->RandomNumber();
-	Mono_Printf("Random Number:%x  \n", rnd);
-	fprintf(fp,"\nRandom Number:%d\n",rnd);
-
-	Mono_Printf("My Frame:%d  \n",Frame);
-	fprintf(fp,"My Frame:%d\n",Frame);
-
-	CRCEngine *crc = NULL;
-
-	if (ev) {
-		fprintf(fp,"Offending event:\n");
-		fprintf(fp,"Type:         %d\n",ev->Type);
-		fprintf(fp,"Frame:        %d\n",ev->Frame);
-		fprintf(fp,"ID:           %x\n",ev->ID);
-		fprintf(fp,"CRC:          %x\n",ev->Data.FrameInfo.CRC);
-		fprintf(fp,"CommandCount: %d\n",ev->Data.FrameInfo.CommandCount);
-		fprintf(fp,"Delay:        %d\n",ev->Data.FrameInfo.Delay);
-	}
-
-	CRCEngine *c;
-	c = new CRCEngine;
-	if (c) {
-		crc = c;
-	}
-
-	#define CRC_OBJECTS(_vector_) \
-	for (j = 0; j < _vector_.Count(); j++) { \
-		_vector_[j]->Compute_CRC(*crc); \
-		fprintf(fp, "%05d      %08x\n", j, *crc); \
-	}
-
-	fprintf(fp, "\n\n*************** House Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	CRC_OBJECTS(HouseTypes);
-
-	fprintf(fp, "\n\n*************** House CRCs*******************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Houses);
-
-	fprintf(fp, "\n\n*************** Unit Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(UnitTypes);
-
-	fprintf(fp, "\n\n*************** Unit CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Units);
-
-	fprintf(fp, "\n\n*************** Infantry Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(InfantryTypes);
-
-	fprintf(fp, "\n\n*************** Infantry CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Infantry);
-
-	fprintf(fp, "\n\n*************** BuildingType CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(BuildingTypes);
-
-	fprintf(fp, "\n\n*************** Building CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Buildings);
-
-	fprintf(fp, "\n\n*************** Aircraft Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(AircraftTypes);
-
-	fprintf(fp, "\n\n*************** Aircraft CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Aircraft);
-
-	fprintf(fp, "\n\n*************** Anim CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	for (j = 0; j < Anims.Count(); j++) {
-		AnimClass *anim = Anims[j];
-		if (anim->Fetch_ID() != -2) {
-			anim->Compute_CRC(*crc);
-			fprintf(fp, "%05d      %08x\n", j, *crc);
-		}
-	}
-
-	fprintf(fp, "\n\n*************** Anim Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(AnimTypes);
-
-	fprintf(fp, "\n\n*************** Task Force CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(TaskForces);
-
-	fprintf(fp, "\n\n*************** Team Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(TeamTypes);
-
-	fprintf(fp, "\n\n*************** Team CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Teams);
-
-	fprintf(fp, "\n\n*************** Script Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(ScriptTypes);
-
-	fprintf(fp, "\n\n*************** Script CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Scripts);
-
-	fprintf(fp, "\n\n*************** Tag Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(TagTypes);
-
-	fprintf(fp, "\n\n*************** Tag CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Tags);
-
-	fprintf(fp, "\n\n*************** Trigger Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(TriggerTypes);
-
-	fprintf(fp, "\n\n*************** Trigger CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Triggers);
-
-	fprintf(fp, "\n\n*************** Action CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Actions);
-
-	fprintf(fp, "\n\n*************** Event CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Events);
-
-	fprintf(fp, "\n\n*************** Factory CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Factories);
-
-	fprintf(fp, "\n\n*************** Voxel Anim Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(VoxelAnimTypes);
-
-	fprintf(fp, "\n\n*************** Voxel Anim CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(VoxelAnims);
-
-	fprintf(fp, "\n\n*************** Warhead CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Warheads);
-
-	fprintf(fp, "\n\n*************** Weapon CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Weapons);
-
-	fprintf(fp, "\n\n*************** Particle Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(ParticleTypes);
-
-	fprintf(fp, "\n\n*************** Particle CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Particles);
-
-	fprintf(fp, "\n\n*************** Particle System CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(ParticleSystems);
-
-	fprintf(fp, "\n\n*************** Particle System Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(ParticleSystemTypes);
-
-	fprintf(fp, "\n\n*************** Bullet Type's**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(BulletTypes);
-
-	fprintf(fp, "\n\n*************** Bullet CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Bullets);
-
-	fprintf(fp, "\n\n*************** Waypoint Path CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(WaypointPaths);
-
-	fprintf(fp, "\n\n*************** Smudge Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(SmudgeTypes);
-
-	fprintf(fp, "\n\n*************** Overlay Type CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(OverlayTypes);
-
-	fprintf(fp, "\n\n*************** Light Source CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(LightSources);
-
-	fprintf(fp, "\n\n*************** Building Light CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(BuildingLights);
-
-	fprintf(fp, "\n\n*************** Tube CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Tubes);
-
-	fprintf(fp, "\n\n*************** Sides CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Sides);
-
-	fprintf(fp, "\n\n*************** Tiberium CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(Tiberiums);
-
-	fprintf(fp, "\n\n*************** Em Pulse CRCs**************\n\n");
-	fprintf(fp, "Index     CRC\n");
-	fprintf(fp, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-	delete crc;
-	crc = new CRCEngine;
-	CRC_OBJECTS(EMPulseClass::EMPulses);
-
-	delete crc;
-
-	fclose(fp);
-
+    bool is_object;
+    char const * name;
+    id = 0;
+    name = "None";
+    if (target) is_object = (target->AbstractFlags & 1) != 0;
+    if (target) {
+        if (is_object) id = target->Fetch_Heap_ID();
+        else if (target->RTTI == RTTI_CELL) id = ((CellClass *)target)->CellID.Y << 16 | ((CellClass *)target)->CellID.X;
+        name = Name_From_RTTI(target->RTTI);
+    }
+    return name;
+}
+
+#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text)
+void __fastcall Print_CRCs(EventClass *event)
+{
+    char filename[0x200];
+    char time[0x80];
+    char builder[0x80];
+    char machine[0x80];
+    int family;
+    bool has_mmx;
+    int i, j;
+    int house;
+
+    sprintf(filename, "SYNC%01d.TXT", PlayerPtr->HeapID);
+    DebugString("Writing sync data to file %s\n", filename);
+    MonoClass *mono = MonoClass::Get_Page(4);
+    mono->Clear();
+    mono->Set_Cursor(0, 0);
+    FILE *file = fopen(filename, "wt");
+    if (!file) {
+        DebugString("Error - failed to open sync file for writing. Error code %d - %s\n", GetLastError(), file);
+        return;
+    }
+
+    fprintf(file, "RA2 Sync\n");
+    fprintf(file, "\nVersion %s\n", Version_Name());
+    fprintf(file, "Internal Version %s\n", VerNum.Version_Name());
+    time[0] = 0;
+    Build_Date_String(time, sizeof(time));
+    fprintf(file, "Release Build: %s by %s - %s\r\n", Build_Number_String(machine, sizeof(machine)), Build_By_String(builder, sizeof(builder)), time);
+    family = 5;
+    has_mmx = 0;
+    Get_CPU_Type(family, has_mmx, 0, 0);
+    fprintf(file, "CPU %s, MMX %s, Vendor: %s\r\n", Get_CPU_Type_Name(), has_mmx ? "Yes" : "No", &VendorID);
+    fprintf(file, "Frames: %d\n", ::Frame);
+    fprintf(file, "Average FPS: %d\n", SecondsPassed ? TotalFrames / SecondsPassed : 0);
+    fprintf(file, "Max MaxAhead: %d\n", Session.MaxMaxAhead);
+    fprintf(file, "Latency setting: %d\n", Session.LatencyFudge);
+    fprintf(file, "Game speed setting: %d\n", Options.GameSpeed);
+    fprintf(file, "FrameSendRate: %d\n", Session.FrameSendRate);
+
+    if (PacketTransport) {
+        for (i = 0; i < PacketTransport->Get_Num_Local_Addresses(); i++) {
+            unsigned int *address = (unsigned int *)PacketTransport->Get_Local_Address(i);
+            if (address) {
+                unsigned int ip = *address;
+                fprintf(file, "Local address: %d.%d.%d.%d\n", ip & 255, (ip >> 8) & 255, (ip >> 16) & 255, ip >> 24);
+            }
+        }
+    }
+
+    for (i = 0; i < 8; i++) {
+        MPStatsType &statistics = Session.ConnectionStats[i];
+        if (statistics.Name[0]) {
+            NetNumType net;
+            NetNodeType node;
+            statistics.Address.Get_Address(net, node);
+            fprintf(file, "\nName: %s\n", statistics.Name);
+            fprintf(file, "Address: %d.%d.%d.%d\n", node[0], node[1], node[2], node[3]);
+            fprintf(file, "Max avg round trip: %d\n", statistics.MaxAvgRoundTrip);
+            fprintf(file, "Max round trip: %d\n", statistics.MaxRoundTrip);
+            fprintf(file, "Resends: %d\n", statistics.Resends);
+            fprintf(file, "Frame sync stalls: %d\n", statistics.FrameSyncStalls);
+            fprintf(file, "Command cound stalls: %d\n", statistics.CommandCountStalls);
+            fprintf(file, "Lost: %d\n", statistics.Lost);
+            fprintf(file, "Percent lost: %d\n", statistics.PercentLost);
+        }
+    }
+
+    for (i = 0; i < 256; i++) {
+        fprintf(file, "CRC[%d]=%x\n", i, CRC[i]);
+    }
+
+    for (house = 0; house < Houses.Count(); house++) {
+        GameCRC = 0;
+        HouseClass *housep = Houses[house];
+        fprintf(file, "%s: IsHuman:%d  Color:%s  ID:%d  HouseType:%s\n", (char const *)housep->IniName, housep->IsHuman,
+            ColorSchemes[housep->Class->Scheme]->Name, housep->HeapID, (char const *)HouseTypes[housep->Class->HeapID]->Name());
+        mono->Printf("House %s:%x\n", (char const *)housep->Class->IniName, GameCRC);
+    }
+
+    for (house = 0; house < Houses.Count(); house++) {
+        HouseClass *housep = Houses[house];
+        GameCRC = 0;
+        fprintf(file, "-------------------- %s Infantry -------------------\n", (char const *)housep->Class->IniName);
+        for (i = 0; i < Infantry.Count(); i++) {
+            InfantryClass *infp = Infantry[i];
+            if (infp->House == housep) {
+                int target_id, navcom_id;
+                char const *target_name;
+                char const *navcom_name;
+                unsigned long val = infp->PositionCoord.As_Int() + (int)infp->PrimaryFacing.Current().As_Dir256();
+                Add_CRC(&GameCRC, val);
+                target_name = Sync_Target_Name(infp->TarCom, target_id);
+                navcom_name = Sync_Target_Name(infp->NavCom, navcom_id);
+                fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d) Speed:%d NavCom:%s(%d)\n",
+                    infp->PositionCoord.As_Int(), (int)infp->PrimaryFacing.Current().As_Dir256(), infp->Get_Mission(),
+                    infp->Class->HeapID, (char const *)infp->Class->IniName, target_name, target_id, int(infp->Speed * 256.0),
+                    navcom_name, navcom_id);
+            }
+        }
+        mono->Printf("%s Infantry:%x\n", (char const *)housep->Class->IniName, GameCRC);
+    }
+
+    for (house = 0; house < Houses.Count(); house++) {
+        HouseClass *housep = Houses[house];
+        GameCRC = 0;
+        fprintf(file, "-------------------- %s Units -------------------\n", housep->Class->Name());
+        for (i = 0; i < Units.Count(); i++) {
+            UnitClass *unitp = Units[i];
+            if (unitp->House == housep) {
+                int target_id, navcom_id;
+                char const *target_name;
+                char const *navcom_name;
+                unsigned long val = unitp->PositionCoord.As_Int() + (int)unitp->PrimaryFacing.Current().As_Dir256()
+                    + (int)unitp->SecondaryFacing.Current().As_Dir256();
+                Add_CRC(&GameCRC, val);
+                target_name = Sync_Target_Name(unitp->TarCom, target_id);
+                navcom_name = Sync_Target_Name(unitp->NavCom, navcom_id);
+                fprintf(file, "COORD:%x   Facing:%d   Facing2:%d   Mission:%d   Type:%d(%s)   Tgt:%s(%d)  NavCom:%s(%d)   TrkNum:%d TrkInd:%d SpdAc:%d\n",
+                    unitp->PositionCoord.As_Int(), (int)unitp->PrimaryFacing.Current().As_Dir256(), (int)unitp->SecondaryFacing.Current().As_Dir256(),
+                    unitp->Get_Mission(), unitp->Class->HeapID, unitp->Class->Name(), target_name, target_id,
+                    navcom_name, navcom_id, unitp->Locomotion->Get_Track_Number(),
+                    unitp->Locomotion->Get_Track_Index(), unitp->Locomotion->Get_Speed_Accum());
+            }
+        }
+        mono->Printf("%s Units:%x\n", housep->Class->Name(), GameCRC);
+    }
+
+    for (house = 0; house < Houses.Count(); house++) {
+        HouseClass *housep = Houses[house];
+        GameCRC = 0;
+        fprintf(file, "-------------------- %s Buildings -------------------\n", (char const *)housep->Class->IniName);
+        for (i = 0; i < Buildings.Count(); i++) {
+            BuildingClass *bldgp = Buildings[i];
+            if (bldgp->House == housep) {
+                unsigned long val = bldgp->PositionCoord.As_Int() + (int)bldgp->PrimaryFacing.Current().As_Dir256();
+                Add_CRC(&GameCRC, val);
+                fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%x\n",
+                    bldgp->PositionCoord.As_Int(), (int)bldgp->PrimaryFacing.Current().As_Dir256(), bldgp->Get_Mission(),
+                    bldgp->Class->HeapID, (char const *)bldgp->Class->IniName, TargetClass(bldgp).Encode());
+            }
+        }
+        mono->Printf("%s Buildings:%x\n", (char const *)housep->Class->IniName, GameCRC);
+    }
+
+    for (house = 0; house < Houses.Count(); house++) {
+        HouseClass *housep = Houses[house];
+        GameCRC = 0;
+        fprintf(file, "-------------------- %s Aircraft -------------------\n", (char const *)housep->Class->IniName);
+        for (i = 0; i < Aircraft.Count(); i++) {
+            AircraftClass *aircraftp = Aircraft[i];
+            if (aircraftp->House == housep) {
+                unsigned long val = aircraftp->PositionCoord.As_Int() + (int)aircraftp->PrimaryFacing.Current().As_Dir256();
+                Add_CRC(&GameCRC, val);
+                fprintf(file, "COORD:%x   Facing:%d   Mission:%d   Type:%d(%s)   Tgt:%x\n",
+                    aircraftp->PositionCoord.As_Int(), (int)aircraftp->PrimaryFacing.Current().As_Dir256(), aircraftp->Get_Mission(),
+                    aircraftp->Class->HeapID, (char const *)aircraftp->Class->IniName, TargetClass(aircraftp).Encode());
+            }
+        }
+        mono->Printf("%s Buildings:%x\n", (char const *)housep->Class->IniName, GameCRC);
+    }
+
+    GameCRC = 0;
+    for (i = 0; i < 5; i++) {
+        fprintf(file, ">>>> MAP LAYER %d <<<<\n", i);
+        LayerClass &layer = Map.Layer[i];
+        for (j = 0; j < layer.Count(); j++) {
+            ObjectClass *objp = layer[j];
+            if (objp->RTTI == 4 && objp->Fetch_ID() == -2) continue;
+            unsigned long val = objp->PositionCoord.As_Int() + objp->RTTI;
+            Add_CRC(&GameCRC, val);
+            fprintf(file, "Object %d: %x ", j, objp->PositionCoord.As_Int());
+            if (objp->RTTI == 0x2B || objp->RTTI == 0x13) {
+                fprintf(file, "%s\t(Type:%d) ", Name_From_RTTI((RTTIType)objp->RTTI), 0);
+            } else {
+                fprintf(file, "%s\t(Type:%d(%s)) ", Name_From_RTTI((RTTIType)objp->RTTI),
+                    objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+            }
+            HouseClass *owner = objp->Owner_HouseClass();
+            if (owner) {
+                fprintf(file, "Owner: %s\n", (char const *)owner->Class->IniName);
+            } else {
+                fprintf(file, "Owner: NONE\n");
+            }
+
+        }
+    }
+    mono->Printf("Map Layers:%x  \n", GameCRC);
+
+    GameCRC = 0;
+    fprintf(file, ">>>> LOGIC LAYER <<<<\n");
+    for (i = 0; i < Logic.Count(); i++) {
+        ObjectClass *objp = Logic[i];
+        if (objp->RTTI == 4 && objp->Fetch_ID() == -2) continue;
+        unsigned long val = objp->PositionCoord.As_Int() + objp->RTTI;
+            Add_CRC(&GameCRC, val);
+        fprintf(file, "Object %d: %x ", i, objp->PositionCoord.As_Int());
+        if (objp->RTTI == 2) {
+            fprintf(file, "Aircraft  (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+        } else if (objp->RTTI == 4) {
+            fprintf(file, "Anim      (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+        } else if (objp->RTTI == 6) {
+            fprintf(file, "Building  (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+        } else if (objp->RTTI == 8) {
+            fprintf(file, "Bullet    (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+        } else if (objp->RTTI == 15) {
+            fprintf(file, "Infantry  (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+        } else if (objp->RTTI == 20) {
+            fprintf(file, "Overlay   (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+        } else if (objp->RTTI == 29) {
+            fprintf(file, "Smudge    (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+        } else if (objp->RTTI == 36) {
+            fprintf(file, "Terrain   (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+        } else if (objp->RTTI == 1) {
+            fprintf(file, "Unit      (Type:%d(%s)) ", objp->Class_Of()->Fetch_Heap_ID(), (char const *)objp->Class_Of()->IniName);
+        }
+        HouseClass *owner = objp->Owner_HouseClass();
+        if (owner) {
+            fprintf(file, "Owner: %s\n", (char const *)owner->Class->IniName);
+        } else {
+            fprintf(file, "Owner: NONE\n");
+        }
+
+    }
+    mono->Printf("Logic:%x  \n", GameCRC);
+
+    int random = Scen->RandomNumber();
+    mono->Printf("Random Number:%x  \n", random);
+    fprintf(file, "\nRandom Number:%d\n", random);
+    mono->Printf("My Frame:%d  \n", ::Frame);
+    fprintf(file, "My Frame:%d\n", ::Frame);
+
+    if (event) {
+        fprintf(file, "Offending event:\n");
+        fprintf(file, "Type:         %d\n", event->Type);
+        fprintf(file, "Frame:        %d\n", event->Frame);
+        fprintf(file, "ID:           %x\n", (char)event->ID);
+        fprintf(file, "CRC:          %x\n", event->Data.FrameInfo.CRC);
+        fprintf(file, "CommandCount: %d\n", (unsigned short)event->Data.FrameInfo.CommandCount);
+        fprintf(file, "Delay:        %d\n", event->Data.FrameInfo.Delay);
+    }
+
+    CRCEngine *crc = new CRCEngine;
+    fprintf(file, "\n\n*************** House Type CRCs**************\n\n");
+    fprintf(file, "Index     CRC\n");
+    fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    for (i = 0; i < HouseTypes.Count(); i++) {
+        HouseTypes[i]->Compute_CRC(*crc);
+        fprintf(file, "%05d      %08x\n", i, *crc);
+    }
+    fprintf(file, "\n\n*************** House CRCs*******************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Houses.Count(); i++) {
+Houses[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Unit Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < UnitTypes.Count(); i++) {
+UnitTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Unit CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Units.Count(); i++) {
+Units[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Infantry Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < InfantryTypes.Count(); i++) {
+InfantryTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Infantry CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Infantry.Count(); i++) {
+Infantry[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** BuildingType CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < BuildingTypes.Count(); i++) {
+BuildingTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Building CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Buildings.Count(); i++) {
+Buildings[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Aircraft Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < AircraftTypes.Count(); i++) {
+AircraftTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Aircraft CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Aircraft.Count(); i++) {
+Aircraft[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Anim CRCs**************\n\n");
+    fprintf(file, "Index     CRC\n");
+    fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    delete crc;
+    crc = new CRCEngine;
+    for (i = 0; i < Anims.Count(); i++) {
+        AnimClass *animp = Anims[i];
+        if (animp->Fetch_ID() != -2) {
+            animp->Compute_CRC(*crc);
+            fprintf(file, "%05d      %08x\n", i, *crc);
+        }
+    }
+    fprintf(file, "\n\n*************** Anim Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < AnimTypes.Count(); i++) {
+AnimTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Task Force CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < TaskForces.Count(); i++) {
+TaskForces[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Team Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < TeamTypes.Count(); i++) {
+TeamTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Team CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Teams.Count(); i++) {
+Teams[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Script Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < ScriptTypes.Count(); i++) {
+ScriptTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Script CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Scripts.Count(); i++) {
+Scripts[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Tag Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < TagTypes.Count(); i++) {
+TagTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Tag CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Tags.Count(); i++) {
+Tags[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Trigger Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < TriggerTypes.Count(); i++) {
+TriggerTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Trigger CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Triggers.Count(); i++) {
+Triggers[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Action CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Actions.Count(); i++) {
+Actions[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Event CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Events.Count(); i++) {
+Events[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Factory CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Factories.Count(); i++) {
+Factories[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Voxel Anim Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < VoxelAnimTypes.Count(); i++) {
+VoxelAnimTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Voxel Anim CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < VoxelAnims.Count(); i++) {
+VoxelAnims[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Warhead CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Warheads.Count(); i++) {
+Warheads[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Weapon CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Weapons.Count(); i++) {
+Weapons[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Particle Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < ParticleTypes.Count(); i++) {
+ParticleTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Particle CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Particles.Count(); i++) {
+Particles[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Particle System CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < ParticleSystems.Count(); i++) {
+ParticleSystems[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Particle System Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < ParticleSystemTypes.Count(); i++) {
+ParticleSystemTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Bullet Type's**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < BulletTypes.Count(); i++) {
+BulletTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Bullet CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Bullets.Count(); i++) {
+Bullets[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Waypoint Path CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < WaypointPaths.Count(); i++) {
+WaypointPaths[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Smudge Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < SmudgeTypes.Count(); i++) {
+SmudgeTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Overlay Type CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < OverlayTypes.Count(); i++) {
+OverlayTypes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Light Source CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < LightSources.Count(); i++) {
+LightSources[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Building Light CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < BuildingLights.Count(); i++) {
+BuildingLights[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Tube CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Tubes.Count(); i++) {
+Tubes[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Sides CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Sides.Count(); i++) {
+Sides[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Tiberium CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < Tiberiums.Count(); i++) {
+Tiberiums[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    fprintf(file, "\n\n*************** Em Pulse CRCs**************\n\n");
+fprintf(file, "Index     CRC\n");
+fprintf(file, "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+delete crc;
+crc = new CRCEngine;
+for (i = 0; i < EMPulseClass::EMPulses.Count(); i++) {
+EMPulseClass::EMPulses[i]->Compute_CRC(*crc);
+fprintf(file, "%05d      %08x\n", i, *crc);
+}
+    delete crc;
+    fclose(file);
 }	/* end of Print_CRCs */
+#endif
 
 
 /// <summary>
@@ -7115,3 +6887,32 @@ void Queue_Ipx_Clear(void) // RA2: 0x00623280
 
 
 
+
+
+SyncState::SyncState(void)
+{
+	Objects = NULL;
+	ObjectCount = 0;
+	for (int index = 0; index < 5; index++) {
+		Layers[index] = NULL;
+		LayerCounts[index] = 0;
+}
+	Logic = NULL;
+	LogicCount = 0;
+	BufferSize = 0x20000;
+	Buffer = NULL;
+}
+
+
+SyncState::~SyncState(void)
+{
+	if (Buffer != NULL) {
+		delete [] Buffer;
+}
+	}
+
+
+void __fastcall Stamp_Their_Timing(int index)
+{
+    TheirFrameSync[index].heard = timeGetTime();
+}

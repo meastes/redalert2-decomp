@@ -525,3 +525,6 @@ extern void *Art_Popup_Back; // RA2: as above
 extern void *Art_Popup_Back_Allied; // RA2: as above
 extern void *Art_Popup_Back_Soviet; // RA2: as above
 extern int Counter; // RA2: 0x00A3FABC, nonzero while a modal loop runs (Dialog_Message_Handler then leaves the message to it)
+
+extern QueueClass<EventClass, 256> MegaMissionQueue;
+extern RGBClass SyncBarOutlineColor;

@@ -43,7 +43,7 @@ TypeList<T const *> TGet_TypeList(CCINIClass const & ini, char const * section, 
 {
 	char buffer[128];
 
-	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer)) != 0) {
+	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer))) {
 		TypeList<T const *> list;
 
 		const char * token = strtok(buffer, ",");
@@ -71,7 +71,7 @@ T * TGet_Class(CCINIClass const & ini, char const * section, char const * entry,
 {
 	char buffer[128];
 
-	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer)) != 0) {
+	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer))) {
 		return(T::Find_Or_Make(buffer));
 	}
 

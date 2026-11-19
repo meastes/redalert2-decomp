@@ -1,4 +1,12 @@
 symbol,address,evidence
+??0?$DynamicVectorClass@PBVAircraftTypeClass@@@@QAE@ABV0@@Z,0x006548D0,inferred: rules rows 00647f40 differ only at its sites
+??0?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAE@ABV0@@Z,0x006547B0,inferred: rules rows 00647f40 differ only at its sites
+??0?$DynamicVectorClass@PBVUnitTypeClass@@@@QAE@ABV0@@Z,0x004FB530,inferred: rules rows 00647f40 00647f40 differ only at its sites
+??0?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@QAE@ABV0@@Z,0x00654840,inferred: rules rows 00647f40 differ only at its sites
+??0?$TypeList@PBVInfantryTypeClass@@@@QAE@ABV0@@Z,0x00654720,inferred: rules rows 00647f40 differ only at its sites
+??0?$TypeList@PBVSmudgeTypeClass@@@@QAE@ABV0@@Z,0x00654600,inferred: rules rows 00646c60 00646c60 00646c60 00646c60 differ only at its sites
+??0?$TypeList@PBVUnitTypeClass@@@@QAE@ABV0@@Z,0x00654690,inferred: rules rows 00647f40 00647f40 differ only at its sites
+??0?$TypeList@PBVVoxelAnimTypeClass@@@@QAE@ABV0@@Z,0x00654570,inferred: rules rows 00643e10 00643e10 differ only at its sites
 ??0?$ValueGameOption@E@WorldDominationTour@@QAE@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z,0x00727DA0,inferred: wdtconflict rows 00727c10 differ only at its sites
 ??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z,0x0068B0E0,inferred: spawnmanager rows 00689710 00689910 0068a7d0 0068a7d0 differ only at its sites
 ??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z,0x00531EE0,inferred: kamikaze rows 00531550 differ only at its sites
@@ -15,6 +23,11 @@ symbol,address,evidence
 ??0UnholyAlliance@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z,0x005AC330,inferred: multiplayer rows 005b9120 differ only at its sites
 ??1?$BasicTimerClass@VFrameTimerClass@@@@QAE@XZ,0x0040D1D0,inferred: _map rows 0040d160 differ only at its sites
 ??1BuildType@StripClass@SidebarClass@@QAE@XZ,0x0040D130,inferred: scroll rows 0066ac60 differ only at its sites
+??4?$DynamicVectorClass@PBVAnimTypeClass@@@@QAEAAV0@ABV0@@Z,0x0050B160,inferred: rules row 00643e10 (Audio_Visual_Rules) calls this copy at its eight sites; rules' own copy at 0x652D20 is DynamicVectorClass<SmudgeTypeClass *>::operator= (main)
+??4?$VectorClass@PBVAircraftTypeClass@@@@QAEAAV0@ABV0@@Z,0x004FB040,inferred: rules row 00647f40 (General) calls this copy; rules' own copy at 0x654320 is VectorClass<TerrainTypeClass *>::operator= (main)
+??4?$VectorClass@PBVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z,0x00653540,inferred: rules rows 00646c60 00646c60 00646c60 00646c60 differ only at its sites
+??4?$VectorClass@PBVUnitTypeClass@@@@QAEAAV0@ABV0@@Z,0x004FAC70,inferred: rules row 00647f40 (General) calls this copy at its two sites; rules' own copy at 0x653540 is VectorClass<SmudgeTypeClass *>::operator= (main)
+??4?$VectorClass@PBVVoxelAnimTypeClass@@@@QAEAAV0@ABV0@@Z,0x00653150,inferred: rules rows 00643e10 differ only at its sites
 ??8?$VectorClass@G@@UBE_NABV0@@Z,0x0042B170,slot +08 of ??_7?$VectorClass@G@@6B@ at 0079c530; main row ??8?$VectorClass@G@@UBE_NABV0@@Z
 ??8?$VectorClass@H@@UBE_NABV0@@Z,0x0046D070,slot +08 of ??_7?$VectorClass@H@@6B@ at 0079d9d0; main row ??8?$VectorClass@H@@UBE_NABV0@@Z
 ??8?$VectorClass@I@@UBE_NABV0@@Z,0x0042AEC0,slot +08 of ??_7?$DynamicVectorClass@I@@6B@ at 0079c4d8; main row ??8?$VectorClass@I@@UBE_NABV0@@Z
@@ -1779,6 +1792,7 @@ symbol,address,evidence
 ?Greatest_Threat@FootClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z,0x004C8420,slot +370 of ??_7AircraftClass@@6BIPersistStream@@@ at 0079b128; main row ?unknown_slot219@FootClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z
 ?Greatest_Threat@TechnoClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z,0x006C6530,slot +370 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?unknown_slot219@TechnoClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z
 ?Group_Box_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FC020,inferred: ownrdraw rows 005ed180 differ only at its sites
+?Grow_Water_Region@MapGeneratorClass@@QAE_NHMABV?$TRect@H@@ABVCell@@_N@Z,0x005820B0,inferred: mapgen row 0057ff20 (Place_Waterfall) differs only at its site
 ?Has_Finished@MSAnim@@UBE_NXZ,0x005AFC80,slot +1c of ??_7MSFrameAnim@@6B@ at 007af1bc; main row ?Has_Finished@MSAnim@@UAE_NXZ
 ?Has_Focus@GadgetClass@@UAE_NXZ,0x004CF630,slot +58 of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Has_Focus@GadgetClass@@UAE_NXZ
 ?Has_Suspended_Mission@MissionClass@@UBE_NXZ,0x005950E0,slot +1e8 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Has_Suspended_Mission@MissionClass@@UBE_NXZ
@@ -2839,6 +2853,17 @@ symbol,address,evidence
 ?Submit@LogicClass@@UAE_NPBVObjectClass@@_N@Z,0x0053E330,slot +20 of ??_7LogicClass@@6B@ at 0079a8e8; main row ?Submit@LogicClass@@UAE_NPAVObjectClass@@_N@Z
 ?Swap@CD@@UAE_NW4DiskID@@@Z,0x0046E750,slot +08 of ??_7CD@@6B@ at 0079d868; main row ?Swap_Disk@CD@@UAE_NH@Z
 ?TFind_Or_Make@@YIPAVVoxelAnimTypeClass@@PBDABV?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@@Z,0x0070EF40,inferred: vanimtype rows 0070e470 differ only at its sites
+?TGet_Class@@YIPAVAnimTypeClass@@ABVCCINIClass@@PBD1PAV1@@Z,0x00653DF0,inferred: rules rows 00643e10 00643e10 00643e10 00643e10 differ only at its sites
+?TGet_Class@@YIPAVBuildingTypeClass@@ABVCCINIClass@@PBD1PAV1@@Z,0x00654060,inferred: rules rows 00647f40 differ only at its sites
+?TGet_Class@@YIPAVTerrainTypeClass@@ABVCCINIClass@@PBD1PAV1@@Z,0x00654100,inferred: rules rows 00647f40 differ only at its sites
+?TGet_Class@@YIPAVWarheadTypeClass@@ABVCCINIClass@@PBD1PAV1@@Z,0x00653DA0,inferred: rules rows 00647f40 differ only at its sites
+?TGet_Class@@YIPBVAircraftTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z,0x006540B0,inferred: rules rows 00647f40 00647f40 differ only at its sites
+?TGet_Class@@YIPBVAnimTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z,0x00653E40,inferred: rules rows 00643e10 00643e10 differ only at its sites
+?TGet_Class@@YIPBVBuildingTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z,0x00654060,inferred: rules rows 00647f40 differ only at its sites
+?TGet_Class@@YIPBVTerrainTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z,0x00654100,inferred: rules rows 00647f40 differ only at its sites
+?TGet_Class@@YIPBVWarheadTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z,0x00653DA0,inferred: rules rows 00647f40 differ only at its sites
+?TGet_TypeList@@YI?AV?$TypeList@PBVInfantryTypeClass@@@@ABVCCINIClass@@PBD1ABV1@@Z,0x00653E90,inferred: rules rows 00647f40 00647f40 differ only at its sites
+?TGet_TypeList@@YI?AV?$TypeList@PBVTerrainTypeClass@@@@ABVCCINIClass@@PBD1ABV1@@Z,0x00654150,inferred: rules rows 00647f40 differ only at its sites
 ?Tab_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005F0F40,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Tail_Of_List@LinkClass@@UAEAAV1@XZ,0x00539070,slot +1c of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Tail_Of_List@LinkClass@@UAEAAV1@XZ
 ?Take_Damage@ObjectClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z,0x005D3D20,slot +15c of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Take_Damage@ObjectClass@@UAEHPAHHPAVWarheadTypeClass@@PAVTechnoClass@@_NH@Z

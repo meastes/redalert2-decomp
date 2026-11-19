@@ -33458,7 +33458,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00668540",
    "006693a0"
@@ -33782,7 +33782,7 @@
     "entry": "006691a0",
     "body": 144,
     "padding": 0,
-    "symbol": "?Detach@ScriptTypeClass@@UAEXPAVAbstractClass@@_N@Z",
+    "symbol": "?Detach@ScriptTypeClass@@UAEXPBVAbstractClass@@_N@Z",
     "main_symbol": "?Detach@ScriptTypeClass@@UAEXPAVAbstractClass@@_N@Z",
     "main_source": "src/recovered/script.cpp"
    },
@@ -33790,7 +33790,7 @@
     "entry": "00669230",
     "body": 6,
     "padding": 10,
-    "symbol": "?Kind_Of@ScriptClass@@UBEHXZ",
+    "symbol": "?Fetch_RTTI@ScriptClass@@UBE?AW4RTTIType@@XZ",
     "main_symbol": "?Kind_Of@ScriptClass@@UBEHXZ",
     "main_source": "src/recovered/script.cpp"
    },
@@ -33798,7 +33798,7 @@
     "entry": "00669240",
     "body": 6,
     "padding": 10,
-    "symbol": "?Size_Of@ScriptClass@@UBEHXZ",
+    "symbol": "?Fetch_Object_Size@ScriptClass@@UBEHXZ",
     "main_symbol": "?Size_Of@ScriptClass@@UBEHXZ",
     "main_source": "src/recovered/script.cpp"
    },
@@ -33814,7 +33814,7 @@
     "entry": "006692e0",
     "body": 6,
     "padding": 10,
-    "symbol": "?Kind_Of@ScriptTypeClass@@UBEHXZ",
+    "symbol": "?Fetch_RTTI@ScriptTypeClass@@UBE?AW4RTTIType@@XZ",
     "main_symbol": "?Kind_Of@ScriptTypeClass@@UBEHXZ",
     "main_source": "src/recovered/script.cpp"
    },
@@ -33822,7 +33822,7 @@
     "entry": "006692f0",
     "body": 6,
     "padding": 10,
-    "symbol": "?Size_Of@ScriptTypeClass@@UBEHXZ",
+    "symbol": "?Fetch_Object_Size@ScriptTypeClass@@UBEHXZ",
     "main_symbol": "?Size_Of@ScriptTypeClass@@UBEHXZ",
     "main_source": "src/recovered/script.cpp"
    },
@@ -33868,7 +33868,13 @@
    "?Save@ScriptTypeClass@@UAGJPAUIStream@@H@Z": "00669150",
    "?Compute_CRC@ScriptTypeClass@@UBEXAAVCRCEngine@@@Z": "00669170",
    "?Read_INI@ScriptTypeClass@@UAE_NABVCCINIClass@@@Z": "00668c10",
-   "?Write_INI@ScriptTypeClass@@UBE_NAAVCCINIClass@@@Z": "00668b60"
+   "?Write_INI@ScriptTypeClass@@UBE_NAAVCCINIClass@@@Z": "00668b60",
+   "?Fetch_RTTI@ScriptClass@@UBE?AW4RTTIType@@XZ": "00669230",
+   "?Fetch_Object_Size@ScriptClass@@UBEHXZ": "00669240",
+   "?Detach@ScriptTypeClass@@UAEXPBVAbstractClass@@_N@Z": "006691a0",
+   "?Fetch_RTTI@ScriptTypeClass@@UBE?AW4RTTIType@@XZ": "006692e0",
+   "?Fetch_Object_Size@ScriptTypeClass@@UBEHXZ": "006692f0",
+   "?Fetch_Heap_ID@ScriptTypeClass@@UBEHXZ": "00669300"
   },
   "build_refused": {
    "source_sha256": "e1414013e51ee4334f8d248468a983536410852587beffaf16d3e1b6e0c0fabb",
@@ -79284,7 +79290,6 @@
    "_?_random_weight@?1??Get_Angle_Score@MapGeneratorClass@@QAENABVCell@@0N@Z@4NB": "007a5cc8",
    "_?_seed_text@?1??Set_Settings@MapSeedClass@@QAEXPAUHWND__@@@Z@4PADA": "00a709c8",
    "_?_step_weight@?1??Get_Spread_Score@MapGeneratorClass@@QBENABVCell@@0H@Z@4MB": "007a5ca4",
-   "_?_waterfall_chance@?HD@??Init_Map@MapGeneratorClass@@QAEX_N@Z@4MB": "007a5b68",
    "_?_width_max@?4??Init_Map@MapGeneratorClass@@QAEX_N@Z@4QBHB": "007a5b88",
    "_?_width_min@?4??Init_Map@MapGeneratorClass@@QAEX_N@Z@4QBHB": "007a5b6c",
    "_?building_names@?1??Generate_Urban_Buildings@MapGeneratorClass@@QAEXABV?$DynamicVectorClass@VCell@@@@@Z@4PAPADA": "007e0be8",
@@ -79314,7 +79319,6 @@
    "__real@4@3ff8a3d70a0000000000": "007a5df0",
    "__real@8@3ff883126e978d4fe000": "007a5f38",
    "__real@8@3ffeb333333333333000": "007a6000",
-   "__real@8@4000a000000000000000": "007a5be0",
    "__real@8@4002f000000000000000": "007a5398",
    "_$S270": "00a6fd40",
    "_Road_N_1Way": "007e0d08",
@@ -79354,7 +79358,9 @@
    "_Road_W_4Way": "007e0f88",
    "_Road_NW_4Way": "007e0fe0",
    "??_C@_0BG@EIAI@TXT_THEATER_TEMPERATE?$AA@": "007e1374",
-   "??_C@_0BB@DDGA@TXT_THEATER_SNOW?$AA@": "007e1360"
+   "??_C@_0BB@DDGA@TXT_THEATER_SNOW?$AA@": "007e1360",
+   "__waterfall_chance": "007a5b68",
+   "_?_random_weight@?1??Get_Angle_Score@MapRegionClass@@QAENABVCell@@0N@Z@4NB": "007a5be0"
   },
   "partial_ok": true,
   "data_bound_by": {
@@ -84009,7 +84015,11 @@
    "00640460",
    "00652790"
   ],
-  "symbol_overrides": {},
+  "symbol_overrides": {
+   "00652d20": "??4?$DynamicVectorClass@PBVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "00653540": "??4?$VectorClass@PBVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z",
+   "00654320": "??4?$VectorClass@PBVTerrainTypeClass@@@@QAEAAV0@ABV0@@Z"
+  },
   "source": "rebuild/src/rules.cpp",
   "options": [
    "/O2",
@@ -84021,7 +84031,7 @@
   "status": "catalogued",
   "range": [
    "00640270",
-   "00653da0"
+   "00654a50"
   ],
   "mischa85": "tibsun: functions compiled from src/rules.cpp, without gaps; matched except ??0RulesClass@@QAE@XZ and ?Audio_Visual_Rules@RulesClass@@QAE_NABVCCINIClass@@@Z and ?Combat_Damage@RulesClass@@QAE_NABVCCINIClass@@@Z and ?General@RulesClass@@QAE_NABVCCINIClass@@@Z",
   "main_options": [
@@ -84549,7 +84559,7 @@
     "entry": "00652810",
     "body": 45,
     "padding": 3,
-    "symbol": "?VectorClass_Int_Destructor_00652810@seed_00652810@@YIXPAI@Z",
+    "symbol": "??1?$TypeList@H@@UAE@XZ",
     "main_symbol": "?VectorClass_Int_Destructor_00652810@seed_00652810@@YIXPAI@Z",
     "main_source": "src/recovered/rules.cpp"
    },
@@ -84557,7 +84567,7 @@
     "entry": "00652840",
     "body": 45,
     "padding": 3,
-    "symbol": "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ",
+    "symbol": "??1?$TypeList@PBVInfantryTypeClass@@@@UAE@XZ",
     "main_symbol": "??1?$VectorClass@PAVInfantryTypeClass@@@@UAE@XZ",
     "main_source": "src/recovered/classes/VectorClass_InfantryTypeClass_ptr/Destructor.cpp"
    },
@@ -84565,7 +84575,7 @@
     "entry": "00652870",
     "body": 45,
     "padding": 3,
-    "symbol": "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ",
+    "symbol": "??1?$TypeList@PBVTerrainTypeClass@@@@UAE@XZ",
     "main_symbol": "??1?$VectorClass@PAVTerrainTypeClass@@@@UAE@XZ",
     "main_source": "src/recovered/classes/VectorClass_TerrainTypeClass_ptr/Destructor.cpp"
    },
@@ -84573,7 +84583,7 @@
     "entry": "006528a0",
     "body": 121,
     "padding": 7,
-    "symbol": "??4?$TypeList@PAVInfantryTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "symbol": "??4?$TypeList@PBVInfantryTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_symbol": "??4?$TypeList@PAVInfantryTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/rules.cpp"
    },
@@ -84581,7 +84591,7 @@
     "entry": "00652920",
     "body": 121,
     "padding": 7,
-    "symbol": "??4?$TypeList@PAVTerrainTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "symbol": "??4?$TypeList@PBVTerrainTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_symbol": "??4?$TypeList@PAVTerrainTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/rules.cpp"
    },
@@ -84709,7 +84719,7 @@
     "entry": "00652d20",
     "body": 132,
     "padding": 12,
-    "symbol": "??4?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "symbol": "??4?$DynamicVectorClass@PBVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_symbol": "??4?$DynamicVectorClass@PAVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/rules.cpp"
    },
@@ -84837,7 +84847,7 @@
     "entry": "00653150",
     "body": 108,
     "padding": 4,
-    "symbol": "??4?$VectorClass@PAVVoxelAnimTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "symbol": "??4?$VectorClass@PBVVoxelAnimTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_symbol": "??4?$VectorClass@PAVVoxelAnimTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/rules.cpp"
    },
@@ -84917,7 +84927,7 @@
     "entry": "006534d0",
     "body": 108,
     "padding": 4,
-    "symbol": "??4?$VectorClass@PAVAnimTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "symbol": "??4?$VectorClass@PBVAnimTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_symbol": "??4?$VectorClass@PAVAnimTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/rules.cpp"
    },
@@ -84925,7 +84935,7 @@
     "entry": "00653540",
     "body": 108,
     "padding": 4,
-    "symbol": "??4?$VectorClass@PAVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "symbol": "??4?$VectorClass@PBVTerrainTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_symbol": "??4?$VectorClass@PAVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/rules.cpp"
    },
@@ -85080,6 +85090,206 @@
     "symbol": "?TGet_TypeList@@YI?AV?$TypeList@PBVBuildingTypeClass@@@@ABVCCINIClass@@PBD1ABV1@@Z",
     "main_symbol": "?Get@?$TypeListReader@VBuildingTypeClass@@@@SI?AV?$TypeList@PAVBuildingTypeClass@@@@AAVCCINIClass@@PBD1ABV2@@Z",
     "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00653da0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "?TGet_Class@@YIPAVWarheadTypeClass@@ABVCCINIClass@@PBD1PAV1@@Z",
+    "main_symbol": "?Get_Type@@YIPAVWarheadTypeClass@@AAVCCINIClass@@PBD1PAV1@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00653df0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "?TGet_Class@@YIPAVAnimTypeClass@@ABVCCINIClass@@PBD1PAV1@@Z",
+    "main_symbol": "?Get_Type@@YIPAVAnimTypeClass@@AAVCCINIClass@@PBD1PAV1@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00653e40",
+    "body": 73,
+    "padding": 7,
+    "symbol": "?TGet_Class@@YIPBVAnimTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z",
+    "main_symbol": "?Get_Type@@YIPBVAnimTypeClass@@AAVCCINIClass@@PBD1PBV1@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00653e90",
+    "body": 464,
+    "padding": 0,
+    "symbol": "?TGet_TypeList@@YI?AV?$TypeList@PBVInfantryTypeClass@@@@ABVCCINIClass@@PBD1ABV1@@Z",
+    "main_symbol": "?Get@?$TypeListReader@VInfantryTypeClass@@@@SI?AV?$TypeList@PAVInfantryTypeClass@@@@AAVCCINIClass@@PBD1ABV2@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654060",
+    "body": 73,
+    "padding": 7,
+    "symbol": "?TGet_Class@@YIPAVBuildingTypeClass@@ABVCCINIClass@@PBD1PAV1@@Z",
+    "main_symbol": "?Get_Type@@YIPAVBuildingTypeClass@@AAVCCINIClass@@PBD1PAV1@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "006540b0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "?TGet_Class@@YIPBVAircraftTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z",
+    "main_symbol": "?Get_Type@@YIPAVAircraftTypeClass@@AAVCCINIClass@@PBD1PAV1@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654100",
+    "body": 73,
+    "padding": 7,
+    "symbol": "?TGet_Class@@YIPAVTerrainTypeClass@@ABVCCINIClass@@PBD1PAV1@@Z",
+    "main_symbol": "?Get_Type@@YIPAVTerrainTypeClass@@AAVCCINIClass@@PBD1PAV1@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654150",
+    "body": 464,
+    "padding": 0,
+    "symbol": "?TGet_TypeList@@YI?AV?$TypeList@PBVTerrainTypeClass@@@@ABVCCINIClass@@PBD1ABV1@@Z",
+    "main_symbol": "?Get@?$TypeListReader@VTerrainTypeClass@@@@SI?AV?$TypeList@PAVTerrainTypeClass@@@@AAVCCINIClass@@PBD1ABV2@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654320",
+    "body": 108,
+    "padding": 4,
+    "symbol": "??4?$VectorClass@PBVTerrainTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4?$VectorClass@PAVTerrainTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654390",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PBVVoxelAnimTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@PAVVoxelAnimTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "006543e0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654430",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PBVSmudgeTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@PAVSmudgeTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654480",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PBVSmudgeTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAVSmudgeTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "006544d0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PBVTerrainTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@PAVTerrainTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654520",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PBVTerrainTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAVTerrainTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654570",
+    "body": 136,
+    "padding": 8,
+    "symbol": "??0?$TypeList@PBVVoxelAnimTypeClass@@@@QAE@ABV0@@Z",
+    "main_symbol": "??0?$TypeList@PAVVoxelAnimTypeClass@@@@QAE@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654600",
+    "body": 136,
+    "padding": 8,
+    "symbol": "??0?$TypeList@PBVSmudgeTypeClass@@@@QAE@ABV0@@Z",
+    "main_symbol": "??0?$TypeList@PAVSmudgeTypeClass@@@@QAE@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654690",
+    "body": 136,
+    "padding": 8,
+    "symbol": "??0?$TypeList@PBVUnitTypeClass@@@@QAE@ABV0@@Z",
+    "main_symbol": "??0?$TypeList@PAVUnitTypeClass@@@@QAE@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654720",
+    "body": 136,
+    "padding": 8,
+    "symbol": "??0?$TypeList@PBVInfantryTypeClass@@@@QAE@ABV0@@Z",
+    "main_symbol": "??0?$TypeList@PAVInfantryTypeClass@@@@QAE@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "006547b0",
+    "body": 136,
+    "padding": 8,
+    "symbol": "??0?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAE@ABV0@@Z",
+    "main_symbol": "??0?$DynamicVectorClass@PAVBuildingTypeClass@@@@QAE@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654840",
+    "body": 136,
+    "padding": 8,
+    "symbol": "??0?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE@ABV0@@Z",
+    "main_symbol": "??0?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@QAE@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "006548d0",
+    "body": 136,
+    "padding": 8,
+    "symbol": "??0?$DynamicVectorClass@PAVAircraftTypeClass@@@@QAE@ABV0@@Z",
+    "main_symbol": "??0?$DynamicVectorClass@PAVAircraftTypeClass@@@@QAE@ABV0@@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654960",
+    "body": 74,
+    "padding": 6,
+    "symbol": "?get@Storage_654960@@QAEPAXIPAI@Z",
+    "main_symbol": "?get@Storage_654960@@QAEPAXIPAI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "006549b0",
+    "body": 74,
+    "padding": 6,
+    "symbol": "??0?$VectorClass@PBVSmudgeTypeClass@@@@QAE@HPBQBVSmudgeTypeClass@@@Z",
+    "main_symbol": "?get@Storage_6549b0@@QAEPAXIPAI@Z",
+    "main_source": "src/recovered/rules.cpp"
+   },
+   {
+    "entry": "00654a00",
+    "body": 74,
+    "padding": 6,
+    "symbol": "??0?$VectorClass@PBVTerrainTypeClass@@@@QAE@HPBQBVTerrainTypeClass@@@Z",
+    "main_symbol": "?get@Storage_654a00@@QAEPAXIPAI@Z",
+    "main_source": "src/recovered/rules.cpp"
    }
   ],
   "references": {
@@ -85137,7 +85347,10 @@
    "?Clear@?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@UAEXXZ": "00652af0",
    "?ID@?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@UAEHPBQBVVoxelAnimTypeClass@@@Z": "00652b20",
    "?GetItem@?$VectorClass@PBVVoxelAnimTypeClass@@@@UBEPBVVoxelAnimTypeClass@@H@Z": "00652b40",
-   "?Resize@?$VectorClass@PBVVoxelAnimTypeClass@@@@UAE_NHPBQBVVoxelAnimTypeClass@@@Z": "00653200"
+   "?Resize@?$VectorClass@PBVVoxelAnimTypeClass@@@@UAE_NHPBQBVVoxelAnimTypeClass@@@Z": "00653200",
+   "_?RulesSection_AudioVisual@?1??Audio_Visual_Rules@RulesClass@@QAE_NABVCCINIClass@@@Z@4QBDB": "007a903c",
+   "_?RulesSection_General@?1??General@RulesClass@@QAE_NABVCCINIClass@@@Z@4QBDB": "007a9058",
+   "_?RulesSection_CombatDamage@?1??Combat_Damage@RulesClass@@QAE_NABVCCINIClass@@@Z@4QBDB": "007a9044"
   },
   "partial_ok": true
  },
@@ -96832,7 +97045,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0066e0a0",
    "00674bf0"
@@ -97966,11 +98179,26 @@
    "?Resize@?$DynamicVectorClass@W4DiskID@@@@UAE_NHPBW4DiskID@@@Z": "00673bc0",
    "?Clear@?$DynamicVectorClass@W4DiskID@@@@UAEXXZ": "006737d0",
    "?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHABW4DiskID@@@Z": "00673c70",
-   "?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHPBW4DiskID@@@Z": "00673800"
+   "?ID@?$DynamicVectorClass@W4DiskID@@@@UAEHPBW4DiskID@@@Z": "00673800",
+   "??0?$VectorClass@W4DiskID@@@@QAE@HPBW4DiskID@@@Z": 6769312,
+   "??0?$VectorClass@VWstring@@@@QAE@HPBVWstring@@@Z": 6769392,
+   "??8?$VectorClass@PAVPhoneEntryClass@@@@UBE_NABV0@@Z": "00674530",
+   "?Resize@?$DynamicVectorClass@PAVPhoneEntryClass@@@@UAE_NHPBQAVPhoneEntryClass@@@Z": "006746b0",
+   "?ID@?$DynamicVectorClass@PAVPhoneEntryClass@@@@UAEHABQAVPhoneEntryClass@@@Z": "00674760",
+   "??8?$VectorClass@PAUGlobalPacketType@@@@UBE_NABV0@@Z": "006742d0",
+   "?Resize@?$DynamicVectorClass@PAUGlobalPacketType@@@@UAE_NHPBQAUGlobalPacketType@@@Z": "00674450",
+   "?ID@?$DynamicVectorClass@PAUGlobalPacketType@@@@UAEHABQAUGlobalPacketType@@@Z": "00674500",
+   "?ID@?$DynamicVectorClass@PAVMultiMission@@@@UAEHABQAVMultiMission@@@Z": "006742a0",
+   "?Resize@?$VectorClass@PAUGlobalPacketType@@@@UAE_NHPBQAUGlobalPacketType@@@Z": "00674310",
+   "?Clear@?$VectorClass@PAUGlobalPacketType@@@@UAEXXZ": "006743c0",
+   "?ID@?$VectorClass@PAUGlobalPacketType@@@@UAEHABQAUGlobalPacketType@@@Z": "006743f0",
+   "?ID@?$VectorClass@PAUGlobalPacketType@@@@UAEHPBQAUGlobalPacketType@@@Z": "00674430",
+   "?Resize@?$VectorClass@PAVPhoneEntryClass@@@@UAE_NHPBQAVPhoneEntryClass@@@Z": "00674570",
+   "?Clear@?$VectorClass@PAVPhoneEntryClass@@@@UAEXXZ": "00674620",
+   "?ID@?$VectorClass@PAVPhoneEntryClass@@@@UAEHABQAVPhoneEntryClass@@@Z": "00674650",
+   "?ID@?$VectorClass@PAVPhoneEntryClass@@@@UAEHPBQAVPhoneEntryClass@@@Z": "00674690"
   },
-  "partial_ok": true,
-  "held_reason": "worker",
-  "held_note": "codex2; catalog: unguarded drafts: ??0MultiMission@@QAE@PBDPBG0_N0HH@Z"
+  "partial_ok": true
  },
  "techtype": {
   "core": [
@@ -129938,12 +130166,12 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00622fb0",
-   "0062eb00"
+   "0062ead0"
   ],
-  "mischa85": "tibsun: functions compiled from src/queue.cpp, without gaps; matched except ?Draw_Sync_Bars@@YIXPAUHWND__@@@Z and ?Extract_Compressed_Events@@YIHPAXH@Z and ?Spread_Units_Around_Cell@@YIXHH@Z and ?Execute_DoList@@YIHHW4HousesType@@PAVConnManClass@@PAV?$CDTimerClass@VFrameTimerClass@@@@PAUFrameSyncStruct@@@Z and ?Print_CRCs@@YIXPAVEventClass@@@Z; ?Execute_DoList@@YIHHW4HousesType@@PAVConnManClass@@PAV?$CDTimerClass@VFrameTimerClass@@@@PAUFrameSyncStruct@@@Z and ?Print_CRCs@@YIXPAVEventClass@@@Z placed at their function starts; ??0FrameSyncStruct@@QAE@XZ not placed; ?Queue_Ipx_Set@@YIXXZ not placed; ?Queue_Ipx_Clear@@YIXXZ not placed",
+  "mischa85": "tibsun: functions compiled from src/queue.cpp, without gaps; matched except ?Draw_Sync_Bars@@YIXPAUHWND__@@@Z and ?Extract_Compressed_Events@@YIHPAXH@Z and ?Spread_Units_Around_Cell@@YIXHH@Z and ?Print_CRCs@@YIXPAVEventClass@@@Z; ??0FrameSyncStruct@@QAE@XZ not placed; ?Queue_Ipx_Set@@YIXXZ not placed; ?Queue_Ipx_Clear@@YIXXZ not placed",
   "main_options": [
    [
     "/O2",
@@ -130068,7 +130296,7 @@
     "entry": "006231a0",
     "body": 69,
     "padding": 11,
-    "symbol": "??0UnknownState_006231a0@@QAE@XZ",
+    "symbol": "??0SyncState@@QAE@XZ",
     "main_symbol": "??0UnknownState_006231a0@@QAE@XZ",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130076,7 +130304,7 @@
     "entry": "006231f0",
     "body": 18,
     "padding": 14,
-    "symbol": "?unknown_free_buffer_334_006231f0@seed_006231f0@@YIXH@Z",
+    "symbol": "??1SyncState@@QAE@XZ",
     "main_symbol": "?unknown_free_buffer_334_006231f0@seed_006231f0@@YIXH@Z",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130092,7 +130320,7 @@
     "entry": "00623230",
     "body": 40,
     "padding": 8,
-    "symbol": "_$E232",
+    "symbol": "_$E229",
     "main_symbol": "_$E65",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130116,7 +130344,7 @@
     "entry": "006232a0",
     "body": 27,
     "padding": 5,
-    "symbol": "_$E70",
+    "symbol": "_$E234",
     "main_symbol": "_$E70",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130124,7 +130352,7 @@
     "entry": "006232c0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E68",
+    "symbol": "_$E232",
     "main_symbol": "_$E68",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130132,7 +130360,7 @@
     "entry": "006232d0",
     "body": 40,
     "padding": 8,
-    "symbol": "_$E240",
+    "symbol": "_$E237",
     "main_symbol": "_$E73",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130148,7 +130376,7 @@
     "entry": "00623320",
     "body": 78,
     "padding": 2,
-    "symbol": "_$E248",
+    "symbol": "_$E242",
     "main_symbol": "_$E78",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130156,7 +130384,7 @@
     "entry": "00623370",
     "body": 43,
     "padding": 5,
-    "symbol": "_$E246",
+    "symbol": "_$E240",
     "main_symbol": "_$E76",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130220,7 +130448,7 @@
     "entry": "00624840",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E251",
+    "symbol": "_$E245",
     "main_symbol": "_$E81",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130372,7 +130600,7 @@
     "entry": "00629290",
     "body": 3048,
     "padding": 8,
-    "symbol": "?Unknown_00629290@@YIXHH@Z",
+    "symbol": "?Spread_Units_Around_Cell@@YIXHH@Z",
     "main_symbol": "?Unknown_00629290@@YIXHH@Z",
     "main_source": "src/recovered/queue.cpp"
    },
@@ -130533,11 +130761,23 @@
    "_RAD_45": "00aabe80",
    "_RAD_60": "00aabcd8",
    "_RAD_90": "00a76c80",
-   "_RECT_NONE": "00a780a8"
+   "_RECT_NONE": "00a780a8",
+   "_$E252": "00624840",
+   "_?$S251@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
+   "_$E246": "00624840",
+   "_?$S245@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
+   "_$E233": "006232c0",
+   "?Spread_Units_Around_Cell@@YIXHH@Z": "00629290",
+   "?NewMonoMode@@3HA": "007ec3f4",
+   "?NetMonoMode@@3HA": "007ec3f0",
+   "_$E249": "00624840",
+   "_?$S248@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
+   "_$E245": "00624840",
+   "_?$S244@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
+   "_$E232": "006232c0",
+   "_$E240": "00623370"
   },
-  "partial_ok": true,
-  "held_reason": "worker",
-  "held_note": "codex1; catalog: initializers not exact rows: _$E229 _$E237 _$E243"
+  "partial_ok": true
  },
  "unit": {
   "core": [
@@ -133255,9 +133495,9 @@
   "partial_ok": true,
   "count_sensitive": {
    "006809f0": {
-    "header": "do.hh (DoType, 38 entries, review ruling 2026-11-18)",
-    "windows": "front-end symbols declared before the unit relative to the 38-entry header: exact at -17..-4 (the 21-entry header is -17), +22, +23; flipped at -3..+21 and +24",
-    "note": "exact text; the order of two stack loads (4 bytes) follows the declaration count; never pad a header to move it (lane R20)"
+    "windows": "exact under rebuild-trial 840038ec6 queue.h (+1..+18, +40, +50, +64..+70 probe declarations at its end); off at +20..+30 and +60; off under queue r2158 queue.h; exact again at r2158 +2, +3, +5 probe declarations at the end of globals.h (off at +0, +1)",
+    "header": "queue.h (queue r2158: frame-sync and sync-state records, Stamp_Their_Timing), globals.h",
+    "note": "c2land probe 2026-11-19 (owner ruling): (a) displacing content is queue's evidenced records; (b) unrelated declarations alone flip it in count windows; (c) exact windows above. Same row R20 found count-sensitive under the 38-entry DoType."
    }
   }
  },
@@ -139176,7 +139416,14 @@
     "0073a900"
    ]
   },
-  "data_bound_by_note": "g_OLEInitializer (TibSun wonline.cpp:141-150, empty class): its initializer 0x73A8E0 (OleInitialize, atexit) and destructor 0x73A900 (OleUninitialize) are exact rows; no instruction or data of the image refers to the 1-byte object, and VC6's hash-ordered .bss leaves its slot unknowable. Candidate gaps (wonline bss span 0xB264F8-0xB2AC85, no 4-byte value of the image points into them): 13 aligned 4-byte gaps 0xB26940 0xB2696C 0xB26A5C 0xB2900C 0xB292CC 0xB2938C 0xB2939C 0xB29464 0xB296F4 0xB29834 0xB299A4 0xB29CEC 0xB2A6FC, and larger ones 0xB2689C+132 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15; with alignment fill under 8 bytes excluded the audit keeps 0xB2689C+132 0xB26940+4 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15. User decision 2026-11-18 (DECISIONS, last row), owner-approved use."
+  "data_bound_by_note": "g_OLEInitializer (TibSun wonline.cpp:141-150, empty class): its initializer 0x73A8E0 (OleInitialize, atexit) and destructor 0x73A900 (OleUninitialize) are exact rows; no instruction or data of the image refers to the 1-byte object, and VC6's hash-ordered .bss leaves its slot unknowable. Candidate gaps (wonline bss span 0xB264F8-0xB2AC85, no 4-byte value of the image points into them): 13 aligned 4-byte gaps 0xB26940 0xB2696C 0xB26A5C 0xB2900C 0xB292CC 0xB2938C 0xB2939C 0xB29464 0xB296F4 0xB29834 0xB299A4 0xB29CEC 0xB2A6FC, and larger ones 0xB2689C+132 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15; with alignment fill under 8 bytes excluded the audit keeps 0xB2689C+132 0xB26940+4 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15. User decision 2026-11-18 (DECISIONS, last row), owner-approved use.",
+  "count_sensitive": {
+   "0073fee0": {
+    "windows": "exact under rebuild-trial 840038ec6 headers (+0, +2, +3 probe declarations at the end of globals.h); off at +5 unrelated declarations there; off under queue r2158 globals.h+ownrdraw.h (5 declarations); exact again at r2158 +1..+10 probe declarations at the end of globals.h",
+    "header": "globals.h, ownrdraw.h (queue r2158: MegaMissionQueue, SyncBarOutlineColor, Show_Dialog, Dialog_On_WM_PAINT, Dialog_On_WM_DRAWITEM)",
+    "note": "c2land probe 2026-11-19 (owner ruling): (a) displacing content is queue's evidenced declarations; (b) five unrelated declarations give the same flip; (c) exact windows above. Same row R20 found count-sensitive under the 38-entry DoType."
+   }
+  }
  },
  "skirmish": {
   "core": [
@@ -162210,5 +162457,195 @@
   },
   "partial_ok": true,
   "note": "new unit (lane R24, filing rule (2)): TibSun's code/missile.cpp, linked between milsectmr and mission in the alphabetical order and bounded by its own initializer-table run (0x593680-0x593850); rect.h then geometry.h give its 13 initializers. Projectile_Motion (0x593870, 2,112 bytes, RA2's eight-argument form in missile.h) has no row in main, so its TibSun text stays guarded; the DirType and TVelocity3D<double>::Set_Pitch copies it emits (0x5940B0-0x594310) wait on it"
+ },
+ "const": {
+  "core": [
+   "004831a0",
+   "00483410"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/const.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "004831a0",
+   "00483410"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "004831a0",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "004831c0",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "004831f0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483210",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483230",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483250",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483270",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483290",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "004832d0",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483300",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483330",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483360",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483370",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/const.cpp"
+   },
+   {
+    "entry": "00483390",
+    "body": 116,
+    "padding": 12,
+    "symbol": "_$E41",
+    "main_symbol": "?Initialize_Cell_Offsets_00483390@@YAXXZ",
+    "main_source": "src/recovered/const/Initialize_Cell_Offsets.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00851068",
+   "_CELL_DIAG_SLOPE_ANGLE": "00851050",
+   "_CELL_LEPTON_DIAG": "00850e38",
+   "_CELL_NONE": "00850e30",
+   "_CELL_SLOPE_ANGLE": "00850e48",
+   "_COORD_NONE": "00850e90",
+   "_ISO_TILE_SIZE": "0079de18",
+   "_LEPTONS_PER_PIXEL": "00851070",
+   "_LEVEL_LEPTON_H": "00851078",
+   "_ONE_RAD": "0079de20",
+   "_PIXELS_PER_LEPTON": "00851060",
+   "_RAD_45": "00851058",
+   "_RAD_60": "00850e40",
+   "_RAD_90": "00850e18",
+   "_RECT_NONE": "00850e20",
+   "??_C@_04LMH@flak?$AA@": "007d39c8",
+   "??_C@_05GDMC@plate?$AA@": "007d39c0",
+   "??_C@_05DKPF@light?$AA@": "007d39b8",
+   "??_C@_06LDM@medium?$AA@": "007d39b0",
+   "??_C@_05BFLO@heavy?$AA@": "007d39a8",
+   "??_C@_04EOHJ@wood?$AA@": "007d39a0",
+   "??_C@_05DGGK@steel?$AA@": "007d3998",
+   "??_C@_08HJKO@concrete?$AA@": "007d398c",
+   "??_C@_09JJMG@special_1?$AA@": "007d3980",
+   "??_C@_09GGHP@special_2?$AA@": "007d3974",
+   "??_C@_04CCAG@Unit?$AA@": "007cdec4",
+   "??_C@_08DOCA@HealBase?$AA@": "007d3864",
+   "??_C@_05HEPD@Cloak?$AA@": "007d385c",
+   "??_C@_06BIMG@Napalm?$AA@": "007d3848",
+   "??_C@_05KNKC@Squad?$AA@": "007d3840",
+   "??_C@_08GKGC@Darkness?$AA@": "007d3834",
+   "??_C@_06PNKF@Reveal?$AA@": "007d382c",
+   "??_C@_04FOJF@ICBM?$AA@": "007d3808",
+   "??_C@_0BA@BJNG@Invulnerability?$AA@": "007d37f8",
+   "??_C@_07CAO@Veteran?$AA@": "007d37f0",
+   "??_C@_08GDJJ@IonStorm?$AA@": "007d37e4",
+   "??_C@_03PDHP@Gas?$AA@": "007d37e0",
+   "??_C@_03FCEK@Pod?$AA@": "007d37dc",
+   "??_C@_06GKLE@Winged?$AA@": "007d3a04",
+   "??_C@_0M@CDIE@Underground?$AA@": "007d39e4",
+   "??_C@_07DCOD@Surface?$AA@": "007d39dc",
+   "??_C@_03ML@Air?$AA@": "007cdfe4",
+   "??_C@_03BJDM@Top?$AA@": "007d39d0"
+  }
  }
 }

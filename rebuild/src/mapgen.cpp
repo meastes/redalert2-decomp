@@ -603,8 +603,9 @@ void MapRegionClass::CellData::Reset_Spreads(bool)
 /// one that suits best.</returns>
 double MapRegionClass::Get_Angle_Score(const Cell & cell1, const Cell & cell2, double ref_angle)
 {
-	static const double _angle_weight = 1.5;
+	static const double _random_weight = 2.5; // RA2: the three weights are statics in this order (0x7A5BE0, 0x7A5BE8, 0x7A5BF0)
 	static const double _length_weight = 0.15;
+	static const double _angle_weight = 1.5;
 
 	int dx = cell2.X - cell1.X;
 	int dy = cell2.Y - cell1.Y;
@@ -624,7 +625,7 @@ double MapRegionClass::Get_Angle_Score(const Cell & cell1, const Cell & cell2, d
 		angle_diff = M_PI * 2 - angle_diff;
 	}
 
-	return(RMG_RANDOM_DOUBLE2(2.5) + _length_weight * length + _angle_weight * angle_diff);
+	return(RMG_RANDOM_DOUBLE2(_random_weight) + _length_weight * length + _angle_weight * angle_diff);
 }
 
 
@@ -4973,6 +4974,8 @@ void MapGeneratorClass::Cleanup(void)
 }
 
 
+static float const _waterfall_chance = 0.25f; // RA2: ra2-decomp's file-scope constant (0x7A5B68), read by Init_Map
+
 /// <summary>
 /// Prepares a blank map for the generator to work on.
 /// The biome, size and time of day the player chose are written out as a scenario the engine can
@@ -5265,7 +5268,6 @@ void MapGeneratorClass::Init_Map(bool full_init) // RA2: RA2's form (0x57AE00): 
 
 	SeededWaterAmount = 0;
 	WorkingRegionID = 0;
-	static const float _waterfall_chance = 0.25f; // RA2: a static constant (0x7A5B68), loaded from memory
 	PlaceWaterfall = Random_Fraction() < _waterfall_chance; // RA2: the fraction is not narrowed to float
 	Map.Clear_Radar();
 	Map.Set_Local_Dimensions(lsize);
@@ -6671,7 +6673,7 @@ void MapGeneratorClass::Increase_Height_Of_ID(int id, char cell_height)
 /// <param name="head_x">The river head X, carried past the waterfall on success.</param>
 /// <param name="head_y">The river head Y, carried past the waterfall on success.</param>
 /// <returns>bool; Was the waterfall placed?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 2 bytes differ (FACING_S: right = base + Cell(patch.Width + 4, 0) keeps the sum in the offset's register in the original)
 bool MapGeneratorClass::Place_Waterfall(int region_id, Cell const & cell1, Cell const & cell2, int direction, bool & placed, double & head_x, double & head_y) // RA2: RA2's form (0x57FF20): the areas are rectangles; near miss, 2 bytes differ (the south case adds the base to the offset, the exe adds the offset to the base)
 {
 	placed = false; // RA2: RA2's form

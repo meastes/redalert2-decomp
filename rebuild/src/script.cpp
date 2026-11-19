@@ -460,3 +460,26 @@ void ScriptTypeClass::Compute_CRC(CRCEngine & crc) const
 
 	crc(MissionCount);
 }
+
+// Keep script references valid when a team type is removed from the master list.
+void ScriptTypeClass::Detach(AbstractClass const * target, bool all)
+{
+	if (target != 0 && target->Fetch_RTTI() == RTTI_TEAMTYPE) {
+		int index = -1;
+		for (int line = 0; line < MissionCount; line++) {
+			if (MissionList[line].Mission == TMISSION_TEAMCHANGE) {
+				if (index == -1) {
+					index = TeamTypes.ID((TeamTypeClass *)target);
+					if (index == -1) {
+						return;
+					}
+				}
+				if (MissionList[line].Data.Value > index) {
+					MissionList[line].Data.Value--;
+				} else if (MissionList[line].Data.Value == index) {
+					MissionList[line].Data.Value = 0;
+				}
+			}
+		}
+	}
+}

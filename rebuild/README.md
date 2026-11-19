@@ -164,9 +164,13 @@ comparable across the whole series; `bytes_exact` is comparable only from 16:07Z
   pending range between them, nothing else bound inside the derived extent); the bytes are compared as before.
   B: `data_pending` [{address, size, owner}] records data the original holds only because a parked function emits
   it (mapgen: Read_RMG_INI's static pointer at 0x7E0BE4); never defined, no credit, refused once its owner is an
-  accepted row; the census prints the count. The per-symbol data compare stops a symbol at the next
-  reference-bound item of the image when the full compare fails and the cut bytes are under 8 and zero fill of our
-  object (a 4-byte float padded to 8: Init_Map's `_waterfall_chance`); symbols with relocations are unchanged.
+  accepted row; the census prints the count. No compare cut: the 4-byte gap after Init_Map's float
+  `_waterfall_chance` was declaration order. VC6 emits a unit's initialised constants (file-scope and
+  function-local alike) in text order, one run per declaration group; with `_waterfall_chance` at file scope just
+  before Init_Map (ra2-decomp's mapgen.cpp:3254) it lies directly before Init_Map's size tables as in the image,
+  and MapRegionClass::Get_Angle_Score declares its three weights as the image holds them (random 2.5, length,
+  angle; main's three statics). The image orders the runs differently from our object (Init_Map's run before
+  MapRegionClass's), which the per-symbol compare does not depend on.
   mapgen also takes main's `1.0 / 4294967295.0`: VC6 folds `1.0 / UINT_MAX` to 2^-32, a different literal at the
   same bound address (the row compare binds literals by address; the build compares their bytes).
 

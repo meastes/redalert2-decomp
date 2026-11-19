@@ -7,7 +7,6 @@ import hashlib
 import json
 from pathlib import Path
 import re
-import bisect
 import struct
 import time
 
@@ -769,28 +768,11 @@ class Audit:
         data = bytes(section['data'])
         relocs = sorted(section['relocs'])
         copies = {}
-        bound_addresses = sorted(set(references.values()))
         for position, (value, name) in enumerate(defined):
             end = defined[position + 1][0] if position + 1 < len(defined) else len(data)
             address = references.get(name)
             if address is None or end <= value:
                 return False
-            # Alignment fill (docs/DECISIONS.md, "Rebuild data no exact code refers to", A: only compiler
-            # alignment slack): when another reference-bound item starts in the image before this
-            # symbol's object extent ends (a 4-byte float the object pads to 8), the symbol is compared
-            # up to that item, and the bytes cut off must be zero fill of our object with no relocation;
-            # the item there is compared on its own.
-            following = bound_addresses[bisect.bisect_right(bound_addresses, address):][:1]
-            try:
-                whole = self.original(address, end - value)
-            except ValueError:
-                whole = None
-            unrelocated = not any(value <= o < end for o, _, _ in relocs)
-            if unrelocated and whole != data[value:end] and following and following[0] < address + (end - value):
-                cut = value + following[0] - address
-                if end - cut >= 8 or any(data[cut:end]):
-                    return False
-                end = cut
             target_section = self.pe.get_section_by_rva((address - self.base) & 0xffffffff)
             if target_section is None or target_section.Characteristics & 0x20000020 or \
                     not target_section.Characteristics & 0x40:

@@ -5,6 +5,11 @@
 
 #pragma once
 
+void __fastcall Char_To_Wide(wchar_t * dest, char const * source, int limit);
+namespace OwnerDraw {
+	void __fastcall WideToCharString(char * dest, wchar_t const * source, int limit);
+}
+
 /*
 **	windows.h maps LoadString to LoadStringA.
 */
