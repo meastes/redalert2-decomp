@@ -1,21 +1,24 @@
 # Handoff — original-target decompilation
 
-Current state only (2026-11-19 ~05:00Z; account 1 parks at 10:00Z, kept current at each landing). Numbers: [STATUS.md](STATUS.md). Workflow:
+Current state only (2026-11-19 ~08:20Z; account 1 parked, 91% at 04:30Z). Numbers: [STATUS.md](STATUS.md). Workflow:
 [process](ORIGINAL_TARGET_PROCESS.md). Commands: [build](ORIGINAL_TARGET_BUILD.md). Matching rules:
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
-## Account 1 parking (user: at 10:00Z Nov 19): start here on account 2
+## Account 1 parked (2026-11-19 ~08:20Z): start here on account 2
 
 **Usage plan (review session, from the user's readings):** account 1 stops at about 95-96% (84% at 18:50Z; points expire Sun 14:00Z). Account 2 was at 1% (resets Monday) and has about 96 points until Sun 14:00Z, roughly one point an hour. Start on account 2 with: the rebuild lane (held units and unblockers, then code outside every unit), the landing helper (refetch both workers first, `build/c2land-RESUME.md`), and one port lane from `docs/PORTS_REMAINING.md` in its suggested order. Take a rate reading after the first hours; add a second port or unblocker lane only if 97% projects later than Sun 14:00Z and the memory guard allows. Two Codex workers, no more (user). This session can't read the meter: ask the user or the review session.
 
-**Rebuild (rebuild-trial 7c51f1843, whole-file exact):** 60.75% from source, 63.56% Reproduced; 413 units, 14,434 functions (mapgen landed under the data ruling); 50% checkpoint posted 21:00Z (58% of main's matched bytes at 20:35Z), clean reproduction from a fresh worktree passed (19 min; needs only the private/ link).
+**Rebuild (rebuild-trial 96b4bb1c3, wfo67 whole-file exact):** 64.67% from source, 67.48% Reproduced; 419 units, 14,853 functions; parked >=1 KB 138 / 395 KB; judgment 3 rows / 5,313 B; count-sensitive 1 row (sidebar SelectClass::Action); 50% checkpoint posted 21:00Z (58% of main's matched bytes at 20:35Z), clean reproduction from a fresh worktree passed (19 min; needs only the private/ link).
 - Held 24: worker 21, binding 1 (mapgen: guarded drafts' statics fill .data holes), mismatch 2 (builtype _$E230 inline budget; ownrdraw _$E173 and four drafts). `rebuild/tools/held.py` refreshes reasons.
 - Count-sensitive rows (new state, DECISIONS): 2 rows / 8,215 B (wonline Draw_Player_List, sidebar SelectClass::Action); `rebuild/tools/countsens.py --write` runs in the landing script whenever a landing changes rebuild/include.
 - Judgment calls 2 rows / 4,558 B (aircraft Read_INI, hover While_Moving). Parked tail 683 rows / 521 KB; >=1 KB 139 / 411 KB (checkpoint 500 KB).
 - Structure: duplicates 0, externs 10 (1 landed), address-suffixed 4; budgets GEOMETRY_H 2, extern "C" 8.
 - Open items for the next lane: b_log_r20.csv / R21's hand-back: mapgen drafts (Build_North_Ramp first); wonline extension to 0x7469C0 from mischa85 (externs to headers, in-file classes to headers, no mid-file includes); builtype; ownrdraw; jumpjet's raw (DoType)34 -> DO_PARADROP when that worker unit lands; file the ~180 KB main matches outside every unit (S2's list; template copies and initializers to the unit whose object emits them).
 - Rulings added today (DECISIONS, rebuild rows): evidenced content over judgment-flagged calibrated rows; count-sensitive rows as their own state, never pad; ahandle/isotype/WakeShapes: unevidenced TibSun leftovers deleted; kept copies with many identical twins compared by bytes; pointer tables bound only where unique (tblbind.py).
+
+**Overnight (account 1, 2026-11-19):** rebuild 57.5% -> 64.7% from source. Lanes R24 (dropship, _alpha/_logic/missile, houstype), R25 (mapgen under the data ruling, const, Rules readers in main's forms), and the worker helper (codex2 session/drv_dsnd/ownrpaint, codex1 script/queue/unit). Rulings added (DECISIONS): data by section layout and pending data ranges; compare cut (unused: declaration order was the cause); count-sensitive (b) widened to independence from the new content; named constants in the statics block; filing outside units.
+**First jobs on account 2:** (1) landing helper: refetch both workers (codex2 4541665be/r3098, codex1 a9ce14207/r2160 last seen) per build/c2land-RESUME.md; first item planmgr (312 rows) needs a ruling: Create_Urban_Area's three function-static initializer rows (0058b400/0058b420/0058d970) parked with their function. (2) rebuild lane from the last row of rebuild/manifest/b_log_r25.csv (RulesClass constructor/Initialize; parked readers vs main's helper forms; small parked rows). (3) port lane from native/yr/README.md lane N4 resume note and PORTS_REMAINING (user's Duo checks 1-6 of N4; RA2 unreached rewrites, 105 left). Worker backlog at parking: codex1 58 commits ahead, codex2 206 (commit counts, not units).
 
 **Workers:** codex1 and codex2 in Herdr on mike-gaming (GPT-6.1-Sol), supervisors restart them at capacity checkpoints. Both must merge rebuild-trial before their next delivery. Landed by source so far: codex2 25 of its original 40 units, codex1 4 of 17; returned units with reasons in `build/c2land-RESUME.md`; helper scripts in `private/tools/c2land/`. Codex approval prompts are the user's to answer (the owner must not pre-authorise around Codex's approval review).
 
