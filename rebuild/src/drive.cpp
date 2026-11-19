@@ -1505,7 +1505,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 								**	to do so if we aren't very close to the target and this
 								**	object can just say "good enough" and stop here.
 								*/
-								if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->In_Radio_Contact()) {
+								if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
 									if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) {
 										if (Map[(Coord const &)LinkedTo->PositionCoord].Land_Type() != LAND_TUNNEL) {
 											Stop_Driver();
@@ -1531,7 +1531,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 						Stop_Driver();
 						if (Abandon_Navigation()) return(true);
 						if (!LinkedTo->IsActive) return(false);
-						if (LinkedTo->IsNewNavCom) Sound_Effect(Rule->ScoldSound);
+						if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000);
 						LinkedTo->IsNewNavCom = false;
 					}
 				}
@@ -1587,7 +1587,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 					**	to do so if we aren't very close to the target and this
 					**	object can just say "good enough" and stop here.
 					*/
-					if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->In_Radio_Contact()) {
+					if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) {
 						if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) {
 							if (Map[(Coord const &)LinkedTo->PositionCoord].Land_Type() != LAND_TUNNEL) {
 								Stop_Driver();
@@ -1786,7 +1786,7 @@ bool DriveLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, boo
 					}
 				}
 			} else {
-				if (LinkedTo->IsNewNavCom) Sound_Effect(Rule->ScoldSound);
+				if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000);
 			}
 
 

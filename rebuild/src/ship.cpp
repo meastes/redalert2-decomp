@@ -1357,7 +1357,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 							**	to do so if we aren't very close to the target and this
 							**	object can just say "good enough" and stop here.
 							*/
-							if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->In_Radio_Contact()) { // RA2: as above
+							if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) { // RA2: as above
 								if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
 									if (Map[(Coord const &)LinkedTo->PositionCoord].Land_Type() != LAND_TUNNEL) { // RA2: as above
 										Stop_Driver(); // RA2: as above
@@ -1384,7 +1384,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 					Stop_Driver(); // RA2: as above
 					if (Abandon_Navigation()) return(true); // RA2: as above
 					if (!LinkedTo->IsActive) return(false); // RA2: as above
-					if (LinkedTo->IsNewNavCom) Sound_Effect(Rule->ScoldSound); // RA2: as above
+					if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000); // RA2: as above
 					LinkedTo->IsNewNavCom = false; // RA2: as above
 				}
 			}
@@ -1436,7 +1436,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 					**	to do so if we aren't very close to the target and this
 					**	object can just say "good enough" and stop here.
 					*/
-					if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->In_Radio_Contact()) { // RA2: as above
+					if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) { // RA2: as above
 						if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
 							if (Map[(Coord const &)LinkedTo->PositionCoord].Land_Type() != LAND_TUNNEL) { // RA2: as above
 								Stop_Driver(); // RA2: as above
@@ -1635,7 +1635,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 					}
 				}
 			} else {
-				if (LinkedTo->IsNewNavCom) Sound_Effect(Rule->ScoldSound); // RA2: as above
+				if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000); // RA2: as above
 			}
 
 

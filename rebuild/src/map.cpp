@@ -409,20 +409,6 @@ int ShorePieceFacings[] = {
 /// <summary>
 /// RA2
 /// </summary>
-static inline CellSubzoneStruct *Cliff_Subzone(MapClass *map, Cell const &cell) // RA2: as above
-{
-	return &map->CellSubzones[map->Get_Cell_Zone_Index(cell)]; // RA2: as above
-}
-
-
-
-
-
-
-
-/// <summary>
-/// RA2
-/// </summary>
 static inline CellSubzoneStruct * Subzone_Of(MapClass * map, Cell const & cell) // RA2: as above
 {
 	return(&map->CellSubzones[map->Get_Cell_Zone_Index(cell)]); // RA2: as above
@@ -10624,7 +10610,7 @@ void MapClass::Shutdown(void)
 /// standing on the tile is retargeted, and a shower of rubble is thrown over the wreckage.
 /// </summary>
 /// <param name="cptr">Cell holding the destroyable cliff tile that came down.</param>
-#ifdef RA2_NON_MATCHING // not exact: 1634 bytes differ (main carry through existing Cliff_Subzone helper)
+#ifdef RA2_NON_MATCHING // not exact: 1634 bytes differ (main carry through the Subzone_Of helper)
 void MapClass::Collapse_Cliff(CellClass * cptr)
 {
 	if (cptr->ITType == IsometricTileTypeClass::DestroyableCliffs + DESTROYABLE_CLIFFS_COUNT-2) {
@@ -10663,7 +10649,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 			for (x = 0; x < ittype->Width; x++) {
 				Cell cell = point + Cell(x, y);
 				if (image->Fetch_Record_Pointer_Unsafe(y * ittype->Width + x) != NULL && In_Local_Radar(cell, true)) {
-					Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
+					Subzone_Of(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
 					Map[cell].Recalc_Attributes();
 				}
 			}
@@ -10676,7 +10662,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 			for (x = 0; x < ittype->Width; x++) {
 				Cell cell = point + Cell(x, y);
 				if (image->Fetch_Record_Pointer_Unsafe(y * ittype->Width + x) != NULL && In_Local_Radar(cell, true)
-					&& Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
+					&& Subzone_Of(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
 					Update_Cell_Subzones(cell);
 				}
 			}
@@ -10771,7 +10757,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 			for (x = 0; x < row_width; row_width = ittype->Width, x++) {
 				Cell cell = point + Cell(x, y);
 				if (image->Fetch_Record_Pointer_Unsafe(y * row_width + x) != NULL && In_Local_Radar(cell, true)) {
-					Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
+					Subzone_Of(this, cell)->SubzoneID[SUBZONE_FINE] = 0;
 					Map[cell].Recalc_Attributes();
 				}
 			}
@@ -10785,7 +10771,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 			for (x = 0; x < row_width; row_width = ittype->Width, x++) {
 				Cell cell = point + Cell(x, y);
 				if (image->Fetch_Record_Pointer_Unsafe(y * row_width + x) != NULL && In_Local_Radar(cell, true)) {
-					if (Cliff_Subzone(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
+					if (Subzone_Of(this, cell)->SubzoneID[SUBZONE_FINE] == 0) {
 						Update_Cell_Subzones(cell);
 					}
 				}
