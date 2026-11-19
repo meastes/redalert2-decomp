@@ -36,6 +36,8 @@ class HouseTypeClass : public AbstractTypeClass
 		struct CountryName // RA2
 		{
 			char Buffer[25];
+			CountryName(void) { Buffer[0] = '\0'; } // RA2: as in ra2-decomp include/houstype.h
+			CountryName(NoInitClass const &) {} // RA2: as above
 		};
 		CountryName ParentCountry; // RA2: +0x98
 

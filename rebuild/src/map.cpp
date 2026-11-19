@@ -64,6 +64,7 @@
 #include "map.h"
 
 #include "_alpha.h"
+#include "abuffer.h"
 #include "_map.h"
 #include "_rect.h"
 #include "_rtti.h"

@@ -70,3 +70,5 @@ WideWstring Wstring_ToWide(Wstring const & text); // RA2: widens each character 
 
 // Declarations moved from the units that used them (one declaration per name).
 extern WideWstring __fastcall WideWstring_FromInt(int value); // RA2: 0x007710C0
+extern WideWstring __fastcall Int_To_WideString_Width(int value, int width); // RA2: 0x00771130
+WideWstring __fastcall operator+(wchar_t const * a, WideWstring const & b); // RA2

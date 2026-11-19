@@ -192,7 +192,7 @@ def data_only_bindings(coff, rows, bindings, rtti, original, source):
             extents[name] = (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - value
     others = data_bindings.other_proven_copies(MAPS, source)
     ends, starts = data_bindings.independent_items(bindings, rtti, others, extents.get)
-    return data_bindings.bind(coff, declared, bindings, original, ends, starts)
+    return data_bindings.bind(coff, declared, bindings, original, ends, starts, data_bindings.pending(rows))
 
 
 def module_rows(catalog, source):

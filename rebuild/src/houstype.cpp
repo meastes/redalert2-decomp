@@ -74,7 +74,6 @@
  * HISTORY:                                                                                    *
  *   06/21/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 531 bytes differ (adopted text)
 HouseTypeClass::HouseTypeClass(char const * ininame) :
 	BASECLASS(ininame),
 	House(HOUSE_NONE),
@@ -87,6 +86,25 @@ HouseTypeClass::HouseTypeClass(char const * ininame) :
 	ROFBias(1.0),
 	CostBias(1.0),
 	BuildSpeedBias(1.0),
+	ArmorInfantryMult(1.0f), // RA2
+	ArmorUnitsMult(1.0f), // RA2
+	ArmorAircraftMult(1.0f), // RA2
+	ArmorBuildingsMult(1.0f), // RA2
+	ArmorDefensesMult(1.0f), // RA2
+	CostInfantryMult(1.0f), // RA2
+	CostUnitsMult(1.0f), // RA2
+	CostAircraftMult(1.0f), // RA2
+	CostBuildingsMult(1.0f), // RA2
+	CostDefensesMult(1.0f), // RA2
+	SpeedInfantryMult(1.0f), // RA2
+	SpeedUnitsMult(1.0f), // RA2
+	SpeedAircraftMult(1.0f), // RA2
+	BuildtimeInfantryMult(1.0f), // RA2
+	BuildtimeUnitsMult(1.0f), // RA2
+	BuildtimeAircraftMult(1.0f), // RA2
+	BuildtimeBuildingsMult(1.0f), // RA2
+	BuildtimeDefensesMult(1.0f), // RA2
+	IncomeMult(1.0f), // RA2
 	Scheme(0),
 	Prefix('A'),
 	IsMultiplay(false),
@@ -100,7 +118,6 @@ HouseTypeClass::HouseTypeClass(char const * ininame) :
 	House = (HousesType)HouseTypes.ID(this);
 	HeapID = (HousesType)HouseTypes.ID(this);
 }
-#endif
 
 
 /// <summary>
@@ -110,6 +127,7 @@ HouseTypeClass::HouseTypeClass(char const * ininame) :
 /// </summary>
 HouseTypeClass::HouseTypeClass(NoInitClass const & x) :
 	BASECLASS(x), // RA2: the base is still built without initialization
+	ParentCountry(x), // RA2: as above
 	VeteranInfantry(x), // RA2: the three veteran lists are built without initialization too
 	VeteranUnits(x), // RA2: as above
 	VeteranAircraft(x) // RA2: as above
@@ -249,7 +267,7 @@ static inline TypeList<AircraftTypeClass const *> Get_Aircraft_List(CCINIClass c
  * HISTORY:                                                                                    *
  *   09/04/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 803 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 2023 bytes differ (the original calls the unit list's Add and copy constructor out of line; this text expands them)
 bool HouseTypeClass::Read_INI(CCINIClass const & ini)
 {
 	if (BASECLASS::Read_INI(ini)) {
@@ -372,31 +390,35 @@ HRESULT STDMETHODCALLTYPE HouseTypeClass::IsDirty(void)
 /// announces itself to the swizzler so that saved references can be resolved to it.
 /// </summary>
 /// <returns>Returns with S_OK if the house type was read, otherwise a failure code.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 479 bytes differ (adopted text)
 HRESULT STDMETHODCALLTYPE HouseTypeClass::Load(IStream * stream)
 {
-	HRESULT result;
+	VeteranInfantry.Clear(); // RA2: the veteran lists are emptied first
+	VeteranUnits.Clear(); // RA2: as above
+	VeteranAircraft.Clear(); // RA2: as above
 
-	if (stream == NULL) {
-		result = E_POINTER;
-	} else {
-		LONG id;
-
-		result = stream->Read(&id, sizeof(id), NULL);
-		if (SUCCEEDED(result)) {
-			result = stream->Read(this, sizeof(*this), NULL);
-			if (SUCCEEDED(result)) {
-
-				new (this) HouseTypeClass(NoInitClass());
-
-				Swizzle_Here_I_Am(id, this);
-				result = S_OK;
-			}
-		}
+	HRESULT result = BASECLASS::Load(stream); // RA2: the abstract type's data
+	if (FAILED(result)) {
+		return(result);
 	}
-	return(result);
+
+	new (this) HouseTypeClass(NoInitClass());
+
+	VeteranInfantry.Load(stream); // RA2: the lists are loaded element by element
+	VeteranUnits.Load(stream); // RA2: as above
+	VeteranAircraft.Load(stream); // RA2: as above
+
+	int index;
+	for (index = 0; index < VeteranInfantry.Count(); index++) {
+		Swizzle_Pointer(&VeteranInfantry[index]);
+	}
+	for (index = 0; index < VeteranUnits.Count(); index++) {
+		Swizzle_Pointer(&VeteranUnits[index]);
+	}
+	for (index = 0; index < VeteranAircraft.Count(); index++) {
+		Swizzle_Pointer(&VeteranAircraft[index]);
+	}
+	return(S_OK);
 }
-#endif
 
 
 /// <summary>

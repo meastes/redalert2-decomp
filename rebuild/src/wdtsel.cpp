@@ -51,7 +51,7 @@ inline TERRITORY_ITER Walk_Territories(TERRITORY_LIST & list) { return(TERRITORY
 /// </summary>
 /// <param name="campaign">The campaign whose current state the screen presents.</param>
 /// <param name="faction">The faction whose progress the screen shows.</param>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 959 bytes differ (adopted text)
 Selection::Selection(rc_ptr<Campaign> const & campaign, int faction) :
 	TourCampaign(campaign),
 	VoicePlayer(campaign->Get_Player_Faction()),
@@ -210,7 +210,7 @@ void Selection::Init_Target(INIClass & ini, Wstring const & section)
 /// <param name="ini">The map database to fetch the region artwork from.</param>
 /// <param name="section">The section that describes this region.</param>
 /// <param name="vq_anim">Should the backdrop play as a movie rather than a still image?</param>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 912 bytes differ (adopted text)
 rc_ptr<Territory> Selection::Pick_Territory(void)
 {
 	Set_Long_Description();
@@ -290,7 +290,7 @@ rc_ptr<Territory> Selection::Pick_Territory(void)
 /// </summary>
 /// <param name="point">The screen position that was clicked.</param>
 /// <param name="selected">Set to true if the click landed on a selectable territory.</param>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 505 bytes differ (adopted text)
 void Selection::Handle_Click(Point2D const & point, bool & selected)
 {
 	switch (Region_At(point)) {
@@ -311,7 +311,7 @@ void Selection::Handle_Click(Point2D const & point, bool & selected)
 #endif
 
 
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 175 bytes differ (adopted text)
 bool Selection::Select_Territory_At(Point2D const & point)
 {
 	Update_Hovered_Territory(point);
@@ -336,7 +336,7 @@ void Selection::Update_Hovered_Territory(Point2D const & point)
 /// </summary>
 /// <param name="point">The point to look up, relative to the campaign map.</param>
 /// <returns>bool; Is there a conflict waiting on the territory selected?</returns>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 841 bytes differ (adopted text)
 void Selection::Do_Target_Anim(rc_ptr<State> const & state, bool show_targets, bool silent)
 {
 	Remove_Target_Anims();
@@ -421,7 +421,6 @@ void Selection::Do_Target_Anim(rc_ptr<State> const & state, bool show_targets, b
 /// </summary>
 /// <param name="territory">The territory to select, or NULL to select none at all.</param>
 /// <returns>bool; Is there a conflict waiting on the selected territory?</returns>
-#if 0
 bool Selection::Select_Territory(rc_ptr<Territory> const & territory)
 {
 	bool was_set = SelectedConflict.Get() != NULL;
@@ -516,7 +515,6 @@ bool Selection::Select_Territory(rc_ptr<Territory> const & territory)
 	Set_Text(text, 0);
 	return(found);
 }
-#endif
 
 
 
@@ -669,7 +667,6 @@ int Selection::Get_Outcome(int tick, bool & mega)
 /// <param name="tick_from">The campaign cycle to start the animation from.</param>
 /// <param name="tick_to">The campaign cycle to run the animation up to.</param>
 /// <returns>bool; Did the sequence end before a single cycle could be presented?</returns>
-#if 0
 bool Selection::Present_Ticks(int tick_from, int tick_to)
 {
 	bool first = true;
@@ -704,7 +701,6 @@ bool Selection::Present_Ticks(int tick_from, int tick_to)
 
 	return(first);
 }
-#endif
 
 
 /// <summary>

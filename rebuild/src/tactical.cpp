@@ -20,6 +20,7 @@
 #include "audtimer.h" // RA2: Draw_Timer flashes by the audio clock
 
 #include "_alpha.h"
+#include "abuffer.h"
 #include "_convert.h"
 #include "_font.h"
 #include "_map.h"

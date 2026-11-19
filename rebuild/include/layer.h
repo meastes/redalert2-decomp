@@ -32,7 +32,8 @@
 
 #pragma once
 
-#include "object.h"
+#include "abstract.h" // RA2: not object.h (whose rect.h would give _logic a RECT_NONE initializer the original lacks)
+#include "layer.hh"
 #include "vector.h"
 
 class ObjectClass;

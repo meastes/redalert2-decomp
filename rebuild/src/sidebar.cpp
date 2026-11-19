@@ -294,13 +294,11 @@ SidebarClass::SidebarClass(void) :
  * HISTORY:                                                                                    *
  *   08/06/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 112 bytes differ (adopted text)
 SidebarClass::SidebarClass(NoInitClass const & x) :
 	BASECLASS(x)
 {
 
 }
-#endif
 
 
 /// <summary>

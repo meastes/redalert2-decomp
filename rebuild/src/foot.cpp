@@ -4827,7 +4827,7 @@ Cell FootClass::Search_For_Tiberium(int rad, bool allow_weighted)
 /// <param name="rad">The limit of the search, expressed in cells from this object.</param>
 /// <returns>Returns with the cell of the Tiberium chosen. Otherwise, CELL_NONE is
 /// returned.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 1391 bytes differ (the original calls the distribution's vector constructor 0x4CE710 out of line; this text expands it)
 Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 {
 	DiscreteDistributionClass<CellClass> celldist;

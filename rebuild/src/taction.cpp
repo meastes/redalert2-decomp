@@ -241,7 +241,6 @@ enum ParamCodeType {
 /// The new action is registered with the action heap and the trackers, but does nothing at
 /// all until the scenario reader fills in which action it is and what it acts upon.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 326 bytes differ (adopted text)
 TActionClass::TActionClass(void) :
 	HeapID(-1),
 	Next(NULL),
@@ -250,16 +249,17 @@ TActionClass::TActionClass(void) :
 	Trigger(NULL),
 	Tag(NULL),
 	TriggerRect(0,0,0,0),
-	EffectLocation(0)
+	EffectLocation(0),
+	Value2(0) // RA2
 {
 	Actions.Add(this);
 	HeapID = Actions.ID(this);
 
 	AbstractTypePtrTracker.Add(this);
 	EventActionPtrTracker.Add(this);
+	Text[0] = '\0'; // RA2: the text argument starts empty
 	Data.Value = 0;
 }
-#endif
 
 
 
@@ -785,7 +785,6 @@ bool TActionClass::TAction_REMOVE_PARTICLE_ANIM(HouseClass * , ObjectClass * , T
 /// The system is placed on the ground at the waypoint, and its type comes from
 /// the trigger action's own data.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_PARTICLE_ANIM(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Cell cell2 = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -794,7 +793,6 @@ bool TActionClass::TAction_PARTICLE_ANIM(HouseClass * , ObjectClass * , TriggerC
 	new ParticleSystemClass(ParticleSystemTypes[Data.PAnim], coord, NULL);
 	return(true);
 }
-#endif
 
 
 /// <summary>
@@ -935,7 +933,6 @@ bool TActionClass::TAction_FORCE_END(HouseClass * , ObjectClass * , TriggerClass
 /// spanning the waypoint is knocked down as well, and the tactical map is told to redraw
 /// the wreckage.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_DAMAGE(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	int damage = 100;
@@ -963,7 +960,6 @@ bool TActionClass::TAction_DAMAGE(HouseClass * , ObjectClass * , TriggerClass * 
 
 	return(true);
 }
-#endif
 
 
 /// <summary>
@@ -1571,7 +1567,6 @@ bool TActionClass::TAction_PLAY_SOUND_RANDOM(HouseClass * , ObjectClass * , Trig
 /// <summary>
 /// Fetches the building, or else the terrain object, in the cell at the given spot.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 ObjectClass * __fastcall Coord_Object(Coord const & coord) // RA2: not in TibSun, at 0x6B0E40
 {
 	Cell cell = Cell(coord);
@@ -1585,10 +1580,8 @@ ObjectClass * __fastcall Coord_Object(Coord const & coord) // RA2: not in TibSun
 	}
 	return(object);
 }
-#endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 bool TActionClass::TAction_PLAY_SOUND_AT(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Coord coord = Scen->Get_Waypoint_Coord(EffectLocation); // RA2: 0x6B0EC0 gives the sound to the object there, else plays it at the spot
@@ -1600,13 +1593,11 @@ bool TActionClass::TAction_PLAY_SOUND_AT(HouseClass * , ObjectClass * , TriggerC
 	}
 	return(true);
 }
-#endif
 
 
 /// <summary>
 /// Stops the sound playing at the trigger's waypoint.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 bool TActionClass::TAction_STOP_SOUND_AT(HouseClass * , ObjectClass * , TriggerClass * , Cell const & ) // RA2: not in TibSun, at 0x6B0F90
 {
 	Coord coord = Scen->Get_Waypoint_Coord(EffectLocation);
@@ -1618,7 +1609,6 @@ bool TActionClass::TAction_STOP_SOUND_AT(HouseClass * , ObjectClass * , TriggerC
 	}
 	return(true);
 }
-#endif
 
 
 /// <summary>
@@ -1709,7 +1699,6 @@ bool TActionClass::TAction_FULL_SPECIAL(HouseClass * house, ObjectClass * , Trig
 /// This routine marks a drop zone so the player knows where reinforcements are about
 /// to arrive. The flare is inert and sits on top of any bridge over the cell.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_DZ(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -1723,7 +1712,6 @@ bool TActionClass::TAction_DZ(HouseClass * , ObjectClass * , TriggerClass * , Ce
 	anim->IsInert = true;
 	return(true);
 }
-#endif
 
 
 /// <summary>
@@ -1944,7 +1932,6 @@ bool TActionClass::TAction_ALL_HUNT(HouseClass * , ObjectClass * , TriggerClass 
 /// <param name="trig">The trigger whose attached objects are to be destroyed.</param>
 /// <param name="cell">The cell holding the bridge to drop, or CELL_NONE for none.</param>
 /// <returns>bool; Was at least one attached object destroyed?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 bool TActionClass::TAction_DESTROY_OBJECT(HouseClass * , ObjectClass * , TriggerClass * trig, Cell const & cell)
 {
 	bool any = false;
@@ -1975,7 +1962,6 @@ bool TActionClass::TAction_DESTROY_OBJECT(HouseClass * , ObjectClass * , Trigger
 	}
 	return(any);
 }
-#endif
 
 
 /// <summary>
@@ -2029,7 +2015,6 @@ bool TActionClass::TAction_RESIZE_PLAYER_VIEW(HouseClass * , ObjectClass * , Tri
 /// The animation is inert, so it is pure decoration -- whatever happens to be standing
 /// there takes no harm from it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_PLAY_ANIM(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -2042,7 +2027,6 @@ bool TActionClass::TAction_PLAY_ANIM(HouseClass * , ObjectClass * , TriggerClass
 	anim->IsInert = true;
 	return(true);
 }
-#endif
 
 
 /// <summary>
@@ -2051,7 +2035,6 @@ bool TActionClass::TAction_PLAY_ANIM(HouseClass * , ObjectClass * , TriggerClass
 /// the damage, the combat animation and the lighting flash, and an EM pulse weapon
 /// throws its pulse as well.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_DO_EXPLOSION(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -2074,7 +2057,6 @@ bool TActionClass::TAction_DO_EXPLOSION(HouseClass * , ObjectClass * , TriggerCl
 	Explosion_Damage(coord, damage, NULL, Weapons[weapon]->WarheadPtr); // RA2: the function ends here (0x6B1990); there is no EM pulse test
 	return(true);
 }
-#endif
 
 
 
@@ -2083,7 +2065,6 @@ bool TActionClass::TAction_DO_EXPLOSION(HouseClass * , ObjectClass * , TriggerCl
 /// The meteor lands at ground level, or on top of a bridge if one covers the cell,
 /// and EVA warns the player that a meteor storm is under way.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_METEOR_IMPACT(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -2095,7 +2076,6 @@ bool TActionClass::TAction_METEOR_IMPACT(HouseClass * , ObjectClass * , TriggerC
 	new VoxelAnimClass(VoxelAnimTypes[Data.VAnim], coord, NULL);
 	return(true); // RA2: TAction_METEOR_IMPACT at 0x6B19A0 has no Speak
 }
-#endif
 
 
 /// <summary>
@@ -2104,7 +2084,6 @@ bool TActionClass::TAction_METEOR_IMPACT(HouseClass * , ObjectClass * , TriggerC
 /// holds off for the warning period the rules call for.
 /// </summary>
 /// <returns>bool; Was the storm started? A storm already raging blocks a new one.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_ION_STORM_START(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	if (IonStormClass::Is_Ion_Storm_Active()) {
@@ -2113,7 +2092,6 @@ bool TActionClass::TAction_ION_STORM_START(HouseClass * , ObjectClass * , Trigge
 	IonStormClass::Ion_Storm_Begin(Data.Value, Rule->LightningDeferment, CELL_NONE, NULL); // RA2: 0x6B1A80, no cell and no house, no second scaling
 	return(true);
 }
-#endif
 
 
 /// <summary>
@@ -2164,7 +2142,6 @@ bool TActionClass::TAction_UNLOCK_INPUT(HouseClass * , ObjectClass * , TriggerCl
 /// This routine is used by scripted sequences to draw the player's attention somewhere.
 /// The view travels there at the speed the action specifies rather than jumping.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_CENTER_VIEWPOINT(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -2178,13 +2155,11 @@ bool TActionClass::TAction_CENTER_VIEWPOINT(HouseClass * , ObjectClass * , Trigg
 	TacticalMap->Setup_Trigger_Scroll(coord, Data.Speed);
 	return(true);
 }
-#endif
 
 
 /// <summary>
 /// Moves the tactical view to the effect waypoint at once.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_JUMP_VIEWPOINT(HouseClass * , ObjectClass * , TriggerClass * , Cell const & ) // RA2: not in TibSun, at 0x6B1BC0
 {
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -2198,7 +2173,6 @@ bool TActionClass::TAction_JUMP_VIEWPOINT(HouseClass * , ObjectClass * , Trigger
 	TacticalMap->Set_Tactical_Position(coord);
 	return(true);
 }
-#endif
 
 
 
@@ -2332,7 +2306,6 @@ bool TActionClass::TAction_DESTROY_TAG(HouseClass * , ObjectClass * , TriggerCla
 /// The triggers fire whether or not their own events have occurred, which lets a
 /// scenario set off consequences on its own schedule.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_FORCE_TRIGGER(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	if (Trigger != NULL) {
@@ -2344,7 +2317,6 @@ bool TActionClass::TAction_FORCE_TRIGGER(HouseClass * , ObjectClass * , TriggerC
 	}
 	return(true);
 }
-#endif
 
 
 /// <summary>
@@ -2652,7 +2624,6 @@ bool TActionClass::TAction_ION_CANNON(HouseClass * , ObjectClass * , TriggerClas
 /// weapon does, so the player sees the usual approach before the impact.
 /// </summary>
 /// <returns>bool; Was the missile launched?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_MULTI_MISSILE(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -2682,7 +2653,6 @@ bool TActionClass::TAction_MULTI_MISSILE(HouseClass * , ObjectClass * , TriggerC
 	}
 	return(false);
 }
-#endif
 
 
 
@@ -2701,7 +2671,6 @@ bool TActionClass::TAction_MULTI_MISSILE(HouseClass * , ObjectClass * , TriggerC
 /// <summary>
 /// Starts a lightning storm centered on the trigger's waypoint.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_LIGHTNING_STORM(HouseClass * house, ObjectClass * , TriggerClass * , Cell const & ) // RA2: not in TibSun, at 0x6B25E0
 {
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -2717,7 +2686,6 @@ bool TActionClass::TAction_LIGHTNING_STORM(HouseClass * house, ObjectClass * , T
 	}
 	return(false);
 }
-#endif
 
 
 /// <summary>
@@ -2789,7 +2757,6 @@ bool TActionClass::TAction_CREATE_CRATE(HouseClass * , ObjectClass * , TriggerCl
 /// weapon does, so the player sees the usual approach before the impact.
 /// </summary>
 /// <returns>bool; Was the missile launched?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 bool TActionClass::TAction_CHEM_MISSILE(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
@@ -2813,7 +2780,6 @@ bool TActionClass::TAction_CHEM_MISSILE(HouseClass * , ObjectClass * , TriggerCl
 
 	return(false);
 }
-#endif
 
 
 /// <summary>

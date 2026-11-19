@@ -11917,10 +11917,16 @@
   "status": "catalogued",
   "range": [
    "004a6720",
-   "004a6b90"
+   "004aa2b0"
   ],
   "mischa85": "tibsun: functions compiled from src/dropship.cpp, matched, without gaps; one placed by the gap; ?Dropship_Screen@@YIXXZ not placed; ?Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBD_NAAVConvertClass@@PBVBlitter@@@Z not placed; ?Draw_Unit_Info@@YIXPAVSurface@@PAVConvertClass@@PAVTechnoTypeClass@@_N@Z not placed",
   "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ],
    [
     "/O2",
     "/Ob2",
@@ -12097,6 +12103,254 @@
     "symbol": "?Get_Allowable_Index@DropshipLoadoutClass@@CIHPAVTechnoTypeClass@@@Z",
     "main_symbol": "?Find_Type_Index_004A6B50@DropshipLoadoutClass@@SIHPAVTechnoTypeClass@@@Z",
     "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004a6b90",
+    "body": 10797,
+    "padding": 3,
+    "symbol": "?Dropship_Screen@@YIXXZ",
+    "main_symbol": "?Dropship_Screen_004A6B90@@YIXXZ",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004a95c0",
+    "body": 482,
+    "padding": 14,
+    "symbol": "?Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z",
+    "main_symbol": "?Draw_Updated_Counter_004a95c0@@YIXHHPAVSurface@@AAUPoint2D@@PBG_NPAXPBVBlitter@@@Z",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004a97b0",
+    "body": 827,
+    "padding": 5,
+    "symbol": "?Draw_Unit_Info@@YIXPAVSurface@@PAVConvertClass@@PAVTechnoTypeClass@@_N@Z",
+    "main_symbol": "?Draw_Type_Details_004a97b0@@YIXPAVSurface@@PAVConvertClass@@PAVTechnoTypeClass@@_N@Z",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004a9af0",
+    "body": 13,
+    "padding": 3,
+    "symbol": "??0RGBClass@@QAE@XZ",
+    "main_symbol": "??0RGBClass@@QAE@XZ",
+    "main_source": "src/recovered/classes/RGBClass/Default_Constructor.cpp"
+   },
+   {
+    "entry": "004a9b00",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEXXZ",
+    "main_symbol": "?get@Cleanup_4a9b00@@QAEXXZ",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004a9b30",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_ButtonFadeEffect_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "004a9b50",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PAUButtonFadeEffect@@@@UBEPAUButtonFadeEffect@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVButtonFadeEffect@@@@UBEPAVButtonFadeEffect@@H@Z",
+    "main_source": "src/recovered/classes/VectorClass_ButtonFadeEffect_ptr/Fetch.cpp"
+   },
+   {
+    "entry": "004a9b60",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEXXZ",
+    "main_symbol": "?get@Cleanup_4a9b60@@QAEXXZ",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004a9b90",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_CrossDissolveEffect_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "004a9bb0",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PAUCrossDissolveEffect@@@@UBEPAUCrossDissolveEffect@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVCrossDissolveEffect@@@@UBEPAVCrossDissolveEffect@@H@Z",
+    "main_source": "src/recovered/classes/VectorClass_CrossDissolveEffect_ptr/Fetch.cpp"
+   },
+   {
+    "entry": "004a9bc0",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PAUButtonFadeEffect@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVButtonFadeEffect@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/classes/VectorClass_ButtonFadeEffect_ptr/operator_equal.cpp"
+   },
+   {
+    "entry": "004a9c00",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVButtonFadeEffect@@@@UAE_NHPBQAVButtonFadeEffect@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_ButtonFadeEffect_ptr/Resize.cpp"
+   },
+   {
+    "entry": "004a9cb0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAUButtonFadeEffect@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@PAVButtonFadeEffect@@@@UAEXXZ",
+    "main_source": "src/recovered/classes/VectorClass_ButtonFadeEffect_ptr/Clear.cpp"
+   },
+   {
+    "entry": "004a9ce0",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVButtonFadeEffect@@@@UAEHABQAVButtonFadeEffect@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_ButtonFadeEffect_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "004a9d20",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVButtonFadeEffect@@@@UAEHPBQAVButtonFadeEffect@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_ButtonFadeEffect_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "004a9d40",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVCrossDissolveEffect@@@@UAE_NHPBQAVCrossDissolveEffect@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_CrossDissolveEffect_ptr/Resize.cpp"
+   },
+   {
+    "entry": "004a9df0",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_ButtonFadeEffect_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "004a9e20",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PAUCrossDissolveEffect@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVCrossDissolveEffect@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/classes/VectorClass_CrossDissolveEffect_ptr/operator_equal.cpp"
+   },
+   {
+    "entry": "004a9e60",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVCrossDissolveEffect@@@@UAE_NHPBQAVCrossDissolveEffect@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_CrossDissolveEffect_ptr/Resize.cpp"
+   },
+   {
+    "entry": "004a9f10",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAUCrossDissolveEffect@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@PAVCrossDissolveEffect@@@@UAEXXZ",
+    "main_source": "src/recovered/classes/VectorClass_CrossDissolveEffect_ptr/Clear.cpp"
+   },
+   {
+    "entry": "004a9f40",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVCrossDissolveEffect@@@@UAEHABQAVCrossDissolveEffect@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_CrossDissolveEffect_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "004a9f80",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVCrossDissolveEffect@@@@UAEHPBQAVCrossDissolveEffect@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_CrossDissolveEffect_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "004a9fa0",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVButtonFadeEffect@@@@UAE_NHPBQAVButtonFadeEffect@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_ButtonFadeEffect_ptr/Resize.cpp"
+   },
+   {
+    "entry": "004aa050",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_CrossDissolveEffect_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "004aa080",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004aa0d0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004aa120",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004aa170",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004aa1c0",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004aa210",
+    "body": 74,
+    "padding": 6,
+    "symbol": "??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@HPBQAUButtonFadeEffect@@@Z",
+    "main_symbol": "?get@Storage_4aa210@@QAEPAXIPAI@Z",
+    "main_source": "src/recovered/dropship.cpp"
+   },
+   {
+    "entry": "004aa260",
+    "body": 74,
+    "padding": 6,
+    "symbol": "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@HPBQAUCrossDissolveEffect@@@Z",
+    "main_symbol": "?get@Storage_4aa260@@QAEPAXIPAI@Z",
+    "main_source": "src/recovered/dropship.cpp"
    }
   ],
   "references": {
@@ -12114,7 +12368,37 @@
    "_RAD_45": "00852af0",
    "_RAD_60": "00852aa8",
    "_RAD_90": "00852a60",
-   "_RECT_NONE": "00852a88"
+   "_RECT_NONE": "00852a88",
+   "??8?$VectorClass@PAUButtonFadeEffect@@@@UBE_NABV0@@Z": "004a9bc0",
+   "?Resize@?$VectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z": "004a9c00",
+   "?Clear@?$VectorClass@PAUButtonFadeEffect@@@@UAEXXZ": "004a9cb0",
+   "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z": "004a9ce0",
+   "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z": "004a9d20",
+   "?GetItem@?$VectorClass@PAUButtonFadeEffect@@@@UBEPAUButtonFadeEffect@@H@Z": "004a9b50",
+   "??8?$VectorClass@PAUCrossDissolveEffect@@@@UBE_NABV0@@Z": "004a9e20",
+   "?Resize@?$VectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z": "004a9e60",
+   "?Clear@?$VectorClass@PAUCrossDissolveEffect@@@@UAEXXZ": "004a9f10",
+   "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z": "004a9f40",
+   "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z": "004a9f80",
+   "?GetItem@?$VectorClass@PAUCrossDissolveEffect@@@@UBEPAUCrossDissolveEffect@@H@Z": "004a9bb0",
+   "?Resize@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z": "004a9fa0",
+   "?Clear@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEXXZ": "004a9b60",
+   "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z": "004aa050",
+   "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z": "004a9b90",
+   "?Resize@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z": "004a9d40",
+   "?Clear@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEXXZ": "004a9b00",
+   "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z": "004a9df0",
+   "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z": "004a9b30",
+   "??_C@_06NJCI@Yellow?$AA@": "007d61e4",
+   "??_C@_19MEGK@?$AA?$CF?$AAs?$AA?$CF?$AAd?$AA?$AA@": "007d61ec",
+   "_?cost_text@?1??Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z@4PAGA": "00852a68",
+   "_?max_text@?1??Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z@4PAGA": "00852ab8",
+   "??_C@_1BC@FBNG@?$AAC?$AAo?$AAs?$AAt?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@": "007d6268",
+   "??_C@_1BC@OJBI@?$AAN?$AAa?$AAm?$AAe?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@": "007d627c",
+   "??_C@_1BE@GHKL@?$AAC?$AAo?$AAs?$AAt?$AA?3?$AA?5?$AAN?$AA?1?$AAA?$AA?$AA@": "007d6254",
+   "??_C@_1BE@KFNG@?$AAA?$AAr?$AAm?$AAo?$AAr?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@": "007d6204",
+   "??_C@_1BK@LFMD@?$AAA?$AAr?$AAm?$AAa?$AAm?$AAe?$AAn?$AAt?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@": "007d6238",
+   "??_C@_1BO@NGNE@?$AAA?$AAr?$AAm?$AAa?$AAm?$AAe?$AAn?$AAt?$AA?3?$AA?5?$AAN?$AAO?$AAN?$AAE?$AA?$AA@": "007d6218"
   },
   "partial_ok": true
  },
@@ -36738,7 +37022,7 @@
     "entry": "00434920",
     "body": 23,
     "padding": 0,
-    "symbol": "_$E2",
+    "symbol": "_$E3",
     "main_symbol": "?get@Leaf_434920@@QAEXXZ",
     "main_source": "src/recovered/unidentified/seed_views/00434920.cpp",
     "gap_padding": 9,
@@ -46238,7 +46522,7 @@
   },
   "partial_ok": true,
   "held_reason": "worker",
-  "held_note": "codex2; catalog: emitted functions with no row or binding: ??1?$BasicTimerClass@VFrameTimerClass@@@@QAE@XZ",
+  "held_note": "codex2; catalog: whole-file build refused: Unsupported allocatable data section .data #2 in accepted.obj (['.data', '?MouseControl@MouseC",
   "build_refused": {
    "source_sha256": "a7ea520001a48a34a80667fc77f376127de3af84cc2c24778c1d17ec2eead306",
    "reason": "Unsupported allocatable data section .data #2 in accepted.obj (['.data', '?MouseControl@MouseClass@@0PAUMouseStruct@1@A'])"
@@ -59902,7 +60186,7 @@
     "entry": "00483590",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E3",
+    "symbol": "_$E4",
     "main_symbol": "_$E2",
     "main_source": "src/recovered/convert.cpp"
    },
@@ -76516,7 +76800,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0056d2d0",
    "0058f320"
@@ -78252,7 +78536,7 @@
     "entry": "0058b400",
     "body": 17,
     "padding": 15,
-    "symbol": "_$E284",
+    "symbol": "_$E283",
     "main_symbol": "_$E119",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -78260,7 +78544,7 @@
     "entry": "0058b420",
     "body": 9537,
     "padding": 15,
-    "symbol": "_$E281",
+    "symbol": "_$E280",
     "main_symbol": "_$E116",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -78268,7 +78552,7 @@
     "entry": "0058d970",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E282",
+    "symbol": "_$E281",
     "main_symbol": "_$E117",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -79028,7 +79312,6 @@
    "_RAD_90": "00a6fd48",
    "_RECT_NONE": "00a70080",
    "__real@4@3ff8a3d70a0000000000": "007a5df0",
-   "__real@8@3fdf8000000000000000": "007a5dd0",
    "__real@8@3ff883126e978d4fe000": "007a5f38",
    "__real@8@3ffeb333333333333000": "007a6000",
    "__real@8@4000a000000000000000": "007a5be0",
@@ -79061,12 +79344,32 @@
    "_?RampHeights@?1??Build_North_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z@4PAHA": "007e0a64",
    "_?RampShapes@?1??Build_North_Ramp@MapRegionClass@@QAE_NABVCell@@0H@Z@4PAHA": "007e0a78",
    "_?_offset_chance@?4??Find_Dirt_Road_Tile@MapGeneratorClass@@SI_NW4FacingType@@ABVCell@@HAAW4IsometricTileType@@AAV4@AAH@Z@4NB": "007a5d70",
-   "_?_distance_scale@?CG@??Create_Tiberium@MapGeneratorClass@@QAEXXZ@4NB": "007a5ce8"
+   "_?_distance_scale@?CG@??Create_Tiberium@MapGeneratorClass@@QAEXXZ@4NB": "007a5ce8",
+   "_Road_N_4Way": "007e0d64",
+   "_Road_NE_4Way": "007e0dc4",
+   "_Road_E_4Way": "007e0e24",
+   "_Road_SE_4Way": "007e0e7c",
+   "_Road_S_4Way": "007e0ed8",
+   "_Road_SW_4Way": "007e0f2c",
+   "_Road_W_4Way": "007e0f88",
+   "_Road_NW_4Way": "007e0fe0",
+   "??_C@_0BG@EIAI@TXT_THEATER_TEMPERATE?$AA@": "007e1374",
+   "??_C@_0BB@DDGA@TXT_THEATER_SNOW?$AA@": "007e1360"
   },
   "partial_ok": true,
-  "held_reason": "binding",
-  "held_note": "initializers exact, 203/217 (Generate_Vegetation and Generate_Arctic_Vegetation exact: the literal 0.7 is the pool copy at 0x7A6000 and the literal 15.0 the copy kept from an earlier object at 0x7A5398, while Find_Dirt_Road_Tile (0x7A5D70) and Create_Tiberium (0x7A5CE8) read named function constants among the statics; Seed_River draft likewise 0x7A5CB0). The .data matches the original through 0x7E0B93. Still open: 0x7E0B94, 20 bytes (five 100s) between _access_max and _urban_max that no code reads and no reference names; 0x7E0BE4, Read_RMG_INI static section pointer (its draft has no row); the eight _Road_*_4Way tables (in place, 4 bytes each, too short for databind)",
-  "held_manual": true
+  "data_bound_by": {
+   "_MapSeedSelection": "layout",
+   "_MapSeedPreviewFlag": "layout",
+   "__theater_names": "layout"
+  },
+  "data_bound_by_note": "DECISIONS 'Rebuild data no exact code refers to' (review 2026-11-19), A: file-scope data placed by position, run-anchored (Read_RMG_INI's static is missing while it is parked, so the section has no one base). MapSeedSelection 0x7E0ADC and MapSeedPreviewFlag 0x7E0AE0 (read only by the parked Map_Seed_Dialog_Proc) between Build_West_Ramp's RampShapes and _map_type_names; _theater_names 0x7E0B08 (no code reads it) between _resource_names and _time_names. Names and types are mischa85's mapgen.cpp text (hypothesis). The 20-byte tables at 0x7E0B94 and 0x7E0C4C (no reference, no name in TibSun, ra2-decomp or mischa85) are not declared and stay scaffolding.",
+  "data_pending": [
+   {
+    "address": "007e0be4",
+    "size": 4,
+    "owner": "00579960"
+   }
+  ]
  },
  "building": {
   "core": [
@@ -83640,7 +83943,7 @@
     "entry": "006d9770",
     "body": 77,
     "padding": 3,
-    "symbol": "??KCoordStruct@@QBE?AU0@H@Z",
+    "symbol": "??K?$TPoint3D@H@@QBE?BV0@H@Z",
     "main_symbol": "??KCoordStruct@@QBE?AU0@H@Z",
     "main_source": "src/recovered/techno.cpp"
    },
@@ -87094,7 +87397,7 @@
     "entry": "004cbb40",
     "body": 1467,
     "padding": 5,
-    "symbol": "?unknown_4cbb40@FootClass@@QAE?AVCell@@H@Z",
+    "symbol": "?Search_For_Tiberium_Weighted@FootClass@@QAE?AVCell@@H@Z",
     "main_symbol": "?unknown_4cbb40@FootClass@@QAE?AVCell@@H@Z",
     "main_source": "src/recovered/foot.cpp"
    },
@@ -87494,7 +87797,7 @@
     "entry": "004cdf10",
     "body": 28,
     "padding": 4,
-    "symbol": "?Fetch@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UBE?AV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@H@Z",
+    "symbol": "?GetItem@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UBE?AV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@H@Z",
     "main_symbol": "?Fetch@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UBE?AV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@H@Z",
     "main_source": "src/recovered/classes/VectorClass_CellDistribution/Fetch.cpp"
    },
@@ -120338,7 +120641,7 @@
     "entry": "0072b060",
     "body": 40,
     "padding": 8,
-    "symbol": "?Fetch@?$VectorClass@UCentroid@WorldDominationTour@@@@UBE?AUCentroid@WorldDominationTour@@H@Z",
+    "symbol": "?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z",
     "main_symbol": "?Fetch@?$VectorClass@UCentroid@WorldDominationTour@@@@UBE?AUCentroid@WorldDominationTour@@H@Z",
     "main_source": "src/recovered/classes/VectorClass_WorldDominationTour__Centroid/Fetch.cpp"
    },
@@ -120354,7 +120657,7 @@
     "entry": "0072b0b0",
     "body": 14,
     "padding": 2,
-    "symbol": "?unknown_in_range_0072b0b0@seed_0072b0b0@@YI_NH@Z",
+    "symbol": "??B?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UBE_NXZ",
     "main_symbol": "?unknown_in_range_0072b0b0@seed_0072b0b0@@YI_NH@Z",
     "main_source": "src/recovered/wdtmap.cpp"
    },
@@ -120490,7 +120793,7 @@
     "entry": "0072b6c0",
     "body": 92,
     "padding": 4,
-    "symbol": "??8?$VectorClass@UCentroid@WorldDominationTour@@@@UBE_NABV0@@Z",
+    "symbol": "??8?$VectorClass@VCentroid@WorldDominationTour@@@@UBE_NABV0@@Z",
     "main_symbol": "??8?$VectorClass@UCentroid@WorldDominationTour@@@@UBE_NABV0@@Z",
     "main_source": "src/recovered/classes/VectorClass_WorldDominationTour__Centroid/operator_equal.cpp"
    },
@@ -120498,7 +120801,7 @@
     "entry": "0072b720",
     "body": 249,
     "padding": 7,
-    "symbol": "?Resize@?$VectorClass@UCentroid@WorldDominationTour@@@@UAE_NHPBUCentroid@WorldDominationTour@@@Z",
+    "symbol": "?Resize@?$VectorClass@VCentroid@WorldDominationTour@@@@UAE_NHPBVCentroid@WorldDominationTour@@@Z",
     "main_symbol": "?Resize@?$VectorClass@UCentroid@WorldDominationTour@@@@UAE_NHPBUCentroid@WorldDominationTour@@@Z",
     "main_source": "src/recovered/wdtmap.cpp"
    },
@@ -120506,7 +120809,7 @@
     "entry": "0072b820",
     "body": 39,
     "padding": 9,
-    "symbol": "?Clear@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEXXZ",
+    "symbol": "?Clear@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEXXZ",
     "main_symbol": "?Clear@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEXXZ",
     "main_source": "src/recovered/wdtmap.cpp"
    },
@@ -120514,7 +120817,7 @@
     "entry": "0072b850",
     "body": 80,
     "padding": 0,
-    "symbol": "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z",
+    "symbol": "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHABVCentroid@WorldDominationTour@@@Z",
     "main_symbol": "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHABUCentroid@WorldDominationTour@@@Z",
     "main_source": "src/recovered/classes/VectorClass_WorldDominationTour__Centroid/ID_object.cpp"
    },
@@ -120522,7 +120825,7 @@
     "entry": "0072b8a0",
     "body": 36,
     "padding": 12,
-    "symbol": "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHPBUCentroid@WorldDominationTour@@@Z",
+    "symbol": "?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHPBVCentroid@WorldDominationTour@@@Z",
     "main_symbol": "?ID@?$VectorClass@UCentroid@WorldDominationTour@@@@UAEHPBUCentroid@WorldDominationTour@@@Z",
     "main_source": "src/recovered/classes/VectorClass_WorldDominationTour__Centroid/ID_pointer.cpp"
    },
@@ -129615,7 +129918,8 @@
    "_RAD_45": "00abfde8",
    "_RAD_60": "00abfdc0",
    "_RAD_90": "00abfd80",
-   "_RECT_NONE": "00abfda0"
+   "_RECT_NONE": "00abfda0",
+   "_?_counts@?1??TAction_METEOR_SHOWER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z@4PAHA": "007f6ad8"
   },
   "partial_ok": true
  },
@@ -132853,7 +133157,7 @@
     "entry": "00682400",
     "body": 56,
     "padding": 8,
-    "symbol": "?Unknown_00682400@StripClass@SidebarClass@@QAEXHH@Z",
+    "symbol": "?Set_Flash@StripClass@SidebarClass@@QAEXHH@Z",
     "main_symbol": "?Unknown_00682400@StripClass@SidebarClass@@QAEXHH@Z",
     "main_source": "src/recovered/sidebar.cpp"
    },
@@ -161484,5 +161788,427 @@
    "?ID@?$VectorClass@PAVTechnoClass@@@@UAEHPBQAVTechnoClass@@@Z": "0040b9d0"
   },
   "note": "new unit (lane R23, review ruling 2026-11-18): the global objects BombList; positive source ra2-decomp's src/_astar2.cpp (no TibSun file), and the run of underscore objects 0x40AC80-0x40F020 links in TibSun's alphabetical file order (_alpha, _astar, _astar2, _command, _convert, _isotile, _logic, _map, _milsectmr, _mixfile, _palette, _rtti, _rules, _script, _timer, _vanim, _voxel), each object's initializers and template copies contiguous between its neighbours"
+ },
+ "_alpha": {
+  "core": [
+   "0040ac80",
+   "0040acb0"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/_alpha.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0040ac80",
+   "0040acb0"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0040ac80",
+    "body": 22,
+    "padding": 10,
+    "symbol": "_$E5",
+    "main_symbol": "_$E4",
+    "main_source": "src/recovered/classes/AlphaLightingRemapInitClass/AlphaTableCache_init.cpp"
+   },
+   {
+    "entry": "0040aca0",
+    "body": 10,
+    "padding": 6,
+    "symbol": "_$E3",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/classes/AlphaLightingRemapInitClass/AlphaTableCache_atexit_destructor.cpp"
+   }
+  ],
+  "references": {},
+  "note": "new unit (lane R24, the underscore-file ruling of lane R23): the global objects AlphaLightingRemapInitClass AlphaLightingRemapInit and ABuffer * AlphaBuffer; positive source TibSun's code/_alpha.cpp, linked first in the alphabetical run of underscore objects 0x40AC80-0x40F020. The original object has no RECT_NONE initializer, so _alpha.h does not include abuffer.h (it already forward-declares ABuffer); tactical, display and map include abuffer.h themselves"
+ },
+ "_logic": {
+  "core": [
+   "0040ca70",
+   "0040ce70"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/_logic.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0040ca70",
+   "0040ce70"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ],
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0040ca70",
+    "body": 61,
+    "padding": 3,
+    "symbol": "_$E4",
+    "main_symbol": "_$E48",
+    "main_source": "src/recovered/_logic.cpp"
+   },
+   {
+    "entry": "0040cab0",
+    "body": 59,
+    "padding": 5,
+    "symbol": "_$E2",
+    "main_symbol": "_$E46",
+    "main_source": "src/recovered/_logic.cpp"
+   },
+   {
+    "entry": "0040caf0",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?Init@LayerClass@@UAEXXZ",
+    "main_symbol": "?LayerClass_Init@@YIXPAH@Z",
+    "main_source": "src/recovered/classes/LayerClass/LayerClass_Init.cpp"
+   },
+   {
+    "entry": "0040cb00",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?One_Time@LayerClass@@UAEXXZ",
+    "main_symbol": "?get@Leaf_40cb00@@QAEXXZ",
+    "main_source": "src/recovered/awaiting_join/member_views/LayerClass_0040cb00.cpp"
+   },
+   {
+    "entry": "0040cb10",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_GLogicClass@@UAEPAXI@Z",
+    "main_symbol": "??_GLogicClass@@UAEPAXI@Z",
+    "main_source": "src/recovered/header_statics/_logic/LogicClass_Scalar_Deleting_Destructor.cpp"
+   },
+   {
+    "entry": "0040cb60",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PAVObjectClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$DynamicVectorClass@PAVObjectClass@@@@UAEXXZ",
+    "main_source": "src/recovered/classes/DynamicVectorClass_ObjectClass_ptr/Clear.cpp"
+   },
+   {
+    "entry": "0040cb90",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_ObjectClass_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "0040cbb0",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PAVObjectClass@@@@UBEPAVObjectClass@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVObjectClass@@@@UBEPAVObjectClass@@H@Z",
+    "main_source": "src/recovered/classes/VectorClass_ObjectClass_ptr/Fetch.cpp"
+   },
+   {
+    "entry": "0040cbc0",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PAVObjectClass@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVObjectClass@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/classes/VectorClass_ObjectClass_ptr/operator_equal.cpp"
+   },
+   {
+    "entry": "0040cc00",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_ObjectClass_ptr/Resize.cpp"
+   },
+   {
+    "entry": "0040ccb0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAVObjectClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@PAVObjectClass@@@@UAEXXZ",
+    "main_source": "src/recovered/classes/VectorClass_ObjectClass_ptr/Clear.cpp"
+   },
+   {
+    "entry": "0040cce0",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_ObjectClass_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "0040cd20",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVObjectClass@@@@UAEHPBQAVObjectClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_ObjectClass_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "0040cd40",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVObjectClass@@@@UAE_NHPBQAVObjectClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_ObjectClass_ptr/Resize.cpp"
+   },
+   {
+    "entry": "0040cdf0",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVObjectClass@@@@UAEHABQAVObjectClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_ObjectClass_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "0040ce20",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAVObjectClass@@@@UAEPAXI@Z",
+    "main_symbol": "?get@Leaf_40ce20@@QAEPAXI@Z",
+    "main_source": "src/recovered/awaiting_join/deleting_destructors/VectorClass_ObjectClass_ptr_0040ce20.cpp"
+   }
+  ],
+  "references": {},
+  "note": "new unit (lane R24, the underscore-file ruling of lane R23): the global object LogicClass Logic; positive source TibSun's code/_logic.cpp, between _isotile and _map in the alphabetical run. The original object has no RECT_NONE initializer, so layer.h includes abstract.h and layer.hh instead of object.h (whose rect.h gave it one); layer.cpp includes object.h itself"
+ },
+ "missile": {
+  "core": [
+   "00593680",
+   "00594310"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/missile.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "00593680",
+   "00594310"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy",
+    "/GR"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "00593680",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "005936a0",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "005936d0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "005936f0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "00593710",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "00593730",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "00593750",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "00593770",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "005937b0",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "005937e0",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "00593810",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "00593840",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "00593850",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "005940b0",
+    "body": 28,
+    "padding": 4,
+    "symbol": "??HDirType@@QBE?AV0@ABV0@@Z",
+    "main_symbol": "??HDirType@@QBE?AV0@ABV0@@Z",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "005940d0",
+    "body": 28,
+    "padding": 4,
+    "symbol": "??GDirType@@QBE?AV0@ABV0@@Z",
+    "main_symbol": "??GDirType@@QBE?AV0@ABV0@@Z",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "005940f0",
+    "body": 26,
+    "padding": 6,
+    "symbol": "??KDirType@@QBE?AV0@H@Z",
+    "main_symbol": "??KDirType@@QBE?AV0@H@Z",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "00594110",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z",
+    "main_symbol": "?Is_Complete_Turn@DirType@@QAE_NABV1@0@Z",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "00594140",
+    "body": 100,
+    "padding": 12,
+    "symbol": "?Turn@DirType@@QAE_NABV1@0@Z",
+    "main_symbol": "?Turn@DirType@@QAE_NABV1@0@Z",
+    "main_source": "src/recovered/missile.cpp"
+   },
+   {
+    "entry": "005941b0",
+    "body": 342,
+    "padding": 10,
+    "symbol": "?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z",
+    "main_symbol": "?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z",
+    "main_source": "src/recovered/missile.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00a70c30",
+   "_CELL_DIAG_SLOPE_ANGLE": "00a70c18",
+   "_CELL_LEPTON_DIAG": "00a70bf0",
+   "_CELL_NONE": "00a70be8",
+   "_CELL_SLOPE_ANGLE": "00a70c00",
+   "_COORD_NONE": "00a70c08",
+   "_ISO_TILE_SIZE": "007a61b0",
+   "_LEPTONS_PER_PIXEL": "00a70c38",
+   "_LEVEL_LEPTON_H": "00a70c40",
+   "_ONE_RAD": "007a61b8",
+   "_PIXELS_PER_LEPTON": "00a70c28",
+   "_RAD_45": "00a70c20",
+   "_RAD_60": "00a70bf8",
+   "_RAD_90": "00a70bd0",
+   "_RECT_NONE": "00a70bd8"
+  },
+  "partial_ok": true,
+  "note": "new unit (lane R24, filing rule (2)): TibSun's code/missile.cpp, linked between milsectmr and mission in the alphabetical order and bounded by its own initializer-table run (0x593680-0x593850); rect.h then geometry.h give its 13 initializers. Projectile_Motion (0x593870, 2,112 bytes, RA2's eight-argument form in missile.h) has no row in main, so its TibSun text stays guarded; the DirType and TVelocity3D<double>::Set_Pitch copies it emits (0x5940B0-0x594310) wait on it"
  }
 }

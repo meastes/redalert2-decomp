@@ -19,6 +19,25 @@ layout      The symbol lies in an initialised, non-code section of the object th
             section end. The section itself is compared byte for byte by the
             caller (the audit's relocated_data_duplicate, the ledger's
             prove_data). An open edge refuses.
+            Run-anchored fallback (docs/DECISIONS.md, "Rebuild data no exact code
+            refers to", A; review session 2026-11-19), used only when the whole
+            section does not bind as above (its bound symbols disagree on one base,
+            because a parked function's data is missing from the object): the
+            nearest reference-bound symbols of the same section below and above the
+            symbol (in the object's order) agree on one base; no pending data range
+            (B below) lies between the lower anchor's start and the upper anchor's
+            end; every symbol between the anchors is reference-bound or itself
+            declared layout; and no reference-bound address or independently known
+            item starts inside the symbol's derived extent. The items between the
+            anchors then fill the distance exactly; the caller compares the bytes.
+
+Pending data ranges (the same ruling, B; row field `data_pending`: [{address, size, owner}],
+            opt-in per source, the same on every row): data the original holds only
+            because a parked function emits it (a function-local static, a literal).
+            Never defined in source; the bytes stay original scaffolding, earn
+            nothing, and are counted. A range closes when its owner lands: the audit
+            refuses a range whose owner is an accepted row of the source, and one
+            that overlaps a symbol the object binds.
 
 elimination The symbol is the only symbol of a zero-filled (.bss) section of the
             object that the references do not bind; every other symbol of the
@@ -53,6 +72,71 @@ KINDS = (LAYOUT, ELIMINATION, UNPLACED)
 
 class BindingRefused(ValueError):
     pass
+
+
+def pending(rows):
+    """[(address, size, owner)] of the one `data_pending` declaration of a source's rows."""
+    found = None
+    for row in rows:
+        value = row.get('data_pending')
+        if value is None:
+            continue
+        if not isinstance(value, list) or not value:
+            raise BindingRefused('data_pending must be a non-empty list of {address, size, owner}')
+        ranges = []
+        for item in value:
+            if not isinstance(item, dict) or set(item) != {'address', 'size', 'owner'} or \
+                    not isinstance(item['size'], int) or item['size'] <= 0:
+                raise BindingRefused('data_pending entries are {address, size, owner} with a positive size')
+            ranges.append((int(item['address'], 16), item['size'], int(item['owner'], 16)))
+        if found is not None and found != ranges:
+            raise BindingRefused('data_pending differs between rows')
+        found = ranges
+    return found or []
+
+
+def check_pending(ranges, accepted_entries, bound):
+    """Refuse a pending range whose owner landed or that overlaps a bound symbol.
+
+    bound: [(address, extent)] of the object's symbols bound to image addresses."""
+    for address, size, owner in ranges:
+        if owner in accepted_entries:
+            raise BindingRefused('pending data %08x+%d: its owner %08x is an accepted row (close the range)'
+                                 % (address, size, owner))
+        for start, extent in bound:
+            if start < address + size and address < start + extent:
+                raise BindingRefused('pending data %08x+%d overlaps a bound symbol at %08x' % (address, size, start))
+
+
+def run_anchored(coff, index, name, references, pending_ranges, layout_names, starts):
+    """(address, detail) of a layout symbol bound by its nearest bound neighbours, or BindingRefused."""
+    section = coff.sections[index - 1]
+    symbols = section_symbols(coff, index)
+    extents = {n: (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - v
+               for i, (v, n) in enumerate(symbols)}
+    position = next(i for i, (v, n) in enumerate(symbols) if n == name)
+    below = next((i for i in range(position - 1, -1, -1) if symbols[i][1] in references), None)
+    above = next((i for i in range(position + 1, len(symbols)) if symbols[i][1] in references), None)
+    if below is None or above is None:
+        raise BindingRefused('%s: no bound symbol of its section on %s side' % (name, 'the lower' if below is None else 'the upper'))
+    (low_value, low_name), (high_value, high_name) = symbols[below], symbols[above]
+    base = references[low_name] - low_value
+    if references[high_name] - high_value != base:
+        raise BindingRefused('%s: its anchors %s and %s disagree on the base' % (name, low_name, high_name))
+    loose = [n for v, n in symbols[below + 1:above] if n not in references and n not in layout_names]
+    if loose:
+        raise BindingRefused('%s: unbound symbols between its anchors: %s' % (name, loose[:3]))
+    run = (references[low_name], references[high_name] + extents[high_name])
+    for address, size, owner in pending_ranges:
+        if address < run[1] and run[0] < address + size:
+            raise BindingRefused('%s: pending data %08x+%d lies between its anchors' % (name, address, size))
+    address = base + symbols[position][0]
+    end = address + extents[name]
+    claims = {a for n, a in references.items() if n != name} | set(starts)
+    if any(address <= a < end for a in claims):
+        raise BindingRefused('%s: an independently known item starts inside %08x-%08x' % (name, address, end))
+    return address, dict(section=index, base=base, size=section['size'], run_anchors=(low_name, high_name),
+                         run=run)
 
 
 def declared(rows):
@@ -138,7 +222,7 @@ def enclosed(base, size, align, below_ends, above_starts, original):
     return max(lower), min(upper)
 
 
-def bind(coff, declared_bindings, references, original, below_ends, above_starts):
+def bind(coff, declared_bindings, references, original, below_ends, above_starts, pending_ranges=()):
     """{symbol: (address, kind, detail)} for the declared symbols, or BindingRefused.
 
     references: name -> original address (the population's table, RTTI layout included);
@@ -151,9 +235,18 @@ def bind(coff, declared_bindings, references, original, below_ends, above_starts
         if name in references:
             raise BindingRefused('%s: declared layout but already bound by a reference' % name)
         index = defining_section(coff, name)
-        base, symbols = layout_base(coff, index, references)
         section = coff.sections[index - 1]
-        low, high = enclosed(base, section['size'], alignment(section['flags']), below_ends, above_starts, original)
+        try:
+            base, symbols = layout_base(coff, index, references)
+            low, high = enclosed(base, section['size'], alignment(section['flags']), below_ends, above_starts, original)
+        except BindingRefused as whole:
+            try:
+                address, detail = run_anchored(coff, index, name, references, pending_ranges, set(layout),
+                                               above_starts)
+            except BindingRefused as local:
+                raise BindingRefused('%s (whole section: %s)' % (local, whole))
+            out[name] = (address, LAYOUT, detail)
+            continue
         value = next(v for v, n in symbols if n == name)
         out[name] = (base + value, LAYOUT, dict(section=index, base=base, size=section['size'],
                                                  lower_anchor=low, upper_anchor=high))

@@ -92,8 +92,8 @@ unsigned int Pick_Random_UInt(unsigned int minval, unsigned int maxval);
 MapGeneratorClass RandomMapGen;
 
 Random2Class RMGRandom;
-#define RMG_RANDOM_DOUBLE(max_value) ((unsigned int)RMGRandom() * (double)(max_value)) * (1.0 / UINT_MAX)
-#define RMG_RANDOM_DOUBLE2(max_value) ((unsigned int)RMGRandom() * (1.0 / UINT_MAX)) * (double)(max_value)
+#define RMG_RANDOM_DOUBLE(max_value) ((unsigned int)RMGRandom() * (double)(max_value)) * (1.0 / 4294967295.0)
+#define RMG_RANDOM_DOUBLE2(max_value) ((unsigned int)RMGRandom() * (1.0 / 4294967295.0)) * (double)(max_value)
 
 double Sample_Normal(double mean, double standard_dev);
 
@@ -1053,7 +1053,7 @@ bool MapRegionClass::Split_Region(void)
 	queue->Insert(nodes[0]);
 
 	CellNode * node = queue->Extract_Min();
-	double dist = (unsigned int)RMGRandom() * (DEG_TO_RAD(360) / UINT_MAX);
+	double dist = (unsigned int)RMGRandom() * (DEG_TO_RAD(360) / 4294967295.0);
 
 	while (node != NULL) {
 		if (spread_count >= (int)target_count) {
@@ -2872,7 +2872,7 @@ void MapRegionClass::Place_Start_Points(int first_waypoint) // RA2: not in TibSu
 
 	unsigned int extra; // RA2
 	do { // RA2
-		extra = (unsigned int)RMGRandom() * (3.0 / UINT_MAX); // RA2
+		extra = (unsigned int)RMGRandom() * (3.0 / 4294967295.0); // RA2
 	} while (extra > 2); // RA2
 	int wanted = StartCount * 15 + extra; // RA2
 
@@ -2981,7 +2981,7 @@ bool Generate_Starting_Points(void)
 
 	if (RandomMapGen.SeedData.MapType == 0) { // RA2: as above
 		for (i = 0; i < regions.Count(); i++) { // RA2: as above
-			if (regions[i]->StartCount == 0 && (unsigned int)RMGRandom() * (1.0 / UINT_MAX) < 0.5) { // RA2: as above
+			if (regions[i]->StartCount == 0 && (unsigned int)RMGRandom() * (1.0 / 4294967295.0) < 0.5) { // RA2: as above
 				regions[i]->Place_Neutral_Tech_Building(); // RA2: as above
 			} // RA2: as above
 		} // RA2: as above
@@ -5450,7 +5450,7 @@ void MapGeneratorClass::Seed_Land_Type0(void) // RA2: RA2's form of Seed_Land_Ty
 	double span = (double)range; // RA2: converted once before the loop
 	unsigned int selected; // RA2: as above
 	do {
-		selected = (unsigned int)(((unsigned int)RMGRandom() * span) * (1.0 / UINT_MAX) + 1.0); // RA2: as above
+		selected = (unsigned int)(((unsigned int)RMGRandom() * span) * (1.0 / 4294967295.0) + 1.0); // RA2: as above
 	} while (selected > range); // RA2: as above
 
 	Rect area = Map.LocalRect; // RA2: the rectangle is copied to a local first
@@ -5740,6 +5740,7 @@ bool MapGeneratorClass::Cell_In_Generation_Shape(Cell const & cell, Rect const &
 /// the region's shores are then built. If the shores cannot be built, the region is flooded again.
 /// </summary>
 /// <returns>The number of cells taken, or 0 when no seed was found or the region was flooded again.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0057d3a0 has no row)
 int MapGeneratorClass::Spread_Land(int count, Rect const & bounds, Point2D const & seed, bool shaped, Cell const & center, double wander, bool weighted)
 {
 	if (count <= 400) {
@@ -5899,6 +5900,7 @@ int MapGeneratorClass::Spread_Land(int count, Rect const & bounds, Point2D const
 	}
 	return(0);
 }
+#endif
 
 
 void MapGeneratorClass::Clear_Shore_Tiles(void) // RA2: not in TibSun, at 0x57DD10
@@ -7642,7 +7644,7 @@ void MapGeneratorClass::Fixup_Cliff_Corners(void) // RA2: not in TibSun, at 0x58
 			if (Map.Get_High_Ground_Mask(&south_east) == 0x83 && east.Is_Tile_Clear()) { // RA2
 				unsigned int choice; // RA2
 				do { // RA2
-					choice = (unsigned int)RMGRandom() * (2.0 / UINT_MAX); // RA2
+					choice = (unsigned int)RMGRandom() * (2.0 / 4294967295.0); // RA2
 				} while (choice > 1); // RA2
 				if (choice == 0) { // RA2
 					east.Height = east.Height - 4; // RA2
@@ -7653,7 +7655,7 @@ void MapGeneratorClass::Fixup_Cliff_Corners(void) // RA2: not in TibSun, at 0x58
 			if (Map.Get_High_Ground_Mask(&south_east) == 0x38 && west.Is_Tile_Clear()) { // RA2
 				unsigned int choice; // RA2
 				do { // RA2
-					choice = (unsigned int)RMGRandom() * (2.0 / UINT_MAX); // RA2
+					choice = (unsigned int)RMGRandom() * (2.0 / 4294967295.0); // RA2
 				} while (choice > 1); // RA2
 				if (choice == 0) { // RA2
 					west.Height = west.Height - 4; // RA2
@@ -8445,7 +8447,7 @@ void MapGeneratorClass::Generate_Arctic_Vegetation(void)
 		if (cptr->Is_Tile_Clear() && cptr->Ramp == RAMP_NONE && !data.Inviolate) {
 			Cell cell = cptr->Fetch_CellID(); // RA2: Generate_Arctic_Vegetation at 0x585A60 matches only so
 			int origin_id = cell.X + cell.Y * MAP_CELL_W;
-			if ((unsigned int)RMGRandom() * (1.0 / UINT_MAX) < data.RoughTileChance) { // RA2: as above
+			if ((unsigned int)RMGRandom() * (1.0 / 4294967295.0) < data.RoughTileChance) { // RA2: as above
 				double patch_size = Sample_Truncated_Normal_Inline(20, 15, 4, 60); // RA2: as above
 				Place_Tile_Patch(cptr, IsometricTileTypeClass::RoughTile, patch_size, origin_id, false); // RA2: as above
 			}
@@ -10159,7 +10161,7 @@ bool MapGeneratorClass::Find_Dirt_Road_Tile(FacingType facing, Cell const & targ
 		int tile_count = RoadTileCounts[facing][current_conn_count - 1];
 		int * tile_list = RoadTileLibrary[facing][current_conn_count - 1];
 		int start_index;
-		if (current_conn_count == 2 && (unsigned)RMGRandom()* (1.0 / 4294967296.0) < _offset_chance) { // RA2: a named constant of the function: the executable reads this 0.7 at 0x7A5D70, among the function statics, while Generate_Vegetation's literal 0.7 lies in the literal pool (0x7A6000)
+		if (current_conn_count == 2 && (unsigned)RMGRandom()* (1.0 / 4294967295.0) < _offset_chance) { // RA2: a named constant of the function: the executable reads this 0.7 at 0x7A5D70, among the function statics, while Generate_Vegetation's literal 0.7 lies in the literal pool (0x7A6000)
 			start_index = Pick_Random_UInt(7, tile_count - 1);
 		} else {
 			start_index = Pick_Random_UInt(0, tile_count - 1);

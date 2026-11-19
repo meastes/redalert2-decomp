@@ -9,10 +9,9 @@
 
 #pragma once
 
-#include "abuffer.h"
 #include "alphalighting.h"
 
-class AlphaLightingRemapInitClass;
+class AlphaLightingRemapInitClass; // RA2: abuffer.h is not included here (its rect.h would give _alpha a RECT_NONE initializer the original lacks)
 class ABuffer;
 
 extern AlphaLightingRemapInitClass AlphaLightingRemapInit;

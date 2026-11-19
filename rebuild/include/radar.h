@@ -101,7 +101,7 @@ class RadarClass: public DisplayClass
 
 	public:
 		RadarClass(void);
-		RadarClass(NoInitClass const & x) : BASECLASS(x) {};
+		RadarClass(NoInitClass const & x) : BASECLASS(x) {MovieSound.Init();}; // RA2: the movie sound is reset (inlined into SidebarClass(NoInitClass const &) 0x67B7B0)
 		virtual ~RadarClass(void) override;
 
 		/*

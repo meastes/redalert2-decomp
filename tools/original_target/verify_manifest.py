@@ -7,6 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import bisect
 import struct
 import time
 
@@ -642,9 +643,27 @@ class Audit:
         enclosed section layout or by bss elimination, added to the population's references
         for this object's data checks, which still compare every byte. Any failed condition
         refuses. Recorded in the audit result under data_bound_by."""
+        done = self.__dict__.setdefault('_data_bound_objects', set())
+        if (id(coff), id(candidates)) in done:
+            return      # bound once per object; a later row of a refused object sees the same bindings
+        done.add((id(coff), id(candidates)))
         declared = data_bindings.declared(candidates.values())
         defined = {s['name'] for s in coff.symbols.values() if s['section'] > 0}
         declared = {n: k for n, k in declared.items() if n in defined}
+        # Pending data ranges owned by parked functions (docs/DECISIONS.md, "Rebuild data no exact
+        # code refers to", B): never defined, closed when the owner lands; recorded, never credited.
+        pending = data_bindings.pending(candidates.values())
+        if pending:
+            references = self.merged_references(candidates)
+            extents = {}
+            for index, section in enumerate(coff.sections, 1):
+                symbols = data_bindings.section_symbols(coff, index)
+                for i, (value, name) in enumerate(symbols):
+                    extents[name] = (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - value
+            data_bindings.check_pending(pending, {c['entry'] for c in candidates.values()},
+                                        [(references[n], e) for n, e in extents.items() if n in references])
+            self.__dict__.setdefault('data_pending', {}).update(
+                {'%08x' % a: dict(bytes=s, owner='%08x' % o) for a, s, o in pending})
         if not declared:
             return
         references = self.merged_references(candidates)
@@ -663,7 +682,7 @@ class Audit:
 
         def original(va, count):
             return self.original(va, count)
-        bound = data_bindings.bind(coff, declared, table, original, ends, starts)
+        bound = data_bindings.bind(coff, declared, table, original, ends, starts, pending)
         for name, (address, kind, detail) in bound.items():
             references[name] = address
             self.__dict__.setdefault('data_bound_by', {})[name] = dict(address='%08x' % address, kind=kind,
@@ -750,11 +769,28 @@ class Audit:
         data = bytes(section['data'])
         relocs = sorted(section['relocs'])
         copies = {}
+        bound_addresses = sorted(set(references.values()))
         for position, (value, name) in enumerate(defined):
             end = defined[position + 1][0] if position + 1 < len(defined) else len(data)
             address = references.get(name)
             if address is None or end <= value:
                 return False
+            # Alignment fill (docs/DECISIONS.md, "Rebuild data no exact code refers to", A: only compiler
+            # alignment slack): when another reference-bound item starts in the image before this
+            # symbol's object extent ends (a 4-byte float the object pads to 8), the symbol is compared
+            # up to that item, and the bytes cut off must be zero fill of our object with no relocation;
+            # the item there is compared on its own.
+            following = bound_addresses[bisect.bisect_right(bound_addresses, address):][:1]
+            try:
+                whole = self.original(address, end - value)
+            except ValueError:
+                whole = None
+            unrelocated = not any(value <= o < end for o, _, _ in relocs)
+            if unrelocated and whole != data[value:end] and following and following[0] < address + (end - value):
+                cut = value + following[0] - address
+                if end - cut >= 8 or any(data[cut:end]):
+                    return False
+                end = cut
             target_section = self.pe.get_section_by_rva((address - self.base) & 0xffffffff)
             if target_section is None or target_section.Characteristics & 0x20000020 or \
                     not target_section.Characteristics & 0x40:
@@ -1200,7 +1236,9 @@ class Audit:
                     **({'data_original_copies': {n: '%08x' % a for n, a in sorted(self.data_original_copies.items())}}
                        if getattr(self, 'data_original_copies', None) else {}),
                     **({'data_bound_by': dict(sorted(self.data_bound_by.items()))}
-                       if getattr(self, 'data_bound_by', None) else {}))
+                       if getattr(self, 'data_bound_by', None) else {}),
+                    **({'data_pending': dict(sorted(self.data_pending.items()))}
+                       if getattr(self, 'data_pending', None) else {}))
 
 
 def main():

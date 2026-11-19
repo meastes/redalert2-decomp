@@ -38,6 +38,7 @@
 #include "rect.h"
 
 #include "layer.h"
+#include "object.h"
 
 #include "swizzle.h"
 

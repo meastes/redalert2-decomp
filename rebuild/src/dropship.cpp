@@ -21,6 +21,7 @@
 #include "_palette.h"
 #include "_surface.h"
 #include "_zbuffer.h"
+#include "bitfont.h"
 #include "bsurface.h"
 #include "ccfile.h"
 #include "ccrand.h"
@@ -46,6 +47,7 @@
 #include "shapebtn.h"
 #include "shapeset.h"
 #include "stimer.h"
+#include "stringtable.h"
 #include "swizzle.h"
 #include "techtype.h"
 #include "unittype.h"
@@ -55,6 +57,8 @@
 #include <climits>
 #include <cstring>
 
+void Draw_Cost(int cost, int maxcost, Surface & surface, Point2D const & drawpoint, wchar_t const * title, bool center, ConvertClass & drawer, Blitter const * blitter);
+void Draw_Unit_Info(Surface *surface, ConvertClass *drawer, TechnoTypeClass *techtype, bool allowed);
 
 
 /// <summary>
@@ -92,26 +96,18 @@ DropshipLoadoutClass::~DropshipLoadoutClass(void)
 bool DropshipLoadoutClass::Add(TechnoTypeClass * ttype)
 {
 	if (EntryCount < MAX_ENTRIES) {
-		int usage_index;
+		int usage_index = Get_Allowable_Index(ttype);
 
-		if (!Scen->AllowableUnits.Count()) {
-			usage_index = -1;
-		} else {
-			usage_index = Get_Allowable_Index(ttype);
+		/// Only if not found in allowed units, or if under the max count for that type
+		if (usage_index == -1 || Scen->AllowableUnitCounts[usage_index] < Scen->AllowableUnitMaximums[usage_index]) {
+			Entries[EntryCount++] = ttype;
+			TotalCost += ttype->Raw_Cost();
+
+			if (usage_index != -1) {
+				Scen->AllowableUnitCounts[usage_index]++;
+			}
+			return(true);
 		}
-
-		/// If not found in allowed units, or if over max count for that type, reject
-		if (usage_index != -1 && Scen->AllowableUnitCounts[usage_index] >= Scen->AllowableUnitMaximums[usage_index]) {
-			return(false);
-		}
-
-		Entries[EntryCount++] = ttype;
-		TotalCost += ttype->Raw_Cost();
-
-		if (usage_index != -1) {
-			Scen->AllowableUnitCounts[usage_index]++;
-		}
-		return(true);
 	}
 
 	return(false);
@@ -206,16 +202,68 @@ TechnoTypeClass * DropshipLoadoutClass::Fetch(int index)
 /// places no limit on this unit.</returns>
 int DropshipLoadoutClass::Get_Allowable_Index(TechnoTypeClass * ttype)
 {
-	if (Scen->AllowableUnits.Count()) {
-		for (int i = 0; i < Scen->AllowableUnits.Count(); ++i) {
-			if (Scen->AllowableUnits[i] == ttype && Scen->AllowableUnitMaximums[i] != -1) {
-				return(i);
-			}
+	TypeList<TechnoTypeClass *> & units = Scen->AllowableUnits;
+	if (!units.Count()) {
+		return(-1);
+	}
+	for (int i = 0; i < units.Count(); ++i) {
+		if (units[i] == ttype && Scen->AllowableUnitMaximums[i] != -1) {
+			return(i);
 		}
 	}
 	return(-1);
 }
 
+struct ButtonFadeEffect
+{
+	unsigned int StartTime;
+	int CandidateIndex;
+	float Alpha;
+	float Direction;
+	bool StopAtLow;
+
+	ButtonFadeEffect(unsigned int start_time, int candidate_index, float alpha, float direction, bool stop_at_low) :
+		StartTime(start_time),
+		CandidateIndex(candidate_index),
+		Alpha(alpha),
+		Direction(direction),
+		StopAtLow(stop_at_low)
+	{
+	}
+};
+
+/*
+ * One cameo slot dissolving from one piece of art to another. The "from" art is
+ * blitted over the slot as it is, then the "to" art is blitted on top of it through
+ * the alpha buffer, whose level ramps up to 255 over the life of the effect.
+ */
+struct CrossDissolveEffect
+{
+	Rect FromRect;
+	Rect ToRect;
+	Rect DestRect;
+	BSurface *FromSurface;
+	BSurface *ToSurface;
+	int Alpha;
+	unsigned int StartTime;
+	Blitter const *FromBlitter;
+	Blitter const *ToBlitter;
+	bool WasDrawn;
+
+	CrossDissolveEffect(Rect const &from_rect, Rect const &to_rect, Rect const &dest_rect, BSurface *from_surface, BSurface *to_surface, Blitter const *from_blitter, Blitter const *to_blitter) :
+		FromRect(from_rect),
+		ToRect(to_rect),
+		DestRect(dest_rect),
+		FromSurface(from_surface),
+		ToSurface(to_surface),
+		Alpha(0),
+		StartTime(::timeGetTime()),
+		FromBlitter(from_blitter),
+		ToBlitter(to_blitter),
+		WasDrawn(false)
+	{
+	}
+};
 
 
 /// <summary>
@@ -228,7 +276,8 @@ int DropshipLoadoutClass::Get_Allowable_Index(TechnoTypeClass * ttype)
 /// </summary>
 /// <remarks>The alpha and depth buffers are re-created around this screen, so anything
 /// held in them beforehand is lost.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: no independently accepted bound
+void Dropship_Screen(void); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: 4520 bytes differ (RA2 body; exact when VectorClass::operator[] takes an unsigned index)
 void Dropship_Screen(void)
 {
 	int i;
@@ -395,8 +444,7 @@ void Dropship_Screen(void)
 
 	int drop_height = drop_shape->Get_Height();
 	int drop_width = drop_shape->Get_Width();
-	int y = (HiddenSurface->Get_Height() - drop_height) / 2;
-	int x = (HiddenSurface->Get_Width() - drop_width) / 2;
+	Point2D screen_origin((HiddenSurface->Get_Width() - drop_width) / 2, (HiddenSurface->Get_Height() - drop_height) / 2);
 
 	PaletteClass palette_data;
 	memmove(&palette_data, (unsigned char *)MFCD::Retrieve("DROPSHIP.PAL"), sizeof(palette_data));
@@ -469,7 +517,7 @@ void Dropship_Screen(void)
 
 	int id = 1;
 	for (i = 0; i < _cameo_count; ++i) {
-		ShapeButtonClass *button = new ShapeButtonClass(id, i < candidates.Count() ? (ShapeSet const *)candidates[i]->Get_Cameo_Data() : no_cameo_shape, x + _cameo_x + (_cameo_width + _cameo_gap_x) * (i % 2), y + _cameo_y + (_cameo_height + _cameo_gap_y) * (i / 2), 0, 0, true);
+		ShapeButtonClass *button = new ShapeButtonClass(id, i < candidates.Count() ? (ShapeSet const *)candidates[i]->Get_Cameo_Data() : no_cameo_shape, screen_origin.X + _cameo_x + (_cameo_width + _cameo_gap_x) * (i % 2), screen_origin.Y + _cameo_y + (_cameo_height + _cameo_gap_y) * (i / 2), 0, 0, true);
 		button->ShapeDrawer = CameoDrawer;
 		buttons[i] = button;
 		if (i == 0) {
@@ -480,14 +528,14 @@ void Dropship_Screen(void)
 		++id;
 	}
 
-	ShapeButtonClass *up_button = new ShapeButtonClass(id, (ShapeSet *)MFCD::Retrieve("DROPUP.SHP"), x + _up_x, y + _up_y, 0, 0, false);
+	ShapeButtonClass *up_button = new ShapeButtonClass(id, (ShapeSet *)MFCD::Retrieve("DROPUP.SHP"), screen_origin.X + _up_x, screen_origin.Y + _up_y, 0, 0, false);
 	up_button->ShapeDrawer = drawer_dropship;
 	up_button->IsSticky = true;
 	buttons[_up_index] = up_button;
 	up_button->Add(*button_list);
 	++id;
 
-	ShapeButtonClass *down_button = new ShapeButtonClass(id, (ShapeSet *)MFCD::Retrieve("DROPDOWN.SHP"), x + _down_x, y + _down_y, 0, 0, false);
+	ShapeButtonClass *down_button = new ShapeButtonClass(id, (ShapeSet *)MFCD::Retrieve("DROPDOWN.SHP"), screen_origin.X + _down_x, screen_origin.Y + _down_y, 0, 0, false);
 	down_button->ShapeDrawer = drawer_dropship;
 	down_button->IsSticky = true;
 	buttons[_down_index] = down_button;
@@ -497,7 +545,7 @@ void Dropship_Screen(void)
 	for (i = 0; i < dropship_count; ++i) {
 		for (j = 0; j < SLOT_PER_DROPSHIP; ++j) {
 			int xpos = j * (_slot_width + _slot_gap_x);
-			ShapeButtonClass *button = new ShapeButtonClass(id, NULL, x + _slot_x + (xpos < 2 * (_slot_width + _slot_gap_x) ? xpos : xpos - 2 * (_slot_width + _slot_gap_x)), y + _loadout_slot_ys[dropship_count - 1][i][j], 0, 0, false);
+			ShapeButtonClass *button = new ShapeButtonClass(id, NULL, screen_origin.X + _slot_x + (xpos < 2 * (_slot_width + _slot_gap_x) ? xpos : xpos - 2 * (_slot_width + _slot_gap_x)), screen_origin.Y + _loadout_slot_ys[dropship_count - 1][i][j], 0, 0, false);
 			button->ShapeDrawer = CameoDrawer;
 			buttons[id - 1] = button;
 			button->Add(*button_list);
@@ -557,7 +605,7 @@ void Dropship_Screen(void)
 		if (full_redraw) {
 			full_redraw = false;
 			redraw = true;
-			Draw_Shape(*HiddenSurface, *drawer_dropship, drop_shape, 0, Point2D(0, 0), Rect(x, y, drop_shape->Get_Width(), drop_shape->Get_Height()), SHAPE_NORMAL);
+			Draw_Shape(*HiddenSurface, *drawer_dropship, drop_shape, 0, Point2D(0, 0), Rect(screen_origin.X, screen_origin.Y, drop_shape->Get_Width(), drop_shape->Get_Height()), SHAPE_NORMAL);
 
 			for (i = 0; i < button_count; ++i) {
 				int usage_index = -1;
@@ -566,9 +614,9 @@ void Dropship_Screen(void)
 				}
 
 				if (i >= _cameo_count || usage_index == -1 || Scen->AllowableUnitCounts[usage_index] < Scen->AllowableUnitMaximums[usage_index]) {
-					AlphaBuffer->Fill(127, Rect(x + buttons[i]->X, y + buttons[i]->Y, _cameo_width, _cameo_height));
+					AlphaBuffer->Fill(127, Rect(screen_origin.X + buttons[i]->X, screen_origin.Y + buttons[i]->Y, _cameo_width, _cameo_height));
 				} else {
-					AlphaBuffer->Fill(_fade_low, Rect(x + buttons[i]->X, y + buttons[i]->Y, _cameo_width, _cameo_height));
+					AlphaBuffer->Fill(_fade_low, Rect(screen_origin.X + buttons[i]->X, screen_origin.Y + buttons[i]->Y, _cameo_width, _cameo_height));
 				}
 				buttons[i]->Draw_Me(0);
 			}
@@ -576,9 +624,9 @@ void Dropship_Screen(void)
 
 		Call_Back();
 
-		KeyNumType input = button_list->Input();
+		int input = button_list->Input();
 		if (!recent_click && (input & KN_BUTTON) != 0) {
-			input = (KeyNumType)(input & ~KN_BUTTON);
+			input = input & ~KN_BUTTON;
 			last_input_time = ::timeGetTime();
 
 			if (input <= _cameo_count && selected_count < dropship_count * SLOT_PER_DROPSHIP) {
@@ -586,7 +634,7 @@ void Dropship_Screen(void)
 				if (candidate_index >= 0 && candidate_index < candidates.Count()) {
 					TechnoTypeClass *techtype = candidates[cameo_top + input - 1];
 
-					int usage_index = !Scen->AllowableUnits.Count() ? -1 : DropshipLoadoutClass::Get_Allowable_Index(techtype);
+					int usage_index = DropshipLoadoutClass::Get_Allowable_Index(techtype);
 					if (money - techtype->Raw_Cost() >= 0 && (usage_index == -1 || Scen->AllowableUnitCounts[usage_index] < Scen->AllowableUnitMaximums[usage_index])) {
 						buttons[_slot_index + selected_count]->Set_Shape((ShapeSet const *)techtype->Get_Cameo_Data(), 0, 0);
 
@@ -595,7 +643,7 @@ void Dropship_Screen(void)
 						BSurface *cameo_surface = new BSurface(cameo_shape->Get_Width(), cameo_shape->Get_Height(), 1, cameo_shape->Get_Data(0));
 
 						CrossDissolveEffect *dissolve_effect =
-							new CrossDissolveEffect(Rect(slot_button->X - x, slot_button->Y - y, slot_button->Width, slot_button->Height),
+							new CrossDissolveEffect(Rect(slot_button->X - screen_origin.X, slot_button->Y - screen_origin.Y, slot_button->Width, slot_button->Height),
 													Rect(0, 0, cameo_shape->Get_Width(), cameo_shape->Get_Height()),
 													Rect(slot_button->X, slot_button->Y, slot_button->Width, slot_button->Height),
 													background_surface,
@@ -718,7 +766,7 @@ void Dropship_Screen(void)
 
 					CrossDissolveEffect *dissolve_effect =
 						new CrossDissolveEffect(Rect(0, 0, last_shape->Get_Width(), last_shape->Get_Height()),
-												Rect(last_slot->X - x, last_slot->Y - y, last_slot->Width, last_slot->Height),
+												Rect(last_slot->X - screen_origin.X, last_slot->Y - screen_origin.Y, last_slot->Width, last_slot->Height),
 												Rect(last_slot->X, last_slot->Y, last_slot->Width, last_slot->Height),
 												last_surface,
 												background_surface,
@@ -748,15 +796,15 @@ void Dropship_Screen(void)
 				int frame = light_frame[i];
 				int next_frame = (timeGetTime() - light_start[i]) / _light_rate;
 				if (next_frame != frame || force_light_redraw) {
-					int light_y = y + _green_light_ys[i];
-					int light_x = x + _light_x;
+					int light_y = screen_origin.Y + _green_light_ys[i];
+					int light_x = screen_origin.X + _light_x;
 					ShapeSet *shape = green_shapes[i];
 					if (next_frame > shape->Get_Count()) {
 						Blit_Block(
 							*HiddenSurface,
 							*drawer_dropship,
 							*background_surface,
-							Rect(light_x - x, light_y - y, shape->Get_Width(), shape->Get_Height()),
+							Rect(light_x - screen_origin.X, light_y - screen_origin.Y, shape->Get_Width(), shape->Get_Height()),
 							Point2D(0, 0),
 							Rect(light_x, light_y, shape->Get_Width(), shape->Get_Height()),
 							NULL,
@@ -800,7 +848,7 @@ void Dropship_Screen(void)
 				effect->Alpha = falpha;
 				if (effect->CandidateIndex >= cameo_top && effect->CandidateIndex <= cameo_top + _cameo_count) {
 					int screen_index = effect->CandidateIndex - cameo_top;
-					AlphaBuffer->Fill(falpha, Rect(x + _cameo_x + (_cameo_width + _cameo_gap_x) * (screen_index % 2), y + _cameo_y + (_cameo_height + _cameo_gap_y) * (screen_index / 2), _cameo_width, _cameo_height));
+					AlphaBuffer->Fill(falpha, Rect(screen_origin.X + _cameo_x + (_cameo_width + _cameo_gap_x) * (screen_index % 2), screen_origin.Y + _cameo_y + (_cameo_height + _cameo_gap_y) * (screen_index / 2), _cameo_width, _cameo_height));
 					buttons[screen_index]->Draw_Me(1);
 					redraw = true;
 				}
@@ -826,9 +874,7 @@ void Dropship_Screen(void)
 						CrossDissolveEffect *earlier = cross_dissolves[j];
 						if (earlier->DestRect == effect->DestRect) {
 							draw_background = false;
-							if (overlap_drawn || earlier->WasDrawn) {
-								overlap_drawn = true;
-							}
+							overlap_drawn = overlap_drawn || earlier->WasDrawn;
 						}
 						--j;
 					}
@@ -871,7 +917,7 @@ void Dropship_Screen(void)
 		int next_loadout_frame = ((::timeGetTime() - screen_start_time) / _loadout_rate) % loadout_count;
 		if (next_loadout_frame != loadout_anim_frame) {
 			loadout_anim_frame = next_loadout_frame;
-			Draw_Shape(*HiddenSurface, *drawer_dropship, loadout_shape, loadout_anim_frame, Point2D(0, 0), Rect(Point2D(x, y) + Point2D(_loadout_x, _loadout_y), loadout_shape->Get_Width(), loadout_shape->Get_Height()), SHAPE_NORMAL);
+			Draw_Shape(*HiddenSurface, *drawer_dropship, loadout_shape, loadout_anim_frame, Point2D(0, 0), Rect(screen_origin + Point2D(_loadout_x, _loadout_y), loadout_shape->Get_Width(), loadout_shape->Get_Height()), SHAPE_NORMAL);
 			redraw = true;
 		}
 
@@ -890,7 +936,8 @@ void Dropship_Screen(void)
 				}
 
 				money_display += delta;
-				Draw_Cost(money_display, previous_display, *background_surface, Point2D(x + _money_x, y + _money_y), Fetch_String(TXT_CREDITS_COLON), false, *drawer_dropship, plain_blitter);
+				Point2D money_point = screen_origin + Point2D(_money_x, _money_y);
+				Draw_Cost(money_display, previous_display, *background_surface, money_point, StringTable::LoadString("TXT_CREDITS_COLON", 0, "D:\\Ra2\\Dropship.cpp", 873), false, *drawer_dropship, plain_blitter);
 				redraw = true;
 				money_display_time = now;
 			}
@@ -903,21 +950,21 @@ void Dropship_Screen(void)
 			if (next_pilot_frame != pilot_frame) {
 				if (next_pilot_frame < pilotlight_shape->Get_Count()) {
 					pilot_frame = next_pilot_frame;
-					Draw_Shape(*HiddenSurface, *drawer_dropship, pilotlight_shape, pilot_frame, Point2D(0, 0), Rect(x + _pilot_x, y + _pilot_y, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), SHAPE_NORMAL);
+					Draw_Shape(*HiddenSurface, *drawer_dropship, pilotlight_shape, pilot_frame, Point2D(0, 0), Rect(screen_origin.X + _pilot_x, screen_origin.Y + _pilot_y, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), SHAPE_NORMAL);
 					redraw = true;
 				} else {
 					pilot_frame = -1;
-					Blit_Block(*HiddenSurface, *drawer_dropship, *background_surface, Rect(_pilot_x, _pilot_y, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), Point2D(0, 0), Rect(x + _pilot_x, y + _pilot_y, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), NULL, plain_blitter);
+					Blit_Block(*HiddenSurface, *drawer_dropship, *background_surface, Rect(_pilot_x, _pilot_y, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), Point2D(0, 0), Rect(screen_origin.X + _pilot_x, screen_origin.Y + _pilot_y, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), NULL, plain_blitter);
 					pilot_timer = TIMER_SECOND;
 					redraw = true;
 				}
 			}
 		} else {
 			if (pilot_timer == 0) {
-				if (Scen->RandomNumber(0, INT_MAX - 1) / (double)(INT_MAX - 1) < _pilot_chance) {
+				if (Random_Pick(0, INT_MAX - 1) / (double)(INT_MAX - 1) < _pilot_chance) {
 					pilot_frame = 0;
 					pilot_start_time = ::timeGetTime();
-					Draw_Shape(*HiddenSurface, *drawer_dropship, pilotlight_shape, 0, Point2D(0, 0), Rect(x + _pilot_x, y + _pilot_y, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), SHAPE_NORMAL);
+					Draw_Shape(*HiddenSurface, *drawer_dropship, pilotlight_shape, 0, Point2D(0, 0), Rect(screen_origin.X + _pilot_x, screen_origin.Y + _pilot_y, pilotlight_shape->Get_Width(), pilotlight_shape->Get_Height()), SHAPE_NORMAL);
 					redraw = true;
 				}
 
@@ -930,13 +977,13 @@ void Dropship_Screen(void)
 		int previous_hover_slot;
 		TechnoTypeClass *hover_type = NULL;
 
-		int grid_x = x + _cameo_x;
-		int grid_y = y + _cameo_y;
+		int grid_x = screen_origin.X + _cameo_x;
+		int grid_y = screen_origin.Y + _cameo_y;
 		if (mouse_pos.X >= grid_x && mouse_pos.X < grid_x + 2 * (_cameo_width + _cameo_gap_x) && mouse_pos.Y >= grid_y && mouse_pos.Y < grid_y + 4 * (_cameo_height + _cameo_gap_y)) {
-			int col = (mouse_pos.X - x - _cameo_x) / (_cameo_width + _cameo_gap_x);
-			int row = (mouse_pos.Y - y - _cameo_y) / (_cameo_height + _cameo_gap_y);
-			int left = x + (_cameo_width + _cameo_gap_x) * col + _cameo_x;
-			int top = y + (_cameo_height + _cameo_gap_y) * row + _cameo_y;
+			int col = (mouse_pos.X - screen_origin.X - _cameo_x) / (_cameo_width + _cameo_gap_x);
+			int row = (mouse_pos.Y - screen_origin.Y - _cameo_y) / (_cameo_height + _cameo_gap_y);
+			int left = screen_origin.X + (_cameo_width + _cameo_gap_x) * col + _cameo_x;
+			int top = screen_origin.Y + (_cameo_height + _cameo_gap_y) * row + _cameo_y;
 			if (mouse_pos.X >= left
 				&& mouse_pos.X < left + _cameo_width
 				&& mouse_pos.Y >= top
@@ -979,7 +1026,7 @@ void Dropship_Screen(void)
 
 			if (hover_slot != -1) {
 				int color = hover_allowed ? DSurface::Build_Hicolor_Pixel(0, 255, 0) : DSurface::Build_Hicolor_Pixel(255, 0, 0);
-				HiddenSurface->Draw_Rect(Rect(x + _cameo_x + (_cameo_width + _cameo_gap_x) * (hover_slot % 2), y + _cameo_y + (_cameo_height + _cameo_gap_y) * (hover_slot / 2), _cameo_width, _cameo_height), color);
+				HiddenSurface->Draw_Rect(Rect(screen_origin.X + _cameo_x + (_cameo_width + _cameo_gap_x) * (hover_slot % 2), screen_origin.Y + _cameo_y + (_cameo_height + _cameo_gap_y) * (hover_slot / 2), _cameo_width, _cameo_height), color);
 			}
 
 			Update_Visible_Surface(true, HiddenSurface, NULL);
@@ -1020,7 +1067,6 @@ void Dropship_Screen(void)
 #endif
 
 
-
 /// <summary>
 /// Draws a money readout on the dropship screen.
 /// This routine restores the readout area from the clean background art before
@@ -1033,23 +1079,28 @@ void Dropship_Screen(void)
 /// <param name="surface">The clean background art to restore the readout area from.</param>
 /// <param name="title">The caption to print in front of the amount.</param>
 /// <param name="center">Should the readout be centered about the draw point?</param>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
-void Draw_Cost(int cost, int maxcost, Surface & surface, Point2D const & drawpoint, char const * title, bool center, ConvertClass & drawer, Blitter const * blitter)
+void Draw_Cost(int cost, int maxcost, Surface & surface, Point2D const & drawpoint, wchar_t const * title, bool center, ConvertClass & drawer, Blitter const * blitter)
 {
 	static const int _width = 110;
 	static const int _height = 15;
 
-	static char cost_text[16];
-	static char max_text[24];
+	static wchar_t cost_text[40];
+	static wchar_t max_text[40];
 
-	sprintf(cost_text, "%s%d", title, cost);
-	sprintf(max_text, "%s%d", title, maxcost);
+	TextPrintType type = TextPrintType(TPF_6PT_GRAD|TPF_FULLSHADOW);
+	if (center) {
+		type = TextPrintType(type|TPF_CENTER);
+	}
+	BitFont * font = Font_From_TPF(type);
+
+	swprintf(cost_text, L"%s%d", title, cost);
+	swprintf(max_text, L"%s%d", title, maxcost);
 
 	int x1, x2;
 
 	if (center) {
-		x1 = drawpoint.X - GradFont6Ptr->String_Pixel_Width(cost_text) / 2;
-		x2 = drawpoint.X - GradFont6Ptr->String_Pixel_Width(max_text) / 2;
+		x1 = drawpoint.X - font->String_Pixel_Width(cost_text, 0) / 2;
+		x2 = drawpoint.X - font->String_Pixel_Width(max_text, 0) / 2;
 	} else {
 		x1 = drawpoint.X;
 		x2 = drawpoint.X;
@@ -1061,14 +1112,8 @@ void Draw_Cost(int cost, int maxcost, Surface & surface, Point2D const & drawpoi
 	clip.Y -= (HiddenSurface->Get_Height() - surface.Get_Height()) / 2;
 	Blit_Block(*HiddenSurface, drawer, surface, clip, Point2D(0, 0), source, NULL, blitter);
 
-	TextPrintType type = TextPrintType(TPF_6PT_GRAD|TPF_FULLSHADOW);
-	if (center) {
-		type = TextPrintType(type|TPF_CENTER);
-	}
-
 	Fancy_Text_Print(cost_text, *HiddenSurface, HiddenSurface->Get_Rect(), drawpoint, Fetch_Scheme_By_Name("Yellow"), TBLACK, type);
 }
-#endif
 
 
 /// <summary>
@@ -1081,7 +1126,6 @@ void Draw_Cost(int cost, int maxcost, Surface & surface, Point2D const & drawpoi
 /// <param name="surface">The clean background art to restore the panel from.</param>
 /// <param name="techtype">The unit to describe, or NULL to just clear the panel.</param>
 /// <param name="allowed">May the player take this unit along?</param>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void Draw_Unit_Info(Surface *surface, ConvertClass *drawer, TechnoTypeClass *techtype, bool allowed)
 {
 	static const int _xpos = 450;
@@ -1096,26 +1140,26 @@ void Draw_Unit_Info(Surface *surface, ConvertClass *drawer, TechnoTypeClass *tec
 	Blit_Block(*HiddenSurface, *drawer, *surface, rect1, Point2D(0,0), Rect(_xpos, _ypos, _width, _height) + point, NULL, drawer->Blitter_From_Flags(SHAPE_NORMAL));
 
 	if (techtype != NULL) {
-		char name[40];
-		char cost[20];
-		char armament[40];
-		char armor[32];
+		wchar_t name[40];
+		wchar_t cost[20];
+		wchar_t armament[40];
+		wchar_t armor[30];
 
-		sprintf(name, "Name: %s", (char *)techtype->GivenName);
+		swprintf(name, L"Name: %s", (char *)techtype->GivenName);
 
 		if (allowed) {
-			sprintf(cost, "Cost: %d", techtype->Raw_Cost());
+			swprintf(cost, L"Cost: %d", techtype->Raw_Cost());
 		} else {
-			sprintf(cost, "Cost: N/A");
+			swprintf(cost, L"Cost: N/A");
 		}
 
 		if (techtype->Get_Weapon(0)->Weapon != NULL) {
-			sprintf(armament, "Armament: %s", (char *)techtype->Get_Weapon(0)->Weapon->GivenName);
+			swprintf(armament, L"Armament: %s", (char *)techtype->Get_Weapon(0)->Weapon->GivenName);
 		} else {
-			sprintf(armament, "Armament: NONE");
+			swprintf(armament, L"Armament: NONE");
 		}
 
-		sprintf(armor, "Armor: %s", ArmorName[techtype->Armor]);
+		swprintf(armor, L"Armor: %s", ArmorName[techtype->Armor]);
 
 		ColorScheme *scheme;
 		if (allowed) {
@@ -1131,4 +1175,3 @@ void Draw_Unit_Info(Surface *surface, ConvertClass *drawer, TechnoTypeClass *tec
 	}
 
 }
-#endif

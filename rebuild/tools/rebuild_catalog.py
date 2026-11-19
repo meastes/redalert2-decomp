@@ -129,7 +129,9 @@ def write():
         # Data the object defines (.bss, .data) must bind by name or by the data binder. A symbol the
         # unit declares unplaced-unreferenced (owner decision per use; DECISIONS, user 2026-11-18) has no
         # address: the audit checks its conditions (data_bindings.unplaced).
-        unplaced = {n for n, k in (info.get('data_bound_by') or {}).items() if k == 'unplaced-unreferenced'}
+        # A symbol declared layout (DECISIONS, "Rebuild data no exact code refers to", A) is bound by the
+        # audit from its position (data_bindings.bind, run-anchored where a parked function's data is missing).
+        unplaced = {n for n, k in (info.get('data_bound_by') or {}).items() if k in ('unplaced-unreferenced', 'layout')}
         for i, s in enumerate(coff.sections, 1):
             if s['flags'] & 0xc0 and not s['flags'] & 0x1020 and not s['name'].startswith(('.CRT', '.debug', '.drectve')):
                 loose += [n['name'] for n in coff.symbols.values() if n['section'] == i and n['storage'] in (2, 3)
@@ -204,7 +206,7 @@ def write():
                 full = audit.original(main['entry'], main['body_bytes'] + row['gap_padding'])
                 region.update(padding_bytes=len(pad), full_extent_bytes=len(full), padding_sha256=sha(pad),
                               full_extent_sha256=sha(full))
-            region.update({k: info[k] for k in ('data_bound_by', 'data_bound_by_note', 'data_bound_by_rows') if info.get(k)})
+            region.update({k: info[k] for k in ('data_bound_by', 'data_bound_by_note', 'data_bound_by_rows', 'data_pending') if info.get(k)})
             region.update(symbol=result['symbol'], symbol_prefix=result['symbol'], options=info['options'],
                           relocations=result['relocations'], source_sha256=last['source_sha256'],
                           source=info['source'], population=pid, source_order=main['entry'],

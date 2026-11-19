@@ -141,7 +141,6 @@ Map::~Map(void) // RA2: Destroys the map: the click map, both drawers and the pa
 /// <param name="ini">The tour's map INI.</param>
 /// <param name="engine">The presentation engine the anims are added to.</param>
 /// <param name="differs">Passed on by the selection screen (whether the campaign progress differs); not used here.</param>
-#ifdef RA2_NON_MATCHING // not exact: 174 bytes differ (adopted text)
 void Map::Load(INIClass & ini, MSEngine * engine, int differs) // RA2: reads the map's layout and animation set from WDTMap.ini
 {
 	Wstring map_section; // RA2: as above
@@ -246,13 +245,12 @@ void Map::Load(INIClass & ini, MSEngine * engine, int differs) // RA2: reads the
 		}
 	}
 	for (int owner_index = 0; owner_index < Territories.Count(); ++owner_index) { // RA2: as above
-		Territories[owner_index].Get()->Create_Owner_Anim(engine, OverlayDrawer, Origin); // RA2: as above
+		Territories[owner_index]->Create_Owner_Anim(engine, OverlayDrawer, Origin); // RA2: as above
 	}
 	for (int highlight_index = 0; highlight_index < Territories.Count(); ++highlight_index) { // RA2: as above
-		Territories[highlight_index].Get()->Create_Highlight_Anim(engine, OverlayDrawer, Origin); // RA2: as above
+		Territories[highlight_index]->Create_Highlight_Anim(engine, OverlayDrawer, Origin); // RA2: as above
 	}
 }
-#endif
 
 
 /// <summary>

@@ -90,6 +90,7 @@
 #include "display.h"
 
 #include "_alpha.h"
+#include "abuffer.h"
 #include "_astar.h"
 #include "_convert.h"
 #include "_keyboar.h"

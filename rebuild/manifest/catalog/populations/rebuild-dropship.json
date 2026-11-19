@@ -41,6 +41,30 @@
     "?Remove@DropshipLoadoutClass@@QAE_NH@Z": 4876816,
     "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z": 4815440,
+    "??_C@_19MEGK@?$AA?$CF?$AAs?$AA?$CF?$AAd?$AA?$AA@": 8217068,
+    "_?cost_text@?1??Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z@4PAGA": 8727144,
+    "_swprintf": 7878500,
+    "_?max_text@?1??Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z@4PAGA": 8727224,
+    "?String_Pixel_Width@BitFont@@QAEHPBGH@Z": 4396688,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
+    "?Blit_Block@@YIXAAVSurface@@AAVConvertClass@@ABV1@ABV?$TRect@H@@ABVPoint2D@@3PBEPBVBlitter@@HW4ZGradientType@@HH@Z": 4846496,
+    "??_C@_06NJCI@Yellow?$AA@": 8217060,
+    "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z": 6700336,
+    "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ": 4815680,
+    "??H?$TPoint2D@H@@QBE?BV0@ABV0@@Z": 4412736,
+    "??0?$TRect@H@@QAE@ABV?$TPoint2D@H@@HH@Z": 4537920,
+    "?Blitter_From_Flags@ConvertClass@@QBEPBVBlitter@@W4ShapeFlags_Type@@@Z": 4741792,
+    "??_C@_1BC@OJBI@?$AAN?$AAa?$AAm?$AAe?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@": 8217212,
+    "??_C@_1BC@FBNG@?$AAC?$AAo?$AAs?$AAt?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@": 8217192,
+    "??_C@_1BE@GHKL@?$AAC?$AAo?$AAs?$AAt?$AA?3?$AA?5?$AAN?$AA?1?$AAA?$AA?$AA@": 8217172,
+    "?Get_Weapon@TechnoTypeClass@@QBEPBUWeaponDataStruct@@H@Z": 7206336,
+    "??_C@_1BK@LFMD@?$AAA?$AAr?$AAm?$AAa?$AAm?$AAe?$AAn?$AAt?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@": 8217144,
+    "??_C@_1BO@NGNE@?$AAA?$AAr?$AAm?$AAa?$AAm?$AAe?$AAn?$AAt?$AA?3?$AA?5?$AAN?$AAO?$AAN?$AAE?$AA?$AA@": 8217112,
+    "?ArmorName@@3QBQBDB": 7986728,
+    "??_C@_1BE@KFNG@?$AAA?$AAr?$AAm?$AAo?$AAr?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@": 8217092,
+    "??_C@_05DKMC@Green?$AA@": 8217084,
+    "??_C@_03GOGG@Red?$AA@": 8217080,
     "_$E2": 4876064,
     "_$E5": 4876112,
     "_$E8": 4876144,
@@ -63,6 +87,8 @@
     "?Swizzle@DropshipLoadoutClass@@QAEXXZ": 4877072,
     "?Fetch@DropshipLoadoutClass@@QAEPAVTechnoTypeClass@@H@Z": 4877120,
     "?Get_Allowable_Index@DropshipLoadoutClass@@CIHPAVTechnoTypeClass@@@Z": 4877136,
+    "?Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z": 4888000,
+    "?Draw_Unit_Info@@YIXPAVSurface@@PAVConvertClass@@PAVTechnoTypeClass@@_N@Z": 4888496,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7type_info@@6B@": 8066532,
@@ -139,7 +165,7 @@
           "resolved": 8727200
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876064,
@@ -191,7 +217,7 @@
           "resolved": 8727304
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876112,
@@ -243,7 +269,7 @@
           "resolved": 8727288
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876144,
@@ -295,7 +321,7 @@
           "resolved": 8727280
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876176,
@@ -347,7 +373,7 @@
           "resolved": 8727208
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876208,
@@ -399,7 +425,7 @@
           "resolved": 8727136
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876240,
@@ -483,7 +509,7 @@
           "resolved": 8727312
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876272,
@@ -543,7 +569,7 @@
           "resolved": 8727216
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876336,
@@ -603,7 +629,7 @@
           "resolved": 8727272
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876384,
@@ -663,7 +689,7 @@
           "resolved": 8727296
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876432,
@@ -707,7 +733,7 @@
           "resolved": 8727194
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876480,
@@ -759,7 +785,7 @@
           "resolved": 8727264
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876496,
@@ -819,7 +845,7 @@
           "resolved": 8727188
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876528,
@@ -855,7 +881,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876560,
@@ -882,7 +908,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876592,
@@ -927,7 +953,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876608,
@@ -963,7 +989,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876816,
@@ -999,7 +1025,7 @@
           "resolved": 4294967063
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4877024,
@@ -1043,7 +1069,7 @@
           "resolved": 2068468
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4877072,
@@ -1070,7 +1096,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4877120,
@@ -1106,10 +1132,530 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "6520e60bd772c9ad83eeb6a053446b3096f122059826d27b7b0460b437e03cf7",
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4877136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4888000,
+      "method": "004a95c0",
+      "body_bytes": 482,
+      "body_sha256": "7a2577b6167625aa0134deab26f417c0d6ebac9347936803bf8f2ca4ad9e69de",
+      "padding_bytes": 14,
+      "full_extent_bytes": 496,
+      "full_extent_sha256": "18e7d1619ad014ff6be11e3dc63c7a9222ecb1ed40c089921dcde8128ac80776",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z",
+      "symbol_prefix": "?Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z",
+          "target": 4815440,
+          "addend": 0,
+          "resolved": 4294894694
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "??_C@_19MEGK@?$AA?$CF?$AAs?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8217068,
+          "addend": 0,
+          "resolved": 8217068
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "_?cost_text@?1??Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z@4PAGA",
+          "target": 8727144,
+          "addend": 0,
+          "resolved": 8727144
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 2990435
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "??_C@_19MEGK@?$AA?$CF?$AAs?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8217068,
+          "addend": 0,
+          "resolved": 8217068
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "_?max_text@?1??Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z@4PAGA",
+          "target": 8727224,
+          "addend": 0,
+          "resolved": 8727224
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 2990418
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "_?cost_text@?1??Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z@4PAGA",
+          "target": 8727144,
+          "addend": 0,
+          "resolved": 8727144
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+          "target": 4396688,
+          "addend": 0,
+          "resolved": 4294475881
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "_?max_text@?1??Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z@4PAGA",
+          "target": 8727224,
+          "addend": 0,
+          "resolved": 8727224
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+          "target": 4396688,
+          "addend": 0,
+          "resolved": 4294475854
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 315,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 385,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 399,
+          "kind": 20,
+          "symbol": "?Blit_Block@@YIXAAVSurface@@AAVConvertClass@@ABV1@ABV?$TRect@H@@ABVPoint2D@@3PBEPBVBlitter@@HW4ZGradientType@@HH@Z",
+          "target": 4846496,
+          "addend": 0,
+          "resolved": 4294925389
+        },
+        {
+          "offset": 404,
+          "kind": 6,
+          "symbol": "??_C@_06NJCI@Yellow?$AA@",
+          "target": 8217060,
+          "addend": 0,
+          "resolved": 8217060
+        },
+        {
+          "offset": 420,
+          "kind": 20,
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
+          "target": 6700336,
+          "addend": 0,
+          "resolved": 1811912
+        },
+        {
+          "offset": 426,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 448,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 459,
+          "kind": 6,
+          "symbol": "_?cost_text@?1??Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z@4PAGA",
+          "target": 8727144,
+          "addend": 0,
+          "resolved": 8727144
+        },
+        {
+          "offset": 465,
+          "kind": 20,
+          "symbol": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ",
+          "target": 4815680,
+          "addend": 0,
+          "resolved": 4294894507
+        }
+      ],
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4888000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4888496,
+      "method": "004a97b0",
+      "body_bytes": 827,
+      "body_sha256": "e08bac4c507494aace81f6961f18a170299c815ac00a6d315875cb570ed4cefe",
+      "padding_bytes": 5,
+      "full_extent_bytes": 832,
+      "full_extent_sha256": "46482bb63985d8d47ea57ab75a3e92f1f7d5c2a938bb82ba655b9a744ee521c9",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Unit_Info@@YIXPAVSurface@@PAVConvertClass@@PAVTechnoTypeClass@@_N@Z",
+      "symbol_prefix": "?Draw_Unit_Info@@YIXPAVSurface@@PAVConvertClass@@PAVTechnoTypeClass@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "??H?$TPoint2D@H@@QBE?BV0@ABV0@@Z",
+          "target": 4412736,
+          "addend": 0,
+          "resolved": 4294491372
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@ABV?$TPoint2D@H@@HH@Z",
+          "target": 4537920,
+          "addend": 0,
+          "resolved": 4294616546
+        },
+        {
+          "offset": 223,
+          "kind": 20,
+          "symbol": "?Blitter_From_Flags@ConvertClass@@QBEPBVBlitter@@W4ShapeFlags_Type@@@Z",
+          "target": 4741792,
+          "addend": 0,
+          "resolved": 4294820365
+        },
+        {
+          "offset": 247,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 254,
+          "kind": 20,
+          "symbol": "?Blit_Block@@YIXAAVSurface@@AAVConvertClass@@ABV1@ABV?$TRect@H@@ABVPoint2D@@3PBEPBVBlitter@@HW4ZGradientType@@HH@Z",
+          "target": 4846496,
+          "addend": 0,
+          "resolved": 4294925038
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "??_C@_1BC@OJBI@?$AAN?$AAa?$AAm?$AAe?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
+          "target": 8217212,
+          "addend": 0,
+          "resolved": 8217212
+        },
+        {
+          "offset": 291,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 2989709
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "??_C@_1BC@FBNG@?$AAC?$AAo?$AAs?$AAt?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8217192,
+          "addend": 0,
+          "resolved": 8217192
+        },
+        {
+          "offset": 331,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 2989669
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "??_C@_1BE@GHKL@?$AAC?$AAo?$AAs?$AAt?$AA?3?$AA?5?$AAN?$AA?1?$AAA?$AA?$AA@",
+          "target": 8217172,
+          "addend": 0,
+          "resolved": 8217172
+        },
+        {
+          "offset": 351,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 2989649
+        },
+        {
+          "offset": 362,
+          "kind": 20,
+          "symbol": "?Get_Weapon@TechnoTypeClass@@QBEPBUWeaponDataStruct@@H@Z",
+          "target": 7206336,
+          "addend": 0,
+          "resolved": 2317474
+        },
+        {
+          "offset": 374,
+          "kind": 20,
+          "symbol": "?Get_Weapon@TechnoTypeClass@@QBEPBUWeaponDataStruct@@H@Z",
+          "target": 7206336,
+          "addend": 0,
+          "resolved": 2317462
+        },
+        {
+          "offset": 392,
+          "kind": 6,
+          "symbol": "??_C@_1BK@LFMD@?$AAA?$AAr?$AAm?$AAa?$AAm?$AAe?$AAn?$AAt?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
+          "target": 8217144,
+          "addend": 0,
+          "resolved": 8217144
+        },
+        {
+          "offset": 398,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 2989602
+        },
+        {
+          "offset": 415,
+          "kind": 6,
+          "symbol": "??_C@_1BO@NGNE@?$AAA?$AAr?$AAm?$AAa?$AAm?$AAe?$AAn?$AAt?$AA?3?$AA?5?$AAN?$AAO?$AAN?$AAE?$AA?$AA@",
+          "target": 8217112,
+          "addend": 0,
+          "resolved": 8217112
+        },
+        {
+          "offset": 421,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 2989579
+        },
+        {
+          "offset": 444,
+          "kind": 6,
+          "symbol": "?ArmorName@@3QBQBDB",
+          "target": 7986728,
+          "addend": 0,
+          "resolved": 7986728
+        },
+        {
+          "offset": 450,
+          "kind": 6,
+          "symbol": "??_C@_1BE@KFNG@?$AAA?$AAr?$AAm?$AAo?$AAr?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@",
+          "target": 8217092,
+          "addend": 0,
+          "resolved": 8217092
+        },
+        {
+          "offset": 456,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 2989544
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "??_C@_05DKMC@Green?$AA@",
+          "target": 8217084,
+          "addend": 0,
+          "resolved": 8217084
+        },
+        {
+          "offset": 485,
+          "kind": 6,
+          "symbol": "??_C@_03GOGG@Red?$AA@",
+          "target": 8217080,
+          "addend": 0,
+          "resolved": 8217080
+        },
+        {
+          "offset": 490,
+          "kind": 20,
+          "symbol": "?Fetch_Scheme_By_Name@@YIPAVColorScheme@@PBDH@Z",
+          "target": 6700336,
+          "addend": 0,
+          "resolved": 1811346
+        },
+        {
+          "offset": 524,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 562,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 570,
+          "kind": 20,
+          "symbol": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ",
+          "target": 4815680,
+          "addend": 0,
+          "resolved": 4294893906
+        },
+        {
+          "offset": 597,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 642,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 650,
+          "kind": 20,
+          "symbol": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ",
+          "target": 4815680,
+          "addend": 0,
+          "resolved": 4294893826
+        },
+        {
+          "offset": 677,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 722,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 730,
+          "kind": 20,
+          "symbol": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ",
+          "target": 4815680,
+          "addend": 0,
+          "resolved": 4294893746
+        },
+        {
+          "offset": 764,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 799,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 807,
+          "kind": 20,
+          "symbol": "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ",
+          "target": 4815680,
+          "addend": 0,
+          "resolved": 4294893669
+        }
+      ],
+      "source_sha256": "2729cee6fc0606df93a4a312a286f251294e8622153d1c481c52cc0f9f047d7c",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4888496,
       "source_quality_family": "rebuild"
     }
   ]

@@ -152,6 +152,23 @@ def judgment_calls(regions):
     return len(flagged), sum(int(r['body_bytes']) for r in flagged)
 
 
+def layout_and_pending(regions):
+    """(layout symbols, pending ranges, pending bytes) of the catalogued units (DECISIONS, "Rebuild data no
+    exact code refers to", review 2026-11-19): data placed by its layout position (data_bound_by: layout, the
+    declaration a hypothesis in the flag note) and data ranges owned by parked functions (data_pending: the
+    original's bytes, never defined, no credit)."""
+    sources = {r['source'] for r in regions}
+    layout = ranges = size = 0
+    for info in R.load_json(R.UNITS, {}).values():
+        if info['source'] not in sources:
+            continue
+        layout += sum(k == 'layout' for k in (info.get('data_bound_by') or {}).values())
+        for item in info.get('data_pending') or []:
+            ranges += 1
+            size += item['size']
+    return layout, ranges, size
+
+
 def unplaced_objects(regions):
     """(symbols, bytes) of the zero-initialised objects catalogued units leave unplaced and unreferenced
     (data_bound_by: unplaced-unreferenced; DECISIONS, user 2026-11-18): no address, nothing earned. Bytes are
@@ -234,6 +251,7 @@ def main(quiet=False):
     measures.update(placeholder_measures(tree, read))
     measures['judgment_rows'], measures['judgment_bytes'] = judgment_calls(cat['regions'])
     measures['unplaced_symbols'], measures['unplaced_bytes'] = unplaced_objects(cat['regions'])
+    measures['layout_symbols'], measures['pending_ranges'], measures['pending_bytes'] = layout_and_pending(cat['regions'])
     measures['count_sensitive_rows'], measures['count_sensitive_bytes'] = count_sensitive()
     if quiet:
         return measures
@@ -265,6 +283,9 @@ def main(quiet=False):
         measures['count_sensitive_rows'], measures['count_sensitive_bytes']))
     print('Unplaced unreferenced objects (data_bound_by: unplaced-unreferenced; earn nothing): %d symbols, %d bytes' % (
         measures['unplaced_symbols'], measures['unplaced_bytes']))
+    print('Data placed by layout (data_bound_by: layout; declarations a hypothesis): %d symbols; pending data owned by '
+          'parked functions: %d ranges, %d bytes' % (measures['layout_symbols'], measures['pending_ranges'],
+                                                      measures['pending_bytes']))
     print('Gate (inherited, to be evidenced): #define GEOMETRY_H in sources %d; #pragma auto_inline(off) %d; '
           'extern "C" in sources %d' % (measures['inherited_geometry_define'], measures['inherited_auto_inline_off'],
                                          measures['extern_c_in_sources']))

@@ -42,13 +42,14 @@
     "_atexit": 7874954,
     "??_7?$VectorClass@PAVTActionClass@@@@6B@": 8046096,
     "??3@YAXPAX@Z": 7871803,
+    "??0AbstractClass@@QAE@XZ": 4259600,
     "??_7TActionClass@@6BIPersistStream@@@": 8046172,
     "??_7TActionClass@@6BIRTTITypeInfo@@@": 8046144,
     "??_7TActionClass@@6BINoticeSink@@@": 8046136,
     "??_7TActionClass@@6BINoticeSource@@@": 8046128,
-    "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z": 7261072,
     "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275440,
     "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A": 11275416,
+    "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z": 7261072,
     "??1AbstractClass@@UAE@XZ": 4259728,
     "?Action_Needs@@YI?AW4NeedType@@W4TActionType@@@Z": 7023280,
     "??_C@_02HNAB@?91?$AA@": 8350668,
@@ -80,6 +81,11 @@
     "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z": 6697344,
     "?Lightning_Bolt@IonStormClass@@SIXVCell@@@Z": 5373072,
     "?ParticleSystems@@3V?$DynamicVectorClass@PAVParticleSystemClass@@@@A": 10691200,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "??2@YAPAXI@Z": 7872535,
+    "?ParticleSystemTypes@@3V?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@A": 10706384,
+    "??0ParticleSystemClass@@QAE@PBVParticleSystemTypeClass@@ABVCoord@@PAVAbstractClass@@21@Z": 6335088,
     "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": 10751008,
     "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z": 7028176,
     "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A": 8806200,
@@ -87,8 +93,15 @@
     "?Flag_To_Win@HouseClass@@QAE_N_N@Z": 5144288,
     "?Flag_To_Lose@HouseClass@@QAE_N_N@Z": 5144784,
     "?Flag_To_End@HouseClass@@QAEXXZ": 5145280,
-    "?Rule@@3PAVRulesClass@@A": 8624200,
     "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z": 6697408,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z": 4711104,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "?Is_Valid_Waypoint@ScenarioClass@@QBE_NH@Z": 6697536,
+    "?Damage_Bridge@MapClass@@QAE_NABVCell@@@Z": 5673104,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
+    "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z": 6959136,
     "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z": 4716032,
     "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A": 10750712,
     "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A": 10706504,
@@ -104,7 +117,6 @@
     "?Make_Ally@HouseClass@@QAEXPAV1@_N@Z": 5133920,
     "?Make_Enemy@HouseClass@@QAEXPAV1@_N@Z": 5134960,
     "?Begin_Construction@HouseClass@@QAEXXZ": 5200864,
-    "?Map@@3VMouseClass@@A": 8594656,
     "?Encroach_Shadow@DisplayClass@@QAEXXZ": 4836384,
     "?Set_Global_To@ScenarioClass@@QAE_NH_N@Z": 6689472,
     "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
@@ -124,9 +136,12 @@
     "?Play_Movie@@YIXW4VQType@@W4ThemeType@@_N22@Z": 5900272,
     "?Play_Ingame_Movie@@YIXW4VQType@@_N@Z": 5900576,
     "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
-    "?Is_Valid_Waypoint@ScenarioClass@@QBE_NH@Z": 6697536,
     "??RRandom2Class@@QAEHHH@Z": 6523040,
     "?PlayIndexAtPos@VocClass@@SIPAXHABVCoord@@H@Z": 7422608,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Cell_Terrain@CellClass@@QBEPAVTerrainClass@@_N@Z": 4659168,
+    "?Set_Ambient_Sound@ObjectClass@@QAEXH@Z": 6116640,
+    "?Stop_At@VocClass@@SIXABVCoord@@H@Z": 7422896,
     "?Shroud_Gap_Area@MapClass@@QAEXABVCoord@@H@Z": 5547808,
     "?Refresh_Shroud@MapClass@@QAEXXZ": 5612288,
     "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z": 7241248,
@@ -135,6 +150,7 @@
     "?Add@SidebarClass@@QAE_NW4RTTIType@@H@Z": 6800688,
     "?Which_Tab@SidebarClass@@SIHW4RTTIType@@H_N@Z": 6822096,
     "?Flag_Tab_To_Redraw@SidebarClass@@QAEXH@Z": 6800080,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
     "?ScenarioInit@@3HA": 10749812,
     "?Create_One_Of@TeamTypeClass@@QBEPAVTeamClass@@PAVHouseClass@@@Z": 7072896,
     "?Destroy_All_Of@TeamTypeClass@@QBEXXZ": 7073040,
@@ -146,11 +162,20 @@
     "?Complete_Radar_Refresh@RadarClass@@QAEXXZ": 6504496,
     "??_C@_0BJ@MALN@EVA_NewTerrainDiscovered?$AA@": 8350692,
     "?Queue_Speech@@YIXPBDHH@Z": 7428928,
+    "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A": 8806880,
+    "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A": 8625040,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Combat_Anim@@YIPBVAnimTypeClass@@HPBVWarheadTypeClass@@W4LandType@@ABVCoord@@@Z": 4715728,
+    "?Get_Explosion_Z@@YIHVCoord@@@Z": 4717760,
+    "?VoxelAnimTypes@@3V?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@A": 10750688,
+    "??0VoxelAnimClass@@QAE@PBVVoxelAnimTypeClass@@ABVCoord@@PAVHouseClass@@@Z": 7391232,
     "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ": 5373008,
+    "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z": 5372208,
     "?Ion_Storm_End@IonStormClass@@SIXXZ": 5372848,
     "?Lock_Scenario_Input@@YIXXZ": 6669264,
     "?Unlock_Scenario_Input@@YIXXZ": 6669344,
-    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Setup_Trigger_Scroll@Tactical@@QAEXABVCoord@@H@Z": 6958256,
+    "?Set_Tactical_Position@Tactical@@QAEXABVCoord@@@Z": 6973104,
     "?Keyboard@@3PAUKeyboardClass@@A": 8594536,
     "?IgnoreInput@@3_NA": 10751300,
     "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
@@ -162,20 +187,28 @@
     "?Set_Behavior_Type@BuildingLightClass@@QAEXW4LightBehaviorType@@@Z": 4408176,
     "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A": 10750624,
     "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
+    "?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z": 7264304,
     "?Enable@TriggerClass@@QAEXXZ": 7265120,
     "?Disable@TriggerClass@@QAEXXZ": 7265136,
     "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
     "?Set_Local_To@ScenarioClass@@QAE_NH_N@Z": 6690144,
     "?Cheer@HouseClass@@QAEXXZ": 5202608,
-    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
-    "??2@YAPAXI@Z": 7872535,
     "??0IonBlastClass@@QAE@VCoord@@@Z": 5378672,
-    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "??_C@_0M@BCEA@NukePayload?$AA@": 8196672,
+    "?From_Name@WeaponTypeClass@@SI?AW4WeaponType@@PBD@Z": 7552816,
+    "?Create_Bullet@BulletTypeClass@@QBIPAVBulletClass@@PAVAbstractClass@@PAVTechnoClass@@HPBVWarheadTypeClass@@H_N@Z": 4602256,
+    "?Set_Weapon_Type@BulletClass@@QAEXPAVWeaponTypeClass@@@Z": 4602784,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "?cos@fastmath@@YANN@Z": 4957392,
+    "__real@8@c005c800000000000000": 8019912,
     "?RadiusCount@MapClass@@2QBHB": 8018184,
     "?RadiusOffset@MapClass@@2QBVCell@@B": 10941000,
     "?TechnoTypes@@3V?$DynamicVectorClass@PAVTechnoTypeClass@@@@A": 10750648,
     "?Do_Chrono_Reinforcements@@YI_NPBVTeamTypeClass@@H@Z": 6531200,
     "?Place_Crate@MapClass@@QAE_NVCell@@W4CrateType@@@Z": 5563776,
+    "?Closest_Edge_Cell@MapClass@@QAE?AVCell@@ABV2@_N@Z": 5671376,
+    "??_C@_0N@JEKJ@ChemLauncher?$AA@": 8350744,
+    "__real@8@4005c800000000000000": 7976944,
     "_CLSID_ActionClass": 8002928,
     "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
     "??0AbstractClass@@QAE@ABVNoInitClass@@@Z": 4259680,
@@ -211,7 +244,7 @@
     "??_G?$DynamicVectorClass@PAVTActionClass@@@@UAEPAXI@Z": 7026096,
     "??_7type_info@@6B@": 8066532,
     "??_G?$VectorClass@PAVTActionClass@@@@UAEPAXI@Z": 7026016,
-    "??1TActionClass@@UAE@XZ": 7001328,
+    "??0TActionClass@@QAE@XZ": 7000944,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
     "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
@@ -244,32 +277,20 @@
     "?Fetch_Object_Size@TActionClass@@UBEHXZ": 7024800,
     "?Fetch_RTTI@TActionClass@@UBE?AW4RTTIType@@XZ": 7024816,
     "?Fetch_Heap_ID@TActionClass@@UBEHXZ": 7024832,
+    "??1TActionClass@@UAE@XZ": 7001328,
     "?Detach@TActionClass@@UAEXPBVAbstractClass@@_N@Z": 7001600,
     "?Build_INI_Entry@TActionClass@@QBEXPAD@Z": 7001664,
     "?Read_INI@TActionClass@@QAEXXZ": 7002208,
     "??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7002848,
-    "?TAction_STOP_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016336,
-    "?TAction_JUMP_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019456,
-    "?TAction_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010816,
     "?TAction_METEOR_SHOWER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020608,
-    "?TAction_FORCE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020224,
-    "?TAction_CENTER_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019264,
-    "?TAction_ION_STORM_START@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019136,
-    "?TAction_METEOR_IMPACT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018912,
-    "?TAction_DO_EXPLOSION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018512,
-    "?TAction_PLAY_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018256,
-    "?TAction_DESTROY_OBJECT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017680,
-    "?TAction_DZ@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017072,
-    "?TAction_PLAY_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016128,
-    "?TAction_DAMAGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011712,
-    "?TAction_CHEM_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022688,
-    "?TAction_LIGHTNING_STORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022048,
-    "?TAction_MULTI_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021568,
+    "??0Cell@@QAE@XZ": 4582640,
     "??0Cell@@QAE@HH@Z": 4369712,
     "??0Coord@@QAE@ABVCell@@H@Z": 6417024,
+    "?As_Cell@Coord@@QBE?AVCell@@XZ": 4274032,
     "?TAction_DEACTIVATE_FIRESTORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010624,
     "?TAction_ION_LIGHTNING_STRIKE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010640,
     "?TAction_REMOVE_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010688,
+    "?TAction_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010816,
     "?TAction_WAKEUP_SELF@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010992,
     "?TAction_VEIN_GROWTH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011136,
     "?TAction_TIB_GROWTH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011168,
@@ -280,6 +301,7 @@
     "?TAction_ANNOUNCE_WIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011632,
     "?TAction_ANNOUNCE_LOSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011664,
     "?TAction_FORCE_END@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011696,
+    "?TAction_DAMAGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011712,
     "?TAction_LIGHT_SMALL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7012480,
     "?TAction_LIGHT_MEDIUM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7012576,
     "?TAction_LIGHT_LARGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7012672,
@@ -312,11 +334,15 @@
     "?TAction_PLAY_INGAME_MOVIE_PAUSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7015776,
     "?TAction_PLAY_SOUND@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7015792,
     "?TAction_PLAY_SOUND_RANDOM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7015824,
+    "?Coord_Object@@YIPAVObjectClass@@ABVCoord@@@Z": 7016000,
+    "?TAction_PLAY_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016128,
+    "?TAction_STOP_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016336,
     "?TAction_REVEAL_AROUND_WAYPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016528,
     "?TAction_PLAY_MUSIC@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016800,
     "?TAction_PLAY_SPEECH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016832,
     "?TAction_1_SPECIAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016864,
     "?TAction_FULL_SPECIAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016960,
+    "?TAction_DZ@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017072,
     "?TAction_WIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017312,
     "?TAction_LOSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017360,
     "?TAction_BEGIN_PRODUCTION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017408,
@@ -327,17 +353,25 @@
     "?TAction_REINFORCEMENTS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017584,
     "?TAction_REINFORCEMENTS_SPECIAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017616,
     "?TAction_ALL_HUNT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017648,
+    "?TAction_DESTROY_OBJECT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017680,
     "?TAction_CHANGE_ZOOM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018048,
     "?TAction_RESIZE_PLAYER_VIEW@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018064,
+    "?TAction_PLAY_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018256,
+    "?TAction_DO_EXPLOSION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018512,
+    "?TAction_METEOR_IMPACT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018912,
+    "?TAction_ION_STORM_START@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019136,
     "?TAction_ION_STORM_STOP@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019200,
     "?TAction_LOCK_INPUT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019232,
     "?TAction_UNLOCK_INPUT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019248,
+    "?TAction_CENTER_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019264,
+    "?TAction_JUMP_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019456,
     "?TAction_ZOOM_IN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019648,
     "?TAction_ZOOM_OUT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019776,
     "?TAction_RESHROUD@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019888,
     "?TAction_CHANGE_SPOTLIGHT_BEHAVIOR@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019904,
     "?TAction_DESTROY_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020064,
     "?TAction_DESTROY_TAG@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020144,
+    "?TAction_FORCE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020224,
     "?TAction_ENABLE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020304,
     "?TAction_DISABLE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020432,
     "?TAction_RADAR_EVENT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020496,
@@ -354,10 +388,13 @@
     "?TAction_SET_TEAM_INFANTRY_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021360,
     "?TAction_SET_TEAM_UNIT_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021392,
     "?TAction_ION_CANNON@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021424,
+    "?TAction_MULTI_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021568,
+    "?TAction_LIGHTNING_STORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022048,
     "?TAction_IRON_CURTAIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022288,
     "?TAction_SET_TECH_LEVEL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022560,
     "?TAction_CHRONO_IN_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022608,
     "?TAction_CREATE_CRATE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022640,
+    "?TAction_CHEM_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022688,
     "?TAction_TOGGLE_TRAIN_CARGO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7023248,
     "?GetClassID@TActionClass@@UAGJPAU_GUID@@@Z": 7023744,
     "?Load@TActionClass@@UAGJPAUIStream@@@Z": 7023808,
@@ -373,8 +410,6 @@
     "?TAction_EJECT_OCCUPANTS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024544,
     "?TAction_SWITCH_TAB@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024656,
     "?TAction_FLASH_CAMEO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024736,
-    "??8?$TPoint2D@F@@QBE_NABV0@@Z": 5238560,
-    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
     "??0?$TStringID@$0BP@@@QAE@PBD@Z": 7025152,
     "??4?$TStringID@$0BP@@@QAE?AU0@ABU0@@Z": 7025200,
     "?Clear@?$DynamicVectorClass@PAVTActionClass@@@@UAEXXZ": 7025248,
@@ -382,6 +417,8 @@
     "?GetItem@?$VectorClass@PAVTActionClass@@@@UBEPAVTActionClass@@H@Z": 7025328,
     "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z": 4603776,
     "??B?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ": 4538032,
+    "?Stop@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 7025344,
+    "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 6942000,
     "??8?$VectorClass@PAVTActionClass@@@@UBE_NABV0@@Z": 7025408,
     "?Resize@?$VectorClass@PAVTActionClass@@@@UAE_NHPBQAVTActionClass@@@Z": 7025472,
     "?Clear@?$VectorClass@PAVTActionClass@@@@UAEXXZ": 7025648,
@@ -469,7 +506,7 @@
           "resolved": 11271608
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000320,
@@ -521,7 +558,7 @@
           "resolved": 11271680
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000368,
@@ -573,7 +610,7 @@
           "resolved": 11271664
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000400,
@@ -625,7 +662,7 @@
           "resolved": 11271656
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000432,
@@ -677,7 +714,7 @@
           "resolved": 11271616
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000464,
@@ -729,7 +766,7 @@
           "resolved": 11271552
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000496,
@@ -813,7 +850,7 @@
           "resolved": 11271688
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000528,
@@ -873,7 +910,7 @@
           "resolved": 11271624
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000592,
@@ -933,7 +970,7 @@
           "resolved": 11271648
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000640,
@@ -993,7 +1030,7 @@
           "resolved": 11271672
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000688,
@@ -1037,7 +1074,7 @@
           "resolved": 11271602
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000736,
@@ -1089,7 +1126,7 @@
           "resolved": 11271640
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000752,
@@ -1149,7 +1186,7 @@
           "resolved": 11271596
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000784,
@@ -1257,7 +1294,7 @@
           "resolved": 874079
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000816,
@@ -1349,10 +1386,310 @@
           "resolved": 11271568
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7000944,
+      "method": "006ad370",
+      "body_bytes": 373,
+      "body_sha256": "d4393871f2ab6b6cc9994e530cedb1e0d1baa7d4809183fb036b7f46a1e65569",
+      "padding_bytes": 11,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "0ccf0e2ce5b59ee63033865a011dd8ff089abf720ccd41e56d717458ba826aff",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TActionClass@@QAE@XZ",
+      "symbol_prefix": "??0TActionClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4292225943
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "??_7TActionClass@@6BIPersistStream@@@",
+          "target": 8046172,
+          "addend": 0,
+          "resolved": 8046172
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "??_7TActionClass@@6BIRTTITypeInfo@@@",
+          "target": 8046144,
+          "addend": 0,
+          "resolved": 8046144
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "??_7TActionClass@@6BINoticeSink@@@",
+          "target": 8046136,
+          "addend": 0,
+          "resolved": 8046136
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "??_7TActionClass@@6BINoticeSource@@@",
+          "target": 8046128,
+          "addend": 0,
+          "resolved": 8046128
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 16,
+          "resolved": 11271576
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 8,
+          "resolved": 11271568
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 13,
+          "resolved": 11271573
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 20,
+          "resolved": 11271580
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 0,
+          "resolved": 11271560
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 0,
+          "resolved": 11271560
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 16,
+          "resolved": 11271576
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 16,
+          "resolved": 11271576
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 4,
+          "resolved": 11271564
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 16,
+          "resolved": 11271576
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "?Actions@@3V?$DynamicVectorClass@PAVTActionClass@@@@A",
+          "target": 11271560,
+          "addend": 4,
+          "resolved": 11271564
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 8,
+          "resolved": 11275448
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 13,
+          "resolved": 11275453
+        },
+        {
+          "offset": 225,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 20,
+          "resolved": 11275460
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 272,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 4,
+          "resolved": 11275444
+        },
+        {
+          "offset": 280,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 8,
+          "resolved": 11275424
+        },
+        {
+          "offset": 286,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 296,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 13,
+          "resolved": 11275429
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 20,
+          "resolved": 11275436
+        },
+        {
+          "offset": 318,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 0,
+          "resolved": 11275416
+        },
+        {
+          "offset": 327,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 0,
+          "resolved": 11275416
+        },
+        {
+          "offset": 340,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 349,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 16,
+          "resolved": 11275432
+        },
+        {
+          "offset": 355,
+          "kind": 6,
+          "symbol": "?EventActionPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275416,
+          "addend": 4,
+          "resolved": 11275420
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7000944,
       "source_quality_family": "rebuild"
     },
     {
@@ -1569,7 +1906,7 @@
           "resolved": 4292225428
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7001328,
@@ -1596,7 +1933,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7001600,
@@ -1752,7 +2089,7 @@
           "resolved": 870561
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7001664,
@@ -2165,7 +2502,7 @@
           "resolved": 7002303
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7002208,
@@ -2192,7 +2529,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010624,
@@ -2244,7 +2581,7 @@
           "resolved": 4293329699
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010640,
@@ -2312,10 +2649,102 @@
           "resolved": 10691216
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7010816,
+      "method": "006afa00",
+      "body_bytes": 163,
+      "body_sha256": "377923d61148a36e54746e0217ad91cc7fb02c5d12e62803527bb400004dc2aa",
+      "padding_bytes": 13,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "9bcc4b9b1c13292036c63a4e1090e85240143b52ad306ba818214a701a0e6bac",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294653798
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293568541
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 861606
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11271632,
+          "addend": 0,
+          "resolved": 11271632
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "?ParticleSystemTypes@@3V?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@A",
+          "target": 10706384,
+          "addend": 4,
+          "resolved": 10706388
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "??0ParticleSystemClass@@QAE@PBVParticleSystemTypeClass@@ABVCoord@@PAVAbstractClass@@21@Z",
+          "target": 6335088,
+          "addend": 0,
+          "resolved": 4294291414
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7010816,
       "source_quality_family": "rebuild"
     },
     {
@@ -2372,7 +2801,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010992,
@@ -2408,7 +2837,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011136,
@@ -2444,7 +2873,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011168,
@@ -2480,7 +2909,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011200,
@@ -2532,7 +2961,7 @@
           "resolved": 8806216
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011232,
@@ -2584,7 +3013,7 @@
           "resolved": 8806216
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011360,
@@ -2636,7 +3065,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011488,
@@ -2680,7 +3109,7 @@
           "resolved": 4293099939
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011632,
@@ -2724,7 +3153,7 @@
           "resolved": 4293100403
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011664,
@@ -2768,10 +3197,350 @@
           "resolved": 4293100869
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7011712,
+      "method": "006afd80",
+      "body_bytes": 755,
+      "body_sha256": "24b3777bfe1977faa19fd72e4a8cd3ef303081b5af17c40a755accf6242ff22c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 768,
+      "full_extent_sha256": "badddf55bcd48d1423879ca817b83b3527976f83400288a03d119358178488c9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_DAMAGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_DAMAGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294652965
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+          "target": 4711104,
+          "addend": 0,
+          "resolved": 4292666611
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 93,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294652895
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292261939
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+          "target": 4711104,
+          "addend": 0,
+          "resolved": 4292666512
+        },
+        {
+          "offset": 187,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292261873
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 207,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294652781
+        },
+        {
+          "offset": 247,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292261813
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 297,
+          "kind": 20,
+          "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+          "target": 4711104,
+          "addend": 0,
+          "resolved": 4292666387
+        },
+        {
+          "offset": 306,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 317,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294652671
+        },
+        {
+          "offset": 345,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292261715
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 396,
+          "kind": 20,
+          "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+          "target": 4711104,
+          "addend": 0,
+          "resolved": 4292666288
+        },
+        {
+          "offset": 411,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292261649
+        },
+        {
+          "offset": 426,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 431,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294652557
+        },
+        {
+          "offset": 471,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292261589
+        },
+        {
+          "offset": 494,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 521,
+          "kind": 20,
+          "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+          "target": 4711104,
+          "addend": 0,
+          "resolved": 4292666163
+        },
+        {
+          "offset": 530,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 536,
+          "kind": 20,
+          "symbol": "?Is_Valid_Waypoint@ScenarioClass@@QBE_NH@Z",
+          "target": 6697536,
+          "addend": 0,
+          "resolved": 4294652580
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 564,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294652360
+        },
+        {
+          "offset": 576,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 590,
+          "kind": 20,
+          "symbol": "?Damage_Bridge@MapClass@@QAE_NABVCell@@@Z",
+          "target": 5673104,
+          "addend": 0,
+          "resolved": 4293628094
+        },
+        {
+          "offset": 610,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 616,
+          "kind": 20,
+          "symbol": "?Damage_Bridge@MapClass@@QAE_NABVCell@@@Z",
+          "target": 5673104,
+          "addend": 0,
+          "resolved": 4293628068
+        },
+        {
+          "offset": 670,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 681,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 691,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294912409
+        },
+        {
+          "offset": 730,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 741,
+          "kind": 20,
+          "symbol": "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z",
+          "target": 6959136,
+          "addend": 0,
+          "resolved": 4294913975
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7011712,
       "source_quality_family": "rebuild"
     },
     {
@@ -2828,7 +3597,7 @@
           "resolved": 4292670776
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012480,
@@ -2888,7 +3657,7 @@
           "resolved": 4292670680
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012576,
@@ -2948,7 +3717,7 @@
           "resolved": 4292670584
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012672,
@@ -3008,7 +3777,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012768,
@@ -3068,7 +3837,7 @@
           "resolved": 10706520
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012880,
@@ -3136,7 +3905,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012992,
@@ -3204,7 +3973,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013104,
@@ -3272,7 +4041,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013216,
@@ -3332,7 +4101,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013344,
@@ -3440,7 +4209,7 @@
           "resolved": 4293937387
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013440,
@@ -3492,7 +4261,7 @@
           "resolved": 4293087607
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013568,
@@ -3544,7 +4313,7 @@
           "resolved": 4293088583
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013632,
@@ -3571,7 +4340,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013696,
@@ -3607,7 +4376,7 @@
           "resolved": 4293154271
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013728,
@@ -3651,7 +4420,7 @@
           "resolved": 4292789750
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013920,
@@ -3695,7 +4464,7 @@
           "resolved": 4294642815
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013936,
@@ -3739,7 +4508,7 @@
           "resolved": 4294642783
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013968,
@@ -3919,7 +4688,7 @@
           "resolved": 4293499171
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014000,
@@ -3979,7 +4748,7 @@
           "resolved": 4293579108
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014400,
@@ -4175,7 +4944,7 @@
           "resolved": 4293566339
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014464,
@@ -4299,7 +5068,7 @@
           "resolved": 4293066643
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014832,
@@ -4359,7 +5128,7 @@
           "resolved": 4294905188
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014944,
@@ -4419,7 +5188,7 @@
           "resolved": 4294905093
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015008,
@@ -4479,7 +5248,7 @@
           "resolved": 4294904994
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015104,
@@ -4539,7 +5308,7 @@
           "resolved": 4294904859
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015200,
@@ -4663,7 +5432,7 @@
           "resolved": 4294904681
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015328,
@@ -4795,7 +5564,7 @@
           "resolved": 4294904468
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015504,
@@ -4831,7 +5600,7 @@
           "resolved": 4293851823
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015728,
@@ -4867,7 +5636,7 @@
           "resolved": 4293852102
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015760,
@@ -4903,7 +5672,7 @@
           "resolved": 4293852086
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015776,
@@ -4939,7 +5708,7 @@
           "resolved": 405548
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015792,
@@ -5023,10 +5792,302 @@
           "resolved": 406630
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7016000,
+      "method": "006b0e40",
+      "body_bytes": 115,
+      "body_sha256": "a1436108888ffd1d8c350148cf03b9765936ae85acd561bc89a84d78822a1e3b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "645ae1686c9db31c342a54968e1c213df3a256cf6f86645f6611ca5f8d14dbb1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Coord_Object@@YIPAVObjectClass@@ABVCoord@@@Z",
+      "symbol_prefix": "?Coord_Object@@YIPAVObjectClass@@ABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 0,
+          "resolved": 11271600
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 2,
+          "resolved": 11271602
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293489114
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4292610321
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "?Cell_Terrain@CellClass@@QBEPAVTerrainClass@@_N@Z",
+          "target": 4659168,
+          "addend": 0,
+          "resolved": 4292610357
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7016000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7016128,
+      "method": "006b0ec0",
+      "body_bytes": 198,
+      "body_sha256": "3b91b055908251f7c025ef6ceeaf226c834c169ef8c19cbab82f5844ed3006e8",
+      "padding_bytes": 10,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "243799ecfc58b7baa9254f22e79e4620039bf49631e4897a8c35dcf0f3fe1cf7",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_PLAY_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_PLAY_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294648549
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 0,
+          "resolved": 11271600
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 2,
+          "resolved": 11271602
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293488944
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4292610151
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?Cell_Terrain@CellClass@@QBEPAVTerrainClass@@_N@Z",
+          "target": 4659168,
+          "addend": 0,
+          "resolved": 4292610187
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "?Set_Ambient_Sound@ObjectClass@@QAEXH@Z",
+          "target": 6116640,
+          "addend": 0,
+          "resolved": 4294067644
+        },
+        {
+          "offset": 184,
+          "kind": 20,
+          "symbol": "?PlayIndexAtPos@VocClass@@SIPAXHABVCoord@@H@Z",
+          "target": 7422608,
+          "addend": 0,
+          "resolved": 406292
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7016128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7016336,
+      "method": "006b0f90",
+      "body_bytes": 191,
+      "body_sha256": "4cd6b50a936cffeff935790417508853c66f1b982a7aea5960f3fd444e2354dc",
+      "padding_bytes": 1,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "64c387b07126f0638078714e7304de115b500e83ee3fa67cd0f03c6891686068",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_STOP_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_STOP_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294648344
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 0,
+          "resolved": 11271600
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 2,
+          "resolved": 11271602
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293488739
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4292609946
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "?Cell_Terrain@CellClass@@QBEPAVTerrainClass@@_N@Z",
+          "target": 4659168,
+          "addend": 0,
+          "resolved": 4292609982
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?Set_Ambient_Sound@ObjectClass@@QAEXH@Z",
+          "target": 6116640,
+          "addend": 0,
+          "resolved": 4294067441
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "?Stop_At@VocClass@@SIXABVCoord@@H@Z",
+          "target": 7422896,
+          "addend": 0,
+          "resolved": 406378
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7016336,
       "source_quality_family": "rebuild"
     },
     {
@@ -5171,7 +6232,7 @@
           "resolved": 4293562803
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016528,
@@ -5215,7 +6276,7 @@
           "resolved": 224434
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016800,
@@ -5251,7 +6312,7 @@
           "resolved": 411441
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016832,
@@ -5335,7 +6396,7 @@
           "resolved": 4294750431
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016864,
@@ -5419,10 +6480,134 @@
           "resolved": 4294750318
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7017072,
+      "method": "006b1270",
+      "body_bytes": 240,
+      "body_sha256": "d016af84db9e4d845b94abf6c1ea0ab0c7af528faf9b9a03f307edf2a4ec391d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "d016af84db9e4d845b94abf6c1ea0ab0c7af528faf9b9a03f307edf2a4ec391d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_DZ@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_DZ@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294647545
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293562301
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293488026
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293488000
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 161,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 855298
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292275664
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7017072,
       "source_quality_family": "rebuild"
     },
     {
@@ -5471,7 +6656,7 @@
           "resolved": 4293094725
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017312,
@@ -5523,7 +6708,7 @@
           "resolved": 4293094677
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017360,
@@ -5559,7 +6744,7 @@
           "resolved": 4293116819
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017408,
@@ -5595,7 +6780,7 @@
           "resolved": 4293116787
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017440,
@@ -5631,7 +6816,7 @@
           "resolved": 4293116755
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017472,
@@ -5699,7 +6884,7 @@
           "resolved": 10749812
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017504,
@@ -5735,7 +6920,7 @@
           "resolved": 55476
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017552,
@@ -5771,7 +6956,7 @@
           "resolved": 4294477041
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017584,
@@ -5807,7 +6992,7 @@
           "resolved": 4294477002
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017616,
@@ -5843,10 +7028,166 @@
           "resolved": 4293116584
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7017680,
+      "method": "006b14d0",
+      "body_bytes": 358,
+      "body_sha256": "18d9903f6e85f52e80dfed2004b12e9f94a5bd01a8d2f27d33d6ad7e93f0735b",
+      "padding_bytes": 10,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "095652162f5d725ed76d44889c7a3f162ba25c93c8da9b9ca67d83b0a12671c4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_DESTROY_OBJECT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_DESTROY_OBJECT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 16,
+          "resolved": 10751024
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 4,
+          "resolved": 10751012
+        },
+        {
+          "offset": 74,
+          "kind": 20,
+          "symbol": "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z",
+          "target": 7028176,
+          "addend": 0,
+          "resolved": 10418
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 16,
+          "resolved": 10751024
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 0,
+          "resolved": 11271600
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 2,
+          "resolved": 11271602
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?Damage_Bridge@MapClass@@QAE_NABVCell@@@Z",
+          "target": 5673104,
+          "addend": 0,
+          "resolved": 4293622521
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 217,
+          "kind": 20,
+          "symbol": "?Damage_Bridge@MapClass@@QAE_NABVCell@@@Z",
+          "target": 5673104,
+          "addend": 0,
+          "resolved": 4293622499
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 283,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 290,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294906842
+        },
+        {
+          "offset": 329,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 340,
+          "kind": 20,
+          "symbol": "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z",
+          "target": 6959136,
+          "addend": 0,
+          "resolved": 4294908408
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7017680,
       "source_quality_family": "rebuild"
     },
     {
@@ -5870,7 +7211,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7018048,
@@ -6082,10 +7423,506 @@
           "resolved": 410691
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7018064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7018256,
+      "method": "006b1710",
+      "body_bytes": 245,
+      "body_sha256": "9861b75b88ca23c2f18987f59b57f790446c246ecc17c51eae61cb5094449bd0",
+      "padding_bytes": 11,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "3cbbb730c3f101efd9af346bb6f87e7bef74406a870d18fcad4923229a7004c1",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_PLAY_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_PLAY_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294646358
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293561114
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293486839
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293486813
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 854111
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 207,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292274477
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7018256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7018512,
+      "method": "006b1810",
+      "body_bytes": 389,
+      "body_sha256": "6b39e944caf0696f4dcc3e0e6cde7e7f392a4b47cdd8d9c7d4bef9f9b4fb9424",
+      "padding_bytes": 11,
+      "full_extent_bytes": 400,
+      "full_extent_sha256": "b6afcb897433d793cb94e8053c9f46c51043b84ee3485941978cc074704ab411",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_DO_EXPLOSION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_DO_EXPLOSION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294646099
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293560855
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293486580
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293486554
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 4,
+          "resolved": 8625044
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293486383
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "?Combat_Anim@@YIPBVAnimTypeClass@@HPBVWarheadTypeClass@@W4LandType@@ABVCoord@@@Z",
+          "target": 4715728,
+          "addend": 0,
+          "resolved": 4292664294
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 853789
+        },
+        {
+          "offset": 269,
+          "kind": 20,
+          "symbol": "?Get_Explosion_Z@@YIHVCoord@@@Z",
+          "target": 4717760,
+          "addend": 0,
+          "resolved": 4292666271
+        },
+        {
+          "offset": 292,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292274136
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 4,
+          "resolved": 8625044
+        },
+        {
+          "offset": 342,
+          "kind": 20,
+          "symbol": "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z",
+          "target": 4716032,
+          "addend": 0,
+          "resolved": 4292664470
+        },
+        {
+          "offset": 348,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 4,
+          "resolved": 8625044
+        },
+        {
+          "offset": 373,
+          "kind": 20,
+          "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+          "target": 4711104,
+          "addend": 0,
+          "resolved": 4292659511
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7018512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7018912,
+      "method": "006b19a0",
+      "body_bytes": 211,
+      "body_sha256": "18df78dcb5bd0423977c3fa60eb3e9f939b9555ee5d09276fd8541617a21719f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "209f46ec23de033f17dba9a0f2e9d2139e217884ed15ad74c9ec303f0a78a441",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_METEOR_IMPACT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_METEOR_IMPACT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294645702
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293560458
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293486183
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293486157
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 853455
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "?VoxelAnimTypes@@3V?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@A",
+          "target": 10750688,
+          "addend": 4,
+          "resolved": 10750692
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "??0VoxelAnimClass@@QAE@PBVVoxelAnimTypeClass@@ABVCoord@@PAVHouseClass@@@Z",
+          "target": 7391232,
+          "addend": 0,
+          "resolved": 372118
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7018912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7019136,
+      "method": "006b1a80",
+      "body_bytes": 52,
+      "body_sha256": "0b990e2cf90a31075abd78705433bb331c4afd8ff09e57813c999f93dbd782e3",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ee817fe5aaf7be8dddcc1f7729c0e1ca9944ab216e1d101a52a7594ffd39040a",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_ION_STORM_START@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_ION_STORM_START@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ",
+          "target": 5373008,
+          "addend": 0,
+          "resolved": 4293321160
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 0,
+          "resolved": 11271600
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z",
+          "target": 5372208,
+          "addend": 0,
+          "resolved": 4293320322
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7019136,
       "source_quality_family": "rebuild"
     },
     {
@@ -6126,7 +7963,7 @@
           "resolved": 4293320927
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019200,
@@ -6162,7 +7999,7 @@
           "resolved": 4294617323
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019232,
@@ -6198,10 +8035,242 @@
           "resolved": 4294617387
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7019264,
+      "method": "006b1b00",
+      "body_bytes": 187,
+      "body_sha256": "c813c5628cd3200661e9a5838783ef0bde8fb52fb44d8b0e7cc9ae0d7acf3971",
+      "padding_bytes": 5,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "56f4d541f6c9ce125f7674e8a483e3e7af0acc88adc098bbdec2cb4530cb1950",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_CENTER_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_CENTER_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294645350
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293560106
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293485831
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293485805
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 174,
+          "kind": 20,
+          "symbol": "?Setup_Trigger_Scroll@Tactical@@QAEXABVCoord@@H@Z",
+          "target": 6958256,
+          "addend": 0,
+          "resolved": 4294906110
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7019264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7019456,
+      "method": "006b1bc0",
+      "body_bytes": 179,
+      "body_sha256": "1bf24c064097826d22a288f101ea9e00a116fb5baaf076231f789641ebf3d1ee",
+      "padding_bytes": 13,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "674dd6297bc9bd8bf3c493ee769408700fdc29e70ac9e346b81320aa29b3f64a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_JUMP_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_JUMP_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294645161
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293559917
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293485642
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293485616
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 167,
+          "kind": 20,
+          "symbol": "?Set_Tactical_Position@Tactical@@QAEXABVCoord@@@Z",
+          "target": 6973104,
+          "addend": 0,
+          "resolved": 4294920773
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7019456,
       "source_quality_family": "rebuild"
     },
     {
@@ -6338,7 +8407,7 @@
           "resolved": 7971300
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019648,
@@ -6454,7 +8523,7 @@
           "resolved": 4293062100
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019776,
@@ -6498,7 +8567,7 @@
           "resolved": 4293558870
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019888,
@@ -6566,7 +8635,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019904,
@@ -6618,7 +8687,7 @@
           "resolved": 10750628
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020064,
@@ -6670,10 +8739,78 @@
           "resolved": 11271756
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7020224,
+      "method": "006b1ec0",
+      "body_bytes": 70,
+      "body_sha256": "bd60e5fe92808939c53d5dee66bc78659a0247258308c8898a3fc8567dbc6a1a",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "941cc40d8c44f48f3b3bd106cdfac90a34041e604975c7fe70dd39c09643cfef",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_FORCE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_FORCE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 4,
+          "resolved": 10750628
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 0,
+          "resolved": 11271600
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z",
+          "target": 7264304,
+          "addend": 0,
+          "resolved": 244027
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7020224,
       "source_quality_family": "rebuild"
     },
     {
@@ -6738,7 +8875,7 @@
           "resolved": 10750640
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020304,
@@ -6798,7 +8935,7 @@
           "resolved": 10750640
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020432,
@@ -6850,7 +8987,7 @@
           "resolved": 4294481341
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020496,
@@ -6894,7 +9031,7 @@
           "resolved": 4294636879
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020544,
@@ -6938,7 +9075,7 @@
           "resolved": 4294636847
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020576,
@@ -6974,7 +9111,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021088,
@@ -7010,7 +9147,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021120,
@@ -7062,7 +9199,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021152,
@@ -7098,7 +9235,7 @@
           "resolved": 4293113027
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021200,
@@ -7134,7 +9271,7 @@
           "resolved": 4293112995
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021232,
@@ -7178,7 +9315,7 @@
           "resolved": 4293148620
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021264,
@@ -7205,7 +9342,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021296,
@@ -7232,7 +9369,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021328,
@@ -7259,7 +9396,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021360,
@@ -7286,7 +9423,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021392,
@@ -7362,10 +9499,322 @@
           "resolved": 4293324411
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7021568,
+      "method": "006b2400",
+      "body_bytes": 469,
+      "body_sha256": "48a0e9dc7fb124fa8978035babc75f4180f16ddfee8fef700bcb040e15d65ed0",
+      "padding_bytes": 11,
+      "full_extent_bytes": 480,
+      "full_extent_sha256": "7afe8d2227ba588d71f7c9df393dc5a22e15706df747788941b2eeaa60ec5165",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_MULTI_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_MULTI_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294643041
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293557797
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293483522
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "??_C@_0M@BCEA@NukePayload?$AA@",
+          "target": 8196672,
+          "addend": 0,
+          "resolved": 8196672
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "?From_Name@WeaponTypeClass@@SI?AW4WeaponType@@PBD@Z",
+          "target": 7552816,
+          "addend": 0,
+          "resolved": 531101
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 4,
+          "resolved": 8625044
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 196,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293483320
+        },
+        {
+          "offset": 205,
+          "kind": 20,
+          "symbol": "?Create_Bullet@BulletTypeClass@@QBIPAVBulletClass@@PAVAbstractClass@@PAVTechnoClass@@HPBVWarheadTypeClass@@H_N@Z",
+          "target": 4602256,
+          "addend": 0,
+          "resolved": 4292547775
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "?Set_Weapon_Type@BulletClass@@QAEXPAVWeaponTypeClass@@@Z",
+          "target": 4602784,
+          "addend": 0,
+          "resolved": 4292548293
+        },
+        {
+          "offset": 268,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4292902768
+        },
+        {
+          "offset": 287,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4292902829
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "__real@8@c005c800000000000000",
+          "target": 8019912,
+          "addend": 0,
+          "resolved": 8019912
+        },
+        {
+          "offset": 316,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4292902800
+        },
+        {
+          "offset": 335,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4292902781
+        },
+        {
+          "offset": 361,
+          "kind": 6,
+          "symbol": "__real@8@c005c800000000000000",
+          "target": 8019912,
+          "addend": 0,
+          "resolved": 8019912
+        },
+        {
+          "offset": 412,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4292902624
+        },
+        {
+          "offset": 418,
+          "kind": 6,
+          "symbol": "__real@8@c005c800000000000000",
+          "target": 8019912,
+          "addend": 0,
+          "resolved": 8019912
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7021568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7022048,
+      "method": "006b25e0",
+      "body_bytes": 228,
+      "body_sha256": "f366995fb9536ba714f9eef89da1a6ccda22027d4418fc2eccc7771db62f00a4",
+      "padding_bytes": 12,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "88caff6fba99a09de39573e6ea48f5b66b3ce5b0cc998540bc0e4e59debf2e6d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_LIGHTNING_STORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_LIGHTNING_STORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294642569
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293557325
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293483050
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ",
+          "target": 5373008,
+          "addend": 0,
+          "resolved": 4293318080
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z",
+          "target": 5372208,
+          "addend": 0,
+          "resolved": 4293317244
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7022048,
       "source_quality_family": "rebuild"
     },
     {
@@ -7486,7 +9935,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022288,
@@ -7522,7 +9971,7 @@
           "resolved": 10750652
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022560,
@@ -7558,7 +10007,7 @@
           "resolved": 4294475866
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022608,
@@ -7618,10 +10067,222 @@
           "resolved": 4293508391
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7022688,
+      "method": "006b2860",
+      "body_bytes": 550,
+      "body_sha256": "f348b8b6c60d7252de4272a03ce4cf6cab913277f520e2c42e816ce97af70633",
+      "padding_bytes": 10,
+      "full_extent_bytes": 560,
+      "full_extent_sha256": "96851145e45ff766ae286ebcf46cf268273746b2a666681dceab0eb897f4271e",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TAction_CHEM_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "?TAction_CHEM_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294641921
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293556677
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293482402
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 200,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 205,
+          "kind": 20,
+          "symbol": "?Closest_Edge_Cell@MapClass@@QAE?AVCell@@ABV2@_N@Z",
+          "target": 5671376,
+          "addend": 0,
+          "resolved": 4293615775
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "??_C@_0N@JEKJ@ChemLauncher?$AA@",
+          "target": 8350744,
+          "addend": 0,
+          "resolved": 8350744
+        },
+        {
+          "offset": 221,
+          "kind": 20,
+          "symbol": "?From_Name@WeaponTypeClass@@SI?AW4WeaponType@@PBD@Z",
+          "target": 7552816,
+          "addend": 0,
+          "resolved": 529903
+        },
+        {
+          "offset": 227,
+          "kind": 6,
+          "symbol": "?Weapons@@3V?$DynamicVectorClass@PAVWeaponTypeClass@@@@A",
+          "target": 8625040,
+          "addend": 4,
+          "resolved": 8625044
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293482123
+        },
+        {
+          "offset": 282,
+          "kind": 20,
+          "symbol": "?Create_Bullet@BulletTypeClass@@QBIPAVBulletClass@@PAVAbstractClass@@PAVTechnoClass@@HPBVWarheadTypeClass@@H_N@Z",
+          "target": 4602256,
+          "addend": 0,
+          "resolved": 4292546578
+        },
+        {
+          "offset": 307,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4292901689
+        },
+        {
+          "offset": 326,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4292901590
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "__real@8@4005c800000000000000",
+          "target": 7976944,
+          "addend": 0,
+          "resolved": 7976944
+        },
+        {
+          "offset": 355,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4292901641
+        },
+        {
+          "offset": 374,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4292901622
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "__real@8@4005c800000000000000",
+          "target": 7976944,
+          "addend": 0,
+          "resolved": 7976944
+        },
+        {
+          "offset": 451,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4292901465
+        },
+        {
+          "offset": 462,
+          "kind": 6,
+          "symbol": "__real@8@4005c800000000000000",
+          "target": 7976944,
+          "addend": 0,
+          "resolved": 7976944
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7022688,
       "source_quality_family": "rebuild"
     },
     {
@@ -7654,7 +10315,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023248,
@@ -7955,7 +10616,7 @@
           "resolved": 7023493
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023280,
@@ -8015,7 +10676,7 @@
           "resolved": 8002940
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023744,
@@ -8155,7 +10816,7 @@
           "resolved": 4294888937
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023808,
@@ -8191,7 +10852,7 @@
           "resolved": 4292203372
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023936,
@@ -8275,7 +10936,7 @@
           "resolved": 4292743496
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023968,
@@ -8336,7 +10997,7 @@
           "resolved": 7024142
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024112,
@@ -8380,7 +11041,7 @@
           "resolved": 4294640424
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024256,
@@ -8416,7 +11077,7 @@
           "resolved": 849117
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024320,
@@ -8443,7 +11104,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024416,
@@ -8479,7 +11140,7 @@
           "resolved": 53710
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024432,
@@ -8531,7 +11192,7 @@
           "resolved": 155731
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024464,
@@ -8567,7 +11228,7 @@
           "resolved": 4294611544
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024528,
@@ -8635,7 +11296,7 @@
           "resolved": 4292476753
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024544,
@@ -8695,7 +11356,7 @@
           "resolved": 4294748488
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024656,
@@ -8755,7 +11416,7 @@
           "resolved": 4294767143
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024736,
@@ -8782,7 +11443,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024800,
@@ -8809,7 +11470,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024816,
@@ -8836,7 +11497,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024832,
@@ -9064,7 +11725,7 @@
           "resolved": 846674
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024848,
@@ -9100,7 +11761,7 @@
           "resolved": 848308
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025152,
@@ -9128,7 +11789,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025200,
@@ -9164,7 +11825,7 @@
           "resolved": 846528
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025248,
@@ -9192,7 +11853,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025296,
@@ -9220,12 +11881,48 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025328,
       "source_quality_family": "rebuild",
       "bound_population": "population-1622"
+    },
+    {
+      "entry": 7025344,
+      "method": "006b32c0",
+      "body_bytes": 54,
+      "body_sha256": "512bd7b9b044c9f2c7fddec87d819e4c0ea530a72378ad41c108203a2a2444c5",
+      "padding_bytes": 10,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "8846ae66d2a292ecd7c09e09fe0a5664960862c83c63a389df80b86ecc56e476",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ",
+      "symbol_prefix": "?Stop@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7025344,
+      "source_quality_family": "rebuild"
     },
     {
       "entry": 7025408,
@@ -9248,7 +11945,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025408,
@@ -9293,7 +11990,7 @@
           "resolved": 846208
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025472,
@@ -9330,7 +12027,7 @@
           "resolved": 846131
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025648,
@@ -9358,7 +12055,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025696,
@@ -9386,7 +12083,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025760,
@@ -9431,7 +12128,7 @@
           "resolved": 845901
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025792,
@@ -9459,7 +12156,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025968,
@@ -9512,7 +12209,7 @@
           "resolved": 845723
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7026016,
@@ -9565,7 +12262,7 @@
           "resolved": 845643
         }
       ],
-      "source_sha256": "dfe0da7da83c3a4332d6e39b65d8cfcb6e057cae09aaa057291ee34d767e1286",
+      "source_sha256": "06c4d490faa773bc4d4b55d824d71f8129156c2a3114150ad5de8eae83460bca",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7026096,

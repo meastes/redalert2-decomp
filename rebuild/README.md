@@ -158,6 +158,17 @@ comparable across the whole series; `bytes_exact` is comparable only from 16:07Z
   The member is declared in the class, TibSun's loop is a guarded out-of-class draft, and the vtable slot
   binds to 0x487080; likewise the voxel draw functions the VoxelDrawFunctions table points to bind from its
   entries.
+- **Data no exact code refers to: layout by run, pending ranges** (review session 2026-11-19, `docs/DECISIONS.md`
+  "Rebuild data no exact code refers to"; lane R25, mapgen). A: `data_bound_by: layout` falls back, when the whole
+  section has no one base, to its nearest reference-bound neighbours in the same section (both sides, one base, no
+  pending range between them, nothing else bound inside the derived extent); the bytes are compared as before.
+  B: `data_pending` [{address, size, owner}] records data the original holds only because a parked function emits
+  it (mapgen: Read_RMG_INI's static pointer at 0x7E0BE4); never defined, no credit, refused once its owner is an
+  accepted row; the census prints the count. The per-symbol data compare stops a symbol at the next
+  reference-bound item of the image when the full compare fails and the cut bytes are under 8 and zero fill of our
+  object (a 4-byte float padded to 8: Init_Map's `_waterfall_chance`); symbols with relocations are unchanged.
+  mapgen also takes main's `1.0 / 4294967295.0`: VC6 folds `1.0 / UINT_MAX` to 2^-32, a different literal at the
+  same bound address (the row compare binds literals by address; the build compares their bytes).
 
 ## Structure gate
 
