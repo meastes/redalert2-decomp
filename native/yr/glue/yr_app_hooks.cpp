@@ -71,13 +71,18 @@ extern "C" int ra2_native_team_button_at(int x, int y)
 // bar's button for that command (ra2port_set_point_resolver, port/src/run_progress.cpp; the host
 // asks it for any point that is not "@team=N"). Known commands: the bar's buttons the tests press.
 extern int DAT_00B0CB38;   // tab.cpp: the TypeSelect command
+extern int DAT_00B0CB3C;   // tab.cpp: the Beacon command
 static int Resolve_Bar_Point(const char *spec, int *x, int *y)
 {
 	if (strncmp(spec, "cmd=", 4) || !Map.ThumbActive) return 0;
 	int command = -1;
 	if (!strcmp(spec + 4, "TypeSelect")) command = DAT_00B0CB38;
+	else if (!strcmp(spec + 4, "Beacon")) command = DAT_00B0CB3C;
 	ShapeButtonClass * button = command >= 0 ? FUN_006CFD40(command) : NULL;
-	if (button == NULL || !button->Is_Enabled()) return 0;
+	if (button == NULL || !button->Is_Enabled()) {
+		fprintf(stderr, "input-script: no command bar button for %s (command %d)\n", spec, command);
+		return 0;
+	}
 	*x = button->X + button->Width / 2;
 	*y = button->Y + button->Height / 2;
 	return 1;

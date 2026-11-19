@@ -145,11 +145,20 @@ platform layer. It earns no exact-match credit.
     keyboard, as in Red Alert 2 (both games need the tap; neither raises it on entering the screen). Checked: the same
     Simulator walk taps the player name field in both games ("on-screen keyboard shown", then "hidden" after a tap
     away). Needs a user check on the device.
+- Stand-ins added 2026-11-19 (lane N3) for functions not recovered yet that a campaign trigger, the keyboard or a
+  button reaches (found by tracing the functions still missing at the Mac link from their callers): the trigger
+  actions "create building at" (a building forced onto a cell, the units there moved aside), "ion lightning strike"
+  and "ion storm stop"; a selected Gap Generator's or Psychic Sensor's range ring; the HealthNav and VeterancyNav
+  keys; placing a beacon (the command bar's Beacon button in network games) and drawing it. Before, each of these
+  stopped the game. Checked: ctest `yr-native-standins-triggers` (each one through the harness, no fault) and a Mac
+  run that placed a beacon with a map click. Functions still missing at the Mac link: 116. Not written yet:
+  planning mode's orders (the command bar's PlanningMode button; about 5.7 KB of gamemd.exe code), which will
+  stop the game once a plan is given.
 - Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
   idle animations), the lane Y14 fixes above, the team-button hold, and the lane N3 fixes above.
 - Still open: longer games may still reach functions not recovered yet (written as clearly
   labelled stand-in code when found; the Mac link closure, functions still missing, was 175
-  after lane Y14, 126 after lane Y16 and 125 after lane N3); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
+  after lane Y14, 126 after lane Y16 and 116 after lane N3); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
 
 ## Not done or not supported
 

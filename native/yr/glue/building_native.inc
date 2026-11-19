@@ -1435,3 +1435,66 @@ int BuildingClass::Do_MISSION_UNLOAD(void)
 	QueueMission(MISSION_GUARD, false);
 	return(1);
 }
+
+// ---------------------------------------------------------------------------------------------
+// NON-EXACT NATIVE STAND-IN (lane N3, 2026-11-19): BuildingClass::ForceCreate (gamemd.exe 0x00458A80,
+// 809 bytes; BuildingClass's vtable slot 0x490), unmatched in ra2-decomp. Written from gamemd.exe's
+// instructions (native/yr/tools/yr_dis.py) in the shape of the tree's matched FootClass::ForceCreate
+// (0x004DF510), which uses the same virtual calls on one cell: over every cell of the building's
+// foundation an overlay is cleared and the units there are lifted off the map (any building or
+// non-techno there refuses the placement and puts them back); the building is placed; the units come
+// down on the nearest free cells. Reached by the trigger action "create building at"
+// (TActionClass::TAction_CreateBuildingAt) and HouseClass::RespawnStartingForces. Behaviour code for
+// the native build only.
+// ---------------------------------------------------------------------------------------------
+bool BuildingClass::ForceCreate(Coord & coord, unsigned unk)
+{
+	Cell const * offset = Occupy_List(false);
+	Cell origin = coord.As_Cell();
+	DynamicVectorClass<TechnoClass *> objs;
+	int index;
+	while (*offset != REFRESH_EOL) {
+		CellClass & cell = Map[origin + *offset++];
+		if (cell.Overlay != OVERLAY_NONE) {
+			cell.Overlay = OVERLAY_NONE;
+			cell.OverlayData = 0;
+			cell.Rubble = NULL;
+		}
+		for (ObjectClass * occupier = cell.Cell_Occupier(); occupier != NULL; occupier = cell.Cell_Occupier()) {
+			if (!(occupier->AbstractFlags & 1) || occupier->RTTI == RTTI_BUILDING) {
+				for (index = objs.Count() - 1; index >= 0; index--) {
+					TechnoClass * object = objs[index];
+					Coord position = object->Position;
+					if (!object->Unlimbo(position, DIR_N)) {
+						object->Delete_Me();
+					}
+				}
+				objs.Clear();
+				return(false);
+			}
+			objs.Add((TechnoClass *)occupier);
+			occupier->Limbo();
+		}
+	}
+	if (!Unlimbo(coord, (Dir256)unk)) {
+		Delete_Me();
+		for (index = objs.Count() - 1; index >= 0; index--) {
+			TechnoClass * object = objs[index];
+			Coord position = object->Position;
+			if (!object->Unlimbo(position, DIR_N)) {
+				object->Delete_Me();
+			}
+		}
+		objs.Clear();
+		return(false);
+	}
+	for (index = objs.Count() - 1; index >= 0; index--) {
+		TechnoClass * object = objs[index];
+		Cell current = object->Get_Cell();
+		Cell nearby = Map.Nearby_Location(current, object->TClass->Speed);
+		if (!object->Unlimbo(Map[nearby].Center_Coord(), DIR_N)) {
+			object->Delete_Me();
+		}
+	}
+	return(true);
+}

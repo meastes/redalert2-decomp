@@ -1551,6 +1551,11 @@
    "file": "src/uicmnds.cpp",
    "append": "uicmnds_native.inc",
    "why": "lane N3: FUN_00732950 (gamemd.exe 0x00732950, select all units of the selected types) is unmatched in the YR tree and was a link-closure trap: the command bar's TypeSelect button and the TypeSelect key crashed the game (the user's Duo report, 2026-11-19). A NON-EXACT stand-in from gamemd.exe's instructions in its sibling FUN_00732280's shape, appended to the unit."
+  },
+  {
+   "file": "src/beacon.cpp",
+   "append": "beacon_native.inc",
+   "why": "lane N3: BeaconManagerClass::PlaceBeacon (gamemd.exe 0x00430BA0) and Drawing::Intersect are unmatched in the YR tree and were link-closure traps on the command bar's Beacon button (place a beacon, then every frame's beacon draw). NON-EXACT stand-ins: PlaceBeacon from gamemd.exe's instructions on Red Alert 2's accepted twin's shape; Intersect through the tree's template."
   }
  ]
 }

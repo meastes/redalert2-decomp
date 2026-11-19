@@ -53,6 +53,23 @@
 //   thief <ID>      infantry type ID becomes a vehicle thief (InfantryTypeClass::IsThief and IsVehicleThief: no type in
 //                   Yuri's Revenge's rules sets Thief= or VehicleThief=, so a hijack is only seen this way); logs
 //                   `harness-thief <ID>` (lane P1);
+//   create <BLDG> on <ID>  building type BLDG for the player placed with BuildingClass::ForceCreate on the cell of the
+//                   player's first unit of type ID, as the trigger action "create building at" does (Create_One_Of,
+//                   ForceCreate, Grand_Opening); the units there are moved aside; logs `harness-create <BLDG> ok|failed
+//                   @x,y` (lane N3);
+//   bolt enemy      a lightning bolt (IonStormClass::Lightning_Bolt, the trigger action "ion lightning strike") on the
+//                   cell of the enemy house's first building; logs `harness-bolt @x,y` (lane N3);
+//   beaconmode      the beacon placement mode as the Beacon command gives it (FUN_00731A30: the command bar's
+//                   button in network games, the key; a skirmish's bar has no Beacon button); logs
+//                   `harness-beaconmode on|off` (lane N3);
+//   beacons         logs `harness-beacons <n>`: the beacons placed (BeaconManagerClass::AllocatedCount; lane N3);
+//   stormstart      starts a lightning storm on the enemy house's first building now, as the trigger action "ion storm
+//                   start" does with no deferment (LightningStorm::Start, FUN_00539EB0); logs `harness-stormstart @x,y
+//                   active|not active` (lane N3);
+//   stormend        ends a running lightning storm as the trigger action "ion storm stop" (only while one is active);
+//                   logs `harness-stormend active|none` (lane N3);
+//   cmd <name>      executes the keyboard command with that unique name (AllCommands; key 0, a press without
+//                   Shift); logs `harness-cmd <name>` (lane N3: HealthNav, VeterancyNav);
 // RA2_NATIVE_FORCE_END=<f1>[,<f2>...][,lose]: at the first loop frame at or past each entry the game
 // ends as the house AI ends it on a win or defeat (PlayerWins / PlayerLoses, read by the main loop);
 // logs `force-end: win|loss at frame <f> in <scenario>`, so a campaign goes on mission by mission.
@@ -80,6 +97,12 @@
 #include "laser.h"
 #include "objtype.h"
 #include "infatype.h"
+#include "ion.h"
+#include "command.h"
+#include "_command.h"
+#include "builtype.h"
+#include "beacon.h"
+#include "cell.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -89,6 +112,10 @@ extern Rect TacticalRect;
 extern Rect VisibleRect;
 extern Rect * DAT_00B0FC58;	// the command bar's area (FUN_0072FC60)
 extern bool DAT_00B0FC0C;	// the command bar laid out
+
+extern BeaconManagerClass BeaconManager;   // beacon.cpp
+void FUN_00731A30(void);   // uicmnds.cpp: the Beacon command (beacon placement mode on or off)
+void __fastcall FUN_00539EB0(int duration, int deferment, Cell cell, HouseClass * owner);   // ion.cpp: LightningStorm::Start
 
 namespace {
 
@@ -400,6 +427,65 @@ int Run_Order(int frame, char const * text)
 		((InfantryTypeClass *)type)->IsVehicleThief = true;
 		fprintf(stderr, "harness-thief %s\n", word[1]);
 		return(1);
+	}
+	if (!strcmp(word[0], "create") && words >= 4 && !strcmp(word[2], "on")) {
+		TechnoClass * unit = First_Of(word[3], PlayerPtr);
+		int type = BuildingTypeClass::From_Name(word[1]);
+		if (unit == NULL || type < 0 || BuildingTypes[type] == NULL) {
+			fprintf(stderr, "harness-create: no %s or no type %s\n", word[3], word[1]);
+			return(-1);
+		}
+		Cell cell = unit->Get_Cell();
+		Coord coord = Map[cell].Center_Coord();
+		BuildingClass * building = (BuildingClass *)BuildingTypes[type]->Create_One_Of(PlayerPtr);
+		bool ok = building != NULL && building->ForceCreate(coord, 0);
+		if (building != NULL && !ok) building->Delete_Me();
+		else if (ok) building->Grand_Opening(false);
+		fprintf(stderr, "harness-create %s %s @%d,%d\n", word[1], ok ? "ok" : "failed", cell.X, cell.Y);
+		return(ok ? 1 : -1);
+	}
+	if (!strcmp(word[0], "bolt") && words >= 2) {
+		HouseClass * enemy = Enemy_House();
+		if (enemy == NULL || enemy->Buildings.Count() == 0) return(-1);
+		Cell cell = enemy->Buildings[0]->Get_Cell();
+		IonStormClass::Lightning_Bolt(cell);
+		fprintf(stderr, "harness-bolt @%d,%d\n", cell.X, cell.Y);
+		return(1);
+	}
+	if (!strcmp(word[0], "beaconmode")) {
+		FUN_00731A30();
+		fprintf(stderr, "harness-beaconmode %s\n", Map.PlaceBeaconMode ? "on" : "off");
+		return(1);
+	}
+	if (!strcmp(word[0], "beacons")) {
+		fprintf(stderr, "harness-beacons %d\n", BeaconManager.AllocatedCount);
+		return(BeaconManager.AllocatedCount);
+	}
+	if (!strcmp(word[0], "stormstart")) {
+		HouseClass * enemy = Enemy_House();
+		if (enemy == NULL || enemy->Buildings.Count() == 0) return(-1);
+		Cell cell = enemy->Buildings[0]->Get_Cell();
+		FUN_00539EB0(300, 0, cell, NULL);
+		fprintf(stderr, "harness-stormstart @%d,%d %s\n", cell.X, cell.Y, IonStormClass::Is_Ion_Storm_Active() ? "active" : "not active");
+		return(1);
+	}
+	if (!strcmp(word[0], "stormend")) {
+		bool active = IonStormClass::Is_Ion_Storm_Active();
+		if (active) IonStormClass::Ion_Storm_End();
+		fprintf(stderr, "harness-stormend %s\n", active ? "active" : "none");
+		return(1);
+	}
+	if (!strcmp(word[0], "cmd") && words >= 2) {
+		for (int i = 0; i < AllCommands.Count(); ++i) {
+			CommandClass const * command = AllCommands[i];
+			if (command != NULL && !strcmp(command->Get_Unique_Name(), word[1])) {
+				command->Execute(0);
+				fprintf(stderr, "harness-cmd %s\n", word[1]);
+				return(1);
+			}
+		}
+		fprintf(stderr, "harness-cmd: no command %s\n", word[1]);
+		return(-1);
 	}
 	if (!strcmp(word[0], "money")) {
 		fprintf(stderr, "harness-money %d\n", PlayerPtr ? PlayerPtr->Available_Money() : -1);

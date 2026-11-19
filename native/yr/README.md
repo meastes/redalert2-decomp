@@ -737,6 +737,35 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   "hidden"; in Yuri's Revenge a tap on the TypeSelect button with one tank selected selects all five. The walk's old
   tap point missed Red Alert 2's field (further right), so it never checked Red Alert 2's keyboard.
 
+* **Stand-ins the campaign triggers, the command bar and the keys reach** (item 1 of PORTS_REMAINING: a static trace of
+  the 125 functions still missing at the Mac link, from their callers in the tree; link closure 125 -> 116):
+  - BuildingClass::ForceCreate (gamemd.exe 0x00458A80; vtable slot 0x490): the trigger action "create building at"
+    and HouseClass::RespawnStartingForces. glue/building_native.inc, from gamemd.exe's instructions on the matched
+    FootClass::ForceCreate's shape (foundation cells' overlay cleared, the units there lifted and put down nearby);
+  - bindings (data/name_aliases.tsv): IonStormClass::Lightning_Bolt is LightningStorm::Strike (0x0053A140, the
+    trigger action "ion lightning strike"), Ion_Storm_End is RequestStop (0x0053A090, "ion storm stop"),
+    TechnoTypeClass::Get_Weapon is GetWeapon (0x007177C0, an upgraded building's weapon);
+  - XSurface::Draw_Ellipse: a selected Gap Generator's or Psychic Sensor's range ring
+    (BuildingClass::Draw_Radial_Indicator). glue/xsurface_native.inc: Red Alert 2's draft of its twin
+    (src/recovered/xsurface.cpp, not exact), not compared with gamemd.exe;
+  - FUN_00733380 / FUN_007336C0, the HealthNav and VeterancyNav keys (glue/uicmnds_native.inc, from gamemd.exe's
+    instructions with the matched helpers they inline);
+  - BeaconManagerClass::PlaceBeacon (0x00430BA0) and Drawing::Intersect (glue/beacon_native.inc): the Beacon
+    command's placement mode (the command bar's Beacon button in network games; a skirmish's bar has none), then a
+    click on the map, then every frame's beacon draw. PlaceBeacon from gamemd.exe's instructions on Red Alert 2's
+    accepted twin's shape.
+  ctest `yr-native-standins-triggers` (yr/tests/yr_standins_triggers.py; harness orders `create <BLDG> on <ID>`,
+  `bolt enemy`, `stormstart`, `stormend`, `beaconmode`, `beacons`, `cmd <name>`): a selected Gap Generator, a power
+  plant forced onto the player's tanks (none lost), a bolt, a storm started and stopped, a beacon placed by a map
+  click, three presses of each nav key selecting tanks. Input scripts also take `@cmd=Beacon` (network games).
+  Still missing and not written: planning mode (the command bar's PlanningMode button; its orders' events reach FUN_00637E00,
+  FUN_00639CB0, FUN_0063B550, PlanningNodeClass: Red Alert 2 has drafts of the twins). Callers found, reach not
+  checked in play: the laser fence's and firestorm wall's placement drawing
+  (Tactical::Draw_Fence_Placement / Draw_Firestorm_Wall_Placement, for building types with IsLaserFencePost or
+  IsFirestormWall); Speech_Name (a trigger's description text); the score font's Print_String; LineTrail's
+  constructor (types with line trails); Tunnel_AI (Tiberian Sun's subterranean movement); the random map generator
+  (MapGeneratorClass) and the World Domination Tour (WorldDominationTour::*), both Westwood Online.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both
