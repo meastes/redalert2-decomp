@@ -1053,6 +1053,44 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   check box with RA2_NATIVE_MSG_LOG on Alpha), EM pulse and overlay saves, the 8-bit and backward blitters.
   Can_Add_Waypoint_To_Path: trace why ScrollClass::What_Action's waypoint branch is not taken (the input log around Z).
 
+### Lane N11 (2026-11-19): Red Alert 2's unreached rewrites, 80 -> 53
+
+* **No open user-reported fault** in docs/PORTS_REMAINING.md (every Duo and Mac fault there is fixed and waits for
+  the user's check), so the lane went to N10's resume list.
+* **Reached in coverage runs (4)** (build/native-cov rebuilt, `coverage_runs.py run`, `report`): `n11-exit-audio` (the
+  main menu's Exit Game with audio on: AudioSource::Finish as the audio cache is freed); `n11-terrain` (RA2 harness
+  order `super <index> terrain [mine]`: a super weapon at the terrain object nearest the base; the Iron Curtain over a
+  tree reaches ObjectClass::IronCurtain; `terrain kill [mine]` damages that object, which did nothing: the ore mines are
+  Immune and C4 is not a Wood warhead); `n11-lan` (lan_pair.py --extras: the host screen's Choose Map (0x5AA), a row,
+  OK, then Tab twice, all before Start Game: Unknown_005bbd10 through Scenario_Select_Callback in a LAN game; the
+  4,000-frame pair exits 1 only because Bravo's second Sound dialog comes later, as N6 saw); `n11-ui` (a Grizzly tank
+  selected, Ctrl+Shift held over open ground: attack-move's cursor Unknown_006F6730). An input script's point
+  `@!ID` is now the newest object of type ID of a house the player does not control (harness_input.cpp).
+* **Why N10's host-screen click found nothing**: an input script runs its events in their order, each waiting for
+  the one before, and lan_pair.py appended the extras after Start Game; the lobby extras now come first. The same
+  holds for the ctests' two Tab presses (N6): they land in the game, not the lobby (left as they are).
+* **Keys**: shared/keyboard.hpp calls the 0x00A40BB4 pair KeyForceMove and 0x00A40BA4 the unsettled third pair; by
+  behaviour 0x00A40BAC is Ctrl, 0x00A40BB4 Shift and 0x00A40BA4 Alt (Ctrl+Alt guard area, Ctrl+Shift attack move).
+  src/ is not this lane's to rename.
+* **Shown not to run (23)**, from game.exe's instructions (rel32 calls and jumps, imm32 references, `call [reg+slot]`)
+  with mischa85's names.csv and the shipped rules.ini (native/behaviour_rewrites.json `reach_reason` has each):
+  Unknown_0075ca00 (WOL chat only) and Unknown_0073bdb0 (session type 4 only): "unreachable in the port";
+  Can_Add_Waypoint_To_Path (waypoint mode is never switched on: every call of 0x0049C860 passes 0), EMPulseClass
+  Save/Kind_Of/Size_Of (its constructor has no caller), MSSfx::~MSSfx (Add_Sfx has no caller), WideString 0x00770400
+  (MSPrintAnim's constructor has no caller), UnknownFactory::Get_Special_Item (+0x64 is only ever -1), CanCheer and
+  slots 66/92/102/113/114 and TechnoClass 194/240 (called only on technos or classes that override them, or never), and with the shipped rules
+  ReceiveGunner/RemoveGunner (Gunner only on FV), ClearDisguise, ObjectClass slot 74 (HasRadialIndicator only on
+  buildings), Cell::Chain_Reaction_Damage (ore mines Immune; no ChainReaction overlay) and HouseClass 0x004F3160 (no
+  IsThreatRatingNode): "unreachable in the base game".
+* **Checks**: ctests native-basics, native-tank-damage, native-link-closure, native-asm-check and native-lan-pair on
+  build/n3.
+* **Resume note (lane N11)**: 53 reviewed rows left. Next: the ObjectClass default slots with many call sites (35:
+  42 sites, 51/50 GetDisguiseHouse/GetDisguise: about 20, 93: 18, 111/112: 35-44, 115: 12) need each site's receiver read (`call [reg+0xNN]` with the slot's offset; a scratch
+  scanner is simple); TechnoClass 189/195/202/224 and Exit_Object the same; the game-mode slots need a LAN game in
+  Unholy Alliance or with an observer (the host screen's game type list: find its control with RA2_NATIVE_MSG_LOG on
+  Alpha, as lobby extras before Start Game); Build_By_String needs a desync (Print_CRCs) or the version dialog, which
+  nothing opens (Version_Dialog 0x00516E70 has no caller).
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

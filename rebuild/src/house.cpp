@@ -4882,13 +4882,14 @@ int HouseClass::AI_Building(void)
  * HISTORY:                                                                                    *
  *   09/29/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 17 of 1310 bytes differ (mischa85 text; the old-tree body is not carried yet)
 int HouseClass::AI_Unit(void)
 {
 	if (BuildUnit != UNIT_NONE) return(TICKS_PER_SECOND);
 
 	int harv = AUQuantity.Value(Get_First_Ownable(Rule->HarvesterUnit)->HeapID); // RA2: the first harvester this house may own
-	int ref = ABQuantity.Value(Rule->BuildRefinery[0]->HeapID) + ABQuantity.Value(Rule->BuildRefinery[1]->HeapID); // RA2: both refineries count
+	BuildingTypeClass const * const & first = Rule->BuildRefinery[0];
+	BuildingTypeClass const * const & second = Rule->BuildRefinery[1];
+	int ref = ABQuantity.Value(first->HeapID) + ABQuantity.Value(second->HeapID); // RA2: both refineries count
 	int mult = Rule->HarvestersPerRefinery; // RA2: the rules give the number of harvesters for each refinery
 
 	/*
@@ -4987,7 +4988,6 @@ int HouseClass::AI_Unit(void)
 
 	return(TICKS_PER_SECOND);
 }
-#endif
 
 
 
@@ -6627,6 +6627,7 @@ static DirType Rotate_Back_One_Facing(DirType const & dir)
  * HISTORY:                                                                                    *
  *   11/04/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004eca50 has no row)
 Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 {
 	Coord coord;
@@ -6715,6 +6716,7 @@ Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 	}
 	return(cell);
 }
+#endif
 
 
 /// <summary>

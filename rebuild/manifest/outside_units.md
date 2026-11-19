@@ -2,7 +2,7 @@
 
 `outside_units.csv` lists every row of main's canonical catalog (C/C++ regions) whose entry lies in no
 rebuild unit's range (`units.json`, pending units included). First map (at rebuild-trial 7b301a8f4):
-2,467 rows, 297,976 bytes. **Now (after lane R23's batches 1-5, lane R24's batches 1-3 and lane R27's batch 1): 992 rows, 161,006 bytes** (full
+2,467 rows, 297,976 bytes. **Now (after lane R23's batches 1-5, lane R24's batches 1-3 and lane R27's batch 1 and lane R38's batch 2): 536 rows, 131,582 bytes** (full
 extent: body + frozen padding). Rows inside pending units' ranges count as inside their unit.
 
 Columns: `main_module` is the module of main's unit map (`manifests/original_target/modules/*.json`)
@@ -31,15 +31,15 @@ rows, so they are in neither receipt: a library-ledger question, not a unit fili
 | R24-1 | dropship widened to 0x4AA2B0 (rule 2; Draw_Cost, Draw_Unit_Info exact from main's RA2 bodies; Dropship_Screen parked, see b_log_r24.csv) | 1,309 |
 | R24-2 | new units _alpha and _logic (TibSun files; _alpha.h and layer.h include trims) | 953 |
 | R24-3 | new unit missile (TibSun file; Projectile_Motion has no main row, guarded) | 356 |
+| R38-2 | startup widened to 0x698740 (rule 2: the kept VectorClass<unsigned long> copies 0x6983F0-0x698740 that startup's object defines follow the tail, so the span between is startup's contribution; TibSun startup.cpp's RegisterClasses instantiates the factories): 445 TClassFactory instance rows, IUnknownPtr::CreateInstance and ~IUnknownPtr, DynamicVectorClass<unsigned long>::Add; none emitted while WinMain is guarded | 0 (447 rows, 28,656 B parked) |
 | R27-1 | wonline widened to 0x74A710 (survey: the tail is wonline's object), main's bodies and mischa85's text; Wonline_Main_Dialog_Proc and Player_Info_Tooltip parked (b_log_r27.csv) | 7,480 |
 
 ## Remaining, by kind
 
 | Kind | Rows | Bytes |
 | --- | ---: | ---: |
-| ordinary | 324 | 116,896 |
-| factory (TClassFactory instances) | 445 | 28,560 |
-| template copy | 127 | 12,160 |
+| ordinary | 323 | 116,880 |
+| template copy | 117 | 11,312 |
 | initializer (`_$E`) | 84 | 3,280 |
 | runtime library (>= 0x781000) | 12 | 110 |
 
@@ -48,7 +48,7 @@ rows, so they are in neither receipt: a library-ledger question, not a unit fili
 | Target | Bytes | State |
 | --- | ---: | --- |
 | wonline 0x74A710-0x7683B0 | 112,416 | one object (survey below); widened in steps as text is brought (lane R27: to 0x74A710) |
-| startup TClassFactory tail | 29,424 | follows WinMain (guarded) |
+| startup TClassFactory tail | (filed, 28,656 parked) | in startup's range since lane R38; its 447 rows are emitted only by RegisterClasses, which the original inlines into WinMain (guarded): they wait on WinMain |
 | non-adjacent main modules (motlib, txtlabel, ...) | 5,296 | held (review ruling) |
 | _vanim, const | 2,144 | TibSun files in link order; _vanim parked under the owner ruling (no single header gives the second zero Rect to exactly the four objects that have it; b_log_r24.csv); const needs its RA2 tables |
 | rules TypeList rest, teamtype, wsproto, movies, hsv, ... | ~12,000 | rows between a range and the next kept copy, or tails needing text |

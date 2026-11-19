@@ -11,9 +11,18 @@ prov = {r['entry']: r['class'] for r in csv.DictReader(open(R.MANIFEST / 'proven
 split = {k: [0, 0] for k in 'abc'}
 workers_path = R.MANIFEST / 'workers.csv'
 worker_units = {r['unit']: r['worker'] for r in csv.DictReader(open(workers_path))} if workers_path.exists() else {}
+# Worker rows are counted per row (owner, 2026-11-19): a unit listed in worker_rows.csv (a unit a lane
+# landed, into which a worker later delivered functions) counts only its listed rows as the worker's; a unit
+# only in workers.csv (the worker delivered the unit's source) counts every row.
+rows_path = R.MANIFEST / 'worker_rows.csv'
+worker_rows = {}
+for r in (csv.DictReader(open(rows_path)) if rows_path.exists() else []):
+    worker_rows.setdefault(r['unit'], {})[r['entry']] = r['worker']
+def worker_of(unit, entry):
+    return worker_rows[unit].get(entry) if unit in worker_rows else worker_units.get(unit)
 workers = [0, 0]
 for row in cat['regions']:
-    if row['source'].split('/')[-1].rsplit('.', 1)[0] in worker_units:
+    if worker_of(row['source'].split('/')[-1].rsplit('.', 1)[0], '%08x' % row['entry']):
         workers[0] += 1; workers[1] += row['full_extent_bytes']; continue      # reported apart
     cls = prov.get('%08x' % row['entry'], 'a')
     split[cls][0] += 1; split[cls][1] += row['full_extent_bytes']

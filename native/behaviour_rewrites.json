@@ -1303,9 +1303,9 @@
    "notes": "reads the real FactoryClass at its native layout (Scout1111: the harness build order reaches it through StripClass::AI 0x0067F050)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "SidebarClass::StripClass::Recalc (0x00680F66) for a factory building a special (super weapon) item; no run built one through the sidebar",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "its only caller, StripClass::Recalc 0x00680F66, asks it when the factory is complete (0x004B9900) with no object (0x004B9930 null); complete without an object needs the factory's special item (+0x64) to be other than -1, and game.exe only ever stores -1 there (the constructor 0x004B90FA, 0x004B9828, 0x004B99C0)",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the shipped rules.ini"
   },
   {
    "entry": null,
@@ -2068,9 +2068,9 @@
    "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ScrollClass::What_Action in waypoint mode (adding a waypoint to a path); the in-game runs toggled Z but clicked no path cell that asks it",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "its only callers, 0x00669C87 and 0x00669CD2 in ScrollClass::What_Action, are under the waypoint-mode flag DisplayClass+0x11AF (0x0083368F); the only instruction that sets it is in DisplayClass 0x0049C860 (control -1 or 1), and all six calls of 0x0049C860 in game.exe (0x0049B08E, 0x0051B8C5, 0x0051BD35, 0x006F5F20, 0x006F60EA, 0x006F6209) pass 0 (off): Red Alert 2 has no way into waypoint mode",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x00435FB0",
@@ -2170,9 +2170,9 @@
    "notes": "Scout1170 M21: reached by Allied 1's win, the score screen and Allied 2 (TRAP_CONTINUE)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the audio cache (AudioCacheCreate/Destroy/FreeOldestItem/ItemFree/LoadItem) frees a sample: a full cache or shutdown; the runs end by _exit before the audio shuts down and never filled the cache",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n11-exit-audio: the main menu's Exit Game with audio on (SDL's dummy device): the audio shuts down and frees its cache",
+   "reach_checked_by": "N11 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n11-exit-audio and report"
   },
   {
    "entry": "0x0041B3E0",
@@ -2428,9 +2428,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 92 default slot inherited by AircraftClass, BuildingClass, InfantryClass, UnitClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "no instruction in game.exe calls through slot 92 (+0x170, no call [reg+0x170] in any addressing form) and nothing calls 0x0041B310 directly",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x0041B2F0",
@@ -2443,9 +2443,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 74 default slot inherited by AircraftClass, InfantryClass, UnitClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "with the shipped rules: slot 74 (+0x128) is called only by Tactical::Draw_Radial_Indicators (0x006AC469, 0x006AC782), for a selected object whose type has HasRadialIndicator and for a building; rules.ini gives HasRadialIndicator only to GAGAP, NAPSIS and NAPSYB, buildings, which override it",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x0041B2D0",
@@ -2488,9 +2488,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 102 default slot inherited by BuildingClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 102 (+0x198) only in InfantryClass::Can_Enter_Cell 0x005032E6 and UnitClass::Can_Enter_Cell 0x0070325A, on the infantry or unit itself, and both classes override it; nothing calls 0x00423E10 directly",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts)"
   },
   {
    "entry": "0x00423D10",
@@ -2533,9 +2533,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 66 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 66 (+0x108) in Tactical::Draw_Objects 0x006A9793 and 0x006A9DC9, both on objects that passed Is_Techno_Object, and in the out-of-line Tactical::Draw_Render_Hooks 0x006A93DB, which nothing calls (its body is inlined at 0x006A9793); the default is inherited only by classes that are not technos",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts)"
   },
   {
    "entry": "0x00423DE0",
@@ -2548,9 +2548,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot (IronCurtain) default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n11-terrain: the harness's `super 1 terrain` fires the Iron Curtain at the tree nearest the base (TIBTRE01 at 18,60 in the run): SuperClass::Place calls slot 82 on each object of the 3x3 cells' occupier lists, the terrain object among them",
+   "reach_checked_by": "N11 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n11-terrain and report"
   },
   {
    "entry": "0x00423DF0",
@@ -2608,9 +2608,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 113 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 113 (+0x1C4) only in TechnoClass::Can_Fire 0x006C92B4 and Can_Scan_For_Target 0x006D40E1, on the techno itself; the default is inherited only by classes that are not technos",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x00423E50",
@@ -2623,9 +2623,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 114 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 114 (+0x1C8) only in TechnoClass::Can_Player_Move 0x006CD2E4, on the techno itself; the default is inherited only by classes that are not technos",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x004CDDD0",
@@ -2698,9 +2698,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass slot 194 default slot inherited by BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe's only call through slot 194 (+0x308) is 0x00448394 in a BuildingClass mission of a UnitReload building (src/recovered/building.cpp: a serviced radio contact released), on the contact: an aircraft or unit docked for service, which FootClass overrides (0x004CCDF0); the default is inherited only by BuildingClass, and no building is ever a docked contact",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts)"
   },
   {
    "entry": "0x006CD6E0",
@@ -2743,9 +2743,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass slot 204 (CanCheer) default slot inherited by AircraftClass, BuildingClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe's only call through slot 204 (+0x330) is InfantryClass::Cheer 0x005096B5, on the infantry itself, and InfantryClass overrides CanCheer; no direct call",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x00453BD0",
@@ -2773,9 +2773,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass slot 240 default slot inherited by AircraftClass, BuildingClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe's only calls through slot 240 (+0x3C0) are InfantryClass::Do_MISSION_ATTACK 0x005063A0 and Update_Deployed_Attack 0x0050810D, on the infantry itself, and InfantryClass overrides the slot; no direct call",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x0041B430",
@@ -2788,9 +2788,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass slot 256 (ClearDisguise) default slot inherited by AircraftClass, BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "with the shipped rules: slot 256 (+0x400) is called by TechnoClass::Take_Damage 0x006CE139 (a type with CanDisguise), TechnoClass::Detach 0x006D2EBF (a disguised techno) and UnitClass::UpdateDisguise 0x0070A0CB (a unit); rules.ini gives CanDisguise only to SPY (infantry) and MGTK (a unit), so no aircraft or building is ever disguised",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x004CD060",
@@ -2803,9 +2803,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "FootClass slot 280 (ReceiveGunner) default slot inherited by AircraftClass, InfantryClass (the IFV is a UnitClass, which overrides it); reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "with the shipped rules: slot 280 (+0x460) is called on a FootClass only by FootClass 0x004CCE80 (a passenger entering), on the transport and only when its type has Gunner=yes; rules.ini sets Gunner only for FV, a UnitClass, which overrides it (the other +0x460 calls, in BuildingClass, are a building slot)",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x004CD070",
@@ -2818,9 +2818,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "FootClass slot 281 (RemoveGunner) default slot inherited by AircraftClass, InfantryClass (the IFV is a UnitClass, which overrides it); reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "with the shipped rules: slot 281 (+0x464) is called on a FootClass only by FootClass 0x004CCF20/0x004CCFC0 (a passenger leaving), on the transport and only when its type has Gunner=yes; rules.ini sets Gunner only for FV, a UnitClass, which overrides it",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x004F3160",
@@ -2833,9 +2833,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "BuildingClass::Limbo/Unlimbo call it on a branch the runs did not take (a building that is a threat node for the AI)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "with the shipped rules: its two callers (BuildingClass 0x0043D887 and BuildingClass::Limbo 0x0044253C) call it only for a building type with IsThreatRatingNode=yes, and the shipped rules.ini sets it for none (default no; a map's own rules section could set it, not checked)",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the shipped rules.ini"
   },
   {
    "entry": "0x006A17B0",
@@ -3007,9 +3007,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "DisplayClass::Mouse_Left_Up for action 71's cursor; no run released the mouse with that action",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n11-ui: a Grizzly tank (OpportunityFire) selected and Ctrl+Shift held with the mouse on open ground: TechnoClass::What_Action drops both keys' meanings and answers a move, which Unknown_006D8F60 turns into attack-move's 0x3E while 0x006F6670 holds; DisplayClass slot 46 asks 0x006F6730 for its cursor. (The keys are the 0x00A40BAC and 0x00A40BB4 pairs, Ctrl and Shift by default; Ctrl+Alt is guard area. The command bar's Attack Move, Command_Attack_Move 0x006F6570's only caller, is on neither of the shipped UI.INI's bars.)",
+   "reach_checked_by": "N11 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n11-ui and report"
   },
   {
    "entry": "0x006F6740",
@@ -3052,9 +3052,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TerrainClass's destructor (a tree or terrain object destroyed) and WaveClass::Sonic_Damage; no run destroyed terrain",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "with the shipped rules: its callers are TerrainClass::Take_Damage 0x006E331C (a destroyed terrain object whose type SpawnsTiberium: only TIBTRE01-03, all Immune=yes, so never destroyed; n11-terrain's `terrain kill mine` on TIBTRE01 did no damage) and WaveClass::Sonic_Damage 0x00721FD7 (an overlay with ChainReaction=yes: the shipped rules.ini sets it only to no, and the default is no)",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the shipped rules.ini"
   },
   {
    "entry": "0x0054F240",
@@ -3154,9 +3154,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MSEngine's destructor (the menus' animated screens: the campaign map selection, the WDT selection, GraphicMenu); the campaign runs left the map selection by a path that keeps the engine",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "no MSSfx is ever made: its constructor 0x005B69B0 is called only by MSEngine::Add_Sfx 0x005B3710, which nothing in game.exe calls or references, so MSEngine's destructor 0x005B2C93 finds its sound list empty",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the shipped rules.ini"
   },
   {
    "entry": "0x00436100",
@@ -3199,9 +3199,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "EMPulseClass::Save: saving a game while an EM pulse is active; no run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "no EM pulse is ever made: EMPulseClass's constructor 0x004B4C00 has no caller in game.exe (no call, jump or address); only the COM factory 0x006921B0 makes one, for a save that holds one, and the base game never writes one (the EMPulseWeapon of rules.ini is used by nothing)",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x004B5400",
@@ -3214,9 +3214,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "EMPulseClass vtable slot (Kind_Of) during a save or a pointer swizzle with a pulse active",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "as EMPulseClass::Save (0x004B53D0): no EM pulse is ever made (its constructor 0x004B4C00 has no caller in game.exe)",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x004B53F0",
@@ -3229,9 +3229,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "differs by design: the native object's size where the original answers 0x34 (AbstractClass::Save writes Size_Of bytes of the native object, as the comment says); no RA2 weapon makes an EM pulse",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "EMPulseClass vtable slot (Size_Of) during a save with a pulse active",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "as EMPulseClass::Save (0x004B53D0): no EM pulse is ever made (its constructor 0x004B4C00 has no caller in game.exe)",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x005DBCE0",
@@ -3598,9 +3598,9 @@
    "notes": "second copy of Get_Char 0x00770470; Scout1208 (M26)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "WideWstring::get from MSPrintAnim::Advance (the menus' typed-text animation)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "its only caller, MSPrintAnim::Advance 0x005AEE73, runs on an MSPrintAnim, and MSPrintAnim's constructor 0x005AE6C0 has no caller or reference in game.exe",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the shipped rules.ini"
   },
   {
    "entry": "0x00435FF0",
@@ -3817,9 +3817,9 @@
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the LAN/network dialogs (Net_Join_Dialog, Get_Join_Responses, Scenario_Select_Callback, CreateRandomMap); the LAN-pair run did not take this branch",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n11-lan: lan_pair.py --extras, the host's Choose Map (0x5AA), a map row and OK before Bravo joins: in a LAN game (session type 3) the map dialog's callback Scenario_Select_Callback 0x005C67C0 returns 0x005BBD10's answer",
+   "reach_checked_by": "N11 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n11-lan and report"
   },
   {
    "entry": "0x005DEF80",
@@ -3971,9 +3971,9 @@
    "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the LAN/network dialogs (Handle_Reset_Ready, Set_Player_Map_State); the LAN-pair run did not take this branch",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the port",
+   "reach_reason": "Westwood Online only: game.exe calls it from two places, the jmp at 0x005C3C50 in 0x005C3C40 and 0x005C5CFB, both on the branch taken when the chat object 0x00A72CFC (WOL::IChat) is set; a LAN game (chat object null) takes 0x005C2940 there instead (lane N10 had looked for a LAN host-screen path)",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x0073BDB0",
@@ -3987,9 +3987,9 @@
    "notes": "Scout1209 (r9): the named declaration callers use (Decode_Pub_Gameopt 0x005C3FF0 draft); the seed's int-typed handles and namespace keep it from being a native alias target",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the LAN/network dialogs (Set_Player_Map_State); the LAN-pair run did not take this branch",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the port",
+   "reach_reason": "Internet games only: its two callers (0x005C4FAF and 0x005C5BBE in the network game options code) call it only when the session type 0x00A3D298 is 4 (Internet, Westwood Online); LAN is 3",
+   "reach_checked_by": "N11 2026-11-19: static check of game.exe (rel32 calls and jumps, imm32 references, call [reg+slot] instructions; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x00668EA0",

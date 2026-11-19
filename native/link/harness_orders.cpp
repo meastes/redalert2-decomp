@@ -43,6 +43,7 @@
 #include "shared/laser_draw.hpp"
 #include "shared/wave.hpp"
 #include "shared/rules.hpp"
+#include "shared/terrain.hpp"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,6 +74,31 @@ bool Super_Target(TechnoClass *techno, bool units)
     if (kind != 1 && kind != 15) return false;
     Cell cell = techno->Center_Coord().As_Cell();
     return cell.X != 0 || cell.Y != 0;
+}
+// The terrain object nearest the player's first techno (lane N11): any, or with `mine` only a type that
+// spawns ore (SpawnsTiberium: the ore mines TIBTRE01-03).
+TerrainClass *Nearest_Terrain(bool mine)
+{
+    TechnoClass *home = 0;
+    for (int i = 0; i < Technos.Count() && home == 0; ++i) {
+        if (Technos[i] && Technos[i]->House == PlayerPtr) home = Technos[i];
+    }
+    if (home == 0) return 0;
+    Cell base = home->Center_Coord().As_Cell();
+    TerrainClass *best = 0;
+    int best_distance = 0;
+    for (int i = 0; i < Terrains.Count(); ++i) {
+        TerrainClass *terrain = Terrains[i];
+        if (terrain == 0 || terrain->IsInLimbo || terrain->Class == 0) continue;
+        if (mine && !terrain->Class->SpawnsTiberium) continue;
+        Cell cell = terrain->Center_Coord().As_Cell();
+        int distance = abs(cell.X - base.X) + abs(cell.Y - base.Y);
+        if (best == 0 || distance < best_distance) {
+            best = terrain;
+            best_distance = distance;
+        }
+    }
+    return best;
 }
 void Append_Int(char *to, int value)
 {
@@ -474,6 +500,36 @@ int Scripted_Order(char const *command)
             }
         }
         return -1;
+    }
+    if (Same(word[1], "super", 6) && (words == 4 || words == 5) && Same(word[3], "terrain", 8)) {
+        // `super <index> terrain [mine]` (lane N11, coverage_runs.py n11-terrain): the cell of the terrain object (a
+        // tree; with `mine`, an ore mine, a type with SpawnsTiberium) nearest the player's first techno: the Iron
+        // Curtain over it reaches the occupier list's terrain object (ObjectClass::IronCurtain 0x00423DE0, the
+        // default slot TerrainClass keeps).
+        TerrainClass *terrain = Nearest_Terrain(words == 5);
+        if (terrain == 0) return -1;
+        Cell cell = terrain->Center_Coord().As_Cell();
+        char text[64] = "0 super ";
+        Append(text, word[2]);
+        Append(text, " ");
+        Append_Int(text, cell.X);
+        Append(text, " ");
+        Append_Int(text, cell.Y);
+        return Scripted_Order(text);
+    }
+    if (Same(word[1], "terrain", 8) && words >= 3 && Same(word[2], "kill", 5)) {
+        // `terrain kill [mine]` (lane N11, test scaffolding): the terrain object nearest the player's first techno (a
+        // tree; with `mine`, an ore mine) takes 10,000 damage from the C4 warhead (TerrainClass::Take_Damage, forced):
+        // an ore mine destroyed sets off the ore around it (Cell::Chain_Reaction_Damage 0x0047E2B0). Logs
+        // `harness-terrain <TYPE> @x,y result <r>`.
+        TerrainClass *terrain = Nearest_Terrain(words >= 4 && Same(word[3], "mine", 5));
+        if (terrain == 0) return -1;
+        Cell cell = terrain->Center_Coord().As_Cell();
+        char const *name = terrain->Class ? terrain->Class->ID.Buffer : "?";
+        int damage = 10000;
+        int result = terrain->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
+        fprintf(stderr, "harness-terrain %s @%d,%d result %d\n", name, cell.X, cell.Y, result);
+        return 1;
     }
     if (Same(word[1], "super", 6) && (words == 4 || words == 6) && Same(word[3], "home", 5)) {
         // `super <index> home [<dx> <dy>]` (C17, HD vehicles: a paradrop's cargo plane over the

@@ -280,7 +280,22 @@ platform layer. It earns no exact-match credit.
   Audio_Event_Type_Of) and `n10-bar` (a tank selected, Ctrl+Alt held over open ground: the guard-area cursor,
   Unknown_006F6740; the Delete key: unknown_find_617a00; three ObjectClass default slots reached once and not again in
   a rerun, trigger not traced). The single-player command bar has no Attack Move or Beacon button (UI.INI); waypoint
-  mode with the mouse on an empty cell did not ask HouseClass::Can_Add_Waypoint_To_Path. 80 remain reviewed but unreached.
+  mode with the mouse on an empty cell did not ask HouseClass::Can_Add_Waypoint_To_Path. Lane N11 (2026-11-19) reached
+  4 more and showed 23 others cannot run in the base game or the port: `n11-exit-audio` (Exit Game with audio on: the
+  audio cache freed, AudioSource::Finish), `n11-terrain` (the harness's new `super 1 terrain`: the Iron Curtain over the
+  tree nearest the base, ObjectClass::IronCurtain on the terrain object), `n11-lan` (`lan_pair.py --extras` now picks a
+  map with the host screen's Choose Map before Bravo joins: Scenario_Select_Callback's 0x005BBD10 in a LAN game) and
+  `n11-ui` (a Grizzly tank selected and Ctrl+Shift held over open ground: attack-move's cursor, 0x006F6730; Ctrl+Alt is
+  guard area). The input script ran N10's host-screen click after Start Game (an input script runs its events in
+  their order), which is why it found no control. The 23 were checked against game.exe's instructions (calls, jumps,
+  address references and virtual calls by slot) and the shipped rules.ini: 2 are Westwood Online only (0x0075CA00,
+  0x0073BDB0: "unreachable in the port"); 21 cannot run in the base game, among them Can_Add_Waypoint_To_Path (the
+  waypoint mode flag is only ever set by a function every caller passes "off"), the three EM pulse slots (nothing
+  makes an EM pulse), MSSfx's destructor and MSPrintAnim's text (nothing makes either), the factory's special item,
+  slots called only on classes that override them (CanCheer, ObjectClass slots 66, 92, 102, 113, 114, TechnoClass slots 194, 240), and with the shipped rules the
+  gunner slots (only the IFV has Gunner), ClearDisguise and slot 74 (no disguised aircraft or building, radial
+  indicators only on buildings), the ore mine's chain reaction (ore mines are Immune) and the AI threat-node update.
+  53 remain reviewed but unreached.
   Every one of the 311 rewrite rows now carries a behaviour verdict against the original (lane N2,
   2026-11-17: the last 31, the hand-written-assembly ones among them, checked statically): 299 the
   same (some apart from named, harmless edge cases), 4 fixed, 1 different by design, 3 kept (the

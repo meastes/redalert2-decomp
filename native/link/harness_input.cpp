@@ -4,7 +4,8 @@
 // "@ID[:n][+dx,dy]" (or "-dx,dy") names the human player's n-th object of type ID (0 the
 // first), moved by dx, dy cells, and this file answers its screen pixel
 // (Tactical::Coord_To_Pixel 0x006A29D0 of its centre). At the run's last frame
-// "@=X,Y" names the centre of cell X,Y (any object there). At the run's last frame
+// "@=X,Y" names the centre of cell X,Y (any object there); "@!ID..." the newest object of that type of a
+// house the player does not control (lane N11). At the run's last frame
 // it logs harness-input: the selected objects and each of the player's
 // objects (type ID, mission, cell; '*' when selected; :p<order> a pending order), then
 // the player's production (" inf=N veh=N", harness_sidebar.cpp). "@tab=N" and
@@ -110,6 +111,10 @@ int Resolve(char const *spec, int *x, int *y)
         *y = pixel.Y;
         return 1;
     }
+    // "@!ID...": the n-th newest object of type ID of a house the player does not control (lane N11: the enemy tank
+    // the harness's `spawn <ID> enemy` just put beside the player's units, to hover over; coverage_runs.py n11-ui).
+    bool other = spec[0] == '!';
+    if (other) ++spec;
     int length = 0;
     while (spec[length] && spec[length] != ':' && spec[length] != '+' && spec[length] != '-') ++length;
     char const *p = spec + length;
@@ -119,11 +124,12 @@ int Resolve(char const *spec, int *x, int *y)
     if (*p == '+' || *p == '-') { dx = Read_Int(p); if (*p == ',') { ++p; dy = Read_Int(p); } }
     // The player's technos first, then those of other houses under the player's control (lane
     // C18: Allied mission 2's Tanya is the Germans').
-    for (int pass = 0; pass < 2; ++pass) {
-        for (int i = 0; i < Technos.Count(); ++i) {
-            TechnoClass *techno = Technos[i];
+    for (int pass = other ? 2 : 0; pass < (other ? 3 : 2); ++pass) {
+        for (int k = 0; k < Technos.Count(); ++k) {
+            TechnoClass *techno = Technos[other ? Technos.Count() - 1 - k : k];
             if (techno == 0 || !Same_Name(Type_ID(techno), spec, length)) continue;
-            if (pass == 0 ? techno->House != player : techno->House == player || !techno->House->Is_Player_Control()) continue;
+            if (pass == 2 ? techno->House == player || techno->House->Is_Player_Control()
+                          : pass == 0 ? techno->House != player : techno->House == player || !techno->House->Is_Player_Control()) continue;
             if (index-- > 0) continue;
             CoordStruct coord = techno->Center_Coord();
             coord.X += dx * 256;

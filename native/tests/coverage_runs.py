@@ -167,6 +167,27 @@ SCENARIOS = [
         '300 click @MTNK', '310 key Z', '320 click @MTNK+4,0', '330 move @MTNK+6,2', '336 move @MTNK+7,2',
         '342 move @MTNK+7,3', '350 key Z', '400 key Delete',
     ]),
+    # Lane N11: terrain objects (the harness's `super <index> terrain [mine]` and `terrain kill [mine]`): the Iron
+    # Curtain (index 1) over the tree nearest the base reaches the terrain object in the cell's occupier list
+    # (ObjectClass::IronCurtain, the default TerrainClass keeps; reached). The ore mine and the tree then take no
+    # damage: the ore mines are Immune=yes and the C4 warhead is not Wood (so Cell::Chain_Reaction_Damage, which a
+    # destroyed ore mine would set off, stays unreached: unreachable with the shipped rules).
+    skirmish('n11-terrain', 1000, order='both', seconds=300, env=dict(RA2_NATIVE_ORDERS=(
+        '300 super 1 terrain; 600 terrain kill mine; 700 terrain kill; 800 health'))),
+    # Lane N11: the main menu's Exit Game with audio on: the audio shuts down and frees its cache
+    # (AudioSource::Finish).
+    menus('n11-exit-audio', ['s1+1000 click 834 640', 'd2+1500 click 660 485'], 60, audio=True),
+    # Lane N11: a tank that can attack on the move (MTNK: OpportunityFire) selected, Ctrl+Shift held (the 0x00A40BAC and
+    # 0x00A40BB4 key pairs, which shared/keyboard.hpp calls force fire and force move; Ctrl+Alt is guard area) with the
+    # mouse resting on open ground: TechnoClass::What_Action drops both and answers a move (1), which becomes
+    # attack-move's 0x3E while 0x006F6670 holds (Unknown_006D8F60), whose cursor is 0x006F6730's. Then the same over
+    # an enemy tank spawned beside it (an input script's "@!ID", harness_input.cpp: attack 5 becomes 0x3F).
+    dict(name='n11-ui', args=['--skirmish=#5', '--skirmish-frames=500', '--skirmish-order=both', '--run-to=frames',
+                              '--run-seconds=200', NOAUDIO], env=dict(RA2_NATIVE_INPUT_LOG='10', RA2_NATIVE_ORDERS='84 spawn HTNK enemy 4 2'),
+         seconds=260, script=[
+        '80 click @MTNK', '90 keydown Left_Ctrl', '91 keydown Left_Shift', '93 move @MTNK+3,0', '97 move @MTNK+4,1',
+        '101 move @MTNK+4,2', '105 move @!HTNK', '109 move @!HTNK', '113 keyup Left_Shift', '114 keyup Left_Ctrl',
+    ]),
     # Lane N4: the skirmish's Choose Map (control 0x5AA), its Create Random Map (0x583), the random map dialog's
     # Preview (0x620: the map generated) and its accept (0x6C5).
     menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
@@ -266,6 +287,11 @@ SCENARIOS = [
     dict(name='n10-leave', harness='lan_pair.py', args=['--background', '--extras', '--binary', '{binary}', '--data-dir', '{data}',
                                                         '--game-exe', '{exe}', '--work', '{work}', '--frames', '9000'],
          env={}, seconds=1800),
+    # Lane N11: lan_pair.py --extras without the background run, shorter: the host's Choose Map before Bravo joins
+    # (Scenario_Select_Callback in a LAN game: 0x005BBD10) and the command bar's Attack Move (0x006F6730's cursor).
+    dict(name='n11-lan', harness='lan_pair.py', args=['--extras', '--binary', '{binary}', '--data-dir', '{data}',
+                                                      '--game-exe', '{exe}', '--work', '{work}', '--frames', '4000'],
+         env={}, seconds=900),
     # The game binary's own self tests (test scaffolding, not a game path): the VQA player's
     # reset around a mod's .VQA movie and the drawing checks.
     dict(name='vqa-selftest', args=[], env=dict(RA2_NATIVE_VQA_SELFTEST='1'), seconds=120),

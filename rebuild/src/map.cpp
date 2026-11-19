@@ -11165,14 +11165,21 @@ void MapClass::Register_Subzone_Zone_Connections(int subzone)
 /// </summary>
 /// <param name="connection">The bridge or tunnel connection to stitch in.</param>
 /// <param name="index">The subzone level whose staging set receives the links.</param>
-#ifdef RA2_NON_MATCHING // not exact: 715 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 87 bytes differ (2026-11-19, main's record helper and count locals; the original leaves the third Add_Object out of line and loads BridgeSet before ITType)
+static inline void Set_Zone_Record(SUBZONE_CONNECTION_HASH_SET::ObjectType & record, unsigned int key, SubzoneConnectionStruct const & value)
+{
+	record.Key = key;
+	record.Value.SubzoneID = value.SubzoneID;
+	record.Value.IsCrossBlock = value.IsCrossBlock;
+}
+
 void MapClass::Register_Zone_Connection_Entries(ZoneConnectionClass * connection, int index) // RA2: 0x564B60, takes the connection by pointer
 {
 	SUBZONE_CONNECTION_HASH_SET::ObjectType connstr;
 	SUBZONE_CONNECTION_HASH_SET * set = SubzoneConnectionHashTable[index];
 
-	Cell from = connection->From; // RA2: as above
-	Cell to = connection->To; // RA2: as above
+	Cell from = connection->From;
+	Cell to = connection->To;
 
 	Cell enter1;
 	Cell enter2;
@@ -11196,11 +11203,18 @@ void MapClass::Register_Zone_Connection_Entries(ZoneConnectionClass * connection
 			return;
 		}
 
-		newcell1 = Follow_Path(enter1, tube1->Count, tube1->Dirs);
-		newcell2 = Follow_Path(enter2, tube2->Count, tube2->Dirs);
+		int count1 = tube1->Count;
+		newcell1 = Follow_Path(enter1, count1, tube1->Dirs);
+		int count2 = tube2->Count;
+		newcell2 = Follow_Path(enter2, count2, tube2->Dirs);
 	} else {
-		IsometricTileType bridge_set = cell1ptr->Is_Tile_Bridge() ? IsometricTileTypeClass::BridgeSet : IsometricTileTypeClass::TrainBridgeSet;
-		FacingType dir = BridgeSideFacings[cell1ptr->ITType - bridge_set];
+		bool is_bridge = cell1ptr->Is_Tile_Bridge();
+		IsometricTileType bridge_set = IsometricTileTypeClass::BridgeSet;
+		IsometricTileType tile = cell1ptr->ITType;
+		if (!is_bridge) {
+			bridge_set = IsometricTileTypeClass::TrainBridgeSet;
+		}
+		FacingType dir = BridgeSideFacings[tile - bridge_set];
 
 		enter1 = Adjacent_Cell(from, dir);
 		enter2 = Adjacent_Cell(from, (FacingType)(dir - FACING_180)); // RA2: both second cells lie at dir - 4
@@ -11209,39 +11223,30 @@ void MapClass::Register_Zone_Connection_Entries(ZoneConnectionClass * connection
 	}
 
 	{
-		int from_zone = CellSubzones[Get_Cell_Subzone_Index(from)].SubzoneID[index];
-		int to_zone = CellSubzones[Get_Cell_Subzone_Index(to)].SubzoneID[index];
+		int from_zone = CellSubzones[Get_Cell_Zone_Index(from)].SubzoneID[index]; // RA2: the index is clamped
+		int to_zone = CellSubzones[Get_Cell_Zone_Index(to)].SubzoneID[index]; // RA2: as above
 
 		int value = Zone_Pack32(from_zone, to_zone);
-		int bucket_index = Zone_Pack8(from_zone, to_zone);
-		connstr.Key = value;
-		connstr.Value.SubzoneID = value; // RA2: the record is filled field by field
-		connstr.Value.IsCrossBlock = false; // RA2: as above
-		set->Add_Object(bucket_index, connstr);
+		Set_Zone_Record(connstr, value, SubzoneConnectionStruct(value));
+		set->Add_Object(Zone_Pack8(from_zone, to_zone), connstr);
 	}
 
 	{
-		int from_zone = CellSubzones[Get_Cell_Subzone_Index(enter1)].SubzoneID[index];
-		int to_zone = CellSubzones[Get_Cell_Subzone_Index(newcell1)].SubzoneID[index];
+		int from_zone = CellSubzones[Get_Cell_Zone_Index(enter1)].SubzoneID[index]; // RA2: as above
+		int to_zone = CellSubzones[Get_Cell_Zone_Index(newcell1)].SubzoneID[index]; // RA2: as above
 
 		int value = Zone_Pack32(from_zone, to_zone);
-		int bucket_index = Zone_Pack8(from_zone, to_zone);
-		connstr.Key = value;
-		connstr.Value.SubzoneID = value; // RA2: as above
-		connstr.Value.IsCrossBlock = false; // RA2: as above
-		set->Add_Object(bucket_index, connstr);
+		Set_Zone_Record(connstr, value, SubzoneConnectionStruct(value));
+		set->Add_Object(Zone_Pack8(from_zone, to_zone), connstr);
 	}
 
 	{
-		int from_zone = CellSubzones[Get_Cell_Subzone_Index(enter2)].SubzoneID[index];
-		int to_zone = CellSubzones[Get_Cell_Subzone_Index(newcell2)].SubzoneID[index];
+		int from_zone = CellSubzones[Get_Cell_Zone_Index(enter2)].SubzoneID[index]; // RA2: as above
+		int to_zone = CellSubzones[Get_Cell_Zone_Index(newcell2)].SubzoneID[index]; // RA2: as above
 
 		int value = Zone_Pack32(from_zone, to_zone);
-		int bucket_index = Zone_Pack8(from_zone, to_zone);
-		connstr.Key = value;
-		connstr.Value.SubzoneID = value; // RA2: as above
-		connstr.Value.IsCrossBlock = false; // RA2: as above
-		set->Add_Object(bucket_index, connstr);
+		Set_Zone_Record(connstr, value, SubzoneConnectionStruct(value));
+		set->Add_Object(Zone_Pack8(from_zone, to_zone), connstr);
 	}
 }
 #endif

@@ -16,6 +16,8 @@ Data lives beside the sources, never inside them (rebuild/manifest/):
   units.json        unit -> source, options, rows (entry, body, padding, symbol), status
   symbols.csv       extra name -> address bindings (names the rebuild tree introduced)
   provenance.csv    one line per accepted function: a adopted text / b old body reshaped / c fresh
+  workers.csv       units a Windows worker holds (lanes stay out); progress counts their rows apart
+  worker_rows.csv   per-row worker credit for lane-landed units a worker later added functions to
 
 References resolve in this order: the unit's own bindings in units.json (per-unit names such as
 _$E<n>, string literals), rebuild/manifest/symbols.csv, names main's catalog binds to one address

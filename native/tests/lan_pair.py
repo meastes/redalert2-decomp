@@ -90,15 +90,27 @@ def orders(start, end, every):
 # Beacon (the multiplayer bar's button: TabClass::AI 0x006A0F30 -> 0x006F64B0), places a beacon beside its tank, closes
 # the beacon's text line with Return, and presses Delete with the mouse on it. (Tried and dropped: the host screen's
 # Short Game check box after Bravo's Accept, to reset the ready states: "@ctl=1358" found no such control on the
-# host's screen; not traced.)
+# host's screen, because the click ran after Start Game (lane N11, below); the ready-state rows it was for, 0x0075CA00
+# and 0x0073BDB0, run only under Westwood Online.)
 EXTRA_HOST = ['1250 click @cmd=Beacon', '1260 click @MTNK+3,3', '1275 key Return', '1285 move @MTNK+3,3', '1290 key Delete']
+# Lane N11: the host screen's Choose Map (0x5AA), a map row (0x553) and OK (0x6C5) before Bravo joins (in a LAN game
+# the map dialog's callback is Scenario_Select_Callback 0x005C67C0 -> 0x005BBD10), then Tab twice on the host screen
+# (dialog 5 once the map dialog closes). N10's check box click had found nothing because it came after Start Game
+# (an input script runs its events in their order). The multiplayer bar has no Attack Move button either (its buttons:
+# Beacon Deploy Guard PlanningMode TypeSelect); coverage_runs.py n11-ui reaches attack-move's cursor with Ctrl+Shift.
+EXTRA_HOST_LOBBY = ['s3+2500 click @ctl=1450', 's4+3000 click @ctl=1363', 's4+4500 click @ctl=1733',
+                    's5+1500 key Tab', 's5+2000 key Tab']
 
 
 def host_script(frames, extras=False):
-    lines = ['s1+1000 click 834 388', 's2+1500 click 834 304', 's3+20000 click 834 346', 's3+24000 click 834 346']
+    # An input script runs its events in their order (an event waits for the one before it): the lobby's extras come
+    # before Start Game.
+    lines = ['s1+1000 click 834 388', 's2+1500 click 834 304'] + (EXTRA_HOST_LOBBY if extras else []) + [
+        's3+20000 click 834 346', 's3+24000 click 834 346']
     if extras:
         lines += EXTRA_HOST
-    # Lane N6: Tab twice in the host's lobby (the network dialogs' Tab handling, coverage_runs.py lanpair).
+    # Lane N6: Tab twice, meant for the host's lobby (the network dialogs' Tab handling, coverage_runs.py lanpair); as
+    # they follow Start Game in the script they are pressed in the game (lane N11; --extras presses Tab in the lobby).
     lines += ['s3+4000 key Tab', 's3+4500 key Tab']
     lines += ['%d %s' % e for e in EDGE]
     lines += orders(800, frames - 400, 600)

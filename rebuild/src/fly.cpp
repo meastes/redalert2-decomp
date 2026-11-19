@@ -970,7 +970,6 @@ bool FlyLocomotionClass::Process_Take_Off(void)
  *   06/12/1995 JLB : Created.                                                                 *
  *   03/04/1996 JLB : Handles fixed wing aircraft.                                             *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 568 bytes differ (adopted text)
 bool FlyLocomotionClass::Process_Landing(void)
 {
 	if (!IsLanding) {
@@ -1057,20 +1056,20 @@ bool FlyLocomotionClass::Process_Landing(void)
 		int face;
 		if (LinkedTo->LastAdjacencyCell != Cell(0, 0)) {
 			for (face = 0; face < 8; face++) {
-				Cell adjacent = Adjacent_Cell(LinkedTo->LastAdjacencyCell, (FacingType)face);
+				Cell const & adjacent = Adjacent_Cell(LinkedTo->LastAdjacencyCell, (FacingType)face);
 				CellClass * cptr = &Map[adjacent];
 				cptr->AdjacentObjectCount--;
 			}
 			LinkedTo->LastAdjacencyCell = LinkedTo->Get_Cell();
 			for (face = 0; face < 8; face++) {
-				Cell adjacent = Adjacent_Cell(LinkedTo->LastAdjacencyCell, (FacingType)face);
+				Cell const & adjacent = Adjacent_Cell(LinkedTo->LastAdjacencyCell, (FacingType)face);
 				CellClass * cptr = &Map[adjacent];
 				cptr->AdjacentObjectCount++;
 			}
 		} else {
 			LinkedTo->LastAdjacencyCell = LinkedTo->Get_Cell();
 			for (face = 0; face < 8; face++) {
-				Cell adjacent = Adjacent_Cell(LinkedTo->LastAdjacencyCell, (FacingType)face);
+				TPoint2D<short> const & adjacent = Adjacent_Cell(LinkedTo->LastAdjacencyCell, (FacingType)face);
 				CellClass * cptr = &Map[adjacent];
 				cptr->AdjacentObjectCount++;
 			}
@@ -1085,7 +1084,6 @@ bool FlyLocomotionClass::Process_Landing(void)
 
 	return(has_landed);
 }
-#endif
 
 
 

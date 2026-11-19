@@ -22,6 +22,7 @@
 #include "arraylist.h"
 #include "dict.h"
 #include "ccfile.h"
+#include "ccrand.h"
 #include "conquer.h"
 #include "data.h"
 #include "dbgprint.h"
@@ -45,6 +46,7 @@
 #include "playerprofile.h"
 #include "progress.h"
 #include "scenario.h"
+#include "sendfile.h"
 #include "sounddlg.h"
 #include "srfcache.h"
 #include "session.h"
@@ -2092,6 +2094,19 @@ void Draw_Player_List(int keep_selection, bool force)
 
 
 
+bool __fastcall Local_User_Is_Channel_Owner(void);
+void Set_Wait_Window_Text(LPARAM text); // RA2: 0x0074D750, defined below
+void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode); // RA2: 0x005CBF20, defined in netshare.cpp
+int __fastcall Assign_Slot(NodeNameType * entry); // RA2: 0x005C9170, defined in netshare.cpp
+NodeNameType * __fastcall Find_Lobby_Name(wchar_t const * name); // RA2: 0x005C8B20, defined in netshare.cpp
+
+#include "multiplayer.h" // RA2: the game mode decides who may play and observe (OnPrivateGameOptions)
+
+char g_WDTHost[128];
+int g_WDTPort;
+bool g_ReceivingHostPreview; // RA2: 0x00B2AC46, set while Receive_Host_Map_Preview takes the map preview from the host
+
+
 static inline void Show_Name(HWND window, Wstring const & name) // ra2-decomp's helper
 {
 	HWND label = GetDlgItem(window, 0x718);
@@ -2105,7 +2120,191 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 		BEGIN_COM_MAP(CChatEventSink)
 		COM_INTERFACE_ENTRY(IChatEvent)
 		END_COM_MAP()
-		STDMETHOD(OnServerList)(HRESULT res, Server * servers);
+		STDMETHOD(OnServerList)(HRESULT res, Server * servers)
+		{
+			Server * tmp = servers;
+			Server * server = NULL;
+			int chat_server_index = 0;
+			int skumatchcount = 0;
+			int game_srv_found = 0;
+			char namebuf[128];
+			char conndata[128];
+			char conndata2[128];
+			char conndata3[128]; // RA2: the second game server
+			char token[128];
+			char manglerdata[128]; // RA2: the mangler servers
+
+			srand(time(0));
+
+			/// Failed to get a server list at all -- abort the login attempt.
+			if (FAILED(res)) {
+				SetEvent(g_WaitEventHandles[EV_ABORT]);
+				swprintf(g_LastErrorMessage, StringTable::LoadString("TXT_NO_SERV_LIST", NULL, "D:\\Ra2\\wonline.cpp", 4089));
+				return(S_OK);
+			}
+
+			bool mangler_found = false; // RA2: the first mangler entry clears the old list
+
+			/*
+			 * Walk the server list, sorting each entry into the appropriate global list
+			 * by its connection label.
+			 */
+			while (tmp != NULL) {
+				if (strcmp((char *)tmp->connlabel, "IRC") == 0) {
+					if (chat_server_index == 0) {
+						g_Servers.addTail(*tmp);
+						g_CurrentServerIndex = 0;
+						chat_server_index = 1;
+					} else {
+						g_Servers.addTail(*tmp);
+
+						/*
+						 * Look for a SKU tag matching our game in the comma-separated name
+						 * field; if found, randomly favor this server (reservoir sampling)
+						 * so all matching servers get an equal chance of being picked.
+						 */
+						char * nameToken;
+						strcpy(namebuf, (char *)tmp->name);
+						int sku = -1;
+						nameToken = strtok(namebuf, ",");
+						while (nameToken != NULL) {
+							sku = atol(nameToken);
+							if (sku == (unsigned char)g_GameSKU) {
+								break;
+							}
+							if (strchr(nameToken, ':') != NULL) {
+								break;
+							}
+							nameToken = strtok(NULL, ",");
+						}
+
+						if (sku == (unsigned char)g_GameSKU) {
+							double pick_roll = rand();
+							pick_roll /= 32767.0;
+							double pick_chance = 1.0 / (double)++skumatchcount;
+							if (pick_roll <= pick_chance) g_CurrentServerIndex = chat_server_index;
+						}
+						g_TargetServerIndex = g_CurrentServerIndex;
+						chat_server_index++;
+					}
+				} else if (strcmp((char *)tmp->connlabel, "LAD") == 0) {
+
+					/*
+					 * Ladder server -- parse its host and port out of the connection data.
+					 */
+					char * host;
+					char * port;
+					strcpy(token, (char *)tmp->conndata);
+					strtok(token, ";");
+					host = strtok(NULL, ";");
+					if (host != NULL) {
+						strcpy(g_LadderAddress, host);
+					}
+					port = strtok(NULL, ";");
+					if (port != NULL) {
+						g_LadderPort = atol(port);
+					}
+				} else if (strcmp((char *)tmp->connlabel, "GAM") == 0 && game_srv_found == 0) {
+
+					/*
+					 * Primary game server -- parse its host and port out of the connection data.
+					 */
+					char * host;
+					char * port;
+					memcpy(&g_GameServer, tmp, sizeof(g_GameServer));
+					strcpy(conndata, (char *)g_GameServer.conndata);
+					strtok(conndata, ";");
+					host = strtok(NULL, ";");
+					if (host != NULL) {
+						strcpy(g_GameServerHost, host);
+					}
+					port = strtok(NULL, ";");
+					if (port != NULL) {
+						g_GameServerPort = atol(port);
+					}
+					g_WDTServerHost[0] = '\0'; // RA2: no second results server until the list names one
+					g_WDTServerPort = 0; // RA2: as above
+					game_srv_found = 1;
+				} else if (strcmp((char *)tmp->connlabel, "GAM") == 0 && game_srv_found == 1) { // RA2: the second game server keeps the results for the tour
+
+					char * host;
+					char * port;
+					memcpy(&g_GameServer, tmp, sizeof(g_GameServer));
+					strcpy(conndata3, (char *)g_GameServer.conndata);
+					strtok(conndata3, ";");
+					host = strtok(NULL, ";");
+					if (host != NULL) {
+						strcpy(g_WDTServerHost, host);
+					}
+					port = strtok(NULL, ";");
+					if (port != NULL) {
+						g_WDTServerPort = atol(port);
+					}
+					game_srv_found = 2;
+				} else if (strcmp((char *)tmp->connlabel, "WDT") == 0) {
+
+					/*
+					 * WDT (World Domination Tour) server -- parse host and port.
+					 */
+					char * host;
+					char * port;
+					memcpy(&g_WDTServer, tmp, sizeof(g_WDTServer));
+					strcpy(conndata2, (char *)g_WDTServer.conndata);
+					strtok(conndata2, ";");
+					host = strtok(NULL, ";");
+					if (host != NULL) {
+						strcpy(g_WDTHost, host);
+					}
+					port = strtok(NULL, ";");
+					if (port != NULL) {
+						g_WDTPort = atol(port);
+					}
+				} else if (stricmp((char *)tmp->connlabel, "MGL") == 0) { // RA2: a mangler server, for the firewall detection
+					DebugString("MGL entry in server list\n");
+					if (!mangler_found) {
+						memset(ManglerAddresses, 0, sizeof(ManglerAddresses));
+						memset(ManglerPorts, 0, sizeof(ManglerPorts));
+						ManglerCount = 0;
+						mangler_found = true;
+					}
+					Server * mangler = new Server;
+					memcpy(mangler, tmp, sizeof(Server));
+					strcpy(manglerdata, (char *)mangler->conndata);
+					strtok(manglerdata, ";");
+					char * host = strtok(NULL, ";");
+					if (host != NULL) {
+						strcpy(ManglerAddresses[ManglerCount], host);
+						char * port = strtok(NULL, ";");
+						if (port != NULL) {
+							ManglerPorts[ManglerCount] = atol(port);
+						}
+						DebugString("Got mangler server from servserv - address is %s ; %d\n", ManglerAddresses[ManglerCount], ManglerPorts[ManglerCount]);
+						ManglerCount++;
+					}
+					delete mangler;
+				}
+				tmp = tmp->next;
+			}
+
+			/*
+			 * Stamp the current login name and password onto every stored chat server entry.
+			 */
+			server = NULL;
+			for (int i = 0; i < g_Servers.length(); i++) {
+				g_Servers.getPointer(&server, i);
+				strcpy((char *)server->login, g_NickName.get());
+				strcpy((char *)server->password, g_LoginPassword.get());
+			}
+
+			DebugString("Got %d mangler servers\n", ManglerCount); // RA2: one mangler server is picked at random
+			ManglerIndex = (ManglerCount > 1) ? Sim_Random_Pick(0, ManglerCount - 1) : 0;
+			DebugString("CurrentManglerServer = %d\n", ManglerIndex);
+
+			Set_Wait_Window_Text((LPARAM)StringTable::LoadString("TXT_DETECTING_FIREWALL_SETTINGS", NULL, "D:\\Ra2\\wonline.cpp", 4271)); // RA2: the firewall is checked next
+			FirewallHelper.Save_Detected();
+			SetEvent(g_WaitEventHandles[EV_GOT_SERVERS]);
+			return(S_OK);
+		}
 
 		STDMETHOD(OnUpdateList)(HRESULT r, Update * updates)
 		{
@@ -2371,7 +2570,162 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			return(S_OK);
 		}
 
-		STDMETHOD(OnChannelList)(HRESULT res, Channel *channels);
+		STDMETHOD(OnChannelList)(HRESULT r, Channel * channels)
+		{
+			Wstring name;
+			char ladder_request_keys[512 + 1];
+			memset(ladder_request_keys, 0, sizeof(ladder_request_keys));
+			int counter = 0;
+			ArrayList<Channel> pinged; // RA2: the game channels whose ping was known keep it in the new list
+
+			if (g_PlayingNetGame) {
+				return(S_OK);
+			}
+
+			unsigned int requested_type = 0; // RA2: the chat channels
+
+			/*
+			 * A ping-list reply is always the game channel list; otherwise the list type
+			 * comes off the pending request queue.
+			 */
+			if (r == CHAT_S_PINGLIST) {
+				requested_type = 0x21; // RA2: the game channels
+			} else {
+				g_ChanListQueue.removeHead(requested_type);
+
+				if (FAILED(r)) {
+					return(S_OK);
+				}
+
+				if (requested_type == 0) {
+					g_UserChannels.clear();
+				} else {
+					DebugString("clearing game list\n");
+					Channel chan;
+					memset(&chan, 0, sizeof(chan));
+					for (int i = 0; i < g_GameChannelList.length(); i++) {
+						g_GameChannelList.get(chan, i);
+						if (chan.latency != -1) {
+							pinged.addTail(chan);
+						}
+					}
+					g_GameChannelList.clear();
+				}
+			}
+
+			/*
+			 * Split the server's channel list into chat channels and game channels,
+			 * queuing lookups for each game channel's name along the way.
+			 */
+			while (channels != NULL) {
+				if (channels->type == 0) {
+					g_UserChannels.addTail(*channels);
+				} else if (r == CHAT_S_PINGLIST) { // RA2: the pings of the game channels already listed
+					if (channels->latency != -1) {
+						Channel * game = NULL;
+						for (int i = 0; i < g_GameChannelList.length(); i++) {
+							g_GameChannelList.getPointer(&game, i);
+							if (game && strcmp((char *)game->name, (char *)channels->name) == 0) {
+								DebugString("Setting ping %d for %s\n", channels->latency, channels->name);
+								game->latency = channels->latency;
+								break;
+							}
+						}
+					}
+				} else {
+					g_GameChannelList.addTail(*channels);
+					for (int i = 0; i < pinged.length(); i++) { // RA2: as above
+						Channel old;
+						pinged.get(old, i);
+						if (strcmp((char *)old.name, (char *)channels->name) == 0) {
+							DebugString("restoring ping %d for channel %s\n", old.latency, channels->name);
+							channels->latency = old.latency;
+							break;
+						}
+					}
+
+					name.set((char *)channels->name);
+					name.truncate('\'');
+					name.toLower();
+					if (Session.Type == GAME_INTERNET && Online_Session_State == 2) {
+						Wstring temp;
+						bool found = false;
+						for (int i = 0; i < g_WDTTeamLookupQueue.length(); i++) {
+							g_WDTTeamLookupQueue.get(temp, i);
+							if (temp == name) {
+								found = true;
+								break;
+							}
+						}
+						if (!found) {
+							g_WDTTeamLookupQueue.addHead(name);
+						}
+					}
+
+					if (!g_UserLocales.contains(name)) {
+						Wstring temp;
+						bool found = false;
+						for (int i = 0; i < g_UserLocaleLookupQueue.length(); i++) {
+							g_UserLocaleLookupQueue.get(temp, i);
+							if (temp == name) {
+								found = true;
+								break;
+							}
+						}
+						if (!found) {
+							g_UserLocaleLookupQueue.addHead(name);
+						}
+					}
+
+					/// Batch up ladder-list requests for names not yet cached.
+					if (!g_ActiveLadder->contains(name)) {
+						strcat(ladder_request_keys, name.get());
+						strcat(ladder_request_keys, ":");
+						counter++;
+					}
+				}
+
+				/*
+				 * Flush the batch once it gets large, to keep the request packet a
+				 * reasonable size.
+				 */
+				if (counter > 20) {
+					g_pNetUtil->RequestLadderList(g_LadderAddress, g_LadderPort, ladder_request_keys, g_GameSKU & 0xFFFF00, -1, 0, 0);
+					counter = 0;
+					memset(ladder_request_keys, 0, sizeof(ladder_request_keys) - 1);
+				}
+				channels = channels->next;
+			}
+
+			/// Flush any remaining names once the list is exhausted.
+			if (counter != 0) {
+				g_pNetUtil->RequestLadderList(g_LadderAddress, g_LadderPort, ladder_request_keys, g_GameSKU & 0xFFFF00, -1, 0, 0);
+				memset(ladder_request_keys, 0, sizeof(ladder_request_keys) - 1);
+			}
+
+			SetEvent(g_WaitEventHandles[EV_CHAN_LIST]);
+
+			if (Is_Tournament_Session()) { // RA2: no lists are shown in a tournament
+				DebugString("Received channel list, user list is %d long\n", g_UserList.length());
+			} else {
+				HWND buddy_dialog = WS_Find_Dialog(0x116); // RA2: the buddy list shows where the buddies are
+				if (buddy_dialog) {
+					Fill_Buddy_List(buddy_dialog);
+				}
+				if (requested_type == 0) {
+					Refresh_Lobby_List();
+					HWND lobby = WS_Find_Dialog(0x113); // RA2: the lobby's list button works again
+					if (lobby) {
+						KillTimer(lobby, 0x55D);
+						EnableWindow(GetDlgItem(lobby, 0x55D), TRUE);
+					}
+				} else {
+					Refresh_Game_List();
+				}
+			}
+
+			return(S_OK);
+		}
 		STDMETHOD(OnChannelJoin)(HRESULT res, Channel *channel, User *user);
 		STDMETHOD(OnChannelLeave)(HRESULT r, struct Channel *, struct User * user)
 		{
@@ -2725,8 +3079,315 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			}
 			return(S_OK);
 		}
-		STDMETHOD(OnPrivateGameOptions)(HRESULT res, User *user, LPCSTR options);
-		STDMETHOD(OnPublicGameOptions)(HRESULT res, Channel *channel, User *user, LPCSTR options);
+#ifdef RA2_NON_MATCHING // not exact: 847 bytes differ (TibSun class text with ra2-decomp's YR twin): the executable saves ebp with the other registers on entry and keeps two copies of the tournament return (the failed checks share the first), where this build saves ebp only after the tournament block and merges the returns; everything after the push matches. The function static _timer and its exit thunk _$E9 (0x00765980) park with it
+		STDMETHOD(OnPublicGameOptions)(HRESULT r, struct Channel *, struct User * user, const char * options)
+		{
+			static BasicTimerClass<SystemTimerClass> _timer;
+
+			if (FAILED(r)) {
+				return(S_OK);
+			}
+
+			char * buffer = strdup(options); // RA2: the options are decoded from a copy
+			bool scenario_changed = Net2DecodeGameopt(buffer, (char *)user->name);
+			free(buffer);
+
+			if (g_PlayingNetGame || WolOptionsLocked || options[0] == 'Z') {
+				return(S_OK);
+			}
+
+			bool request_preview = false;
+
+			if (Local_User_Is_Channel_Owner()) { // RA2: the host ignores its own options
+				return(S_OK);
+			}
+
+			if (Is_Tournament_Session()) { // RA2: in a tournament game the guest tells the host it is ready once it has a side and a color
+				WideWstring nickname = Wstring_ToWide(g_NickName);
+				NodeNameType * local = Find_Lobby_Name(nickname.get());
+				if (local == NULL) {
+					return(S_OK);
+				}
+				if (local->Get_Country() < 0 || local->Get_Color() < 0) {
+					return(S_OK);
+				}
+				if (options[0] < '0' || options[0] > '9') {
+					return(S_OK);
+				}
+				if (g_UserList.length() == 2) {
+					g_pChat->RequestPublicGameOptions("A1");
+				}
+				return(S_OK);
+			}
+
+			HWND dialog = WS_Top_Window();
+			if (MultiplayerMapPreview == NULL) {
+				if (scenario_changed) {
+					request_preview = true;
+					_timer = 0;
+					DebugString("New scenario - requesting a map preview\n");
+				}
+				if (_timer > 900 && (MultiplayerMapPreview == NULL || MultiplayerMapPreview->Get_Preview_Surface() == NULL) && !g_ReceivingHostPreview) {
+					if (Session.ScenarioFileName[0] && !Find_Local_Scenario(Session.ScenarioFileName, Session.ScenarioFileLength, Session.ScenarioDigest, Session.ScenarioIsOfficial, false)) {
+						request_preview = true;
+						DebugString("Never recieved preview; re-requesting\n");
+					} else {
+						_timer = 0;
+					}
+				}
+				if (!Session.Is_Random_Map()) {
+					bool exists = false;
+					if (Find_Local_Scenario(Session.ScenarioFileName, Session.ScenarioFileLength, Session.ScenarioDigest, Session.ScenarioIsOfficial, false)) {
+						{
+							RawFileClass file(Session.ScenarioFileName);
+							if (file.Is_Available()) {
+								exists = true;
+							}
+						}
+						if (!exists) {
+							request_preview = false;
+							goto update_dialog;
+						}
+					}
+					if (Is_Current_Channel_Tournament() && Session.Players[0]->Slot.Unknown77) {
+						Session.Players[0]->Slot.Unknown77 = 0;
+						Send_Host_Option("A0");
+						EnableWindow(GetDlgItem(dialog, 0x59F), FALSE);
+					}
+				update_dialog:
+					if (WS_Top_Window_ID() == 0xC9) {
+						InvalidateRect(WS_Top_Window(), NULL, FALSE);
+					}
+				}
+			} else {
+				HWND item = GetDlgItem(dialog, 0x3F2);
+				if (item) {
+					ShowWindow(item, SW_HIDE);
+				}
+				ShowWindow(GetDlgItem(dialog, 0x468), SW_SHOWNORMAL);
+			}
+
+			if (request_preview) { // RA2: ask the host for the map
+				char options_text[64];
+				sprintf(options_text, "P%s", Session.ScenarioFileName);
+				User host;
+				g_UserList.getHead(host);
+				g_pChat->RequestPrivateGameOptions(&host, options_text);
+				DebugString("Sent private game option packet requesting a preview download\n");
+				Poke_The_Host();
+			}
+			return(S_OK);
+		}
+#else
+		STDMETHOD(OnPublicGameOptions)(HRESULT r, struct Channel *, struct User * user, const char * options);
+#endif
+		STDMETHOD(OnPrivateGameOptions)(HRESULT, struct User * user, const char * options)
+		{
+			if (g_PlayingNetGame) return(S_OK);
+
+			if (WolOptionsLocked && options[0] != 'Z') return(S_OK); // RA2: the port messages still come once the options are locked
+
+			if (Is_Tournament_Session() && options[0] != 'Z') return(S_OK); // RA2: a tournament game has no options to ask for
+
+			int index = Player_Name_To_Index((char *)user->name);
+			if (index == -1) return(S_OK);
+
+			/// Dispatch on the request type encoded in the first character.
+			switch (options[0]) {
+
+				case 'Z': // RA2: a guest tells the host the port to send to
+					if (options[1] == '4') {
+						unsigned int port = atol(options + 2);
+						DebugString("Player %s is telling us we should send to port %d\n", user->name, port & 0xFFFF);
+						for (int i = 0; i < 8; i++) {
+							if (stricmp(Wide_To_Narrow(Session.Slots[i]->Name), (char *)user->name) == 0) {
+								Session.PeerPorts[i] = (unsigned short)port;
+								break;
+							}
+						}
+					}
+					break;
+
+				case 'R': {
+					if (g_IsChannelCreator != 1) break;
+
+					char * buffer = strdup(options + 1);
+
+					/*
+					 * RA2: find the guest's slot by its name.
+					 */
+					int index = -1;
+					int row = 0;
+					for (; row < 8; row++) {
+						Wstring name = Wstring_Narrow(Session.Slots[row]->Name);
+						if (stricmp(name.get(), (char *)user->name) == 0) {
+							index = row;
+							break;
+						}
+					}
+
+					if (index != -1) {
+						char * token = strtok(buffer, ",");
+						int country = 0;
+						if (token) country = atol(token);
+
+						token = strtok(NULL, ",");
+						int color = 0;
+						if (token) color = atol(token);
+
+						/*
+						 * RA2: the guest's local address, its firewall and its port base.
+						 */
+						token = strtok(NULL, ",");
+						unsigned int ip = 0;
+						sscanf(token, "%X", &ip);
+						IPXAddressClass address;
+						if (ip) {
+							NetNumType net;
+							NetNodeType node;
+							memset(net, 0, sizeof(net));
+							memset(node, 0, sizeof(node));
+							memcpy(node, &ip, sizeof(ip));
+							address.Set_Address(net, node, 0);
+							Session.SlotAddresses[row] = address;
+						}
+
+						token = strtok(NULL, ",");
+						unsigned int firewall = 0;
+						if (token) sscanf(token, "%X", &firewall);
+						Session.WolPlayerState[row] = firewall;
+
+						token = strtok(NULL, ",");
+						unsigned int port_base = 0;
+						if (token) sscanf(token, "%X", &port_base);
+						Session.PlayerPortBase[row] = port_base;
+
+						DebugString("Got private options from %s: House=%d, Color=%d, LocalAddress=%s, firewall=%08X, port_base=%d\n", user->name, country, color, address.As_String(NULL), Session.WolPlayerState[row], port_base);
+
+						HWND window = WS_Find_Dialog(0xC2);
+						if (!window) window = WS_Find_Dialog(0xC9);
+
+						int old_country = Session.Slots[row]->Get_Country();
+						NodeNameType * player = Session.Slots[row];
+						bool become_observer = false;
+						bool become_player = false;
+						bool changed = false;
+						if (old_country == -3) {
+							if (country != old_country) become_player = true;
+						} else if (country == -3) {
+							become_observer = true;
+						}
+
+						/*
+						 * RA2: the host's own slot stays a player when the game mode needs it.
+						 */
+						User * host = Find_Owner_User();
+						if (host && stricmp((char *)host->name, g_NickName.text()) == 0 && row == 0 && become_observer && Session.MPGameMode && !Session.MPGameMode->vt_entry_A0()) {
+							become_observer = false;
+							changed = true;
+						}
+
+						if (become_player) { // RA2: an observer takes a player slot
+							host = Find_Owner_User();
+							if (host && stricmp((char *)host->name, g_NickName.text()) == 0) {
+								if (Is_All_Slots_Filled()) {
+									Change_Slot_Type(window, Get_Slot_Control_Id(row), (int)LobbyEntries[6], 0);
+									changed = true;
+									Send_Player_List();
+									Send_Lobby_Options(true, false);
+									Draw_Player_List(0, false);
+								} else {
+									player->Set_Country(-2);
+									player->Slot.SpectatorFlag = 0;
+									Change_Slot_Type(window, Get_Slot_Control_Id(LobbyObserverSlot), (int)LobbyEntries[6], 0);
+									index = Assign_Slot(player);
+									Change_Slot_Type(window, Get_Slot_Control_Id(index), (int)player, 0);
+									Send_Player_List();
+								}
+							}
+						}
+
+						if (become_observer) { // RA2: a player takes the observer slot
+							host = Find_Owner_User();
+							if (host && stricmp((char *)host->name, g_NickName.text()) == 0) {
+								if (Is_Observer_Slot_Full()) {
+									Change_Slot_Type(window, Get_Slot_Control_Id(index), (int)LobbyEntries[0], 0);
+									Send_Player_List();
+								} else {
+									player->Set_Country(-3);
+									player->Slot.SpectatorFlag = -1;
+									Change_Slot_Type(window, Get_Slot_Control_Id(index), (int)LobbyEntries[0], 0);
+									Change_Slot_Type(window, Get_Slot_Control_Id(LobbyObserverSlot), (int)player, 0);
+									Send_Player_List();
+									Fill_Observer_Combo(window, Player_Side_Combo_ID(LobbyObserverSlot));
+									int observer_control = Get_Slot_Control_Id(LobbyObserverSlot);
+									SendMessage(GetDlgItem(window, observer_control), 0x4F1, 0, 1);
+									int control = Player_Color_Combo_ID(LobbyObserverSlot);
+									Fill_Random_Color_Combo(window, control);
+									Select_Color_Combo(window, control, 8);
+								}
+								goto refresh_options;
+							}
+						}
+
+						if (changed) goto request_done;
+
+						bool country_changed = old_country != country;
+						if (Session.MPGameMode && !Session.MPGameMode->IsCountryAllowed(country)) {
+							country = Session.MPGameMode->IsCountryAllowed(old_country) ? old_country : -2;
+							country_changed = true;
+						}
+						if (country_changed) Session.Slots[index]->Set_Country(country);
+
+						bool color_changed = Session.Slots[index]->Get_Color() != color;
+						if (color_changed) {
+							if (Session.Is_Color_Used(color)) color = -2;
+							Session.Slots[index]->Set_Color(color);
+						}
+
+						if (!country_changed && !color_changed) goto request_done;
+					} else {
+						goto request_done;
+					}
+				refresh_options:
+					Send_Lobby_Options(true, false);
+					Draw_Player_List(0, false);
+				request_done:
+					free(buffer);
+					break;
+				}
+
+				case 'P': {
+					if (g_IsChannelCreator != 1) break;
+
+					DebugString("Received private preview request from channel guest\n");
+					if (g_UserList.length() >= 2) {
+						User temp;
+
+						/*
+						 * Only honor the request if we are genuinely hosting a
+						 * random-map game with a preview ready to send.
+						 */
+						User * host = Find_Owner_User();
+						if (host && stricmp((char *)host->name, g_NickName.text()) == 0 && !WolOptionsLocked && g_CurrentChannel.type != 0 && MultiplayerMapPreview != NULL &&
+							MultiplayerMapPreview->Get_Preview_Surface() != NULL && IsRandomMap) {
+							int i = Player_Name_To_Index((char *)user->name);
+							if (i != -1) {
+								g_UserList.get(temp, i);
+								temp.next = NULL;
+								User_List_To_Session_Players(&temp);
+								int old = g_SuspendChatPump;
+								g_SuspendChatPump = true;
+								Send_Map_Preview(MultiplayerMapPreview);
+								g_SuspendChatPump = old;
+							}
+						}
+					}
+					break;
+				}
+			}
+			return(S_OK);
+		}
 		STDMETHOD(OnGameStart)(HRESULT, struct Channel * channel, struct User * users, int gameid)
 		{
 			bool found = true;
@@ -3720,8 +4381,6 @@ int Compare_Users(User * u1, User * u2)
 	return(stricmp((char *)u1->name, (char *)u2->name));
 }
 
-#include "multiplayer.h"
-
 namespace OwnerDraw { BOOL __stdcall Set_Paint_Disabled(HWND window, LPARAM lparam); }
 void __fastcall Set_Player_Ping(HWND dialog, int player, int ping);
 void __fastcall Release_Slot_By_Name(char const * name);
@@ -3991,9 +4650,6 @@ void Shutdown_Chat(void)
 		g_WOLInitialized = false;
 	}
 }
-
-char g_WDTHost[128];
-int g_WDTPort;
 
 /// <summary>
 /// Requests the World Domination Tour state.
@@ -4475,7 +5131,6 @@ void Initialize_WDT_Sounds(void); // RA2: 0x00752210, fills the lists of the tou
 void Discard_WDT_Sound_List(ArrayList<Wstring> sounds); // RA2: 0x00752890, takes a list of sounds by value and does nothing with it
 int Join_Selected_Lobby(bool join); // RA2: 0x00744930, defined below
 int CALLBACK Wonline_Main_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: 0x007469C0, the dialog proc of the lobby (0x113)
-void Set_Wait_Window_Text(LPARAM text); // RA2: 0x0074D750, defined below
 bool Start_Network_Session(void); // RA2: 0x00514EE0, defined in init.cpp
 inline Wstring Narrow_Text(wchar_t const * text) // RA2: the executable narrows the text through a named wide string that dies before the result is used (0x00743720, 0x00743A40 below)
 {
@@ -6684,7 +7339,6 @@ WideWstring __fastcall Control_Tooltip(unsigned int key, HWND window); // RA2: 0
 bool __fastcall Is_Host(void); // RA2: 0x005C86A0, defined in netshare.cpp
 bool __fastcall Is_Seated_Entry(NodeNameType * entry); // RA2: 0x005C93A0, defined in netshare.cpp
 int __fastcall Combo_Selected_Data(HWND dialog, int id, int index); // RA2: 0x005C99D0, defined in netshare.cpp
-void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode); // RA2: 0x005CBF20, defined in netshare.cpp
 void __fastcall Set_Slot_Color(HWND dialog, int id); // RA2: 0x005C9AB0, defined in netshare.cpp
 void __fastcall Set_Slot_Country(HWND dialog, int id); // RA2: 0x005C9A10, defined in netshare.cpp
 void __fastcall Save_Lobby_Options(HWND dialog, SessionOptionsClass * options); // RA2: 0x005CC890, defined in netshare.cpp
@@ -7513,7 +8167,6 @@ void Set_Wait_Window_Text(LPARAM text) // RA2: 0x0074D750, not in TibSun: change
 }
 
 
-NodeNameType * __fastcall Find_Lobby_Name(wchar_t const * name); // RA2: 0x005C8B20, defined in netshare.cpp
 
 int PlayerPings[8]; // RA2: 0x00B2A734, the ping of each player of the game (globals.h)
 
@@ -8598,8 +9251,6 @@ done:
 	return(result); // RA2: as above
 }
 #endif
-
-bool g_ReceivingHostPreview; // RA2: 0x00B2AC46, set while Receive_Host_Map_Preview takes the map preview from the host
 
 bool Receive_Host_Map_Preview(void) // RA2: 0x00750D10, not in TibSun: a guest of a game channel takes the map preview from the host when the host's NET_PREVIEW_MODE packet is waiting in the global channel; true when the preview was received
 {
