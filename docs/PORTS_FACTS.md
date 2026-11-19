@@ -134,12 +134,22 @@ platform layer. It earns no exact-match credit.
   Revenge's rules is a vehicle thief, so the harness makes a civilian one and sends it at an enemy
   truck, which becomes the player's (3 of 3 runs). Not covered by a test yet: bridge repair, the War
   Factory's unload through the harness (the AI's factories run it in every long skirmish).
+- Fixed 2026-11-19 (lane N3), from the user's Duo reports:
+  - the command bar's "select all units of this type" button (and the T key) crashed the game: it called a function
+    not recovered yet (gamemd.exe 0x00732950), now a clearly labelled stand-in written from gamemd.exe's
+    instructions. Checked: ctest `yr-native-type-select` (one tank selected, the button selects every tank; nothing
+    selected, nothing; the T key the same) and the Simulator walk `ios_sim_menus.py` on "RA2 Duo Validation" (a tap on
+    the button selects all five tanks). Needs a user check on the device;
+  - the on-screen keyboard did not come up in Yuri's Revenge's text fields: the player-name field is a list box
+    standing in for an edit, which the port did not recognise in Yuri's Revenge. A tap on the field now raises the
+    keyboard, as in Red Alert 2 (both games need the tap; neither raises it on entering the screen). Checked: the same
+    Simulator walk taps the player name field in both games ("on-screen keyboard shown", then "hidden" after a tap
+    away). Needs a user check on the device.
 - Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
-  idle animations), the lane Y14 fixes above, the team-button hold, and the on-screen keyboard
-  in Yuri's Revenge's text fields.
+  idle animations), the lane Y14 fixes above, the team-button hold, and the lane N3 fixes above.
 - Still open: longer games may still reach functions not recovered yet (written as clearly
   labelled stand-in code when found; the Mac link closure, functions still missing, was 175
-  after lane Y14 and 126 after lane Y16); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
+  after lane Y14, 126 after lane Y16 and 125 after lane N3); Yuri's Revenge LAN between separate machines and with Windows on a real PC is untested.
 
 ## Not done or not supported
 

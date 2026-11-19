@@ -25,7 +25,7 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 | Item | State | What is done | What is left |
 |---|---|---|---|
-| Skirmish stability | Mostly done | A 45-minute game against three hard AIs on the Mac has no fault, and a 10-minute ctest runs. | 126 functions still missing at the Mac link. Each is written as a labelled stand-in when play reaches it. Longer and varied games will find more. |
+| Skirmish stability | Mostly done | A 45-minute game against three hard AIs on the Mac has no fault, and a 10-minute ctest runs. | 125 functions still missing at the Mac link. Each is written as a labelled stand-in when play reaches it. Longer and varied games will find more. |
 | Campaign trace and forced-win chain | Done | Both campaigns pass a test that forces each win in turn: all 14 missions, both endings, the credits and the return to the main menu. | Real wins are yours. |
 | Campaign stand-ins | Partly done | Stand-ins reached in play: Psychic Dominator, Lightning Storm, the beams and waves, the spy, the hijacker, the Lasher tank's drive tracks. | Not covered by a test: bridge repair, the War Factory's unload through the test harness. The campaign missions are not traced for further missing functions beyond the forced wins. |
 | Windows build | Partly done | `YRNative.exe` and the both-games `RA2YRNative.exe` are cross-built, pass under Wine, and are packaged on your PC. | Your run on the real PC. |
@@ -36,8 +36,8 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 1. **On the Duo** (checked by the user 2026-11-18):
    - working: team-button hold, MCV deploy and Grizzly first move, the Skip button, unit animations, the campaign Difficulty label;
-   - **fault:** Yuri's Revenge's bottom command bar shows, but its "select all units of this type" button crashes the game;
-   - **fault:** the on-screen keyboard doesn't come up by itself in Yuri's Revenge's text fields (the skirmish player name); the Keys button works.
+   - fault, fixed by lane N3 (2026-11-19), please check again: Yuri's Revenge's command bar "select all units of this type" button crashed the game;
+   - fault, fixed by lane N3 (2026-11-19), please check again: the on-screen keyboard didn't come up in Yuri's Revenge's text fields (the skirmish player name). Now a tap on the field raises it, as in Red Alert 2.
 2. **On the Windows PC:** `C:\ra2\for-user\RA2YRNative`:
    - switch games;
    - a skirmish in each game;
@@ -47,7 +47,7 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 ## Suggested order for the next port lane
 
-0. Fix the two Duo faults above: the command bar's select-by-type crash, then the automatic keyboard in Yuri's Revenge text fields.
+0. Done (lane N3): the two Duo faults above; the user re-checks them on the Duo.
 1. Trace the Yuri's Revenge campaign missions for missing functions, and write stand-ins for them.
 2. Add the bridge repair and War Factory unload tests.
 3. Reach Red Alert 2's 110 unreached rewrites, most-called first.

@@ -27,6 +27,7 @@
 #include "saveload.h"
 #include "mouse.h"
 #include "shapebtn.h"
+#include "session.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -64,6 +65,51 @@ extern "C" int ra2_native_team_button_at(int x, int y)
 		}
 	}
 	return 0;
+}
+
+// Test scaffolding (lane N3): an input script's point "@cmd=<command>" is the middle of the command
+// bar's button for that command (ra2port_set_point_resolver, port/src/run_progress.cpp; the host
+// asks it for any point that is not "@team=N"). Known commands: the bar's buttons the tests press.
+extern int DAT_00B0CB38;   // tab.cpp: the TypeSelect command
+static int Resolve_Bar_Point(const char *spec, int *x, int *y)
+{
+	if (strncmp(spec, "cmd=", 4) || !Map.ThumbActive) return 0;
+	int command = -1;
+	if (!strcmp(spec + 4, "TypeSelect")) command = DAT_00B0CB38;
+	ShapeButtonClass * button = command >= 0 ? FUN_006CFD40(command) : NULL;
+	if (button == NULL || !button->Is_Enabled()) return 0;
+	*x = button->X + button->Width / 2;
+	*y = button->Y + button->Height / 2;
+	return 1;
+}
+extern "C" void ra2port_set_point_resolver(int (*resolver)(const char *spec, int *x, int *y));   // port/src/run_progress.cpp
+static int const bar_point_registered = (ra2port_set_point_resolver(Resolve_Bar_Point), 0);
+
+// The touch app's on-screen keyboard for the game's own text entry (lane N3; the RA2 game's hooks are
+// native/link/native_text_entry.cpp, the host's weak defaults platform/sdl/host.cpp). Not original code.
+//   ra2_native_new_edit_focused: Yuri's Revenge's player-name fields are a dialog's Edit that
+//     OwnerDraw's FUN_0060F320 (gamemd.exe 0x0060F320) hides and replaces with a ListBox carrying a
+//     NewEditLink ("NewEdit") in its GWL_USERDATA, drawn and typed into by OwnerDraw::NewEditHandler.
+//     The focus is such a list box and it is shown. (The user's Duo report, 2026-11-19: the keyboard
+//     did not come up in the skirmish name field; port/src/user32.cpp answered only for windows of
+//     the classes Edit and NewEdit.)
+//   ra2_native_message_edit_open: the edit line the game draws in the message list for chat and
+//     beacon text (Session.Messages, MessageListClass::IsEdit) is open.
+struct NewEditLink {   // ownrdraw.cpp (gamemd.exe 0x0060F320)
+	const char *className;
+	LONG style;
+};
+extern "C" intptr_t ra2port_get_window_ptr(const volatile void *window, int index);   // port/src/user32.cpp
+extern "C" int ra2_native_new_edit_focused(void)
+{
+	HWND focus = GetFocus();
+	if (!focus || !IsWindowVisible(focus)) return 0;
+	NewEditLink const *link = (NewEditLink const *)ra2port_get_window_ptr(focus, -21);   // GWL_USERDATA
+	return link && link->className && !strcmp(link->className, "NewEdit");
+}
+extern "C" int ra2_native_message_edit_open(void)
+{
+	return Session.Messages.Is_Edit() ? 1 : 0;
 }
 
 extern "C" void ra2_native_save_settings(void)

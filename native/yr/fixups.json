@@ -1546,6 +1546,11 @@
    "old": "extern int DAT_00B0E850;",
    "new": "extern void * DAT_00B0E850;\t// NATIVE (lane Y15): TargetTracker's Archive, a pointer",
    "why": "DAT_00B0E850 is TargetTracker's Archive (the last search's entry, a pointer); declared int it could not be bound to the member (yr_member_aliases.py), so Delete_All_Objects' reset after its sort missed the real Archive (lane Y15)."
+  },
+  {
+   "file": "src/uicmnds.cpp",
+   "append": "uicmnds_native.inc",
+   "why": "lane N3: FUN_00732950 (gamemd.exe 0x00732950, select all units of the selected types) is unmatched in the YR tree and was a link-closure trap: the command bar's TypeSelect button and the TypeSelect key crashed the game (the user's Duo report, 2026-11-19). A NON-EXACT stand-in from gamemd.exe's instructions in its sibling FUN_00732280's shape, appended to the unit."
   }
  ]
 }

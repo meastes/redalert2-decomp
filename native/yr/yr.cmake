@@ -298,6 +298,13 @@ add_test(NAME yr-native-touch-team COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_C
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-touch-team")
 set_tests_properties(yr-native-touch-team PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
 
+# ctest yr-native-type-select (lane N3): the command bar's TypeSelect button and the TypeSelect key select
+# every unit of the selected type (glue/uicmnds_native.inc's stand-in; yr/tests/yr_type_select.py)
+add_test(NAME yr-native-type-select COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_type_select.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-type-select")
+set_tests_properties(yr-native-type-select PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
+
 # ctest yr-native-campaign-allied / -soviet (lane Y12): each side's campaign through the menus, its seven
 # missions won in turn (RA2_NATIVE_FORCE_END) through their score screens, the final movie, the credits
 # and the main menu again (yr/tests/yr_campaign_chain.py; about 6 minutes a side).

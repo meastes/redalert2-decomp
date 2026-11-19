@@ -715,6 +715,28 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
 * **Bridge repair**: not started. Many multiplayer maps carry a CABHUT (multimd.mix); a test needs a harness order
   that breaks the bridge next to the hut and the skirmish map index of such a map.
 
+### Lane N3 (2026-11-19): the user's two Duo faults
+
+* **The command bar's "select all units of this type" crashed the game.** TabClass::AI (gamemd.exe 0x006D0680) calls
+  FUN_00732950 for the bar's TypeSelect button, and the TypeSelect key's quick press (FUN_00732CC0) calls it too; the
+  YR tree has not recovered it, so it was the link closure's trap. glue/uicmnds_native.inc: NON-EXACT stand-in from
+  gamemd.exe's 729 bytes (yr_dis.py) in the shape of its matched sibling FUN_00732280: the selected objects' type names
+  (FUN_00732D10), the player's units on the screen of those types selected; when all are already selected, or on a
+  second press (NavCycleMode 2), across the map; the "selected across screen/map" message. Link closure (Mac) 126 -> 125.
+  ctest `yr-native-type-select` (yr/tests/yr_type_select.py): with one tank selected the button selects every tank,
+  with nothing selected it selects nothing, and the T key does the same as the button. Input scripts take
+  `@cmd=TypeSelect` (the bar button's middle; glue/yr_app_hooks.cpp registers the point resolver).
+* **No on-screen keyboard in Yuri's Revenge's text fields.** The player-name field is a dialog Edit that OwnerDraw's
+  FUN_0060F320 hides and replaces with a ListBox carrying a NewEditLink ("NewEdit") in GWL_USERDATA; port/src/user32.cpp
+  answered the host only for windows of the classes Edit and NewEdit, and the YR engine had no
+  `ra2_native_new_edit_focused` (Red Alert 2's is native/link/native_text_entry.cpp). glue/yr_app_hooks.cpp now answers
+  it (the focus is a shown list box whose link says NewEdit) and `ra2_native_message_edit_open` (Session.Messages'
+  edit line: chat and beacon text). As in Red Alert 2, the keyboard comes up when the field is tapped.
+* **Checked in the Simulator** ("RA2 Duo Validation", `ios_sim_menus.py`, now 120 s of play by default): in both games
+  a tap on the player name field (control 1696, `@ctl=1696`) gives "host: on-screen keyboard shown" and the tap away
+  "hidden"; in Yuri's Revenge a tap on the TypeSelect button with one tank selected selects all five. The walk's old
+  tap point missed Red Alert 2's field (further right), so it never checked Red Alert 2's keyboard.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

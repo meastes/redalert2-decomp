@@ -12,11 +12,14 @@ fault in either game; on Options and Enhancements the backdrop region is drawn a
 stayed until the main menu: in Yuri's Revenge a "movie" touch-controls state must give way before the
 first "menu"; Red Alert 2 loads before its intro and goes from the movie straight to its menu); in
 Yuri's Revenge the command bar is laid out under the tactical view and drawn on the screen (lane Y14, the
-user's "missing bottom bar"; the harness's `rects` at frame 600). Not a ctest (it needs the Simulator). Only "RA2 Duo Validation" is
+user's "missing bottom bar"; the harness's `rects` at frame 600). Lane N3 (the user's Duo reports of 2026-11-19): in both
+games a tap on the player name field (control 1696) raises the on-screen keyboard and a tap away puts it
+away; in Yuri's Revenge a tap on the command bar's TypeSelect button with one tank selected selects every
+tank (it had crashed: an unrecovered function). Not a ctest (it needs the Simulator). Only "RA2 Duo Validation" is
 used; booted when shut down and shut down again afterwards.
 
   ios_sim_menus.py --app build/ios-one-simulator/RA2YR.app --data-dir <RA2 + YR folder> --work <dir>
-                   [--games yr,ra2] [--play-seconds 40] [--enhancements menufill=backdrop,...]
+                   [--games yr,ra2] [--play-seconds 120] [--enhancements menufill=backdrop,...]
 """
 import argparse
 import os
@@ -50,7 +53,9 @@ def script(play_w):
     lines += tap('s5+2000', mx + 720, 220)        # Single Player
     lines += tap('s6+1500', mx + 720, 304)        # Skirmish
     lines += ['s7+1000 dump']
-    lines += tap('s7+1200', mx + 135, 68)         # the player name field (the on-screen keyboard)
+    # the player name field, control 1696 in both games (the on-screen keyboard; lane N3: by its id, as
+    # Red Alert 2's field is further right than Yuri's Revenge's)
+    lines += ['s7+1200 tdown @ctl=1696', 's7+1280 tup @ctl=1696']
     lines += ['s7+1700 dump']
     lines += tap('s7+2100', mx + 600, 300)        # away from it (the keyboard goes)
     lines += tap('s7+2500', mx + 720, 262)        # Start Game
@@ -89,7 +94,7 @@ def main():
     ap.add_argument('--work', required=True)
     ap.add_argument('--udid', default=one.VALIDATION)
     ap.add_argument('--games', default='yr,ra2')
-    ap.add_argument('--play-seconds', type=int, default=60)
+    ap.add_argument('--play-seconds', type=int, default=120)
     ap.add_argument('--play-w', type=int, default=872)
     ap.add_argument('--shot-seconds', type=float, default=20)
     ap.add_argument('--enhancements', default='menufill=backdrop,vsync=on,scaling=smooth')
@@ -115,9 +120,14 @@ def main():
             os.makedirs(shots, exist_ok=True)
             env = {'RA2_NATIVE_ENHANCEMENTS': a.enhancements, 'RA2_NATIVE_WINDOW_DUMP': os.path.join(shots, 'w'),
                    'RA2_NATIVE_MOVIE_SKIP': '0' if a.movies else '1'}
+            lines = script(a.play_w)
             if game == 'yr':
-                env['RA2_NATIVE_ORDERS'] = '600 rects'
-            text = one.launch(a, game, ['--game=' + game], [script(a.play_w)], a.play_seconds, env)
+                # Lane N3 (the user's Duo report: the command bar's TypeSelect button crashed the game): a
+                # tank selected, the button tapped (@cmd=TypeSelect, glue/yr_app_hooks.cpp), every tank
+                # selected after.
+                env['RA2_NATIVE_ORDERS'] = '600 rects; 640 select MTNK 0; 700 groups MTNK'
+                lines += ['660 tdown @cmd=TypeSelect', '662 tup @cmd=TypeSelect']
+            text = one.launch(a, game, ['--game=' + game], [lines], a.play_seconds, env)
             if 'unrecovered ' in text or 'crash: signal' in text:
                 failures.append('%s: a trap or fault: %s' % (game, [l for l in text.splitlines() if 'unrecovered' in l or 'crash:' in l][:2]))
             dumps = [int(n) for n in re.findall(r'^host: window dump (\d+)', text, re.M)]
@@ -155,6 +165,16 @@ def main():
                         failures.append('yr: the command bar is not under the tactical view')
                     if int(shown.group(1)) < 10:
                         failures.append('yr: the command bar is not drawn (%s%%)' % shown.group(1))
+            # Lane N3 (the user's Duo report: no keyboard in Yuri's Revenge's skirmish name field): the tap
+            # on the player name field raises the on-screen keyboard, the tap away puts it away.
+            keys = re.findall(r'^host: on-screen keyboard (shown|hidden)', text, re.M)
+            if keys[:2] != ['shown', 'hidden']:
+                failures.append('%s: the player name field did not raise the keyboard (%s)' % (game, keys))
+            if game == 'yr':
+                groups = re.search(r'^harness-groups MTNK((?: -?\d+\*?)+)$', text, re.M)
+                print('yr: after the TypeSelect tap: %s' % (groups.group(0) if groups else None))
+                if not groups or not all(g.endswith('*') for g in groups.group(1).split()):
+                    failures.append('yr: the TypeSelect button did not select every tank')
             for l in text.splitlines():
                 if l.startswith('host: touch controls:') or l.startswith('host: on-screen keyboard'):
                     print('%s: %s' % (game, l))
