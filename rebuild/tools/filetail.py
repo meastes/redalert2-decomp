@@ -5,7 +5,13 @@ puts R in U and (2) U's last checked object defines R's exact main symbol. U's r
 the run of rows main files under U (or under no module) that starts at its end, up to the last row U's
 object defines: rows in between lie between U's range and U's kept copy (link-order evidence) and join
 as rows to write. Run
-`rebuild.py check UNIT --learn` afterwards; `--trim` then drops the added rows after the last one that is exact."""
+`rebuild.py check UNIT --learn` afterwards; `--trim` then drops the added rows after the last one that is exact.
+
+--link-order (review ruling 2026-11-18, rule 2: a kept copy fixing link order): every main row after U's
+range and before the next unit's range, up to the last one whose address a function of U's object
+binds to (by its own name or through symbols.csv), joins U whatever main's module map says and across
+gaps of rows main has not matched: a select-any copy is kept in the first object that defines it, U
+precedes the row, so the kept copy lies in U's contribution and so does everything before it."""
 import glob, json, sys
 import rebuild as R
 from coff import Coff
@@ -21,6 +27,7 @@ for p in glob.glob(str(R.ROOT / 'manifests/original_target/modules/*.json')):
                 mainmod.setdefault(int(c['entry'], 16), d['module'])
 units = R.load_json(R.UNITS, {})
 trim = '--trim' in sys.argv
+link_order = '--link-order' in sys.argv
 done = []
 for unit in [a for a in sys.argv[1:] if not a.startswith('--')]:
     info = units[unit]
@@ -42,18 +49,22 @@ for unit in [a for a in sys.argv[1:] if not a.startswith('--')]:
         done.append(unit); continue
     nxt = min([int(i['range'][0], 16) for u, i in units.items() if u != unit and int(i['range'][0], 16) >= hi] or [1 << 32])
     last = json.load(open(R.WORK / 'last' / (unit + '.json')))
-    defined = {s['name'] for s in Coff(open(last['object'], 'rb').read()).symbols.values() if s['section'] > 0}
+    coff = Coff(open(last['object'], 'rb').read())
+    defined = {s['name'] for s in coff.symbols.values() if s['section'] > 0}
+    if link_order:
+        resolve = R.resolver(unit, info)
+        bound = {resolve(f['name'])[0] for f in coff._functions}
     have = {r['entry'] for r in info['rows']}
     run, end, last_emitted = [], hi, 0
     for r in ordered:
         a = r['entry']
         if a < hi or '%08x' % a in have:
             continue
-        if a >= nxt or a != end or mainmod.get(a, unit) != unit:
+        if a >= nxt or (not link_order and (a != end or mainmod.get(a, unit) != unit)):
             break
         run.append(r)
         end = a + r['full_extent_bytes']
-        if r['symbol'] in defined:
+        if r['symbol'] in defined or (link_order and a in bound):
             last_emitted = len(run)
     added = []
     for r in run[:last_emitted]:

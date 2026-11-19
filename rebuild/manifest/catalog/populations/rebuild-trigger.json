@@ -75,6 +75,7 @@
     "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "??3@YAXPAX@Z": 7871803,
     "_$E2": 7262256,
     "_$E5": 7262304,
     "_$E8": 7262336,
@@ -121,7 +122,6 @@
     "??_R0?AVTriggerClass@@@8": 8350928,
     "?Fetch_Object_Size@TriggerClass@@UBEHXZ": 7265152,
     "?Fetch_RTTI@TriggerClass@@UBE?AW4RTTIType@@XZ": 7265168,
-    "??3@YAXPAX@Z": 7871803,
     "??1TriggerClass@@UAE@XZ": 7263168,
     "?Is_Enters_Zone@TriggerClass@@QBE_NXZ": 7263568,
     "?Is_Allow_Win@TriggerClass@@QBE_NXZ": 7263632,
@@ -2597,6 +2597,288 @@
       "source": "rebuild/src/trigger.cpp",
       "population": "rebuild-trigger",
       "source_order": 7265136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7265152,
+      "method": "006edb80",
+      "body_bytes": 6,
+      "body_sha256": "fcc0d9a002fccc6037aaa3da88da5cf370b4cdb7667e83c28e02a5d074147f79",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "d8ffbcf3ef71bb9b657078edefa4d81a54f17465d873a9d1c14f19f023b7319f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@TriggerClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@TriggerClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f738e73f8b17ea3d6cbc43c78df20a00eb33b0f6012cc200b8cf92dcc02a6ff4",
+      "source": "rebuild/src/trigger.cpp",
+      "population": "rebuild-trigger",
+      "source_order": 7265152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7265168,
+      "method": "006edb90",
+      "body_bytes": 6,
+      "body_sha256": "7807568200bda917f7afab3d2903d396ee8767d7bb6367e66d2ab732cfcad6fc",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "a9190afb78848d386bd36bbcbab59db24c7f594f3150ea97631d354b013e760c",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@TriggerClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@TriggerClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f738e73f8b17ea3d6cbc43c78df20a00eb33b0f6012cc200b8cf92dcc02a6ff4",
+      "source": "rebuild/src/trigger.cpp",
+      "population": "rebuild-trigger",
+      "source_order": 7265168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7265184,
+      "method": "006edba0",
+      "body_bytes": 287,
+      "body_sha256": "b7da8f202cd4fe5ce4566bc41373b819e1ccb9a8117d5289c5c0d25769bb9f18",
+      "padding_bytes": 1,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "b4c4b7e53af77d1c8ff7b8e2226f9550884c40c6ad32e9395e1316c85ce09ccb",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTriggerClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTriggerClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7TriggerClass@@6BIPersistStream@@@",
+          "target": 8051168,
+          "addend": 0,
+          "resolved": 8051168
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7TriggerClass@@6BIRTTITypeInfo@@@",
+          "target": 8051140,
+          "addend": 0,
+          "resolved": 8051140
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7TriggerClass@@6BINoticeSink@@@",
+          "target": 8051132,
+          "addend": 0,
+          "resolved": 8051132
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7TriggerClass@@6BINoticeSource@@@",
+          "target": 8051124,
+          "addend": 0,
+          "resolved": 8051124
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 4294963146
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 0,
+          "resolved": 10750624
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 0,
+          "resolved": 10750624
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 4,
+          "resolved": 10750628
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 0,
+          "resolved": 11275440
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 4,
+          "resolved": 11275444
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?AbstractTypePtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275440,
+          "addend": 16,
+          "resolved": 11275456
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "?TriggerPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275592,
+          "addend": 0,
+          "resolved": 11275592
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "?TriggerPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275592,
+          "addend": 0,
+          "resolved": 11275592
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "?TriggerPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275592,
+          "addend": 16,
+          "resolved": 11275608
+        },
+        {
+          "offset": 227,
+          "kind": 6,
+          "symbol": "?TriggerPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275592,
+          "addend": 16,
+          "resolved": 11275608
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?TriggerPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275592,
+          "addend": 4,
+          "resolved": 11275596
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "?TriggerPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275592,
+          "addend": 16,
+          "resolved": 11275608
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4291961576
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 606342
+        }
+      ],
+      "source_sha256": "f738e73f8b17ea3d6cbc43c78df20a00eb33b0f6012cc200b8cf92dcc02a6ff4",
+      "source": "rebuild/src/trigger.cpp",
+      "population": "rebuild-trigger",
+      "source_order": 7265184,
       "source_quality_family": "rebuild"
     }
   ]

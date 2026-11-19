@@ -2086,6 +2086,59 @@
       "population": "rebuild-wdtgameoptions",
       "source_order": 7506928,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7506992,
+      "method": "00728c30",
+      "body_bytes": 36,
+      "body_sha256": "425d3d43255d41ea1d47d28db0a6532911e4d150f1acb0f6e129ec9ff6eb5022",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6b761e35a3bd0bfeab3bb9c24816ba9fc507700a82c9b2e85002a4701d68f22c",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMapSizeGameOption@WorldDominationTour@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMapSizeGameOption@WorldDominationTour@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7GameOption@WorldDominationTour@@6B@",
+          "target": 8057112,
+          "addend": 0,
+          "resolved": 8057112
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1ReferenceCounted@@UAE@XZ",
+          "target": 6526736,
+          "addend": 0,
+          "resolved": 4293987026
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 364784
+        }
+      ],
+      "source_sha256": "c3e5ffb46505583d19020b91c17c6490ea601e45580a96d5965e053fae34d6ff",
+      "source": "rebuild/src/wdtgameoptions.cpp",
+      "population": "rebuild-wdtgameoptions",
+      "source_order": 7506992,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
     }
   ]
 }

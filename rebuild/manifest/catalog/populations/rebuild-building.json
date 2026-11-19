@@ -476,6 +476,8 @@
     "_CLSID_BuildingClass": 8002576,
     "??1BuildingClass@@UAE@XZ": 4428352,
     "??_7?$VectorClass@PAVFoggedObjectClass@@@@6B@": 7983516,
+    "__GUID_0000010c_0000_0000_c000_000000000046": 8188424,
+    "__GUID_92fea800_a184_11d1_b70a_00a024ddafd1": 8191024,
     "??_C@_0L@FKND@Structures?$AA@": 8189592,
     "_$E2": 4424960,
     "_$E5": 4425008,
@@ -893,8 +895,6 @@
     "??_EWstring@@QAEPAXI@Z": 4239168,
     "??1Wstring@@QAE@XZ": 7789024,
     "_qsort": 7871814,
-    "__GUID_0000010c_0000_0000_c000_000000000046": 8188424,
-    "__GUID_92fea800_a184_11d1_b70a_00a024ddafd1": 8191024,
     "?search_compfunc@?$IndexClass@HPAVAbstractClass@@@@CAHPBX0@Z": 4307472,
     "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
     "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
@@ -25364,6 +25364,132 @@
       "source_order": 4540896,
       "source_quality_family": "rebuild",
       "bound_population": "population-15"
+    },
+    {
+      "entry": 4541216,
+      "method": "00454b20",
+      "body_bytes": 49,
+      "body_sha256": "e5dcf659a32b8282fe49c79a5bb461bedcd94ef7e4528d5ebcb9ba3d225d3005",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f22477776f7356c2bfdd03ed5a5aebc8dc8d6e74d002e296ff415d39fcc13d2f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Delete_Index@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NH@Z",
+      "symbol_prefix": "?Delete_Index@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f8cde7acdcaaa81244e0798d7b80b6a20288b82a9781f116789af9a6fa667222",
+      "source": "rebuild/src/building.cpp",
+      "population": "rebuild-building",
+      "source_order": 4541216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4541280,
+      "method": "00454b60",
+      "body_bytes": 49,
+      "body_sha256": "e5dcf659a32b8282fe49c79a5bb461bedcd94ef7e4528d5ebcb9ba3d225d3005",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f22477776f7356c2bfdd03ed5a5aebc8dc8d6e74d002e296ff415d39fcc13d2f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Delete_Index@?$DynamicVectorClass@PAVBuildingClass@@@@QAE_NH@Z",
+      "symbol_prefix": "?Delete_Index@?$DynamicVectorClass@PAVBuildingClass@@@@QAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f8cde7acdcaaa81244e0798d7b80b6a20288b82a9781f116789af9a6fa667222",
+      "source": "rebuild/src/building.cpp",
+      "population": "rebuild-building",
+      "source_order": 4541280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4541424,
+      "method": "00454bf0",
+      "body_bytes": 117,
+      "body_sha256": "c5f03af8fe2e7a78aac66b24793bd070be2e6430332f8fae1cb1f5e9d06ced76",
+      "padding_bytes": 11,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "2f77272c4f582354f68bab0de58dcfa3292410733cc29489c9d5efb5881c0f5c",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+      "symbol_prefix": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "__GUID_0000010c_0000_0000_c000_000000000046",
+          "target": 8188424,
+          "addend": 0,
+          "resolved": 8188424
+        }
+      ],
+      "source_sha256": "f8cde7acdcaaa81244e0798d7b80b6a20288b82a9781f116789af9a6fa667222",
+      "source": "rebuild/src/building.cpp",
+      "population": "rebuild-building",
+      "source_order": 4541424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4541552,
+      "method": "00454c70",
+      "body_bytes": 117,
+      "body_sha256": "e4e051bf0117e6889b15cf0b9786f467981adbc5ae557884b270a29addb2322c",
+      "padding_bytes": 11,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "6360a12548c8e80e2cf1052459d680f93205dc3d06aa5604767d60cb6747e1d0",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+      "symbol_prefix": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "__GUID_92fea800_a184_11d1_b70a_00a024ddafd1",
+          "target": 8191024,
+          "addend": 0,
+          "resolved": 8191024
+        }
+      ],
+      "source_sha256": "f8cde7acdcaaa81244e0798d7b80b6a20288b82a9781f116789af9a6fa667222",
+      "source": "rebuild/src/building.cpp",
+      "population": "rebuild-building",
+      "source_order": 4541552,
+      "source_quality_family": "rebuild"
     }
   ]
 }

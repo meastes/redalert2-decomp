@@ -21,6 +21,42 @@
   },
   "regions": [
     {
+      "entry": 6526176,
+      "method": "006394e0",
+      "body_bytes": 16,
+      "body_sha256": "f01686eff11baf5aa3e51758f7f3155e4f631a3d2aa43ffd41d533ab4b4df476",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f01686eff11baf5aa3e51758f7f3155e4f631a3d2aa43ffd41d533ab4b4df476",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0rc_ptr_base@@QAE@XZ",
+      "symbol_prefix": "??0rc_ptr_base@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7rc_ptr_base@@6B@",
+          "target": 8031500,
+          "addend": 0,
+          "resolved": 8031500
+        }
+      ],
+      "source_sha256": "b38a936079414608943fa97f2d2ac53ef34a742cf5482607ff49b338ad35c4fa",
+      "source": "rebuild/src/rc_ptr_base.cpp",
+      "population": "rebuild-rc-ptr-base",
+      "source_order": 6526176,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 6526192,
       "method": "006394f0",
       "body_bytes": 25,

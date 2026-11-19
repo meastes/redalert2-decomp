@@ -44,6 +44,33 @@
   },
   "regions": [
     {
+      "entry": 6431072,
+      "method": "00622160",
+      "body_bytes": 32,
+      "body_sha256": "57f9adde7e32b480059e3fde6242f3705bd9070fa8c41d7ba5f9e6c9838e011d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "57f9adde7e32b480059e3fde6242f3705bd9070fa8c41d7ba5f9e6c9838e011d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Quaternion@@QAE@MMMM@Z",
+      "symbol_prefix": "??0Quaternion@@QAE@MMMM@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "603f2e3e81ff441ab1979f8e770092c20668d93a6125d345953b04cd21a7915d",
+      "source": "rebuild/src/quat.cpp",
+      "population": "rebuild-quat",
+      "source_order": 6431072,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 6431104,
       "method": "00622180",
       "body_bytes": 30,

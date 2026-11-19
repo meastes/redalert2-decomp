@@ -152,6 +152,33 @@
   },
   "regions": [
     {
+      "entry": 7788816,
+      "method": "0076d910",
+      "body_bytes": 9,
+      "body_sha256": "cda72abcdbb1efdc80edc8549a889c40e93418986336d31914aa9a2d9e967cc7",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "43fc65369139d8eb646fbcbdf66d36653445f13c21ee9d5e0c5abcfbfa004602",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Wstring@@QAE@XZ",
+      "symbol_prefix": "??0Wstring@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "14b5bbe54f9efec6e7f73bc0f5c227df7b5508281833186a74d10bbcbf0b84c0",
+      "source": "rebuild/src/wstring.cpp",
+      "population": "rebuild-wstring",
+      "source_order": 7788816,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 7788832,
       "method": "0076d920",
       "body_bytes": 94,

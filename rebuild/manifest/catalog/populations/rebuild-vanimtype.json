@@ -3088,6 +3088,90 @@
       "population": "rebuild-vanimtype",
       "source_order": 7401040,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7401280,
+      "method": "0070ef40",
+      "body_bytes": 128,
+      "body_sha256": "546dede8a0709cd81e32722c6bff7a26e0b3aef34ebcdf74a8b8f0dd25a8c044",
+      "padding_bytes": 0,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "546dede8a0709cd81e32722c6bff7a26e0b3aef34ebcdf74a8b8f0dd25a8c044",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TFind_Or_Make@@YIPAVVoxelAnimTypeClass@@PBDABV?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@@Z",
+      "symbol_prefix": "?TFind_Or_Make@@YIPAVVoxelAnimTypeClass@@PBDABV?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+          "target": 8183500,
+          "addend": 0,
+          "resolved": 8183500
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 470990
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "??_C@_04KIKH@none?$AA@",
+          "target": 8184044,
+          "addend": 0,
+          "resolved": 8184044
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 470972
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 470940
+        },
+        {
+          "offset": 89,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 471162
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "??0VoxelAnimTypeClass@@QAE@PBD@Z",
+          "target": 7397792,
+          "addend": 0,
+          "resolved": 4294963700
+        }
+      ],
+      "source_sha256": "4bbdcc2e5342e0333693d0cb220e57f94b89853fd7ba9a42f64d2a6af7b1b03e",
+      "source": "rebuild/src/vanimtype.cpp",
+      "population": "rebuild-vanimtype",
+      "source_order": 7401280,
+      "source_quality_family": "rebuild"
     }
   ]
 }

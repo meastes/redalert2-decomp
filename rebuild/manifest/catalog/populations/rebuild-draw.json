@@ -20,6 +20,7 @@
     "?Blitter_From_Flags@ConvertClass@@QBEPBVBlitter@@W4ShapeFlags_Type@@@Z": 4741792,
     "?Bit_Blit@@YI_NAAVSurface@@ABV?$TRect@H@@1ABV1@11ABVBlitter@@HW4ZGradientType@@HH@Z": 4410176,
     "??1Buffer@@QAE@XZ": 4424720,
+    "??_7XSurface@@6B@": 7974796,
     "_$E2": 4845184,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z": 4845216,
@@ -57,7 +58,6 @@
     "?Get_Height@Surface@@UBEHXZ": 4264656,
     "__purecall": 4950368,
     "??_GXSurface@@UAEPAXI@Z": 4264736,
-    "??_7XSurface@@6B@": 7974796,
     "?Lock@XSurface@@UBEPAXVPoint2D@@@Z": 4264672,
     "?Unlock@XSurface@@UBE_NXZ": 4264688,
     "?Is_Locked@XSurface@@UBE_NXZ": 4264704,
@@ -419,6 +419,43 @@
       "population": "rebuild-draw",
       "source_order": 4846496,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4846640,
+      "method": "0049f430",
+      "body_bytes": 32,
+      "body_sha256": "f144de9c3161cf9d4e0216fddacd720ee0797df2a8b0d170b67fdc1960dad644",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f144de9c3161cf9d4e0216fddacd720ee0797df2a8b0d170b67fdc1960dad644",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0XSurface@@QAE@HH@Z",
+      "symbol_prefix": "??0XSurface@@QAE@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        }
+      ],
+      "source_sha256": "ae0403f7cf8f1c0d755f1a3cdbe4d9c15cc7fe3bd9cc0e0067766a13524625f8",
+      "source": "rebuild/src/draw.cpp",
+      "population": "rebuild-draw",
+      "source_order": 4846640,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3950"
     }
   ]
 }

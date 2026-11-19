@@ -3004,6 +3004,34 @@
       "population": "rebuild-blight",
       "source_order": 4409424,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4409584,
+      "method": "004348f0",
+      "body_bytes": 47,
+      "body_sha256": "4786f5db2d76ca6d025cf566d667391396316abd194da73e773ee7154456e582",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6cd73b5cc6f04f69d64354252be5b13b07c535d14e2b8a87e2b9ade9ef2b33ab",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z",
+      "symbol_prefix": "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "c8760f67f62d7a8fc9e2ec57f47bd45d532b9fddc150787136476484c1b6699e",
+      "source": "rebuild/src/blight.cpp",
+      "population": "rebuild-blight",
+      "source_order": 4409584,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3178"
     }
   ]
 }

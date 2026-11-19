@@ -241,6 +241,7 @@
     "?Queue_Growth@TiberiumClass@@QAEXABVCell@@@Z": 7252096,
     "?Queue_Spread@TiberiumClass@@QAEXABVCell@@@Z": 7249360,
     "??1CellClass@@UAE@XZ": 4656768,
+    "??_7?$VectorClass@PAVFoggedObjectClass@@@@6B@": 7983516,
     "_$E2": 4654224,
     "_$E5": 4654272,
     "_$E8": 4654304,
@@ -431,7 +432,6 @@
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
     "??_G?$VectorClass@PAVFoggedObjectClass@@@@UAEPAXI@Z": 4540896,
-    "??_7?$VectorClass@PAVFoggedObjectClass@@@@6B@": 7983516,
     "?Resize@?$VectorClass@PAVFoggedObjectClass@@@@UAE_NHPBQAVFoggedObjectClass@@@Z": 4540576,
     "?Clear@?$VectorClass@PAVFoggedObjectClass@@@@UAEXXZ": 4540752,
     "?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHABQAVFoggedObjectClass@@@Z": 4540800,
@@ -14391,6 +14391,104 @@
       "population": "rebuild-cell",
       "source_order": 4706368,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4706448,
+      "method": "47d090",
+      "body_bytes": 73,
+      "body_sha256": "2ee46d256a8430713d4cb94ba5e9171b27310aa155d339967e4ea86a33383824",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "cb8b630c7d01294860efe9f9891f16abcde0f26914e1778f9baee94814485b10",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVObjectClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVObjectClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVObjectClass@@@@6B@",
+          "target": 7973148,
+          "addend": 0,
+          "resolved": 7973148
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3165326
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3165291
+        }
+      ],
+      "source_sha256": "7897806a483dc193719d863d9c0bb6d0ea73ec11cc022cfcea12376f54bb7a20",
+      "source": "rebuild/src/cell.cpp",
+      "population": "rebuild-cell",
+      "source_order": 4706448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4706528,
+      "method": "47d0e0",
+      "body_bytes": 74,
+      "body_sha256": "3ccaca164389ef324b1caded8025ae915a10415a780757b472bf070b60bf7f12",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "8fcc85432c18dbf5581a01499f592c3c6d5e0e22089d302abd72fb6e39f225a7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAVFoggedObjectClass@@@@QAE@HPBQAVFoggedObjectClass@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAVFoggedObjectClass@@@@QAE@HPBQAVFoggedObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVFoggedObjectClass@@@@6B@",
+          "target": 7983516,
+          "addend": 0,
+          "resolved": 7983516
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3165949
+        }
+      ],
+      "source_sha256": "7897806a483dc193719d863d9c0bb6d0ea73ec11cc022cfcea12376f54bb7a20",
+      "source": "rebuild/src/cell.cpp",
+      "population": "rebuild-cell",
+      "source_order": 4706528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-16"
     }
   ]
 }

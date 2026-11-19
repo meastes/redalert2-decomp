@@ -4535,6 +4535,59 @@
       "source_order": 7547984,
       "source_quality_family": "rebuild",
       "bound_population": "population-4442"
+    },
+    {
+      "entry": 7548032,
+      "method": "00732c80",
+      "body_bytes": 36,
+      "body_sha256": "0823d0e0f18914b5c42fc0360777dc99021b5b12c33446235b031911a212c33d",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8777bc9c260723ccb68c99f120dc9d72b71fb4887d61d12aee59d8d4ce1b6e58",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GAnim@Voices@WorldDominationTour@@UAEPAXI@Z",
+      "symbol_prefix": "??_GAnim@Voices@WorldDominationTour@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7Anim@Voices@WorldDominationTour@@6B@",
+          "target": 8057868,
+          "addend": 0,
+          "resolved": 8057868
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1MSAnim@@UAE@XZ",
+          "target": 5949072,
+          "addend": 0,
+          "resolved": 4293368322
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 323744
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7548032,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
     }
   ]
 }

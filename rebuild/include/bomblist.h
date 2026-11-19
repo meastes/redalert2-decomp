@@ -19,6 +19,9 @@ struct IStream;
 class BombListClass
 {
 	public:
+		BombListClass(void) : UpdateDelay(100) {} // RA2: as ra2-decomp's bomblist.h (the initializer at 0x0040B450)
+		~BombListClass(void) {Clear();}
+
 		void Update(void); // RA2: 0x004361F0; once a frame: removes finished bombs, keeps the ticking sounds going and (every 45th frame) decides which bombs the player sees
 		void Reserved(void); // RA2: 0x00436460; does nothing, nothing calls it
 		void Plant(TechnoClass * source, ObjectClass * target); // RA2: 0x00436470; an infantry unit plants a timed bomb on the target

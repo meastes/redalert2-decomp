@@ -3588,6 +3588,33 @@
       "population": "rebuild-progress",
       "source_order": 6423536,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6423568,
+      "method": "00620410",
+      "body_bytes": 27,
+      "body_sha256": "4374a5b02384e7126ef3d53af2d7518faf4d5923ead1be81e46bcca0d3bddb05",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d873063478f895a7b7ffeadda5f65bae763cb7e4eeaf9635d36530d70f627e0f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Record_Pointer@ShapeSet@@IBEPBVShapeRecord@1@H@Z",
+      "symbol_prefix": "?Fetch_Record_Pointer@ShapeSet@@IBEPBVShapeRecord@1@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "9207a3f365ed1c9dae230b449f2fea3461034b1700c2f7f500dfd51fc1c23528",
+      "source": "rebuild/src/progress.cpp",
+      "population": "rebuild-progress",
+      "source_order": 6423568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
     }
   ]
 }

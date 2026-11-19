@@ -84,6 +84,8 @@
     "__imp__DispatchMessageA@4": 7972020,
     "_AudioFileHeaderRead": 10822368,
     "_AudioFileNextHeader": 10822096,
+    "__imp__GetKeyState@4": 7971756,
+    "__imp__GetAsyncKeyState@4": 7971764,
     "_$E2": 5383488,
     "?Audio_File_Init@@YIHHH@Z": 5383520,
     "?Add_Audio_File_Window@@YIXPAUHWND__@@@Z": 5384992,
@@ -99,9 +101,7 @@
     "?Audio_File_Get_Cursor@@YIXPAI0@Z": 5387104,
     "?Set_Key_State@@YIXI_N@Z": 5387168,
     "?Get_Key_State@@YIFI@Z": 5387216,
-    "__imp__GetKeyState@4": 7971756,
-    "?Get_Async_Key_State@@YIFI@Z": 5387248,
-    "__imp__GetAsyncKeyState@4": 7971764
+    "?Get_Async_Key_State@@YIFI@Z": 5387248
   },
   "regions": [
     {
@@ -3543,6 +3543,112 @@
       "source": "rebuild/src/audfile.cpp",
       "population": "rebuild-audfile",
       "source_order": 5387168,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3700"
+    },
+    {
+      "entry": 5387216,
+      "method": "005233d0",
+      "body_bytes": 32,
+      "body_sha256": "6d2da45b81fc30e6cbbfd48ef83b356d0a3ae8e3012c5392a0acb6ca5f9a1801",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6d2da45b81fc30e6cbbfd48ef83b356d0a3ae8e3012c5392a0acb6ca5f9a1801",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Key_State@@YIFI@Z",
+      "symbol_prefix": "?Get_Key_State@@YIFI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "__imp__GetKeyState@4",
+          "target": 7971756,
+          "addend": 0,
+          "resolved": 7971756
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_KeyStates",
+          "target": 10821584,
+          "addend": 0,
+          "resolved": 10821584
+        }
+      ],
+      "source_sha256": "1bbbe3f5344b233b3969ff48d06edc3a1d51d69fa2ff0277c2e987f079c42c53",
+      "source": "rebuild/src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5387216,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3700"
+    },
+    {
+      "entry": 5387248,
+      "method": "005233f0",
+      "body_bytes": 32,
+      "body_sha256": "c72985df28e9ea2e66e4f59192c0dda7be7c97c6a25e1117e8bfb2ff99108c13",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c72985df28e9ea2e66e4f59192c0dda7be7c97c6a25e1117e8bfb2ff99108c13",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Async_Key_State@@YIFI@Z",
+      "symbol_prefix": "?Get_Async_Key_State@@YIFI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioFileMode",
+          "target": 10822316,
+          "addend": 0,
+          "resolved": 10822316
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "__imp__GetAsyncKeyState@4",
+          "target": 7971764,
+          "addend": 0,
+          "resolved": 7971764
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_KeyStates",
+          "target": 10821584,
+          "addend": 0,
+          "resolved": 10821584
+        }
+      ],
+      "source_sha256": "1bbbe3f5344b233b3969ff48d06edc3a1d51d69fa2ff0277c2e987f079c42c53",
+      "source": "rebuild/src/audfile.cpp",
+      "population": "rebuild-audfile",
+      "source_order": 5387248,
       "source_quality_family": "rebuild",
       "bound_population": "population-3700"
     }

@@ -2555,6 +2555,51 @@
       "population": "rebuild-wdtnet",
       "source_order": 7524128,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7524208,
+      "method": "72cf70",
+      "body_bytes": 18,
+      "body_sha256": "7800a69b0c989934ae029418e7beeb46eb204fe51ef3f1a808427c4c158c9dd2",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8c3cc7d747fd8b58674b271a4f543494da097b02a48e637589fadfc8f5d501f5",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$rc_ptr@VWDTTerritory@@@@QAE@XZ",
+      "symbol_prefix": "??0?$rc_ptr@VWDTTerritory@@@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293969256
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+          "target": 8013100,
+          "addend": 0,
+          "resolved": 8013100
+        }
+      ],
+      "source_sha256": "983f7fffd4e27f55295a58432f263df662448c7a28b5756cece7005b730b07e9",
+      "source": "rebuild/src/wdtnet.cpp",
+      "population": "rebuild-wdtnet",
+      "source_order": 7524208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-02"
     }
   ]
 }

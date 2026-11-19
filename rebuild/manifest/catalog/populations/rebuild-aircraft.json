@@ -272,6 +272,9 @@
     "_CLSID_AircraftClass": 8002512,
     "??1AircraftClass@@UAE@XZ": 4275616,
     "??1WaypointClass@@QAE@XZ": 7490304,
+    "?QueryInterface@AircraftClass@@UAGJABU_GUID@@PAPAX@Z": 4276128,
+    "?AddRef@AircraftClass@@UAGKXZ": 4276224,
+    "?Release@AircraftClass@@UAGKXZ": 4276240,
     "??_C@_08KGJO@Aircraft?$AA@": 8183480,
     "_$E2": 4274176,
     "_$E5": 4274224,
@@ -556,9 +559,6 @@
     "?Overrun_Square@FootClass@@UAEXABVCell@@_N@Z": 4306224,
     "?Fixup_Path@FootClass@@UAEXPAUPathStruct@@@Z": 4306240,
     "?Draw_Object@FootClass@@UBEXPBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4Dir256@@HHW4ZGradientType@@_NH0HV3@W4ShapeFlags_Type@@@Z": 4306064,
-    "?QueryInterface@AircraftClass@@UAGJABU_GUID@@PAPAX@Z": 4276128,
-    "?AddRef@AircraftClass@@UAGKXZ": 4276224,
-    "?Release@AircraftClass@@UAGKXZ": 4276240,
     "?Unlimbo@AircraftClass@@UAE_NABVCoord@@W4Dir256@@@Z": 4276256,
     "?Draw_It@AircraftClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 4276672,
     "?Draw_Rotors@AircraftClass@@QBEXABVPoint2D@@ABV?$TRect@H@@@Z": 4277936,
@@ -12862,6 +12862,222 @@
       "source": "rebuild/src/aircraft.cpp",
       "population": "rebuild-aircraft",
       "source_order": 4307472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4307520,
+      "method": "0041ba40",
+      "body_bytes": 10,
+      "body_sha256": "ab9c7ad256b6cfec5b0fd0a822720110656e5c545a9ca90783346793816a9e19",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "ab9c7ad256b6cfec5b0fd0a822720110656e5c545a9ca90783346793816a9e19",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@AircraftClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@AircraftClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@AircraftClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 4276128,
+          "addend": 0,
+          "resolved": 4294935894
+        }
+      ],
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
+      "source": "rebuild/src/aircraft.cpp",
+      "population": "rebuild-aircraft",
+      "source_order": 4307520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4307536,
+      "method": "0041ba50",
+      "body_bytes": 10,
+      "body_sha256": "393318044ca1353883db8e535b47ce2914b7d5429bacca680e49fc209c494e48",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "393318044ca1353883db8e535b47ce2914b7d5429bacca680e49fc209c494e48",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@AircraftClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@AircraftClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@AircraftClass@@UAGKXZ",
+          "target": 4276224,
+          "addend": 0,
+          "resolved": 4294935974
+        }
+      ],
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
+      "source": "rebuild/src/aircraft.cpp",
+      "population": "rebuild-aircraft",
+      "source_order": 4307536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4307552,
+      "method": "0041ba60",
+      "body_bytes": 10,
+      "body_sha256": "393318044ca1353883db8e535b47ce2914b7d5429bacca680e49fc209c494e48",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "393318044ca1353883db8e535b47ce2914b7d5429bacca680e49fc209c494e48",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@AircraftClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@AircraftClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@AircraftClass@@UAGKXZ",
+          "target": 4276240,
+          "addend": 0,
+          "resolved": 4294935974
+        }
+      ],
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
+      "source": "rebuild/src/aircraft.cpp",
+      "population": "rebuild-aircraft",
+      "source_order": 4307552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4307568,
+      "method": "0041ba70",
+      "body_bytes": 13,
+      "body_sha256": "0192c2b65e06cea854c8d4608f444e7def088b986a7099f8f0724f028457ccb1",
+      "padding_bytes": 0,
+      "full_extent_bytes": 13,
+      "full_extent_sha256": "0192c2b65e06cea854c8d4608f444e7def088b986a7099f8f0724f028457ccb1",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@AircraftClass@@WFKI@AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@AircraftClass@@WFKI@AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?QueryInterface@AircraftClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 4276128,
+          "addend": 0,
+          "resolved": 4294935843
+        }
+      ],
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
+      "source": "rebuild/src/aircraft.cpp",
+      "population": "rebuild-aircraft",
+      "source_order": 4307568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4307584,
+      "method": "0041ba80",
+      "body_bytes": 13,
+      "body_sha256": "22c2406ff5fe5b11fd95e2c12e0784d052615893836565d68388a26486fd1712",
+      "padding_bytes": 0,
+      "full_extent_bytes": 13,
+      "full_extent_sha256": "22c2406ff5fe5b11fd95e2c12e0784d052615893836565d68388a26486fd1712",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@AircraftClass@@WFKI@AGKXZ",
+      "symbol_prefix": "?AddRef@AircraftClass@@WFKI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?AddRef@AircraftClass@@UAGKXZ",
+          "target": 4276224,
+          "addend": 0,
+          "resolved": 4294935923
+        }
+      ],
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
+      "source": "rebuild/src/aircraft.cpp",
+      "population": "rebuild-aircraft",
+      "source_order": 4307584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4307600,
+      "method": "0041ba90",
+      "body_bytes": 13,
+      "body_sha256": "22c2406ff5fe5b11fd95e2c12e0784d052615893836565d68388a26486fd1712",
+      "padding_bytes": 0,
+      "full_extent_bytes": 13,
+      "full_extent_sha256": "22c2406ff5fe5b11fd95e2c12e0784d052615893836565d68388a26486fd1712",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@AircraftClass@@WFKI@AGKXZ",
+      "symbol_prefix": "?Release@AircraftClass@@WFKI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Release@AircraftClass@@UAGKXZ",
+          "target": 4276240,
+          "addend": 0,
+          "resolved": 4294935923
+        }
+      ],
+      "source_sha256": "5c3023d9fdf3259bdad396279764c1eac107d042bfc6c174f4961b84158b7b75",
+      "source": "rebuild/src/aircraft.cpp",
+      "population": "rebuild-aircraft",
+      "source_order": 4307600,
       "source_quality_family": "rebuild"
     }
   ]

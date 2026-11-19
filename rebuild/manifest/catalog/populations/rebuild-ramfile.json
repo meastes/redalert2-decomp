@@ -634,6 +634,50 @@
       "population": "rebuild-ramfile",
       "source_order": 6522464,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6522576,
+      "method": "006386d0",
+      "body_bytes": 32,
+      "body_sha256": "00ae89234c924b9a24d22ce00ded6e5efa92585ab182c67fc758db2677804e6f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "00ae89234c924b9a24d22ce00ded6e5efa92585ab182c67fc758db2677804e6f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GFileClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GFileClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7FileClass@@6B@",
+          "target": 8031356,
+          "addend": 0,
+          "resolved": 8031356
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1349204
+        }
+      ],
+      "source_sha256": "5a31106ec799c5066b2dffcc2c83b2045e24a7be310ac4d99bf5617cdfe4830c",
+      "source": "rebuild/src/ramfile.cpp",
+      "population": "rebuild-ramfile",
+      "source_order": 6522576,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-60"
     }
   ]
 }

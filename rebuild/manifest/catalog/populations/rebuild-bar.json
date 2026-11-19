@@ -365,6 +365,34 @@
       "population": "rebuild-bar",
       "source_order": 4373120,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4373712,
+      "method": "0042bcd0",
+      "body_bytes": 32,
+      "body_sha256": "57f9adde7e32b480059e3fde6242f3705bd9070fa8c41d7ba5f9e6c9838e011d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "57f9adde7e32b480059e3fde6242f3705bd9070fa8c41d7ba5f9e6c9838e011d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+      "symbol_prefix": "??0?$TRect@H@@QAE@HHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "97384179d5e53236c11bd446cfbcbb0cb4b3ce7ff4c375cf46d6de8c9fc0443f",
+      "source": "rebuild/src/bar.cpp",
+      "population": "rebuild-bar",
+      "source_order": 4373712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3693"
     }
   ]
 }
